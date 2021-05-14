@@ -43,8 +43,6 @@
           items:
             - name: ¿Qué es Habla personalizada?
               href: custom-speech-overview.md
-            - name: Prueba de un modelo mediante archivos de audio en Speech Studio
-              href: quickstarts/speech-studio-test-model.md
             - name: Preparación de los datos para Habla personalizada
               href: how-to-custom-speech-test-and-train.md
             - name: Inspección de los datos de Habla personalizada
@@ -489,8 +487,9 @@
           href: ../containers/azure-container-instance-recipe.md
         - name: Preguntas frecuentes sobre Containers
           href: speech-container-faq.md
-        - name: Documentación de contenedores de Cognitive Services
+        - name: Toda la documentación de contenedores de Cognitive Services
           href: ../containers/index.yml
+          maintainContext: true
     - name: Migración
       items:
         - name: Desde Bing Speech
@@ -585,9 +584,7 @@
     - name: Speech Studio
       items:
         - name: Introducción a Speech Studio
-          href: 'https://speech.microsoft.com'
-        - name: Creación de una aplicación de Comandos personalizada con Speech Studio
-          href: ./quickstart-custom-commands-application.md
+          href: speech-studio-overview.md
     - name: Adecuado para empresas
       items:
         - name: Regiones admitidas

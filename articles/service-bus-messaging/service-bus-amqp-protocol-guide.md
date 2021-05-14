@@ -2,13 +2,13 @@
 title: Guía del protocolo AMQP 1.0 en Azure Service Bus y Event Hubs | Microsoft Docs
 description: Guía del protocolo para expresiones y la descripción de AMQP 1.0 en Azure Service Bus y Event Hubs
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 2154221ebfe69b659ff83100ed614133e178ccdb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/14/2021
+ms.openlocfilehash: 8d346aeef74e1f67d3d525c061d40314ee5342aa
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98624496"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531018"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guía del protocolo AMQP 1.0 Azure Service Bus y Event Hubs
 
@@ -368,11 +368,10 @@ La propiedad *name* identifica la entidad a la que se va a asociar el token. En 
 
 | Tipo de token | Descripción del token | Tipo de cuerpo | Notas |
 | --- | --- | --- | --- |
-| amqp:jwt |JSON Web Token (JWT) |Valor de AMQP (cadena) |No disponible todavía. |
-| amqp:swt |Simple Web Token (SWT) |Valor de AMQP (cadena) |Solo se admite para los tokens SWT emitidos por AAD y ACS |
+| jwt |JSON Web Token (JWT) |Valor de AMQP (cadena) | |
 | servicebus.windows.net:sastoken |Token SAS de Service Bus |Valor de AMQP (cadena) |- |
 
-Los tokens confieren derechos. Service Bus conoce tres derechos fundamentales: "Enviar" permite enviar, "Escuchar" permite recibir y "Administrar" permite manipular las entidades. Los tokens SWT emitidos por AAD/ACS incluyen explícitamente dichos derechos como notificaciones. Los tokens de SAS de Service Bus hacen referencia a las reglas configuradas en el espacio de nombres o la entidad, y dichas reglas se configuran con derechos. Firmar el token con la clave asociada a esa regla hace que el token exprese los derechos correspondientes. El token asociado a una entidad con *put-token* permite que el cliente conectado interactúe con la entidad de acuerdo con los derechos del token. Un vínculo en el que cliente adopta el rol *sender* requiere el derecho "Enviar"; adoptar el rol *receiver* requiere el derecho "Escuchar".
+Los tokens confieren derechos. Service Bus conoce tres derechos fundamentales: "Enviar" permite enviar, "Escuchar" permite recibir y "Administrar" permite manipular las entidades. Los tokens de SAS de Service Bus hacen referencia a las reglas configuradas en el espacio de nombres o la entidad, y dichas reglas se configuran con derechos. Firmar el token con la clave asociada a esa regla hace que el token exprese los derechos correspondientes. El token asociado a una entidad con *put-token* permite que el cliente conectado interactúe con la entidad de acuerdo con los derechos del token. Un vínculo en el que cliente adopta el rol *sender* requiere el derecho "Enviar"; adoptar el rol *receiver* requiere el derecho "Escuchar".
 
 El mensaje de respuesta tiene los siguientes valores de *application-properties*
 

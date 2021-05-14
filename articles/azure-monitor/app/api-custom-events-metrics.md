@@ -4,12 +4,12 @@ description: Inserte unas cuantas líneas de código en su aplicación de dispos
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8e866dc30d83f1b1f080a1be385026dcfbc77320
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: c43ecced4c87deda3e3d92a470d6694dfd1813e2
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106122108"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331527"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para eventos y métricas personalizados
 
@@ -42,7 +42,7 @@ Si aún no tiene una referencia en el SDK de Application Insights:
   * [Proyecto de ASP.NET Core](./asp-net-core.md)
   * [Proyecto de Java](./java-get-started.md)
   * [Proyecto de Node.js](./nodejs.md)
-  * [JavaScript en cada página web](./javascript.md) 
+  * [JavaScript en cada página web](./javascript.md)
 * En el código de servidor web o de dispositivo, incluya:
 
     *C#:* `using Microsoft.ApplicationInsights;`
@@ -66,6 +66,7 @@ Si usa AzureFunctions v2 o superior o Azure WebJobs v3 o superior, siga este d
 ```csharp
 private TelemetryClient telemetry = new TelemetryClient();
 ```
+
 Los usuarios que reciban mensajes que indiquen que el método está obsoleto pueden visitar [microsoft/ApplicationInsights-dotnet#1152](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1152) para obtener más detalles.
 
 *Visual Basic*
@@ -78,7 +79,7 @@ Private Dim telemetry As New TelemetryClient
 
 ```java
 private TelemetryClient telemetry = new TelemetryClient();
-``` 
+```
 
 *Node.js*
 
@@ -148,8 +149,6 @@ telemetry.trackEvent({name: "WinGame"});
 
 Los datos de telemetría están disponibles en la tabla `customEvents` de la [pestaña Registros de Application Insights](../logs/log-query-overview.md) o en la [experiencia de uso](usage-overview.md). Los eventos pueden proceder de `trackEvent(..)` o del [complemento Click Analytics Auto-collection](javascript-click-analytics-plugin.md).
 
- 
-
 Si el [muestreo](./sampling.md) está en uso, en la propiedad itemCount se muestra un valor mayor que 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a trackEvent(), el proceso de muestreo solo transmite una. Para obtener un recuento correcto de eventos personalizados, debería usar código como `customEvents | summarize sum(itemCount)`.
 
 ## <a name="getmetric"></a>GetMetric
@@ -177,15 +176,15 @@ Para enviar un único valor de métrica:
 
 *JavaScript*
 
- ```javascript
+```javascript
 appInsights.trackMetric("queueLength", 42.0);
- ```
+```
 
 *C#*
 
 ```csharp
 var sample = new MetricTelemetry();
-sample.Name = "metric name";
+sample.Name = "queueLength";
 sample.Value = 42.3;
 telemetryClient.TrackMetric(sample);
 ```
@@ -198,9 +197,9 @@ telemetry.trackMetric("queueLength", 42.0);
 
 *Node.js*
 
- ```javascript
+```javascript
 telemetry.trackMetric({name: "queueLength", value: 42.0});
- ```
+```
 
 ### <a name="custom-metrics-in-analytics"></a>Métricas personalizadas en Analytics
 
@@ -504,7 +503,7 @@ Registre un evento de diagnóstico, como la entrada o la salida de un método.
 Puede buscar en el contenido del mensaje, pero (a diferencia de los valores de propiedad) no puede filtrar por él.
 
 El límite de tamaño en `message` es mucho mayor que el límite en propiedades.
-Una ventaja de TrackTrace es que puede colocar datos relativamente largos en el mensaje. Por ejemplo, aquí puede codificar datos POST.  
+Una ventaja de TrackTrace es que puede colocar datos relativamente largos en el mensaje. Por ejemplo, aquí puede codificar datos POST.
 
 Además, puede agregar un nivel de gravedad al mensaje. Y, al igual que con otra telemetría, puede agregar valores de propiedad para ayudar a filtrar o buscar distintos conjuntos de seguimientos. Por ejemplo:
 
@@ -601,7 +600,7 @@ finally
 }
 ```
 
-Recuerde que los SDK del servidor incluyen un [módulo de dependencia](./asp-net-dependencies.md) que detecta y realiza automáticamente el seguimiento de ciertas llamadas de dependencia; por ejemplo, a bases de datos y API de REST. Debe instalar un agente en el servidor para que el módulo funcione. 
+Recuerde que los SDK del servidor incluyen un [módulo de dependencia](./asp-net-dependencies.md) que detecta y realiza automáticamente el seguimiento de ciertas llamadas de dependencia; por ejemplo, a bases de datos y API de REST. Debe instalar un agente en el servidor para que el módulo funcione.
 
 En Java, es posible realizar el seguimiento de ciertas llamadas de dependencia automáticamente mediante el [agente de Java](./java-agent.md).
 
@@ -633,7 +632,7 @@ Normalmente, el SDK envía datos a intervalos fijos (normalmente 30 segundos) o
 
 *C#*
 
- ```csharp
+```csharp
 telemetry.Flush();
 // Allow some time for flushing before shutdown.
 System.Threading.Thread.Sleep(5000);
@@ -798,8 +797,6 @@ telemetry.trackEvent("WinGame", properties, metrics);
 
 > [!NOTE]
 > Tenga cuidado de no registrar información de identificación personal en las propiedades.
->
->
 
 ### <a name="alternative-way-to-set-properties-and-metrics"></a>Método alternativo para establecer propiedades y métricas
 
@@ -820,8 +817,6 @@ telemetry.TrackEvent(event);
 
 > [!WARNING]
 > No vuelva a usar la misma instancia de elemento de telemetría (`event` en este ejemplo) para llamar a Track*() varias veces. Esto puede hacer que se envíe la telemetría con una configuración incorrecta.
->
->
 
 ### <a name="custom-measurements-and-properties-in-analytics"></a>Mediciones y propiedades personalizadas en Analytics
 
@@ -912,7 +907,6 @@ gameTelemetry.TrackEvent("WinGame")
 import com.microsoft.applicationinsights.TelemetryClient;
 import com.microsoft.applicationinsights.TelemetryContext;
 ...
-
 
 TelemetryClient gameTelemetry = new TelemetryClient();
 TelemetryContext context = gameTelemetry.getContext();

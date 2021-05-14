@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/11/2021
+ms.date: 04/29/2021
 ms.author: memildin
-ms.openlocfilehash: 3e4dddf61656ea38bac406366bf993788fd34943
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: f9f8078bbd3410a3dac5eb3a6a8aeb3a8fe82b54
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303158"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278896"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novedades de Azure Security Center
 
@@ -28,14 +28,40 @@ Para obtener información sobre los cambios *planeados* que están próximos a m
 ## <a name="april-2021"></a>Abril de 2021
 
 Las actualizaciones de abril incluyen:
-- [Las imágenes del registro de contenedor que se han extraído recientemente ahora se vuelven a examinar semanalmente (Disponibilidad general)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
-- [Use Azure Defender para Kubernetes para proteger implementaciones de Kubernetes híbridas y de varias nubes (versión preliminar)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
-- [Cuatro nuevas recomendaciones relacionadas con la configuración de invitado (versión preliminar)](#four-new-recommendations-related-to-guest-configuration-preview)
+- [Actualización de la página de estado de recursos (en versión preliminar)](#refreshed-resource-health-page-in-preview)
+- [Las imágenes del registro de contenedor que se han extraído recientemente ahora se vuelven a examinar semanalmente (lanzado en disponibilidad general)](#container-registry-images-that-have-been-recently-pulled-are-now-rescanned-weekly-released-for-general-availability-ga)
+- [Use Azure Defender para Kubernetes para proteger implementaciones de Kubernetes híbridas y de varias nubes (versión preliminar)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-in-preview)
+- [La integración de Microsoft Defender para punto de conexión con Azure Defender ahora es compatible con Windows Server 2019 y Windows 10 Virtual Desktop (WVD) (lanzado en disponibilidad general)](#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-released-for-general-availability-ga)
+- [Recomendaciones para habilitar Azure Defender para DNS y Resource Manager (en versión preliminar)](#recommendations-to-enable-azure-defender-for-dns-and-resource-manager-in-preview)
+- [Se han agregado tres estándares de cumplimiento normativo: Azure CIS 1.3.0, CMMC Nivel 3 e ISM restringido de Nueva Zelanda](#three-regulatory-compliance-standards-added-azure-cis-130-cmmc-level-3-and-new-zealand-ism-restricted)
+- [Cuatro nuevas recomendaciones relacionadas con la configuración de invitado (en versión preliminar)](#four-new-recommendations-related-to-guest-configuration-in-preview)
 - [Recomendaciones de CMK trasladadas al control de seguridad de procedimientos recomendados](#cmk-recommendations-moved-to-best-practices-security-control)
 - [11 alertas de Azure Defender se han puesto en desuso](#11-azure-defender-alerts-deprecated).
 - [Dos recomendaciones del control de seguridad "Aplicar actualizaciones del sistema" entraron en desuso](#two-recommendations-from-apply-system-updates-security-control-were-deprecated).
+- [Azure Defender para SQL en el icono de la máquina se ha eliminado del panel de Azure Defender](#azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard)
+- [Traslado de 21 recomendaciones entre controles de seguridad](#21-recommendations-moved-between-security-controls)
 
-### <a name="recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability"></a>Las imágenes del registro de contenedor que se han extraído recientemente ahora se vuelven a examinar semanalmente (Disponibilidad general)
+### <a name="refreshed-resource-health-page-in-preview"></a>Actualización de la página de estado de recursos (en versión preliminar)
+
+El estado de los recursos de Security Center se ha ampliado y mejorado para proporcionar una vista de instantánea del estado general de un recurso individual. 
+
+Puede revisar información detallada sobre el recurso y todas las recomendaciones que se aplican a ese recurso. Además, si usa [Azure Defender](azure-defender.md), también puede ver alertas de seguridad pendientes para ese recurso específico.
+
+Para abrir la página de mantenimiento de un recurso, seleccione cualquier recurso en la [página de inventario de recursos](asset-inventory.md).
+
+En esta página de vista previa del portal de Security Center se muestra lo siguiente:
+
+1. **Información sobre los recursos**: el grupo de recursos y la suscripción a la que está asociado, la ubicación geográfica, etc.
+1. **Característica de seguridad aplicada:** muestra si Azure Defender está habilitado para el recurso o no.
+1. **Recuentos de recomendaciones y alertas pendientes:** el número de recomendaciones de seguridad y alertas pendientes de Azure Defender.
+1. **Recomendaciones y alertas prácticas:** en dos pestañas se incluyen las recomendaciones y alertas que son aplicables al recurso.
+
+:::image type="content" source="media/investigate-resource-health/resource-health-page-virtual-machine.gif" alt-text="Página de estado de los recursos de Azure Security Center que muestra la información de estado de una máquina virtual":::
+
+Obtenga más información en [Tutorial: Investigación del estado de los recursos](investigate-resource-health.md).
+
+
+### <a name="container-registry-images-that-have-been-recently-pulled-are-now-rescanned-weekly-released-for-general-availability-ga"></a>Las imágenes del registro de contenedor que se han extraído recientemente ahora se vuelven a examinar semanalmente (lanzado en disponibilidad general)
 
 Azure Defender para registros de contenedor incluye un analizador de vulnerabilidades integrado. Este analizador examina inmediatamente cualquier imagen que se inserte en el registro y cualquier imagen que se haya extraído en los últimos 30 días.
 
@@ -46,7 +72,7 @@ El examen se cobra por imagen, por lo que no hay ningún cargo adicional por est
 Más información sobre este analizador en [Uso de Azure Defender para registros de contenedor para examinar las imágenes en busca de vulnerabilidades](defender-for-container-registries-usage.md).
 
 
-### <a name="use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview"></a>Use Azure Defender para Kubernetes para proteger implementaciones de Kubernetes híbridas y de varias nubes (versión preliminar)
+### <a name="use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-in-preview"></a>Use Azure Defender para Kubernetes para proteger implementaciones de Kubernetes híbridas y de varias nubes (versión preliminar)
 
 Azure Defender para Kubernetes está expandiendo sus funcionalidades de protección contra amenazas para defender los clústeres dondequiera que estén implementados. Esto se ha habilitado mediante la integración con [Kubernetes habilitado para Azure Arc](../azure-arc/kubernetes/overview.md) y sus nuevas [funcionalidades de extensiones](../azure-arc/kubernetes/extensions.md). 
 
@@ -64,9 +90,52 @@ Esta integración entre Azure Security Center, Azure Defender y Kubernetes habil
 
 Puede encontrar más información en [Uso de Azure Defender para Kubernetes con los clústeres de Kubernetes locales y de varias nubes](defender-for-kubernetes-azure-arc.md).
 
-:::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Recomendación de Azure Security Center para implementar la extensión de Azure Defender para clústeres de Kubernetes habilitados para Azure Arc." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+:::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="La recomendación de Azure Security Center para implementar la extensión de Azure Defender para clústeres de Kubernetes habilitados para Azure Arc." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
-### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>Cuatro nuevas recomendaciones relacionadas con la configuración de invitado (versión preliminar)
+
+### <a name="microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-released-for-general-availability-ga"></a>La integración de Microsoft Defender para punto de conexión con Azure Defender ahora es compatible con Windows Server 2019 y Windows 10 Virtual Desktop (WVD) (lanzado en disponibilidad general)
+
+Microsoft Defender para punto de conexión es una solución integral de seguridad de punto de conexión que se entrega en la nube. Proporciona funciones de administración y evaluación de vulnerabilidades basadas en riesgos, así como de detección y respuesta de puntos de conexión (EDR). Para obtener una lista completa de las ventajas del uso de Defender para punto de conexión junto con Azure Security Center, consulte [Proteja los puntos de conexión con la solución EDR integrada de Security Center: Microsoft Defender para punto de conexión](security-center-wdatp.md).
+
+Cuando habilita Azure Defender para servidores en un servidor de Windows, el plan incluye una licencia de Defender para punto de conexión. Si ya ha habilitado Azure Defender para servidores y tiene servidores de Windows 2019 en la suscripción, los servidores recibirán automáticamente Defender para punto de conexión con esta actualización. No se requiere ninguna acción manual. 
+
+Ahora se ha ampliado la compatibilidad para incluir Windows Server 2019 y [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md).
+
+> [!NOTE]
+> Si va a habilitar Defender para punto de conexión en un equipo con Windows Server 2019, asegúrese de que cumple los requisitos previos descritos en [Habilitación de la integración de Microsoft Defender para punto de conexión](security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration).
+
+
+### <a name="recommendations-to-enable-azure-defender-for-dns-and-resource-manager-in-preview"></a>Recomendaciones para habilitar Azure Defender para DNS y Resource Manager (en versión preliminar)
+
+Se han agregado dos nuevas recomendaciones para simplificar el proceso de habilitación de [Azure Defender para Resource Manager](defender-for-resource-manager-introduction.md) y [Azure Defender para DNS](defender-for-dns-introduction.md):
+
+- **Azure Defender para Resource Manager se debe habilitar**: Defender para Resource Manager supervisa automáticamente las operaciones de administración de recursos de la organización. Azure Defender detecta amenazas y alerta sobre actividades sospechosas.
+- **Azure Defender para DNS se debe habilitar**: Defender para DNS proporciona una capa adicional de protección para los recursos de la nube, ya que supervisa de forma ininterrumpida todas las consultas de DNS de los recursos de Azure. Azure Defender alerta sobre las actividades sospechosas en la capa de DNS.
+
+La habilitación de los planes de Azure Defender conlleva cargos. Obtenga información sobre los detalles de los precios por región en la página de precios de Security Center: https://aka.ms/pricing-security-center.
+
+> [!TIP]
+> Las recomendaciones de la versión preliminar no representan un recurso incorrecto y no se incluyen en los cálculos de una puntuación segura. Corríjalas siempre que sea posible, de tal forma que, cuando finalice el período de versión preliminar, contribuyan a la puntuación. Puede encontrar más información sobre cómo responder a estas recomendaciones en [Recomendaciones de corrección en Azure Security Center](security-center-remediate-recommendations.md).
+
+
+### <a name="three-regulatory-compliance-standards-added-azure-cis-130-cmmc-level-3-and-new-zealand-ism-restricted"></a>Se han agregado tres estándares de cumplimiento normativo: Azure CIS 1.3.0, CMMC Nivel 3 e ISM restringido de Nueva Zelanda
+
+Hemos agregado tres estándares para su uso con Azure Security Center. Con el panel de cumplimiento normativo, ahora puede realizar un seguimiento del cumplimiento con:
+
+- [CIS Microsoft Azure Foundations Benchmark 1.3.0](../governance/policy/samples/cis-azure-1-3-0.md)
+- [CMMC nivel 3](../governance/policy/samples/cmmc-l3.md)
+- [ISM restringido en Nueva Zelanda](../governance/policy/samples/new-zealand-ism.md)
+
+Puede asignarlos a las suscripciones como se describe en [Personalización del conjunto de estándares en el panel de cumplimiento normativo](update-regulatory-compliance-packages.md).
+
+:::image type="content" source="media/release-notes/additional-regulatory-compliance-standards.png" alt-text="Se han agregado tres estándares para su uso en el panel de cumplimiento normativo de Azure Security Center." lightbox="media/release-notes/additional-regulatory-compliance-standards.png":::
+
+Puede encontrar más información en:
+- [Personalización del conjunto de estándares en el panel de cumplimiento normativo](update-regulatory-compliance-packages.md)
+- [Tutorial: Mejora del cumplimiento normativo](security-center-compliance-dashboard.md)
+- [Tutorial: Mejora del cumplimiento normativo](security-center-compliance-dashboard.md#faq---regulatory-compliance-dashboard)
+
+### <a name="four-new-recommendations-related-to-guest-configuration-in-preview"></a>Cuatro nuevas recomendaciones relacionadas con la configuración de invitado (en versión preliminar)
 
 La [extensión de configuración de invitado](../governance/policy/concepts/guest-configuration.md) de Azure informa a Security Center para ayudar a garantizar la protección de la configuración de invitado de las máquinas virtuales. La extensión no es necesaria para los servidores habilitados para Arc porque está incluida en el agente Connected Machine de Arc. La extensión requiere una identidad administrada por el sistema en la máquina.
 
@@ -141,6 +210,23 @@ Las dos recomendaciones siguientes estaban en desuso y los cambios pueden dar lu
 Se recomienda comprobar las configuraciones de exportación continua y de automatización del flujo de trabajo para ver si estas recomendaciones están incluidas en ellas. Además, los paneles u otras herramientas de supervisión que puedan estar usándolas se deben actualizar en consecuencia.
 
 Más información sobre estas recomendaciones en la [página de referencia de las recomendaciones de seguridad](recommendations-reference.md).
+
+### <a name="azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard"></a>Azure Defender para SQL en el icono de la máquina se ha eliminado del panel de Azure Defender
+
+El área de cobertura del panel de Azure Defender incluye iconos para los planes de Azure Defender pertinentes para su entorno. Debido a un problema con los informes de los números de recursos protegidos y no protegidos, hemos decidido quitar temporalmente el estado de cobertura de recursos para **Azure Defender para SQL en las máquinas** hasta que se resuelva el problema.
+
+
+### <a name="21-recommendations-moved-between-security-controls"></a>Traslado de 21 recomendaciones entre controles de seguridad 
+
+Las siguientes recomendaciones se han trasladado a otros controles de seguridad. Los controles de seguridad son grupos lógicos de recomendaciones de seguridad relacionadas y reflejan las superficies de ataque vulnerables. Este traslado garantiza que cada una de estas recomendaciones está en el control más adecuado para cumplir su objetivo.
+
+Obtenga información sobre qué recomendaciones se encuentran en cada control de seguridad en [Controles de seguridad y sus recomendaciones](secure-score-security-controls.md#security-controls-and-their-recommendations).
+
+|Recomendación |Cambio e impacto  |
+|---------|---------|
+|La evaluación de vulnerabilidades debe estar activada en sus servidores de SQL Server.<br>La evaluación de vulnerabilidad debe estar habilitada en las instancias administradas de SQL.<br>Las vulnerabilidades de sus bases de datos SQL deben remediarse ahora<br>Las vulnerabilidades de las bases de datos SQL en máquinas virtuales deben corregirse     |Cambia de Corregir vulnerabilidades (con un valor de 6 puntos)<br>a Corregir configuraciones de seguridad (con un valor de 4 puntos)<br>En función del entorno, estas recomendaciones tendrán menor impacto en la puntuación.|
+|Debe haber más de un propietario asignado a su suscripción<br>Las variables de cuenta de automatización deben cifrarse<br> Dispositivos IoT: el proceso auditado dejó de enviar eventos.<br> Dispositivos IoT: error de validación de línea base del sistema operativo<br> Dispositivos IoT: es preciso actualizar el conjunto de cifrado de TLS.<br>Dispositivos IoT: puertos abiertos en el dispositivo.<br>Dispositivos IoT: se encontró una directiva de firewall permisiva en una de las cadenas.<br> Dispositivos IoT: se encontró una regla de firewall permisiva en la cadena de entrada.<br> Dispositivos IoT: se encontró una regla de firewall permisiva en la cadena de salida.<br>Los registros de diagnóstico de IoT Hub deben estar habilitados<br>Dispositivos IoT: mensajes infrautilizados de envío del agente.<br>Dispositivos IoT: la directiva de filtro de IP predeterminada debe ser Denegar.<br>Dispositivos IoT: intervalo de IP amplio de la regla del filtro de IP.<br>Dispositivos IoT: se deben ajustar tanto el tamaño como los intervalos de los mensajes de los agentes<br>Dispositivos IoT: credenciales de autenticación idénticas<br>Dispositivos IoT: el proceso auditado dejó de enviar eventos.<br>Dispositivos IoT: la configuración de la línea base del sistema operativo (SO) debe corregirse|Cambia a **Implementación de procedimientos recomendados de seguridad**.<br>Cuando una recomendación pasa al control de seguridad Implementar prácticas recomendadas de seguridad, que no vale ningún punto, la recomendación deja de afectar a la puntuación segura.|
+|||
 
 
 ## <a name="march-2021"></a>Marzo de 2021
@@ -265,7 +351,7 @@ Hemos lanzado una versión mejorada de la lista de recomendaciones para presenta
 Ahora, en la página verá:
 
 1. La puntuación máxima y la puntuación actual de cada control de seguridad.
-1. Iconos que reemplazan etiquetas como **Corrección rápida** y **Versión preliminar**.
+1. Hay iconos que reemplazan etiquetas como **Corrección** y **Versión preliminar**.
 1. Una columna nueva que muestra la [iniciativa de directiva](security-policy-concept.md) relacionada con cada recomendación: se puede ver cuando "Agrupar por controles" está deshabilitado.
 
 :::image type="content" source="media/release-notes/recommendations-grid-enhancements.png" alt-text="Mejoras en la página de recomendaciones de Azure Security Center: marzo de 2021" lightbox="media/release-notes/recommendations-grid-enhancements.png":::
@@ -329,7 +415,7 @@ Cuando habilita Azure Defender para servidores en un servidor de Windows, el pla
 Ahora se ha ampliado la compatibilidad para incluir Windows Server 2019 y [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md).
 
 > [!NOTE]
-> Si está habilitando Defender para punto de conexión en un equipo con Windows Server 2019, asegúrese de que cumple los requisitos previos descritos en [Habilitar la integración de Microsoft Defender para punto de conexión](security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration).
+> Si va a habilitar Defender para punto de conexión en un equipo con Windows Server 2019, asegúrese de que cumple los requisitos previos descritos en [Habilitación de la integración de Microsoft Defender para punto de conexión](security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration).
 
 ### <a name="direct-link-to-policy-from-recommendation-details-page"></a>Vínculo directo a la directiva desde la página de detalles de la recomendación
 
@@ -411,7 +497,7 @@ Las recomendaciones existentes no se ven afectadas y a medida que crezca el punt
 
 Para más información, consulte las páginas siguientes:
 
-- [Más información sobre Azure Security Benchmark](../security/benchmarks/introduction.md)
+- [Más información sobre Azure Security Benchmark](/security/benchmark/azure/introduction)
 - [Personalización del conjunto de estándares en el panel de cumplimiento normativo](update-regulatory-compliance-packages.md)
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga"></a>La valoración de vulnerabilidades tanto para máquinas locales como las que están en varias nubes se ha publicado en disponibilidad general (GA)
@@ -526,7 +612,7 @@ Para más información, consulte [Solicitud de permisos para todo el inquilino c
 
 ### <a name="35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Se han agregado 35 recomendaciones en versión preliminar para aumentar la cobertura de Azure Security Benchmark.
 
-Azure Security Benchmark es la iniciativa de directivas predeterminada de Azure Security Center. 
+[Azure Security Benchmark](/security/benchmark/azure/introduction) es la iniciativa de directivas predeterminada de Azure Security Center. 
 
 Para aumentar la cobertura del punto de referencia se han agregado a Security Center las siguientes 35 recomendaciones en versión preliminar.
 
@@ -544,7 +630,7 @@ Para aumentar la cobertura del punto de referencia se han agregado a Security Ce
 
 Vínculos relacionados:
 
-- [Más información sobre Azure Security Benchmark](../security/benchmarks/introduction.md)
+- [Más información sobre Azure Security Benchmark](/security/benchmark/azure/introduction)
 - [Más información sobre Azure Database for MariaDB](../mariadb/overview.md)
 - [Más información sobre Azure Database for MySQL](../mysql/overview.md)
 - [Más información sobre Azure Database for PostgreSQL](../postgresql/overview.md)
@@ -724,13 +810,13 @@ Los filtros que se han agregado este mes proporcionan opciones para refinar la l
 
 - El **entorno**: vea las recomendaciones para los recursos de AWS, GCP o Azure (o cualquier combinación).
 - La **gravedad**: vea las recomendaciones según la clasificación de gravedad establecida por Security Center.
-- Las **acciones de respuesta**: vea las recomendaciones según la disponibilidad de las opciones de respuesta de Security Center: Corrección rápida, denegación y aplicación
+- **Acciones de respuesta**: consulte las recomendaciones según la disponibilidad de las opciones de respuesta de Security Center: corrección, denegación y aplicación
 
     > [!TIP]
     > El filtro de acciones de respuesta reemplaza al filtro **Solución rápida disponible (Sí/No)** . 
     > 
     > Puede aprender más información acerca de cada una de estas opciones de respuesta:
-    > - [Solución por corrección rápida](security-center-remediate-recommendations.md#quick-fix-remediation)
+    > - [Botón Corregir](security-center-remediate-recommendations.md#fix-button)
     > - [Evitar errores de configuración con las recomendaciones Aplicar o Denegar](prevent-misconfigurations.md).
 
 :::image type="content" source="./media/release-notes/added-recommendations-filters.png" alt-text="Recomendaciones agrupadas por control de seguridad" lightbox="./media/release-notes/added-recommendations-filters.png":::
@@ -770,7 +856,7 @@ Las actualizaciones de noviembre incluyen:
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Se han agregado 29 recomendaciones en versión preliminar para aumentar la cobertura de Azure Security Benchmark.
 
-Azure Security Benchmark es el conjunto de directrices específico de Azure creado por Microsoft para ofrecer los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. [Mas información sobre Azure Security Benchmark](../security/benchmarks/introduction.md).
+Azure Security Benchmark es el conjunto de directrices específico de Azure creado por Microsoft para ofrecer los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. [Mas información sobre Azure Security Benchmark](/security/benchmark/azure/introduction).
 
 Se han agregado a Security Center las siguientes 29 recomendaciones en versión preliminar para aumentar la cobertura de la prueba comparativa.
 
@@ -787,7 +873,7 @@ Las recomendaciones de la versión preliminar no representan un recurso incorrec
 
 Vínculos relacionados:
 
-- [Más información sobre Azure Security Benchmark](../security/benchmarks/introduction.md)
+- [Más información sobre Azure Security Benchmark](/security/benchmark/azure/introduction)
 - [Más información sobre las aplicaciones de API de Azure](../app-service/app-service-web-tutorial-rest-api.md)
 - [Más información sobre las aplicaciones de funciones de Azure](../azure-functions/functions-overview.md)
 - [Más información sobre las aplicaciones web de Azure](../app-service/overview.md)

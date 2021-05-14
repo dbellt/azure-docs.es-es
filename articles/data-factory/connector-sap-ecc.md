@@ -1,18 +1,18 @@
 ---
 title: Copia de datos desde SAP ECC
 description: Obtenga información sobre cómo copiar datos desde SAP ECC en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
-ms.author: jingwang
 author: linda33wj
+ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/28/2020
-ms.openlocfilehash: a3e701f3d433b5b52d8992035ac4ad75b78cb795
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cd51dee9451b828bcefe1fdb4c4cf2a1f724bc68
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100386703"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788110"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copia de datos de SAP ECC mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -61,11 +61,11 @@ Para usar este conector SAP ECC, debe exponer las entidades de SAP ECC mediante 
 
 - **Activar y configurar el servicio SAP OData**. Puede activar el servicios de OData a través de TCODE SICF en cuestión de segundos. También puede configurar qué objetos se deben exponer. Para obtener más información, consulte la [guía paso a paso](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="get-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Las secciones siguientes proporcionan detalles sobre las propiedades que se usan para definir las entidades de Data Factory específicas del conector SAP ECC.
 

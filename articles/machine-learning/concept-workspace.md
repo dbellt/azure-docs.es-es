@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 2365e42c3c8b34eba1814ba683eaf1f878b674ce
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 215da0e38045a2e66a4a11b54204c26e7720815c
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106062410"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719068"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>¿Qué es un área de trabajo de Azure Machine Learning?
 
@@ -105,7 +105,7 @@ Al crear una nueva área de trabajo, se crean automáticamente varios recursos d
   > [!IMPORTANT]
   > De manera predeterminada, la cuenta de almacenamiento es una cuenta de uso general v1. Puede [actualizarla a una de uso general v2](../storage/common/storage-account-upgrade.md) una vez creada el área de trabajo. No habilite el espacio de nombres jerárquico en la cuenta de almacenamiento después de actualizar a la versión v2 de uso general.
 
-  Para usar una cuenta de Azure Storage existente, no puede ser una cuenta Premium (Premium_LRS o Premium_GRS). Tampoco puede tener un espacio de nombres jerárquico (se usa con Azure Data Lake Storage Gen2). No se admite Premium Storage ni el espacio de nombres jerárquico con la cuenta de almacenamiento _predeterminada_ del área de trabajo. Puede usar Premium Storage o el espacio de nombres jerárquico con cuentas de almacenamiento _no predeterminadas_.
+  Para usar una cuenta de Azure Storage existente, no puede ser una cuenta de tipo BlobStorage ni prémium (Premium_LRS y Premium_GRS). Tampoco puede tener un espacio de nombres jerárquico (se usa con Azure Data Lake Storage Gen2). No se admite Premium Storage ni el espacio de nombres jerárquico con la cuenta de almacenamiento _predeterminada_ del área de trabajo. Puede usar Premium Storage o el espacio de nombres jerárquico con cuentas de almacenamiento _no predeterminadas_.
   
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): registra los contenedores de docker que usa durante el entrenamiento y al implementar un modelo. Para reducir los costos, ACR se **carga de forma diferida** hasta que se crean imágenes de la implementación.
 

@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 1c8ea1580047910cb2d6634aad885d61e99113f3
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 74cbbf13b3ecb0b784138df69a8436930c2766ef
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529966"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130906"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Flujo con derechos delegados de OAuth 2.0 y Plataforma de identidad de Microsoft
 
@@ -211,7 +211,7 @@ La respuesta contiene un token SAML codificado con UTF8 y Base64url.
 - **SubjectConfirmationData para una aserción SAML procedente de una llamada OBO**: si la aplicación de destino requiere un valor de destinatario en **SubjectConfirmationData**, el valor debe ser una dirección URL de respuesta que no sea de caracteres comodín en la configuración de la aplicación de recursos.
 - **El nodo SubjectConfirmationData**: este no puede contener un atributo **InResponseTo**, ya que no forma parte de una respuesta SAML. La aplicación que recibe el token SAML debe tener la capacidad de aceptar la aserción SAML sin el atributo **InResponseTo**.
 
-- **Consentimiento**: debe otorgarse un consentimiento con el fin de recibir un token SAML que contenga datos de usuario en un flujo de OAuth. Para obtener información sobre los permisos y el consentimiento del administrador, consulte [Permisos y consentimiento en el punto de conexión v1.0 de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent).
+- **Consentimiento**: debe otorgarse un consentimiento con el fin de recibir un token SAML que contenga datos de usuario en un flujo de OAuth. Para obtener información sobre los permisos y el consentimiento del administrador, consulte [Permisos y consentimiento en el punto de conexión v1.0 de Azure Active Directory](../azuread-dev/v1-permissions-consent.md).
 
 ### <a name="response-with-saml-assertion"></a>Respuesta con aserción SAML
 

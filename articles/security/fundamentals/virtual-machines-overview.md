@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: 60f67ea618746c9f2b0cd65a9fbc7fb2b5fbfe86
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 51b04feffd887fd86157d029168bc53546adfeeb
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107520010"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208174"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Información general de seguridad de Azure Virtual Machines
 Este artículo ofrece una introducción a las principales características de seguridad de Azure que pueden usarse con máquinas virtuales.
@@ -55,7 +55,7 @@ Obtenga más información acerca del software antimalware para proteger las máq
 * [Instalación y configuración de Endpoint Protection en una máquina virtual de Azure](../../virtual-machines/extensions/symantec.md)
 * [Soluciones de seguridad en Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
-Para una protección aún más eficaz, considere el uso de la [Protección contra amenazas avanzada de Windows Defender](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection). Con ATP de Windows Defender, obtiene lo siguiente:
+Para una protección aún más eficaz, considere el uso de la [Protección contra amenazas avanzada de Windows Defender](/mem/configmgr/protect/deploy-use/defender-advanced-threat-protection). Con ATP de Windows Defender, obtiene lo siguiente:
 
 * [Reducción de la superficie expuesta a ataques](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
 * [Protección de próxima generación](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
@@ -69,7 +69,7 @@ Para una protección aún más eficaz, considere el uso de la [Protección contr
 Más información:
 
 * [Introducción a protección contra amenazas avanzada de Windows Defender](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)  
-* [Información general sobre las capacidades de ATP de Windows Defender](/windows/security/threat-protection/windows-defender-atp/overview)  
+* [Información general sobre las capacidades de ATP de Windows Defender](/microsoft-365/security/defender-endpoint/whats-new-in-microsoft-defender-atp)  
 
 ## <a name="hardware-security-module"></a>Módulo de seguridad de hardware
 

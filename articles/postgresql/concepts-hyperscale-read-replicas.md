@@ -4,14 +4,15 @@ description: En este artículo se describe la característica de réplica de lec
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.openlocfilehash: cf8c64bf3858f0d3b7d633b94bc7302fbe563f87
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 08629ed8ce361f5d7ac4bb4d2e148ae5b20fff02
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107023907"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315568"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---hyperscale-citus"></a>Réplicas de lectura en Azure Database for PostgreSQL - Hiperescala (Citus)
 

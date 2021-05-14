@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/16/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61673210dafbdbdbc56477ed58fb0cbe9335efcf
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 0f808c9d01ecbd125e2ef0e3a7b61152767b1b4b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012697"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124030"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutorial: Uso de identidades administradas asignadas por el sistema de una máquina virtual Linux para acceder a Azure Key Vault 
 
@@ -97,10 +97,10 @@ Para completar estos pasos, necesitará un cliente SSH.  Si usa Windows, puede u
 
 >[!IMPORTANT]
 > Todos los SDK de Azure admiten la biblioteca Azure.Identity, lo que facilita la adquisición de tokens de Azure AD para acceder a los servicios de destino. Obtenga más información sobre [los SDK de Azure](https://azure.microsoft.com/downloads/) y saque provecho de la biblioteca Azure.Identity.
-> - [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet)
-> - [JAVA](https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable)
-> - [Javascript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme?view=azure-node-latest)
-> - [Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python)
+> - [.NET](/dotnet/api/overview/azure/identity-readme?view=azure-dotnet)
+> - [JAVA](/java/api/overview/azure/identity-readme?view=azure-java-stable)
+> - [Javascript](/javascript/api/overview/azure/identity-readme?view=azure-node-latest)
+> - [Python](/python/api/overview/azure/identity-readme?view=azure-python)
 
 
 1. En el portal, vaya a la máquina virtual Linux y, en **Información general**, haga clic en **Conectar**. 

@@ -3,23 +3,22 @@ title: ¿Qué es el Almacén de claves de Azure? | Microsoft Docs
 description: Obtenga información sobre cómo Azure Key Vault protege las claves criptográficas y los secretos que usan los servicios y aplicaciones en la nube.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cc00a4f1c1551932b4a30a8ef9b27cb1d4082667
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 863f98e643a7978856c03f5efe95736e6787f977
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99071603"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814413"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Conceptos básicos de Azure Key Vault
 
-Azure Key Vault es un servicio en la nube para el almacenamiento de los secretos y el acceso a estos de forma segura. Un secreto es todo aquello cuyo acceso desea controlar de forma estricta, como las claves API, las contraseñas, los certificados o las claves criptográficas. El servicio Key Vault admite dos tipos de contenedores: almacenes y grupos HSM administrados. Los almacenes permiten almacenar software y claves, secretos y certificados respaldados por HSM. Los grupos HSM administrados solo admiten claves respaldadas por HSM. Para más información, consulte [Introducción a la API REST de Azure Key Vault](about-keys-secrets-certificates.md).
+Azure Key Vault es un servicio en la nube para el almacenamiento de los secretos y el acceso a estos de forma segura. Un secreto es todo aquello cuyo acceso desea controlar de forma estricta, como las claves API, las contraseñas, los certificados o las claves criptográficas. El servicio Key Vault admite dos tipos de contenedores: almacenes y grupos de módulos de seguridad de hardware administrados (HSM). Los almacenes permiten almacenar software y claves, secretos y certificados respaldados por HSM. Los grupos HSM administrados solo admiten claves respaldadas por HSM. Para más información, consulte [Introducción a la API REST de Azure Key Vault](about-keys-secrets-certificates.md).
 
 Estos son otros términos importantes:
 
@@ -81,7 +80,7 @@ Los desarrolladores también pueden administrar las claves directamente mediante
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Aprenda a [proteger su almacén](secure-your-key-vault.md).
+- Obtenga información sobre las [características de seguridad de Azure Key Vault](security-features.md).
 - Aprenda a [proteger los grupos HSM administrados](../managed-hsm/access-control.md).
 
 <!--Image references-->

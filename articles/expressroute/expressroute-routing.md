@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: c65825a6d8d2d7f9059e91a1f248367fa1788e1a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9d87f2641fb53a2372afcae27ebd7e92e8885e66
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799503"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903999"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de enrutamiento de ExpressRoute
 Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no es así, debe cumplir los siguientes requisitos:
@@ -43,7 +43,7 @@ Para establecer la configuración entre pares se pueden usar direcciones IP priv
     * Las subredes usadas para el enrutamiento pueden ser direcciones IP privadas o direcciones IP públicas.
     * Las subredes no deben entrar en conflicto con el intervalo reservado por el cliente para su uso en la nube de Microsoft.
     * Si se usa una subred /125, se divide en dos subredes /126. 
-      * La primera subred /126 se usa para el vínculo principal, mientras que la segunda subred /30 se usará para el vínculo secundario.
+      * La primera subred /126 se usa para el vínculo principal, mientras que la segunda subred /126 se usará para el vínculo secundario.
       * Para cada una de las subredes /126, debe usar la primera dirección IP de la subred /126 en el enrutador. Para configurar sesiones BGP, Microsoft usa la segunda dirección IP de la subred /126.
       * Para que el [Acuerdo de Nivel de Servicio de disponibilidad](https://azure.microsoft.com/support/legal/sla/) sea válido, es necesario configurar ambas sesiones BGP.
 

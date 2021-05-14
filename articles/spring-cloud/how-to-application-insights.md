@@ -7,16 +7,16 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/04/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: c7083cb6669d7bc779a8e69babfef38988819f8c
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 457b21a0d84202cc712d5b1b719f5239de0e3391
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107483780"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324678"
 ---
 # <a name="application-insights-java-in-process-agent-in-azure-spring-cloud-preview"></a>Agente In-Process de Java de Application Insights en Azure Spring Cloud (versión preliminar)
 
-En este documento se explica cómo supervisar aplicaciones y microservicios mediante el agente In-Process de Java de Application Insights en Azure Spring Cloud. 
+En este documento se explica cómo supervisar las aplicaciones y los microservicios mediante el agente Java de Application Insights en Azure Spring Cloud. 
 
 Con esta característica, puede hacer lo siguiente:
 
@@ -88,6 +88,7 @@ En el panel de navegación izquierdo, haga clic en **Application Insights** para
   [ ![IPA 9](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)
 
 ## <a name="arm-template"></a>Plantilla de ARM
+
 Para usar la plantilla de Azure Resource Manager, copie el siguiente contenido en `azuredeploy.json`.
 
 ```json
@@ -121,6 +122,7 @@ Para usar la plantilla de Azure Resource Manager, copie el siguiente contenido e
 ```
 
 ## <a name="cli"></a>CLI
+
 Aplique la plantilla de ARM con el comando de la CLI:
 
 * Para una instancia existente de Azure Spring Cloud:
@@ -140,7 +142,29 @@ az spring-cloud app-insights update --disable â€“name "assignedName" â€�
 
 ```
 
+## <a name="java-agent-updateupgrade"></a>Actualización del agente de Java
+
+El agente de Java se actualizará periódicamente con el JDK, lo que puede afectar a los escenarios siguientes.
+
+> [!Note]
+> La versión de JDK se actualizará trimestralmente al año.
+
+* Las aplicaciones existentes que usan el agente de Java antes de actualizar no se verán afectadas.
+* Las aplicaciones creadas después de la actualización aprovecharán la nueva versión del agente de Java.
+* Las aplicaciones existentes que no usaron previamente el agente de Java requerirán un reinicio o una nueva implementación para aprovechar la nueva versión del agente de Java.
+
+## <a name="java-agent-configuration-hot-loading"></a>Carga activa de la configuración del agente de Java
+
+Azure Spring Cloud ha habilitado un mecanismo de carga activa para ajustar la configuración del agente sin reiniciar las aplicaciones.
+
+> [!Note]
+> El mecanismo de carga activa tiene un retraso en minutos.
+
+* Cuando el agente de Java se ha habilitado previamente, los cambios en la instancia de Application Insights o SamplingRate NO requieren que se reinicien las aplicaciones.
+* Si habilita el agente de Java, debe reiniciar las aplicaciones.
+* Al deshabilitar el agente de Java, las aplicaciones dejarán de enviar todos los datos de supervisión después de un retraso en minutos. Puede reiniciar las aplicaciones para quitar el agente del entorno en tiempo de ejecución de Java.
+
 ## <a name="see-also"></a>Consulte también
-* [Uso del seguimiento distribuido con Azure Spring Cloud](spring-cloud-howto-distributed-tracing.md)
+* [Uso del seguimiento distribuido con Azure Spring Cloud](./how-to-distributed-tracing.md)
 * [Análisis de registros y métricas](diagnostic-services.md)
-* [Streaming de registros en tiempo real](spring-cloud-howto-log-streaming.md)
+* [Streaming de registros en tiempo real](./how-to-log-streaming.md)

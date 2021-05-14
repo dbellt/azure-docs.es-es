@@ -9,14 +9,14 @@ ms.subservice: service
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 04/17/2021
 ms.author: sstein
-ms.openlocfilehash: 9827a40b2ebc91c17ad7b5457259b8d82565edee
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7746b8aa84bea9ec8c18b4c4af0851ca3e5e3957
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640084"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132024"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novedades de Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -61,8 +61,8 @@ En esta tabla se proporciona una comparación rápida del cambio en la terminolo
 
 | Característica | Detalles |
 | ---| --- |
-| [Transacciones distribuidas](/azure/azure-sql/database/elastic-transactions-overview) | Transacciones distribuidas entre instancias administradas. |
-| [Grupos de instancias](/azure/sql-database/sql-database-instance-pools) | Una manera útil y rentable de migrar pequeñas instancias de SQL a la nube. |
+| [Transacciones distribuidas](./elastic-transactions-overview.md) | Transacciones distribuidas entre instancias administradas. |
+| [Grupos de instancias](../managed-instance/instance-pools-overview.md) | Una manera útil y rentable de migrar pequeñas instancias de SQL a la nube. |
 | [Entidades de seguridad (inicios de sesión) del servidor de Azure AD con SSMS](/sql/t-sql/statements/create-login-transact-sql) | Cree inicios de sesión a nivel de instancia con una instrucción [CREATE LOGIN FROM EXTERNAL PROVIDER](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true). |
 | [Replicación transaccional](../managed-instance/replication-transactional-overview.md) | Replique los cambios de las tablas en otras bases de datos de SQL Managed Instance, SQL Database o SQL Server. También puede actualizar las tablas al cambiarse algunas filas en otras instancias de SQL Managed Instance o SQL Server. Para más información, vea [Configuración de la replicación en una Instancia administrada de Azure SQL](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
 | Detección de amenazas |Para más información, vea [Configuración de la detección de amenazas en Instancia administrada de Azure SQL](../managed-instance/threat-detection-configure.md).|
@@ -93,8 +93,9 @@ Las características siguientes están habilitadas en el modelo de implementaci�
 
 ## <a name="known-issues"></a>Problemas conocidos
 
-|Problema  |Fecha de detección  |Estado  |Fecha de resolución  |
+|Problema  |Fecha de detección  |Status  |Fecha de resolución  |
 |---------|---------|---------|---------|
+|[Cambiar el tipo de conexión no afecta a las conexiones a través del punto de conexión del grupo de conmutación por error](#changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint)|Enero de 2021|Tiene solución alternativa||
 |[Se puede producir un error transitorio en el procedimiento sp_send_dbmail cuando se usa el parámetro @query](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Enero de 2021|Tiene solución alternativa||
 |[Las transacciones distribuidas se pueden ejecutar después de quitar Managed Instance del grupo de confianza de servidor](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Octubre de 2020|Tiene solución alternativa||
 |[No se pueden ejecutar transacciones distribuidas después de la operación de escalado de Managed Instance](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Octubre de 2020|Tiene solución alternativa||
@@ -126,6 +127,12 @@ Las características siguientes están habilitadas en el modelo de implementaci�
 |La restauración de una base de datos a un momento dado del nivel de servicio Crítico para la empresa al De uso general no se completará correctamente si la base de datos de origen contiene objetos OLTP en memoria.||Resuelto|Octubre de 2019|
 |Característica Correo electrónico de base de datos con servidores de correo externos (que no son de Azure) mediante una conexión segura||Resuelto|Octubre de 2019|
 |Las bases de datos independientes no se admiten en la Instancia administrada de SQL||Resuelto|Agosto de 2019|
+
+### <a name="changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint"></a>Cambiar el tipo de conexión no afecta a las conexiones a través del punto de conexión del grupo de conmutación por error
+
+Si una instancia participa en un grupo de [conmutación por error automática](./auto-failover-group-overview.md), el cambio del [tipo de conexión](../managed-instance/connection-types-overview.md) de la instancia no afecta a las conexiones establecidas a través del punto de conexión del agente de escucha del grupo de conmutación por error.
+
+**Solución alternativa**: quitar y volver a crear el grupo de conmutación por error automática después de cambiar el tipo de conexión.
 
 ### <a name="procedure-sp_send_dbmail-may-transiently-fail-when-query-parameter-is-used"></a>Se puede producir un error transitorio en el procedimiento sp_send_dbmail cuando se usa el parámetro @query
 

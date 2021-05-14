@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: c37f6d89d5ebd3e18177db8add048739a62c883f
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 90ff0a42a9d82fc0bf4f9235e235c774a2d0e75d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307952"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146570"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Uso de OPENROWSET con un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -138,7 +138,7 @@ Si especifica que el elemento unstructured_data_path sea una carpeta, una consul
 Puede indicar al grupo de SQL sin servidor que pase por las carpetas; para ello, especifique /* al final de la ruta de acceso, como en el ejemplo: `https://sqlondemandstorage.blob.core.windows.net/csv/population/**`.
 
 > [!NOTE]
-> A diferencia de Hadoop y PolyBase, el grupo de SQL sin servidor no devuelve subcarpetas a menos que especifique /** al final de la ruta de acceso.
+> A diferencia de Hadoop y PolyBase, el grupo de SQL sin servidor no devuelve subcarpetas a menos que especifique /** al final de la ruta de acceso. Al igual que Hadoop y PolyBase, no devuelve archivos cuyo nombre comienza por un carácter de subrayado (_) o un punto (.).
 
 En el ejemplo siguiente, si unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/`, una consulta del grupo de SQL sin servidor devolverá filas de mydata.txt. No devolverá mydata2. txt y mydata3. txt porque se encuentran en una subcarpeta.
 
@@ -227,6 +227,7 @@ Detalles de la versión 2.0 del analizador de CSV:
 - El límite máximo de tamaño de fila es de 8 MB.
 - Las siguientes opciones no se admiten: DATA_COMPRESSION.
 - La cadena vacía entre comillas ("") se interpreta como una cadena vacía.
+- No se respeta la opción DATEFORMAT SET.
 - Formato admitido para el tipo de datos DATE: YYYY-MM-DD
 - Formato admitido para el tipo de datos TIME: HH:MM:SS[.fracciones de segundo]
 - Formato admitido para el tipo de datos DATETIME2: AAAA-MM-DD HH:MM:SS[.fracciones de segundo]
@@ -256,7 +257,7 @@ Los archivos con formato Parquet contienen metadatos de columna que se leerán; 
 Los nombres de columna de los archivos .csv se leen en la fila de encabezado. Se puede especificar si existe la fila de encabezado mediante el argumento HEADER_ROW. Si HEADER_ROW = FALSE, se usarán los nombres de columna genéricos: C1, C2,... Cn, donde n es el número de columnas del archivo. Los tipos de datos se inferirán de las primeras 100 filas de datos. Consulte [Lectura de archivos .csv sin esquema específico](#read-csv-files-without-specifying-schema) para ejemplos.
 
 > [!IMPORTANT]
-> A veces no se puede inferir el tipo de datos adecuado por la falta de información; en este caso, se usa un tipo de datos mayor en su lugar. Esto aporta un rendimiento extra y es especialmente importante para las columnas de caracteres que se infieren, como varchar (8000). Para obtener un rendimiento óptimo, consulte [Comprobación de los tipos de datos inferidos](best-practices-sql-on-demand.md#check-inferred-data-types) y [Uso del tipo de datos adecuado](best-practices-sql-on-demand.md#use-appropriate-data-types).
+> A veces no se puede inferir el tipo de datos adecuado por la falta de información; en este caso, se usa un tipo de datos mayor en su lugar. Esto aporta un rendimiento extra y es especialmente importante para las columnas de caracteres que se infieren, como varchar (8000). Para obtener un rendimiento óptimo, consulte [Comprobación de los tipos de datos inferidos](./best-practices-serverless-sql-pool.md#check-inferred-data-types) y [Uso del tipo de datos adecuado](./best-practices-serverless-sql-pool.md#use-appropriate-data-types).
 
 ### <a name="type-mapping-for-parquet"></a>Asignación de tipos para Parquet
 
@@ -403,4 +404,4 @@ AS [r]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver más ejemplos, consulte el [inicio rápido del almacenamiento de datos de consulta](query-data-storage.md) para aprender a usar `OPENROWSET`para leer los formatos de archivo [CSV ](query-single-csv-file.md),[PARQUET](query-parquet-files.md) y [JSON](query-json-files.md). Consulte los [procedimientos recomendados](best-practices-sql-on-demand.md) para lograr un rendimiento óptimo. También puede obtener información sobre cómo guardar los resultados de la consulta en Azure Storage mediante [CETAS](develop-tables-cetas.md).
+Para ver más ejemplos, consulte el [inicio rápido del almacenamiento de datos de consulta](query-data-storage.md) para aprender a usar `OPENROWSET`para leer los formatos de archivo [CSV ](query-single-csv-file.md),[PARQUET](query-parquet-files.md) y [JSON](query-json-files.md). Consulte los [procedimientos recomendados](./best-practices-serverless-sql-pool.md) para lograr un rendimiento óptimo. También puede obtener información sobre cómo guardar los resultados de la consulta en Azure Storage mediante [CETAS](develop-tables-cetas.md).

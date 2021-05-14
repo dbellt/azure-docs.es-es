@@ -7,12 +7,12 @@ ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: a7617a36ed800f1765ed7723568a4b612fcb6518
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 6214594f825908388762ac35cc8c8722ff9135f1
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107587602"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874358"
 ---
 # <a name="tutorial-mock-api-responses"></a>Tutorial: Simulación de respuestas de API
 
@@ -65,7 +65,7 @@ Una API expone una o varias operaciones. En esta sección, agregue una operació
 1. Seleccione **+ Agregar operación**.
 1. En la ventana **Front-end**, escriba los siguientes valores.
 
-     | Configuración             | Value                             | Descripción                                                                                                                                                                                   |
+     | Configuración             | Valor                             | Descripción                                                                                                                                                                                   |
     |---------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **Nombre para mostrar**    | *Llamada de prueba*                       | El nombre se muestra en el [portal para desarrolladores](api-management-howto-developer-portal.md).                                                                                                                                       |
     | **URL** (verbo HTTP) | GET                               | Seleccione uno de los verbos HTTP predefinidos.                                                                                                                                         |

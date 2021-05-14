@@ -11,16 +11,19 @@ ms.date: 03/29/2019
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: c04f61aaef5f5072ce0fb39ff111ba07ee151700
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aab2897b4042657492d04494b589fbaa2605cc6d
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100375908"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107886791"
 ---
 # <a name="rest-apis-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>API REST para el grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics
 
 API REST para administrar la potencia de proceso de un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics.
+
+> [!NOTE]
+> Las API REST que se describen en este artículo no son aplicables a un grupo de SQL dedicado creado en un área de trabajo de Azure Synapse Analytics. Para información sobre las API REST que se usan específicamente en un área de trabajo de Azure Synapse Analytics, consulte [API REST de área de trabajo de Azure Synapse Analytics](/rest/api/synapse/).
 
 ## <a name="scale-compute"></a>Escalado de proceso
 

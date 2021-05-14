@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 786e9b472d1f900e94e5d0cfa6a00e0f85547704
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 367dd261e9147c2dc14f1085af553222b621d91e
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102037700"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279791"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registro en Azure Monitor
 
@@ -165,9 +165,14 @@ Los resultados de la consulta se transforman en un número que se compara con el
 
 ### <a name="frequency"></a>Frecuencia
 
-El intervalo en el que se ejecuta la consulta. Se puede establecer entre 5 minutos y un día. Debe ser igual o menor que el [intervalo de tiempo de consulta ](#query-time-range) para no omitir entradas del registro.
+> [!NOTE]
+> Actualmente no se cobran cargos adicionales por las alertas de registro con una frecuencia de 1 minuto. Los precios de las características en versión preliminar se anunciarán en el futuro y se avisará antes del inicio de la facturación. Si decide seguir usando las alertas de registro con una frecuencia de 1 minuto después del período de aviso, se le facturará según la tarifa aplicable.
+
+El intervalo en el que se ejecuta la consulta. Se puede establecer entre 1 minuto y un día. Debe ser igual o menor que el [intervalo de tiempo de consulta ](#query-time-range) para no omitir entradas del registro.
 
 Por ejemplo, supongamos que establece el período de tiempo en 30 minutos y la frecuencia en 1 hora.  Si la consulta se ejecuta a las 00:00, devuelve registros entre las 23:30 y las 00:00. La próxima vez que se ejecute la consulta será a la 01:00 y devolverá los registros comprendidos entre las 00:30 y la 01:00. Por tanto, nunca se evaluarán los registros creados entre las 00:00 y las 00:30.
+
+Para usar alertas con una frecuencia de 1 minuto, tiene que establecer una propiedad a través de la API. Al crear o actualizar reglas de alertas de registro existentes en la versión de API: `2020-05-01-preview` en la sección `properties`, agregue `evaluationFrequency` con el valor `PT1M` de tipo `String`. Al crear o actualizar reglas de alertas de registro existentes en la versión de API: `2018-04-16` en la sección `schedule`, agregue `frequencyInMinutes` con el valor `1` de tipo `Int`. 
 
 ### <a name="number-of-violations-to-trigger-alert"></a>Número de infracciones que desencadenarán la alerta
 
@@ -177,9 +182,9 @@ Por ejemplo, si el valor de [**Granularidad de agregación**](#aggregation-granu
 
 ## <a name="state-and-resolving-alerts"></a>Estado y resolución de alertas
 
-Las alertas de registro no tienen estado. Las alertas se activan cada vez que se cumple la condición, incluso si se han activado anteriormente. Las alertas activadas no se resuelven. Puede [marcar la alerta como cerrada](../alerts/alerts-managing-alert-states.md). También puede silenciar acciones para evitar que se desencadenen durante un período después de que se active una regla de alertas.
+Las alertas de registro pueden ser sin estado o con estado (actualmente en versión preliminar cuando se usa la API). 
 
-En áreas de trabajo y Application Insights, esta opción se llama **Desactivar alertas**. En los demás tipos de recursos, se denomina **Silenciar acciones**. 
+Las alertas sin estado se activan cada vez que se cumple la condición, incluso si se han activado anteriormente. Puede [marcar la alerta como cerrada](../alerts/alerts-managing-alert-states.md) una vez que se resuelva la instancia de alerta. También puede silenciar acciones para evitar que se desencadenen durante un período después de que se active una regla de alertas. En áreas de trabajo de Log Analytics y Application Insights, esta opción se llama **Suprimir alertas**. En los demás tipos de recursos, se denomina **Silenciar acciones**. 
 
 Consulte este ejemplo de evaluación de alertas:
 
@@ -189,6 +194,8 @@ Consulte este ejemplo de evaluación de alertas:
 | 00:10 | true  | La alerta se desencadena y se llama a los grupos de acciones. Estado de nueva alerta ACTIVA.
 | 00:15 | true  | La alerta se desencadena y se llama a los grupos de acciones. Estado de nueva alerta ACTIVA.
 | 00:20 | false | La alerta no se activa. No se llamó a ninguna acción. El estado de las alertas anteriores sigue como ACTIVA.
+
+Las alertas con estado se activa una vez por incidente y se resuelven. Al crear o actualizar reglas de alertas de registro existentes, agregue la marca `autoMitigate` con el valor `true` de tipo `Boolean`, en la sección `properties`. Puede usar esta característica en estas versiones de API: `2018-04-16` y `2020-05-01-preview`.
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Precios y facturación de las alertas de registro
 

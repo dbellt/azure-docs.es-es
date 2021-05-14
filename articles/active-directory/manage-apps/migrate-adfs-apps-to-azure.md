@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 03/01/2021
 ms.author: iangithinji
 ms.reviewer: baselden
-ms.openlocfilehash: 83e506c0a3d0b9718f94d48ea8e6b23f43e811f3
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 4e9bedc63a3b1d53222c732b6611d132249b07c6
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107377945"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108320806"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Traslado de la autenticación de las aplicaciones de los Servicios de federación de Active Directory (AD FS) a Azure Active Directory
 
@@ -48,7 +48,7 @@ Las aplicaciones pueden usar protocolos modernos o heredados para la autenticaci
 
 Para más información, consulte:
 
-* [Uso de Azure AD Application Proxy para publicar aplicaciones locales para usuarios remotos](what-is-application-proxy.md).
+* [Uso de Azure AD Application Proxy para publicar aplicaciones locales para usuarios remotos](../app-proxy/what-is-application-proxy.md).
 * [¿Qué es la administración de aplicaciones?](what-is-application-management.md)
 * [Use el informe de actividades de aplicaciones de AD FS para migrar aplicaciones a Azure AD](migrate-adfs-application-activity.md).
 * [Supervisión de AD FS mediante Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md).
@@ -120,7 +120,7 @@ Si los usuarios inician sesión en aplicaciones SaaS como Salesforce, ServiceNow
 
 Es posible que la mayoría de las aplicaciones SaaS esté configurada en Azure AD. Microsoft tiene muchas conexiones preconfiguradas a aplicaciones SaaS de la [Galería de aplicaciones de Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps), lo que simplifica la transición. Las aplicaciones de SAML 2.0 se pueden integrar con Azure AD a través de la Galería de aplicaciones de Azure AD o como [aplicaciones que no son de la galería](add-application-portal.md).
 
-Las aplicaciones que usan OAuth 2.0 u OpenID Connect se pueden integrar de forma parecida con Azure AD a los [registros de aplicación](../develop/quickstart-register-app.md). Las aplicaciones que usan protocolos heredados puede usar [Azure AD Application Proxy](application-proxy.md) para autenticarse con Azure AD.
+Las aplicaciones que usan OAuth 2.0 u OpenID Connect se pueden integrar de forma parecida con Azure AD a los [registros de aplicación](../develop/quickstart-register-app.md). Las aplicaciones que usan protocolos heredados puede usar [Azure AD Application Proxy](../app-proxy/application-proxy.md) para autenticarse con Azure AD.
 
 Si tiene algún problema para incorporar las aplicaciones SaaS, puede ponerse en contacto con el [alias de soporte técnico de la integración de aplicaciones SaaS](mailto:SaaSApplicationIntegrations@service.microsoft.com).
 
@@ -177,7 +177,7 @@ Las aplicaciones que necesitan las funcionalidades de protocolo siguientes no se
 
 Las aplicaciones que necesitan las funcionalidades de notificación en token siguientes no se pueden migrar en estos momentos.
 
-* Notificaciones de almacenes de atributos que no son el directorio de Azure AD, a menos que los datos estén sincronizados con Azure AD. Para más información, consulte [Introducción a la API de sincronización de Azure AD](/graph/api/resources/synchronization-overview?view=graph-rest-beta).
+* Notificaciones de almacenes de atributos que no son el directorio de Azure AD, a menos que los datos estén sincronizados con Azure AD. Para más información, consulte [Introducción a la API de sincronización de Azure AD](/graph/api/resources/synchronization-overview).
 * Emisión de atributos de varios valores de directorio. Por ejemplo, en este momento no se puede emitir una notificación de varios valores para las direcciones de proxy.
 
 ## <a name="map-app-settings-from-ad-fs-to-azure-ad"></a>Asignación de la configuración de una aplicación de AD FS a Azure AD
@@ -414,7 +414,7 @@ En función de cómo configure la aplicación, compruebe que el inicio de sesió
 | OAuth / OpenID Connect| Seleccione **Aplicaciones empresariales > Permisos** y asegúrese de haber dado su consentimiento a la aplicación desde la configuración del usuario correspondiente a la aplicación.|
 | SSO basado en SAML | Use el botón [Probar la configuración de SAML](debug-saml-sso-issues.md) que está en **Inicio de sesión único**. |
 | SSO basado en contraseñas |  Descargue e instale la [Extensión de inicio de](../user-help/my-apps-portal-end-user-access.md)[-](../user-help/my-apps-portal-end-user-access.md)[sesión seguro de Aplicaciones](../user-help/my-apps-portal-end-user-access.md). Esta extensión lo ayudará a iniciar cualquiera de las aplicaciones en la nube de su organización que requiera que se use un proceso de inicio de sesión único. |
-| Proxy de aplicación | Asegúrese de que el conector esté en ejecución y que esté asignado a la aplicación. Visite la [Solución de problemas y mensajes de error de Proxy de aplicación](application-proxy-troubleshoot.md) para obtener más ayuda. |
+| Proxy de aplicación | Asegúrese de que el conector esté en ejecución y que esté asignado a la aplicación. Visite la [Solución de problemas y mensajes de error de Proxy de aplicación](../app-proxy/application-proxy-troubleshoot.md) para obtener más ayuda. |
 
 > [!NOTE]
 > Las cookies del entorno de AD FS anterior persisten en las máquinas de usuario. Estas cookies pueden causar problemas con la migración, ya que los usuarios podrían dirigirse al entorno de inicio de sesión de AD FS anterior, en lugar de al inicio de sesión nuevo de Azure AD. Es posible que tenga que borrar las cookies del explorador del usuario de manera manual o mediante un script. También puede usar System Center Configuration Manager o una plataforma similar.

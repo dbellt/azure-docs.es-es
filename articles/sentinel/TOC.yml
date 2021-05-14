@@ -21,8 +21,10 @@
       href: tutorial-monitor-your-data.md
     - name: Investigación de incidentes
       href: tutorial-investigate-cases.md
-    - name: Respuesta a amenazas
+    - name: Uso de la automatización para responder a amenazas
       href: tutorial-respond-threats-playbook.md
+    - name: Creación de consultas KQL (módulo de Learn)
+      href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
 - name: Conceptos
   items:
     - name: Clasificación de datos mediante entidades
@@ -33,8 +35,18 @@
           href: roles.md
         - name: Administración del acceso por recurso
           href: resource-context-rbac.md
+        - name: Protección de la propiedad intelectual de MSSP
+          href: mssp-protect-intellectual-property.md
     - name: Detección avanzada de ataques de varias fases
       href: fusion.md
+    - name: Automation (SOAR)
+      items:
+        - name: SOAR en Azure Sentinel
+          href: automation-in-azure-sentinel.md
+        - name: Reglas de automatización para el control de incidentes
+          href: automate-incident-handling-with-automation-rules.md
+        - name: Automatización avanzada con cuadernos de estrategias
+          href: automate-responses-with-playbooks.md
     - name: Identificación de amenazas avanzadas con UEBA
       href: identify-threats-with-entity-behavior-analytics.md
     - name: Importación de inteligencia sobre amenazas en Azure Sentinel
@@ -45,16 +57,16 @@
       href: microsoft-365-defender-sentinel-integration.md
     - name: Uso de datos externos con listas de reproducción
       href: watchlists.md
-    - name: Asignación de permisos mediante roles
-      href: roles.md
     - name: Extender Azure Sentinel por áreas de trabajo e inquilinos
       href: extend-sentinel-across-workspaces-tenants.md
     - name: Normalización de los datos en tablas
       href: normalization.md
+    - name: Uso de Azure Data Explorer para conservar registros a largo plazo
+      href: store-logs-in-azure-data-explorer.md
     - name: Seguridad
       items:
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json
 - name: Guías paso a paso
   items:
     - name: Conexión con orígenes de datos
@@ -84,6 +96,8 @@
               href: connect-azure-kubernetes-service.md
             - name: Registros de bases de datos de Azure SQL
               href: connect-azure-sql-logs.md
+            - name: Cuentas de Azure Storage
+              href: connect-azure-storage-account.md
             - name: Firewall de aplicaciones web (WAF) de Azure
               href: connect-azure-waf.md
             - name: Defender para IoT (anteriormente ASC para IoT)
@@ -110,6 +124,8 @@
               href: connect-windows-firewall.md
             - name: Eventos de seguridad de Windows
               href: connect-windows-security-events.md
+            - name: Windows Virtual Desktop
+              href: connect-windows-virtual-desktop.md
         - name: Conexión de soluciones externas
           items:
             - name: Agari Phishing Defense y Agari Brand Protection
@@ -250,8 +266,12 @@
           href: connect-azure-stack.md
         - name: Supervisión del estado del conector de datos
           href: monitor-data-connector-health.md
-    - name: Habilitación del análisis del comportamiento de usuarios y entidades
-      href: enable-entity-behavior-analytics.md
+    - name: Uso del análisis de comportamiento de usuarios y entidades
+      items:
+        - name: Habilitación de UEBA
+          href: enable-entity-behavior-analytics.md
+        - name: Investigación con UEBA
+          href: investigate-with-ueba.md
     - name: Asignación de campos de datos a entidades
       href: map-data-fields-to-entities.md
     - name: Administración de varios inquilinos (MSSP)
@@ -283,6 +303,8 @@
   items:
     - name: Principales libros de Azure Sentinel
       href: top-workbooks.md
+    - name: Azure CLI
+      href: /cli/azure/sentinel
     - name: Roles RBAC de Azure
       items:
         - name: Todos los roles de Azure
@@ -311,8 +333,14 @@
           href: /azure/data-explorer/kusto/query/
         - name: Referencia rápida del lenguaje de consulta de Kusto
           href: /azure/data-explorer/kql-quick-reference
+        - name: Optimizaciones de consulta del registro de Azure Monitor
+          href: ../azure-monitor/logs/query-optimization.md
     - name: Enriquecimientos con UEBA
       href: ueba-enrichments.md
+    - name: Asignación de campos del registro de CEF
+      href: cef-name-mapping.md
+    - name: "Alertas de MCAS no incorporadas a Microsoft\_365 Defender"
+      href: microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md
 - name: Recursos
   items:
     - name: Recursos útiles
@@ -323,3 +351,5 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel'
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/azure-sentinel/'
+    - name: Disponibilidad de las características para nubes de la Administración Pública de Estados Unidos
+      href: /azure/security/fundamentals/feature-availability

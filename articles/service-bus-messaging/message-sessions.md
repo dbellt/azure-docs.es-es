@@ -2,13 +2,13 @@
 title: Sesiones de mensajes de Azure Service Bus | Microsoft Docs
 description: En este artículo se explica cómo usar sesiones de para habilitar la administración ordenada y conjunta de secuencias sin enlace de mensajes relacionados.
 ms.topic: article
-ms.date: 04/12/2021
-ms.openlocfilehash: c9a1c4fdccbbc8b38805e23d4895448959126f10
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 04/19/2021
+ms.openlocfilehash: f3b6eae7b7f4d609df5067187595230aa6b86dba
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308490"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987171"
 ---
 # <a name="message-sessions"></a>Sesiones de mensajes
 Las sesiones de Microsoft Azure Service Bus permiten la administración ordenada y conjunta de secuencias sin enlace de mensajes relacionados. Se pueden usar sesiones en patrones **FIFO (primero en entrar, primero en salir)** y de **solicitud-respuesta**. En este artículo se muestra cómo usar sesiones para implementar estos patrones al utilizar Service Bus. 
@@ -24,15 +24,6 @@ Cualquier remitente puede crear una sesión al enviar mensajes en un tema o una 
 En las colas o suscripciones basadas en sesiones, las sesiones existen cuando hay al menos un mensaje con el id. sesión. Una vez que una sesión existe, no hay ningún tiempo o API definidos para cuando la sesión expira o desaparece. En teoría, se puede recibir un mensaje para una sesión hoy y el siguiente mensaje en un año, pero si el id. de sesión coincide, la sesión será la misma desde la perspectiva de Service Bus.
 
 Por lo general, sin embargo, una aplicación tiene una noción clara de dónde comienza o termina un conjunto de mensajes relacionados. Service Bus no establece ninguna regla específica. Por ejemplo, la aplicación puede establecer la propiedad **Label** del primer mensaje en **start**, de los mensajes intermedios en **content** y del último mensaje en **end**. La posición relativa de los mensajes de contenido se puede calcular como la diferencia de *SequenceNumber* del mensaje actual a partir del valor **SequenceNumber** del mensaje de *inicio*.
-
-Para habilitar la característica, se establece la propiedad [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) de la cola o la suscripción mediante Azure Resource Manager o la marca del portal. Esto es necesario antes de intentar usar las operaciones de API relacionadas.
-
-En el portal, puede habilitar sesiones al crear una entidad (cola o suscripción), como se muestra en los ejemplos siguientes. 
-
-:::image type="content" source="./media/message-sessions/queue-sessions.png" alt-text="Habilitación de la sesión en el momento de la creación de la cola":::
-
-:::image type="content" source="./media/message-sessions/subscription-sessions.png" alt-text="Habilitación de la sesión en el momento de la creación de la suscripción":::
-
 
 > [!IMPORTANT]
 > Cuando las sesiones están habilitadas en una cola o una suscripción, las aplicaciones cliente ***ya no*** pueden enviar ni recibir mensajes normales. Todos los mensajes se deben enviar como parte de una sesión (estableciendo el id. de sesión) y recibirlos mediante la aceptación de la sesión.
@@ -90,14 +81,19 @@ Varias aplicaciones pueden enviar sus solicitudes a una única cola de solicitud
 > La aplicación que envía las solicitudes iniciales debe conocer el id. de sesión y usarlo para aceptar la sesión, de modo que se bloquee la sesión en la que se espera la respuesta. Se recomienda usar un GUID que identifique de forma única la instancia de la aplicación como un id. de sesión. No debe haber ningún controlador de sesión o un tiempo de espera especificado en el receptor de la sesión para la cola a fin de garantizar que las respuestas estén disponibles para que las bloqueen y procesen destinatarios específicos.
 
 ## <a name="next-steps"></a>Pasos siguientes
+Puede habilitar sesiones de mensajes mientras crea una cola mediante Azure Portal, PowerShell, la CLI, una plantilla de Resource Manager, .NET, Java, Python y JavaScript. Para más información, consulte [Habilitación de sesiones de mensajes](enable-message-sessions.md). 
 
-- [Ejemplos de Azure.Messaging.ServiceBus para .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
-- [Biblioteca cliente de Azure Service Bus para Java: ejemplos](/samples/azure/azure-sdk-for-java/servicebus-samples/)
-- [Biblioteca cliente de Azure Service Bus para Python: ejemplos](/samples/azure/azure-sdk-for-python/servicebus-samples/)
-- [Biblioteca cliente de Azure Service Bus para JavaScript: ejemplos](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
-- [Biblioteca cliente de Azure Service Bus para TypeScript: ejemplos](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-- [Ejemplos de Microsoft.Azure.ServiceBus para .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) (ejemplos de Sessions y SessionState)  
+Pruebe los ejemplos en el lenguaje que prefiera para explorar las características de Azure Service Bus. 
 
-Para más información sobre las colas de Service Bus, consulte [Colas, temas y suscripciones de Service Bus](service-bus-queues-topics-subscriptions.md).
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para .NET (versión más reciente)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para Java (versión más reciente)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+
+A continuación, encontrará ejemplos de las bibliotecas cliente de .NET y Java anteriores:
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para .NET (versión heredada)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [Ejemplos de la biblioteca cliente de Azure Service Bus para Java (versión heredada)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
 
 [1]: ./media/message-sessions/sessions.png
+

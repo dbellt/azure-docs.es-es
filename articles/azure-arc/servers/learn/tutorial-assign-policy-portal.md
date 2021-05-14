@@ -2,13 +2,13 @@
 title: 'Tutorial: Asignación de directivas nuevas con Azure Portal'
 description: En este tutorial, se usa Azure Portal a fin de crear una asignación de Azure Policy para identificar recursos no compatibles.
 ms.topic: tutorial
-ms.date: 10/07/2020
-ms.openlocfilehash: 9a07e490525ce532f8f843b30b3b83715e65ce3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/21/2021
+ms.openlocfilehash: 20cb8125a157a3ce97c88278c99f90936b449b65
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91826593"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831661"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Tutorial: Creación de una asignación de directiva para identificar recursos no compatibles
 
@@ -95,9 +95,9 @@ Para quitar la asignación creada, siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, se asigna una definición de directiva a un ámbito y se evalúa su informe de cumplimiento. La definición de la directiva confirma que todos los recursos del ámbito son compatibles y se identifican cuáles no lo son. Ahora ya está preparado para supervisar las máquinas de servidores habilitados para Azure Arc con Azure Monitor para VM.
+En este tutorial, se asigna una definición de directiva a un ámbito y se evalúa su informe de cumplimiento. La definición de la directiva confirma que todos los recursos del ámbito son compatibles y se identifican cuáles no lo son. Ahora ya está preparado para supervisar las máquinas de servidores habilitados para Azure Arc mediante la habilitación de [VM Insights](../../../azure-monitor/vm/vminsights-overview.md).
 
 Para más información sobre cómo supervisar y ver el rendimiento, el proceso en ejecución y sus dependencias de la máquina, continúe con el tutorial:
 
 > [!div class="nextstepaction"]
-> [Habilitar Azure Monitor para VM](tutorial-enable-vm-insights.md)
+> [Habilitación de VM Insights](tutorial-enable-vm-insights.md)

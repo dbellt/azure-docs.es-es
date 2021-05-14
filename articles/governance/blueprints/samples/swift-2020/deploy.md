@@ -3,12 +3,12 @@ title: Implementación del ejemplo de plano técnico de la norma SWIFT CSP-CSCF
 description: Implemente los pasos para el ejemplo de plano técnico de la norma SWIFT CSP-CSCF v2020, incluidos los detalles de los parámetros del artefacto de plano técnico.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 321ed1a50a5066838b83cc850b227725b6222e42
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 6af8495db98386bd2ce6dff90f57b5f3f0014616
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386166"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733956"
 ---
 # <a name="deploy-the-swift-csp-cscf-v2020-blueprint-sample"></a>Implementación del ejemplo de plano técnico de la norma SWIFT CSP-CSCF v2020
 
@@ -96,18 +96,18 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 |\[Versión preliminar\]: Auditoría de los controles de SWIFT CSP-CSCF v2020 e implementación de extensiones de máquina virtual específicas para admitir los requisitos de auditoría|Asignación de directiva|Lista de tipos de recursos que deben tener los registros de diagnóstico habilitados|Lista de tipos de recursos para auditar si la opción de registro de diagnóstico no está habilitada. Los valores aceptables se pueden encontrar en las [categorías de registros de recursos de Azure Monitor](../../../../azure-monitor/essentials/resource-logs-categories.md#supported-log-categories-per-resource-type).|
 |\[Versión preliminar\]: Auditoría de los controles de SWIFT CSP-CSCF v2020 e implementación de extensiones de máquina virtual específicas para admitir los requisitos de auditoría|Asignación de directiva|Identificadores del área de trabajo conectada|Una lista separada por signos de punto y coma de los identificadores de área de trabajo a los que debe estar conectado el agente de Log Analytics|
 |\[Versión preliminar\]: Auditoría de los controles de SWIFT CSP-CSCF v2020 e implementación de extensiones de máquina virtual específicas para admitir los requisitos de auditoría|Asignación de directiva|Lista de usuarios que deben incluirse en el grupo de administradores de máquinas virtuales Windows|Lista separada por punto y coma de los miembros que deben incluirse en el grupo de administradores local. Por ejemplo: Administrador; miUsuario1; miUsuario2|
-|\[Versión preliminar\]: Auditoría de los controles de SWIFT CSP-CSCF v2020 e implementación de extensiones de máquina virtual específicas para admitir los requisitos de auditoría|Asignación de directiva|Nombre de dominio (FQDN)|El nombre de dominio completo (FQDN) al que deben estar conectadas las máquinas virtuales Windows|
+|\[Versión preliminar\]: Auditoría de los controles de SWIFT CSP-CSCF v2020 e implementación de extensiones de máquina virtual específicas para admitir los requisitos de auditoría|Asignación de directiva|Nombre de dominio (FQDN) |El nombre de dominio completo (FQDN) al que deben estar conectadas las máquinas virtuales Windows|
 |Implementar el agente de Log Analytics en máquinas virtuales Linux|Asignación de directiva|Área de trabajo de Log Analytics para máquinas virtuales Linux|Si este área de trabajo está fuera del ámbito de la asignación, debe conceder manualmente los permisos de "colaborador de Log Analytics" (o similar) al identificador de la entidad de seguridad de la asignación de la directiva.|
 |Implementar el agente de Log Analytics en máquinas virtuales Linux|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Linux que se agregarán al ámbito.|Se puede usar una matriz vacía para indicar que no hay parámetros opcionales: \[\]|
 |Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Windows|Asignación de directiva|Área de trabajo de Log Analytics para VM Scale Sets (VMSS) para Windows|Si este área de trabajo está fuera del ámbito de la asignación, debe conceder manualmente los permisos de "colaborador de Log Analytics" (o similar) al identificador de la entidad de seguridad de la asignación de la directiva.|
 |Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Windows|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Windows que se agregarán al ámbito.|Se puede usar una matriz vacía para indicar que no hay parámetros opcionales: \[\]|
 |Implementar el agente de Log Analytics en máquinas virtuales Windows|Asignación de directiva|Área de trabajo de Log Analytics para máquinas virtuales Windows|Si este área de trabajo está fuera del ámbito de la asignación, debe conceder manualmente los permisos de "colaborador de Log Analytics" (o similar) al identificador de la entidad de seguridad de la asignación de la directiva.|
 |Implementar el agente de Log Analytics en máquinas virtuales Windows|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Windows que se agregarán al ámbito.|Se puede usar una matriz vacía para indicar que no hay parámetros opcionales: \[\]|
-|Implementar Advanced Threat Protection en las cuentas de almacenamiento|Asignación de directiva|Efecto|Puede encontrar información sobre los efectos de las directivas en [Comprender los efectos de Azure Policy](../../../policy/concepts/effects.md).|
-|Implementación de auditorías en servidores SQL Server|Asignación de directiva|Valor en días para el período de retención (0 indica retención ilimitada)|Días de retención (opcional; 180 días si no se especifica)|
+|Implementar Advanced Threat Protection en las cuentas de almacenamiento|Asignación de directiva|Efecto|Puede encontrar información sobre los efectos de las directivas en [Comprender los efectos de Azure Policy](../../../policy/concepts/effects.md). |
+|Implementación de auditorías en servidores SQL Server|Asignación de directiva|Valor en días para el período de retención (0 indica retención ilimitada) |Días de retención (opcional; 180 días si no se especifica) |
 |Implementación de auditorías en servidores SQL Server|Asignación de directiva|Nombre del grupo de recursos para la cuenta de almacenamiento para la auditoría del servidor de SQL|La auditoría escribe eventos de base de datos en un registro de auditoría en la cuenta de Azure Storage (se creará una cuenta de almacenamiento en cada región donde se cree una instancia de SQL Server que compartirán todos los servidores de esa región). Importante: Para el correcto funcionamiento de la auditoría, no elimine ni cambie el nombre del grupo de recursos o de las cuentas de almacenamiento.|
 |Implementación de la configuración de diagnóstico de grupos de seguridad de red|Asignación de directiva|Prefijo de la cuenta de almacenamiento para diagnósticos de grupos de seguridad de red|Este prefijo se combinará con la ubicación del grupo de seguridad de red para formar el nombre de la cuenta de almacenamiento que se creó.|
-|Implementación de la configuración de diagnóstico de grupos de seguridad de red|Asignación de directiva|Nombre del grupo de recursos para la cuenta de almacenamiento para el diagnóstico de grupos de seguridad de red (deben existir)|El grupo de recursos en el que se creará la cuenta de almacenamiento. Este grupo de recursos ya debe existir.|
+|Implementación de la configuración de diagnóstico de grupos de seguridad de red|Asignación de directiva|Nombre del grupo de recursos para la cuenta de almacenamiento para el diagnóstico de grupos de seguridad de red (deben existir) |El grupo de recursos en el que se creará la cuenta de almacenamiento. Este grupo de recursos ya debe existir.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

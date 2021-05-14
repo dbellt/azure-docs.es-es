@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: 3e5b064ec37b855186f633677e2b1a3f615a6736
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d36cf1c5ed8c916962ae0b621548a593d2fe0a97
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783870"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331851"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicación geográfica en Azure Container Registry
 
@@ -66,7 +66,7 @@ Azure Container Registry también admite [zonas de disponibilidad](zone-redundan
 
 ## <a name="configure-geo-replication"></a>Configuración de la replicación geográfica
 
-Configurar la replicación geográfica es tan fácil como hacer clic en las regiones de un mapa. También puede administrar la replicación geográfica mediante herramientas como los comandos [az acr replication](/cli/azure/acr/replication) de la CLI de Azure, o implementar un registro habilitado para la replicación geográfica con una [plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication).
+Configurar la replicación geográfica es tan fácil como hacer clic en las regiones de un mapa. También puede administrar la replicación geográfica mediante herramientas como los comandos [az acr replication](/cli/azure/acr/replication) de la CLI de Azure, o implementar un registro habilitado para la replicación geográfica con una [plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/).
 
 La replicación geográfica es una característica de los [registros Premium](container-registry-skus.md). Si el registro no es Premium, puede cambiarlo de Básico y Estándar a Premium en [Azure Portal](https://portal.azure.com):
 

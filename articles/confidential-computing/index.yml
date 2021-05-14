@@ -5,17 +5,17 @@ metadata:
   title: Computación confidencial de Azure
   description: Obtenga información sobre la forma en que la computación confidencial de Azure protege los datos en uso y aprenda distintas maneras de crear cargas de trabajo confidenciales en la nube.
   ms.service: virtual-machines
-  ms.subservice: workloads
+  ms.subservice: confidential-computing
   ms.topic: landing-page
   author: JBCook
   ms.author: jencook
   ms.date: 09/22/2020
-  ms.openlocfilehash: d41addbcf1c7e5bf673ba0082e5eaa216b5f946d
-  ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+  ms.openlocfilehash: b5d8550c87d56a7deb257b485722f64a5b8f7131
+  ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 02/18/2021
-  ms.locfileid: "100652639"
+  ms.lasthandoff: 03/24/2021
+  ms.locfileid: "104955268"
 landingContent:
 - title: Acerca de la computación confidencial de Azure
   linkLists:

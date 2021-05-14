@@ -2,13 +2,14 @@
 title: Implementación de recursos en el inquilino
 description: Se describe cómo implementar recursos en el ámbito de un inquilino en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 01/13/2021
-ms.openlocfilehash: 0b17b8741d1701720de86d8039be3b6cd28ace5c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 04/27/2021
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: dfcdd4c9fdf758b0e07c2566c50b45f534133c3c
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781908"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751498"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Implementaciones de inquilino con plantillas de Resource Manager
 
@@ -17,12 +18,6 @@ A medida que crece la organización, es posible que necesite definir y asignar [
 ## <a name="supported-resources"></a>Recursos compatibles
 
 No todos los tipos de recursos se pueden implementar a nivel de inquilino. En esta sección se enumeran los tipos de recursos que se admiten.
-
-Para las directivas de Azure, use:
-
-* [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
-* [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
-* [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 
 Para el control de acceso basado en rol de Azure (Azure RBAC), use:
 
@@ -49,6 +44,8 @@ Para la administración de costos, use:
 Para configurar el portal, use:
 
 * [tenantConfigurations](/azure/templates/microsoft.portal/tenantconfigurations)
+
+Las definiciones de directiva integradas son recursos de nivel de inquilino, pero no se pueden implementar definiciones de directiva personalizadas en un inquilino. Para obtener un ejemplo de asignación de una definición de directiva integrada a un recurso, consulte el [ejemplo tenantResourceId](./template-functions-resource.md#tenantresourceid-example).
 
 ## <a name="schema"></a>Schema
 

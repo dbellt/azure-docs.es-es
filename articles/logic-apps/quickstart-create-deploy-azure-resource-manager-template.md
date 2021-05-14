@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs, devx-track-azurecli
+ms.custom: mvc, subject-armqs
 ms.date: 04/01/2021
-ms.openlocfilehash: bdeb80dc487d8418e21a40a29e5d2baab49d7b05
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 01fe3121173eb730584dadd1266b3217af2b5017
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771900"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279557"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>Inicio rápido: Creación e implementación de un flujo de trabajo de aplicaciones lógicas mediante una plantilla de ARM
 
@@ -22,7 +22,7 @@ ms.locfileid: "107771900"
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-logic-app-create%2fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.logic%2Flogic-app-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -30,7 +30,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta de Azure gratuita](https:
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-En esta guía de inicio rápido se usa la plantilla [**Crear una aplicación lógica**](https://azure.microsoft.com/resources/templates/101-logic-app-create/), que puede encontrar en la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates), pero es demasiado larga para mostrarla aquí. En su lugar, puede revisar el ["archivo azuredeploy.json"](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) de plantillas de inicio rápido en la galería de plantillas.
+En esta guía de inicio rápido se usa la plantilla [**Crear una aplicación lógica**](https://azure.microsoft.com/resources/templates/101-logic-app-create/), que puede encontrar en la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates), pero es demasiado larga para mostrarla aquí. En su lugar, puede revisar el ["archivo azuredeploy.json"](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json) de plantillas de inicio rápido en la galería de plantillas.
 
 La plantilla de inicio rápido crea un flujo de trabajo de aplicación lógica que usa el desencadenador de periodicidad, que se establece para ejecutarse cada hora, y una [acción HTTP *integrada*](../connectors/built-in.md), que llama a una dirección URL que devuelve el estado de Azure. Una acción integrada es nativa para la plataforma Azure Logic Apps.
 
@@ -60,7 +60,7 @@ Siga la opción que desea usar para implementar la plantilla de inicio rápido:
 
 1. Seleccione la imagen siguiente para iniciar sesión con su cuenta de Azure y abrir la plantilla de inicio rápido en Azure Portal:
 
-   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-logic-app-create%2fazuredeploy.json)
+   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.logic%2Flogic-app-create%2Fazuredeploy.json)
 
 1. En el portal, en la página **Creación de una aplicación lógica mediante una plantilla**, escriba o seleccione estos valores:
 
@@ -87,7 +87,7 @@ Siga la opción que desea usar para implementar la plantilla de inicio rápido:
 ```azurecli-interactive
 read -p "Enter a project name name to use for generating resource names:" projectName &&
 read -p "Enter the location, such as 'westus':" location &&
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json" &&
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json" &&
 resourceGroupName="${projectName}rg" &&
 az group create --name $resourceGroupName --location "$location" &&
 az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri &&
@@ -105,7 +105,7 @@ Para más información, consulte los temas siguientes:
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name to use for generating resource names"
 $location = Read-Host -Prompt "Enter the location, such as 'westus'"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json"
 
 $resourceGroupName = "${projectName}rg"
 
@@ -189,8 +189,8 @@ Para más información, consulte los temas siguientes:
    | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | `location`| <*Azure-region*> | Región de Azure que se usará para la implementación. En este ejemplo se usa `West US`. |
-   | `templateLink` : `uri` | <*quickstart-template-URL*> | Ubicación URL de la plantilla de inicio rápido que se va a usar para la implementación: <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json`. |
-   | `parametersLink` : `uri` | <*quickstart-template-parameter-file-URL*> | Ubicación URL del archivo de parámetros de la plantilla de inicio rápido que se va a usar para la implementación: <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.parameters.json` <p><p>Para más información sobre el archivo de parámetros de Resource Manager, consulte estos temas: <p><p>- [Creación de un archivo de parámetros de Resource Manager](../azure-resource-manager/templates/parameter-files.md) <br>- [Tutorial: Uso de archivos de parámetros para implementar la plantilla de ARM](../azure-resource-manager/templates/template-tutorial-use-parameter-file.md) |
+   | `templateLink` : `uri` | <*quickstart-template-URL*> | Ubicación URL de la plantilla de inicio rápido que se va a usar para la implementación: <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json`. |
+   | `parametersLink` : `uri` | <*quickstart-template-parameter-file-URL*> | Ubicación URL del archivo de parámetros de la plantilla de inicio rápido que se va a usar para la implementación: <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.parameters.json` <p><p>Para más información sobre el archivo de parámetros de Resource Manager, consulte estos temas: <p><p>- [Creación de un archivo de parámetros de Resource Manager](../azure-resource-manager/templates/parameter-files.md) <br>- [Tutorial: Uso de archivos de parámetros para implementar la plantilla de ARM](../azure-resource-manager/templates/template-tutorial-use-parameter-file.md) |
    | `mode` | <*deployment-mode*> | Ejecute una actualización incremental o una actualización completa. En este ejemplo se usa `Incremental`, que es el valor predeterminado. Para más información, consulte [Modos de implementación de Azure Resource Manager](../azure-resource-manager/templates/deployment-modes.md). |
    |||
 
@@ -201,11 +201,11 @@ Para más información, consulte los temas siguientes:
       "location": "West US",
       "properties": {
          "templateLink": {
-            "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json",
+            "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json",
             "contentVersion": "1.0.0.0"
          },
          "parametersLink": {
-            "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.parameters.json",
+            "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.parameters.json",
             "contentVersion": "1.0.0.0"
          },
          "mode": "Incremental"
@@ -245,7 +245,7 @@ az logic workflow show --name $logicAppName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-Para más información, consulte [CLI de Azure: az logic workflow show](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-show).
+Para más información, consulte [CLI de Azure: az logic workflow show](/cli/azure/logic/workflow#az_logic_workflow_show).
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

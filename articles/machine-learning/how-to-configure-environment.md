@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 03/22/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 7f35f9196fb4ab67de724ba73982fed69ac81361
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.topic: how-to
+ms.custom: devx-track-python, contperf-fy21q1, devx-track-azurecli
+ms.openlocfilehash: 80ea49436e9bfec5203f3a0493d441cfdbd1dbde
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107306847"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755124"
 ---
 # <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Configuración de un entorno de desarrollo de Python para Azure Machine Learning
 
@@ -102,7 +102,7 @@ Para configurar un entorno de desarrollo local o una máquina virtual remota:
 1. Instale el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/install).
 1. Con el fin de configurar el entorno local para usar el área de trabajo de Azure Machine Learning, [cree un archivo de configuración de área de trabajo](#workspace) o use uno que ya tenga.
 
-Ahora que ha configurado el entorno local, ya podrá empezar a trabajar con Azure Machine Learning. Consulte la [guía de introducción de Azure Machine Learning para Python](tutorial-1st-experiment-sdk-setup-local.md) para comenzar.
+Ahora que ha configurado el entorno local, ya podrá empezar a trabajar con Azure Machine Learning. Consulte la [guía de introducción de Azure Machine Learning para Python](tutorial-1st-experiment-hello-world.md) para comenzar.
 
 ### <a name="jupyter-notebooks"></a><a id="jupyter"></a>Jupyter Notebook
 
@@ -147,7 +147,7 @@ La [instancia de proceso](concept-compute-instance.md) de Azure Machine Learning
 
 No hay nada que instalar o configurar para una instancia de proceso.  
 
-Cree una en cualquier momento desde el área de trabajo de Azure Machine Learning. Basta con que proporcione un nombre y especifique un tipo de máquina virtual de Azure. Pruébelo ahora con este [Tutorial: Configuración del entorno y el área de trabajo](tutorial-1st-experiment-sdk-setup.md).
+Cree una en cualquier momento desde el área de trabajo de Azure Machine Learning. Basta con que proporcione un nombre y especifique un tipo de máquina virtual de Azure. Pruébelo ahora con este [Tutorial: Configuración del entorno y el área de trabajo](quickstart-create-resources.md).
 
 Para obtener más información acerca de las instancias de proceso, incluyendo cómo instalar paquetes, consulte [Creación y administración de una instancia de proceso de Azure Machine Learning](how-to-create-manage-compute-instance.md).
 

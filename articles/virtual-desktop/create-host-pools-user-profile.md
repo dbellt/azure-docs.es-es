@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 69582f26544d954088fd5a57bfe5730750b7b5a8
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 33e1b069221331aed8f8ca13bd088ba067a85ba7
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447920"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752470"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Creación de un contenedor de perfiles para un grupo host mediante un recurso compartido de archivos
 
@@ -28,7 +28,7 @@ Al crear la máquina virtual, asegúrese de colocarla en la misma red virtual qu
 
 - [Crear una máquina virtual desde una imagen de la galería de Azure](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Crear una máquina virtual desde una imagen administrada](../virtual-machines/windows/create-vm-generalized-managed.md)
-- [Crear una máquina virtual desde una imagen no administrada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
+- [Crear una máquina virtual desde una imagen no administrada](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image)
 
 Después de crear la máquina virtual, únala al dominio haciendo lo siguiente:
 

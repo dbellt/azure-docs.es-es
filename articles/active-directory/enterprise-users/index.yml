@@ -1,22 +1,23 @@
 ### YamlMime:Landing
 title: Documentación de la administración de usuarios empresariales (Azure AD)
-summary: Azure AD proporciona servicios de administración de usuarios, como grupos y licencias, que le ayudan a realizar las principales tareas de administración de usuarios más rápidamente. Asigne licencias, asigne acceso a las aplicaciones a grupos o usuarios, y agregue o administre nombres de dominio.
+summary: Azure AD proporciona servicios de administración de usuarios que no solo permiten asignar licencias y administrar grupos y usuarios, sino también agregar o administrar nombres de dominio.
 metadata:
-  title: Documentación sobre usuarios, grupos, licencias y dominios de Azure Active Directory
-  description: Aprenda a usar grupos, nombres de dominio y licencias para administrar la autenticación de usuarios en un organización de Azure AD.
+  title: Documentación de usuarios, grupos, licencias y dominios de Azure Active Directory
+  description: Aprenda a usar grupos, nombres de dominio y licencias para administrar la autenticación de usuarios en una organización de Azure AD.
   services: active-directory
   ms.service: active-directory
-  manager: daveba
+  ms.subservice: enterprise-users
+  manager: mtillman
   ms.topic: landing-page
-  ms.date: 10/19/2020
+  ms.date: 04/18/2021
   author: curtand
   ms.author: curtand
-  ms.openlocfilehash: a919a9785163776cfbcfb52a378405c0ac870035
-  ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+  ms.openlocfilehash: 8a129cf6e000a2e644f2fc7168d9e3105de0f957
+  ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/23/2020
-  ms.locfileid: "95503037"
+  ms.lasthandoff: 04/20/2021
+  ms.locfileid: "107739303"
 landingContent:
 - title: Acerca de la administración de usuarios empresariales
   linkLists:
@@ -32,7 +33,7 @@ landingContent:
       url: licensing-directory-independence.md
     - text: Administración del acceso mediante grupos
       url: ../fundamentals/active-directory-manage-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: quickstart
     links:

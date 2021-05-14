@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: 8aebb5b6f6a3ac53bc49fd1d2f75de88667865fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ad57473e0950f031fbeadee2302f85557ed526f
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92147646"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388268"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Uso de rutas de mensajes y de puntos de conexión personalizados para mensajes de dispositivo a nube
 
@@ -32,13 +32,14 @@ Un solo mensaje puede cumplir la condición en varias consultas de enrutamiento,
 
 ## <a name="endpoints-and-routing"></a>Puntos de conexión y enrutamiento
 
-Un centro de IoT tiene un [punto de conexión integrado](iot-hub-devguide-messages-read-builtin.md) predeterminado. Puede crear puntos de conexión personalizados a los que enrutar mensajes vinculando otros servicios de su suscripción al centro. IoT Hub admite actualmente los contenedores de Azure Storage, Event Hubs, las colas de Service Bus y los temas de Service Bus como puntos de conexión personalizados.
+Un centro de IoT tiene un [punto de conexión integrado](iot-hub-devguide-messages-read-builtin.md) predeterminado. Puede crear puntos de conexión personalizados a los que enrutar mensajes si vincula otros servicios de sus suscripciones al centro de conectividad. IoT Hub admite actualmente los contenedores de Azure Storage, Event Hubs, las colas de Service Bus y los temas de Service Bus como puntos de conexión personalizados.
 
 Cuando utilice el enrutamiento y los puntos de conexión personalizados, los mensajes se entregarán solo al punto de conexión integrado si no coinciden con ninguna consulta. Para entregar mensajes al punto de conexión integrado, además de a un punto de conexión personalizado, agregue una ruta que envíe mensajes al punto de conexión **events** integrado.
 
 > [!NOTE]
 > * IoT Hub solo admite la escritura de datos en contenedores de Azure Storage como blobs.
 > * Las colas y los temas de Service Bus con **Sesiones** o **Detección de duplicados** habilitadas no son compatibles como puntos de conexión personalizados.
+> * En Azure Portal, puede crear puntos de conexión de enrutamiento personalizados solo a los recursos de Azure que se encuentran en la misma suscripción que el centro de conectividad. Puede crear puntos de conexión personalizados a los recursos de otras suscripciones de su propiedad, pero los puntos de conexión personalizados deben configurarse con un método que no sea Azure Portal.
 
 Para más información sobre cómo crear puntos de conexión personalizados en IoT Hub, vea [Referencia: Puntos de conexión de IoT Hub](iot-hub-devguide-endpoints.md).
 

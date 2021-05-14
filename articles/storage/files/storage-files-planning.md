@@ -8,12 +8,12 @@ ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 267b68fbdae6d894acc3222a8d74a8e15e865dbc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be7e5b1f9721cc65c2f9b371becf8b4c82fb37b4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023527"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107759781"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 [Azure Files](storage-files-introduction.md) se puede implementar de dos formas principales: montando directamente los recursos compartidos de archivos de Azure sin servidor o almacenando en caché recursos compartidos de archivos de Azure localmente mediante Azure File Sync. La opción de implementación que elija cambiará todo aquello que debe tener en cuenta a la hora de planear la implementación. 
@@ -22,7 +22,7 @@ ms.locfileid: "105023527"
 
 - **Almacenamiento en caché de recursos compartidos de archivos de Azure localmente con Azure File Sync**: Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma una instancia de Windows Server local (o en la nube) en una caché rápida de su recurso compartido de archivos SMB de Azure. 
 
-En este artículo se abordan principalmente las consideraciones de implementación de un recurso compartido de archivos de Azure que se va a montar directamente mediante un cliente local o en la nube. Para planear una implementación de Azure File Sync, consulte [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md).
+En este artículo se abordan principalmente las consideraciones de implementación de un recurso compartido de archivos de Azure que se va a montar directamente mediante un cliente local o en la nube. Para planear una implementación de Azure File Sync, consulte [Planeamiento de una implementación de Azure File Sync](../file-sync/file-sync-planning.md).
 
 ## <a name="available-protocols"></a>Protocolos disponibles
 
@@ -116,7 +116,8 @@ Para más información, consulte [Introducción a Azure Defender para Storage](.
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
 ### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Habilitación de recursos compartidos de archivos para incluir hasta 100 TiB
-[!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
+De forma predeterminada, los recursos compartidos de archivos estándar solo pueden abarcar hasta 5 TiB, pero puede aumentar el límite de recursos compartidos a 100 TiB. Para obtener información sobre cómo aumentar el límite de recursos compartidos, consulte [Habilitación y creación de recursos compartidos de archivos grandes](storage-files-how-to-create-large-file-share.md).
+
 
 #### <a name="limitations"></a>Limitaciones
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
@@ -130,7 +131,7 @@ En muchos casos, no se establecerá un nuevo recurso compartido de archivos para
 En el [artículo de introducción a la migración](storage-files-migration-overview.md) se describen brevemente los aspectos básicos y se incluye una tabla que le conduce a guías de migración que probablemente cubran su escenario.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)
+* [Planeamiento de una implementación de Azure File Sync](../file-sync/file-sync-planning.md)
 * [Implementación de Azure Files](./storage-how-to-create-file-share.md)
-* [Implementación de Azure File Sync](storage-sync-files-deployment-guide.md)
+* [Implementación de Azure File Sync](../file-sync/file-sync-deployment-guide.md)
 * [Consulte el artículo de introducción a la migración para encontrar la guía de migración para su escenario.](storage-files-migration-overview.md)

@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/04/2021
-ms.openlocfilehash: 753f201fbde5d9e7100b6e257f8dc79e4462d7b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/29/2021
+ms.openlocfilehash: e335176b5cd7c6c35477ac9318cf20ce4b64b82d
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99584930"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291017"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Generación de expresiones del flujo de datos de asignación
 
@@ -71,7 +71,7 @@ Si tiene nombres de columna que incluyen caracteres especiales o espacios, escri
 
 ### <a name="parameters"></a>Parámetros
 
-Los parámetros son valores que se pasan a un flujo de datos en tiempo de ejecución desde una canalización. Para hacer referencia a un parámetro, haga clic en él en la vista **Elementos de expresión** o haga referencia a él con un signo de dólar delante de su nombre. Por ejemplo, se haría referencia con `$parameter1` a un parámetro denominado parameter1. Para más información, vea [Parametrización de flujos de datos de asignación](parameters-data-flow.md).
+Los parámetros son valores que se pasan a un flujo de datos en tiempo de ejecución desde una canalización. Para hacer referencia a un parámetro, haga clic en él en la vista **Elementos de expresión** o haga referencia a él con un signo de dólar delante de su nombre. Por ejemplo, se haría referencia con `$parameter1` a un parámetro denominado parameter1. Para más información, vea [Parametrización de flujos de datos de asignación](parameters-data-flow.md). 
 
 ### <a name="cached-lookup"></a>Búsqueda en caché
 
@@ -169,6 +169,12 @@ El signo "l" final al final de la expresión anterior indica que hay una convers
 ### <a name="find-time-from-epoch-or-unix-time"></a>Búsqueda de hora desde época o tiempo UNIX
 
 toLong( currentTimestamp() - toTimestamp('1970-01-01 00:00:00.000', 'yyyy-MM-dd HH:mm:ss.SSS') ) * 1000l
+
+### <a name="data-flow-time-evaluation"></a>Evaluación del tiempo de flujo de datos
+
+El flujo de datos procesa hasta milisegundos. Para *2018-07-31T20:00:00.2170000*, verá *2018-07-31T20:00:00.217* en la salida.
+En el portal de ADF, la marca de tiempo se muestra en la **configuración actual del explorador**, que puede eliminar 217, pero cuando ejecute el flujo de datos de un extremo a otro, se procesará también la parte de milisegundos de 217. Puede usar toString(myDateTimeColumn) como expresión y ver los datos de precisión completa en la versión preliminar. Procese datetime como datetime y no como string para todos los propósitos prácticos.
+ 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

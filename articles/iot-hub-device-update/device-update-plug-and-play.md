@@ -6,22 +6,26 @@ ms.author: valls
 ms.date: 2/14/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: fbc3502952e11830ef9abb06cb709fcc60288343
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: d1817db4615d321db3d5f098d449410ee5b0606c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739537"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141856"
 ---
 # <a name="device-update-for-iot-hub-and-iot-plug-and-play"></a>Device Update para IoT Hub e IoT Plug and Play
 
 Device Update para IoT Hub utiliza [IoT Plug and Play](../iot-pnp/index.yml) para detectar y administrar dispositivos que admiten actualizaciones de forma inalámbrica. El servicio Device Update enviará propiedades y mensajes a los dispositivos y los recibirá de estos utilizando interfaces de PnP. Device Update para IoT Hub necesita que los dispositivos IoT implementen las siguientes interfaces e identificadores de modelo que se indican a continuación.
 
+Conceptos: 
+* Comprenda el [cliente de dispositivo de IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device?pivots=programming-language-csharp#implement-telemetry,-properties,-and-commands). 
+* Vea cómo se [implementa el agente de Device Update](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).
+
 ## <a name="adu-core-interface"></a>Interfaz principal de ADU
 
 La interfaz "ADUCoreInterface" se usa para enviar metadatos y acciones de actualización a los dispositivos y para recibir de ellos el estado de actualización. La interfaz principal de ADU se divide en dos propiedades de objeto.
 
-Cuando se implementa esta interfaz, el nombre del componente que el modelo espera es **"azureDeviceUpdateAgent"** . [Más información sobre los componentes de PnP para Azure IoT](../iot-pnp/concepts-components.md)
+Cuando se implementa esta interfaz, el nombre del componente que el modelo espera es **"azureDeviceUpdateAgent"** . [Más información sobre los componentes de PnP para Azure IoT](../iot-pnp/concepts-modeling-guide.md)
 
 ### <a name="agent-metadata"></a>Metadatos del agente
 
@@ -39,7 +43,7 @@ Los metadatos del agente contienen campos que se utilizan en el dispositivo o en
 
 Es el estado que notifica Device Update Agent después de recibir una acción del servicio Device Update. `State` es la respuesta a una `Action` ([Acción], consulte `Actions` a continuación) que se notifica y se envía a Device Update Agent desde el servicio Device Update. Consulte el [flujo de trabajo general](understand-device-update.md#device-update-agent) de las solicitudes que se transmiten entre el servicio Device Update y Device Update Agent.
 
-|Nombre|Value|Descripción|
+|Nombre|Valor|Descripción|
 |---------|-----|-----------|
 |Inactivo|0|El dispositivo está listo para recibir una acción del servicio Device Update. Cuando una actualización se realiza correctamente, el estado vuelve a ser `Idle`.|
 |DownloadSucceeded|2|Descarga correcta.|
@@ -57,6 +61,27 @@ Conjunto de propiedades que contienen el fabricante y el modelo.
 |aduVer|string|entre el dispositivo y la nube|Versión de Device Update Agent que se ejecuta en el dispositivo. Este valor solamente se obtiene de la compilación si durante el tiempo de compilación ENABLE_ADU_TELEMETRY_REPORTING está establecido en 1 (true). Los clientes pueden desactivar la notificación de la versión estableciendo el valor en 0 (false). [Personalización de las propiedades de Device Update Agent](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).|
 |doVer|string|entre el dispositivo y la nube|Versión del agente de Optimización de distribución que se ejecuta en el dispositivo. Este valor solamente se obtiene de la compilación si durante el tiempo de compilación ENABLE_ADU_TELEMETRY_REPORTING está establecido en 1 (true). Los clientes pueden desactivar la notificación de la versión estableciendo el valor en 0 (false). [Personalización de las propiedades de Device Update Agent](https://github.com/microsoft/do-client/blob/main/README.md#building-do-client-components).|
 
+Ejemplo de dispositivo gemelo de IoT Hub
+```json
+ "azureDeviceUpdateAgent": {
+                           "__t": "c",
+                           "client": {
+                                     "state": 0,
+                                     "resultCode": 200,
+                                     "extendedResultCode": 0,
+                                     "deviceProperties": {
+                                                         "manufacturer": "Contoso",
+                                                         "model": "Video",
+                                                         "aduVer": "DU;agent/0.6.0",
+                                                         "doVer": "DU;lib/v0.4.0,DU;agent/v0.4.0,DU;plugin-apt/v0.2.0"
+                                                         },
+                                     "installedUpdateId": "{\"provider\":\"Contoso\",\"name\":\"SampleUpdate1\",\"version\":\"1.0.4\"}"
+                                     },
+                            }
+```
+
+Nota: El dispositivo o módulo debe agregar el marcador {"__t": "c"} para indicar que el elemento hace referencia a un componente, obtenga más información [aquí](https://docs.microsoft.com/azure/iot-pnp/concepts-convention#sample-multiple-components-writable-property).
+
 ### <a name="service-metadata"></a>Metadatos de servicio
 
 Los metadatos del servicio contienen campos que los servicios de Device Update utilizan para notificar acciones y datos a Device Update Agent.
@@ -72,7 +97,7 @@ Los metadatos del servicio contienen campos que los servicios de Device Update u
 
 El objeto `Actions` siguiente representa las acciones realizadas por Device Update Agent conforme a las instrucciones del servicio Device Update. Device Update Agent notificará un objeto `State` (consulte `State` en la sección anterior) sobre el procesamiento del valor de `Action` recibido. Consulte el [flujo de trabajo general](understand-device-update.md#device-update-agent) de las solicitudes que se transmiten entre el servicio Device Update y Device Update Agent.
 
-|Nombre|Value|Descripción|
+|Nombre|Valor|Descripción|
 |---------|-----|-----------|
 |Descargar|0|Descarga la actualización o el contenido que están publicados y cualquier otro contenido necesario|
 |Instalar|1|Instala el contenido o la actualización. Normalmente, esto significa que es necesario llamar al instalador del contenido o la actualización.|
@@ -83,7 +108,7 @@ El objeto `Actions` siguiente representa las acciones realizadas por Device Upda
 
 La interfaz de información del dispositivo es un concepto que se utiliza en la [arquitectura de IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Contiene las propiedades entre el dispositivo y la nube que proporcionan información sobre el hardware y el sistema operativo del dispositivo. Device Update for IoT Hub utiliza las propiedades DeviceInformation.manufacturer y DeviceInformation.model para telemetría y diagnóstico. Para más información sobre la interfaz de información del dispositivo, consulte este [ejemplo](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
 
-Cuando se implementa esta interfaz, el nombre que el modelo espera para el componente es **deviceInformation**. [Más información sobre los componentes de Azure IoT PnP](../iot-pnp/concepts-components.md)
+Cuando se implementa esta interfaz, el nombre que el modelo espera para el componente es **deviceInformation**. [Más información sobre los componentes de Azure IoT PnP](../iot-pnp/concepts-modeling-guide.md)
 
 |Nombre|Tipo|Schema|Dirección|Descripción|Ejemplo|
 |----|----|------|---------|-----------|-----------|

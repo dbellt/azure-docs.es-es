@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: fd5dce0760953bf19c72e1a1062a9c03ffe861e7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9db7576cb2278cc2ef0d8b93ef04bb633962cd0e
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563389"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255756"
 ---
 # <a name="configure-directory-services"></a>Configuración de servicios de directorio
 
@@ -44,7 +44,7 @@ En **Detalles de Active Directory**, proporcione estos valores:
 
 * **Nombre de dominio DNS de AD**: proporcione el nombre de dominio completo del servidor de AD al que se unirá la caché para obtener las credenciales.
 
-* **Cache server name (computer account)** (Nombre del servidor de caché (cuenta de equipo)): establezca el nombre que se asignará a esta instancia de HPC Cache cuando se una al dominio de AD. Especifique un nombre que sea fácil de reconocer como esta caché. Dicho nombre puede tener hasta 15 caracteres y puede incluir letras mayúsculas o minúsculas, números y guiones (-).
+* **Nombre del servidor de caché (cuenta de equipo)** : establezca el nombre que se asignará a esta instancia de HPC Cache cuando se una al dominio de AD. Especifique un nombre que sea fácil de reconocer como esta caché. Dicho nombre puede tener hasta 15 caracteres y puede incluir letras mayúsculas o minúsculas, números y guiones (-).
 
 En la sección **Credenciales**, proporcione un nombre de usuario y una contraseña de administrador de AD que pueda usar Azure HPC Cache para obtener acceso al servidor de AD. Esta información se cifra cuando se almacena y no se puede consultar.
 

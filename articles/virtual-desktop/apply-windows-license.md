@@ -1,16 +1,16 @@
 ---
 title: 'Aplicación de la licencia de Windows a máquinas virtuales de host de sesión: Azure'
 description: En este artículo se describe cómo aplicar la licencia de Windows a máquinas virtuales de Windows Virtual Desktop.
-author: ChristianMontoya
+author: Heidilohr
 ms.topic: how-to
 ms.date: 08/14/2019
-ms.author: chrimo
-ms.openlocfilehash: 5f3749be36f5f035e49fcb862f92180e4902101f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: helohr
+ms.openlocfilehash: fa3c9f82e99536b07a27656e0143d6b2fcc89a44
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88010147"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833875"
 ---
 # <a name="apply-windows-license-to-session-host-virtual-machines"></a>Aplicación de la licencia de Windows a máquinas virtuales de host de sesión
 
@@ -61,3 +61,7 @@ Ejecute el siguiente cmdlet para ver una lista de todas las máquinas virtuales 
 $vms = Get-AzVM
 $vms | Where-Object {$_.LicenseType -like "Windows_Client"} | Select-Object ResourceGroupName, Name, LicenseType
 ```
+
+## <a name="requirements-for-deploying-windows-server-remote-desktop-services"></a>Requisitos para implementar Servicios de Escritorio remoto de Windows Server
+
+Si implementa Windows Server 2019, 2016 o 2012 R2 como hosts de Windows Virtual Desktop en la implementación, un servidor de licencias de Servicios de Escritorio remoto debe ser accesible desde esas máquinas virtuales. El servidor de licencias de Servicios de Escritorio remoto se puede encontrar en el entorno local o en Azure. Para obtener más información, consulte [Activación del servidor de licencias de Servicios de Escritorio remoto](/windows-server/remote/remote-desktop-services/rds-activate-license-server).

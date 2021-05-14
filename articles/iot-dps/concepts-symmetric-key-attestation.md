@@ -3,18 +3,18 @@ title: 'Azure IoT Hub Device Provisioning Service: atestación de clave simétri
 description: En este artículo se proporciona información general y conceptual del flujo de atestación de calve simétrica usando el servicio IoT Device Provisioning Service (DPS).
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/04/2019
+ms.date: 04/23/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 994c2c3124d6822f047af942268ad7a401d5a976
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32ad3bb4f9a845ded60694d42d0b2708a61aea6a
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90531566"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483306"
 ---
 # <a name="symmetric-key-attestation"></a>Atestación de clave simétrica
 
@@ -37,7 +37,7 @@ También puede proporcionar sus propias claves simétricas para las inscripcione
 
 ## <a name="detailed-attestation-process"></a>Proceso de atestación detallado
 
-La atestación de clave simétrica con el servicio Device Provisioning se realiza con los mismos [tokens de seguridad](../iot-hub/iot-hub-devguide-security.md#security-token-structure) que utilizan los centros de IoT para identificar los dispositivos. Estos tokens de seguridad son [tokens de firma de acceso compartido (SAS)](../service-bus-messaging/service-bus-sas.md). 
+La atestación de clave simétrica con el servicio Device Provisioning se realiza con los mismos [tokens de seguridad](../iot-hub/iot-hub-dev-guide-sas.md#security-token-structure) que utilizan los centros de IoT para identificar los dispositivos. Estos tokens de seguridad son [tokens de firma de acceso compartido (SAS)](../service-bus-messaging/service-bus-sas.md). 
 
 Los tokens de SAS tienen una *firma* hash que se crea mediante la clave simétrica. El servicio Device Provisioning vuelve a crear la firma para comprobar si un token de seguridad presentado durante la atestación es auténtico o no.
 
@@ -57,7 +57,7 @@ Presentamos a continuación los componentes de cada token:
 
 Cuando un dispositivo se atesta con una inscripción individual, el dispositivo usa la clave simétrica que se define en la entrada de inscripción individual para crear la firma hash para el token de SAS.
 
-Para ver ejemplos de código que crea un token de SAS, consulte [Tokens de seguridad](../iot-hub/iot-hub-devguide-security.md#security-token-structure).
+Para ver ejemplos de código que crea un token de SAS, consulte [Tokens de seguridad](../iot-hub/iot-hub-dev-guide-sas.md#security-token-structure).
 
 La creación de tokens de seguridad para la atestación de clave simétrica es compatible con el SDK de Azure IoT para C. Para obtener un ejemplo del uso del SDK de Azure IoT para C para realizar la atestación con una inscripción individual, consulte [Aprovisionamiento de un dispositivo simulado con claves simétricas](quick-create-simulated-device-symm-key.md).
 
@@ -74,7 +74,73 @@ sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 
 Este ejemplo exacto se usa en el artículo [Aprovisionamiento de dispositivos antiguos mediante claves simétricas](how-to-legacy-device-symm-key.md).
 
-Una vez que se ha definido un identificador de registro para el dispositivo, la clave simétrica para el grupo de inscripción se usa para calcular un hash [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) del identificador de registro para generar una clave de dispositivo derivada. El hash del identificador de registro se puede realizar con el siguiente código de C#:
+Una vez que se ha definido un identificador de registro para el dispositivo, la clave simétrica para el grupo de inscripción se usa para calcular un hash [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) del identificador de registro para generar una clave de dispositivo derivada. Algunos enfoques de ejemplo para calcular la clave de dispositivo derivada se indican en las pestañas siguientes.  
+
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+La extensión de IoT para la CLI de Azure proporciona el comando [`compute-device-key`](/cli/azure/iot/dps?view=azure-cli-latest&preserve-view=true#az_iot_dps_compute_device_key) para generar claves de dispositivo derivadas. Este comando se puede usar en sistemas Windows o Linux, en PowerShell o en un shell de Bash.
+
+Reemplace el valor del argumento `--key` por la **clave principal** de su grupo de inscripción.
+
+Reemplace el valor del argumento `--registration-id` por su identificador del registro.
+
+```azurecli
+az iot dps compute-device-key --key 8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw== --registration-id sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+```
+
+Resultado de ejemplo:
+
+```azurecli
+"Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc="
+```
+
+# <a name="windows"></a>[Windows](#tab/windows)
+
+Si utiliza una estación de trabajo basada en Windows, puede usar PowerShell para generar las claves de dispositivo derivadas tal y como se muestra en el ejemplo siguiente.
+
+Reemplace el valor de **KEY** por la **Clave principal** de su grupo de inscripción.
+
+Reemplace el valor de **REG_ID** por el identificador del registro.
+
+```powershell
+$KEY='8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw=='
+$REG_ID='sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6'
+
+$hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
+$hmacsha256.key = [Convert]::FromBase64String($KEY)
+$sig = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID))
+$derivedkey = [Convert]::ToBase64String($sig)
+echo "`n$derivedkey`n"
+```
+
+```powershell
+Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
+```
+
+# <a name="linux"></a>[Linux](#tab/linux)
+
+Si utiliza una estación de trabajo de Linux, puede usar openssl para generar la clave de dispositivo derivada tal y como se muestra en el ejemplo siguiente.
+
+Reemplace el valor de **KEY** por la **Clave principal** de su grupo de inscripción.
+
+Reemplace el valor de **REG_ID** por el identificador del registro.
+
+```bash
+KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
+REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+
+keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
+```
+
+```bash
+Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
+```
+
+# <a name="csharp"></a>[CSharp](#tab/csharp)
+
+El hash del identificador de registro se puede realizar con el siguiente código de C#:
 
 ```csharp
 using System; 
@@ -96,6 +162,8 @@ public static class Utils
 ```csharp
 String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(masterKey), registrationId);
 ```
+
+---
 
 La clave del dispositivo resultante se usa para generar un token SAS que se usará para la atestación. A cada dispositivo en un grupo de inscripción se le requiere que realice la atestación usando un token de seguridad generado a partir de una única clave derivada. No se puede usar directamente la clave simétrica del grupo de inscripción para la atestación.
 

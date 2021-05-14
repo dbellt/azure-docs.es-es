@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: IoT Plug and Play Certification Requirements
 ms.service: certification
-ms.openlocfilehash: b26fab6f8b92e3cb996f545f1f6201d32b1eaced
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 06c09527556c92cc3a1bd4bb2784084aeb373d97
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310519"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108131754"
 ---
 # <a name="iot-plug-and-play-certification-requirements"></a>Requisitos de certificación de IoT Plug and Play
 
@@ -62,7 +62,7 @@ El compromiso de la certificación de IoT Plug and Play es:
 | **SISTEMA OPERATIVO**                  | Independiente                                                     |
 | **Tipo de validación**     | Automatizado                                                    |
 | **Validación**          | El [flujo de trabajo del portal](https://certify.azure.com) se valida: **1.** Anuncio del identificador de modelo y asegúrese de que el dispositivo está conectado mediante MQTT o MQTT a través del protocolo de WebSockets **2.** Los modelos son compatibles con DTDL v2 **3.** La telemetría, las propiedades y los comandos se implementan correctamente e interactúan entre el gemelo digital de IoT Hub y el dispositivo gemela en el dispositivo |
-| **Recursos**           | [Actualizaciones de versión preliminar pública](../iot-pnp/overview-iot-plug-and-play-preview-updates.md) |
+| **Recursos**           | [Actualizaciones de versión preliminar pública](../iot-pnp/overview-iot-plug-and-play.md) |
 
 **[Obligatorio] Los modelos de dispositivos se publican en el repositorio de modelos público**
 
@@ -73,7 +73,7 @@ El compromiso de la certificación de IoT Plug and Play es:
 | **SISTEMA OPERATIVO**                  | Independiente                                                     |
 | **Tipo de validación**     | Automatizado                                                    |
 | **Validación**          | Todos los modelos de dispositivo deben publicarse en el repositorio público. Los modelos de dispositivo se resuelven a través de los modelos disponibles en el repositorio público **1.** El usuario debe publicar manualmente los modelos en el repositorio público antes de enviar para la certificación. **2.** Tenga en cuenta que una vez que se publican los modelos, es inmutable. Se recomienda encarecidamente publicar solamente cuando se finalizan los modelos y el código de dispositivo incorporado.*1  *1 El usuario debe ponerse en contacto con el soporte técnico de Microsoft para revocar los modelos una vez publicados en el repositorio de modelos **3.** El [flujo de trabajo del portal](https://certify.azure.com) comprueba la existencia de los modelos en el repositorio público cuando el dispositivo está conectado al servicio de certificación |
-| **Recursos**           | [Repositorio de modelos](../iot-pnp/overview-iot-plug-and-play-preview-updates.md) |
+| **Recursos**           | [Repositorio de modelos](../iot-pnp/overview-iot-plug-and-play.md) |
 
 **[Obligatorio] Validación del dispositivo físico mediante GSG**
 
@@ -96,7 +96,7 @@ El compromiso de la certificación de IoT Plug and Play es:
 | **SISTEMA OPERATIVO**                  | Independiente                                                     |
 | **Tipo de validación**     | Automatizado                                                    |
 | **Validación**          | El [flujo de trabajo del portal](https://certify.azure.com) valida el código del dispositivo que implementa la interfaz de información del dispositivo **1.** Comprueba que el código del dispositivo emite los valores para IoT Hub **2.** Comprueba que la interfaz está implementada en DCM (esta implementación cambiará en DTDL v2) **3.** Comprueba que las propiedades no pueden escribirse (solo lectura) **4.** Comprueba que el tipo de esquema es String y/o Long, no null |
-| **Recursos**           | [Interfaz definidas por Microsoft](../iot-pnp/overview-iot-plug-and-play-preview-updates.md) |
+| **Recursos**           | [Interfaz definidas por Microsoft](../iot-pnp/overview-iot-plug-and-play.md) |
 | **Recomendado para Azure**  | N/D                                                          |
 
 **[Si se implementa] De la nube al dispositivo: el propósito de la prueba es asegurarse de que los mensajes se pueden enviar desde la nube a los dispositivos.**

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/06/2020
-ms.openlocfilehash: 44131ecf6fd3d8d2f07f0fe567fb924ac8621682
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: b1551b4d9c28a693adb74436b6490ce7af62a977
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110009"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279859"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Introducción: Automatización de la implementación para Azure Logic Apps mediante plantillas de Azure Resource Manager
 
@@ -39,7 +39,7 @@ Para obtener información sobre los recursos de plantilla específicos de Logic 
 Para ver muestras de las plantillas de aplicaciones lógicas, consulte estos ejemplos:
 
 * [Plantilla completa](#full-example-template) que se usa para los ejemplos de este tema
-* [Ejemplo de la plantilla de aplicación lógica de inicio rápido](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) en GitHub
+* [Ejemplo de la plantilla de aplicación lógica de inicio rápido](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json) en GitHub
 
 En el caso de la API de REST de Logic Apps, comience con la [información general sobre la API de REST de Azure Logic Apps](/rest/api/logic).
 
@@ -1121,7 +1121,7 @@ Esta es la plantilla de ejemplo parametrizada que se usa en los ejemplos de este
          "defaultValue": "",
          "metadata": {
             "description": "Name of the storage account the connector should use."
-         },
+         }
 
       },
       "azureblob_1_accountName": {
@@ -1164,7 +1164,7 @@ Esta es la plantilla de ejemplo parametrizada que se usa en los ejemplos de este
                            "connection": {
                               "name": "@parameters('$connections')['azureblob']['connectionId']"
                            }
-                        },
+                        }
                      },
                      "method": "post",
                      "body": "@triggerBody()?['Body']",

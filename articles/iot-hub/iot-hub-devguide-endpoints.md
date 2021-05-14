@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: System Architecture'
-ms.openlocfilehash: a58e141c6232db08b125b265e3d4ad74c784ba24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3fe95c00c95898be1ddd6967fb9ab8ba1e3f0ddb
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92152184"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484654"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referencia: Puntos de conexión de IoT Hub
 
@@ -36,7 +36,7 @@ Azure IoT Hub es un servicio multiinquilino que muestra su funcionalidad a diver
 
 En la lista siguiente se describen los puntos de conexión:
 
-* **Proveedor de recursos**. El proveedor de recursos de IoT Hub expone una interfaz de [Azure Resource Manager](../azure-resource-manager/management/overview.md). Esta interfaz permite que los propietarios de suscripciones de Azure creen y eliminen instancias de IoT Hub para actualizar sus propiedades. Las propiedades de IoT Hub controlan las [directivas de seguridad a nivel de centro](iot-hub-devguide-security.md#access-control-and-permissions), a diferencia del control de acceso de nivel de dispositivo y las opciones funcionales para la mensajería de nube a dispositivo y de dispositivo a nube. El proveedor de recursos también permite [exportar identidades de dispositivo](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
+* **Proveedor de recursos**. El proveedor de recursos de IoT Hub expone una interfaz de [Azure Resource Manager](../azure-resource-manager/management/overview.md). Esta interfaz permite que los propietarios de suscripciones de Azure creen y eliminen instancias de IoT Hub para actualizar sus propiedades. Las propiedades de IoT Hub controlan las [directivas de seguridad a nivel de centro](iot-hub-dev-guide-sas.md#access-control-and-permissions), a diferencia del control de acceso de nivel de dispositivo y las opciones funcionales para la mensajería de nube a dispositivo y de dispositivo a nube. El proveedor de recursos también permite [exportar identidades de dispositivo](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 
 * **Administración de identidades de dispositivo**. Cada instancia de IoT Hub muestra un conjunto de puntos de conexión HTTPS REST para administrar las identidades de dispositivo (crear, recuperar, actualizar y eliminar). Las [identidades del dispositivo](iot-hub-devguide-identity-registry.md) se usan para autenticación de dispositivos y control de acceso.
 
@@ -76,7 +76,7 @@ Todos los puntos de conexión de IoT Hub usan el protocolo [TLS](https://tools.i
 
 ## <a name="custom-endpoints"></a>Puntos de conexión personalizados
 
-Puede vincular los servicios de Azure existentes en su centro de IoT para usarlos como puntos de conexión para el enrutamiento de mensajes. Estos puntos de conexión hacen de puntos de conexión de servicio y se usan como receptores para las rutas de los mensajes. Los dispositivos no pueden escribir directamente en los puntos de conexión adicionales. Más información sobre el [enrutamiento de mensajes](../iot-hub/iot-hub-devguide-messages-d2c.md).
+Puede vincular los servicios de Azure existentes con sus suscripciones a Azure en el centro de IoT para usarlos como puntos de conexión para el enrutamiento de mensajes. Estos puntos de conexión hacen de puntos de conexión de servicio y se usan como receptores para las rutas de los mensajes. Los dispositivos no pueden escribir directamente en los puntos de conexión adicionales. Más información sobre el [enrutamiento de mensajes](../iot-hub/iot-hub-devguide-messages-d2c.md).
 
 IoT Hub admite actualmente los siguientes servicios de Azure como puntos de conexión adicionales:
 

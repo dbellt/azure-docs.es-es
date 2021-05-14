@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 04/12/2021
 ms.author: banders
-ms.openlocfilehash: a70d434b06fd19071f3576f9333579e0bd2b85e7
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: b2cdb106ab1c77c23626258f7e0708a20ffd3c4e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574981"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772260"
 ---
 # <a name="buy-a-reservation"></a>Adquisición de una reserva
 
@@ -35,8 +35,8 @@ Puede limitar el ámbito de una reserva a una suscripción o a grupos de recurso
 
 Tiene tres opciones para limitar el ámbito de una reserva, según sus necesidades:
 
-- **Single resource group scope** (Ámbito de grupo de recursos único): El descuento por reserva se aplica a los recursos coincidentes solo del grupo de recursos seleccionado.
-- **Single subscription scope** (Ámbito de suscripción única): El descuento por reserva se aplica a los recursos coincidentes de la suscripción seleccionada.
+- **Single resource group scope** (Ámbito de grupo de recursos único): aplica el descuento por reserva a los recursos coincidentes solo en el grupo de recursos seleccionado.
+- **Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.
 - **Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación.
     - Para los clientes con Contrato Enterprise, el contexto de facturación es la inscripción. El ámbito compartido de la reserva incluiría varios inquilinos de Active Directory en una inscripción.
     - En el caso de los clientes con contrato Microsoft Customer Agreement, el ámbito de facturación es el perfil de facturación.
@@ -44,9 +44,9 @@ Tiene tres opciones para limitar el ámbito de una reserva, según sus necesidad
 
 Al aplicar los descuentos por reserva sobre su uso, Azure procesa la reserva en el orden siguiente:
 
-1. Reservas cuyo ámbito es un grupo de recursos
-2. Reservas de ámbito único
-3. Reservas de ámbito compartido
+1. Reservas con un ámbito de grupo de recursos único
+2. Reservas con un ámbito de suscripción única
+3. Reservas con un ámbito compartido (varias suscripciones), descritas anteriormente
 
 También puede actualizar el ámbito después de comprar una reserva. Para ello, vaya a la reserva, haga clic en **Configuración** y limite de nuevo el ámbito de la reserva. Volver a limitar el ámbito de una reserva no es una transacción comercial. No se cambian las condiciones de la reserva. Para más información sobre cómo actualizar el ámbito, consulte [Update the scope after you purchase a reservation](manage-reserved-vm-instance.md#change-the-reservation-scope) (Actualización del ámbito después de comprar una reserva).
 
@@ -133,4 +133,8 @@ Para clientes con suscripciones individuales:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [Más información sobre los permisos de reservas](view-reservations.md)
 - [Administración de reservas para los recursos de Azure](manage-reserved-vm-instance.md)
+- [Automatización mediante API REST](/rest/api/reserved-vm-instances/reservationorder)
+- [Automatización mediante Azure PowerShell](/powershell/module/az.reservations)
+- [Automatización mediante la CLI](/cli/azure/reservations)

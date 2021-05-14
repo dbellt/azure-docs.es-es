@@ -12,12 +12,12 @@ tags:
 - azure-resource-manager
 ms.custom:
 - mode-api
-ms.openlocfilehash: ba1cd8d6b1410be30eefe9dca9675daaf6c16256
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: aa984a8f3899db72ead878e2c4381ea6a080e32d
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534673"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815439"
 ---
 # <a name="quickstart-set-and-retrieve-a-managed-key-from-azure-key-vault-using-powershell"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante PowerShell
 
@@ -115,4 +115,4 @@ En este inicio rápido ha creado una instancia de Key Vault y ha almacenado un c
 
 - Lea una [introducción a Azure Key Vault](../general/overview.md).
 - Consulte la referencia para los [cmdlets de Key Vault de Azure PowerShell](/powershell/module/az.keyvault/).
-- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-overview.md)
+- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-features.md)

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: include
 ms.date: 08/26/2020
 ms.author: rogara
-ms.custom: include file
-ms.openlocfilehash: 4773446ec0007ffbed99bc01939d1f92f5823d99
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 7d0631be67afd523ee47f9af021df35b3d74ae2a
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95563683"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107893123"
 ---
 ## <a name="assign-access-permissions-to-an-identity"></a>Asignar permisos de acceso a una identidad
 
@@ -126,7 +126,7 @@ Utilice el Explorador de archivos de Windows para conceder permisos completos pa
 
 ### <a name="configure-ntfs-permissions-with-icacls"></a>Configurar los permisos NTFS con icacls
 
-Utilice el siguiente comando de Windows para conceder permisos completos para todos los directorios y archivos en el recurso compartido de archivos, incluido el directorio raíz. No olvide reemplazar los valores del marcador de posición en el ejemplo por los suyos propios.
+Utilice el siguiente comando de Windows para conceder permisos completos para todos los directorios y archivos en el recurso compartido de archivos, incluido el directorio raíz. No olvide reemplazar los valores del marcador de posición en el ejemplo por los propios.
 
 ```
 icacls <mounted-drive-letter>: /grant <user-email>:(f)
@@ -142,7 +142,7 @@ Inicie sesión en la máquina virtual con la identidad de Azure AD a la que se 
 
 ![Captura de pantalla que muestra la pantalla Inicio de sesión de Azure AD para la autenticación de usuario](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
-Use el comando siguiente para montar el recurso compartido de archivos de Azure. Reemplace los valores del marcador de posición por los suyos propios. Como ya se ha autenticado, no es preciso que especifique la clave de la cuenta de almacenamiento ni las credenciales de AD DS local o de Azure AD DS. La experiencia de inicio de sesión único se admite para la autenticación con AD DS local o Azure AD DS. Si tiene problemas al montar con las credenciales de AD DS, consulte [Solución de problemas de Azure Files en Windows](../articles/storage/files/storage-troubleshoot-windows-file-connection-problems.md) para obtener una guía.
+Use el comando siguiente para montar el recurso compartido de archivos de Azure. Recuerde reemplazar los valores de marcador de posición por los propios. Como ya se ha autenticado, no es preciso que especifique la clave de la cuenta de almacenamiento ni las credenciales de AD DS local o de Azure AD DS. La experiencia de inicio de sesión único se admite para la autenticación con AD DS local o Azure AD DS. Si tiene problemas al montar con las credenciales de AD DS, consulte [Solución de problemas de Azure Files en Windows](../articles/storage/files/storage-troubleshoot-windows-file-connection-problems.md) para obtener una guía.
 
 ```
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445

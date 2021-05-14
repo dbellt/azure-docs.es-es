@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 9a52596aa0dd5fa7b9a7226d2ae57259dab08d37
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4720cbfea072561e5413afd54407b7b0a7878ba
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93285735"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229655"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Descripción del acceso a la máquina virtual Just-in-Time (JIT)
 
@@ -63,7 +63,7 @@ Cuando Security Center encuentra una máquina que puede beneficiarse de JIT, agr
 ![Recomendación de acceso a la máquina virtual (VM) Just-in-Time (JIT)](./media/just-in-time-explained/unhealthy-resources.png)
 
 
-## <a name="faq---questions-about-just-in-time-virtual-machine-access"></a>Preguntas frecuentes: preguntas sobre el acceso a la máquina virtual Just-in-Time
+## <a name="faq---just-in-time-virtual-machine-access"></a>Preguntas frecuentes: Acceso a máquinas virtuales Just-In-Time
 
 ### <a name="what-permissions-are-needed-to-configure-and-use-jit"></a>¿Cuáles son los permisos necesarios para configurar y usar Just-In-Time?
 

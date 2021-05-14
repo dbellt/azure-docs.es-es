@@ -3,12 +3,13 @@ title: Configuración de entornos de desarrollo e implementación de Bicep
 description: Configuración de entornos de desarrollo e implementación de Bicep
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.openlocfilehash: 2c905a3885fcfc5c9eb9d9db4004126882798611
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 39bac9d8494c9da94fe962dda9521bca4d071f1e
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313562"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752776"
 ---
 # <a name="install-bicep-preview"></a>Instalación de Bicep (versión preliminar)
 

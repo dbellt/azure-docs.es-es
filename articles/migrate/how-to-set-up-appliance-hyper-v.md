@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: 8f0e7ec2566928897d2b84357b599506520e8d95
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7c238b1e785c34a6ec4cd99d63419e73239a9bfe
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612031"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135714"
 ---
 # <a name="set-up-an-appliance-for-servers-on-hyper-v"></a>Configuración de un dispositivo para servidores de Hyper-V
 
@@ -62,7 +62,7 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Ejemplo de uso: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
-Compruebe el valor hash más reciente comparando el resultado del comando anterior con el valor que se documenta [aquí](https://docs.microsoft.com/azure/migrate/tutorial-discover-hyper-v#verify-security).
+Compruebe el valor hash más reciente comparando el resultado del comando anterior con el valor que se documenta [aquí](./tutorial-discover-hyper-v.md#verify-security).
 
 ## <a name="create-the-appliance"></a>Creación del dispositivo
 

@@ -3,12 +3,12 @@ title: Grupo de recursos de Azure como origen de Event Grid
 description: Describe las propiedades que se proporcionan para los eventos del grupo de recursos con Azure Event Grid
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.openlocfilehash: 4c1990909dc555e9e2a6d09538b807ba7e07ce83
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7616999d820075524f6efadccd98e04c09732032
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363226"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109733523"
 ---
 # <a name="azure-resource-group-as-an-event-grid-source"></a>Grupo de recursos de Azure como origen de Event Grid
 
@@ -467,7 +467,7 @@ El objeto data tiene las siguientes propiedades:
 | [CLI de Azure: suscripción a eventos de un grupo de recursos y filtrado de los eventos de un recurso](./scripts/event-grid-cli-resource-group-filter.md) | Script de ejemplo que se suscribe a eventos para un grupo de recursos y filtra los eventos para un recurso. |
 | [PowerShell: suscripción a eventos para un grupo de recursos](./scripts/event-grid-powershell-resource-group.md) | Script de ejemplo que se suscribe a eventos para un grupo de recursos. Envía eventos a un webhook. |
 | [PowerShell: suscripción a eventos para un grupo de recursos y filtrado de los eventos para un recurso](./scripts/event-grid-powershell-resource-group-filter.md) | Script de ejemplo que se suscribe a eventos para un grupo de recursos y filtra los eventos para un recurso. |
-| [Plantilla de Resource Manager: suscripción de recursos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) | Se suscribe a eventos para una suscripción o grupo de recursos de Azure. Envía eventos a un webhook. |
+| [Plantilla de Resource Manager: suscripción de recursos](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-resource-events-to-webhook) | Se suscribe a eventos para una suscripción o grupo de recursos de Azure. Envía eventos a un webhook. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

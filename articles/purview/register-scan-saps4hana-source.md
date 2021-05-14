@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 7e00332eca076b55a884682240ef26ea3a4546d1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e7030d1b692777b7497ffe464a70d3a80cab9647
+ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046069"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107992366"
 ---
 # <a name="register-and-scan-a-sap-s4hana-source-preview"></a>Registro y examen de un origen de SAP S/4HANA (versión preliminar)
 
@@ -35,7 +35,7 @@ El origen de SAP S/4HANA admite un **examen completo** para extraer metadatos de
 
     :::image type="content" source="media/register-scan-saps4hana-source/requirement.png" alt-text="Requisito previo" border="true":::
 
-5.  El conector lee los metadatos de SAP mediante la API del conector de Java (JCo) 3.0. Asegúrese de que el conector de Java esté disponible en la máquina virtual donde está instalado el entorno de ejecución de integración autohospedado.
+5.  El conector lee los metadatos de SAP mediante la versión 3.0 de la API del [conector de Java (JCo) para SAP](https://support.sap.com/en/product/connectors/jco.html). Asegúrese de que el conector de Java esté disponible en la máquina virtual donde está instalado el entorno de ejecución de integración autohospedado.
     Asegúrese de que usa la distribución de JCo correcta para su entorno. Por ejemplo, en una máquina de Microsoft Windows, asegúrese de que los archivos sapjco3.jar y sapjco3.dll estén disponibles.
 
     > [!Note] 

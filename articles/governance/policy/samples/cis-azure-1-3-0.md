@@ -1,15 +1,15 @@
 ---
 title: Detalles del cumplimiento normativo de CIS Microsoft Azure Foundations Benchmark 1.3.0
 description: Detalles de la iniciativa integrada de cumplimiento normativo de CIS Microsoft Azure Foundations Benchmark 1.3.0. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 04/14/2021
+ms.date: 05/04/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 3dc7578af93f36ba8f0400099bb21cdabdcffb70
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 065a768fb3b040991cc7257b651f9f1e93268080
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107497734"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108761082"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-130-regulatory-compliance-built-in-initiative"></a>Detalles de la iniciativa integrada de cumplimiento normativo de CIS Microsoft Azure Foundations Benchmark 1.3.0.
 
@@ -593,8 +593,8 @@ Busque y seleccione la definición de la iniciativa integrada de cumplimiento no
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Asegurarse de que la "Versión de PHP" es la más reciente, si se usa como parte de la aplicación de API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1bc1795e-d44a-4d48-9b3b-6fff0fd5f9ba) |A causa de errores de seguridad o para incluir funcionalidades, se publican de forma periódica versiones más recientes del software de PHP. Para las aplicaciones de API, se recomienda usar la versión más reciente de PHP con el fin de aprovechar las correcciones de seguridad, de haberlas, o las nuevas funcionalidades de la versión más reciente. Actualmente, esta directiva solo se aplica a las aplicaciones web de Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_PHP_Latest.json) |
-|[Asegúrese de que la "Versión de PHP" es la más reciente, si se usa como parte de la aplicación web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7261b898-8a84-4db8-9e04-18527132abb3) |A causa de errores de seguridad o para incluir funcionalidades, se publican de forma periódica versiones más recientes del software de PHP. Para las aplicaciones web, se recomienda usar la versión más reciente de PHP con el fin de aprovechar las correcciones de seguridad, de haberlas, o las nuevas funcionalidades de la versión más reciente. Actualmente, esta directiva solo se aplica a las aplicaciones web de Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_PHP_Latest.json) |
+|[Asegurarse de que la "Versión de PHP" es la más reciente, si se usa como parte de la aplicación de API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1bc1795e-d44a-4d48-9b3b-6fff0fd5f9ba) |A causa de errores de seguridad o para incluir funcionalidades, se publican de forma periódica versiones más recientes del software de PHP. Para las aplicaciones de API, se recomienda usar la versión más reciente de PHP con el fin de aprovechar las correcciones de seguridad, de haberlas, o las nuevas funcionalidades de la versión más reciente. Actualmente, esta directiva solo se aplica a las aplicaciones web de Linux. |AuditIfNotExists, Disabled |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_PHP_Latest.json) |
+|[Asegúrese de que la "Versión de PHP" es la más reciente, si se usa como parte de la aplicación web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7261b898-8a84-4db8-9e04-18527132abb3) |A causa de errores de seguridad o para incluir funcionalidades, se publican de forma periódica versiones más recientes del software de PHP. Para las aplicaciones web, se recomienda usar la versión más reciente de PHP con el fin de aprovechar las correcciones de seguridad, de haberlas, o las nuevas funcionalidades de la versión más reciente. Actualmente, esta directiva solo se aplica a las aplicaciones web de Linux. |AuditIfNotExists, Disabled |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_PHP_Latest.json) |
 
 ### <a name="ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"></a>Asegúrese de que la "Versión de Python" es la más reciente si se usa para ejecutar la aplicación web.
 

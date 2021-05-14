@@ -175,7 +175,9 @@
 - name: Recursos
   items:
     - name: Opciones de ayuda y soporte técnico
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-dps/toc.json&bc=/azure/iot-dps/breadcrumb/toc.json
+    - name: Glosario de IoT
+      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-dps/toc.json&bc=/azure/iot-dps/breadcrumb/toc.json
     - name: Servicios de IoT de Azure
       items:
         - name: IoT Hub
@@ -213,7 +215,7 @@
         - name: Plataforma de iOS
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
     - name: Catálogo de dispositivos de Azure Certified for IoT
-      href: 'https://catalog.azureiotsolutions.com/'
+      href: 'https://devicecatalog.azure.com/'
     - name: Centro para desarrolladores de Azure
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Solicitudes de datos del cliente

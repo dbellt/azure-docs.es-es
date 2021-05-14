@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: de113e3c005e11bd2bcd13ec6c1554664ba8fbaf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 773ae30cd888e76793bd65f8f31a8c110b128c01
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877434"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135228"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configuración de una instancia de Config Server en Spring Cloud para su servicio
 
@@ -24,7 +24,7 @@ Spring Cloud Config ofrece soporte técnico para servidor y cliente para las con
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
-* Un servicio de Azure Spring Cloud aprovisionado y en ejecución. Para configurar e iniciar el servicio Azure Spring Cloud, consulte [Inicio rápido: Inicio de una aplicación Java Spring mediante la CLI de Azure](spring-cloud-quickstart.md).
+* Un servicio de Azure Spring Cloud aprovisionado y en ejecución. Para configurar e iniciar el servicio Azure Spring Cloud, consulte [Inicio rápido: Inicio de una aplicación Java Spring mediante la CLI de Azure](./quickstart.md).
 
 ## <a name="restriction"></a>Restricción
 
@@ -242,12 +242,12 @@ Azure Spring Cloud puede acceder a los repositorios de Git públicos, protegidos
 
    ![Servidor de Spring Cloud Config](media/spring-cloud-tutorial-config-server/config-server-azure-repos.png)
 
-## <a name="delete-your-app-configuration"></a>Eliminación de la configuración de la aplicación
+## <a name="delete-your-configuration"></a>Eliminación de la configuración
 
-Una vez guardado un archivo de configuración, aparece el botón **Delete app configuration** (Eliminar configuración de la aplicación) en la pestaña **Configuration** (Configuración). Si se selecciona este botón, se borrará completamente la configuración existente. Debe hacerlo si desea conectar la instancia de Config Server a otro origen, por ejemplo, para pasarla de GitHub a Azure DevOps.
+Puede seleccionar el botón **Restablecer** que aparece en la pestaña **Config Server** para borrar completamente la configuración existente. Elimine la configuración de Config Server si desea conectar la instancia de Config Server a otro origen, por ejemplo, para pasarla de GitHub a Azure DevOps.
 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a habilitar y configurar una instancia de Config Server de Spring Cloud. Para más información sobre la administración de la aplicación, consulte [Escalado de una aplicación en Azure Spring Cloud](spring-cloud-howto-scale-manual.md).
+En este artículo, ha aprendido a habilitar y configurar una instancia de Config Server de Spring Cloud. Para más información sobre la administración de la aplicación, consulte [Escalado de una aplicación en Azure Spring Cloud](./how-to-scale-manual.md).

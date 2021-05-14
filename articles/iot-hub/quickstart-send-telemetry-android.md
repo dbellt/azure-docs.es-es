@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: c9e81786f9bd45961b38dbd9336ea98be1ab2010
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 4bc8dfb879f362463153819cdf99869522c55c1b
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059804"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863828"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Inicio rápido: Envío de datos de telemetría de IoT desde un dispositivo Android
 
@@ -100,7 +100,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Lectura de los datos de telemetría procedentes de su instancia de IoT Hub
 
-En esta sección, usará Azure Cloud Shell con la [extensión de IoT](/cli/azure/ext/azure-iot/iot) para supervisar los mensajes de dispositivo que envía el dispositivo Android.
+En esta sección, usará Azure Cloud Shell con la [extensión de IoT](/cli/azure/iot) para supervisar los mensajes de dispositivo que envía el dispositivo Android.
 
 1. Mediante Azure Cloud Shell, ejecute el siguiente comando para conectarse y leer mensajes desde el centro de IoT:
 

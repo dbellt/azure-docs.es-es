@@ -1,16 +1,16 @@
 ---
 title: Obtención de imágenes con drones
 description: En este artículo se describe cómo obtener imágenes con drones de los asociados.
-author: uhabiba04
+author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-ummehabiba
-ms.openlocfilehash: 18932d2ddb60242b4d7874dddf0349a62cd5c738
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.author: riyazp
+ms.openlocfilehash: 7ef68267fdd6f1072271f0a0d3f2ab1427ecd4c8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102177613"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751272"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>Obtención de imágenes con drones de asociados
 

@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 450a12ae5ae1e13c9cc9b5599a41b6c29d740a9f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b8f00715eac391e9180c36d8960f54c95772c564
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104785332"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753178"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory: preguntas más frecuentes
 > [!NOTE]
@@ -88,13 +88,19 @@ Se supone que las canalizaciones incluyen actividades relacionadas. Si los conju
 ### <a name="what-are-the-supported-data-stores"></a>¿Qué almacenes de datos son compatibles?
 Copiar actividad en Data Factory realiza una copia de los datos de un almacén de datos de origen a uno receptor. Data Factory admite los siguientes almacenes de datos. Se pueden escribir datos desde cualquier origen en todos los tipos de receptores. Haga clic en un almacén de datos para obtener información sobre cómo copiar datos a un almacén como origen o destino.
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 > [!NOTE]
 > Los almacenes de datos con * pueden ser locales o estar en la IaaS de Azure; además, requieren que instale [Data Management Gateway](data-factory-data-management-gateway.md) en una máquina local o de la IaaS de Azure.
 
 ### <a name="what-are-the-supported-file-formats"></a>¿Qué formatos de archivo son compatibles?
-[!INCLUDE [data-factory-file-format](../../../includes/data-factory-file-format.md)]
+Azure Data Factory admite los siguientes tipos de formato de archivo:
+
+* [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format)
+* [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format)
+* [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format)
+* [Formato ORC](data-factory-supported-file-and-compression-formats.md#orc-format)
+* [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format)
 
 ### <a name="where-is-the-copy-operation-performed"></a>¿Dónde se realiza la operación de copia?
 Consulte la sección [Movimiento de datos disponible globalmente](data-factory-data-movement-activities.md#global) para obtener más información. En resumen, cuando en el proceso participa un almacén de datos local, la operación de copia la realiza Data Management Gateway en el entorno local. Asimismo, cuando el movimiento de datos se produce entre dos almacenes en la nube, la operación de copia se realiza en la región más cercana a la ubicación del receptor en la misma zona geográfica.

@@ -8,6 +8,10 @@
       href: core/overview-iot-central-tour.md
     - name: Actualizaciones recientes
       items:
+        - name: "Características nuevas y actualizadas de marzo de\_2021"
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-march-2021/'
+        - name: "Características nuevas y actualizadas de febrero de\_2021"
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-february-2021/'
         - name: "Características nuevas y actualizadas de enero de\_2021"
           href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-january-2021/'
         - name: "Características nuevas y actualizadas de noviembre de\_2020"
@@ -122,7 +126,7 @@
             - name: Creación de una aplicación de supervisión de pacientes continua
               href: healthcare/tutorial-continuous-patient-monitoring.md
             - name: Creación de un panel de evaluación de prioridades de datos de salud
-              href: healthcare/howto-health-data-triage.md
+              href: ./healthcare/tutorial-health-data-triage.md
 - name: Conceptos
   items:
     - name: Architecture
@@ -131,6 +135,10 @@
       href: core/overview-iot-central-developer.md
     - name: Guía del generador de soluciones
       href: core/overview-iot-central-solution-builder.md
+    - name: Guía del administrador
+      href: core/overview-iot-central-admin.md
+    - name: Guía del operador
+      href: core/overview-iot-central-operator.md
     - name: ¿Qué son las plantillas de aplicación?
       href: core/concepts-app-templates.md
     - name: Plantillas de aplicaciones del sector
@@ -189,6 +197,8 @@
   items:
     - name: Desarrollo y conexión de dispositivos
       items:
+        - name: Crear una aplicación
+          href: core/howto-create-iot-central-application.md
         - name: Configuración de una plantilla de dispositivo
           href: core/howto-set-up-template.md
         - name: Versión de la plantilla del dispositivo
@@ -201,16 +211,14 @@
           href: core/how-to-connect-devices-x509.md
         - name: Supervisión de la conectividad de dispositivos mediante la CLI de Azure
           href: core/howto-monitor-devices-azure-cli.md
+        - name: "Conexión de dispositivos mediante una puerta de enlace de IoT\_Edge transparente"
+          href: core/how-to-connect-iot-edge-transparent-gateway.md
         - name: Preparación y conexión de un kit de desarrollo de Azure Sphere
           href: core/howto-connect-sphere.md
         - name: Preparación y conexión de un dispositivo RuuviTag
           href: core/howto-connect-ruuvi.md
         - name: Preparación y conexión a Rigado Cascade 500
           href: core/howto-connect-rigado-cascade-500.md
-        - name: Conexión a otras nubes de IoT
-          href: core/howto-build-iotc-device-bridge.md
-        - name: Administración de los dispositivos
-          href: core/how-to-move-device-to-iot.md
     - name: Creación de soluciones integradas
       items:
         - name: Adición de iconos al panel
@@ -227,6 +235,8 @@
           href: core/howto-export-data.md
         - name: Exportación de datos a destinos en la nube (heredados)
           href: core/howto-export-data-legacy.md
+        - name: Transformación de datos
+          href: core/howto-transform-data.md
         - name: Uso de flujos de trabajo para integrarlos con otros servicios
           href: core/howto-configure-rules-advanced.md
         - name: Crear reglas personalizadas
@@ -235,14 +245,26 @@
           href: core/howto-create-custom-analytics.md
         - name: Visualización de datos en Power BI
           href: core/howto-connect-powerbi.md
+        - name: Conexión a otras nubes de IoT
+          href: core/howto-build-iotc-device-bridge.md
         - name: "Conexión de una aplicación de Azure IoT Central con los servicios de campo de Dynamics\_365"
           href: government/how-to-configure-connected-field-services.md
+    - name: Uso de la API de REST
+      items:
+        - name: Autenticación y autorización de llamadas a API REST
+          href: core/howto-authorize-rest-api.md
+        - name: Administración de los usuarios y los roles.
+          href: core/howto-manage-users-roles-with-rest-api.md
+        - name: Control de dispositivos
+          href: core/howto-control-devices-with-rest-api.md
     - name: Administración de los dispositivos
       items:
         - name: Adición y eliminación de dispositivos
           href: core/howto-manage-devices.md
         - name: Ejecución de un trabajo
           href: core/howto-run-a-job.md
+        - name: Traslado de dispositivos desde IoT Hub
+          href: core/how-to-move-device-to-iot.md
     - name: Administración de una solución
       items:
         - name: Cambio de la configuración de la aplicación
@@ -300,7 +322,9 @@
     - name: Ejemplos de código
       href: /samples/browse/?expanded=azure&products=azure-iot-central
     - name: Opciones de ayuda y soporte técnico
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
+    - name: Glosario de IoT
+      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
     - name: Servicios de IoT de Azure
       items:
         - name: IoT Hub

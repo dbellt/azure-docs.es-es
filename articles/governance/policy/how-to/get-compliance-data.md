@@ -1,14 +1,14 @@
 ---
 title: Obtención de datos de cumplimiento de directiva
 description: Las evaluaciones y los efectos de Azure Policy determinan el cumplimiento. Obtenga información sobre cómo obtener los detalles de cumplimiento de los recursos de Azure.
-ms.date: 03/16/2021
+ms.date: 04/19/2021
 ms.topic: how-to
-ms.openlocfilehash: cdd23d685750fb8a5d3803f4b6030e7e67bbddce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1a9a7fcbbcbd7f490b2f665b40c7ed922ec61ee
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104598548"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864602"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtención de datos de cumplimiento de los recursos de Azure
 
@@ -35,6 +35,8 @@ Las evaluaciones de directivas asignadas e iniciativas se producen como resultad
 - Una directiva o iniciativa que ya está asignada a un ámbito se actualiza. El ciclo de evaluación y control de tiempo en este escenario es el mismo que para una nueva asignación a un ámbito.
 
 - Un recurso se implementa o actualiza en un ámbito con una asignación mediante Azure Resource Manager, la API REST o un SDK compatible. En este escenario, el evento de efecto (anexar, auditar, denegar, implementar) y la información de estado de cumplimiento para el recurso individual están disponibles en el portal y en los SDK unos 15 minutos más tarde. Este evento no causa una evaluación de otros recursos.
+
+- Una suscripción (tipo de recurso `Microsoft.Resource/subscriptions`) se crea o mueve dentro de una [jerarquía de grupos de administración](../../management-groups/overview.md) con una definición de directiva asignada que tiene como destino el tipo de recurso de suscripción. La evaluación de los efectos admitidos de la suscripción (audit, auditIfNotExist, deployIfNotExists, modify), el registro y cualquier acción de corrección tarda aproximadamente 30 minutos.
 
 - Se crea, actualiza o elimina una [directiva de exención](../concepts/exemption-structure.md). En este escenario, se evalúa el ámbito de exención definido en la asignación correspondiente.
 

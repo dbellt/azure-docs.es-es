@@ -1,18 +1,18 @@
 ---
 title: Copia de datos hacia y desde SQL Server
 description: Aprenda a trasladar los datos hacia y desde una base de datos SQL Server en un entorno local o en una máquina virtual de Azure mediante Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: 8187a71e89c364ef5a52d7ad4615ed03e6b24a4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6996a5e3f20a3c71fc5a49f9650955ce9c41683
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104592064"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486798"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copia de datos con SQL Server como origen o destino mediante Azure Data Factory
 
@@ -45,13 +45,13 @@ No se admite la base de datos local LocalDB de [SQL Server Express](/sql/databa
 >[!NOTE]
 >Actualmente, este conector no admite [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) de SQL Server. Como solución alternativa, puede usar un [conector ODBC genérico](connector-odbc.md) y un controlador ODBC de SQL Server. Siga [esta guía](/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver) con configuraciones de cadena de conexión y descarga del controlador ODBC.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="get-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de base de datos SQL Server.
 

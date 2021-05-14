@@ -4,12 +4,12 @@ description: Varias razones para no poder crear un clúster con InvalidNetworkCo
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/12/2021
-ms.openlocfilehash: 83d4819ecb1da91bda5fb4f1cb445bbc34fd007f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b8b5cba0e25e3be6b668054c9f3d2afaa87925d
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98926997"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108064186"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Error al crear el clúster con InvalidNetworkConfigurationErrorCode en Azure HDInsight
 
@@ -31,9 +31,9 @@ Este error indica un problema con la configuración de DNS personalizada. Los se
 
 1. SSH en la máquina virtual que forma parte del clúster y ejecute el comando `hostname -f`. De esta forma, se devolverá el nombre de dominio completo del host (denominado `<host_fqdn>` en las instrucciones siguientes).
 
-1. A continuación, ejecute el comando `nslookup <host_fqdn>` (por ejemplo, `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net`). Si este comando resuelve el nombre en una dirección IP, significa que el servidor DNS funciona correctamente. En este caso, genere una incidencia de soporte técnico con HDInsight e investigaremos su problema. En la incidencia, incluya los pasos de solución de problemas que ha ejecutado. Nos ayudará a resolver el problema con más rapidez.
+1. A continuación, ejecute el comando `nslookup <host_fqdn>` (por ejemplo, `nslookup hn*.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net`). Si este comando resuelve el nombre en una dirección IP, significa que el servidor DNS funciona correctamente. En este caso, genere una incidencia de soporte técnico con HDInsight e investigaremos su problema. En la incidencia, incluya los pasos de solución de problemas que ha ejecutado. Nos ayudará a resolver el problema con más rapidez.
 
-1. Si el comando anterior no devuelve una dirección IP, ejecute `nslookup <host_fqdn> 168.63.129.16` (por ejemplo, `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16`). Si este comando es capaz de resolver la dirección IP, significa que el servidor DNS no reenvía la consulta al DNS de Azure o bien no es una máquina virtual que forme parte de la misma red virtual que el clúster.
+1. Si el comando anterior no devuelve una dirección IP, ejecute `nslookup <host_fqdn> 168.63.129.16` (por ejemplo, `nslookup hn*.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16`). Si este comando es capaz de resolver la dirección IP, significa que el servidor DNS no reenvía la consulta al DNS de Azure o bien no es una máquina virtual que forme parte de la misma red virtual que el clúster.
 
 1. Si no tiene una máquina virtual de Azure que pueda actuar como un servidor DNS personalizado en la red virtual del clúster, debe agregarla primero. Cree una máquina virtual en la red virtual, que se configurará como reenviador de DNS.
 
@@ -141,8 +141,8 @@ Desde una sesión de ssh en el nodo principal, edite y ejecute lo siguiente:
 
 ```bash
 hostname -f
-nslookup <headnode_fqdn> (e.g.nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net)
-dig @168.63.129.16 <headnode_fqdn> (e.g. dig @168.63.129.16 hn0-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net)
+nslookup <headnode_fqdn> (e.g.nslookup hn*.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net)
+dig @168.63.129.16 <headnode_fqdn> (e.g. dig @168.63.129.16 hn*.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net)
 ```
 ### <a name="cause"></a>Causa
 

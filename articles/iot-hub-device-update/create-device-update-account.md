@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 5956b7b74d27a4f9a2b79ee3950c8ac765610c70
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d3f7f4e1cdd56675d6084448abc810c9a41992f9
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558489"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107520146"
 ---
 # <a name="device-update-for-iot-hub-resource-management"></a>Administración de recursos de Device Update para IoT Hub
 
@@ -95,6 +95,9 @@ Para configurar IoT Hub
    :::image type="content" source="media/create-device-update-account/instance-configure-selected.png" alt-text="Captura de pantalla donde se acepta la configuración de IoT Hub para una instancia." lightbox="media/create-device-update-account/instance-configure-selected.png":::
 
 3. Haga clic en "Actualizar".
+
+   > [!NOTE] 
+   > Si utiliza un nivel Gratis de Azure IoT Hub, el número permitido de rutas de mensajes se limita a 5. Device Update for IoT Hub debe configurar 4 rutas de mensajes para que funcionen según lo previsto. 
 
 [Obtenga información acerca de las rutas de mensajes que se configuran.](device-update-resources.md) 
 

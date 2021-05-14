@@ -4,13 +4,14 @@ description: Información y pasos para configurar la clave administrada por el c
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 01/10/2021
-ms.openlocfilehash: 9fdaf42f18c320bf841e710b7066451fca24eaae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/21/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c9f59c5c4410bbb3a8f53a53b0febaa2b04ba2aa
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102030994"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315998"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clave administrada por el cliente de Azure Monitor 
 
@@ -59,7 +60,7 @@ Se aplican las reglas siguientes:
 - Las cuentas de almacenamiento de clúster de Log Analytics generan una clave de cifrado única para cada cuenta de almacenamiento, lo que se conoce como AEK.
 - La AEK se usa para derivar DEK, que son las claves que se usan para cifrar cada bloque de datos escritos en el disco.
 - Al configurar la clave en Key Vault y hacer referencia a ella en el clúster, Azure Storage envía solicitudes a Azure Key Vault para ajustar y desajustar AEK para realizar operaciones de cifrado y descifrado de datos.
-- Esta KEK nunca abandona su instancia de Key Vault y, en el caso de una clave de HSM, nunca abandona el hardware.
+- Su KEK nunca sale de la instancia de Key Vault.
 - Azure Storage usa la identidad administrada que está asociada al recurso *Clúster* para autenticar el acceso y acceder a Azure Key Vault mediante Azure Active Directory.
 
 ### <a name="customer-managed-key-provisioning-steps"></a>Pasos de aprovisionamiento de la clave administrada por el cliente
@@ -105,7 +106,7 @@ Authorization: Bearer <token>
 
 ## <a name="storing-encryption-key-kek"></a>Almacenamiento de la clave de cifrado de claves (KEK)
 
-Cree un recurso de Azure Key Vault, o use uno que ya tenga, para generar o importar una clave que se usará para el cifrado de datos. Azure Key Vault se debe configurar como recuperable para proteger su clave y el acceso a los datos en Azure Monitor. Puede comprobar esta configuración en las propiedades de Key Vault: tanto la *Eliminación temporal* como la *Protección de purga* deben estar habilitadas.
+Cree o use una instancia de Azure Key Vault existente en la región en la que se planea el clúster y, a continuación, genere o importe una clave que se usará para el cifrado de registros. Azure Key Vault se debe configurar como recuperable para proteger su clave y el acceso a los datos en Azure Monitor. Puede comprobar esta configuración en las propiedades de Key Vault: tanto la *Eliminación temporal* como la *Protección de purga* deben estar habilitadas.
 
 ![Configuración de la eliminación temporal y la protección de purga](media/customer-managed-keys/soft-purge-protection.png)
 
@@ -136,7 +137,7 @@ Los clústeres admiten dos [tipos de identidad administrada](../../active-direct
   "identity": {
   "type": "UserAssigned",
     "userAssignedIdentities": {
-      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
+      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
       }
   }
   ```
@@ -163,7 +164,9 @@ Todas las operaciones del clúster requieren el permiso de acción `Microsoft.Op
 
 En este paso se actualiza el almacenamiento de Azure Monitor con la clave y la versión que se van a usar para el cifrado de los datos. Cuando se actualiza, la clave nueva se usa para ajustar y desajustar la clave de almacenamiento (AEK).
 
-Seleccione la versión actual de la clave en Azure Key Vault para obtener los detalles del identificador de clave.
+>[!IMPORTANT]
+>- La rotación de claves puede ser automática o requerir una actualización de clave explícita. Consulte [Rotación de claves](#key-rotation) para determinar la estrategia adecuada antes de actualizar los detalles del identificador de clave del clúster.
+>- La actualización del clúster no debe incluir los detalles de identidad y de identificador de clave en la misma operación. Si necesita actualizar ambos valores, la actualización debe realizarse en dos operaciones consecutivas.
 
 ![Concesión de permisos a Key Vault](media/customer-managed-keys/key-identifier-8bit.png)
 
@@ -266,7 +269,9 @@ El almacenamiento del clúster comprueba periódicamente su instancia de Key Vau
 
 ## <a name="key-rotation"></a>Rotación de claves
 
-La rotación de la clave administrada por el cliente necesita una actualización explícita al clúster con la nueva versión de la clave en Azure Key Vault. [Actualice el clúster con detalles del identificador de clave](#update-cluster-with-key-identifier-details). Si no actualiza la nueva versión de la clave en el clúster, el almacenamiento de clúster de Log Analytics seguirá usando la clave anterior para cifrado. Si deshabilita o elimina la clave anterior antes de actualizar la nueva clave en el clúster, obtendrá el estado de [revocación de clave](#key-revocation).
+La rotación de clave tiene dos modos: 
+- Rotación automática: cuando el clúster se actualiza con ```"keyVaultProperties"``` pero se omite la propiedad ```"keyVersion"```, o bien se establece en ```""```, el almacenamiento usará las últimas versiones de forma automática.
+- Actualización de la versión de clave explícita: cuando el clúster se actualiza y se proporciona la versión de la clave en la propiedad ```"keyVersion"```, las nuevas versiones de clave requieren una actualización ```"keyVaultProperties"``` explícita en el clúster. Consulte [Actualización del clúster con detalles del identificador de clave](#update-cluster-with-key-identifier-details). Si genera la nueva versión de la clave en la instancia de Key Vault, pero no la actualiza en el clúster, el almacenamiento de clúster de Log Analytics seguirá usando la clave anterior. Si deshabilita o elimina la clave anterior antes de actualizar la nueva clave en el clúster, obtendrá el estado de [revocación de clave](#key-revocation).
 
 Se puede acceder a todos los datos después de la operación de rotación de claves, incluidos los datos ingeridos antes y después de la rotación, ya que todos los datos permanecen cifrados mediante la clave de cifrado de cuenta (AEK), mientras que la AEK ahora se cifra con la nueva versión de la clave de cifrado de claves (KEK).
 
@@ -412,6 +417,8 @@ La clave administrada por el cliente se proporciona en un clúster dedicado, y s
 - Actualmente no se admite el traslado de un clúster a otro grupo de recursos o a otra suscripción.
 
 - Su instancia de Azure Key Vault, el clúster y las áreas de trabajo deben estar en la misma región y en el mismo inquilino de Azure Active Directory (Azure AD), pero pueden estar en distintas suscripciones.
+
+- La actualización del clúster no debe incluir los detalles de identidad y de identificador de clave en la misma operación. En caso de que deba actualizar ambos valores, la actualización debe realizarse en dos operaciones consecutivas.
 
 - La caja de seguridad no está disponible actualmente en China. 
 

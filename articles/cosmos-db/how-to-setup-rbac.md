@@ -4,14 +4,14 @@ description: Aprenda a configurar el control de acceso basado en roles con Azure
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 04/19/2021
 ms.author: thweiss
-ms.openlocfilehash: 1a6bdf55e52a7060423d2a016f07eee3608f50d4
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 9de41835e33d50a670a44089cb10d44cc57e92a7
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063481"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818717"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Configuración del control de acceso basado en roles con Azure Active Directory para la cuenta de Azure Cosmos DB (versión preliminar).
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,6 +45,16 @@ El control de acceso basado en roles del plano de datos de Azure Cosmos DB se b
 
 ## <a name="permission-model"></a><a id="permission-model"></a> Modelo de permiso
 
+> [!IMPORTANT]
+> Este modelo de permisos solo incluye las operaciones de base de datos que permiten leer y escribir datos. **No** incluye ningún tipo de operaciones de administración, como la creación de contenedores o la modificación de su rendimiento. Esto significa que **no puede usar ningún SDK del plano de datos de Azure Cosmos DB** para autenticar las operaciones de administración con una identidad de AAD. En su lugar, tiene que usar [Azure RBAC](role-based-access-control.md) a través de:
+> - [Plantillas de ARM](manage-with-templates.md)
+> - [Scripts de Azure PowerShell](manage-with-powershell.md)
+> - [Scripts de la CLI de Azure](manage-with-cli.md)
+> - Bibliotecas de administración de Azure disponibles en
+>   - [.NET](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDB)
+>   - [Java](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmos)
+>   - [Python](https://pypi.org/project/azure-mgmt-cosmosdb/)
+
 En la tabla siguiente se enumeran todas las acciones expuestas por el modelo de permiso.
 
 | Nombre | Operaciones correspondientes de la base de datos |
@@ -64,9 +74,6 @@ Se admiten caracteres comodín en los niveles de *contenedores* y *elementos*:
 
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*`
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*`
-
-> [!IMPORTANT]
-> Este modelo de permisos solo incluye las operaciones de base de datos que permiten leer y escribir datos. **No** incluye ningún tipo de operaciones de administración, como la creación de contenedores o la modificación de su rendimiento. Para autenticar las operaciones de administración con una identidad de AAD, use el [control de acceso basado en roles de Azure](role-based-access-control.md) en su lugar.
 
 ### <a name="metadata-requests"></a><a id="metadata-requests"></a> Solicitudes de metadatos
 
@@ -326,6 +333,7 @@ La forma de crear una instancia de `TokenCredential` queda fuera del ámbito de 
 - [En .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
 - [En Java](/java/api/overview/azure/identity-readme#credential-classes)
 - [En JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
+- En la API de REST
 
 En los ejemplos siguientes se usa una entidad de servicio con una instancia de `ClientSecretCredential`.
 
@@ -372,6 +380,12 @@ const client = new CosmosClient({
     aadCredentials: servicePrincipal
 });
 ```
+
+### <a name="in-rest-api"></a>En la API de REST
+
+El rol RBAC de Azure Cosmos DB actualmente es compatible con la versión 2021-03-15 de la API de REST. Al construir el [encabezado de autorización](/rest/api/cosmos-db/access-control-on-cosmosdb-resources), establezca el parámetro **type** en **aad** y la firma de hash **(sig)** en el **token de Oauth** como se muestra en el ejemplo siguiente:
+
+`type=aad&ver=1.0&sig=<token-from-oauth>`
 
 ## <a name="auditing-data-requests"></a>Auditoría de solicitudes de datos
 

@@ -4,22 +4,22 @@ description: Aprenda a conectarse a un servidor de Azure Analysis Services media
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 4/20/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ed0f3d379ca961c610958c073c27c6fc9583252b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c5a430c5bb24032a2665ad078311dcb5137d2bb9
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96500927"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816041"
 ---
 # <a name="connect-with-power-bi"></a>Conexión con Power BI
 
 Una vez que se ha creado un servidor en Azure y se ha implementado un modelo tabular, los usuarios de su organización pueden conectarse y comenzar a explorar los datos. 
 
-> [!TIP]
-> Asegúrese de usar la versión más reciente de [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
+> [!NOTE]
+> Si se publica un modelo de Power BI Desktop en el servicio Power BI, en el servidor de Azure Analysis Services, asegúrese de que la propiedad  de servidor de intercalación que distingue mayúsculas de minúsculas no está seleccionada (valor predeterminado). La propiedad de servidor que distingue mayúsculas de minúsculas puede establecerse mediante SQL Server Management Studio.
 > 
 > 
   

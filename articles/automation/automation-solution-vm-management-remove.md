@@ -3,14 +3,14 @@ title: Introducción a la característica Start/Stop VMs during off-hours de Azu
 description: En este artículo se describe cómo quitar la característica Start/Stop VMs during off-hours y desvincular una cuenta de Automation desde el área de trabajo de Log Analytics.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/04/2021
+ms.date: 04/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0bab5d8e82ce432e9b3834fe4c003316545eb338
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 9ec76197bfde6bb679f70c44ab01712f9f52bfd2
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102122092"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533957"
 ---
 # <a name="remove-startstop-vms-during-off-hours-from-automation-account"></a>Eliminación de la característica Start/Stop VMs during off-hours de la cuenta de Automation
 
@@ -21,6 +21,9 @@ Después de habilitar la característica Start/Stop VMs during off-hours para ad
 * Elimine la característica de una cuenta de Automation y un área de trabajo vinculada que admitan otros objetivos de administración y supervisión.
 
 Al eliminar esta característica, solo se quitan los runbooks asociados, pero no se eliminan las programaciones ni las variables que se crearon durante la implementación o las definidas de manera personalizada que se crearon posteriormente.
+
+> [!NOTE]
+> Antes de continuar, compruebe que no hay ningún [bloqueo de Resource Manager](../azure-resource-manager/management/lock-resources.md) aplicado a la suscripción, el grupo de recursos o el recurso, que impida la eliminación o la modificación accidentales de recursos críticos. Al implementar la solución Start/Stop VMs during off-hours, se establece el nivel de bloqueo en **CanNotDelete** en varios recursos dependientes de la cuenta de Automation (específicamente sus runbooks y variables). Los bloqueos deben quitarse para poder eliminar la cuenta de Automation.
 
 ## <a name="delete-the-dedicated-resource-group"></a>Eliminación del grupo de recursos dedicado
 

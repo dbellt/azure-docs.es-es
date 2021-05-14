@@ -1,17 +1,17 @@
 ---
 title: Copia de datos de IBM Informix como origen y destino mediante Azure Data Factory
 description: Obtenga información sobre cómo copiar datos con IBM Informix como origen o destino mediante una actividad de copia de una canalización de Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.author: jingwang
-ms.openlocfilehash: af907704862e80a2747ac064b98242a1d9d7edb3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.author: jianleishen
+ms.openlocfilehash: c992140863649752a9c964424923c917462f16f7
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104588875"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109485880"
 ---
 # <a name="copy-data-from-and-to-ibm-informix-using-azure-data-factory"></a>Copia de datos de IBM Informix como origen y destino mediante Azure Data Factory
 
@@ -38,7 +38,7 @@ Para usar este conector de Informix, necesitará lo siguiente:
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de Informix.
 

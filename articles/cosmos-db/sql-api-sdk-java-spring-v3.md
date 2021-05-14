@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 03/15/2021
-ms.author: kuthapar
+ms.date: 04/06/2021
+ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 536c0ab78a4b7e08abb1532635aff722df9e15cd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 17db5f566b45af8ea67d551972dc9e12235f5b6c
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563113"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290963"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Spring Data Azure Cosmos DB v3 para la API Core (SQL): Notas de la versión y recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,12 +25,13 @@ ms.locfileid: "105563113"
 > * [SDK de .NET Core v2](sql-api-sdk-dotnet-core.md)
 > * [SDK de fuente de cambios de .NET, versión 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [SDK de Java v4](sql-api-sdk-java-v4.md)
+> * [SDK para Java v4](sql-api-sdk-java-v4.md)
 > * [Versión 2 del SDK de Java asincrónico](sql-api-sdk-async-java.md)
 > * [SDK de Java v2 sincrónico](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Conector de Spark](sql-api-sdk-java-spark.md)
+> * [Conector Spark 3 OLTP](sql-api-sdk-java-spark-v3.md)
+> * [Conector Spark 2 OLTP](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Proveedor de recursos de REST](/rest/api/cosmos-db-resource-provider/)
@@ -89,6 +90,9 @@ Puede usar Spring Data Azure Cosmos DB en las aplicaciones de [Azure Spring Clo
 | **Consejos de rendimiento**| [Sugerencias de rendimiento para el SDK de Java v4 (aplicable a Spring Data)](performance-tips-java-sdk-v4-sql.md)| 
 | **Solución de problemas** | [Solución de problemas del SDK de Java v4 (aplicable a Spring Data)](troubleshoot-java-sdk-v4-sql.md) | 
 | **Talleres y laboratorios de Azure Cosmos DB** |[Página principal de talleres de Cosmos DB](https://aka.ms/cosmosworkshop)
+
+> [!IMPORTANT]
+> * La versión 3.5.0 admite Spring Boot 2.4.3 y versiones posteriores.
 
 [!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md)]
 

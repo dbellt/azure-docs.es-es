@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 09/21/2016
+ms.date: 05/03/2021
 ms.author: rohink
-ms.openlocfilehash: fa2c1ced6405c967ca33562d6215b304b8507e5a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c9360555ff108937b51f9b9b491b6eec006b4f2e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "76937252"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745062"
 ---
 # <a name="how-azure-dns-works-with-other-azure-services"></a>Funcionamiento de Azure DNS con otros servicios de Azure
 
@@ -40,3 +40,8 @@ En la tabla siguiente se describen los tipos de registro admitidos que se pueden
 | Azure App Service | [Dirección IP externa](dns-custom-domain.md#app-service-web-apps) |Para las direcciones IP externas, puede crear un registro D de DNS. De lo contrario, deberá crear un registro CNAME que se asigne al nombre de azurewebsites.net. Para más información, consulte [Asignación de un nombre de dominio personalizado a una aplicación de Azure](../app-service/app-service-web-tutorial-custom-domain.md). |
 | Máquinas virtuales de Azure Resource Manager |[Dirección IP pública](dns-custom-domain.md#public-ip-address) |Las máquinas virtuales de Resource Manager pueden tener direcciones IP públicas. Una máquina virtual con una dirección IP pública también puede encontrarse detrás de un equilibrador de carga. Puede crear un registro D de DNS, CNAME o de alias para la dirección pública. Puede usar este nombre personalizado para omitir la dirección IP virtual en el equilibrador de carga. |
 | Máquinas virtuales clásicas |[Dirección IP pública](dns-custom-domain.md#public-ip-address) |Las máquinas virtuales clásicas creadas con PowerShell o con la CLI se pueden configurar con una dirección virtual dinámica o estática (reservada). Puede crear un registro CNAME o D de DNS, respectivamente. |
+
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* En esta guía se explica cómo [administrar conjuntos de registros y registros](./dns-getstarted-portal.md) en la zona DNS.

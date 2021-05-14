@@ -1,18 +1,18 @@
 ---
 title: Conexión de una puerta de enlace de red virtual a una de Azure Virtual WAN
-description: Este artículo le ayuda a conectar una puerta de enlace de red virtual de Azure a una puerta de enlace de VPN de Azure Virtual WAN
+description: Obtenga información sobre cómo conectar una puerta de enlace de VPN (puerta de enlace de red virtual) de Azure a otra de Azure Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: 469d7ba9e86751312ebf6a6c82b35f065ee6cb50
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d8420f0138dc26e2f265ac7c4f48e646a6bfe69
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880379"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165126"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Conexión de una VPN Gateway (puerta de enlace de red virtual) a una Virtual WAN
 

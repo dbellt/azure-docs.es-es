@@ -1,18 +1,18 @@
 ---
 title: Copia de datos de Dynamics AX
 description: Obtenga información sobre cómo copiar datos desde Dynamics AX a almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
-ms.openlocfilehash: 38ff77ad56f16fbd33b77021b18be77f6a153b3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 69972bc9ca0b4082eaa6148b5879b487f240e78f
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100380991"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487194"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Copia de datos de Dynamics AX mediante Azure Data Factory
 
@@ -36,7 +36,7 @@ De forma específica, este conector de Dynamics AX admite la copia de datos desd
 
 ## <a name="get-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que puede usar para definir entidades de Data Factory específicas del conector de Dynamics AX.
 

@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 03ef2110af2d9e642019c2b07b53fae3e32b1ea6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b12b3db9266284509e88cef85a33a1a43b500907
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104950185"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108075490"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar el registro de diagnósticos para las aplicaciones de Azure App Service
 ## <a name="overview"></a>Información general
@@ -190,12 +190,14 @@ En la tabla siguiente se muestran las descripciones y los tipos de registros adm
 | AppServiceEnvironmentPlatformLogs | Sí | N/D | Sí | Sí | App Service Environment: escalado, cambios de configuración y registros de estado|
 | AppServiceAuditLogs | Sí | Sí | Sí | Sí | Actividad de inicio de sesión a través de FTP y KUDU |
 | AppServiceFileAuditLogs | Sí | Sí | TBA | TBA | Cambios de archivo realizados en el contenido del sitio; **solo disponible para el nivel Premium y versiones posteriores** |
-| AppServiceAppLogs | ASP .NET | ASP .NET | Imágenes preparadas de Java SE y Tomcat <sup>1</sup> | Imágenes preparadas de Java SE y Tomcat <sup>1</sup> | Registros de aplicación |
+| AppServiceAppLogs | ASP.NET y Tomcat <sup>1</sup> | ASP.NET y Tomcat <sup>1</sup> | Imágenes preparadas de Java SE y Tomcat <sup>2</sup> | Imágenes preparadas de Java SE y Tomcat <sup>2</sup> | Registros de aplicación |
 | AppServiceIPSecAuditLogs  | Sí | Sí | Sí | Sí | Solicitudes de reglas IP |
 | AppServicePlatformLogs  | TBA | Sí | Sí | Sí | Registros de operación de contenedor |
 | AppServiceAntivirusScanAuditLogs | Sí | Sí | Sí | Sí | [Registros de examen antivirus](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) con Microsoft Defender; **solo están disponibles para el nivel prémium** | 
 
-<sup>1</sup> Para las aplicaciones Java SE, agregue "$WEBSITE _AZMON_PREVIEW_ENABLED" a la configuración de la aplicación y establézcala en 1 o en true.
+<sup>1</sup> Para las aplicaciones Tomcat, agregue "TOMCAT_USE_STARTUP_BAT" a la configuración de la aplicación y establézcala en 0 o en false. Debe estar en la versión *más reciente* de Tomcat y usar *java.util.logging*.
+
+<sup>2</sup> Para las aplicaciones Java SE, agregue "$WEBSITE_AZMON_PREVIEW_ENABLED" a la configuración de la aplicación y establézcala en 1 o en true.
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Pasos siguientes
 * [Consulta de registros con Azure Monitor](../azure-monitor/logs/log-query-overview.md)

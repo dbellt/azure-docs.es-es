@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/08/2020
-ms.openlocfilehash: ea2b44d05d25756a16b6b84f0734966b1f579848
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/16/2021
+ms.openlocfilehash: 339b87abad863f19a012dc6ed3a14ab13a44fc48
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97007609"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949117"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Cómo mejorar la aplicación LUIS revisando las expresiones de punto de conexión
 
@@ -61,7 +61,7 @@ Si no está seguro de si la expresión se debe eliminar, muévala a la intenció
 
 ## <a name="disable-active-learning"></a>Deshabilitación del aprendizaje activo
 
-Para deshabilitar el aprendizaje activo, no registre las consultas de usuario. Esto se logra mediante el establecimiento de la [consulta de punto de conexión](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) con el parámetro y el valor de la cadena de consulta `log=false`, o la no utilización del valor de la cadena de consulta porque el valor predeterminado es false.
+Para deshabilitar el aprendizaje activo, no registre las consultas de usuario. Esto se logra mediante el establecimiento de la [consulta de punto de conexión](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) con el parámetro y el valor de la cadena de consulta `log=false`, o la no utilización del valor de la cadena de consulta porque el valor predeterminado es false.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

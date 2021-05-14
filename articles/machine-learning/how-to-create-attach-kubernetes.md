@@ -5,18 +5,18 @@ description: Obtenga información sobre cómo crear un nuevo clúster de Azure K
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
+ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 03/11/2021
-ms.openlocfilehash: 28a647949fdb3ff4d8527268919dbd7e49b27ea4
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.date: 04/08/2021
+ms.openlocfilehash: 949975c1f28c2c1d630319e5172f853f5ed44b35
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276661"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107890031"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Creación y conexión de un clúster de Azure Kubernetes Service
 
@@ -67,6 +67,10 @@ Azure Machine Learning puede implementar modelos de Machine Learning entrenados 
     - [Configuración del escalador automático en AKS](../aks/cluster-autoscaler.md)
 
 - __No actualice directamente el clúster mediante una configuración de YAML__. Aunque Azure Kubernetes Services admite actualizaciones a través de la configuración de YAML, las implementaciones de Azure Machine Learning invalidarán los cambios. Los únicos dos campos de YAML que no se sobrescribirán son __Límites de solicitudes__ y __CPU y memoria__.
+
+- La creación de un clúster de AKS mediante la interfaz de usuario de Estudio de Azure Machine Learning, el SDK o la extensión de la CLI __no es__ idempotente. Al intentar volver a crear el recurso, se producirá un error que significa que ya existe un clúster con el mismo nombre.
+    
+    - El uso de una plantilla de Azure Resource Manager y el recurso [Microsoft.MachineLearningServices/workspaces/computes](/azure/templates/microsoft.machinelearningservices/2019-11-01/workspaces/computes) para crear un clúster de AKS __tampoco__ es idempotente. Si intenta volver a usar la plantilla para actualizar un recurso ya existente, recibirá el mismo error.
 
 ## <a name="azure-kubernetes-service-version"></a>Versión de Azure Kubernetes Service
 
@@ -194,7 +198,7 @@ Para más información acerca de las clases, los métodos y los parámetros que 
 az ml computetarget create aks -n myaks
 ```
 
-Para más información, consulte la referencia de [az ml computetarget create aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-aks).
+Para más información, consulte la referencia de [az ml computetarget create aks](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_aks).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -219,7 +223,7 @@ Si ya tiene un clúster de AKS en la suscripción de Azure, puede usarlo con el 
 
 Para más información acerca de cómo crear un clúster de AKS mediante la CLI de Azure o Azure Portal, consulte los artículos siguientes:
 
-* [Creación de un clúster de AKS (CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2faks%2fTOC.json#az-aks-create)
+* [Creación de un clúster de AKS (CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2faks%2fTOC.json#az_aks_create)
 * [Creación de un clúster de AKS: Portal](../aks/kubernetes-walkthrough-portal.md)
 * [Creación de un clúster de AKS (plantilla de ARM en las plantillas de inicio rápido de Azure)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
 
@@ -271,7 +275,7 @@ Para conectar el clúster existente a un área de trabajo, use el siguiente coma
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-Para más información, consulte la referencia de [az ml computetarget attach aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach#ext-azure-cli-ml-az-ml-computetarget-attach-aks).
+Para más información, consulte la referencia de [az ml computetarget attach aks](/cli/azure/ml/computetarget/attach#az_ml_computetarget_attach_aks).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/05/2021
-ms.custom: references_regions
-ms.openlocfilehash: 6f6c67e0e9ef1dd2a4092033a9479801cd0e8e7d
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.custom: references_regions, devx-track-azurepowershell
+ms.openlocfilehash: 472700f50175c115305bad332efa6b0e77fb74ce
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449314"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315298"
 ---
 # <a name="enable-vm-insights-guest-health-preview"></a>Habilitación del estado de invitado de VM Insights (versión preliminar)
 El estado de invitado de VM Insights permite ver el estado de una máquina virtual conforme a la definición de un conjunto de medidas de rendimiento que se muestrean a intervalos regulares. En este artículo se explica cómo habilitar esta característica en la suscripción, así como la supervisión de invitado en cada máquina virtual.

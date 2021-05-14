@@ -1,14 +1,14 @@
 ---
 title: Corrección de recursos no compatibles
 description: En esta guía se explica la corrección de los recursos que no son conformes con las directivas de Azure Policy.
-ms.date: 02/17/2021
+ms.date: 05/01/2021
 ms.topic: how-to
-ms.openlocfilehash: e567bedf48393a36215c1ac3f3d11f467ae7badd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 677e203b724f2046dfd7ba8d7a509965a36a8172
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742235"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326172"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corregir los recursos no conformes con Azure Policy
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2020
 ms.author: duau
-ms.openlocfilehash: 5989f91233448c04d50ba1c69a06851b91426a03
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 2ad97656b822bc5ffc957469842436ec84d9e812
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167811"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785764"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Admisión de protocolos para encabezados HTTP en Azure Front Door
 Este artículo describe el protocolo que admite el servicio Front Door con partes de la ruta de acceso de llamada (consulte la imagen). Las secciones siguientes proporcionan más información acerca de los encabezados HTTP admitidos por el servicio Front Door.
@@ -37,7 +37,7 @@ Front Door incluye encabezados de una solicitud entrante a menos que se quite d
 | ------------- | ------------- |
 | Via |  *Via: 1.1 Azure* </br> Front Door agrega la versión del cliente HTTP seguida de *Azure* como valor del encabezado Via. Este encabezado indica la versión HTTP del cliente y que Front Door era un destinatario intermedio de la solicitud entre el cliente y el servidor back-end.  |
 | X-Azure-ClientIP | *X-Azure-ClientIP: 127.0.0.1* </br> Representa la dirección IP de cliente asociada con la solicitud que se está procesando. Por ejemplo, una solicitud procedente de un servidor proxy puede agregar el encabezado X-Forwarded-For para indicar la dirección IP del autor de la llamada original. |
-| X-Azure-SocketIP |  *X-Azure-SocketIP: 127.0.0.1* </br> Representa la dirección IP del socket asociada con la conexión TCP de la que se originó la solicitud actual. Una dirección IP del cliente de la solicitud podría no ser igual a su dirección IP de socket porque se puede sobrescribir arbitrariamente por un usuario.|
+| X-Azure-SocketIP |  *X-Azure-SocketIP: 127.0.0.1* </br> Representa la dirección IP del socket asociada con la conexión TCP de la que se originó la solicitud actual. Una dirección IP del cliente de la solicitud podría no ser igual a su dirección IP de socket porque un usuario la puede sobrescribir de manera arbitraria.|
 | X-Azure-Ref | *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Una cadena de referencia única que identifica una solicitud atendida por Front Door. Se usa para buscar los registros de acceso y es esencial para la solución de problemas.|
 | X-Azure-RequestChain | *X-Azure-RequestChain: hops=1* </br> Un encabezado que Front Door usa para detectar bucles de solicitudes, y los usuarios no deben generar ninguna dependencia de él. |
 | X-Azure-FDID | *X-Azure-FDID: 55ce4ed1-4b06-4bf1-b40e-4638452104da* <br/> Una cadena de referencia que identifica la solicitud venía de un recurso de Front Door específico. El valor puede verse en Azure Portal o recuperarse mediante la API de administración. Puede usar este encabezado en combinación con ACL de IP para bloquear el punto de conexión y aceptar únicamente las solicitudes de un recurso de Front Door específico. Consulte las preguntas más frecuentes para obtener [información más detallada](front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-) |

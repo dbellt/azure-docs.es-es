@@ -7,13 +7,13 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 03/08/2021
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: 2a756313a4659dfc531289c2c86890371f700367
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 7fe9e0237f9fbdd1f53f0cbf7b945aaecb6c84c0
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102452295"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319654"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Tutorial: Creación de una puerta de enlace de aplicaciones que mejora el acceso de las aplicaciones web
 
@@ -58,7 +58,7 @@ New-AzResourceGroup -Name $rg -Location $location
 
 ## <a name="create-a-self-signed-certificate"></a>Creación de un certificado autofirmado
 
-Para su uso en producción, debe importar un certificado válido firmado por un proveedor de confianza. Para este tutorial, creará un certificado autofirmado mediante [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Puede usar [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) con la huella digital que se devolvió al exportar un archivo pfx del certificado.
+Para su uso en producción, debe importar un certificado válido firmado por un proveedor de confianza. Para este tutorial, creará un certificado autofirmado mediante [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate). Puede usar [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) con la huella digital que se devolvió al exportar un archivo pfx del certificado.
 
 ```powershell
 New-SelfSignedCertificate `

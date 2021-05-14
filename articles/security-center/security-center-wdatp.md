@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 04/19/2021
 ms.author: memildin
-ms.openlocfilehash: 88d0a3dcd89ea678d77bc558fc680630bc0f2309
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: a9997fac66dd49af04f4ed78737118d605e27072
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168185"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829897"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja los puntos de conexión con la solución EDR integrada de Security Center: Microsoft Defender para punto de conexión
 
@@ -38,7 +38,7 @@ Microsoft Defender para punto de conexión es una solución integral de segurida
 | Estado de la versión:                  | Disponible con carácter general                                                                                                                                                                                                                                                                                      |
 | Precios:                        | Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).                                                                                                                                                                                                                                             |
 | Plataformas compatibles:            |  • Máquinas de Azure que ejecutan Windows.<br> • Máquinas de Azure Arc que ejecutan Windows.|
-| Versiones compatibles de Windows:  |  • **Disponibilidad general (GA):** detección en Windows Server 2016, 2012 R2 y 2008 R2 SP1<br> • **Versión preliminar:** detección en Windows Server 2019, [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md) y [Sesión múltiple de Windows 10 Enterprise](../virtual-desktop/windows-10-multisession-faq.yml) [anteriormente Enterprise para escritorios virtuales (EVD)]|
+| Versiones compatibles de Windows para la detección:  |  • Windows Server 2019, 2016, 2012 R2 y 2008 R2 SP1<br> • [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md)<br> • [Windows 10 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (antes Enterprise for Virtual Desktops (EVD)|
 | Sistemas operativos no admitidos:  |  • Windows 10 (excepto EVD o WVD)<br> • Linux|
 | Roles y permisos necesarios: | Para habilitar o deshabilitar la integración: **Administrador de seguridad** o **Propietario**<br>Para ver las alertas de MDATP en Security Center: **Lector de seguridad**, **Lector**, **Colaborador del grupo de recursos**, **Propietario del grupo de recursos**, **Administrador de seguridad**, **Propietario de la suscripción** o **Colaborador de la suscripción**|
 | Nubes:                         | ![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, otros gobiernos                                                        |
@@ -62,27 +62,33 @@ Mediante la integración de Defender para punto de conexión con Security Center
 
     :::image type="content" source="./media/security-center-wdatp/microsoft-defender-security-center.png" alt-text="Security Center en Microsoft Defender para punto de conexión" lightbox="./media/security-center-wdatp/microsoft-defender-security-center.png":::
 
-## <a name="microsoft-defender-for-endpoint-tenant-location"></a>Ubicación del inquilino de Microsoft Defender para punto de conexión
+## <a name="what-are-the-requirements-for-the-microsoft-defender-for-endpoint-tenant"></a>¿Cuáles son los requisitos del inquilino de Microsoft Defender para punto de conexión?
 
-Al usar Azure Security Center para supervisar los servidores, se crea automáticamente un inquilino Microsoft Defender para punto de conexión. Los datos que recopila Defender para punto de conexión se almacenan en la ubicación geográfica del inquilino identificada durante el aprovisionamiento. Los datos de cliente en formato seudonimizado también se pueden almacenar en los sistemas de procesamiento y almacenamiento central en el Estados Unidos. 
+Al usar Azure Security Center para supervisar los servidores, se crea automáticamente un inquilino Microsoft Defender para punto de conexión. 
 
-Una vez configurada la ubicación, no se puede cambiar. Si tiene su propia licencia de Microsoft Defender para el punto de conexión y necesita trasladar los datos a otra ubicación, póngase en contacto con Soporte técnico de Microsoft para restablecer el inquilino.
+- **Ubicación:** los datos que recopila Defender para punto de conexión se almacenan en la ubicación geográfica del inquilino identificada durante el aprovisionamiento. Los datos de cliente en formato seudonimizado también se pueden almacenar en los sistemas de procesamiento y almacenamiento central en el Estados Unidos. Una vez configurada la ubicación, no se puede cambiar. Si tiene su propia licencia de Microsoft Defender para el punto de conexión y necesita trasladar los datos a otra ubicación, póngase en contacto con Soporte técnico de Microsoft para restablecer el inquilino.
+- **Mover suscripciones:** si movió la suscripción de Azure entre inquilinos de Azure, se requieren algunos pasos de preparación manuales para que Security Center pueda implementar Defender para punto de conexión. Para obtener más información, [póngase en contacto con el soporte técnico de Microsoft](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 
-## <a name="enabling-the-microsoft-defender-for-endpoint-integration"></a>Habilitar la integración de Microsoft Defender para punto de conexión
+## <a name="enable-the-microsoft-defender-for-endpoint-integration"></a>Habilitación de la integración de Microsoft Defender para punto de conexión
 
-1. Compruebe que el equipo cumple los requisitos necesarios para Defender para punto de conexión:
+### <a name="prerequisites"></a>Prerequisites
 
-    - Para **todas las versiones de Windows**:
-        - Configure las opciones de red descritas en [Configurar el proxy de dispositivo y la configuración de conectividad a Internet](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet).
-        - Si va a implementar Defender para punto de conexión en máquinas locales, conéctelo a Azure Arc como se explica en [Conexión de una máquina híbrida con servidores habilitados para Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
-    - Además, en el caso de las **máquinas con Windows Server 2019**, compruebe que están ejecutando un agente válido y que tienen la extensión MicrosoftMonitoringAgent.
+Compruebe que el equipo cumple los requisitos necesarios para Defender para punto de conexión:
 
+1. Asegúrese de que la máquina está conectada a Azure según sea necesario:
+
+    - En el caso de servidores **Windows**, configure las opciones de red descritas en [Configurar el proxy de dispositivo y la configuración de conectividad a Internet](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet).
+    - En el caso de máquinas **locales**, conéctela a Azure Arc como se explica en [Conexión de una máquina híbrida con servidores habilitados para Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+    - En el caso de las máquinas con **Windows Server 2019** y [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md), confirme que las máquinas ejecutan el agente de Log Analytics y que tienen la extensión MicrosoftMonitoringAgent.
+    
 1. Habilite **Azure Defender para los servidores**. Consulte [Inicio rápido: Habilitación de Azure Defender](enable-azure-defender.md).
-
 1. Si ya ha obtenido una licencia e implementado Microsoft defender para punto de conexión en sus servidores, quítelo mediante el procedimiento descrito en la [Retirada de servidores de Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
-1. En el menú de Security Center, seleccione **Precios y configuración**.
-1. Seleccione la suscripción que desea cambiar.
+1. Si ha movido la suscripción entre inquilinos de Azure, también se requieren algunos pasos de preparación manuales. Para obtener más información, [póngase en contacto con el soporte técnico de Microsoft](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+
+
+### <a name="enable-the-integration"></a>Habilitación de la integración
+1. En el menú de Security Center, seleccione **Precios y configuración**, y seleccione la suscripción que quiere cambiar.
 1. Seleccione **Detección de amenazas**.
 1. Seleccione **Permitir que Microsoft Defender for Endpoint acceda a mis datos** y luego **Guardar**.
 

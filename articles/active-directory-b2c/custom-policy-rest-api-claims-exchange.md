@@ -7,30 +7,39 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 04/28/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84053df34ffda0d4686ad80a9e5f3af00ac53d72
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: d790048b87beaf10bc19755ba2c8d631e57b6c33
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94949503"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108174603"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Tutorial: Agregue los intercambios de notificaciones de la API de REST a directivas personalizadas de Azure Active Directory B2C.
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Azure Active Directory B2C (Azure AD B2C) permite a los desarrolladores de identidades integrar una interacción con una API RESTful en un recorrido del usuario. Al final de este tutorial podrá crear un recorrido del usuario de Azure AD B2C que interactúe con [servicios RESTful](custom-policy-rest-api-intro.md).
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+Azure Active Directory B2C (Azure AD B2C) permite a los desarrolladores de identidades integrar una interacción con una API RESTful en un recorrido del usuario. Al final de este tutorial podrá crear un recorrido del usuario de Azure AD B2C que interactúe con [servicios RESTful](api-connectors-overview.md).
 
 En este escenario, enriquecemos los datos de token del usuario mediante la integración con un flujo de trabajo de línea de negocio corporativo. Durante el registro o inicio de sesión con una cuenta local o federada, Azure AD B2C invoca una API REST para obtener los datos de perfil extendido del usuario de un origen de datos remoto. En este ejemplo, Azure AD B2C envía el identificador único del usuario: objectId. Después, la API REST devuelve el saldo de la cuenta del usuario (un número aleatorio). Use este ejemplo como punto de partida para la integración con su propio sistema CRM, base de datos de marketing o cualquier flujo de trabajo de línea de negocio.
 
-También puede diseñar la interacción como un perfil técnico de validación. Esto es adecuado cuando la API REST va a validar datos en pantalla y devolver notificaciones. Para más información, consulte [Tutorial: Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C para validar la entrada del usuario](custom-policy-rest-api-claims-validation.md).
+También puede diseñar la interacción como un perfil técnico de validación. Esto es adecuado cuando la API REST va a validar datos en pantalla y devolver notificaciones. Para más información, consulte [Tutorial: Adición de un conector de API a un flujo de usuario de registro](add-api-connector.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Realice los pasos del artículo [Introducción a las directivas personalizadas](custom-policy-get-started.md). Debe tener una directiva personalizada activa para registrar e iniciar sesión de cuentas locales.
-- Más información sobre cómo [integrar notificaciones de API REST en la directiva personalizada de Azure AD B2C](custom-policy-rest-api-intro.md).
+- Realice los pasos del artículo [Introducción a las directivas personalizadas](tutorial-create-user-flows.md?pivots=b2c-custom-policy). Debe tener una directiva personalizada activa para registrar e iniciar sesión de cuentas locales.
+- Más información sobre cómo [integrar notificaciones de API REST en la directiva personalizada de Azure AD B2C](api-connectors-overview.md).
 
 ## <a name="prepare-a-rest-api-endpoint"></a>Preparación del punto de conexión de API REST
 
@@ -59,7 +68,7 @@ La configuración del punto de conexión de API REST está fuera del ámbito de 
 
 Una notificación proporciona un almacenamiento temporal de datos durante la ejecución de una directiva de Azure AD B2C. Puede declarar notificaciones dentro de la sección del [esquema de notificaciones](claimsschema.md). 
 
-1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`**</em>.
+1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Busque el elemento [BuildingBlocks](buildingblocks.md). Si el elemento no existe, agréguelo.
 1. Busque el elemento [ClaimsSchema](claimsschema.md). Si el elemento no existe, agréguelo.
 1. Agregue las notificaciones siguientes al elemento **ClaimsSchema**.  
@@ -229,3 +238,5 @@ Para obtener información sobre cómo proteger las API, vea los siguientes artí
 - [Tutorial: Integración de intercambios de notificaciones de API REST en los recorridos de usuario de Azure AD B2C como un paso de orquestación](custom-policy-rest-api-claims-exchange.md)
 - [Protección de la API RESTful](secure-rest-api.md)
 - [Referencia: Perfil técnico de RESTful](restful-technical-profile.md)
+
+::: zone-end

@@ -6,21 +6,21 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: anithaa
-ms.openlocfilehash: 2f15b397fbceb9e097d94080ba03fba50a96ed06
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fd0b3ada5fec283562cee9727e3f805a7d34c532
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048512"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479056"
 ---
-# <a name="configure-private-endpoints-for-azure-cosmos-db-analytical-store"></a>Configuración de puntos de conexión privados para el almacén analítico de Azure Cosmos DB
+# <a name="configure-azure-private-link-for-azure-cosmos-db-analytical-store"></a>Configuración de Azure Private Link para el almacén analítico de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-En este artículo, aprenderá a configurar puntos de conexión privados administrados para el almacén analítico de Azure Cosmos DB. Si va a usar el almacén transaccional, consulte el artículo [Puntos de conexión privados para el almacén transaccional](how-to-configure-private-endpoints.md). Con los puntos de conexión privados administrados, puede restringir el acceso de red del almacén analítico de Azure Cosmos DB a la red virtual administrada de Azure Synapse. Los puntos de conexión privados administrados establecen un vínculo privado con el almacén analítico.
+En este artículo, aprenderá a configurar puntos de conexión privados administrados para el almacén analítico de Azure Cosmos DB. Si va a usar el almacén transaccional, consulte el artículo [Puntos de conexión privados para el almacén transaccional](how-to-configure-private-endpoints.md). Con los [puntos de conexión privados administrados](../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md), puede restringir el acceso de red del almacén analítico de Azure Cosmos DB a la red virtual administrada asociada con el área de trabajo de Azure Synapse. Los puntos de conexión privados administrados establecen un vínculo privado al almacén analítico.
 
-## <a name="enable-private-endpoint-for-the-analytical-store"></a>Habilitación del punto de conexión privado para el almacén analítico
+## <a name="enable-a-private-endpoint-for-the-analytical-store"></a>Habilitación de un punto de conexión privado para el almacén analítico
 
-### <a name="set-up-an-azure-synapse-analytics-workspace-with-a-managed-virtual-network"></a>Configuración de un área de trabajo de Azure Synapse Analytics con una red virtual administrada
+### <a name="set-up-azure-synapse-analytics-workspace-with-a-managed-virtual-network"></a>Configuración de un área de trabajo de Azure Synapse Analytics con una red virtual administrada
 
 [Cree un área de trabajo en Azure Synapse Analytics con la filtración de datos habilitada.](../synapse-analytics/security/how-to-create-a-workspace-with-data-exfiltration-protection.md) Con la [protección de la filtración de datos](../synapse-analytics/security/workspace-data-exfiltration-protection.md), puede asegurarse de que los usuarios malintencionados no puedan copiar o transferir datos de Azure Resources a ubicaciones fuera del ámbito de su organización.
 

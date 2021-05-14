@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 5ee4481b3151e28d5d37760e486a43adbc194994
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2be762adfeb296546a289e745794e53e4ee16a09
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553228"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107895854"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Parte 1: Habilitación de la autenticación de AD DS para los recursos compartidos de archivos de Azure 
 
@@ -41,27 +41,30 @@ La cuenta de AD DS que crea el cmdlet representa la cuenta de almacenamiento. S
 Reemplace los valores de marcador de posición por los suyos propios en los parámetros siguientes antes de ejecutar el script en PowerShell.
 > [!IMPORTANT]
 > El cmdlet de unión a un dominio creará una cuenta de AD para representar la cuenta de almacenamiento (recurso compartido de archivos) en AD. Puede optar por registrarla como una cuenta de equipo o una cuenta de inicio de sesión de servicio; consulte [Preguntas más frecuentes](./storage-files-faq.md#security-authentication-and-access-control) para obtener más información. En el caso de las cuentas de equipo, se establece un tiempo de expiración de contraseña predeterminado en AD de 30 días. Del mismo modo, la cuenta de inicio de sesión de servicio puede tener establecido un tiempo de expiración de contraseña predeterminado en el dominio o la unidad organizativa (OU) de AD.
-> Para ambos tipos de cuenta, se recomienda comprobar cuál es el tiempo de expiración de la contraseña configurado en el entorno de AD y planear la [actualización de la contraseña de la identidad de la cuenta de almacenamiento](storage-files-identity-ad-ds-update-password.md) de la cuenta de AD antes el tiempo máximo. Puede considerar la posibilidad de [crear una unidad organizativa (UO) de AD en AD](/powershell/module/addsadministration/new-adorganizationalunit) y deshabilitar la directiva de expiración de contraseñas en las [cuentas de equipo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)) o las cuentas de inicio de sesión de servicio, según corresponda. 
+> Para ambos tipos de cuenta, se recomienda comprobar cuál es el tiempo de expiración de la contraseña configurado en el entorno de AD y planear la [actualización de la contraseña de la identidad de la cuenta de almacenamiento](storage-files-identity-ad-ds-update-password.md) de la cuenta de AD antes el tiempo máximo. Puede considerar la posibilidad de [crear una unidad organizativa (UO) de AD en AD](/powershell/module/activedirectory/new-adorganizationalunit) y deshabilitar la directiva de expiración de contraseñas en las [cuentas de equipo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)) o las cuentas de inicio de sesión de servicio, según corresponda. 
 
 ```PowerShell
-#Change the execution policy to unblock importing AzFilesHybrid.psm1 module
+# Change the execution policy to unblock importing AzFilesHybrid.psm1 module
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 
 # Navigate to where AzFilesHybrid is unzipped and stored and run to copy the files into your path
 .\CopyToPSPath.ps1 
 
-#Import AzFilesHybrid module
+# Import AzFilesHybrid module
 Import-Module -Name AzFilesHybrid
 
-#Login with an Azure AD credential that has either storage account owner or contributer Azure role assignment
+# Login with an Azure AD credential that has either storage account owner or contributer Azure role assignment
+# If you are logging into an Azure environment other than Public (ex. AzureUSGovernment) you will need to specify that.
+# See https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-ps
+# for more information.
 Connect-AzAccount
 
-#Define parameters
+# Define parameters, $StorageAccountName currently has a maximum limit of 15 characters
 $SubscriptionId = "<your-subscription-id-here>"
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
 
-#Select the target subscription for the current session
+# Select the target subscription for the current session
 Select-AzSubscription -SubscriptionId $SubscriptionId 
 
 # Register the target storage account with your active directory environment under the target OU (for example: specify the OU with Name as "UserAccounts" or DistinguishedName as "OU=UserAccounts,DC=CONTOSO,DC=COM"). 
@@ -89,7 +92,7 @@ Si ya ha ejecutado correctamente el script `Join-AzStorageAccountForAuth` anteri
 
 ### <a name="checking-environment"></a>Comprobación del entorno
 
-En primer lugar, debe comprobar el estado del entorno. En concreto, compruebe si [Active Directory PowerShell](/powershell/module/addsadministration/) está instalado y si el shell se ejecuta con privilegios de administrador. Después, compruebe si está instalado el [módulo Az.Storage 2.0](https://www.powershellgallery.com/packages/Az.Storage/2.0.0) y, en caso negativo, instálelo. Después de completar esas comprobaciones, compruebe la instancia de AD DS para ver si hay una [cuenta de equipo](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (valor predeterminado) o una [cuenta de inicio de sesión de servicio](/windows/win32/ad/about-service-logon-accounts) que ya se haya creado con SPN/UPN como "cifs/nombre_de_la_cuenta_de_almacenamiento.file.core.windows.net". Si la cuenta no existe, cree una como se describe en la sección siguiente.
+En primer lugar, debe comprobar el estado del entorno. En concreto, compruebe si [Active Directory PowerShell](/powershell/module/activedirectory/) está instalado y si el shell se ejecuta con privilegios de administrador. Después, compruebe si está instalado el [módulo Az.Storage 2.0](https://www.powershellgallery.com/packages/Az.Storage/2.0.0) y, en caso negativo, instálelo. Después de completar esas comprobaciones, compruebe la instancia de AD DS para ver si hay una [cuenta de equipo](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (valor predeterminado) o una [cuenta de inicio de sesión de servicio](/windows/win32/ad/about-service-logon-accounts) que ya se haya creado con SPN/UPN como "cifs/nombre_de_la_cuenta_de_almacenamiento.file.core.windows.net". Si la cuenta no existe, cree una como se describe en la sección siguiente.
 
 ### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>Creación de una identidad que representa la cuenta de almacenamiento en AD manualmente
 

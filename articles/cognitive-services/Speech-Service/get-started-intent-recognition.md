@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 09/02/2020
+ms.date: 05/04/2021
 ms.author: erhopf
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
-zone_pivot_groups: programming-languages-set-two-with-js
+zone_pivot_groups: programming-languages-speech-services-one-nomore-no-go
 keywords: reconocimiento de la intención
-ms.openlocfilehash: 4259f8d993e7110f11f045a28bf8610f9b55d660
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 0defd5e964245728b8ca2e68d582bbfc0d9ed1e8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107211459"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769467"
 ---
 # <a name="get-started-with-intent-recognition"></a>Introducción al reconocimiento de la intención
 
@@ -50,10 +50,4 @@ ms.locfileid: "107211459"
 [!INCLUDE [Header](includes/quickstarts/intent-recognition/header.md)]
 [!INCLUDE [Header](includes/quickstarts/intent-recognition/javascript/header.md)]
 [!INCLUDE [javascript](includes/quickstarts/intent-recognition/javascript/javascript.md)]
-::: zone-end
-
-::: zone pivot="programming-language-more"
-[!INCLUDE [Header](includes/quickstarts/from-file/more/header.md)]
-[!INCLUDE [More samples](includes/quickstarts/intent-recognition/more/more.md)]
-
 ::: zone-end

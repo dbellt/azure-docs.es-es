@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 5816bc542ff550accedd33ba9a7fd9d98583b3d1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 275aba6e9c7b87ec7c6fb1cbc986b3ebaa3a9696
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653769"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130960"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Creación de un demonio multiinquilino que usa la plataforma de identidad de Microsoft
 
@@ -233,7 +233,7 @@ Visual Studio publicará el proyecto y abrirá automáticamente un explorador e
 1. Agregue la misma dirección URL a la lista de valores del menú **Autenticación** > **URI de redirección**. Si tiene varias direcciones URL de redirección, asegúrese de que haya una nueva entrada que use el URI del servicio de aplicaciones para cada una.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no lo necesite, elimine el objeto de aplicación que creó en el paso [Registrar su aplicación](#register-your-application).  Para eliminar la aplicación, siga las instrucciones descritas en [Eliminación de una aplicación creada por usted o por su organización](quickstart-remove-app.md#remove-an-application-authored-by-you-or-your-organization).
+Cuando ya no lo necesite, elimine el objeto de aplicación que creó en el paso [Registrar su aplicación](#register-your-application).  Para eliminar la aplicación, siga las instrucciones descritas en [Eliminación de una aplicación creada por usted o por su organización](./howto-remove-app.md#remove-an-application-authored-by-you-or-your-organization).
 
 ## <a name="get-help"></a>Obtener ayuda
 

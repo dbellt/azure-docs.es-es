@@ -5,17 +5,17 @@ description: Aprenda a usar una plantilla de Azure Resource Manager para crear u
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
+ms.topic: how-to
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
-ms.date: 09/30/2020
-ms.openlocfilehash: 9df8a67fd3dfbf23986f1cc5ed18392463fc7ecb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/21/2021
+ms.openlocfilehash: 5a31531a0d98a1dae4122f661001aa5eca887e6b
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102522213"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279881"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning
 
@@ -40,7 +40,7 @@ Para obtener más información, consulte [Implementación de una aplicación con
 
 ## <a name="workspace-resource-manager-template"></a>Plantilla de Resource Manager de área de trabajo
 
-La plantilla de Azure Resource Manager utilizada en este documento se encuentra en el directorio [201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/blob/master/201-machine-learning-advanced/azuredeploy.json) del repositorio de GitHub de plantillas de inicio rápido de Azure.
+La plantilla de Azure Resource Manager usada en este documento se encuentra en el directorio [machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json) del repositorio de GitHub de plantillas de inicio rápido de Azure.
 
 Esta plantilla crea los siguientes servicios de Azure:
 
@@ -106,7 +106,7 @@ Una vez creado correctamente el grupo de recursos, implemente la plantilla con e
 az deployment group create \
     --name "exampledeployment" \
     --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" location="eastus"
 ```
 
@@ -116,7 +116,7 @@ az deployment group create \
 New-AzResourceGroupDeployment `
   -Name "exampledeployment" `
   -ResourceGroupName "examplegroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" `
   -workspaceName "exampleworkspace" `
   -location "eastus"
 ```
@@ -134,7 +134,7 @@ De forma predeterminada, todos los recursos creados como parte de la plantilla s
 az deployment group create \
     --name "exampledeployment" \
     --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
       location="eastus" \
       storageAccountOption="existing" \
@@ -147,7 +147,7 @@ az deployment group create \
 New-AzResourceGroupDeployment `
   -Name "exampledeployment" `
   -ResourceGroupName "examplegroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" `
   -workspaceName "exampleworkspace" `
   -location "eastus" `
   -storageAccountOption "existing" `
@@ -228,7 +228,7 @@ Para habilitar el uso de claves administradas por el cliente, establezca los par
 az deployment group create \
     --name "exampledeployment" \
     --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
       location="eastus" \
       encryption_status="Enabled" \
@@ -242,7 +242,7 @@ az deployment group create \
 New-AzResourceGroupDeployment `
   -Name "exampledeployment" `
   -ResourceGroupName "examplegroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" `
   -workspaceName "exampleworkspace" `
   -location "eastus" `
   -encryption_status "Enabled" `
@@ -288,7 +288,7 @@ Si los recursos asociados no están detrás de una red virtual, puede establecer
 az deployment group create \
     --name "exampledeployment" \
     --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
       location="eastus" \
       privateEndpointType="AutoApproval"
@@ -300,7 +300,7 @@ az deployment group create \
 New-AzResourceGroupDeployment `
   -Name "exampledeployment" `
   -ResourceGroupName "examplegroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" `
   -workspaceName "exampleworkspace" `
   -location "eastus" `
   -privateEndpointType "AutoApproval"
@@ -318,7 +318,7 @@ Para implementar un recurso detrás de una nueva red virtual, establezca **vnetO
 az deployment group create \
     --name "exampledeployment" \
     --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
       location="eastus" \
       vnetOption="new" \
@@ -333,7 +333,7 @@ az deployment group create \
 New-AzResourceGroupDeployment `
   -Name "exampledeployment" `
   -ResourceGroupName "examplegroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" `
   -workspaceName "exampleworkspace" `
   -location "eastus" `
   -vnetOption "new" `
@@ -352,7 +352,7 @@ Como alternativa, puede implementar varios o todos los recursos dependientes det
 az deployment group create \
     --name "exampledeployment" \
     --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
       location="eastus" \
       vnetOption="new" \
@@ -371,7 +371,7 @@ az deployment group create \
 New-AzResourceGroupDeployment `
   -Name "exampledeployment" `
   -ResourceGroupName "examplegroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" `
   -workspaceName "exampleworkspace" `
   -location "eastus" `
   -vnetOption "new" `
@@ -397,7 +397,7 @@ New-AzResourceGroupDeployment `
 az deployment group create \
     --name "exampledeployment" \
     --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
       location="eastus" \
       vnetOption="new" \
@@ -411,7 +411,7 @@ az deployment group create \
 New-AzResourceGroupDeployment `
   -Name "exampledeployment" `
   -ResourceGroupName "examplegroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" `
   -workspaceName "exampleworkspace" `
   -location "eastus" `
   -vnetOption "new" `
@@ -459,7 +459,7 @@ Para implementar un área de trabajo con recursos asociados existentes, debe est
     az deployment group create \
     --name "exampledeployment" \
     --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
       location="eastus" \
       vnetOption="existing" \
@@ -480,7 +480,7 @@ Para implementar un área de trabajo con recursos asociados existentes, debe est
     New-AzResourceGroupDeployment `
       -Name "exampledeployment" `
       -ResourceGroupName "examplegroup" `
-      -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+      -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" `
       -workspaceName "exampleworkspace" `
       -location "eastus" `
       -vnetOption "existing" `
@@ -508,7 +508,7 @@ Para implementar un área de trabajo con recursos asociados existentes, debe est
 az deployment group create \
     --name "exampledeployment" \
     --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
       location="eastus" \
       vnetOption="existing" \
@@ -525,7 +525,7 @@ az deployment group create \
 New-AzResourceGroupDeployment `
   -Name "exampledeployment" `
   -ResourceGroupName "examplegroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" `
   -workspaceName "exampleworkspace" `
   -location "eastus" `
   -vnetOption "existing" `
@@ -540,8 +540,9 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-the-azure-portal"></a>Uso de Azure Portal
 
-1. Siga los pasos que se indican en [Implementación de recursos desde plantilla personalizada](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template). Cuando llegue a la pantalla __Seleccionar una plantilla__, elija la plantilla **201-machine-learning-advanced** en la lista desplegable.
-1. Seleccione __Seleccionar plantilla__ para usar la plantilla. Proporcione la siguiente información necesaria y cualquier otro parámetro en función del escenario de implementación.
+1. Siga los pasos que se indican en [Implementación de recursos desde plantilla personalizada](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template). Cuando llegue a la pantalla __Seleccionar una plantilla__, elija la entrada **quickstarts**. Cuando aparezca, seleccione el vínculo "Haga clic aquí para abrir el repositorio de plantillas". Este vínculo le lleva al directorio `quickstarts` del repositorio de plantillas de inicio rápido de Azure.
+1. En la lista de plantillas de inicio rápido, seleccione `microsoft.machinelearningservices'. Finally, select ` Implementar en Azure.
+1. Cuando aparezca la plantilla, proporcione la siguiente información necesaria y cualquier otro parámetro en función del escenario de implementación.
 
    * Suscripción: Seleccione la suscripción de Azure que va a usar para estos recursos.
    * Grupo de recursos: Seleccione o cree un grupo de recursos que contenga los servicios.
@@ -650,32 +651,6 @@ Para evitar este problema, se recomienda uno de los siguientes enfoques:
 
     ```text
     /subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault
-    ```
-
-### <a name="virtual-network-not-linked-to-private-dns-zone"></a>Red virtual no vinculada a una zona DNS privada
-
-Al crear un área de trabajo con un punto de conexión privado, la plantilla crea una zona DNS privada denominada __privatelink.api.azureml.ms__. Se agrega un __vínculo de red virtual__ automáticamente a esta zona DNS privada. El vínculo solo se agrega para el área de trabajo y el punto de conexión privado primeros que crea en un grupo de recursos. Si crea otra red virtual y otro área de trabajo con un punto de conexión privado en el mismo grupo de recursos, es posible que la segunda red virtual no se agregue a la zona DNS privada.
-
-Para ver los vínculos de red virtual que ya existen para la zona DNS privada, use el siguiente comando de la CLI de Azure:
-
-```azurecli
-az network private-dns link vnet list --zone-name privatelink.api.azureml.ms --resource-group myresourcegroup
-```
-
-Para agregar la red virtual que contiene otra área de trabajo y un punto de conexión privado, siga estos pasos:
-
-1. Para encontrar el identificador de red virtual de la red que desea agregar, use el siguiente comando:
-
-    ```azurecli
-    az network vnet show --name myvnet --resource-group myresourcegroup --query id
-    ```
-    
-    Este comando devuelve un valor similar a "/subscriptions/GUID/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet". Guarde este valor y úselo en el paso siguiente.
-
-2. Para agregar un vínculo de red virtual a la zona DNS privada privatelink.api.azureml.ms, use el siguiente comando. Para el parámetro `--virtual-network`, utilice la salida del comando anterior:
-
-    ```azurecli
-    az network private-dns link vnet create --name mylinkname --registration-enabled true --resource-group myresourcegroup --virtual-network myvirtualnetworkid --zone-name privatelink.api.azureml.ms
     ```
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/2/2020
 ms.author: rogarana
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: d3d2afa3b02d4ab4524d9b5c5d5f981cddebe1a9
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 1793420f69bf3f56d7ae593167052eee9454986e
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107512963"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107893296"
 ---
 Para restringir el acceso al punto de conexión público de la cuenta de almacenamiento a redes virtuales específicas mediante puntos de conexión de servicio, primero es necesario recopilar información sobre la cuenta de almacenamiento y la red virtual. Rellene `<storage-account-resource-group>`, `<storage-account-name>`, `<vnet-resource-group-name>`, `<vnet-name>` y `<subnet-name>` para recopilar esta información.
 

@@ -1,22 +1,22 @@
 ---
 title: ¿Qué son las plantillas de aplicación en Azure IoT Central | Microsoft Docs
 description: Las plantillas de aplicación de Azure IoT Central permiten pasar al desarrollo de soluciones de IoT.
-author: philmea
-ms.author: philmea
+author: ankitscribbles
+ms.author: ankitgup
 ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 27f054cb085e5064ffed0e75b77d53a1406b566e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8309a567436d1526c1341f3d7db774acf4879dc2
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97797135"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600626"
 ---
 # <a name="what-are-application-templates"></a>¿Qué son las plantillas de aplicación?
 
-Las plantillas de aplicación de Azure IoT Central son una herramienta que ayuda a los creadores de soluciones a poner en marcha su desarrollo de soluciones de IoT. Puede usar las plantillas de aplicación para todo, desde tener una idea de lo que es posible, hasta la personalización completa de la aplicación para su reventa a los clientes.
+Las plantillas de aplicación de Azure IoT Central son una herramienta que ayuda a los creadores de soluciones a poner en marcha su desarrollo de soluciones de IoT. Puede usar las plantillas de aplicación para todo; para tener una idea de lo que es posible, o para realizar la personalización completa de la aplicación para su reventa a los clientes.
 
 Las plantillas de aplicación constan de:
 
@@ -52,10 +52,6 @@ Azure IoT Central es una plataforma de aplicaciones independiente del sector. La
   - Supervisión de la calidad del agua
 - [Atención sanitaria](../healthcare/overview-iot-central-healthcare.md).
   - Supervisión continua de pacientes
-
-## <a name="application-versions"></a>Versiones de la aplicación
-
-Las plantillas están asociadas a versiones específicas de la aplicación de IoT Central. Puede encontrar la versión de una aplicación en la página [Acerca de su aplicación](./howto-get-app-info.md) desde el vínculo **Ayuda**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

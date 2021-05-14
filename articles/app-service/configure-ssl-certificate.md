@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 03/02/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 99dc8cb2acf06faae16df6d3a48c4d38b1be46d8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1e05435f364cc30b351275439a04caff47c35512
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577791"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871802"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Incorporación de un certificado TLS/SSL en Azure App Service
 
@@ -217,7 +217,7 @@ Cuando se complete la operación, verá el certificado en la lista **Certificado
 ![Importación del certificado de Key Vault finalizada](./media/configure-ssl-certificate/import-app-service-cert-finished.png)
 
 > [!NOTE]
-> Si actualiza el certificado en Key Vault con un nuevo certificado, App Service sincronizará automáticamente el certificado en un plazo de 48 horas.
+> Si actualiza el certificado en Key Vault con un nuevo certificado, App Service sincronizará automáticamente el certificado en un plazo de 24 horas.
 
 > [!IMPORTANT] 
 > Para proteger un dominio personalizado con este certificado, todavía debe crear un enlace de certificado. Siga los pasos descritos en [Creación del enlace](configure-ssl-bindings.md#create-binding).
@@ -325,7 +325,7 @@ La regeneración de claves del certificado renovará el certificado con un nuevo
 Una vez que se complete la operación de regeneración de claves, haga clic en **Sincronizar**. La operación de sincronización actualiza automáticamente los enlaces de nombre de host para el certificado en App Service sin tiempo de inactividad para las aplicaciones.
 
 > [!NOTE]
-> Si no hace clic en **Sincronizar**, App Service sincroniza automáticamente el certificado dentro de 48 horas.
+> Si no hace clic en **Sincronizar**, App Service sincroniza automáticamente el certificado en un plazo de 24 horas.
 
 ### <a name="renew-certificate"></a>Renovar un certificado
 
@@ -340,7 +340,7 @@ En cambio, para renovar manualmente el certificado, haga clic en **Renovación m
 Una vez que se completa la operación de renovación, haga clic en **Sincronizar**. La operación de sincronización actualiza automáticamente los enlaces de nombre de host para el certificado en App Service sin tiempo de inactividad para las aplicaciones.
 
 > [!NOTE]
-> Si no hace clic en **Sincronizar**, App Service sincroniza automáticamente el certificado dentro de 48 horas.
+> Si no hace clic en **Sincronizar**, App Service sincroniza automáticamente el certificado en un plazo de 24 horas.
 
 ### <a name="export-certificate"></a>Exportación de certificado
 
@@ -377,11 +377,11 @@ Busque el bloqueo en el certificado con el tipo de bloqueo **Eliminar**. A la de
 
 Ahora puede eliminar el certificado de App Service. En el panel de navegación izquierdo, seleccione **Información general** > **Eliminar**. En el cuadro de diálogo de confirmación, escriba el nombre del certificado y seleccione **Aceptar**.
 
-## <a name="automate-with-scripts"></a>Automatizar con scripts
+## <a name="automate-with-scripts&quot;></a>Automatizar con scripts
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name=&quot;azure-cli&quot;></a>Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 &quot;Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 

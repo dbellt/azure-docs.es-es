@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: f1653158f7a181ad2d61bc726ba7765eab934341
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: a0584bea6fab1d49c552785d093e7e2df823b11b
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107489"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205834"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Creación de soluciones de un extremo a otro
 
@@ -72,9 +72,9 @@ Se abre una ventana de la consola, se lleva a cabo la autenticación y se espera
 SetupBuildingScenario
 ```
 
-La salida de este comando es una serie de mensajes de confirmación cuando se crean y conectan tres [**gemelos digitales**](concepts-twins-graph.md) en su instancia de Azure Digital Twins: una planta llamada *floor1*, una habitación llamada *room21* y un sensor de temperatura llamado *thermostat67*. Estos gemelos digitales representan las entidades que existirían en un entorno real.
+La salida de este comando es una serie de mensajes de confirmación cuando se crean y conectan tres [gemelos digitales](concepts-twins-graph.md) en su instancia de Azure Digital Twins: una planta llamada *floor1*, una habitación llamada *room21* y un sensor de temperatura llamado *thermostat67*. Estos gemelos digitales representan las entidades que existirían en un entorno real.
 
-Se conectan mediante relaciones en el siguiente [**grafo de gemelos**](concepts-twins-graph.md). El grafo de gemelos representa el entorno como un todo, incluida la forma en que las entidades interactúan entre ellas y se relacionan entre sí.
+Se conectan mediante relaciones en el siguiente [grafo de gemelos](concepts-twins-graph.md). El grafo de gemelos representa el entorno como un todo, incluida la forma en que las entidades interactúan entre ellas y se relacionan entre sí.
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-graph.png" alt-text="Un grafo que muestra que floor1 contiene room21 y room21 contiene thermostat67" border="false":::
 
@@ -89,7 +89,7 @@ Query
 >
 > A continuación se incluye el cuerpo de consulta completo para obtener todos los gemelos digitales de la instancia:
 > 
-> :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="GetAllTwins":::
+> :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="GetAllTwins":::
 
 Después puede dejar de ejecutar el proyecto. No obstante, mantenga la solución abierta en Visual Studio, ya que la usará más veces en el tutorial.
 
@@ -129,7 +129,7 @@ Hay dos opciones de configuración que deben establecerse para que la aplicació
 
 #### <a name="assign-access-role"></a>Asignación de roles de acceso
 
-La primera configuración proporciona a la aplicación de funciones el rol de **Propietario de datos de Azure Digital Twins** en la instancia de Azure Digital Twins. Este rol es necesario para cualquier usuario o función que desee realizar muchas actividades en el plano de datos en la instancia. Más información sobre la seguridad y las asignaciones de roles en [*Conceptos: Seguridad para las soluciones de Azure Digital Twins*](concepts-security.md). 
+La primera configuración proporciona a la aplicación de funciones el rol de **Propietario de datos de Azure Digital Twins** en la instancia de Azure Digital Twins. Este rol es necesario para cualquier usuario o función que desee realizar muchas actividades en el plano de datos en la instancia. Más información sobre la seguridad y las asignaciones de roles en [Conceptos: Seguridad para las soluciones de Azure Digital Twins](concepts-security.md). 
 
 1. Use el siguiente comando para ver los detalles de la identidad administrada por el sistema de la función. Anote el valor del campo **principalId** de la salida.
 
@@ -156,7 +156,7 @@ El resultado de este comando es la información de salida acerca de la asignaci�
 
 #### <a name="configure-application-settings"></a>Configuración de la aplicación
 
-El segundo valor crea una **variable de entorno** para la función con la dirección URL de la instancia de Azure Digital Twins. El código de la función la usará para hacer referencia a la instancia. Para más información sobre las variables de entorno, consulte [*Administración de la aplicación de funciones*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
+El segundo valor crea una **variable de entorno** para la función con la dirección URL de la instancia de Azure Digital Twins. El código de la función la usará para hacer referencia a la instancia. Para más información sobre las variables de entorno, consulte [Administración de la aplicación de funciones](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
 Para ejecutar el siguiente comando, rellene los marcadores de posición con los detalles de los recursos.
 
@@ -171,7 +171,7 @@ La salida es la lista de valores de la función de Azure, que ahora debe contene
 
 Los grafos de Azure Digital Twins los controlan los datos de telemetría de los dispositivos reales. 
 
-En este paso, conectará un dispositivo termostato simulado registrado en [IoT Hub](../iot-hub/about-iot-hub.md) al gemelo digital que lo representa en Azure Digital Twins. Cuando el dispositivo simulado emita datos de telemetría, los datos pasarán por la función de Azure *ProcessHubToDTEvents*, que desencadenará la correspondiente actualización en el gemelo digital. De esta forma, el gemelo digital permanece actualizado con los datos del dispositivo real. En Azure Digital Twins, el proceso de dirigir datos de eventos de un lugar a otro se denomina [**enrutamiento de eventos**](concepts-route-events.md).
+En este paso, conectará un dispositivo termostato simulado registrado en [IoT Hub](../iot-hub/about-iot-hub.md) al gemelo digital que lo representa en Azure Digital Twins. Cuando el dispositivo simulado emita datos de telemetría, los datos pasarán por la función de Azure *ProcessHubToDTEvents*, que desencadenará la correspondiente actualización en el gemelo digital. De esta forma, el gemelo digital permanece actualizado con los datos del dispositivo real. En Azure Digital Twins, el proceso de dirigir datos de eventos de un lugar a otro se denomina [enrutamiento de eventos](concepts-route-events.md).
 
 Esto sucede en esta parte del escenario de un extremo a otro (**flecha B**):
 
@@ -439,4 +439,4 @@ En este tutorial, ha creado un escenario de un extremo a otro que muestra la for
 A continuación, consulte la documentación sobre conceptos para más información sobre los elementos con los que ha trabajado en el tutorial:
 
 > [!div class="nextstepaction"]
-> [*Conceptos: Modelos personalizados*](concepts-models.md)
+> [Conceptos: Modelos personalizados](concepts-models.md)

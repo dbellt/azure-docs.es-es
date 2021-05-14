@@ -3,12 +3,12 @@ title: Temas personalizados en Azure Event Grid
 description: Describe los temas personalizados en Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 8f48824989c8ec51b766385188ad99e9e59cf621
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c211e529e5382fd655fca6d78ab32409cbff4453
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86113792"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736653"
 ---
 # <a name="custom-topics-in-azure-event-grid"></a>Temas personalizados en Azure Event Grid
 En un tema de Event Grid se proporciona un punto de conexión al que el origen envía los eventos. El publicador crea el tema de Event Grid y decide si un origen de evento necesita un tema o más de un tema. Un tema se usa para una colección de eventos relacionados. Para responder a determinados tipos de eventos, los suscriptores deciden los temas a los que se suscriben.
@@ -65,8 +65,8 @@ En las secciones siguientes se proporcionan vínculos a tutoriales para crear te
 ## <a name="arm-template-tutorials"></a>Tutoriales de plantillas de ARM
 |Título  |Descripción  |
 |---------|---------|
-| [Plantilla de Resource Manager: tema personalizado y punto de conexión del webhook](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid) | Plantilla de Resource Manager que crea un tema personalizado y una suscripción a ese tema personalizado. Envía eventos a un webhook. |
-| [Plantilla de Resource Manager: tema personalizado y punto de conexión a Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Plantilla de Resource Manager que crea una suscripción a un tema personalizado. Envía eventos a una instancia de Azure Event Hubs. |
+| [Plantilla de Resource Manager: tema personalizado y punto de conexión del webhook](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid) | Plantilla de Resource Manager que crea un tema personalizado y una suscripción a ese tema personalizado. Envía eventos a un webhook. |
+| [Plantilla de Resource Manager: tema personalizado y punto de conexión a Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-event-hubs-handler)| Plantilla de Resource Manager que crea una suscripción a un tema personalizado. Envía eventos a una instancia de Azure Event Hubs. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea los artículos siguientes: 

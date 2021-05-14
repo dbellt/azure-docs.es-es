@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: ab99d574588989c84783e532fcf801dcaffdd54d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fc45296fe3541d5388505a52a7e3f0856b4b1825
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105958034"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108791687"
 ---
 Comience a usar el reconocimiento facial con la biblioteca cliente de Face para .NET. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. El servicio Face le proporciona acceso a algoritmos avanzados para detectar y reconocer rostros humanas en imágenes.
 
@@ -25,7 +25,7 @@ Use la biblioteca cliente de Face para .NET para:
 * [Creación de un elemento PersonGroup](#create-a-persongroup)
 * [Identificación de una cara](#identify-a-face)
 
-[Documentación de referencia](/dotnet/api/overview/azure/cognitiveservices/client/faceapi) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.6.0-preview.1) | [Ejemplos](/samples/browse/?products=azure&term=face)
+[Documentación de referencia](/dotnet/api/overview/azure/cognitiveservices/client/faceapi) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.7.0-preview.1) | [Ejemplos](/samples/browse/?products=azure&term=face)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -46,7 +46,7 @@ En Visual Studio, cree una aplicación de .NET Core.
 
 ### <a name="install-the-client-library"></a>Instalación de la biblioteca cliente 
 
-Después de crear un proyecto, instale la biblioteca cliente; para ello, haga clic con el botón derecho en la solución del proyecto en el **Explorador de soluciones** y seleccione **Administrar paquetes NuGet**. En el administrador de paquetes que se abre, seleccione **Examinar** **Incluir versión preliminar** y busque `Microsoft.Azure.CognitiveServices.Vision.Face`. Seleccione la versión `2.6.0-preview.1` e **Instalar**. 
+Después de crear un proyecto, instale la biblioteca cliente; para ello, haga clic con el botón derecho en la solución del proyecto en el **Explorador de soluciones** y seleccione **Administrar paquetes NuGet**. En el administrador de paquetes que se abre, seleccione **Examinar** **Incluir versión preliminar** y busque `Microsoft.Azure.CognitiveServices.Vision.Face`. Seleccione la versión `2.7.0-preview.1` e **Instalar**. 
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
@@ -77,7 +77,7 @@ Build succeeded.
 Dentro del directorio de aplicaciones, instale la biblioteca cliente de Face para .NET con el siguiente comando:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Vision.Face --version 2.6.0-preview.1
+dotnet add package Microsoft.Azure.CognitiveServices.Vision.Face --version 2.7.0-preview.1
 ```
 
 ---

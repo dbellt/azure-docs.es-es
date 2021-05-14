@@ -7,13 +7,13 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
-ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: b0c03c2f5313605fbdf288a9262df0852e066efd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: b7cab67b49196a3d50ce5483282971bbb7b9ece1
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93333485"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483289"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Administración de los niveles de coherencia en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -115,7 +115,7 @@ var response = await client.GetContainer(databaseName, containerName)
 
 # <a name="async"></a>[Asincrónico](#tab/api-async)
 
-SDK de Java v2 asincrónico (Maven com.microsoft.azure::azure-cosmosdb)
+AsyncÂ JavaÂ V2Â SDKÂ (MavenÂ com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Override consistency at the client level
@@ -131,7 +131,7 @@ AsyncDocumentClient client =
 
 # <a name="sync"></a>[Sincronizar](#tab/api-sync)
 
-SDK de Java V2 sincrónico (Maven com.microsoft.azure::azure-documentdb)
+SyncÂ JavaÂ V2Â SDKÂ (MavenÂ com.microsoft.azure::azure-documentdb)
 
 ```java
 // Override consistency at the client level
@@ -216,7 +216,7 @@ ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(sa
 
 # <a name="async"></a>[Asincrónico](#tab/api-async)
 
-SDK de Java v2 asincrónico (Maven com.microsoft.azure::azure-cosmosdb)
+AsyncÂ JavaÂ V2Â SDKÂ (MavenÂ com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Get session token from response
@@ -240,7 +240,7 @@ Observable<ResourceResponse<Document>> readObservable = client.readDocument(docu
 
 # <a name="sync"></a>[Sincronizar](#tab/api-sync)
 
-SDK de Java V2 sincrónico (Maven com.microsoft.azure::azure-documentdb)
+SyncÂ JavaÂ V2Â SDKÂ (MavenÂ com.microsoft.azure::azure-documentdb)
 
 ```java
 // Get session token from response

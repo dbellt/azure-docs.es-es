@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 11/09/2020
-ms.openlocfilehash: 31b2a993267e6e8abbf7184d745889b74e587c50
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 04/21/2021
+ms.openlocfilehash: 9274bb2b28613c4b61ca139995ba54df0f402edd
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311777"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228233"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Cifrado de datos con Azure Machine Learning
 
@@ -122,9 +122,11 @@ Este proceso permite cifrar los datos y el disco del sistema operativo de las m�
 
 ### <a name="machine-learning-compute"></a>Proceso de Machine Learning
 
-El disco del sistema operativo de cada nodo de proceso almacenado en Azure Storage se cifra mediante claves administradas por Microsoft en las cuentas de almacenamiento de Azure Machine Learning. Este destino de proceso es efímero y, por lo general, los clústeres se reducen verticalmente cuando no hay ninguna ejecución en cola. La máquina virtual subyacente se desaprovisiona y el disco del sistema operativo se elimina. Azure Disk Encryption no se admite con el disco del sistema operativo.
+El disco del sistema operativo de cada nodo de proceso almacenado en Azure Storage se cifra mediante claves administradas por Microsoft en las cuentas de almacenamiento de Azure Machine Learning. Este destino de proceso es efímero y, por lo general, los clústeres se reducen verticalmente cuando no hay ninguna ejecución en cola. La máquina virtual subyacente se desaprovisiona y el disco del sistema operativo se elimina. Azure Disk Encryption no se admite con el disco del sistema operativo. 
 
 Cada máquina virtual tiene también un disco local temporal para las operaciones del sistema operativo. Si quiere, puede usar el disco para almacenar temporalmente los datos de entrenamiento. El disco se cifra de forma predeterminada para las áreas de trabajo con el parámetro `hbi_workspace` establecido en `TRUE`. Este entorno solo dura el tiempo de la ejecución, y la compatibilidad con el cifrado se limita únicamente a las claves administradas por el sistema.
+
+El disco del sistema operativo de la instancia de proceso se cifra mediante claves administradas por Microsoft en las cuentas de almacenamiento de Azure Machine Learning. El disco temporal local en la instancia de proceso se cifra con claves administradas por Microsoft para las áreas de trabajo con el parámetro `hbi_workspace` establecido en `TRUE`.
 
 ### <a name="azure-databricks"></a>Azure Databricks
 

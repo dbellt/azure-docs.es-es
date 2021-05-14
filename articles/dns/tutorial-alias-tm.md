@@ -6,19 +6,18 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 04/19/2021
 ms.author: rohink
-ms.openlocfilehash: 4bdfc950cc1277809811dc2c548a57cc2138a8e4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e0101133c68142845a8ada50d9921d341cf10ad0
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "77149956"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738799"
 ---
 # <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Tutorial: configurar un registro de alias de para admitir nombres de dominio de vértice con Traffic Manager 
 
 Puede crear un registro de alias para el vértice de nombre de dominio para hacer referencia a un perfil de Azure Traffic Manager. Un ejemplo es contoso.com. En lugar de un servicio de redirección, puede configurar Azure DNS para hacer referencia a un perfil de Traffic Manager directamente desde la zona. 
-
 
 En este tutorial, aprenderá a:
 
@@ -27,7 +26,6 @@ En este tutorial, aprenderá a:
 > * Crear un perfil de Traffic Manager.
 > * Crear un registro de alias.
 > * Probar el registro de alias.
-
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -39,24 +37,28 @@ Para instrucciones sobre cómo hospedar el dominio en Azure DNS, consulte [Tutor
 El dominio en el ejemplo que se usa en este tutorial es contoso.com, pero debe usar su propio nombre de dominio.
 
 ## <a name="create-the-network-infrastructure"></a>Creación de la infraestructura de red
+
 En primer lugar, cree una red virtual y una subred en la que colocar los servidores web.
+
 1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 2. En el portal, en la parte superior izquierda, seleccione **Crear un recurso**. Escriba *grupo de recursos* en el cuadro de búsqueda y cree un grupo de recursos llamado **RG-DNS-Alias-TM**.
 3. Seleccione **Crear un recurso** > **Redes** > **Red virtual**.
 4. Cree una red virtual llamada **VNet-Servers**. Colóquela en el grupo de recursos **RG-DNS-Alias-TM** y asigne a la subred el nombre **SN-Web**.
 
 ## <a name="create-two-web-server-virtual-machines"></a>Crear dos máquinas virtuales de servidor web
+
 1. Seleccione **Crear un recurso** > **Máquina virtual Windows Server 2016**.
 2. Escriba **Web-01** en el nombre y coloque la máquina virtual en el grupo de recursos **RG-DNS-Alias-TM**. Escriba un nombre de usuario y una contraseña y seleccione **Aceptar**.
 3. En **Tamaño**, seleccione una SKU con 8 GB de RAM.
 4. En **Configuración**, seleccione la red virtual **VNet-Servers** y la subred **SN-Web**.
 5. Seleccione **Dirección IP pública**. En **Asignación**, seleccione **Estática** y, a continuación, seleccione **Aceptar**.
-6. Para los puertos de entrada públicos, seleccione **HTTP** > **HTTPS** > **RDP (3389)** y, a continuación, seleccione **Aceptar**.
+6. Para los puertos de entrada públicos, seleccione **HTTP (80)**  > **HTTPS (443)**  > **RDP (3389)** y, a continuación, **Aceptar**.
 7. En la página **Resumen**, seleccione **Crear**. Este procedimiento tarda unos minutos en finalizar.
 
 Repita este procedimiento para crear otra máquina virtual denominada **Web-02**.
 
 ### <a name="add-a-dns-label"></a>Agregar una etiqueta DNS
+
 Las direcciones IP públicas necesitan una etiqueta DNS para funcionar con Traffic Manager.
 1. En el grupo de recursos **RG-DNS-Alias-TM**, seleccione la dirección IP pública **Web-01-ip**.
 2. En **Configuración**, seleccione **Configuración**.

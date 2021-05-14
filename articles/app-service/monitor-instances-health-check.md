@@ -6,12 +6,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: e9d92c60e74ac9106246ccd445afaca926065e5f
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 3cc8ba29629c36cc9fcb295b1cdd348fbcae1584
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104871204"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732909"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Supervisión de instancias de App Service mediante la comprobación de estado
 
@@ -51,7 +51,7 @@ Además de configurar las opciones de la comprobación de estado, también puede
 | Nombre del valor de configuración de la aplicación | Valores permitidos | Descripción |
 |-|-|-|
 |`WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | 2 - 10 | Número máximo de errores de ping. Por ejemplo, si se establece en `2`, las instancias se quitarán después de `2` ping con error. Además, al escalar vertical u horizontalmente, App Service hace ping en la ruta de acceso de comprobación de estado para asegurarse de que las nuevas instancias están listas. |
-|`WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` | 0 - 100 | Para evitar saturar las instancias correctas, no se excluirán más de la mitad de las instancias. Por ejemplo, si un plan de App Service se escala a cuatro instancias y tres son incorrectas, se excluirán dos como máximo. Las otras dos instancias (una correcta y otra incorrecta) seguirán recibiendo solicitudes. En el peor de los casos, si todas las instancias están en mal estado, no se excluye ninguna. Para invalidar este comportamiento, establezca la configuración de la aplicación en un valor entre `0` y `100`. Un valor mayor significa que se eliminarán más instancias incorrectas (el valor predeterminado es 50). |
+|`WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` | 0 - 100 | Para evitar saturar las instancias correctas, no se excluirán más de la mitad de las instancias. Por ejemplo, si un plan de App Service se escala a cuatro instancias y tres son incorrectas, se excluirán dos como máximo. Las otras dos instancias (una correcta y otra incorrecta) seguirán recibiendo solicitudes. En el peor de los casos, si todas las instancias están en mal estado, no se excluye ninguna. Para invalidar este comportamiento, establezca la configuración de la aplicación en un valor entre `0` y `100`. Un valor mayor significa que se eliminarán más instancias incorrectas (el valor predeterminado es 50). |
 
 #### <a name="authentication-and-security"></a>Autenticación y seguridad
 
@@ -68,8 +68,8 @@ Después de proporcionar la ruta de acceso de la comprobación de estado de la a
 No se debe habilitar la comprobación de estado en los sitios de funciones prémium. Debido al rápido escalado de las funciones prémium, las solicitudes de comprobación de estado pueden provocar fluctuaciones innecesarias en el tráfico HTTP. Las funciones prémium tienen sus propios sondeos de estado internos que se usan para informar sobre las decisiones de escalado.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Creación de una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
-- [Creación de una alerta de registro de actividades para supervisar todas las operaciones erróneas de escalado automático y reducción horizontal en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+- [Creación de una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
+- [Creación de una alerta de registro de actividades para supervisar todas las operaciones erróneas de escalado automático y reducción horizontal en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert)
 
 [1]: ./media/app-service-monitor-instances-health-check/health-check-success-diagram.png
 [2]: ./media/app-service-monitor-instances-health-check/health-check-failure-diagram.png

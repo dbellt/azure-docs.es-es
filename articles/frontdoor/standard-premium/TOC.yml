@@ -15,6 +15,10 @@
   items:
     - name: Plantillas de Resource Manager
       href: resource-manager-template-samples.md
+- name: Tutoriales
+  items:
+    - name: Configuración de directiva de firewall de aplicaciones web
+      href: ../../web-application-firewall/afds/waf-front-door-create-portal.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
 - name: Conceptos
   items:
     - name: Preguntas más frecuentes sobre Front Door
@@ -26,13 +30,15 @@
     - name: Ruta
       href: concept-route.md
     - name: Conjunto de reglas
-      href: concept-rule-set.md
-    - name: Condiciones de coincidencia de un conjunto de reglas
-      href: concept-rule-set-match-conditions.md
-    - name: Acciones de un conjunto de reglas
-      href: concept-rule-set-actions.md
-    - name: Redireccionamiento y reescritura de URL
-      href: concept-rule-set-url-redirect-and-rewrite.md
+      items:
+        - name: Conjunto de reglas
+          href: concept-rule-set.md
+        - name: Condiciones de coincidencia
+          href: concept-rule-set-match-conditions.md
+        - name: Acciones
+          href: concept-rule-set-actions.md
+        - name: Redireccionamiento y reescritura de URL
+          href: concept-rule-set-url-redirect-and-rewrite.md
     - name: Sondeos de estado
       href: concept-health-probes.md
     - name: Private Link
@@ -63,6 +69,8 @@
       href: how-to-compression.md
     - name: Habilitación de Private Link
       items:
+        - name: Conexión de un equilibrador de carga interno
+          href: how-to-enable-private-link-internal-load-balancer.md
         - name: Conexión a una cuenta de almacenamiento
           href: how-to-enable-private-link-storage-account.md
         - name: Conexión a una aplicación web

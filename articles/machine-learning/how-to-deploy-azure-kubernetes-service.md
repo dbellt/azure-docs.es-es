@@ -5,18 +5,18 @@ description: Obtenga información sobre cómo implementar modelos de Azure Machi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1, deploy
+ms.topic: how-to
+ms.custom: contperf-fy21q1, deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: 68fc4a10f5a54af7bab82843b7a921fd84e7af40
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: ae16fbd97a6994edb796da7eb8210d414bbe6de5
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259275"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107889743"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementación de un modelo en un clúster de Azure Kubernetes Service
 
@@ -184,7 +184,7 @@ az ml model deploy --ct myaks -m mymodel:1 -n myservice --ic inferenceconfig.jso
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-Para obtener más información, consulte la referencia [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy).
+Para obtener más información, consulte la referencia [az ml model deploy](/cli/azure/ml/model#az_ml_model_deploy).
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -372,7 +372,7 @@ print(token)
 >
 > Microsoft recomienda crear el área de trabajo de Azure Machine Learning en la misma región que el clúster de Azure Kubernetes Service. Para autenticarse con un token, el servicio web hará una llamada a la región en la que se crea el área de trabajo de Azure Machine Learning. Si la región del área de trabajo no está disponible, no se podrá capturar un token para el servicio web, incluso si el clúster está en una región distinta del área de trabajo. Esto produce que la autenticación basada en tokens no esté disponible hasta que la región del área de trabajo vuelva a estar disponible. Además, cuanto mayor sea la distancia entre la región del clúster y la región del área de trabajo, más tiempo tardará la captura de un token.
 >
-> Para recuperar un token, debe usar el SDK de Azure Machine Learning o el comando [az ml service get-access-token](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-get-access-token).
+> Para recuperar un token, debe usar el SDK de Azure Machine Learning o el comando [az ml service get-access-token](/cli/azure/ml/service#az_ml_service_get_access_token).
 
 
 ### <a name="vulnerability-scanning"></a>Examen de vulnerabilidades

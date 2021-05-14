@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
-ms.date: 10/22/2020
-ms.openlocfilehash: c91b0231271c6cbcf9ec92c7ad6d25f1bc0f9136
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.date: 04/29/2021
+ms.openlocfilehash: 8a753d598c55653536284679f2848c24dd571f2a
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105960476"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108289379"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitectura de conectividad de Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -87,7 +87,7 @@ Cuando las conexiones se inician dentro de SQL Managed Instance (como en las cop
 
 Para cumplir los requisitos de manejabilidad y seguridad de los clientes, SQL Managed Instance cambia de una configuración de subred manual a una asistida por servicio.
 
-Con la configuración de subred asistida por servicio, el usuario tiene control total sobre el tráfico de datos (TDS) a la vez que SQL Managed Instance asume la responsabilidad de garantizar el flujo ininterrumpido de tráfico de administración para cumplir el Acuerdo de Nivel de Servicio.
+Con la configuración de subred asistida por servicio, el cliente tiene control total sobre el tráfico de datos (TDS) a la vez que el plano de control de SQL Managed Instance asume la responsabilidad de garantizar el flujo ininterrumpido de tráfico de administración para cumplir el contrato de nivel de servicio.
 
 La configuración de la subred asistida por servicio se basa en la característica de [delegación de subred](../../virtual-network/subnet-delegation-overview.md) de la red virtual para proporcionar administración automática de la configuración de red y habilitar puntos de conexión de servicio. 
 
@@ -100,16 +100,17 @@ Los puntos de conexión de servicio podrían usarse para configurar reglas de fi
 
 Implemente SQL Managed Instance en una subred dedicada dentro de la red virtual. La subred debe tener estas características:
 
-- **Subred dedicada:** la subred de SQL Managed Instance no puede contener ningún otro servicio en la nube asociado a ella ni puede ser una subred de puerta de enlace. La subred no puede contener ningún recurso, a excepción de SQL Managed Instance, ni se le pueden agregar posteriormente otros tipos de recursos.
+- **Subred dedicada:** La subred de la instancia administrada no puede contener ningún otro servicio en la nube asociado a ella, pero otras instancias administradas sí lo tienen permitido, y no puede ser una subred de puerta de enlace. La subred no puede contener ningún recurso, a excepción de las instancias administradas, y no se pueden agregar posteriormente otros tipos de recursos en la subred.
 - **Delegación de subred:** la subred de SQL Managed Instance debe delegarse en el proveedor de recursos `Microsoft.Sql/managedInstances`.
 - **Grupo de seguridad de red (NSG):** se debe asociar un grupo de seguridad de red a la subred de SQL Managed Instance. Puede usar un NSG para controlar el acceso al punto de conexión de datos de SQL Managed Instance mediante el filtrado del tráfico en el puerto 1433 y en los puertos 11000 a 11999 cuando SQL Managed Instance se configura para conexiones de redirección. El servicio aprovisionará y mantendrá automáticamente las [reglas](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) actuales necesarias para permitir el flujo ininterrumpido de tráfico de administración.
-- **Tabla de rutas definida por el usuario (UDR):** se debe asociar una tabla UDR a la subred de SQL Managed Instance. Puede agregar entradas a la tabla de rutas para enrutar el tráfico que tiene intervalos IP privados locales como destino a través de una puerta de enlace de red virtual o de un dispositivo de red virtual (NVA). El servicio aprovisionará y mantendrá automáticamente las [entradas](#user-defined-routes-with-service-aided-subnet-configuration) actuales necesarias para permitir el flujo ininterrumpido de tráfico de administración.
+- **Tabla de rutas definida por el usuario (UDR):** se debe asociar una tabla UDR a la subred de SQL Managed Instance. Puede agregar entradas a la tabla de rutas para enrutar el tráfico que tiene intervalos IP privados locales como destino a través de una puerta de enlace de red virtual o de un dispositivo de red virtual (NVA). El servicio aprovisionará y mantendrá automáticamente las [entradas](#mandatory-user-defined-routes-with-service-aided-subnet-configuration) actuales necesarias para permitir el flujo ininterrumpido de tráfico de administración.
 - **Suficientes direcciones IP:** la subred de SQL Managed Instance debe tener al menos 32 direcciones IP. Para obtener más información, consulte [Determinación del tamaño de la subred de SQL Managed Instance](vnet-subnet-determine-size.md). Puede implementar instancias administradas en [la red existente](vnet-existing-add-subnet.md) después de configurarla para satisfacer [los requisitos de red de SQL Managed Instance](#network-requirements). De lo contrario, cree [una red y una subred](virtual-network-subnet-create-arm-template.md).
 
 > [!IMPORTANT]
 > Cuando se crea una instancia administrada, se aplica una directiva de intención de red en la subred para evitar cambios no compatibles con la configuración de red. Después de quitar la última instancia de la subred, también se quitará la directiva de intención de red. Las reglas siguientes son solo para fines informativos y no se deben implementar mediante la plantilla de ARM/PowerShell/CLI. Si quiere usar la plantilla oficial más reciente, siempre puede [recuperarla del portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Reglas de seguridad de entrada obligatorias con la configuración de subred asistida por servicio
+Estas reglas son necesarias para garantizar el flujo de tráfico de administración de entrada. Consulte el [párrafo anterior](#high-level-connectivity-architecture) para más información sobre la arquitectura de conectividad y el tráfico de administración.
 
 | Nombre       |Port                        |Protocolo|Source           |Destination|Acción|
 |------------|----------------------------|--------|-----------------|-----------|------|
@@ -120,13 +121,15 @@ Implemente SQL Managed Instance en una subred dedicada dentro de la red virtual.
 |health_probe|Any                         |Any     |AzureLoadBalancer|MI SUBNET  |Allow |
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Reglas de seguridad de entrada obligatorias con la configuración de subred asistida por servicio
+Estas reglas son necesarias para garantizar el flujo del tráfico de administración de salida. Consulte el [párrafo anterior](#high-level-connectivity-architecture) para más información sobre la arquitectura de conectividad y el tráfico de administración.
 
 | Nombre       |Port          |Protocolo|Source           |Destination|Acción|
 |------------|--------------|--------|-----------------|-----------|------|
 |management  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |Allow |
 |mi_subnet   |Any           |Any     |MI SUBNET        |MI SUBNET  |Allow |
 
-### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Rutas definidas por el usuario con la configuración de subred asistida por servicio
+### <a name="mandatory-user-defined-routes-with-service-aided-subnet-configuration"></a>Rutas obligatorias definidas por el usuario con configuración de subred asistida por servicios
+Estas rutas son necesarias para garantizar que el tráfico de administración se enruta directamente a un destino. Consulte el [párrafo anterior](#high-level-connectivity-architecture) para más información sobre la arquitectura de conectividad y el tráfico de administración.
 
 |Nombre|Prefijo de dirección|Próximo salto|
 |----|--------------|-------|
@@ -142,6 +145,7 @@ Implemente SQL Managed Instance en una subred dedicada dentro de la red virtual.
 |mi-storage-internet|Storage|Internet|
 |mi-storage-REGION-internet|Storage.REGION|Internet|
 |mi-storage-REGION_PAIR-internet|Storage.REGION_PAIR|Internet|
+|mi-azureactivedirectory-internet|AzureActiveDirectory|Internet|
 ||||
 
 \* MI SUBNET se refiere al intervalo de direcciones IP de la subred con el formato x.x.x.x/y. Puede encontrar esta información en Portal de Azure, en las propiedades de subred.
@@ -163,6 +167,8 @@ Las siguientes características de red virtual *no se admiten* actualmente con S
 - **AzurePlatformDNS**: el uso de la [etiqueta de servicio](../../virtual-network/service-tags-overview.md) AzurePlatformDNS para bloquear la resolución DNS de la plataforma hace que SQL Managed Instance no esté disponible. Aunque SQL Managed Instance admite DNS definida por el cliente para la resolución DNS dentro del motor, existe una dependencia en la DNS de la plataforma para las operaciones de plataforma.
 - **NAT Gateway**: el uso de [Azure Virtual Network NAT](../../virtual-network/nat-overview.md) para controlar la conectividad saliente con una dirección IP pública específica, representaría SQL Managed Instance como no disponible. Actualmente, el servicio SQL Managed Instance está limitado al uso de un equilibrador de carga básico que no proporciona coexistencia de flujos entrantes y salientes con Virtual Network NAT.
 - **IPv6 para Azure Virtual Network**: Se espera que se produzca un error en la implementación de Azure SQL Managed Instance en [redes virtuales IPv4/IPv6 de pila dual](../../virtual-network/ipv6-overview.md). Al asociar el grupo de seguridad de red (NSG) o la tabla de rutas (UDR) que contiene los prefijos de dirección IPv6 a la subred de SQL Managed Instance, o al agregar prefijos de direcciones IPv6 a NSG o UDR que ya está asociado a la subred de instancia administrada, se representaría la instancia de SQL Managed Instance no disponible. Se espera que las implementaciones de Azure SQL Managed Instance en una subred con NSG y UDR que ya tienen prefijos IPv6.
+- **Zonas privadas de Azure DNS con un nombre reservado para servicios de Microsoft**: esta es una lista de los nombres reservados: windows.net, database.windows.net, core.windows.net, blob.core.windows.net, table.core.windows.net, management.core.windows.net, monitoring.core.windows.net, queue.core.windows.net, graph.windows.net, login.microsoftonline.com, login.windows.net, servicebus.windows.net, vault.azure.net. La implementación de SQL Managed Instance en una red virtual con una [zona privada de Azure DNS](../../dns/private-dns-privatednszone.md) asociada con un nombre reservado para servicios de Microsoft producirá un error. La asociación de la zona privada de Azure DNS con un nombre reservado con una red virtual que contiene Managed Instance representaría SQL Managed Instance como no disponible. Siga la [configuración de DNS del punto de conexión privado de Azure](../../private-link/private-endpoint-dns.md) para conocer la configuración apropiada de Private Link.
+- **Directivas de punto de conexión de servicio de Azure Storage**: se producirá un error al implementar SQL Managed Instance en una subred que tenga [directivas de punto de conexión de servicio](../../virtual-network/virtual-network-service-endpoint-policies-overview.md) asociadas. Las directivas de punto de conexión de servicio no se pueden asociar a una subred que hospeda Managed Instance.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

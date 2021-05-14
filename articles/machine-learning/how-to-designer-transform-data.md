@@ -8,14 +8,14 @@ ms.subservice: core
 author: peterclu
 ms.author: peterlu
 ms.date: 06/28/2020
-ms.topic: conceptual
-ms.custom: how-to, designer
-ms.openlocfilehash: 10904275d382c7f9dbf223ded78cab0adf14992a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: how-to
+ms.custom: designer
+ms.openlocfilehash: 322408dac79b7ef113c6b0b51a25d5836688baea
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101661059"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107889437"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>Transformación de datos en el diseñador de Azure Machine Learning
 

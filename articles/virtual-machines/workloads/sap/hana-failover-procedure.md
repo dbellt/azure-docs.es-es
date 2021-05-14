@@ -3,7 +3,7 @@ title: Procedimiento de conmutación por error de HANA en el sitio de recuperaci
 description: Cómo realizar la conmutación por error en un sitio de recuperación ante desastres para SAP HANA en Azure (instancias grandes)
 services: virtual-machines-linux
 documentationcenter: ''
-author: saghorpa
+author: Ajayan1008
 manager: juergent
 editor: ''
 ms.service: virtual-machines-sap
@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/22/2019
-ms.author: saghorpa
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a33340524556f5da1703cae3532f053fbe8ba13
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1113e4152d444dbb1d2d1fd3e7727ebff3fe1b86
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670990"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736635"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Procedimiento de conmutación por error de recuperación ante desastres
 

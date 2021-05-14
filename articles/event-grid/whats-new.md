@@ -2,13 +2,13 @@
 title: 'Novedades Notas de la versión: Azure Event Grid'
 description: Obtenga información acerca de las novedades de Azure Event Grid, como, por ejemplo, las notas de la versión más recientes, los problemas conocidos, las correcciones de errores, las funcionalidades en desuso y los próximos cambios.
 ms.topic: overview
-ms.date: 07/23/2020
-ms.openlocfilehash: da0b26e4f163f428e6955a37636ceb19bb34abc5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/27/2021
+ms.openlocfilehash: ccb8df774838a1b71ddec08394d7487bf3176039
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107540"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135930"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>Novedades de Azure Event Grid
 
@@ -21,6 +21,24 @@ En Azure Event Grid se realizan mejoras de forma continua. Para mantenerse al d�
 - Corrección de errores
 - Funciones obsoletas
 - Planes de cambios
+
+## <a name="610-preview-2020-10"></a>6.1.0-preview.2020-10
+- [Identidades administradas para temas del sistema](enable-identity-system-topics.md)
+- [Propiedades de entrega personalizadas](delivery-properties.md)
+- [Cola de almacenamiento: período de vida del mensaje (TTL)](delivery-properties.md#configure-time-to-live-on-outgoing-events-to-azure-storage-queues)
+- [Mejoras avanzadas en el filtrado](event-filtering.md#advanced-filtering)
+    - Compatibilidad con el filtrado de datos de matriz en eventos entrantes
+    - Permitir el filtrado en atributos de contexto de extensiones de CloudEvents
+    - Nuevos operadores
+        - StringNotContains
+        - StringNotBeginsWith
+        - StringNotEndsWith
+        - NumberInRange
+        - NumberNotInRange
+        - IsNullOrUndefined
+        - IsNotNull
+- [Permitir esquema de Event Grid en transformaciones de esquemas de CloudEvents 1.0 para temas y dominios personalizados](cloudevents-schema.md#configure-event-grid-for-cloudevents)
+        
 
 ## <a name="600-2020-06"></a>6.0.0 (2020-06)
 - Agregue compatibilidad a la nueva versión 2020-06-01 de la API de servicio de disponibilidad general.

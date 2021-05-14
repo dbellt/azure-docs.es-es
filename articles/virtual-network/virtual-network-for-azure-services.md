@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/06/2020
 ms.author: kumud
-ms.openlocfilehash: 79b6fa1043b1bb8add6b6beb5fd38312ee12ea75
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 43a40ff9991a5893fe6eec710194a7f8bbcf9179
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102210281"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142755"
 ---
 # <a name="deploy-dedicated-azure-services-into-virtual-networks"></a>Implementación de servicios de Azure dedicados en las redes virtuales
 
@@ -48,7 +48,7 @@ La implementación de servicios dentro de una red virtual ofrece las siguientes 
 | Contenedores | [Azure Kubernetes Service (AKS)](../aks/concepts-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Instancia de Azure Container (ACI)](https://www.aka.ms/acivnet)<br/>[Motor de Azure Container Service](https://github.com/Azure/acs-engine) con el [complemento](https://github.com/Azure/acs-engine/tree/master/examples/vnet) CNI de Azure Virtual Network<br/>[Funciones de Azure](../azure-functions/functions-networking-options.md#virtual-network-integration) |No<sup>2</sup><br/> Sí <br/> No <br/> Sí
 | Web | [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Aplicaciones web](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[entorno de App Service](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|Sí <br/> Sí <br/> Sí <br/> Sí
 | Hospedada | [Azure Dedicated HSM](../dedicated-hsm/index.yml?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|Sí <br/> Sí <br/>
-| Azure Spring Cloud | [Implementación en una red virtual de Azure (inserción de red virtual)](../spring-cloud/spring-cloud-tutorial-deploy-in-azure-virtual-network.md)<br/>| Sí <br/>
+| Azure Spring Cloud | [Implementación en una red virtual de Azure (inserción de red virtual)](../spring-cloud/how-to-deploy-in-azure-virtual-network.md)<br/>| Sí <br/>
 | | |
 
 <sup>1</sup> El término "dedicada" significa que en esta subred solo se pueden implementar los recursos específicos del servicio y no se pueden combinar con VM/VMSS del cliente. <br/> 

@@ -4,12 +4,12 @@ description: Aprenda a usar la biblioteca de convenciones de archivo para .NET d
 ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: 1a45eed421dd8d734fcef0dd452df1d4a65fd053
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 376073dc82203c7248e9e09710d6658c5ed09245
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88936969"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988989"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Guardar datos de trabajos y tareas en Azure Storage con la biblioteca de convenciones de archivo para .NET
 
@@ -28,7 +28,7 @@ Azure Batch proporciona más de una manera de guardar las salidas de tareas. Las
 
 - Puede modificar fácilmente el código de la aplicación que la tarea está ejecutando para guardar los archivos mediante la biblioteca de convenciones de archivo.
 - Quiere transmitir datos a Azure Storage mientras la tarea está aún en funcionamiento.
-- Quiere almacenar los datos de grupos creados con la configuración de servicios en la nube o la configuración de máquina virtual.
+- Desea conservar los datos de los grupos.
 - La aplicación cliente u otras tareas del trabajo deben encontrar y descargar los archivos de salida de tarea por identificador o finalidad.
 - Quiere ver la salida de tarea en Azure Portal.
 

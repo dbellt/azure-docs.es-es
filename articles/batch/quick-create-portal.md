@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mode-portal
-ms.openlocfilehash: 3333097b4bd55173725aa33bc4bfbae318510cf1
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: a01400e494d673fc59737007d4461b3e2a3ded25
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538544"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165684"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Inicio rápido: ejecute su primer trabajo de Batch en Azure Portal
 
@@ -60,7 +60,7 @@ Ahora que tiene una cuenta de Batch, cree un grupo de ejemplo de nodos de proces
   
    |Configuración  |Value  |
    |---------|---------|
-   |**Plan de tarifa del nodo**     |Estándar A1|
+   |**Plan de tarifa del nodo**     |Standard_A1_v2|
    |**Nodos dedicados de destino**     |2|
 
 1. En el resto mantenga los valores predeterminados y seleccione **Aceptar** para crear el grupo.

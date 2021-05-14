@@ -7,12 +7,13 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 3ae3e12c11f194b3efcc149382dc952bd74d38b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 9d3e34bee3d0f1420b379638389e6fad0a2fed60
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97704323"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831571"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Guía de solución de problemas de Microsoft Azure Attestation
 
@@ -30,7 +31,6 @@ A continuación se muestran algunos ejemplos de los errores devueltos por Azure 
 **Código de error** Unauthorized
 
 **Ejemplos de escenarios**
-  - Error de atestación si el usuario no tiene asignado el rol Lector de atestación
   - No se pueden administrar las directivas de atestación porque el usuario no tiene asignados los roles adecuados
   - No se pueden administrar los firmantes de las directivas de atestación porque el usuario no tiene asignados los roles adecuados
 
@@ -47,55 +47,25 @@ At line:1 char:1
 
 **Pasos para solucionar problemas**
 
-Para ver las directivas o los firmantes de directivas de atestación, un usuario de Azure AD requiere el permiso para "Actions":
+Para administrar directivas, un usuario de Azure AD necesita los siguientes permisos para las "acciones":
 - Microsoft.Attestation/attestationProviders/attestation/read
-
-  Este permiso se puede asignar a un usuario de AD mediante un rol como "Propietario" (permisos comodín), "Lector" (permisos comodín) o "Lector de atestación" (permisos específicos solo para Azure Attestation).
-
-Para agregar o eliminar firmantes de directivas o configurar directivas, un usuario de Azure AD necesita los siguientes permisos para "Actions":
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
-  Estos permisos se pueden asignar a un usuario de AD por medio de un rol como "Propietario" (permisos comodín), "Colaborador" (permisos comodín) o "Colaborador de atestación" (permisos específicos solo para Azure Attestation).
+  Para realizar estas acciones, un usuario de Azure AD debe tener el rol "Colaborador de atestación" en el proveedor de atestación. Estos permisos también se pueden heredar con roles tales como "Propietario" (permisos comodín), "Colaborador" (permisos comodín) en la suscripción o el grupo de recursos.  
 
-Los clientes pueden elegir entre usar el proveedor predeterminado para la atestación o crear sus propios proveedores con directivas personalizadas. Para enviar solicitudes de atestación a proveedores de atestación personalizados, se requiere el rol "Propietario" (permisos comodín), "Lector" (permisos comodín) o "Lector de atestación" para el usuario. Cualquier usuario de Azure AD puede acceder a los proveedores predeterminados.
+Para leer directivas, un usuario de Azure AD necesita los siguientes permisos para las "acciones":
+- Microsoft.Attestation/attestationProviders/attestation/read
 
-Para comprobar los roles en PowerShell, ejecute lo siguiente:
+  Para realizar esta acción, el usuario de Azure AD debe tener el rol "Lector de atestación" en el proveedor de atestación. El permiso de lectura también se puede heredar con roles como "Lector" (permisos comodín) en la suscripción o el grupo de recursos.  
+
+Para comprobar los roles en PowerShell, realice los siguientes pasos:
 
 a. Inicie PowerShell e inicie sesión en Azure mediante el cmdlet "Connect-AzAccount"
 
-b. Compruebe la configuración de asignación de roles de Azure
+b. Consulte [esta guía](../role-based-access-control/role-assignments-list-powershell.md) para comprobar la asignación de roles de Azure en el proveedor de atestación.
 
-
-  ```powershell
-  $c = Get-AzContext
-  Get-AzRoleAssignment -ResourceGroupName $attestationResourceGroup -ResourceName $attestationProvider -ResourceType Microsoft.Attestation/attestationProviders -SignInName $c.Account.Id
-  ```
-
-  Deberíamos ver algo parecido a lo siguiente:
-
-  ```
-  RoleAssignmentId   :/subscriptions/subscriptionId/providers/Microsoft.Authorization/roleAssignments/roleAssignmentId
-  
-  Scope              : /subscriptions/subscriptionId
-  
-  DisplayName        : displayName
-  
-  SignInName         : signInName
-  
-  RoleDefinitionName : Reader
-  
-  RoleDefinitionId   : roleDefinitionId
-  
-  ObjectId           : objectid
-  
-  ObjectType         : User
-  
-  CanDelegate        : False
- 
-  ```
-
-c. Si no encuentra ninguna asignación de roles adecuada en la lista, siga las instrucciones que se indican [aquí](../role-based-access-control/role-assignments-powershell.md)
+c. Si no encuentra ninguna asignación de roles adecuada, siga las instrucciones que se indican [aquí](../role-based-access-control/role-assignments-powershell.md).
 
 ## <a name="2-http--400-errors"></a>2. HTTP: errores 400
 
@@ -280,7 +250,7 @@ Para seguir interactuando con la Galería de PowerShell, ejecute el siguiente co
 Usuario asignado con roles adecuados pero que se enfrenta a problemas de autorización al administrar directivas de atestación mediante PowerShell.
 
 ### <a name="error"></a>Error
-El cliente con el &lt;identificador de objeto&gt; no tiene autorización para realizar la acción Microsoft.Authorization/roleassignments/write en el ámbito "subcriptions/&lt;subscriptionId&gt;resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/&lt;role assignmentId&gt;" o el ámbito no es válido. Si el acceso se ha concedido recientemente, actualice las credenciales.
+El cliente con el identificador de objeto &lt;id. de objeto&gt; no tiene autorización para realizar la acción Microsoft.Authorization/roleassignments/write en el ámbito "subscriptions/&lt;identificadorDeSuscripción&gt;/resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/&lt;identificadorDeAsignaciónDeRoles&gt;" o el ámbito no es válido. Si el acceso se ha concedido recientemente, actualice las credenciales.
 
 ### <a name="troubleshooting-steps"></a>Pasos para solucionar problemas
 

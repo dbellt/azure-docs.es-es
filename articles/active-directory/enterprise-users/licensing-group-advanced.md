@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72a28aebe71809f3e47f9cc6936366cd027a32bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cec0f2be9dc86b156bc76f0de5afb1cc19fda99b
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96546682"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108016498"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Escenarios, limitaciones y problemas conocidos del uso de grupos para administrar las licencias en Azure Active Directory
 
@@ -138,7 +138,7 @@ Puede usar un script de PowerShell para comprobar si los usuarios tienen una lic
 
 ## <a name="use-audit-logs-to-monitor-group-based-licensing-activity"></a>Usar registros de auditoría para supervisar la actividad de licencias basadas en grupos
 
-Puede usar los [registros de auditoría de Azure AD](../reports-monitoring/concept-audit-logs.md#audit-logs) para ver todas las actividades relacionadas con las licencias basadas en grupos, incluido:
+Puede usar los [registros de auditoría de Azure AD](../reports-monitoring/concept-audit-logs.md) para ver todas las actividades relacionadas con las licencias basadas en grupos, incluido:
 - quién cambió las licencias en los grupos
 - cuándo empezó el sistema a procesar un cambio de la licencia de grupo y cuándo terminó
 - qué cambios de licencia se realizaron en un usuario como resultado de una asignación de licencia de grupo.

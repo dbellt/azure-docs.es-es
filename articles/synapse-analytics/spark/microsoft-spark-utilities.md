@@ -10,24 +10,24 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 8b3bc99d4391e2079d1b0ecc39011f1b2afc4440
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 557c2591b0bd5406266e5f833ca8c5c4fb581e47
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106096043"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108125362"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Introducción a las utilidades de Spark para Microsoft
 
-Las utilidades de Spark para Microsoft (MSSparkUtils) son un paquete integrado que le ayuda a realizar las tareas más comunes con mayor facilidad. Puede usar MSSparkUtils para trabajar con sistemas de archivos, obtener variables de entorno y trabajar con secretos. MSSparkUtils está disponible en los cuadernos de `PySpark (Python)`, `Scala` y `.NET Spark (C#)`, así como en canalizaciones de Synapse.
+Las utilidades de Spark para Microsoft (MSSparkUtils) son un paquete integrado que le ayuda a realizar las tareas más comunes con mayor facilidad. Puede usar MSSparkUtils para trabajar con sistemas de archivos, obtener variables de entorno, encadenar cuadernos entre sí y trabajar con secretos. MSSparkUtils está disponible en los cuadernos de `PySpark (Python)`, `Scala` y `.NET Spark (C#)`, así como en canalizaciones de Synapse.
 
 ## <a name="pre-requisites"></a>Requisitos previos
 
 ### <a name="configure-access-to-azure-data-lake-storage-gen2"></a>Configuración del acceso a Azure Data Lake Storage Gen2 
 
-Los cuadernos de Synapse usan el tránsito de Azure Active Directory (Azure AD) para acceder a las cuentas de ADLS Gen2. Debe ser un **colaborador de datos de Blob Storage** para acceder a la cuenta (o carpeta) de ADLS Gen2. 
+Los cuadernos de Synapse usan el tránsito de Azure Active Directory (AAD) para acceder a las cuentas de ADLS Gen2. Debe ser un **colaborador de datos de Blob Storage** para acceder a la cuenta (o carpeta) de ADLS Gen2. 
 
-Las canalizaciones de Synapse usan la identidad del área de trabajo (MSI) para acceder a las cuentas de almacenamiento. Para usar MSSparkUtils en las actividades de canalización, la identidad del área de trabajo debe ser un **colaborador de datos de Blob Storage** para acceder a la cuenta (o carpeta) de ADLS Gen2.
+Las canalizaciones de Synapse usan la identidad de servicio administrada (MSI) del área de trabajo para acceder a las cuentas de almacenamiento. Para usar MSSparkUtils en las actividades de canalización, la identidad del área de trabajo debe ser un **colaborador de datos de Blob Storage** para acceder a la cuenta (o carpeta) de ADLS Gen2.
 
 Siga los pasos a continuación para asegurarse de que Azure AD y la MSI del área de trabajo tienen acceso a la cuenta de ADLS Gen2:
 1. Abra [Azure Portal](https://portal.azure.com/) y la cuenta de almacenamiento a la que quiere acceder. Puede desplazarse al contenedor específico al que quiere obtener acceso.
@@ -41,7 +41,7 @@ Puede acceder a los datos en ADLS Gen2 con Synapse Spark mediante la siguiente 
 
 ### <a name="configure-access-to-azure-blob-storage"></a>Configuración del acceso a Azure Blob Storage  
 
-Synapse aprovecha las **firmas de acceso compartido (SAS)** para acceder a Azure Blob Storage. Para evitar la exposición de las claves de SAS en el código, se recomienda crear un nuevo servicio vinculado en el área de trabajo de Synapse para la cuenta de Azure Blob Storage a la que quiere acceder.
+Synapse usa la [**firma de acceso compartido (SAS)** ](../../storage/common/storage-sas-overview.md) para acceder a Azure Blob Storage. Para evitar la exposición de las claves de SAS en el código, se recomienda crear un nuevo servicio vinculado en el área de trabajo de Synapse para la cuenta de Azure Blob Storage a la que quiere acceder.
 
 Siga los pasos a continuación para agregar un nuevo servicio vinculado para una cuenta de Azure Blob Storage:
 
@@ -392,7 +392,7 @@ Anexa la cadena especificada a un archivo, codificada en formato UTF-8.
 :::zone pivot = "programming-language-python"
 
 ```python
-mssparkutils.fs.append('file path','content to append',True) # Set the last parameter as True to create the file if it does not exist
+mssparkutils.fs.append("file path", "content to append", True) # Set the last parameter as True to create the file if it does not exist
 ```
 ::: zone-end
 
@@ -407,7 +407,7 @@ mssparkutils.fs.append("file path","content to append",true) // Set the last par
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-FS.Append("file path","content to append",true) // Set the last parameter as True to create the file if it does not exist
+FS.Append("file path", "content to append", true) // Set the last parameter as True to create the file if it does not exist
 ```
 
 ::: zone-end
@@ -437,6 +437,178 @@ mssparkutils.fs.rm("file path", true) // Set the last parameter as True to remov
 FS.Rm("file path", true) // Set the last parameter as True to remove all files and directories recursively 
 ```
 
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+## <a name="notebook-utilities"></a>Utilidades de cuaderno 
+
+Puede usar las utilidades de cuaderno MSSparkUtils para ejecutar un cuaderno o salir de uno con un valor. Ejecute el siguiente comando para obtener información general sobre los métodos disponibles:
+
+```python
+mssparkutils.notebook.help()
+```
+
+Obtenga los resultados:
+```
+The notebook module.
+
+exit(value: String): void -> This method lets you exit a notebook with a value.
+run(path: String, timeoutSeconds: int, arguments: Map): String -> This method runs a notebook and returns its exit value.
+
+```
+
+### <a name="run-a-notebook"></a>Ejecutar un cuaderno
+Ejecuta un cuaderno y devuelve su valor de salida. Puede ejecutar llamadas de función anidadas en un cuaderno de manera interactiva o en una canalización. El cuaderno al que se hace referencia se ejecutará en el grupo de Spark del cuaderno que llamó a esta función.  
+
+```python
+
+mssparkutils.notebook.run("notebook path", <timeoutSeconds>, <parameterMap>)
+
+```
+
+Por ejemplo:
+
+```python
+mssparkutils.notebook.run("folder/Sample1", 90, {"input": 20 })
+```
+
+### <a name="exit-a-notebook"></a>Salida de un cuaderno
+Sale de un cuaderno con un valor. Puede ejecutar llamadas de función anidadas en un cuaderno de manera interactiva o en una canalización. 
+
+- Cuando se llame a una función `exit()` en un cuaderno de manera interactiva, Azure Synapse producirá una excepción, omitirá la ejecución de las celdas siguientes y mantendrá activa la sesión de Spark.
+
+- Cuando se orqueste un cuaderno que llama a una función `exit()` en una canalización de Synapse, Azure Synapse devolverá un valor de salida, completará la ejecución de la canalización y detendrá la sesión de Spark.  
+
+- Cuando se llame a una función `exit()` en un cuaderno al que se hace referencia, Azure Synapse detendrá el resto de las ejecuciones en el cuaderno al que se hace referencia y seguirá ejecutando las siguientes celdas del cuaderno que llamó a la función `run()`. Por ejemplo: Notebook1 tiene tres celdas y llama a una función `exit()` en la segunda celda. Notebook2 tiene cinco celdas y llama a `run(notebook1)` en la tercera celda. Al ejecutar Notebook2, Notebook1 se detendrá en la segunda celda al alcanzar la función `exit()`. Notebook2 continuará con la ejecución de su cuarta y quinta celda. 
+
+
+```python
+mssparkutils.notebook.exit("value string")
+```
+
+Por ejemplo:
+
+El cuaderno **Sample1** se encuentra en la carpeta **folder/** con las dos celdas siguientes: 
+- La celda 1 define un parámetro **input** con un valor predeterminado establecido en 10.
+- La celda 2 sale del cuaderno con el valor de **input** como valor de salida. 
+
+![Captura de pantalla de un cuaderno de ejemplo](./media/microsoft-spark-utilities/spark-utilities-run-notebook-sample.png)
+
+Puede ejecutar **Sample1** en otro cuaderno con los valores predeterminados:
+
+```python
+
+exitVal = mssparkutils.notebook.run("folder/Sample1")
+print (exitVal)
+
+```
+El resultado es:
+
+```
+Sample1 run success with input is 10
+```
+
+Puede ejecutar **Sample1** en otro cuaderno y establecer el valor de **input** en 20:
+
+```python
+exitVal = mssparkutils.notebook.run("mssparkutils/folder/Sample1", 90, {"input": 20 })
+print (exitVal)
+```
+
+El resultado es:
+
+```
+Sample1 run success with input is 20
+```
+::: zone-end
+
+
+:::zone pivot = "programming-language-scala"
+
+## <a name="notebook-utilities"></a>Utilidades de cuaderno 
+
+Puede usar las utilidades de cuaderno MSSparkUtils para ejecutar un cuaderno o salir de uno con un valor. Ejecute el siguiente comando para obtener información general sobre los métodos disponibles:
+
+```scala
+mssparkutils.notebook.help()
+```
+
+Obtenga los resultados:
+```
+The notebook module.
+
+exit(value: String): void -> This method lets you exit a notebook with a value.
+run(path: String, timeoutSeconds: int, arguments: Map): String -> This method runs a notebook and returns its exit value.
+
+```
+
+### <a name="run-a-notebook"></a>Ejecutar un cuaderno
+Ejecuta un cuaderno y devuelve su valor de salida. Puede ejecutar llamadas de función anidadas en un cuaderno de manera interactiva o en una canalización. El cuaderno al que se hace referencia se ejecutará en el grupo de Spark del cuaderno que llamó a esta función.  
+
+```scala
+
+mssparkutils.notebook.run("notebook path", <timeoutSeconds>, <parameterMap>)
+
+```
+
+Por ejemplo:
+
+```scala
+mssparkutils.notebook.run("folder/Sample1", 90, {"input": 20 })
+```
+
+### <a name="exit-a-notebook"></a>Salida de un cuaderno
+Sale de un cuaderno con un valor. Puede ejecutar llamadas de función anidadas en un cuaderno de manera interactiva o en una canalización. 
+
+- Cuando se llame a una función `exit()` en un cuaderno de manera interactiva, Azure Synapse producirá una excepción, omitirá la ejecución de las celdas siguientes y mantendrá activa la sesión de Spark.
+
+- Cuando se orqueste un cuaderno que llama a una función `exit()` en una canalización de Synapse, Azure Synapse devolverá un valor de salida, completará la ejecución de la canalización y detendrá la sesión de Spark.  
+
+- Cuando se llame a una función `exit()` en un cuaderno al que se hace referencia, Azure Synapse detendrá el resto de las ejecuciones en el cuaderno al que se hace referencia y seguirá ejecutando las siguientes celdas del cuaderno que llamó a la función `run()`. Por ejemplo: Notebook1 tiene tres celdas y llama a una función `exit()` en la segunda celda. Notebook2 tiene cinco celdas y llama a `run(notebook1)` en la tercera celda. Al ejecutar Notebook2, Notebook1 se detendrá en la segunda celda al alcanzar la función `exit()`. Notebook2 continuará con la ejecución de su cuarta y quinta celda. 
+
+
+```python
+mssparkutils.notebook.exit("value string")
+```
+
+Por ejemplo:
+
+El cuaderno **Sample1** se encuentra en la carpeta **mssparkutils/folder/** con las dos celdas siguientes: 
+- La celda 1 define un parámetro **input** con un valor predeterminado establecido en 10.
+- La celda 2 sale del cuaderno con el valor de **input** como valor de salida. 
+
+![Captura de pantalla de un cuaderno de ejemplo](./media/microsoft-spark-utilities/spark-utilities-run-notebook-sample.png)
+
+Puede ejecutar **Sample1** en otro cuaderno con los valores predeterminados:
+
+```scala
+
+val exitVal = mssparkutils.notebook.run("mssparkutils/folder/Sample1")
+print(exitVal)
+
+```
+El resultado es:
+
+```
+exitVal: String = Sample1 run success with input is 10
+Sample1 run success with input is 10
+```
+
+
+Puede ejecutar **Sample1** en otro cuaderno y establecer el valor de **input** en 20:
+
+```scala
+val exitVal = mssparkutils.notebook.run("mssparkutils/folder/Sample1", 90, {"input": 20 })
+print(exitVal)
+```
+
+El resultado es:
+
+```
+exitVal: String = Sample1 run success with input is 20
+Sample1 run success with input is 20
+```
 ::: zone-end
 
 

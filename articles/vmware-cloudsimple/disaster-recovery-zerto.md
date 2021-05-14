@@ -1,19 +1,19 @@
 ---
 title: 'Azure VMware Solution by CloudSimple: uso de la nube privada como sitio de recuperación ante desastres de cargas de trabajo locales'
 description: Describe cómo configurar la nube privada de CloudSimple como un sitio de recuperación ante desastres de las cargas de trabajo locales de VMware.
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5dd1f157984cdb300cc3b375d71654e5da54d1ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7305557944e00121c54112704f67f861d2aa789
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97898137"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108177789"
 ---
 # <a name="set-up-cloudsimple-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>Configuración de la nube privada de CloudSimple como un sitio de recuperación ante desastres de las cargas de trabajo locales de VMware
 
@@ -35,7 +35,7 @@ La solución requiere lo siguiente:
 
 En la siguiente imagen se muestra la arquitectura de la solución de Zerto.
 
-![Architecture](media/cloudsimple-zerto-architecture.png)
+![Arquitectura](media/cloudsimple-zerto-architecture.png)
 
 ## <a name="how-to-deploy-the-solution"></a>Implementación de la solución
 
@@ -46,7 +46,7 @@ En las secciones siguientes se describe cómo implementar una solución de recup
 3. [Configuración de ZVM y VRA en la nube privada de CloudSimple](#set-up-zvm-and-vra-on-your-private-cloud)
 4. [Configuración de un grupo de protección virtual de Zerto](#set-up-zerto-virtual-protection-group)
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 Complete los siguientes requisitos previos para habilitar Zerto Virtual Replication desde el entorno local a la nube privada.
 

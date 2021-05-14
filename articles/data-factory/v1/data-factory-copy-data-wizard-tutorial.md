@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 60a575fc211c512c8657bffd567c96f98cc3d69a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 16618276abc5e7933e5a434fd8537b09ad104d7b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100377013"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753414"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: Creación de una canalización con la actividad de copia mediante el Asistente para copia de Data Factory
 > [!div class="op_single_selector"]
@@ -147,6 +147,6 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha usado Azure Blob Storage como almacén de datos de origen y Azure SQL Database como almacén de datos de destino en una operación de copia. En la tabla siguiente se proporciona una lista de almacenes de datos que se admiten como orígenes y destinos de la actividad de copia: 
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 Si quiere más información acerca de las propiedades o campos que se ven en el Asistente para copia de un almacén de datos, haga clic en el vínculo del almacén de datos en la tabla. 

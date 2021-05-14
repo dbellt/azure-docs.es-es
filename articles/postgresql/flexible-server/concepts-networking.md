@@ -5,13 +5,13 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/21/2021
-ms.openlocfilehash: a6f049670a6860bbc195b92458945d1a53029b4f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/22/2021
+ms.openlocfilehash: 5b832ca7f1b5fb8a6b0044ca299c75f01a2d0f32
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101732809"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987060"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Información general sobre redes: Servidor flexible de Azure Database for PostgreSQL
 
@@ -26,7 +26,7 @@ Tiene dos opciones de red para Servidor flexible de Azure Database for PostgreSQ
 > [!NOTE]
 > La opción de red no se puede cambiar una vez que se haya creado el servidor. 
 
-* **Acceso privado (Integración con red virtual)** : puede implementar el servidor flexible en la instancia de [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md). Las redes virtuales de Azure proporcionan una comunicación de red privada y segura. Los recursos de una red virtual se pueden comunicar mediante direcciones IP privadas.
+* **Acceso privado (integración con red virtual)** : puede implementar el servidor flexible en la instancia de [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md). Las redes virtuales de Azure proporcionan una comunicación de red privada y segura. Los recursos de una red virtual se pueden comunicar mediante direcciones IP privadas.
 
    Elija la opción Integración con red virtual si quiere las funcionalidades siguientes:
    * Conexión desde recursos de Azure en la misma red virtual a un servidor flexible mediante direcciones IP privadas
@@ -50,6 +50,13 @@ Las características siguientes se aplican tanto si decide usar la opción de ac
 ## <a name="private-access-vnet-integration"></a>Acceso privado (integración con red virtual)
 El acceso privado con la integración de red virtual (vnet) proporciona una comunicación segura y privada para el servidor flexible de PostgreSQL.
 
+:::image type="content" source="./media/how-to-manage-virtual-network-portal/flexible-pg-vnet-diagram.png" alt-text="Red virtual Postgres de servidor flexible":::
+
+En el diagrama anterior:
+1. Los servidores flexibles se insertan en una subred delegada: 10.0.1.0/24 de la VNET **VNet-1**.
+2. Las aplicaciones que se implementan en subredes diferentes dentro de la misma red virtual pueden acceder directamente a los servidores flexibles.
+3. Las aplicaciones que se implementan en otra red virtual **VNet-2** no tienen acceso directo a servidores flexibles. Debe realizar el [emparejamiento de red virtual de zona DNS privada](#private-dns-zone-and-vnet-peering) para poder acceder al servidor flexible.
+   
 ### <a name="virtual-network-concepts"></a>Conceptos de redes virtuales
 Estos son algunos conceptos que debe conocer al usar redes virtuales con servidores flexibles de PostgreSQL.
 
@@ -57,14 +64,25 @@ Estos son algunos conceptos que debe conocer al usar redes virtuales con servido
 
     La red virtual debe estar en la misma región de Azure que el servidor flexible.
 
-
 * **Subred delegada**: una red virtual contiene subredes. Las subredes permiten segmentar la red virtual en espacios de direcciones más pequeños. Los recursos de Azure se implementan en subredes específicas dentro de una red virtual. 
 
    El servidor flexible de PostgreSQL debe estar en una subred **delegada** para uso exclusivo del servidor flexible de PostgreSQL. Esta delegación significa que solo los servidores flexibles de Azure Database for PostgreSQL pueden usar esa subred. No puede haber otros tipos de recursos de Azure en la subred delegada. Puede delegar una subred si asigna su propiedad de delegación como Microsoft.DBforPostgreSQL/flexibleServers.
 
-   Agregue `Microsoft.Storage` al punto de conexión de servicio de la subred delegada en los servidores flexibles. 
+* **Grupos de seguridad de red (NSG)** : las reglas de seguridad de grupos de seguridad de red permiten filtrar el tipo de tráfico de red que puede fluir dentro y fuera de las interfaces de red y las subredes de redes virtuales. Para más información, consulte [Introducción a los grupos de seguridad de red](../../virtual-network/network-security-groups-overview.md).
 
-* **Grupos de seguridad de red (NSG)** Las reglas de seguridad de grupos de seguridad de red permiten filtrar el tipo de tráfico de red que puede fluir dentro y fuera de las interfaces de red y las subredes de redes virtuales. Revise la [Introducción a los grupos de seguridad de red](../../virtual-network/network-security-groups-overview.md) para obtener más información.
+* **Integración de DNS privado**: la integración de la zona DNS privada de Azure permite resolver el DNS privado dentro de la red virtual actual o en cualquier red virtual emparejada en la región en la que esté vinculada la zona DNS privada. Consulte la [documentación de la zona DNS privada](https://docs.microsoft.com/azure/dns/private-dns-overview) para obtener más detalles.
+
+Obtenga información sobre cómo crear un servidor flexible con acceso privado (integración con red virtual) en [Azure Portal](how-to-manage-virtual-network-portal.md) o [la CLI de Azure](how-to-manage-virtual-network-cli.md).
+
+> [!NOTE]
+> Si usa el servidor DNS personalizado, debe usar un reenviador DNS para resolver el FQDN de Azure Database for PostgreSQL: servidor flexible. Para obtener más información, consulte [Resolución de nombres con su propio servidor DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
+
+### <a name="private-dns-zone-and-vnet-peering"></a>Zona DNS privada y emparejamiento de la red virtual
+
+La configuración de la zona DNS privada y el emparejamiento de la red virtual son independientes entre sí.
+
+* De forma predeterminada, una nueva zona DNS privada se aprovisiona automáticamente por servidor con el nombre de servidor proporcionado. Sin embargo, si desea configurar su propia zona DNS privada para usarla con el servidor flexible, consulte la documentación de [ información general de DNS privado](https://docs.microsoft.com/azure/dns/private-dns-overview).
+* Si desea conectarse al servidor flexible desde un cliente que se aprovisiona en otra red virtual, debe vincular la zona DNS privada con la red virtual. Vea la documentación de [cómo vincular la red virtual](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network).
 
 
 ### <a name="unsupported-virtual-network-scenarios"></a>Escenarios de red virtual no admitidos
@@ -73,10 +91,6 @@ Estos son algunos conceptos que debe conocer al usar redes virtuales con servido
 * No se puede aumentar el tamaño de la subred (espacios de direcciones) cuando existen recursos en la subred
 * No se admite el emparejamiento de redes virtuales entre regiones
 
-Obtenga información sobre cómo crear un servidor flexible con acceso privado (integración con red virtual) en [Azure Portal](how-to-manage-virtual-network-portal.md) o [la CLI de Azure](how-to-manage-virtual-network-cli.md).
-
-> [!NOTE]
-> Si usa el servidor DNS personalizado, debe usar un reenviador DNS para resolver el FQDN de Azure Database for PostgreSQL: servidor flexible. Para obtener más información, consulte [Resolución de nombres con su propio servidor DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 ## <a name="public-access-allowed-ip-addresses"></a>Acceso público (direcciones IP permitidas)
 Entre las características del método de acceso público se incluyen las siguientes:
@@ -100,7 +114,7 @@ Si no hay ninguna dirección IP saliente fija disponible para su servicio de Azu
 ### <a name="troubleshooting-public-access-issues"></a>Solución de problemas de acceso público
 Tenga en cuenta los siguientes puntos cuando el acceso al servicio del servidor de Microsoft Azure Database for PostgreSQL no se comporte de la manera prevista:
 
-* **Los cambios en la lista de permitidos aún no se han aplicado:** puede que se produzca un retraso de hasta cinco minutos hasta que se apliquen los cambios de configuración del firewall del servidor de Azure Database for PostgreSQL.
+* **Los cambios realizados en la lista de permitidos no han surtido efecto todavía:** puede haber un retraso de hasta cinco minutos hasta que los cambios en la configuración del firewall del servidor de Azure Database for PostgreSQL surtan efecto.
 
 * **Error de autenticación:** si un usuario no tiene permisos en el servidor de Azure Database for PostgreSQL o la contraseña usada es incorrecta, se denegará la conexión al servidor de Azure Database for PostgreSQL. La creación de una configuración de firewall solo ofrece a los clientes una oportunidad de intentar conectarse al servidor. Cada cliente todavía tiene que proporcionar las credenciales de seguridad necesarias.
 

@@ -1,25 +1,25 @@
 ---
 title: 'Azure VMware Solution by CloudSimple: migración de máquinas virtuales con carga de trabajo a nubes privadas'
 description: Describe cómo migrar máquinas virtuales desde la versión local de vCenter a vCenter en la nube privada de CloudSimple
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 851305775d14ed371440434b2fbe9334ec0a21b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d95257d0b3c031747ca7ff4f359398938f9bde61
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97899327"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108181929"
 ---
 # <a name="migrate-workload-vms-from-on-premises-vcenter-to-private-cloud-vcenter-environment"></a>Migración de máquinas virtuales con carga de trabajo desde la versión local de vCenter a un entorno de vCenter en una nube privada
 
 Para migrar máquinas virtuales desde un centro de centros local a una nube privada de CloudSimple, hay varias opciones disponibles.  La nube privada proporciona acceso nativo a VMware vCenter y las herramientas compatibles con VMware se pueden usar para la migración de cargas de trabajo. En este artículo se describen algunas de las opciones de migración de vCenter.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 La migración de máquinas virtuales y datos desde un centro de datos local requiere conectividad de red desde el centro de datos a un entorno de nube privada.  Use cualquiera de estos métodos para establecer la conectividad de red:
 

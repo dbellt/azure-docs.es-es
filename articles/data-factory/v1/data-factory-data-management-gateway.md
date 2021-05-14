@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 708d84bdb3ebe8fbba6939aa771a9120868d5d1b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0634f75f000689f409ee81279e7d52f680ab98d8
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100375211"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209236"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -199,8 +199,8 @@ Puede ver y actualizar el proxy HTTP mediante la herramienta Administrador de co
 ### <a name="configure-proxy-server-settings"></a>Configuración de un servidor proxy
 Si selecciona la opción **Usar proxy del sistema** para el proxy HTTP, la puerta de enlace utilizará la configuración de proxy de diahost.exe.config y diawp.exe.config. Si no hay ningún proxy especificado en diahost.exe.config y diawp.exe.config, la puerta de enlace se conecta al servicio en la nube directamente sin pasar por el proxy. En el procedimiento siguiente se proporcionan instrucciones para actualizar el archivo diahost.exe.config.
 
-1. En el Explorador de archivos, cree una copia segura de *C:\\\\Archivos de programa\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config* para conservar una copia de seguridad del archivo original.
-2. Inicie Notepad.exe como administrador y abra el archivo de texto *C:\\\\Archivos de programa\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config*. Encontrará la etiqueta predeterminada para system.net como se muestra en el siguiente código:
+1. En el Explorador de archivos, cree una copia segura de *C:\\Archivos de programa\\Microsoft Integration Runtime\\5.0\\Shared\\diahost.exe.config* para realizar una copia de seguridad del archivo original.
+2. Inicie Notepad.exe como administrador y abra el archivo de texto *C:\\Archivos de programa\\Microsoft Integration Runtime\\5.0\\Shared\\diahost.exe.config*. Encontrará la etiqueta predeterminada para system.net, como se muestra en el código siguiente:
 
     ```
     <system.net>
@@ -276,7 +276,7 @@ Se puede habilitar o deshabilitar la función de actualización automática real
 
 [Para puerta de enlace de nodo único]
 1. Inicie Windows PowerShell en el equipo de la puerta de enlace.
-2. Cambie a la carpeta *C:\\\\Archivos de programa\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* .
+2. Cambie a la carpeta *C:\\\\Archivos de programa\\Microsoft Integration Runtime\\5.0\\PowerShellScript\\* .
 3. Ejecute el siguiente comando para desactivar (deshabilitar) la característica de actualización automática.
 
     ```powershell
@@ -289,7 +289,7 @@ Se puede habilitar o deshabilitar la función de actualización automática real
     ```
    [Para puerta de enlace escalable y altamente disponible de varios nodos](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Inicie Windows PowerShell en el equipo de la puerta de enlace.
-2. Cambie a la carpeta *C:\\\\Archivos de programa\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* .
+2. Cambie a la carpeta *C:\\\\Archivos de programa\\Microsoft Integration Runtime\\5.0\\PowerShellScript\\* .
 3. Ejecute el siguiente comando para desactivar (deshabilitar) la característica de actualización automática.
 
     Se requiere un parámetro AuthKey adicional para la característica de puerta de enlace con alta disponibilidad.
@@ -306,14 +306,14 @@ Se puede habilitar o deshabilitar la función de actualización automática real
 Una vez instalada la puerta de enlace, puede iniciar el Administrador de configuración de Data Management Gateway de una de las siguientes maneras:
 
 1. En la ventana **Búsqueda**, escriba **Data Management Gateway** para tener acceso a esta utilidad.
-2. Ejecute el archivo ejecutable *ConfigManager.exe* en la carpeta: *C:\\\\Archivos de programa\\Microsoft Data Management Gateway\\2.0\\Shared*.
+2. Ejecute el archivo ejecutable *ConfigManager.exe* en la carpeta *C:\\Archivos de programa\\Microsoft Integration Runtime\\5.0\\Shared\\* .
 
 ### <a name="home-page"></a>Página de inicio
 En la página principal puede hacer las siguientes acciones:
 
 * Ver el estado de la puerta de enlace (conectada al servicio en la nube, etc.).
 * **Registrar** con una clave desde el Portal.
-* **Detener** e iniciar el **servicio host de Data Management Gateway** en el equipo de puerta de enlace.
+* **Detener** e iniciar el **servicio Integration Runtime** en la máquina de la puerta de enlace.
 * **Programar actualizaciones** en determinados momentos del día.
 * Ver la fecha en que la puerta de enlace se **actualizó por última vez**.
 
@@ -326,7 +326,7 @@ En la página Configuración puede hacer las siguientes acciones:
 * El **certificado SSL** de visualización se usar para establecer la comunicación TLS/SSL entre el portal y la puerta de enlace con el fin de establecer credenciales para los orígenes de datos.
 
 ### <a name="remote-access-from-intranet"></a>Acceso remoto desde la intranet
-Esta funcionalidad estará disponible en el futuro. En las próximas actualizaciones (v3.4 o posterior), podrá habilitar o deshabilitar cada una de las conectividades remota que actualmente tienen lugar a través del puerto 8050 (consulte la sección anterior) y utilizar al mismo tiempo PowerShell o la aplicación Administrador de credenciales para cifrar las credenciales.
+Puede habilitar o deshabilitar cada una de las conectividades remotas que tienen lugar actualmente a través del puerto 8050 (consulte la sección anterior) y utilizar al mismo tiempo PowerShell o la aplicación Administrador de credenciales para cifrar las credenciales.
 
 ### <a name="diagnostics-page"></a>Página Diagnóstico
 En la página Diagnóstico puede realizar las siguientes acciones:
@@ -375,7 +375,7 @@ En esta página, verá que algunos valores de configuración tienen más sentido
 ### <a name="gateway-status"></a>Estado de la puerta de enlace
 La tabla siguiente proporciona los estados posibles de un **nodo de la puerta de enlace**:
 
-Estado    | Comentarios/Escenarios
+Status    | Comentarios/Escenarios
 :------- | :------------------
 En línea | Nodo conectado al servicio Data Factory.
 Sin conexión | El nodo está sin conexión.
@@ -385,7 +385,7 @@ Inactivo | El nodo tiene una configuración diferente de la configuración de la
 
 La tabla siguiente proporciona los estados posibles de una **puerta de enlace lógica**. El estado de la puerta de enlace depende de los estados de los nodos de puerta de enlace.
 
-Estado | Comentarios
+Status | Comentarios
 :----- | :-------
 Debe registrarse | Aún no se ha registrado ningún nodo en esta puerta de enlace lógica
 En línea | Los nodos de la puerta de enlace están en línea
@@ -507,7 +507,7 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. En Azure PowerShell, cambie a la carpeta: *C:\\\\Archivos de programa\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* . Ejecute el script *RegisterGateway.ps1* asociado a la variable local **$Key** tal y como se muestra en el siguiente comando. Este script registra al agente cliente instalado en la máquina con la puerta de enlace lógica que creó antes.
+1. En Azure PowerShell, cambie a la carpeta: *C:\\\\Archivos de programa\\Microsoft Integration Runtime\\5.0\\PowerShellScript\\* . Ejecute el script *RegisterGateway.ps1* asociado a la variable local **$Key** tal y como se muestra en el siguiente comando. Este script registra al agente cliente instalado en la máquina con la puerta de enlace lógica que creó antes.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

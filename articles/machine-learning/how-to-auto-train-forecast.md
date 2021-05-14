@@ -7,15 +7,15 @@ author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1, automl
+ms.topic: how-to
+ms.custom: contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 161d565aa1d2dd08434ebd8ea155ac5a92e09ac0
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: ed4047b7ac4187138f29bc3f53b5bc5995132296
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802920"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107898142"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entrenamiento automático de un modelo de previsión de series temporales
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: eliotga
-ms.openlocfilehash: b9fc37c6589cdd0bc6a5cdce7b7ebebe2c6e9a85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c9397351d1b6be5533f3a5eb9206dfd97311d9a1
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96019453"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483360"
 ---
 # <a name="iot-hub-device-provisioning-service-dps-terminology"></a>Terminología de IoT Hub Device Provisioning Service (DPS)
 
@@ -83,7 +83,7 @@ Un mecanismo de atestación es el método utilizado para confirmar la identidad 
 El servicio de aprovisionamiento de dispositivos admite las siguientes formas de atestación:
 * **Certificados X.509** basado en el flujo de autenticación de certificados X.509 estándar. Para más información, vea [Atestación de X.509](concepts-x509-attestation.md).
 * **Módulo de plataforma segura (TPM)** basado en un desafío nonce, utilizando el estándar TPM para las claves para presentar un token de Firma de acceso compartido (SAS) firmado. Esto no requiere un módulo de plataforma segura (TPM) físico en el dispositivo, pero el servicio espera atestar usando la clave de aprobación para cada [especificación de TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/). Para más información, vea [Atestación de TPM](concepts-tpm-attestation.md).
-* **Clave simétrica**, basada en los [tokens de seguridad](../iot-hub/iot-hub-devguide-security.md#security-tokens) de las firmas de acceso compartido (SAS), que incluyen una firma hash y una fecha de expiración insertada. Para más información, consulte [Symmetric key attestation](concepts-symmetric-key-attestation.md) (Atestación de clave simétrica).
+* **Clave simétrica**, basada en los [tokens de seguridad](../iot-hub/iot-hub-dev-guide-sas.md#security-tokens) de las firmas de acceso compartido (SAS), que incluyen una firma hash y una fecha de expiración insertada. Para más información, consulte [Symmetric key attestation](concepts-symmetric-key-attestation.md) (Atestación de clave simétrica).
 
 
 ## <a name="hardware-security-module"></a>Módulo de seguridad de hardware

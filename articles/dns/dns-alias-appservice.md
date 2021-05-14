@@ -5,24 +5,24 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: how-to
-ms.date: 08/10/2019
+ms.date: 04/27/2021
 ms.author: rohink
-ms.openlocfilehash: 72adb2732eb0832589cbc25fb7e4288eb1899214
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 726cc63ecbd06e2cc4610be65828bd5e897d9fd0
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94954518"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745206"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hospedaje de aplicaciones web de Azure con equilibrio de carga en el vértice de zona
 
-El protocolo DNS evita la asignación de cualquier elemento que no sea un registro D o AAAA en el vértice de la zona. Un vértice de zona de ejemplo es contoso.com. Esta restricción presenta un problema para los propietarios de aplicaciones que tienen aplicaciones con equilibrio de carga detrás de Traffic Manager. No es posible señalar al perfil de Traffic Manager desde el registro de vértice de zona. Como consecuencia, los propietarios de aplicaciones deben usar una solución alternativa. Un redireccionamiento en la capa de la aplicación debe redirigirse desde el vértice de zona a otro dominio. Un ejemplo es el redireccionamiento de contoso.com a www\.contoso.com. Esa organización presenta un único punto de error en cuanto a la función de redireccionamiento.
+El protocolo DNS evita la asignación de cualquier elemento que no sea un registro D o AAAA en el vértice de la zona. Un vértice de zona de ejemplo es contoso.com. Esta restricción presenta un problema para los propietarios de aplicaciones que tienen aplicaciones con equilibrio de carga detrás de Traffic Manager. No es posible señalar al perfil de Traffic Manager desde el registro de vértice de zona. Como consecuencia, los propietarios de aplicaciones deben usar una solución alternativa. Un redireccionamiento en la capa de la aplicación debe redirigirse desde el vértice de zona a otro dominio. Un ejemplo es un redireccionamiento de `contoso.com` a `www.contoso.com`. Esa organización presenta un único punto de error en cuanto a la función de redireccionamiento.
 
-Con los registros de alias, este problema ya no existe. Ahora los propietarios de aplicaciones pueden apuntar su registro de vértice de zona a un perfil de Traffic Manager que tenga puntos de conexión externos. Los propietarios de aplicaciones pueden apuntar al mismo perfil de Traffic Manager que se utilice para cualquier otro dominio dentro de su zona DNS.
+Con los registros de alias, ya no tendrá este problema. Puede apuntar su registro de vértice de zona a un perfil de Traffic Manager que tenga puntos de conexión externos. También puede apuntar al mismo perfil de Traffic Manager que se usa para otros dominios dentro de la zona DNS.
 
-Por ejemplo, contoso.com y www\.contoso.com pueden apuntar al mismo perfil de Traffic Manager. Esto ocurre siempre que el perfil de Traffic Manager solo tenga configurados puntos de conexión externos.
+Por ejemplo, puede hacer que `contoso.com` y `www.contoso.com` apunten al mismo el perfil de Traffic Manager. Esta configuración funcionará siempre que el perfil de Traffic Manager solo tenga configurados puntos de conexión externos.
 
-En este artículo, aprenderá a crear un registro de alias para el vértice de dominio y a configurar los puntos de conexión del perfil de Traffic Manager para sus aplicaciones web.
+En este artículo, aprenderá a crear un registro de alias para el vértice del dominio. A continuación, configurará los puntos de conexión del perfil de Traffic Manager para las aplicaciones web.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -40,7 +40,7 @@ Cree un grupo de recursos que contenga todos los recursos usados en este artícu
 
 ## <a name="create-app-service-plans"></a>Creación de planes de App Service
 
-Cree dos planes web de App Service en el grupo de recursos, con la siguiente tabla para consultar la información de configuración. Para más información sobre cómo crear un plan de App Service, consulte [Administración de un plan de App Service en Azure](../app-service/app-service-plan-manage.md).
+Cree dos planes web de App Service en el grupo de recursos. Use la tabla siguiente para obtener ayuda para la configuración. Para más información sobre cómo crear un plan de App Service, consulte [Administración de un plan de App Service en Azure](../app-service/app-service-plan-manage.md).
 
 
 |Nombre  |Sistema operativo  |Location  |Nivel de precios  |
@@ -76,7 +76,7 @@ Ahora debe anotar la dirección IP y el nombre de host de las aplicaciones web.
 
 Cree un perfil de Traffic Manager en el grupo de recursos. Use los valores predeterminados y escriba un nombre único dentro del espacio de nombres trafficmanager.net.
 
-Para obtener información sobre cómo crear un perfil de Traffic Manager, consulte [Inicio rápido: crear un perfil de Traffic Manager para una aplicación web de alta disponibilidad](../traffic-manager/quickstart-create-traffic-manager-profile.md).
+Para obtener más información, consulte [Guía de inicio rápido: Creación de un perfil de Traffic Manager para una aplicación web de alta disponibilidad](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
 ### <a name="create-endpoints"></a>Creación de puntos de conexión
 
@@ -158,6 +158,6 @@ Para más información sobre los registros de alias, consulte los artículos sig
 
 - [Tutorial: Configuración de un registro de alias para hacer referencia a una dirección IP pública de Azure](tutorial-alias-pip.md)
 - [Tutorial: Configuración de un registro de alias para admitir nombres de dominio de Apex con Traffic Manager](tutorial-alias-tm.md)
-- [Preguntas más frecuentes sobre DNS](./dns-faq.md#alias-records)
+- [Preguntas más frecuentes sobre DNS](./dns-faq.yml)
 
 Para información sobre cómo migrar un nombre de DNS activo, consulte [Migración de un nombre de DNS activo a Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).

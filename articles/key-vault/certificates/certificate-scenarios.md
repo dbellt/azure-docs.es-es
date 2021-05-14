@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 85f17897c0e3089a2d2bc5b172e98fa24e8085ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fda56d987bd4866d5124973329a5db7c74872b3f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94920447"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123418"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introducción a los certificados de Key Vault
 En los escenarios siguientes se describen algunos de los usos principales de servicio de administración de certificados de Key Vault, como los pasos adicionales necesarios para crear el primer certificado en el almacén de claves.
@@ -107,6 +107,10 @@ Se admiten los siguientes tipos de importación para el formato de archivo PEM. 
 -----BEGIN PRIVATE KEY----- -----END PRIVATE KEY-----
 
 Al importar el certificado, debe asegurarse de que la clave se incluye en el propio archivo. Si tiene la clave privada por separado en un formato diferente, tendrá que combinar la clave con el certificado. Algunas entidades de certificación proporcionan certificados en formatos diferentes. Por lo tanto, antes de importar el certificado, asegúrese de que están en formato .pem o. pfx. 
+
+
+>[!Note]
+>Asegúrese de que no haya otros metadatos en el archivo de certificado y de que la clave privada no se muestre como cifrada.
 
 ### <a name="formats-of-merge-csr-we-support"></a>Formatos de CSR de combinación admitidos
 AKV admite 2 formatos basados en PEM. O bien puede combinar un único certificado codificado en PKCS #8 o P7B codificado en base64 (cadena de formatos certificados firmados por la entidad de certificación) 

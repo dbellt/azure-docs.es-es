@@ -4,12 +4,12 @@ description: Transferir colecciones de imágenes u otros artefactos de un regist
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: 4fe36366011fb790d25419ac46a54c4bf5ad94bf
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: c966600b0ca9d65cf533c3c2f0aca211c84917bd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104785825"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780782"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefactos a otro registro
 
@@ -416,13 +416,19 @@ az resource delete \
 * **Errores o fallos de la implementación de plantillas**
   * Si se produce un error en una ejecución de canalización, examine la propiedad `pipelineRunErrorMessage` del recurso de ejecución.
   * Para ver los errores comunes de la implementación de plantillas, consulte [Solución de problemas de las implementaciones de plantillas de Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)
+* **Problemas al acceder al almacenamiento**<a name="problems-accessing-storage"></a>
+  * Si ve un error `403 Forbidden` del almacenamiento, es probable que tenga un problema con el token de SAS.
+  * Es posible que el token de SAS no sea válido. Es posible que el token de SAS haya expirado o que las claves de la cuenta de almacenamiento hayan cambiado desde que se creó el token de SAS. Compruebe que el token de SAS es válido, para lo que debe intentar usarlo para autenticarse para acceder al contenedor de la cuenta de almacenamiento. Por ejemplo, coloque un punto de conexión de blob existente, seguido del token de SAS, en la barra de direcciones de una nueva ventana InPrivate de Microsoft Edge, o bien cargue un blob en el contenedor con el token de SAS mediante `az storage blob upload`.
+  * Es posible que el token de SAS no tenga suficientes tipos de recursos permitidos. Compruebe que se han concedido permisos al token de SAS para Servicio, Contenedor y Objeto en Tipos de recursos permitidos (`srt=sco` en el token de SAS).
+  * Es posible que el token de SAS no tenga suficientes permisos. En el caso de las canalizaciones de exportación, los permisos de token de SAS necesarios son Lectura, Escritura, Lista y Agregar. En el caso de las canalizaciones de importación, los permisos de token de SAS necesarios son Lectura, Eliminación y Lista (el permiso de eliminación solo es necesario si la canalización de importación tiene la opción `DeleteSourceBlobOnSuccess` habilitada).
+  * Es posible que el token de SAS no esté configurado para funcionar solo con HTTPS. Compruebe que el token de SAS está configurado para funcionar solo con HTTPS (`spr=https` en el token de SAS).
 * **Problemas con la exportación o importación de blobs de almacenamiento**
-  * Puede que el token de SAS haya expirado o que no tenga permisos suficientes para la exportación o ejecución de importación especificada
+  * Puede que el token de SAS no sea válido o que no tenga permisos suficientes para la ejecución de exportación o importación especificada. Consulte [Problemas al acceder al almacenamiento](#problems-accessing-storage).
   * El blob de almacenamiento existente en la cuenta de almacenamiento de origen no se puede sobrescribir durante varias ejecuciones de exportación. Confirme que la opción OverwriteBlob está establecida en la ejecución de exportación y que el token de SAS tiene permisos suficientes.
   * No se puede eliminar el blob de almacenamiento de la cuenta de almacenamiento de destino después de la ejecución correcta de la importación. Confirme que la opción DeleteBlobOnSuccess está establecida en la ejecución de importación y que el token de SAS tiene permisos suficientes.
   * Blob de almacenamiento no creado o eliminado. Confirme que el contenedor especificado en la ejecución de exportación o importación existe o que el blob de almacenamiento especificado para la ejecución de importación manual existe. 
 * **Problemas de AzCopy**
-  * Consulte [Solución de problemas de AzCopy](../storage/common/storage-use-azcopy-configure.md#troubleshoot-issues).  
+  * Consulte [Solución de problemas de AzCopy](../storage/common/storage-use-azcopy-configure.md).  
 * **Problemas de transferencia de artefactos**
   * No se transfieren todos los artefactos o ninguno. Confirme la ortografía de los artefactos en la ejecución de la exportación y el nombre del blob en las ejecuciones de exportación e importación. Confirme que está transfiriendo un máximo de 50 artefactos.
   * Es posible que no se haya completado la ejecución de canalización. Una ejecución de exportación o importación puede tardar algún tiempo. 
@@ -441,15 +447,15 @@ Para importar imágenes de contenedor único a un registro de contenedor de Azur
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-login]: /cli/azure/reference-index#az-login
-[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
-[az-keyvault-secret-show]: /cli/azure/keyvault/secret#az-keyvault-secret-show
-[az-keyvault-set-policy]: /cli/azure/keyvault#az-keyvault-set-policy
-[az-storage-container-generate-sas]: /cli/azure/storage/container#az-storage-container-generate-sas
-[az-storage-blob-list]: /cli/azure/storage/blob#az-storage-blob-list
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
-[az-deployment-group-delete]: /cli/azure/deployment/group#az-deployment-group-delete
-[az-deployment-group-show]: /cli/azure/deployment/group#az-deployment-group-show
-[az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
-[az-acr-import]: /cli/azure/acr#az-acr-import
-[az-resource-delete]: /cli/azure/resource#az-resource-delete
+[az-login]: /cli/azure/reference-index#az_login
+[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az_keyvault_secret_set
+[az-keyvault-secret-show]: /cli/azure/keyvault/secret#az_keyvault_secret_show
+[az-keyvault-set-policy]: /cli/azure/keyvault#az_keyvault_set_policy
+[az-storage-container-generate-sas]: /cli/azure/storage/container#az_storage_container_generate_sas
+[az-storage-blob-list]: /cli/azure/storage/blob#az_storage-blob-list
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-deployment-group-delete]: /cli/azure/deployment/group#az_deployment_group_delete
+[az-deployment-group-show]: /cli/azure/deployment/group#az_deployment_group_show
+[az-acr-repository-list]: /cli/azure/acr/repository#az_acr_repository_list
+[az-acr-import]: /cli/azure/acr#az_acr_import
+[az-resource-delete]: /cli/azure/resource#az_resource_delete

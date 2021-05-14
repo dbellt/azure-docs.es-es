@@ -3,12 +3,13 @@ title: Creación de nuevos recursos basados en área de trabajo de Application I
 description: Obtenga información sobre los pasos necesarios para habilitar los nuevos recursos basados en área de trabajo de Application Insights de Azure Monitor.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: 3ec0b25a24af13b29a3568165009f8a6d66e0218
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: a84a9de854123b70ca96531942debc00afb2d6c6
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100578345"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109754504"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Recursos de Application Insights basados en áreas de trabajo
 
@@ -113,7 +114,7 @@ az monitor app-insights component create --app
 az monitor app-insights component create --app demoApp --location eastus --kind web -g my_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-Para obtener la documentación completa de la CLI de Azure para este comando, vea la [documentación de la CLI de Azure](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-create).
+Para obtener la documentación completa de la CLI de Azure para este comando, vea la [documentación de la CLI de Azure](/cli/azure/monitor/app-insights/component#az_monitor_app_insights_component_create).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 

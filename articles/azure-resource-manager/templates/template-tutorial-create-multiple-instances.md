@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: e669e27547633639a88674ffee499fb1d84facdf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2076c27a241be49082ac7a46603f6a578252c101
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97673960"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754134"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager
 
@@ -44,7 +44,7 @@ Para completar este artículo, necesitará lo siguiente:
 1. En **Nombre de archivo**, pegue el código URL siguiente:
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json
     ```
 
 1. Seleccione **Abrir** para abrir el archivo.

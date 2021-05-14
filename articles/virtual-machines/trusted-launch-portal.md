@@ -9,12 +9,12 @@ ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 04/06/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 50ecf6e394d5d19d09033554272023bd6796851b
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 295579d17f3b24adcf43f6907cc4b1aca01dcae2
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581191"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565923"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Implementación de una máquina virtual con el inicio seguro habilitado (versión preliminar)
 
@@ -41,22 +41,20 @@ Cree una máquina virtual con el inicio seguro habilitado.
 5. En **Detalles del proyecto**, asegúrese de que está seleccionada la suscripción correcta.
 6. En **Grupo de recursos**, seleccione **Crear nuevo** y especifique un nombre para el grupo de recursos, o bien seleccione un grupo de recursos existente en la lista desplegable.
 7. En **Detalles de la instancia**, escriba un nombre para la máquina virtual y elija una región que admita el [inicio seguro](trusted-launch.md#public-preview-limitations).
-8. En **Imagen**, seleccione una [imagen de segunda generación que admita el inicio seguro](trusted-launch.md#public-preview-limitations). 
+8. En **Imagen**, seleccione una [imagen de segunda generación que admita el inicio seguro](trusted-launch.md#public-preview-limitations). Asegúrese de que aparece el siguiente mensaje: **Esta imagen admite la versión preliminar del inicio seguro. Configúrela en la pestaña Avanzado**.
    > [!TIP]
    > Si no ve la versión de segunda generación de la imagen que desea en la lista desplegable, seleccione **Ver todas las imágenes** y cambie el filtro **Generación de VM** para que se muestren solo imágenes de segunda generación. Busque la imagen en la lista y, después, use la lista desplegable **Seleccionar** para seleccionar la versión de segunda generación.
- 
+
+    :::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Captura de pantalla que muestra el mensaje que confirma que se trata de una imagen de generación 2 compatible con el inicio seguro.":::
+
+13. Seleccione un tamaño de máquina virtual que admita el inicio seguro. Consulte la lista de [tamaños compatibles](trusted-launch.md#public-preview-limitations).
+14. Rellene la información de **Cuenta de administrador** y **Reglas del puerto de entrada**. 
 1. Seleccione **Avanzado** en la parte superior de la página para pasar a esta pestaña.
 1. Desplácese hacia abajo hasta la sección **Generación de VM**. Asegúrese de **Gen 2** está seleccionado.
 1. Todavía en la pestaña **Avanzado**, desplácese hacia abajo hasta **Inicio seguro** y active la casilla **Inicio seguro**. Esto hará que aparezcan dos opciones más: Arranque seguro y vTPM. Seleccione las opciones adecuadas para su implementación.
 
     :::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Captura de pantalla que muestra las opciones de inicio seguro.":::
 
-12. Retroceda a la pestaña **Información básica**, en **Imagen**, y asegúrese de que aparece el siguiente mensaje: **Esta imagen admite la versión preliminar del inicio seguro. Configúrela en la pestaña Avanzado**. Ahora debería aparecer seleccionada la imagen de generación 2.
-
-    :::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Captura de pantalla que muestra el mensaje que confirma que se trata de una imagen de generación 2 compatible con el inicio seguro.":::
-
-13. Seleccione un tamaño de máquina virtual que admita el inicio seguro. Consulte la lista de [tamaños compatibles](trusted-launch.md#public-preview-limitations).
-14. Rellene la información de **Cuenta de administrador** y **Reglas del puerto de entrada**.
 15. En la parte inferior de la página, seleccione **Revisar y crear**.
 16. En la página **Crear una máquina virtual** verá los detalles de la máquina virtual que va a implementar. Cuando esté preparado, seleccione **Crear**.
 

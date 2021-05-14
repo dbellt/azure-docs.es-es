@@ -1,17 +1,17 @@
 ---
 title: Formato Avro en Azure Data Factory
 description: En este tema se describe cómo tratar con el formato Avro en Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.author: jingwang
-ms.openlocfilehash: 4be499e8e304f34b1cab10aed41b5b98a5f24e9b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: a83c1cfa687ea67651d69a978848aef2be83052a
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100392602"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486690"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Formato Avro en Azure Data Factory
 

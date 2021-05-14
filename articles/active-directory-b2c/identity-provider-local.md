@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 04/22/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d9eb28ad19d53df542769a89b839668bbb205e30
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 48d6f6fc983de3f9a98b81011db1a8843f678939
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256113"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107896268"
 ---
 # <a name="set-up-the-local-account-identity-provider"></a>Configuración del proveedor de identidades de la cuenta local
 
@@ -47,7 +47,7 @@ Con la opción de usuario, los usuarios pueden iniciar sesión o registrarse con
 
 ![Experiencia de registro o inicio de sesión mediante nombre de usuario](./media/identity-provider-local/local-account-username-experience.png)
 
-## <a name="phone-sign-in-preview"></a>Inicio de sesión con el teléfono (versión preliminar)
+## <a name="phone-sign-in"></a>Inicio de sesión en el teléfono
 
 La autenticación sin contraseña es un tipo de autenticación en el que un usuario no necesita iniciar sesión con su contraseña. Con el registro y el inicio de sesión con el teléfono, el usuario puede registrarse en la aplicación con un número de teléfono como identificador de inicio de sesión principal. La experiencia del usuario durante el registro y el inicio de sesión será la siguiente:
 
@@ -81,9 +81,9 @@ Las capturas de pantallas siguientes muestran el flujo de recuperación con el t
 ![Flujo de usuario de recuperación con el teléfono](./media/identity-provider-local/local-account-change-phone-flow.png)
 
 
-## <a name="phone-or-email-sign-in-preview"></a>Inicio de sesión con el teléfono o mediante correo electrónico (versión preliminar)
+## <a name="phone-or-email-sign-in"></a>Inicio de sesión con el teléfono o mediante correo electrónico
 
-Puede elegir combinar el [inicio de sesión con el teléfono](#phone-sign-in-preview) y el [inicio de sesión mediante correo electrónico](#email-sign-in). En la página de registro o de inicio de sesión, el usuario puede escribir un número de teléfono o una dirección de correo electrónico. En función de lo que el usuario haya especificado, Azure AD B2C lleva al usuario al flujo correspondiente. 
+Puede elegir combinar el [inicio de sesión con el teléfono](#phone-sign-in) y el [inicio de sesión mediante correo electrónico](#email-sign-in). En la página de registro o de inicio de sesión, el usuario puede escribir un número de teléfono o una dirección de correo electrónico. En función de lo que el usuario haya especificado, Azure AD B2C lleva al usuario al flujo correspondiente. 
 
 ![Experiencia de registro o inicio de sesión con el teléfono o mediante correo electrónico](./media/identity-provider-local/local-account-phone-and-email-experience.png)
 

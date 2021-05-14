@@ -7,13 +7,13 @@ ms.subservice: confidential-computing
 ms.topic: quickstart
 ms.date: 04/08/2021
 ms.author: amgowda
-ms.custom: contentperf-fy21q3
-ms.openlocfilehash: b012a8a5856b344b366f1ddd89fc5059a6f3c8ae
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.custom: contentperf-fy21q3, devx-track-azurecli
+ms.openlocfilehash: b7dd9685be5e0928743eaf9a541c88de6a49a36c
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107283531"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891256"
 ---
 # <a name="quickstart-deploy-an-aks-cluster-with-confidential-computing-nodes-by-using-the-azure-cli"></a>Inicio rápido: Implementación de un clúster de AKS con nodos de computación confidencial mediante la CLI de Azure
 
@@ -211,7 +211,7 @@ az aks nodepool delete --cluster-name myAKSCluster --name confcompool1 --resourc
 Utilice el comando siguiente para eliminar el clúster de AKS: 
 
 ```azurecli-interactive
-az aks delete --resource-group myResourceGroup --name myAKSCluster
+az aks delete --resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

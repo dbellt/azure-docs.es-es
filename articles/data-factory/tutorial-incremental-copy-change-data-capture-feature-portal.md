@@ -1,17 +1,17 @@
 ---
 title: Copia incremental de datos con Captura de datos modificados
 description: En este tutorial, creará una canalización de Azure Data Factory que copia de forma incremental en Azure Storage los datos diferenciales de una tabla de una base de datos de Instancia administrada de Azure SQL.
-ms.author: nihurt
-author: hurtn
+ms.author: yexu
+author: dearandyxu
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 02/18/2021
-ms.openlocfilehash: a00ec8698b188b8fa87935e498e8cfab3aeab5aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c7bfaf6bd6ca11593a986ca8d929faf063be720
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101724989"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905781"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Carga incremental de datos de Instancia administrada de Azure SQL a Azure Blob Storage mediante la captura de datos modificados (CDC)
 

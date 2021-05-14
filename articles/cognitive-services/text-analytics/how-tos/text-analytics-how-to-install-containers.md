@@ -5,19 +5,19 @@ description: Use los contenedores de Docker para que Text Analytics API realice 
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18, cog-serv-seo-aug-2020
+ms.custom: seodec18, cog-serv-seo-aug-2020, devx-track-azurecli
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: aahi
 keywords: local, Docker, contenedor, análisis de sentimiento, procesamiento de lenguaje natural
-ms.openlocfilehash: 012e725e31097af5af634a1aba7693048c4c6b3e
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 09d0da5aa811f694657ae6a0b8059bf55bcbf657
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277477"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290261"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalación y ejecución de contenedores de Text Analytics
 
@@ -50,7 +50,7 @@ Debe cumplir los siguientes requisitos previos para poder usar contenedores de T
 
 [!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
 
-Si usa Text Analytics para el contenedor de mantenimiento, la confirmación de [IA responsable](https://docs.microsoft.com/legal/cognitive-services/text-analytics/transparency-note-health) (RAI) también debe estar presente con un valor de `accept`.
+Si usa Text Analytics para el contenedor de mantenimiento, la confirmación de [IA responsable](/legal/cognitive-services/text-analytics/transparency-note-health) (RAI) también debe estar presente con un valor de `accept`.
 
 ## <a name="the-host-computer"></a>El equipo host
 

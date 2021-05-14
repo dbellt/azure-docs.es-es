@@ -3,12 +3,12 @@ title: Referencia de host.json para Azure Functions 2.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: cbedf2212c52d8f1996d3cce0d96d494313ea525
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9424162e847a9d92019efe907ce74f21c55cdb23
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102608825"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226253"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referencia de host.json para Azure Functions 2.x y versiones posteriores 
 
@@ -413,7 +413,7 @@ Las opciones de configuración se pueden encontrar en los [desencadenadores y en
 
 ## <a name="servicebus"></a>serviceBus
 
-Las opciones de configuración se pueden encontrar en los [desencadenadores y enlaces de Service Bus](functions-bindings-service-bus-output.md#host-json).
+Las opciones de configuración se pueden encontrar en los [desencadenadores y enlaces de Service Bus](functions-bindings-service-bus.md#host-json).
 
 ## <a name="singleton"></a>singleton
 

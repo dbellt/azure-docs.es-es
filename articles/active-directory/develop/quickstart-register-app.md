@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 7b7adde8a6e60042bec7695e4553d6470e548316
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: df89335880802680e6074c467227ca49a841d5ca
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055695"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108016660"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft
 
@@ -129,6 +129,7 @@ Para más información sobre las recomendaciones de seguridad de aplicaciones, c
 1. Seleccione **Agregar**.
 1. *Registre el valor del secreto* para su uso en el código de la aplicación cliente. Este valor secreto no se *volverá a mostrar* una vez que abandone esta página.
 
+Por motivos de seguridad, Microsoft limita la creación de secretos de cliente para más de 24 meses y recomienda establecerlo en un valor inferior a 12 meses.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,12 +3,12 @@ title: Configuración de la alta disponibilidad
 description: Aumente la resistencia de la implementación de Defender para IoT mediante la instalación de un dispositivo de alta disponibilidad de la consola de administración local. Las implementaciones de alta disponibilidad garantizan que los sensores administrados informen continuamente a una consola de administración local activa.
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.openlocfilehash: d0e09cd37fbae91d1903ca8f175c0592b567da6e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f341dee00574422ec325871ff97d6f3e8644ac48
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781660"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209002"
 ---
 # <a name="about-high-availability"></a>Acerca de la alta disponibilidad
 
@@ -87,7 +87,7 @@ Compruebe que tanto el dispositivo principal como el secundario de consola de ad
 2. Ejecute el comando siguiente en el dispositivo principal:
 
 ```azurecli-interactive
-sudo cyberx-management-trusted-hosts-add -ip <Secondary IP>
+sudo cyberx-management-trusted-hosts-add -ip <Secondary IP> -token <primary token>
 ```
 
 >[!NOTE]

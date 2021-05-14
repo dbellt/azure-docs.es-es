@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: jlian
-ms.openlocfilehash: 1e28c7767868904fb20ae6d27c6aea9e7077eb62
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df38f9b3482847ea0415af5cb47540e244b0510b
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98630300"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739897"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Compatibilidad de IoT Hub con redes virtuales mediante Private Link e identidad administrada
 
@@ -174,7 +174,7 @@ La característica de excepción de servicios de confianza de Microsoft es gratu
 
 ### <a name="egress-connectivity-to-storage-account-endpoints-for-routing"></a>Conectividad de salida a los puntos de conexión de la cuenta de almacenamiento para el enrutamiento
 
-IoT Hub puede enrutar mensajes a una cuenta de almacenamiento propiedad del cliente. Para permitir que la funcionalidad de enrutamiento acceda a una cuenta de almacenamiento mientras se aplican las restricciones de firewall, IoT Hub debe tener una [identidad administrada](#turn-on-managed-identity-for-iot-hub). Después de aprovisionar una identidad administrada, realice los pasos siguientes para conceder el permiso RBAC de Azure a la identidad de recursos de la instancia de IoT Hub para acceder a su cuenta de almacenamiento.
+IoT Hub puede enrutar mensajes a una cuenta de almacenamiento propiedad del cliente. Para permitir que la funcionalidad de enrutamiento acceda a una cuenta de almacenamiento cuando hay restricciones en vigor en el firewall, el centro necesita usar una identidad administrada para acceder a la cuenta de almacenamiento. En primer lugar, el centro necesitará una [identidad administrada](#turn-on-managed-identity-for-iot-hub). Después de aprovisionar una identidad administrada, realice los pasos siguientes para conceder el permiso RBAC de Azure a la identidad de recursos de la instancia de IoT Hub para acceder a su cuenta de almacenamiento.
 
 1. En Azure Portal, vaya a la pestaña **Control de acceso (IAM)** de la cuenta de almacenamiento y haga clic en **Agregar** en la sección **Agregar una asignación de roles**.
 
@@ -192,7 +192,7 @@ Ahora el punto de conexión de almacenamiento personalizado está configurado pa
 
 ### <a name="egress-connectivity-to-event-hubs-endpoints-for-routing"></a>Conectividad de salida a los puntos de conexión de Event Hubs para el enrutamiento
 
-IoT Hub se pueden configurar para enrutar mensajes a un espacio de nombres de Event Hubs propiedad del cliente. Para permitir que la funcionalidad de enrutamiento acceda a un recurso de Event Hubs mientras se aplican las restricciones de firewall, IoT Hub debe tener una identidad administrada. Después de crear la identidad administrada, realice los pasos siguientes para conceder el permiso RBAC de Azure a la identidad de recursos de la instancia de IoT Hub para acceder a las instancias de Event Hubs.
+IoT Hub se pueden configurar para enrutar mensajes a un espacio de nombres de Event Hubs propiedad del cliente. Para que la funcionalidad de enrutamiento pueda acceder a un recurso de Event Hubs cuando hay restricciones del firewall en vigor, es preciso que IoT Hub use una identidad administrada. En primer lugar, el centro necesitará una identidad administrada. Después de crear la identidad administrada, realice los pasos siguientes para conceder el permiso RBAC de Azure a la identidad de recursos de la instancia de IoT Hub para acceder a las instancias de Event Hubs.
 
 1. En Azure Portal, vaya a la pestaña **Control de acceso (IAM)** de su instancia de Event Hubs y haga clic en **Agregar** en la sección **Agregar una asignación de roles**.
 
@@ -210,7 +210,7 @@ Ahora el punto de conexión de Event Hubs personalizado está configurado para u
 
 ### <a name="egress-connectivity-to-service-bus-endpoints-for-routing"></a>Conectividad de salida a los puntos de conexión de Service Bus para el enrutamiento
 
-IoT Hub se pueden configurar para enrutar mensajes a un espacio de nombres de Service Bus propiedad del cliente. Para permitir que la funcionalidad de enrutamiento acceda a un recurso de Service Bus mientras se aplican las restricciones de firewall, IoT Hub debe tener una identidad administrada. Después de aprovisionar la identidad administrada, realice los pasos siguientes para conceder el permiso RBAC de Azure a la identidad de recursos de la instancia de IoT Hub para acceder al recurso de Service Bus.
+IoT Hub se pueden configurar para enrutar mensajes a un espacio de nombres de Service Bus propiedad del cliente. Para que la funcionalidad de enrutamiento pueda acceder a un recurso de Azure Service Bus cuando hay restricciones del firewall en vigor, es preciso que IoT Hub use una identidad administrada. En primer lugar, el centro necesitará una identidad administrada. Después de aprovisionar la identidad administrada, realice los pasos siguientes para conceder el permiso RBAC de Azure a la identidad de recursos de la instancia de IoT Hub para acceder al recurso de Service Bus.
 
 1. En Azure Portal, vaya a la pestaña **Control de acceso (IAM)** de su instancia de Service Bus y haga clic en **Agregar** en la sección **Agregar una asignación de roles**.
 

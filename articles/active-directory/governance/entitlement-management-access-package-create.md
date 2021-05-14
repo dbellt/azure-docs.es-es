@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb0312d905284f8c5a9817e9550d340bf6135032
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: f19425ea4a72f62689daa9dda08a22667aa50bc6
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532211"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331365"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Creación de un paquete de acceso en la administración de derechos de Azure AD
 
@@ -140,7 +140,7 @@ También puede crear un paquete de acceso mediante Microsoft Graph.  Un usuario 
 
 1. [Enumerar los elementos accessPackageResources en el catálogo](/graph/api/accesspackagecatalog-list?tabs=http&view=graph-rest-beta&preserve-view=true) y [crear un elemento accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?tabs=http&view=graph-rest-beta&preserve-view=true) para todos los recursos que aún no están en el catálogo.
 1. [Enumerar el elemento accessPackageResourceRoles](/graph/api/accesspackage-list-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta&preserve-view=true) de cada elemento accessPackageResource en un catálogo accessPackageCatalog. Esta lista de roles se usará en adelante para seleccionar un rol, cuando cree posteriormente un elemento accessPackageResourceRoleScope.
-1. [Crear un elemento accessPackage](/graph/tutorial-access-package-api&view=graph-rest-beta&preserve-view=true).
+1. [Crear un elemento accessPackage](/graph/tutorial-access-package-api).
 1. [Crear un elemento accessPackageAssignmentPolicy](/graph/api/accesspackageassignmentpolicy-post?tabs=http&view=graph-rest-beta&preserve-view=true).
 1. [Crear un elemento accessPackageResourceRoleScope](/graph/api/accesspackage-post-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta&preserve-view=true) para cada rol de recurso necesario en el paquete de acceso.
 

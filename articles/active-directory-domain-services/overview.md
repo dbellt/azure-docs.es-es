@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/20/2021
+ms.date: 04/28/2021
 ms.author: justinha
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 194a5420f38e99d45f74241f67ae8cfbbaaee8f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5854d8cecd1de8121b6129d86a70c1f5ad9518f2
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98661004"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175395"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>¿Qué es Azure Active Directory Domain Services?
 
@@ -50,9 +50,9 @@ Azure AD DS replica la información de identidad de Azure AD, por lo que func
 * Si tiene un entorno de AD DS local, puede sincronizar la información de las cuentas de usuario para proporcionar una identidad coherente para los usuarios. Para más información, consulte [Procedimiento para sincronizar objetos y credenciales en un dominio administrado][synchronization].
 * En el caso de los entornos solo en la nube, no se necesita un entorno de AD DS local tradicional para usar los servicios de identidad centralizados de Azure AD DS.
 
-Puede ampliar un dominio administrado para que tenga más de un conjunto de réplicas por cada inquilino de Azure AD. Los conjuntos de réplicas pueden agregarse a cualquier red virtual emparejada en cualquier región de Azure que admita Azure AD DS. Contar con conjuntos de réplicas adicionales en diferentes regiones de Azure facilita la recuperación geográfica ante desastres de las aplicaciones heredadas si una región de Azure se queda sin conexión. Actualmente, los conjuntos de réplicas están en versión preliminar. Para más información, consulte el artículo sobre los [conceptos y características de los conjuntos de réplicas en dominios administrados][concepts-replica-sets].
+Puede ampliar un dominio administrado para que tenga más de un conjunto de réplicas por cada inquilino de Azure AD. Los conjuntos de réplicas pueden agregarse a cualquier red virtual emparejada en cualquier región de Azure que admita Azure AD DS. Contar con conjuntos de réplicas adicionales en diferentes regiones de Azure facilita la recuperación geográfica ante desastres de las aplicaciones heredadas si una región de Azure se queda sin conexión. Para más información, consulte el artículo sobre los [conceptos y características de los conjuntos de réplicas en dominios administrados][concepts-replica-sets].
 
-El vídeo siguiente proporciona información general sobre el modo en que Azure AD DS se integra con las aplicaciones y las cargas de trabajo para proporcionar servicios de identidad en la nube:
+Echa un vistazo a este vídeo sobre el modo en que Azure AD DS se integra con las aplicaciones y las cargas de trabajo para proporcionar servicios de identidad en la nube:
 
 <br />
 

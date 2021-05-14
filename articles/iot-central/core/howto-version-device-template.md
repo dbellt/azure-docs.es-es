@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 93545c63013c95e3db498b079061da3d9b189efd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 03d4b0e43c9f692b90f4ab5d4d136dac92b74de6
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95995767"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107715053"
 ---
 # <a name="create-a-new-device-template-version"></a>Creación de una nueva versión de plantilla de dispositivo
 
@@ -86,7 +86,7 @@ Para controlar la versión de una plantilla de dispositivo:
 
 ## <a name="version-an-interface"></a>Control de las versiones de una interfaz
 
-El control de versiones de una interfaz permite agregar, actualizar y quitar las funcionalidades dentro de la interfaz que ya se ha creado.
+El control de versiones de una interfaz permite agregar y actualizar funcionalidades dentro de la interfaz que ya se ha creado.
 
 Para controlar las versiones de una interfaz:
 

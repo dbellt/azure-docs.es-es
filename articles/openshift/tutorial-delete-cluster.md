@@ -2,17 +2,17 @@
 title: 'Tutorial: Eliminación de un clúster de Red Hat OpenShift en Azure'
 description: En este tutorial, aprenderá a eliminar un clúster de Red Hat OpenShift en Azure mediante la CLI de Azure
 author: sakthi-vetrivel
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, devx-track-azurecli
 ms.author: suvetriv
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 04/24/2020
-ms.openlocfilehash: 3830942d63c3db9646b84d43d65f7c68cb5fcf9e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9367113e04db7f41037c8d2f137b72f0d2382f85
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102209804"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107887691"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Eliminación de un clúster de la versión 4 de Red Hat OpenShift en Azure
 

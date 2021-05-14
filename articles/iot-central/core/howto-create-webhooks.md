@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: b2ac4bbf1457144d23a91c4e83b554b3ee806119
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae1289c7ff9e66bf3b67577f815eaa55e12a0873
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87337235"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772376"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Creación de acciones de webhook para reglas en Azure IoT Central
-
-*Este tema se aplica a los compiladores y administradores.*
 
 Los webhooks permiten conectar la aplicación de IoT Central a otras aplicaciones y servicios para supervisión remota y notificaciones. Los webhooks notifican automáticamente a otras aplicaciones y servicios a los que se conecta si se activa una regla en la aplicación IoT Central. Su aplicación IoT Central envía una solicitud POST al otro punto de conexión HTTP de la aplicación siempre que se desencadena una regla. La carga útil contiene detalles del dispositivo y del desencadenador de la regla.
 

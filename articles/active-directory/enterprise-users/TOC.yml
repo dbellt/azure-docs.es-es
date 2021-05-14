@@ -58,8 +58,6 @@
           href: users-close-account.md
         - name: Adición de usuarios invitados
           href: ../external-identities/what-is-b2b.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-        - name: Asignación de roles a usuarios invitados
-          href: ../external-identities/add-guest-to-role.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Restricción del acceso a usuarios invitados
           href: users-restrict-guest-permissions.md
         - name: Grupos dinámicos e invitados

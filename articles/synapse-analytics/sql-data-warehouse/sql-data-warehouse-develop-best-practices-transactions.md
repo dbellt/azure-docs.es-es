@@ -11,12 +11,12 @@ ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 3f7d6f8ca285fdc024db9ba952af9f7d169e7188
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ace250e843e0e9fd0a99e4948c344abd65a3beec
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98678481"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140018"
 ---
 # <a name="optimizing-transactions-in-dedicated-sql-pool-in-azure-synapse-analytics"></a>Optimización de transacciones con un grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -419,4 +419,4 @@ Lo mejor es dejar que las transacciones de modificación de datos en curso se co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte [Transacciones en el grupo de SQL dedicado](sql-data-warehouse-develop-transactions.md) para más información sobre los niveles de aislamiento y los límites transaccionales.  Para obtener información general de otros procedimientos recomendados, consulte [Procedimientos recomendados del grupo de SQL dedicado](sql-data-warehouse-best-practices.md).
+Consulte [Transacciones en el grupo de SQL dedicado](sql-data-warehouse-develop-transactions.md) para más información sobre los niveles de aislamiento y los límites transaccionales.  Para obtener información general de otros procedimientos recomendados, consulte [Procedimientos recomendados del grupo de SQL dedicado](../sql/best-practices-dedicated-sql-pool.md).

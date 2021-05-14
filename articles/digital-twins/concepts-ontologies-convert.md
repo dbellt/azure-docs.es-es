@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: aa4dde51c077152dd5c8a938ad64ad0a051f89ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d15df406399e49bff3d95cb90f5d8b908d09631
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100563387"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208030"
 ---
 # <a name="convert-industry-standard-ontologies-to-dtdl-for-azure-digital-twins"></a>Conversión de ontologías estándar del sector a DTDL para Azure Digital Twins
 
@@ -20,7 +20,7 @@ La mayoría de las [ontologías](concepts-ontologies.md) se basan en estándares
 
 Para usar un modelo con Azure Digital Twins, debe tener el formato DTDL. En este artículo se describen las instrucciones de diseño generales en forma de **patrón de conversión** para convertir modelos basados en RDF al lenguaje DTDL, con el fin de que se puedan usar con Azure Digital Twins. 
 
-Este artículo también contiene un [**código de ejemplo de convertidor**](#converter-samples) para los convertidores RDF y OWL, que se puede extender para otros esquemas del sector de la construcción.
+Este artículo también contiene un [código de ejemplo de convertidor](#converter-samples) para los convertidores RDF y OWL, que se puede extender para otros esquemas del sector de la construcción.
 
 ## <a name="conversion-pattern"></a>Patrón de conversión
 
@@ -35,7 +35,7 @@ La tabla siguiente es un ejemplo de cómo se pueden asignar las construcciones R
 | Propiedades de tipos de datos | `owl:DatatypeProperty`<br>`rdfs:label` o `INode`<br>`rdfs:label`<br>`rdfs:range` | Propiedades de interfaz | `@type:Property`<br>`name`<br>`displayName`<br>`schema` 
 | Propiedades de objeto | `owl:ObjectProperty`<br>`rdfs:label` o `INode`<br>`rdfs:range`<br>`rdfs:comment`<br>`rdfs:label` | Relación | `type:Relationship`<br>`name`<br>`target` (o se omite si no hay `rdfs:range`)<br>`comment`<br>`displayName`<br>
 
-En el siguiente fragmento de código en C# se muestra cómo se carga un archivo de modelo de RDF en un grafo y se convierte a DTDL, mediante la biblioteca [**dotNetRDF**](https://www.dotnetrdf.org/). 
+En el siguiente fragmento de código en C# se muestra cómo se carga un archivo de modelo de RDF en un grafo y se convierte a DTDL, mediante la biblioteca [dotNetRDF](https://www.dotnetrdf.org/). 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/convertRDF.cs":::
 
@@ -47,20 +47,22 @@ Hay una aplicación de ejemplo disponible que convierte un archivo de modelo bas
 
 El ejemplo es una aplicación de línea de comandos de .NET Core denominada **RdfToDtdlConverter**.
 
-Aquí puede obtener el ejemplo: [**RdfToDtdlConverter**](/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). 
+Aquí puede obtener el ejemplo: [RdfToDtdlConverter](/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). 
 
-Para descargar el código en la máquina, pulse el botón *Descargar archivo ZIP* que se encuentra debajo del título en la página de aterrizaje del ejemplo. Se descargará un archivo *ZIP* de nombre *RdfToDtdlConverter_sample_application_to_convert_RDF_to_DTDL.zip*, que podrá descomprimir y explorar.
+Para descargar el código en la máquina, seleccione el botón **Examinar código** debajo del título de la página de ejemplo, que le llevará al repositorio de GitHub para el ejemplo. Seleccione el botón **Code** (Código) y **Download ZIP** (Descargar ZIP) para descargar el ejemplo como un archivo *.ZIP* denominado *RdfToDtdlConverter-main.zip*. A continuación, puede descomprimir el archivo y explorar el código.
+
+:::image type="content" source="media/concepts-ontologies-convert/download-repo-zip.png" alt-text="Captura de pantalla del repositorio RdfToDtdlConverter en GitHub. El botón Code (Código) está seleccionado y se muestra un pequeño cuadro de diálogo en el que el botón Download ZIP (Descargar ZIP) está resaltado" lightbox="media/concepts-ontologies-convert/download-repo-zip.png":::
 
 Puede usar este ejemplo para ver los patrones de conversión en contexto y tener como bloque de creación de sus propias aplicaciones la realización de conversiones de modelos de acuerdo con sus propias necesidades específicas.
 
 ### <a name="owl2dtdl-converter"></a>Convertidor OWL2DTDL 
 
-El [**convertidor OWL2DTDL**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/OWL2DTDL) es un ejemplo que permite trasladar una ontología de OWL a un conjunto de declaraciones de interfaz DTDL que se puede usar con el servicio Azure Digital Twins. Esto también funciona para redes de ontologías que están constituidas por una ontología raíz que reutiliza otras ontologías a través de declaraciones `owl:imports`.
+El [convertidor OWL2DTDL](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/OWL2DTDL) es un ejemplo que permite trasladar una ontología de OWL a un conjunto de declaraciones de interfaz DTDL que se puede usar con el servicio Azure Digital Twins. Esto también funciona para redes de ontologías que están constituidas por una ontología raíz que reutiliza otras ontologías a través de declaraciones `owl:imports`.
 
 Este convertidor se usó para trasladar la [ontología RealStateCore](https://doc.realestatecore.io/3.1/full.html) a DTDL y se puede utilizar con cualquier ontología basada en OWL.
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
-* Obtenga más información sobre cómo extender las ontologías estándar del sector para que satisfagan sus especificaciones: [*Conceptos: Extensión de las ontologías del sector*](concepts-ontologies-extend.md).
+* Obtenga más información sobre cómo extender las ontologías estándar del sector para que satisfagan sus especificaciones: [Conceptos: Extensión de las ontologías del sector](concepts-ontologies-extend.md).
 
-* O bien, continúe el proceso de aprendizaje para desarrollar modelos basados en ontologías: [*Uso de estrategias de ontología en un procedimiento de desarrollo de modelos*](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).
+* O bien, continúe el proceso de aprendizaje para desarrollar modelos basados en ontologías: [Uso de estrategias de ontología en un procedimiento de desarrollo de modelos](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).

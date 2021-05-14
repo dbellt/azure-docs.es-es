@@ -1,17 +1,17 @@
 ---
 title: Copia de datos de Azure Blob Storage a Azure SQL Database
 description: Este tutorial proporciona instrucciones detalladas sobre cómo copiar datos desde Azure Blob Storage a Azure SQL Database.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 02/18/2021
-ms.author: jingwang
-ms.openlocfilehash: 2a9e19f24c4889a194c85e33317860db1d3a68d2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.author: jianleishen
+ms.openlocfilehash: 181abde55720e9b075b5ec72a131f17415fce9ce
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101736566"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109488418"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copia de datos del blob de Azure a Azure SQL Database mediante Azure Data Factory
 

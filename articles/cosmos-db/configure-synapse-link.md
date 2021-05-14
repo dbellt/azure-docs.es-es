@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: references_regions, synapse-cosmos-db
-ms.openlocfilehash: 24886ff3e01e9d9b4c01eabc917ced433599c0fa
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5cfe932d4f9ea60a044ce0b594df800fa37af6f1
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727151"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107904935"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Configuración y uso de Azure Synapse Link para Azure Cosmos DB (versión preliminar)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -288,7 +288,7 @@ Para obtener más información, consulte la siguiente documentación:
 
 * [Introducción al almacén analítico de Azure Cosmos DB.](analytical-store-introduction.md)
 
-* [Preguntas frecuentes sobre Synapse Link para Azure Cosmos DB.](synapse-link-frequently-asked-questions.md)
+* [Preguntas frecuentes sobre Synapse Link para Azure Cosmos DB.](synapse-link-frequently-asked-questions.yml)
 
 * [Apache Spark en Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md).
 

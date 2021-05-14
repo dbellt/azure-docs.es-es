@@ -2,16 +2,16 @@
 title: Envío del registro de actividad de Azure al área de trabajo de Log Analytics mediante una plantilla de Azure Resource Manager
 description: Use plantillas de Resource Manager para crear un área de trabajo de Log Analytics y una configuración de diagnóstico para enviar el registro de actividad a los registros de Azure Monitor.
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurecli
+ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 56810cffcb9665810c452276be34e6924fd992b2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2e780ba2fea490a70b2f1c2ae2d2495bd9edff95
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033289"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108320122"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Inicio rápido: Envío del registro de actividad de Azure al área de trabajo de Log Analytics mediante una plantilla de Resource Manager
 

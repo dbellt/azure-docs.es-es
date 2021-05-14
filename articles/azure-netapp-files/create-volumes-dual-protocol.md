@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 04/27/2021
 ms.author: b-juche
-ms.openlocfilehash: b6a2d7ad92c209a93d740d60808c2cbd2f90c6b4
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: b195b1a816576ec8a065ebe83bd02fa3aeb53c5a
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258425"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161400"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de protocolo dual (NFSv3 y SMB) para Azure NetApp Files
 
@@ -39,7 +39,6 @@ Para crear volúmenes NFS, consulte [Creación de un volumen NFS](azure-netapp-f
 * Asegúrese de cumplir los [requisitos para las conexiones de Active Directory](create-active-directory-connections.md#requirements-for-active-directory-connections). 
 * Cree una zona de búsqueda inversa en el servidor DNS y, a continuación, agregue un registro de puntero (PTR) de la máquina host de AD en esa zona de búsqueda inversa. De lo contrario, se producirá un error en la creación del volumen de dos protocolos.
 * Asegúrese de que el cliente NFS esté actualizado y ejecute las actualizaciones más recientes del sistema operativo.
-* Asegúrese de que el servidor LDAP de Active Directory (AD) está en funcionamiento en AD. Puede hacerlo instalando y configurando el rol [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) en la máquina de AD.
 * Los volúmenes del protocolo dual no admiten actualmente Azure Active Directory Domain Services (AADDS). La opción LDAP a través de TLS no debe estar habilitada si está usando AADDS.
 * La versión de NFS usada por un volumen de protocolo dual es NFSv3. Como tal, se aplican las siguientes consideraciones:
     * El protocolo dual no es compatible con los atributos extendidos de ACLS de Windows `set/get` desde clientes de NFS.
@@ -111,6 +110,27 @@ Para crear volúmenes NFS, consulte [Creación de un volumen NFS](azure-netapp-f
     Esta ruta de acceso del volumen es el nombre del volumen compartido. El nombre debe comenzar con un carácter alfabético y debe ser único dentro de cada suscripción y región.  
 
     * Especifique el **estilo de seguridad** que se vaya a usar: NTFS (valor predeterminado) o UNIX.
+
+    * Si desea habilitar el cifrado del protocolo SMB3 para el volumen de protocolo dual, seleccione **Habilitar cifrado del protocolo SMB3**.   
+
+        Esta característica habilita el cifrado solo para los datos SMB3 en proceso. No cifra los datos NFSv3 en proceso. Los clientes SMB que no usen el cifrado SMB3 no podrán acceder a este volumen. Los datos en reposo se cifrarán al margen de esta configuración. Consulte [Preguntas frecuentes sobre el cifrado SMB](azure-netapp-files-faqs.md#smb-encryption-faqs) para obtener información adicional. 
+
+        La característica **Cifrado del protocolo SMB3** está actualmente en su versión preliminar. Si es la primera vez que usa esta característica, regístrela antes de usarla: 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
+        ```
+
+        Compruebe el estado del registro de la característica: 
+
+        > [!NOTE]
+        > **RegistrationState** puede estar en el estado `Registering` hasta 60 minutos antes de cambiar a `Registered`. Espere hasta que el estado sea `Registered` antes de continuar.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
+        ```
+        
+        También puede usar los comandos de la [CLI de Azure](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` y `az feature show` para registrar la característica y mostrar el estado del registro.  
 
     * Si lo desea, [configure la directiva de exportación para el volumen](azure-netapp-files-configure-export-policy.md).
 

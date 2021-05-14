@@ -4,18 +4,73 @@ description: Describe cómo usar Service Bus para optimizar el rendimiento al in
 ms.topic: article
 ms.date: 03/09/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d4093d93da11e992ed9e6558a5386eb88f417ef9
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 19c365a233a2dafc98fb91e340717ba998616891
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967768"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107904701"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedimientos recomendados para mejorar el rendimiento mediante la mensajería de Service Bus
 
 En este artículo se describe cómo usar Azure Service Bus para optimizar el rendimiento al intercambiar mensajes asincrónicos. En la primera parte de este artículo se describen distintos mecanismos para aumentar el rendimiento. En la segunda parte se proporcionan instrucciones sobre cómo usar Service Bus de manera que pueda ofrecer el mejor rendimiento en un escenario determinado.
 
 En todo este artículo, el término "cliente" hace referencia a cualquier entidad que acceda a Service Bus. Un cliente puede asumir el rol de un remitente o receptor. El término "remitente" se usa para referirse a un cliente de una cola o un tema de Service Bus que envía mensajes a una cola o un tema de Service Bus. El término "receptor" hace referencia a un cliente de una cola o una suscripción de Service Bus que recibe mensajes de una cola o una suscripción de Service Bus.
+
+## <a name="resource-planning-and-considerations"></a>Planeamiento de recursos y consideraciones
+
+Al igual que con cualquier recurso técnico, el planeamiento prudente es clave para garantizar que Azure Service Bus proporciona el rendimiento esperado por la aplicación. La configuración o topología correctas para los espacios de nombres de Service Bus depende de una serie de factores que involucran la arquitectura de la aplicación y cómo se utilizan cada una de las características de Service Bus.
+
+### <a name="pricing-tier"></a>Plan de tarifa
+
+Service Bus ofrece varios planes de tarifa. Se recomienda elegir el nivel adecuado para los requisitos de la aplicación.
+
+   * **Nivel Estándar**: adecuado para entornos de desarrollo y pruebas o escenarios de bajo rendimiento en los que las aplicaciones **no son sensibles** a la limitación.
+
+   * **Nivel Premium**: adecuado para entornos de producción con diversos requisitos de rendimiento en los que se requiere una latencia y un rendimiento predecibles. Además, los espacios de nombres prémium de Service Bus se pueden [escalar automáticamente](automate-update-messaging-units.md) para dar cabida a picos de rendimiento.
+
+> [!NOTE]
+> Si no se selecciona el nivel correcto, existe el riesgo de desbordar el espacio de nombres de Service Bus, lo que puede dar lugar a la [limitación](service-bus-throttling.md).
+>
+> La limitación no conduce a la pérdida de datos. Las aplicaciones que aprovechan el SDK de Service Bus pueden usar la directiva de reintentos predeterminada para asegurarse de que Service Bus finalmente acepta los datos.
+>
+
+### <a name="calculating-throughput-for-premium"></a>Cálculo del rendimiento para el nivel Premium
+
+Los datos enviados Service Bus se serializan a binario y luego se deserializan cuando los recibe el receptor. Por lo tanto, mientras que las aplicaciones piensan en los **mensajes** como unidades atómicas de trabajo, Service Bus mide el rendimiento en términos de bytes (o megabytes).
+
+Al calcular el requisito de rendimiento, tenga en cuenta los datos que se envían a Service Bus (entrada) y los datos que se reciben de Service Bus (salida).
+
+Como se esperaba, el rendimiento es mayor para cargas útiles de mensajes más pequeñas que se pueden procesar por lotes conjuntamente.
+
+#### <a name="benchmarks"></a>Pruebas comparativas
+
+Este es un [ejemplo de GitHub](https://github.com/Azure-Samples/service-bus-dotnet-messaging-performance) que puede ejecutar para ver el rendimiento esperado que recibirá para el espacio de nombres de Service Bus. En nuestras [pruebas comparativas](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722) observamos aproximadamente 4 MB/segundo por unidad de mensajería (MU) de entrada y salida.
+
+El ejemplo de pruebas comparativas no usa características avanzadas, por lo que el rendimiento que observan las aplicaciones será diferente en función de los escenarios.
+
+#### <a name="compute-considerations"></a>Consideraciones de proceso
+
+El uso de ciertas características de Service Bus puede requerir un uso de proceso que puede reducir el rendimiento esperado. Algunas de estas características:
+
+1. Son sesiones.
+2. Se extienden a varias suscripciones sobre un solo tema.
+3. Ejecutan muchos filtros en una sola suscripción.
+4. Son mensajes programados.
+5. Son mensajes aplazados.
+6. Transacciones.
+7. Son la desduplicación y ventana de tiempo de retrospectiva.
+8. Se desvían (desvío de una entidad a otra).
+
+Si la aplicación aprovecha cualquiera de las características anteriores y no recibe el rendimiento esperado, puede revisar las métricas de **uso de CPU** y considerar la posibilidad de escalar verticalmente el espacio de nombres Premium de Service Bus.
+
+También puede usar Azure Monitor para [escalar automáticamente el espacio de nombres Service Bus](automate-update-messaging-units.md).
+
+### <a name="sharding-across-namespaces"></a>Particionamiento entre espacios de nombres
+
+Aunque el escalado vertical de proceso (unidades de mensajería) asignado al espacio de nombres es una solución más sencilla, **es posible que no** proporcione un aumento lineal en el rendimiento. Esto se debe a los elementos internos de Service Bus (almacenamiento, red, etc.), que pueden estar limitando el rendimiento.
+
+En este caso, la solución más limpia es particionar las entidades (colas y temas) entre diferentes espacios de nombres Premium de Service Bus. También puede considerar el particionamiento entre distintos espacios de nombres en diferentes regiones de Azure.
 
 ## <a name="protocols"></a>Protocolos
 Service Bus permite a los clientes enviar y recibir mensajes a través de uno de estos tres protocolos:

@@ -3,16 +3,16 @@ title: 'Azure IoT Hub Device Provisioning Service: conceptos de dispositivos'
 description: En este artículo se describen los conceptos sobre reaprovisionamiento de dispositivos para Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/04/2019
+ms.date: 04/16/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 9653a584382584d982c55008a6e8547de28691b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fbc83ec62c10fae00e371cd9ad95cf2860495fad
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91842859"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575775"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub
 
@@ -61,6 +61,9 @@ Según el escenario, un dispositivo normalmente envía una solicitud a una insta
     ![Diagrama que muestra cómo una directiva toma medidas cuando los dispositivos asociados a la entrada de inscripción envían una nueva solicitud de aprovisionamiento.](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
 * **No volver a aprovisionar nunca**: el dispositivo nunca se reasigna a un centro diferente. Esta directiva se proporciona para administrar la compatibilidad con versiones anteriores.
+
+> [!NOTE]
+> DPS siempre llamará al webhook de asignación personalizado independientemente de la directiva de reaprovisionamiento en caso de que haya un nuevo [ReturnData](how-to-send-additional-data.md) para el dispositivo. Si la directiva de reaprovisionamiento se establece en **no volver a aprovisionar nunca**, se llamará al webhook, pero el dispositivo no cambiará su centro asignado.
 
 ### <a name="managing-backwards-compatibility"></a>Administración de la compatibilidad con versiones anteriores
 

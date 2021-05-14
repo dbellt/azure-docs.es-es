@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: aba23b67574fb74b7cd571dc5d4642bb8b991b93
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be935dbd7e4559bcad8c5cf78622a5c63810f54c
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566641"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812397"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-marketplace"></a>Inicio rápido: Implementación de una máquina virtual de computación confidencial de Azure en Marketplace
 
@@ -128,7 +128,7 @@ Para más información acerca de cómo conectarse a máquinas virtuales Linux, c
 
 Siga las instrucciones detalladas para instalar el [SDK de OE](https://github.com/openenclave/openenclave) en la máquina virtual de la serie DCsv2 con una imagen de Ubuntu 18.04 LTS Gen 2. 
 
-Si la máquina virtual se ejecuta en Ubuntu 16.04 LTS Gen 2, deberá seguir las [instrucciones de instalación de Ubuntu 16.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_16.04.md). 
+Si la máquina virtual se ejecuta en Ubuntu 18.04 LTS Gen 2, deberá seguir las [instrucciones de instalación de Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md). 
 
 #### <a name="1-configure-the-intel-and-microsoft-apt-repositories"></a>1. Configure los repositorios de Intel y Microsoft APT
 
@@ -144,11 +144,18 @@ wget -qO - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add 
 ```
 
 #### <a name="2-install-the-intel-sgx-dcap-driver"></a>2. Instale el controlador Intel SGX DCAP
+Es posible que algunas versiones de Ubuntu ya tengan instalado el controlador Intel SGX. Puede comprobarlo con el comando siguiente: 
+
+```bash
+dmesg | grep -i sgx
+[  106.775199] sgx: intel_sgx: Intel SGX DCAP Driver {version}
+``` 
+Si la salida está en blanco, instale el controlador: 
 
 ```bash
 sudo apt update
 sudo apt -y install dkms
-wget https://download.01.org/intel-sgx/sgx-dcap/1.4/linux/distro/ubuntuServer18.04/sgx_linux_x64_driver_1.21.bin -O sgx_linux_x64_driver.bin
+wget https://download.01.org/intel-sgx/sgx-dcap/1.7/linux/distro/ubuntu18.04-server/sgx_linux_x64_driver_1.35.bin -O sgx_linux_x64_driver.bin
 chmod +x sgx_linux_x64_driver.bin
 sudo ./sgx_linux_x64_driver.bin
 ```
@@ -159,7 +166,7 @@ sudo ./sgx_linux_x64_driver.bin
 #### <a name="3-install-the-intel-and-open-enclave-packages-and-dependencies"></a>3. Instale los paquetes y dependencias de Intel y Open Enclave
 
 ```bash
-sudo apt -y install clang-7 libssl-dev gdb libsgx-enclave-common libsgx-enclave-common-dev libprotobuf10 libsgx-dcap-ql libsgx-dcap-ql-dev az-dcap-client open-enclave
+sudo apt -y install clang-8 libssl-dev gdb libsgx-enclave-common libprotobuf10 libsgx-dcap-ql libsgx-dcap-ql-dev az-dcap-client open-enclave
 ```
 
 > [!NOTE] 

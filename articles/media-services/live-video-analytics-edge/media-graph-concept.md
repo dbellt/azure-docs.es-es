@@ -3,12 +3,12 @@ title: Concepto de grafo multimedia en Azure
 description: Un grafo multimedia le permite definir dónde se debe capturar el elemento multimedia, cómo se debe procesar y dónde se deben entregar los resultados. En este artículo se ofrece una descripción detallada del concepto de grafo multimedia.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: ad23acbbbdd0c15e92e471ee22a229470a8a3a75
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 83c51bc87321633339f75ac57b480116d450bca7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557673"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770612"
 ---
 # <a name="media-graph"></a>Grafo multimedia
 
@@ -112,7 +112,8 @@ Un nodo receptor de recursos permite escribir datos de elementos multimedia (ví
 
 El nodo receptor de archivos permite escribir datos de elementos multimedia (vídeo o audio) en una ubicación del sistema de archivos local del dispositivo IoT Edge. Solo puede haber un nodo receptor de archivos en un grafo multimedia y debe ser de un nivel inferior a un nodo del procesador de la puerta de señales. Esto limita la duración de los archivos de salida a los valores especificados en las propiedades del nodo del procesador de la puerta de señales. Para asegurarse de que el dispositivo perimetral no se queda sin espacio en disco, también puede establecer el tamaño máximo que Live Video Analytics en el módulo de IoT Edge puede usar para almacenar datos.  
 > [!NOTE]
-Si el receptor de archivos se llena, Live Video Analytics en el módulo de IoT Edge comenzará a eliminar los datos más antiguos y los reemplazará por los nuevos.
+> Si el receptor de archivos se llena, Live Video Analytics en el módulo de IoT Edge comenzará a eliminar los datos más antiguos y los reemplazará por los nuevos.
+
 #### <a name="iot-hub-message-sink"></a>Receptor de mensajes de IoT Hub  
 
 Un nodo receptor de mensajes de IoT Hub permite publicar eventos en el centro de IoT Edge. Después, el centro de IoT Edge puede enrutar los datos a otros módulos o aplicaciones del dispositivo perimetral o a IoT Hub en la nube (según las rutas especificadas en el manifiesto de implementación). El nodo receptor de mensajes de IoT Hub puede aceptar eventos de procesadores de nivel superior como un nodo del procesador de detección de movimiento o de un servicio de inferencia externo a través de un nodo de procesador de extensiones HTTP.

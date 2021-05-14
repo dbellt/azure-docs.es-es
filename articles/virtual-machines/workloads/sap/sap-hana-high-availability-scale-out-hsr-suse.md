@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: 637616c3698cc9ec0cd13a4584bad24b6ed02c34
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 49c4c579d75b964a4b4c37c8a44bddf1ad08c62b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107315266"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142826"
 ---
 # <a name="high-availability-for-sap-hana-scale-out-system-with-hsr-on-suse-linux-enterprise-server"></a>Alta disponibilidad para el sistema de escalabilidad horizontal de SAP HANA con HSR en SUSE Linux Enterprise Server 
 
@@ -105,7 +105,7 @@ En el diagrama anterior, se representan tres subredes dentro de una red virtual 
 
 Como `/hana/data` y `/hana/log` se han implementado en discos locales, no es necesario implementar una subred independiente ni tarjetas de red virtual independientes para la comunicación con el almacenamiento.  
 
-Los volúmenes de Azure NetApp están en una subred independiente y [delegada a Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet): `anf` 10.23.1.0/26.   
+Los volúmenes de Azure NetApp están en una subred independiente y [delegada a Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md): `anf` 10.23.1.0/26.   
 
 > [!IMPORTANT]
 > No se admite la replicación del sistema en un tercer sitio. Para obtener más información, consulte la sección "Requisitos previos importantes" del [Escenario optimizado para el rendimiento de escalabilidad horizontal de la replicación del sistema SLES-SAP HANA](https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-scaleOut-PerfOpt-12/index.html#_important_prerequisites).     

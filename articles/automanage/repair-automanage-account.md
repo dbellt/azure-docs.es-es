@@ -8,12 +8,13 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: alsin
-ms.openlocfilehash: 4694fa679c7bbff309a0452219ff39bacf2488c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: fdfeae56ba1ef46b58fdb8f5beb32f85a6e2fcb4
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96183709"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752326"
 ---
 # <a name="repair-an-automanage-account"></a>Reparación de una cuenta de Automanage
 La [cuenta de Azure Automanage](./automanage-virtual-machines.md#automanage-account) es el contexto de seguridad o la identidad bajo los que tienen lugar las operaciones automatizadas. Si ha movido recientemente una suscripción que contiene una cuenta de Automanage a un nuevo inquilino, debe volver a configurarla. Para volver a configurarla, debe restablecer el tipo de identidad y asignar los roles adecuados para la cuenta.

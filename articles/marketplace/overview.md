@@ -6,12 +6,12 @@ ms.author: mingshen
 ms.service: marketplace
 ms.topic: overview
 ms.date: 10/15/2020
-ms.openlocfilehash: de8e9060f8e7ccdcf38b9f0908dfb05063811817
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: b624b8ba997acf75c652a522ce1eae9737371c97
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103411"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133194"
 ---
 # <a name="what-is-the-microsoft-commercial-marketplace"></a>¿Qué es el marketplace comercial de Microsoft?
 
@@ -75,7 +75,7 @@ Los asociados que publican anuncios en el marketplace comercial pueden acceder a
 
 - Aproveche los recursos técnicos que necesita para preparar la aplicación para su lanzamiento, desde el soporte técnico, el diseño de aplicaciones y el diseño de la arquitectura hasta el crédito de Azure para el desarrollo y las pruebas.
 - Acceso gratuito a los aspectos básicos de la comercialización de Microsoft para ayudar a lanzar y promocionar su solución. También puede optar a la inclusión en campañas de marketing de Microsoft adicionales y a oportunidades de destacarse en marketplace comercial.
-- Llegue a más clientes y amplíe sus oportunidades de venta con el programa [Proveedor de soluciones en la nube](https://partner.microsoft.com/cloud-solution-provider) (CSP), el programa [Co-Sell](marketplace-co-sell.md) y los equipos de ventas de Microsoft.
+- Llegue a más clientes y amplíe sus oportunidades de venta con el programa [Proveedor de soluciones en la nube](https://partner.microsoft.com/cloud-solution-provider) (CSP), el programa [Co-Sell](./co-sell-overview.md) y los equipos de ventas de Microsoft.
 
 Para más información sobre estas ventajas, consulte [Las ventajas del marketplace comercial](gtm-your-marketplace-benefits.md).
 

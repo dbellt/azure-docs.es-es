@@ -1,6 +1,6 @@
 ---
 title: 'Creación de una conexión entre redes virtuales: clásico: Portal de Azure'
-description: Conexión entre sí de las redes virtuales de Azure mediante PowerShell y Azure Portal.
+description: Obtenga información sobre cómo conectar redes virtuales de Azure clásico simultáneamente mediante PowerShell y Azure Portal.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0d81e0474d898ffee7f128c0bcea61f077c3d758
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aee40b4d642a43f0d4261bae7c42f92049daa4de
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92103227"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108289523"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configuración de una conexión de red virtual a red virtual (clásico)
 

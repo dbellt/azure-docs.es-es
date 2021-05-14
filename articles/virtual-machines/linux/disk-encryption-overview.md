@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: a1ea83dc62c2752e34584b89de2cdb6dbde3dfa0
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 11ddb2e76123c1181efffea3ef66a517bb5124a2
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106443925"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108207382"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VM Linux 
 
@@ -68,7 +68,7 @@ Las distribuciones de servidores Linux que no están aprobadas por Azure no admi
 | Canonical | Ubuntu 16.04 | 16.04-DAILY-LTS | Canonical:UbuntuServer:16.04-DAILY-LTS:latest | Sistema operativo y disco de datos |
 | Canonical | Ubuntu 14.04.5</br>[con kernel optimizado para Azure 4.15 o posterior](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical:UbuntuServer:14.04.5-LTS:latest | Sistema operativo y disco de datos |
 | Canonical | Ubuntu 14.04.5</br>[con kernel optimizado para Azure 4.15 o posterior](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | Sistema operativo y disco de datos |
-| RedHat | RHEL 8-LVM | 8-LVM | RedHat:RHEL:8-LVM:latest | Sistema operativo y disco de datos (véase la nota siguiente) |
+| RedHat | RHEL 8-LVM | 8-LVM | RedHat:RHEL:8-LVM:8.2.20200905 | Sistema operativo y disco de datos (véase la nota siguiente) |
 | RedHat | RHEL 8.2 | 8,2 | RedHat:RHEL:8.2:latest | Sistema operativo y disco de datos (véase la nota siguiente) |
 | RedHat | RHEL 8.1 | 8.1 | RedHat:RHEL:8.1:latest | Sistema operativo y disco de datos (véase la nota siguiente) |
 | RedHat | RHEL 7-LVM | 7-LVM | RedHat:RHEL:7-LVM:7.9.2020111202 | Sistema operativo y disco de datos (véase la nota siguiente) |

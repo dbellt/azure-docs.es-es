@@ -41,7 +41,7 @@
     - name: Proporcionar comentarios sobre las detecciones de riesgos
       href: howto-identity-protection-risk-feedback.md
     - name: Preguntas más frecuentes
-      href: troubleshooting-identity-protection-faq.md
+      href: troubleshooting-identity-protection-faq.yml
 - name: Referencia
   items:
     - name: Graph API

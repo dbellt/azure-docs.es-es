@@ -1,18 +1,18 @@
 ---
-title: Sobre el diseño de Azure VPN Gateway
-description: Conozca cómo puede diseñar una topología de VPN Gateway para conectarse a las redes virtuales de Azure.
+title: Topologías y diseño de Azure VPN Gateway
+description: Obtenga información sobre las topologías y diseños de VPN Gateway para conectar ubicaciones locales a redes virtuales.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 99b8cdbb1528caefd30fb11c9702dff1e817c0ab
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: ce2bf657b54ae824410fe4607e1c37bdfd84ac54
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061815"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205888"
 ---
 # <a name="vpn-gateway-design"></a>Diseño de VPN Gateway
 
@@ -108,4 +108,4 @@ Para planear y diseñar conexiones de alta disponibilidad, consulte [Conexiones 
 
 * Consulte [Límites del servicio y la suscripción](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
-* Obtenga información sobre las demás [funcionalidades de red](../networking/networking-overview.md) clave de Azure.
+* Obtenga información sobre las demás [funcionalidades de red](../networking/fundamentals/networking-overview.md) clave de Azure.

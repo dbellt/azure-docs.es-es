@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 870a04af244d18826e1041316895f746e27870eb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 8ac5a199df831ef954e870543d2be80f3c7abe2c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107786592"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138326"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>Tutorial: Uso de una identidad administrada para conectar Key Vault a una aplicación de Azure Spring Cloud
 
@@ -232,6 +232,6 @@ La biblioteca de cliente de secretos de Azure Key Vault permite almacenar y cont
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Procedimiento para obtener acceso al blob de almacenamiento con identidad administrada en Azure Spring Cloud](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/managed-identity-storage-blob)
-* [Habilitación de la identidad administrada asignada por el sistema para una aplicación de Azure Spring Cloud](./spring-cloud-howto-enable-system-assigned-managed-identity.md)
+* [Habilitación de la identidad administrada asignada por el sistema para una aplicación de Azure Spring Cloud](./how-to-enable-system-assigned-managed-identity.md)
 * [Más información sobre las identidades administradas para recursos de Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
-* [Autenticación de Azure Spring Cloud con Key Vault en Acciones de GitHub](./spring-cloud-github-actions-key-vault.md)
+* [Autenticación de Azure Spring Cloud con Key Vault en Acciones de GitHub](./github-actions-key-vault.md)

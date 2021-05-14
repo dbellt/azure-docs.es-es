@@ -4,15 +4,15 @@ description: Editar, actualizar, administrar e implementar aplicaciones lógicas
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
-ms.topic: article
+ms.topic: conceptual
 ms.custom: mvc
-ms.date: 04/29/2020
-ms.openlocfilehash: 56b74e440fcb09ab206bbb069517dd756221f809
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/23/2021
+ms.openlocfilehash: 443dd0a1172c98b67282b50659ffeb3611470413
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639554"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163776"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Administración de aplicaciones lógicas con Visual Studio
 
@@ -241,31 +241,59 @@ Para comprobar el estado y diagnosticar problemas con las ejecuciones de la apli
 
    ![Ver las entradas y salidas de cada paso](./media/manage-logic-apps-with-visual-studio/view-run-history-inputs-outputs.png)
 
-## <a name="disable-or-enable-logic-app"></a>Deshabilitación o habilitación de la aplicación lógica
+<a name="disable-enable-logic-apps"></a>
 
-Sin eliminar la aplicación lógica, puede evitar que el desencadenador se active la próxima vez que se cumpla una condición desencadenadora. Si deshabilita la aplicación lógica, evita que el motor de Logic Apps cree y ejecute futuras instancias de flujo de trabajo para la aplicación lógica. En Cloud Explorer, abra el menú contextual de la aplicación lógica y seleccione **Deshabilitar**.
+## <a name="disable-or-enable-logic-apps"></a>Deshabilitación o habilitación de la aplicaciones lógicas
+
+Para evitar que el desencadenador se active la próxima vez que se cumpla una condición desencadenadora, deshabilite la aplicación lógica. La deshabilitación de una aplicación lógica tiene los siguientes efectos en las instancias de flujo de trabajo:
+
+* El servicio Logic Apps continúa todas las ejecuciones en curso y pendientes hasta que finalizan. Según el volumen o el trabajo pendiente, este proceso puede tardar en completarse.
+
+* El servicio Logic Apps no crea ni ejecuta nuevas instancias de flujo de trabajo.
+
+* El desencadenador no se activará la próxima vez que se cumplan sus condiciones.
+
+* El estado del desencadenador recuerda el punto en el que se detuvo la aplicación lógica. Por lo tanto, si reactiva la aplicación lógica, el desencadenador se activará para todos los elementos no procesados desde la última ejecución.
+
+  Para evitar que el desencadenador se active con elementos no procesados desde la última ejecución, borre el estado del desencadenador antes de reactivar la aplicación lógica:
+
+  1. En la aplicación lógica, edite cualquier parte del desencadenador del flujo de trabajo.
+  1. Guarde los cambios. Este paso restablece el estado actual del desencadenador.
+  1. [Reactive la aplicación lógica](#enable-logic-apps).
+
+<a name="disable-logic-apps"></a>
+
+### <a name="disable-logic-apps"></a>Deshabilitación de aplicaciones lógicas
+
+En Cloud Explorer, abra el menú contextual de la aplicación lógica y seleccione **Deshabilitar**.
 
 ![Deshabilitar la aplicación lógica en Cloud Explorer](./media/manage-logic-apps-with-visual-studio/disable-logic-app-cloud-explorer.png)
 
-> [!NOTE]
-> Cuando se deshabilita una aplicación lógica, no se crean instancias de nuevas ejecuciones. Todas las ejecuciones en curso y pendientes continuarán hasta que finalicen, lo que puede tardar un tiempo en realizarse.
+<a name="enable-logic-apps"></a>
 
-Para reactivar la aplicación lógica, en Cloud Explorer, abra el menú contextual de la aplicación lógica y seleccione **Habilitar**.
+### <a name="enable-logic-apps"></a>Habilitación de aplicaciones lógicas
+
+En Cloud Explorer, abra el menú contextual de la aplicación lógica y seleccione **Habilitar**.
 
 ![Habilitar la aplicación lógica en Cloud Explorer](./media/manage-logic-apps-with-visual-studio/enable-logic-app-cloud-explorer.png)
 
-## <a name="delete-your-logic-app"></a>Eliminación de la aplicación lógica
+<a name="delete-logic-apps"></a>
+
+## <a name="delete-logic-apps"></a>Eliminación de aplicaciones lógicas
+
+Eliminar una aplicación lógica afecta a las instancias de flujo de trabajo de las maneras siguientes:
+
+* El servicio Logic Apps hace todo lo posible por cancelar las ejecuciones en curso y pendientes.
+
+  Incluso con un gran volumen o trabajo pendiente, la mayoría de las ejecuciones se cancelan antes de que finalicen o se inicien. Sin embargo, el proceso de cancelación puede tardar en completarse. Mientras tanto, pueden seleccionarse algunas ejecuciones para su ejecución mientras el entorno en tiempo de ejecución se encarga del proceso de cancelación.
+
+* El servicio Logic Apps no crea ni ejecuta nuevas instancias de flujo de trabajo.
+
+* Si elimina un flujo de trabajo y, luego, vuelve a crear el mismo flujo de trabajo, el flujo de trabajo recreado no tendrá los mismos metadatos que el flujo de trabajo eliminado. Tiene que volver a guardar todo flujo de trabajo que haya llamado al flujo de trabajo eliminado. De este modo, el autor de la llamada obtiene la información correcta para el flujo de trabajo recreado. De lo contrario, las llamadas al flujo de trabajo recreado producirán un error `Unauthorized`. Este comportamiento también se aplica a los flujos de trabajo que usan artefactos en cuentas de integración y a flujos de trabajo que llaman a Azure Functions.
 
 Para eliminar la aplicación lógica desde Azure Portal, en Cloud Explorer, abra el menú contextual de la aplicación lógica y seleccione **Eliminar**.
 
 ![Eliminar la aplicación lógica desde Azure Portal](./media/manage-logic-apps-with-visual-studio/delete-logic-app-from-azure-portal.png)
-
-> [!NOTE]
-> Cuando se elimina una aplicación lógica, no se crean instancias de nuevas ejecuciones. Todas las ejecuciones nuevas y pendientes se cancelan. Si tiene miles de ejecuciones, la cancelación puede tardar bastante tiempo en completarse.
-
-> [!NOTE]
-> Si elimina una aplicación lógica secundaria y vuelve a crearla, debe guardar de nuevo la aplicación lógica principal. La aplicación secundaria que ha vuelto a crear tendrá metadatos diferentes.
-> Si no se reguarda la aplicación lógica principal después de volver a crear su elemento secundario, las llamadas a la aplicación lógica secundaria producirán un error de que no hay autorización. Este comportamiento se aplica a las aplicaciones lógicas de elementos primarios y secundarios, por ejemplo, las que usan artefactos en las cuentas de integración o llaman a funciones de Azure.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

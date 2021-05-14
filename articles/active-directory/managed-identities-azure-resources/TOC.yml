@@ -94,8 +94,6 @@
           href: how-to-use-vm-sign-in.md
         - name: Uso con los SDK de Azure
           href: how-to-use-vm-sdk.md
-        - name: Dejar de usar la extensión de máquina virtual y empezar a usar Azure IMDS
-          href: howto-migrate-vm-extension.md
     - name: Asignación del acceso de una identidad administrada a otro recurso de Azure
       items:
         - name: Portal
@@ -142,7 +140,9 @@
       href: 'https://golang.org/doc/'
 - name: Recursos
   items:
-    - name: Preguntas frecuentes y problemas conocidos
+    - name: Preguntas más frecuentes
+      href: managed-identities-faq.md
+    - name: Problemas conocidos
       href: known-issues.md
     - name: Servicios de Azure que admiten identidades administradas de recursos de Azure
       href: services-support-managed-identities.md

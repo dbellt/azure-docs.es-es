@@ -8,14 +8,13 @@ ms.subservice: core
 ms.author: minxia
 author: mx-iao
 ms.date: 09/28/2020
-ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 583f588004f41fc07037e7f5e4ce75538a581c70
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.topic: how-to
+ms.openlocfilehash: 297721d9801385d9fdbff708c723c5b6e02949ad
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102518337"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950611"
 ---
 # <a name="train-tensorflow-models-at-scale-with-azure-machine-learning"></a>Entrenamiento de modelos de TensorFlow a gran escala con Azure Machine Learning
 
@@ -23,7 +22,7 @@ En este artículo, aprenderá a ejecutar los scripts de entrenamiento de [Tensor
 
 En este ejemplo se entrena y registra un modelo de TensorFlow para clasificar dígitos manuscritos mediante una red neuronal profunda (DNN).
 
-Tanto si se va a desarrollar un modelo de TensorFlow desde el principio como si va a incorporar un [modelo existente](how-to-deploy-existing-model.md) a la nube, puede usar Azure Machine Learning para escalar horizontalmente trabajos de entrenamiento de código abierto para crear, implementar, versionar y supervisar modelos de nivel de producción.
+Tanto si se va a desarrollar un modelo de TensorFlow desde el principio como si va a incorporar un [modelo existente](how-to-deploy-and-where.md) a la nube, puede usar Azure Machine Learning para escalar horizontalmente trabajos de entrenamiento de código abierto para crear, implementar, versionar y supervisar modelos de nivel de producción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -361,6 +360,6 @@ El [procedimiento](how-to-deploy-and-where.md) completo trata la implementación
 
 En este artículo, ha entrenado y registrado un modelo de TensorFlow y ha aprendido acerca de las opciones de implementación. Consulte estos otros artículos para más información sobre Azure Machine Learning.
 
-* [Seguir métricas de ejecución durante el entrenamiento](how-to-track-experiments.md)
+* [Seguir métricas de ejecución durante el entrenamiento](how-to-log-view-metrics.md)
 * [Ajustar los hiperparámetros](how-to-tune-hyperparameters.md)
 * [Arquitectura de referencia para el entrenamiento del aprendizaje profundo distribuido en Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

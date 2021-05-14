@@ -3,12 +3,12 @@ title: Implementación de plantillas con Cloud Shell
 description: Use Azure Resource Manager y Azure Cloud Shell para implementar recursos en Azure. Los recursos se definen en una plantilla de Azure Resource Manager (plantilla de ARM).
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: c67251a33b6197603be27086bcc6cd047e0c414b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7697eb0a6786a07546bb0de679df69d64da30b1b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98028614"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742353"
 ---
 # <a name="deploy-arm-templates-from-azure-cloud-shell"></a>Implementación de plantillas de ARM desde Azure Cloud Shell
 
@@ -33,7 +33,7 @@ Para implementar una plantilla externa, proporcione el identificador URI de la p
    az deployment group create \
      --name ExampleDeployment \
      --resource-group ExampleGroup \
-     --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
+     --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json" \
      --parameters storageAccountType=Standard_GRS
    ```
 
@@ -44,7 +44,7 @@ Para implementar una plantilla externa, proporcione el identificador URI de la p
    New-AzResourceGroupDeployment `
      -DeploymentName ExampleDeployment `
      -ResourceGroupName ExampleGroup `
-     -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json `
+     -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json `
      -storageAccountType Standard_GRS
    ```
 

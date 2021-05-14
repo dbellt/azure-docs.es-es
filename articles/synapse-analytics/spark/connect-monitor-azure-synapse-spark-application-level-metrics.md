@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
-ms.openlocfilehash: d22975199eedae353f2dc12588671ae4b54c85ab
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 45ccced6f083e0d304651a0cea7df90c6396fd88
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109325"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143258"
 ---
 # <a name="tutorial-connect-and-monitor-azure-synapse-spark-application-level-metrics"></a>Conexión y supervisión de las métricas de nivel de aplicación de Azure Synapse Spark
 
@@ -190,13 +190,13 @@ Obtención de las métricas más recientes de la aplicación Spark especificada 
 GET https://{endpoint}/livyApi/versions/{livyApiVersion}/sparkpools/{sparkPoolName}/sessions/{sessionId}/applications/{sparkApplicationId}/metrics/executors/prometheus?format=html
 ```
 
-| Parámetro          | Obligatorio | Descripción                                                                               |
-| ------------------ | -------- | ----------------------------------------------------------------------------------------- |
-| endpoint           | Verdadero     | Punto de conexión de desarrollo del área de trabajo, por ejemplo https://myworkspace.dev.azuresynapse.net. |
-| livyApiVersion     | Verdadero     | Versión de API válida para la solicitud. Actualmente es 2019-11-01-preview.                    |
-| sparkPoolName      | Verdadero     | Nombre del grupo de Spark.                                                                   |
-| sessionID          | Verdadero     | Identificador de la sesión.                                                               |
-| sparkApplicationId | Verdadero     | Identificador de la aplicación Spark.                                                                      |
+| Parámetro          | Obligatorio | Descripción                                                                                 |
+| ------------------ | -------- | --------------------------------------------------------------------------------------------|
+| endpoint           | Verdadero     | El punto de conexión de desarrollo del área de trabajo. Por ejemplo `https://myworkspace.dev.azuresynapse.net.`. |
+| livyApiVersion     | Verdadero     | Versión de API válida para la solicitud. Actualmente es 2019-11-01-preview.                      |
+| sparkPoolName      | Verdadero     | Nombre del grupo de Spark.                                                                     |
+| sessionID          | Verdadero     | Identificador de la sesión.                                                                 |
+| sparkApplicationId | Verdadero     | Identificador de la aplicación Spark.                                                                        |
 
 Solicitud de ejemplo: 
 
@@ -227,13 +227,13 @@ metrics_executor_completedTasks_total{application_id="application_1605509647837_
 GET https://{endpoint}/livyApi/versions/{livyApiVersion}/sparkpools/{sparkPoolName}/sessions/{sessionId}/applications/{sparkApplicationId}/executors
 ```
 
-| Parámetro          | Obligatorio | Descripción                                                                               |
-| ------------------ | -------- | ----------------------------------------------------------------------------------------- |
-| endpoint           | Verdadero     | Punto de conexión de desarrollo del área de trabajo, por ejemplo https://myworkspace.dev.azuresynapse.net. |
-| livyApiVersion     | Verdadero     | Versión de API válida para la solicitud. Actualmente es 2019-11-01-preview.                    |
-| sparkPoolName      | Verdadero     | Nombre del grupo de Spark.                                                                   |
-| sessionID          | Verdadero     | Identificador de la sesión.                                                               |
-| sparkApplicationId | Verdadero     | Identificador de la aplicación Spark.                                                                      |
+| Parámetro          | Obligatorio | Descripción                                                                                 |
+| ------------------ | -------- | --------------------------------------------------------------------------------------------|
+| endpoint           | Verdadero     | El punto de conexión de desarrollo del área de trabajo. Por ejemplo `https://myworkspace.dev.azuresynapse.net.`. |
+| livyApiVersion     | Verdadero     | Versión de API válida para la solicitud. Actualmente es 2019-11-01-preview.                      |
+| sparkPoolName      | Verdadero     | Nombre del grupo de Spark.                                                                     |
+| sessionID          | Verdadero     | Identificador de la sesión.                                                                 |
+| sparkApplicationId | Verdadero     | Identificador de la aplicación Spark.                                                                        |
 
 Solicitud de ejemplo
 

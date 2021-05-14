@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d482f21955b76e6b90523afe3b4933378c91d36e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 806ff92fcf75ff8d1c8e092d7ff4435751a9e7db
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98107368"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529908"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Administración del grupo de administradores locales en dispositivos unidos a Azure AD
 
@@ -68,11 +68,7 @@ Los administradores de dispositivos se asignan a todos los dispositivos unidos a
 
 ## <a name="manage-administrator-privileges-using-azure-ad-groups-preview"></a>Administración de los privilegios de administrador con grupos de Azure AD (versión preliminar)
 
->[!NOTE]
-> Esta funcionalidad actualmente está en su versión preliminar.
-
-
-A partir de la actualización de 2004 de Windows 10, se pueden usar grupos de Azure AD para administrar los privilegios de administrador en dispositivos unidos a Azure AD con la directiva de MDM [Grupos restringidos](/windows/client-management/mdm/policy-csp-restrictedgroups). Esta directiva permite asignar usuarios individuales o grupos de Azure AD al grupo de administradores locales en un dispositivo unido a Azure AD, lo que le proporciona la granularidad para configurar diferentes administradores para distintos grupos de dispositivos. 
+A partir de la actualización de Windows 10 de 2004, se pueden usar grupos de Azure AD para administrar los privilegios de administrador en dispositivos unidos a Azure AD con la directiva de [grupos restringidos](/windows/client-management/mdm/policy-csp-restrictedgroups) de MDM. Esta directiva permite asignar usuarios individuales o grupos de Azure AD al grupo de administradores locales en un dispositivo unido a Azure AD, lo que le proporciona la granularidad para configurar diferentes administradores para distintos grupos de dispositivos. 
 
 >[!NOTE]
 > A partir de la actualización de Windows 10 20H2, se recomienda usar la directiva de [usuarios y grupos locales](/windows/client-management/mdm/policy-csp-localusersandgroups) en lugar de la directiva de grupos restringidos
@@ -80,11 +76,11 @@ A partir de la actualización de 2004 de Windows 10, se pueden usar grupos de A
 
 Actualmente, no hay ninguna interfaz de usuario en Intune para administrar estas directivas y deben configurarse mediante [Configuración OMA-URI personalizada](/mem/intune/configuration/custom-settings-windows-10). Algunas consideraciones para usar cualquiera de estas directivas: 
 
-- La adición de grupos de Azure AD a través de la directiva requiere el SID del grupo, que se puede obtener mediante la ejecución de la [API de Microsoft Graph para grupos](/graph/api/resources/group?view=graph-rest-beta). El SID se define mediante la propiedad `securityIdentifier` de la respuesta de la API.
+- La adición de grupos de Azure AD a través de la directiva requiere el SID del grupo, que se puede obtener mediante la ejecución de la [API de Microsoft Graph para grupos](/graph/api/resources/group). El SID se define mediante la propiedad `securityIdentifier` de la respuesta de la API.
 - Cuando se aplica la directiva de grupos restringidos, se quita cualquier miembro actual del grupo que no esté en la lista de miembros. Por lo tanto, la aplicación de esta directiva con nuevos miembros o grupos quitará a los administradores existentes, es decir, al usuario que se unió al dispositivo, el rol de administrador de dispositivos y el rol de administrador global del dispositivo. Para evitar la eliminación de los miembros existentes, debe configurarlos como parte de la lista de miembros en la Directiva de grupos restringidos. Esta limitación se soluciona si usa la directiva de usuarios y grupos locales que permite actualizaciones incrementales a la pertenencia a grupos
 - Los privilegios de administrador que usan ambas directivas solo se evalúan para los siguientes grupos conocidos en un dispositivo con Windows 10: administradores, usuarios, invitados, usuarios avanzados, usuarios de Escritorio remoto y usuarios de Administración remota. 
 - La administración de los administradores locales mediante grupos de Azure AD no es aplicable a los dispositivos unidos a Azure AD híbrido o dispositivos registrados de Azure AD.
-- Aunque la directiva de grupos restringidos existía antes de la actualización de 2004 de Windows 10, no admitía grupos de Azure AD como miembros del grupo de administradores locales de un dispositivo. 
+- Aunque la directiva de grupos restringidos existía antes de la actualización de Windows 10 de 2004, no admitía grupos de Azure AD como miembros del grupo de administradores locales de un dispositivo. 
 
 ## <a name="manage-regular-users"></a>Administración de los usuarios normales
 

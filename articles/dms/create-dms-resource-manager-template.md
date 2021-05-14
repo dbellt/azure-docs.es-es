@@ -7,12 +7,12 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: dms
-ms.openlocfilehash: a9c68bca4d50af734a0a2cd8a91c7e46d9b56ff1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b448f04811ad254358990f6f37c4a02f1909d65
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94963222"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107952735"
 ---
 # <a name="quickstart-create-instance-of-azure-database-migration-service-using-arm-template"></a>Inicio rápido: Creación de una instancia de Azure Database Migration Service con una plantilla de ARM
 
@@ -22,7 +22,7 @@ Use esta plantilla de Azure Resource Manager (plantilla de ARM) para implementar
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-database-migration-simple-deploy%2fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.datamigration%2fazure-database-migration-simple-deploy%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -35,7 +35,7 @@ La plantilla de Resource Manager de Azure Database Migration Service requiere:
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-azure-database-migration-simple-deploy/).
 
-:::code language="json" source="~/quickstart-templates/101-azure-database-migration-simple-deploy/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.datamigration/azure-database-migration-simple-deploy/azuredeploy.json":::
 
 En la plantilla se definen tres recursos de Azure: 
 
@@ -50,7 +50,7 @@ Encontrará más plantillas de Azure Database Migration Service en la [galería 
 
 1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea una instancia de Azure Database Migration Service. 
 
-   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-database-migration-simple-deploy%2fazuredeploy.json)
+   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.datamigration%2fazure-database-migration-simple-deploy%2fazuredeploy.json)
 
 2. Seleccione o escriba los siguientes valores.
 

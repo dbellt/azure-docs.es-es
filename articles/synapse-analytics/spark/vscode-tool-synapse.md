@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 09/03/2020
-ms.openlocfilehash: e5d335ee14709ec330405419f5be8ac5fbd6ce75
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83d8d6498a5ec4906f7cdd7187ae88e4a2f45126
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943773"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318034"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-vscode-using-a-synapse-workspace"></a>Tutorial: Creación de aplicaciones de Apache Spark con VSCode mediante un área de trabajo de Synapse
 
@@ -22,7 +22,7 @@ Obtenga información sobre cómo usar las herramientas Apache Spark y Apache Hiv
 
 Las herramientas Spark y Hive se pueden instalar en todas las plataformas compatibles con Visual Studio Code. Observe los siguientes requisitos previos para las distintas plataformas.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Los elementos siguientes son necesarios para completar los pasos indicados en este artículo:
 
@@ -84,7 +84,9 @@ Siga estos pasos para conectarse a Azure:
 
 4. [Conéctese](#connect-to-your-spark-pools) a su cuenta de Azure si no lo ha hecho aún.
 
-5. Seleccione un grupo de Spark como predeterminado para el archivo de script actual. Las herramientas actualizan automáticamente el archivo de configuración **.VSCode\settings.json**:
+5. Seleccione un grupo de Spark como predeterminado para el archivo de script actual. 
+
+6. Use **Synapse: PySpark Interactive** para enviar este archivo. Y las herramientas actualizan automáticamente el archivo de configuración **.VSCode\settings.json**:
 
      ![Establecer la configuración del clúster predeterminado](./media/vscode-tool-synapse/set-default-cluster-configuration.png)
 

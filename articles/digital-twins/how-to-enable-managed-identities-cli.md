@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e9eb5950b5cf7d4e7d0270deed72866ee28e3962
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 504d66501cc041d6fec4671b6955723505910d0c
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106911"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788452"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-cli"></a>Habilitación de una identidad administrada para el enrutamiento de eventos de Azure Digital Twins (versión preliminar): Azure CLI
 
@@ -20,7 +20,7 @@ ms.locfileid: "107106911"
 
 En este artículo se describe cómo habilitar una [identidad asignada por el sistema para una instancia de Azure Digital Twins](concepts-security.md#managed-identity-for-accessing-other-resources-preview) (actualmente en versión preliminar) y usar la identidad al reenviar eventos a destinos admitidos como [centro de eventos ](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)  y [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md).
 
-En este artículo se describe el proceso que utiliza la [**CLI de Azure**](/cli/azure/what-is-azure-cli).
+En este artículo se describe el proceso que utiliza la [CLI de Azure](/cli/azure/what-is-azure-cli).
 
 Estos son los pasos que se describen en este artículo: 
 
@@ -45,7 +45,7 @@ Esto se hace agregando un parámetro `--assign-identity` al comando `az dt creat
 Para crear una instancia con una identidad administrada por el sistema, agregue el parámetro `--assign-identity` de la siguiente manera:
 
 ```azurecli-interactive
-az dt create -n {new_instance_name} -g {resource_group} --assign-identity
+az dt create --dt-name {new_instance_name} --resource-group {resource_group} --assign-identity
 ```
 
 ### <a name="add-a-system-managed-identity-to-an-existing-instance"></a>Adición de una identidad administrada por el sistema a una instancia existente
@@ -57,13 +57,13 @@ Esto también se realiza con el comando `az dt create` y el parámetro `--assign
 El comando para **habilitar** la identidad administrada es el mismo que el comando para crear una instancia con una identidad administrada por el sistema. Lo único que cambia es el valor del parámetro de nombre de la instancia:
 
 ```azurecli-interactive
-az dt create -n {name_of_existing_instance} -g {resource_group} --assign-identity
+az dt create --dt-name {name_of_existing_instance} --resource-group {resource_group} --assign-identity
 ```
 
 Para **deshabilitar** la identidad administrada en una instancia en la que está habilitada actualmente, use el siguiente comando parecido para establecer `--assign-identity` en `false`.
 
 ```azurecli-interactive
-az dt create -n {name_of_existing_instance} -g {resource_group} --assign-identity false
+az dt create --dt-name {name_of_existing_instance} --resource-group {resource_group} --assign-identity false
 ```
 
 ## <a name="assign-azure-roles-to-the-identity"></a>Asignación de roles de Azure a la identidad 
@@ -83,7 +83,7 @@ Estos son los roles mínimos que necesita una identidad para acceder a un punto 
 | Azure Service Bus | Emisor de datos de Azure Service Bus |
 | Contenedor de almacenamiento de Windows Azure | Colaborador de datos de blobs de almacenamiento |
 
-Para obtener más información sobre los puntos de conexión, las rutas y los tipos de destinos que se admiten para el enrutamiento en Azure Digital Twins, vea [*Conceptos: rutas de eventos*](concepts-route-events.md).
+Para obtener más información sobre los puntos de conexión, las rutas y los tipos de destinos que se admiten para el enrutamiento en Azure Digital Twins, vea [Conceptos: rutas de eventos](concepts-route-events.md).
 
 ### <a name="assign-the-role"></a>Asignación del rol
 
@@ -94,12 +94,12 @@ Puede agregar el parámetro `--scopes` al comando `az dt create` para asignar la
 En este ejemplo se crea una instancia con una identidad administrada por el sistema y se asigna esa identidad a un rol personalizado denominado `MyCustomRole` de un centro de eventos.
 
 ```azurecli-interactive
-az dt create -n {instance_name} -g {resource_group} --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource_group>/providers/Microsoft.EventHub/namespaces/<Event_Hubs_namespace>/eventhubs/<event_hub_name>" --role MyCustomRole
+az dt create --dt-name {instance_name} --resource-group {resource_group} --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource_group>/providers/Microsoft.EventHub/namespaces/<Event_Hubs_namespace>/eventhubs/<event_hub_name>" --role MyCustomRole
 ```
 
-Para obtener más ejemplos de asignaciones de roles con este comando, consulte la documentación de referencia del comando [**az dt create**](/cli/azure/dt#az_dt_create).
+Para obtener más ejemplos de asignaciones de roles con este comando, consulte la documentación de referencia del comando [az dt create](/cli/azure/dt#az_dt_create).
 
-Como alternativa, también puede usar el grupo de comandos [**az role assignment**](/cli/azure/role/assignment) para crear y administrar roles. Se puede usar para respaldar escenarios adicionales en los que no desea agrupar la asignación de roles con el comando create.
+Como alternativa, también puede usar el grupo de comandos [az role assignment](/cli/azure/role/assignment) para crear y administrar roles. Se puede usar para respaldar escenarios adicionales en los que no desea agrupar la asignación de roles con el comando create.
 
 ## <a name="create-an-endpoint-with-identity-based-authentication"></a>Creación de un punto de conexión con autenticación basada en identidades
 
@@ -113,7 +113,7 @@ Esto se hace agregando un parámetro `--auth-type` al comando `az dt endpoint cr
 Para crear un punto de conexión que use la autenticación basada en identidades, especifique el tipo de autenticación `IdentityBased` con el parámetro `--auth-type`. En el ejemplo siguiente se muestra esto para un punto de conexión de Event Hubs.
 
 ```azurecli-interactive
-az dt endpoint create eventhub --endpoint-name {endpoint_name} --eventhub-resource-group {eventhub_resource_group} --eventhub-namespace {eventhub_namespace} --eventhub {eventhub_name} --auth-type IdentityBased -n {instance_name}
+az dt endpoint create eventhub --endpoint-name {endpoint_name} --eventhub-resource-group {eventhub_resource_group} --eventhub-namespace {eventhub_namespace} --eventhub {eventhub_name} --auth-type IdentityBased --dt-name {instance_name}
 ```
 
 ## <a name="considerations-for-disabling-system-managed-identities"></a>Consideraciones para deshabilitar las identidades administradas por el sistema
@@ -125,4 +125,4 @@ Para seguir usando un punto de conexión que se ha configurado con una identidad
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información sobre las identidades administradas en Azure AD: 
-* [*Identidades administradas de recursos de Azure*](../active-directory/managed-identities-azure-resources/overview.md)
+* [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md)

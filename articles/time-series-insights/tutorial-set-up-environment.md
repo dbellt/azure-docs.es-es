@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Configuración de un entorno de Gen2: Azure Time Series Insights Gen2 | Microsoft Docs'
 description: 'Tutorial: Aprenda a configurar un entorno en Azure Time Series Insights Gen2.'
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: riserrad
+ms.author: riserrad
+manager: edett
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 02/25/2021
+ms.date: 04/23/2021
 ms.custom: seodec18
-ms.openlocfilehash: 76a33bdb773645c9e8f97a47b1378d813b165631
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3994802e82b126f426a75a26d399f6f86e21797
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103464244"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107952027"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Tutorial: Configuración de un entorno de Azure Time Series Insights Gen2
 
@@ -113,19 +113,18 @@ En esta sección se describe cómo crear un entorno de Azure Time Series Insight
    | **Nombre de la instancia de IoT Hub** | Seleccione el nombre del centro de IoT que creó para el simulador de dispositivos. |
    | **Directiva de acceso de IoT Hub** | seleccione **iothubowner**. |
    | **Grupo de consumidores de IoT Hub** | Seleccione **Nuevo**, escriba un nombre único y, a continuación, seleccione **+ Agregar**. El grupo de consumidores debe ser un valor único en Azure Time Series Insights Gen2. |
+   | **Opciones de inicio** | Seleccione **Beginning now** (Empezando ahora). |
    | **Propiedad de marca de tiempo** | Este campo se utiliza para identificar la propiedad de **Marca de tiempo** en los datos de telemetría entrantes. En este tutorial, deje este cuadro vacío. Este simulador usa la marca de tiempo entrante de IoT Hub, que Azure Time Series Insights Gen2 toma como valor predeterminado. |
 
-1. Seleccione **Revisar + crear**.
-
-   [![Configuración del centro de IoT creado como origen del evento.](media/tutorial-set-up-environment/configure-event-source.png)](media/tutorial-set-up-environment/configure-event-source.png#lightbox)
+   :::image type="content" source="media/tutorial-set-up-environment/configure-event-source.png" alt-text="Configuración del centro de IoT creado como origen de eventos" lightbox="media/tutorial-set-up-environment/configure-event-source.png":::
 
 1. Seleccione **Revisar + crear**.
 
-    [![Página Revisar y crear, con el botón Crear.](media/tutorial-set-up-environment/environment-confirmation.png)](media/tutorial-set-up-environment/environment-confirmation.png#lightbox)
+   :::image type="content" source="media/tutorial-set-up-environment/environment-confirmation.png" alt-text="Página Revisar y crear, con el botón Crear" lightbox="media/tutorial-set-up-environment/environment-confirmation.png":::
 
-    Puede revisar el estado de la implementación:
+   Puede revisar el estado de la implementación:
 
-    [![Notificación de que la implementación ha finalizado.](media/tutorial-set-up-environment/deployment-notification.png)](media/tutorial-set-up-environment/deployment-notification.png#lightbox)
+   [![Notificación de que la implementación ha finalizado.](media/tutorial-set-up-environment/deployment-notification.png)](media/tutorial-set-up-environment/deployment-notification.png#lightbox)
 
 1. Expanda los detalles de la implementación.
 

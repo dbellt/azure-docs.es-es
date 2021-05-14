@@ -1,18 +1,18 @@
 ---
 title: Solución de problemas de conectores en Azure Data Factory
 description: Obtenga información acerca de la solución de problemas relacionados con conectores en Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 02/08/2021
-ms.author: jingwang
+ms.date: 04/13/2021
+ms.author: jianleishen
 ms.custom: has-adal-ref
-ms.openlocfilehash: 9d8f940e3900c00b1c6f6623dfeff2d92ca85aa3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c08456b08b6b11745cced97fd92417f07af23dda
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102042443"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484836"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Solución de problemas de conectores en Azure Data Factory
 
@@ -555,7 +555,109 @@ En este artículo se exploran las formas más comunes de solucionar problemas co
 - **Causa**: El servidor de Dynamics es inestable o no es accesible, o bien en la red se experimentan problemas.
 
 - **Recomendación:**  Para conocer los detalles, compruebe la conectividad de red o el registro del servidor de Dynamics. Si necesita ayuda adicional, póngase en contacto con el soporte técnico de Dynamics.
+
+
+### <a name="error-code--dynamicsfailedtoconnect"></a>Código de error: DynamicsFailedToConnect 
+ 
+ - **Mensaje**: `Failed to connect to Dynamics: %message;` 
+ 
+
+ - **Causa**: Si ve `Office 365 auth with OAuth failed` en el mensaje de error, es posible que el servidor tenga algunas configuraciones no compatibles con OAuth. 
+ 
+ - **Recomendación:** 
+    1. Para obtener ayuda, póngase en contacto con el equipo de soporte técnico de Dynamics con el mensaje de error detallado.  
+    1. Use la autenticación de la entidad de servicio, puede consultar este artículo: [Ejemplo: Dynamics en línea con la entidad de servicio de Azure AD y la autenticación de certificados](./connector-dynamics-crm-office-365.md#example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication). 
+ 
+
+ - **Causa**: Si ve `Unable to retrieve authentication parameters from the serviceUri` en el mensaje de error, puede que haya escrito una dirección URL de servicio de Dynamics incorrecta o aplicado un proxy o firewall para interceptar el tráfico. 
+ 
+ - **Recomendación:**
+    1. Asegúrese de haber indicado el URI de servicio correcto en el servicio vinculado. 
+    1. Si usa el IR autohospedado, asegúrese de que el firewall o proxy no intercepten las solicitudes al servidor de Dynamics. 
+   
+ 
+ - **Causa**: Si ve `An unsecured or incorrectly secured fault was received from the other party` en el mensaje de error, se han obtenido respuestas inesperadas del lado servidor. 
+ 
+ - **Recomendación:** 
+    1. Asegúrese de que el nombre de usuario y la contraseña sean correctos si usa la autenticación de Office 365. 
+    1. Asegúrese de haber escrito el URI de servicio correcto. 
+    1. Si usa la dirección URL de CRM regional (la dirección URL tiene un número después de "crm"), asegúrese de usar el identificador regional correcto.
+    1. Para obtener ayuda, póngase en contacto con el equipo de soporte técnico de Dynamics. 
+ 
+
+ - **Causa**: Si ve `No Organizations Found` en el mensaje de error, el nombre de la organización es incorrecto o ha usado un identificador de región de CRM incorrecto en la dirección URL del servicio. 
+ 
+ - **Recomendación:** 
+    1. Asegúrese de haber escrito el URI de servicio correcto.
+    1. Si usa la dirección URL de CRM regional (la dirección URL tiene un número después de "crm"), asegúrese de usar el identificador regional correcto. 
+    1. Para obtener ayuda, póngase en contacto con el equipo de soporte técnico de Dynamics. 
+
+ 
+ - **Causa**: Si ve `401 Unauthorized` y un mensaje de error relacionado con AAD, hay un problema con la entidad de servicio. 
+
+ - **Recomendación**: Siga la guía del mensaje de error para corregir el problema de la entidad de servicio.  
+ 
+ 
+ - **Causa**: Para otros errores, el problema suele encontrarse en el lado servidor. 
+
+ - **Recomendación**: Use [XrmToolBox](https://www.xrmtoolbox.com/) para establecer la conexión. Si el error persiste, póngase en contacto con el equipo de soporte técnico de Dynamics para obtener ayuda. 
+ 
+ 
+### <a name="error-code--dynamicsoperationfailed"></a>Código de error: DynamicsOperationFailed 
+ 
+- **Mensaje**: `Dynamics operation failed with error code: %code;, error message: %message;.` 
+
+- **Causa**: Error en la operación en el lado servidor. 
+
+- **Recomendación**: Extraiga el código de error de la operación de Dynamics que aparece en el mensaje de error: `Dynamics operation failed with error code: {code}`, y consulte el artículo [Códigos de error de servicio web](/powerapps/developer/data-platform/org-service/web-service-error-codes) para obtener información más detallada. Si es necesario, puede ponerse en contacto con el equipo de soporte técnico de Dynamics. 
+ 
+ 
+### <a name="error-code--dynamicsinvalidfetchxml"></a>Código de error: DynamicsInvalidFetchXml 
   
+- **Mensaje**: `The Fetch Xml query specified is invalid.` 
+
+- **Causa**: Existe un error en el XML de captura.  
+
+- **Recomendación**: Corrija el error en el XML de captura. 
+ 
+ 
+### <a name="error-code--dynamicsmissingkeycolumns"></a>Código de error: DynamicsMissingKeyColumns 
+ 
+- **Mensaje**: `Input DataSet must contain keycolumn(s) in Upsert/Update scenario. Missing key column(s): %column;`
+ 
+- **Causa**: Los datos de origen no contienen la columna de clave para la entidad receptora. 
+
+- **Recomendación**: Confirme que las columnas de clave estén en los datos de origen o asigne una columna de origen a la columna de clave de la entidad receptora. 
+ 
+ 
+### <a name="error-code--dynamicsprimarykeymustbeguid"></a>Código de error: DynamicsPrimaryKeyMustBeGuid 
+ 
+- **Mensaje**: `The primary key attribute '%attribute;' must be of type guid.` 
+ 
+- **Causa**: El tipo de la columna de clave principal no es "Guid". 
+ 
+- **Recomendación**: Asegúrese de que la columna de clave principal de los datos de origen sea de tipo "Guid". 
+ 
+
+### <a name="error-code--dynamicsalternatekeynotfound"></a>Código de error: DynamicsAlternateKeyNotFound 
+ 
+- **Mensaje**: `Cannot retrieve key information of alternate key '%key;' for entity '%entity;'.` 
+ 
+- **Causa**: La clave alternativa proporcionada no existe, lo que puede deberse a nombres de clave incorrectos o permisos insuficientes. 
+ 
+- **Recomendación:** <br/> 
+    1. Corrija los errores tipográficos en el nombre de clave.<br/> 
+    1. Asegúrese de tener permisos suficientes en la entidad. 
+ 
+ 
+### <a name="error-code--dynamicsinvalidschemadefinition"></a>Código de error: DynamicsInvalidSchemaDefinition 
+ 
+- **Mensaje**: `The valid structure information (column name and type) are required for Dynamics source.` 
+ 
+- **Causa**: Falta la propiedad "type" en las columnas receptoras de la asignación de columnas. 
+ 
+- **Recomendación**: Puede agregar la propiedad "type" a esas columnas de la asignación de columnas mediante el editor JSON en el portal. 
+
 
 ## <a name="ftp"></a>FTP
 

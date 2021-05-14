@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 03/30/2021
 ms.author: kumud
-ms.openlocfilehash: 9b608312d66e6a3e7455c4577ea4644b33e4e82e
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: c98bdbb9fba2a6ba01e4ce590c36d57e68390f17
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106079959"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484802"
 ---
 # <a name="azure-networking-architecture-documentation"></a>Documentación de la arquitectura de redes de Azure
 
@@ -51,6 +51,7 @@ En la tabla siguiente se incluyen artículos en los que se describe cómo implem
 |[IaaS: aplicación web con base de datos relacional](/azure/architecture/high-availability/ref-arch-iaas-web-and-db)    |   Describe cómo usar los recursos distribuidos en varias zonas para proporcionar una arquitectura de alta disponibilidad para el hospedaje de una aplicación web de infraestructura como servicio (IaaS) y una base de datos de SQL Server.     |
 |[Compartir ubicación en tiempo real mediante servicios de Azure sin servidor económicos](/azure/architecture/example-scenario/signalr/#azure-front-door)       |   Usa Azure Front Door para proporcionar a las aplicaciones una disponibilidad mayor que si se implementa en una única región. Si una interrupción regional afecta a la región primaria, puede usar Front Door realizar una conmutación por error a la región secundaria.      |
 |[Aplicaciones virtuales de red de alta disponibilidad](/azure/architecture/reference-architectures/dmz/nva-ha)     | Muestra cómo implementar un conjunto de aplicaciones de red virtual (NVA) de alta disponibilidad en Azure.        |
+|[Equilibrio de carga de varias regiones con Traffic Manager y Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway)     | Describe cómo implementar aplicaciones de varios niveles resistentes en varias regiones de Azure, con el fin de lograr disponibilidad y una sólida infraestructura de recuperación ante desastres.        |
 
 ## <a name="secure-your-network-resources"></a>Protección de los recursos de red
 

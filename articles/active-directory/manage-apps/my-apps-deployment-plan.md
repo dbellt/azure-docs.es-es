@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/29/2020
 ms.author: baselden
-ms.openlocfilehash: 777daecc119a158f11d865489e4eb497c3bc7899
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 8cf1a671eeb4861919a389b02f45fee998d880e3
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376603"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108317224"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Planeamiento de la configuración de Aplicaciones de Azure Active Directory
 
@@ -81,7 +81,7 @@ Para obtener más información, consulte [Configuración del consentimiento de l
 
 ### <a name="group-owner-consent-for-apps-accessing-data"></a>Consentimiento del propietario de un grupo para las aplicaciones que acceden a los datos
 
-Los propietarios de grupos y equipos pueden dar permiso a aplicaciones tales como las aplicaciones que publican otros proveedores, para obtener acceso a los datos de la organización asociados al grupo. Consulte [Consentimiento específico de recursos en Microsoft Teams](https://docs.microsoft.com/microsoftteams/resource-specific-consent) para obtener más información. 
+Los propietarios de grupos y equipos pueden dar permiso a aplicaciones tales como las aplicaciones que publican otros proveedores, para obtener acceso a los datos de la organización asociados al grupo. Consulte [Consentimiento específico de recursos en Microsoft Teams](/microsoftteams/resource-specific-consent) para obtener más información. 
 
 Puede configurar si quiere permitir o deshabilitar esta característica.
 
@@ -138,7 +138,7 @@ Esta extensión permite a los usuarios iniciar cualquier aplicación desde su ba
 
 #### <a name="plan-for-mobile-access"></a>Planeación del acceso móvil
 
-En el caso de las aplicaciones que usan el inicio de sesión único mediante contraseña o a las que se accede mediante [Microsoft Azure AD Application Proxy](../manage-apps/application-proxy.md), debe usar Microsoft Edge para dispositivos móviles. Para otras aplicaciones, se puede usar cualquier explorador para dispositivos móviles. 
+En el caso de las aplicaciones que usan el inicio de sesión único mediante contraseña o a las que se accede mediante [Microsoft Azure AD Application Proxy](../app-proxy/application-proxy.md), debe usar Microsoft Edge para dispositivos móviles. Para otras aplicaciones, se puede usar cualquier explorador para dispositivos móviles. 
 
 ### <a name="linked-sso"></a>Inicio de sesión único vinculado
 
@@ -256,5 +256,4 @@ Puede usar [Privileged Identity Management](../privileged-identity-management/pi
 
 [Planeamiento de una implementación de Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
 
-[Planeación de la implementación de un proxy de aplicación](application-proxy-deployment-plan.md)
-
+[Planeación de la implementación de un proxy de aplicación](../app-proxy/application-proxy-deployment-plan.md)

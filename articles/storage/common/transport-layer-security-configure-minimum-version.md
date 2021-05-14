@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 04/29/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 257cd8dce2a080203f116a6f0d5b7c7ebd6d13f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 218575453a8d204c59a25e145581b8934ef5790a
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593183"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108317852"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Aplicación de una versión mínima necesaria de Seguridad de la capa de transporte (TLS) para las solicitudes a una cuenta de almacenamiento
 
@@ -102,10 +102,10 @@ Al crear una cuenta de almacenamiento con Azure Portal, la versión mínima de T
 Para configurar la versión mínima de TLS de una cuenta de almacenamiento existente con Azure Portal, siga estos pasos:
 
 1. Vaya a la cuenta de almacenamiento en Azure Portal.
-1. Seleccione el valor de **Configuración**.
-1. En **Versión mínima de TLS**, use la lista desplegable para seleccionar la versión mínima de TLS necesaria para acceder a los datos de esta cuenta de almacenamiento, tal como se muestra en la siguiente imagen.
+1. En **Configuración**, seleccione **Configuración**.
+1. En **Versión mínima de TLS**, use la lista desplegable para seleccionar la versión mínima de TLS necesaria para acceder a los datos de esta cuenta de almacenamiento.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Captura de pantalla que muestra cómo configurar la versión mínima de TLS en Azure Portal":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Captura de pantalla que muestra cómo configurar la versión mínima de TLS en Azure Portal." lightbox="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

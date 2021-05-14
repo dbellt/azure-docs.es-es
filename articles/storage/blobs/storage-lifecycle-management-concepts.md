@@ -3,18 +3,18 @@ title: Optimización de los costos mediante la automatización de los niveles de
 description: Cree reglas automatizadas para mover datos entre los niveles de acceso frecuente, esporádico y de archivo.
 author: twooley
 ms.author: twooley
-ms.date: 10/29/2020
+ms.date: 04/23/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: e0b9f3b5728e4604d7c51c1d49196cfcf1161aef
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 76ea6b916cc52292e8b56523d91d92ebfc957a94
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278038"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107946118"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage
 
@@ -22,7 +22,7 @@ Los conjuntos de datos tienen ciclos de vida únicos. Al principio del ciclo de 
 
 La directiva de administración del ciclo de vida le permite:
 
-- Pasar los blobs de nivel de acceso esporádico a nivel de acceso frecuente de inmediato si se accede a ellos para optimizar el rendimiento 
+- Pasar los blobs de nivel de acceso esporádico a nivel de acceso frecuente de inmediato si se accede a ellos para optimizar el rendimiento
 - Pasar los blobs, las versiones de los blobs y las instantáneas de los blobs a un nivel de almacenamiento de acceso esporádico (nivel de acceso frecuente a nivel de acceso esporádico, nivel de acceso frecuente a nivel de almacenamiento de archivo o nivel de acceso esporádico a nivel de almacenamiento de archivo) si no se accede a ellos o se modifican durante un período de tiempo para optimizar el costo
 - Eliminar blobs, versiones de blobs e instantáneas de blobs al final de su ciclo de vida
 - Definir reglas que se ejecutarán una vez al día en el nivel de cuenta de almacenamiento
@@ -37,7 +37,7 @@ Considere un escenario donde los datos tienen acceso frecuente durante las prime
 
 ## <a name="availability-and-pricing"></a>Disponibilidad y precios
 
-La característica de administración del ciclo de vida está disponible en todas las regiones de Azure para cuentas de almacenamiento de uso general v2 (GPv2), de almacenamiento de blobs, de blob en bloques prémium y de Azure Data Lake Storage Gen2. En Azure Portal, puede convertir una cuenta existente de uso general (GPv1) en una cuenta de GPv2. Para más información sobre las cuentas de almacenamiento, vea [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).
+La característica de administración del ciclo de vida está disponible en todas las regiones de Azure para cuentas de almacenamiento de uso general v2 (GPv2), de almacenamiento de blobs, de blob en bloques prémium y de Azure Data Lake Storage Gen2. En Azure Portal, puede actualizar una cuenta de uso general existente (GPv1) a una cuenta de GPv2. Para más información sobre las cuentas de almacenamiento, vea [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).
 
 La característica de administración del ciclo de vida es gratuita. A los clientes se les cobra el costo operativo habitual para las llamadas API [Establecer el nivel del blob](/rest/api/storageservices/set-blob-tier). La operación de eliminación es gratuita. Para más información sobre los precios, consulte [Precios de los blobs en bloques](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -45,12 +45,17 @@ La característica de administración del ciclo de vida es gratuita. A los clien
 
 Puede agregar, editar o quitar una directiva mediante cualquiera de los métodos siguientes:
 
-* [Azure Portal](https://portal.azure.com)
-* [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
-* [CLI de Azure](/cli/azure/install-azure-cli)
-* [API de REST](/rest/api/storagerp/managementpolicies)
+- El Portal de Azure
+- Azure PowerShell
+   - [Add-AzStorageAccountManagementPolicyAction](/powershell/module/az.storage/add-azstorageaccountmanagementpolicyaction)
+   - [New-AzStorageAccountManagementPolicyFilter](/powershell/module/az.storage/new-azstorageaccountmanagementpolicyfilter)
+   - [New-AzStorageAccountManagementPolicyRule](/powershell/module/az.storage/new-azstorageaccountmanagementpolicyrule)
+   - [Set-AzStorageAccountManagementPolicy](/powershell/module/az.storage/set-azstorageaccountmanagementpolicy)
+   - [Remove-AzStorageAccountManagementPolicy](/powershell/module/az.storage/remove-azstorageaccountmanagementpolicy)
+- [CLI de Azure](/cli/azure/storage/account/management-policy)
+- [API de REST](/rest/api/storagerp/managementpolicies)
 
-Una directiva se puede leer o escribir en su totalidad. No se admiten las actualizaciones parciales. 
+Una directiva se puede leer o escribir en su totalidad. No se admiten las actualizaciones parciales.
 
 > [!NOTE]
 > Si habilita reglas de firewall para la cuenta de almacenamiento, puede que se bloqueen las solicitudes de administración del ciclo de vida. Puede desbloquear estas solicitudes proporcionando excepciones para los servicios de confianza de Microsoft. Para más información, consulte la sección Excepciones en [Configuración de firewalls y redes virtuales](../common/storage-network-security.md#exceptions).
@@ -59,16 +64,16 @@ En este artículo se muestra cómo administrar la directiva mediante el portal y
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Hay dos formas de agregar una directiva en Azure Portal. 
+Hay dos formas de agregar una directiva en Azure Portal.
 
-* [Vista de lista de Azure Portal](#azure-portal-list-view)
-* [Vista de código de Azure Portal](#azure-portal-code-view)
+- [Vista de lista de Azure Portal](#azure-portal-list-view)
+- [Vista de código de Azure Portal](#azure-portal-code-view)
 
 #### <a name="azure-portal-list-view"></a>Vista de lista de Azure Portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-1. En Azure Portal, busque y seleccione su cuenta de almacenamiento. 
+1. En Azure Portal, busque y seleccione su cuenta de almacenamiento.
 
 1. En **Blob service**, seleccione **Administración del ciclo de vida** para ver o cambiar las reglas.
 
@@ -91,7 +96,7 @@ Hay dos formas de agregar una directiva en Azure Portal.
    > [!IMPORTANT]
    > La versión preliminar de seguimiento de la hora del último acceso solo está pensada para su uso en entornos que no son el de producción. En este momento no hay contratos de nivel de servicio de producción disponibles.
    
-   Para usar la opción **Último acceso**, seleccione **Seguimiento de acceso habilitado** en la página **Administración del ciclo de vida** de Azure Portal. Para obtener más información acerca de la opción **Último acceso**, consulte la sección sobre [traslado de datos en función de la fecha de último acceso (versión preliminar)](#move-data-based-on-last-accessed-date-preview).
+   Para usar la opción **Último acceso**, seleccione **Seguimiento de acceso habilitado** en la página **Administración del ciclo de vida** de Azure Portal. Para obtener más información acerca de la opción **Último acceso**, consulte la sección sobre [traslado de datos en función de la fecha de último acceso (versión preliminar)](#move-data-based-on-last-accessed-date-preview).
 
 1. Si seleccionó **Limitar blobs con filtros** en la página **Detalles**, seleccione **Conjunto de filtros** para agregar un filtro opcional. En el ejemplo siguiente se filtran los blobs del contenedor *mylifecyclecontainer* que comienzan por "log".
 

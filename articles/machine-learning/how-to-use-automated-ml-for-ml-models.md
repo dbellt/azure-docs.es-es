@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: nibaccam
-author: aniththa
+author: cartacioS
 ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: 2e06375441d6540d6630cfe9d4d8c3beec558879
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5718e0e3732f57b46500f9d2cdb1165e883ca44f
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103562729"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575588"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creación, revisión e implementación de modelos de aprendizaje automático automatizado con Azure Machine Learning
 
@@ -180,15 +180,15 @@ Explore en profundidad los modelos completados para ver los detalles de la ejecu
 
 [![Detalles de la iteración](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
-## <a name="model-explanations"></a>Explicaciones del modelo
+## <a name="model-explanations-preview"></a>Explicaciones de modelos (versión preliminar)
 
-Para entender mejor el modelo, vea qué características de datos (con o sin diseño) han influido en las predicciones del modelo con el panel de explicaciones del modelo. 
+Para entender mejor el modelo, puede ver qué características de datos (con o sin diseño) han influido en las predicciones del modelo con el panel de explicaciones del modelo. 
 
-El panel de explicaciones del modelo proporciona un análisis general del modelo entrenado junto con sus predicciones y explicaciones. También permite profundizar en un punto de datos individual y sus importancias de características individuales. [Obtenga más información sobre las visualizaciones y trazados específicos del panel de explicaciones](how-to-machine-learning-interpretability-aml.md#visualizations).
+El panel de explicaciones del modelo proporciona un análisis general del modelo entrenado junto con sus predicciones y explicaciones. También permite profundizar en un punto de datos individual y sus importancias de características individuales. [Obtenga más información sobre las visualizaciones del panel de explicaciones](how-to-machine-learning-interpretability-aml.md#visualizations).
 
 Para obtener explicaciones de un modelo determinado: 
 
-1. En la pestaña **Modelos**, seleccione el modelo que quiere usar. 
+1. En la pestaña **Modelos**, seleccione el modelo del que quiere conocer más información. 
 1. Seleccione el botón **Explicar modelo** y proporcione un proceso que se pueda usar para generar las explicaciones.
 1. Compruebe el estado en la pestaña **Ejecuciones secundarias**. 
 1. Cuando termine, vaya a la pestaña **Explicaciones (versión preliminar)** , que contiene el panel de explicaciones. 
@@ -219,7 +219,7 @@ ML automatizado le ayuda a implementar el modelo sin escribir código:
 
 1. Rellene el panel **Implementar modelo**.
 
-    Campo| Valor
+    Campo| Value
     ----|----
     Nombre| Escriba un nombre único para la implementación.
     Descripción| Escriba una descripción para saber mejor para qué sirve esta implementación.

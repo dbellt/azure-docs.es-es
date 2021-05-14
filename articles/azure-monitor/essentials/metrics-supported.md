@@ -4,14 +4,14 @@ description: Lista de métricas disponibles para cada tipo de recurso con Azure 
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 04/01/2021
+ms.date: 04/15/2021
 ms.author: robb
-ms.openlocfilehash: 6f664450d5450782d9a01d75abfb5a96b3e0bba6
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: f8e54fbc275a230140cab445d58c59454f0c546c
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106221201"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330645"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 
@@ -281,6 +281,20 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |Total Nodes|Sí|Total Nodes (Nodos totales)|Count|Average|Número de nodos totales|Scenario, ClusterName|
 |Unusable Cores|Sí|Unusable Cores (Núcleos no utilizables)|Count|Average|Número de núcleos no utilizables|Scenario, ClusterName|
 |Nodos no utilizables|Sí|Nodos no utilizables|Count|Average|Número de nodos inutilizables|Scenario, ClusterName|
+
+## <a name="microsoftbingaccounts"></a>microsoft.bing/accounts
+
+|Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
+|---|---|---|---|---|---|---|
+|BlockedCalls|Sí|Llamadas bloqueadas|Count|Total|Número de llamadas que han superado la tasa o el límite de cuota|ApiName, ServingRegion, StatusCode|
+|ClientErrors|Sí|Errores de cliente|Count|Total|Número de llamadas con cualquier error de cliente (código de estado HTTP 4xx)|ApiName, ServingRegion, StatusCode|
+|DataIn|Sí|Entrada de datos|Bytes|Total|Longitud del contenido de la solicitud entrante en bytes|ApiName, ServingRegion, StatusCode|
+|DataOut|Sí|Salida de datos|Bytes|Total|Longitud del contenido de la respuesta saliente en bytes|ApiName, ServingRegion, StatusCode|
+|Latencia|Sí|Latencia|Milisegundos|Average|Latencia en milisegundos|ApiName, ServingRegion, StatusCode|
+|ServerErrors|Sí|Errores del servidor|Count|Total|Número de llamadas con cualquier error de servidor (código de estado HTTP 5xx)|ApiName, ServingRegion, StatusCode|
+|SuccessfulCalls|Sí|Llamadas correctas|Count|Total|Número de llamadas correctas (código de estado HTTP 2xx)|ApiName, ServingRegion, StatusCode|
+|TotalCalls|Sí|Total de llamadas|Count|Total|Número total de llamadas|ApiName, ServingRegion, StatusCode|
+|TotalErrors|Sí|Total de errores|Count|Total|Número de llamadas con cualquier error (código de estado HTTP 4xx o 5xx)|ApiName, ServingRegion, StatusCode|
 
 
 ## <a name="microsoftblockchainblockchainmembers"></a>Microsoft.Blockchain/blockchainMembers
@@ -1734,6 +1748,9 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |IoTConnectorMeasurementIngestionLatencyMs|Sí|Latencia de la fase de grupo promedio|Milisegundos|Average|El período de tiempo transcurrido entre el momento en que el conector de IoT recibió los datos del dispositivo y el momento en que la fase de conversión de FHIR procesa los datos.|Operación, ConnectorName|
 |IoTConnectorNormalizedEvent|Sí|Número de mensajes normalizados|Count|Sum|El número total de valores normalizados asignados que genera la fase de normalización del conector de Azure IoT para FHIR.|Operación, ConnectorName|
 |IoTConnectorTotalErrors|Sí|Recuento total de errores|Count|Sum|El número total de errores registrados por el conector de Azure IoT para FHIR|Nombre, operación, ErrorType, ErrorSeverity, ConnectorName|
+|ServiceApiErrors|Sí|Errores de servicio|Count|Sum|Número total de errores internos del servidor generados por el servicio.|Protocolo, autenticación, operación, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
+|ServiceApiLatency|Sí|Latencia del servicio|Milisegundos|Average|Latencia de respuesta del servicio.|Protocolo, autenticación, operación, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
+|ServiceApiRequests|Sí|Service Requests|Count|Sum|Número total de solicitudes recibidas por el servicio.|Protocolo, autenticación, operación, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
 |TotalErrors|Sí|Total de errores|Count|Sum|Número total de errores internos del servidor encontrados por el servicio.|Protocolo, StatusCode, StatusCodeClass, StatusCodeText|
 |TotalLatency|Sí|Latencia total|Milisegundos|Average|Latencia de respuesta del servicio.|Protocolo|
 |TotalRequests|Sí|Total de solicitudes|Count|Sum|Número total de solicitudes recibidas por el servicio.|Protocolo|
@@ -1803,6 +1820,10 @@ Para más información, consulte [Información general sobre los agentes de Azur
 
 |Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|---|
+|c2d.commands.failure|Sí|Invocaciones de comandos con error|Count|Total|Recuento de todas las solicitudes de comandos con error iniciadas desde IoT Central|Sin dimensiones|
+|c2d.commands.requestSize|Sí|Tamaño de solicitud de las invocaciones de comandos|Bytes|Total|Tamaño de solicitud de todas las solicitudes de comandos iniciadas desde IoT Central|Sin dimensiones|
+|c2d.commands.responseSize|Sí|Tamaño de respuesta de las invocaciones de comandos|Bytes|Total|Tamaño de respuesta de todas las respuestas de comandos iniciadas desde IoT Central|Sin dimensiones|
+|c2d.commands.success|Sí|Invocaciones de comandos correctas|Count|Total|Recuento de todas las solicitudes de comandos correctas iniciadas desde IoT Central|Sin dimensiones|
 |c2d.property.read.failure|Sí|Lecturas de propiedades de dispositivo con error de IoT Central|Count|Total|Recuento de todas las lecturas de propiedades con error iniciadas desde IoT Central|Sin dimensiones|
 |c2d.property.read.success|Sí|Lecturas de propiedades de dispositivo correctas de IoT Central|Count|Total|Recuento de todas las lecturas de propiedades correctas iniciadas desde IoT Central|Sin dimensiones|
 |c2d.property.update.failure|Sí|Actualizaciones de propiedades de dispositivo con error de IoT Central|Count|Total|Recuento de todas las actualizaciones de propiedades con error iniciadas desde IoT Central|Sin dimensiones|
@@ -1812,11 +1833,15 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |d2c.property.read.success|Sí|Lecturas de propiedades de dispositivo correctas de los dispositivos|Count|Total|Recuento de todas las lecturas de propiedades correctas iniciadas desde dispositivos|Sin dimensiones|
 |d2c.property.update.failure|Sí|Actualizaciones de propiedades de dispositivo con errores de los dispositivos|Count|Total|Recuento de todas las actualizaciones de propiedades con error iniciadas desde dispositivos|Sin dimensiones|
 |d2c.property.update.success|Sí|Actualizaciones de propiedades de dispositivo correctas de los dispositivos|Count|Total|Recuento de todas las actualizaciones de propiedades correctas iniciadas desde los dispositivos|Sin dimensiones|
+|d2c.telemetry.ingress.allProtocol|Sí|Número total de intentos de envío de mensajes de telemetría|Count|Total|Número de mensajes de telemetría de dispositivo a nube que se intentaron enviar a la aplicación de IoT Central|Sin dimensiones|
+|d2c.telemetry.ingress.success|Sí|Total de mensajes de telemetría enviados|Count|Total|Número de mensajes de telemetría de dispositivo a nube enviados correctamente a la aplicación de IoT Central|Sin dimensiones|
 |dataExport.error|Sí|Errores de exportación de datos|Count|Total|Número máximo de errores detectados en la exportación de errores|exportId, exportDisplayName, destinationId, destinationDisplayName|
 |dataExport.messages.filtered|Sí|Mensajes de exportación de datos filtrados|Count|Total|Número de mensajes que han pasado a través de filtros en la exportación de datos|exportId, exportDisplayName, destinationId, destinationDisplayName|
 |dataExport.messages.received|Sí|Mensajes de exportación de datos recibidos|Count|Total|Número de mensajes entrantes en la exportación de datos, antes del filtrado y el procesamiento del enriquecimiento|exportId, exportDisplayName, destinationId, destinationDisplayName|
 |dataExport.messages.written|Sí|Mensajes de exportación de datos escritos|Count|Total|Número de mensajes escritos en un destino|exportId, exportDisplayName, destinationId, destinationDisplayName|
-
+|dataExport.statusChange|Sí|Cambio del estado de exportación de datos|Count|Total|Número de cambios de estado|exportId, exportDisplayName, destinationId, destinationDisplayName, status|
+|deviceDataUsage|Sí|Uso total de datos del dispositivo|Bytes|Total|Bytes transferidos a cualquier dispositivo conectado a una aplicación de IoT Central o desde este.|Sin dimensiones|
+|provisionedDeviceCount|No|Total de dispositivos aprovisionados|Count|Average|Número de dispositivos aprovisionados en la aplicación de IoT Central|Sin dimensiones|
 
 ## <a name="microsoftkeyvaultmanagedhsms"></a>microsoft.keyvault/managedhsms
 
@@ -2685,24 +2710,6 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |UserErrors|No|Errores de usuario.|Count|Total|Errores de usuario para Microsoft.ServiceBus.|EntityName, OperationResult|
 |WSXNS|No|Memory Usage (Deprecated) [Uso de memoria (en desuso)]|Percent|Máxima|Métrica de uso de memoria de espacio de nombres prémium de Service Bus. Esta métrica está en desuso. Utilice la métrica de uso de memoria (NamespaceMemoryUsage) en su lugar.|Réplica|
 
-
-## <a name="microsoftservicefabricmeshapplications"></a>Microsoft.ServiceFabricMesh/applications
-
-|Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
-|---|---|---|---|---|---|---|
-|ActualCpu|No|ActualCpu|Count|Average|Uso de CPU real en millares de núcleos|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|ActualMemory|No|ActualMemory|Bytes|Average|Uso de memoria real en MB|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|AllocatedCpu|No|AllocatedCpu|Count|Average|CPU asignada a este contenedor en millares de núcleos|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|AllocatedMemory|No|AllocatedMemory|Bytes|Average|Memoria asignada a este contenedor en MB|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|ApplicationStatus|No|ApplicationStatus|Count|Average|Estado de una aplicación Service Fabric Mesh|ApplicationName, Status|
-|ContainerStatus|No|ContainerStatus|Count|Average|Estado del contenedor en una aplicación Service Fabric Mesh|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName, Status|
-|CpuUtilization|No|CpuUtilization|Percent|Average|Utilización de la CPU para este contenedor como porcentaje de AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|MemoryUtilization|No|MemoryUtilization|Percent|Average|Utilización de la CPU para este contenedor como porcentaje de AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|RestartCount|No|RestartCount|Count|Average|Número de reinicios de un contenedor en una aplicación Service Fabric Mesh|ApplicationName, Status, ServiceName, ServiceReplicaName, CodePackageName|
-|ServiceReplicaStatus|No|ServiceReplicaStatus|Count|Average|Estado de mantenimiento de una réplica de servicio en una aplicación Service Fabric Mesh|ApplicationName, Status, ServiceName, ServiceReplicaName|
-|ServiceStatus|No|ServiceStatus|Count|Average|Estado de mantenimiento de un servicio en una aplicación Service Fabric Mesh|ApplicationName, Status, ServiceName|
-
-
 ## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalRService/SignalR
 
 |Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
@@ -2719,10 +2726,9 @@ Para más información, consulte [Información general sobre los agentes de Azur
 
 |Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|---|
-|ConnectionCount|Sí|Número de conexiones|Count|Máxima|Cantidad de conexiones de usuario.|Sin dimensiones|
 |InboundTraffic|Sí|Tráfico entrante|Bytes|Total|Tráfico entrante del servicio|Sin dimensiones|
 |OutboundTraffic|Sí|Tráfico saliente|Bytes|Total|Tráfico saliente del servicio|Sin dimensiones|
-
+|TotalConnectionCount|Sí|Número de conexiones|Count|Máxima|Cantidad de conexiones de usuario.|Sin dimensiones|
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
@@ -3002,7 +3008,6 @@ Para más información, consulte [Información general sobre los agentes de Azur
 
 
 ## <a name="microsoftsynapseworkspaces"></a>Microsoft.Synapse/workspaces
-
 |Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|---|
 |BuiltinSqlPoolDataProcessedBytes|No|Datos procesados (bytes)|Bytes|Total|Cantidad de datos procesados por consultas|Sin dimensiones|
@@ -3011,6 +3016,20 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |IntegrationActivityRunsEnded|No|Ejecuciones de actividad finalizadas|Count|Total|Recuento de actividades de integración correctas, con error o canceladas|Result, FailureType, Activity, ActivityType, Pipeline|
 |IntegrationPipelineRunsEnded|No|Ejecuciones de canalización finalizadas|Count|Total|Recuento de ejecuciones de canalización de integración correctas, con error o canceladas|Result, FailureType, Pipeline|
 |IntegrationTriggerRunsEnded|No|Ejecuciones de desencadenador finalizadas|Count|Total|Recuento de desencadenadores de integración correctos, con error o cancelados|Result, FailureType, Trigger|
+|SQLStreamingBackloggedInputEventSources|No|Eventos de entrada pendientes (versión preliminar)|Count|Total|Se trata de una métrica en versión preliminar disponible en Este de EE. UU., Oeste de Europa. Número de orígenes de eventos de entrada que están pendientes.|ResourceName, SQLPoolName, SQLDatabaseName, JobName, LogicalName, PartitionId, ProcessorInstance|
+|SQLStreamingConversionErrors|No|Errores de conversión de datos (versión preliminar)|Count|Total|Se trata de una métrica en versión preliminar disponible en Este de EE. UU., Oeste de Europa. Número de eventos de salida que no se pudieron convertir al esquema de salida previsto. La directiva de errores puede cambiarse a "Drop" para quitar los eventos que se producen en este escenario.|ResourceName, SQLPoolName, SQLDatabaseName, JobName, LogicalName, PartitionId, ProcessorInstance|
+|SQLStreamingDeserializationError|No|Errores de deserialización de entrada (versión preliminar)|Count|Total|Se trata de una métrica en versión preliminar disponible en Este de EE. UU., Oeste de Europa. Número de eventos de entrada que no se pudieron deserializar.|ResourceName, SQLPoolName, SQLDatabaseName, JobName, LogicalName, PartitionId, ProcessorInstance|
+|SQLStreamingEarlyInputEvents|No|Eventos de entrada tempranos (versión preliminar)|Count|Total|Se trata de una métrica en versión preliminar disponible en Este de EE. UU., Oeste de Europa. Número de eventos de entrada cuya hora de aplicación se considera anticipada en comparación con la hora de llegada, según la directiva de llegada temprana.|ResourceName, SQLPoolName, SQLDatabaseName, JobName, LogicalName, PartitionId, ProcessorInstance|
+|SQLStreamingInputEventBytes|No|Bytes de eventos de entrada (versión preliminar)|Count|Total|Se trata de una métrica en versión preliminar disponible en Este de EE. UU., Oeste de Europa. Cantidad de datos recibidos por el trabajo de transmisión, en bytes. Puede usarse para validar que los eventos que se envían al origen de entrada.|ResourceName, SQLPoolName, SQLDatabaseName, JobName, LogicalName, PartitionId, ProcessorInstance|
+|SQLStreamingInputEvents|No|Eventos de entrada (versión preliminar)|Count|Total|Se trata de una métrica en versión preliminar disponible en Este de EE. UU., Oeste de Europa. Número de eventos de entrada.|ResourceName, SQLPoolName, SQLDatabaseName, JobName, LogicalName, PartitionId, ProcessorInstance|
+|SQLStreamingInputEventsSourcesPerSecond|No|Orígenes de entrada recibidos (versión preliminar)|Count|Total|Se trata de una métrica en versión preliminar disponible en Este de EE. UU., Oeste de Europa. Número de orígenes de eventos de entrada por segundo.|ResourceName, SQLPoolName, SQLDatabaseName, JobName, LogicalName, PartitionId, ProcessorInstance|
+|SQLStreamingLateInputEvents|No|Eventos de entrada con retraso (versión preliminar)|Count|Total|Se trata de una métrica en versión preliminar disponible en Este de EE. UU., Oeste de Europa. Número de eventos de entrada cuya hora de aplicación se considera retrasada en comparación con la hora de llegada, según la directiva de llegada con retraso.|ResourceName, SQLPoolName, SQLDatabaseName, JobName, LogicalName, PartitionId, ProcessorInstance|
+|SQLStreamingOutOfOrderEvents|No|Eventos desordenados (versión preliminar)|Count|Total|Se trata de una métrica en versión preliminar disponible en Este de EE. UU., Oeste de Europa. Número de eventos del centro de eventos (mensajes serializados) recibidos por el adaptador de entrada del centro de eventos, que se han recibido desordenados y se han eliminado o se les ha dado una marca de tiempo ajustada, según la directiva de ordenación de eventos.|ResourceName, SQLPoolName, SQLDatabaseName, JobName, LogicalName, PartitionId, ProcessorInstance|
+|SQLStreamingOutputEvents|No|Eventos de salida (versión preliminar)|Count|Total|Se trata de una métrica en versión preliminar disponible en Este de EE. UU., Oeste de Europa. Número de eventos de salida.|ResourceName, SQLPoolName, SQLDatabaseName, JobName, LogicalName, PartitionId, ProcessorInstance|
+|SQLStreamingOutputWatermarkDelaySeconds|No|Retraso de la marca de agua (versión preliminar)|Count|Máxima|Se trata de una métrica en versión preliminar disponible en Este de EE. UU., Oeste de Europa. Retraso de la marca de agua de salida en segundos.|ResourceName, SQLPoolName, SQLDatabaseName, JobName, LogicalName, PartitionId, ProcessorInstance|
+|SQLStreamingResourceUtilization|No|Porcentaje de uso de recursos (versión preliminar)|Percent|Máxima|Se trata de una métrica en versión preliminar disponible en Este de EE. UU., Oeste de Europa.
+ Uso de recursos expresado como porcentaje. Una alta utilización indica que el trabajo está usando casi el máximo de recursos asignados.|ResourceName, SQLPoolName, SQLDatabaseName, JobName, LogicalName, PartitionId, ProcessorInstance|
+|SQLStreamingRuntimeErrors|No|Errores del entorno de ejecución (versión preliminar)|Count|Total|Se trata de una métrica en versión preliminar disponible en Este de EE. UU., Oeste de Europa. El número total de errores relacionados con el procesamiento de consultas (sin incluir los errores encontrados durante la ingesta de eventos o los resultados de salida).|ResourceName, SQLPoolName, SQLDatabaseName, JobName, LogicalName, PartitionId, ProcessorInstance|
 
 
 ## <a name="microsoftsynapseworkspacesbigdatapools"></a>Microsoft.Synapse/workspaces/bigDataPools

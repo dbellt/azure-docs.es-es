@@ -1,56 +1,65 @@
 ### YamlMime:Landing
 title: Documentación de las soluciones de asociados validados en Azure Storage
-summary: Las soluciones de asociados validados en Azure Storage habilitan escenarios avanzados en la plataforma de Azure Storage.
+summary: Las soluciones de asociados validados en Azure Storage habilitan escenarios avanzados en Azure Storage.
 metadata:
   title: Soluciones de asociados validados en Azure Storage
-  description: Las soluciones de asociados validados en Azure Storage habilitan escenarios avanzados en la plataforma de Azure Storage.
+  description: Las soluciones de asociados validados en Azure Storage habilitan escenarios avanzados en Azure Storage.
   services: storage
   ms.service: storage
+  ms.subservice: partner
   ms.topic: landing-page
   ms.collection: collection
   author: beber-msft
   ms.author: beber
-  ms.date: 12/08/2020
-  ms.openlocfilehash: 2e9a2ac1e8d33020a94c2c783d3d695a459fcea5
-  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.date: 03/15/2021
+  ms.openlocfilehash: c1a80811c53d26028a7c3f0585bdc0cbc7c126e0
+  ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/03/2021
-  ms.locfileid: "101742725"
+  ms.lasthandoff: 05/07/2021
+  ms.locfileid: "109482046"
 landingContent:
-- title: Asociados de Azure Storage Analytics y Big Data
+- title: Asociados de macrodatos y análisis
   linkLists:
   - linkListType: overview
     links:
-    - text: Asociados validados de Azure Storage Analytics
+    - text: Asociados de análisis validados
       url: .\validated-partners\analytics\partner-overview.md
-- title: Asociados de continuidad empresarial y recuperación ante desastres, copia de seguridad y archivo de Azure Storage
+- title: Asociados de archivo, copia de seguridad y BCDR
   linkLists:
   - linkListType: overview
     links:
-    - text: Asociados validados de Azure Storage Archive y BCDR
+    - text: Asociados de archivo y BDCR validados
       url: .\validated-partners\backup-archive-disaster-recovery\partner-overview.md
-  - linkListType: quickstart
+  - linkListType: get-started
     links:
-    - text: Guía de inicio rápido de Commvault
+    - text: Guía de introducción a Commvault
       url: .\validated-partners\backup-archive-disaster-recovery\commvault\commvault-solution-guide.md
-    - text: Guía de inicio rápido de Veeam
+    - text: Guía de introducción a Veeam
       url: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
-- title: Asociados de soluciones de contenedor de Azure Storage
+    - text: Guía de introducción a DobiProtect
+      url: .\validated-partners\backup-archive-disaster-recovery\datadobi\datadobi-solution-guide.md
+- title: Asociados de soluciones de contenedores
   linkLists:
   - linkListType: overview
     links:
-    - text: Asociados de soluciones de contenedor de Azure Storage validados
+    - text: Asociados de soluciones de contenedor validados
       url: .\validated-partners\container-solutions\partner-overview.md
-- title: Asociados de migración y administración de datos de Azure Storage
+- title: Asociados de migración y administración de datos
   linkLists:
   - linkListType: overview
     links:
-    - text: Asociados validados de continuidad empresarial y recuperación ante desastres, copia de seguridad y archivo de Azure Storage
+    - text: Asociados de migración y administración de datos validados
       url: .\validated-partners\data-management\partner-overview.md
-- title: Asociados de almacenamiento principal y secundario de Azure Storage
+    - text: Comparación entre herramientas de migración
+      url: ./validated-partners/data-management/migration-tools-comparison.md
+  - linkListType: get-started
+    links:
+    - text: Guía de introducción de DobiMigrate
+      url: ./validated-partners/data-management/dobimigrate-quick-start-guide.md
+- title: Asociados de almacenamiento principal y secundario
   linkLists:
   - linkListType: overview
     links:
-    - text: Asociados de almacenamiento principal y secundario de Azure Storage validados
+    - text: Asociados de almacenamiento principal y secundario validados
       url: .\validated-partners\primary-secondary-storage\partner-overview.md

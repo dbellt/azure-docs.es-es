@@ -7,12 +7,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 5b7fd8e8cd5bd3ab0f15115365ed057fc67f1204
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ec48e23d2752d14b3bb77dab2625e81f8a6d0db7
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604437"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292745"
 ---
 # <a name="quickstart-add-11-video-calling-to-your-app-javascript"></a>Inicio rápido: Adición de llamadas de vídeo 1:1 a la aplicación (JavaScript)
 
@@ -337,7 +337,6 @@ Si quiere limpiar y quitar una suscripción a Communication Services, puede elim
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información, consulte los siguientes artículos.
 
-- Consulte [Introducción al ejemplo de llamada web](https://docs.microsoft.com/azure/communication-services/samples/web-calling-sample).
-- Más información sobre las [Funcionalidades del SDK de llamadas](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web)
-- Más información sobre [cómo funciona la llamada](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/about-call-types)
-
+- Consulte [Introducción al ejemplo de llamada web](../../samples/web-calling-sample.md).
+- Más información sobre las [Funcionalidades del SDK de llamadas](./calling-client-samples.md?pivots=platform-web)
+- Más información sobre [cómo funciona la llamada](../../concepts/voice-video-calling/about-call-types.md)

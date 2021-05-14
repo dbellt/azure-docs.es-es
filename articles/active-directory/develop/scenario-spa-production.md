@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 9656da8be086724482f129efab323e02b73e117e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5cefa1461691f384603f464e0d0a4ea8ceb8bc90
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98954974"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071728"
 ---
 # <a name="single-page-application-move-to-production"></a>Aplicación de página única: Paso a producción
 
@@ -36,10 +36,10 @@ En estos ejemplos de código se muestran varias operaciones clave para una aplic
 
 - [API web de Node.js (Azure AD)](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2): cómo validar tokens de acceso para la API web de back-end (Node.js) mediante **passport-azure-ad**.
 
-- [SPA con Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp): cómo usar **MSAL.js** para iniciar la sesión de los usuarios en una aplicación registrada en **Azure Active Directory B2C** (Azure AD B2C).
+- [SPA con Azure AD B2C](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa): cómo usar **MSAL.js** para iniciar la sesión de los usuarios en una aplicación registrada en **Azure Active Directory B2C** (Azure AD B2C).
 
 - [API web de Node.js (Azure AD B2C)](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi): cómo usar **passport-azure-ad** para validar tokens de acceso para aplicaciones registradas con **Azure Active Directory B2C** (Azure AD B2C).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Tutorial de SPA de JavaScript](./tutorial-v2-javascript-spa.md): profundice sobre cómo iniciar la sesión para los usuarios y obtener un token de acceso para llamar a **Microsoft Graph API** mediante **MSAL.js**.
+- [Tutorial de SPA de JavaScript](./tutorial-v2-javascript-auth-code.md): profundice sobre cómo iniciar la sesión para los usuarios y obtener un token de acceso para llamar a **Microsoft Graph API** mediante **MSAL.js**.

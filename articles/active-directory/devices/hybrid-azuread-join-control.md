@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38754b9e349e27afcff58dac27a616e3e4fb5319
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 50e3272be139e8b0cd30f9e5867e263efc92ae24
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96860939"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108178761"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validación controlada de la unión a Azure AD híbrido
 
@@ -63,7 +63,7 @@ Use el ejemplo siguiente para crear un objeto de directiva de grupo (GPO) y conf
       1. Ruta de acceso de la clave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Nombre del valor: **TenantId**
       1. Tipo de valor: **REG_SZ**
-      1. Datos del valor: El GUID o el **Identificador de directorio** de la instancia de Azure AD (este valor puede encontrarse en **Azure Portal** > **Azure Active Directory** > **Propiedades** > **Identificador de directorio**)
+      1. Datos del valor: El GUID o el **Identificador de inquilino** de la instancia de Azure AD (este valor puede encontrarse en **Azure Portal** > **Azure Active Directory** > **Propiedades** > **Identificador de inquilino**)
    1. Haga clic en **Aceptar**
 1. Haga doble clic en el registro y seleccione **Nuevo** > **Elemento del registro**.
    1. En la pestaña **General**, configure lo siguiente:

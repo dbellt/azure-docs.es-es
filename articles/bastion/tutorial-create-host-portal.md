@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 02/12/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: 3b365e347802824e855797afb8c68e5249bf0adb
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 772cc22a0f8163e0d99599ebf1f4cdfd1ab1d103
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579619"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128260"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm-through-a-browser"></a>Tutorial: Configuración de Bastion y conexión a una máquina virtual Windows mediante un explorador web
 
@@ -21,8 +21,9 @@ En este tutorial se muestra cómo conectarse a una máquina virtual mediante el 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Crear un host bastión para la red virtual
-> * Conexión a una máquina virtual Windows
+> * Crear un host bastión para la red virtual.
+> * Eliminar la dirección IP pública de una máquina virtual.
+> * Conectarse a una máquina virtual Windows.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -55,7 +56,7 @@ Esta sección le ayuda a crear el objeto de bastión en la red virtual. Esto es 
 1. Seleccione **Crear**.
 1. En la página **Crear una instancia de Bastion**, configure un nuevo recurso de Bastion.
 
-   :::image type="content" source="./media/tutorial-create-host-portal/bastion-basics.png" alt-text="Creación de un host de Bastion" lightbox="./media/tutorial-create-host-portal/bastion-basics.png":::
+   :::image type="content" source="./media/tutorial-create-host-portal/create.png" alt-text="Captura de pantalla de la página Crear un portal de Bastion." lightbox="./media/tutorial-create-host-portal/create-expand.png":::
 
     * **Suscripción**: suscripción de Azure que quiere usar para crear un recurso de Bastion.
     * **Grupo de recursos**: grupo de recursos en el que se creará el recurso de Bastion. Si no tiene un grupo de recursos existente, puede crear uno.
@@ -68,14 +69,20 @@ Esta sección le ayuda a crear el objeto de bastión en la red virtual. Esto es 
          * La subred debe ser al menos /27 o mayor.
 
       No es necesario rellenar los campos adicionales. Seleccione **Aceptar** y, en la parte superior de la página, seleccione **Crear una instancia de Bastion** para volver a la página de configuración de Bastion.
-    * **Dirección IP pública**: dirección IP pública del recurso de Bastion en la que se accederá a RDP/SSH (a través del puerto 443). Cree una nueva dirección IP pública. La dirección debe estar en la misma región que el recurso de Bastion que está creando. Esta dirección IP no se corresponde a ninguna de las máquinas virtuales a las que desea conectarse. Es la dirección IP pública del recurso de host de Bastion.
+    * **Dirección IP pública**: dirección IP pública del recurso de Bastion en la que se accederá a RDP/SSH (a través del puerto 443). Cree una dirección IP pública. La dirección debe estar en la misma región que el recurso de Bastion que está creando. Esta dirección IP no se corresponde a ninguna de las máquinas virtuales a las que desea conectarse. Es la dirección IP pública del recurso de host de Bastion.
     * **Nombre de dirección IP pública**: nombre del recurso de la dirección IP pública. En este tutorial, puede dejar el valor predeterminado.
     * **SKU de la dirección IP pública**: Esta configuración se rellena de forma predeterminada como **Estándar**. Azure Bastion solo usa o admite la SKU de IP pública estándar.
     * **Asignación**: Esta configuración se rellena de forma predeterminada como **Estática**.
 
 1. Cuando termine de especificar la configuración, seleccione **Revisar y crear**. Esto valida los valores. Una vez que se supera la validación, puede crear el recurso de Bastion.
-1. Seleccione **Crear**.
+
+   :::image type="content" source="./media/tutorial-create-host-portal/validation.png" alt-text="Captura de pantalla de la página de validación.":::
+1. Revise la configuración. A continuación, en la parte inferior de la página, seleccione **Create** (Crear).
 1. Verá un mensaje en el que se le indica que la implementación está en curso. El estado se mostrará en esta página a medida que se creen los recursos. El recurso de Bastion tarda aproximadamente cinco minutos en crearse e implementarse.
+
+## <a name="remove-a-vm-public-ip-address"></a>Eliminación de una dirección IP pública de máquina virtual
+
+[!INCLUDE [Remove a public IP address from a VM](../../includes/bastion-remove-ip.md)]
 
 ## <a name="connect-to-a-vm"></a>Conexión a una máquina virtual
 
@@ -91,7 +98,7 @@ Si no va a seguir usando esta aplicación, elimine los recursos mediante los sig
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha creado un host bastión y lo ha asociado a una red virtual y, a continuación, se ha conectado a una máquina virtual Windows. Puede optar por usar grupos de seguridad de red con la subred de Azure Bastion. Para ello, consulte:
+En este tutorial, ha creado un host bastión y lo ha asociado a una red virtual. A continuación, eliminó la dirección IP pública de una máquina virtual y se conectó a ella. Puede optar por usar grupos de seguridad de red con la subred de Azure Bastion. Para ello, consulte:
 
 > [!div class="nextstepaction"]
 > [Trabajar con Grupos de seguridad de red](bastion-nsg.md)

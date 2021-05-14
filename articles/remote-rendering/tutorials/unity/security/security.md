@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b1bcba264589d6cbe9b4f671e1e4f2c9b1dbf2c5
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: d30ab051e58573daefd16f178feb4fc94f2ec83f
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594255"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835477"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Tutorial: Protección de Azure Remote Rendering y el almacenamiento de modelos
 
@@ -211,7 +211,7 @@ Ahora que todo está en su sitio en Azure, es necesario modificar cómo el códi
     ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
-
+    
     using Microsoft.Azure.RemoteRendering;
     using Microsoft.Identity.Client;
     using System;
@@ -219,17 +219,9 @@ Ahora que todo está en su sitio en Azure, es necesario modificar cómo el códi
     using System.Threading;
     using System.Threading.Tasks;
     using UnityEngine;
-
+    
     public class AADAuthentication : BaseARRAuthentication
     {
-        [SerializeField]
-        private string accountDomain;
-        public string AccountDomain
-        {
-            get => accountDomain.Trim();
-            set => accountDomain = value;
-        }
-
         [SerializeField]
         private string activeDirectoryApplicationClientID;
         public string ActiveDirectoryApplicationClientID
@@ -237,7 +229,7 @@ Ahora que todo está en su sitio en Azure, es necesario modificar cómo el códi
             get => activeDirectoryApplicationClientID.Trim();
             set => activeDirectoryApplicationClientID = value;
         }
-
+    
         [SerializeField]
         private string azureTenantID;
         public string AzureTenantID
@@ -245,7 +237,15 @@ Ahora que todo está en su sitio en Azure, es necesario modificar cómo el códi
             get => azureTenantID.Trim();
             set => azureTenantID = value;
         }
-
+    
+        [SerializeField]
+        private string azureRemoteRenderingDomain;
+        public string AzureRemoteRenderingDomain
+        {
+            get => azureRemoteRenderingDomain.Trim();
+            set => azureRemoteRenderingDomain = value;
+        }
+    
         [SerializeField]
         private string azureRemoteRenderingAccountID;
         public string AzureRemoteRenderingAccountID
@@ -255,37 +255,37 @@ Ahora que todo está en su sitio en Azure, es necesario modificar cómo el códi
         }
     
         [SerializeField]
-        private string azureRemoteRenderingAccountAuthenticationDomain;
-        public string AzureRemoteRenderingAccountAuthenticationDomain
+        private string azureRemoteRenderingAccountDomain;
+        public string AzureRemoteRenderingAccountDomain
         {
-            get => azureRemoteRenderingAccountAuthenticationDomain.Trim();
-            set => azureRemoteRenderingAccountAuthenticationDomain = value;
-        }
-
+            get => azureRemoteRenderingAccountDomain.Trim();
+            set => azureRemoteRenderingAccountDomain = value;
+        }    
+    
         public override event Action<string> AuthenticationInstructions;
-
+    
         string authority => "https://login.microsoftonline.com/" + AzureTenantID;
-
+    
         string redirect_uri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
-
-        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountAuthenticationDomain + "/mixedreality.signin" };
-
+    
+        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountDomain + "/mixedreality.signin" };
+    
         public void OnEnable()
         {
             RemoteRenderingCoordinator.ARRCredentialGetter = GetAARCredentials;
             this.gameObject.AddComponent<ExecuteOnUnityThread>();
         }
-
+    
         public async override Task<SessionConfiguration> GetAARCredentials()
         {
             var result = await TryLogin();
             if (result != null)
             {
                 Debug.Log("Account signin successful " + result.Account.Username);
-
+    
                 var AD_Token = result.AccessToken;
-
-                return await Task.FromResult(new SessionConfiguration(AzureRemoteRenderingAccountAuthenticationDomain, AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+    
+                return await Task.FromResult(new SessionConfiguration(AzureRemoteRenderingAccountDomain, AzureRemoteRenderingDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
             }
             else
             {
@@ -293,7 +293,7 @@ Ahora que todo está en su sitio en Azure, es necesario modificar cómo el códi
             }
             return default;
         }
-
+    
         private Task DeviceCodeReturned(DeviceCodeResult deviceCodeDetails)
         {
             //Since everything in this task can happen on a different thread, invoke responses on the main Unity thread
@@ -303,10 +303,10 @@ Ahora que todo está en su sitio en Azure, es necesario modificar cómo el códi
                 Debug.Log(deviceCodeDetails.Message);
                 AuthenticationInstructions?.Invoke(deviceCodeDetails.Message);
             });
-
+    
             return Task.FromResult(0);
         }
-
+    
         public override async Task<AuthenticationResult> TryLogin()
         {
             var clientApplication = PublicClientApplicationBuilder.Create(ActiveDirectoryApplicationClientID).WithAuthority(authority).WithRedirectUri(redirect_uri).Build();
@@ -314,11 +314,11 @@ Ahora que todo está en su sitio en Azure, es necesario modificar cómo el códi
             try
             {
                 var accounts = await clientApplication.GetAccountsAsync();
-
+    
                 if (accounts.Any())
                 {
                     result = await clientApplication.AcquireTokenSilent(scopes, accounts.First()).ExecuteAsync();
-
+    
                     return result;
                 }
                 else
@@ -356,7 +356,7 @@ Ahora que todo está en su sitio en Azure, es necesario modificar cómo el códi
                 Debug.LogError("GetAccountsAsync");
                 Debug.LogException(ex);
             }
-
+    
             return null;
         }
     }
@@ -372,10 +372,10 @@ En este código, se usa el [flujo de código de dispositivo](../../../../active-
 Desde la perspectiva de ARR, la parte más importante de esta clase es esta línea:
 
 ```cs
-return await Task.FromResult(new SessionConfiguration(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+return await Task.FromResult(new SessionConfiguration(AzureRemoteRenderingAccountDomain, AzureRemoteRenderingDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
 ```
 
-Aquí, creamos un objeto **SessionConfiguration** con el dominio de la cuenta, el identificador de la cuenta, el dominio de autenticación de la cuenta y el token de acceso. Luego, el servicio ARR usa este token para consultar, crear y combinar sesiones de representación remota siempre y cuando el usuario esté autorizado en función de los permisos basados en rol configurados anteriormente.
+Aquí, crearemos un nuevo objeto **SessionConfiguration**. Para ello, usaremos el dominio de Remote Rendering, el identificador de la cuenta, el dominio de la cuenta y el token de acceso. Luego, el servicio ARR usa este token para consultar, crear y combinar sesiones de representación remota siempre y cuando el usuario esté autorizado en función de los permisos basados en rol configurados anteriormente.
 
 Con este cambio, el estado actual de la aplicación y su acceso a los recursos de Azure se asemejan a esta imagen:
 
@@ -393,11 +393,11 @@ En el editor de Unity, cuando la autenticación de AAD esté activa, tendrá que
 
 1. Rellene los valores de identificador de cliente e identificador de inquilino. Estos valores se pueden encontrar en la página de información general del registro de la aplicación:
 
-    * **Account Domain** (Dominio de la cuenta): es el mismo dominio que ha estado usando en el dominio de la cuenta de **RemoteRenderingCoordinator**.
     * **Active Directory Application Client ID** (Id. de cliente de la aplicación de Active Directory) es el valor de *Application (client) ID* (Id. de aplicación [cliente]) que se encuentra en el registro de la aplicación de AAD (consulte la imagen a continuación).
     * El valor de **Azure Tenant ID** (Id. de inquilino de Azure) es el valor de *Directory (tenant) ID* (Id. de directorio [inquilino]) que se encuentra en el registro de la aplicación de AAD (consulte la imagen a continuación).
+    * El valor de **Azure Remote Rendering Domain** (Dominio de Azure Remote Rendering) es el mismo que ha estado usando en el dominio de Remote Rendering de **RemoteRenderingCoordinator**.
     * El valor de **Azure Remote Rendering Account ID** (Id. de la cuenta de Azure Remote Rendering) es el mismo valor de **Account ID** (Id. de cuenta) que ha estado usando para **RemoteRenderingCoordinator**.
-    * El **dominio de autenticación de la cuenta** es el mismo **dominio de autenticación de la cuenta** que ha utilizado con **RemoteRenderingCoordinator**.
+    * El valor de **Azure Remote Rendering Account Domain** (Dominio de cuenta de Azure Remote Rendering) coincide con el **dominio de cuenta** que ha estado usando en **RemoteRenderingCoordinator**.
 
     ![Captura de pantalla que resalta el identificador de la aplicación (cliente) y el identificador de directorio (inquilino).](./media/app-overview-data.png)
 
@@ -405,8 +405,10 @@ En el editor de Unity, cuando la autenticación de AAD esté activa, tendrá que
     Puesto que el componente **AADAuthentication** tiene un controlador de vista, se enlaza automáticamente para mostrar un aviso después del panel modal de autorización de la sesión.
 1. Siga las instrucciones que se encuentran en el panel a la derecha de **AppMenu**.
     Verá algo parecido a esto: ![Ilustración en la que se muestra el panel de instrucciones que aparece a la derecha de AppMenu.](./media/device-flow-instructions.png)
+    
     Después de escribir el código proporcionado en el dispositivo secundario (o en el explorador del mismo dispositivo) e iniciar sesión con sus credenciales, se devolverá un token de acceso a la aplicación que realiza la solicitud, en este caso, el editor de Unity.
-1. Llegados a este punto, todas las fases de la aplicación proseguirán normalmente. Si no es así, compruebe la consola de Unity para ver si hay errores.
+
+Llegados a este punto, todas las fases de la aplicación proseguirán normalmente. Si no es así, compruebe la consola de Unity para ver si hay errores.
 
 ## <a name="build-to-device"></a>Compilación en el dispositivo
 

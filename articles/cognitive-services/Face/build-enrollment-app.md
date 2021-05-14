@@ -1,7 +1,7 @@
 ---
-title: Compilación de una aplicación de inscripción para Android con React
+title: Creación de una aplicación de React para agregar usuarios a un servicio de Face
 titleSuffix: Azure Cognitive Services
-description: Obtenga información sobre cómo configurar el entorno de desarrollo e implementar una aplicación de inscripción de Face para obtener consentimiento de los clientes.
+description: Obtenga información sobre cómo configurar el entorno de desarrollo e implementar una aplicación de Face para obtener el consentimiento de los clientes.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,20 +9,20 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 218579176b807bbdae85646f27eaa7f301d4b9a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 39a74c7f3d5fb8f8b60a66947fcce9837ed6ee13
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102428276"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505112"
 ---
-# <a name="build-an-enrollment-app-for-android-with-react"></a>Compilación de una aplicación de inscripción para Android con React
+# <a name="build-a-react-app-to-add-users-to-a-face-service"></a>Creación de una aplicación de React para agregar usuarios a un servicio de Face
 
-En esta guía se muestra cómo empezar a trabajar con la aplicación de inscripción de Face de ejemplo. La aplicación muestra procedimientos recomendados para obtener un consentimiento significativo para inscribir usuarios en un servicio de reconocimiento facial y adquirir datos faciales de gran precisión. Un sistema integrado podría usar una aplicación de inscripción como esta para proporcionar control de acceso sin contacto, comprobación de identidad, seguimiento de la asistencia o una pantalla completa de personalización, en función de los datos faciales.
+En esta guía se muestra cómo empezar a trabajar con la aplicación de inscripción de Face de ejemplo. La aplicación muestra procedimientos recomendados para obtener un consentimiento significativo para agregar usuarios en un servicio de reconocimiento facial y adquirir datos faciales de gran precisión. Un sistema integrado podría usar una aplicación como esta para proporcionar control de acceso sin contacto, comprobación de identidad, seguimiento de la asistencia o una pantalla completa de personalización, en función de los datos faciales.
 
 Cuando se inicia, la aplicación muestra a los usuarios una pantalla de consentimiento detallada. Si el usuario da su consentimiento, la aplicación solicita un nombre de usuario y una contraseña y, después, captura una imagen de alta calidad de la cara mediante la cámara del dispositivo.
 
-La aplicación de inscripción de ejemplo se escribe con JavaScript y el marco de React Native. Actualmente se puede implementar en dispositivos Android. En el futuro, habrá más opciones de implementación.
+La aplicación de ejemplo está escrita en JavaScript y el marco React Native. Actualmente se puede implementar en dispositivos Android. En el futuro, habrá más opciones de implementación.
 
 ## <a name="prerequisites"></a>Prerrequisitos 
 
@@ -36,22 +36,22 @@ La aplicación de inscripción de ejemplo se escribe con JavaScript y el marco d
 
 ## <a name="set-up-the-development-environment"></a>Configuración del entorno de desarrollo
 
-1. Clone el repositorio de Git para la [aplicación de inscripción de ejemplo](https://github.com/azure-samples/cognitive-services-FaceAPIEnrollmentSample).
+1. Clone el repositorio de Git para la [aplicación de ejemplo](https://github.com/azure-samples/cognitive-services-FaceAPIEnrollmentSample).
 1. Para configurar el entorno de desarrollo, siga la <a href="https://reactnative.dev/docs/environment-setup"  title="documentación de React Native"  target="_blank">React Native documentation </a>. Seleccione **React Native CLI Quickstart** (Inicio rápido de la CLI de React Native) como sistema operativo de desarrollo y **Android** como sistema operativo de destino. Complete las secciones **Installing dependencies** (Instalación de dependencias) y **Android development environment** (Entorno de desarrollo de Android).
 1. Abra el archivo env.json en el editor de texto que prefiera, como [Visual Studio Code](https://code.visualstudio.com/) y agregue el punto de conexión y la clave. Puede obtener el punto de conexión y la clave en Azure Portal en la pestaña **Información general** del recurso. Este paso solo se utiliza para las pruebas locales; no inserte su clave de Face API en el repositorio remoto.
 1. Ejecute la aplicación mediante el emulador de dispositivo virtual Android desde Android Studio o con su propio dispositivo Android. Para probar la aplicación en un dispositivo físico, siga la <a href="https://reactnative.dev/docs/running-on-device"  title="documentación de React Native"  target="_blank">React Native documentation </a> pertinente.  
 
 
-## <a name="create-an-enrollment-experience"></a>Creación de una experiencia de inscripción  
+## <a name="create-a-user-add-experience"></a>Creación de una experiencia de adición de usuario  
 
-Ahora que ha configurado la aplicación de inscripción de ejemplo, puede adaptarla a sus propias necesidades de inscripción.
+Ahora que ha configurado la aplicación de ejemplo, puede adaptarla a sus propias necesidades.
 
 Por ejemplo, es posible que desee agregar información específica de la situación en la página de consentimiento:
 
 > [!div class="mx-imgBorder"]
 > ![página de consentimiento de la aplicación](./media/enrollment-app/1-consent-1.jpg)
 
-El servicio proporciona comprobaciones de calidad de la imagen para ayudarle a elegir si la imagen tiene una calidad suficiente para inscribir al cliente o intentar el reconocimiento facial. Esta aplicación muestra cómo obtener acceso a los fotogramas desde la cámara del dispositivo, seleccionar los fotogramas de mayor calidad e inscribir la cara detectada en el servicio de Face API. 
+El servicio proporciona comprobaciones de calidad de la imagen para ayudarle a elegir si la imagen tiene una calidad suficiente para agregar al cliente o intentar el reconocimiento facial. Esta aplicación muestra cómo acceder a los fotogramas de la cámara del dispositivo, seleccionar los fotogramas de mayor calidad y agregar la cara detectada en el servicio Face API. 
 
 Muchos de los problemas de reconocimiento facial se deben a la baja calidad de las imágenes de referencia. Los siguientes son algunos de los factores que pueden degradar el rendimiento del modelo:
 * Tamaño de la cara (caras alejadas de la cámara)
@@ -63,14 +63,14 @@ Muchos de los problemas de reconocimiento facial se deben a la baja calidad de l
 > [!div class="mx-imgBorder"]
 > ![página de instrucciones de captura de imagen de la aplicación](./media/enrollment-app/4-instruction.jpg)
 
-Observe que la aplicación también ofrece funcionalidad para eliminar la inscripción del usuario y la opción de volver a inscribirlo.
+Tenga en cuenta que la aplicación también ofrece funcionalidad para eliminar la información del usuario y la opción de volver a agregarlo.
 
 > [!div class="mx-imgBorder"]
 > ![página de administración del perfil](./media/enrollment-app/10-manage-2.jpg)
 
-Para ampliar la funcionalidad de la aplicación para abarcar la experiencia de inscripción completa, lea la [información general](enrollment-overview.md) para familiarizarse con características de implementación adicionales y procedimientos recomendados.
+Para ampliar la funcionalidad de la aplicación para abarcar la experiencia completa, consulte la [información general](enrollment-overview.md) para familiarizarse con características de implementación adicionales y procedimientos recomendados.
 
-## <a name="deploy-the-enrollment-app"></a>Implementación de la aplicación de inscripción
+## <a name="deploy-the-app"></a>Implementar la aplicación
 
 ### <a name="android"></a>Android
 
@@ -84,4 +84,4 @@ Una vez creado un archivo APK firmado, consulte la documentación de <a href="ht
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
-En esta guía, ha aprendido a configurar el entorno de desarrollo y a empezar a trabajar con la aplicación de inscripción de ejemplo. Si no está familiarizado con React Native, puede leer su [documentación de introducción](https://reactnative.dev/docs/getting-started) para obtener más información general. También puede ser útil familiarizarse con [Face API](Overview.md). Lea las demás secciones de la documentación de la aplicación de inscripción antes de comenzar con el desarrollo.
+En esta guía, ha aprendido a configurar el entorno de desarrollo y a empezar a trabajar con la aplicación de ejemplo. Si no está familiarizado con React Native, puede leer su [documentación de introducción](https://reactnative.dev/docs/getting-started) para obtener más información general. También puede ser útil familiarizarse con [Face API](Overview.md). Consulte las demás secciones sobre la adición de usuarios antes de comenzar con el desarrollo.

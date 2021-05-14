@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2021
 ms.author: jamesser
 ms.reviewer: cynthn
-ms.openlocfilehash: c4797420904b6dc03550f658c2aa950a4de99c9c
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: e8e3567d752627915596645b13246236bad321c9
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107250956"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146318"
 ---
 # <a name="add-custom-domain-to-azure-vm-or-resource"></a>Incorporación de un dominio personalizado a una máquina virtual o un recurso de Azure
 
@@ -23,7 +23,7 @@ En Azure hay varias maneras de conectar un dominio personalizado a una máquina 
 ## <a name="prerequisites"></a>Requisitos previos 
 - Necesita una máquina virtual con un servidor web en ejecución. Puede usar la [guía de inicio rápido](./linux/quick-create-cli.md) para crear una máquina virtual y agregar NGINX.
 
-- La máquina virtual debe ser accesible desde la Web (puerto abierto 80 o 443). Para realizar una implementación más segura, coloque primero la máquina virtual detrás de un equilibrador de carga o de una puerta de enlace de aplicación. Para obtener más información, consulte [Inicio rápido: Equilibrador de carga](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal?tabs=option-1-create-load-balancer-standard).
+- La máquina virtual debe ser accesible desde la Web (puerto abierto 80 o 443). Para realizar una implementación más segura, coloque primero la máquina virtual detrás de un equilibrador de carga o de una puerta de enlace de aplicación. Para obtener más información, consulte [Inicio rápido: Equilibrador de carga](../load-balancer/quickstart-load-balancer-standard-public-portal.md?tabs=option-1-create-load-balancer-standard).
 
 - Debe tener un dominio existente y acceso a la configuración de DNS. Para obtener más información, consulte [Compra de un nombre de dominio personalizado para Azure App Service](../app-service/manage-custom-dns-buy-domain.md).
 
@@ -73,4 +73,3 @@ Una vez creado el registro, el DNS suele tardar aproximadamente una hora en prop
 ## <a name="next-steps"></a>Pasos siguientes
 [Introducción a la terminación TLS y a TLS de extremo a extremo con Application Gateway](../application-gateway/ssl-overview.md).
 
- 

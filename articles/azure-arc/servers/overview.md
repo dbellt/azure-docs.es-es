@@ -2,14 +2,14 @@
 title: Información general de los servidores habilitados para Azure Arc
 description: Aprenda a usar los servidores habilitados para Azure Arc para administrar las máquinas hospedadas fuera de Azure como un recurso de Azure.
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 02/18/2021
+ms.date: 04/21/2021
 ms.topic: overview
-ms.openlocfilehash: 863cab073018c5a592cba6e94451a9af038ebd52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 324f6cc29bd9e4eca1a20413032c213c2618a11e
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023340"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832003"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>¿Qué son los servidores habilitados para Azure Arc?
 
@@ -25,7 +25,7 @@ Al conectar una máquina a los servidores habilitados para Azure Arc, se habili
 
 - Informe de los cambios de configuración del software instalado, los servicios de Microsoft, el Registro y los archivos de Windows y los demonios de Linux en los servidores supervisados mediante [Seguimiento de cambios e inventario](../../automation/change-tracking/overview.md) de Azure Automation y [Supervisión de la integridad de los archivos de Azure Security Center](../../security-center/security-center-file-integrity-monitoring.md), en servidores habilitados con [Azure Defender para servidores](../../security-center/defender-for-servers-introduction.md).
 
-- Supervise el rendimiento del sistema operativo invitado de la máquina conectada y descubra los componentes de la aplicación para supervisar sus procesos y dependencias con otros recursos con los que la aplicación se comunica mediante [Azure Monitor para VM](../../azure-monitor/vm/vminsights-overview.md).
+- Supervise el rendimiento del sistema operativo invitado de la máquina conectada y detecte los componentes de la aplicación para supervisar sus procesos y dependencias con otros recursos con los que la aplicación se comunica mediante [Insights para VM](../../azure-monitor/vm/vminsights-overview.md).
 
 - Simplifique la implementación con otros servicios de Azure, como el área de trabajo de Log Analytics de Azure Monitor y [State Configuration](../../automation/automation-dsc-overview.md) de Azure Automation, con las [extensiones de máquina virtual de Azure](manage-vm-extensions.md) admitidas para la máquina Windows o Linux que no sea de Azure. Esto incluye realizar la instalación de software o la configuración posterior a la implementación mediante la extensión de script personalizado.
 

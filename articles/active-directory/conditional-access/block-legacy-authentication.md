@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09f98e3d6c7997d9cae2737b25f4323021e29bfb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84c8b82219f2b2aea39bbcd23f030243d9ea8635
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98892446"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861812"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedimientos: Bloqueo de la autenticación heredada en Azure AD con acceso condicional   
 
@@ -33,7 +33,7 @@ En su entrada de blog del 12 de marzo de 2020, [New tools to block legacy authen
 > - Las cuentas de Azure AD de las organizaciones que han deshabilitado la autenticación heredada experimentaron un 67 % menos de riesgos que aquellas en las que la autenticación heredada está habilitada.
 >
 
-Si el entorno está listo para bloquear la autenticación heredada con el fin de mejorar la protección del inquilino, puede lograr este objetivo con el acceso condicional. En este artículo se explica cómo configurar las directivas de acceso condicional que bloquean la autenticación heredada para el inquilino.
+Si el entorno está listo para bloquear la autenticación heredada con el fin de mejorar la protección del inquilino, puede lograr este objetivo con el acceso condicional. En este artículo se explica cómo configurar las directivas de acceso condicional que bloquean la autenticación heredada para el inquilino. Los clientes sin licencias que incluyen el acceso condicional pueden usar los [valores predeterminados de seguridad](../fundamentals/concept-fundamentals-security-defaults.md)) para bloquear la autenticación heredada.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -85,7 +85,7 @@ Para poder bloquear la autenticación heredada en su directorio, primero debe en
 1. **Agregar filtros** > **Aplicación cliente** > seleccione todos los protocolos de autenticación heredados. Seleccione fuera del cuadro de diálogo de filtrado para aplicar las selecciones y cierre el cuadro de diálogo.
 1. Si ha activado la [versión preliminar de nuevos informes de actividad de inicio de sesión](../reports-monitoring/concept-all-sign-ins.md), repita los pasos anteriores también en la pestaña de **inicios de sesión de usuario (no interactivos)** .
 
-Al filtrar solo se muestran los intentos de inicio de sesión que se realizaron con protocolos de autenticación heredada. Al hacer clic en cada intento de inicio de sesión individual se muestran detalles adicionales. El campo **Aplicación cliente** en la pestaña **Información básica** indicará qué protocolo de autenticación heredada se usó.
+Al filtrar solo se muestran los intentos de inicio de sesión que se realizaron con protocolos de autenticación heredada. Al hacer clic en cada intento de inicio de sesión individual se muestran más detalles. El campo **Aplicación cliente** en la pestaña **Información básica** indicará qué protocolo de autenticación heredada se usó.
 
 Estos registros indicarán qué usuarios dependen todavía de la autenticación heredada y qué aplicaciones usan protocolos heredados para realizar solicitudes de autenticación. Para los usuarios que no aparecen en estos registros y se confirme que no van a usar la autenticación heredada, implemente una directiva de acceso condicional solo para estos usuarios.
 

@@ -3,22 +3,46 @@
   items: null
 - name: Acerca de Marketplace comercial
   href: overview.md
+- name: Novedades
+  href: what-is-new.md
 - name: Administración de cuentas
   items:
-    - name: Creación de una cuenta del Centro de partners
-      href: partner-center-portal/create-account.md
-    - name: Administración de la cuenta
-      href: partner-center-portal/manage-account.md
-    - name: Búsqueda o creación de una cuenta profesional de empresa
-      href: partner-center-portal/company-work-accounts.md
-    - name: Migración de cuentas de CPP al Centro de partners
-      href: partner-center-portal/account-migration-from-cpp-to-pc.md
+    - name: Administración general de cuentas
+      items:
+        - name: Creación de una cuenta del Centro de partners
+          href: create-account.md
+        - name: Incorporación de nuevos anunciantes
+          href: add-publishers.md
+        - name: Administración de la cuenta
+          href: manage-account.md
+        - name: Cambio de cuentas
+          href: switch-accounts.md
+        - name: Administración de inquilinos
+          href: manage-tenants.md
+        - name: Búsqueda o creación de una cuenta profesional de empresa
+          href: company-work-accounts.md
+        - name: Migración de cuentas de CPP al Centro de partners
+          href: account-migration-from-cpp-to-pc.md
+        - name: Notificación a Microsoft
+          href: submit-legal-notice.md
+    - name: Administrar usuarios
+      items:
+        - name: Adición y administración de usuarios
+          href: add-manage-users.md
+        - name: Asignar roles de usuario
+          href: user-roles.md
+        - name: Administrar grupos
+          href: manage-groups.md
+        - name: Agregar y administrar aplicaciones de Azure AD
+          href: manage-aad-apps.md
 - name: Conceptos
   items:
     - name: Opciones de publicación
       href: determine-your-listing-type.md
-    - name: Transacciones en Marketplace comercial
+    - name: Funcionalidades de transacción
       href: marketplace-commercial-transaction-capabilities-and-considerations.md
+    - name: Administración de licencias
+      href: third-party-license.md
     - name: Ofertas privadas
       href: private-offers.md
     - name: Planes y precios
@@ -47,27 +71,22 @@
       items:
         - name: Sus ventajas de Marketplace
           href: gtm-your-marketplace-benefits.md
-          items: null
-        - name: Venta conjunta con Microsoft
-          items:
-            - name: Introducción a la venta conjunta
-              href: marketplace-co-sell.md
-            - name: Requisitos de venta conjunta
-              href: co-sell-requirements.md
-            - name: Configuración de la venta conjunta
-              href: commercial-marketplace-co-sell.md
-            - name: Comprobación del estado de la venta conjunta
-              href: co-sell-status.md
-            - name: Migración de soluciones de venta conjunta de OCP GTM
-              href: co-sell-solution-migration.md
+        - name: Introducción a la venta conjunta con Microsoft
+          href: co-sell-overview.md
+        - name: Configuración de la venta conjunta
+          href: co-sell-configure.md
+        - name: Requisitos de venta conjunta
+          href: co-sell-requirements.md
+        - name: Comprobación del estado de la venta conjunta
+          href: co-sell-status.md
+        - name: Migración de soluciones de venta conjunta de OCP GTM
+          href: co-sell-solution-migration.md
         - name: Reventa a través de asociados de CSP
           href: cloud-solution-providers.md
         - name: Guía de incorporación de programas de conexión
           href: business-applications-isv-program.md
         - name: Ventaja del compromiso de consumo de Azure
           href: azure-consumption-commitment-benefit.md
-        - name: Soluciones preferidas
-          href: preferred-solutions.md
         - name: Soluciones integradas
           href: integrated-solutions-for-publishers.md
     - name: Activación de Marketplace Rewards
@@ -130,16 +149,32 @@
           href: partner-center-portal/azure-apps-review-feedback.md
         - name: API de aplicación de Azure
           href: partner-center-portal/azure-app-apis.md
-    - name: Ofertas de Azure Container
+    - name: Oferta de Azure Container
       items:
-        - name: Planificación de una oferta de Azure Container
+        - name: Planeación de la oferta
           href: marketplace-containers.md
         - name: Preparación de recursos técnicos
-          href: create-azure-container-technical-assets.md
-        - name: Creación y publicación de una oferta de Azure Container
+          href: azure-container-technical-assets.md
+        - name: Crear la oferta
+          href: azure-container-offer-setup.md
+        - name: Propiedades
+          href: azure-container-properties.md
+        - name: Descripción de la oferta
+          href: azure-container-offer-listing.md
+        - name: Público preliminar
+          href: azure-container-preview-audience.md
+        - name: Creación y edición de planes
           items:
-            - name: Creación de una oferta de Azure Container
-              href: create-azure-container-offer.md
+            - name: Información general del plan
+              href: azure-container-plan-overview.md
+            - name: Configuración del plan
+              href: azure-container-plan-setup.md
+            - name: Lista del plan
+              href: azure-container-plan-listing.md
+            - name: Disponibilidad del plan
+              href: azure-container-plan-availability.md
+            - name: Planeamiento de la configuración técnica
+              href: azure-container-plan-technical-configuration.md
     - name: Ofertas de máquina virtual de Azure
       items:
         - name: Planificación de una oferta de máquina virtual
@@ -188,20 +223,34 @@
           href: create-consulting-service-pricing-availability.md
     - name: "Ofertas de Dynamics\_365"
       items:
-        - name: "Planificación de una oferta de Dynamics\_365"
-          href: appsource-offer-publishing-guide.md
-        - name: "Creación y publicación de una oferta de Dynamics\_365"
+        - name: Planeación de la oferta
+          href: marketplace-dynamics-365.md
+        - name: Creación de una oferta de Customer Engagement y Power Apps
           items:
-            - name: "Creación de una oferta de Dynamics\_365 Customer Engagement y Power Apps"
-              href: partner-center-portal/create-new-customer-engagement-offer.md
+            - name: Crear la oferta
+              href: dynamics-365-customer-engage-offer-setup.md
+            - name: Propiedades
+              href: dynamics-365-customer-engage-properties.md
+            - name: Descripción de la oferta
+              href: dynamics-365-customer-engage-offer-listing.md
+            - name: Disponibilidad
+              href: dynamics-365-customer-engage-availability.md
+            - name: Planes
+              href: dynamics-365-customer-engage-plans.md
+            - name: Configuración técnica
+              href: dynamics-365-customer-engage-technical-configuration.md
+            - name: Contenido complementario
+              href: dynamics-365-customer-engage-supplemental-content.md
+            - name: Revisión y publicación
+              href: dynamics-365-customer-engage-review-publish.md
+        - name: Creación de una oferta para Operations
+          items:
             - name: Creación de una oferta de Dynamics 365 for Operations
-              items:
-                - name: Creación de una oferta de Dynamics 365 for Operations
-                  href: partner-center-portal/create-new-operations-offer.md
-                - name: Validación funcional
-                  href: dynamics-365-finance-operations-functional-validation.md
-            - name: Creación de una oferta de Dynamics 365 Business Central
-              href: partner-center-portal/create-new-business-central-offer.md
+              href: partner-center-portal/create-new-operations-offer.md
+            - name: Validación funcional
+              href: dynamics-365-finance-operations-functional-validation.md
+        - name: Creación de una oferta para Business Central
+          href: partner-center-portal/create-new-business-central-offer.md
     - name: Ofertas del módulo de IoT Edge
       items:
         - name: Planificación de una oferta de un módulo de IoT Edge
@@ -210,8 +259,6 @@
           href: partner-center-portal/azure-iot-edge-module-creation.md
         - name: Preparación de recursos técnicos del módulo de IoT Edge
           href: partner-center-portal/create-iot-edge-module-asset.md
-        - name: Lista de comprobación previa a la certificación
-          href: iot-edge-checklist.md
     - name: Ofertas de servicio administrado
       items:
         - name: Planeamiento de una oferta de servicio administrado
@@ -258,9 +305,11 @@
               href: create-new-saas-offer-technical.md
             - name: Creación de planes
               href: create-new-saas-offer-plans.md
+            - name: Crea una oferta de prueba
+              href: create-saas-dev-test-offer.md
             - name: Prueba y publicación de una oferta de SaaS
               href: test-publish-saas-offer.md
-        - name: Comercialización de una oferta de SaaS
+        - name: Venta de una oferta de SaaS
           href: create-new-saas-offer-marketing.md
     - name: Revisión y publicación de ofertas
       href: review-publish-offer.md
@@ -312,7 +361,7 @@
       items:
         - name: Introducción
           href: analytics-get-started.md
-        - name: Requisitos previos del acceso mediante programación
+        - name: Requisitos previos para el análisis mediante programación
           href: analytics-prerequisites.md
         - name: Paradigma del acceso mediante programación
           href: analytics-programmatic-access.md
@@ -324,31 +373,31 @@
           href: analytics-sample-queries.md
         - name: Aplicación de ejemplo
           href: analytics-sample-application.md
+        - name: Preguntas más frecuentes
+          href: analytics-programmatic-faq.md
         - name: Especificación de consulta personalizada
           href: analytics-custom-query-specification.md
-        - name: Preguntas frecuentes sobre el análisis mediante programación
-          href: analytics-programmatic-faq.md
-        - name: Referencia de Analytics API
+        - name: API de análisis
           items:
-            - name: Lista de API
+            - name: API disponibles
               href: analytics-available-apis.md
             - name: Obtener todos los conjuntos de datos
               href: analytics-api-get-all-datasets.md
-            - name: Obtención de API de consultas de informe
+            - name: Obtención de consultas de informe
               href: analytics-api-get-report-queries.md
-            - name: Eliminación de API de consultas de informe
+            - name: Eliminación de consultas de informe
               href: analytics-api-delete-report-queries.md
-            - name: Prueba de API de consultas de informe
+            - name: Prueba de consultas de informe
               href: analytics-api-try-report-queries.md
-            - name: Obtención de API de informe
+            - name: Obtener informe
               href: analytics-api-get-report.md
-            - name: Actualización de API de informe
+            - name: Actualización de informes
               href: analytics-api-update-report.md
-            - name: Eliminación de API de informe
+            - name: Eliminar informe
               href: analytics-api-delete-report.md
-            - name: Pausa de API de ejecuciones de informes
+            - name: Pausa de ejecuciones de informes
               href: analytics-api-pause-report-executions.md
-            - name: Reanudación de API de ejecuciones de informes
+            - name: Reanudación de ejecuciones de informes
               href: analytics-api-resume-report-executions.md
     - name: Administración de anomalías de facturación de uso medido
       href: anomaly-detection.md
@@ -364,6 +413,10 @@
       href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
     - name: Términos de Azure Marketplace
       href: /legal/marketplace/terms?context=/azure/marketplace/context/context
+    - name: Contrato de publicador de Microsoft
+      href: /legal/marketplace/msft-publisher-agreement
+    - name: Historial de cambios para el Contrato de publicador de Microsoft
+      href: /legal/marketplace/mpa-change-history
 - name: Referencia
   items:
     - name: Referencia de CPP API
@@ -446,9 +499,9 @@
       href: commercial-marketplace-co-sell-countries.md
     - name: Códigos de estado de venta conjunta
       href: commercial-marketplace-co-sell-states.md
-    - name: Diagrama de arquitectura de referencia
-      href: reference-architecture-diagram.md
     - name: Categorías y subcategorías
       href: categories.md
     - name: Etiquetas HTML que se admiten
       href: supported-html-tags.md
+    - name: Diagrama de arquitectura de referencia
+      href: reference-architecture-diagram.md

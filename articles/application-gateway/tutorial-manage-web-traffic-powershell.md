@@ -7,13 +7,13 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/19/2019
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: 7e410218117aa0d21167b6d615a3835aeec470e7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 588ab3df29868d71c22d504d1637cde3af70f4fe
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93397117"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108320428"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Administrar el tráfico web con una puerta de enlace de aplicaciones mediante Azure PowerShell
 

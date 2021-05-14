@@ -12,12 +12,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 49203195bf7746d0bff1b9543d1641f69ab23359
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 024c4cd3b09e9325f82968a5cd151cce26f41d21
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95542684"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108065536"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Uso de Twilio para capacidades de voz y SMS en Ruby
 Esta guía describe cómo realizar tareas comunes de programación con el servicio de API de Twilio en Azure. Entre los escenarios descritos se incluyen realizar una llamada telefónica y enviar un mensaje de servicio de mensajes cortos (SMS). Para obtener más información sobre Twilio y el uso de voz y mensajes SMS en sus aplicaciones, consulte la sección [Pasos siguientes](#NextSteps) .
@@ -201,7 +201,7 @@ Ahora que conoce los fundamentos del servicio Twilio, siga estos vínculos para 
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
 [twilio_api_documentation]: https://www.twilio.com/api
 [twilio_security_guidelines]: https://www.twilio.com/docs/security
-[twilio_howtos]: https://www.twilio.com/docs/howto
+[twilio_howtos]: https://www.twilio.com/docs/all
 [twilio_on_github]: https://github.com/twilio
 [twilio_support]: https://www.twilio.com/help/contact
 [twilio_quickstarts]: https://www.twilio.com/docs/quickstart

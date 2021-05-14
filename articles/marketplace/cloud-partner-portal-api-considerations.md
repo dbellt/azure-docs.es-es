@@ -7,17 +7,16 @@ ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 0920bec160874f27c8b1b6f2132951b57719b31c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e7319b19c5e7d8478cdad3d7359b98e023eb443
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88035287"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736023"
 ---
 # <a name="api-considerations"></a>Consideraciones sobre las API
 
-<a name="api-versioning"></a>Control de versiones de la API
---------------
+## <a name="api-versioning"></a>Control de versiones de la API
 
 > [!NOTE]
 > Las API de Cloud Partner Portal se integran con el Centro de partners y seguirán funcionando en este. La transición presenta pequeños cambios. Revise los cambios que se muestran en la [referencia de API de Cloud Partner Portal](./cloud-partner-portal-api-overview.md) para asegurarse de que el código siga funcionando después de la transición al Centro de partners. Las API de CPP solo deben usarse para los productos existentes que ya estaban integrados antes de la transición al Centro de partners. Los nuevos productos deben usar las API de envío del Centro de partners.
@@ -37,14 +36,12 @@ La respuesta a una solicitud con una versión de API desconocida o no válida es
     }
 ```            
 
-<a name="errors"></a>Errors
-------
+## <a name="errors"></a>Errors
 
 La API responde a los errores con los códigos de estado HTTP correspondientes y, opcionalmente, información adicional en la respuesta serializada como JSON.
 Cuando reciba un error, especialmente un error de clase 400, no vuelva a intentar la solicitud antes de corregir la causa subyacente. Por ejemplo, en la respuesta de ejemplo anterior, corrija el parámetro de la versión de la API antes de volver a enviar la solicitud.
 
-<a name="authorization-header"></a>Encabezado de autorización
---------------------
+## <a name="authorization-header"></a>Encabezado de autorización
 
 Para todas las API de esta referencia, debe pasar el encabezado de autorización junto con el token de portador obtenido de Azure Active Directory (Azure AD). Este encabezado se requiere para recibir una respuesta válida. Si no está presente, se devuelve un error `401 Unauthorized`. 
 

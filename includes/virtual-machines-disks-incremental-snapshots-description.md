@@ -5,17 +5,17 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/05/2020
+ms.date: 04/21/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 39750a86ccf781a10109e299e27a55a03173acb6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9b09012237d8f519322c927f8f2bbca1d3edef2
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98901181"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107925229"
 ---
-Las instantáneas incrementales son copias de seguridad en un momento dado de los discos administrados que, cuando se realizan, solo constan de los cambios desde la última instantánea. Cuando se restaura un disco a partir de una instantánea incremental, el sistema reconstruye el disco completo que representa la copia de seguridad en un momento dado del disco cuando se tomó la instantánea incremental. Esta nueva funcionalidad para las instantáneas de discos administrados puede permitir que sean más rentables, ya que no es necesario almacenar todo el disco con cada instantánea individual a menos que decida hacerlo expresamente. Al igual que con las instantáneas completas, se pueden usar instantáneas incrementales para crear un disco administrado completo o una instantánea completa.
+Las instantáneas incrementales son copias de seguridad en un momento dado de los discos administrados que, cuando se realizan, solo constan de los cambios desde la última instantánea. Cuando se restaura un disco a partir de una instantánea incremental, el sistema reconstruye el disco completo que representa la copia de seguridad en un momento dado del disco cuando se tomó la instantánea incremental. Esta funcionalidad para las instantáneas de discos administrados puede permitir que sean más rentables, ya que no es necesario almacenar todo el disco con cada instantánea individual a menos que decida hacerlo expresamente. Al igual que con las instantáneas completas, se pueden usar instantáneas incrementales para crear un disco administrado completo o una instantánea completa. Las instantáneas completas y las instantáneas incrementales se pueden usar inmediatamente después de su toma. En otras palabras, una vez que tome cualquiera de esos tipos de instantánea, puede leer inmediatamente el VHD subyacente y usarlo para restaurar discos.
 
 Hay algunas diferencias entre una instantánea incremental y una instantánea completa. Las instantáneas incrementales usan siempre el almacenamiento de discos HDD estándar, independientemente del tipo de almacenamiento del disco, mientras que las instantáneas completas pueden usar discos SSD Premium. Si usa instantáneas completas en Premium Storage para escalar verticalmente implementaciones de máquinas virtuales, le recomendamos que use imágenes personalizadas en el almacenamiento estándar de [Shared Image Gallery](../articles/virtual-machines/shared-image-galleries.md). Le ayudará a lograr una escala más masiva con un costo más bajo. Además, las instantáneas incrementales pueden ofrecer mejor confiabilidad con el [almacenamiento con redundancia de zona](../articles/storage/common/storage-redundancy.md). Si el almacenamiento con redundancia de zona está disponible en la región seleccionada, una instantánea incremental lo usará automáticamente. Si el almacenamiento con redundancia de zona no está disponible en la región, la instantánea tendrá como valor predeterminado el [almacenamiento con redundancia local](../articles/storage/common/storage-redundancy.md). Puede invalidar este comportamiento y seleccionar uno manualmente, pero no es recomendable.
 

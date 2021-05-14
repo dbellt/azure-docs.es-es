@@ -6,27 +6,28 @@ documentationcenter: ''
 author: mathapli
 manager: rochakm
 ms.service: virtual-machine-scale-sets
+ms.subservice: azure-hybrid-benefit
 ms.collection: linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/20/2021
 ms.author: mathapli
-ms.openlocfilehash: a714434c39a0c40c2e908f2d0c424f02851921a6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: afbdd490a429c86f1842b83fb62c3ce6a023a0ed
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933685"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108750952"
 ---
-# <a name="azure-hybrid-benefit-for-linux-virtual-machine-scale-set-public-preview"></a>Ventaja híbrida de Azure para los conjuntos de escalado de máquinas virtuales de Linux (versión preliminar pública)
+# <a name="azure-hybrid-benefit-for-linux-virtual-machine-scale-set"></a>Ventaja híbrida de Azure para conjuntos de escalado de máquinas virtuales de Linux
 
-**La Ventaja híbrida de Azure para los conjuntos de escalado de máquinas virtuales de Linux está en versión preliminar pública**. La ventaja de AHB puede ayudarle a reducir el costo que supone la ejecución de los [conjuntos de escalado de máquinas virtuales](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) de RHEL y SLES.
+La **Ventaja híbrida de Azure para conjuntos de escalado de máquinas virtuales Linux se encuentra ya en disponibilidad general**. La ventaja de AHB puede ayudarle a reducir el costo que supone la ejecución de los [conjuntos de escalado de máquinas virtuales](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) de RHEL y SLES.
 
 Con esta ventaja, solo paga por el costo de la infraestructura del conjunto de escalado. La ventaja está disponible para todas las imágenes de pago por uso (PAYG) de Marketplace de RHEL y SLES.
 
 
 >[!NOTE]
-> En este artículo se describe la Ventaja híbrida de Azure para VMSS de Linux. Hay un artículo independiente [disponible [aquí y llamado AHB para VM de Linux](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux), que ya está disponible para los clientes de Azure desde noviembre de 2020.
+> En este artículo se describe la Ventaja híbrida de Azure para VMSS de Linux. Hay un artículo independiente [disponible [aquí y llamado AHB para VM de Linux](../virtual-machines/linux/azure-hybrid-benefit-linux.md), que ya está disponible para los clientes de Azure desde noviembre de 2020.
 
 ## <a name="benefit-description"></a>Descripción de la ventaja
 La ventaja híbrida de Azure le permite usar las licencias de acceso a la nube existentes de Red Hat o SUSE y convertir de forma flexible las instancias del conjunto de escalado de máquinas virtuales para realizar la facturación de tipo "bring-your-own-subscription" (BYOS). 
@@ -71,7 +72,23 @@ Para empezar a usar la ventaja para SUSE:
 
 
 ## <a name="enable-and-disable-the-benefit-on-azure-portal"></a>Habilitación y deshabilitación de la ventaja en Azure Portal 
-La experiencia del portal para habilitar y deshabilitar AHB en el conjunto de escalado de máquinas virtuales **no está disponible actualmente**.
+### <a name="azure-portal-example-to-enable-the-benefit-during-creation"></a>Ejemplo de Azure Portal para habilitar la ventaja durante la creación:
+1. Visite [Microsoft Azure Portal](https://portal.azure.com/)
+1. Vaya a la página "Crear un conjunto de escalado de máquinas virtuales" en el portal.
+ ![AHB al crear VMSS](./media/azure-hybrid-benefit-linux/create-vmss-ahb.png)
+1. Haga clic en la casilla para habilitar la conversión de AHB y usar licencias de acceso a la nube.
+ ![AHB al crear la casilla VMSS](./media/azure-hybrid-benefit-linux/create-vmss-ahb-checkbox.png)
+1. Creación de un conjunto de escalado de máquinas virtuales siguiendo el siguiente conjunto de instrucciones
+1. Compruebe la hoja **Configuración** y verá la opción habilitada. 
+![Hoja del sistema operativo de AHB después de la creación](./media/azure-hybrid-benefit-linux/create-vmss-ahb-os-blade.png)
+
+### <a name="azure-portal-example-to-enable-the-benefit-for-an-existing-virtual-machine-scale-set"></a>Ejemplo de Azure Portal para habilitar la ventaja en un conjunto de escalado de máquinas virtuales existente:
+1. Visite [Microsoft Azure Portal](https://portal.azure.com/)
+1. Abra la página "Conjunto de escalado de máquinas virtuales" en la que quiera aplicar la conversión.
+1. Vaya a la opción **Sistema operativo** de la izquierda. Verá la sección Licencias. Para habilitar la conversión de AHB, active el botón de radio "Sí" y la casilla Confirmación.
+![Hoja de configuración de AHB después de la operación de creación](./media/azure-hybrid-benefit-linux/create-vmss-ahb-os-blade.png)
+
+
 
 ## <a name="enable-and-disable-the-benefit-using-azure-cli"></a>Habilitación y deshabilitación de la ventaja en la CLI de Azure
 
@@ -94,7 +111,7 @@ az vmss update -g myResourceGroup -n myVmName --license-type None
 ```
 
 >[!NOTE]
-> Los conjuntos de escalado tienen una ["directiva de actualización"](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) que determina cómo se actualizan las VM con el modelo de conjunto de escalado más reciente. Por lo tanto, si el VMSS tiene una directiva de actualización "automática", la ventaja AHB se aplicará automáticamente a medida que se actualicen las instancias de VM. Si VMSS tiene una directiva de actualización "gradual" en función de las actualizaciones programadas, se aplicará AHB.
+> Los conjuntos de escalado tienen una ["directiva de actualización"](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) que determina cómo se actualizan las VM con el modelo de conjunto de escalado más reciente. Por lo tanto, si el VMSS tiene una directiva de actualización "automática", la ventaja AHB se aplicará automáticamente a medida que se actualicen las instancias de VM. Si VMSS tiene una directiva de actualización "gradual" en función de las actualizaciones programadas, se aplicará AHB.
 En el caso de tener una directiva de actualización "manual", tendrá que realizar la "actualización manual" de cada VM existente.  
 
 ### <a name="cli-example-to-upgrade-virtual-machine-scale-set-instances-in-case-of-manual-upgrade-policy"></a>Ejemplo de la CLI para actualizar las instancias del conjunto de escalado de máquinas virtuales en el caso de que la directiva sea de "actualización manual". 

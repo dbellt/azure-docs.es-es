@@ -6,15 +6,15 @@ services: virtual-network
 author: KumudD
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 05/11/2021
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: bc0ac1a6e882f4197828bf79c7989c16b2eb16f7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28513132e75797adaafc7de32d94379b92f298ee
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98217675"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752434"
 ---
 # <a name="quickstart-create-a-virtual-network---resource-manager-template"></a>Inicio rápido: Creación de una red virtual: plantilla de Resource Manager
 
@@ -25,15 +25,15 @@ En este inicio rápido aprenderá a crear una red virtual con dos subredes media
 
 También se puede completar este inicio rápido mediante [Azure Portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md) o la [CLI de Azure](quick-create-cli.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vnet-two-subnets/azuredeploy.json).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/vnet-two-subnets/azuredeploy.json).
 
-:::code language="json" source="~/quickstart-templates/101-vnet-two-subnets/azuredeploy.json" range="001-96" highlight="56-92":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/vnet-two-subnets/azuredeploy.json" range="001-96" highlight="56-92":::
 
 En la plantilla se han definido los siguientes recursos de Azure:
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks): cree una red virtual de Azure.

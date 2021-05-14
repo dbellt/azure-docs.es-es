@@ -3,7 +3,7 @@ title: ¿Qué es la administración de derechos? - Azure AD
 description: Obtenga información general de la administración de derechos de Azure Active Directory y cómo puede utilizarla para administrar el acceso a grupos, aplicaciones y sitios de SharePoint Online para usuarios internos y externos.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
 ms.date: 11/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 7efaaf9cbfdb13c80ce653c99d05da451c2b8968
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a0e4bb393e522d54bb259e1a85c645fe7f3f5e48
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100547322"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786364"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>¿Qué es la administración de derechos de Azure AD?
 

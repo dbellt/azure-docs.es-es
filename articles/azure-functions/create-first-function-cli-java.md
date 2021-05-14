@@ -6,16 +6,17 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
+- devx-track-azurepowershell
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-java-uiex
-ms.openlocfilehash: 1a1571e83e33ee0aec40df4cf68b3d01b6ef5f04
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 69c4129feacf36b6b98cdcd7c2f4f5f36d7839b2
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107787510"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831931"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Inicio rápido: Creación de una función de Java en Azure desde la línea de comandos
 
@@ -83,7 +84,7 @@ En Azure Functions, un proyecto de función es un contenedor para una o varias f
 1. Maven le pide los valores necesarios para finalizar la generación del proyecto en la implementación.   
     Indique los siguientes valores cuando se le solicite:
 
-    | Prompt | Value | Descripción |
+    | Prompt | Valor | Descripción |
     | ------ | ----- | ----------- |
     | **groupId** | `com.fabrikam` | Un valor que identifica de forma única su proyecto entre todos los demás y que sigue las [reglas de nomenclatura de paquetes](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) de Java. |
     | **artifactId** | `fabrikam-functions` | Un valor que es el nombre del archivo jar, sin un número de versión. |

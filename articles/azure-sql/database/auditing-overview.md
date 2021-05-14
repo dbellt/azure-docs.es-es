@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/17/2021
+ms.date: 05/02/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8513127f4a79c9c94323140462ad2d2648a0130d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 49cd718bc0beb5128980e5e25a01cef94e966221
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577695"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754026"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoría para Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -81,7 +81,7 @@ Se puede definir una directiva de auditoría para una base de datos específica 
 - Puede escribir registros de auditoría en una cuenta de Azure Storage detrás de un firewall o una red virtual. Para obtener instrucciones específicas, consulte cómo [escribir auditorías en una cuenta de almacenamiento detrás de una red virtual y un firewall](audit-write-storage-account-behind-vnet-firewall.md).
 - Para obtener más información sobre el formato de registro, la jerarquía de la carpeta de almacenamiento y las convenciones de nomenclatura, vea la [referencia del formato de registro de auditoría de blobs](./audit-log-format.md).
 - La auditoría en las [réplicas de solo lectura](read-scale-out.md) se habilita automáticamente. Para obtener más información sobre la jerarquía de las carpetas de almacenamiento, las convenciones de nomenclatura y el formato del registro, consulte el artículo sobre el [formato del registro de auditoría de SQL Database](audit-log-format.md).
-- Cuando se usa Autenticación de Azure AD, los registros de inicios de sesión con error *no* aparecerán en el registro de auditoría SQL. Para ver los registros de auditoría de inicio de sesión con error, debe visitar el [portal de Azure Active Directory](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), que registra los detalles de estos eventos.
+- Cuando se usa Autenticación de Azure AD, los registros de inicios de sesión con error *no* aparecerán en el registro de auditoría SQL. Para ver los registros de auditoría de inicio de sesión con error, debe visitar el [portal de Azure Active Directory](../../active-directory/reports-monitoring/concept-sign-ins.md), que registra los detalles de estos eventos.
 - La puerta de enlace enruta los inicios de sesión a la instancia específica en la que se encuentra la base de datos.  En el caso de los inicios de sesión de AAD, se comprueban las credenciales antes de intentar usar el usuario para iniciar sesión en la base de datos solicitada.  En caso de error, nunca se accede a la base de datos solicitada, por lo que no se produce ninguna auditoría.  En el caso de los inicios de sesión de SQL, las credenciales se comprueban en los datos solicitados, por lo que en este caso se pueden auditar.  Los inicios de sesión correctos, que obviamente llegan a la base de datos, se auditan en ambos casos.
 - Después de configurar los valores de auditoría, puede activar la nueva característica de detección de amenazas y configurar los mensajes de correo para recibir alertas de seguridad. Cuando se usa la detección de amenazas, se reciben alertas proactivas sobre actividades anómalas de la base de datos que pueden indicar posibles amenazas de seguridad. Para más información, vea [Introducción a la detección de amenazas](threat-detection-overview.md).
 
@@ -100,7 +100,7 @@ En la sección siguiente se describe la configuración de auditoría mediante Az
 
   > [!NOTE]
   > - No es posible habilitar la auditoría en un grupo de SQL dedicado en pausa. Para habilitar la auditoría, quite la pausa del grupo de SQL dedicado. Más información sobre el [grupo de SQL dedicado](../..//synapse-analytics/sql/best-practices-dedicated-sql-pool.md).
-  > - Cuando la auditoría se configura para un área de trabajo de Log Analytics o para un destino del Centro de eventos a través del cmdlet de PowerShell o Azure Portal, se crea una [configuración de diagnóstico](../../azure-monitor/essentials/diagnostic-settings.md) con la categoría "SQLSecurityAuditEvents" habilitada.
+  > - Cuando la auditoría se configura para un área de trabajo de Log Analytics o para un destino del centro de eventos mediante el cmdlet de PowerShell o Azure Portal, se crea una [configuración de diagnóstico](../../azure-monitor/essentials/diagnostic-settings.md) con la categoría "SQLSecurityAuditEvents" habilitada.
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
 2. Vaya a **Auditoría** bajo el encabezado Seguridad en el panel de la **base de datos SQL** o el **servidor SQL**.
@@ -290,9 +290,9 @@ Directiva extendida compatible con la cláusula WHERE para filtrado adicional:
 
 Puede administrar auditorías de Azure SQL Database mediante plantillas de [Azure Resource Manager](../../azure-resource-manager/management/overview.md), como se muestra en estos ejemplos:
 
-- [Implementación de una instancia de Azure SQL Database con la auditoría habilitada para escribir los registros de auditoría en la cuenta de Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
-- [Implementación de una instancia de Azure SQL Database con la auditoría habilitada para escribir los registros de auditoría en Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
-- [Implementación de una instancia de Azure SQL Database con la auditoría habilitada para escribir los registros de auditoría en Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+- [Implementación de una instancia de Azure SQL Database con la auditoría habilitada para escribir los registros de auditoría en la cuenta de Azure Blob Storage](https://azure.microsoft.com/resources/templates/sql-auditing-server-policy-to-blob-storage/)
+- [Implementación de una instancia de Azure SQL Database con la auditoría habilitada para escribir los registros de auditoría en Log Analytics](https://azure.microsoft.com/resources/templates/sql-auditing-server-policy-to-oms/)
+- [Implementación de una instancia de Azure SQL Database con la auditoría habilitada para escribir los registros de auditoría en Event Hubs](https://azure.microsoft.com/resources/templates/sql-auditing-server-policy-to-eventhub/)
 
 > [!NOTE]
 > Los ejemplos vinculados se encuentran en un repositorio público externo y se proporcionan "tal cual", sin ninguna garantía y no se admiten en todos los programas o servicios de soporte técnico de Microsoft.

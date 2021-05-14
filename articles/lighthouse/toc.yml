@@ -12,9 +12,9 @@
       href: ./samples/index.md
 - name: Conceptos
   items:
-    - name: Administración de recursos delegados de Azure
-      displayName: 'delegation, projection'
-      href: ./concepts/azure-delegated-resource-management.md
+    - name: Architecture
+      displayName: 'delegation, projection, resource, registration'
+      href: ./concepts/architecture.md
     - name: Experiencias de administración entre inquilinos
       displayName: 'scenarios, supported, enhanced, services, limitations, current'
       href: ./concepts/cross-tenant-management-experience.md
@@ -42,7 +42,7 @@
           displayName: 'mfa, authentication, secure, group'
           href: ./concepts/recommended-security-practices.md
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/lighthouse-security-baseline?toc=/azure/lighthouse/toc.json
 - name: Guías paso a paso
   items:
     - name: Acciones del cliente
@@ -53,48 +53,50 @@
         - name: Visualización de la actividad del proveedor de servicios
           displayName: 'monitor, log, customer, visibility, transparency, control'
           href: ./how-to/view-service-provider-activity.md
-    - name: Incorporación de un cliente a Azure Lighthouse
-      displayName: resource management
-      href: ./how-to/onboard-customer.md
-    - name: Publicación de ofertas de servicios administrados en Azure Marketplace
-      displayName: 'managed services offer, azure marketplace, publish, marketplace'
-      href: ./how-to/publish-managed-services-offers.md
+    - name: Administración de la incorporación y la delegación
+      items:
+        - name: Incorporación de clientes
+          displayName: 'ARM, template, delegation, authorization, resource management'
+          href: ./how-to/onboard-customer.md
+        - name: Publicación de ofertas de servicios administrados en Azure Marketplace
+          displayName: 'managed services, azure marketplace, publish, marketplace'
+          href: ./how-to/publish-managed-services-offers.md
+        - name: Actualización de delegaciones
+          displayName: upgrade
+          href: ./how-to/update-delegation.md
+        - name: Eliminación del acceso a las delegaciones
+          displayName: 'delete, undelegate'
+          href: ./how-to/remove-delegation.md
+        - name: Supervisión de cambios en la delegación
+          displayName: activity log
+          href: ./how-to/monitor-delegation-changes.md
     - name: Visualización y administración de clientes
       displayName: my customers
       href: ./how-to/view-manage-customers.md
     - name: Vínculo a su identificador de asociado
       displayName: 'partner earned credit, pec, mpn'
       href: ./how-to/partner-earned-credit.md
-    - name: Actualización de una delegación
-      displayName: upgrade
-      href: ./how-to/update-delegation.md
-    - name: Quitar el acceso a una delegación
-      displayName: 'delete, undelegate'
-      href: ./how-to/remove-delegation.md
-    - name: Integración de Azure Arc
-      displayName: 'server, kubernetes, hybrid, infrastructure'
-      href: ./how-to/manage-hybrid-infrastructure-arc.md
-    - name: Integración de Azure Migrate
-      displayName: 'migration, project, on-prem'
-      href: ./how-to/migration-at-scale.md
-    - name: Integración de Azure Monitor
+    - name: Integración del servicio de Azure
       items:
-        - name: Uso de registros de Azure Monitor a escala
+        - name: Integración de Azure Arc
+          displayName: 'server, kubernetes, hybrid, infrastructure'
+          href: ./how-to/manage-hybrid-infrastructure-arc.md
+        - name: Integración de Azure Migrate
+          displayName: 'migration, project, on-prem'
+          href: ./how-to/migration-at-scale.md
+        - name: Integración de Azure Monitor
           displayName: 'log, analytics, analyze, activity'
           href: ./how-to/monitor-at-scale.md
-        - name: Supervisión de cambios en la delegación
-          displayName: activity log
-          href: ./how-to/monitor-delegation-changes.md
-    - name: Integración de Azure Policy
-      items:
-        - name: Implementación de una directiva a escala
-          displayName: storage
-          href: ./how-to/policy-at-scale.md
-        - name: Implementación de una directiva que se pueda corregir
-          displayName: 'deployIfNotExists, modify, managed identities, managed identity'
-          href: ./how-to/deploy-policy-remediation.md
-    - name: Integración con Azure Sentinel
-      href: ./how-to/manage-sentinel-workspaces.md
+        - name: Integración de Azure Policy
+          items:
+            - name: Implementación de una directiva a escala
+              displayName: storage
+              href: ./how-to/policy-at-scale.md
+            - name: Implementación de una directiva que se pueda corregir
+              displayName: 'deployIfNotExists, modify, managed identities, managed identity'
+              href: ./how-to/deploy-policy-remediation.md
+        - name: Integración con Azure Sentinel
+          href: ./how-to/manage-sentinel-workspaces.md
 - name: Referencia
   items:
     - name: Azure CLI

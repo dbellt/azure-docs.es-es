@@ -3,12 +3,12 @@ title: Definición de varias instancias de una propiedad
 description: Use la operación de copia en una plantilla de Azure Resource Manager (plantilla de ARM) para realizar varias iteraciones cuando cree una propiedad en un recurso.
 ms.topic: conceptual
 ms.date: 04/01/2021
-ms.openlocfilehash: 16c293f1c3aff64aeb8b6cae4b7f1aa14dcd0a77
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 3f6eeac8b32e0fb34b973e82557cc48bab532ffd
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107480008"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736941"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteración de propiedades en las plantillas de ARM
 
@@ -372,7 +372,7 @@ En los ejemplos siguientes, se muestran escenarios comunes en los que se crean v
 
 |Plantilla  |Descripción  |
 |---------|---------|
-|[Implementación de máquinas virtuales con un número variable de discos de datos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Implementa varios discos de datos con una máquina virtual. |
+|[Implementación de máquinas virtuales con un número variable de discos de datos](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-windows-copy-datadisks) |Implementa varios discos de datos con una máquina virtual. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

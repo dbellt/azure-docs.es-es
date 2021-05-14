@@ -9,15 +9,15 @@ keywords: cognitive services, cognitive intelligence, cognitive solutions, ai se
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: overview
-ms.date: 10/22/2020
+ms.date: 04/16/2021
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: c89131cc34d45ea94f3bb290ac11ec86f4b83be3
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: c6b83a25816c29f1642625618e66624aa3e0a6de
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107587619"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108289811"
 ---
 # <a name="what-are-azure-cognitive-services"></a>¿Qué es Azure Cognitive Services?
 
@@ -43,7 +43,7 @@ Las siguientes secciones de este artículo ofrecen una lista de los servicios qu
 |[Custom Vision Service](./custom-vision-service/index.yml "Custom Vision Service")|El servicio Custom Vision le permite crear, implementar y mejorar los clasificadores de imágenes propios. Un clasificador de imágenes es un servicio de inteligencia artificial que aplica etiquetas a las imágenes, en función de sus características visuales. |
 |[Face](./face/index.yml "Caras")| El servicio Face proporciona acceso a algoritmos faciales avanzados, lo que permite la detección y el reconocimiento de atributos faciales. Consulte [Inicio rápido de Face](./face/quickstarts/client-libraries.md) para empezar a trabajar con el servicio.|
 |[Form Recognizer](./form-recognizer/index.yml "Form Recognizer")|Form Recognizer identifica y extrae pares clave-valor y datos de tabla de documentos de formulario; luego, genera datos estructurados, incluidas las relaciones en el archivo original. Consulte [Inicio rápido de Form Recognizer](./form-recognizer/quickstarts/client-library.md) para comenzar.|
-|[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "Video Indexer")|Video Indexer permite extraer información de un vídeo. Consulte [Inicio rápido de Video Indexer](/azure/media-services/video-indexer/video-indexer-get-started) para comenzar.|
+|[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "Video Indexer")|Video Indexer permite extraer información de un vídeo. Consulte [Inicio rápido de Video Indexer](../media-services/video-indexer/video-indexer-get-started.md) para comenzar.|
 
 ## <a name="speech-apis"></a>API de voz
 
@@ -59,7 +59,7 @@ Las siguientes secciones de este artículo ofrecen una lista de los servicios qu
 
 |Nombre de servicio|Descripción del servicio|
 |:-----------|:------------------|
-|[Language Understanding: LUIS](./luis/index.yml "Language Understanding")|Language Understanding (LUIS) es un servicio conversacional de inteligencia artificial basado en la nube que aplica inteligencia de aprendizaje automático personalizado a una conversación o un texto de lenguaje natural de un usuario para predecir el significado global y extraer información pertinente y detallada. Consulte [Inicio rápido de Luis](./luis/get-started-portal-build-app.md) para empezar a trabajar con el servicio.|
+|[Language Understanding: LUIS](./luis/index.yml "Language Understanding")|Language Understanding (LUIS) es un servicio conversacional de inteligencia artificial basado en la nube que aplica inteligencia de aprendizaje automático personalizado a una conversación o un texto de lenguaje natural de un usuario para predecir el significado global y extraer información pertinente y detallada. Consulte [Inicio rápido de Luis](./luis/luis-get-started-create-app.md) para empezar a trabajar con el servicio.|
 |[QnA Maker](./qnamaker/index.yml "QnA Maker")|QnA Maker permite generar un servicio de preguntas y respuestas a partir de contenido semiestructurado. [Consulte el inicio rápido de QnA Maker](./qnamaker/quickstarts/create-publish-knowledge-base.md) para empezar a trabajar con el servicio.|
 |[Text Analytics](./text-analytics/index.yml "Text Analytics")| Proporciona procesamiento de lenguaje natural en texto sin formato para el análisis de opiniones, la extracción de frases clave y la detección del idioma. Consulte [Inicio rápido de Text Analytics](./text-analytics/quickstarts/client-libraries-rest-api.md) para empezar a trabajar con el servicio.|
 |[Traductor](./translator/index.yml "Traductor")|Traductor proporciona la traducción de texto automática casi en tiempo real.|
@@ -134,7 +134,7 @@ Azure Cognitive Services proporciona un modelo de seguridad por niveles, lo que 
 
 Las API de Cognitive Services se hospedan en una red cada vez mayor de centros de datos administrados por Microsoft. Encontrará la disponibilidad regional de cada API en la [lista de regiones de Azure](https://azure.microsoft.com/regions "Lista de regiones de Azure").
 
-¿Busca una región que aún no se admite? Díganoslo. Envíe una solicitud de característica en nuestro [foro de UserVoice](https://cognitive.uservoice.com/ "Foro de UserVoice").
+¿Busca una región que aún no se admite? Díganoslo. Envíe una solicitud de característica en nuestro [foro de UserVoice](https://feedback.azure.com/forums/932041-azure-cognitive-services "Foro de UserVoice").
 
 ## <a name="supported-cultural-languages"></a>Idiomas culturales admitidos
 

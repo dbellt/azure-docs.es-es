@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d8cf3dbe9d1dc2ad329a0b5ab8fa9554c85ae55c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: adfb46894e769a23a2ac48bdb4ac3e432d9cebce
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199099"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139064"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Creación de certificados de demostración para probar las características de dispositivo IoT Edge
 
@@ -361,7 +361,7 @@ Al autenticar un dispositivo IoT con certificados autofirmados, debe cargar el c
 A continuación, realice una comprobación para demostrar IoT Hub que posee el certificado de CA raíz.
 Por último, va a usar el mismo certificado de CA raíz para crear certificados de dispositivo que se colocarán en el dispositivo de IoT para que pueda autenticarse con IoT Hub.
 
-Los certificados de esta sección son para los pasos descritos en [Configuración de la seguridad de X.509 en el centro de IoT de Azure](../iot-hub/iot-hub-security-x509-get-started.md).
+Los certificados de esta sección son para los pasos descritos en [Configuración de la seguridad de X.509 en el centro de IoT de Azure](../iot-hub/tutorial-x509-scripts.md).
 
 #### <a name="windows"></a>Windows
 

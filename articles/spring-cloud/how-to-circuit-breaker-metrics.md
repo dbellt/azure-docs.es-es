@@ -1,28 +1,28 @@
 ---
-title: Recopilación de métricas del interruptor Resilience4J de Spring Cloud
-description: Recopilación de métricas del interruptor Resilience4J de Spring Cloud.
+title: Recopilación de métricas del interruptor Resilience4J de Spring Cloud con Micrometer
+description: Cómo recopilar de métricas del interruptor Resilience4J de Spring Cloud con Micrometer en Azure Spring Cloud.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 9fc8ccc5ba21f02885b2002d5040051baac92068
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: be67e2fb1bafaecd538f6fc671c006ac013cc849
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877481"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135282"
 ---
-# <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-preview"></a>Recopilación de métricas del interruptor Resilience4J de Spring Cloud (versión preliminar)
+# <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-with-micrometer-preview"></a>Recopilación de métricas del interruptor Resilience4J de Spring Cloud con Micrometer (versión preliminar)
 
-En este documento se explica cómo recopilar métricas del interruptor Resilience4j de Spring Cloud con el agente en proceso de Java de Application Insights.  Con esta característica, se pueden supervisar las métricas del interruptor resilience4j desde Application Insights.
+En este documento se explica cómo recopilar métricas del interruptor Resilience4j de Spring Cloud con el agente en proceso de Java de Application Insights. Con esta característica, se pueden supervisar las métricas del interruptor Resilience4J desde Application Insights con Micrometer.
 
 Usamos [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo) para mostrar su funcionamiento.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Habilite el agente en proceso de Java en la [guía del agente en proceso de Java para Application Insights](./spring-cloud-howto-application-insights.md#enable-java-in-process-agent-for-application-insights). 
+* Habilite el agente en proceso de Java en la [guía del agente en proceso de Java para Application Insights](./how-to-application-insights.md#enable-java-in-process-agent-for-application-insights). 
 
 * Habilite la colección de dimensiones para las métricas de resilience4j desde la [guía de Application Insights](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
@@ -125,6 +125,6 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
 ## <a name="see-also"></a>Consulte también
 
-* [Application Insights](spring-cloud-howto-application-insights.md)
-* [Seguimiento distribuido](spring-cloud-howto-distributed-tracing.md)
-* [Panel de interruptores](spring-cloud-tutorial-circuit-breaker.md)
+* [Application Insights](./how-to-application-insights.md)
+* [Seguimiento distribuido](./how-to-distributed-tracing.md)
+* [Panel de interruptores](./tutorial-circuit-breaker.md)

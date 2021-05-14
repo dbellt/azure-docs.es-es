@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 2bd57344f0bd7f3b97c523f9378a5820c1a90a84
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aefd52ad7b92f6cf7f702d6b8c9496ac535da70c
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93396573"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107866294"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con terminación TLS mediante Azure PowerShell
 
@@ -35,7 +35,7 @@ En este artículo se requiere la versión 1.0.0 del módulo de Azure PowerShell,
 
 ## <a name="create-a-self-signed-certificate"></a>Creación de un certificado autofirmado
 
-Para su uso en producción, debe importar un certificado válido firmado por un proveedor de confianza. Para este artículo, creará un certificado autofirmado mediante [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Puede usar [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) con la huella digital que se devolvió al exportar un archivo pfx del certificado.
+Para su uso en producción, debe importar un certificado válido firmado por un proveedor de confianza. Para este artículo, creará un certificado autofirmado mediante [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate). Puede usar [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) con la huella digital que se devolvió al exportar un archivo pfx del certificado.
 
 ```powershell
 New-SelfSignedCertificate `

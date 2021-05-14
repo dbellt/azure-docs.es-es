@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/30/2021
 ms.author: banders
-ms.openlocfilehash: d7b5f1ae6db633bd1af10b1a0de1392c2a1fbcef
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: aad194babdf539584f3e349e8050105ed801bbf0
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685548"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331743"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Reactivación de una suscripción deshabilitada de Azure
 
@@ -23,7 +23,7 @@ Es posible que la suscripción de Azure se deshabilite porque expiró su crédit
 
 ## <a name="your-credit-is-expired"></a>El crédito caducó
 
-Al registrarse para obtener una cuenta gratuita de Azure, obtiene una suscripción de evaluación gratuita, que le proporciona 200 dólares en créditos de Azure para 30 días y 12 meses de servicios gratuitos. Al terminar los 30 días, Azure deshabilita la suscripción. La suscripción se deshabilita para protegerle de cargos accidentales por el uso que supere los servicios con crédito y gratuitos que se incluyen con esta. Para seguir usando los servicios de Azure, debe [actualizar la suscripción](upgrade-azure-subscription.md). Después de actualizar, la suscripción tendrá acceso a servicios gratuitos durante 12 meses. Solo se le cobrará el uso que supere los límites de cantidad del servicio gratuito.
+Al registrarse para obtener una cuenta gratuita de Azure, obtiene una suscripción de evaluación gratuita, que le proporciona 200 USD en crédito de Azure en la moneda de facturación durante 30 días y 12 meses de servicios gratuitos. Al terminar los 30 días, Azure deshabilita la suscripción. La suscripción se deshabilita para protegerle de cargos accidentales por el uso que supere los servicios con crédito y gratuitos que se incluyen con esta. Para seguir usando los servicios de Azure, debe [actualizar la suscripción](upgrade-azure-subscription.md). Después de actualizar, la suscripción tendrá acceso a servicios gratuitos durante 12 meses. Solo se le cobrará el uso que supere los límites de cantidad del servicio gratuito.
 
 ## <a name="you-reached-your-spending-limit"></a>Alcanzó el límite de gasto
 

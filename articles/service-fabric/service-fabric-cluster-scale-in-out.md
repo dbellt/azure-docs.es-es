@@ -3,19 +3,19 @@ title: Escalado o reducción horizontal de un clúster de Service Fabric
 description: Escale o reduzca horizontalmente un clúster de Service Fabric para satisfacer la demanda y configure para ello reglas de escalado automático en cada tipo de nodo y conjunto de escalado de máquinas virtuales. Incorporación o eliminación de nodos de un clúster de Service Fabric
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: 6ee04c73b75d6b335e450ff816c51f0a3089b918
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7f11aa5fee2b339ea8466dac93e8629419847f0
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94409967"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108018554"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Escalar o reducir un clúster horizontalmente
 
 > [!WARNING]
 > Lea esta sección antes de escalar
 
-Escalar los recursos de proceso para obtener la carga de trabajo de la aplicación requiere una planificación intencional; esta planificación necesitará casi siempre más de una hora para completarse en un entorno de producción, y requiere que comprenda su carga de trabajo y contexto comercial. Es más, si nunca antes ha realizado esta actividad, le recomendamos que empiece leyendo las [consideraciones de planificación de la capacidad del clúster de Service Fabric](service-fabric-cluster-capacity.md), antes de continuar con el resto de este documento. Esta recomendación es para evitar problemas imprevistos de LiveSite; también se recomienda que pruebe las operaciones que decida realizar en un entorno que no sea de producción. Puede notificar [problemas en el entorno de producción o bien solicite soporte técnico de pago para Azure](service-fabric-support.md#report-production-issues-or-request-paid-support-for-azure) en cualquier momento. En cuanto a los ingenieros asignados para realizar estas operaciones que poseen el contexto apropiado, en este artículo se describen las operaciones de escalado, pero debe decidir qué operaciones son apropiadas para su caso de uso; por ejemplo, debe saber qué recursos escalar (CPU, almacenamiento, memoria), qué dirección de escalar (vertical u horizontal) y qué operaciones realizar (implementación de plantillas de recursos, Portal, PowerShell/CLI).
+Escalar los recursos de proceso para obtener la carga de trabajo de la aplicación requiere una planificación intencional; esta planificación necesitará casi siempre más de una hora para completarse en un entorno de producción, y requiere que comprenda su carga de trabajo y contexto comercial. Es más, si nunca antes ha realizado esta actividad, le recomendamos que empiece leyendo las [consideraciones de planificación de la capacidad del clúster de Service Fabric](service-fabric-cluster-capacity.md), antes de continuar con el resto de este documento. Esta recomendación es para evitar problemas imprevistos de LiveSite; también se recomienda que pruebe las operaciones que decida realizar en un entorno que no sea de producción. Puede notificar [problemas en el entorno de producción o bien solicite soporte técnico de pago para Azure](service-fabric-support.md#create-an-azure-support-request) en cualquier momento. En cuanto a los ingenieros asignados para realizar estas operaciones que poseen el contexto apropiado, en este artículo se describen las operaciones de escalado, pero debe decidir qué operaciones son apropiadas para su caso de uso; por ejemplo, debe saber qué recursos escalar (CPU, almacenamiento, memoria), qué dirección de escalar (vertical u horizontal) y qué operaciones realizar (implementación de plantillas de recursos, Portal, PowerShell/CLI).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

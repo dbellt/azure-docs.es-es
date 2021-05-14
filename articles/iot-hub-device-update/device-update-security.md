@@ -3,15 +3,15 @@ title: Seguridad de Device Update para Azure IoT Hub | Microsoft Docs
 description: Comprenda cómo garantiza Device Update para IoT Hub que los dispositivos se actualizan de forma segura.
 author: lichris
 ms.author: lichris
-ms.date: 2/11/2021
+ms.date: 4/15/2021
 ms.topic: conceptual
 ms.service: iot-hub
-ms.openlocfilehash: 86b2dbe6a28d1440f93788eb40e133d9b62d3f0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b10049e03e26cfe8da2bd57cc9f69dd933af706b
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102489436"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567305"
 ---
 # <a name="device-update-security-model"></a>Modelo de seguridad de Device Update
 
@@ -23,9 +23,11 @@ Cada paso del flujo de trabajo de Device Update se protege mediante varias carac
 
 A medida que los operadores de soluciones importan actualizaciones en su instancia de Device Update, el servicio carga y comprueba los archivos binarios de la actualización para asegurarse de que un usuario malintencionado no los haya modificado ni intercambiado. Una vez comprobados, el servicio Device Update genera un [manifiesto de actualización](./update-manifest.md) interno con los códigos hash de archivo del manifiesto de importación y otros metadatos. A continuación, el servicio Device Update firma este manifiesto de actualización.
 
+Una vez ingeridos en el servicio y almacenados en Azure, el servicio de almacenamiento de Azure cifra automáticamente los archivos binarios de actualización y los metadatos del cliente asociados en reposo. El servicio Device Update no proporciona automáticamente cifrado adicional, pero permite a los desarrolladores cifrar el contenido por sí mismos antes de que el contenido llegue al servicio Device Update.
+
 Cuando el operador de soluciones solicita actualizar un dispositivo, se envía un mensaje firmado al dispositivo mediante el canal protegido de IoT Hub. Device Update Agent valida la firma de la solicitud como auténtica. 
 
-Cualquier descarga binaria resultante se protege mediante la validación de la firma del manifiesto de actualización. El manifiesto de actualización contiene los códigos hash de los archivos binarios, por lo que una vez que el manifiesto sea de confianza, Device Update Agent confía en los códigos hash y los compara con los archivos binarios. Una vez que el archivo binario de actualización se ha descargado y comprobado, se entrega al instalador del dispositivo.
+Cualquier descarga binaria resultante se protege mediante la validación de la firma del manifiesto de actualización. El manifiesto de actualización contiene los códigos hash de los archivos binarios, por lo que una vez que el manifiesto sea de confianza, Device Update Agent confía en los códigos hash y los compara con los archivos binarios. Una vez que el archivo binario de actualización se ha descargado y comprobado, se entrega de forma segura al instalador del dispositivo.
 
 ## <a name="for-device-builders"></a>Para fabricantes de dispositivos
 

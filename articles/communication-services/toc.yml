@@ -26,8 +26,10 @@
           href: quickstarts/chat/meeting-interop.md
     - name: Telefonía y SMS
       items:
-        - name: Administración de números de teléfono
+        - name: Obtención de un número de teléfono
           href: quickstarts/telephony-sms/get-phone-number.md
+        - name: Portabilidad de un número de teléfono a Azure
+          href: quickstarts/telephony-sms/port-phone-number.md
         - name: Adición de llamadas telefónicas a una aplicación
           href: quickstarts/voice-video-calling/pstn-call.md
         - name: Enviar un mensaje SMS
@@ -40,9 +42,9 @@
       items:
         - name: Adición de llamadas de voz a una aplicación
           href: quickstarts/voice-video-calling/getting-started-with-calling.md
-        - name: Adición de llamadas de vídeo a su aplicación (JavaScript)
+        - name: Incorporación de las videollamadas a la aplicación
           href: quickstarts/voice-video-calling/get-started-with-video-calling.md
-        - name: Uso de la biblioteca cliente de llamadas
+        - name: Uso de Calling SDK
           href: quickstarts/voice-video-calling/calling-client-samples.md
         - name: Incorporación de una aplicación de llamadas a una reunión de Teams
           href: quickstarts/voice-video-calling/get-started-teams-interop.md
@@ -63,18 +65,20 @@
       href: tutorials/hmac-header-tutorial.md
     - name: Preparación de una aplicación web para Azure Communication Services (Node.js)
       href: tutorials/building-app-start.md
+    - name: Firma y realización de solicitudes a la API de SMS de ACS con Postman
+      href: tutorials/postman-tutorial.md
 - name: Conceptos
   expanded: false
   items:
     - name: Chat
       items:
-        - name: Introducción a la biblioteca cliente de chat
+        - name: Introducción al SDK de chat
           href: concepts/chat/sdk-features.md
         - name: Conceptos de chat
           href: concepts/chat/concepts.md
     - name: Telefonía y SMS
       items:
-        - name: Información general de la biblioteca cliente de SMS
+        - name: Introducción al SDK de SMS
           href: concepts/telephony-sms/sdk-features.md
         - name: Conceptos de SMS
           href: concepts/telephony-sms/concepts.md
@@ -82,14 +86,22 @@
           href: concepts/telephony-sms/telephony-concept.md
         - name: Tipos de número de teléfono
           href: concepts/telephony-sms/plan-solution.md
-        - name: Requisitos de infraestructura de la interfaz SIP
+        - name: Requisitos de infraestructura del enrutamiento directo de Azure
           href: concepts/telephony-sms/sip-interface-infrastructure.md
+        - name: Preguntas más frecuentes sobre SMS
+          href: concepts/telephony-sms/sms-faq.md
+        - name: Directiva de mensajería
+          href: concepts/telephony-sms/messaging-policy.md
     - name: Llamadas de voz y vídeo
       items:
-        - name: Información general de la biblioteca cliente de llamadas
+        - name: Problemas conocidos
+          href: concepts/known-issues.md
+        - name: Información general de Calling SDK
           href: concepts/voice-video-calling/calling-sdk-features.md
         - name: Conceptos de voz y vídeo
           href: concepts/voice-video-calling/about-call-types.md
+        - name: Requisitos de red
+          href: concepts/voice-video-calling/network-requirements.md
         - name: Flujos de llamadas
           href: concepts/call-flows.md
         - name: Topologías de flujos de llamadas
@@ -100,16 +112,6 @@
           href: concepts/ui-framework/ui-sdk-overview.md
         - name: Funcionalidades del marco de la interfaz de usuario
           href: concepts/ui-framework/ui-sdk-features.md
-    - name: Datos y operaciones
-      items:
-        - name: Eventos de servicio (EventGrid)
-          href: concepts/event-handling.md
-        - name: Registro y diagnósticos
-          href: concepts/logging-and-diagnostics.md
-        - name: Métricas
-          href: concepts/metrics.md
-        - name: Solución de problemas
-          href: concepts/troubleshooting-info.md
     - name: SDK y API REST
       href: concepts/sdk-options.md
     - name: Arquitectura de cliente y servidor
@@ -126,10 +128,19 @@
       href: concepts/notifications.md
     - name: Interoperabilidad de Teams
       href: concepts/teams-interop.md
-    - name: Problemas conocidos
-      href: concepts/known-issues.md
+    - name: Eventos de servicio (EventGrid)
+      href: ../event-grid/event-schema-communication-services.md
+      maintainContext: true
+    - name: Registro y diagnósticos
+      href: concepts/logging-and-diagnostics.md
+    - name: Métricas
+      href: concepts/metrics.md
+    - name: Solución de problemas
+      href: concepts/troubleshooting-info.md
 - name: Ejemplos
   items:
+    - name: Información general
+      href: samples/overview.md
     - name: Ejemplo de elementos principales de una llamada grupal
       href: samples/calling-hero-sample.md
     - name: Ejemplo de elementos principales de un chat grupal
@@ -140,14 +151,16 @@
   items:
     - name: Introducción a la documentación de referencia
       href: concepts/reference.md
+    - name: Azure CLI
+      href: /cli/azure/communication
     - name: Documentación de la API REST
       href: /rest/api/communication/
     - name: Bibliotecas de llamadas
       items:
         - name: Llamada (JavaScript)
-          href: /javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js
+          href: /javascript/api/azure-communication-services/@azure/communication-calling/
         - name: Llamada (Android-Java)
-          href: /java/api/com.azure.communication.calling?view=communication-services-java-android
+          href: /java/api/com.azure.android.communication.calling?view=communication-services-java-android
         - name: Llamada (iOS)
           href: /objectivec/communication-services/calling/
     - name: Bibliotecas de chat

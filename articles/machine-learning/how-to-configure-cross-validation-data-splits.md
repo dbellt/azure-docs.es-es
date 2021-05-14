@@ -5,18 +5,18 @@ description: Obtenga información sobre cómo configurar la validación cruzada 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, automl
+ms.topic: how-to
+ms.custom: automl
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 02/23/2021
-ms.openlocfilehash: 31d3dc2c2d8194541ba1fe7d0865e6c939d75f73
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00c3cd6f6a4e5878a3a426aa5622cc53487f2bdd
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102501589"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108131411"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configuración de las divisiones de datos y la validación cruzada en aprendizaje automático automatizado
 
@@ -47,7 +47,7 @@ Para realizar este artículo, necesitará lo siguiente
 
 ## <a name="default-data-splits-and-cross-validation-in-machine-learning"></a>Divisiones de datos y validación cruzada predeterminadas en el aprendizaje automático
 
-Use el objeto [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) para definir la configuración del experimento y el entrenamiento. En el siguiente fragmento de código, observe que solo se han definido los parámetros necesarios; es decir, los parámetros de `n_cross_validation` o `validation_ data` **no** están incluidos.
+Use el objeto [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) para definir la configuración del experimento y el entrenamiento. En el siguiente fragmento de código, observe que solo se han definido los parámetros necesarios; es decir, los parámetros de `n_cross_validations` o `validation_data` **no** están incluidos.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
@@ -62,7 +62,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
                             )
 ```
 
-Si no especifica explícitamente un parámetro `validation_data` o `n_cross_validation`, el aprendizaje automático automatizado aplicará las técnicas predeterminadas en función del número de filas proporcionadas en el conjunto de datos `training_data` único:
+Si no especifica explícitamente un parámetro `validation_data` o `n_cross_validations`, el aprendizaje automático automatizado aplicará las técnicas predeterminadas en función del número de filas proporcionadas en el conjunto de datos `training_data` único:
 
 |Tamaño&nbsp;de datos de&nbsp;entrenamiento| Técnica de validación |
 |---|-----|

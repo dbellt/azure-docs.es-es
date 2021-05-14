@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 2d94640e1c6a037893fb1ad9198b82195c46dd24
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: da099aa75168e52d0024f4a4381c77b3e9ce67ab
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107768132"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876659"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Inicio rápido: Creación de un miembro de cadena de bloques de Azure Blockchain Service mediante la CLI de Azure
 
@@ -46,7 +46,7 @@ Si prefiere instalar y usar la CLI de forma local, en este inicio rápido se req
 
     Para trabajar con referencias de extensión de la CLI de Azure, primero debe instalar la extensión.  Las extensiones de la CLI de Azure le proporcionan acceso a comandos experimentales y en versión preliminar que todavía no se han enviado como parte de la CLI principal.  Para más información acerca de las extensiones, incluida la actualización y la desinstalación, consulte [Uso de extensiones con la CLI de Azure](/cli/azure/azure-cli-extensions-overview).
 
-    Ejecute el siguiente comando para instalar la [extensión para Azure Blockchain Service](/cli/azure/ext/blockchain/blockchain):
+    Ejecute el siguiente comando para instalar la [extensión para Azure Blockchain Service](/cli/azure/blockchain):
 
     ```azurecli-interactive
     az extension add --name blockchain

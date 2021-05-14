@@ -5,12 +5,13 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: fcd593beed6faa9ef142c62e2fbdb251b66c009f
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 788f15cd1edad228e695e6e87f5b630b8e4fdf55
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169426"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834451"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Administración de certificados en Azure Automation
 

@@ -3,16 +3,16 @@ title: Introducción a las plantillas
 description: Aprenda a usar una plantilla predefinida para empezar a trabajar rápidamente con Azure Data Factory.
 ms.service: data-factory
 ms.topic: conceptual
-ms.author: weetok
-author: dcstwh
+ms.author: susabat
+author: ssabat
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
-ms.openlocfilehash: 511c8851a39d283bd69215216f5ec4a4e77653d1
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: a95ef6e04f7a49f33f2bb0551110d7aa0f9bd581
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219814"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905619"
 ---
 # <a name="templates"></a>Plantillas
 

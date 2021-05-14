@@ -11,7 +11,7 @@
 - name: Guías de inicio rápido
   items:
     - name: Crear una máquina virtual en el portal
-      href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+      href: ../virtual-machines/windows/quick-create-portal.md?context=/azure/azure-portal/context/context
     - name: Creación de un panel
       items:
         - name: Azure CLI
@@ -21,13 +21,6 @@
         - name: Plantilla ARM
           displayName: Resource Manager
           href: quick-create-template.md
-- name: Conceptos
-  items:
-    - name: Uso compartido de paneles con el control de acceso basado en roles de Azure
-      href: azure-portal-dashboard-share-access.md
-    - name: Creación mediante programación de paneles de Azure
-      href: azure-portal-dashboards-create-programmatically.md
-      displayName: 'Azure CLI, az portal dashboard, az portal'
 - name: Guías paso a paso
   items:
     - name: Administración de las preferencias y la configuración de Azure Portal
@@ -38,10 +31,15 @@
       href: manage-filter-resource-views.md
     - name: Creación de paneles de Azure
       items:
-        - name: Creación y uso compartido de paneles de Azure
+        - name: Creación de un panel de Azure
           href: azure-portal-dashboards.md
+        - name: Uso compartido de un panel de Azure
+          href: azure-portal-dashboard-share-access.md
         - name: Uso de un icono de Markdown personalizado
           href: azure-portal-markdown-tile.md
+        - name: Creación mediante programación de un panel de Azure
+          href: azure-portal-dashboards-create-programmatically.md
+          displayName: 'Azure CLI, az portal dashboard, az portal'
     - name: Serie de vídeos sobre "procedimientos" de Azure Portal
       href: azure-portal-video-series.md
     - name: Creación y administración de solicitudes de soporte técnico
@@ -81,13 +79,13 @@
     - name: Estructura de los paneles de Azure
       href: azure-portal-dashboards-structure.md
     - name: Azure CLI
-      href: /cli/azure/ext/portal/portal
+      href: /cli/azure/portal
     - name: Elementos integrados de Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
 - name: Recursos
   items:
-    - name: Azure Roadmap
+    - name: Actualizaciones de Azure
       href: 'https://azure.microsoft.com/updates/'
     - name: Desarrollo de aptitudes con Microsoft Learn
       href: /learn/browse/?products=azure-portal

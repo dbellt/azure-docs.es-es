@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 08/25/2020
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 5f5db3fd88f04e7fe569cd675936445dcf730288
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0f8a71aa4545316313f4ef2d9f349646ca8769d7
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97705343"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278441"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Implementación de plantillas de Azure Resource Manager para Azure Logic Apps
 
@@ -31,7 +31,7 @@ Después de crear una plantilla de Azure Resource Manager para la aplicación l�
 
 Para implementar automáticamente una plantilla de aplicación lógica en Azure, puede elegir el siguiente botón **Implementar en Azure**, que inicia sesión en Azure Portal y le pide información sobre la aplicación lógica. A continuación, haga los cambios necesarios en la plantilla o los parámetros de la aplicación lógica.
 
-[![Implementación en Azure](./media/logic-apps-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+[![Implementación en Azure](./media/logic-apps-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.logic%2Flogic-app-create%2Fazuredeploy.json)
 
 Por ejemplo, se le pedirá la siguiente información después de iniciar sesión en Azure Portal:
 
@@ -60,7 +60,7 @@ Para implementar una plantilla de aplicación lógica desde un proyecto de grupo
 Para implementar en un determinado *grupo de recursos de Azure*, use el siguiente comando:
 
 ```powershell
-New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
+New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json
 ```
 
 Para más información, consulte los temas siguientes:
@@ -75,7 +75,7 @@ Para más información, consulte los temas siguientes:
 Para implementar en un determinado *grupo de recursos de Azure*, use el siguiente comando:
 
 ```azurecli
-az deployment group create -g <Azure-resource-group-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
+az deployment group create -g <Azure-resource-group-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json
 ```
 
 Para más información, consulte los temas siguientes:

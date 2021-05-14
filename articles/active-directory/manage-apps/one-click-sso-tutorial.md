@@ -4,7 +4,6 @@ description: Pasos para la configuración del inicio de sesión único mediante 
 services: active-directory
 author: iantheninja
 manager: CelesteDG
-ms.reviewer: kenwith
 ms.assetid: e0416991-4b5d-4b18-89bb-91b6070ed3ba
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -13,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: iangithinji
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e14944bc92b0d728a917402a1bd2f01b8b9012e4
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 8441c422da51c7af37fcb0c33e15821b8d28d28e
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375651"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290402"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Configuración del inicio de sesión único mediante un solo clic de una aplicación
 

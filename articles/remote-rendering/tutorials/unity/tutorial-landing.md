@@ -5,16 +5,19 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: e9bcabc05f0a967c788c5811dce0d99dc5cf38c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b01e53161bce448400d2bf641fee76987b7b841e
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207690"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108316792"
 ---
 # <a name="azure-remote-rendering-tutorials"></a>Tutoriales de Azure Remote Rendering
 
 Le damos la bienvenida a los tutoriales de Azure Remote Rendering. Además de aprender los conceptos clave de Azure Remote Rendering, estas lecciones interactivas le guiarán por la visualización, la manipulación y la personalización de modelos representados de forma remota, y se destacarán los aspectos que se deben tener en cuenta para crear una aplicación segura y preparada para el comercio.
+
+> [!TIP]
+> Estas unidades son detalladas y en ellas se crea una aplicación de ejemplo en varios pasos. Si prefiere ver un ejemplo más compacto que se puede implementar en HoloLens 2 rápidamente, consulte nuestro [inicio rápido de Unity](../../quickstarts/render-model.md).
 
 ### <a name="azure-remote-rendering-tutorials"></a>Tutoriales de Azure Remote Rendering
 

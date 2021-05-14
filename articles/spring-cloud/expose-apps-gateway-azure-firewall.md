@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6c22d1bae4f1d116aa52846880498c7c2a425174
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7def685cb9e17ff253ade10714ece2259b432db1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877682"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129016"
 ---
 # <a name="expose-applications-to-the-internet-using-application-gateway-and-azure-firewall"></a>Exposición de las aplicaciones a Internet mediante Application Gateway y Azure Firewall
 
@@ -24,7 +24,7 @@ En este documento se explica cómo exponer las aplicaciones a Internet mediante 
 
 ## <a name="define-variables"></a>Definición de variables
 
-Defina las variables para el grupo de recursos y la red virtual que creó como se indicó en [Implementación de Azure Spring Cloud en una red virtual de Azure (inserción de red virtual)](spring-cloud-tutorial-deploy-in-azure-virtual-network.md). Personalice los valores en función de su entorno real.
+Defina las variables para el grupo de recursos y la red virtual que creó como se indicó en [Implementación de Azure Spring Cloud en una red virtual de Azure (inserción de red virtual)](./how-to-deploy-in-azure-virtual-network.md). Personalice los valores en función de su entorno real.
 
 ```
 SUBSCRIPTION='subscription-id'
@@ -139,5 +139,5 @@ Copie la dirección IP pública y péguela en la barra de direcciones del explor
 
 ## <a name="see-also"></a>Consulte también
 
-- [Solución de problemas de Azure Spring Cloud en una red virtual](spring-cloud-troubleshooting-vnet.md)
-- [Responsabilidades del cliente para ejecutar Azure Spring Cloud en una red virtual](spring-cloud-vnet-customer-responsibilities.md)
+- [Solución de problemas de Azure Spring Cloud en una red virtual](./troubleshooting-vnet.md)
+- [Responsabilidades del cliente para ejecutar Azure Spring Cloud en una red virtual](./vnet-customer-responsibilities.md)

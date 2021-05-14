@@ -5,17 +5,17 @@ description: Las opciones de protección de datos que están disponibles para lo
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/22/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: prishet
 ms.subservice: common
-ms.openlocfilehash: afd98e629500bc90cc9ddd1ed4ab2472f733e845
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 90c83397089b77d30694041a37debc0731ea2a38
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104803137"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304263"
 ---
 # <a name="data-protection-overview"></a>Información general sobre la protección de datos
 
@@ -30,7 +30,7 @@ Si está buscando cobertura básica de protección de datos para su cuenta de al
 - Configure un bloqueo de Azure Resource Manager en la cuenta de almacenamiento para protegerla de la eliminación o de los cambios de configuración. [Más información...](../common/lock-account-resource.md)
 - Habilite la eliminación temporal de contenedores para la cuenta de almacenamiento con el fin de recuperar un contenedor eliminado y su contenido. [Más información...](soft-delete-container-enable.md)
 - Guarde el estado de un blob a intervalos regulares:
-  - En el caso de las cargas de trabajo de Blob Storage, habilite el control de versiones de blobs para guardar automáticamente el estado de los datos cada vez que se elimine o se sobrescriba un blob. [Más información...](versioning-enable.md)
+  - En el caso de las cargas de trabajo de Blob Storage, habilite el control de versiones de blobs para guardar automáticamente el estado de los datos cada vez que se sobrescriba un blob. [Más información...](versioning-enable.md)
   - En el caso de las cargas de trabajo de Azure Data Lake Storage, realice instantáneas manuales para guardar el estado de los datos en un momento determinado. [Más información...](snapshots-overview.md)
 
 Estas opciones de protección de datos se describen con más detalle en la sección siguiente, junto con otras para otros escenarios.
@@ -46,7 +46,7 @@ En la tabla siguiente se resumen las opciones disponibles en Azure Storage para 
 | Evitar que se elimine o modifique una cuenta de almacenamiento. | Bloqueo de Azure Resource Manager<br />[Más información...](../common/lock-account-resource.md) | Bloquee todas las cuentas de almacenamiento con un bloqueo de Azure Resource Manager a fin de impedir su eliminación. | Protege la cuenta de almacenamiento contra la eliminación o los cambios de configuración.<br /><br />No protege los contenedores o blobs de la cuenta contra la eliminación o sobrescritura. | Sí |
 | Impedir que un contenedor y sus blobs se eliminen o modifiquen durante un intervalo determinado por el usuario. | Directiva de inmutabilidad de un contenedor<br />[Más información...](storage-blob-immutable-storage.md) | Establezca una directiva de inmutabilidad en un contenedor para proteger documentos críticos para la empresa; por ejemplo, con el fin de cumplir los requisitos de cumplimiento normativo o legal. | Protege un contenedor y sus blobs de cualquier eliminación y sobrescritura.<br /><br />Cuando está vigente una suspensión legal o una directiva de retención de duración limitada bloqueada, la cuenta de almacenamiento también está protegida contra la eliminación. Los contenedores para los que no se ha establecido ninguna directiva de inmutabilidad no están protegidos contra la eliminación. | Sí, en versión preliminar |
 | Restaurar un contenedor eliminado en un intervalo específico. | Eliminación temporal de contenedores (versión preliminar)<br />[Más información...](soft-delete-container-overview.md) | Habilite la eliminación temporal de contenedores para todas las cuentas de almacenamiento, con un intervalo de retención mínimo de siete días.<br /><br />Habilite el control de versiones de blobs y la eliminación temporal de blobs junto con la eliminación temporal de contenedores para proteger blobs concretos de un contenedor.<br /><br />Almacene contenedores que requieran diferentes períodos de retención en cuentas de almacenamiento independientes. | Se puede restaurar un contenedor eliminado y su contenido dentro del período de retención.<br /><br />Solo se pueden restaurar las operaciones de nivel de contenedor (por ejemplo, [Eliminar contenedor](/rest/api/storageservices/delete-container)). La eliminación temporal de contenedores no permite restaurar un blob individual en el contenedor si dicho blob se eliminó. | Sí, en versión preliminar |
-| Guardar automáticamente el estado de un blob en una versión anterior cuando se sobrescribe o elimina. | Control de versiones de blobs<br />[Más información...](versioning-overview.md) | Habilite el control de versiones de blobs, junto con la eliminación temporal de contenedores y la eliminación temporal de blobs, para las cuentas de almacenamiento en las que necesita protección óptima para los datos de blobs.<br /><br />Almacene datos de blobs que no requieran el control de versiones en una cuenta independiente para limitar los costos. | Cada operación de sobrescritura o eliminación de blobs crea una nueva versión. Un blob se puede restaurar a partir de una versión anterior si se eliminó o sobrescribió. | No |
+| Guardar automáticamente el estado de un blob en una versión anterior cuando se sobrescribe. | Control de versiones de blobs<br />[Más información...](versioning-overview.md) | Habilite el control de versiones de blobs, junto con la eliminación temporal de contenedores y la eliminación temporal de blobs, para las cuentas de almacenamiento en las que necesita protección óptima para los datos de blobs.<br /><br />Almacene datos de blobs que no requieran el control de versiones en una cuenta independiente para limitar los costos. | Cada operación de escritura de blobs crea una versión. La versión actual de un blob se puede restaurar a partir de una versión anterior si se elimina o sobrescribe la versión actual. | No |
 | Restaurar una versión de blob o un blob eliminado en un intervalo especificado. | Eliminación temporal de blobs<br />[Más información...](soft-delete-blob-overview.md) | Habilite la eliminación temporal de blobs para todas las cuentas de almacenamiento, con un intervalo de retención mínimo de siete días.<br /><br />Habilite el control de versiones de blobs y la eliminación temporal de contenedores junto con la eliminación temporal de blobs para una protección óptima de los datos del blob.<br /><br />Almacene blobs que requieran diferentes períodos de retención en cuentas de almacenamiento independientes. | Se puede restaurar una versión de blob o un blob eliminado en el período de retención. | No |
 | Restaurar un conjunto de blobs en bloques a un momento dado anterior. | Restauración a un momento dado<br />[Más información...](point-in-time-restore-overview.md) | Si quiere restaurar a un momento dado para revertir a un estado anterior, diseñe la aplicación a fin de que elimine los blobs en bloques individuales en lugar de eliminar los contenedores. | Un conjunto de blobs en bloques se puede revertir al estado que tenía en un punto concreto del pasado.<br /><br />Solo se revierten las operaciones realizadas en los blobs en bloques. No se revierten las operaciones realizadas en contenedores, blobs en páginas o blobs en anexos. | No |
 | Guardar manualmente el estado de un blob en un momento dado. | Instantánea de blob<br />[Más información...](snapshots-overview.md) | Se recomienda como alternativa al control de versiones de blobs cuando el control de versiones no es adecuado para su escenario debido a los costos u otras consideraciones, o cuando la cuenta de almacenamiento tiene habilitado un espacio de nombres jerárquico. | Un blob se puede restaurar a partir de una instantánea si se sobrescribe el blob. Si se elimina el blob, también se eliminan las instantáneas. | Sí, en versión preliminar |

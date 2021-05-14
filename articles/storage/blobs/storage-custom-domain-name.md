@@ -9,12 +9,12 @@ ms.date: 02/12/2021
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 45ae3d80202bfb29074461f899798d278eb0895b
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 286e230a501b8730dd3c33e33639d89aa319d047
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538359"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286985"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage
 
@@ -58,7 +58,7 @@ El nombre de host es la dirección URL del punto de conexión del almacenamiento
 
 2. En el panel de menús, en **Configuración**, seleccione **Propiedades**.  
 
-3. Copie el valor de **Punto de conexión principal de Blob service** o de **Punto de conexión del sitio web estático principal** en un archivo de texto. 
+3. Copie el valor del punto de conexión **Blob service** o del punto de conexión **Sitio web estático** en un archivo de texto. 
   
    > [!NOTE]
    > No se admite el punto de conexión de almacenamiento de Data Lake (por ejemplo, `https://mystorageaccount.dfs.core.windows.net/`).
@@ -100,14 +100,12 @@ Cree un registro CNAME que apunte al nombre de host. Un registro CNAME es un tip
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
 
-2. En el panel de menú, en **Blob service**, seleccione **Dominio personalizado**.
+2. En el panel de menús, en **Configuración**, seleccione **Redes**.
+
+3. En la página **Redes**, elija la pestaña **Dominio personalizado**.
 
    > [!NOTE]
    > Esta opción no aparece en las cuentas que tienen habilitada la característica de espacio de nombres jerárquico. Para esas cuentas, use PowerShell o la CLI de Azure para completar este paso.
-
-   ![Opción de dominio personalizado](./media/storage-custom-domain-name/custom-domain-button.png "dominio personalizado")
-
-   Se abre el panel **Dominio personalizado**.
 
 3. En el cuadro de texto **Nombre de dominio**, escriba el nombre de su dominio personalizado, incluido el subdominio  
    
@@ -194,7 +192,7 @@ El nombre de host es la dirección URL del punto de conexión del almacenamiento
 
 2. En el panel de menús, en **Configuración**, seleccione **Propiedades**.  
 
-3. Copie el valor de **Punto de conexión principal de Blob service** o de **Punto de conexión del sitio web estático principal** en un archivo de texto. 
+3. Copie el valor del punto de conexión **Blob service** o del punto de conexión **Sitio web estático** en un archivo de texto.  
 
    > [!NOTE]
    > No se admite el punto de conexión de almacenamiento de Data Lake (por ejemplo, `https://mystorageaccount.dfs.core.windows.net/`).
@@ -238,14 +236,12 @@ Al realizar un registro previo de su dominio personalizado en Azure, permite que
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
 
-2. En el panel de menú, en **Blob service**, seleccione **Dominio personalizado**.
+2. En el panel de menús, en **Configuración**, seleccione **Redes**.
+
+3. En la página **Redes**, elija la pestaña **Dominio personalizado**.
 
    > [!NOTE]
    > Esta opción no aparece en las cuentas que tienen habilitada la característica de espacio de nombres jerárquico. Para esas cuentas, use PowerShell o la CLI de Azure para completar este paso.
-
-   ![Opción de dominio personalizado](./media/storage-custom-domain-name/custom-domain-button.png "dominio personalizado")
-
-   Se abre el panel **Dominio personalizado**.
 
 3. En el cuadro de texto **Nombre de dominio**, escriba el nombre de su dominio personalizado, incluido el subdominio  
    
@@ -331,12 +327,13 @@ Para quitar una asignación de dominio personalizado, anule el registro del domi
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
 
-2. En el panel de menú, en **Blob service**, seleccione **Dominio personalizado**.  
-   Se abre el panel **Dominio personalizado**.
+2. En el panel de menús, en **Configuración**, seleccione **Redes**.
 
-3. Borre el contenido del cuadro de texto que incluye el nombre de dominio personalizado.
+3. En la página **Redes**, elija la pestaña **Dominio personalizado**.
 
-4. Seleccione el botón **Guardar**.
+4. Borre el contenido del cuadro de texto que incluye el nombre de dominio personalizado.
+
+5. Seleccione el botón **Guardar**.
 
 Una vez se haya quitado correctamente el dominio personalizado, verá una notificación del portal que indica que la cuenta de almacenamiento se actualizó correctamente.
 

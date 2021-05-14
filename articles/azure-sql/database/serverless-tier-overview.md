@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 2/22/2021
-ms.openlocfilehash: 4dd7bbe613b30df2611bfe6631950e121235204a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 4/16/2021
+ms.openlocfilehash: d5b0c8e60632be5e058900680dc376b7f0761150
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101658595"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781584"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sin servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -255,7 +255,7 @@ Puede usar el comando [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldat
 
 ### <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
 
-Puede usar el comando [az sql db update](/cli/azure/sql/db#az-sql-db-update) en la CLI de Azure con los argumentos `capacity`, `min-capacity` y `auto-pause-delay` para modificar el número máximo o mínimo de núcleos virtuales, así como la demora de la pausa automática.
+Puede usar el comando [az sql db update](/cli/azure/sql/db#az_sql_db_update) en la CLI de Azure con los argumentos `capacity`, `min-capacity` y `auto-pause-delay` para modificar el número máximo o mínimo de núcleos virtuales, así como la demora de la pausa automática.
 
 
 ## <a name="monitoring"></a>Supervisión
@@ -266,7 +266,7 @@ Los recursos de una base de datos sin servidor se encapsulan por paquete de la a
 
 #### <a name="app-package"></a>Paquete de aplicaciones
 
-El paquete de aplicaciones es el límite de administración de recursos más externo de una base de datos, independientemente de si la base de datos se encuentra en un nivel de proceso sin servidor o aprovisionado. El paquete de aplicaciones contiene la instancia de SQL y los servicios externos que en conjunto abarcan todos los recursos de usuario y del sistema que utiliza una base de datos en SQL Database. Entre los ejemplos de servicios externos se incluyen R y la búsqueda de texto completo. Generalmente, la instancia de SQL domina el uso de recursos global en el paquete de aplicaciones.
+El paquete de aplicaciones es el límite de administración de recursos más externo de una base de datos, independientemente de si la base de datos se encuentra en un nivel de proceso sin servidor o aprovisionado. El paquete de aplicaciones contiene la instancia de SQL y servicios externos (como la búsqueda de texto completo) que en conjunto abarcan todos los recursos de usuario y del sistema que utiliza una base de datos en SQL Database. Generalmente, la instancia de SQL domina el uso de recursos global en el paquete de aplicaciones.
 
 #### <a name="user-resource-pool"></a>Grupo de recursos de usuario
 

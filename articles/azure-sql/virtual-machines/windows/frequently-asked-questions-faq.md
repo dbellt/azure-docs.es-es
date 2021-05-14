@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 014bbe4421bf00f35b2d80505cea288e75f8ca94
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 02bb1f539369cf72a5d5b6503a3584069589b19e
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103224680"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727355"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Preguntas más frecuentes sobre SQL Server en VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -193,6 +193,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
    1. Desinstale SQL Server completamente, incluida la extensión IaaS de SQL (si existe).
    1. Instale la [edición de SQL Express](https://www.microsoft.com/sql-server/sql-server-downloads) gratuita.
    1. Regístrese con la extensión Agente de IaaS de SQL en [modo ligero](sql-agent-extension-manually-register-single-vm.md).
+   1. [Cambie la edición de SQL Server](change-sql-server-edition.md#change-edition-in-portal) en [Azure Portal](https://portal.azure.com) a Express para detener la facturación.  
    1. Deshabilite el servicio SQL Server Express deshabilitando el inicio del servicio (este paso es opcional). 
 
 1. **¿Puedo usar Azure Portal para administrar varias instancias en la misma máquina virtual?**

@@ -5,12 +5,12 @@ description: Conozca las prácticas recomendadas de operador de clúster para us
 services: container-service
 ms.topic: conceptual
 ms.date: 03/09/2021
-ms.openlocfilehash: 27b32d7d10b691ed806e4d7aa31a095630d2bfc9
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 971916c3fc903ff5d69db2e0f82fd884acf807b3
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103630"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831589"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para características avanzadas del programador en Azure Kubernetes Service (AKS)
 
@@ -42,13 +42,18 @@ El programador de Kubernetes utiliza valores taint y toleration para limitar las
 * Aplique un valor **taint** a un nodo para indicar que solo se pueden programar determinados pods en él.
 * A continuación, aplique un valor **toleration** a un pod, lo que le permite *tolerar* el taint de un nodo.
 
-Al implementar un pod en un clúster de AKS, Kubernetes programa solo pods en nodos donde un valor taint se alinea con un valor toleration. Por ejemplo, suponga que tiene un grupo de nodos en el clúster de AKS para nodos con compatibilidad con GPU. Define el nombre (por ejemplo, *gpu*) y, a continuación, un valor para la programación. Al establecer este valor en *NoSchedule*, se impide que el programador de Kubernetes programe pods con el valor toleration indefinido en el nodo.
+Al implementar un pod en un clúster de AKS, Kubernetes programa solo pods en nodos donde un valor taint se alinea con un valor toleration. Por ejemplo, suponga que agregó un grupo de nodos en el clúster de AKS para nodos con compatibilidad con GPU. Define el nombre (por ejemplo, *gpu*) y, a continuación, un valor para la programación. Al establecer este valor en *NoSchedule*, se impide que el programador de Kubernetes programe pods con el valor toleration indefinido en el nodo.
 
-```console
-kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name taintnp \
+    --node-taints sku=gpu:NoSchedule \
+    --no-wait
 ```
 
-Una vez aplicado un valor taint a los nodos, puede definir un valor toleration en la especificación del pod que permite la programación en los nodos. En el ejemplo siguiente se define `sku: gpu` y `effect: NoSchedule` para tolerar el valor taint aplicado al nodo en el paso anterior:
+Una vez aplicado un valor taint a los nodos del grupo de nodos, puede definir un valor toleration en la especificación del pod que permite la programación en los nodos. En el ejemplo siguiente se define `sku: gpu` y `effect: NoSchedule` para tolerar el valor taint aplicado al grupo de nodos en el paso anterior:
 
 ```yaml
 kind: Pod
@@ -115,16 +120,22 @@ Al escalar un grupo de nodos en AKS, los valores taints y tolerations no se tran
 > 
 > Controle la programación de pods en nodos mediante selectores de nodo, la afinidad de nodo y la afinidad entre nodos. Esta configuración permite que el programador de Kubernetes aísle lógicamente las cargas de trabajo, como el hardware en el nodo.
 
-Los valores taint y toleration aíslan lógicamente los recursos con un límite máximo. Si el pod no tolera el valor taint de un nodo, no se programa en el nodo. 
+Los valores taint y toleration aíslan lógicamente los recursos con un límite máximo. Si el pod no tolera el valor taint de un nodo, no se programa en el nodo.
 
-Como alternativa, puede usar selectores de nodo. Por ejemplo, etiqueta los nodos para indicar el almacenamiento SSD adjunto localmente o una gran cantidad de memoria y, luego, define en la especificación del pod un selector de nodo. Kubernetes programa los pods en un nodo coincidente. 
+Como alternativa, puede usar selectores de nodo. Por ejemplo, etiqueta los nodos para indicar el almacenamiento SSD adjunto localmente o una gran cantidad de memoria y, luego, define en la especificación del pod un selector de nodo. Kubernetes programa los pods en un nodo coincidente.
 
 A diferencia de las tolerancias, los pods sin un selector de nodo coincidente aún pueden programarse en nodos etiquetados. Este comportamiento permite que los recursos no utilizados en los nodos se consuman, pero da prioridad a los pods que definen el selector de nodo correspondiente.
 
-Veamos un ejemplo de nodos con una gran cantidad de memoria. Estos nodos pueden dar preferencia a los pods que solicitan una gran cantidad de memoria. Para asegurarse de que los recursos no estén inactivos, también permiten que se ejecuten otros pods.
+Veamos un ejemplo de nodos con una gran cantidad de memoria. Estos nodos pueden dar preferencia a los pods que solicitan una gran cantidad de memoria. Para asegurarse de que los recursos no estén inactivos, también permiten que se ejecuten otros pods. El siguiente comando de ejemplo agrega un grupo de nodos con la etiqueta *hardware=highmem* a *myAKSCluster* en *myResourceGroup*. Todos los nodos de ese grupo de nodos tendrán esta etiqueta.
 
-```console
-kubectl label node aks-nodepool1 hardware=highmem
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name labelnp \
+    --node-count 1 \
+    --labels hardware=highmem \
+    --no-wait
 ```
 
 Una especificación de pod, a continuación, agrega la propiedad `nodeSelector` para definir un selector de nodo que coincide con la etiqueta configurada en un nodo:

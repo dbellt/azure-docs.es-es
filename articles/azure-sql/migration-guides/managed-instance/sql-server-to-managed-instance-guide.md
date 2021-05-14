@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: a1dcb72c30268dd82052e29232e79a485d86f72d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e4585e801b356bd1c0e4bc1fb0f2ab9ee7ab7bf
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025312"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136344"
 ---
 # <a name="migration-guide-sql-server-to-azure-sql-managed-instance"></a>Guía de migración: de SQL Server a Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -30,7 +30,7 @@ Puede migrar las instancias de SQL Server que se ejecutan de forma local o en:
 - Compute Engine (Google Cloud Platform o GCP)  
 - SQL en la nube para SQL Server (Google Cloud Platform o GCP) 
 
-Para más información acerca de la migración, consulte [Introducción a la migración: SQL Server a SQL Database](sql-server-to-managed-instance-overview.md). Para ver otras guías de migración, consulte [Migración de bases de datos](https://docs.microsoft.com/data-migration). 
+Para más información acerca de la migración, consulte [Introducción a la migración: SQL Server a SQL Database](sql-server-to-managed-instance-overview.md). Para ver otras guías de migración, consulte [Migración de bases de datos](/data-migration). 
 
 :::image type="content" source="media/sql-server-to-managed-instance-overview/migration-process-flow-small.png" alt-text="Flujo del proceso de migración":::
 

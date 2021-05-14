@@ -4,27 +4,22 @@ description: Usar un TPM simulado en una máquina virtual con Linux para probar 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 6/30/2020
+ms.date: 04/09/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5beb3c750f99b8fe314fabbc2ff6109bfa6bc67c
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: ca16099cffc22a19c2ee35b00ae6f1bcbe2977a7
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166605"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312406"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Creación y aprovisionamiento de un dispositivo IoT Edge con un TPM en Linux
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 En este artículo se muestra cómo probar el aprovisionamiento automático en un dispositivo IoT Edge Linux mediante un Módulo de plataforma segura (TPM). Puede aprovisionar automáticamente los dispositivos Azure IoT Edge con el [Servicio de aprovisionamiento de dispositivos](../iot-dps/index.yml). Si no está familiarizado con el proceso de aprovisionamiento automático, revise la información general sobre el [aprovisionamiento](../iot-dps/about-iot-dps.md#provisioning-process) antes de continuar.
-
-:::moniker range=">=iotedge-2020-11"
-> [!NOTE]
-> Actualmente, no se admite el aprovisionamiento automático con la autenticación de TPM en IoT Edge, versión 1.2.
-:::moniker-end
 
 Las tareas son las siguientes:
 
@@ -34,7 +29,7 @@ Las tareas son las siguientes:
 1. Instale el entorno de ejecución de IoT Edge y conecte el dispositivo a IoT Hub.
 
 > [!TIP]
-> En este artículo se describe cómo probar el aprovisionamiento de DPS con un simulador de TPM, pero en gran medida se aplica tanto al hardware físico de TPM como al [TPM Infineon OPTIGA&trade;](https://devicecatalog.azure.com/devices/3f52cdee-bbc4-d74e-6c79-a2546f73df4e), un dispositivo Azure Certified for IoT.
+> En este artículo se describe cómo probar el aprovisionamiento de DPS con un simulador de TPM, pero en gran medida se aplica tanto al hardware físico de TPM como al [TPM Infineon OPTIGA&trade;](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), un dispositivo Azure Certified for IoT.
 >
 > Si usa un dispositivo físico, puede ir directamente a la sección [Recuperación de la información de aprovisionamiento de un dispositivo físico](#retrieve-provisioning-information-from-a-physical-device) de este artículo.
 
@@ -191,6 +186,9 @@ Siga los pasos descritos en [Instalación del entorno de ejecución de Azure IoT
 
 Una vez que el entorno de ejecución está instalado en el dispositivo, configure el dispositivo con la información que usa para conectarse al servicio Device Provisioning y a IoT Hub.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 1. Conozca el **Ámbito de identificador** de DPS y el **Identificador de registro** del dispositivo que se recopilaron en las secciones anteriores.
 
 1. Abra el archivo de configuración en el dispositivo IoT Edge.
@@ -216,11 +214,52 @@ Una vez que el entorno de ejecución está instalado en el dispositivo, configur
    # dynamic_reprovisioning: false
    ```
 
-   También puede usar las líneas `always_reprovision_on_startup` o `dynamic_reprovisioning` para configurar el comportamiento de reaprovisionamiento del dispositivo. Si un dispositivo se establece para que se vuelva a aprovisionar en el inicio, siempre intentará aprovisionar con DPS primero y, a continuación, revertir a la copia de seguridad de aprovisionamiento si se produce un error. Si un dispositivo se establece para que se vuelva a aprovisionar dinámicamente, IoT Edge se reiniciará y volverá a aprovisionar si se detecta un evento de reaprovisionamiento. Para más información, consulte [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](../iot-dps/concepts-device-reprovision.md).
-
 1. Actualice los valores de `scope_id` y `registration_id` con la información de DPS y del dispositivo.
 
+1. También puede usar las líneas `always_reprovision_on_startup` o `dynamic_reprovisioning` para configurar el comportamiento de reaprovisionamiento del dispositivo. Si un dispositivo se establece para que se vuelva a aprovisionar en el inicio, siempre intentará aprovisionar con DPS primero y, a continuación, revertir a la copia de seguridad de aprovisionamiento si se produce un error. Si un dispositivo se establece para que se vuelva a aprovisionar dinámicamente, IoT Edge se reiniciará y volverá a aprovisionar si se detecta un evento de reaprovisionamiento. Para más información, consulte [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](../iot-dps/concepts-device-reprovision.md).
+
+1. Guarde y cierre el archivo.
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. Conozca el **Ámbito de identificador** de DPS y el **Identificador de registro** del dispositivo que se recopilaron en las secciones anteriores.
+
+1. Abra el archivo de configuración en el dispositivo IoT Edge.
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
+   ```
+
+1. Busque la sección de configuraciones de aprovisionamiento del archivo. Quite las marcas de comentario del aprovisionamiento TPM y asegúrese de que cualquier otra línea de aprovisionamiento esté comentada.
+
+   ```toml
+   # DPS provisioning with TPM
+   [provisioning]
+   source = "dps"
+   global_endpoint = "https://global.azure-devices-provisioning.net"
+   id_scope = "<SCOPE_ID>"
+   
+   [provisioning.attestation]
+   method = "tpm"
+   registration_id = "<REGISTRATION_ID>"
+   ```
+
+1. Actualice los valores de `id_scope` y `registration_id` con la información de DPS y del dispositivo.
+
+1. Opcionalmente, busque la sección del modo de reaprovisionamiento automático del archivo. Use el parámetro `auto_reprovisioning_mode` para configurar el comportamiento de reaprovisionamiento del dispositivo en `Dynamic`, `AlwaysOnStartup` o `OnErrorOnly`. Para más información, consulte [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](../iot-dps/concepts-device-reprovision.md).
+
+1. Guarde y cierre el archivo.
+:::moniker-end
+<!-- end 1.2 -->
+
 ## <a name="give-iot-edge-access-to-the-tpm"></a>Conceder acceso a IoT Edge en el TPM
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
 Para que el entorno de ejecución de IoT Edge aprovisione automáticamente el dispositivo, necesita acceso al TPM.
 
@@ -272,9 +311,68 @@ Puede conceder acceso TPM al entorno de ejecución de Azure IoT Edge mediante la
    ```
 
    Si no ve que se hayan aplicado los permisos correctos, intente reiniciar la máquina para actualizar udev.
+:::moniker-end
+<!-- end 1.1 -->
 
-## <a name="restart-the-iot-edge-runtime"></a>Reinicio del entorno de ejecución de IoT Edge
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+El entorno de ejecución de Azure IoT Edge se basa en un servicio TPM que accede mediante agente al TPM de un dispositivo. Para que este servicio aprovisione automáticamente el dispositivo, necesita acceso al TPM.
 
+Puede conceder acceso al TPM mediante la invalidación de la configuración de systemd para que el servicio `aziottpm` tenga privilegios raíz. Si no desea elevar los privilegios de servicio, también puede usar los pasos siguientes para proporcionar manualmente el acceso TPM.
+
+1. Busque la ruta de acceso para el módulo de hardware TPM en el dispositivo y guárdela como variable local.
+
+   ```bash
+   tpm=$(sudo find /sys -name dev -print | fgrep tpm | sed 's/.\{4\}$//')
+   ```
+
+2. Cree una nueva regla que conceda al entorno de ejecución de IoT Edge acceso a tpm0.
+
+   ```bash
+   sudo touch /etc/udev/rules.d/tpmaccess.rules
+   ```
+
+3. Abra el archivo de reglas.
+
+   ```bash
+   sudo nano /etc/udev/rules.d/tpmaccess.rules
+   ```
+
+4. Copie la siguiente información de acceso en el archivo de reglas.
+
+   ```input
+   # allow aziottpm access to tpm0
+   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="aziottpm", MODE="0600"
+   ```
+
+5. Guarde y cierre el archivo.
+
+6. Desencadene el sistema udev para evaluar la nueva regla.
+
+   ```bash
+   /bin/udevadm trigger $tpm
+   ```
+
+7. Compruebe que la regla se haya aplicado correctamente.
+
+   ```bash
+   ls -l /dev/tpm0
+   ```
+
+   Una salida correcta tiene el siguiente aspecto:
+
+   ```output
+   crw-rw---- 1 root aziottpm 10, 224 Jul 20 16:27 /dev/tpm0
+   ```
+
+   Si no ve que se hayan aplicado los permisos correctos, intente reiniciar la máquina para actualizar udev.
+:::moniker-end
+<!-- end 1.2 -->
+
+## <a name="restart-iot-edge-and-verify-successful-installation"></a>Reinicie IoT Edge y compruebe que la instalación se ha realizado correctamente
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Reinicie el entorno de ejecución de IoT Edge para que aplique todos los cambios de configuración realizados en el dispositivo.
 
    ```bash
@@ -287,6 +385,12 @@ Compruebe que el entorno de ejecución de IoT Edge esté en ejecución.
    sudo systemctl status iotedge
    ```
 
+Examine los registros del daemon.
+
+```cmd/sh
+journalctl -u iotedge --no-pager --no-full
+```
+
 Si ve errores de aprovisionamiento, es posible que los cambios de configuración no hayan surtido efecto todavía. Pruebe a reiniciar de nuevo el demonio de IoT Edge.
 
    ```bash
@@ -294,22 +398,40 @@ Si ve errores de aprovisionamiento, es posible que los cambios de configuración
    ```
 
 O bien, pruebe a reiniciar la máquina virtual para ver si los cambios surten efecto con un inicio nuevo.
+:::moniker-end
+<!-- end 1.1 -->
 
-## <a name="verify-successful-installation"></a>Comprobación de instalación correcta
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Aplique los cambios de configuración realizados en el dispositivo.
 
-Si el entorno de ejecución se inició correctamente, puede entrar en su instancia de IoT Hub y ver que el nuevo dispositivo se aprovisionó automáticamente. Ahora el dispositivo está listo para ejecutar módulos de IoT Edge.
+   ```bash
+   sudo iotedge config apply
+   ```
 
-Compruebe el estado de IoT Edge Daemon.
+Compruebe que el entorno de ejecución de IoT Edge esté en ejecución.
 
-```cmd/sh
-systemctl status iotedge
-```
+   ```bash
+   sudo iotedge system status
+   ```
 
 Examine los registros del daemon.
 
-```cmd/sh
-journalctl -u iotedge --no-pager --no-full
-```
+   ```cmd/sh
+   sudo iotedge system logs
+   ```
+
+Si ve errores de aprovisionamiento, es posible que los cambios de configuración no hayan surtido efecto todavía. Pruebe a reiniciar el demonio de IoT Edge.
+
+   ```bash
+   sudo systemctl daemon-reload
+   ```
+
+O bien, pruebe a reiniciar la máquina virtual para ver si los cambios surten efecto con un inicio nuevo.
+:::moniker-end
+<!-- end 1.2 -->
+
+Si el entorno de ejecución se inició correctamente, puede entrar en su instancia de IoT Hub y ver que el nuevo dispositivo se aprovisionó automáticamente. Ahora el dispositivo está listo para ejecutar módulos de IoT Edge.
 
 Enumere los módulos en ejecución.
 

@@ -4,14 +4,14 @@ description: Aprenda a supervisar los distintos tipos de instancia de Integratio
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/11/2020
-author: dcstwh
-ms.author: weetok
-ms.openlocfilehash: 1cb4fcaa51e1a59ee9d09eb178faf9b250173709
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+author: minhe-msft
+ms.author: hemin
+ms.openlocfilehash: 17c3d67d80f03a5c504885914cf9bb4f1036e86e
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101740039"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107904431"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Supervisión de Integration Runtime en Azure Data Factory
 

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.custom: template-how-to
-ms.openlocfilehash: a3f586f853201534bbaa613e8538d55485ffe147
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: e5d431d4594a89d4bfcd3b4f09c57b5cdd61b547
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063124"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107929496"
 ---
 # <a name="update-your-azure-percept-dk-over-the-air-ota"></a>Actualización de Azure Percept DK de forma inalámbrica (OTA)
 
@@ -30,7 +30,7 @@ Siga esta guía para obtener información sobre cómo actualizar la placa base d
 > [!NOTE]
 > Si ya ha importado la actualización, puede ir directamente a **Creación de un grupo actualizado de dispositivos**.
 
-1. [Descargue el archivo de manifiesto (.json) adecuado y el archivo de actualización (.swu) para el dispositivo de Azure Percept](https://go.microsoft.com/fwlink/?linkid=2155625).
+1. [Descargue el archivo de manifiesto (.json) más reciente](https://go.microsoft.com/fwlink/?linkid=2155625) y el [archivo de actualización (.swu)](https://go.microsoft.com/fwlink/?linkid=2161538) para el dispositivo de Azure Percept.
 
 1. Vaya a la instancia de Azure IoT Hub que está utilizando para el dispositivo de Azure Percept. En el panel de menú izquierdo, seleccione **Actualizaciones de dispositivos** en **Administración de dispositivos automática**.
 

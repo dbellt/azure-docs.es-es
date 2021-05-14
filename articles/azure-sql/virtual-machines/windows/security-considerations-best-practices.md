@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7ff77a407dfa87e408170573249876bbefee0abe
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ab51a22abd5dac99a1a1bd3be5324e5d57c8e12e
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558589"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145616"
 ---
 # <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Consideraciones de seguridad para SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -109,6 +109,6 @@ Para obtener más información sobre la seguridad de las máquinas virtuales, co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si también está interesado en los procedimientos recomendados de rendimiento, consulte [Directrices de rendimiento para SQL Server en Azure Virtual Machines](performance-guidelines-best-practices.md).
+Si también está interesado en los procedimientos recomendados de rendimiento, consulte [Directrices de rendimiento para SQL Server en Azure Virtual Machines](./performance-guidelines-best-practices-checklist.md).
 
 Para ver otros temas sobre la ejecución de SQL Server en Azure Virtual Machines, consulte [Información general sobre SQL Server en Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md). Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](frequently-asked-questions-faq.md).

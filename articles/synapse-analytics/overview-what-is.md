@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 03/24/2021
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: bb09a25d7ea242dfafd7d853015ae8e127b13883
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 652f98659f96b36e3185432e50d9d36dc569bd43
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383412"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537950"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>¿Qué es Azure Synapse Analytics?
 
@@ -55,21 +55,14 @@ Azure Synapse incluye el mismo motor de integración de datos y experiencias que
 * ETL sin código con actividades de flujo de datos
 * Orquestación de cuadernos, trabajos de Spark, procedimientos almacenados, scripts de SQL, etc
 
-## <a name="unified-management-monitoring-and-security"></a>Administración, supervisión y seguridad unificadas
+## <a name="unified-experience"></a>Experiencia unificada 
 
-Azure Synapse proporciona a las empresas una única forma de administrar los recursos de análisis, supervisar el uso y la actividad, y aplicar la seguridad.
+**Synapse Studio** proporciona una manera única para que las empresas creen, mantengan y protejan sus soluciones en una sola experiencia de usuario.
 
-* Asignación de usuarios a un rol para simplificar el acceso a los recursos de Analytics
-* Control de acceso específico en los datos y el código
-* Un solo panel para supervisar los recursos, el uso y los usuarios en SQL y Spark
-
-## <a name="unified-experience"></a>Experiencia unificada
-
-**Synapse Studio** es la experiencia del usuario que relaciona todo para los ingenieros de datos. Con ella, los ingenieros de datos pueden realizar todas las tareas necesarias para crear una solución de análisis completa.
-
-* Reúne todas las tareas clave de un ingeniero de datos en un solo lugar: ingerir, explorar, preparar, orquestar y visualizar
-* Ofrece un nivel de productividad destacado al escribir código SQL o Spark: creación, depuración y optimización del rendimiento
-* Permite la integración con procesos de CI/CD empresariales
+* Realice tareas clave: ingesta, exploración, preparación, orquestación, visualización.
+* Supervise los recursos, el uso y los usuarios en SQL y Spark.
+* Use el control de acceso basado en rol para simplificar el acceso a los recursos de análisis.
+* Escriba código SQL o Spark e intégrelo con procesos de CI/CD empresariales.
 
 ## <a name="engage-with-the-synapse-community"></a>Interacción con la comunidad de Synapse
 

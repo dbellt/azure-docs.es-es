@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 77fdaf297fff0e145b1dd53908887bc14f9d3f14
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 26aefab9b4637c3f3f6b0f0d1195068e2cd770ab
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491133"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001831"
 ---
 <!-- All needs updating -->
 Como operador de la aplicación de Azure IoT Central, puede:
@@ -36,7 +36,7 @@ Para agregar una propiedad de nube para almacenar el nombre de cliente asociado 
 
 1. Seleccione **Cloud Properties** (Propiedades de la nube) en la plantilla del dispositivo **Temperature Controller** (Controlador de temperatura).
 
-1. Seleccione **Add Cloud Property** (Agregar propiedad de la nube). Escriba *Customer name* como **Display name** (Nombre para mostrar) y elija **String** en **Schema** (Esquema). Después, seleccione **Guardar**.
+1. Seleccione **Add Cloud Property** (Agregar propiedad de la nube). Especifique un valor en *Customer name* (Nombre del cliente) que será el **nombre para mostrar** y elija **Cadena** como el valor de **esquema**. Después, seleccione **Guardar**.
 
 Para personalizar cómo se muestran los comandos **Get Max-Min report** cen la aplicación de IoT Central:
 
@@ -82,7 +82,7 @@ Ahora los operadores podrán usar la vista **Properties** (Propiedades) para act
 
     :::image type="content" source="media/iot-central-monitor-thermostat/update-properties.png" alt-text="Actualización de las propiedades del dispositivo.":::
 
-* Llamar al comando desde la página **Commands** (Comandos):
+* Llame al comando desde la página **Commands** (Comandos). Si ejecuta el comando de informe de estado, seleccione una fecha y hora para el parámetro **Desde** antes de la ejecución del comando:
 
     :::image type="content" source="media/iot-central-monitor-thermostat/call-command.png" alt-text="Llamada al comando.":::
 

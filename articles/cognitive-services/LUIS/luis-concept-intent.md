@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/10/2019
-ms.openlocfilehash: bf5ab7361c84fb787366c7c361829e52362fe427
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: 8e76e3e7683d43a7a39bc0c168a29016a988c705
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95025915"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107499417"
 ---
 # <a name="intents-in-your-luis-app"></a>Intenciones en la aplicación de LUIS
 
@@ -53,7 +53,7 @@ La intención representa la acción que la aplicación debe realizar para el usu
 
 |Intención   | Entidad | Expresión de ejemplo   |
 |------------------|------------------------------|------------------------------|
-| CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | What's the weather like in `Seattle` `tomorrow`? |
+| CheckWeather | { "type": "location", "entity": "Seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | What's the weather like in `Seattle` `tomorrow`? |
 | CheckWeather | { "type": "date_range", "entity": "this weekend" } | Show me the forecast for `this weekend` (Muéstrame la previsión de este fin de semana) |
 ||||
 
@@ -74,7 +74,7 @@ Si quiere determinar intenciones positivas y negativas, como "**Quiero** un coch
 
 ## <a name="intents-and-patterns"></a>Intenciones y patrones
 
-Si tiene expresiones de ejemplo, que se pueden definir parcial o totalmente como una expresión regular, considere el uso de la [entidad de expresión regular](luis-concept-entity-types.md#regular-expression-entity) emparejada con un [patrón](luis-concept-patterns.md).
+Si tiene expresiones de ejemplo, que se pueden definir parcial o totalmente como una expresión regular, considere el uso de la [entidad de expresión regular](luis-concept-entity-types.md#regex-entity) emparejada con un [patrón](luis-concept-patterns.md).
 
 El uso de una entidad de expresión regular garantiza la extracción de datos para buscar la coincidencia con el patrón. La coincidencia de patrones garantiza que se devuelve una intención exacta.
 

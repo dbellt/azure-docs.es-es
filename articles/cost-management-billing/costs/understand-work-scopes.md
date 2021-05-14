@@ -3,18 +3,18 @@ title: Descripción y uso de ámbitos de Azure Cost Management
 description: Este artículo le ayudará a comprender los ámbitos de administración de facturación y recursos disponibles en Azure y cómo usarlos en Cost Management y las API.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/12/2020
+ms.date: 04/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 729444b1d1ccf55f34e54a4b59508131458c472b
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: f1b98cdf662f6f518e0bc1c3e869de3774c1bf7e
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054811"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204160"
 ---
 # <a name="understand-and-work-with-scopes"></a>Descripción y uso de ámbitos
 
@@ -42,7 +42,7 @@ Azure admite tres ámbitos para la administración de recursos. Cada ámbito adm
 
 - [**Grupos de administración**](../../governance/management-groups/overview.md): contenedores jerárquicos, de hasta ocho niveles, para organizar las suscripciones de Azure.
 
-    Tipo de recurso: [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
+    Tipo de recurso: [Microsoft.Management/managementGroups](/rest/api/managementgroups/)
 
 - **Suscripciones**: contenedores principales para recursos de Azure.
 
@@ -75,6 +75,19 @@ Colaborador de Cost Management es el rol con menos privilegios que se recomienda
 
 Los grupos de administración solo se admiten si contienen suscripciones de Contrato Enterprise (EA), pago por uso (PAYG) o internas de Microsoft. Los grupos de administración con otros tipos de suscripción, como Contrato de cliente de Microsoft o Azure Active Directory, no pueden ver los costos. Si tiene una combinación de suscripciones, mueva las suscripciones que no se admitan a un lugar independiente de la jerarquía del grupo de administración para habilitar Cost Management para las suscripciones admitidas. Por ejemplo, cree dos grupos de administración en el grupo de administración raíz: **Azure AD** y **My Org**. Mueva la suscripción de Azure AD grupo de administración **Azure AD** y, después, vea y administre los costos mediante el grupo de administración **My Org**.
 
+### <a name="feature-behavior-for-each-role"></a>Comportamiento de las características en cada rol
+
+En la tabla siguiente se muestra la forma en que cada rol usa las características de Cost Management. El comportamiento siguiente se puede aplicar a todos los ámbitos de Azure RBAC.
+
+| **Característica o rol** | **Propietario** | **Colaborador** | **Lector** | **Lector de Cost Management** | **Colaborador de Cost Management** |
+| --- | --- | --- | --- | --- | --- | 
+| **Análisis de costos/Previsión/API de consulta** | Solo lectura | Solo lectura | Solo lectura | Solo lectura | Solo lectura |
+| **Vistas compartidas** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Solo lectura | Solo lectura |  Crear, leer, actualizar, eliminar|
+| **Budgets** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Solo lectura | Solo lectura | Crear, leer, actualizar, eliminar |
+| **Alertas** | Leer, actualizar | Leer, actualizar | Solo lectura | Solo lectura | Leer, actualizar |
+| **Exports** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Solo lectura | Solo lectura | Crear, leer, actualizar, eliminar |
+| **Reglas de asignación de costos** | Característica no disponible para ámbitos de Azure RBAC | Característica no disponible para ámbitos de Azure RBAC | Característica no disponible para ámbitos de Azure RBAC | Característica no disponible para ámbitos de Azure RBAC | Característica no disponible para ámbitos de Azure RBAC | 
+
 ## <a name="enterprise-agreement-scopes"></a>Ámbitos del Contrato Enterprise
 
 Las cuentas de facturación del Contrato Enterprise (EA), también denominadas inscripciones, tienen los siguientes ámbitos:
@@ -94,10 +107,10 @@ Aunque los ámbitos de gobernanza están enlazados a un único directorio, los �
 
 Los ámbitos de facturación de EA admiten los siguientes roles:
 
-- **Administrador de empresa**: puede administrar la configuración y el acceso de la cuenta de facturación, puede ver todos los costos y puede administrar la configuración de estos. Por ejemplo, presupuestos y exportaciones. En la práctica, el ámbito de facturación de EA es el mismo que el del [rol de Azure del colaborador de Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Usuario de solo lectura de Enterprise**: puede ver la configuración de la cuenta de facturación, los datos y la configuración de los costos. Por ejemplo, presupuestos y exportaciones. En la práctica, el ámbito de facturación de EA es el mismo que el del [rol de Azure del lector de Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Administrador de empresa**: puede administrar la configuración y el acceso de la cuenta de facturación, puede ver todos los costos y puede administrar la configuración de estos. Por ejemplo, presupuestos y exportaciones.
+- **Usuario de solo lectura de Enterprise**: puede ver la configuración de la cuenta de facturación, los datos y la configuración de los costos. Puede administrar presupuestos y exportaciones.
 - **Administrador de departamento**: puede administrar la configuración del departamento como, por ejemplo, el centro de costo y puede acceder, ver todos los costos y administrar su configuración. Por ejemplo, presupuestos y exportaciones.  El valor **DA view charges** (El administrador del departamento ve los cargos) debe estar habilitado para que los administradores de departamentos y los usuarios de solo lectura puedan ver los costos. Si la opción **DA view charges** (El administrador del departamento ve los cargos) está deshabilitada, los usuarios del departamento no pueden ver los costos en ningún nivel, ni siquiera si son los propietarios de una cuenta o suscripción.
-- **Usuario de solo lectura del departamento**: puede ver la configuración del departamento, los datos y la configuración de los costos. Por ejemplo, presupuestos y exportaciones. Si la opción **DA view charges** (El administrador del departamento ve los cargos) está deshabilitada, los usuarios del departamento no pueden ver los costos en ningún nivel, ni siquiera si son los propietarios de una cuenta o suscripción.
+- **Usuario de solo lectura del departamento**: puede ver la configuración del departamento, los datos y la configuración de los costos. Puede administrar presupuestos y exportaciones. Si la opción **DA view charges** (El administrador del departamento ve los cargos) está deshabilitada, los usuarios del departamento no pueden ver los costos en ningún nivel, ni siquiera si son los propietarios de una cuenta o suscripción.
 - **Propietario de la cuenta**: puede administrar la configuración de la cuenta de inscripción (por ejemplo, el centro de costo), ver todos los costos y administrar la configuración de estos (por ejemplo, los presupuestos y las exportaciones) para la cuenta de inscripción. El valor **AO view charges** (El propietario de la cuenta ve los cargos) debe estar habilitado para que los propietarios de la cuentas y los usuarios de Azure RBAC puedan ver los costos.
 
 Los usuarios de cuentas de facturación de EA no tienen acceso directo a las facturas. Las facturas están disponibles desde un sistema de licencias por volumen externo.
@@ -105,6 +118,43 @@ Los usuarios de cuentas de facturación de EA no tienen acceso directo a las fac
 Las suscripciones de Azure se anidan en cuentas de inscripción. Los usuarios de facturación tienen acceso a los datos de costo de las suscripciones y grupos de recursos que están bajo sus respectivos ámbitos. No tienen acceso para ver ni administrar recursos en Azure Portal. Para que los usuarios puedan ver los costos, deben ir a **Administración de costos + facturación** en la lista de servicios de Azure Portal. Después, pueden filtrar los costos de las suscripciones y grupos de recursos específicos sobre los cuales deben informar.
 
 Los usuarios de facturación no tienen acceso a grupos de administración ya que no están explícitamente incluidos en una cuenta de facturación específica. Se debe conceder acceso a los grupos de administración de manera explícita. Los grupos de administración incluyen los costos de todas las suscripciones anidadas. Sin embargo, solo incluyen las compras basadas en uso. No incluyen compras como las reservas u ofertas de terceros en Marketplace. Para ver estos costos, use la cuenta de facturación de EA.
+
+### <a name="feature-behavior-for-each-role"></a>Comportamiento de las características en cada rol
+
+En las tablas siguientes se muestra la forma en que cada rol puede utilizar las características de Cost Management.
+
+#### <a name="enrollment-scope"></a>Ámbito de la inscripción
+
+| **Característica o rol** | **Administrador de organización** | **Solo lectura empresarial** |
+| --- | --- | --- |
+| **Análisis de costos/Previsión/API de consulta** | Solo lectura | Solo lectura |
+| **Vistas compartidas** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar |
+| **Budgets** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar |
+| **Alertas** | Leer, actualizar | Leer, actualizar |
+| **Exports** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar |
+| **Reglas de asignación de costos** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar |
+
+#### <a name="department-scope"></a>Ámbito de departamento
+
+| **Característica o rol** | **Administrador de organización** | **Solo lectura empresarial** | **Administrador de departamento (solo si el valor "Cargos de vista del administrador de departamento" está activado)** | **Solo lectura de departamento (solo si el valor "Cargos de vista del administrador de departamento" está activado)** |
+| --- | --- | --- | --- | --- |
+| **Análisis de costos/Previsión/API de consulta** | Solo lectura | Solo lectura | Solo lectura | Solo lectura |
+| **Vistas compartidas** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar |
+| **Budgets** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar |
+| **Alertas** | Leer, actualizar | Leer, actualizar | Leer, actualizar | Leer, actualizar |
+| **Exports** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar |
+| **Reglas de asignación de costos** | N/D: solo se puede aplicar al ámbito de Cuenta de facturación | N/D: solo se puede aplicar al ámbito de Cuenta de facturación | N/D: solo se puede aplicar al ámbito de Cuenta de facturación | N/D: solo se puede aplicar al ámbito de Cuenta de facturación |
+
+#### <a name="account-scope"></a>Ámbito de cuenta
+
+| **Característica o rol** | **Administrador de organización** | **Solo lectura empresarial** | **Administrador de departamento (solo si "Cargos de vista del administrador de departamento" está activado)** | **Solo lectura de departamento (solo si el valor "Cargos de vista del administrador de departamento" está activado)** | **Propietario de la cuenta (solo si el valor "Cargos de visualización de PC" está activo)** |
+| --- | --- | --- | --- | --- | --- |
+| **Análisis de costos/Previsión/API de consulta** | Solo lectura | Solo lectura | Solo lectura | Solo lectura | Solo lectura |
+| **Vistas compartidas** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar |
+| **Budgets** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar |
+| **Alertas** | Leer, actualizar | Leer, actualizar | Leer, actualizar | Leer, actualizar | Leer, actualizar |
+| **Exports** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar |
+| **Reglas de asignación de costos** | N/D: solo se puede aplicar al ámbito de Cuenta de facturación | N/D: solo se puede aplicar al ámbito de Cuenta de facturación | N/D: solo se puede aplicar al ámbito de Cuenta de facturación | N/D: solo se puede aplicar al ámbito de Cuenta de facturación | N/D: solo se puede aplicar al ámbito de Cuenta de facturación |
 
 ## <a name="individual-agreement-scopes"></a>Ámbitos de contrato individuales
 
@@ -144,13 +194,50 @@ Los ámbitos de facturación de los contratos de cliente admiten los siguientes 
 
 - **Propietario**: puede administrar la configuración de facturación y el acceso, ver todos los costos y administrar la configuración de estos. Por ejemplo, presupuestos y exportaciones. En la práctica, el ámbito de facturación de los contratos de cliente es el mismo que el del [rol de Azure del colaborador de Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
 - **Colaborador**: puede administrar la configuración de facturación excepto el acceso, ver todos los costos y administrar la configuración de estos. Por ejemplo, presupuestos y exportaciones. En la práctica, el ámbito de facturación de los contratos de cliente es el mismo que el del [rol de Azure del colaborador de Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Lector**: puede ver la configuración de facturación, los datos de costos y la configuración de estos. Por ejemplo, presupuestos y exportaciones. En la práctica, este ámbito de facturación de los contratos de cliente es el mismo que el del [rol de Azure del lector de Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
-- **Administrador de facturación**: puede ver y pagar facturas, y puede ver los datos y la configuración de los costos. Por ejemplo, presupuestos y exportaciones. En la práctica, este ámbito de facturación de los contratos de cliente es el mismo que el del [rol de Azure del lector de Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Lector**: puede ver la configuración de facturación, los datos de costos y la configuración de estos. Puede administrar presupuestos y exportaciones.
+- **Administrador de facturación**: puede ver y pagar facturas, y puede ver los datos y la configuración de los costos. Puede administrar presupuestos y exportaciones.
 - **Creador de la suscripción de Azure**: puede crear suscripciones de Azure, ver los costos y administrar la configuración de estos. Por ejemplo, presupuestos y exportaciones. En la práctica, este ámbito de facturación de los contratos de cliente es el mismo que el del rol Propietario de la cuenta de las inscripciones de EA.
 
 Las suscripciones de Azure están anidadas en las secciones de la factura, al igual que lo están en las cuentas de las inscripciones de EA. Los usuarios de facturación tienen acceso a los datos de costo de las suscripciones y grupos de recursos que están bajo sus respectivos ámbitos. Sin embargo, no tienen acceso para ver ni administrar recursos en Azure Portal. Para que los usuarios de facturación puedan ver los costos, deben ir a **Administración de costos + facturación** en la lista de servicios de Azure Portal. Después, pueden filtrar los costos de las suscripciones y grupos de recursos específicos sobre los cuales deben informar.
 
 Los usuarios de facturación no tienen acceso a los grupos de administración ya que no están explícitamente incluidos en una cuenta de facturación. Sin embargo, cuando se habilitan los grupos de administración en la organización, todos los costos de suscripción se incluyen en la cuenta de facturación y en el grupo de administración raíz, ya que ambos están limitados a un único directorio. Los grupos de administración solo incluyen compras basadas en el uso. Las compras como las reservas y las ofertas de Marketplace de terceros no están incluidas en los grupos de administración. Por lo tanto, puede que la cuenta de facturación y el grupo de administración raíz notifiquen totales diferentes. Para ver estos costos, use la cuenta de facturación o el perfil de facturación correspondiente.
+
+### <a name="feature-behavior-for-each-role"></a>Comportamiento de las características en cada rol
+
+En las tablas siguientes se muestra la forma en que cada rol puede utilizar las características de Cost Management.
+
+#### <a name="billing-account"></a>Cuenta de facturación
+
+| **Característica o rol** | **Propietario** | **Colaborador** | **Lector** |
+| --- | --- | --- | --- |
+| **Análisis de costos/Previsión/API de consulta** | Solo lectura | Solo lectura | Solo lectura |
+| **Vistas compartidas** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar |
+| **Budgets** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar |
+| **Alertas** | Leer, actualizar | Leer, actualizar | Leer, actualizar |
+| **Exports** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar |
+| **Reglas de asignación de costos** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Solo lectura |
+
+#### <a name="billing-profile"></a>Perfil de facturación
+
+| **Característica o rol** | **Propietario** | **Colaborador** | **Lector** | **Administrador de facturación** |
+| --- | --- | --- | --- | --- |
+| **Análisis de costos/Previsión/API de consulta** | Solo lectura | Solo lectura | Solo lectura | Solo lectura |
+| **Vistas compartidas** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar |
+| **Budgets** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar |
+| **Alertas** | Leer, actualizar | Leer, actualizar | Leer, actualizar | Crear, leer, actualizar, eliminar |
+| **Exports** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Leer, actualizar |
+| **Reglas de asignación de costos** | N/D: solo se puede aplicar a Cuenta de facturación | N/D: solo se puede aplicar a Cuenta de facturación | N/D: solo se puede aplicar a Cuenta de facturación | N/D: solo se puede aplicar a Cuenta de facturación |
+
+#### <a name="invoice-section"></a>Sección de factura
+
+| **Característica o rol** | **Propietario** | **Colaborador** | **Lector** | **Creador de suscripción de Azure** |
+| --- | --- | --- | --- | --- |
+| **Análisis de costos/Previsión/API de consulta** | Solo lectura | Solo lectura | Solo lectura | Solo lectura |
+| **Vistas compartidas** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar |
+| **Budgets** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar |
+| **Alertas** | Leer, actualizar | Leer, actualizar | Leer, actualizar | Leer, actualizar |
+| **Exports** | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar | Crear, leer, actualizar, eliminar |
+| **Reglas de asignación de costos** | N/D: solo se puede aplicar a Cuenta de facturación | N/D: solo se puede aplicar a Cuenta de facturación | N/D: solo se puede aplicar a Cuenta de facturación | N/D: solo se puede aplicar a Cuenta de facturación |
 
 ## <a name="aws-scopes"></a>Ámbitos de AWS
 

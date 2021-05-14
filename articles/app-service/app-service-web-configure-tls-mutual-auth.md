@@ -5,12 +5,12 @@ ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 12/11/2020
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 6ceeb3d31652c04eb9a69c1c8bb4b114e6f38d52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a5b0a576e2994bd852ee5b0a356543882601fc0
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97347739"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076246"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configuración de la autenticación mutua de TLS en Azure App Service
 
@@ -44,11 +44,11 @@ Si habilita la autenticación mutua en su aplicación, todas las rutas de acceso
 
 1. Junto a **Client exclusion paths** (Rutas de acceso de exclusión del cliente), haga clic en el icono de edición.
 
-1. Haga clic en **Nueva ruta de acceso**, especifique una ruta de acceso y haga clic en **Aceptar**.
+1. Haga clic en **Nueva ruta de acceso**, especifique una ruta de acceso o una lista de rutas de acceso separadas por `,` o `;`, y haga clic en **Aceptar**.
 
 1. Haga clic en **Guardar** en la parte superior de la página.
 
-En la siguiente captura de pantalla, todo lo que se encuentra en la ruta de acceso `/public` de la aplicación no solicita un certificado de cliente.
+En la siguiente captura de pantalla, toda ruta de acceso para la aplicación que empiece por `/public` no solicitará un certificado de cliente. La coincidencia de rutas de acceso no distingue mayúsculas y minúsculas.
 
 ![Rutas de exclusión de certificados][exclusion-paths]
 

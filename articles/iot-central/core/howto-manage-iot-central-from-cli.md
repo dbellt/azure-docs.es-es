@@ -9,12 +9,12 @@ ms.date: 03/27/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: philmea
-ms.openlocfilehash: c30781cb83436e15a217a1d43c0e39facae9f52d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 3a5d37c546e57725b15c9ad42c7b422c8c34eed5
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107770424"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685142"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Administración de IoT Central desde la CLI de Azure
 
@@ -61,7 +61,11 @@ Estos comandos crean en primer lugar un grupo de recursos en la región Este de 
 | template          | Plantilla de aplicación que se va a usar. Para más información, vea la tabla siguiente. |
 | display-name      | Nombre de la aplicación tal como se muestra en la interfaz de usuario. |
 
+### <a name="application-templates"></a>Plantillas de aplicación
+
 [!INCLUDE [iot-central-template-list](../../../includes/iot-central-template-list.md)]
+
+Si ha creado su propia plantilla de aplicación, puede usarla para crear una aplicación. Cuando se le pida una plantilla de aplicación, escriba el identificador de la aplicación que se muestra en el vínculo compartible de la dirección URL de la aplicación exportada en la sección [Exportación de plantillas de la aplicación](howto-use-app-templates.md#create-an-application-template).
 
 ## <a name="view-your-applications"></a>Visualización de sus aplicaciones
 

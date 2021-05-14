@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 43707a99792ae3c4d817f47d770629287b8a774b
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 5db990fe4bf54c5604eb58af677ec4891639eb1b
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374342"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165630"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Uso de Azure Private Link para conectar redes a Azure Monitor de forma segura
 
@@ -63,7 +63,7 @@ Eso es verdadero no solo para una red virtual específica, sino para todas las r
 > Para controlar los riesgos de filtración de datos, se recomienda agregar todos los recursos de Application Insights y Log Analytics a su AMPLS, y bloquear el tráfico de salida de las redes en la medida de lo posible.
 
 ### <a name="azure-monitor-private-link-applies-to-your-entire-network"></a>El vínculo privado de Azure Monitor se aplica a toda la red.
-Algunas redes se componen de varias redes virtuales. Si las redes virtuales usan el mismo servidor DNS, se invalidarán mutuamente las asignaciones de DNS y, posiblemente, se interrumpirá la comunicación entre estas con Azure Monitor (consulte [El problema de las invalidaciones de DNS](#the-issue-of-dns-overrides)). En última instancia, solo la última red virtual podrá comunicarse con Azure Monitor, ya que el DNS asignará los puntos de conexión de Azure Monitor a direcciones IP privadas de este intervalo de redes virtuales (puede que no sean accesibles desde otras redes virtuales).
+Algunas redes se componen de varias redes virtuales. Si las redes virtuales usan el mismo servidor DNS, se invalidarán mutuamente las asignaciones de DNS y, posiblemente, se interrumpirá la comunicación entre estas con Azure Monitor (consulte [El problema de las invalidaciones de DNS](#the-issue-of-dns-overrides)). En última instancia, solo la última red virtual puede comunicarse con Azure Monitor, ya que el DNS va a asignar los puntos de conexión de Azure Monitor a direcciones IP privadas de este intervalo de red virtual (que puede que no sean accesibles desde otras redes virtuales).
 
 ![Diagrama de invalidaciones de DNS en varias redes virtuales](./media/private-link-security/dns-overrides-multiple-vnets.png)
 
@@ -73,7 +73,7 @@ En el diagrama anterior, la red virtual 10.0.1.x se conecta primero a AMPLS1 y a
 > Para concluir: La configuración de AMPLS afecta a todas las redes que comparten las mismas zonas DNS. Para evitar invalidar las asignaciones de puntos de conexión de DNS mutuamente, es mejor configurar un único punto de conexión privado en una red emparejada (como una VNet de centro de conectividad) o separar las redes en el nivel de DNS (por ejemplo, mediante reenviadores de DNS o servidores DNS completamente independientes).
 
 ### <a name="hub-spoke-networks"></a>Redes en estrella tipo hub-and-spoke
-Las topologías de redes en estrella tipo hub-and-spoke pueden evitar el problema de invalidaciones de DNS mediante la configuración de un vínculo privado en la red virtual del centro de conectividad (principal), en lugar de configurar un vínculo privado para cada red virtual por separado. Esta configuración es especialmente útil si se comparten los recursos de Azure Monitor usados por estas redes. 
+Las topologías en estrella tipo hub-and-spoke pueden evitar el problema de las invalidaciones de DNS mediante la configuración de Private Link en la red virtual del centro de conectividad (principal) y no en cada red virtual de tipo spoke. Esta configuración es especialmente útil si se comparten los recursos de Azure Monitor usados por estas redes. 
 
 ![Punto de conexión privado único en estrella tipo hub-and-spoke](./media/private-link-security/hub-and-spoke-with-single-private-endpoint.png)
 
@@ -90,6 +90,9 @@ Como se muestra en [Restricciones y limitaciones](#restrictions-and-limitations)
 * Workspace2 se conecta a AMPLS A y AMPLS B, y utiliza 2 de las 5 posibles conexiones de AMPLS.
 
 ![Diagrama de límites de AMPLS](./media/private-link-security/ampls-limits.png)
+
+> [!NOTE]
+> Si usa soluciones de Log Analytics que requieren una cuenta de Automation, como Update Management, Change Tracking o Inventario, también debe configurar una instancia de Private Link independiente para la cuenta de Automation. Para obtener más información, vea [Uso de Azure Private Link para conectar redes a Azure Automation de forma segura](https://docs.microsoft.com/azure/automation/how-to/private-link-security).
 
 
 ## <a name="example-connection"></a>Conexión de ejemplo
@@ -165,21 +168,20 @@ Ahora ha creado un nuevo punto de conexión privado que está conectado a este A
 ## <a name="review-and-validate-your-private-link-setup"></a>Revisión y validación de la configuración de Private Link
 
 ### <a name="reviewing-your-endpoints-dns-settings"></a>Revisión de la configuración de DNS del punto de conexión
-El punto de conexión privado que creó debería tener ahora cuatro zonas DNS configuradas:
-
-[![Captura de pantalla de zonas DNS de punto de conexión privado.](./media/private-link-security/private-endpoint-dns-zones.png)](./media/private-link-security/private-endpoint-dns-zones-expanded.png#lightbox)
+El punto de conexión privado que creó debería tener ahora cinco zonas DNS configuradas:
 
 * privatelink-monitor-azure-com
 * privatelink-oms-opinsights-azure-com
 * privatelink-ods-opinsights-azure-com
 * privatelink-agentsvc-azure-automation-net
+* privatelink-blob-core-windows-net
 
 > [!NOTE]
 > Cada una de estas zonas asigna puntos de conexión de Azure Monitor específicos a direcciones IP privadas desde el grupo de direcciones IP de la red virtual. Las direcciones IP que se muestran en las imágenes siguientes son solo ejemplos. En su lugar, la configuración debería mostrar direcciones IP privadas de su propia red.
 
 #### <a name="privatelink-monitor-azure-com"></a>Privatelink-monitor-azure-com
 Esta zona cubre los puntos de conexión globales usados por Azure Monitor, lo que significa que estos puntos de conexión atienden solicitudes que tienen en cuenta todos los recursos, no uno específico. Esta zona debe tener puntos de conexión asignados para:
-* `in.ai`: punto de conexión de ingesta de Application Insights. Verá una entrada global y una regional.
+* `in.ai`: punto de conexión de ingesta de Application Insights (una entrada global y una regional)
 * `api`: punto de conexión de la API de Log Analytics y Application Insights.
 * `live`: punto de conexión de métricas en directo de Application Insights.
 * `profiler`: punto de conexión de Application Insights Profiler.
@@ -197,8 +199,15 @@ Esta zona cubre la asignación específica del área de trabajo a los puntos de 
 Esta zona cubre la asignación específica del área de trabajo a los puntos de conexión de automatización del servicio del agente. Debería ver una entrada para cada área de trabajo vinculada al AMPLS conectado a este punto de conexión privado.
 [![Captura de pantalla del agente de la zona DNS privada svc-azure-automation-net.](./media/private-link-security/dns-zone-privatelink-agentsvc-azure-automation-net.png)](./media/private-link-security/dns-zone-privatelink-agentsvc-azure-automation-net-expanded.png#lightbox)
 
+#### <a name="privatelink-blob-core-windows-net"></a>privatelink-blob-core-windows-net
+Esta zona configura la conectividad con la cuenta de almacenamiento de paquetes de soluciones de los agentes globales. A través de ella, los agentes pueden descargar paquetes de soluciones nuevos o actualizados (también conocidos como módulos de administración). Solo se necesita una entrada para controlar los agentes de Log Analytics, independientemente del número de áreas de trabajo que se utilicen.
+[![Captura de pantalla DNS privado zona de almacenamiento blob-core-windows-net.](./media/private-link-security/dns-zone-privatelink-blob-core-windows-net.png)](./media/private-link-security/dns-zone-privatelink-blob-core-windows-net-expanded.png#lightbox)
+> [!NOTE]
+> Esta entrada solo se agrega a las configuraciones Private Link creadas a partir del 19 de abril de 2021.
+
+
 ### <a name="validating-you-are-communicating-over-a-private-link"></a>Validación de comunicación a través de Private Link
-* Para validar que las solicitudes se envían ahora a través del punto de conexión privado y a los puntos de conexión asignados a la dirección IP privada, puede revisarlas con un seguimiento de red para herramientas, o incluso con el explorador. Por ejemplo, al intentar consultar el área de trabajo o la aplicación, asegúrese de que la solicitud se envía a la dirección IP privada asignada al punto de conexión de la API; en este ejemplo, es *172.17.0.9*.
+* Para validar que las solicitudes ya se envían a través del punto de conexión privado, puede revisarlas con una herramienta de seguimiento de red o, incluso, con el explorador. Por ejemplo, al intentar consultar el área de trabajo o la aplicación, asegúrese de que la solicitud se envía a la dirección IP privada asignada al punto de conexión de la API; en este ejemplo, es *172.17.0.9*.
 
     Nota: Algunos exploradores pueden usar otras opciones de configuración de DNS (consulte [Configuración de DNS del explorador](#browser-dns-settings)). Asegúrese de que se aplica la configuración de DNS.
 
@@ -217,7 +226,7 @@ Vaya a Azure Portal. En el menú de recursos del área de trabajo de Log Analyti
 Todos los ámbitos conectados al área de trabajo aparecen en esta pantalla. La conexión a ámbitos (AMPLS) permite que el tráfico de red de la red virtual conectada a cada AMPLS llegue a esta área de trabajo. La creación de una conexión como aquí tiene el mismo efecto que configurarla en el ámbito, tal como hemos hecho en [Conexión de recursos de Azure Monitor](#connect-azure-monitor-resources). Para agregar una nueva conexión, seleccione **Agregar** y seleccione el ámbito de Private Link de Azure Monitor. Seleccione **Aplicar** para conectarlo. Tenga en cuenta que un área de trabajo puede conectarse a 5 objetos de AMPLS, tal como se explica en [Restricciones y limitaciones](#restrictions-and-limitations). 
 
 ### <a name="manage-access-from-outside-of-private-links-scopes"></a>Administración del acceso desde fuera de los ámbitos de vínculos privados
-La configuración de la parte inferior de esta página controla el acceso desde las redes públicas, lo que significa las redes no conectadas mediante los ámbitos enumerados anteriormente. Si establece **Allow public network access for ingestion** (Permitir el acceso de la red pública para la ingesta) en **No**, se bloqueará la ingesta de registros de las máquinas que se encuentren fuera de los ámbitos conectados. Si establece **Allow public network access for queries** (Permitir el acceso a la red pública para las consultas) en **No**, se bloquearán las consultas que procedan de máquinas que se encuentren fuera de los ámbitos. Esto incluye la ejecución de consultas mediante libros, paneles, experiencias de cliente basadas en API, conclusiones de Azure Portal, etc. Las experiencias que se ejecutan fuera de Azure Portal y que consultan los datos de Log Analytics también deben ejecutarse dentro de la red virtual vinculada privada.
+La configuración de la parte inferior de esta página controla el acceso desde las redes públicas, lo que significa las redes no conectadas mediante los ámbitos enumerados (AMPLS). Si establece **Allow public network access for ingestion** (Permitir el acceso de la red pública para la ingesta) en **No**, se bloqueará la ingesta de registros de las máquinas que se encuentren fuera de los ámbitos conectados. Si establece **Allow public network access for queries** (Permitir el acceso a la red pública para las consultas) en **No**, se bloquearán las consultas que procedan de máquinas que se encuentren fuera de los ámbitos. Esto incluye la ejecución de consultas mediante libros, paneles, experiencias de cliente basadas en API, conclusiones de Azure Portal, etc. Las experiencias que se ejecutan fuera de Azure Portal y que consultan los datos de Log Analytics también deben ejecutarse dentro de la red virtual vinculada privada.
 
 ### <a name="exceptions"></a>Excepciones
 Restringir el acceso tal como lo hemos explicado anteriormente no se aplica a Azure Resource Manager y, por lo tanto, tiene las siguientes limitaciones:
@@ -228,19 +237,18 @@ Restringir el acceso tal como lo hemos explicado anteriormente no se aplica a Az
 > Los registros y las métricas que se cargan en un área de trabajo a través de [Configuración de diagnóstico](../essentials/diagnostic-settings.md) pasan por un canal de Microsoft privado seguro y no se controlan mediante esta configuración.
 
 ### <a name="log-analytics-solution-packs-download"></a>Descarga de paquetes de la solución Log Analytics
+Los agentes de Log Analytics necesitan acceder a una cuenta de almacenamiento global para descargar los paquetes de soluciones. Las configuraciones de Private Link creadas a partir del 19 de abril de 2021 pueden acceder al almacenamiento de los paquetes de soluciones de los agentes a través del vínculo privado. Esto es posible a través de la nueva zona DNS creada para [blob.core.windows.net](#privatelink-blob-core-windows-net).
 
-Para permitir que el agente de Log Analytics descargue paquetes de soluciones, agregue los nombres de dominio completos correspondientes a la lista de permitidos del firewall. 
+Si la configuración de Private Link se creó antes del 19 de abril de 2021, no llegará al almacenamiento de paquetes de solución a través de un vínculo privado. Para controlarlo, puede realizar una de las siguientes acciones:
+* Vuelva a crear el AMPLS y el punto de conexión privado conectado a él.
+* Permita que los agentes lleguen a la cuenta de almacenamiento a través de su punto de conexión público, agregando las siguientes reglas a la lista de permitidos del firewall:
 
+    | Entorno en la nube | Recurso del agente | Puertos | Dirección |
+    |:--|:--|:--|:--|
+    |Azure Public     | scadvisorcontent.blob.core.windows.net         | 443 | Salida
+    |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Salida
+    |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Salida
 
-| Entorno en la nube | Recurso del agente | Puertos | Dirección |
-|:--|:--|:--|:--|
-|Azure Public     | scadvisorcontent.blob.core.windows.net         | 443 | Salida
-|Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Salida
-|Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Salida
-
-
->[!NOTE]
-> A partir del 19 de abril de 2021, la configuración anterior no será necesaria y podrá acceder a la cuenta de almacenamiento de los paquetes de solución a través del vínculo privado. La nueva funcionalidad requiere volver a crear el elemento AMPLS (el 19 de abril de 2021 o en una fecha posterior) y el punto de conexión privado conectado a él. No se aplicará a los elementos AMPLS y ni a los puntos de conexión privados existentes.
 
 ## <a name="configure-application-insights"></a>Configuración de Application Insights
 
@@ -286,9 +294,67 @@ Como se indica en [Planeamiento de la configuración de Private Link](#planning-
 
 Puede automatizar el proceso descrito anteriormente mediante plantillas de Azure Resource Manager, REST e interfaces de la línea de comandos.
 
-Para crear y administrar ámbitos de Private Link, use la [API REST](/rest/api/monitor/private%20link%20scopes%20(preview)) o la [CLI de Azure (az monitor private-link-scope)](/cli/azure/monitor/private-link-scope).
+Para crear y administrar ámbitos de Private Link, use la [API REST](/rest/api/monitor/privatelinkscopes(preview)/private%20link%20scoped%20resources%20(preview)) o la [CLI de Azure (az monitor private-link-scope)](/cli/azure/monitor/private-link-scope).
 
-Para administrar el acceso a la red, utilice las marcas `[--ingestion-access {Disabled, Enabled}]` y `[--query-access {Disabled, Enabled}]`en [áreas de trabajo de Log Analytics](/cli/azure/monitor/log-analytics/workspace) o [componentes de Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component).
+Para administrar la marca de acceso a la red en el área de trabajo o el componente, utilice las marcas `[--ingestion-access {Disabled, Enabled}]` y `[--query-access {Disabled, Enabled}]`en [áreas de trabajo de Log Analytics](/cli/azure/monitor/log-analytics/workspace) o [componentes de Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component).
+
+### <a name="example-arm-template"></a>Ejemplo de plantilla de ARM
+La plantilla de ARM siguiente crea:
+* Un ámbito de vínculo privado (AMPLS) denominado "my-scope"
+* Un área de trabajo de Log Analytics denominada "my-workspace"
+* Agregue un recurso con ámbito al AMPLS "my-scope", denominado "my-workspace-connection".
+
+```
+{
+    "$schema": https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#,
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "private_link_scope_name": {
+            "defaultValue": "my-scope",
+            "type": "String"
+        },
+        "workspace_name": {
+            "defaultValue": "my-workspace",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "microsoft.insights/privatelinkscopes",
+            "apiVersion": "2019-10-17-preview",
+            "name": "[parameters('private_link_scope_name')]",
+            "location": "global",
+            "properties": {}
+        },
+        {
+            "type": "microsoft.operationalinsights/workspaces",
+            "apiVersion": "2020-10-01",
+            "name": "[parameters('workspace_name')]",
+            "location": "westeurope",
+            "properties": {
+                "sku": {
+                    "name": "pergb2018"
+                },
+                "publicNetworkAccessForIngestion": "Enabled",
+                "publicNetworkAccessForQuery": "Enabled"
+            }
+        },
+        {
+            "type": "microsoft.insights/privatelinkscopes/scopedresources",
+            "apiVersion": "2019-10-17-preview",
+            "name": "[concat(parameters('private_link_scope_name'), '/', concat(parameters('workspace_name'), '-connection'))]",
+            "dependsOn": [
+                "[resourceId('microsoft.insights/privatelinkscopes', parameters('private_link_scope_name'))]",
+                "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspace_name'))]"
+            ],
+            "properties": {
+                "linkedResourceId": "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspace_name'))]"
+            }
+        }
+    ]
+}
+```
 
 ## <a name="collect-custom-logs-and-iis-log-over-private-link"></a>Recopilación de registros personalizados y de IIS a través de Private Link
 

@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: a7e4e76aa0619d78a91d766a9a43c0b1a02a48d3
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 43f4c1f3da21ab65c27b74359fcc577a99220b6a
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717394"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129700"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-azure-powershell"></a>Implementación de un servicio en la nube (soporte extendido) mediante Azure PowerShell
 
@@ -69,7 +69,7 @@ Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de 
     $virtualNetwork = New-AzVirtualNetwork -Name “ContosoVNet” -Location “East US” -ResourceGroupName “ContosOrg” -AddressPrefix "10.0.0.0/24" -Subnet $subnet 
     ```
  
-7. Cree una dirección IP pública y establezca la propiedad de la etiqueta DNS de esa dirección IP pública. Cloud Services (soporte extendido) solo admite direcciones IP públicas de la SKU [básica](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic). Las direcciones IP públicas de la SKU estándar no funcionan con Cloud Services.
+7. Cree una dirección IP pública y establezca la propiedad de la etiqueta DNS de esa dirección IP pública. Cloud Services (soporte extendido) solo admite direcciones IP públicas de la SKU [básica](../virtual-network/public-ip-addresses.md#basic). Las direcciones IP públicas de la SKU estándar no funcionan con Cloud Services.
 Si usa una dirección IP estática, debe hacer referencia a ella como IP reservada del archivo de configuración de servicio (.cscfg). 
 
     ```powershell

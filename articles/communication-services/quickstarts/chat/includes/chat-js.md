@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 322f54e4fa2e8096f68d5bbc216032a5b4e53c22
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7748737450a013fcfe66ac189213b390c2afa7d1
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726711"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109627286"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar, compruebe lo siguiente:
@@ -171,12 +171,12 @@ async function createChatThread() {
   const createChatThreadOptions = {
     participants: [
       {
-        id: '<USER_ID>',
+        id: { communicationUserId: '<USER_ID>' },
         displayName: '<USER_DISPLAY_NAME>'
       }
     ]
   };
-  const createChatTtreadResult = await chatClient.createChatThread(
+  const createChatThreadResult = await chatClient.createChatThread(
     createChatThreadRequest,
     createChatThreadOptions
   );

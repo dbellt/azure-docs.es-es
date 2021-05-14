@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/05/2021
 ms.author: terrylan
-ms.openlocfilehash: 1bb4f22c6ef114a224597ede2b053d076aba5997
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 988689a662839476a695646865c92870f35391ea
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065844"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175791"
 ---
 # <a name="azure-identity-management-security-overview"></a>Información general sobre seguridad de administración de identidades de Azure
 
@@ -70,8 +70,8 @@ El proxy de aplicación de Azure AD permite publicar aplicaciones locales (como 
 
 Más información:
 
-* [Habilitación del proxy de la aplicación de Azure AD](../../active-directory/manage-apps/application-proxy-add-on-premises-application.md)
-* [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](../../active-directory/manage-apps/application-proxy-add-on-premises-application.md)
+* [Habilitación del proxy de la aplicación de Azure AD](../../active-directory/app-proxy/application-proxy-add-on-premises-application.md)
+* [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](../../active-directory/app-proxy/application-proxy-add-on-premises-application.md)
 * [Inicio de sesión único con el proxy de aplicación](../../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [Uso del acceso condicional](../../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 81a44d4d0025c841cf56e19d6afee5e95bd44a55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aea55b77330972877fd5e2d87758ab110071c072
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101730514"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108207778"
 ---
 # <a name="secure-azure-digital-twins"></a>Protección de Azure Digital Twins
 
@@ -37,7 +37,7 @@ El paso de autenticación exige que cualquier solicitud de aplicación contenga 
 
 El paso de autorización requiere que se asigne un rol de Azure a la entidad de seguridad. Los roles que se asignan a una entidad de seguridad determinan los permisos que tiene esa entidad de seguridad. Azure Digital Twins proporciona roles de Azure que abarcan conjuntos de permisos para los recursos de Azure Digital Twins. Estos roles se describen más adelante en este artículo.
 
-Para más información sobre los roles y las asignaciones de roles que se admiten en Azure, consulte la [*Descripción de los distintos roles*](../role-based-access-control/rbac-and-directory-admin-roles.md) en la documentación de RBAC de Azure.
+Para más información sobre los roles y las asignaciones de roles que se admiten en Azure, consulte la [Descripción de los distintos roles](../role-based-access-control/rbac-and-directory-admin-roles.md) en la documentación de RBAC de Azure.
 
 #### <a name="authentication-with-managed-identities"></a>Autenticación con identidades administradas
 
@@ -55,12 +55,12 @@ Azure proporciona **dos roles integrados de Azure** para autorizar el acceso a l
 | Lector de datos de Azure Digital Twins | Proporciona acceso de solo lectura a los recursos de Azure Digital Twins. | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
 Puede asignar roles de dos maneras:
-* mediante el panel de control de acceso (IAM) de Azure Digital Twins en Azure Portal (consulte [*Asignación de roles de Azure mediante Azure Portal*](../role-based-access-control/role-assignments-portal.md))
+* mediante el panel de control de acceso (IAM) de Azure Digital Twins en Azure Portal (consulte [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md))
 * mediante comandos de la CLI para agregar o quitar un rol
 
-Para obtener pasos más detallados sobre cómo hacerlo, pruébelo en el [*Tutorial de Azure Digital Twins: Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md).
+Para obtener pasos más detallados sobre cómo hacerlo, pruébelo en el [Tutorial de Azure Digital Twins: Conexión de una solución de un extremo a otro](tutorial-end-to-end.md).
 
-Para más información sobre cómo se definen los roles integrados, consulte [*Descripción de definiciones de roles*](../role-based-access-control/role-definitions.md) en la documentación de RBAC de Azure. Para más información acerca de la creación de roles personalizados de Azure, consulte [*Roles personalizados en los recursos de Azure*](../role-based-access-control/custom-roles.md).
+Para más información sobre cómo se definen los roles integrados, consulte [Descripción de definiciones de roles](../role-based-access-control/role-definitions.md) en la documentación de RBAC de Azure. Para más información acerca de la creación de roles personalizados de Azure, consulte [Roles personalizados de Azure](../role-based-access-control/custom-roles.md).
 
 ##### <a name="automating-roles"></a>Automatización de roles
 
@@ -82,17 +82,17 @@ En la lista siguiente se describen los niveles en los que puede definir el ámbi
 
 ### <a name="troubleshooting-permissions"></a>Solución de problemas de permisos
 
-Si un usuario intenta realizar una acción no permitida por su rol, es posible que reciba el siguiente error de la solicitud de servicio: `403 (Forbidden)`. Para obtener más información y pasos para solucionar problemas, vea [*Solución de problemas: Error en la solicitud de Azure Digital Twins con el estado: 403 (Prohibido)*](troubleshoot-error-403.md).
+Si un usuario intenta realizar una acción no permitida por su rol, es posible que reciba el siguiente error de la solicitud de servicio: `403 (Forbidden)`. Para obtener más información y pasos para solucionar problemas, vea [Solución de problemas: Error en la solicitud de Azure Digital Twins con el estado: 403 (Prohibido)](troubleshoot-error-403.md) .
 
 ## <a name="managed-identity-for-accessing-other-resources-preview"></a>Identidad administrada para acceder a otros recursos (versión preliminar)
 
-La configuración de una **identidad administrada** de [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) para una instancia de Azure Digital Twins puede permitir que la instancia acceda fácilmente a otros recursos protegidos de Azure AD, como [Azure Key Vault](../key-vault/general/overview.md). La identidad está administrada por la plataforma Azure y no es necesario que aprovisione o rote ningún secreto. Para obtener más información sobre las identidades administradas en Azure AD, vea  [*Identidades administradas para recursos de Azure*](../active-directory/managed-identities-azure-resources/overview.md). 
+La configuración de una **identidad administrada** de [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) para una instancia de Azure Digital Twins puede permitir que la instancia acceda fácilmente a otros recursos protegidos de Azure AD, como [Azure Key Vault](../key-vault/general/overview.md). La identidad está administrada por la plataforma Azure y no es necesario que aprovisione o rote ningún secreto. Para obtener más información sobre las identidades administradas en Azure AD, vea [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md). 
 
 Azure admite dos tipos de identidades administradas: asignadas por el sistema y asignadas por el usuario. Actualmente, Azure Digital Twins solo admite las **identidades asignadas por el sistema**. 
 
 Puede usar una identidad administrada asignada por el sistema para que la instancia de Azure Digital Twins se autentique en un [punto de conexión definido por el usuario](concepts-route-events.md#create-an-endpoint). Azure Digital Twins admite la autenticación basada en identidades asignadas por el sistema en los puntos de conexión de destinos de [centro de eventos](../event-hubs/event-hubs-about.md) y  [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) , y en un punto de conexión de [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md)  para los [eventos de mensajes con problemas de entrega](concepts-route-events.md#dead-letter-events). Actualmente, los puntos de conexión de [Event Grid](../event-grid/overview.md) no se admiten para las identidades administradas.
 
-Para obtener instrucciones sobre cómo habilitar una identidad administrada por el sistema para Azure Digital Twins y usarla para enrutar eventos, vea [*Procedimiento para habilitar una identidad administrada para el enrutamiento de eventos (versión preliminar)*](./how-to-enable-managed-identities-portal.md).
+Para obtener instrucciones sobre cómo habilitar una identidad administrada por el sistema para Azure Digital Twins y usarla para enrutar eventos, vea [Procedimiento para habilitar una identidad administrada para el enrutamiento de eventos (versión preliminar)](./how-to-enable-managed-identities-portal.md) .
 
 ## <a name="private-network-access-with-azure-private-link-preview"></a>Acceso a redes privadas con Azure Private Link (versión preliminar)
 
@@ -106,7 +106,7 @@ El punto de conexión privado usa una dirección IP del espacio de direcciones 
 
 La configuración de un punto de conexión privado para la instancia de Azure Digital Twins le permite protegerla y eliminar la exposición pública, además de evitar la filtración de datos desde la red virtual.
 
-Para obtener instrucciones sobre cómo configurar Private Link para Azure Digital Twins, vea [*Procedimiento para habilitar el acceso privado con Private Link (versión preliminar)*](./how-to-enable-private-link-portal.md).
+Para obtener instrucciones sobre cómo configurar Private Link para Azure Digital Twins, vea [Procedimiento para habilitar el acceso privado con Private Link (versión preliminar)](./how-to-enable-private-link-portal.md) .
 
 ### <a name="design-considerations"></a>Consideraciones de diseño 
 
@@ -119,7 +119,7 @@ Para obtener información sobre los límites de Azure Private Link, vea  [Docu
 
 ## <a name="service-tags"></a>Etiquetas de servicio
 
-Una **etiqueta de servicio** representa un grupo de prefijos de direcciones IP de un servicio de Azure determinado. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian, lo que minimiza la complejidad de las actualizaciones frecuentes en las reglas de seguridad de red. Para más información sobre las etiquetas de servicio, consulte  [*Etiquetas de red virtuales*](../virtual-network/service-tags-overview.md). 
+Una **etiqueta de servicio** representa un grupo de prefijos de direcciones IP de un servicio de Azure determinado. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian, lo que minimiza la complejidad de las actualizaciones frecuentes en las reglas de seguridad de red. Para más información sobre las etiquetas de servicio, consulte  [Etiquetas de red virtuales](../virtual-network/service-tags-overview.md). 
 
 Puede usar etiquetas de servicio para definir controles de acceso de red en  [grupos de seguridad de red](../virtual-network/network-security-groups-overview.md#security-rules) o [Azure Firewall](../firewall/service-tags.md), usando etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio (en este caso,  **AzureDigitalTwins**) en el campo de  *origen* o *destino* apropiado de una regla, puede permitir o denegar el tráfico para el servicio correspondiente. 
 
@@ -133,7 +133,7 @@ A continuación, se muestran los detalles de la etiqueta de servicio **AzureDigi
 
 Estos son los pasos para acceder a puntos de conexión de [ruta de eventos](concepts-route-events.md) usando etiquetas de servicio con Azure Digital Twins.
 
-1. En primer lugar, descargue esta referencia de archivo JSON que muestra los intervalos IP y las etiquetas de servicio de Azure: [*Intervalos IP y etiquetas de servicio de Azure*](https://www.microsoft.com/download/details.aspx?id=56519). 
+1. En primer lugar, descargue esta referencia de archivo JSON que muestra los intervalos IP y las etiquetas de servicio de Azure: [Intervalos IP y etiquetas de servicio de Azure](https://www.microsoft.com/download/details.aspx?id=56519). 
 
 2. Busque los intervalos IP de "AzureDigitalTwins" en el archivo JSON.  
 
@@ -157,8 +157,8 @@ Para resolver este error, puede realizar una de las acciones siguientes:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Vea estos conceptos en acción en [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-portal.md).
+* Vea estos conceptos en acción en [Procedimiento: Configuración de una instancia y autenticación](how-to-set-up-instance-portal.md).
 
-* Vea cómo interactuar con estos conceptos del código de la aplicación cliente en [*Procedimiento: Escritura de código de autenticación de aplicación*](how-to-authenticate-client.md).
+* Vea cómo interactuar con estos conceptos del código de la aplicación cliente en [Procedimiento: Escritura de código de autenticación de aplicación](how-to-authenticate-client.md).
 
 * Obtenga más información sobre [Azure RBAC](../role-based-access-control/overview.md).

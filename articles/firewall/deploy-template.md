@@ -6,14 +6,14 @@ author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 08/28/2020
+ms.date: 05/10/2021
 ms.author: victorh
-ms.openlocfilehash: 478f3454a728871040cdbbf9f817394cffe6b82f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d2c3a1501c2489b5d747ac5a64bcaef0c725bad0
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94660260"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752722"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---arm-template"></a>Inicio rápido: Implementación de Azure Firewall con Availability Zones: plantilla de Resource Manager
 
@@ -31,7 +31,7 @@ Para más información sobre Azure Firewall, vea [Implementación y configuraci�
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-with-zones-sandbox%2Fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-with-zones-sandbox%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -43,7 +43,7 @@ Esta plantilla crea una instancia de Azure Firewall con Availability Zones, junt
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-azurefirewall-with-zones-sandbox).
 
-:::code language="json" source="~/quickstart-templates/101-azurefirewall-with-zones-sandbox/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/azurefirewall-with-zones-sandbox/azuredeploy.json":::
 
 En la plantilla se definen varios recursos de Azure:
 
@@ -62,10 +62,10 @@ Implementación de la plantilla de Resource Manager en Azure:
 
 1. Seleccione **Implementar en Azure** para iniciar sesión en Azure y abrir la plantilla. La plantilla crea una instancia de Azure Firewall, la infraestructura de red y dos máquinas virtuales.
 
-   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-with-zones-sandbox%2Fazuredeploy.json)
+   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-with-zones-sandbox%2Fazuredeploy.json)
 
 2. En el portal, en la página **Create a sandbox setup of Azure Firewall** (Crear una configuración de espacio aislado de Azure Firewall), escriba o seleccione los valores siguientes:
-   - **Grupo de recursos**: seleccione **Crear nuevo**, escriba un nombre para el grupo de recursos y seleccione **Aceptar**. 
+   - **Grupo de recursos**: seleccione **Crear nuevo**, escriba un nombre para el grupo de recursos y seleccione **Aceptar**.
    - **Nombre de la red virtual**: escriba un nombre para la red virtual nueva.
    - **Nombre de usuario administrador**: escriba un nombre de usuario para la cuenta de usuario de administrador.
    - **Contraseña de administrador**: escriba una contraseña de administrador.
@@ -86,7 +86,7 @@ Cuando ya no los necesite, puede quitar el grupo de recursos, el firewall y todo
 Remove-AzResourceGroup -Name MyResourceGroup
 ```
 
-Si planea continuar con el tutorial de supervisión de firewall, no quite el firewall ni el grupo de recursos. 
+Si planea continuar con el tutorial de supervisión de firewall, no quite el firewall ni el grupo de recursos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

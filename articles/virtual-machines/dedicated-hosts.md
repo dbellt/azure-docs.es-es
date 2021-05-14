@@ -9,19 +9,19 @@ ms.workload: infrastructure
 ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 46de182c7acfaf75b2e65fa318717348dd1c4b73
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8824ea38121b8f440f1b0ef1f07737f46e8b7295
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101667354"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732891"
 ---
 # <a name="azure-dedicated-hosts"></a>Hosts dedicados de Azure
 
 Azure Dedicated Host es un servicio que proporciona servidores físicos (capaces de hospedar una o varias máquinas virtuales) dedicados a una suscripción a Azure. Los hosts dedicados son los mismos servidores físicos que se usan en nuestros centros de datos y se proporcionan como un recurso. Puede aprovisionar hosts dedicados dentro de una región, zona de disponibilidad y dominio de error. Después, puede colocar las máquinas virtuales directamente en los hosts aprovisionados, en la configuración que más se ajuste a sus necesidades.
 
 
-## <a name="benefits"></a>Ventajas 
+## <a name="benefits"></a>Ventajas
 
 La reserva de todo el host proporciona las siguientes ventajas:
 
@@ -30,7 +30,7 @@ La reserva de todo el host proporciona las siguientes ventajas:
 -   Con la ventaja híbrida de Azure, puede traer sus propias licencias para Windows y SQL a Azure. El uso de las ventajas híbridas proporciona ventajas adicionales. Para más información, consulte [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 
-## <a name="groups-hosts-and-vms"></a>Grupos, hosts y máquinas virtuales  
+## <a name="groups-hosts-and-vms"></a>Grupos, hosts y máquinas virtuales
 
 ![Vista de los nuevos recursos para hosts dedicados.](./media/virtual-machines-common-dedicated-hosts/dedicated-hosts2.png)
 
@@ -39,7 +39,7 @@ Un **grupo host** es un recurso que representa una colección de hosts dedicados
 Un **host** es un recurso que se asigna a un servidor físico en un centro de datos de Azure. El servidor físico se asigna cuando se crea el host. Un host se crea dentro de un grupo host. Un host tiene una SKU que describe qué tamaños de máquina virtual se pueden crear. Cada host puede hospedar varias máquinas virtuales, de diferentes tamaños, siempre y cuando sean de la misma serie de tamaño.
 
 
-## <a name="high-availability-considerations"></a>Consideraciones acerca de la alta disponibilidad 
+## <a name="high-availability-considerations"></a>Consideraciones acerca de la alta disponibilidad
 
 Para lograr una alta disponibilidad, debe implementar varias máquinas virtuales, que se distribuyen entre varios hosts (un mínimo de 2). Con Azure Dedicated Host, tiene varias opciones para aprovisionar su infraestructura para dar forma a sus límites de aislamiento de errores.
 
@@ -63,45 +63,45 @@ Las máquinas virtuales implementadas en hosts con distintos dominios de error, 
 
 Puede usar ambas funcionalidades juntas para lograr un mayor aislamiento de los errores. En este caso, especificará la zona de disponibilidad y el número de dominios de error en cada grupo de hosts, asignará un dominio de error a cada uno de los hosts del grupo y asignará una zona de disponibilidad a cada una de las máquinas virtuales
 
-La plantilla de ejemplo de Resource Manager que se encuentra [aquí](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md) usa zonas y dominios de error para distribuir los hosts para obtener la máxima resistencia en una región.
+La plantilla de ejemplo de Resource Manager que se encuentra [aquí](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) usa zonas y dominios de error para distribuir los hosts para obtener la máxima resistencia en una región.
 
 
-## <a name="manual-vs-automatic-placement"></a>Selección de ubicación manual frente a automático 
+## <a name="manual-vs-automatic-placement"></a>Selección de ubicación manual frente a automático
 
-Al crear una máquina virtual en Azure, puede seleccionar el host dedicado que se va a usar. También puede usar la opción para ubicar automáticamente las máquinas virtuales en los hosts existentes, dentro de un grupo host. 
+Al crear una máquina virtual en Azure, puede seleccionar el host dedicado que se va a usar. También puede usar la opción para ubicar automáticamente las máquinas virtuales en los hosts existentes, dentro de un grupo host.
 
-Al crear un grupo host, asegúrese de que esté seleccionada la opción de selección automática de ubicación de máquinas virtuales. Al crear la máquina virtual, seleccione el grupo host y deje que Azure elija el mejor host para la máquina virtual. 
+Al crear un grupo host, asegúrese de que esté seleccionada la opción de selección automática de ubicación de máquinas virtuales. Al crear la máquina virtual, seleccione el grupo host y deje que Azure elija el mejor host para la máquina virtual.
 
-Los grupos host que están habilitados para la selección de ubicación automática no requieren que todas las máquinas virtuales se ubiquen de forma automática. Todavía podrá elegir de forma explícita un host, incluso cuando esté seleccionada la opción de selección de ubicación automática para el grupo host. 
+Los grupos host que están habilitados para la selección de ubicación automática no requieren que todas las máquinas virtuales se ubiquen de forma automática. Todavía podrá elegir de forma explícita un host, incluso cuando esté seleccionada la opción de selección de ubicación automática para el grupo host.
 
 ### <a name="limitations"></a>Limitaciones
 
 Incidencias y limitaciones conocidas cuando se usa la selección automática de ubicación de máquinas virtuales:
 
 - No se podrán aplicar las Ventajas híbridas de Azure en los hosts dedicados.
-- No se podrá reimplementar la máquina virtual. 
-- No se podrán usar máquinas virtuales de las series Lsv2, NVasv4, NVsv3, Msv2 o M con hosts dedicados. 
+- No se podrá reimplementar la máquina virtual.
+- No se podrán usar máquinas virtuales de las series Lsv2, NVasv4, NVsv3, Msv2 o M con hosts dedicados.
 
 
 ## <a name="virtual-machine-scale-set-support"></a>Compatibilidad con los conjuntos de escalado de máquinas virtuales
 
-Los conjuntos de escalado de máquinas virtuales permiten tratar un grupo de máquinas virtuales como un único recurso y aplicar las directivas de disponibilidad, administración, escalado y orquestación como un grupo. Los hosts dedicados existentes también se pueden usar para conjuntos de escalado de máquinas virtuales. 
+Los conjuntos de escalado de máquinas virtuales permiten tratar un grupo de máquinas virtuales como un único recurso y aplicar las directivas de disponibilidad, administración, escalado y orquestación como un grupo. Los hosts dedicados existentes también se pueden usar para conjuntos de escalado de máquinas virtuales.
 
 Al crear un conjunto de escalado de máquinas virtuales, puede especificar un grupo host existente para que tenga todas las instancias de máquina virtual creadas en hosts dedicados.
 
 Al crear un conjunto de escalado de máquinas virtuales en un grupo host dedicado, se aplican los siguientes requisitos:
 
 - Es necesario habilitar la selección automática de ubicación de máquinas virtuales.
-- La configuración de disponibilidad del grupo host debe coincidir con el conjunto de escalado. 
+- La configuración de disponibilidad del grupo host debe coincidir con el conjunto de escalado.
     - Se debe usar un grupo host regional (creado sin especificar una zona de disponibilidad) para los conjuntos de escalado regionales.
-    - El grupo host y el conjunto de escalado deben usar la misma zona de disponibilidad. 
+    - El grupo host y el conjunto de escalado deben usar la misma zona de disponibilidad.
     - El recuento de dominios de error para el nivel de grupo host debe coincidir con el del conjunto de escalado. Azure Portal permite especificar la *propagación máxima* del conjunto de escalado, lo que establece el recuento de dominios de error de 1.
 - Los hosts dedicados deben crearse en primer lugar, con capacidad suficiente y con la misma configuración para las zonas de conjunto de escalado y los dominios de error.
 - Los tamaños de máquina virtual admitidos para los hosts dedicados deben coincidir con el del conjunto de escalado.
 
-No todas las configuraciones de orquestación y optimización de conjunto de escalado son compatibles con los hosts dedicados. Aplique los valores siguientes en el conjunto de escalado: 
-- No se recomienda el sobreaprovisionamiento y está deshabilitado de forma predeterminada. Puede habilitar el sobreaprovisionamiento, pero se producirá un error en la asignación del conjunto de escalado si el grupo host no tiene capacidad para todas las máquinas virtuales, incluidas las instancias que se han sobreaprovisionado. 
-- Use el modo de orquestación ScaleSetVM. 
+No todas las configuraciones de orquestación y optimización de conjunto de escalado son compatibles con los hosts dedicados. Aplique los valores siguientes en el conjunto de escalado:
+- No se recomienda el sobreaprovisionamiento y está deshabilitado de forma predeterminada. Puede habilitar el sobreaprovisionamiento, pero se producirá un error en la asignación del conjunto de escalado si el grupo host no tiene capacidad para todas las máquinas virtuales, incluidas las instancias que se han sobreaprovisionado.
+- Use el modo de orquestación ScaleSetVM.
 - No use los grupo con ubicación por proximidad para la coubicación.
 
 
@@ -123,7 +123,7 @@ Una vez que se aprovisiona un host dedicado, Azure lo asigna a un servidor físi
 Hay dos tipos de cuota que se consumen al implementar un host dedicado.
 
 1. Cuota de vCPU de host dedicado. El límite de cuota predeterminado es 3000 vCPU por región.
-1. Cuota de la familia de tamaños de máquina virtual. Por ejemplo, una suscripción de **pago por uso** solo puede tener una cuota de 10 vCPU disponibles para la serie de tamaños Dsv3 en la región Este de EE. UU. Para implementar un host dedicado Dsv3, tendría que solicitar un aumento de la cuota de al menos 64 vCPU antes de poder implementar el host dedicado. 
+1. Cuota de la familia de tamaños de máquina virtual. Por ejemplo, una suscripción de **pago por uso** solo puede tener una cuota de 10 vCPU disponibles para la serie de tamaños Dsv3 en la región Este de EE. UU. Para implementar un host dedicado Dsv3, tendría que solicitar un aumento de la cuota de al menos 64 vCPU antes de poder implementar el host dedicado.
 
 Para solicitar un aumento de la cuota, cree una solicitud de soporte técnico en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
@@ -147,17 +147,17 @@ Las licencias de software, el almacenamiento y el uso de la red se facturan por 
 Para más información, consulte [Precios de Azure Dedicated Host](https://aka.ms/ADHPricing).
 
 También puede ahorrar costos con una [instancia reservada de Azure Dedicated Host](prepay-dedicated-hosts-reserved-instances.md).
- 
+
 ## <a name="sizes-and-hardware-generations"></a>Tamaños y generaciones de hardware
 
-Se define una SKU para un host y representa el tipo y la serie de tamaño de máquina virtual. Puede mezclar varias máquinas virtuales de distintos tamaños en un solo host, siempre que no sean de la misma serie de tamaño. 
+Se define una SKU para un host y representa el tipo y la serie de tamaño de máquina virtual. Puede mezclar varias máquinas virtuales de distintos tamaños en un solo host, siempre que no sean de la misma serie de tamaño.
 
-El *tipo* es la generación de hardware. Los distintos tipos de hardware de la misma serie de máquinas virtuales proceden de distintos proveedores de CPU y tienen diferentes generaciones de CPU y número de núcleos. 
+El *tipo* es la generación de hardware. Los distintos tipos de hardware de la misma serie de máquinas virtuales proceden de distintos proveedores de CPU y tienen diferentes generaciones de CPU y número de núcleos.
 
 Los tamaños y tipos de hardware varían según la región. Para más información, consulte la [página de precios](https://aka.ms/ADHPricing) de hosts.
 
 > [!NOTE]
-> Una vez que se aprovisiona un host dedicado, no se puede cambiar su tipo o tamaño. Si necesita otro tamaño o tipo, tendrá que crear uno nuevo.  
+> Una vez que se aprovisiona un host dedicado, no se puede cambiar su tipo o tamaño. Si necesita otro tamaño o tipo, tendrá que crear uno nuevo.
 
 ## <a name="host-life-cycle"></a>Ciclo de vida del host
 
@@ -176,6 +176,6 @@ Azure supervisa y administra el estado de mantenimiento de los hosts. Al consult
 
 - Puede implementar un host dedicado mediante [Azure PowerShell](./windows/dedicated-hosts-powershell.md), el [portal](./dedicated-hosts-portal.md) y la [CLI de Azure](./linux/dedicated-hosts-cli.md).
 
-- [Aquí](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md) encontrará una plantilla de ejemplo en la que se usan zonas y dominios de error para obtener la máxima resistencia en una región.
+- [Aquí](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) encontrará una plantilla de ejemplo en la que se usan zonas y dominios de error para obtener la máxima resistencia en una región.
 
 - También puede ahorrar costos con una [instancia reservada de Azure Dedicated Host](prepay-dedicated-hosts-reserved-instances.md).

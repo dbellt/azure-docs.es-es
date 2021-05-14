@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc,subject-armqs
-ms.date: 02/27/2020
+ms.date: 04/27/2021
 ms.author: jgao
-ms.openlocfilehash: 1cbe5f986ca36ecc3b45cf4bb7ecffa7067a27bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 41f57cd96452d569ad2860690b8109103f445166
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97936624"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279917"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-an-arm-template"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una plantilla de Resource Manager
 
@@ -26,7 +26,7 @@ ms.locfileid: "97936624"
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json)
+[![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.keyvault%2Fkey-vault-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -61,7 +61,7 @@ Para completar este artículo:
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-key-vault-create/).
 
-:::code language="json" source="~/quickstart-templates/101-key-vault-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.keyvault/key-vault-create/azuredeploy.json":::
 
 En la plantilla se definen dos recursos de Azure:
 
@@ -74,7 +74,7 @@ Puede encontrar más ejemplos de plantillas de Azure Key Vault en [Plantillas de
 
 1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea un almacén de claves y un secreto.
 
-    [![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json)
+    [![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.keyvault%2Fkey-vault-create%2Fazuredeploy.json)
 
 2. Seleccione o escriba los siguientes valores.
 
@@ -162,4 +162,4 @@ En este inicio rápido, ha creado un almacén de claves y un secreto mediante un
 
 - Lea una [introducción a Azure Key Vault](../general/overview.md).
 - Obtenga más información sobre [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
-- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-overview.md)
+- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-features.md)

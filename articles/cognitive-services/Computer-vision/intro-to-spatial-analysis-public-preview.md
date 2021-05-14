@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 03/29/2021
-ms.openlocfilehash: 5aa34ce15d96112450a7c15debcd92312c1d9e19
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: fc0d0b0a589ff5b8354a56a2f8c95062f4d2d9a9
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284549"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076156"
 ---
 # <a name="what-is-spatial-analysis"></a>¿Qué es Spatial Analysis?
 
@@ -45,7 +45,7 @@ Las operaciones principales de Spatial Analysis se basan en una canalización qu
 
 ### <a name="public-preview-gating"></a>Acceso a la versión preliminar pública
 
-Para garantizar que Spatial Analysis se usa en los escenarios para los que se diseñó, esta tecnología está a disposición de aquellos clientes que pasen por un proceso de solicitud. Para obtener acceso a Spatial Analysis, deberá empezar por rellenar el formulario de admisión en línea. [Realice aquí la solicitud](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u).
+Para garantizar que Spatial Analysis se usa en los escenarios para los que se diseñó, esta tecnología está a disposición de aquellos clientes que pasen por un proceso de solicitud. Para obtener acceso a Spatial Analysis, deberá empezar por rellenar el formulario de admisión en línea. [Realice aquí la solicitud](https://aka.ms/csgate).
 
 El acceso a la versión preliminar pública de Spatial Analysis está sujeto a la exclusiva discreción de Microsoft en función de los criterios de idoneidad, el proceso de investigación y la disponibilidad para admitir un número limitado de clientes durante esta versión preliminar controlada. Para la versión preliminar pública, se buscan clientes que tengan una relación significativa con Microsoft y que estén interesados en trabajar con nosotros en los casos de uso recomendados y en escenarios adicionales que estén en consonancia con nuestros compromisos de inteligencia artificial.
 

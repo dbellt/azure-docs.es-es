@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a15cce45c527a92c99e0488661e0b67bb8e2371
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 71e98b735b4aa4631d73f8730a48c56a8c7585ab
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101713072"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107497649"
 ---
 # <a name="get-face-detection-data"></a>Obtención de los datos de detección de caras
 
@@ -78,9 +78,9 @@ Para más información acerca de cada uno de los atributos, consulte la guía co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía, ha aprendido cómo utilizar las diversas funcionalidades de la detección de caras. A continuación, puede integrar estas características en la aplicación siguiendo un tutorial en profundidad.
+En esta guía, ha aprendido cómo utilizar las diversas funcionalidades de la detección de caras. A continuación, integre estas características en una aplicación para agregar datos faciales de los usuarios.
 
-- [Tutorial: Creación de una aplicación WPF que muestre los datos de las caras de una imagen](../Tutorials/FaceAPIinCSharpTutorial.md)
+- [Tutorial: Incorporación de usuarios a un servicio de Face](../enrollment-overview.md)
 
 ## <a name="related-topics"></a>Temas relacionados
 

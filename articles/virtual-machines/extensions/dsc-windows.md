@@ -8,12 +8,12 @@ author: bobbytreed
 ms.author: robreed
 ms.collection: windows
 ms.date: 03/26/2018
-ms.openlocfilehash: 72f66aeee64133a13ce0e49155c4b2a90240a3fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d2591fa3b6d69e403935faeca075a2c747026c1
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102559994"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734745"
 ---
 # <a name="powershell-dsc-extension"></a>Extensión DSC de PowerShell
 
@@ -31,11 +31,11 @@ Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 
 
 ### <a name="internet-connectivity"></a>Conectividad de Internet
 
-La extensión DSC para Windows requiere que la máquina virtual de destino pueda comunicarse con Azure y la ubicación del paquete de configuración (archivo .zip) si se encuentra en una ubicación fuera de Azure. 
+La extensión DSC para Windows requiere que la máquina virtual de destino pueda comunicarse con Azure y la ubicación del paquete de configuración (archivo .zip) si se encuentra en una ubicación fuera de Azure.
 
 ## <a name="extension-schema"></a>Esquema de extensión
 
-El siguiente JSON muestra el esquema para la parte de configuración de la extensión DSC en una plantilla de Azure Resource Manager. 
+El siguiente JSON muestra el esquema para la parte de configuración de la extensión DSC en una plantilla de Azure Resource Manager.
 
 ```json
 {
@@ -70,7 +70,7 @@ El siguiente JSON muestra el esquema para la parte de configuración de la exten
             "downloadMappings": {
              "specificDependencyKey": "https://myCustomDependencyLocation"
             }
-        } 
+        }
     },
     "protectedSettings": {
         "configurationArguments": {
@@ -121,12 +121,11 @@ El siguiente JSON muestra el esquema para la parte de configuración de la exten
 | protectedSettings.configurationUrlSasToken | string | Especifica el token de SAS para acceder a la dirección URL definida en configuration.url. Esta propiedad se cifrará. |
 | protectedSettings.configurationDataUrlSasToken | string | Especifica el token de SAS para acceder a la dirección URL definida en configurationData.url. Esta propiedad se cifrará. |
 
-
 ## <a name="template-deployment"></a>Implementación de plantilla
 
 Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager.
 Las plantillas resultan ideales al implementar una o varias máquinas virtuales que requieren configurarse tras la implementación.
-Se puede encontrar una plantilla de ejemplo de Resource Manager que incluye la extensión de DSC para Windows en la [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
+Se puede encontrar una plantilla de ejemplo de Resource Manager que incluye la extensión de DSC para Windows en la [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/automation-configuration/automation-configuration/nested/provisionServer.json#L91).
 
 ## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
 

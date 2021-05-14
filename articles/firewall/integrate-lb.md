@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 09/25/2020
+ms.date: 04/14/2021
 ms.author: victorh
-ms.openlocfilehash: 3b8fbc47b46f8be6e4ad7636a1d7552445501f0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e14a8afe27fc9dd9ca40730dd7e681c3093e0b50
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94653171"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505911"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integración de Azure Firewall con Azure Standard Load Balancer
 
@@ -65,8 +65,7 @@ No hay ningún problema de rutas asimétricas con este escenario. Los paquetes e
 
 Por lo tanto, puede implementar este escenario similar para el escenario del equilibrador de carga público, pero sin necesidad de la ruta de host de direcciones IP públicas del firewall.
 
->[!NOTE]
->Las máquinas virtuales del grupo de back-end no tendrán conectividad de salida a Internet con esta configuración. </br> Para más información acerca de cómo proporcionar conectividad de salida, consulte: </br> **[Conexiones salientes en Azure](../load-balancer/load-balancer-outbound-connections.md)**</br> Opciones para proporcionar conectividad: </br> **[Configuración del equilibrador de carga solo de salida](../load-balancer/egress-only.md)** </br> [**¿Qué es NAT de Virtual Network?**](../virtual-network/nat-overview.md)
+Las máquinas virtuales del grupo de back-end pueden tener conectividad a Internet de salida a través de Azure Firewall. Configure una ruta definida por el usuario en la subred de la máquina virtual, con el firewall como el próximo salto.
 
 
 ## <a name="additional-security"></a>Seguridad adicional

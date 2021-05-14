@@ -6,16 +6,16 @@ ms.author: harelbr
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 02/14/2021
-ms.openlocfilehash: eb6dbb74fe0d345a157049e79f7a3642499d7cfa
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d21ee7a60d11a154737c5380ec20d3e9c4490962
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102037989"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786070"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Actualización de reglas de alertas o reglas de acción cuando su recurso de destino se mueve a otra región de Azure
 
-En este artículo se describe por qué las [reglas de alerta ](./alerts-overview.md) y [reglas de acción](./alerts-action-rules.md) existentes pueden verse afectadas cuando se mueven otros recursos de Azure entre regiones, y cómo identificar y resolver esos problemas. Consulte la [documentación principal de movimiento de recursos](../../azure-resource-manager/management/move-region.md) para obtener información adicional sobre cuándo es útil el movimiento de recursos entre regiones y una lista de comprobación del diseño de un proceso de movimiento.
+En este artículo se describe por qué las [reglas de alerta ](./alerts-overview.md) y [reglas de acción](./alerts-action-rules.md) existentes pueden verse afectadas cuando se mueven otros recursos de Azure entre regiones, y cómo identificar y resolver esos problemas. Consulte la [documentación principal de movimiento de recursos](../../azure-resource-manager/management/move-resources-overview.md) para obtener información adicional sobre cuándo es útil el movimiento de recursos entre regiones y una lista de comprobación del diseño de un proceso de movimiento.
 
 ## <a name="why-the-problem-exists"></a>Por qué existe el problema
 
@@ -82,7 +82,7 @@ Si se han movido **solo algunos** de los recursos del ámbito, debe quitar de la
 
 ### <a name="change-the-scope-of-a-rule-using-azure-resource-manager-templates"></a>Cambio del ámbito de una regla mediante plantillas de Azure Resource Manager
 
-1. Obtenga la plantilla de Azure Resource Manager de la regla.  Para exportar la plantilla de una regla desde Azure Portal:
+1. Obtenga la plantilla de Azure Resource Manager de la regla.   Para exportar la plantilla de una regla desde Azure Portal:
    1. Vaya a la sección Grupos de recursos en el portal y abra el grupo de recursos que contiene la regla.
    2. En la sección Información general, active la casilla **Mostrar tipo oculto** y filtre por el tipo relevante de la regla.
    3. Seleccione la regla correspondiente para ver sus detalles.
@@ -104,8 +104,8 @@ Si se han movido **solo algunos** de los recursos del ámbito, debe quitar de la
 
 ### <a name="change-the-scope-of-a-rule-using-azure-cli"></a>Cambio del ámbito de una regla mediante la CLI de Azure
 
-1.  Obtenga la regla existente ([alertas de métricas](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-show), [alertas del registro de actividad](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
-2.  Actualice el ámbito de la regla directamente ([alertas de métricas](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), [alertas del registro de actividad](/cli/azure/monitor/activity-log/alert/scope)).
+1.  Obtenga la regla existente ([alertas de métricas](/cli/azure/monitor/metrics/alert#az_monitor_metrics_alert_show), [alertas del registro de actividad](/cli/azure/monitor/activity-log/alert#az_monitor_activity_log-alert_list)).
+2.  Actualice el ámbito de la regla directamente ([alertas de métricas](/cli/azure/monitor/metrics/alert#az_monitor_metrics_alert_update), [alertas del registro de actividad](/cli/azure/monitor/activity-log/alert/scope)).
 3.  Si es necesario, divida en dos reglas (lo que es pertinente en algunos casos de alertas de métricas, como se ha indicado anteriormente).
 
 ## <a name="next-steps"></a>Pasos siguientes

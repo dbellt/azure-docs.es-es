@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/12/2019
+ms.date: 04/28/2021
 ms.author: duau
-ms.openlocfilehash: 608d6c87442821e904fde16c6b75841fe792e3f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be671ec7a1f2e8fb11c49b8d17290c88f5db254a
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92206295"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108203386"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Cambiar un emparejamiento público a emparejamiento de Microsoft
 
@@ -33,7 +33,8 @@ Para conectarse al emparejamiento de Microsoft, necesita configurar y administra
 
 Consulte [Enrutamiento asimétrico con varias rutas de acceso de red](./expressroute-asymmetric-routing.md) para ver advertencias de enrutamiento asimétrico antes de configurar el emparejamiento de Microsoft.
 
-* Si usa el emparejamiento público y actualmente tiene reglas de red IP para las direcciones IP públicas que se usan para acceder a [Azure Storage](../storage/common/storage-network-security.md) o [Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md), tiene que asegurarse de que el grupo de IP de NAT configurado con el emparejamiento de Microsoft se incluye en la lista de direcciones IP públicas de la cuenta de Azure Storage o Azure SQL.<br>
+* Si usa el emparejamiento público y actualmente tiene reglas de red IP para las direcciones IP públicas que se usan para acceder a [Azure Storage](../storage/common/storage-network-security.md) o [Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md), tiene que asegurarse de que el grupo de IP de NAT configurado con el emparejamiento de Microsoft se incluye en la lista de direcciones IP públicas de la cuenta de Azure Storage o Azure SQL.
+* Tenga en cuenta que el emparejamiento público heredado usa la traducción de direcciones de red de origen (SNAT) a una dirección IP pública registrada por Microsoft, mientras que el emparejamiento de Microsoft no la usa.
 * Para cambiar a un emparejamiento de Microsoft sin sufrir tiempos de inactividad, realice los pasos de este artículo en el orden en el que aparecen.
 
 ## <a name="1-create-microsoft-peering"></a><a name="create"></a>1. Crear el emparejamiento de Microsoft

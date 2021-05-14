@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3b9f76eba9697d6ad47ecf8dc51689538923f88
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74735e80326e1d05e3f8820fc2b94c8fe930fcb3
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101094480"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784240"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Preguntas más frecuentes sobre Azure Active Directory
 Azure Active Directory (Azure AD) es una completa solución de identidad como servicio (IDaaS) que abarca todos los aspectos de la identidad, la administración de acceso y la seguridad.
@@ -119,7 +119,8 @@ Para más información, consulte [Introducción a la administración de contrase
 
 **R:** Sí, si tiene la escritura diferida de contraseñas habilitada, las operaciones de contraseña realizadas por un administrador se escriben de manera diferida en el entorno local.  
 
-<a name="for-more-answers-to-password-related-questions-see-password-management-frequently-asked-questions"></a>Para ver más respuestas a preguntas relativas a las contraseñas, consulte [Preguntas más frecuentes sobre la administración de contraseñas](../authentication/active-directory-passwords-faq.md).
+Para ver más respuestas a preguntas relativas a las contraseñas, consulte [Preguntas más frecuentes sobre la administración de contraseñas](../authentication/active-directory-passwords-faq.yml).
+
 ---
 **P:  ¿Qué hago si no recuerdo mi contraseña de Microsoft 365 o Azure AD cuando intento cambiarla?**
 
@@ -132,8 +133,8 @@ Para las cuentas de Azure AD, los administradores pueden restablecer las contras
 - [Restablecimiento de cuentas en Azure Portal](active-directory-users-reset-password-azure-portal.md)
 - [Uso de PowerShell](/powershell/module/msonline/set-msoluserpassword)
 
-
 ---
+
 ## <a name="security"></a>Seguridad
 **P: ¿Se bloquean las cuentas después de un número determinado de intentos erróneos o se usa una estrategia más sofisticada?**
 

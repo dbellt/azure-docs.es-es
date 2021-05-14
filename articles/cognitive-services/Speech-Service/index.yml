@@ -130,14 +130,11 @@ conceptualContent:
     - title: Herramientas
       links:
         - itemType: overview
-          text: Acerca de CLI de Voz (sin herramienta de línea de comandos de código)
-          url: spx-overview.md
-        - itemType: how-to-guide
-          text: Conceptos básicos de CLI de Voz (instalación y ejemplos)
-          url: spx-basics.md
+          text: Acerca de Speech Studio (interfaz de usuario sin código)
+          url: speech-studio-overview.md
         - itemType: overview
-          text: Acerca de Speech Studio (personalizaciones)
-          url: 'https://speech.microsoft.com'
+          text: Acerca de CLI de Voz (herramienta de línea de comandos sin código)
+          url: spx-overview.md
     - title: Hospedaje
       links:
         - itemType: how-to-guide

@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure Synapse Analytics
-summary: Azure Synapse es un servicio de análisis ilimitado que reúne el almacenamiento de datos empresariales y el análisis de macrodatos. Le ofrece la libertad de consultar los datos como prefiera, ya sea a petición sin servidor o con recursos aprovisionados, a escala.
+summary: Azure Synapse es un servicio de análisis ilimitado que reúne el almacenamiento de datos empresariales y el análisis de macrodatos. Este servicio ofrece la libertad de consultar los datos como prefiera, ya sea sin servidor o con recursos dedicados, a gran escala.
 metadata:
   title: Azure Synapse Analytics
   description: Azure Synapse es un servicio de análisis ilimitado que reúne el almacenamiento de datos empresariales y el análisis de macrodatos. Le ofrece la libertad de consultar los datos como prefiera, ya sea a petición sin servidor o con recursos aprovisionados, a escala.
@@ -12,12 +12,12 @@ metadata:
   author: julieMSFT
   ms.author: jrasnick
   ms.date: 12/01/2020
-  ms.openlocfilehash: 4fe151be6bf542b387b7b8dea915918fd59f34f8
-  ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+  ms.openlocfilehash: e44376c783a2c233b19b98526d457361e3408b93
+  ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 12/04/2020
-  ms.locfileid: "96606893"
+  ms.lasthandoff: 05/07/2021
+  ms.locfileid: "109516891"
 landingContent:
 - title: Acerca de Azure Synapse Analytics
   linkLists:

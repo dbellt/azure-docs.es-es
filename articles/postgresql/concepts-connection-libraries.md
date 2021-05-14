@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: e182ef6c5fb7bf1b76424fffdbc862775e93e29c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b8a1526605195b5eb24d8044f42b70ca5336bf7c
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606307"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107878315"
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql---single-server"></a>Bibliotecas de conexiones de Azure Database for PostgreSQL con un único servidor
 En este artículo se enumeran las bibliotecas y los controladores que pueden usar los desarrolladores para desarrollar aplicaciones con el fin de conectarse a Azure Database for PostgreSQL y realizar ahí consultas.
@@ -27,7 +27,7 @@ La mayoría de las bibliotecas de cliente de lenguajes para conectarse al servid
 | Java | [JDBC](https://jdbc.postgresql.org/) | Controlador JDBC tipo 4 | [Descargar](https://jdbc.postgresql.org/download.html)  |
 | Ruby | [Pg gem](https://deveiate.org/code/pg/) | Interfaz Ruby | [Descargar](https://rubygems.org/downloads/pg-0.20.0.gem) |
 | Go | [Package pq](https://godoc.org/github.com/lib/pq) | Controlador de Postgres de Go puro | [Instalación](https://github.com/lib/pq/blob/master/README.md) |
-| C\#/ .NET | [Npgsql](https://www.npgsql.org/) | Proveedor de datos de ADO.NET | [Descargar](https://www.microsoft.com/net/) |
+| C\#/ .NET | [Npgsql](https://www.npgsql.org/) | Proveedor de datos de ADO.NET | [Descargar](https://dotnet.microsoft.com/download) |
 | ODBC | [psqlODBC](https://odbc.postgresql.org/) | Controlador ODBC | [Descargar](https://www.postgresql.org/ftp/odbc/versions/) |
 | C | [libpq](https://www.postgresql.org/docs/9.6/static/libpq.html) | Interfaz de idioma C principal | Se incluye |
 | C++ | [libpqxx](http://pqxx.org/) | Interfaz de C++ de nuevo estilo | [Descargar](http://pqxx.org/download/software/) |

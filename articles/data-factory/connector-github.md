@@ -1,17 +1,17 @@
 ---
 title: Conexión a GitHub
 description: Uso de GitHub para especificar referencias de entidad de Common Data Model
-author: dcstwh
+author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.author: weetok
-ms.openlocfilehash: 7461a0332a36509c7bb6dfdd6db5948b056b35a6
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.author: jingwang
+ms.openlocfilehash: 6446bb9e18a8ce9e69c2462570d06154ed4ed8ac
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222119"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107904454"
 ---
 # <a name="use-github-to-read-common-data-model-entity-references"></a>Uso de GitHub para leer referencias de entidad de Common Data Model
 

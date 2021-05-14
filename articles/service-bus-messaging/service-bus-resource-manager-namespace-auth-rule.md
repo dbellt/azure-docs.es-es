@@ -6,13 +6,12 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: b0ffe022f6c61cf7d06c510c4f8fa5c764d72b42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68e344e19ff08a338a147a29216a0e9c413c4a5b
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88067195"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752002"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Creación de una regla de autorización de Service Bus para un espacio de nombres y una cola mediante una plantilla de Azure Resource Manager
 
@@ -24,12 +23,12 @@ Para ver la plantilla completa, consulte la [plantilla de regla de autorización
 
 > [!NOTE]
 > Las siguientes plantillas de Azure Resource Manager están disponibles para su descarga e implementación.
-> 
+>
 > * [Creación de un espacio de nombres de Service Bus](service-bus-resource-manager-namespace.md)
 > * [Creación de un espacio de nombres de Service Bus con cola](service-bus-resource-manager-namespace-queue.md)
 > * [Creación de un espacio de nombres de Service Bus con un tema y una suscripción](service-bus-resource-manager-namespace-topic.md)
 > * [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md) (Creación de un espacio de nombres de Service Bus con tema, suscripción y regla)
-> 
+>
 > Para buscar las plantillas más recientes, visite la galería de [Plantillas de inicio rápido de Azure][Azure Quickstart Templates] y busque **Service Bus**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -42,7 +41,7 @@ Esta plantilla usa la [firma de acceso compartido (SAS)](service-bus-sas.md) par
 
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
 
-[![Implementación en Azure](./media/service-bus-resource-manager-namespace-auth-rule/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-servicebus-create-authrule-namespace-and-queue%2Fazuredeploy.json)
+[![Implementación en Azure](./media/service-bus-resource-manager-namespace-auth-rule/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.servicebus%2Fservicebus-create-authrule-namespace-and-queue%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parámetros
 
@@ -85,11 +84,11 @@ El nombre de la cola en el espacio de nombres de Service Bus.
 La versión de la API de Service Bus de la plantilla.
 
 ```json
-"serviceBusApiVersion": { 
-       "type": "string", 
-       "defaultValue": "2017-04-01", 
-       "metadata": { 
-           "description": "Service Bus ApiVersion used by the template" 
+"serviceBusApiVersion": {
+       "type": "string",
+       "defaultValue": "2017-04-01",
+       "metadata": {
+           "description": "Service Bus ApiVersion used by the template"
        }
 ```
 
@@ -156,7 +155,7 @@ Para conocer la sintaxis y las propiedades JSON, consulte [espacios de nombres](
 ### <a name="powershell"></a>PowerShell
 
 ```powershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
+New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/quickstarts/microsoft.servicebus/servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
@@ -164,7 +163,7 @@ New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -Templa
 ```azurecli-interactive
 azure config mode arm
 
-azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
+azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/quickstarts/microsoft.servicebus/servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -179,4 +178,4 @@ Ahora que ha creado e implementado recursos con Azure Resource Manager, estos ar
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/management/manage-resources-powershell.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/management/manage-resources-cli.md
-[Service Bus auth rule template]: https://github.com/Azure/azure-quickstart-templates/blob/master/301-servicebus-create-authrule-namespace-and-queue/
+[Service Bus auth rule template]: https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.servicebus/servicebus-create-authrule-namespace-and-queue/

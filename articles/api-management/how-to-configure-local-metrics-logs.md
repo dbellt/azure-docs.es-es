@@ -10,25 +10,26 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/01/2021
+ms.date: 05/11/2021
 ms.author: apimpm
-ms.openlocfilehash: 2b66663c9ee8033bcb12bfac57964ea0eafecdac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a8199f88527cfd1417997c12f9d682be1c60a810
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594177"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784546"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configuración de los registros y las métricas locales para la puerta de enlace autohospedada de Azure API Management
 
-En este artículo se proporcionan detalles para configurar los registros y las métricas locales para la [puerta de enlace autohospedada](./self-hosted-gateway-overview.md) implementada en un clúster de Kubernetes. Para configurar los registros y las métricas en la nube, consulte [este artículo](how-to-configure-cloud-metrics-logs.md). 
+En este artículo se proporcionan detalles para configurar los registros y las métricas locales para la [puerta de enlace autohospedada](./self-hosted-gateway-overview.md) implementada en un clúster de Kubernetes. Para configurar los registros y las métricas en la nube, consulte [este artículo](how-to-configure-cloud-metrics-logs.md).
 
 ## <a name="metrics"></a>Métricas
-La puerta de enlace autohospedada admite [StatsD](https://github.com/statsd/statsd) que se ha convertido en un protocolo de unificación para la recopilación y agregación de métricas. En esta sección se describen los pasos para implementar StatsD en Kubernetes, configurar la puerta de enlace para emitir métricas mediante StatsD y usar [Prometheus](https://prometheus.io/) para supervisar las métricas. 
+
+La puerta de enlace autohospedada admite [StatsD](https://github.com/statsd/statsd) que se ha convertido en un protocolo de unificación para la recopilación y agregación de métricas. En esta sección se describen los pasos para implementar StatsD en Kubernetes, configurar la puerta de enlace para emitir métricas mediante StatsD y usar [Prometheus](https://prometheus.io/) para supervisar las métricas.
 
 ### <a name="deploy-statsd-and-prometheus-to-the-cluster"></a>Implementación de StatsD y Prometheus en el clúster
 
-A continuación se muestra un ejemplo de configuración de YAML para la implementación de StatsD y Prometheus en el clúster de Kubernetes en el que se implementa una puerta de enlace autohospedada. También crea un [servicio](https://kubernetes.io/docs/concepts/services-networking/service/) para cada uno de ellos. La puerta de enlace autohospedada publicará métricas en el servicio StatsD. Se obtendrá acceso al panel de Prometheus mediante su servicio.   
+A continuación se muestra un ejemplo de configuración de YAML para la implementación de StatsD y Prometheus en el clúster de Kubernetes en el que se implementa una puerta de enlace autohospedada. También crea un [servicio](https://kubernetes.io/docs/concepts/services-networking/service/) para cada uno de ellos. La puerta de enlace autohospedada publicará métricas en el servicio StatsD. Se obtendrá acceso al panel de Prometheus mediante su servicio.
 
 ```yaml
 apiVersion: v1
@@ -65,7 +66,7 @@ spec:
     spec:
       containers:
       - name: sputnik-metrics-statsd
-        image: mcr.microsoft.com/aks/hcp/prom/statsd-exporter
+        image: prom/statsd-exporter
         ports:
         - name: tcp
           containerPort: 9102
@@ -80,7 +81,7 @@ spec:
           - mountPath: /tmp
             name: sputnik-metrics-config-files
       - name: sputnik-metrics-prometheus
-        image: mcr.microsoft.com/oss/prometheus/prometheus
+        image: prom/prometheus
         ports:
         - name: tcp
           containerPort: 9090
@@ -128,7 +129,7 @@ Guarde las configuraciones en un archivo denominado `metrics.yaml` y use el sigu
 kubectl apply -f metrics.yaml
 ```
 
-Una vez finalizada la implementación, ejecute el siguiente comando para comprobar que los pods se están ejecutando. Tenga en cuenta que el nombre del pod será diferente. 
+Una vez finalizada la implementación, ejecute el siguiente comando para comprobar que los pods se están ejecutando. Tenga en cuenta que el nombre del pod será diferente.
 
 ```console
 kubectl get pods
@@ -171,11 +172,11 @@ A continuación se muestra un ejemplo de configuración:
         telemetry.metrics.local.statsd.tag-format: "dogStatsD"
 ```
 
-Actualice el archivo YAML de la implementación de puerta de enlace autohospedada con las configuraciones anteriores y aplique los cambios con el siguiente comando: 
+Actualice el archivo YAML de la implementación de puerta de enlace autohospedada con las configuraciones anteriores y aplique los cambios con el siguiente comando:
 
 ```console
 kubectl apply -f <file-name>.yaml
- ```
+```
 
 Para recoger los últimos cambios de configuración, reinicie la implementación de la puerta de enlace con el siguiente comando:
 
@@ -185,7 +186,7 @@ kubectl rollout restart deployment/<deployment-name>
 
 ### <a name="view-the-metrics"></a>Visualización de las métricas
 
-Ahora que hemos implementado y configurado todo, la puerta de enlace autohospedada debe notificar las métricas mediante StatsD. Prometheus tomará las métricas de StatsD. Vaya al panel de Prometheus mediante `EXTERNAL-IP` y `PORT` del servicio Prometheus. 
+Ahora que hemos implementado y configurado todo, la puerta de enlace autohospedada debe notificar las métricas mediante StatsD. Prometheus tomará las métricas de StatsD. Vaya al panel de Prometheus mediante `EXTERNAL-IP` y `PORT` del servicio Prometheus.
 
 Realice algunas llamadas de API mediante la puerta de enlace autohospedada; si todo está configurado correctamente, debería poder ver las métricas siguientes:
 
@@ -204,16 +205,16 @@ La puerta de enlace autohospedada genera registros en `stdout` y `stderr` de for
 kubectl logs <pod-name>
 ```
 
-Si la puerta de enlace autohospedada está implementada en Azure Kubernetes Service, puede habilitar [Azure Monitor para contenedores](../azure-monitor/containers/container-insights-overview.md) con el fin de recopilar `stdout` y `stderr` de sus cargas de trabajo y ver los registros en Log Analytics. 
+Si la puerta de enlace autohospedada está implementada en Azure Kubernetes Service, puede habilitar [Azure Monitor para contenedores](../azure-monitor/containers/container-insights-overview.md) con el fin de recopilar `stdout` y `stderr` de sus cargas de trabajo y ver los registros en Log Analytics.
 
-La puerta de enlace autohospedada también admite varios protocolos, como `localsyslog`, `rfc5424` y `journal`. En la tabla siguiente se resumen todas las opciones admitidas. 
+La puerta de enlace autohospedada también admite varios protocolos, como `localsyslog`, `rfc5424` y `journal`. En la tabla siguiente se resumen todas las opciones admitidas.
 
 | Campo  | Valor predeterminado | Descripción |
 | ------------- | ------------- | ------------- |
 | telemetry.logs.std  | `text` | Habilita el registro en flujos estándares. El valor puede ser `none`, `text`, `json`. |
 | telemetry.logs.local  | `none` | Habilita el registro local. El valor puede ser `none`, `auto`, `localsyslog`, `rfc5424`, `journal`.  |
 | telemetry.logs.local.localsyslog.endpoint  | N/D | Especifica el punto de conexión localsyslog.  |
-| telemetry.logs.local.localsyslog.facility  | N/D | Especifica el [código de componente](https://en.wikipedia.org/wiki/Syslog#Facility) de localsyslog. Por ejemplo, `7` 
+| telemetry.logs.local.localsyslog.facility  | N/D | Especifica el [código de componente](https://en.wikipedia.org/wiki/Syslog#Facility) de localsyslog. Por ejemplo, `7`
 | telemetry.logs.local.rfc5424.endpoint  | N/D | Especifica el punto de conexión rfc5424.  |
 | telemetry.logs.local.rfc5424.facility  | N/D | Especifica el código de componente por [rfc5424](https://tools.ietf.org/html/rfc5424). Por ejemplo, `7`  |
 | telemetry.logs.local.journal.endpoint  | N/D | Especifica el punto de conexión del diario.  |
@@ -231,7 +232,7 @@ A continuación, puede ver un ejemplo de configuración de registro local:
         telemetry.logs.local.localsyslog.endpoint: "/dev/log"
         telemetry.logs.local.localsyslog.facility: "7"
 ```
- 
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener más información sobre la puerta de enlace autohospedada, consulte [Introducción a la puerta de enlace autohospedada de Azure API Management](self-hosted-gateway-overview.md)

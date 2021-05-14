@@ -6,13 +6,13 @@ ms.author: sidram
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/22/2020
-ms.openlocfilehash: e5157a02f97370b20db85bf5e3e8aae98a2d8668
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/21/2021
+ms.openlocfilehash: 413ce025438b368035e945d2ac4e6e68f878a299
+ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101709298"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107992104"
 ---
 # <a name="overview-of-azure-stream-analytics-cluster"></a>Introducción al clúster de Azure Stream Analytics
 
@@ -68,7 +68,7 @@ Los clústeres de Stream Analytics se cobran en función de la capacidad elegida
 
 ### <a name="which-inputs-and-outputs-can-i-privately-connect-to-from-my-stream-analytics-cluster"></a>¿A qué entradas y salidas puedo conectarme de forma privada desde mi clúster de Stream Analytics?
 
-Stream Analytics admite varios tipos de entradas y salidas. Puede [crear puntos de conexión privados](private-endpoints.md) en el clúster que permitan a los trabajos tener acceso a los recursos de entrada y salida. Actualmente se admiten los servicios Azure SQL Database, Azure Storage, Azure Data Lake Storage Gen2, Azure Event Hubs y Azure Service Bus; pronto se agregarán otros tipos. 
+Stream Analytics admite varios tipos de entradas y salidas. Puede [crear puntos de conexión privados](private-endpoints.md) en el clúster que permitan a los trabajos tener acceso a los recursos de entrada y salida. Actualmente, Azure SQL Database, Azure Synapse Analytics, Azure Storage, Azure Data Lake Storage Gen2, Azure Event Hubs, Azure IoT Hub, Azure Function y Azure Service Bus son servicios compatibles para los que puede crear puntos de conexión privados administrados. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

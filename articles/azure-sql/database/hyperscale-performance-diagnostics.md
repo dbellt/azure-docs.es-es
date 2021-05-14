@@ -10,12 +10,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: ed31ff5d77b258d141a77fc174c2d5452adf7d01
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f5edcb3a024336ce96adb015609c9faf3318b86
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92791722"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107947112"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnóstico de la solución de problemas de rendimiento de Hiperescala de SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -33,7 +33,9 @@ Los tipos de espera siguientes (en [sys.dm_os_wait_stats](/sql/relational-databa
 |RBIO_RG_STORAGE        | Se produce cuando se limita la velocidad de generación de registros del nodo de proceso principal de una base de datos de Hiperescala debido al consumo de registro retrasado en los servidores de páginas.         |
 |RBIO_RG_DESTAGE        | Se produce cuando se limita la velocidad de generación de registros del nodo de proceso de una base de datos de Hiperescala debido al consumo de registro retrasado por parte del almacenamiento de registros a largo plazo.         |
 |RBIO_RG_REPLICA        | Se produce cuando se limita la velocidad de generación de registros del nodo de proceso de una base de datos de Hiperescala debido al consumo de registro retrasado por parte de las réplicas secundarias legibles.         |
+|RBIO_RG_GEOREPLICA    | Se produce cuando se limita la velocidad de generación de registros del nodo de proceso de una base de datos de Hiperescala debido al consumo de registro retrasado por parte de la replicación geográfica secundaria.         |
 |RBIO_RG_LOCALDESTAGE   | Se produce cuando se limita la velocidad de generación de registros del nodo de proceso de una base de datos de Hiperescala debido al consumo de registro retrasado por parte del servicio de registro.         |
+
 
 ## <a name="page-server-reads"></a>Lecturas del servidor de páginas
 
@@ -75,7 +77,7 @@ La caché de RBPEX local existe en la réplica de proceso en el almacenamiento S
 
 `select * from sys.dm_io_virtual_file_stats(0,NULL);`
 
-Una proporción de las lecturas realizadas en RBPEX a las lecturas agregadas realizadas en todos los demás archivos de datos indica la proporción de aciertos de caché de RBPEX.
+Una proporción de las lecturas realizadas en RBPEX a las lecturas agregadas realizadas en todos los demás archivos de datos indica la proporción de aciertos de caché de RBPEX. El contador `RBPEX cache hit ratio` también se expone en la vista de administración dinámica de los contadores de rendimiento `sys.dm_os_performance_counters`.                                                                        
 
 ### <a name="data-reads"></a>Lecturas de datos
 
@@ -106,6 +108,7 @@ La E/S de datos en los servidores de páginas remotos no se notifica en las vist
 ## <a name="additional-resources"></a>Recursos adicionales
 
 - En el caso de los límites de recursos de núcleo virtual para una base de datos única de Hiperescala, consulte los [límites de núcleos virtuales del nivel de servicio de Hiperescala](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5).
+- Para supervisar las instancias de Azure SQL Database, habilite [Azure Monitor SQL Insights](../../azure-monitor/insights/sql-insights-overview.md).
 - Para optimizar el rendimiento de Azure SQL Database, consulte [Ajuste manual del rendimiento de consultas en Azure SQL Database](performance-guidance.md).
 - Para optimizar el rendimiento mediante el Almacén de consultas, consulte [Supervisión de rendimiento mediante el Almacén de consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store/).
 - Para los scripts de supervisión de DMV, consulte [Supervisión del rendimiento en Azure SQL Database con vistas de administración dinámica](monitoring-with-dmvs.md).

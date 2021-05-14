@@ -1,18 +1,19 @@
 ---
 title: Descripción general del ejemplo de plano técnico con un nivel de impacto alto de FedRAMP
 description: Introducción al ejemplo de plano técnico con un nivel de impacto alto de FedRAMP. Este ejemplo de plano técnico ayuda a los clientes a evaluar controles concretos del nivel impacto alto de FedRAMP.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 1287a0369e59cc78cce775bff01fe885c1b571d0
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: b98c73992202d7adeb60c3eb52219fd411cde959
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034856"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757338"
 ---
 # <a name="overview-of-the-fedramp-high-blueprint-sample"></a>Introducción al ejemplo de plano técnico con un nivel de impacto alto de FedRAMP
 
-El ejemplo de plano técnico con un nivel de impacto alto de FedRAMP proporciona directivas de gobernanza mediante [Azure Policy](../../../policy/overview.md) que le ayudarán a evaluar los controles específicos del nivel de impacto alto de FedRAMP. Este plano técnico ayuda a los clientes a implementar un conjunto básico de directivas para cualquier arquitectura implementada de Azure que deba implementar los controles del nivel de impacto alto de FedRAMP.
+El ejemplo de plano técnico con un nivel de impacto alto de FedRAMP proporciona directivas de gobernanza mediante [Azure Policy](../../../policy/overview.md) que le ayudarán a evaluar los controles específicos del nivel de impacto alto de FedRAMP.
+Este plano técnico ayuda a los clientes a implementar un conjunto básico de directivas para cualquier arquitectura implementada de Azure que deba implementar los controles del nivel de impacto alto de FedRAMP.
 
 ## <a name="control-mapping"></a>Asignación de controles
 

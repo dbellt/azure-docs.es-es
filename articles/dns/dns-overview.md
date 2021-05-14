@@ -4,14 +4,14 @@ description: Información general del servicio de hospedaje de DNS en Microsoft 
 author: rohinkoul
 ms.service: dns
 ms.topic: overview
-ms.date: 3/25/2021
+ms.date: 4/22/2021
 ms.author: rohink
-ms.openlocfilehash: 41d2fdca653828588a5881daa0fa16c3bc71b5c4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 227d20d487b95dd43cf8106b5f4e07075cf69da6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046494"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770990"
 ---
 # <a name="what-is-azure-dns"></a>¿Qué es Azure DNS?
 
@@ -69,4 +69,4 @@ Para obtener más información, consulte [Overview of Azure DNS alias records](d
 
 * Para más información sobre cómo crear una zona en Azure DNS, consulte [Creación de una zona DNS](./dns-getstarted-portal.md).
 
-* Para ver las preguntas más frecuentes sobre DNS de Azure, vea [Azure DNS FAQ (P+F de DNS de Azure)](dns-faq.md).
+* Para ver las preguntas más frecuentes sobre DNS de Azure, vea [Azure DNS FAQ (P+F de DNS de Azure)](dns-faq.yml).

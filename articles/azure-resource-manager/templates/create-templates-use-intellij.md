@@ -5,12 +5,12 @@ ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.openlocfilehash: f0e007fe8930b30cee1c95159d7e964e3792449f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 314a29cf1d45b001b28188be5de35635395fba39
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96905968"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737214"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Creación e implementación de plantillas de ARM mediante IntelliJ IDEA
 
@@ -32,9 +32,9 @@ Para completar este artículo, necesitará lo siguiente:
 
 ## <a name="deploy-a-quickstart-template"></a>Implementación de una plantilla de inicio rápido
 
-En lugar de crear una plantilla desde cero, abra una plantilla en las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/). Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure Resource Manager. La plantilla usada en este artículo se denomina [Create a standard storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/) (Crear una cuenta de almacenamiento estándar). Define un recurso de la cuenta de almacenamiento de Azure.
+En lugar de crear una plantilla desde cero, abra una plantilla en las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/). Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure Resource Manager. La plantilla usada en este artículo se denomina [Create a standard storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.storage/storage-account-create/) (Crear una cuenta de almacenamiento estándar). Define un recurso de la cuenta de almacenamiento de Azure.
 
-1. Haga clic con el botón derecho y guarde [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) y [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) en el equipo local.
+1. Haga clic con el botón derecho y guarde [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json) y [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.parameters.json) en el equipo local.
 
 1. Si el kit de herramientas de Azure está instalado y se ha iniciado sesión correctamente, debería ver el Explorador de Azure en la barra lateral de IntelliJ IDEA. Haga clic con el botón derecho en **Administración de recursos** y seleccione **Crear implementación**.
 

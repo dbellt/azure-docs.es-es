@@ -1,0 +1,57 @@
+### YamlMime:Landing
+title: Documentación sobre Azure Active Directory Application Proxy
+summary: Azure Active Directory Application Proxy proporciona acceso remoto seguro y seguridad a escala de nube para sus aplicaciones privadas.
+metadata:
+  title: Documentación de Application Proxy
+  description: Azure Active Directory Application Proxy proporciona acceso remoto seguro y seguridad a escala de nube para sus aplicaciones privadas.
+  ms.service: active-directory
+  ms.subservice: app-proxy
+  ms.workload: identity
+  ms.topic: landing-page
+  ms.date: 04/27/2021
+  author: kenwith
+  ms.author: kenwith
+  manager: mtillman
+  ms.openlocfilehash: a159d75eee20b10f9f7382044c7ccadb9da384c2
+  ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 04/28/2021
+  ms.locfileid: "108175143"
+landingContent:
+- title: Acerca de Application Proxy
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Application Proxy?
+      url: what-is-application-proxy.md
+- title: Primeros pasos
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Visualización de sus aplicaciones
+      url: ../manage-apps/view-applications-portal.md
+    - text: Adición de una aplicación
+      url: ../manage-apps/add-application-portal.md
+- title: Descripción del inicio de sesión único
+  linkLists:
+  - linkListType: architecture
+    links:
+    - text: Conceptos relativos al inicio de sesión único
+      url: ../manage-apps/what-is-single-sign-on.md
+    - text: Opciones de inicio de sesión único
+      url: ../manage-apps/sso-options.md
+- title: Desarrollo de nuevas aplicaciones
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Instrucciones para desarrolladores
+      url: ../develop/v2-howto-app-gallery-listing.md
+    - text: Descripción de la plataforma
+      url: ../develop/v2-overview.md
+- title: Novedades de la documentación
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Novedades de la documentación
+      url: whats-new-docs.md

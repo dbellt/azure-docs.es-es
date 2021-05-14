@@ -1,18 +1,19 @@
 ---
-title: Acerca de las conexiones VPN de punto a sitio de Azure | VPN Gateway
-description: Este artículo le ayudará a comprender las conexiones de punto a sitio y a decidir qué tipo de autenticación de puerta de enlace de VPN P2S utilizar.
+title: Acerca de las conexiones VPN de punto a sitio de Azure
+titleSuffix: Azure VPN Gateway
+description: Obtenga información sobre las conexiones de punto a sitio y qué tipo de autenticación de VPN Gateway de punto a sitio usar.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 6caf72884ce2566ad25b7dd6d80b15d737bbe664
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c7c9d1ad6aefe9fc05b77925ee6bbf4160b988d8
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105543591"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108202414"
 ---
 # <a name="about-point-to-site-vpn"></a>Acerca de las conexiones VPN de punto a sitio
 
@@ -22,7 +23,7 @@ Una conexión de puerta de enlace de VPN de punto a sitio (P2S) permite crear un
 
 La conexión VPN de punto a sitio usa uno de los siguientes protocolos:
 
-* **Protocolo OpenVPN®**, un protocolo VPN basado en SSL/TLS. Una solución de VPN basada en TLS puede penetrar firewalls, puesto que la mayoría de ellos abre el puerto TCP 443 saliente, que usa TLS. OpenVPN puede utilizarse para la conexión desde dispositivos Android, iOS (11.0 y versiones posteriores), Windows, Linux y Mac (OSX 10.13 y versiones posteriores).
+* **Protocolo OpenVPN®**, un protocolo VPN basado en SSL/TLS. Una solución de VPN basada en TLS puede penetrar firewalls, puesto que la mayoría de ellos abre el puerto TCP 443 saliente, que usa TLS. OpenVPN puede utilizarse para la conexión desde dispositivos Android, iOS (11.0 y versiones posteriores), Windows, Linux y Mac (OSX 10.13 y versiones posteriores).
 
 * El protocolo de túnel de sockets seguro (SSTP), que es un protocolo VPN propio basado en TLS. Una solución de VPN basada en TLS puede penetrar firewalls, puesto que la mayoría de ellos abre el puerto TCP 443 saliente, que usa TLS. El protocolo SSTP solo se admite en dispositivos Windows. Azure es compatible con todas las versiones de Windows que tienen SSTP (Windows 7 y versiones posteriores).
 

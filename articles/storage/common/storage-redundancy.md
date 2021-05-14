@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/16/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3665421ddbdd9cf079ff4aab9377fc9164a1599c
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: 115587cc567aed42153fcd0b4af404392853d8c7
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107575367"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127342"
 ---
 # <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 
@@ -73,7 +73,7 @@ En la tabla siguiente se muestran los tipos de cuentas de almacenamiento que adm
 
 | Tipo de cuenta de almacenamiento | Regiones admitidas | Servicios admitidos |
 |--|--|--|
-| Uso general v2<sup>1</sup> | (África) Norte de Sudáfrica<br /> (Asia Pacífico) Sudeste de Asia<br /> (Asia Pacífico) Este de Australia<br /> (Asia Pacífico) Este de Japón<br /> (Canadá) Centro de Canadá<br /> (Europa) Norte de Europa<br /> (Europa) Oeste de Europa<br /> (Europa) Centro de Francia<br /> (Europa) Centro-oeste de Alemania<br /> (Europa) Sur de Reino Unido<br /> (Sudamérica) Sur de Brasil<br /> (EE. UU.) Centro de EE. UU.<br /> (EE. UU.) Este de EE. UU.<br /> (EE. UU.) Este de EE. UU. 2<br /> (EE. UU.) Centro y Sur de EE. UU.<br /> (EE. UU.) Oeste de EE. UU.<br /> (EE. UU.) Oeste de EE. UU. 2 | Blobs en bloques<br /> Blobs en páginas<sup>2</sup><br /> Recursos compartidos de archivos (estándar)<br /> Tablas<br /> Colas<br /> |
+| Uso general v2<sup>1</sup> | (África) Norte de Sudáfrica<br /> (Asia Pacífico) Sudeste de Asia<br /> (Asia Pacífico) Este de Australia<br /> (Asia Pacífico) Este de Japón<br /> (Canadá) Centro de Canadá<br /> (Europa) Norte de Europa<br /> (Europa) Oeste de Europa<br /> (Europa) Centro de Francia<br /> (Europa) Centro-oeste de Alemania<br /> (Europa) Sur de Reino Unido<br /> (Sudamérica) Sur de Brasil<br /> (EE. UU.) Centro de EE. UU.<br /> (EE. UU.) Este de EE. UU.<br /> (EE. UU.) Este de EE. UU. 2<br /> (EE. UU.) Centro y Sur de EE. UU.<br /> (EE. UU.) Oeste de EE. UU. 2 | Blobs en bloques<br /> Blobs en páginas<sup>2</sup><br /> Recursos compartidos de archivos (estándar)<br /> Tablas<br /> Colas<br /> |
 | BlockBlobStorage<sup>1</sup> | Sudeste de Asia<br /> Este de Australia<br /> Norte de Europa<br /> Oeste de Europa<br /> Centro de Francia <br /> Japón Oriental<br /> Sur de Reino Unido 2 <br /> Este de EE. UU. <br /> Este de EE. UU. 2 <br /> Oeste de EE. UU. 2| Solo blobs en bloques Premium |
 | FileStorage | Sudeste de Asia<br /> Este de Australia<br /> Norte de Europa<br /> Oeste de Europa<br /> Centro de Francia <br /> Japón Oriental<br /> Sur de Reino Unido 2 <br /> Este de EE. UU. <br /> Este de EE. UU. 2 <br /> Oeste de EE. UU. 2 | Solo recursos compartidos de archivos Premium |
 
@@ -139,17 +139,13 @@ GZRS y RA-GZRS se admiten en las siguientes regiones:
 - (Europa) Oeste de Europa
 - (Europa) Centro de Francia
 - (Europa) Centro-oeste de Alemania
-- (Europa) Este de Noruega
-- (Europa) Norte de Suiza
 - (Europa) Sur de Reino Unido
-- (Oriente Medio) Norte de Emiratos Árabes Unidos
 - (Sudamérica) Sur de Brasil
 - (EE. UU.) Centro de EE. UU.
 - (EE. UU.) Este de EE. UU.
 - (EE. UU.) Este de EE. UU. 2
 - (EE. UU.) Centro-norte de EE. UU.
 - (EE. UU.) Centro y Sur de EE. UU.
-- (EE. UU.) Oeste de EE. UU.
 - (EE. UU.) Oeste de EE. UU. 2
 
 Para más información sobre los precios, consulte los detalles de precios de [blobs](https://azure.microsoft.com/pricing/details/storage/blobs), [archivos](https://azure.microsoft.com/pricing/details/storage/files/), [colas](https://azure.microsoft.com/pricing/details/storage/queues/)y [tablas](https://azure.microsoft.com/pricing/details/storage/tables/).

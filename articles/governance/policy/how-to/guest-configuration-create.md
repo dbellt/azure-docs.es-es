@@ -3,17 +3,17 @@ title: Creación de directivas de Configuración de invitado para Windows
 description: Aprenda a crear una directiva de Configuración de invitado de Azure Policy para Windows.
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 6eaefdbc28b8efc53dc7c4d46eb5d8a56d5be141
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: e1c71acd8544073c861a8ad62fb06d78e9d139c5
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106096604"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165342"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Creación de directivas de Configuración de invitado para Windows
 
 Antes de crear definiciones de directivas personalizadas, es conveniente leer la información conceptual general en la página [Información sobre Guest Configuration de Azure Policy](../concepts/guest-configuration.md).
- 
+
 Para obtener información sobre cómo crear directivas de Configuración de invitado para Linux, consulte la página [Cómo crear una directiva de configuración de invitados para Linux](./guest-configuration-create-linux.md).
 
 Durante la auditoría en Windows, Configuración de invitado usa un módulo de recursos [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para crear el archivo de configuración. La configuración de DSC define la condición en la que debe estar la máquina. Si se produce un error en la evaluación de la configuración, se desencadena el efecto **auditIfNotExists** de la directiva y se considera que la máquina **no es compatible**.
@@ -317,18 +317,18 @@ Por último, publique las definiciones de directivas con el cmdlet `Publish-Gues
 Para ejecutar el comando Publish, necesita acceso para crear directivas en Azure. Los requisitos de autorización específicos se documentan en la página [Información general de Azure Policy](../overview.md). El mejor rol integrado es **Colaborador de la directiva de recursos**.
 
 ```azurepowershell-interactive
-Publish-GuestConfigurationPolicy -Path '.\policyDefinitions'
+Publish-GuestConfigurationPolicy -Path '.\policies'
 ```
 
 El cmdlet `Publish-GuestConfigurationPolicy` acepta la ruta de acceso de la canalización de PowerShell. Esta característica significa que puede crear los archivos de directiva y publicarlos en un único conjunto de comandos canalizados.
 
 ```azurepowershell-interactive
 New-GuestConfigurationPolicy `
- -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
+  -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
   -DisplayName 'Audit BitLocker service.' `
   -Description 'Audit if the BitLocker service is not enabled on Windows machine.' `
   -Path './policies' `
- | Publish-GuestConfigurationPolicy
+| Publish-GuestConfigurationPolicy
 ```
 
 Con la directiva creada en Azure, el último paso es asignar la definición. Consulte cómo asignar la definición con el [portal](../assign-policy-portal.md), la [CLI de Azure](../assign-policy-azurecli.md) y [Azure PowerShell](../assign-policy-powershell.md).
@@ -396,7 +396,7 @@ New-GuestConfigurationPolicy
     -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
     -DisplayName 'Audit Windows Service.' `
     -Description 'Audit if a Windows Service is not enabled on Windows machine.' `
-    -Path '.\policyDefinitions' `
+    -Path '.\policies' `
     -Parameter $PolicyParameterInfo `
     -Version 1.0.0
 ```

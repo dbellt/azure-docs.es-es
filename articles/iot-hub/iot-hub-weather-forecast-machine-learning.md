@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: ab9e122ba0b2b50203a2d66ae14f03f3b6300f96
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 455d78ed21403952046448dd4447b5ec54f77c00
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96452333"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566986"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Pronóstico meteorológico con los datos del sensor de IoT Hub en Azure Machine Learning Studio (clásico)
 
@@ -23,25 +23,11 @@ ms.locfileid: "96452333"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-El aprendizaje automático es una técnica de ciencia de datos que ayuda a los equipos a aprender de los datos existentes para prever tendencias, resultados y comportamientos futuros. Azure Machine Learning Studio (clásico) es un servicio de análisis predictivo en la nube que permite crear e implementar rápidamente modelos predictivos como soluciones de análisis.
+El aprendizaje automático es una técnica de ciencia de datos que ayuda a los equipos a aprender de los datos existentes para prever tendencias, resultados y comportamientos futuros. Azure Machine Learning Studio (clásico) es un servicio de análisis predictivo en la nube que permite crear e implementar rápidamente modelos predictivos como soluciones de análisis. En este artículo, aprenderá a usar Azure Machine Learning Studio (clásico) para hacer previsiones meteorológicas (como la probabilidad de que llueva) mediante el uso de los datos de temperatura y humedad de Azure IoT Hub. La posibilidad de lluvia es el resultado de un modelo de pronóstico meteorológico preparado. El modelo se basa en datos históricos para predecir la posibilidad de lluvia en función de la temperatura y la humedad.
 
-## <a name="what-you-learn"></a>Conocimientos que adquirirá
+## <a name="prerequisites"></a>Requisitos previos
 
-Obtenga información sobre cómo usar Azure Machine Learning Studio (clásico) para realizar pronósticos meteorológicos, como la posibilidad de lluvia, con los datos de temperatura y humedad de Azure IoT Hub. La posibilidad de lluvia es el resultado de un modelo de pronóstico meteorológico preparado. El modelo se basa en datos históricos para predecir la posibilidad de lluvia en función de la temperatura y la humedad.
-
-## <a name="what-you-do"></a>Qué debe hacer
-
-- Implementar el modelo de pronóstico meteorológico como un servicio web.
-- Prepare el IoT Hub para el acceso a datos mediante la adición de un grupo de consumidores.
-- Crear un trabajo de Stream Analytics y configurar el trabajo para:
-  - Leer los datos de temperatura y humedad de IoT Hub.
-  - Llamar al servicio web para saber la posibilidad de lluvia.
-  - Guardar el resultado en Azure Blob Storage.
-- Usar el Explorador de Microsoft Azure Storage para consultar el pronóstico meteorológico.
-
-## <a name="what-you-need"></a>Lo que necesita
-
-- Completar el tutorial [Conectar el simulador en línea de Raspberry Pi a Azure IoT Hub (Node.js)](iot-hub-raspberry-pi-web-simulator-get-started.md) o uno de los tutoriales del dispositivo, por ejemplo, [Conectar Raspberry Pi a Azure IoT Hub (Node.js)](iot-hub-raspberry-pi-kit-node-get-started.md). Estos tutoriales abarcan los requisitos siguientes:
+- Realice el tutorial del [simulador en línea de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md), o bien uno de los tutoriales del dispositivo. Por ejemplo, puede acceder a [Raspberry Pi con node.js](iot-hub-raspberry-pi-kit-node-get-started.md) o a uno de los inicios rápidos de [envío de telemetría](quickstart-send-telemetry-dotnet.md). Estos artículos abarcan los requisitos siguientes:
   - Una suscripción de Azure activa.
   - Un centro de Azure IoT en su suscripción.
   - Una aplicación cliente que envía mensajes a su centro de Azure IoT.

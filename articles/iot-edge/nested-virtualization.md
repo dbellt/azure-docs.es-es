@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 0e0021ec3564ca079f9ab02fe5ed3f0cfa5a1560
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4f01362fd9342c1f508f165b34e121a11e8d07e2
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608751"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107496595"
 ---
 # <a name="nested-virtualization-for-azure-iot-edge-for-linux-on-windows"></a>Virtualización anidada en Azure IoT Edge para Linux en Windows
 Hay dos formas de hacer que la virtualización anidada sea compatible con Azure IoT Edge para Linux en Windows. Los usuarios pueden implementar una máquina virtual local o una máquina virtual de Azure. En este artículo se explica a los usuarios cuál es la opción más adecuada en su caso y se proporciona información sobre los requisitos de configuración.
 
 > [!NOTE]
 >
-> Asegúrese de habilitar una [opción de redes](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#networking-options) para la virtualización anidada. De no hacerlo, se producirán errores de instalación de EFLOW. 
+> Asegúrese de habilitar una [opción de red](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#networking-options) para la virtualización anidada. De no hacerlo, se producirán errores de instalación de EFLOW. 
 
 ## <a name="deployment-on-local-vm"></a>Implementación en una máquina virtual local
 Este es el enfoque de base de referencia para cualquier máquina virtual de Windows que hospede Azure IoT Edge para Linux en Windows. En este caso, la virtualización anidada deberá habilitarse antes de iniciar la implementación. Lea el artículo [Ejecución de Hyper-V en una máquina virtual con la virtualización anidada](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) para obtener más información sobre cómo configurar este escenario.

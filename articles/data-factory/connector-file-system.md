@@ -1,17 +1,17 @@
 ---
 title: Copia de datos con un sistema de archivos como origen o destino mediante Azure Data Factory
 description: Obtenga información sobre cómo copiar datos de cualquier sistema de archivos en almacenes de datos receptores o de almacenes de datos de origen compatibles en el sistema de archivos mediante Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/29/2021
-ms.author: jingwang
-ms.openlocfilehash: c49b543b13dddf4c4ba7e36196795c6a0d638ae2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.author: jianleishen
+ms.openlocfilehash: 16be6dee6a1afa8808220790dd4cb7bd40cf50cc
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731962"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109488688"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copia de datos con un sistema de archivos como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -41,11 +41,11 @@ En concreto, este conector de sistema de archivos admite las siguientes funciona
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes, se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas de un sistema de archivos.
 
@@ -98,7 +98,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de sistema 
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Las propiedades siguientes se admiten para el sistema de archivos en la configuración `location` del conjunto de datos basado en formato:
 
@@ -140,7 +140,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="file-system-as-source"></a>Sistema de archivos como origen
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Las propiedades siguientes se admiten para el sistema de archivos en la configuración `storeSettings` del origen de copia basado en formato:
 
@@ -205,7 +205,7 @@ Las propiedades siguientes se admiten para el sistema de archivos en la configur
 
 ### <a name="file-system-as-sink"></a>Sistema de archivos como receptor
 
-[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)]
+[!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)]
 
 Las propiedades siguientes se admiten para el sistema de archivos en la configuración `storeSettings` del receptor de copia basado en formato:
 

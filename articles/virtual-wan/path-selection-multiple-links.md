@@ -1,19 +1,19 @@
 ---
 title: Selección de ruta de acceso de Azure en varios vínculos de ISP
 titleSuffix: Azure Virtual WAN
-description: Obtenga información sobre la selección de ruta de acceso de Azure y Virtual WAN
+description: En este artículo, aprenderá de qué manera Azure Virtual WAN puede incluir información de vínculos para dirigir el tráfico a través de varios vínculos mediante la selección de ruta de acceso de Azure.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: f24696c0db3155a59106e1361b01454b9ac16a20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a2de840d07a99ed7c135b75ef24144da642654bb
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91267761"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166206"
 ---
 # <a name="azure-path-selection-across-multiple-isp-links"></a>Selección de ruta de acceso de Azure en varios vínculos de ISP
 

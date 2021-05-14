@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 1d5fc097be188c820f9be15594f4bb382754b849
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e0e69dc643bd18d17c9405ae6d097b94926a1f2b
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103224935"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633004"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-an-angular-spa-using-the-auth-code-flow"></a>Inicio rápido: Inicio de sesión y obtención de un token de acceso en una SPA de Angular mediante el flujo de código de autorización
 
@@ -26,9 +26,6 @@ En este inicio rápido descargará y ejecutará un código de ejemplo que muestr
 Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).
 
 En este inicio rápido se usa MSAL Angular v2 con el flujo de código de autorización. Puede encontrar un inicio rápido similar que usa MSAL Angular 1 con el flujo implícito en [Inicio rápido: Inicio de sesión de usuarios en aplicaciones de página única de JavaScript](./quickstart-v2-angular.md).
-
-> [!IMPORTANT]
-> MSAL Angular v2 [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 

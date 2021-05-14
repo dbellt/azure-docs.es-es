@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 52904296df77d9097a6180345388e8e702e2bca0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2f47e86b89244cdc2ac41d72203a51b0d91effdb
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97357640"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227477"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Aprovisionamiento del rendimiento de escalabilidad automática en una base de datos o un contenedor de Azure Cosmos DB: SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -122,7 +122,7 @@ Puede usar la [versión 4.0 o posterior](https://mvnrepository.com/artifact/com.
 
 ### <a name="create-database-with-shared-throughput"></a>Creación de una base de datos con rendimiento compartido
 
-#### <a name="async"></a>[Asincrónico](#tab/api-async)
+# <a name="async"></a>[Asincrónico](#tab/api-async)
 
 ```java
 // Create instance of CosmosClient
@@ -139,7 +139,7 @@ ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.create
 CosmosAsyncDatabase database = client.createDatabase(databaseName, autoscaleThroughputProperties).block().getDatabase();
 ```
 
-#### <a name="sync"></a>[Sincronizar](#tab/api-sync)
+# <a name="sync"></a>[Sincronizar](#tab/api-sync)
 
 ```java
 // Create instance of CosmosClient
@@ -160,7 +160,7 @@ CosmosDatabase database = client.createDatabase(databaseName, autoscaleThroughpu
 
 ### <a name="create-container-with-dedicated-throughput"></a>Creación de un contenedor con rendimiento dedicado
 
-#### <a name="async"></a>[Asincrónico](#tab/api-async)
+# <a name="async"></a>[Asincrónico](#tab/api-async)
 
 ```java
 // Get reference to database that container will be created in
@@ -176,7 +176,7 @@ CosmosAsyncContainer container = database.createContainer(autoscaleContainerProp
                                 .getContainer();
 ```
 
-#### <a name="sync"></a>[Sincronizar](#tab/api-sync)
+# <a name="sync"></a>[Sincronizar](#tab/api-sync)
 
 ```java
 // Get reference to database that container will be created in
@@ -195,7 +195,7 @@ CosmosContainer container = database.createContainer(autoscaleContainerPropertie
 
 ### <a name="read-the-current-throughput-rus"></a>Lectura del rendimiento actual (RU/s)
 
-#### <a name="async"></a>[Asincrónico](#tab/api-async)
+# <a name="async"></a>[Asincrónico](#tab/api-async)
 
 ```java
 // Get a reference to the resource
@@ -211,7 +211,7 @@ int autoscaleMaxThroughput = autoscaleContainerThroughput.getAutoscaleMaxThrough
 int currentThroughput = autoscaleContainerThroughput.Throughput;
 ```
 
-#### <a name="sync"></a>[Sincronizar](#tab/api-sync)
+# <a name="sync"></a>[Sincronizar](#tab/api-sync)
 
 ```java
 // Get a reference to the resource
@@ -231,14 +231,14 @@ int currentThroughput = autoscaleContainerThroughput.Throughput;
 
 ### <a name="change-the-autoscale-max-throughput-rus"></a>Cambio del rendimiento máximo de escalabilidad automática (RU/s)
 
-#### <a name="async"></a>[Asincrónico](#tab/api-async)
+# <a name="async"></a>[Asincrónico](#tab/api-async)
 
 ```java
 // Change the autoscale max throughput (RU/s)
 container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newAutoscaleMaxThroughput)).block();
 ```
 
-#### <a name="sync"></a>[Sincronizar](#tab/api-sync)
+# <a name="sync"></a>[Sincronizar](#tab/api-sync)
 
 ```java
 // Change the autoscale max throughput (RU/s)

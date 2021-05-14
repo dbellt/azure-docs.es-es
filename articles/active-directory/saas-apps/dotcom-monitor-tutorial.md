@@ -11,35 +11,35 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 6f7b2abecdfae1e8f943cd45df7e4c42f1ddd978
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 72512f062fc1cd784bcaf9ec3a6dc1b87b3c998b
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98736634"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108801683"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dotcom-monitor"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Dotcom-Monitor
 
 En este tutorial aprenderá a integrar Dotcom-Monitor con Azure Active Directory (Azure AD). Al integrar Dotcom-Monitor con Azure AD, puede hacer lo siguiente:
 
-* Controlar en Azure AD quién tiene acceso a Dotcom-Monitor.
-* Permitir que los usuarios inicien sesión automáticamente en Dotcom-Monitor con sus cuentas de Azure AD.
-* Administrar las cuentas desde una ubicación central (Azure Portal).
+- Controlar en Azure AD quién tiene acceso a Dotcom-Monitor.
+- Permitir que los usuarios inicien sesión automáticamente en Dotcom-Monitor con sus cuentas de Azure AD.
+- Administrar las cuentas desde una ubicación central (Azure Portal).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
-* Una suscripción habilitada para el inicio de sesión único (SSO) en Dotcom-Monitor.
+- Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
+- Una suscripción habilitada para el inicio de sesión único (SSO) en Dotcom-Monitor.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Dotcom-Monitor admite el inicio de sesión único iniciado por **SP**.
+- Dotcom-Monitor admite el inicio de sesión único iniciado por **SP**.
 
-* Dotcom-Monitor admite el aprovisionamiento de usuarios **Just-In-Time**.
+- Dotcom-Monitor admite el aprovisionamiento de usuarios **Just-In-Time**.
 
 ## <a name="adding-dotcom-monitor-from-the-gallery"></a>Adición de Dotcom-Monitor desde la galería
 
@@ -59,10 +59,10 @@ Configure y pruebe el inicio de sesión único de Azure AD con Dotcom-Monitor m
 Para configurar y probar el inicio de sesión único de Azure AD con Dotcom-Monitor, complete los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+   1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+   1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Dotcom-Monitor](#configure-dotcom-monitor-sso)**: para configurar los valores de inicio de sesión único en la aplicación.
-    1. **[Creación de usuario de prueba de Dotcom-Monitor](#create-dotcom-monitor-test-user)**: para tener un homólogo de B.Simon en Dotcom-Monitor que esté vinculado a la representación del usuario en Azure AD.
+   1. **[Creación de usuario de prueba de Dotcom-Monitor](#create-dotcom-monitor-test-user)**: para tener un homólogo de B.Simon en Dotcom-Monitor que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -77,31 +77,31 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://userauth.dotcom-monitor.com/Login.ashx?cidp=<CUSTOM_GUID>`
+   En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://userauth.dotcom-monitor.com/Login.ashx?cidp=<CUSTOM_GUID>`
 
-    > [!NOTE]
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Dotcom-Monitor](mailto:vadimm@dana-net.com) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+   > [!NOTE]
+   > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Dotcom-Monitor](mailto:vadimm@dana-net.com) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. La aplicación Dotcom-Monitor espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
-    ![imagen](common/default-attributes.png)
+   ![imagen](common/default-attributes.png)
 
 1. Además de lo anterior, la aplicación Dotcom-Monitor espera que se devuelvan algunos atributos más (se muestran a continuación) en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
 
-    | Nombre  |  Atributo de origen|
-    | ------|--------- |
-    | Roles | user.assignedroles |
+   | Nombre  | Atributo de origen   |
+   | ----- | ------------------ |
+   | Roles | user.assignedroles |
 
-    > [!NOTE]
-    > [Aquí](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview) encontrará más información sobre cómo crear roles personalizados en Azure AD.
+   > [!NOTE]
+   > [Aquí](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) encontrará más información sobre cómo crear roles personalizados en Azure AD.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
-    ![Vínculo de descarga del certificado](common/metadataxml.png)
+   ![Vínculo de descarga del certificado](common/metadataxml.png)
 
 1. En la sección **Configurar Dotcom-Monitor**, copie las direcciones URL adecuadas según sus necesidades.
 
-    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+   ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -110,7 +110,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
 1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre**, escriba `B.Simon`.
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
    1. Haga clic en **Crear**.
@@ -137,14 +137,13 @@ En esta sección, se crea un usuario llamado B.Simon en Dotcom-Monitor. Dotcom-M
 
 ## <a name="test-sso"></a>Prueba de SSO
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
-* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Dotcom-Monitor, donde puede iniciar el flujo de inicio de sesión. 
+- Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Dotcom-Monitor, donde puede iniciar el flujo de inicio de sesión.
 
-* Vaya directamente a la dirección URL de inicio de sesión de Dotcom-Monitor e inicie el flujo de inicio de sesión desde allí.
+- Vaya directamente a la dirección URL de inicio de sesión de Dotcom-Monitor e inicie el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Dotcom-Monitor en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
-
+- Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Dotcom-Monitor en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,18 +3,18 @@ title: Cambio del estilo del Control de mapa web de Azure Maps
 description: Aprenda a cambiar el estilo y las opciones de un mapa. Vea cómo agregar un control selector de estilo a un mapa de Azure Maps para que los usuarios puedan cambiar entre distintos estilos.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/27/2020
+ms.date: 04/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 556e265cc0d1aae33823185ec98d23f191ed1694
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec79f1427e4561447b80f500adabfa8e8400d7f5
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97680031"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325200"
 ---
 # <a name="change-the-style-of-the-map"></a>Cambio del estilo del mapa
 
@@ -104,7 +104,7 @@ En la imagen siguiente se muestra el control selector de estilos que aparece en 
 :::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Diseño de lista del selector de estilos":::
 
 > [!IMPORTANT]
-> De forma predeterminada, el control selector de estilos muestra todos los estilos disponibles bajo el plan de tarifa S0 de Azure Maps. Si desea reducir el número de estilos de esta lista, pase una matriz de los estilos que desea que aparezcan en la lista a la opción `mapStyle` del selector de estilo. Si está utilizando S1 y desea mostrar todos los estilos disponibles, establezca la opción `mapStyles` del selector de estilo en `"all"`.
+> De forma predeterminada, el control selector de estilos muestra todos los estilos disponibles bajo el plan de tarifa S0 de Azure Maps. Si desea reducir el número de estilos de esta lista, pase una matriz de los estilos que desea que aparezcan en la lista a la opción `mapStyle` del selector de estilo. Si está utilizando el plan de tarifa Gen 1 (S1) o Gen 2 y desea mostrar todos los estilos disponibles, establezca la opción `mapStyles` del selector de estilo en `"all"`.
 
 En el código siguiente se muestra cómo reemplazar la lista de estilos base `mapStyles` predeterminada. En este ejemplo, estableceremos la opción `mapStyles` para ver los estilos base que queremos que se muestren con el control selector de estilos.
 

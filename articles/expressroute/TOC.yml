@@ -20,7 +20,7 @@
   items:
     - name: Creación y modificación de la configuración de emparejamiento
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: expressroute-howto-routing-portal-resource-manager.md
         - name: Azure PowerShell
           href: expressroute-howto-routing-arm.md
@@ -28,13 +28,13 @@
           href: howto-routing-cli.md
     - name: Configuración de una puerta de enlace de red virtual para ExpressRoute
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: expressroute-howto-add-gateway-portal-resource-manager.md
         - name: Azure PowerShell
           href: expressroute-howto-add-gateway-resource-manager.md
     - name: Vinculación de una red virtual a un circuito ExpressRoute
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: expressroute-howto-linkvnet-portal-resource-manager.md
         - name: Azure PowerShell
           href: expressroute-howto-linkvnet-arm.md
@@ -42,7 +42,7 @@
           href: howto-linkvnet-cli.md
     - name: Configuración de filtros de ruta para el emparejamiento de Microsoft
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: how-to-routefilter-portal.md
         - name: Azure PowerShell
           href: how-to-routefilter-powershell.md
@@ -99,13 +99,13 @@
     - name: Seguridad
       items:
         - name: Línea de base de seguridad
-          href: security-baseline.md
-    - name: Atributos de seguridad
-      href: ./security-baseline.md
+          href: /security/benchmark/azure/baselines/expressroute-security-baseline?toc=/azure/expressroute/TOC.json
     - name: BFD a través de ExpressRoute
       href: expressroute-bfd.md
     - name: Requisitos QoS
       href: expressroute-qos.md
+    - name: Enrutamiento de tráfico de Microsoft 365 a través de ExpressRoute
+      href: using-expressroute-for-microsoft365.md
     - name: 'Alta disponibilidad: diseño'
       href: designing-for-high-availability-with-expressroute.md
     - name: 'Recuperación ante desastres: diseño'
@@ -144,6 +144,8 @@
           href: expressroute-howto-add-ipv6-powershell.md
     - name: Supervisión
       items:
+        - name: Información de red
+          href: expressroute-network-insights.md
         - name: 'Supervisión, métricas y alertas de ExpressRoute'
           href: expressroute-monitoring-metrics-alerts.md
         - name: Configuración de Network Performance Monitor para ExpressRoute
@@ -209,7 +211,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.network#expressroute
     - name: Azure CLI
-      href: /cli/azure/network/express-route
+      href: /cli/azure/azure-cli-reference-for-network
     - name: REST
       href: /rest/api/expressroute/
     - name: REST (clásico)

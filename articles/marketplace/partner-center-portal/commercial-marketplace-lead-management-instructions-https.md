@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 03/30/2020
-ms.openlocfilehash: 5bea2cf256e30bd896957bbee0e0ad824057a569
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/14/2021
+ms.openlocfilehash: b523b20a3d7f22cfd5e608c6793c55583050028f
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98247189"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109635290"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Uso de un punto de conexión HTTPS para administrar clientes potenciales de marketplace comercial
 
@@ -31,13 +31,13 @@ En este artículo se explica cómo crear un nuevo flujo en Power Automate para g
 
     ![Iniciar sesión Mis flujos](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-1. En **+ Nuevo**, seleccione **+ Instantáneo: desde cero**.
+1. En **+ Nuevo,** seleccione **+ Instant cloud flow** (Flujo de nube instantáneo).
 
-    ![Mis flujos + Automatizado: desde cero](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
+    ![Mis flujos + Automatizado: desde cero](./media/commercial-marketplace-lead-management-instructions-https/https-my-flows-create-from-blank.png)
 
 1. Asigne un nombre al flujo y, en **Elija cómo se desencadena este flujo**, seleccione **Cuando se reciba una solicitud HTTP**.
 
-    ![Botón Omitir de la ventana Crear un flujo automatizado.](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
+    ![Botón Omitir de la ventana Crear un flujo automatizado.](./media/commercial-marketplace-lead-management-instructions-https/https-my-flows-pick-request-trigger.png)
 
 1. Haga clic en el paso del flujo para expandirlo.
 
@@ -137,9 +137,13 @@ En este artículo se explica cómo crear un nuevo flujo en Power Automate para g
 ### <a name="connect-to-a-crm-system"></a>Conexión a un sistema CRM
 
 1. Seleccione **+ New step**(+ Nuevo paso).
-1. En **Buscar todos los conectores y acciones**, busque y seleccione el sistema CRM que desee. Selecciónelo en la pestaña **Acciones** con la acción para crear un nuevo registro. La siguiente pantalla muestra **Crear un nuevo registro (Dynamics 365)** como ejemplo.
+1. En **Buscar todos los conectores y acciones**, busque y seleccione el sistema CRM que desee. La siguiente pantalla muestra la creación de un nuevo registro (Common Data Service) como ejemplo.
 
     ![Crear un nuevo registro](./media/commercial-marketplace-lead-management-instructions-https/create-new-record.png)
+
+1. Selecciónelo en la **pestaña Acciones** con la acción para **crear un nuevo registro**.
+
+    ![Selección de la creación de un nuevo registro](./media/commercial-marketplace-lead-management-instructions-https/select-create-new-record.png)
 
 1. Proporcione el **Nombre de la organización** asociado al sistema CRM. Seleccione **Clientes potenciales** en la lista desplegable **Nombre de entidad**.
 

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 1064c6a1e2dddaae98e94ccceca7b1d550897393
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3f933a564e62bf3aae1ec05c6dde048100c22967
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97930861"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815853"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-javascript-version-4"></a>Inicio rápido: Biblioteca cliente de certificados de Azure Key Vault para JavaScript (versión 4)
 
@@ -286,4 +286,4 @@ En este inicio rápido, ha creado un almacén de claves, ha almacenado un certif
 - Vea un [Tutorial sobre el acceso a Key Vault desde una aplicación de App Service](../general/tutorial-net-create-vault-azure-web-app.md).
 - Consulte un [Tutorial sobre el acceso a Key Vault desde una máquina virtual](../general/tutorial-net-virtual-machine.md).
 - Consulte la [guía del desarrollador de Azure Key Vault](../general/developers-guide.md).
-- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-overview.md)
+- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-features.md)

@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/15/2021
 ms.author: sajaya
-ms.openlocfilehash: a8c007d7f4419ddbe1555b50ceb6fb92ea0a6f98
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 84567f9667619bb9208f066460b3c4483123b3fc
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783906"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331455"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Preguntas más frecuentes sobre Azure Container Registry
 
@@ -33,7 +33,7 @@ Para obtener instrucciones sobre la solución de problemas del registro, consult
 
 ### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>¿Se puede crear una instancia de Azure Container Registry con una plantilla de Resource Manager?
 
-Sí. Esta es [una plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) que puede usar para crear un registro.
+Sí. Esta es [una plantilla](https://azure.microsoft.com/resources/templates/101-container-registry/) que puede usar para crear un registro.
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>¿Existe un examen de vulnerabilidades de seguridad para imágenes en ACR?
 
@@ -274,6 +274,7 @@ Puede deshabilitar el acceso de extracción anónimo en cualquier momento si est
 > * Antes de intentar una operación de extracción anónima, ejecute `docker logout` para que se borren todas las credenciales de Docker existentes.
 > * Solo las operaciones de plano de datos están disponibles para los clientes no autenticados.
 > * El registro puede limitar una alta tasa de solicitudes no autenticadas.
+> * Actualmente, el acceso de extracción anónimo no se admite en las regiones del registro con [replicación geográfica](container-registry-geo-replication.md).
 
 > [!WARNING]
 > El acceso de extracción anónimo se aplica actualmente a todos los repositorios del registro. Si administra el acceso al repositorio mediante [el uso de tokens de ámbito de repositorio](container-registry-repository-scoped-permissions.md), tenga en cuenta que todos los usuarios pueden extraer de estos repositorios en un registro habilitado para extracción anónima. Se recomienda eliminar los tokens cuando está habilitado el acceso de extracción anónimo.

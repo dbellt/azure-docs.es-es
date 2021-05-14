@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: d03a4865c8db52f74f4130c458fec3028f5b95a4
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: a64564887fa2738fd3c0586d1040be3c95193927
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481674"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205798"
 ---
 # <a name="what-is-azure-digital-twins"></a>¿Qué es Azure Digital Twins?
 
@@ -30,7 +30,7 @@ Este es un resumen de las características proporcionadas por Azure Digital Twin
 
 ### <a name="open-modeling-language"></a>Lenguaje de modelado abierto
 
-En Azure Digital Twins, se definen las entidades digitales que representan las personas, los lugares y las cosas del entorno físico mediante tipos de gemelos personalizados denominados [**modelos**](concepts-models.md). 
+En Azure Digital Twins, se definen las entidades digitales que representan las personas, los lugares y las cosas del entorno físico mediante tipos de gemelos personalizados denominados [modelos](concepts-models.md). 
 
 Puede pensar en estas definiciones de modelo como un vocabulario especializado para describir su negocio. Para una solución de administración de edificios, por ejemplo, puede definir modelos como "edificio", "planta" y "ascensor". Después, puede crear **gemelos digitales** basados en estos modelos para representar su entorno específico.
 
@@ -46,7 +46,7 @@ DTDL se utiliza para los modelos de datos en otros servicios de Azure IoT, como 
 
 Los modelos digitales de Azure Digital Twins son representaciones dinámicas actualizadas del mundo real. Mediante el uso de las relaciones de los modelos de DTDL personalizados, conectará gemelos a un **gráfico dinámico** que representa el entorno.
 
-Puede tener una visualización del gráfico de Azure Digital Twins con la ayuda de una aplicación de ejemplo, el [**explorador de Azure Digital Twins**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
+Puede tener una visualización del gráfico de Azure Digital Twins con la ayuda de una aplicación de ejemplo, el [explorador de Azure Digital Twins](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
 
 Así es la visualización de ejemplo:
 
@@ -102,6 +102,6 @@ Puede ver una lista de **términos de IoT comunes** y sus usos en los servicios 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Profundice en el uso de Azure Digital Twins en el inicio rápido: [*Guía de inicio rápido: Exploración de un escenario de ejemplo*](quickstart-azure-digital-twins-explorer.md).
+* Profundice en el uso de Azure Digital Twins en el inicio rápido: [Guía de inicio rápido: Exploración de un escenario de ejemplo](quickstart-azure-digital-twins-explorer.md).
 
-* O bien, empiece a obtener información sobre los conceptos de Azure Digital Twins con [*Conceptos: Modelos personalizados*](concepts-models.md).
+* O bien, empiece a obtener información sobre los conceptos de Azure Digital Twins con [Conceptos: Modelos personalizados](concepts-models.md).

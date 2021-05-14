@@ -5,12 +5,13 @@ author: mumian
 ms.date: 03/25/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8c7ab1038cbe62d6f15faf56796193df12b38546
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0149858e4e63e4110af2a18a31b9c66a99ff79c9
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568773"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318593"
 ---
 # <a name="tutorial-add-modules-to-azure-resource-manager-bicep-file"></a>Tutorial: Incorporación de módulos a un archivo de Bicep de Azure Resource Manager
 
@@ -111,8 +112,8 @@ Para comprobar la implementación, explore el grupo de recursos desde Azure Port
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. En el menú izquierdo, seleccione **Grupos de recursos**.
-1. Verá los dos nuevos grupos de recursos que implementó en este tutorial.
-1. Seleccione cualquier grupo de recursos y consulte los recursos implementados. Observe que coinciden con los valores especificados en el archivo de parámetros para ese entorno.
+1. Verá el nuevo grupo de recursos que implementó en este tutorial.
+1. Seleccione el grupo de recursos y consulte los recursos implementados. Observe que coinciden con los valores especificados en el archivo de plantilla.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

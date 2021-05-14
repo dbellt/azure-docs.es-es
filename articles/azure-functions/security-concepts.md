@@ -3,12 +3,12 @@ title: Protección de Azure Functions
 description: Obtenga información sobre cómo hacer que el código de función que se ejecuta en Azure sea más seguro frente a ataques comunes.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 351bdca7ff94b6c058b5ab62fd9c16d707e7dc78
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e667cd8509e73624d7ef14d978480897d6636f0
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100368496"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108202324"
 ---
 # <a name="securing-azure-functions"></a>Protección de Azure Functions
 
@@ -42,7 +42,7 @@ De forma predeterminada, los clientes se pueden conectar a puntos de conexión d
 
 Cuando requiera HTTPS, también debe requerir la versión más reciente de TLS. Para obtener información sobre cómo hacerlo, vea [Exigencia de las versiones TLS](../app-service/configure-ssl-bindings.md#enforce-tls-versions).
 
-Para obtener más información, vea [Conexiones seguras (TSL)](../app-service/overview-security.md#https-and-certificates).
+Para obtener más información, consulte [Conexiones seguras (TSL)](../app-service/overview-security.md#https-and-certificates).
 
 ### <a name="function-access-keys"></a>Claves de acceso de función
 

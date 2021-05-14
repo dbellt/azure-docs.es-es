@@ -3,18 +3,18 @@ title: Migración de bases de datos a SQL Managed Instance mediante el servicio 
 description: Aprenda a migrar bases de datos de SQL Server a SQL Managed Instance mediante el servicio de reproducción de registros.
 services: sql-database
 ms.service: sql-managed-instance
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli
 ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: sstein
 ms.date: 03/31/2021
-ms.openlocfilehash: 8e78db5b9d496c2ac13c9f1214b386770c11e21e
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 730a03ce06efe96347d32409961638532823f6dc
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075907"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107883587"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>Migración de bases de datos de SQL Server a SQL Managed Instance mediante el servicio de reproducción de registros (versión preliminar)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -400,7 +400,7 @@ A continuación se indican las limitaciones funcionales de LRS:
 Una vez que se inicia LRS, use el cmdlet de supervisión (`get-azsqlinstancedatabaselogreplay` o `az_sql_midb_log_replay_show`) para ver el estado de la operación. Si LRS no se inicia después de un tiempo y se produce un error, compruebe los problemas más comunes:
 
 - ¿Existe una base de datos en SQL Managed Instance que tenga el mismo nombre que la que está intentando migrar desde SQL Server? Para resolver este conflicto, cambie el nombre de una de las bases de datos.
-- ¿Se realizó la copia de seguridad de base de datos en SQL Server con la opción `CHECKSUM`?
+- ¿Se realizó la copia de seguridad de la base de datos en SQL Server con la opción `CHECKSUM`?
 - ¿Los permisos en el token de SAS son solo de lectura y enumeración para LRS?
 - ¿Ha copiado el token de SAS para LRS que figura tras el signo de interrogación (`?`), con un contenido similar al siguiente: `sv=2020-02-10...`? 
 - ¿El tiempo de validez del token de SAS es aplicable a la ventana de tiempo de inicio y finalización de la migración? Podría haber discrepancias debido a las distintas zonas horarias que se usan en SQL Managed Instance y el token de SAS. Intente volver a generar el token de SAS ampliando la ventana de tiempo de validez del token antes y después de la fecha actual.

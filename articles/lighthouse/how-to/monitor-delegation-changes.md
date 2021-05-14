@@ -3,12 +3,12 @@ title: Supervisión de los cambios en la delegación en el inquilino de administ
 description: Aprenda a supervisar la actividad de delegación en los inquilinos de clientes o en el inquilino de administración.
 ms.date: 02/18/2021
 ms.topic: how-to
-ms.openlocfilehash: 8bd9e89039c114f3d1088df44198fe00c69bbf82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a12b916fae9794d6d695191a81ec076917bda31
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199054"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814899"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Supervisión de los cambios en la delegación en el inquilino de administración
 
@@ -86,7 +86,7 @@ Al usar una cuenta de entidad de servicio para consultar el registro de activida
 
 - [Cree una nueva cuenta de entidad de servicio](../../active-directory/develop/howto-create-service-principal-portal.md) que se usará solo para esta función, en vez de asignar este rol a una entidad de servicio existente usada para otra automatización.
 - Asegúrese de que esta entidad de servicio no tiene acceso a ningún recurso de cliente delegado.
-- [Use un certificado para la autenticación](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) y [almacénelo de forma segura en Azure Key Vault](../../key-vault/general/security-overview.md).
+- [Use un certificado para la autenticación](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) y [almacénelo de forma segura en Azure Key Vault](../../key-vault/general/security-features.md).
 - Limite los usuarios que tienen acceso para actuar en nombre de la entidad de servicio.
 
 Una vez que haya creado una nueva cuenta de entidad de servicio con el acceso de Lector de supervisión en el ámbito raíz del inquilino de administración, puede usarla para consultar e informar sobre las actividades de delegación en el inquilino.

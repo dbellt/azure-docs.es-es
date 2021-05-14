@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 7e14dbf5aab68f5ea2d96274606306378feedad2
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 7e5c94cad817f398ae56fb1aa9cbbd1c43cd47a4
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445999"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291827"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>¿Qué es Windows Virtual Desktop?
 
@@ -91,7 +91,7 @@ Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben cum
 >[!NOTE]
 >Si necesita una suscripción a Azure, puede [registrarse para obtener una evaluación gratuita por un mes](https://azure.microsoft.com/free/). Si usa la versión de evaluación gratuita de Azure, debe utilizar Azure AD Domain Services para mantener sincronizada su instancia de Windows Server Active Directory con Azure Active Directory.
 
-Para obtener una lista de direcciones URL que debe desbloquear para que la implementación de Windows Virtual Desktop funcione según lo previsto, consulte nuestra [lista de direcciones URL seguras](safe-url-list.md).
+Para obtener una lista de direcciones URL que debe desbloquear para que la implementación de Windows Virtual Desktop funcione según lo previsto, consulte nuestra [lista de direcciones URL requeridas](safe-url-list.md).
 
 Windows Virtual Desktop consta de los escritorios y las aplicaciones de Windows que entrega a los usuarios y de la solución de administración, que Microsoft hospeda en Azure como un servicio. Se pueden implementar escritorios y aplicaciones en máquinas virtuales (VM) de cualquier región de Azure, y la solución de administración y los datos de estas VM residirán en Estados Unidos. Esto puede dar lugar a la transferencia de datos a Estados Unidos.
 
@@ -121,10 +121,10 @@ Para más información sobre las direcciones URL que debe desbloquear para usar 
 
 ## <a name="supported-virtual-machine-os-images"></a>Imágenes de SO de máquinas virtuales admitidas
 
-Windows Virtual Desktop admite las imágenes de SO x64 siguientes:
+Windows Virtual Desktop sigue la [directiva de ciclo de vida de Microsoft](https://docs.microsoft.com/lifecycle/) y admite las siguientes imágenes de sistema operativo x64:
 
-* Sesión múltiple de Windows 10 Enterprise, versión 1809 o superior
-* Windows 10 Enterprise, versión 1809 o posterior (solo Rama actual para empresas)
+* Sesión múltiple de Windows 10 Enterprise
+* Windows 10 Enterprise
 * Windows 7 Enterprise
 * Windows Server 2019
 * Windows Server 2016
@@ -136,10 +136,8 @@ Las opciones de automatización y de implementación disponibles dependen del si
 
 |Sistema operativo|Galería de imágenes de Azure|Implementación manual de la máquina virtual|Integración de la plantilla de Azure Resource Manager|Aprovisionamiento de grupos host en Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Windows 10 Enterprise (multisesión), versión 2004|Sí|Sí|Sí|Sí|
-|Windows 10 Enterprise (multisesión), versión 1909|Sí|Sí|Sí|Sí|
-|Windows 10 Enterprise (multisesión), versión 1903|Sí|Sí|No|No|
-|Windows 10 Enterprise (multisesión), versión 1809|Sí|Sí|No|No|
+|Sesión múltiple de Windows 10 Enterprise, versión 1909 o superior|Sí|Sí|Sí|Sí|
+|Windows 10 Enterprise, versión 1909 o superior|Sí|Sí|Sí|Sí|
 |Windows 7 Enterprise|Sí|Sí|No|No|
 |Windows Server 2019|Sí|Sí|No|No|
 |Windows Server 2016|Sí|Sí|Sí|Sí|

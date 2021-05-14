@@ -9,14 +9,14 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 10/12/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: e9fb801fce3e47fc83febeddd6f331ce2af207e6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.topic: how-to
+ms.custom: devx-track-python,devx-track-csharp
+ms.openlocfilehash: 71d4b02b1498d983e7de8bed684f8838f3d2e44d
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102506980"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107885783"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir un modelo de Azure Machine Learning que está implementado como un servicio web
 
@@ -77,7 +77,7 @@ Existen varias formas de recuperar esta información para los servicios web impl
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Si conoce el nombre del servicio implementado, use el comando [az ml service show](/cli/azure/ext/azure-cli-ml/ml/service#ext_azure_cli_ml_az_ml_service_show):
+Si conoce el nombre del servicio implementado, use el comando [az ml service show](/cli/azure/ml/service#az_ml_service_show):
 
 ```azurecli
 az ml service show -n <service-name>

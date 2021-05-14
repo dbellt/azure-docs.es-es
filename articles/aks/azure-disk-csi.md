@@ -5,21 +5,22 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: c3421b767f465a4a705bdeb4882fd261c5cf914f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 29bac1ea9de7fb81797733bbccce24688b4acc10
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776238"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164352"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Uso de los controladores de interfaz de almacenamiento de contenedores (CSI) para discos de Azure en Azure Kubernetes Service (AKS) (versión preliminar)
+
 Un controlador de interfaz de almacenamiento de contenedores (CSI) para discos de Azure es un controlador compatible con la [especificación CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md) que usa Azure Kubernetes Service (AKS) para administrar el ciclo de vida de los discos de Azure.
 
 CSI es un estándar para exponer sistemas de almacenamiento de archivos y bloques arbitrarios a cargas de trabajo en contenedores en Kubernetes. Gracias a la adopción y al uso de CSI, AKS puede escribir, implementar e iterar complementos para exponer nuevos sistemas de almacenamiento o mejorar los existentes en Kubernetes sin tener que tocar el código principal de Kubernetes ni esperar a sus ciclos de versión.
 
 Para crear un clúster de AKS con compatibilidad con controladores CSI, vea [Habilitación de controladores de almacenamiento CSI para discos de Azure y Azure Files en AKS](csi-storage-drivers.md).
 
->[!NOTE]
+> [!NOTE]
 > Los *controladores en árbol* hacen referencia a los controladores de almacenamiento actuales que forman parte del código principal de Kubernetes frente a los nuevos controladores CSI, que son complementos.
 
 ## <a name="use-csi-persistent-volumes-with-azure-disks"></a>Uso de volúmenes persistentes de CSI con discos de Azure
@@ -117,7 +118,6 @@ volumesnapshotclass.snapshot.storage.k8s.io/csi-azuredisk-vsc created
 
 Ahora vamos a crear una [instantánea de volumen](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/azuredisk-volume-snapshot.yaml) de la PVC [creada dinámicamente al principio de este tutorial](#dynamically-create-azure-disk-pvs-by-using-the-built-in-storage-classes), `pvc-azuredisk`.
 
-
 ```bash
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/snapshot/azuredisk-volume-snapshot.yaml
 
@@ -186,7 +186,6 @@ Un volumen clonado se define como un duplicado de un volumen de Kubernetes exist
 
 El controlador de CSI para discos de Azure admite la clonación de volúmenes. Para demostrarlo, cree un [volumen clonado](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml) de la `azuredisk-pvc` [creada anteriormente](#dynamically-create-azure-disk-pvs-by-using-the-built-in-storage-classes) y [un nuevo pod para consumirla](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml).
 
-
 ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/cloning/pvc-azuredisk-cloning.yaml
 
@@ -215,7 +214,7 @@ También puede solicitar un volumen mayor para una PVC. Edite el objeto PVC y es
 
 En AKS, la clase de almacenamiento `managed-csi` integrada ya permite la expansión, así que use la [PVC creada anteriormente con esta clase de almacenamiento](#dynamically-create-azure-disk-pvs-by-using-the-built-in-storage-classes). La PVC ha solicitado un volumen persistente de 10 GB. Eso se puede confirmar mediante la ejecución de:
 
-```console 
+```console
 $ kubectl exec -it nginx-azuredisk -- df -h /mnt/azuredisk
 
 Filesystem      Size  Used Avail Use% Mounted on
@@ -263,6 +262,7 @@ pod/nginx-azuredisk created
 ```
 
 Por último, confirme el tamaño de la PVC y dentro del pod:
+
 ```console
 $ kubectl get pvc pvc-azuredisk
 NAME            STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
@@ -277,7 +277,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 
 Los [discos compartidos de Azure](../virtual-machines/disks-shared.md) son una característica de Azure Managed Disks que permite asociar un disco de Azure a nodos de agente simultáneamente. Si asocia un disco administrado a varios nodos de agente, podrá implementar nuevas aplicaciones en clúster o migrar las existentes a Azure.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Actualmente, el controlador CSI para discos de Azure solo admite el dispositivo de bloque sin formato (`volumeMode: Block`). Las aplicaciones deben administrar la coordinación y el control de las escrituras, lecturas, bloqueos, cachés, montajes y barreras en el disco compartido, que se expone como un dispositivo de bloque sin formato.
 
 Vamos a crear un archivo llamado `shared-disk.yaml` copiando el siguiente comando que contiene la clase de almacenamiento en disco compartido y el PVC:
@@ -315,7 +315,7 @@ $ kubectl apply -f shared-disk.yaml
 
 storageclass.storage.k8s.io/managed-csi-shared created
 persistentvolumeclaim/pvc-azuredisk-shared created
-``` 
+```
 
 Ahora vamos a crear un archivo llamado `deployment-shared.yml` copiando el comando siguiente:
 
@@ -372,7 +372,7 @@ El controlador de CSI para discos de Azure también admite nodos y contenedores 
 
 Una vez que tenga un grupo de nodos de Windows, puede usar las clases de almacenamiento integradas como `managed-csi`. Puede implementar un [conjunto con estado basado en Windows](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) de ejemplo que guarde marcas de tiempo en el archivo `data.txt` mediante la implementación del comando siguiente con el comando [kubectl apply][kubectl-apply]:
 
- ```console
+```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/windows/statefulset.yaml
 
 statefulset.apps/busybox-azuredisk created
@@ -394,7 +394,6 @@ $ kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Win
 
 - Para obtener información sobre cómo usar controladores de CSI para Azure Files, vea [Uso de Azure Files con controladores de CSI](azure-files-csi.md).
 - Para obtener más información sobre los procedimientos recomendados de almacenamiento, vea [Procedimientos recomendados para el almacenamiento y las copias de seguridad en Azure Kubernetes Service (AKS)][operator-best-practices-storage].
-
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes

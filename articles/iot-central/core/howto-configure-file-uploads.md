@@ -7,16 +7,14 @@ ms.author: dobett
 ms.date: 12/23/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: ed2eff4d6ccbb9f85dfaf7049fa3cc18711bae0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1cca508e213d132f96a131f1b0029c13e1b67c47
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97796914"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760794"
 ---
 # <a name="upload-files-from-your-devices-to-the-cloud"></a>Cargar archivos desde dispositivos a la nube
-
-*Este tema se aplica a administradores y desarrolladores de dispositivos.*
 
 IoT Central le permite cargar medios y otros archivos desde dispositivos conectados al almacenamiento en la nube. Configure la funcionalidad de carga de archivos en la aplicación IoT Central y a continuación implemente cargas de archivos en el código del dispositivo.
 

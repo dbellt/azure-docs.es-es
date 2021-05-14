@@ -1,32 +1,30 @@
 ---
 title: Microsoft OPC Publisher
 description: En este artículo se proporciona información general del módulo Edge de OPC Publisher.
-author: jehona-m
+author: v-condav
 ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: conceptual
 ms.date: 3/22/2021
-ms.openlocfilehash: 3a44bdbadfe6ecd86a1b98fb7002f2d75c23bb6a
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 6df39c93e9bcfca522ac61a863c87269216cc592
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800540"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816177"
 ---
 # <a name="what-is-the-opc-publisher"></a>¿Qué es OPC Publisher?
 
-OPC Publisher es un producto de Microsoft totalmente compatible, desarrollado con código abierto, que cierra la brecha entre los recursos industriales y la nube de Microsoft Azure. Para ello, se conecta a recursos habilitados para OPC UA o a software de conectividad industrial, y publica datos de telemetría en Azure IoT Hub en distintos formatos, incluido el formato estándar IEC62541 OPC UA PubSub (a partir de la versión 2.6).
-
-Se ejecuta en Azure IoT Edge como un módulo o en Docker sin formato como contenedor. Dado que aprovecha el runtime multiplataforma de .NET, también se ejecuta de forma nativa en Linux y Windows 10.
+OPC Publisher es un producto de Microsoft totalmente compatible que cierra la brecha entre los recursos industriales y la nube de Microsoft Azure. Para ello, conecta los recursos habilitados para OPC UA o el software de conectividad industrial a la nube de Microsoft Azure. También publica los datos de telemetría que recopila en Azure IoT Hub con varios formatos, incluido el formato estándar de publicación y suscripción de OPC UA CEI 62541 (a partir de la versión 2.6). OPC Publisher se ejecuta en Azure IoT Edge como un módulo o en Docker sin formato como un contenedor. Dado que aprovecha el entorno de ejecución multiplataforma de .NET, también se ejecuta de forma nativa en Linux y Windows 10.
 
 OPC Publisher es una implementación de referencia que demuestra cómo hacer lo siguiente:
 
 - Conectarse a los servidores de OPC UA existentes.
-- Publicar datos de telemetría JSON codificados desde servidores de OPC UA con formato Pub/Sub, mediante una carga JSON, en Azure IoT Hub.
+- Publica datos de telemetría con codificación JSON desde los servidores de OPC UA con formato de publicación y suscripción de OPC UA, mediante una carga JSON, a una instancia de Azure IoT Hub.
 
-Puede usar cualquiera de los protocolos de transporte que admite el SDK del cliente de Azure IoT Hub: HTTPS, AMQP y MQTT.
+Puede usar cualquiera de los protocolos de transporte que admite el SDK de cliente de Azure IoT Hub, como HTTPS, AMQP y MQTT.
 
-La implementación de referencia incluye lo siguiente:
+La implementación de referencia incluye los siguientes elementos.
 
 - Un *cliente* de OPC UA para conectarse a los servidores de OPC UA que tiene en la red.
 - Un *servidor* de OPC UA en el puerto 62222 que puede usar para administrar lo que se publica y ofrece métodos directos de IoT Hub para hacer lo mismo.

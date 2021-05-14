@@ -7,27 +7,27 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c7efebaf23bd8e897243f6ee12b23d3821a4c033
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 9adc69734a1b2de806d7af6cf0e987110b605ec4
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257354"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208606"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (API y CLI)
 
 [!INCLUDE [digital-twins-route-selector.md](../../includes/digital-twins-route-selector.md)]
 
-En Azure Digital Twins, se pueden enrutar [notificaciones de eventos](concepts-event-notifications.md) a los servicios de bajada o recursos de proceso conectados. Para ello, primero se configuran los **puntos de conexión** que pueden recibir los eventos. Después, puede crear [**rutas de eventos**](concepts-route-events.md) que especifiquen qué eventos generados por Azure Digital Twins se entregan a los puntos de conexión.
+En Azure Digital Twins, se pueden enrutar [notificaciones de eventos](concepts-event-notifications.md) a los servicios de bajada o recursos de proceso conectados. Para ello, primero se configuran los **puntos de conexión** que pueden recibir los eventos. Después, puede crear [rutas de eventos](concepts-route-events.md) que especifiquen qué eventos generados por Azure Digital Twins se entregan a los puntos de conexión.
 
 Este artículo le guiará a través del proceso de creación de puntos de conexión y rutas con las [API REST](/rest/api/azure-digitaltwins/), el [SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) y la [CLI de Azure Digital Twins](how-to-use-cli.md).
 
-También puede administrar los puntos de conexión y las rutas con [Azure Portal](https://portal.azure.com). Para obtener una versión de este artículo que usa el portal en su lugar, consulte [*Procedimiento: Administración de puntos de conexión y rutas (portal)*](how-to-manage-routes-portal.md).
+También puede administrar los puntos de conexión y las rutas con [Azure Portal](https://portal.azure.com). Para obtener una versión de este artículo que usa el portal en su lugar, consulte [Procedimiento: Administración de puntos de conexión y rutas (portal)](how-to-manage-routes-portal.md) .
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Necesitará una **cuenta de Azure** (puede configurar una de forma gratuita [aquí](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
-- Necesitará una **instancia de Azure Digital Twins** en su suscripción de Azure. Si no dispone de una instancia, puede crear una con los pasos de [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-cli.md). Tenga a mano los siguientes valores de configuración para usarlos más adelante en este artículo:
+- Necesitará una **instancia de Azure Digital Twins** en su suscripción de Azure. Si no dispone de una instancia, puede crear una con los pasos de [Procedimiento: Configuración de una instancia y autenticación](how-to-set-up-instance-cli.md). Tenga a mano los siguientes valores de configuración para usarlos más adelante en este artículo:
     - Nombre de instancia
     - Grupo de recursos
 
@@ -40,7 +40,7 @@ Estos son los tipos de puntos de conexión admitidos que puede crear para la ins
 * [Event Hubs](../event-hubs/event-hubs-about.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Para obtener más información sobre los distintos tipos de puntos de conexión, vea [*Elección entre los distintos servicios de mensajería de Azure*](../event-grid/compare-messaging-services.md).
+Para obtener más información sobre los distintos tipos de puntos de conexión, vea [Elección entre los distintos servicios de mensajería de Azure](../event-grid/compare-messaging-services.md).
 
 En esta sección se explica cómo crear estos puntos de conexión mediante la CLI de Azure. También puede administrar los puntos de conexión con las [API del plano de control DigitalTwinsEndpoint](/rest/api/digital-twins/controlplane/endpoints).
 
@@ -90,7 +90,7 @@ Cuando un punto de conexión no puede entregar un evento en un período de tiemp
 
 Los puntos de conexión con colas de mensajes fallidos habilitadas se pueden configurar con la [CLI](how-to-use-cli.md) de Azure Digital Twins o las [API de plano de control](how-to-use-apis-sdks.md#overview-control-plane-apis).
 
-Para obtener más información acerca de la opción para poner en cola los mensajes fallidos, consulte [*Conceptos: rutas de eventos*](concepts-route-events.md#dead-letter-events). Para obtener instrucciones sobre cómo configurar un punto de conexión con mensajes fallidos, continúe con el resto de esta sección.
+Para obtener más información acerca de la opción para poner en cola los mensajes fallidos, consulte [Conceptos: rutas de eventos](concepts-route-events.md#dead-letter-events). Para obtener instrucciones sobre cómo configurar un punto de conexión con mensajes fallidos, continúe con el resto de esta sección.
 
 #### <a name="set-up-storage-resources"></a>Configuración de recursos de almacenamiento
 
@@ -100,8 +100,8 @@ Cuando cree el punto de conexión más tarde, proporcionará el URI de este cont
 
 Siga los pasos que se indican a continuación para configurar estos recursos de almacenamiento en su cuenta de Azure, con el fin de preparar la configuración de la conexión del punto de conexión en la siguiente sección.
 
-1. Siga los pasos descritos en [*Creación de una cuenta de Storage*](../storage/common/storage-account-create.md?tabs=azure-portal) para crear una **cuenta de almacenamiento** en la suscripción de Azure. Anote el nombre de la cuenta de almacenamiento para usarlo más adelante.
-2. Siga los pasos descritos en [*Creación de un contenedor de blobs de Azure*](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) para crear un **contenedor** en la nueva cuenta de almacenamiento. Anote el nombre de contenedor para usarlo más adelante.
+1. Siga los pasos descritos en [Creación de una cuenta de Storage](../storage/common/storage-account-create.md?tabs=azure-portal) para crear una **cuenta de almacenamiento** en la suscripción de Azure. Anote el nombre de la cuenta de almacenamiento para usarlo más adelante.
+2. Siga los pasos descritos en [Creación de un contenedor de blobs de Azure](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) para crear un **contenedor** en la nueva cuenta de almacenamiento. Anote el nombre de contenedor para usarlo más adelante.
 3. A continuación, cree un **token de SAS** para la cuenta de almacenamiento que el punto de conexión pueda usar para acceder a ella. Para empezar, vaya a la cuenta de almacenamiento en [Azure Portal](https://ms.portal.azure.com/#home) (puede buscarla por su nombre en la barra de búsqueda del portal).
 4. En la página de la cuenta de almacenamiento, elija el vínculo _Firma de acceso compartido_ en la barra de navegación izquierda para empezar a configurar el token de SAS.
 
@@ -127,7 +127,7 @@ El valor del parámetro es el **URI de SAS de cola de mensajes fallidos** formad
 --deadletter-sas-uri https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>
 ```
 
-Agregue este parámetro al final de los comandos de creación del punto de conexión desde la sección [*Crear el punto de conexión*](#create-the-endpoint) anterior para crear un punto de conexión del tipo deseado que tenga habilitadas la cola de mensajes fallidos.
+Agregue este parámetro al final de los comandos de creación del punto de conexión desde la sección [Crear el punto de conexión](#create-the-endpoint) anterior para crear un punto de conexión del tipo deseado que tenga habilitadas la cola de mensajes fallidos.
 
 Como alternativa, puede crear puntos de conexión de cola de mensajes fallidos mediante las [API de plano de control de Azure Digital Twins](how-to-use-apis-sdks.md#overview-control-plane-apis) en lugar de la CLI. Para ello, consulte la [documentación de DigitalTwinsEndpoint](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para ver cómo estructurar la solicitud y agregar los parámetros de cola de mensajes fallidos.
 
@@ -204,7 +204,7 @@ Si no hay ningún nombre de ruta, no se enruta ningún mensaje fuera de Azure Di
 
 Una ruta debe permitir que se seleccionen varias notificaciones y tipos de evento. 
 
-Las rutas de eventos se pueden crear con las [API de plano de datos **EventRoutes**](/rest/api/digital-twins/dataplane/eventroutes) de Azure Digital Twins o los [comandos **az dt route** de la CLI](/cli/azure/dt/route). En el resto de esta sección se le guía a través del proceso de creación.
+Las rutas de eventos se pueden crear con las API de plano de datos [EventRoutes](/rest/api/digital-twins/dataplane/eventroutes) de Azure Digital Twins o los comandos [az dt route de la CLI](/cli/azure/dt/route). En el resto de esta sección se le guía a través del proceso de creación.
 
 ### <a name="create-routes-with-the-apis-and-c-sdk"></a>Creación de rutas con las API y el SDK de C#
 
@@ -227,7 +227,7 @@ En el método de ejemplo siguiente se muestra cómo crear, enumerar y eliminar u
 
 Las rutas también se pueden administrar mediante los comandos [az dt route](/cli/azure/dt/route) de la CLI de Azure Digital Twins. 
 
-Para obtener más información sobre el uso de la CLI y los comandos disponibles, consulte [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
+Para obtener más información sobre el uso de la CLI y los comandos disponibles, consulte [Procedimiento: Uso de la CLI de Azure Digital Twins](how-to-use-cli.md).
 
 ## <a name="filter-events"></a>Filtrado de eventos
 
@@ -256,4 +256,4 @@ Estos son los filtros de ruta admitidos. Use los detalles de la columna *Filtrar
 ## <a name="next-steps"></a>Pasos siguientes
 
 Lea acerca de los diferentes tipos de mensajes de evento que se pueden recibir:
-* [*Conceptos: notificaciones de eventos*](concepts-event-notifications.md)
+* [Conceptos: notificaciones de eventos](concepts-event-notifications.md)

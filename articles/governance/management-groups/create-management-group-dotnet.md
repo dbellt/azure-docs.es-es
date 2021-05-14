@@ -1,15 +1,15 @@
 ---
 title: 'Inicio rápido: Creación de un grupo de administración con .NET Core'
 description: En este inicio rápido, se usa .NET Core para crear un grupo de administración para organizar los recursos en una jerarquía de recursos.
-ms.date: 02/05/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a74cea9b142785c093b8ed235fc40049746f11a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 422382ca438e203b2ee77deddc9ca82d73cd1ed4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99592592"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733794"
 ---
 # <a name="quickstart-create-a-management-group-with-net-core"></a>Inicio rápido: Creación de un grupo de administración con .NET Core
 
@@ -17,7 +17,7 @@ Los grupos de administración son contenedores que ayudan a administran el acces
 
 El primer grupo de administración creado en el directorio puede tardar hasta 15 minutos en completarse. Hay procesos que se ejecutan la primera vez para configurar el servicio de grupos de administración dentro de Azure para su directorio. Recibirá una notificación cuando finalice el proceso. Para obtener más información, vea [Instalación inicial de los grupos de administración](./overview.md#initial-setup-of-management-groups).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -60,7 +60,7 @@ Para habilitar .NET Core para administrar Azure grupos de administración, cree 
    using Microsoft.Rest;
    using Microsoft.Azure.Management.ManagementGroups;
    using Microsoft.Azure.Management.ManagementGroups.Models;
-   
+
    namespace mgCreate
    {
        class Program
@@ -72,12 +72,12 @@ Para habilitar .NET Core para administrar Azure grupos de administración, cree 
                string strClientSecret = args[2];
                string strGroupId = args[3];
                string strDisplayName = args[4];
-   
+
                var authContext = new AuthenticationContext($"https://login.microsoftonline.com/{strTenant}");
                var authResult = await authContext.AcquireTokenAsync(
                       "https://management.core.windows.net",
                       new ClientCredential(strClientId, strClientSecret));
-   
+
                using (var client = new ManagementGroupsAPIClient(new TokenCredentials(authResult.AccessToken)))
                {
                    var mgRequest = new CreateManagementGroupRequest

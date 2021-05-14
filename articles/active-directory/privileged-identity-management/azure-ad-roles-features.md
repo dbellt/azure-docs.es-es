@@ -14,12 +14,12 @@ ms.date: 07/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4478c9c286c06d5d6c5593195a0e93abd286b8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4113c3cf8fd5942a2fb8f644c67b15066d85b41
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92371518"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517863"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Funcionalidades de administración de los roles de Azure AD en Privileged Identity Management
 
@@ -56,7 +56,7 @@ Ambas acciones iniciadas por el usuario requieren una aprobación de un administ
 
 ## <a name="api-changes"></a>Cambios de API
 
-Cuando los clientes tengan la versión actualizada implementada en su organización de Azure AD, los servicios de Graph API existentes dejarán de funcionar. Debe realizar una transición para usar [Graph API para los roles de recursos de Azure](/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta). Para administrar roles de Azure AD con esa API, cambie `/azureResources` por `/aadroles` en la firma y use el identificador del directorio para el valor de `resourceId`.
+Cuando los clientes tengan la versión actualizada implementada en su organización de Azure AD, los servicios de Graph API existentes dejarán de funcionar. Debe realizar una transición para usar [Graph API para los roles de recursos de Azure](/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta&preserve-view=true). Para administrar roles de Azure AD con esa API, cambie `/azureResources` por `/aadroles` en la firma y use el identificador del directorio para el valor de `resourceId`.
 
 Hemos hecho todo lo posible para ponernos en contacto con todos los clientes que usan la API anterior a fin de informales sobre este cambio de manera anticipada. Si su organización de Azure AD se migró a la nueva versión y aún depende de la API anterior, póngase en contacto con el equipo en pim_preview@microsoft.com.
 

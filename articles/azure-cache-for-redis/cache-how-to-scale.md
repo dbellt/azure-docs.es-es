@@ -6,12 +6,13 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: d91b62afacad31d78feb7d4743cd4050fcc1bd4e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 8d66678ee963a89dcd6b469eaf2622b95a4a5ec4
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581650"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752398"
 ---
 # <a name="scale-an-azure-cache-for-redis-instance"></a>Escalado de una instancia de Azure Cache for Redis
 Azure Cache for Redis tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la memoria caché. En el caso de una caché básica, estándar o prémium, puede cambiar su tamaño y nivel después de crearla para que se ajuste a las necesidades de la aplicación. En este artículo se muestra cómo escalar la memoria caché en Azure Portal o con herramientas tales como Azure PowerShell y la CLI de Azure.

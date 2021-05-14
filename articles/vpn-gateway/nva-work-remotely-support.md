@@ -1,18 +1,19 @@
 ---
-title: 'Trabajo de forma remota: Consideraciones sobre el trabajo remoto en la aplicación virtual de red (NVA) | Azure VPN Gateway'
-description: Este artículo lo ayuda a entender los aspectos que debe tener en cuenta al trabajar con aplicaciones virtuales de red (NVA) en Azure durante la pandemia de COVID-19.
+title: 'Trabajo de forma remota: Consideraciones sobre el trabajo remoto en la aplicación virtual de red (NVA)'
+titleSuffix: Azure VPN Gateway
+description: Conozca los aspectos que debe tener en cuenta al trabajar con aplicaciones virtuales de red (NVA) en Azure durante la pandemia de COVID-19.
 services: vpn-gateway
 author: scottnap
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: scottnap
-ms.openlocfilehash: 70b5732e1293e35127a19fbe736d8562056a870b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd0c1f836abc60a53168098cc1bcce72ded2a120
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96499686"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229205"
 ---
 # <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>Trabajo de forma remota: Consideraciones sobre el trabajo remoto en la aplicación virtual de red (NVA)
 

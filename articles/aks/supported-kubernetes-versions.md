@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/29/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: ba75e11a067a257c659f8c659f68bb2bba6fa2e0
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: c86166c2e38e3fec251707626f5cf9ebab938299
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012096"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209218"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)
 
@@ -108,11 +108,12 @@ Puede consultar las próximas publicaciones de versiones y las que se quedarán 
 
 En el caso de las nuevas versiones **secundarias** de Kubernetes:
   * AKS publica un anuncio previo con la fecha planificada de la nueva publicación de una versión y el respectivo desuso de una versión antigua en las [notas de la versión de AKS](https://aka.ms/aks/releasenotes) al menos 30 días antes de la eliminación.
+  * AKS usa [Azure Advisor](../advisor/advisor-overview.md) alertar a los usuarios si una nueva versión causará problemas en su clúster debido a las API en desuso. Azure Advisor también se usa para alertar al usuario si actualmente no tiene soporte técnico.
   * AKS publica una [notificación de estado del servicio](../service-health/service-health-overview.md) disponible para todos los usuarios con acceso al portal y AKS, y envía un correo electrónico a los administradores de suscripciones con las fechas de eliminación de versión planeadas.
 
-    ````
-    To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
-    ````
+    > [!NOTE]
+    > Para averiguar quién es el administrador de la suscripción o cambiarlo, consulte [Administración de suscripciones de Azure](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
+    
   * Los usuarios tienen **30 días** a partir de la eliminación de una versión para actualizar a una versión secundaria compatible para seguir recibiendo soporte técnico.
 
 En el caso de las nuevas versiones de **revisión** de Kubernetes:
@@ -142,16 +143,18 @@ Para ver el historial de versiones anteriores, vea [Kubernetes](https://en.wikip
 
 |  Versión de K8s | Versión anterior  | Versión preliminar de AKS  | Disponibilidad general de AKS  | Final de la vida útil |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.17  | 9 de diciembre de 2019  | Enero de 2019   | Julio de 2020  | 1.20 disponibilidad general | 
 | 1.18  | 23 de marzo de 2020  | Mayo de 2020   | Agosto de 2020  | 1.21 disponibilidad general | 
 | 1.19  | 4 de agosto de 2020  | Septiembre de 2020   | Noviembre de 2020  | 1.22 disponibilidad general | 
 | 1.20  | 8 de diciembre de 2020  | Enero de 2021   | Marzo de 2021  | 1.23 Disponibilidad general |
-| 1.21  | Apr-08-21* | Mayo de 2021   | Junio de 2021  | 1.24 disponibilidad general |
+| 1.21  | 8 de abril de 2021 | Mayo de 2021   | Junio de 2021  | 1.24 disponibilidad general |
 
-\* La versión anterior 1.21 de Kubernetes está sujeta a cambio, puesto que el calendario anterior todavía debe finalizarse.
 
 
 ## <a name="faq"></a>Preguntas más frecuentes
+
+**¿Cómo me notifica Microsoft las nuevas versiones de Kubernetes?**
+
+El equipo de AKS publica anuncios previos con las fechas planeadas de las nuevas versiones de Kubernetes en nuestra documentación, en [GitHub,](https://github.com/Azure/AKS/releases) así como en los correos electrónicos a los administradores de suscripciones que poseen clústeres que van a dejar de recibir soporte técnico.  Además de los anuncios, AKS también usa [Azure Advisor](../advisor/advisor-overview.md) para notificar al cliente de Azure Portal que alerte a los usuarios si no tienen soporte técnico, así como alertarlos de las API en desuso que afectarán a su aplicación o proceso de desarrollo. 
 
 **¿Con qué frecuencia debo planear actualizar las versiones de Kubernetes para mantenerme con soporte técnico?**
 
@@ -219,5 +222,5 @@ Para obtener información sobre cómo actualizar el clúster, vea [Actualizació
 
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md
-[az-aks-get-versions]: /cli/azure/aks#az-aks-get-versions
+[az-aks-get-versions]: /cli/azure/aks#az_aks_get_versions
 [preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

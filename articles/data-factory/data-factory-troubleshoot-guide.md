@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 12/30/2020
 ms.author: abnarain
-ms.openlocfilehash: 101e55188b8021040e2fd6bd573c1c6330241e72
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3011309da477dcfad2285e5832dfa163f69cc419
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100382810"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108183549"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Solución de problemas de Azure Data Factory
 
@@ -106,6 +106,14 @@ Para más información sobre los problemas con el conector (como errores relacio
 - **Causa**: El usuario que ha generado el token de acceso no tiene permiso para obtener acceso al clúster de Databricks especificado en el servicio vinculado.
 
 - **Recomendación:** Asegúrese de que el usuario tiene los permisos necesarios en el área de trabajo.
+
+<br/> 
+
+- **Mensaje**: `Job is not fully initialized yet. Please retry later.`
+
+- **Causa**: el trabajo no se ha inicializado.
+
+- **Recomendación**: espere y vuelva a intentarlo más adelante.
 
 ### <a name="error-code-3203"></a>Código de error: 3203
 

@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 70bf46de072a97eca810dda60a5331df14172ed6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a99f5ebf0fd4f3c4684446a868e1c4e342f3785e
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100555153"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783845"
 ---
 # <a name="add-tags-to-digital-twins"></a>Incorporación de etiquetas a gemelos digitales 
 
-Puede usar el concepto de etiquetas para detallar la identificación y la categorización de los gemelos digitales. En concreto, los usuarios podrían querer replicar etiquetas de sistemas existentes, como las [etiquetas de Haystack](https://project-haystack.org/doc/TagModel), en las instancias de Azure Digital Twins. 
+Puede usar el concepto de etiquetas para detallar la identificación y la categorización de los gemelos digitales. En concreto, los usuarios podrían querer replicar etiquetas de sistemas existentes, como las [etiquetas de Haystack](https://project-haystack.org/doc/appendix/tags), en las instancias de Azure Digital Twins. 
 
 En este documento se describen los patrones que se pueden usar para implementar etiquetas en gemelos digitales.
 
@@ -42,17 +42,21 @@ Este es un ejemplo que rellena el marcador `tags` para tres gemelos:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesMarker":::
 
+Este es un ejemplo de código de cómo establecer el marcador `tags` para un gemelo con el [SDK de .NET](/dotnet/api/overview/azure/digitaltwins/client):
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesCsharp":::
+
 ### <a name="query-with-marker-tags"></a>Consulta con etiquetas de marcador
 
 Una vez que se han agregado etiquetas a gemelos digitales, estas se pueden usar para filtrar los gemelos en las consultas. 
 
 Esta es una consulta para obtener todos los gemelos etiquetados como "red": 
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags1":::
 
 También puede combinar etiquetas para consultas más complejas. Esta es una consulta para obtener todos los gemelos etiquetados como "round" y no "red": 
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags2":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags2":::
 
 ## <a name="value-tags"></a>Etiquetas de valor 
 
@@ -82,16 +86,16 @@ Al igual que con las etiquetas de marcador, puede usar etiquetas de valor para f
 
 En el ejemplo anterior, `red` se usa como etiqueta de marcador. Recuerde que esta es una consulta para obtener todos los gemelos etiquetados como "red": 
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags1":::
 
 Esta es una consulta para obtener todas las entidades que son "small" (etiqueta de valor) y no "red": 
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerValueTags":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerValueTags":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre el diseño y la administración de modelos de gemelos digitales:
-* [*Procedimiento: Administración de modelos DTDL*](how-to-manage-model.md)
+* [Procedimiento: Administración de modelos DTDL](how-to-manage-model.md)
 
 Más información sobre la consulta del grafo gemelo:
-* [*Procedimiento: Consulta del grafo gemelo*](how-to-query-graph.md)
+* [Procedimiento: Consulta del grafo de gemelos](how-to-query-graph.md)

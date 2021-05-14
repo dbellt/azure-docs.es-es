@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: duau
-ms.openlocfilehash: 2e9b6ddc9da4467590946af12a47f1473a4ea494
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 51bd54fddfdbd5978c3a262ffcd81ff204d7d156
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92202062"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108073888"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Creación de un circuito de ExpressRoute mediante una plantilla de Azure Resource Manager
 
@@ -37,7 +37,7 @@ Aprenda a crear un circuito de ExpressRoute mediante la implementación de una p
 
 [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/) tiene una buena colección de plantillas de Resource Manager. Use alguna de las [plantillas existentes](https://azure.microsoft.com/resources/templates/101-expressroute-circuit-create/) para crear un circuito de ExpressRoute.
 
-[!code-json[create-azure-expressroute-circuit](~/quickstart-templates/101-expressroute-circuit-create/azuredeploy.json)]
+[!code-json[create-azure-expressroute-circuit](~/quickstart-templates/quickstarts/microsoft.network/expressroute-circuit-create/azuredeploy.json)]
 
 Para ver más plantillas relacionadas, seleccione [aquí](https://azure.microsoft.com/resources/templates/?term=expressroute).
 

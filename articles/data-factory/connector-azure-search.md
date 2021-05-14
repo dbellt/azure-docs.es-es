@@ -1,18 +1,18 @@
 ---
 title: Copia de los datos al índice de búsqueda
 description: Obtenga información sobre cómo insertar o copiar datos en un índice de Azure Search mediante la actividad de copia en una canalización de Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: 82f5d4f4c3f12b6e14e260fa004bb031247e1096
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7820232bc5f91d85ce24c9df8ebaa0a0bbc52342
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104597511"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109480226"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Copia de datos a un índice de Azure Cognitive Search mediante Azure Data Factory
 
@@ -30,7 +30,7 @@ Puede copiar datos desde cualquier almacén de datos de origen compatible en un 
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Las secciones siguientes proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de Azure Cognitive Search.
 

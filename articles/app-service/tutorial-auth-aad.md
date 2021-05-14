@@ -4,15 +4,15 @@ description: Aprenda a usar la autenticación y autorización de App Service par
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/29/2020
+ms.date: 04/26/2021
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: e35a4abbcaf0cd2298d55c06de0ecfbef0dff354
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c0a232dc0541ea8626cdb40a9b3497a686a5ee11
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765816"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074552"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticación y autorización de usuarios de extremo a extremo en Azure App Service
 
@@ -240,23 +240,21 @@ En **Grupos de recursos**, busque y seleccione el grupo de recursos. En **Inform
 
 :::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Captura de pantalla de la ventana de grupos de recursos, que muestra información general de un grupo de recursos de ejemplo y la página de administración de una aplicación de back-end seleccionada.":::
 
-En el menú de la izquierda de la aplicación de back-end, seleccione **Autenticación/autorización** y luego seleccione **Activado** para habilitar la autenticación de App Service.
+En el menú de la izquierda de la aplicación de back-end, seleccione **Autenticación** y haga clic en **Agregar proveedor de identidades**.
 
-En **Action to take when request is not authenticated** (Acción necesaria cuando la solicitud no está autenticada), seleccione **Log in with Azure Active Directory** (Iniciar sesión con Azure Active Directory).
+En la página **Agregar un proveedor de identidades**, seleccione **Microsoft** en **Proveedor de identidades** para iniciar sesión en las identidades de Microsoft y Azure AD.
 
-En **Proveedores de autenticación,** seleccione **Azure Active Directory**.
+En **Registro de aplicación** > **App registration type** (Tipo de registro de aplicación), seleccione **Create new app registration** (Crear registro de aplicación).
+
+En **Registro de aplicación** > **Supported account types** (Tipos de cuenta admitidos), seleccione **Current tenant-single tenant** (Inquilino de inquilino único actual).
+
+En la sección **App Service authentication settings** (Configuración de autenticación de App Service), deje la opción **Autenticación** establecida en **Requerir autenticación** y la opción **Unauthenticated requests** (Solicitudes no autenticadas) establecida en **HTTP 302 Found redirect: recommended for websites** (HTTP 302 Redirección no encontrada: recomendado para sitios web).
+
+En la parte inferior de la página **Agregar un proveedor de identidades**, haga clic en **Agregar** para permitir la autenticación de la aplicación web.
 
 :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Captura de pantalla del menú de la izquierda de la aplicación de back-end que muestra la opción de autenticación o autorización seleccionada y la configuración que se ha seleccionado en el menú de la derecha.":::
 
-Seleccione **Rápido**, acepte la configuración predeterminada para crear una nueva aplicación de AD y seleccione **Aceptar**.
-
-En la página **Autenticación/autorización**, seleccione **Guardar**.
-
-Cuando vea la notificación con el mensaje `Successfully saved the Auth Settings for <back-end-app-name> App`, actualice la página del portal.
-
-Vuelva a seleccionar **Azure Active Directory** y, después, seleccione la **aplicación de Azure AD**.
-
-Copie el valor de **Identificador de cliente** de la aplicación de Azure AD en un bloc de notas. Este valor lo necesitará más adelante.
+Se abrirá la página de **autenticación**. Copie el valor de **Identificador de cliente** de la aplicación de Azure AD en un bloc de notas. Este valor lo necesitará más adelante.
 
 :::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Captura de pantalla de la ventana de configuración de Azure Active Directory que muestra el aplicación de Azure AD y la ventana de aplicaciones de Azure AD con el identificador de cliente para copiar.":::
 

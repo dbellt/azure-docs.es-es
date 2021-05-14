@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: d299afca0bd8070a1da738e02812b64c41a7101c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9f9626ebdcc52f9aeb2b9283dac6c5790e3df8cf
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101675047"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108179967"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Consulta de archivos del almacenamiento con el grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -96,15 +96,12 @@ Para ver algunos ejemplos, consulte el artículo en el que se proporciona inform
 
 Si omite la cláusula WITH de la instrucción `OPENROWSET`, puede indicar al servicio que detecte automáticamente (infiera) el esquema a partir de los archivos subyacentes.
 
-> [!NOTE]
-> Esto solo funciona con el formato de archivo PARQUET.
-
 ```sql
 SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
 ```
 
-Asegúrese de que se usan [tipos de datos inferidos adecuados](best-practices-sql-on-demand.md#check-inferred-data-types) para obtener un rendimiento óptimo. 
+Asegúrese de que se usan [tipos de datos inferidos adecuados](./best-practices-serverless-sql-pool.md#check-inferred-data-types) para obtener un rendimiento óptimo. 
 
 ## <a name="query-multiple-files-or-folders"></a>Consulta de varios archivos o carpetas
 

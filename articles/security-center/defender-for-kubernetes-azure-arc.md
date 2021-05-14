@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 04/06/2021
 ms.author: memildin
-ms.openlocfilehash: 940cae8829a99ee7ffacdb41844237acc85b7761
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 80c3409a69b8605d0d8ba9902c2be68d88e825c3
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029206"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905979"
 ---
 # <a name="defend-azure-arc-enabled-kubernetes-clusters-running-in-on-premises-and-multi-cloud-environments"></a>Protección de clústeres de Kubernetes habilitados para Azure Arc que se ejecutan en entornos locales y de varias nubes
 
@@ -56,12 +56,12 @@ Puede implementar la extensión de Azure Defender con varios métodos. Para obte
 
 ### <a name="azure-portal"></a>[**Azure Portal**](#tab/k8s-deploy-asc)
 
-### <a name="use-the-quick-fix-option-from-the-security-center-recommendation"></a>Uso de la opción "Corrección rápida" de la recomendación de Security Center
+### <a name="use-the-fix-button-from-the-security-center-recommendation"></a>Uso del botón Corregir de la recomendación de Security Center
 
 Una recomendación dedicada en Azure Security Center proporciona lo siguiente:
 
 - **Visibilidad** sobre cuál de los clústeres tiene implementada la extensión Defender para Kubernetes
-- **Una opción "Corrección rápida"** para implementarla en esos clústeres sin la extensión
+- Botón **Corregir** para implementarlo en esos clústeres sin la extensión
 
 1. En la página de recomendaciones de Azure Security Center, abra el control de seguridad **Habilitar Azure Defender**.
 
@@ -70,7 +70,7 @@ Una recomendación dedicada en Azure Security Center proporciona lo siguiente:
     :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="La recomendación de Azure Security Center para implementar la extensión de Azure Defender para clústeres de Kubernetes habilitados para Azure Arc." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
     > [!TIP]
-    > Observe el icono Corrección rápida en la columna Acciones.
+    > Observe el icono **Corregir** en la columna Acciones.
 
 1. Seleccione la extensión para ver los detalles de los recursos correctos e incorrectos; es decir, clústeres con y sin la extensión.
 
@@ -78,7 +78,7 @@ Una recomendación dedicada en Azure Security Center proporciona lo siguiente:
 
 1. Seleccione el área de trabajo de Log Analytics correspondiente y seleccione **Corregir recurso x**.
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/security-center-deploy-extension.gif" alt-text="Implemente la extensión de Azure Defender para Azure Arc con la opción de corrección rápida de Security Center.":::
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/security-center-deploy-extension.gif" alt-text="Implemente la extensión de Azure Defender para Azure Arc con la opción Corregir de Security Center.":::
 
 
 ### <a name="azure-cli"></a>[**CLI de Azure**](#tab/k8s-deploy-cli)

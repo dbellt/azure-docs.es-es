@@ -1,18 +1,19 @@
 ---
-title: 'Azure VPN Gateway: Información general: configuraciones de puertas de enlace de alta disponibilidad'
-description: En este artículo se proporciona información general sobre las opciones de configuración de alta disponibilidad mediante instancias de Azure VPN Gateway.
+title: Acerca de las configuraciones de puertas de enlace de alta disponibilidad
+titleSuffix: Azure VPN Gateway
+description: Obtenga información sobre las opciones de configuración de alta disponibilidad mediante Azure VPN Gateway.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: d193850461eeaa5041e1cfd6d64def503ad676d4
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: f7b36b65ee14e66de7b35d38d835fb5f2d5dd229
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374767"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205474"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Conectividad de alta disponibilidad entre locales y de red virtual a red virtual
 En este artículo se proporciona información general sobre las opciones de configuración de alta disponibilidad para la conectividad entre locales y de red virtual a red virtual con instancias de Azure VPN Gateway.

@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.workload: identity
-ms.date: 02/15/2021
+ms.date: 04/28/2021
 ms.author: rolyon
-ms.openlocfilehash: 6e8f194cd85a3c381bdabf206777a99dce3c29b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d040b4b49ddb394639633cb40887a116ff1e613b
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100559276"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279341"
 ---
 # <a name="quickstart-assign-an-azure-role-using-an-arm-template"></a>Inicio rápido: Asignación de un rol de Azure mediante una plantilla de Resource Manager
 
@@ -25,7 +25,7 @@ El [control de acceso basado en rol (RBAC)](overview.md) es la forma en la que s
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-rbac-builtinrole-resourcegroup%2Fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.authorization%2Frbac-builtinrole-resourcegroup%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -39,7 +39,7 @@ Para asignar roles de Azure y quitar asignaciones de roles, debe tener:
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). La plantilla tiene tres parámetros y una sección de recursos. En la sección de recursos, observe que tiene los tres elementos de una asignación de roles: entidad de seguridad, definición de roles y ámbito.
 
-:::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.authorization/rbac-builtinrole-resourcegroup/azuredeploy.json":::
 
 El recurso definido en la plantilla es el siguiente:
 
@@ -59,12 +59,12 @@ El recurso definido en la plantilla es el siguiente:
     $resourceGroupName = Read-Host -Prompt "Enter a resource group name (i.e. ExampleGrouprg)"
     $emailAddress = Read-Host -Prompt "Enter an email address for a user in your directory"
     $location = Read-Host -Prompt "Enter a location (i.e. centralus)"
-    
+
     $roleAssignmentName = New-Guid
     $principalId = (Get-AzAdUser -Mail $emailAddress).id
     $roleDefinitionId = (Get-AzRoleDefinition -name "Virtual Machine Contributor").id
-    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-rbac-builtinrole-resourcegroup/azuredeploy.json"
-    
+    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.authorization/rbac-builtinrole-resourcegroup/azuredeploy.json"
+
     New-AzResourceGroup -Name $resourceGroupName -Location $location
     New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -roleAssignmentName $roleAssignmentName -roleDefinitionID $roleDefinitionId -principalId $principalId
     ```
@@ -83,23 +83,23 @@ El recurso definido en la plantilla es el siguiente:
 
     ```azurepowershell
     PS> New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -roleAssignmentName $roleAssignmentName -roleDefinitionID $roleDefinitionId -principalId $principalId
-    
+
     DeploymentName          : azuredeploy
     ResourceGroupName       : ExampleGrouprg
     ProvisioningState       : Succeeded
     Timestamp               : 5/22/2020 9:01:30 PM
     Mode                    : Incremental
     TemplateLink            :
-                              Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-rbac-builtinrole-resourcegroup/azuredeploy.json
+                              Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.authorization/rbac-builtinrole-resourcegroup/azuredeploy.json
                               ContentVersion : 1.0.0.0
-    
+
     Parameters              :
                               Name                  Type                       Value
                               ====================  =========================  ==========
                               roleAssignmentName    String                     {roleAssignmentName}
                               roleDefinitionID      String                     9980e02c-c2be-4d73-94e8-173b1dc7cf3c
                               principalId           String                     {principalId}
-    
+
     Outputs                 :
     DeploymentDebugLogLevel :
     ```
@@ -125,13 +125,13 @@ Para quitar la asignación de roles y el grupo de recursos que ha creado, siga e
     ```azurepowershell
     $emailAddress = Read-Host -Prompt "Enter the email address of the user with the role assignment to remove"
     $resourceGroupName = Read-Host -Prompt "Enter the resource group name to remove (i.e. ExampleGrouprg)"
-    
+
     $principalId = (Get-AzAdUser -Mail $emailAddress).id
-    
+
     Remove-AzRoleAssignment -ObjectId $principalId -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName $resourceGroupName
     Remove-AzResourceGroup -Name $resourceGroupName
     ```
-    
+
 1. Escriba la dirección de correo electrónico del usuario con la asignación de roles que se va a quitar.
 
 1. Escriba el nombre del grupo de recursos que va a quitar, como por ejemplo ExampleGrouprg.

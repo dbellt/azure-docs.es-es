@@ -3,12 +3,13 @@ title: Implementación de recursos en grupos de recursos
 description: Se describe cómo implementar recursos en una plantilla de Azure Resource Manager. Se muestra cómo seleccionar más de un grupo de recursos como destino.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: 1d636be9ffab5a4398e3e12867e601ce6df382bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 77985020324efde1b6df47bd10a70015cc0aa2a4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889797"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754080"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Implementaciones de grupos de recursos con plantillas de Resource Manager
 
@@ -50,7 +51,7 @@ Para la CLI de Azure, use [az deployment group create](/cli/azure/deployment/gro
 az deployment group create \
   --name demoRGDeployment \
   --resource-group ExampleGroup \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json" \
   --parameters storageAccountType=Standard_GRS
 ```
 
@@ -62,7 +63,7 @@ Para el comando de implementación de PowerShell, use [New-AzResourceGroupDeploy
 New-AzResourceGroupDeployment `
   -Name demoRGDeployment `
   -ResourceGroupName ExampleGroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json `
   -storageAccountType Standard_GRS `
 ```
 

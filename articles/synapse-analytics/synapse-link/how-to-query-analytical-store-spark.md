@@ -10,12 +10,12 @@ ms.date: 09/15/2020
 ms.author: rosouz
 ms.reviewer: jrasnick
 ms.custom: cosmos-db
-ms.openlocfilehash: 4a8367ea41ea96d8a412af965346684737d190fe
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5e2458ebcdcc1b2dba598b5d443b8eab12312e7d
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105627581"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788969"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link"></a>Interacción con Azure Cosmos DB mediante Apache Spark en Azure Synapse Link
 
@@ -128,7 +128,7 @@ df.write.format("cosmos.oltp").
 ## <a name="load-streaming-dataframe-from-container"></a>Cargar un DataFrame de streaming desde un contenedor
 En este gesto, usará la funcionalidad de streaming de Spark para cargar datos de un contenedor en un DataFrame. Los datos se almacenarán en la cuenta principal del lago de datos (y en el sistema de archivos) que conectó al área de trabajo. 
 > [!NOTE]
-> Si quiere hacer referencia a bibliotecas externas en Apache Spark de Synapse, obtenga más información [aquí](#external-library-management). Por ejemplo, si quiere ingerir un DataFrame de Spark en un contenedor de la API de Cosmos DB para Mongo DB, puede aprovechar el conector de Mongo DB para Spark [aquí](https://docs.mongodb.com/spark-connector/master/).
+> Si quiere hacer referencia a bibliotecas externas en Apache Spark de Synapse, obtenga más información [aquí](../spark/apache-spark-azure-portal-add-libraries.md). Por ejemplo, si quiere ingerir un DataFrame de Spark en un contenedor de la API de Cosmos DB para Mongo DB, puede aprovechar el conector de Mongo DB para Spark [aquí](https://docs.mongodb.com/spark-connector/master/).
 
 ## <a name="load-streaming-dataframe-from-azure-cosmos-db-container"></a>Cargar un DataFrame de streaming desde un contenedor de Azure Cosmos DB
 En este ejemplo, usará la funcionalidad Structured Streaming de Spark para cargar datos de un contenedor de Azure Cosmos DB a un DataFrame de streaming de Spark mediante la funcionalidad de fuente de cambios en Azure Cosmos DB. Los datos del punto de comprobación que usó Spark se almacenarán en la cuenta principal del lago de datos (y en el sistema de archivos) que conectó al área de trabajo.
@@ -207,19 +207,6 @@ val query = dfStream.
 query.awaitTermination()
 ```
 
-## <a name="external-library-management"></a>Módulo de administración de biblioteca externa
-
-En este ejemplo, aprenderá a hacer referencia a las bibliotecas externas desde archivos JAR al usar los cuadernos de Spark en las áreas de trabajo de Apache Spark de Synpase. Puede colocar los archivos JAR en un contenedor en la cuenta principal de lago de datos que ha conectado al área de trabajo y, a continuación, agregar la siguiente instrucción `%configure` en el cuaderno de Spark:
-
-```cmd
-%%configure -f
-{
-    "jars": [
-        "abfss://<storage container name>@<data lake account name>.dfs.core.windows.net/<path to jar>"
-    ]
-}
-```
-Si quiere enviar definiciones de trabajos de Spark remotos a un grupo de Apache Spark sin servidor, puede obtener información sobre cómo hacer referencia a las bibliotecas externas con este [tutorial](../spark/apache-spark-job-definitions.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

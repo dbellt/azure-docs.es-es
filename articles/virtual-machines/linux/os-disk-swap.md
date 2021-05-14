@@ -1,6 +1,6 @@
 ---
-title: Intercambio entre discos del sistema operativo mediante la CLI '
-description: Intercambiar el disco del sistema operativo que usa una máquina virtual de Azure mediante la CLI.
+title: Intercambio entre discos del sistema operativo mediante la CLI de Azure
+description: Intercambiar el disco del sistema operativo que usa una máquina virtual de Azure mediante la CLI de Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: disks
@@ -8,14 +8,15 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 24cd71cafa9dc0bd9131255caf50841f6d5909d1
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 85d6350a36e62ace8f1922d30493d0f1d448d315
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311250"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765942"
 ---
-# <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>Intercambiar el disco del sistema operativo que usa una máquina virtual de Azure mediante la CLI
+# <a name="change-the-os-disk-used-by-an-azure-vm-using-the-azure-cli"></a>Intercambiar el disco del sistema operativo que usa una máquina virtual de Azure mediante la CLI de Azure.
 
 
 Si ya tiene una máquina virtual, pero quiere intercambiar el disco por una copia de seguridad u otro disco del sistema operativo, puede usar la CLI de Azure para intercambiar los discos del sistema operativo. No es necesario eliminar ni volver a crear la máquina virtual. Incluso puede utilizar un disco administrado de otro grupo de recursos, siempre y cuando no esté en uso.
@@ -46,7 +47,7 @@ az vm stop \
 ```
 
 
-Use [az vm update](/cli/azure/vm#az-vm-update) con el id. de recurso completo del nuevo disco para el parámetro `--osdisk`. 
+Use [az vm update](/cli/azure/vm#az_vm_update) con el id. de recurso completo del nuevo disco para el parámetro `--osdisk`. 
 
 ```azurecli-interactive 
 az vm update \

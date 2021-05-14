@@ -1,21 +1,21 @@
 ---
 title: Bloqueo de recursos
 description: Obtenga más información sobre las opciones de bloqueo de Azure Blueprints para proteger los recursos cuando asigne un plano técnico.
-ms.date: 01/27/2021
+ms.date: 04/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: b2004ad294ae0eec1b4f2fc6f49308efd32d652e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ad6bbc80818a1ba749607c44403e3efbdb064c9
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98920197"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897764"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprensión del bloqueo de recursos en planos técnicos de Azure Blueprint
 
 La creación de entornos coherentes a escala solo es realmente valiosa si existe un mecanismo que mantenga la coherencia. En este artículo se explica cómo funciona el bloqueo de recursos en planos técnicos de Azure Blueprint. Para ver un ejemplo del bloqueo de recursos y la aplicación de _asignaciones de denegación_, consulte el tutorial [protección de nuevos recursos](../tutorials/protect-new-resources.md).
 
 > [!NOTE]
-> Los bloqueos de recursos implementados por Azure Blueprints solo se aplican a los recursos implementados por la asignación de planos técnicos. Los recursos existentes, como los de los grupos de recursos que ya existen, no tienen bloqueos agregados.
+> Los bloqueos de recursos implementados por Azure Blueprints solo se aplican a los [recursos sin extensión](../../../azure-resource-manager/templates/scope-extension-resources.md) implementados por la asignación de planos técnicos. Los recursos existentes, como los de los grupos de recursos que ya existen, no tienen bloqueos agregados.
 
 ## <a name="locking-modes-and-states"></a>Estados y modos de bloqueos
 

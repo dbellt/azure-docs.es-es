@@ -1,17 +1,17 @@
 ---
 title: Copia de datos de Vertica con Azure Data Factory
 description: Obtenga información sobre cómo copiar datos de Vertica en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.author: jingwang
-ms.openlocfilehash: a95cbc459da3935a39d2830a074f4e5d8e72e617
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.author: jianleishen
+ms.openlocfilehash: f8b9cba39005c7c6a69789ee29a03be4ab56bae8
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100384051"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484746"
 ---
 # <a name="copy-data-from-vertica-using-azure-data-factory"></a>Copia de datos de Vertica con Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -31,7 +31,7 @@ Azure Data Factory proporciona un controlador integrado para habilitar la conect
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>Introducción
 

@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 4fdc222fa20aef6639bf6d5d485f7dcf6b6ca535
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f80e78da5c7d226c704c8b13fc496e416f5d0f0d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641144"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108125596"
 ---
 # <a name="efficiently-scale-out-a-custom-skill"></a>Escalado horizontal de una aptitud personalizada de forma eficaz
 
@@ -26,7 +26,7 @@ Las aptitudes personalizadas son las API web que implementan una interfaz espec�
 
 + Repase el artículo sobre la [interfaz de una aptitud personalizada](cognitive-search-custom-skill-interface.md) para ver una introducción sobre la interfaz de entrada/salida que debe implementar una aptitud personalizada.
 
-+ Configure el entorno. Podría empezar por [este tutorial de principio a fin](/azure/azure-functions/create-first-function-vs-code-python) para configurar una instancia de Azure Function sin servidor con las extensiones de Visual Studio Code y Python.
++ Configure el entorno. Podría empezar por [este tutorial de principio a fin](../azure-functions/create-first-function-vs-code-python.md) para configurar una instancia de Azure Function sin servidor con las extensiones de Visual Studio Code y Python.
 
 ## <a name="skillset-configuration"></a>Configuración del conjunto de aptitudes
 

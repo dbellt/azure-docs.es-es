@@ -3,12 +3,12 @@ title: Uso de máquinas virtuales de Azure de proceso intensivo con Batch
 description: Aprovechamiento de los tamaños de máquina virtual HPC y GPU en grupos de Azure Batch Aprenda sobre las dependencias del sistema operativo y consulte varios escenarios de ejemplo.
 ms.topic: how-to
 ms.date: 12/17/2018
-ms.openlocfilehash: 016da7669c9e6a6586a53d379f9665c9ea048b64
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8f3156296e1ae1ec892be86fc41738fcb7f29090
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86147341"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988341"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Uso de instancias RDMA o GPU en grupos de Batch
 
@@ -51,15 +51,17 @@ Las funcionalidades RDMA y GPU de los tamaños de proceso intensivos solo se adm
 
 <sup>*</sup>Los tamaños de la serie N compatibles con RDMA también incluyen las GPU de NVIDIA Tesla
 
-### <a name="windows-pools---cloud-services-configuration"></a>Grupos de Windows: configuración de servicios en la nube
+### <a name="windows-pools---cloud-services-configuration"></a>Grupos de Windows: configuración de Cloud Services
 
-> [!NOTE]
-> Los tamaños de la serie N no se admiten en grupos de Batch con la configuración de servicios en la nube.
->
+> [!WARNING]
+> Los grupos de configuración de Cloud Services están [en desuso](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). En su lugar, utilice los grupos de configuración de máquina virtual.
 
 | Size | Capacidad | Sistemas operativos | Requisitos de software | Configuración del grupo |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r, H16mr, A8 y A9](../virtual-machines/sizes-hpc.md) | RDMA | Windows Server 2016, 2012 R2, 2012 o<br/>2008 R2 (familia de sistemas operativos invitados) | Microsoft MPI 2012 R2 o posterior, o<br/>Intel MPI 5<br/><br/>Controladores RDMA en Windows | Habilitar la comunicación entre nodos y<br/> deshabilitar la ejecución de tareas simultáneas |
+
+> [!NOTE]
+> Los tamaños de la serie N no se admiten en grupos de configuración de Cloud Services.
 
 ## <a name="pool-configuration-options"></a>Opciones de configuración de grupos
 

@@ -3,19 +3,18 @@ title: Métodos de creación de certificados
 description: Obtenga información sobre las diferentes opciones con las que podemos crear o importar un certificado de Key Vault en Azure Key Vault. Hay varias formas de crear un certificado de Key Vault.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f06f2de1f373f72aa5e55da17c249ff119a36950
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 72ff2a1a7b8bcff768248833183ce03a169f9a4d
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581829"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752127"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de creación de certificados
 
@@ -93,5 +92,5 @@ Tenga en cuenta que cuando se realiza un pedido al emisor, puede respetar o reem
 
 ## <a name="see-also"></a>Consulte también
 
- - Guía paso a paso para crear certificados en Key Vault con el uso de [Portal](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal), la [CLI de Azure](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-cli) o [Azure PowerShell](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-powershell)
+ - Guía paso a paso para crear certificados en Key Vault con el uso de [Portal](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal), la [CLI de Azure](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-cli) o [Azure PowerShell](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-powershell)
  - [Supervisión y administración de la creación de certificados](create-certificate-scenarios.md)

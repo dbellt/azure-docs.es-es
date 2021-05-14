@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/11/2021
+ms.date: 04/15/2021
 ms.author: banders
-ms.openlocfilehash: 63fbf76b2211e530707f3598d176b646c317cc53
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 687db46ea2f6c9c4fae6e5355e3236cde3d7a401
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100363056"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567254"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferencia de suscripciones de Azure entre suscriptores y CSP
 
@@ -21,7 +21,7 @@ En este artículo se proporcionan los pasos generales que se siguen para transfe
 
 Antes de iniciar una solicitud de transferencia, debe descargar o exportar el costo y la información de facturación que desee conservar. La información de facturación y uso no se transfiere con la suscripción. Para más información acerca de cómo exportar datos de administración de costos, consulte [Creación y administración de datos exportados](../costs/tutorial-export-acm-data.md). Para más información sobre cómo descargar los datos de uso y factura, consulte [Procedimiento para descargar los datos de uso diario y de factura de Azure](download-azure-invoice-daily-usage-date.md).
 
-Si tiene reservas existentes, dejarán de aplicarse después de transferir una suscripción. Asegúrese de [cancelar las reservas y reembolsarlas](../reservations/exchange-and-refund-azure-reservations.md) antes de transferir una suscripción.
+Si tiene reservas existentes, dejarán de aplicarse 90 días después de transferir una suscripción. Asegúrese de [cancelar las reservas y devolverlas](../reservations/exchange-and-refund-azure-reservations.md) antes de transferir una suscripción para evitar cargos después del período de gracia de 90 días.
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Transferencia de suscripciones EA a un asociado de CSP
 
@@ -55,9 +55,9 @@ Para transferir cualquier otra suscripción de Azure a un partner de CSP, el sus
 
 ## <a name="transfer-csp-subscription-to-other-offer"></a>Transferencia de una suscripción a CSP a otra oferta
 
-Para transferir cualquier otra suscripción de un partner de CSP a cualquier otra oferta de Azure, el suscriptor debe trasladar los recursos de las suscripciones de origen a las suscripciones de CSP.
+Para transferir cualquier otra suscripción de un partner de CSP a cualquier otra oferta de Azure, el suscriptor debe trasladar los recursos de las suscripciones de origen a las suscripciones de CSP. Este trabajo lo realizan un asociado y un cliente; no lo realiza un representante de Microsoft.
 
-1. Cree las suscripciones a Azure de destino.
+1. El cliente crea suscripciones de Azure de destino.
 1. Asegúrese de que las suscripciones de origen y destino están en el mismo inquilino de Azure Active Directory (Azure AD). Para obtener más información sobre el cambio de un inquilino de Azure AD, consulte [Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
     Tenga en cuenta que el directorio de cambios no se admite en la suscripción de CSP. Por ejemplo, pasa de un CSP a una suscripción de pago por uso y necesita cambiar el directorio de la suscripción de pago por uso para que coincida con el directorio.
 
@@ -65,7 +65,7 @@ Para transferir cualquier otra suscripción de un partner de CSP a cualquier otr
     >  - Al asociar una suscripción a un directorio diferente, los usuarios que tengan roles asignados mediante [Azure RBAC](../../role-based-access-control/role-assignments-portal.md) pierden el acceso. Los administradores de suscripciones clásicas, incluidos el administrador y los coadministradores del servicio, también pierden el acceso.
     >  - También se quitan las asignaciones de directivas de una suscripción cuando dicha suscripción está asociada a un directorio diferente.
 
-1. La cuenta de usuario que use para realizar la transferencia debe tener el acceso de propietario [Azure RBAC](add-change-subscription-administrator.md) en ambas suscripciones.
+1. La cuenta de usuario de cliente que use para realizar la transferencia debe tener acceso de propietario con [control de acceso basado en roles de Azure](add-change-subscription-administrator.md) en ambas suscripciones.
 1. Antes de comenzar, [valide](/rest/api/resources/resources/validatemoveresources) que todos los recursos de Azure puedan moverse de la suscripción de origen a la suscripción de destino.
     > [!IMPORTANT]
     >  - Algunos recursos de Azure no se pueden mover entre suscripciones. Para ver la lista completa de recursos de Azure que se pueden mover, consulte [Compatibilidad con la operación de traslado para recursos](../../azure-resource-manager/management/move-support-resources.md).

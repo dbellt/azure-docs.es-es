@@ -5,15 +5,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: e8dd887d151eb553131048f232940555dbef324b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 012aa364fe9e379455b6b63f7c9e541d2d5b97ed
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025040"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726905"
 ---
 # <a name="enable-sql-insights-preview"></a>Habilitación de SQL Insights (versión preliminar)
 En este artículo se describe cómo habilitar [SQL Insights](sql-insights-overview.md) para supervisar las implementaciones de SQL. La supervisión se realiza desde una máquina virtual de Azure que establece una conexión con las implementaciones de SQL y usa vistas de administración dinámica para recopilar datos de supervisión. Puede controlar qué conjuntos de datos se recopilan y la frecuencia de recopilación mediante un perfil de supervisión.
+
+> [!NOTE]
+> Para habilitar SQL Insights mediante la creación del perfil de supervisión y la máquina virtual mediante una plantilla de Resource Manager, vea [Ejemplos de plantilla de Resource Manager para SQL Insights](resource-manager-sql-insights.md).
 
 ## <a name="create-log-analytics-workspace"></a>Creación de un área de trabajo de Log Analytics
 SQL Insights almacena sus datos en una o varias [áreas de trabajo de Log Analytics](../logs/data-platform-logs.md#log-analytics-workspaces).  Antes de poder habilitar SQL Insights, debe [crear un área de trabajo](../logs/quick-create-workspace.md) o seleccionar una existente. Se puede usar una sola área de trabajo con varios perfiles de supervisión, pero el área de trabajo y los perfiles deben estar ubicados en la misma región de Azure. Para habilitar las características de SQL Insights y acceder a estas, debe tener el rol de [Colaborador de Log Analytics](../logs/manage-access.md) en el área de trabajo. 
@@ -21,12 +24,15 @@ SQL Insights almacena sus datos en una o varias [áreas de trabajo de Log Analyt
 ## <a name="create-monitoring-user"></a>Creación de un usuario de supervisión 
 Necesita un usuario en las implementaciones de SQL que desea supervisar. Siga los procedimientos que se indican a continuación para los diferentes tipos de implementaciones de SQL.
 
+Las instrucciones siguientes cubren el proceso por tipo de implementación de SQL que puede supervisar.  Para lograr esto con un script en varios recursos de SQL a la vez, vea el [archivo LÉAME](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation-README.txt) y el [script de ejemplo](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation.ps1) siguientes.
+
+
 ### <a name="azure-sql-database"></a>Azure SQL Database
 Abra Azure SQL Database con [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) o el [Editor de Power Query (versión preliminar)](../../azure-sql/database/connect-query-portal.md) en Azure Portal.
 
 Ejecute el siguiente script para crear un usuario con los permisos necesarios. Reemplace *user* por un nombre de usuario y *mystrongpassword* por una contraseña.
 
-```
+```sql
 CREATE USER [user] WITH PASSWORD = N'mystrongpassword'; 
 GO 
 GRANT VIEW DATABASE STATE TO [user]; 
@@ -39,11 +45,23 @@ Compruebe que se ha creado el usuario.
 
 :::image type="content" source="media/sql-insights-enable/telegraf-user-database-verify.png" alt-text="Compruebe el script de usuario de Telegraf." lightbox="media/sql-insights-enable/telegraf-user-database-verify.png":::
 
+```sql
+select name as username,
+       create_date,
+       modify_date,
+       type_desc as type,
+       authentication_type_desc as authentication_type
+from sys.database_principals
+where type not in ('A', 'G', 'R', 'X')
+       and sid is not null
+order by username
+```
+
 ### <a name="azure-sql-managed-instance"></a>Instancia administrada de Azure SQL
 Inicie sesión en Azure SQL Managed Instance y use [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) o una herramienta similar para ejecutar el siguiente script con el fin de crear el usuario de supervisión con los permisos necesarios. Reemplace *user* por un nombre de usuario y *mystrongpassword* por una contraseña.
 
  
-```
+```sql
 USE master; 
 GO 
 CREATE LOGIN [user] WITH PASSWORD = N'mystrongpassword'; 
@@ -58,7 +76,7 @@ GO
 Inicie sesión en la máquina virtual de Azure que ejecuta SQL Server y use [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) o una herramienta similar para ejecutar el siguiente script con el fin de crear el usuario de supervisión con los permisos necesarios. Reemplace *user* por un nombre de usuario y *mystrongpassword* por una contraseña.
 
  
-```
+```sql
 USE master; 
 GO 
 CREATE LOGIN [user] WITH PASSWORD = N'mystrongpassword'; 
@@ -67,6 +85,19 @@ GRANT VIEW SERVER STATE TO [user];
 GO 
 GRANT VIEW ANY DEFINITION TO [user]; 
 GO
+```
+
+Compruebe que se ha creado el usuario.
+
+```sql
+select name as username,
+       create_date,
+       modify_date,
+       type_desc as type
+from sys.server_principals
+where type not in ('A', 'G', 'R', 'X')
+       and sid is not null
+order by username
 ```
 
 ## <a name="create-azure-virtual-machine"></a>Creación de una máquina virtual de Azure 
@@ -167,7 +198,7 @@ Especifique la cadena de conexión de esta forma:
 
 ```
 sqlAzureConnections": [ 
-   "Server=mysqlserver.database.windows.net;Port=1433;Database=mydatabase;User Id=$username;Password=$password;" 
+   "Server=mysqlserver.database.windows.net;Port=1433;Database=mydatabase;User Id=$username;Password=$password;" 
 }
 ```
 
@@ -175,7 +206,7 @@ Obtenga los detalles del elemento de menú **Cadenas de conexión** para la base
 
 :::image type="content" source="media/sql-insights-enable/connection-string-sql-database.png" alt-text="Cadena de conexión de SQL Database" lightbox="media/sql-insights-enable/connection-string-sql-database.png":::
 
-Para supervisar una réplica secundaria legible, incluya el par clave-valor `ApplicationIntent=ReadOnly` en la cadena de conexión.
+Para supervisar una réplica secundaria legible, incluya el par clave-valor `ApplicationIntent=ReadOnly` en la cadena de conexión. SQL Insights admite la supervisión de una única réplica secundaria. Los datos recopilados se etiquetarán para reflejar la réplica principal o secundaria. 
 
 
 #### <a name="azure-virtual-machines-running-sql-server"></a>Máquinas virtuales de Azure que ejecutan SQL Server 
@@ -183,7 +214,7 @@ Especifique la cadena de conexión de esta forma:
 
 ```
 "sqlVmConnections": [ 
-   "Server=MyServerIPAddress;Port=1433;User Id=$username;Password=$password;" 
+   "Server=MyServerIPAddress;Port=1433;User Id=$username;Password=$password;" 
 ] 
 ```
 
@@ -191,15 +222,13 @@ Si la máquina virtual de supervisión está en la misma red virtual, use la dir
 
 :::image type="content" source="media/sql-insights-enable/sql-vm-security.png" alt-text="Seguridad de la máquina virtual de SQL" lightbox="media/sql-insights-enable/sql-vm-security.png":::
 
-Para supervisar una réplica secundaria legible, incluya el par clave-valor `ApplicationIntent=ReadOnly` en la cadena de conexión.
-
 
 ### <a name="azure-sql-managed-instances"></a>Instancias administradas de Azure SQL 
 Especifique la cadena de conexión de esta forma:
 
 ```
 "sqlManagedInstanceConnections": [ 
-      "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;", 
+      "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;", 
     ] 
 ```
 Obtenga los detalles del elemento de menú **Cadenas de conexión** para la instancia administrada.
@@ -207,8 +236,7 @@ Obtenga los detalles del elemento de menú **Cadenas de conexión** para la inst
 
 :::image type="content" source="media/sql-insights-enable/connection-string-sql-managed-instance.png" alt-text="Cadena de conexión de SQL Managed Instance" lightbox="media/sql-insights-enable/connection-string-sql-managed-instance.png":::
 
-Para supervisar una réplica secundaria legible, incluya el par clave-valor `ApplicationIntent=ReadOnly` en la cadena de conexión.
-
+Para supervisar una réplica secundaria legible, incluya el par clave-valor `ApplicationIntent=ReadOnly` en la cadena de conexión. SQL Insights admite la supervisión de una única réplica secundaria, y los datos recopilados se etiquetarán para reflejar la réplica principal o secundaria. 
 
 
 ## <a name="monitoring-profile-created"></a>Se creó un perfil de supervisión 

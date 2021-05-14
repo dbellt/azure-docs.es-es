@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: 6c1a0853dc59b2e2ceabfd47d81aac364a2b5716
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 5d5706738a0d85beed839d324ae3da055cafe39a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589438"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747528"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Estado de los escenarios de migración que admite Azure Database Migration Service
 
@@ -27,15 +27,16 @@ Azure Database Migration Service está diseñado para admitir una serie de escen
 
 Con Azure Database Migration Service, puede realizar una migración sin conexión o en línea. Si usa las migraciones *sin conexión*, el tiempo de inactividad de la aplicación comienza al mismo tiempo que la migración. Para limitar el tiempo de inactividad al tiempo necesario para la transición al nuevo entorno cuando finalice la migración, use una migración *en línea*. Es recomendable probar una migración sin conexión para determinar si el tiempo de inactividad es aceptable; si no fuera así, realice una migración en línea.
 
+## <a name="migration-scenario-status"></a>Estado del escenario de migración
+
+El estado de los escenarios de migración que admite Azure Database Migration Service varía con el tiempo. Por lo general, los escenarios se lanzan primero en **versión preliminar privada**. Después de la versión preliminar privada, el estado del escenario cambia a **versión preliminar pública**. Los usuarios de Azure Database Migration Service pueden probar escenarios de migración en la versión preliminar pública directamente desde la interfaz de usuario. No es preciso registrarse.  Sin embargo, los escenarios de migración en versión preliminar pública podrían no estar disponibles en todas las regiones y podrían sufrir cambios adicionales antes del lanzamiento de la versión final. Después de la versión preliminar pública, el estado del escenario cambia a **disponibilidad general**. Disponibilidad general (GA) es el estado de la versión final, y la funcionalidad es completa y accesible para todos los usuarios.
+
 ## <a name="migration-scenario-support"></a>Compatibilidad del escenario de migración
 
 En las siguientes tablas se muestran qué escenarios de migración se admiten cuando se usa Azure Database Migration Service.
 
 > [!NOTE]
 > Si un escenario que se indica como admitido no aparece en la interfaz de usuario, póngase en contacto con el alias para [preguntar a Azure Database Migration Service](mailto:AskAzureDatabaseMigrations@service.microsoft.com) para obtener información adicional.
-
-> [!IMPORTANT]
-> Para ver todos los escenarios compatibles actualmente con Azure Database Migration Service en la versión preliminar privada, consulte el [sitio de versión preliminar de DMS](https://aka.ms/dms-preview).
 
 ### <a name="offline-one-time-migration-support"></a>Compatibilidad de la migración sin conexión (de un solo uso)
 
@@ -52,10 +53,11 @@ En la siguiente tabla se muestra la compatibilidad de Azure Database Migration S
 | **Máquina virtual de Azure SQL** | SQL Server | ✔ | Disponibilidad general |
 |   | Oracle | X |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | Disponibilidad general |
-| **Azure DB para MySQL** | MySQL | X |   |
+| **Azure DB para MySQL** | MySQL | ✔ |   |
 |   | MySQL de RDS | X |   |
 | **Azure DB for PostgreSQL: servidor único** | PostgreSQL | X |
 |  | PostgreSQL de RDS | X |   |
+|  | Oracle | X |   |
 | **Azure DB for PostgreSQL: Hiperescala (Citus)** | PostgreSQL | X |
 |  | PostgreSQL de RDS | X |   |
 
@@ -79,12 +81,9 @@ En la siguiente tabla se muestra la compatibilidad de Azure Database Migration S
 | **Azure DB for PostgreSQL: servidor único** | PostgreSQL | ✔ | Disponibilidad general |
 |   | Azure DB for PostgreSQL: servidor único | ✔ | Disponibilidad general |
 |   | PostgreSQL de RDS | ✔ | Disponibilidad general |
-|   | Oracle | ✔ | Versión preliminar pública (quedará en desuso después del 1 de mayo de 2021) |
+|   | Oracle | X |   |
 | **Azure DB for PostgreSQL: Hiperescala (Citus)** | PostgreSQL | ✔ | Disponibilidad general |
 |   | PostgreSQL de RDS | ✔ | Disponibilidad general |
-
-> [!IMPORTANT]
-> El escenario de migración "Oracle a Azure Database for PostgreSQL" (actualmente en versión preliminar) dejará de estar disponible después del 1 de mayo de 2021. Seguiremos brindando soporte a través de herramientas alternativas (como Ora2pg) y proporcionaremos la mejor experiencia para las migraciones de Oracle a PostgreSQL. Para ver los procedimientos recomendados de migración, consulte la [Guía de migración de Oracle a Azure Database for PostgreSQL](https://aka.ms/OracletoPGguide).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

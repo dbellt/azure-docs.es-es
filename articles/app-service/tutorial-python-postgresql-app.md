@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 882a9fb0f8d528ca21cdc8149c60b9d5bdaf1723
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: be55a3fb07b35fccb0f71f9ca7bfd2c88a9d097c
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767102"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017056"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implementación de una aplicación web de Django de Python con PostgreSQL en Azure App Service
 
@@ -133,7 +133,7 @@ az extension add --name db-up
 
 Si no se reconoce el comando `az`, asegúrese de que tiene instalada la CLI de Azure tal y como se describe en [Configuración del entorno inicial](#1-set-up-your-initial-environment).
 
-A continuación, cree la base de datos de Postgres en Azure con el comando [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up):
+A continuación, cree la base de datos de Postgres en Azure con el comando [`az postgres up`](/cli/azure/postgres#az_postgres_up):
 
 ```azurecli
 az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen5_1 --server-name <postgres-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
@@ -242,7 +242,7 @@ Las migraciones de bases de datos de Django aseguran que el esquema de la base d
     cd $APP_PATH
     
     # Activate the venv
-    source /antenv/bin/activate
+    source antenv/bin/activate
 
     # Install requirements
     pip install -r requirements.txt
@@ -402,7 +402,7 @@ Abra una sesión de SSH de nuevo en el explorador. Para ello, vaya a `https://<a
 
 ```
 cd $APP_PATH
-source /antenv/bin/activate
+source antenv/bin/activate
 pip install -r requirements.txt
 python manage.py migrate
 ```

@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.date: 02/16/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: larryfr
-ms.custom: deploy
-ms.openlocfilehash: 0bb17ded6822c477fe2107c66711af5e2dc384d3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: deploy, devx-track-azurecli
+ms.openlocfilehash: 971a6474b3e48f70c1e4e96a784bf1d92709cf71
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107846"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107885225"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Servicio de alto rendimiento con Triton Inference Server (versión preliminar) 
 
@@ -116,7 +116,7 @@ models
 az ml model register -n my_triton_model -p models --model-framework=Multi
 ```
 
-Para más información sobre `az ml model register`, consulte la [documentación de referencia](/cli/azure/ext/azure-cli-ml/ml/model).
+Para más información sobre `az ml model register`, consulte la [documentación de referencia](/cli/azure/ml/model).
 
 Al registrar el modelo en Azure Machine Learning, el valor del parámetro `--model-path  -p` debe ser el nombre de la carpeta principal de Triton.  
 En el ejemplo anterior, `--model-path` es "models".
@@ -339,7 +339,7 @@ print(local_service.scoring_uri)
 
 ---
 
-Después de completar la implementación, se muestra el URI de puntuación. Para esta implementación local, será `http://localhost:6789/score`. Si implementa en la nube, puede usar el comando [az ml service show](/cli/azure/ext/azure-cli-ml/ml/service#ext_azure_cli_ml_az_ml_service_show) de la CLI para obtener el URI de puntuación.
+Después de completar la implementación, se muestra el URI de puntuación. Para esta implementación local, será `http://localhost:6789/score`. Si implementa en la nube, puede usar el comando [az ml service show](/cli/azure/ml/service#az_ml_service_show) de la CLI para obtener el URI de puntuación.
 
 Para obtener información sobre cómo crear un cliente que envíe solicitudes de inferencia al URI de puntuación, consulte [Consumo de un modelo implementado como servicio web](how-to-consume-web-service.md).
 
@@ -376,7 +376,7 @@ local_service.delete()
 
 * [Solucione problemas de una implementación con errores](how-to-troubleshoot-deployment.md) y obtenga información sobre cómo solucionar errores comunes que puede experimentar al implementar un modelo.
 
-* Si los registros de implementación muestran **TritonServer failed to start** (Error al iniciar TritonServer), vea la [documentación de código abierto de Nvidia](https://github.com/triton-inference-server/server).
+* Si los registros de implementación muestran **Error al iniciar TritonServer**, consulte la [documentación de código abierto de Nvidia](https://github.com/triton-inference-server/server).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

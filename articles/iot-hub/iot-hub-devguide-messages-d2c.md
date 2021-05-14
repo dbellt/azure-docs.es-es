@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: 07bbd50dbc415b86aa0c511d46ead9f0612df107
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 545272b15862ebab81d839cb8a885560f8920b76
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105642495"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286319"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión
 
@@ -59,7 +59,7 @@ IoT Hub admite la escritura de datos en Azure Storage con los formatos [Apache A
 
 El formato de codificación solo se puede establecer cuando se configura el punto de conexión de Blob Storage. No se puede editar desde un punto de conexión existente. Para cambiar los formatos de codificación de un punto de conexión existente, debe eliminar y volver a crear el punto de conexión personalizado con el formato que quiera. Una estrategia útil podría ser crear un nuevo punto de conexión personalizado con el formato de codificación deseado y agregar una ruta paralela a ese punto de conexión. De esta manera, puede comprobar los datos antes de eliminar el punto de conexión existente.
 
-Puede seleccionar el formato de codificación mediante la API REST Crear o actualizar de IoT Hub, específicamente [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, la [CLI de Azure](/cli/azure/iot/hub/routing-endpoint) o [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). En la siguiente imagen se muestra cómo seleccionar el formato de codificación en Azure Portal.
+Puede seleccionar el formato de codificación mediante la API REST Crear o actualizar de IoT Hub, específicamente [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), [Azure Portal](https://portal.azure.com), la [CLI de Azure](/cli/azure/iot/hub/routing-endpoint) o [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). En la siguiente imagen se muestra cómo seleccionar el formato de codificación en Azure Portal.
 
 ![Codificación de puntos de conexión de Blob Storage](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -105,7 +105,7 @@ Aparte del punto de conexión compatible con Event Hubs integrado, también pued
 
 Para configurar una ruta, siga este [tutorial](tutorial-routing.md).
 
-Use los siguientes tutoriales para obtener información sobre cómo leer un mensaje de un punto de conexión.
+Use los siguientes tutoriales para obtener información sobre cómo leer mensajes de un punto de conexión.
 
 * Lectura desde el [punto de conexión integrado](quickstart-send-telemetry-node.md)
 

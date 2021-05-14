@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 04/29/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d939207af195abf117645e17f4ff189b163244f
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 00c6fc7916355586787bb91225e71c4db280ed26
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305538"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315921"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opciones de autenticación sin contraseña de Azure Active Directory
 
@@ -26,7 +26,7 @@ Características como la autenticación multifactor (MFA) son una excelente mane
 | --- | --- | --- |
 | Inicio de sesión sin contraseña | Dispositivo, teléfono o clave de seguridad con Windows 10 | PIN o biométrica |
 
-Cada organización tiene diferentes necesidades en cuanto a la autenticación. Microsoft ofrece las tres opciones siguientes de autenticación sin contraseña que se integran con Azure Active Directory (Azure AD):
+Cada organización tiene diferentes necesidades en cuanto a la autenticación. Microsoft Azure global y Azure Government ofrecen las siguientes tres opciones de autenticación sin contraseña que se integran con Azure Active Directory (Azure AD):
 
 - Windows Hello para empresas
 - Aplicación Microsoft Authenticator
@@ -161,7 +161,7 @@ Se aplican las siguientes consideraciones:
 - Los usuarios finales pueden registrar y administrar estos métodos de autenticación sin contraseña en el portal de la cuenta
 - Los usuarios finales pueden iniciar sesión con estos métodos de autenticación sin contraseña:
    - Aplicación Microsoft Authenticator: funciona en los escenarios donde se usa la autenticación de Azure AD, lo que incluye todos los exploradores, durante la configuración de Windows 10, y con aplicaciones móviles integradas en cualquier sistema operativo.
-   - Claves de seguridad: funcionan en la pantalla de bloqueo de Windows 10 e Internet en exploradores compatibles como Microsoft Edge (tanto versiones heredadas como la nueva Edge).
+   - Claves de seguridad: trabaje en la configuración de Windows 10 en OOBE con o sin Windows Autopilot, en la pantalla de bloqueo de Windows 10 y la web en exploradores compatibles como Microsoft Edge (Edge nuevo y heredado).
 
 ## <a name="choose-a-passwordless-method"></a>Elección de un método sin contraseña
 

@@ -8,12 +8,13 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/15/2019
 ms.author: victorh
-ms.openlocfilehash: 152f3c3254ab01c8aa61acd12c39bd98c8f55038
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 780ec3fd933f574d63e7697af38c4ff4127b9e8d
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84808049"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321544"
 ---
 # <a name="configure-app-service-with-application-gateway-using-powershell"></a>Configuración de App Service con Application Gateway mediante PowerShell
 

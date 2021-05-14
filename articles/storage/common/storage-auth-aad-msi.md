@@ -10,13 +10,13 @@ ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 552d2587f35ed391b470c6d5b1693b79fd57306b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 04ff93f8fa19e6ec18ebf606291a09f558d93529
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879585"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108075922"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorización del acceso a datos de blobs y colas con identidades administradas para los recursos de Azure
 
@@ -67,7 +67,7 @@ Si el entorno de desarrollo no admite el inicio de sesión único a través de u
 
 #### <a name="create-the-service-principal"></a>Creación de la entidad de servicio
 
-Para crear una entidad de servicio con la CLI de Azure y asignar el rol de Azure, llame al comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). Proporcione un rol de acceso a datos Azure Storage para asignar a la nueva entidad de servicio. Además, proporcione el ámbito de la asignación de roles. Para más información sobre los roles integrados que se proporcionan para Azure Storage, consulte [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md).
+Para crear una entidad de servicio con la CLI de Azure y asignar el rol de Azure, llame al comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac). Proporcione un rol de acceso a datos Azure Storage para asignar a la nueva entidad de servicio. Además, proporcione el ámbito de la asignación de roles. Para más información sobre los roles integrados que se proporcionan para Azure Storage, consulte [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md).
 
 Si no tiene permisos suficientes para asignar un rol a la entidad de servicio, puede que tenga que pedir al propietario o administrador de la cuenta que realice la asignación de roles.
 
@@ -171,4 +171,4 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 - [Administración de los derechos de acceso a los datos de almacenamiento con RBAC de Azure](./storage-auth-aad-rbac-portal.md).
 - [Usar Azure AD con aplicaciones de almacenamiento](storage-auth-aad-app.md).
 - [Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder a los datos de blob](../blobs/authorize-data-operations-powershell.md)
-- [Tutorial: Autorización del acceso a datos de blobs y colas con identidades administradas para los recursos de Azure](../../app-service/scenario-secure-app-access-storage.md)
+- [Tutorial: Almacenamiento del acceso de App Service mediante identidades administradas](../../app-service/scenario-secure-app-access-storage.md)

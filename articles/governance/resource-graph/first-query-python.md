@@ -1,17 +1,17 @@
 ---
 title: 'Inicio rápido: La primera consulta de Python'
 description: En este inicio rápido, dará los pasos necesarios para habilitar la biblioteca de Resource Graph para Python y ejecutará la primera consulta.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - mode-api
-ms.openlocfilehash: 0bae0639e3f9913bc47b18fbc0b1d3d9ef1ad324
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: ffb58b301e850c3887b0a554788b243f2cf262f6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533009"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751668"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph con Python
 
@@ -74,12 +74,12 @@ Una vez agregadas las bibliotecas de Python de su elección, es el momento de pr
    ```python
    # Import Azure Resource Graph library
    import azure.mgmt.resourcegraph as arg
-   
+
    # Import specific methods and models from other libraries
    from azure.common.credentials import get_azure_cli_credentials
    from azure.common.client_factory import get_client_from_cli_profile
    from azure.mgmt.resource import SubscriptionClient
-   
+
    # Wrap all the work in a function
    def getresources( strQuery ):
        # Get your credentials from Azure CLI (development only!) and get your subscription list
@@ -90,20 +90,20 @@ Una vez agregadas las bibliotecas de Python de su elección, es el momento de pr
        subsList = []
        for sub in subsRaw:
            subsList.append(sub.get('subscription_id'))
-       
+
        # Create Azure Resource Graph client and set options
        argClient = get_client_from_cli_profile(arg.ResourceGraphClient)
        argQueryOptions = arg.models.QueryRequestOptions(result_format="objectArray")
-       
+
        # Create query
        argQuery = arg.models.QueryRequest(subscriptions=subsList, query=strQuery, options=argQueryOptions)
-       
+
        # Run query
        argResults = argClient.resources(argQuery)
-   
+
        # Show Python object
        print(argResults)
-   
+
    getresources("Resources | project name, type | limit 5")
    ```
 

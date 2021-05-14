@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 593ccac7326a0a04884fe433cac85cb8eaf79319
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: dbd4e9c6e8a58738ac0a8db6c64133301d1aebe5
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107228238"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950593"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
@@ -120,34 +120,71 @@ Si no encuentra ningún certificado autofirmado con estos pasos, póngase en con
 
 ## <a name="sign-in-issues"></a>Problemas de inicio de sesión
 
-### <a name="blank-sign-in-dialog-box"></a>Cuadro de diálogo de inicio de sesión en blanco
+### <a name="understanding-sign-in"></a>Información del inicio de sesión
 
-Los cuadros de diálogo de inicio de sesión en blanco a menudo aparecen cuando Servicios de federación de Active Directory (AD FS) solicita al Explorador de Storage que realice una redirección, lo que no es compatible con Electron. Para solucionar este problema, puede intentar usar un flujo de código de dispositivo para el inicio de sesión. Para hacerlo, siga estos pasos:
+Asegúrese de que ha leído la documentación del [Inicio de sesión del Explorador de Storage](./storage-explorer-sign-in.md).
 
-1. En la barra de herramientas vertical izquierda, abra **Configuración**. En el panel Configuración, vaya a **Aplicación** > **Iniciar sesión**. Habilite **Use device code flow sign-in** (Usar inicio de sesión de flujo de código del dispositivo).
-2. Abra el cuadro de diálogo **Connect** (Conectar) (mediante el icono de interruptor de la barra vertical izquierda o seleccionando **Add Account** (Agregar cuenta) en el panel de la cuenta).
-3. Elija el entorno en el que desea iniciar sesión.
-4. Seleccione **Iniciar sesión**.
-5. Siga las instrucciones del siguiente panel.
+### <a name="frequently-having-to-reenter-credentials"></a>Tener que volver a escribir las credenciales con frecuencia
 
-Si no puede iniciar sesión en la cuenta que desea utilizar porque el explorador predeterminado ya está registrado en otra cuenta, realice una de estas acciones:
+Tener que volver a escribir las credenciales es probablemente el resultado de las directivas de acceso condicional que ha establecido el administrador de AAD. Cuando el Explorador de Storage le pida que vuelva a escribir las credenciales desde el panel de la cuenta, debería ver un vínculo denominado **Detalles del error...** . Haga clic en esta opción para ver por qué el Explorador de Storage le pide que vuelva a escribir las credenciales. Los errores de la directiva de acceso condicional que requieren volver a escribir las credenciales pueden tener un aspecto parecido al siguiente:
+- El token de actualización expiró...
+- Debe usar la autenticación multifactor para acceder a...
+- Debido a un cambio de configuración realizado por el administrador...
 
-- Copie manualmente el vínculo y el código en una sesión privada del explorador.
-- Copie manualmente el vínculo y el código en otro navegador distinto.
+Para reducir la frecuencia de tener que volver a escribir las credenciales debido a errores como los anteriores, deberá hablar con el administrador de AAD.
+
+### <a name="conditional-access-policies"></a>Directivas de acceso condicional
+
+Si tiene directivas de acceso condicional que deben cumplirse en la cuenta, asegúrese de que usa el valor **Explorador web predeterminado** en la opción **Iniciar sesión con**. Para obtener información sobre esa opción de configuración, consulte [Cambio del lugar donde se produce el inicio de sesión](./storage-explorer-sign-in.md#changing-where-sign-in-happens).
+
+### <a name="browser-complains-about-http-redirect-during-sign-in"></a>El explorador se queja del redireccionamiento de HTTP durante el inicio de sesión
+
+Cuando el Explorador de Storage inicia sesión en el explorador web, se realiza un redireccionamiento a `localhost` al final del proceso de inicio de sesión. A veces, los exploradores generan una advertencia o un error de que el redireccionamiento se realiza con HTTP en lugar de HTTPS. Algunos exploradores también pueden intentar forzar que el redireccionamiento se realice con HTTPS. Si ocurre alguna de estas opciones, en función del explorador, tiene una variedad de opciones:
+- Ignore la advertencia.
+- Agregue una excepción para `localhost`.
+- Deshabilite la opción para forzar HTTPS, ya sea globalmente o solo para `localhost`.
+
+Si no puede realizar ninguna de esas opciones, también puede [cambiar dónde se produce el inicio de sesión](./storage-explorer-sign-in.md#changing-where-sign-in-happens).
+
+### <a name="unable-to-acquire-token-tenant-is-filtered-out"></a>No se puede adquirir el token, el inquilino está filtrado
+
+Si ve un mensaje de error que indica que no se puede adquirir un token porque un inquilino está filtrado, significa que está intentando acceder a un recurso que se encuentra en un inquilino que ya ha filtrado. Para quitar el filtro del inquilino, vaya al **Panel de cuentas** y asegúrese de que la casilla del inquilino especificado en el error está activada. Consulte [Administración de cuentas](./storage-explorer-sign-in.md#managing-accounts) para obtener más información sobre el filtrado de inquilinos en el Explorador de Storage.
+
+### <a name="authentication-library-failed-to-start-properly"></a>No se pudo iniciar correctamente la biblioteca de autenticación
+
+Si en el inicio ve un mensaje de error que indica que la biblioteca de autenticación del Explorador de Storage no se pudo iniciar correctamente, asegúrese de que el entorno de instalación cumple todos los [requisitos previos](../../vs-azure-tools-storage-manage-with-storage-explorer.md#prerequisites). No cumplir los requisitos previos es la causa más probable de este mensaje de error.
+
+Si cree que el entorno de instalación cumple todos los requisitos previos, [abra un problema en GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues/new). Al abrir el problema, asegúrese de incluir lo siguiente:
+- El sistema operativo.
+- Qué versión del Explorador de Storage está intentando usar.
+- Si ya ha comprobado los requisitos previos.
+- Los [registros de autenticación](#authentication-logs) desde un inicio erróneo del Explorador de Storage. El registro de autenticación detallado se habilita automáticamente después de que se produzca este tipo de error.
+
+### <a name="blank-window-when-using-integrated-sign-in"></a>Ventana en blanco cuando se usa el inicio de sesión integrado
+
+Si ha elegido usar el **inicio de sesión integrado** y ve una ventana de inicio de sesión en blanco, es probable que tenga que cambiar a otro método de inicio de sesión. Los cuadros de diálogo de inicio de sesión en blanco a menudo aparecen cuando el servidor de los Servicios de federación de Active Directory (AD FS) solicita al Explorador de Storage que realice una redirección, lo que no es compatible con Electron.
+
+Para cambiar a otro método de inicio de sesión, cambie la opción **Iniciar sesión con** en **Configuración** > **Aplicación** > **Iniciar sesión**. Para obtener información sobre los diferentes tipos de métodos de inicio de sesión, consulte[Cambiar dónde se produce el inicio de sesión](./storage-explorer-sign-in.md#changing-where-sign-in-happens).
 
 ### <a name="reauthentication-loop-or-upn-change"></a>Bucle de reautenticación o cambio UPN
 
 Si se encuentra en un bucle de reautenticación o ha cambiado el UPN de una de sus cuentas, siga estos pasos:
 
-1. Quite todas las cuentas y cierre el Explorador de Storage.
-2. Elimine la carpeta .IdentityService de la máquina. En Windows, la carpeta se encuentra en `C:\users\<username>\AppData\Local`. En Mac y Linux, puede encontrar la carpeta en la raíz de su directorio de usuario.
-3. En Mac o Linux, también deberá eliminar la entrada Microsoft.Developer.IdentityService del almacén de claves de su sistema operativo. En Mac, el almacén de claves es la aplicación *Gnome Keychain*. En Linux, la aplicación habitualmente se denomina _Keyring_ pero el nombre puede ser diferente en función de su distribución.
+1. Abra el Explorador de Storage.
+2. Vaya a Ayuda > Restablecer.
+3. Asegúrese de que al menos la opción Autenticación está activada. Puede desactivar otros elementos que no quiera restablecer.
+4. Haga clic en el botón Restablecer.
+5. Reinicie el Explorador de Storage e intente iniciar sesión de nuevo.
 
-### <a name="conditional-access"></a>Acceso condicional
+Si sigue teniendo problemas después de realizar un restablecimiento, pruebe estos pasos:
 
-A causa de una limitación en la biblioteca Azure AD que usa el Explorador de Storage, el acceso condicional no se admite si el Explorador de Storage se usa en Windows 10, Linux o macOS.
+1. Abra el Explorador de Storage.
+2. Quite todas las cuentas y cierre el Explorador de Storage.
+3. Elimine la carpeta `.IdentityService` de la máquina. En Windows, la carpeta se encuentra en `C:\users\<username>\AppData\Local`. En Mac y Linux, puede encontrar la carpeta en la raíz de su directorio de usuario.
+4. En Mac o Linux, también deberá eliminar la entrada Microsoft.Developer.IdentityService del almacén de claves de su sistema operativo. En Mac, el almacén de claves es la aplicación *Gnome Keychain*. En Linux, la aplicación habitualmente se denomina _Keyring_ pero el nombre puede ser diferente en función de su distribución.
+6. Reinicie el Explorador de Storage e intente iniciar sesión de nuevo.
 
-## <a name="mac-keychain-errors"></a>Errores de cadena de claves de Mac
+### <a name="macos-keychain-errors-or-no-sign-in-window"></a>macOS: errores de cadena de claves o sin ventana de inicio de sesión.
 
 En ocasiones, el llavero de macOS puede entrar en un estado que ocasiona problemas en la biblioteca de autenticación del Explorador de Storage. Para sacar el llavero de ese estado, siga estos pasos:
 
@@ -162,15 +199,16 @@ En ocasiones, el llavero de macOS puede entrar en un estado que ocasiona problem
 6. Aparece un mensaje similar a este: "Service hub wants to access the Keychain" (El Centro de servicios desea acceder al llavero). Escriba la contraseña de la cuenta de administrador de Mac y seleccione **Permitir siempre** (o **Permitir** si **Permitir siempre** no está disponible).
 7. Intente iniciar sesión.
 
-### <a name="general-sign-in-troubleshooting-steps"></a>Pasos generales para solucionar problemas en inicio de sesión
+### <a name="default-browser-doesnt-open"></a>El explorador predeterminado no se abre
 
-* Si se encuentra en macOS y la ventana de inicio de sesión no aparece en el cuadro de diálogo **Waiting for authentication** (Esperando autenticación), intente [estos pasos](#mac-keychain-errors).
-* Reinicie el Explorador de Storage.
-* Si la ventana de autenticación está en blanco, espere al menos un minuto antes de cerrar el cuadro de diálogo de autenticación.
-* Asegúrese de que el proxy y el certificado están configurados correctamente tanto para la máquina como para el Explorador de Storage.
-* Si utiliza Windows y tiene acceso a Visual Studio 2019 en el mismo equipo y a las credenciales de inicio de sesión, pruebe a iniciar sesión en Visual Studio 2019. Después de un correcto inicio de sesión en Visual Studio 2019, puede abrir el Explorador de Storage y ver la cuenta en el panel de la cuenta.
+Si el explorador predeterminado no se abre al intentar iniciar la sesión, pruebe todas las técnicas siguientes:
+- Reinicio de Explorador de Storage
+- Abra el explorador manualmente antes de realizar el inicio de sesión.
+- Use el **inicio de sesión integrado** y consulte [Cambiar dónde se produce el inicio de sesión](./storage-explorer-sign-in.md#changing-where-sign-in-happens) para obtener instrucciones sobre cómo hacerlo.
 
-Si ninguno de estos métodos funciona, [abra una incidencia en GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+### <a name="other-sign-in-issues"></a>Otros problemas de inicio de sesión
+
+Si ninguna de las opciones anteriores se aplica a su problema de inicio de sesión o si no se puede resolver el problema de inicio de sesión, [abra un problema en GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ### <a name="missing-subscriptions-and-broken-tenants"></a>Suscripciones que faltan e inquilinos rotos
 
@@ -180,9 +218,9 @@ Si no puede recuperar las suscripciones después de iniciar sesión correctament
 * Asegúrese de que ha iniciado sesión en el entorno correcto de Azure (Azure, Azure China 21Vianet, Azure Alemania, Azure US Government o entorno personalizado).
 * Si está detrás de un servidor proxy, asegúrese de que ha configurado correctamente el proxy del Explorador de Storage.
 * Pruebe a eliminar la cuenta y volver a agregarla.
-* Si hay un vínculo "Más información", compruebe qué mensajes de error se notifican a los inquilinos en los que se producen errores. Si no está seguro de cómo responder a los mensajes de error, no dude en [abrir una incidencia en GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+* Si hay un vínculo "Más información" o "Detalles del error", compruebe qué mensajes de error se notifican a los inquilinos en los que se producen errores. Si no está seguro de cómo responder a los mensajes de error, no dude en [abrir una incidencia en GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-## <a name="cant-remove-an-attached-account-or-storage-resource"></a>No se puede quitar una cuenta adjunta ni un recurso de almacenamiento
+## <a name="cant-remove-an-attached-storage-account-or-resource"></a>No se puede quitar una cuenta de almacenamiento adjunta ni un recurso
 
 Si no puede hacerlo mediante la interfaz de usuario, para eliminar manualmente todos los recursos adjuntos debe eliminar las siguientes carpetas:
 
@@ -457,12 +495,12 @@ En el caso de problemas relacionados con el inicio de sesión o la biblioteca de
 
 Por lo general, puede seguir estos pasos para recopilar los registros:
 
-1. Vaya a Settings > Sign-in (Configuración > inicio de sesión) y active Verbose Authentication Logging (Registro de autenticación detallado). Si el Explorador de Storage no se puede iniciar debido a un problema con la biblioteca de autenticación, esto se hará automáticamente.
+1. Vaya a **Configuración (icono de engranaje de la izquierda)**  > **Aplicación** > **Inicio de sesión** > active **Registro de autenticación detallada**. Si el Explorador de Storage no se puede iniciar debido a un problema con la biblioteca de autenticación, esto se hará automáticamente.
 2. Cierre el Explorador de Storage.
 1. Opcional recomendado: borre los registros existentes de la carpeta `logs`. Al hacerlo, se reducirá la cantidad de información que tiene que enviarnos.
 4. Abra el Explorador de Storage y reproduzca el problema.
 5. Cierre el Explorador de Storage.
-6. Comprima en formato ZIP el contenido de la carpeta `log`.
+6. Comprima en formato ZIP el contenido de la carpeta `logs`.
 
 ### <a name="azcopy-logs"></a>Registros de AzCopy
 
@@ -526,6 +564,8 @@ Parte 3: Saneamiento del seguimiento de Fiddler
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si ninguna de estas soluciones funciona, [abra una incidencia en GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Para ello, seleccione el botón **Report issue to GitHub** (Informar de problema a GitHub), que se encuentra en la esquina inferior izquierda.
+Si ninguna de estas soluciones funciona, puede hacer lo siguiente:
+- Creación de una incidencia de soporte técnico
+- [Abrir una incidencia en GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Para ello, seleccione el botón **Report issue to GitHub** (Informar de problema a GitHub), que se encuentra en la esquina inferior izquierda.
 
 ![Comentarios](./media/storage-explorer-troubleshooting/feedback-button.PNG)

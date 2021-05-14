@@ -4,20 +4,20 @@ description: Aprenda a instalar y configurar una puerta de enlace de datos local
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 04/27/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 43e5b64d06a6ec145876798b2e0da6499ab94bfc
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 3128b9f7ae628a0a1974bb30cf87014e269ea466
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769236"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130338"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalación y configuración de una puerta de enlace de datos local
 
-Se requiere una puerta de enlace de datos local cuando uno o varios servidores de Azure Analysis Services de la misma región se conectan a orígenes de datos locales.  Aunque la puerta de enlace que se instala es la misma que la que usan otros servicios, como Power BI, Power Apps y Logic Apps, al instalar para Azure Analysis Services, hay algunos pasos adicionales que debe completar. Este artículo de instalación es específico para **Azure Analysis Services**. 
+Se requiere una puerta de enlace de datos local cuando uno o varios servidores de Azure Analysis Services de la misma región se conectan a orígenes de datos locales. Aunque la puerta de enlace que se instala es la misma que la que usan otros servicios, como Power BI, Power Apps y Logic Apps, al instalar para Azure Analysis Services, hay algunos pasos adicionales que debe completar. Este artículo de instalación es específico para **Azure Analysis Services**. 
 
 Para más información sobre el funcionamiento de Azure Analysis Services con la puerta de enlace, consulte este artículo sobre la [conexión a orígenes de datos locales](analysis-services-gateway.md). Para más información sobre escenarios de instalación avanzados y la puerta de enlace en general, consulte la [documentación sobre puertas de enlace de datos locales](/data-integration/gateway/service-gateway-onprem).
 
@@ -156,6 +156,7 @@ Eso es todo. Si necesita abrir puertos o solucionar cualquier problema, asegúre
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Administración de Analysis Services](analysis-services-manage.md)   
-* [Obtención de datos de Azure Analysis Services](analysis-services-connect.md)   
-* [Uso de la puerta de enlace para orígenes de datos en Azure Virtual Network](analysis-services-vnet-gateway.md)
+* [Conexión a orígenes de datos locales](analysis-services-gateway.md)   
+* [Orígenes de datos admitidos en Azure Analysis Services](analysis-services-datasource.md)   
+* [Uso de la puerta de enlace para orígenes de datos en Azure Virtual Network](analysis-services-vnet-gateway.md)   
+* [Preguntas frecuentes acerca de la conectividad de red de Analysis Services](analysis-services-network-faq.md) 

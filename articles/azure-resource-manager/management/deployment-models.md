@@ -3,12 +3,13 @@ title: Implementación de Resource Manager y clásica
 description: Describe las diferencias entre el modelo de implementación del Administrador de recursos y el modelo de implementación clásica (o de administración del servicio).
 ms.topic: conceptual
 ms.date: 04/12/2021
-ms.openlocfilehash: c2009034c431e53d162cb0f2c1f0d9815c8d1942
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0d4b21b095b715599059452c269cde24fb701364
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107306951"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108322120"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Implementación mediante Azure Resource Manager frente a la implementación clásica: Conozca los modelos de implementación y el estado de los recursos
 

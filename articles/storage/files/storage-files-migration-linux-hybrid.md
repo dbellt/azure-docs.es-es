@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: ff26318cafdf493579961fc718643f831ae9efeb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30a0269b5729516d8e8e378c700c493262e77f10
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564261"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "108756186"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migración desde Linux a una implementación de nube híbrida con Azure File Sync
 
@@ -48,9 +48,9 @@ Si no ejecuta Samba en el servidor de Linux y prefiere migrar carpetas a una imp
 * Cree una instancia de Windows Server 2019 como una máquina virtual o un servidor físico. El requisito mínimo es Windows Server 2012 R2. También se admite un clúster de conmutación por error de Windows Server.
 * Aprovisione o agregue almacenamiento de conexión directa (DAS). No se admite el almacenamiento conectado a la red (NAS).
 
-  La cantidad de almacenamiento que aprovisione puede ser menor que la que usa actualmente en el servidor Samba de Linux, si usa la característica de [nube por niveles](storage-sync-cloud-tiering-overview.md) de Azure File Sync. 
+  La cantidad de almacenamiento que aprovisione puede ser menor que la que usa actualmente en el servidor Samba de Linux, si usa la característica de [nube por niveles](../file-sync/file-sync-cloud-tiering-overview.md) de Azure File Sync. 
 
-La cantidad de almacenamiento que aprovisione puede ser menor que la que usa actualmente en el servidor Samba de Linux. Esta opción de configuración requiere que use también la característica de [nube por niveles](storage-sync-cloud-tiering-overview.md) de Azure File Sync. Sin embargo, cuando en una fase posterior copie los archivos del espacio del servidor Samba de Linux más grande al volumen más pequeño de Windows Server, tendrá que trabajar en lotes:
+La cantidad de almacenamiento que aprovisione puede ser menor que la que usa actualmente en el servidor Samba de Linux. Esta opción de configuración requiere que use también la característica de [nube por niveles](../file-sync/file-sync-cloud-tiering-overview.md) de Azure File Sync. Sin embargo, cuando en una fase posterior copie los archivos del espacio del servidor Samba de Linux más grande al volumen más pequeño de Windows Server, tendrá que trabajar en lotes:
 
   1. Mueva un conjunto de archivos que quepa en el disco.
   2. Deje que la sincronización de archivos y la nube por niveles interactúen.
@@ -60,7 +60,7 @@ La cantidad de almacenamiento que aprovisione puede ser menor que la que usa act
 
 La configuración de recursos (de proceso y RAM) de la instancia de Windows Server que implemente depende principalmente del número de elementos (archivos y carpetas) que se van a sincronizar. Se recomienda trabajar con una configuración de rendimiento más alto si tiene problemas.
 
-[Aprenda a cambiar el tamaño de una instancia de Windows Server según el número de elementos (archivos y carpetas) que necesite sincronizar.](storage-sync-files-planning.md#recommended-system-resources)
+[Aprenda a cambiar el tamaño de una instancia de Windows Server según el número de elementos (archivos y carpetas) que necesite sincronizar.](../file-sync/file-sync-planning.md#recommended-system-resources)
 
 > [!NOTE]
 > El artículo vinculado anteriormente presenta una tabla con un intervalo de memoria del servidor (RAM). Puede orientarse hacia el número más pequeño para el servidor, pero espere que la sincronización inicial tarde mucho más.
@@ -109,7 +109,7 @@ Ejecute la primera copia local en la carpeta de destino de Windows Server:
 
 El comando de Robocopy siguiente copiará los archivos desde el almacenamiento de los servidores Samba de Linux a la carpeta de destino de la instancia de Windows Server. Windows Server los sincronizará con los recursos compartidos de archivos de Azure. 
 
-Si ha aprovisionado menos almacenamiento en la instancia de Windows Server que el que ocupan los archivos en el servidor Samba de Linux, ha configurado la nube por niveles. A medida que el volumen local de Windows Server se llena, la [nube por niveles](storage-sync-cloud-tiering-overview.md) se iniciará y organizará por niveles los archivos que ya se han sincronizado correctamente. La nube por niveles generará espacio suficiente para continuar con la copia desde el servidor Samba de Linux. La nube por niveles realiza comprobaciones cada hora para averiguar qué se ha sincronizado y para liberar espacio en disco para alcanzar la directiva del 99 % de espacio libre para un volumen.
+Si ha aprovisionado menos almacenamiento en la instancia de Windows Server que el que ocupan los archivos en el servidor Samba de Linux, ha configurado la nube por niveles. A medida que el volumen local de Windows Server se llena, la [nube por niveles](../file-sync/file-sync-cloud-tiering-overview.md) se iniciará y organizará por niveles los archivos que ya se han sincronizado correctamente. La nube por niveles generará espacio suficiente para continuar con la copia desde el servidor Samba de Linux. La nube por niveles realiza comprobaciones cada hora para averiguar qué se ha sincronizado y para liberar espacio en disco para alcanzar la directiva del 99 % de espacio libre para un volumen.
 
 Es posible que Robocopy mueva los archivos más rápido de lo que se pueden sincronizar con la nube y los organice por niveles de manera local, lo que hará que se quede sin espacio en el disco local. Robocopy generará un error. Se recomienda trabajar con los recursos compartidos en una secuencia que evite este problema. Por ejemplo, considere la posibilidad de no iniciar trabajos de Robocopy en todos los recursos compartidos al mismo tiempo. O bien considere la posibilidad de mover los recursos compartidos que se ajustan a la cantidad actual de espacio libre en la instancia de Windows Server. Si se produce un error en el trabajo de Robocopy, puede volver a ejecutar el comando siempre que use la opción de reflejo/purga siguiente:
 
@@ -161,6 +161,6 @@ Consulte el vínculo de la sección siguiente para solucionar problemas de Azure
 
 Hay más información sobre los recursos compartidos de archivos de Azure y Azure File Sync. Los artículos siguientes contienen opciones avanzadas, procedimientos recomendados y ayuda para la solución de problemas. Estos artículos se vinculan a la [documentación de recursos compartidos de archivos de Azure](storage-files-introduction.md) según corresponda.
 
-* [Introducción a Azure File Sync](./storage-sync-files-planning.md)
-* [Guía de implementación de Azure File Sync](./storage-how-to-create-file-share.md)
-* [Solución de problemas de Azure File Sync](storage-sync-files-troubleshoot.md)
+* [Introducción a Azure File Sync](../file-sync/file-sync-planning.md)
+* [Implementación de Azure File Sync](../file-sync/file-sync-deployment-guide.md)
+* [Solución de problemas de Azure File Sync](../file-sync/file-sync-troubleshoot.md)

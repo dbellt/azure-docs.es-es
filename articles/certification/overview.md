@@ -7,16 +7,16 @@ ms.topic: overview
 ms.date: 04/09/2021
 ms.custom: template-overview
 ms.service: certification
-ms.openlocfilehash: b9d599542a53e3d809748b72028512c66409b4ec
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: e7cd664e9eb61cae4f1888e4c94f02f19301e9e5
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307714"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502103"
 ---
 # <a name="what-is-the-azure-certified-device-program"></a>¿Qué es el programa Azure Certified Device?
 
-Gracias por su interés en el programa Azure Certified Device. Este programa es su "ventanilla única" para que pueda diferenciar, promover y encontrar fácilmente dispositivos IoT desarrollados para ejecutarse en Azure. Este programa de certificación de dispositivos IoT que se ha mejorado permite a los fabricantes de dispositivos, como cámaras inteligentes, sensores conectados o la infraestructura perimetral, dar mayor visibilidad a sus productos y ahorrar tiempo a los clientes a la hora de desarrollar soluciones.
+Gracias por su interés en el programa Azure Certified Device. Azure Certified Device es un programa gratuito que le permite diferenciar, certificar y promover los dispositivos IoT creados para ejecutarse en Azure. Este programa de certificación de dispositivos IoT que se ha mejorado permite a los fabricantes de dispositivos, como cámaras inteligentes, sensores conectados o la infraestructura perimetral, dar mayor visibilidad a sus productos y ahorrar tiempo a los clientes a la hora de desarrollar soluciones.
 
 ## <a name="our-certification-promise"></a>Nuestro compromiso de certificación
 
@@ -58,7 +58,10 @@ Certificar un dispositivo consta de cuatro pasos principales en el [portal de Az
 1. Compruebe la funcionalidad del dispositivo.
 1. Envíe y finalice el proceso de revisión.
 
-Una vez que haya certificado el dispositivo, podrá completar las tareas siguientes si lo desea:
+> [!Note]
+> El proceso de revisión puede tardar hasta una semana en completarse, aunque a veces puede tardar más tiempo.
+
+Una vez que haya certificado el dispositivo, podrá completar las tareas siguientes si lo desea: 
 
 1. Publicar en el catálogo de Azure Certified Device (opcional)
 1. Actualizar el proyecto después de su aprobación o publicación (opcional)

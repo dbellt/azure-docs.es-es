@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 785c87e8136430557af819cd8c7ab1db8f54c060
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4240e7ad53725494a2b9b04d827fef0395c1bd2
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102507728"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483180"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glosario de Microsoft Azure: un diccionario de terminología de la nube sobre la plataforma de Azure
 
@@ -119,7 +119,7 @@ El contrato que describe los compromisos de Microsoft en cuanto a tiempo de acti
 Vea [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/)
 
 ## <a name="shared-access-signature-sas"></a><a name="sas"></a>firma de acceso compartido (SAS)
-Firma que le permite otorgar acceso limitado a un recurso, sin exponer su clave de cuenta. Por ejemplo, [Azure Storage usa SAS](./storage/common/storage-sas-overview.md) para conceder acceso de cliente a objetos como blobs. [IoT Hub usa SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) para conceder a los dispositivos permiso para enviar telemetría.
+Firma que le permite otorgar acceso limitado a un recurso, sin exponer su clave de cuenta. Por ejemplo, [Azure Storage usa SAS](./storage/common/storage-sas-overview.md) para conceder acceso de cliente a objetos como blobs. [IoT Hub usa SAS](iot-hub/iot-hub-dev-guide-sas.md#security-tokens) para conceder a los dispositivos permiso para enviar telemetría.
 
 ## <a name="storage-account"></a>Cuenta de almacenamiento
 Cuenta que proporciona acceso a los servicios de Azure Blob, Queue, Table y File en Azure Storage. El nombre de la cuenta de almacenamiento define el espacio de nombres exclusivo para los objetos de datos de Azure Storage.  

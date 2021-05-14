@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1a5bc9638e2e6eeff8f2176247f579b64beede90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 697e594581636bb3940684371661705539068e6a
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94540219"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001671"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Creación y administración de réplicas de lectura en Azure Database for MySQL mediante la CLI de Azure y API REST
 
@@ -21,7 +21,7 @@ En este artículo aprenderá a crear y administrar réplicas de lectura en el se
 ## <a name="azure-cli"></a>Azure CLI
 Puede crear y administrar réplicas de lectura mediante la CLI de Azure.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 - [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli)
 - Un [servidor de Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-portal.md) que se usará como servidor de origen. 
@@ -118,7 +118,7 @@ az mysql server delete --resource-group myresourcegroup --name mydemoserver
 Puede crear y administrar réplicas de lectura mediante [API REST de Azure](/rest/api/azure/).
 
 ### <a name="create-a-read-replica"></a>Creación de una réplica de lectura
-Puede crear una réplica de lectura mediante la [API de creación](/rest/api/mysql/servers/create):
+Puede crear una réplica de lectura mediante la [API de creación](/rest/api/mysql/flexibleserver(preview)/servers/create):
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{replicaName}?api-version=2017-12-01
@@ -146,14 +146,14 @@ Una réplica se crea con la misma configuración de proceso y almacenamiento que
 > Antes de actualizar un valor de un servidor de origen a uno nuevo, actualice la configuración de réplica a un valor igual o superior. Esta acción ayuda a que la réplica haga frente a los cambios realizados en el servidor maestro.
 
 ### <a name="list-replicas"></a>Lista de réplicas
-Puede ver la lista de réplicas de un servidor de origen mediante la [API de lista de réplicas](/rest/api/mysql/replicas/listbyserver):
+Puede ver la lista de réplicas de un servidor de origen mediante la [API de lista de réplicas](/rest/api/mysql/flexibleserver(preview)/replicas/listbyserver):
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{masterServerName}/Replicas?api-version=2017-12-01
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>Detención de la replicación en un servidor de réplica
-Puede detener la replicación entre un servidor de origen y una réplica de lectura mediante la [API de actualización](/rest/api/mysql/servers/update).
+Puede detener la replicación entre un servidor de origen y una réplica de lectura mediante la [API de actualización](/rest/api/mysql/flexibleserver(preview)/servers/update).
 
 Después de detener la replicación entre un servidor de origen y una réplica de lectura, este proceso no se puede deshacer. La réplica de lectura se convierte en un servidor independiente que admite operaciones de lectura y escritura. Este servidor independiente no puede volver a convertirse en una réplica.
 
@@ -170,7 +170,7 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 ```
 
 ### <a name="delete-a-source-or-replica-server"></a>Eliminación de un servidor de origen o de réplica
-Para eliminar un servidor de origen o de réplica, use la [API de eliminación](/rest/api/mysql/servers/delete):
+Para eliminar un servidor de origen o de réplica, use la [API de eliminación](/rest/api/mysql/flexibleserver(preview)/servers/delete):
 
 Cuando se elimina un servidor de origen, la replicación se detiene en todas las réplicas de lectura. Las réplicas de lectura se convierten en servidores independientes que ahora admiten tanto lectura como escritura.
 

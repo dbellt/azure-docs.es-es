@@ -4,12 +4,12 @@ description: Disponibilidad de recursos de proceso y memoria para el servicio Az
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: b1783204ae416412579e63654ff236fbc6cf1a18
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2bf5735c1e50ae31f70b68d7b926e82badeb3933
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046018"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108015994"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidad de recursos para Azure Container Instances en las regiones de Azure
 
@@ -45,9 +45,9 @@ Están disponibles las siguientes regiones y recursos máximos para los grupos d
 | Centro de Corea del Sur | 4 | 16 | No aplicable | No aplicable | 50 | No aplicable |
 | Centro-Norte de EE. UU | 2 | 3,5 | 4 | 16 | 50 | K80, P100, V100 |
 | Norte de Europa | 4 | 16 | 4 | 16 | 50 | K80 |
-| Centro-sur de EE. UU. | 4 | 16 | 4 | 16 | 50 | No aplicable |
+| Centro-sur de EE. UU. | 4 | 16 | 4 | 16 | 50 | V100 |
 | Sudeste de Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 |
-| Sur de la India | 4 | 16 | No aplicable | No aplicable | 50 | No aplicable |
+| Sur de la India | 4 | 16 | No aplicable | No aplicable | 50 | K80 |
 | Norte de Suiza | 3 | 16 | No aplicable | No aplicable | 50 | No aplicable |
 | Sur de Reino Unido | 4 | 16 | 4 | 16 | 50 | No aplicable |
 | Norte de Emiratos Árabes Unidos | 3 | 16 | No aplicable | No aplicable | 50 | No aplicable |

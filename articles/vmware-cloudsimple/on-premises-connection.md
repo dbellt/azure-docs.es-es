@@ -1,19 +1,19 @@
 ---
 title: 'Azure VMware Solution by CloudSimple: conexión local mediante ExpressRoute'
 description: En este artículo se describe cómo solicitar una conexión local mediante ExpressRoute desde la red de la región de CloudSimple.
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 27d1d9e54838d9f45a28d634fa1c24fb8785aee1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a710000a27a0b41079a1cba7482b3fdcaa966edc
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97899242"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108185331"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Conexión desde una red local a CloudSimple mediante ExpressRoute
 

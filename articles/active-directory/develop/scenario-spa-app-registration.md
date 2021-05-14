@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 9366bb5b2bb5820245ec1b699bbf2ddda0dd9f9d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0cc32a84ee0d214df9533b480a1c29bb57ee1c7
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100103182"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071746"
 ---
 # <a name="single-page-application-app-registration"></a>Aplicación de página única: Registro de aplicación
 
@@ -68,8 +68,6 @@ Siga estos pasos para agregar un URI de redirección para una aplicación de pá
 1. Seleccione **Configurar** para terminar de agregar el URI de redirección.
 
 Ya ha completado el registro de aplicación de la aplicación de página única (SPA) y ha configurado un URI de redirección al que se redirigirá al cliente y se enviarán los tokens de seguridad. Al seleccionar uno o ambos entre **Tokens de id.** y **Tokens de acceso**, ha habilitado el flujo de concesión implícita.
-
-Siga el [tutorial](tutorial-v2-javascript-spa.md) para obtener más información.
 
 ## <a name="note-about-authorization-flows"></a>Nota sobre los flujos de autorización
 

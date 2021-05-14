@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 629b48a378dd029d9952270e3c71762a5bb7aa82
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 742bf5eb7e33f7121325216d8880f77dadc85155
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107306728"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108803987"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>Uso de Azure Blob Storage para la conversión de modelos
 
@@ -73,7 +73,7 @@ Para empezar a convertir un modelo, debe cargarlo mediante una de las siguientes
 Para obtener un ejemplo de cómo cargar los datos para la conversión, consulte Conversion.ps1 en los [scripts de ejemplo de PowerShell](../../samples/powershell-example-scripts.md#script-conversionps1).
 
 > [!Note]
-> Al cargar un modelo de entrada, no use nombres de archivo o estructuras de carpetas largos para evitar problemas con el [límite de longitud de ruta de acceso de Windows](https://docs.mxicrosoft.com/windows/win32/fileio/maximum-file-path-limitation) en el servicio. 
+> Al cargar un modelo de entrada, no use nombres de archivo o estructuras de carpetas largos para evitar problemas con el [límite de longitud de ruta de acceso de Windows](/windows/win32/fileio/maximum-file-path-limitation) en el servicio. 
 
 ## <a name="get-a-sas-uri-for-the-converted-model"></a>Obtener un URI de SAS para el modelo convertido
 

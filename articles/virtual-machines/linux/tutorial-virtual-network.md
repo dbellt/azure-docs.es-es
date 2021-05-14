@@ -2,26 +2,20 @@
 title: 'Tutorial: Creación y administración de redes virtuales de Azure para máquinas virtuales Linux'
 description: En este tutorial, aprenderá a usar la CLI de Azure para crear y administrar redes virtuales de Azure para máquinas virtuales Linux.
 services: virtual-machines
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
 ms.collection: linux
-tags: azure-resource-manager
 ms.subservice: networking
-ms.assetid: ''
 ms.service: virtual-machines
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 6356d9b587847ff2b49574b970109ada0d785660
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cfc76ffd05b6348c9a585a64e3f2868f28f5e5cd
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564635"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107811713"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Tutorial: Creación y administración de redes virtuales de Azure para máquinas virtuales Linux con la CLI de Azure
 

@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas en Azure Container Registry
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure Container Registry. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 04/14/2021
+ms.date: 05/04/2021
 ms.topic: reference
 author: dlepow
 ms.author: danlep
 ms.service: container-registry
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 621b1a2e6be0881011714df0b9a46902fc0018c8
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: f637a1a3925e49f3b51eacbfdc2731141b0a6484
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107497039"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108771510"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-container-registry"></a>Definiciones integradas de Azure Policy para Azure Container Registry
 

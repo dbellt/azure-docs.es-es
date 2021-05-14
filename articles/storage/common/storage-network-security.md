@@ -9,12 +9,12 @@ ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 5e8123c252d99b2999eeef42fecae189a05e382b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 51e0205fddf9c3e6e3d622465204e647c0099f53
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778128"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715833"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -597,7 +597,7 @@ En la tabla siguiente se enumeran los servicios que pueden tener acceso a los da
 | Azure Data Factory             | Microsoft.DataFactory/factories        | Permite el acceso a las cuentas de almacenamiento a través del tiempo de ejecución de ADF. |
 | Azure Data Share               | Microsoft.DataShare/accounts           | Permite el acceso a las cuentas de almacenamiento a través de Data Share. |
 | Azure DevTest Labs             | Microsoft.DevTestLab/labs              | Permite el acceso a las cuentas de almacenamiento a través de DevTest Labs. |
-| Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Permite que los datos de un centro de IoT se escriban en almacenamiento de blobs. [Más información](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
+| Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Permite que los datos de un centro de IoT se escriban en almacenamiento de blobs. [Más información](../../iot-hub/virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Permite a las aplicaciones lógicas acceder a las cuentas de almacenamiento. [Más información](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
 | Servicio Azure Machine Learning | Microsoft.MachineLearningServices      | Las áreas de trabajo autorizadas de Azure Machine Learning escriben los resultados del experimento, los modelos y los registros en Blob Storage y leen los datos. [Más información](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
 | Azure Media Services           | Microsoft.Media/mediaservices          | Permite el acceso a las cuentas de almacenamiento a través de Media Services. |

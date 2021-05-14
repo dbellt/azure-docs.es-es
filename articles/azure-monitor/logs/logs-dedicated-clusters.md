@@ -5,12 +5,13 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 1fbb8f82366ee961d10ce8a6bc098128bad6555a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 9a79a9f863e4deaee27ddfbfdcefd3511fac5032
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041015"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752182"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Clústeres dedicados de registros de Azure Monitor
 
@@ -299,7 +300,11 @@ Después de crear el recurso *cluster* y de que esté totalmente aprovisionado, 
 - **keyVaultProperties**: actualiza la clave en Azure Key Vault. Consulte [Actualización del clúster con detalles del identificador de clave](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details). Contiene los parámetros siguientes: *KeyVaultUri*, *KeyName*, *KeyVersion*. 
 - **billingType**: La propiedad *billingType* determina la atribución de facturación para el recurso *cluster* y sus datos:
   - **Cluster** (valor predeterminado): Los costos de Reserva de capacidad para el clúster se atribuyen al recurso *cluster*.
-  - **Workspaces**: Los costos de Reserva de capacidad para el clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster. En este caso, se factura una parte del uso del recurso *cluster* si el total de datos ingeridos del día está por debajo de la Reserva de capacidad. Vea [Clústeres dedicados de Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters) para obtener más información sobre el modelo de precios del clúster. 
+  - **Workspaces**: Los costos de Reserva de capacidad para el clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster. En este caso, se factura una parte del uso del recurso *cluster* si el total de datos ingeridos del día está por debajo de la Reserva de capacidad. Vea [Clústeres dedicados de Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters) para obtener más información sobre el modelo de precios del clúster.
+  - **Identidad**: la identidad que se usará para autenticarse en la instancia de Key Vault. Puede ser asignada por el sistema o por el usuario.
+
+>[!IMPORTANT]
+>La actualización del clúster no debe incluir los detalles de identidad y de identificador de clave en la misma operación. Si necesita actualizar ambos valores, la actualización debe realizarse en dos operaciones consecutivas.
 
 > [!NOTE]
 > La propiedad *billingType* no se admite en PowerShell.
@@ -513,6 +518,8 @@ Use la llamada de REST siguiente para eliminar un clúster:
 - Puede vincular un área de trabajo al clúster y desvincularla después. El número de operaciones de vinculación de área de trabajo en un área de trabajo determinada en un período de 30 días se limita a 2.
 
 - Actualmente no se admite el traslado de un clúster a otro grupo de recursos o a otra suscripción.
+
+- La actualización del clúster no debe incluir los detalles de identidad y de identificador de clave en la misma operación. En caso de que deba actualizar ambos valores, la actualización debe realizarse en dos operaciones consecutivas.
 
 - La caja de seguridad no está disponible actualmente en China. 
 

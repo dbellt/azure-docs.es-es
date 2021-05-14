@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 670fbeeb006d21e29675f88895018d1a453a1c54
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: fea42cb89dce717431c188deeb2ce83f9413f560
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120307"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107283888"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de OpenID Connect en una directiva personalizada de Azure Active Directory B2C
 
@@ -92,8 +92,8 @@ El perfil técnico también muestra la notificaciones no proporcionadas por el p
 | MarkAsFailureOnStatusCode5xx | No | Indica si una solicitud a un servicio externo tiene que marcarse como un error si el código de estado HTTP se encuentra en el intervalo 5xx. El valor predeterminado es `false`. |
 | DiscoverMetadataByTokenIssuer | No | Indica si los metadatos de OIDC tienen que detectarse con el emisor en el token JWT. |
 | IncludeClaimResolvingInClaimsHandling  | No | En el caso de las notificaciones de entrada y salida, especifica si se incluye la [resolución de notificaciones](claim-resolver-overview.md) en el perfil técnico. Valores posibles: `true` o `false` (valor predeterminado). Si desea utilizar un solucionador de notificaciones en el perfil técnico, establézcalo en `true`. |
-| token_endpoint_auth_method | No | Especifica cómo Azure AD B2C envía el encabezado de autenticación al punto de conexión del token. Valores posibles: `client_secret_post` (valor predeterminado) y `client_secret_basic` (versión preliminar pública). Para obtener más información, consulte la sección [Autenticación de cliente de OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
-| token_signing_algorithm | No | Algoritmo de firma utilizado para las aserciones de cliente cuando los metadatos de **token_endpoint_auth_method** se establecen en `private_key_jwt`. Valores posibles: `RS256` (predeterminado). |
+|token_endpoint_auth_method| No | Especifica cómo Azure AD B2C envía el encabezado de autenticación al punto de conexión del token. Valores posibles: `client_secret_post` (valor predeterminado), `client_secret_basic` (versión preliminar pública) y `private_key_jwt` (versión preliminar pública). Para obtener más información, consulte la sección [Autenticación de cliente de OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
+|token_signing_algorithm| No | Especifica el algoritmo de firma que se va a usar cuando `token_endpoint_auth_method` se establece en `private_key_jwt`. Valores posibles: `RS256` (predeterminado) o `RS512`.|
 | SingleLogoutEnabled | No | Indica si, durante el inicio de sesión, el perfil técnico intenta cerrar sesión desde los proveedores de identidades federados. Para obtener más información, consulte [Cierre de sesión de Azure AD B2C](./session-behavior.md#sign-out).  Valores posibles: `true` (opción predeterminada) o `false`. |
 |ReadBodyClaimsOnIdpRedirect| No| Establézcalo en `true` para leer notificaciones del cuerpo de la respuesta en la redirección del proveedor de identidades. Estos metadatos se usan con el [identificador de Apple](identity-provider-apple-id.md), donde las notificaciones devuelven la carga de respuesta.|
 

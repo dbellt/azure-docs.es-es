@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: iangithinji
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29c3043cc38c8ab3d3387b171ea6f3793d485730
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 00393017dee64cf9ca0320140c640eaf4288e1b4
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107373968"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315190"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Configuración de la asignación a la aplicación de autoservicio
 
-Para que los usuarios puedan detectar automáticamente aplicaciones desde su página Aplicaciones, debe habilitar **Acceso de autoservicio a las aplicaciones** en las aplicaciones que quiera que los usuarios detecten automáticamente y puedan solicitar acceso. Esta funcionalidad está disponible para las aplicaciones que se agregaron desde la [Galería de Azure AD](./add-application-portal.md), [Azure AD Application Proxy](./application-proxy.md) o se agregaron mediante el [consentimiento del usuario o administrador](../develop/application-consent-experience.md). 
+Para que los usuarios puedan detectar automáticamente aplicaciones desde su página Aplicaciones, debe habilitar **Acceso de autoservicio a las aplicaciones** en las aplicaciones que quiera que los usuarios detecten automáticamente y puedan solicitar acceso. Esta funcionalidad está disponible para las aplicaciones que se agregaron desde la [Galería de Azure AD](./add-application-portal.md), [Azure AD Application Proxy](../app-proxy/application-proxy.md) o se agregaron mediante el [consentimiento del usuario o administrador](../develop/application-consent-experience.md). 
 
 Esta característica es una excelente manera de ahorrar tiempo y dinero como grupo de TI y es muy recomendable como parte de una implementación de aplicaciones moderna con Azure Active Directory.
 

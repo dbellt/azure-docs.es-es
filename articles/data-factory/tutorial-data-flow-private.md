@@ -7,13 +7,13 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/15/2021
-ms.openlocfilehash: a5c93244862d72f9c8ea2928c41e699302b1752b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/14/2021
+ms.openlocfilehash: ad101bee84256662d1436ba8d8a49304aecb9129
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98249450"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518292"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Transformación de datos de forma segura mediante flujos de datos de asignación
 
@@ -91,9 +91,6 @@ En este paso, creará una canalización que contiene una actividad de flujo de d
    ![Captura de pantalla que muestra la creación de una canalización.](./media/doc-common-process/get-started-page.png)
 
 1. En el panel de propiedades de la canalización, escriba **TransformMovies** como nombre de la canalización.
-1. En la barra superior de la factoría, mueva el control deslizante **Data flow debug** (Depuración de flujo de datos) a la posición de activación. El modo de depuración permite realizar pruebas interactivas de la lógica de transformación en un clúster de Spark activo. Los clústeres de flujo de datos tardan entre cinco y siete minutos en estar preparados. Active primero **Data flow debug** (Depuración de flujo de datos) si planea realizar el desarrollo del flujo de datos. Para más información, consulte [Modo de depuración](./concepts-data-flow-debug-mode.md).
-
-    ![Captura de pantalla que muestra el control deslizante Data flow debug (Depuración de flujo de datos).](media/tutorial-data-flow-private/dataflow-debug.png)
 1. En el panel **Actividades**, expanda **Move and Transform** (Mover y transformar). Arrastre la actividad **Flujo de datos** desde el panel y colóquela en el lienzo de la canalización.
 
 1. En el menú emergente **Adding data flow** (Agregar flujo de datos), seleccione **Create new Data Flow** (Crear nuevo flujo de datos) y, luego, **Flujo de datos de asignación**. Cuando haya finalizado, seleccione **Aceptar**.
@@ -101,6 +98,9 @@ En este paso, creará una canalización que contiene una actividad de flujo de d
     ![Captura de pantalla que muestra el flujo de datos de asignación.](media/tutorial-data-flow-private/mapping-dataflow.png)
 
 1. Asigne al flujo de datos el nombre **TransformMovies** en el panel de propiedades.
+1. En la barra superior del lienzo de la canalización, mueva el control deslizante **Depuración de flujo de datos** a la posición de activado. El modo de depuración permite realizar pruebas interactivas de la lógica de transformación en un clúster de Spark activo. Los clústeres de Data Flow tardan de 5 a 7 minutos en prepararse y se recomienda que los usuarios activen primero la depuración si planean realizar el desarrollo de Data Flow. Para más información, consulte [Modo de depuración](concepts-data-flow-debug-mode.md).
+
+    ![Captura de pantalla que muestra el control deslizante Data flow debug (Depuración de flujo de datos).](media/tutorial-data-flow-private/dataflow-debug.png)
 
 ## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Generación de la lógica de transformación en el lienzo de flujo de datos
 

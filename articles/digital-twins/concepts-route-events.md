@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ea412b695c12f3ff7fdfa6250e2a474b618b8032
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 925eb2aee84b135663f80dedd713151ff70898ed
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102430928"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108207922"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Enrutar eventos dentro y fuera de Azure Digital Twins
 
@@ -46,7 +46,7 @@ Como alternativa, el mensaje de evento también contiene el id. de gemelo de ori
 
 El recurso de proceso también debe establecer los permisos de acceso y seguridad de forma independiente.
 
-Para recorrer el proceso de configuración de una función de Azure para procesar eventos de gemelos digitales, consulte [*Procedimiento: Configuración de una función de Azure para procesar datos*](how-to-create-azure-function.md).
+Para recorrer el proceso de configuración de una función de Azure para procesar eventos de gemelos digitales, consulte [Procedimiento: Configuración de una función de Azure para procesar datos](how-to-create-azure-function.md).
 
 ## <a name="create-an-endpoint"></a>Crear un punto de conexión
 
@@ -79,7 +79,7 @@ Este es un ejemplo de cómo crear una ruta de eventos dentro de una aplicación 
 
 1. En primer lugar, se crea un objeto `DigitalTwinsEventRoute` y el constructor toma el nombre de un punto de conexión. Este campo `endpointName` identifica un punto de conexión, como un centro de eventos, Event Grid o Service Bus. Estos puntos de conexión deben crearse en la suscripción y conectarse a Azure Digital Twins mediante las API de plano de control antes de realizar esta llamada de registro.
 
-2. El objeto de ruta de eventos también tiene un campo [**Filtro**](how-to-manage-routes-apis-cli.md#filter-events), que se puede usar para restringir los tipos de eventos que siguen esta ruta. Un filtro de `true` habilita la ruta sin filtrado adicional (un filtro de `false` deshabilita la ruta). 
+2. El objeto de ruta de eventos también tiene un campo [Filtro](how-to-manage-routes-apis-cli.md#filter-events), que se puede usar para restringir los tipos de eventos que siguen esta ruta. Un filtro de `true` habilita la ruta sin filtrado adicional (un filtro de `false` deshabilita la ruta). 
 
 3. A continuación, este objeto de ruta de eventos se pasa a `CreateOrReplaceEventRouteAsync`, junto con un nombre para la ruta.
 
@@ -95,11 +95,11 @@ Cuando un punto de conexión no puede entregar un evento en un período de tiemp
 
 Si se cumple alguna de las condiciones, el evento se quita o pone en la cola de mensajes fallidos. De forma predeterminada, los puntos de conexión individuales **no** activan la cola de mensajes fallidos. Para habilitarla, debe especificar una cuenta de almacenamiento que incluya los eventos no entregados al crear el punto de conexión. Posteriormente, puede extraer los eventos de esta cuenta de almacenamiento para resolver las entregas.
 
-Antes de establecer la ubicación de mensajes fallidos, debe tener una cuenta de almacenamiento con un contenedor. Tiene que proporcionar la dirección URL de este contenedor al crear el punto de conexión. La cola de mensajes fallidos se suministra como una dirección URL del contenedor con un token de SAS. Ese token solo necesita permiso `write` para el contenedor de destino dentro de la cuenta de almacenamiento. La dirección URL totalmente estructurada tendrá el formato: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+Antes de establecer la ubicación de mensajes fallidos, debe tener una cuenta de almacenamiento con un contenedor. Tiene que proporcionar la dirección URL de este contenedor al crear el punto de conexión. La cola de mensajes fallidos se suministra como una dirección URL del contenedor con un token de SAS. Ese token solo necesita permiso `write` para el contenedor de destino dentro de la cuenta de almacenamiento. La dirección URL totalmente estructurada tendrá este formato: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`.
 
-Para más información sobre los tokens de SAS, consulte: [*Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)*](../storage/common/storage-sas-overview.md)
+Para obtener más información sobre los tokens de SAS, consulte: [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md) (Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido [SAS])
 
-Para obtener información sobre cómo configurar un punto de conexión con una cola de mensajes fallidos, consulte: [ *Administración de puntos de conexión y rutas en Azure Digital Twins (API y CLI)*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering)
+Para obtener información sobre cómo configurar un punto de conexión con una cola de mensajes fallidos, consulte:  [Administración de puntos de conexión y rutas en Azure Digital Twins (API y CLI)](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) 
 
 ### <a name="types-of-event-messages"></a>Tipos de mensajes de eventos
 
@@ -110,7 +110,7 @@ Los distintos tipos de eventos de IoT Hub y Azure Digital Twins generan distinto
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vea cómo configurar y administrar una ruta de eventos:
-* [*Procedimiento: Administración de puntos de conexión y rutas*](how-to-manage-routes-apis-cli.md)
+* [Procedimiento: Administración de puntos de conexión y rutas](how-to-manage-routes-apis-cli.md)
 
 O bien, consulte cómo usar Azure Functions para enrutar eventos en Azure Digital Twins:
-* [*Procedimiento: Configuración de una función de Azure para procesar datos*](how-to-create-azure-function.md)
+* [Procedimiento: Configuración de una función de Azure para procesar datos](how-to-create-azure-function.md)

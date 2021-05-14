@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: 7fd9e504448d55b4a2ef8c10b4ba1176cb2e3402
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7b18fe6584781db2ec4e81e8bf0cb85e23f0566
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96172642"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175809"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>Cinco pasos para la integración de todas las aplicaciones en Azure AD
 
@@ -90,7 +90,7 @@ Tradicionalmente, las aplicaciones se mantenían seguras al permitir el acceso s
 
 ![Un diagrama muestra el servicio de Application Proxy en acción. Un usuario tiene acceso a "https://sales.contoso.com" y su solicitud se redirige mediante "https://sales-contoso.msappproxy.net" en Azure Active Directory a la dirección local "http://sales".](./media/five-steps-to-full-application-integration-with-azure-ad\app-proxy.png)
 
-Puede usar el [Tutorial: Adición de una aplicación local para el acceso remoto mediante Application Proxy en Azure Active Directory](../manage-apps/application-proxy-add-on-premises-application.md) para habilitar Application Proxy y agregar una aplicación local a su inquilino de Azure AD.
+Puede usar el [Tutorial: Adición de una aplicación local para el acceso remoto mediante Application Proxy en Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md) para habilitar Application Proxy y agregar una aplicación local a su inquilino de Azure AD.
 
 Además, puede integrar controladores de entrega de aplicaciones como F5 BIG-IP APM o Zscaler Private Access. Al integrarlos con Azure AD, obtendrá la moderna autenticación y administración de identidades de Azure AD, junto con las características de seguridad y administración del tráfico del producto de los asociados. Llamamos a esta solución [Acceso híbrido seguro](../manage-apps/secure-hybrid-access.md). Si utiliza cualquiera de los siguientes servicios actualmente, tenemos tutoriales que le indicarán paso a paso cómo integrarlos con Azure AD.
 

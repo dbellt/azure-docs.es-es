@@ -8,10 +8,14 @@
   items:
     - name: Planeamiento del espacio de nombres agregado
       href: hpc-cache-namespace.md
+    - name: Descripción de los modelos de uso de caché
+      href: cache-usage-models.md
+    - name: Toma de la decisión de si HPC Cache es la solución correcta
+      href: usage-scenarios.md
     - name: Seguridad
       items:
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/hpc-cache-security-baseline?toc=/azure/hpc-cache/toc.json
 - name: Guías paso a paso
   items:
     - name: Prerrequisitos
@@ -53,7 +57,7 @@
 - name: Referencia
   items:
     - name: Azure CLI
-      href: /cli/azure/ext/hpc-cache/hpc-cache
+      href: /cli/azure/hpc-cache
     - name: Azure PowerShell
       href: /powershell/module/Az.HPCCache
 - name: Recursos
@@ -66,6 +70,8 @@
       href: hpc-cache-blob-firewall-fix.md
     - name: Solución de problemas de creación de destinos de almacenamiento de NFS
       href: troubleshoot-nas.md
+    - name: Uso de Blob Storage montado en NFS con Azure HPC Cache
+      href: nfs-blob-considerations.md
     - name: Recuperación de una interrupción regional
       href: hpc-region-recovery.md
     - name: Uso de claves de cifrado administradas por el cliente

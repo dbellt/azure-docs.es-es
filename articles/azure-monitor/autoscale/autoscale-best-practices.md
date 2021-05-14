@@ -4,12 +4,12 @@ description: Patrones de escalado automático en Azure para Web Apps, conjunto d
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 9aaf9525f2fedee67a86011e938b8e995ccfe9fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a49c9812848d9ef8cbe5a4499fb1430ca146855
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100603496"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738435"
 ---
 # <a name="best-practices-for-autoscale"></a>Procedimientos recomendados de escalado automático
 La escalabilidad automática de Azure Monitor solo se aplica a [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) y los [servicios de API Management](../../api-management/api-management-key-concepts.md).
@@ -66,7 +66,7 @@ Nuestra recomendación es establecer un margen suficiente entre el escalado hori
 * Aumentar las instancias en 1 cuando el porcentaje de CPU > = 80
 * Disminuir las instancias en 1 cuando el porcentaje de CPU > = 60
 
-En este caso  
+En este caso
 
 1. Imaginemos que hay 2 instancias para empezar.
 2. Si el promedio de porcentaje de CPU entre instancias llega a 80, el escalado automático escala horizontalmente agregando una tercera instancia.
@@ -149,11 +149,10 @@ El escalado automático se publicará en el registro de actividad si se produce 
 * La escalabilidad automática detecta la oscilación y anula el intento de escalado. En esta situación, notará un tipo de registro `Flapping`. Si ve esto, pregúntese si los umbrales son demasiado limitados.
 * La escalabilidad automática detecta oscilaciones, pero sigue teniendo la capacidad de escalar correctamente. En esta situación, notará un tipo de registro `FlappingOccurred`. Si lo ve, el motor de escalabilidad automática ha intentado escalar (por ejemplo, de 4 instancias a 2), pero ha determinado que esto provocaría una oscilación. En su lugar, el motor de escalabilidad automática se ha escalado a un número diferente de instancias (por ejemplo, con 3 instancias en lugar de 2), lo que ya no provoca la oscilación, por lo que se ha escalado a este número de instancias.
 
-También puede usar una alerta de registro de actividades para supervisar el mantenimiento del motor de escalado automático. Aquí puede ver ejemplos para [crear una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) o para [crear una alerta de registro de actividades para supervisar todas las operaciones con errores de escalado automático y reducción horizontal en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+También puede usar una alerta de registro de actividades para supervisar el mantenimiento del motor de escalado automático. Aquí puede ver ejemplos para [crear una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert) o para [crear una alerta de registro de actividades para supervisar todas las operaciones con errores de escalado automático y reducción horizontal en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert).
 
 Además de utilizar alertas de registro de actividad, puede configurar notificaciones de correo electrónico o webhook para recibir una notificación cada vez que se lleve a cabo una acción de escalado correcta a través de la pestaña de notificaciones de la configuración de escalado automático.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Cree una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
-- [Cree una alerta de registro de actividades para supervisar todas las operaciones con errores de escalado automático y reducción horizontal en su suscripción.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
-
+- [Cree una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción.](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
+- [Cree una alerta de registro de actividades para supervisar todas las operaciones con errores de escalado automático y reducción horizontal en su suscripción.](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert)

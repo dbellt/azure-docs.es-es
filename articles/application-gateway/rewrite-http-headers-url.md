@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/05/2021
 ms.author: azhussai
-ms.openlocfilehash: 3e7bdc92dc6268c712eecbd69ff014e2229b3b84
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: b7cf7c98e71da215eb30dcab556a88d6d2701591
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490971"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789454"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Reescritura de los encabezados HTTP y direcciones URL con Application Gateway
 
- Application Gateway permite volver a escribir el contenido seleccionado de las solicitudes y las respuestas. Con esta característica, puede traducir las direcciones URL y los parámetros de cadenas de consulta, además de modificar los encabezados de solicitud y respuesta. También permite agregar las condiciones necesarias para asegurarse de que los encabezados especificados y las direcciones URL se reescriben solo cuando se cumplen ciertas condiciones. Estas condiciones se basan en la información de solicitud y respuesta.
+Application Gateway permite volver a escribir el contenido seleccionado de las solicitudes y las respuestas. Con esta característica, puede traducir las direcciones URL y los parámetros de cadenas de consulta, además de modificar los encabezados de solicitud y respuesta. También permite agregar las condiciones necesarias para asegurarse de que los encabezados especificados y las direcciones URL se reescriben solo cuando se cumplen ciertas condiciones. Estas condiciones se basan en la información de solicitud y respuesta.
 
 >[!NOTE]
 >Las características de encabezados HTTP y reescritura de direcciones URL solo están disponibles para la [SKU de Application Gateway v2](application-gateway-autoscaling-zone-redundant.md)
@@ -132,7 +132,7 @@ Application Gateway admite las siguientes variables de servidor para los escenar
 
 |   Nombre de la variable    |                   Descripción                                           |
 | ------------------------- | ------------------------------------------------------------ |
-| client_certificate        | Certificado de cliente en formato PEM para una conexión SSL establecida. |
+| client_certificate        | Certificado de cliente, en formato PEM, para una conexión SSL establecida. |
 | client_certificate_end_date| Fecha de finalización del certificado de cliente. |
 | client_certificate_fingerprint| Huella digital SHA1 del certificado de cliente para una conexión SSL establecida. |
 | client_certificate_issuer | Cadena del "nombre distintivo del emisor" del certificado de cliente para una conexión SSL establecida. |
@@ -151,15 +151,15 @@ Un conjunto de reglas de reescritura contiene:
 
 * **Condición de reescritura**: se trata de una configuración opcional. Las condiciones de reescritura evalúan el contenido de las solicitudes y respuestas HTTP(S). La acción de reescritura tendrá lugar si la solicitud o respuesta HTTP(S) coinciden con la condición de reescritura. Si asocia más de una condición con una acción, la acción se produce solo cuando se cumplen todas las condiciones. En otras palabras, se trata de una operación AND lógica.
 
-* **Tipo de reescritura**:  hay tres tipos de reescrituras disponibles:
+* **Tipo de reescritura**: hay tres tipos de reescrituras disponibles:
    * Reescritura de encabezados de solicitud 
    * Reescritura de encabezados de respuesta
-   * Dirección URL de reescritura: el tipo de reescritura de URL tiene tres componentes
+   * Reescritura de componentes de dirección URL
       * **Ruta de acceso URL**: valor en el que se va a volver a escribir la ruta de acceso. 
       * **Cadena de consulta de URL**: valor en el que se va a volver a escribir la cadena de consulta. 
       * **Volver a evaluar el mapa de ruta de acceso**: se usa para determinar si el mapa de rutas de acceso de dirección URL se va a volver a evaluar o no. Si se deja desactivado, se usará la ruta de dirección URL original para hacer coincidir el patrón de ruta de acceso en el mapa de ruta de acceso de direcciones URL. Si se establece en true, el mapa de ruta de acceso de direcciones URL se volverá a evaluar para comprobar si coincide con la ruta de acceso reescrita. Si se habilita este modificador, ayuda a enrutar la solicitud a otro grupo de back-end posterior a la reescritura.
 
-## <a name="rewrite-configuration-common-pitfall"></a>Problema común de configuración de reescritura
+## <a name="rewrite-configuration-common-pitfalls"></a>Problemas comunes de la configuración de la reescritura
 
 * No se permite la habilitación de la opción "Volver a evaluar el mapa de ruta de acceso" para las reglas básicas de enrutamiento de solicitudes. Esto es para evitar los bucles de evaluación infinitos para una regla de enrutamiento básica.
 
@@ -191,7 +191,7 @@ Application Gateway inserta un encabezado X-Forwarded-For en todas las solicitud
 
 Cuando una aplicación back-end envía una respuesta de redireccionamiento, es posible que le interese redirigir el cliente a una dirección URL diferente de la especificada por la aplicación back-end. Por ejemplo, es posible que quiera hacerlo cuando un servicio de aplicaciones se hospeda detrás de una puerta de enlace de aplicaciones y requiere que el cliente realice un redireccionamiento a su ruta de acceso relativa. (Por ejemplo, un redireccionamiento de contoso.azurewebsites.net/path1 a contoso.azurewebsites.net/path2).
 
-Dado que App Service es un servicio multiinquilino, usa el encabezado de host en la solicitud para enrutar la solicitud al punto de conexión correcto. Los servicios de aplicaciones tienen un nombre de dominio predeterminado, *. azurewebsites.net, (por ejemplo, contoso.azurewebsites.net) que es diferente del nombre de dominio de la puerta de enlace de aplicaciones (por ejemplo, contoso.com). Dado que la solicitud original desde el cliente tiene el nombre de dominio (contoso.com) de la puerta de enlace de aplicaciones como el nombre de host, la puerta de enlace de aplicaciones cambia el nombre de host a contoso.azurewebsites.net. Realiza este cambio para que el servicio de aplicaciones pueda enrutar la solicitud al punto de conexión correcto.
+Dado que App Service es un servicio multiinquilino, usa el encabezado de host en la solicitud para enrutar la solicitud al punto de conexión correcto. Los servicios de aplicaciones tienen un nombre de dominio predeterminado, \*.azurewebsites.net, (por ejemplo, contoso.azurewebsites.net) que es diferente del nombre de dominio de la puerta de enlace de aplicaciones (por ejemplo, contoso.com). Dado que la solicitud original desde el cliente tiene el nombre de dominio (contoso.com) de la puerta de enlace de aplicaciones como el nombre de host, la puerta de enlace de aplicaciones cambia el nombre de host a contoso.azurewebsites.net. Realiza este cambio para que el servicio de aplicaciones pueda enrutar la solicitud al punto de conexión correcto.
 
 Cuando el servicio de aplicaciones envía una respuesta de redireccionamiento, usa el mismo nombre de host en el encabezado de ubicación de su respuesta que el que aparece en la solicitud que recibe de la puerta de enlace de aplicaciones. Así pues, el cliente hará la solicitud directamente a `contoso.azurewebsites.net/path2`, en lugar de pasar por la puerta de enlace de aplicación (`contoso.com/path2`). No es conveniente omitir la puerta de enlace de aplicaciones.
 
@@ -226,7 +226,7 @@ Puede evaluar un encabezado de respuesta o de solicitud HTTP para comprobar la p
 
 #### <a name="parameter-based-path-selection"></a>Selección de ruta basada en parámetros
 
-En los escenarios en los que desee elegir el grupo de back-end en función del valor de un encabezado, parte de la dirección URL o la cadena de consulta de la solicitud, puede usar la combinación de la funcionalidad de reescritura de direcciones URL y el enrutamiento basado en rutas de acceso.  Por ejemplo, si tiene un sitio web de compras y la categoría de producto se pasa como una cadena de consulta en la dirección URL, y desea enrutar la solicitud al back-end en función de la cadena de consulta, entonces:
+En los escenarios en los que desee elegir el grupo de back-end en función del valor de un encabezado, parte de la dirección URL o la cadena de consulta de la solicitud, puede usar la combinación de la funcionalidad de reescritura de direcciones URL y el enrutamiento basado en rutas de acceso. Por ejemplo, si tiene un sitio web de compras y la categoría de producto se pasa como una cadena de consulta en la dirección URL, y desea enrutar la solicitud al back-end en función de la cadena de consulta:
 
 **Paso 1:**  cree un mapa de ruta de acceso tal como se muestra en la imagen siguiente.
 
@@ -234,11 +234,11 @@ En los escenarios en los que desee elegir el grupo de back-end en función del v
 
 **Paso 2 (a):** cree un conjunto de reescritura que tenga tres reglas de reescritura: 
 
-* La primera regla tiene una condición que comprueba la variable *query_string* para *category=shoes* y tiene una acción que reescribe la ruta de acceso de dirección URL en /*listing1* y tiene habilitada la opción **Volver a evaluar el mapa de ruta de acceso**
+* La primera regla tiene una condición que comprueba la variable *query_string* de *category=shoes* y tiene una acción que reescribe la ruta de acceso de dirección URL en /*listing1* y tiene habilitada la opción **Volver a evaluar mapa de ruta de acceso**
 
-* La segunda regla tiene una condición que comprueba la variable *query_string* para *category=bags* y tiene una acción que vuelve a escribir la ruta de acceso de la dirección URL en/*listing2* y tiene habilitada la opción **Volver a evaluar el mapa de ruta de acceso**
+* La segunda regla tiene una condición que comprueba la variable *query_string* de *category=bags* y tiene una acción que vuelve a escribir la ruta de acceso de la dirección URL en /*listing2* y tiene habilitada la opción **Volver a evaluar mapa de ruta de acceso**
 
-* La tercera regla tiene una condición que comprueba la variable *query_string* para *category= accessories* y tiene una acción que vuelve a escribir la ruta de acceso de la dirección URL en /*listing3* y tiene habilitada la opción **Volver a evaluar el mapa de ruta de acceso**
+* La tercera regla tiene una condición que comprueba la variable *query_string* de *category= accessories* y tiene una acción que vuelve a escribir la ruta de acceso de la dirección URL en /*listing3* y tiene habilitada la opción **Volver a evaluar mapa de ruta de acceso**
 
 :::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="Escenario de reescritura de URL 1-2.":::
 
@@ -250,10 +250,10 @@ En los escenarios en los que desee elegir el grupo de back-end en función del v
 
 Ahora, si el usuario solicita *contoso.com/listing?category=any*, se hará coincidir con la ruta de acceso predeterminada, ya que ninguno de los patrones de ruta de acceso del mapa de ruta de acceso (/listing1,/listing2,/listing3) coincidirá. Como asoció el conjunto de reescritura anterior con esta ruta de acceso, este conjunto de reescritura se evaluará. Dado que la cadena de consulta no coincidirá con la condición en ninguna de las tres reglas de reescritura de este conjunto de reescritura, no se llevará a cabo ninguna acción de reescritura y, por tanto, la solicitud se enrutará sin cambios al back-end asociado a la ruta de acceso predeterminada (que es *GenericList*).
 
- Si el usuario solicita *contoso.com/listing?category=shoes,* de nuevo se buscarán coincidencias en la ruta de acceso predeterminada. Sin embargo, en este caso, la condición de la primera regla coincidirá y, por lo tanto, se ejecutará la acción asociada a la condición, que volverá a escribir la ruta de acceso de la dirección URL para /*listing1* y volverá a evaluar el mapa de ruta de acceso. Cuando se vuelva a evaluar el mapa de ruta de acceso, la solicitud coincidirá ahora con la ruta de acceso asociada al patrón */listing1* y la solicitud se enrutará al back-end asociado a este patrón, que es ShoesListBackendPool
+Si el usuario solicita *contoso.com/listing?category=shoes*, se volverán a buscar coincidencias en la ruta de acceso predeterminada. Sin embargo, en este caso, la condición de la primera regla coincidirá y, por lo tanto, se ejecutará la acción asociada a la condición, que volverá a escribir la ruta de acceso de la dirección URL para /*listing1* y volverá a evaluar el mapa de ruta de acceso. Cuando se vuelva a evaluar el mapa de ruta de acceso, la solicitud coincidirá ahora con la ruta de acceso asociada al patrón */listing1* y la solicitud se enrutará al back-end asociado a este patrón, que es ShoesListBackendPool.
 
 >[!NOTE]
->Este escenario se puede extender a cualquier valor de encabezado o cookie, ruta de dirección URL, cadena de consulta o variables de servidor según la condición definida y, esencialmente, permite enrutar las solicitudes en función de esas condiciones.
+>Este escenario se puede extender a cualquier valor de encabezado o cookie, ruta de dirección URL, cadena de consulta o variables de servidor según las condiciones definidas y, esencialmente, permite enrutar las solicitudes en función de esas condiciones.
 
 #### <a name="rewrite-query-string-parameters-based-on-the-url"></a>Reescritura de los parámetros de cadena de consulta en función de la dirección URL
 
@@ -273,9 +273,9 @@ Para obtener una guía paso a paso para lograr el escenario descrito anteriormen
 
 ### <a name="url-rewrite-vs-url-redirect"></a>Reescritura de direcciones URL frente a redirección de direcciones URL
 
-En el caso de la reescritura de direcciones URL, Application Gateway reescribe la dirección URL antes de que la solicitud se envíe al back-end. Eso no cambiará lo que los usuarios ven en el explorador, porque los cambios se ocultan al usuario.
+En el caso de una reescritura de direcciones URL, Application Gateway reescribe la dirección URL antes de que la solicitud se envíe al back-end. Eso no cambiará lo que los usuarios ven en el explorador, porque los cambios se ocultan al usuario.
 
-En el caso de la redirección de direcciones URL, Application Gateway envía una respuesta de redirección al cliente con la nueva dirección URL. Esto, a su vez, requiere que el cliente reenvíe su solicitud a la nueva dirección URL proporcionada en la redirección. La dirección URL que el usuario ve en el explorador se actualizará a la nueva dirección URL.
+En caso del redireccionamiento de direcciones URL, Application Gateway envía una respuesta de redirección al cliente con la nueva dirección URL. Esto, a su vez, requiere que el cliente reenvíe su solicitud a la nueva dirección URL proporcionada en la redirección. La dirección URL que el usuario ve en el explorador se actualizará a la nueva dirección URL.
 
 :::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Reescritura frente a redirección.":::
 
@@ -283,7 +283,7 @@ En el caso de la redirección de direcciones URL, Application Gateway envía una
 
 - Si una respuesta tiene más de un encabezado con el mismo nombre, volver a escribir el valor de uno de esos encabezados dará como resultado la eliminación de los demás en la respuesta. Normalmente, esto puede suceder con el encabezado Set-Cookie, ya que puede tener más de uno en una respuesta. Uno de estos escenarios es cuando se usa un servicio de aplicaciones con una puerta de enlace de aplicaciones y ha configurado la afinidad de sesión basada en cookies en la puerta de enlace de aplicaciones. En este caso, la respuesta contendrá dos encabezados Set-Cookie: uno utilizado por el servicio de aplicaciones, por ejemplo, `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net`, y otro para la afinidad de la puerta de enlace de aplicaciones, es decir, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. Si se vuelve a escribir uno de los encabezados Set-Cookie en este escenario, podría quitar el otro encabezado Set-Cookie de la respuesta.
 - No se admiten las reescrituras cuando la puerta de enlace de aplicaciones está configurada para redirigir las solicitudes o para mostrar una página de error personalizada.
-- Los nombres de encabezado solo pueden contener caracteres alfanuméricos y símbolos específicos definidos en [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Actualmente no se admite el carácter especial de subrayado (_) en los nombres de encabezado.
+- Los nombres de encabezado solo pueden contener caracteres alfanuméricos y símbolos específicos definidos en [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Actualmente no se admite el carácter especial de subrayado (\_) en los nombres de encabezado.
 - No se pueden volver a escribir los encabezados de conexión y de actualización
 
 ## <a name="next-steps"></a>Pasos siguientes

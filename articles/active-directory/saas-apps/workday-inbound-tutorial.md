@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: a34881901fd8642fff9ac37512cd2ef260ad9d1c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eb6f3c6a1463e2a3b71057145a6df770ea880b9d
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98954230"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108181173"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -137,8 +137,8 @@ En este paso, creará un grupo de seguridad del sistema de integración sin o co
    * Consulte con su asociado de integración de Workday cuál es el tipo de grupo de seguridad apropiado que debe seleccionar para la integración.
    * Cuando sepa el tipo de grupo, seleccione **Integration System Security Group (Unconstrained)** (Grupo de seguridad del sistema de integración, sin restricciones) o **Integration System Security Group (Constrained)** (Grupo de seguridad del sistema de integración, con restricciones) en el menú desplegable **Type of Tenanted Security Group** (Tipo de grupo de seguridad con inquilinos).
 
-     > [!div class="mx-imgBorder"]
-     >![Crear grupos de seguridad](./media/workday-inbound-tutorial/wd_isu_04.png "Crear grupos de seguridad")
+     > [!div class="mx-imgBorder&quot;]
+     >![Crear grupos de seguridad](./media/workday-inbound-tutorial/wd_isu_04.png &quot;Crear grupos de seguridad")
 
 3. Una vez que se realice correctamente la creación del grupo de seguridad, verá una página donde puede asignar miembros al grupo de seguridad. Agregue a este grupo de seguridad el usuario del sistema de integración creado en el paso anterior. Si usa el grupo de seguridad *con restricciones*, también deberá seleccionar el ámbito apropiado de la organización.
 
@@ -557,7 +557,7 @@ Reemplace las variables [proxy-server] y [proxy-port] con los valores del puerto
 
 #### <a name="how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent"></a>¿Cómo se puede garantizar que el agente de aprovisionamiento sea capaz de comunicarse con el inquilino de Azure AD y que ningún firewall bloquee los puertos requeridos por el agente?
 
-También puede comprobar si todos los [puertos necesarios](../manage-apps/application-proxy-add-on-premises-application.md#open-ports) están abiertos.
+También puede comprobar si todos los [puertos necesarios](../app-proxy/application-proxy-add-on-premises-application.md#open-ports) están abiertos.
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>¿Un agente de aprovisionamiento se puede configurar para aprovisionar varios dominios de AD?
 

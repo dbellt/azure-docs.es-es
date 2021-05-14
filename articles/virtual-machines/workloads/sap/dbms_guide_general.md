@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/20/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: e978baa556f1bc1cfea0ccd5abbbf92dc77b1622
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cbc41f6e58be523b1a5dc6ad55c9e78b563d2ae8
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102504021"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144356"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -372,4 +372,4 @@ Para más información sobre un DBMS concreto, consulte:
 - [Implementación de SAP maxDB, Live Cache y del servidor de contenido en Azure](dbms_guide_maxdb.md)
 - [SAP HANA en la guía de operaciones de Azure](hana-vm-operations.md)
 - [Alta disponibilidad de SAP HANA para máquinas virtuales de Azure](sap-hana-availability-overview.md)
-- [Guía de copia de seguridad de SAP HANA en Azure Virtual Machines](sap-hana-backup-guide.md)
+- [Guía de copia de seguridad de SAP HANA en Azure Virtual Machines](../../../backup/sap-hana-db-about.md)

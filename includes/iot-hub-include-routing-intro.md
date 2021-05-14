@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 552a40be0c069d1002ebc7ea4dafe0d6f93a5755
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2d91e9405c17afe44a05deedc8bb0f0c40377d7
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85128185"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278315"
 ---
 [El enrutamiento de mensajes](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) permite enviar datos de telemetría desde dispositivos de IoT a puntos de conexión integrados compatibles con el centro de eventos o puntos de conexión personalizados como Blob Storage, colas de Service Bus, temas de Service Bus y Event Hubs. Para configurar el enrutamiento de mensajes personalizado, cree [consultas de enrutamiento](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) para personalizar la ruta que coincide con una condición determinada. Una vez configurado, los datos entrantes se enrutan automáticamente a los puntos de conexión mediante IoT Hub. Si un mensaje no coincide con ninguna de las consultas de enrutamientos definidas, se enruta al punto de conexión predeterminado.
 

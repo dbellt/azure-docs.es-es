@@ -1,17 +1,17 @@
 ---
 title: Copia de datos desde un punto de conexión de REST y hacia allí mediante Azure Data Factory
 description: Aprenda a copiar datos desde un origen REST local o en la nube hacia almacenes de datos receptores compatibles, o desde almacenes de datos de origen admitidos hacia un receptor de REST mediante una actividad de copia de una canalización de Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/16/2021
-ms.author: jingwang
-ms.openlocfilehash: 779a8745688e6a1fb8a15bc9119c6fbc1803ca2c
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.author: jianleishen
+ms.openlocfilehash: 24269fcfe7c60140c3d0fe9497eefeba71338bd7
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078934"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487086"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copia de datos desde un punto de conexión de REST y hacia allí mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -40,11 +40,11 @@ En concreto, este conector REST genérico admite lo siguiente:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="get-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que puede usar para definir entidades de Data Factory específicas del conector REST.
 
@@ -162,9 +162,9 @@ Establezca la propiedad **authenticationType** en **ManagedServiceIdentity**. Ad
 
 ### <a name="using-authentication-headers"></a>Uso de los encabezados de autenticación
 
-Además, puede configurar los encabezados de solicitud para realizar la autenticación junto con los tipos de autenticación integrados.
+Además, puede configurar los encabezados de solicitud para realizar la autenticación, junto con los tipos de autenticación integrados.
 
-**Ejemplo: uso de la autenticación mediante la clave de API**
+**Ejemplo: uso de la autenticación mediante clave de API**
 
 ```json
 {

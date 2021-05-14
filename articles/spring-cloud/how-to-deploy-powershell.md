@@ -8,12 +8,12 @@ ms.service: spring-cloud
 ms.devlang: azurepowershell
 ms.date: 11/16/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3cb320a37818084f2fbcad22a3cc992655b19c3d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 40c5d720aa3ddf6d38b830c84e326e9cbbf06ed0
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877453"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135192"
 ---
 # <a name="deploy-azure-spring-cloud-with-azure-powershell"></a>Implementación de Azure Spring Cloud con Azure PowerShell
 
@@ -136,4 +136,4 @@ Remove-AzResourceGroup -Name <resource group name>
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Recursos para desarrolladores de Azure Spring Cloud](spring-cloud-resources.md).
+[Recursos para desarrolladores de Azure Spring Cloud](./resources.md).

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 87fed1d2ac4f5fa85c01d7af10bec10c1412744f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 08a19c55bd208036fe6731e4436a8f0a74a76723
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92202351"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127720"
 ---
 # <a name="expressroute-circuits-and-peering"></a>Circuitos ExpressRoute y emparejamiento
 
@@ -20,8 +20,9 @@ Los circuitos ExpressRoute conectan la infraestructura local a Microsoft a trav�
 
 ![Diagrama que muestra cómo se conectan los circuitos ExpressRoute a la infraestructura local a Microsoft a través de un proveedor de conectividad.](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
-> [!IMPORTANT]
-> El emparejamiento público de Azure está en desuso y no está disponible para nuevos circuitos de ExpressRoute. Los nuevos circuitos admiten el emparejamiento privado y el emparejamiento de Microsoft.  
+> [!NOTE]
+> * En el contexto de ExpressRoute, Microsoft Edge describe los enrutadores perimetrales en el lado de Microsoft del circuito ExpressRoute. Este es el punto de entrada del circuito ExpressRoute a la red de Microsoft.
+> * El emparejamiento público de Azure está en desuso y no está disponible para nuevos circuitos de ExpressRoute. Los nuevos circuitos admiten el emparejamiento privado y el emparejamiento de Microsoft.  
 >
 
 ## <a name="expressroute-circuits"></a><a name="circuits"></a>Circuitos ExpressRoute

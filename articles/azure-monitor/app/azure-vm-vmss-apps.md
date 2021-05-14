@@ -3,12 +3,13 @@ title: Supervisión del rendimiento en las VM de Azure - Azure Application Insig
 description: Supervisión del rendimiento de aplicaciones para máquinas virtuales de Azure y conjuntos de escalado de máquinas virtuales de Azure. Carga y tiempo de respuesta de gráfico, información de dependencia y establecer alertas en el rendimiento.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 0951d1d622f59de4780735fad78ac73649ea2369
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d60b06331f10f33fabfb7ef03365ee6ac8689bcf
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101711489"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315172"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Implementación de Azure Application Insights Agent en máquinas virtuales de Azure y conjuntos de escalado de máquinas virtuales de Azure
 
@@ -42,7 +43,7 @@ Hay dos maneras de habilitar la supervisión de aplicaciones para las aplicacion
   * Application Insights Agent recopila automáticamente las mismas señales de dependencia que el SDK de NET. Consulte [Recopilación automática de dependencias](./auto-collect-dependencies.md#net) para más información.
         
 #### <a name="java"></a>Java
-  * En el caso de Java, el **[agente de Java 3.0 de Application Insights](./java-in-process-agent.md)** es el método recomendado. Las bibliotecas y los marcos más populares, así como los registros y las dependencias, se [recopilan automáticamente](./java-in-process-agent.md#auto-collected-requests-dependencies-logs-and-metrics) con una gran variedad de [configuraciones adicionales](./java-standalone-config.md).
+  * En el caso de Java, el **[agente de Java 3.0 de Application Insights](./java-in-process-agent.md)** es el método recomendado. Las bibliotecas y los marcos más populares, así como los registros y las dependencias, se [recopilan automáticamente](./java-in-process-agent.md#auto-collected-requests) con una gran variedad de [configuraciones adicionales](./java-standalone-config.md).
 
 ### <a name="code-based-via-sdk"></a>Basado en código mediante SDK
     

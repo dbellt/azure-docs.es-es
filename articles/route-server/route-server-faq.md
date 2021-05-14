@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 03/29/2021
+ms.date: 04/22/2021
 ms.author: duau
-ms.openlocfilehash: c4c36013f100d2fc5265024432cc01a6622a4024
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 77b9cd7590b381a29fc0dc19b2a80b72afceca0a
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932376"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930306"
 ---
 # <a name="azure-route-server-preview-faq"></a>Preguntas frecuentes sobre Azure Route Server (versión preliminar)
 
@@ -29,24 +29,33 @@ Azure Route Server es un servicio totalmente administrado que permite administra
 
 No. Azure Route Server es un servicio diseñado con alta disponibilidad. Si se implementa en una región de Azure que admite [Availability Zones](../availability-zones/az-overview.md), tendrá redundancia de nivel de zona.
 
+### <a name="how-many-route-servers-can-i-create-in-a-virtual-network"></a>¿Cuántos servidores de rutas puedo crear en una red virtual?
+
+Solo puede crear un servidor de rutas en una red virtual, y se debe implementar en una subred designada denominada *RouteServerSubnet*.
+
+### <a name="does-azure-route-server-support-vnet-peering"></a>¿Azure Route Server admite el emparejamiento de VNET?
+
+Sí. Si empareja una red virtual que hospeda Azure Route Server con otra red virtual y habilita la opción Usar puertas de enlace remotas en esta última, Azure Route Server aprenderá los espacios de direcciones de esa red virtual y los enviará a todas las aplicaciones virtuales de red emparejadas. También programará las rutas de las aplicaciones virtuales de red en la tabla de enrutamiento de las máquinas virtuales de la red virtual emparejada. 
+
+
 ### <a name="what-routing-protocols-does-azure-route-server-support"></a><a name = "protocol"></a>¿Qué protocolos de enrutamiento admite Azure Route Server?
 
 Azure Route Server solo admite Protocolo de puerta de enlace de borde (BGP). La NVA debe admitir BGP externo de salto múltiple porque deberá implementar Azure Route Server en una subred dedicada de la red virtual. El [ASN](https://en.wikipedia.org/wiki/Autonomous_system_(Internet)) que elija debe ser diferente del que usa Azure Route Server al configurar BGP en la NVA.
 
 ### <a name="does-azure-route-server-route-data-traffic-between-my-nva-and-my-vms"></a>¿Azure Route Server enruta el tráfico de datos entre la NVA y las máquinas virtuales?
 
-No. Azure Route Server solo intercambia rutas BGP con la NVA. El tráfico de datos va directamente desde la NVA a la máquina virtual elegida y directamente desde la máquina virtual a la NVA.
+No. Azure Route Server solo intercambia rutas BGP con la NVA. El tráfico de datos va directamente desde la aplicación virtual de red a la máquina virtual de destino y viceversa.
 
 ### <a name="does-azure-route-server-store-customer-data"></a>¿Azure Route Server almacena los datos de los clientes?
 No. Azure Route Server solo intercambia rutas de BGP con NVA y, a continuación, las propaga a la red virtual.
 
-### <a name="if-azure-route-server-receives-the-same-route-from-more-than-one-nva-will-it-program-all-copies-of-the-route-but-each-with-a-different-next-hop-to-the-vms-in-the-virtual-network"></a>Si Azure Route Server recibe la misma ruta de más de una NVA, ¿programará todas las copias de la ruta (pero cada una con un próximo salto diferente) en las máquinas virtuales de la red virtual?
+### <a name="if-azure-route-server-receives-the-same-route-from-more-than-one-nva-how-does-it-handle-them"></a>Si Azure Route Server recibe la misma ruta de más de una aplicación virtual de red, ¿cómo las administra?
 
-Sí, solo si la ruta tiene la misma longitud de ruta AS. Cuando las máquinas virtuales envían tráfico al destino de esta ruta, los hosts de la máquina virtual realizarán un enrutamiento multidireccional de igual costo (ECMP). Sin embargo, si una NVA envía la ruta con una longitud de ruta AS más corta que la de otras NVA, Azure Route Server solo programará la ruta que tenga el próximo salto establecido en esta NVA en las máquinas virtuales de la red virtual.
+Si la ruta tiene la misma longitud de ruta de acceso del sistema autónomo (AS), Azure Route Server programará varias copias de ella, cada una con un próximo salto diferente, a las máquinas virtuales de la red virtual. Cuando las máquinas virtuales envían tráfico al destino de esta ruta, los hosts de la máquina virtual realizarán un enrutamiento multidireccional de igual costo (ECMP). Sin embargo, si una aplicación virtual de red envía la ruta con una longitud de ruta de acceso de AS más corta que otras aplicaciones virtuales de red, Azure Route Server solo programará la ruta que tenga el próximo salto establecido en esta aplicación virtual de red a las máquinas virtuales de la red virtual.
 
-### <a name="does-azure-route-server-support-vnet-peering"></a>¿Azure Route Server admite el emparejamiento de VNET?
+### <a name="does-azure-route-server-preserve-the-bgp-communities-of-the-route-it-receives"></a>¿Conserva Azure Route Server las comunidades BGP de la ruta que recibe?
 
-Sí. Si empareja una red virtual que hospeda la instancia de Azure Route Server con otra red virtual y habilita el uso de la puerta de enlace remota en esa red virtual, Azure Route Server aprenderá los espacios de direcciones de esa red virtual y los enviará a todas las NVA emparejadas.
+Sí, Azure Route Server propaga la ruta con las comunidades BGP tal y como está.
 
 ### <a name="what-autonomous-system-numbers-asns-can-i-use"></a>¿Qué números de sistema autónomo (ASN) puedo usar?
 
@@ -72,6 +81,7 @@ Azure Route Server tiene los límites siguientes (por implementación).
 | Número de emparejamientos de BGP admitidos | 8 |
 | Número de rutas que puede anunciar cada emparejamiento de BGP a Azure Route Server | 200 |
 | Número de rutas que puede anunciar Azure Route Server a ExpressRoute o a la puerta de enlace de VPN | 200 |
+| Número de VM de la red virtual (incluidas las redes virtuales emparejadas) que Azure Route Server puede admitir | 6000 |
 
 Si la NVA anuncia más rutas que el límite, se eliminará la sesión BGP. Si esto sucede en la puerta de enlace y en el servidor de enrutamiento de Azure, perderá la conectividad de la red local a Azure. Para más información, consulte [Diagnóstico de problemas de enrutamiento en una máquina virtual](../virtual-network/diagnose-network-routing-problem.md).
 

@@ -3,12 +3,12 @@ title: Trabajo con las API de Defender para IoT
 description: Use una API REST externa para acceder a los datos que han detectado los sensores y las consolas de administración y realizar acciones con esos datos.
 ms.date: 12/14/2020
 ms.topic: reference
-ms.openlocfilehash: d509f2674a61af1d0ab03892186526b1cb109eee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e3659d8d5e6829651012dae02ca74c5ecacaf0c
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104778838"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829969"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>API del sensor y la consola de administración de Defender para IoT
 
@@ -622,7 +622,16 @@ Matriz de objetos JSON que representan alertas.
 | **engine** | String | No | Infracción del protocolo, infracción de la directiva, malware, anomalía u operativa |
 | **sourceDevice** | Numeric | Sí | Id. de dispositivo |
 | **destinationDevice** | Numeric | Sí | Id. de dispositivo |
+| **sourceDeviceAddress** | Numeric | Sí | IP, MAC |
+| **destinationDeviceAddress** | Numeric | Sí | IP, MAC |
+| **remediationSteps** | String | Sí | Pasos para la corrección descritos en la alerta |
 | **additionalInformation** | Objeto Additional information | Sí | - |
+
+Tenga en cuenta que se requiere /api/v2/ para la información siguiente:
+
+- sourceDeviceAddress 
+- destinationDeviceAddress
+- remediationSteps
 
 #### <a name="additional-information-fields"></a>Campos de información adicional
 
@@ -1742,19 +1751,16 @@ response:
 > |--|--|--|
 > | POST | curl -k -d '{"admin_username":"<NOMBRE_USUARIO_ADMINISTRADOR>","admin_password":"<CONTRASEÑA_ADMINISTRADOS>","username": "<NOMBRE_USUARIO>","new_password": "<NUEVA_CONTRASEÑA>"}' -H 'Content-Type: application/json'  https://<DIRECCIÓN_IP>/api/external/authentication/set_password_by_admin | curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/api/external/authentication/set_password_by_admin |
 
-## <a name="on-premises-management-console-api-specifications"></a>Especificaciones de la API de la consola de administración local
+## <a name="on-premises-management-console-api-specifications"></a>Especificaciones de la API de la consola de administración local ##
 
-En esta sección se describen las siguientes API de la consola de administración local:
+En esta sección se describen las API de la consola de administración local para:
+- Exclusiones de alertas
+- Información del dispositivo
+- Información de alertas
 
-- **/external/v1/alerts/<UUID>**
+### <a name="alert-exclusions"></a>Exclusiones de alertas ###
 
-- **Exclusiones de alerta (ventana de mantenimiento)**
-
-:::image type="content" source="media/references-work-with-defender-for-iot-apis/alert-exclusion-window.png" alt-text="La ventana de exclusión de alertas, que muestra las reglas activas.":::
-
-Defina las condiciones en las que no se enviarán alertas. Por ejemplo, defina y actualice las horas de inicio y detención, los dispositivos o subredes que se deben excluir al desencadenar las alertas o los motores de Defender para IoT que deben excluirse. Por ejemplo, durante una ventana de mantenimiento, quizá quiera detener la entrega de todas las alertas, salvo las alertas de malware en dispositivos críticos.
-
-Las API que defina aquí aparecen en la ventana **Exclusiones de alerta** de la consola de administración local como una regla de exclusión de solo lectura.
+Defina las condiciones en las que no se enviarán alertas. Por ejemplo, defina y actualice las horas de inicio y detención, los dispositivos o subredes que se deben excluir al desencadenar las alertas o los motores de Defender para IoT que deben excluirse. Por ejemplo, durante una ventana de mantenimiento, quizá quiera detener la entrega de todas las alertas, salvo las alertas de malware en dispositivos críticos. Los elementos que defina aquí aparecen en la ventana **Exclusiones de alertas** de la consola de administración local como reglas de exclusión de solo lectura.
 
 #### <a name="externalv1maintenancewindow"></a>/external/v1/maintenanceWindow
 
@@ -1771,15 +1777,15 @@ Las API que defina aquí aparecen en la ventana **Exclusiones de alerta** de la 
 
 ```
 
-#### <a name="change-password---externalauthenticationset_password"></a>Cambio de contraseña: /external/authentication/set_password
+#### <a name="change-password---externalauthenticationset_password"></a>Cambio de contraseña: /external/authentication/set_password 
 
 Use esta API para que los usuarios puedan cambiar sus contraseñas. Todos los roles de usuario de Defender para IoT pueden funcionar con la API. No necesita un token de acceso de Defender para IoT para usar esta API.
 
-#### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>Actualización de la contraseña de usuario por el administrador del sistema: /external/authentication/set_password_by_admin
+#### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>Actualización de la contraseña de usuario por el administrador del sistema: /external/authentication/set_password_by_admin 
 
 Use esta API para que los administradores del sistema puedan cambiar las contraseñas de usuarios específicos. Los roles de usuario administrador de Defender para IoT pueden funcionar con la API. No necesita un token de acceso de Defender para IoT para usar esta API.
 
-### <a name="retrieve-device-information---externalv1devices"></a>Recuperación de información del dispositivo: /external/v1/devices
+### <a name="retrieve-device-information---externalv1devices"></a>Recuperación de información del dispositivo: /external/v1/devices ###
 
 Esta API solicita una lista de todos los dispositivos detectados por los sensores de Defender para IoT que están conectados a una consola de administración local.
 
@@ -2032,15 +2038,13 @@ Use esta API para recuperar todas las alertas o las alertas filtradas de una con
 
   `/api/v1/alerts?toTime=<epoch>`
 
-- **siteId**: el sitio en el que se detectó la alerta. [2](#2)
-
-- **zoneId**: la zona en la que se detectó la alerta. [2](#2)
-
+- **siteId**: el sitio en el que se detectó la alerta.
+- **zoneId**: la zona en la que se detectó la alerta.
 - **sensor**: el sensor en el que se detectó la alerta.
 
-##### <a name="you-might-not-have-the-site-and-zone-id-if-this-is-the-case-query-all-devices-to-retrieve-the-site-and-zone-id"></a><a id="2">2</a> *Es posible que no tenga el id. de zona y de sitio. En este caso, consulte a todos los dispositivos para recuperar el id. de sitio y de zona.*
+*Es posible que no tenga el identificador de zona y de sitio. En este caso, consulte todos los dispositivos para recuperarlo.*
 
-#### <a name="alert-fields"></a>Campos de alerta
+#### <a name="alert-fields"></a>Campos de alerta 
 
 | Nombre | Tipo | Nullable | Lista de valores |
 |--|--|--|--|
@@ -2052,7 +2056,22 @@ Use esta API para recuperar todas las alertas o las alertas filtradas de una con
 | **engine** | String | No | Infracción del protocolo, infracción de la directiva, malware, anomalía u operativa |
 | **sourceDevice** | Numeric | Sí | Id. de dispositivo |
 | **destinationDevice** | Numeric | Sí | Id. de dispositivo |
+| **sourceDeviceAddress** | Numeric | Sí | IP, MAC |
+| **destinationDeviceAddress** | Numeric | Sí | IP, MAC |
+| **remediationSteps** | String | Sí | Pasos para la corrección que se muestran en la alerta|
+| **sensorName** | String | Sí | Nombre del sensor definido por el usuario |
+|**zoneName** | String | Sí | Nombre de la zona asociada al sensor|
+| **siteName** | String | Sí | Nombre del sitio asociado al sensor |
 | **additionalInformation** | Objeto Additional information | Sí | - |
+
+Tenga en cuenta que se requiere /api/v2/ para la información siguiente:
+
+- sourceDeviceAddress 
+- destinationDeviceAddress
+- remediationSteps
+- sensorName
+- zoneName
+- siteName
 
 #### <a name="additional-information-fields"></a>Campos de información adicional
 
@@ -2390,7 +2409,7 @@ Recupere un registro de todas las acciones de apertura, cierre y actualización 
 
 - **tokenName**: filtra los registros relacionados con un token específico.
 
-#### <a name="error-code"></a>Código de error
+#### <a name="error-code"></a>Código de error 
 
 - **200 (correcto)** : la acción se ha completado correctamente.
 

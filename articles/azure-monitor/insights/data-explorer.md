@@ -1,24 +1,24 @@
 ---
-title: Azure Monitor para Azure Data Explorer (versión preliminar) | Microsoft Docs
-description: En este artículo se describen las conclusiones de Azure Monitor para los clústeres de Azure Data Explorer.
+title: Azure Data Explorer Insights (versión preliminar de ADX Insights)| Microsoft Docs
+description: En este artículo se describe Azure Data Explorer Insights (ADX Insights)
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: dcfe12b30e336863c8e112d9ad675a2f57fe48f4
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: a8aae2dc03ba87e9782cdf3952be1bfc4a1aae75
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102179143"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767048"
 ---
-# <a name="azure-monitor-for-azure-data-explorer-preview"></a>Azure Monitor para Azure Data Explorer (versión preliminar)
+# <a name="azure-data-explorer-insights-preview"></a>Azure Data Explorer Insights (versión preliminar)
 
-Azure Monitor para Azure Data Explorer (versión preliminar) proporciona una supervisión completa de los clústeres al ofrecer una vista unificada de su rendimiento, operaciones, uso y errores.
-Este artículo ayuda a entender cómo incorporar y usar Azure Monitor para Azure Data Explorer (versión preliminar).
+Azure Data Explorer Insights (versión preliminar) proporciona una supervisión completa de los clústeres, ya que ofrece una vista unificada de su rendimiento, operaciones, uso y errores.
+Este artículo le ayuda a saber cómo incorporar y usar Azure Data Explorer Insights (versión preliminar).
 
-## <a name="introduction-to-azure-monitor-for-azure-data-explorer-preview"></a>Introducción a Azure Monitor para Azure Data Explorer (versión preliminar)
+## <a name="introduction-to-azure-data-explorer-insights-preview"></a>Introducción a Azure Data Explorer Insights (versión preliminar)
 
 Antes de saltar a la experiencia, debe entender cómo se presenta y se visualiza la información.
 -    **Perspectiva a gran escala**, que muestra una instantánea de las métricas principales de los clústeres, con el fin de realizar un seguimiento sencillo del rendimiento de las consultas, la ingesta y las operaciones de exportación.
@@ -73,7 +73,7 @@ Esta pestaña proporciona información sobre los registros exportados, la demora
 
 ## <a name="view-from-an-azure-data-explorer-cluster-resource-drill-down-analysis"></a>Vista de un recurso de clúster de Azure Data Explorer (análisis en profundidad)
 
-Para acceder a Azure Monitor para clústeres de Azure Data Explorer directamente desde un clúster de Azure Data Explorer:
+Para acceder a Azure Data Explorer Insights directamente desde un clúster de Azure Data Explorer:
 
 1. En Azure Portal, seleccione **Clústeres de Azure Data Explorer**.
 
@@ -81,7 +81,7 @@ Para acceder a Azure Monitor para clústeres de Azure Data Explorer directamente
 
 También se puede acceder a estas vistas seleccionando el nombre del recurso de un clúster de Azure Data Explorer desde la vista de conclusiones de Azure Monitor.
 
-Azure Monitor para Azure Data Explorer combina los registros y las métricas para proporcionar una solución de supervisión global. La inclusión de visualizaciones basadas en registros requiere que los usuarios [habiliten el registro de diagnóstico de su clúster de Azure Data Explorer y lo envíen a un área de trabajo de Log Analytics.](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs). Los registros de diagnóstico que se deben habilitar son: **Command**, **Query**, **TableDetails** y **TableUsageStatistics**.
+Azure Data Explorer Insights combina los registros y las métricas para proporcionar una solución de supervisión global. La inclusión de visualizaciones basadas en registros requiere que los usuarios [habiliten el registro de diagnóstico de su clúster de Azure Data Explorer y lo envíen a un área de trabajo de Log Analytics.](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs). Los registros de diagnóstico que se deben habilitar son: **Command**, **Query**, **TableDetails** y **TableUsageStatistics**.
 
 ![Captura de pantalla del botón azul que muestra el texto "Enable Logs for Monitoring" (Habilitar la supervisión de registros)](./media/data-explorer/enable-logs.png)
 
@@ -118,13 +118,18 @@ La pestaña **Caché** permite a los usuarios analizar los patrones de recuperac
 
 [![Captura de pantalla de detalles de la caché](./media/data-explorer/cache-tab.png)](./media/data-explorer/cache-tab.png#lightbox)
 
-## <a name="pin-to-azure-dashboard"></a>Anclar al panel de Azure
+La pestaña **cluster boundaries** (límites del clúster) muestra los límites del clúster en función de su uso. En esta pestaña puede inspeccionar el uso de la CPU, la ingesta y la caché. Los valores de estas métricas pueden ser como "Baja", "Media" o "Alta". Estas métricas y valores son importantes a la hora de decidir el número óptimo de SKU e instancias para el clúster, y se tienen en cuenta en la recomendación de tamaño y SKU de Azure Advisor. En esta pestaña puede seleccionar el icono de una métrica y profundizar para conocer su tendencia y cómo se decide su puntuación. También puede ver la recomendación de tamaño y SKU de Azure Advisor del clúster. Por ejemplo, en la siguiente imagen puede ver que los valores de todas las métricas son "Baja" y, por tanto, el clúster recibe una recomendación de costos, lo que le permite reducir o reducir horizontalmente y ahorrar costos.
 
-Cualquiera de las secciones de métricas (de la perspectiva " a gran escala") se puede anclar a un panel de Azure; para ello, seleccione el icono de chincheta que se encuentra en la parte superior derecha de la sección.
+> [!div class="mx-imgBorder"]
+> [![Captura de pantalla de los límites del clúster.](./media/data-explorer/cluster-boundaries.png)](./media/data-explorer/cluster-boundaries.png#lightbox)
+
+## <a name="pin-to-azure-dashboard&quot;></a>Anclar al panel de Azure
+
+Cualquiera de las secciones de métricas (de la perspectiva &quot; a gran escala") se puede anclar a un panel de Azure; para ello, seleccione el icono de chincheta que se encuentra en la parte superior derecha de la sección.
 
 ![Captura de pantalla del icono de chincheta seleccionado](./media/data-explorer/pin.png)
 
-## <a name="customize-azure-monitor-for-azure-data-explorer-cluster"></a>Personalización de Azure Monitor para clústeres de Azure Data Explorer
+## <a name="customize-azure-data-explorer-insights"></a>Personalización de Azure Data Explorer Insights
 
 En esta sección se resaltan los escenarios comunes para editar el libro y personalizarlo de acuerdo con sus necesidades de análisis de datos:
 * Definir el ámbito del libro para seleccionar siempre una suscripción o unos clústeres de Azure Data Explorer determinados
@@ -143,7 +148,7 @@ Las personalizaciones se guardan en un libro personalizado para evitar sobrescri
 
 Para obtener instrucciones generales para la solución de problemas, consulte el [artículo dedicado de solución de problemas](troubleshoot-workbooks.md) de conclusiones basadas en libros.
 
-Esta sección le ayudará con el diagnóstico y la solución de algunos de los problemas habituales que pueden producirse al usar Azure Monitor para clústeres de Azure Data Explorer (versión preliminar). Utilice la siguiente lista para buscar la información relacionada con el problema específico.
+Esta sección le ayudará con el diagnóstico y la solución de algunos de los problemas habituales que pueden producirse en la aplicación al usar Azure Data Explorer Insights (versión preliminar). Utilice la siguiente lista para buscar la información relacionada con el problema específico.
 
 ### <a name="why-dont-i-see-all-my-subscriptions-in-the-subscription-picker"></a>¿Por qué veo todas mis suscripciones en el selector de suscripciones?
 

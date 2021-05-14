@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2c4af7afd96f6c503f35cdb4896c3b49d4ef6ed3
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: f0b03f8a0a9e3aa277ec940c8e65064ef0411ccc
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276236"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107867626"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para .NET
 
@@ -335,4 +335,4 @@ Para ver tutoriales, ejemplos, artículos de inicio rápido y otra documentació
 
 - Para más información, consulte [Bibliotecas de Azure Storage para .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage).
 - Para ver más aplicaciones de ejemplo de Azure Queue Storage, consulte los [ejemplos de la biblioteca de Azure Queue Storage para .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).
-- Para más información sobre .NET Core, consulte [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/) (Introducción a .NET en 10 minutos).
+- Para más información sobre .NET Core, consulte [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro) (Introducción a .NET en 10 minutos).

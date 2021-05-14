@@ -3,12 +3,12 @@ title: Consideraciones de almacenamiento de Azure Functions
 description: Conozca los requisitos de almacenamiento de Azure Functions y aprenda a cifrar los datos almacenados.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 5faa85a4fac9fc0b8639f33c475283f4f043c627
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 8c7f5ef6e1e9c354806994e5116e40523d660e9e
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779262"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109627715"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Consideraciones de almacenamiento de Azure Functions
 
@@ -17,7 +17,7 @@ Azure Functions necesita una cuenta de Azure Storage para crear una instancia de
 
 |Servicio de Storage  | Uso de Functions  |
 |---------|---------|
-| [Almacenamiento de blobs de Azure](../storage/blobs/storage-blobs-introduction.md)     | Mantener el estado de los enlaces y las teclas de función.  <br/>También se utiliza en la [central de tareas de Durable Functions](durable/durable-functions-task-hubs.md). |
+| [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)     | Mantener el estado de los enlaces y las teclas de función.  <br/>También se utiliza en la [central de tareas de Durable Functions](durable/durable-functions-task-hubs.md). |
 | [Archivos de Azure](../storage/files/storage-files-introduction.md)  | Recurso compartido de archivos que se utiliza para almacenar y ejecutar el código de la aplicación de funciones en un [plan de consumo](consumption-plan.md) y un [plan prémium](functions-premium-plan.md). |
 | [Azure Queue Storage](../storage/queues/storage-queues-introduction.md)     | Se utiliza en la [central de tareas de Durable Functions](durable/durable-functions-task-hubs.md).   |
 | [Azure Table Storage](../storage/tables/table-storage-overview.md)  |  Se utiliza en la [central de tareas de Durable Functions](durable/durable-functions-task-hubs.md).       |

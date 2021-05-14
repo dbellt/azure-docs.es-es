@@ -1,18 +1,19 @@
 ---
-title: 'Conexión de redes virtuales clásicas a redes virtuales de Azure Resource Manager: portal | Microsoft Docs'
-description: Pasos para conectar redes virtuales clásicas a redes virtuales de Resource Manager mediante VPN Gateway y el portal
+title: 'Conexión de redes virtuales clásicas a redes virtuales de Azure Resource Manager: portal'
+titleSuffix: Azure VPN Gateway
+description: Aprenda a conectar redes virtuales clásicas a redes virtuales de Resource Manager mediante el portal.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: cherylmc
-ms.openlocfilehash: 9d31bcaad01b9b762e57bd619d45c1f53ffb201e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a8511c09b863550a8e5e71b2a4e6a91a4a3f757c
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100376809"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229115"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conexión de redes virtuales a partir de diferentes modelos de implementación con el portal
 

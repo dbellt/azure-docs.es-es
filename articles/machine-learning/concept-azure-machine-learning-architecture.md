@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 09ebbaa6bb7cd5a2b4dcdee4e18fe905c5b2fbd3
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: f1eb7a5b4697801775d23091c610ab594b0b27ec
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106062529"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813387"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funcionamiento de Azure Machine Learning: Arquitectura y conceptos
 
@@ -116,9 +116,9 @@ Al enviar una ejecución, Azure Machine Learning comprime el directorio que cont
 
 ### <a name="logging"></a>Registro
 
-Azure Machine Learning registra automáticamente las métricas de ejecución estándar. Sin embargo, también puede [usar el SDK de Python para registrar métricas arbitrarias](how-to-track-experiments.md).
+Azure Machine Learning registra automáticamente las métricas de ejecución estándar. Sin embargo, también puede [usar el SDK de Python para registrar métricas arbitrarias](how-to-log-view-metrics.md).
 
-Hay varias maneras de ver los registros: supervisar el estado de ejecución en tiempo real o ver los resultados después de la finalización. Para obtener más información, consulte [Supervisión y visualización de registros de ejecución de ML](how-to-monitor-view-training-logs.md).
+Hay varias maneras de ver los registros: supervisar el estado de ejecución en tiempo real o ver los resultados después de la finalización. Para obtener más información, consulte [Supervisión y visualización de registros de ejecución de ML](how-to-log-view-metrics.md).
 
 
 > [!NOTE]
@@ -256,8 +256,8 @@ Los pasos de canalización se pueden reutilizar y se pueden ejecutar sin volver 
 Azure Machine Learning proporciona las siguientes funcionalidades de supervisión y registro:
 
 * Como __científico de datos__, puede supervisar los experimentos y la información de registro de las ejecuciones de entrenamiento. Para más información, consulte los siguientes artículos.
-   * [Inicio, supervisión y cancelación de las ejecuciones de entrenamiento](how-to-manage-runs.md)
-   * [Métricas de registro de las ejecuciones de entrenamientos](how-to-track-experiments.md)
+   * [Inicio, supervisión y cancelación de las ejecuciones de entrenamiento](how-to-track-monitor-analyze-runs.md)
+   * [Métricas de registro de las ejecuciones de entrenamientos](how-to-log-view-metrics.md)
    * [Seguimiento de experimentos con MLflow](how-to-use-mlflow.md)
    * [Visualización de ejecuciones con TensorBoard](how-to-monitor-tensorboard.md)
 * Como __administrador__, puede supervisar la información sobre el área de trabajo y los recursos de Azure relacionados, o eventos como la creación y eliminación de recursos mediante Azure Monitor. Para más información, consulte [Supervisión de Azure Machine Learning](monitor-azure-machine-learning.md).

@@ -3,12 +3,12 @@ title: Servicios y esquemas admitidos de los registros de recursos de Azure
 description: Conozca el esquema de los eventos y servicios admitidos para los registros de recurso de Azure.
 ms.topic: reference
 ms.date: 04/07/2020
-ms.openlocfilehash: 09415353d93313f1b3c4844202b59f577ef3838d
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: d219153f9d1dfbcd05cbe28a5ac0609a156c68a9
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105772"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142574"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Esquema específico de servicio y común para los registros de recursos de Azure
 
@@ -83,7 +83,7 @@ El esquema para los registros de recursos varía según la categoría de registr
 | Azure Service Bus |[Registros de Azure Service Bus](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Registro de Azure SQL Database](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Registros de trabajo](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
-| Storage | [Blobs](/azure/storage/blobs/monitor-blob-storage-reference#resource-logs-preview), [instancias de Files](/azure/storage/files/storage-files-monitoring-reference#resource-logs-preview), [Colas](/azure/storage/queues/monitor-queue-storage-reference#resource-logs-preview), [Tablas](/azure/storage/tables/monitor-table-storage-reference#resource-logs-preview) |
+| Storage | [Blobs](../../storage/blobs/monitor-blob-storage-reference.md#resource-logs-preview), [instancias de Files](../../storage/files/storage-files-monitoring-reference.md#resource-logs-preview), [Colas](../../storage/queues/monitor-queue-storage-reference.md#resource-logs-preview), [Tablas](../../storage/tables/monitor-table-storage-reference.md#resource-logs-preview) |
 | Traffic Manager | [Esquema de registro de Traffic Manager](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Virtual Networks | Esquema no disponible. |
 | Puertas de enlace de red virtual | Esquema no disponible. |

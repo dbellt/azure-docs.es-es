@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 50b09fd82461221ae6cd008f6918ac2f3a26fd94
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 87b29d7417bfcaff670282377b2fffc6d4713395
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877421"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135048"
 ---
 # <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Integración de Azure Spring Cloud con soluciones de equilibrio de carga de Azure
 
@@ -28,7 +28,7 @@ Azure ya proporciona diferentes soluciones de equilibrio de carga. Existen tres 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Azure Spring Cloud: [creación de un servicio Azure Spring Cloud](./spring-cloud-quickstart.md)
+* Azure Spring Cloud: [creación de un servicio Azure Spring Cloud](./quickstart.md)
 * Azure Traffic Manager: [creación de una instancia de Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md)
 * Azure App Gateway: [creación de una instancia de Application Gateway](../application-gateway/quick-create-portal.md)
 * Azure Front Door: [creación de una instancia de Front Door](../frontdoor/quickstart-create-front-door.md)
@@ -48,7 +48,7 @@ Agregue puntos de conexión en Traffic Manager:
 ### <a name="configure-custom-domain"></a>Configuración de un dominio personalizado
 Para finalizar la configuración:
 1.  inicie sesión en el sitio web de su proveedor de dominios y cree una asignación de registros CNAME desde su dominio personalizado al nombre de dominio predeterminado de Azure de Traffic Manager.
-1.  Siga las instrucciones sobre [cómo agregar un dominio personalizado a Azure Spring Cloud](spring-cloud-tutorial-custom-domain.md).
+1.  Siga las instrucciones sobre [cómo agregar un dominio personalizado a Azure Spring Cloud](./tutorial-custom-domain.md).
 1. Agregue el enlace de dominio personalizado anterior a Traffic Manager a la instancia de App Service correspondiente de Azure Spring Cloud y cargue ahí el certificado.
 
     ![Traffic Manager 3](media/spring-cloud-load-balancers/traffic-manager-3.png)

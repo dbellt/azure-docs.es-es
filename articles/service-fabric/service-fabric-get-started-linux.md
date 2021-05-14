@@ -4,12 +4,12 @@ description: Instale el SDK y el motor en tiempo de ejecución, y cree un clúst
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 14b8a278605a908b4182c724831b2e42de54a753
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a06e649fbbe3e7ea1036d9511a87169a5b0a655a
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93086897"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288263"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparación del entorno de desarrollo en Linux
 > [!div class="op_single_selector"]
@@ -26,17 +26,13 @@ Puede administrar las entidades de Service Fabric hospedadas en la nube o en el 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Se admiten estas versiones de sistemas operativos para desarrollo.
+- Asegúrese de que usa una [versión de Linux](service-fabric-versions.md#supported-linux-versions-and-support-end-date) compatible.
 
-* Ubuntu 16.04 (`Xenial Xerus`), 18.04 (`Bionic Beaver`)
-
-    Asegúrese de que el paquete `apt-transport-https` está instalado.
+- Instale el paquete `apt-transport-https`:
          
     ```bash
     sudo apt-get install apt-transport-https
     ```
-* Red Hat Enterprise Linux 7.4 (compatibilidad con la versión preliminar de Service Fabric)
-
 
 ## <a name="installation-methods"></a>Métodos de instalación
 
@@ -261,7 +257,7 @@ Después de instalar los generadores, cree ejecutables invitados o servicios de 
 
 ## <a name="set-up-net-core-31-development"></a>Configuración del desarrollo con .NET Core 3.1
 
-Instale el [SDK de .NET Core 3.1 para Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) para iniciar la [creación de aplicaciones de Service Fabric en C#](service-fabric-create-your-first-linux-application-with-csharp.md). Los paquetes de aplicaciones de Service Fabric en .NET Core se hospedan en NuGet.org.
+Instale el [SDK de .NET Core 3.1 para Ubuntu](/dotnet/core/install/linux-ubuntu) para iniciar la [creación de aplicaciones de Service Fabric en C#](service-fabric-create-your-first-linux-application-with-csharp.md). Los paquetes de aplicaciones de Service Fabric en .NET Core se hospedan en NuGet.org.
 
 ## <a name="set-up-java-development"></a>Configuración del desarrollo de Java
 

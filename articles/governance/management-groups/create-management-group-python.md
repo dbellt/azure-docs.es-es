@@ -1,17 +1,17 @@
 ---
 title: 'Inicio rápido: Creación de un grupo de administración con Python'
 description: En este inicio rápido se usa Python para crear un grupo de administración para organizar los recursos en una jerarquía.
-ms.date: 01/29/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - mode-api
-ms.openlocfilehash: 9aec47e067ca62f4902df2dafb6a5d6d50a26d0e
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 777cb39324e94c40bc4eac4538e59a2b75b8745e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533170"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108765312"
 ---
 # <a name="quickstart-create-a-management-group-with-python"></a>Inicio rápido: Creación de un grupo de administración con Python
 
@@ -74,12 +74,12 @@ Para habilitar Python para administrar grupos de administración, debe agregarse
    ```python
    # Import management group classes
    from azure.mgmt.managementgroups import ManagementGroupsAPI
-   
+
    # Import specific methods and models from other libraries
    from azure.common.credentials import get_azure_cli_credentials
    from azure.common.client_factory import get_client_from_cli_profile
    from azure.mgmt.resource import ResourceManagementClient, SubscriptionClient
-   
+
    # Wrap all the work in a function
    def createmanagementgroup( strName ):
        # Get your credentials from Azure CLI (development only!) and get your subscription list
@@ -90,17 +90,17 @@ Para habilitar Python para administrar grupos de administración, debe agregarse
        subsList = []
        for sub in subsRaw:
            subsList.append(sub.get('subscription_id'))
-       
+
        # Create management group client and set options
        mgClient = get_client_from_cli_profile(ManagementGroupsAPI)
        mg_request = {'name': strName, 'display_name': strName}
-       
+
        # Create management group
        mg = mgClient.management_groups.create_or_update(group_id=strName,create_management_group_request=mg_request)
-       
+
        # Show results
        print(mg)
-   
+
    createmanagementgroup("MyNewMG")
    ```
 

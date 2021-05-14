@@ -5,18 +5,18 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 03/30/2021
 ms.author: banders
-ms.openlocfilehash: 3bd571195a3f0df290387812e68f2b0377fe3c3c
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 553483a1d7005f73bf62e2afb5cc427d96b2e211
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584058"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331203"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Creación de servicios incluidos con la cuenta gratuita de Azure
 
-Los 30 días posteriores a la creación de una cuenta gratuita de Azure, tiene un crédito de 200 euros para usarlo en cualquier servicio, excepto para compras de productos o servicios de terceros en Marketplace. Gracias a ese crédito gratuito puede experimentar con diferentes niveles y tipos de servicios de Azure para probarlos. Si durante ese tiempo usa servicios o recursos de Azure que no son gratis, los cargos se restan de su crédito.
+Los 30 días posteriores a la creación de una cuenta gratuita de Azure, tiene un crédito de 200 USD en su divisa de facturación para usarlo en cualquier servicio, excepto para compras de productos o servicios de terceros en Marketplace. Gracias a ese crédito gratuito puede experimentar con diferentes niveles y tipos de servicios de Azure para probarlos. Si durante ese tiempo usa servicios o recursos de Azure que no son gratis, los cargos se restan de su crédito.
 
 Si no usa todo el crédito al finalizar los primeros 30 días, se perderá. Tras los primeros 30 días y hasta 12 meses después de la suscripción, solo puede usar una cantidad limitada de *algunos servicios* (no todos los servicios de Azure son gratis). Si realiza la actualización antes de 30 días y tiene crédito restante, puede usarlo con una suscripción de pago por uso para los días restantes. Por ejemplo, si se suscribe a la cuenta gratuita el 1 de noviembre y realiza la actualización el 5 de noviembre, tendrá hasta el 30 de noviembre para usar su crédito en la nueva suscripción de pago por uso. 
 

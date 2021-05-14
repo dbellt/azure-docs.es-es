@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: 660b5751e3b3cbc632331e99d797af3392a8aea4
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: cb54c5f7334120f6cd01ed1704939c5c1a55e7c6
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "91371973"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645293"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Asignar acceso a los datos de Cost Management
 
@@ -39,9 +39,9 @@ Un usuario debe tener, como mínimo, acceso de lectura a uno o varios de los sig
 | Cuenta de facturación<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | Administrador de organización | None | Todas las suscripciones del contrato Enterprise |
 | department | [https://ea.azure.com](https://ea.azure.com/) | Administrador de departamento | **AD: ver los cargos** habilitado | Todas las suscripciones que pertenecen a una cuenta de inscripción que esté vinculada al departamento |
 | Cuenta de inscripción<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | Propietario de cuenta | **PC: ver los cargos** habilitado | Todas las suscripciones de la cuenta de inscripción |
-| Grupo de administración | [https://portal.azure.com](https://portal.azure.com/) | Lector de Cost Management (o lector) | **PC: ver los cargos** habilitado | Todas las suscripciones por debajo del grupo de administración |
-| Subscription | [https://portal.azure.com](https://portal.azure.com/) | Lector de Cost Management (o lector) | **PC: ver los cargos** habilitado | Todos los grupos de recursos o recursos en la suscripción |
-| Resource group | [https://portal.azure.com](https://portal.azure.com/) | Lector de Cost Management (o lector) | **PC: ver los cargos** habilitado | Todos los recursos del grupo de recurso |
+| Grupo de administración | [https://portal.azure.com](https://portal.azure.com/) | Lector (o Colaborador) de Cost Management | **PC: ver los cargos** habilitado | Todas las suscripciones por debajo del grupo de administración |
+| Subscription | [https://portal.azure.com](https://portal.azure.com/) | Lector (o Colaborador) de Cost Management | **PC: ver los cargos** habilitado | Todos los grupos de recursos o recursos en la suscripción |
+| Resource group | [https://portal.azure.com](https://portal.azure.com/) | Lector (o Colaborador) de Cost Management | **PC: ver los cargos** habilitado | Todos los recursos del grupo de recurso |
 
 <sup>1</sup>La cuenta de facturación también se conoce como inscripción o Contrato Enterprise.
 
@@ -52,8 +52,8 @@ Un usuario debe tener, como mínimo, acceso de lectura a uno o varios de los sig
 
 Un usuario debe tener, como mínimo, acceso de lectura a uno o varios de los siguientes ámbitos para ver los datos de costos de otras suscripciones de Azure:
 
-- Cuenta de Azure
 - Grupo de administración
+- Subscription
 - Resource group
 
 Hay varios ámbitos disponibles después de que los asociados incorporen a los clientes a un contrato de cliente de Microsoft. Los clientes de CSP pueden usar las características de Cost Management cuando están habilitadas por su asociado de CSP. Para más información, consulte [Introducción a Azure Cost Management para asociados](get-started-partners.md).

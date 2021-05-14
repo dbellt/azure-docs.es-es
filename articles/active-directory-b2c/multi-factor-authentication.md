@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 04/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: eff33a8670ee8eb9ee32655956ee0e913ddaa4c1
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 8c9219622a4c8d81c7a69d7ae39d9f65d92048a4
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258152"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107895890"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Habilitación de la autenticación multifactor en Azure Active Directory B2C
 
@@ -40,10 +40,17 @@ Esta característica ayuda a las aplicaciones a tratar escenarios como los sigui
 1. Seleccione **Flujos de usuario**.
 1. Seleccione el flujo de usuario para el que quiere habilitar MFA. Por ejemplo, *B2C_1_signinsignup*.
 1. Seleccione **Propiedades**.
-1. En la sección **Autenticación multifactor**, seleccione el valor de **MFA method** (Método de MFA) deseado y, a continuación, en **MFA enforcement** (Aplicación de MFA), seleccione **Always On** o **Condicional (recomendado)** .
+1. En la sección **Autenticación multifactor,** seleccione el **tipo de método** deseado. A continuación, en **MFA enforcement** (Cumplimiento de MFA), seleccione una opción:
+
+   - **Desactivado:** MFA nunca se aplica durante el inicio de sesión y no se pide a los usuarios que se inscriban en MFA durante el registro o el inicio de sesión.
+   - **Siempre activado:** MFA siempre es necesario (independientemente de cualquier configuración de acceso condicional). Si los usuarios aún no están inscritos en MFA, se les pedirá que se inscriban durante el inicio de sesión. Durante el registro, se pide a los usuarios que se inscriban en MFA.
+   - **Condicional (versión preliminar):** MFA solo se aplica cuando una directiva de acceso condicional lo requiere. La directiva y el riesgo de inicio de sesión determinan cómo se presenta MFA al usuario:
+      - Si no se detecta ningún riesgo, se presenta un desafío de MFA al usuario durante el inicio de sesión. Si el usuario aún no está inscrito en MFA, se le pedirá que se inscriba durante el inicio de sesión.
+      - Si se detecta riesgo y el usuario aún no está inscrito en MFA, el inicio de sesión se bloquea. Durante el registro, no se pide a los usuarios que se inscriban en MFA.
+
    > [!NOTE]
    >
-   > - Si selecciona **Conditional (Recommended)** [Condicional (recomendado)], también tendrá que [agregar acceso condicional a los flujos de usuarios](conditional-access-user-flow.md) y especificar las aplicaciones a las que quiere que se aplique dicha directiva.
+   > - Si selecciona **Condicional (versión preliminar)** , también tendrá que [agregar acceso condicional a los flujos de usuarios](conditional-access-user-flow.md) y especificar las aplicaciones a las que quiere que se aplique dicha directiva.
    > - La autenticación multifactor (MFA) está deshabilitada de forma predeterminada para los flujos de registro de usuarios. Puede habilitar MFA en los flujos de usuario con el registro telefónico, pero como el número de teléfono se usa como identificador principal, el código de acceso de un solo uso de correo electrónico es la única opción disponible para el segundo factor de autenticación.
 
 1. Seleccione **Guardar**. MFA ahora está habilitado para este flujo de usuario.

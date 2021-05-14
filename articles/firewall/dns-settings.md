@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 04/30/2021
 ms.author: victorh
-ms.openlocfilehash: d6a79e87e9999dd520358e0722011cf4e54d8c63
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4692b21333999dfc6fcc8edcbba8af800989ee1d
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100546251"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325524"
 ---
 # <a name="azure-firewall-dns-settings"></a>Configuración DNS de Azure Firewall
 
@@ -63,12 +63,12 @@ $azFw | Set-AzFirewall
 
 ## <a name="dns-proxy"></a>Proxy DNS
 
-Puede configurar Azure Firewall para que actúe como proxy DNS. Un proxy DNS es un intermediario para las solicitudes DNS de las máquinas virtuales cliente a un servidor DNS. Si configura un servidor DNS personalizado, habilite el proxy DNS para evitar la falta de coincidencia de la resolución DNS y habilite el filtrado de FQDN (nombre de dominio completo) en las reglas de red.
+Puede configurar Azure Firewall para que actúe como proxy DNS. Un proxy DNS es un intermediario para las solicitudes DNS de las máquinas virtuales cliente a un servidor DNS. Si desea habilitar el filtrado de FQDN (nombre de dominio completo) en las reglas de red, habilite el proxy DNS y actualice la configuración de la máquina virtual para usar el firewall como proxy DNS.
 
 :::image type="content" source="media/dns-settings/dns-proxy-2.png" alt-text="Configuración del proxy DNS con un servidor DNS personalizado.":::
 
+Si habilita el filtrado de FQDN en reglas de red y no configura máquinas virtuales cliente para que usen el firewall como proxy DNS, las solicitudes DNS de estos clientes podrían viajar a un servidor DNS en un momento diferente o devolver una respuesta diferente en comparación con la del firewall. El proxy DNS coloca Azure Firewall en la ruta de acceso de las solicitudes de cliente para evitar incoherencias.
 
-Si no habilita el proxy DNS, las solicitudes DNS del cliente pueden viajar a un servidor DNS en un momento diferente o devolver una respuesta diferente en comparación con la del firewall. El proxy DNS coloca Azure Firewall en la ruta de acceso de las solicitudes de cliente para evitar incoherencias.
 
 Hay dos tipos de función de almacenamiento en caché que se producen cuando Azure Firewall es un proxy DNS:
 

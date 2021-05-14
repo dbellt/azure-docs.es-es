@@ -1,14 +1,14 @@
 ---
 title: Solución de errores comunes
 description: Aprenda a solucionar problemas relacionados con la creación de definiciones de directivas, los diversos SDK y el complemento para Kubernetes.
-ms.date: 01/26/2021
+ms.date: 04/19/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 6e0e4067f07266bae9c87fd4443d27314cc28c0b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4feae11c6d8d78a43bae9882405e292a18e90bd
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100592605"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725069"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Solución de errores mediante Azure Policy
 
@@ -124,6 +124,24 @@ Una asignación de directivas al ámbito en el que se encuentra el recurso nuevo
 #### <a name="resolution"></a>Solución
 
 El mensaje de error de una asignación de directiva de denegación incluye los identificadores de definición de directiva y de asignación de directivas. Si se pierde la información de error en el mensaje, también está disponible en el [registro de actividad](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log). Use esta información para obtener más detalles para comprender las restricciones de recursos y ajustar las propiedades de los recursos de la solicitud para que coincidan con los valores permitidos.
+
+### <a name="scenario-definition-targets-multiple-resource-types"></a>Escenario: La definición incluye varios tipos de recursos
+
+#### <a name="issue"></a>Problema
+
+Una definición de directiva que incluye varios tipos de recursos produce el siguiente error de validación durante la creación o la actualización:
+
+```error
+The policy definition '{0}' targets multiple resource types, but the policy rule is authored in a way that makes the policy not applicable to the target resource types '{1}'.
+```
+
+#### <a name="cause"></a>Causa
+
+La regla de definición de directiva tiene una o varias condiciones que los tipos de recursos de destino no evalúan.
+
+#### <a name="resolution"></a>Solución
+
+Si se usa un alias, asegúrese de que este se evalúe solo con respecto al tipo de recurso al que pertenece agregando una condición de tipo delante. Una alternativa es dividir la definición de directiva en varias definiciones para evitar incluir varios tipos de recursos.
 
 ## <a name="template-errors"></a>Errores de plantilla
 

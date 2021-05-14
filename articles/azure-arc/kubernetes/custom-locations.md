@@ -6,14 +6,14 @@ ms.date: 04/05/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 description: Uso de ubicaciones personalizadas para implementar servicios de PaaS de Azure en clústeres de Kubernetes habilitado para Azure Arc
-ms.openlocfilehash: ddda6420acd7126cb46b043f5c1bce67758342bc
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: d8e1c11069a1097b0bfea3319eeb90fcee3eec82
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450915"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287742"
 ---
 # <a name="custom-locations-on-azure-arc-enabled-kubernetes"></a>Ubicaciones personalizadas en Kubernetes habilitado para Azure Arc
 
@@ -27,7 +27,7 @@ Puede encontrar una información general conceptual sobre esta característica e
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- [Instalar o actualizar la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) a la versión >= 2.16.0.
+- [Instale o actualice la CLI de Azure](/cli/azure/install-azure-cli) a la versión 2.16.0 o posteriores.
 
 - Extensiones de la CLI de Azure `connectedk8s` (versión >= 1.1.0), `k8s-extension` (versión >= 0.2.0) y `customlocation` (versión >= 0.1.0). Instale estas extensiones de la CLI de Azure mediante la ejecución de los siguientes comandos:
   
@@ -74,6 +74,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 > [!NOTE]
 > 1. La característica Ubicaciones personalizadas depende de la característica Conexión de clúster. Por lo tanto, es necesario habilitar ambas características para que funcionen las ubicaciones personalizadas.
 > 2. `az connectedk8s enable-features` debe ejecutarse en una máquina en el que el archivo `kubeconfig` apunte al clúster en el que se van a habilitar las características.
+> 3. Si ha iniciado sesión en la CLI de Azure con una entidad de servicio, se deben conceder [permisos adicionales](troubleshooting.md#enable-custom-locations-using-service-principal) a la entidad de servicio antes de habilitar la característica de ubicación personalizada.
 
 ## <a name="create-custom-location"></a>Creación de una ubicación personalizada
 

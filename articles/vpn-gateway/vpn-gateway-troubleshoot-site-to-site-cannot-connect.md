@@ -1,5 +1,6 @@
 ---
-title: 'Solución de problemas: la conexión VPN de sitio a sitio de Azure no puede conectar titleSuffix: Azure VPN Gateway'
+title: Solución de problemas de una conexión VPN de sitio a sitio de Azure que no puede realizarse
+titleSuffix: Azure VPN Gateway
 description: Obtenga información acerca de cómo solucionar problemas de una conexión VPN de sitio a sitio que deja de funcionar repentinamente y no se puede volver a conectar.
 services: vpn-gateway
 author: chadmath
@@ -7,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/22/2021
 ms.author: genli
-ms.openlocfilehash: cebb05b35379573fc9797e89dee3c0c2bf3de6e2
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: e37e1126f71585467b4fa25877289d2bbcf8113a
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104867294"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204754"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Solución de problemas: la conexión VPN de sitio a sitio de Azure no puede conectarse y deja de funcionar
 

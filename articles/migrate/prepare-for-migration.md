@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: d8f9d4e0b002348f286f45c6b45c96531c5d6530
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b8c9610ca7043ed6b8baa86e35ea76c74ed75bba
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558234"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107884001"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparación de las máquinas locales para la migración a Azure
 
@@ -84,7 +84,7 @@ En la tabla se resumen los cambios necesarios.
 
 **Acción** | **VMware (migración sin agente)** | **VMware (basada en agente)/máquinas físicas** | **Windows en Hyper-V** 
 --- | --- | --- | ---
-**Configurar la directiva de SAN como Todo en línea**<br/><br/> Esto asegura que los volúmenes de Windows en la máquina virtual de Azure usan las mismas asignaciones de letra de unidad que la máquina virtual local. | Se establece automáticamente para máquinas que ejecutan Windows Server 2008 R2 o posterior.<br/><br/> Configure la opción manualmente para sistemas operativos anteriores. | Se establece automáticamente en la mayoría de los casos. | Configure de forma manual.
+**Configurar la directiva de SAN como Todo en línea**<br/><br/> | Se establece automáticamente para máquinas que ejecutan Windows Server 2008 R2 o posterior.<br/><br/> Configure la opción manualmente para sistemas operativos anteriores. | Se establece automáticamente en la mayoría de los casos. | Configure de forma manual.
 **Instalar la integración de invitado de Hyper-V** | [Instale manualmente](prepare-windows-server-2003-migration.md#install-on-vmware-vms) en máquinas que ejecutan Windows Server 2003. | [Instale manualmente](prepare-windows-server-2003-migration.md#install-on-vmware-vms) en máquinas que ejecutan Windows Server 2003. | [Instale manualmente](prepare-windows-server-2003-migration.md#install-on-hyper-v-vms) en máquinas que ejecutan Windows Server 2003.
 **Habilitar la consola serie de Azure**.<br/><br/>[Habilite la consola](/troubleshoot/azure/virtual-machines/serial-console-windows) en las máquinas virtuales de Azure para ayudar en la solución de problemas. No es necesario reiniciar la máquina virtual. La máquina virtual de Azure se iniciará mediante la imagen de disco. El arranque desde la imagen de disco equivale a un reinicio de la nueva máquina virtual. | Habilitar manualmente | Habilitar manualmente | Habilitar manualmente
 **Conectarse después de la migración**<br/><br/> Para conectarse después de la migración, hay que realizar una serie de pasos antes de la migración. | [Configure](#prepare-to-connect-to-azure-windows-vms) manualmente. | [Configure](#prepare-to-connect-to-azure-windows-vms) manualmente. | [Configure](#prepare-to-connect-to-azure-windows-vms) manualmente.

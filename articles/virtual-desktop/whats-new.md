@@ -8,12 +8,12 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: 710f33ada7a64248f0371a3e8c39e085d3f0834c
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: da93da4c08a23e158d5a22c4552d5e5754ceb01a
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107064"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988053"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Novedades de Windows Virtual Desktop
 
@@ -42,11 +42,19 @@ El agente de Windows Virtual Desktop se actualiza al menos una vez al mes.
 
 Estos son los cambios que se han realizado en el agente Windows Virtual Desktop:
 
-- Versión 1.0.2866.1500: esta actualización se publicó el 26 de marzo de 2021 y corrigió un problema con la comprobación del estado de la pila.
-- Versión 1.0.2800.2802: esta actualización se publicó el 10 de marzo de 2021 e incluye mejoras generales y correcciones de errores.
-- Versión 1.0.2800.2800: esta actualización se publicó el 2 marzo de 2021 y corrigió un problema de conexión inversa.
-- Versión 1.0.2800.2700: esta actualización se publicó el 10 de febrero de 2021 e incluye mejoras generales y correcciones de errores.
-- Versión 1.0.2800.2700: esta actualización se publicó el 4 de febrero de 2021 y corrigió un problema de orquestación de acceso denegado.
+- Versión 1.0.2990.800. Esta actualización se publicó el 13 de abril de 2021 e incorpora los cambios siguientes:
+    - Los mensajes de error del agente se han actualizado.
+    - Se ha agregado una excepción que impide instalar agentes que no son de Windows 7 en máquinas virtuales Windows 7.
+    - Se ha actualizado la lógica del servicio de latido.
+- Versión 1.0.2944.1400. Esta actualización se publicó el 7 de abril de 2021 e incorpora los cambios siguientes:
+    - Se han incluido vínculos a la guía de solución de problemas del Agente de Windows Virtual Desktop en los registros del visor de eventos para los errores del agente.
+    - Se ha agregado una nueva excepción para tener un mejor control de los errores.
+    - Se ha agregado WVDAgentUrlTool.exe, que permite a los clientes comprobar las direcciones URL necesarias a las pueden acceder.
+- Versión 1.0.2866.1500. Esta actualización se publicó el 26 de marzo de 2021 y corrige un problema relacionado con la comprobación del estado de la pila.
+- Versión 1.0.2800.2802. Esta actualización se publicó el 10 de marzo de 2021 e incorpora correcciones de errores y mejoras generales.
+- Versión 1.0.2800.2800. Esta actualización se publicó el 2 marzo de 2021 y corrige un problema de conexión inversa.
+- Versión 1.0.2800.2700. Esta actualización se publicó el 10 de febrero de 2021 e incorpora correcciones de errores y mejoras generales.
+- Versión 1.0.2800.2700. Esta actualización se publicó el 4 de febrero de 2021 y corrige un problema de orquestación de acceso denegado.
 
 ## <a name="fslogix-updates"></a>Actualizaciones de FSLogix
 
@@ -307,7 +315,7 @@ Estos son los cambios que se han producido en agosto de 2020:
 
 - Ahora, Azure Advisor forma parte de Windows Virtual Desktop. Al acceder a Windows Virtual Desktop a través de Azure Portal, puede ver recomendaciones para optimizar el entorno de Windows Virtual Desktop. Más información en [Azure Advisor](azure-advisor.md).
 
-- La CLI de Azure ahora admite Windows Virtual Desktop (`az desktopvirtualization`) para ayudarle a automatizar las implementaciones de Windows Virtual Desktop. Consulte [desktopvirtualization](/cli/azure/ext/desktopvirtualization/) para ver una lista de los comandos de la extensión.
+- La CLI de Azure ahora admite Windows Virtual Desktop (`az desktopvirtualization`) para ayudarle a automatizar las implementaciones de Windows Virtual Desktop. Consulte [desktopvirtualization](/cli/azure/desktopvirtualization) para ver una lista de los comandos de la extensión.
 
 - Hemos actualizado nuestras plantillas de implementación para que sean totalmente compatibles con las interfaces de Azure Resource Manager de Windows Virtual Desktop. Puede encontrar las plantillas en [GitHub](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates).
 

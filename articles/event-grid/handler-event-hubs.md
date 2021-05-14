@@ -3,12 +3,12 @@ title: Event Hub como controlador de eventos para eventos de Azure Event Grid
 description: Aquí se describe cómo puede usar los centros de eventos como controladores de eventos para eventos de Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 446fef6df65f59206519e282c74d59c2ed1bfa9d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b69e06335b4461ad9ee72f32d38e7e7f7056febc
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96005643"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734817"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>Centro de eventos como controlador de eventos para eventos de Azure Event Grid
 Un controlador de eventos es el lugar al que se envía el evento. El controlador realiza una acción para procesar el evento. Varios servicios de Azure se configuran automáticamente para controlar los eventos y **Azure Event Hubs** es uno de ellos. 
@@ -21,7 +21,7 @@ Consulte los siguientes ejemplos:
 |Título  |Descripción  |
 |---------|---------|
 | [Inicio rápido: enrutamiento de eventos personalizados a Azure Event Hubs con la CLI de Azure](custom-event-to-eventhub.md) | Envía un evento personalizado a un centro de eventos para que lo procese una aplicación. |
-| [Plantilla de Resource Manager: creación de un tema personalizado Event Grid y envío de eventos a un centro de eventos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Plantilla de Resource Manager que crea una suscripción a un tema personalizado. Envía eventos a una instancia de Azure Event Hubs. |
+| [Plantilla de Resource Manager: creación de un tema personalizado Event Grid y envío de eventos a un centro de eventos](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-event-hubs-handler)| Plantilla de Resource Manager que crea una suscripción a un tema personalizado. Envía eventos a una instancia de Azure Event Hubs. |
 
 [!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
@@ -33,18 +33,18 @@ Consulte los siguientes ejemplos:
 
 ```json
 {
-    "properties": 
+  "properties": 
+  {
+    "destination": 
     {
-        "destination": 
-        {
-            "endpointType": "EventHub",
-            "properties": 
-            {
-                "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUBS NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>"
-            }
-        },
-        "eventDeliverySchema": "EventGridSchema"
-    }
+      "endpointType": "EventHub",
+      "properties": 
+      {
+        "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUBS NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>"
+      }
+    },
+    "eventDeliverySchema": "EventGridSchema"
+  }
 }
 ```
 
@@ -52,24 +52,24 @@ Consulte los siguientes ejemplos:
 
 ```json
 {
-    "properties": {
-        "deliveryWithResourceIdentity": 
+  "properties": {
+    "deliveryWithResourceIdentity": 
+    {
+      "identity": 
+      {
+        "type": "SystemAssigned"
+      },
+      "destination": 
+      {
+        "endpointType": "EventHub",
+        "properties": 
         {
-            "identity": 
-            {
-                "type": "SystemAssigned"
-            },
-            "destination": 
-            {
-                "endpointType": "EventHub",
-                "properties": 
-                {
-                    "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUBS NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>"
-                }
-            }
-        },
-        "eventDeliverySchema": "EventGridSchema"
-    }
+          "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUBS NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>"
+        }
+      }
+    },
+    "eventDeliverySchema": "EventGridSchema"
+  }
 }
 ```
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/26/2021
-ms.openlocfilehash: 1a9ea544419ef5c688e78a25eeb0eb444b196ec9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c135e33da60bf3ed8603b8fc0d6e59bbfab27b77
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732030"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142556"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor-retired"></a>Solución Wire Data 2.0 (versión preliminar) en Azure Monitor (retirada)
 
@@ -21,7 +21,7 @@ ms.locfileid: "105732030"
 >
 >La compatibilidad con la solución Wire Data finalizará el **31 de marzo de 2022**.  Hasta la fecha de retirada, los clientes existentes que usen la solución Wire Data 2.0 (versión preliminar) podrán seguir utilizándola.
 >
->Los clientes nuevos, así como los existentes, deben instalar la[solución Service Map](../vm/vminsights-enable-overview.md) o [VM Insights](../vm/service-map.md).  El conjunto de datos de mapa que recopilan es comparable al conjunto de datos Wire Data 2.0 (versión preliminar).  VM Insights incluye el conjunto de datos de Service Map con características y datos de rendimiento adicionales para el análisis. Ambas ofertas tienen [conexiones con Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-data-sources#map-data-types-with-azure-sentinel-connection-options).
+>Los clientes nuevos, así como los existentes, deben instalar la[solución Service Map](../vm/vminsights-enable-overview.md) o [VM Insights](../vm/service-map.md).  El conjunto de datos de mapa que recopilan es comparable al conjunto de datos Wire Data 2.0 (versión preliminar).  VM Insights incluye el conjunto de datos de Service Map con características y datos de rendimiento adicionales para el análisis. Ambas ofertas tienen [conexiones con Azure Sentinel](../../sentinel/connect-data-sources.md#map-data-types-with-azure-sentinel-connection-options).
  
 
 Los datos de conexión son datos consolidados de rendimiento y de red recopilados de equipos conectados a Windows y Linux con el agente de Log Analytics, incluidos los que supervisa Operations Manager en el entorno. Los datos de red se combinan con otros datos de registro para ayudar a correlacionar datos.
@@ -30,9 +30,9 @@ Además del agente de Log Analytics, la solución Wire Data usa las instancias d
 
 ## <a name="migrate-to-azure-monitor-vm-insights-or-service-map"></a>Migración a VM Insights o Service Map de Azure Monitor
 
-En muchos casos, vemos que los clientes a menudo tienen Wire Data 2.0 (versión preliminar) y [VM Insights](../vm/vminsights-overview.md) o la [solución Service Map](../vm/service-map.md) ya habilitada en las mismas VM.  Esto significa que tiene la oferta de reemplazo habilitada en la VM.  Simplemente puede [quitar la solución Wire Data 2.0 (versión preliminar) del área de trabajo de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/solutions?tabs=portal#remove-a-monitoring-solution).
+En muchos casos, vemos que los clientes a menudo tienen Wire Data 2.0 (versión preliminar) y [VM Insights](../vm/vminsights-overview.md) o la [solución Service Map](../vm/service-map.md) ya habilitada en las mismas VM.  Esto significa que tiene la oferta de reemplazo habilitada en la VM.  Simplemente puede [quitar la solución Wire Data 2.0 (versión preliminar) del área de trabajo de Log Analytics](./solutions.md?tabs=portal#remove-a-monitoring-solution).
 
-Si tiene VM que solo tienen habilitado Wire Data 2.0 (versión preliminar), puede incorporarlas a [VM Insights](../vm/vminsights-enable-overview.md) o a la [solución Service Map](../vm/service-map.md) y, a continuación, [quitar la solución Wire Data 2.0 (versión preliminar) del área de trabajo de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/solutions?tabs=portal#remove-a-monitoring-solution).
+Si tiene VM que solo tienen habilitado Wire Data 2.0 (versión preliminar), puede incorporarlas a [VM Insights](../vm/vminsights-enable-overview.md) o a la [solución Service Map](../vm/service-map.md) y, a continuación, [quitar la solución Wire Data 2.0 (versión preliminar) del área de trabajo de Log Analytics](./solutions.md?tabs=portal#remove-a-monitoring-solution).
 
 ## <a name="migrate-your-queries-to-the-vmconnection-table-from-azure-monitor-vm-insights"></a>Migre sus consultas a la tabla VMConnection desde VM Insights de Azure Monitor
 
@@ -124,7 +124,7 @@ VMConnection
 
 ### <a name="more-examples-queries"></a>Más consultas de ejemplo
 
-Consulte la [documentación de búsqueda de registros de VM Insights](https://docs.microsoft.com/azure/azure-monitor/vm/vminsights-log-search) y la [documentación de alerta de VM Insights](https://docs.microsoft.com/azure/azure-monitor/vm/vminsights-alerts#sample-alert-queries) para ver consultas de ejemplo adicionales.
+Consulte la [documentación de búsqueda de registros de VM Insights](../vm/vminsights-log-search.md) y la [documentación de alerta de VM Insights](../vm/vminsights-alerts.md#sample-alert-queries) para ver consultas de ejemplo adicionales.
 
 ## <a name="uninstall-wire-data-20-solution"></a>Desinstalación de la solución Wire Data 2.0
 
@@ -133,7 +133,7 @@ Para desinstalar Wire Data 2.0 solo tiene que quitar la solución de las áreas
 * el módulo de administración de datos de Wire Data que se quitará de las VM que están conectadas al área de trabajo. 
 * el tipo de datos de Wire Data ya no aparece en el área de trabajo.
 
-Siga [estas instrucciones](https://docs.microsoft.com/azure/azure-monitor/insights/solutions?tabs=portal#remove-a-monitoring-solution) para quitar la solución Wire Data.
+Siga [estas instrucciones](./solutions.md?tabs=portal#remove-a-monitoring-solution) para quitar la solución Wire Data.
 
 >[!NOTE]
 >Si tiene la solución Service Map o VM Insights en el área de trabajo, el módulo de administración no se quitará, ya que estas soluciones también lo usan.
@@ -231,5 +231,5 @@ Se crea un registro con un tipo de _WireData_ para cada tipo de datos de entrada
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Vea [Información general sobre la habilitación de Azure Monitor para VM](./vminsights-enable-overview.md) a fin de obtener los requisitos y métodos para habilitar la supervisión de las máquinas virtuales.
+- Vea [Información general sobre la habilitación de Azure Monitor para VM](../vm/vminsights-enable-overview.md) a fin de obtener los requisitos y métodos para habilitar la supervisión de las máquinas virtuales.
 - [Búsquedas de registros en Log Analytics](../logs/log-query-overview.md) para más información sobre cómo ver registros de búsqueda de datos de conexión detallados.

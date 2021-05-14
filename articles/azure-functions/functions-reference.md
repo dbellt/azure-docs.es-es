@@ -4,12 +4,12 @@ description: Obtenga información sobre los conceptos y las técnicas de Azure F
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: 7030ca1c1950f7c06580ce7417a4429fbe330c4e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a526edfccda1e4e0e60646989a59d23ad19501ab
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102614826"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227117"
 ---
 # <a name="azure-functions-developer-guide"></a>Guía para desarrolladores de Azure Functions
 En Azure Functions, determinadas funciones comparten algunos componentes y conceptos técnicos básicos, independientemente del idioma o el enlace que use. Antes de ir a detalles de aprendizaje específicos de un idioma o un enlace determinados, asegúrese de leer al completo esta información general que se aplica a todos ellos.
@@ -121,6 +121,7 @@ Las conexiones basadas en identidades son compatibles con las siguientes extensi
 | Blob de Azure     | [Versión 5.0.0-beta1 o posterior](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | No                                    |
 | Azure Queue    | [Versión 5.0.0-beta1 o posterior](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | No                                    |
 | Azure Event Hubs    | [Versión 5.0.0-beta1 o posterior](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) | No                                    |
+| Azure Service Bus    | [Versión 5.0.0-beta2 o posterior](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher) | No                                    |
 
 > [!NOTE]
 > La compatibilidad con conexiones basadas en identidades todavía no está disponible para las conexiones de almacenamiento que usa el tiempo de ejecución de Functions para los comportamientos básicos. Esto significa que la opción de configuración `AzureWebJobsStorage` debe ser una cadena de conexión.
@@ -132,7 +133,7 @@ Una conexión basada en identidades para un servicio de Azure acepta las siguien
 | Propiedad    | Necesario para las extensiones | Variable de entorno | Descripción |
 |---|---|---|---|
 | URI de servicio | Blob de Azure, Cola de Azure | `<CONNECTION_NAME_PREFIX>__serviceUri` |  URI del plano de datos del servicio al que se está conectando. |
-| Espacio de nombres completo | Event Hubs | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | Espacio de nombres completo del centro de eventos. |
+| Espacio de nombres completo | Event Hubs, Service Bus | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | Espacio de nombres completo de Event Hubs y Service Bus. |
 
 Es posible que se admitan opciones adicionales para un tipo de conexión determinado. Consulte la documentación del componente que realiza la conexión.
 
@@ -178,6 +179,15 @@ Ejemplo de las propiedades `local.settings.json` requeridas para la conexión ba
 #### <a name="grant-permission-to-the-identity"></a>Concesión de permiso a la identidad
 
 Cualquier identidad que se utilice debe tener permisos para realizar las acciones previstas. Normalmente, esto se realiza mediante la asignación de un rol en RBAC de Azure o la especificación de la identidad en una directiva de acceso, en función del servicio al que se esté conectando. Consulte la documentación de cada servicio para conocer los permisos necesarios y el procedimiento para establecerlos.
+
+Los siguientes roles abarcan los permisos principales necesarios para cada extensión en condiciones de funcionamiento normal:
+
+| Servicio     | Roles integrados de ejemplo |
+|-------------|------------------------|
+| Azure Blobs  | [Lector de datos de Storage Blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader), [Propietario de datos de Storage Blob](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)                 |
+| Colas de Azure | [Lector de datos de la cola de Storage Blob](../role-based-access-control/built-in-roles.md#storage-queue-data-reader), [Procesador de mensajes de datos de Queue Storage](../role-based-access-control/built-in-roles.md#storage-queue-data-message-processor), [Remitente de mensajes de datos de Queue Storage](../role-based-access-control/built-in-roles.md#storage-queue-data-message-sender), [Colaborador de datos de la cola de Storage Blob](../role-based-access-control/built-in-roles.md#storage-queue-data-contributor)             |
+| Event Hubs   |    [Receptor de los datos de Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver), [Remitente de los datos de Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender), [Propietario de los datos de Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner)              |
+| Azure Service Bus | [Receptor de los datos de Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver), [Remitente de los datos de Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender), [Propietario de los datos de Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) |
 
 > [!IMPORTANT]
 > Es posible que el servicio muestre algunos permisos que no son necesarios para todos los contextos. Siempre que sea posible, respete el **principio de privilegios mínimos** y conceda solo los privilegios necesarios a la identidad. Por ejemplo, si la aplicación solo necesita leer un blob, use el rol [Lector de datos de Storage Blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader), ya que el rol [Propietario de datos de Storage Blob](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) incluye permisos excesivos para una operación de lectura.

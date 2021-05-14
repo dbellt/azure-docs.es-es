@@ -1,25 +1,25 @@
 ---
 title: Atributos de perfil de usuario en Azure Active Directory B2C
-description: Obtenga información sobre los atributos de tipo de recurso de usuario que son compatibles con el perfil de usuario del directorio de Azure AD B2C. Descubra los atributos integrados, las extensiones y cómo se asignan los atributos a Microsoft Graph.
+description: Aprenda sobre los atributos de tipo de recurso de usuario que son compatibles con el perfil de usuario del directorio de Azure AD B2C. Descubra los atributos integrados, las extensiones y cómo se asignan los atributos a Microsoft Graph.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 04/27/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7dfad71d05a882e3a3941a96e12489adb5fb3234
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 523212e0f63453e78967eb9a4716febb754ea5d6
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102500536"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315280"
 ---
 # <a name="user-profile-attributes"></a>Atributos de perfil de usuario
 
-El perfil de usuario del directorio de Azure Active Directory (Azure AD) B2C incluye un conjunto integrado de atributos, por ejemplo, givenName, surname, city, postalCode y telephoneNumber. Puede extender el perfil de usuario con sus propios datos de aplicación sin necesitar un almacén de datos externo. 
+El perfil de usuario del directorio de Azure Active Directory (Azure AD) B2C incluye un conjunto integrado de atributos, por ejemplo, givenName, surname, city, postalCode y telephoneNumber. Puede extender el perfil de usuario con sus propios datos de aplicación sin necesitar un almacén de datos externo.
 
 La mayoría de los atributos que se pueden utilizar con los perfiles de usuario de Azure AD B2C también se admiten en Microsoft Graph. En este artículo se describen los atributos de perfil de usuario que se admiten en Azure AD B2C. También se indican los atributos que no son compatibles con Microsoft Graph, así como los atributos de Microsoft Graph que no se deben usar con Azure AD B2C.
 
@@ -59,12 +59,11 @@ En la tabla siguiente se enumeran los atributos de [tipo de recurso de usuario](
 |immutableId     |String|Un identificador que se usa normalmente para los usuarios migrados desde Active Directory local.|No|No|Persistente, salida|
 |legalAgeGroupClassification|String|La clasificación de grupo de edad legal. Valor de solo lectura que se calcula en función de las propiedades ageGroup y consentProvidedForMinor. Valores permitidos: null, minorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, notAdult y adult.|Sí|No|Persistente, salida|
 |legalCountry<sup>1</sup>  |String|País o región para fines legales.|No|No|Persistente, salida|
-|mail            |String|La dirección SMTP del usuario, por ejemplo, "bob@contoso.com". Solo lectura.|No|No|Persistente, salida|
 |mailNickName    |String|El alias de correo electrónico del usuario. La longitud máxima es 64.|No|No|Persistente, salida|
 |mobile (mobilePhone) |String|EL número de teléfono móvil principal del usuario. La longitud máxima es 64.|Sí|No|Persistente, salida|
 |netId           |String|El identificador de red.|No|No|Persistente, salida|
 |objectId        |String|El identificador único global (GUID) que es el identificador único del usuario. Ejemplo: 12345678-9abc-def0-1234-56789abcde. Valor de solo lectura e inmutable.|Solo lectura|Sí|Entrada, persistente, salida|
-|otherMails      |Colección de cadenas|Una lista de otras direcciones de correo electrónico del usuario. Ejemplo: ["bob@contoso.com", "Robert@fabrikam.com"].|Sí (correo electrónico alternativo)|No|Persistente, salida|
+|otherMails      |Colección de cadenas|Una lista de otras direcciones de correo electrónico del usuario. Ejemplo: ["bob@contoso.com", "Robert@fabrikam.com"]. NOTA: No se permiten caracteres con acento.|Sí (correo electrónico alternativo)|No|Persistente, salida|
 |password        |String|La contraseña de la cuenta local durante la creación del usuario.|No|No|Guardado|
 |passwordPolicies     |String|La directiva de la contraseña. Es una cadena que consta de un nombre de directiva diferente separado por una coma. Por ejemplo, "DisablePasswordExpiration, DisableStrongPassword".|No|No|Persistente, salida|
 |physicalDeliveryOfficeName (officeLocation)|String|La ubicación del lugar de trabajo del usuario. La longitud máxima es 128.|Sí|No|Persistente, salida|
@@ -72,13 +71,13 @@ En la tabla siguiente se enumeran los atributos de [tipo de recurso de usuario](
 |preferredLanguage    |String|El idioma preferido del usuario. El formato de idioma preferido se basa en RFC 4646. El nombre es una combinación de un código de referencia cultural ISO 639 de dos letras en minúsculas asociado con un idioma y un código de referencia cultural secundaria ISO 3166 de dos letras en mayúsculas asociado con un país o región. Ejemplo: "en-US" o "es-ES".|No|No|Persistente, salida|
 |refreshTokensValidFromDateTime (signInSessionsValidFromDateTime)|DateTime|Los tokens de actualización emitidos antes de esta hora no son válidos. Las aplicaciones obtendrán un error al usar un token de actualización no válido para adquirir un nuevo token de acceso. Si esto ocurre, la aplicación tendrá que adquirir un nuevo token de actualización realizando una solicitud al punto de conexión de autorización. Solo lectura.|No|No|Output|
 |signInNames ([Identidades](#identities-attribute)) |String|El nombre de inicio de sesión único del usuario de cuenta local de cualquier tipo en el directorio. Use este atributo para obtener un usuario con el valor de inicio de sesión sin especificar el tipo de cuenta local.|No|No|Entrada|
-|signInNames.userName ([Identidades](#identities-attribute)) |String|El nombre de inicio de sesión único del usuario de cuenta local en el directorio. Use este atributo para crear u obtener un usuario con un nombre de usuario de inicio de sesión específico. Si se especifica en PersistedClaims solo durante la operación de revisión, se quitarán otros tipos de signInNames. Si desea agregar un nuevo tipo de signInNames, también debe conservar los atributos signInNames que ya existan.|No|No|Entrada, persistente, salida|
+|signInNames.userName ([Identidades](#identities-attribute)) |String|El nombre de inicio de sesión único del usuario de cuenta local en el directorio. Use este atributo para crear u obtener un usuario con un nombre de usuario de inicio de sesión específico. Si se especifica en PersistedClaims solo durante la operación de revisión, se quitarán otros tipos de signInNames. Si desea agregar un nuevo tipo de signInNames, también debe conservar los atributos signInNames que ya existan. NOTA: No se permiten caracteres con acento en el nombre de usuario.|No|No|Entrada, persistente, salida|
 |signInNames.phoneNumber ([Identidades](#identities-attribute)) |String|El número de teléfono único del usuario de cuenta local en el directorio. Use este atributo para crear u obtener un usuario con un número de teléfono de inicio de sesión específico. Si se especifica este atributo en PersistedClaims solo durante la operación de revisión, se quitarán otros tipos de signInNames. Si desea agregar un nuevo tipo de signInNames, también debe conservar los atributos signInNames que ya existan.|No|No|Entrada, persistente, salida|
 |signInNames.emailAddress ([Identidades](#identities-attribute))|String|La dirección de correo electrónico única del usuario de cuenta local en el directorio. Se usa para crear u obtener un usuario con una dirección de correo electrónico de inicio de sesión específica. Si se especifica este atributo en PersistedClaims solo durante la operación de revisión, se quitarán otros tipos de signInNames. Si desea agregar un nuevo tipo de signInNames, también debe conservar los atributos signInNames que ya existan.|No|No|Entrada, persistente, salida|
 |state           |String|El estado o provincia de la dirección del usuario. La longitud máxima es 128.|Sí|Sí|Persistente, salida|
 |streetAddress   |String|La dirección postal del lugar de trabajo del usuario. La longitud máxima es 1024.|Sí|Sí|Persistente, salida|
 |strongAuthentication AlternativePhoneNumber<sup>1</sup>|String|El número de teléfono secundario del usuario que se usa para la autenticación multifactor.|Sí|No|Persistente, salida|
-|strongAuthenticationEmailAddress<sup>1</sup>|String|La dirección SMTP del usuario. Ejemplo: "bob@contoso.com". Este atributo se usa para el inicio de sesión con la directiva de nombre de usuario, para almacenar la dirección de correo electrónico del usuario. La dirección de correo electrónico que se usa en un flujo de restablecimiento de contraseña.|Sí|No|Persistente, salida|
+|strongAuthenticationEmailAddress<sup>1</sup>|String|La dirección SMTP del usuario. Ejemplo: "bob@contoso.com". Este atributo se usa para el inicio de sesión con la directiva de nombre de usuario, para almacenar la dirección de correo electrónico del usuario. La dirección de correo electrónico que se usa en un flujo de restablecimiento de contraseña. No se permiten caracteres con acento en este atributo.|Sí|No|Persistente, salida|
 |strongAuthenticationPhoneNumber<sup>2</sup>|String|El número de teléfono principal del usuario que se usa para la autenticación multifactor.|Sí|No|Persistente, salida|
 |surname         |String|Los apellidos del usuario. La longitud máxima es 64.|Sí|Sí|Persistente, salida|
 |telephoneNumber (primera entrada de businessPhones)|String|El número de teléfono principal del lugar de trabajo del usuario.|Sí|No|Persistente, salida|
@@ -101,7 +100,7 @@ Una cuenta de cliente, que podría ser un consumidor, un asociado o un ciudadano
 - Identidad **Local**: el nombre de usuario y la contraseña almacenados localmente en el directorio de Azure AD B2C. A menudo se hace referencia a estas identidades como "cuentas locales".
 - Identidad **Federado**: también denominada cuenta *social* o de *empresa*, la identidad del usuario se administra mediante un proveedor de identidades federado, como Facebook, Microsoft, ADFS o Salesforce.
 
-Un usuario con una cuenta de cliente puede iniciar sesión con varias identidades. Por ejemplo, el nombre de usuario, el correo electrónico, el Id. de empleado, el Id. oficial y otros. Una sola cuenta puede tener varias identidades, tanto locales como sociales, con la misma contraseña. 
+Un usuario con una cuenta de cliente puede iniciar sesión con varias identidades. Por ejemplo, el nombre de usuario, el correo electrónico, el Id. de empleado, el Id. oficial y otros. Una sola cuenta puede tener varias identidades, tanto locales como sociales, con la misma contraseña.
 
 En Microsoft Graph API, las identidades locales y federadas se almacenan en el atributo `identities` de usuario, que es de tipo [objectIdentity](/graph/api/resources/objectidentity). La colección `identities` representa un conjunto de identidades que se usan para iniciar sesión en una cuenta de usuario. Esta colección permite al usuario iniciar sesión en la cuenta de usuario con cualquiera de sus identidades asociadas. El atributo Identities puede contener hasta diez objetos [objectIdentity](/graph/api/resources/objectidentity). Cada objeto contiene las siguientes propiedades:
 
@@ -111,29 +110,29 @@ En Microsoft Graph API, las identidades locales y federadas se almacenan en el a
 |issuer|string|Especifica el emisor de la identidad. En el caso de las cuentas locales (donde **signInType** no es `federated`), esta propiedad es el nombre de dominio predeterminado del inquilino de B2C local, por ejemplo `contoso.onmicrosoft.com`. En el caso de la identidad social (donde **signInType** es `federated`), el valor es el nombre del emisor; por ejemplo, `facebook.com`|
 |issuerAssignedId|string|Especifica el identificador único asignado al usuario por el emisor. La combinación de **issuer** e **issuerAssignedId** debe ser única dentro del inquilino. En el caso de la cuenta local, cuando **signInType** se establece en `emailAddress` o `userName`, representa el nombre de inicio de sesión del usuario.<br>Cuando **signInType** se establece en: <ul><li>`emailAddress` (o empieza por `emailAddress` como `emailAddress1`) **issuerAssignedId** debe ser una dirección de correo electrónico válida.</li><li>`userName` (o cualquier otro valor), **issuerAssignedId** debe ser una [parte local válida de una dirección de correo electrónico](https://tools.ietf.org/html/rfc3696#section-3).</li><li>`federated`, **issuerAssignedId** representa el identificador único de la cuenta federada.</li></ul>|
 
-El siguiente atributo **Identities**, con una identidad de cuenta local con un nombre de inicio de sesión, una dirección de correo electrónico como inicio de sesión y con una identidad social. 
+El siguiente atributo **Identities**, con una identidad de cuenta local con un nombre de inicio de sesión, una dirección de correo electrónico como inicio de sesión y con una identidad social.
 
- ```json
- "identities": [
-     {
-       "signInType": "userName",
-       "issuer": "contoso.onmicrosoft.com",
-       "issuerAssignedId": "johnsmith"
-     },
-     {
-       "signInType": "emailAddress",
-       "issuer": "contoso.onmicrosoft.com",
-       "issuerAssignedId": "jsmith@yahoo.com"
-     },
-     {
-       "signInType": "federated",
-       "issuer": "facebook.com",
-       "issuerAssignedId": "5eecb0cd"
-     }
-   ]
- ```
+```json
+"identities": [
+  {
+    "signInType": "userName",
+    "issuer": "contoso.onmicrosoft.com",
+    "issuerAssignedId": "johnsmith"
+  },
+  {
+    "signInType": "emailAddress",
+    "issuer": "contoso.onmicrosoft.com",
+    "issuerAssignedId": "jsmith@yahoo.com"
+  },
+  {
+    "signInType": "federated",
+    "issuer": "facebook.com",
+    "issuerAssignedId": "5eecb0cd"
+  }
+]
+```
 
-En las identidades federadas, en función del proveedor de identidades, **issuerAssignedId** es un valor único para un usuario determinado por aplicación o cuenta de desarrollo. Configure la directiva de Azure AD B2C con el mismo identificador de aplicación que asignó previamente el proveedor de redes sociales u otra aplicación con la misma cuenta de desarrollo. 
+En las identidades federadas, en función del proveedor de identidades, **issuerAssignedId** es un valor único para un usuario determinado por aplicación o cuenta de desarrollo. Configure la directiva de Azure AD B2C con el mismo identificador de aplicación que asignó previamente el proveedor de redes sociales u otra aplicación con la misma cuenta de desarrollo.
 
 ## <a name="password-profile-property"></a>Propiedad de perfil de contraseña
 

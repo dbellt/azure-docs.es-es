@@ -1,18 +1,18 @@
 ---
 title: Copia de datos hacia o desde Azure Data Lake Storage Gen1
 description: Aprenda a copiar datos desde almacenes de datos de origen compatibles a Azure Data Lake Store o desde Data Lake Store a almacenes de receptores compatibles mediante Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: 2b064412fab7b81a3e0cd164456e8fc5c3b35ae2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1a73fc3a48576ca39435d65449fc557fd5c93c43
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104597562"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109480444"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory
 
@@ -49,7 +49,7 @@ En concreto, con este conector, puede hacer lo siguiente:
 > [!TIP]
 > Para ver un tutorial sobre cómo usar el conector de Azure Data Lake Store, consulte [Carga de datos en Azure Data Lake Storage Gen1 mediante Azure Data Factory](load-azure-data-lake-store.md).
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporciona información acerca de las propiedades que se usan para definir entidades de Data Factory específicas para Azure Data Lake Store.
 
@@ -154,7 +154,7 @@ En Azure Data Factory no es necesario especificar ninguna propiedad, más allá 
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Las propiedades siguientes se admiten para Azure Data Lake Store Gen1 en la configuración `location` del conjunto de datos basado en formato:
 
@@ -196,7 +196,7 @@ Para ver una lista completa de las secciones y propiedades disponibles para defi
 
 ### <a name="azure-data-lake-store-as-source"></a>Azure Data Lake Store como origen
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Las propiedades siguientes se admiten para Azure Data Lake Store Gen1 en la configuración `storeSettings` del origen de copia basado en formato:
 
@@ -262,7 +262,7 @@ Las propiedades siguientes se admiten para Azure Data Lake Store Gen1 en la conf
 
 ### <a name="azure-data-lake-store-as-sink"></a>Azure Data Lake Store como receptor
 
-[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)]
+[!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)]
 
 Las propiedades siguientes se admiten para Azure Data Lake Store Gen1 en la configuración `storeSettings` del receptor de copia basado en formato:
 

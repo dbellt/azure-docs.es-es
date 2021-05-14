@@ -77,25 +77,25 @@
     - name: Preguntas más frecuentes
       items:
         - name: Preguntas más frecuentes sobre los almacenes de Recovery Services
-          href: backup-azure-backup-faq.md
+          href: backup-azure-backup-faq.yml
         - name: Preguntas más frecuentes sobre el Centro de copia de seguridad
           href: backup-center-faq.yml
         - name: Preguntas más frecuentes sobre la copia de seguridad de máquina virtual de Azure
           href: backup-azure-vm-backup-faq.yml
         - name: Preguntas más frecuentes sobre el agente de MARS
-          href: backup-azure-file-folder-backup-faq.md
+          href: backup-azure-file-folder-backup-faq.yml
         - name: Preguntas frecuentes sobre la copia de seguridad de archivos de Azure
-          href: backup-azure-files-faq.md
+          href: backup-azure-files-faq.yml
         - name: Preguntas frecuentes sobre Azure Disk Backup
-          href: disk-backup-faq.md
+          href: disk-backup-faq.yml
         - name: Preguntas más frecuentes sobre la copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
-          href: faq-backup-sql-server.md
+          href: faq-backup-sql-server.yml
         - name: Preguntas más frecuentes sobre la copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
-          href: sap-hana-faq-backup-azure-vm.md
+          href: sap-hana-faq-backup-azure-vm.yml
         - name: Preguntas más frecuentes sobre Azure Backup Server y DPM
-          href: backup-azure-dpm-azure-server-faq.md
+          href: backup-azure-dpm-azure-server-faq.yml
         - name: Preguntas más frecuentes sobre las alertas de supervisión de Azure Backup
-          href: backup-azure-monitor-alert-faq.md
+          href: backup-azure-monitor-alert-faq.yml
     - name: Arquitectura de copia de seguridad
       href: backup-architecture.md
     - name: Guía y procedimientos recomendados
@@ -168,7 +168,7 @@
               href: backup-azure-vms-encryption.md
             - name: Restauración de la clave y el secreto para máquinas virtuales cifradas
               href: backup-azure-restore-key-secret.md
-        - name: Administración
+        - name: Administrar
           items:
             - name: Administración de copias de seguridad de máquinas virtuales de Azure
               href: backup-azure-manage-vms.md
@@ -212,6 +212,8 @@
               href: backup-azure-system-state.md
         - name: Restauración
           items:
+            - name: Información general
+              href: about-restore-microsoft-azure-recovery-services.md
             - name: Recuperación de archivos de Azure en Windows Server
               href: backup-azure-restore-windows-server.md
             - name: Restauración de todos los archivos de un volumen
@@ -224,18 +226,34 @@
       items:
         - name: Información general
           href: disk-backup-overview.md
-        - name: Copia de seguridad
-          href: backup-managed-disks.md
-        - name: Restauración
-          href: restore-managed-disks.md
+        - name: Desde Azure Portal
+          items:
+            - name: Copia de seguridad
+              href: backup-managed-disks.md
+            - name: Restauración
+              href: restore-managed-disks.md
+        - name: Con PowerShell
+          items:
+            - name: Copia de seguridad
+              href: backup-managed-disks-ps.md
+            - name: Restauración
+              href: restore-managed-disks-ps.md
     - name: Copia de seguridad de blobs de Azure
       items:
         - name: Información general
           href: blob-backup-overview.md
-        - name: Configuración y administración
-          href: blob-backup-configure-manage.md
-        - name: Restauración
-          href: blob-restore.md
+        - name: Desde Azure Portal
+          items:
+            - name: Configuración y administración
+              href: blob-backup-configure-manage.md
+            - name: Restauración
+              href: blob-restore.md
+        - name: Con PowerShell
+          items:
+            - name: Copia de seguridad
+              href: backup-blobs-storage-account-ps.md
+            - name: Restauración
+              href: restore-blobs-storage-account-ps.md
     - name: Copia de seguridad de un recurso compartido de archivos de Azure
       items:
         - name: Información general
@@ -246,7 +264,7 @@
               href: backup-afs.md
             - name: Restauración
               href: restore-afs.md
-            - name: Administración
+            - name: Administrar
               href: manage-afs-backup.md
         - name: Con la CLI de Azure
           items:
@@ -254,7 +272,7 @@
               href: backup-afs-cli.md
             - name: Restauración
               href: restore-afs-cli.md
-            - name: Administración
+            - name: Administrar
               href: manage-afs-backup-cli.md
         - name: Con PowerShell
           items:
@@ -452,7 +470,7 @@
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/backup-security-baseline?toc=/azure/backup/toc.json
     - name: Nivel de acceso
       items:
         - name: nivel de archivo
@@ -492,7 +510,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.recoveryservices
     - name: 'PowerShell: agente de Azure Backup'
-      href: /powershell/module/msonlinebackup/msonlinebackup
+      href: /powershell/module/msonlinebackup/?view=msonlinebackup-ps
     - name: 'REST: Backup'
       href: /rest/api/backup/
     - name: 'REST: Almacén de Recovery Services'

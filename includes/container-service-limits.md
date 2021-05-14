@@ -5,28 +5,27 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: include
-ms.date: 11/22/2019
+ms.date: 04/06/2021
 ms.author: mlearned
 ms.custom: include file
-ms.openlocfilehash: 1c2dec106ae72ddead7bda54792fa74e38eb6660
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: da22991b9a1c4b69d3a3d6eb6f76b0925a6ad3d4
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106081006"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107800232"
 ---
-| Recurso                                                                                                           | Límite                                                                                                                                                                                                       |
+| Resource                                                                                                           | Límite                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Número máximo de clústeres por suscripción                                                                                  | 1000                                                                                                                                                                                                        |
+| Número máximo de clústeres por suscripción                                                                                  | 5000                                                                                                                                                                                                        |
 | Número máximo de nodos por clúster con los conjuntos de disponibilidad de máquina virtual y el SKU básico de Load Balancer                       | 100                                                                                                                                                                                                         |
-| Número máximo de nodos por clúster con Virtual Machine Scale Sets y el [SKU estándar de Load Balancer][standard-load-balancer] | 1000 (100 nodos por [grupo de nodos][node-pool])                                                                                                                                                                 |
-| Número máximo de pods por nodo: [redes básicas][basic-networking] con Kubenet                                           | 110                                                                                                                                                                                                         |
-| Número máximo de pods por nodo: [redes avanzadas][advanced-networking] con Azure Container Networking Interface        | Implementación de la CLI de Azure: 30<sup>1</sup><br />Plantilla de Azure Resource Manager: 30<sup>1</sup><br />Implementación del portal: 30                                                                                        |
-| Versión preliminar del complemento Open Service Mesh (OSM) AKS                                                                          | Versión del clúster de Kubernetes: 1.19+<sup>2</sup><br />Controladores OSM por clúster: 1<sup>2</sup><br />Pods por controlador OSM: 500<sup>2</sup><br />Cuentas de servicio de Kubernetes administradas por OSM: 50<sup>2</sup> |
+| Número máximo de nodos por clúster con Virtual Machine Scale Sets y el [SKU estándar de Load Balancer][standard-load-balancer] | 1000 (entre todos los [grupos de nodos][node-pool])                                            |
+| Número máximo de grupos de nodos por clúster                                                                                     | 100                                                                                  |
+| Número máximo de pods por nodo: [redes básicas][basic-networking] con Kubenet                                           | Máximo: 250 <br /> Valor predeterminado de la CLI de Azure: 110 <br /> Valor predeterminado de la plantilla de Azure Resource Manager: 110 <br /> Valor predeterminado de la implementación de Azure Portal: 30          |
+| Número máximo de pods por nodo: [redes avanzadas][advanced-networking] con Azure Container Networking Interface        | Máximo: 250 <br /> Valor predeterminado: 30                                                      |
+| Versión preliminar del complemento Open Service Mesh (OSM) AKS                                                                          | Versión del clúster de Kubernetes: 1.19+<sup>1</sup><br />Controladores OSM por clúster: 1<sup>1</sup><br />Pods por controlador OSM: 500<sup>1</sup><br />Cuentas de servicio de Kubernetes administradas por OSM: 50<sup>1</sup> |
 
-<sup>1</sup>Cuando implementa un clúster de Azure Kubernetes Service (AKS) con la CLI de Azure o una plantilla de Resource Manager, este valor es configurable en hasta 250 pods por nodo. No puede configurar un número máximo de pods por nodo después de haber implementado un clúster AKS, o si implementa un clúster mediante Azure Portal.<br />
-
-<sup>2</sup> El complemento OSM para AKS se encuentra en estado de versión preliminar y se someterá a mejoras adicionales antes de estar disponible con carácter general. Durante la fase de versión preliminar, se recomienda no superar los límites indicados.<br />
+<sup>1</sup> El complemento OSM para AKS se encuentra en versión preliminar y se someterá a mejoras adicionales antes de su disponibilidad con carácter general. Durante la fase de versión preliminar, se recomienda no superar los límites indicados.<br />
 
 <!-- LINKS - Internal -->
 

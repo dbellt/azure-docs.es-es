@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 04/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: a22f4b257476e96c51ae491b8570e3798f7b3ab7
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 7e1b11fd15cca9b11fc627222318f08d31743336
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259734"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719194"
 ---
 # <a name="understand-cache-usage-models"></a>Descripción de los modelos de uso de caché
 
@@ -82,7 +82,7 @@ Si tiene alguna pregunta sobre el mejor modelo de uso para su flujo de trabajo d
 
 En algunas situaciones tendrá que volver a montar los clientes, si cambia el modelo de uso de un destino de almacenamiento. Esto es necesario debido a la manera en que los diferentes modelos de uso controlan las solicitudes de Network Lock Manager (NLM).
 
-HPC Cache se ubica entre los clientes y el sistema de almacenamiento de back-end. Normalmente, la memoria caché pasa las solicitudes de NLM al sistema de almacenamiento de back-end, pero en algunas situaciones, la propia caché confirma la solicitud de NLM y devuelve un valor al cliente. En Azure HPC Cache esto solo sucede cuando se usa el modelo de uso **Lectura de textos densos y poco frecuentes** (o en un destino de almacenamiento de blobs estándar, sin modelos de uso configurables).
+HPC Cache se ubica entre los clientes y el sistema de almacenamiento de back-end. Normalmente, la memoria caché pasa las solicitudes de NLM al sistema de almacenamiento de back-end, pero en algunas situaciones, la propia caché confirma la solicitud de NLM y devuelve un valor al cliente. En Azure HPC Cache esto solo sucede cuando se usa el modelo de uso **Lectura de textos densos y poco frecuentes** (o con un destino de almacenamiento de blobs estándar, sin modelos de uso configurables).
 
 Existe un pequeño riesgo de conflicto de archivos si cambia el modelo de uso **Lectura de textos densos y poco frecuentes** a otro. No existe la manera de transferir el estado actual de NLM de la memoria caché al sistema de almacenamiento o viceversa. Por lo tanto, el estado de bloqueo del cliente es inexacto.
 

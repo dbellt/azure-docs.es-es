@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/11/2021
 ms.author: jeedes
-ms.openlocfilehash: a846899ba8f9b9e7c0d2e54744f5e5044ca7a2d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 04d93913711dc8f03e35ac811b46158dfd038c61
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98732130"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108750704"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Google Cloud (G Suite) Connector
 
@@ -171,6 +171,10 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la sección **Configurar Google Cloud (G Suite) Connector**, copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
+    ```Logout URL
+    https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0
+    ```
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 

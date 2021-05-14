@@ -7,12 +7,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 889df16191104ca5b335d067abe0f3d1311c4603
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 095e746e3cb40767fe1afb9c6fbd75cd2c1450d4
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450113"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736808"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configuración de grupos de disponibilidad para SQL Server en máquinas virtuales de Red Hat Enterprise Linux en Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -527,7 +527,7 @@ Para agregar el rol, ejecute el siguiente comando:
 - Reemplace `<filename>` por el nombre del archivo.
 - Si va a ejecutar el comando desde una ruta de acceso distinta de la carpeta en la que se guarda el archivo, incluya la ruta de acceso de la carpeta del archivo en el comando.
 
-```bash
+```azurecli-interactive
 az role definition create --role-definition "<filename>.json"
 ```
 

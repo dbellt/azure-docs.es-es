@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: mnayak
-ms.openlocfilehash: 44edd9273730ff7ba81a3ad5af2408ff6b7b7a5c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 588af3ff739d82029260909d23a7639bc2cbcb8d
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060642"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108069946"
 ---
 # <a name="what-is-routing-preference"></a>¿Qué es la preferencia de enrutamiento?
 
@@ -76,5 +76,6 @@ La diferencia de precio entre ambas opciones se refleja en los precios de transf
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* [Más información sobre cómo optimizar la conectividad a los servicios de Microsoft Azure a través de Internet (vídeo)](https://www.youtube.com/watch?v=j6A_Mbpuh6s&list=PLLasX02E8BPA5V-waZPcelhg9l3IkeUQo&index=12) 
 * [Configuración de la preferencia de enrutamiento de una VM mediante Azure PowerShell](configure-routing-preference-virtual-machine-powershell.md)
 * [Configuración de la preferencia de enrutamiento de una VM mediante la CLI de Azure](configure-routing-preference-virtual-machine-cli.md)

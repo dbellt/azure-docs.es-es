@@ -4,13 +4,13 @@ description: Aprenda a implementar una plantilla vinculada.
 ms.date: 02/12/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: ''
-ms.openlocfilehash: 8f2bbd327adca6eef62d5e79f422f61d460ea7a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6bfe1a2d7fb993e51c82f14b508d697900b7a333
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100589284"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319762"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Tutorial: Implementación de una plantilla vinculada
 

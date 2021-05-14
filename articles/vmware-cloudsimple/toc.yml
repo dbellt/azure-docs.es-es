@@ -152,6 +152,8 @@
               href: configure-server-vrealize-automation-endpoint.md
             - name: Migración de máquinas virtuales de cargas de trabajo a una nube privada
               href: migrate-workloads.md
+            - name: Migración mediante Azure Data Box
+              href: migration-using-azure-data-box.md
             - name: Garantía de alta disponibilidad de la aplicación en VMware en Azure
               href: ensuring-high-availability.md
             - name: Elección de la solución de equilibrio de carga
@@ -178,6 +180,10 @@
               href: on-premises-connection.md
             - name: Conexión de red virtual de Azure con ExpressRoute
               href: azure-expressroute-connection.md
+    - name: Referencia
+      items:
+        - name: Azure CLI
+          href: /cli/azure/csvmware
     - name: Notas de la versión
       items:
         - name: "Actualización de septiembre de\_2020 de CloudSimple"

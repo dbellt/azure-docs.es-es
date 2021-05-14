@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: 442fa1c76d4667a54f1c13b411b1c052c9a5b134
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 31b051c37d4fbf1c73c8711e3e9a330cacc1c26d
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566649"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107904359"
 ---
 # <a name="azure-cosmos-db-emulator---release-notes-and-download-information"></a>Emulador de Azure Cosmos DB: notas de la versión e información de descarga
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,6 +26,10 @@ En este artículo se muestran las notas de la versión del emulador de Azure Cos
 |**Introducción**|[Instalación y uso del emulador de Azure Cosmos DB para desarrollo y pruebas locales](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="21113-21-april-2021"></a>2.11.13 (21 de abril de 2021)
+
+ - Esta versión actualiza el contenido local de Data Explorer a la versión más reciente de Azure Portal y agrega una nueva configuración de punto de conexión de MongoDB, "4.0".
 
 ### <a name="21111-22-february-2021"></a>2.11.11 (22 de febrero de 2021)
 

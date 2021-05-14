@@ -5,14 +5,15 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 04/15/2021
 ms.author: jgao
-ms.openlocfilehash: 3240cce34a6fa645986a58ab43b28ad38485e97b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3ac1afe3658db60297735e897d69caa463358a4c
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308972"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318394"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Uso de scripts de implementación en plantillas de Resource Manager
 
@@ -136,7 +137,7 @@ El siguiente código JSON es un ejemplo: Para más información, consulte el [es
 
 Detalles de los valores de propiedad:
 
-- `identity`: En la versión 2020-10-01, u otra posterior, de la API del script de implementación, una identidad administrada asignada por el usuario es opcional a menos que necesite realizar cualquier acción específica de Azure en el script.  En la versión 2019-10-01-preview de la API se requiere una identidad administrada, ya que el servicio del script de implementación la usa para ejecutar los scripts. Actualmente, solo se admiten identidades asignadas por el usuario.
+- `identity`: En la versión 2020-10-01, u otra posterior, de la API del script de implementación, una identidad administrada asignada por el usuario es opcional a menos que necesite realizar cualquier acción específica de Azure en el script.  En la versión 2019-10-01-preview de la API se requiere una identidad administrada, ya que el servicio del script de implementación la usa para ejecutar los scripts. Cuando se especifica la propiedad de identidad, el servicio de script llama a `Connect-AzAccount -Identity` antes de invocar el script de usuario. Actualmente, solo se admiten identidades asignadas por el usuario. Para iniciar sesión con otra identidad, puede llamar a [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) en el script.
 - `kind`: especifica el tipo de script. Actualmente, se admiten los scripts de Azure PowerShell y de la CLI de Azure. Los valores son **AzurePowerShell** y **AzureCLI**.
 - `forceUpdateTag`: el cambio de este valor entre implementaciones de plantilla obliga a que se vuelva a ejecutar el script de implementación. Si usa la función `newGuid()` o `utcNow()`, ambas funciones solo se pueden usar en el valor predeterminado de un parámetro. Para más información, consulte la sección [Ejecución de un script varias veces](#run-script-more-than-once).
 - `containerSettings`: permite especificar la configuración para personalizar la instancia de contenedor de Azure. El script de implementación requiere una nueva instancia de Azure Container Instance. No se puede especificar una instancia de Azure Container Instance existente. Sin embargo, puede personalizar el nombre del grupo de contenedores mediante `containerGroupName`. Si no se especifica, el nombre de grupo se genera automáticamente.
@@ -250,7 +251,7 @@ reference('<ResourceName>').outputs.text
 
 ## <a name="work-with-outputs-from-cli-script"></a>Tareas con las salidas del script de la CLI
 
-A diferencia del script de implementación de PowerShell, la compatibilidad con la CLI/Bash no expone una variable común para almacenar las salidas del script, sino que hay una variable de entorno denominada `AZ_SCRIPTS_OUTPUT_PATH` que almacena la ubicación donde reside el archivo de salida del script. Si se ejecuta un script de implementación desde una plantilla de Resource Manager, esta variable de entorno se establece automáticamente en el shell de Bash.
+A diferencia del script de implementación de PowerShell, la compatibilidad con la CLI/Bash no expone una variable común para almacenar las salidas del script, sino que hay una variable de entorno denominada `AZ_SCRIPTS_OUTPUT_PATH` que almacena la ubicación donde reside el archivo de salida del script. Si se ejecuta un script de implementación desde una plantilla de Resource Manager, esta variable de entorno se establece automáticamente en el shell de Bash. El varlo de `AZ_SCRIPTS_OUTPUT_PATH` es */mnt/azscripts/azscriptoutput/scriptoutputs.json*.
 
 Las salidas del script de implementación se deben guardar en la ubicación `AZ_SCRIPTS_OUTPUT_PATH`, y las salidas deben ser un objeto de cadena JSON válido. El contenido del archivo se debe guardar como par clave-valor. Por ejemplo, una matriz de cadenas se almacena como `{ "MyResult": [ "foo", "bar"] }`.  No es válido almacenar solo los resultados de la matriz, por ejemplo `[ "foo", "bar" ]`.
 
@@ -310,6 +311,26 @@ Cuando se usa una cuenta de almacenamiento existente, el servicio de script crea
 Puede controlar el modo en que PowerShell responde a los errores de no terminación mediante la variable `$ErrorActionPreference` en el script de implementación. Si la variable no se establece en el script de implementación, el servicio de script utiliza el valor predeterminado **Continuar**.
 
 El servicio de script establece el estado de aprovisionamiento de los recursos en **Error** cuando el script encuentra un error a pesar de la configuración de `$ErrorActionPreference`.
+
+### <a name="use-environment-variables"></a>Uso de variables de entorno
+
+El script de implementación usa estas variables de entorno:
+
+|Variable de entorno|Valor predeterminado|Sistema reservado|
+|--------------------|-------------|---------------|
+|AZ_SCRIPTS_AZURE_ENVIRONMENT|AzureCloud|No|
+|AZ_SCRIPTS_CLEANUP_PREFERENCE|OnExpiration|No|
+|AZ_SCRIPTS_OUTPUT_PATH|<AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY>/<AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME>|Y|
+|AZ_SCRIPTS_PATH_INPUT_DIRECTORY|/mnt/azscripts/azscriptinput|Y|
+|AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY|/mnt/azscripts/azscriptoutput|Y|
+|AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME|Azure PowerShell: userscript.ps1; Azure CLI: userscript.sh|Y|
+|AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME|primaryscripturi.config|Y|
+|AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME|supportingscripturi.config|Y|
+|AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME|scriptoutputs.json|Y|
+|AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME|executionresult.json|Y|
+|AZ_SCRIPTS_USER_ASSIGNED_IDENTITY|/subscriptions/|No|
+
+Para más información sobre el uso de `AZ_SCRIPTS_OUTPUT_PATH`, consulte [Trabajo con salidas de los scripts de implementación](#work-with-outputs-from-cli-script).
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Paso de cadenas protegidas al script de implementación
 
@@ -377,10 +398,10 @@ Timeout             : PT1H
 
 Al usar la CLI de Azure, puede administrar scripts de implementación en el ámbito del grupo de recursos o la suscripción:
 
-- [az deployment-scripts delete](/cli/azure/deployment-scripts#az-deployment-scripts-delete): elimina un script de implementación.
-- [az deployment-scripts list](/cli/azure/deployment-scripts#az-deployment-scripts-list): muestra todos los scripts de implementación.
-- [az deployment-scripts show](/cli/azure/deployment-scripts#az-deployment-scripts-show): recupera un script de implementación.
-- [az deployment-scripts show-log](/cli/azure/deployment-scripts#az-deployment-scripts-show-log): muestra registros de scripts de implementación.
+- [az deployment-scripts delete](/cli/azure/deployment-scripts#az_deployment_scripts_delete): elimina un script de implementación.
+- [az deployment-scripts list](/cli/azure/deployment-scripts#az_deployment_scripts_list): muestra todos los scripts de implementación.
+- [az deployment-scripts show](/cli/azure/deployment-scripts#az_deployment_scripts_show): recupera un script de implementación.
+- [az deployment-scripts show-log](/cli/azure/deployment-scripts#az_deployment_scripts_show_log): muestra registros de scripts de implementación.
 
 La salida del comando de lista es similar a:
 

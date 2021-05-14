@@ -1,6 +1,6 @@
 ---
 title: Conexión entre redes virtuales mediante una conexión de red virtual a red virtual con la CLI de Azure
-description: Conecte redes virtuales entre sí mediante una conexión entre redes virtuales y la CLI de Azure.
+description: Aprenda a conectar redes virtuales juntas mediante una conexión entre redes virtuales y la CLI de Azure.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b9502f3fbd50aad756e15daa4db1badda2abf9ab
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b4f247131c2ce20ec9e95e8b5327ae7e7249f93f
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94660073"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229673"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configuración de una conexión de puerta de enlace de VPN de red virtual a red virtual mediante la CLI de Azure
 

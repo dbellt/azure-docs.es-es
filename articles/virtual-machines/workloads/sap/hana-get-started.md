@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
-ms.openlocfilehash: 54bfd7c6e691efbd754e9ea2b804e16b3e07ebbe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf55dc19a78b667056da9ef614ec75f3817b5773
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670964"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141206"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Instalación de SAP HANA en máquinas virtuales de Azure
 ## <a name="introduction"></a>Introducción
@@ -94,8 +94,8 @@ Para obtener configuraciones de escalabilidad horizontal para SAP HANA que usan 
 
 ## <a name="additional-resources-for-sap-hana-backup"></a>Recursos adicionales para la copia de seguridad de SAP HANA
 Para más información sobre cómo hacer una copia de seguridad de bases de datos SAP HANA en máquinas virtuales de Azure, consulte:
-* [Guía de copia de seguridad de SAP HANA en Azure Virtual Machines](./sap-hana-backup-guide.md)
-* [Azure Backup de SAP HANA en el nivel de archivo](./sap-hana-backup-file-level.md)
+* [Guía de copia de seguridad de SAP HANA en Azure Virtual Machines](../../../backup/sap-hana-db-about.md)
+* [Azure Backup de SAP HANA en el nivel de archivo](../../../backup/sap-hana-db-about.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte la documentación:

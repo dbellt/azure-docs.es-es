@@ -1,17 +1,17 @@
 ---
 title: Inicio rápido para crear un almacén de Azure Recovery Services mediante una plantilla de Azure Resource Manager.
 description: En este inicio rápido, aprenderá a crear un almacén de Azure Recovery Services mediante una plantilla de Azure Resource Manager.
-ms.date: 04/29/2020
+ms.date: 04/28/2021
 ms.topic: quickstart
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 11a88b5485ad970802a65af31daccdb30a1c86df
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 453c1a14a54011d8124588911da1cde64fe2ea28
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533262"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277325"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Inicio rápido: Creación de un almacén de Recovery Services mediante una plantilla de Resource Manager
 
@@ -21,7 +21,7 @@ En este inicio rápido, se describe cómo instalar un almacén de Recovery Servi
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.recoveryservices%2Frecovery-services-vault-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -31,7 +31,7 @@ Si no tiene una suscripción activa a Azure, puede crear una [cuenta gratuita](h
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/).
 
-:::code language="json" source="~/quickstart-templates/101-recovery-services-vault-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.recoveryservices/recovery-services-vault-create/azuredeploy.json":::
 
 En la plantilla se definen dos recursos de Azure:
 
@@ -48,7 +48,7 @@ Para implementar la plantilla, se requieren los valores de **Suscripción**, **G
 
 1. Para iniciar sesión en Azure y abrir la plantilla, seleccione la imagen **Implementar en Azure**.
 
-   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
+   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.recoveryservices%2Frecovery-services-vault-create%2Fazuredeploy.json)
 
 1. Seleccione o escriba los siguientes valores:
 

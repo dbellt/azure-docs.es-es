@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b08231f254ea47fc3c9d65de42966301bd3378f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0a08c464e5c6a1fb5d4337e0902c9bd84b3b7772
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640045"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732927"
 ---
 # <a name="securing-managed-identities"></a>Protección de identidades administradas
 
@@ -55,8 +55,6 @@ Todas las operaciones del plano de control de Azure se administran mediante [Azu
 Para más información sobre el plano de control y el plano de datos, vea [Operaciones en el plano de control y el plano de datos: Azure Resource Manager](../../azure-resource-manager/management/control-plane-and-data-plane.md).
 
 Finalmente, todos los servicios de Azure admitirán identidades administradas. Para más información, vea [Servicios que admiten identidades administradas para recursos de Azure](../managed-identities-azure-resources/services-support-managed-identities.md).
-
-##  
 
 ## <a name="types-of-managed-identities"></a>Tipos de identidades administradas
 

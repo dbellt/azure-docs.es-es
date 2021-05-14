@@ -6,13 +6,13 @@ ms.author: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.openlocfilehash: 1bfae8c7afbfdc6e73dd8bb17b94e6543361e9ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/21/2021
+ms.openlocfilehash: 7d807a15d358bd621baedbff253f0c731e43ed26
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83848235"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874178"
 ---
 # <a name="iot-hub-ip-addresses"></a>Direcciones IP de IoT Hub
 
@@ -45,7 +45,7 @@ Puede usar estos prefijos de dirección IP para controlar la conectividad entre 
 
 ## <a name="limitations-and-workarounds"></a>Limitaciones y soluciones alternativas
 
-* La característica de filtro IP de IoT Hub tiene un límite de 10 reglas. Este límite se puede aumentar mediante solicitudes a través del servicio de soporte al cliente de Azure. 
+* La característica de filtro IP de IoT Hub tiene un límite de 100 reglas. Este límite se puede aumentar mediante solicitudes a través del servicio de soporte al cliente de Azure. 
 
 * Las [reglas de filtrado de IP](iot-hub-ip-filtering.md) configuradas solo se aplican en los puntos de conexión de dirección IP de IoT Hub y no en el punto de conexión del centro de eventos integrado en IoT Hub. Si también necesita que se aplique el filtrado de IP en el centro de eventos en el que se almacenan los mensajes, puede hacerlo con su propio recurso de centro de eventos, donde puede configurar las reglas de filtrado de IP que quiera directamente. Para ello, ha de aprovisionar su propio recurso del centro de eventos y configurar [enrutamiento de mensajes](./iot-hub-devguide-messages-d2c.md) para enviar los mensajes a ese recurso en lugar de al centro de eventos integrado en IoT Hub. Por último, como se describe en la tabla anterior, para habilitar la funcionalidad de enrutamiento de mensajes también debe permitir la conectividad desde los prefijos de dirección IP de IoT Hub al recurso del centro de eventos aprovisionado.
 

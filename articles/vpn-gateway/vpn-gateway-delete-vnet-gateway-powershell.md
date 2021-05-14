@@ -1,25 +1,25 @@
 ---
-title: 'Azure VPN Gateway: Eliminación de una puerta de enlace: PowerShell'
-description: Elimine una puerta de enlace de red virtual mediante PowerShell en el modelo de implementación de Resource Manager.
+title: 'Eliminación de una puerta de enlace de red virtual: PowerShell'
+titleSuffix: Azure VPN Gateway
+description: Obtenga información sobre cómo eliminar una puerta de enlace de red virtual mediante PowerShell.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.date: 09/03/2020
+ms.date: 04/29/2021
 ms.author: cherylmc
 ms.topic: how-to
-ms.openlocfilehash: 48e0998719ea19c0b360b50d8c9171d2b448ad19
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d8d31ef18fb0963ac789f9edd9ff8059c7d1ab7b
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89440769"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290948"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Eliminación de una puerta de enlace de red virtual mediante PowerShell
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [PowerShell (clásico)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
->
 >
 
 Hay un par de enfoques que puede adoptar cuando desee eliminar una puerta de enlace de red virtual correspondiente a una configuración de puerta de enlace VPN.

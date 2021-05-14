@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37e41a00c1489d5b7b4822fec8bb4da35e917826
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 836c7bf9aefd4b2cb7d52c66bbd37e7ba38a467c
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101686468"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377317"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operaciones de Azure Active Directory Connect Health
 Este tema describe las distintas operaciones que se pueden realizar mediante Azure Active Directory (Azure AD) Connect Health.
@@ -35,12 +35,13 @@ Puede configurar el servicio de Azure AD Connect Health para enviar notificacion
 >
 
 ### <a name="to-enable-azure-ad-connect-health-email-notifications"></a>Para habilitar las notificaciones de correo electrónico de Azure AD Connect Health
-1. Abra la hoja **Alertas** del servicio para el que desea recibir una notificación de correo electrónico.
-2. Haga clic en el botón **Configuración de notificaciones** de la barra de acciones.
-3. En el modificador de la opción Notificación de correo electrónico, seleccione **ON** (Activado).
-4. Seleccione la casilla si desea que todos los administradores globales reciban notificaciones de correo electrónico.
-5. Si desea recibir notificaciones de correo electrónico en otras direcciones de correo electrónico, puede especificarlas en el cuadro **Destinatario de correo electrónico adicional**. Para quitar una dirección de correo electrónico de esta lista, haga clic con el botón derecho en la entrada y seleccione **Eliminar**.
-6. Para finalizar los cambios, haga clic en **Guardar**. Los cambios surtirán efecto después de guardar.
+1. En Azure Portal, busque Azure AD Connect Health
+2. Seleccione **Errores de sincronización**.
+3. Seleccione **Configuración de notificación**.
+5. En el modificador de la opción Notificación de correo electrónico, seleccione **ON** (Activado).
+6. Seleccione la casilla si desea que todos los administradores globales reciban notificaciones de correo electrónico.
+7. Si desea recibir notificaciones de correo electrónico en otras direcciones de correo electrónico, puede especificarlas en el cuadro **Destinatario de correo electrónico adicional**. Para quitar una dirección de correo electrónico de esta lista, haga clic con el botón derecho en la entrada y seleccione **Eliminar**.
+8. Para finalizar los cambios, haga clic en **Guardar**. Los cambios surtirán efecto después de guardar.
 
 >[!NOTE] 
 > Cuando hay problemas para procesar solicitudes de sincronización en nuestro servicio de back-end, este servicio envía un correo electrónico de notificación con los detalles del error a las direcciones de correo electrónico de los contactos administrativos de su inquilino. Hemos recibido comentarios de clientes en los que afirman que, en determinados casos, el volumen de estos mensajes es excesivo, por lo que estamos cambiando la forma en que se envían. 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 04/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 53058d27e94c9fdf18d726369f6a1b75a9f34db9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d56e03cd650032a775c30b02d939cf934f384fae
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567549"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568614"
 ---
 # <a name="deploy-azure-data-services-on-your-azure-stack-edge-pro-gpu-device"></a>Implementación de Azure Data Services en el dispositivo Azure Stack Edge Pro con GPU
 
@@ -21,7 +21,7 @@ ms.locfileid: "105567549"
 
 En este artículo se describe el proceso de creación de un controlador de datos de Azure Arc y, después, la implementación de Azure Data Services en el dispositivo Azure Stack Edge Pro con GPU. 
 
-El controlador de datos de Azure Arc es el plano de control local que habilita Azure Data Services en los entornos administrados por el cliente. Una vez que haya creado el controlador de datos de Azure Arc en el clúster de Kubernetes que se ejecuta en el dispositivo Azure Stack Edge Pro, puede implementar Azure Data Services como SQL Managed Instance (versión preliminar) en ese controlador de datos.
+El controlador de datos de Azure Arc es el plano de control local que habilita Azure Data Services en los entornos administrados por el cliente. Una vez que haya creado el controlador de datos de Azure Arc en el clúster de Kubernetes que se ejecuta en el dispositivo Azure Stack Edge Pro GPU, puede implementar Azure Data Services como SQL Managed Instance (versión preliminar) en ese controlador de datos.
 
 El procedimiento para crear un controlador de datos y, a continuación, implementar un SQL Managed Instance implica el uso de PowerShell y `kubectl`: una herramienta nativa que proporciona acceso de línea de comandos al clúster de Kubernetes en el dispositivo.
 
@@ -30,9 +30,9 @@ El procedimiento para crear un controlador de datos y, a continuación, implemen
 
 Antes de comenzar, asegúrese de que:
 
-1. Tiene acceso a un dispositivo Azure Stack Edge Pro y ha activado el dispositivo como se describe en [Activación de Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
+1. Tiene acceso a un dispositivo Azure Stack Edge Pro GPU y ha activado el dispositivo como se describe en [Activación de Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 
-1. Ha habilitado el rol de proceso en el dispositivo. También se ha creado un clúster de Kubernetes en el dispositivo al configurar el proceso en el dispositivo según las instrucciones de [Configuración del proceso en un dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-compute.md).
+1. Ha habilitado el rol de proceso en el dispositivo. También se ha creado un clúster de Kubernetes en el dispositivo al configurar el proceso en el dispositivo según las instrucciones de [Configuración del proceso en un dispositivo Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-configure-compute.md).
 
 1. Tiene el punto de conexión de la API de Kubernetes de la página **Dispositivo** de la interfaz de usuario web local. Para obtener más información, consulte las instrucciones en [Obtención de los puntos de conexión de Kubernetes](azure-stack-edge-gpu-deploy-configure-compute.md#get-kubernetes-endpoints).
 
@@ -171,7 +171,7 @@ El controlador de datos es una colección de pods que se implementan en el clús
     La implementación tarda aproximadamente 5 minutos en completarse.
 
     > [!NOTE]
-    > El controlador de datos creado en el clúster de Kubernetes del dispositivo Azure Stack Edge Pro solo funciona en el modo sin conexión de la versión actual.
+    > The data controller created on Kubernetes cluster on your Azure Stack Edge Pro GPU device works only in the disconnected mode in the current release. El modo desconectado es para el controlador de datos y no para el dispositivo.
 
 ### <a name="monitor-data-creation-status"></a>Supervisión del estado de creación de datos
 

@@ -15,12 +15,12 @@ ms.custom:
 - seo-update-azuread-jan
 - mode-api
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 765d8ea99167512e553cef9cc6f7fed583eff469
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: f3541698e4a02f82f54d84eabf1bf7bb285cda10
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529823"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987585"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Guía de inicio rápido: Incorporación de un usuario invitado con PowerShell
 
@@ -28,38 +28,10 @@ Hay muchas maneras de invitar a los asociados externos a sus aplicaciones y serv
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-### <a name="install-the-latest-azureadpreview-module"></a>Instalación del último módulo de AzureADPreview
-Asegúrese de que instala la última versión de Azure AD PowerShell para el módulo Graph (AzureADPreview). 
-
-En primer lugar, compruebe qué módulos ha instalado. Abra Windows PowerShell como un usuario con privilegios elevados (Ejecutar como administrador) y ejecute el comando siguiente:
- 
-```powershell  
-Get-Module -ListAvailable AzureAD*
-```
-
-Si se muestra el módulo AzureADPreview sin ningún mensaje que indica que hay una versión posterior, significa que está listo. De lo contrario, en función de la salida, realice una de las siguientes acciones:
-
-- Si no se devuelve ningún resultado, ejecute el siguiente comando para instalar el módulo AzureADPreview:
-  
-   ```powershell  
-   Install-Module AzureADPreview
-   ```
-- Si solo se muestra el módulo AzureAD en los resultados, ejecute los comandos siguientes para instalar el módulo AzureADPreview: 
-
-   ```powershell 
-   Uninstall-Module AzureAD 
-   Install-Module AzureADPreview 
-   ```
-- Si solo se muestra el módulo AzureADPreview en los resultados, pero recibe un mensaje que indica que hay una versión posterior, ejecute los comandos siguientes para actualizar el módulo: 
-
-   ```powershell 
-   Uninstall-Module AzureADPreview 
-   Install-Module AzureADPreview 
-  ```
-
-Puede que reciba un mensaje que indica que está instalando el módulo desde un repositorio de confianza. Esto se produce si el repositorio de PSGallery no se ha establecido previamente como un repositorio de confianza. Presione **Y** para instalar el módulo.
+### <a name="powershell-module"></a>Módulo de PowerShell
+Instale el [módulo de Azure AD V2 PowerShell para Graph](/powershell/azure/active-directory/install-adv2) (AzureAD) o la [versión preliminar del módulo de Azure AD V2 PowerShell para Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) (AzureADPreview).
 
 ### <a name="get-a-test-email-account"></a>Obtención de una cuenta de correo electrónico de prueba
 

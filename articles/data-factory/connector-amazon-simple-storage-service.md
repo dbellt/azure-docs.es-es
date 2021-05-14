@@ -1,18 +1,18 @@
 ---
 title: Copia de datos de Amazon Simple Storage Service (S3)
 description: Obtenga información sobre cómo copiar datos desde Amazon Simple Storage Service (S3) a almacenes de datos de receptor compatibles mediante Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: 03b0cd852f34e115cc5bbc60448e45fcbb680474
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a8da9960e363e72bd6c108a9d72cfed4cc7769cf
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104601234"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109488724"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Copia de datos desde Amazon Simple Storage Service mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que esté usando:"]
@@ -51,7 +51,7 @@ Para obtener la lista completa de los permisos de Amazon S3, consulte [Specifyin
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)] 
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)] 
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas de Amazon S3.
 
@@ -126,7 +126,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Amazon S
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Las propiedades siguientes se admiten para Amazon S3 en la configuración `location` de un conjunto de datos basado en formato:
 
@@ -171,7 +171,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="amazon-s3-as-a-source-type"></a>Amazon S3 como tipo de origen
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Las propiedades siguientes se admiten para Amazon S3 en la configuración `storeSettings` de un origen de la actividad de copia basado en formato:
 

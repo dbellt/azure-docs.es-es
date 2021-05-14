@@ -8,12 +8,12 @@ ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 28cda9fb6997500f6cd7c4c4349635e7b7a36398
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 11679cde2bcd98cbc40b5f181eb0a460cd1889c7
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504284"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325704"
 ---
 # <a name="tutorial-create-and-configure-a-time-series-insights-gen2-environment"></a>Tutorial: Creación y configuración de un entorno de Time Series Insights Gen2
 
@@ -38,10 +38,6 @@ En este punto, debe tener:
 * Un centro de Azure IoT.
 * Una instancia de Device Provisioning Service (DPS) vinculada al centro de IoT. La instancia de DPS debe tener una inscripción de dispositivo individual para el dispositivo IoT Plug and Play.
 * Una conexión al centro de IoT desde un dispositivo de un solo componente o de varios componentes, que transmite datos simulados.
-
-Para evitar el requisito de instalar la CLI de Azure localmente, puede utilizar Azure Cloud Shell para configurar los servicios en la nube.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prepare-your-event-source"></a>Preparación del origen del evento
 

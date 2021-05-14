@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8e7a725b78fa828ce1286e212ee7de0205968156
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8e7de74a75bc0cf2a298b7ff75cf7b6b92eaec9d
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92536086"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109716121"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importación y exportación de identidades de dispositivo de IoT Hub de forma masiva
 
@@ -87,7 +87,7 @@ while(true)
 ```
 
 > [!NOTE]
-> Si la cuenta de almacenamiento tiene configuraciones de firewall que restringen la conectividad de IoT Hub, considere la posibilidad de usar [excepciones propias de confianza de Microsoft](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (disponibles en las regiones seleccionadas para centros de IoT con identidad de servicio administrada).
+> Si la cuenta de almacenamiento tiene configuraciones de firewall que restringen la conectividad de IoT Hub, considere la posibilidad de usar [excepciones propias de confianza de Microsoft](./virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources) (disponibles en las regiones seleccionadas para centros de IoT con identidad de servicio administrada).
 
 
 ## <a name="device-importexport-job-limits"></a>Límites de trabajo de importación y exportación de dispositivos

@@ -1,17 +1,17 @@
 ---
 title: Copia de datos de PostgreSQL mediante Azure Data Factory
 description: Obtenga información sobre cómo copiar datos desde PostgreSQL en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.author: jingwang
-ms.openlocfilehash: c0d8783c4b07c8c87e57ccd9a5d65983825347c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: 5b63d37f6e6d3823e93485ba87fab52cd072f2ab
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100384102"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109485700"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copia de datos desde PostgreSQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -35,13 +35,13 @@ En concreto, este conector PostgreSQL es compatible con la **versión 7.4 y post
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 El entorno de Integration Runtime proporciona un controlador de PostgreSQL integrado a partir de la versión 3.7, por lo tanto, no es necesario que instale uno manualmente.
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Las secciones siguientes proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector PostgreSQL.
 

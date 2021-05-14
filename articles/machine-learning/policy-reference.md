@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas para Azure Machine Learning
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure Machine Learning. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 04/14/2021
+ms.date: 05/04/2021
 ms.author: larryfr
 author: BlackMist
 ms.topic: reference
 ms.service: machine-learning
 ms.custom: subject-policy-reference
-ms.openlocfilehash: f8c9ed14bbea3d0a74bbdf1712242d19d21e14f8
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 0f75a77f306d14198e7393fa9d6cef6ac9f65cb7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107505996"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108762846"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-machine-learning"></a>Definiciones de directivas integradas de Azure Policy para Azure Machine Learning
 

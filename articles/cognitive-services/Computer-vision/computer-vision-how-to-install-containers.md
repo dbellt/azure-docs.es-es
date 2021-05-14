@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/09/2021
+ms.date: 04/27/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: entorno local, reconocimiento óptico de caracteres, Docker, contenedor
-ms.openlocfilehash: dead48d7d449d1d403359c518eb842b32a54c634
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 42f840c9237d22638236efb758c9b789501b0ce5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779100"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773438"
 ---
 # <a name="install-read-ocr-docker-containers"></a>Instalación de contenedores de Docker de OCR de Read
 
@@ -141,6 +141,16 @@ Este comando:
 * Expone el puerto TCP 5000 y asigna un seudo-TTY para el contenedor.
 * Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.
 
+También puede ejecutar el contenedor mediante variables de entorno:
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+--env Eula=accept \
+--env Billing={ENDPOINT_URI} \
+--env ApiKey={API_KEY} \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2
+```
+
 # <a name="version-20-preview"></a>[Versión 2.0 (versión preliminar)](#tab/version-2)
 
 ```bash
@@ -158,6 +168,15 @@ Este comando:
 * Expone el puerto TCP 5000 y asigna un seudo-TTY para el contenedor.
 * Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.
 
+También puede ejecutar el contenedor mediante variables de entorno:
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+--env Eula=accept \
+--env Billing={ENDPOINT_URI} \
+--env ApiKey={API_KEY} \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview
+```
 ---
 
 
@@ -452,6 +471,6 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo para la desc
 
 * Revise [Configure containers](computer-vision-resource-container-config.md) (Configuración de contenedores) para ver las opciones de configuración.
 * Revise [Introducción a OCR](overview-ocr.md) para obtener más información sobre el reconocimiento de texto escrito a mano e impreso.
-* Consulte [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b) para obtener más información acerca de los métodos que admite el contenedor.
+* Consulte [Read API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) para obtener más información acerca de los métodos que admite el contenedor.
 * Consulte [Preguntas más frecuentes (P+F)](FAQ.md) para resolver problemas relacionados con la funcionalidad de Computer Vision.
 * Uso de [Contenedores de Cognitive Services](../cognitive-services-container-support.md)

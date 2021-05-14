@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.author: alexeyo
-ms.openlocfilehash: f851d7999b063a2b1334564902d81343e3789439
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 0f4064e6baf6c6ce237371a2a725fbe023b1e9f2
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011180"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277703"
 ---
 # <a name="speech-service-quotas-and-limits"></a>Cuotas y límites del servicio de voz
 
@@ -31,9 +31,9 @@ Para su uso con el [SDK de voz](speech-sdk.md) y/o la [API de REST de conversió
 
 | Quota | Gratis (F0)<sup>1</sup> | Estándar (S0) |
 |--|--|--|
-| **Límite de solicitudes simultáneas: modelo base** | 1 | 100 (valor predeterminado) |
+| **Límite de solicitudes simultáneas: punto de conexión de modelo base** | 1 | 100 (valor predeterminado) |
 | Ajustable | No<sup>2</sup> | Sí<sup>2</sup> |
-| **Límite de solicitudes simultáneas: modelo personalizado** | 1 | 20 (valor predeterminado) |
+| **Límite de solicitudes simultáneas: punto de conexión personalizado** | 1 | 100 (valor predeterminado) |
 | Ajustable | No<sup>2</sup> | Sí<sup>2</sup> |
 
 #### <a name="batch-transcription"></a>Transcripción de Azure Batch
@@ -98,10 +98,10 @@ En las secciones siguientes se describen los casos específicos de ajuste de las
 Vaya a [Conversión de texto en voz: aumento del límite de solicitudes simultáneas de transcripciones para voz personalizada](#text-to-speech-increasing-transcription-concurrent-request-limit-for-custom-voice).
 
 ### <a name="speech-to-text-increasing-online-transcription-concurrent-request-limit"></a>Conversión de voz en texto: aumento del límite de solicitudes simultáneas de transcripciones en línea
-De forma predeterminada, el número de solicitudes simultáneas está limitado a 100 por recursos de Voz (modelo base) y a 20 punto de conexión personalizado (modelo personalizado). En el plan de tarifa estándar, esta cantidad se puede aumentar. Antes de enviar la solicitud, asegúrese de que está familiarizado con el material de [esta sección](#detailed-description-quota-adjustment-and-best-practices) y tenga en cuenta estos [procedimientos recomendados](#general-best-practices-to-mitigate-throttling-during-autoscaling).
+De forma predeterminada, el número de solicitudes simultáneas está limitado a 100 por recurso de Voz (modelo base) y a 100 punto de conexión personalizado (modelo personalizado). En el plan de tarifa estándar, esta cantidad se puede aumentar. Antes de enviar la solicitud, asegúrese de que está familiarizado con el material de [esta sección](#detailed-description-quota-adjustment-and-best-practices) y tenga en cuenta estos [procedimientos recomendados](#general-best-practices-to-mitigate-throttling-during-autoscaling).
 
 >[!NOTE]
-> Si usa modelos personalizados, tenga en cuenta que un recurso de Voz puede estar asociado a muchos puntos de conexión personalizados que hospedan muchas implementaciones de modelos personalizados. Cada punto de conexión personalizado tiene el número predeterminado de límite de solicitudes simultáneas (20) establecido en su creación. Si necesita ajustarlo, debe realizar el ajuste de cada punto de conexión personalizado **por separado**. Tenga en cuenta también que el valor del número de límite de solicitudes simultáneas para el modelo base de un recurso de Voz **no** tiene ningún efecto en los puntos de conexión personalizados asociados a este recurso.
+> Si usa modelos personalizados, tenga en cuenta que un recurso de Voz puede estar asociado a muchos puntos de conexión personalizados que hospedan muchas implementaciones de modelos personalizados. Cada punto de conexión personalizado tiene el número predeterminado de límite de solicitudes simultáneas (100) establecido en su creación. Si necesita ajustarlo, debe realizar el ajuste de cada punto de conexión personalizado **por separado**. Tenga en cuenta también que el valor del número de límite de solicitudes simultáneas para el modelo base de un recurso de Voz **no** tiene ningún efecto en los puntos de conexión personalizados asociados a este recurso.
 
 
 El aumento del límite de solicitudes simultáneas **no** afecta directamente a los costos. El servicio de voz usa el modelo de "pago por lo que se usa". El límite define hasta dónde se puede escalar el servicio antes de empezar a limitar las solicitudes.

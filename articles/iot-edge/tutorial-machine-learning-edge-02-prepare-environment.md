@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 723d7b6ae5b96cf6dc622be1b1bb98065151787f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 71ef55d720ca768bfa45ea13ba7ec481b908d915
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463160"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133806"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: Configuración de un entorno de aprendizaje automático en IoT Edge
 
@@ -36,7 +36,7 @@ Este artículo forma parte de un tutorial sobre el uso de Azure Machine Learning
 
 Normalmente, este paso está a cargo de un desarrollador de nube. Algunos de los ejemplos de software también pueden resultar útiles para un científico de datos.
 
-Hemos creado un script de PowerShell que crea una máquina virtual de Azure con muchos de los requisitos previos ya configurados. La máquina virtual que se cree debe ser capaz de hacer frente a la [virtualización anidada](../virtual-machines/windows/nested-virtualization.md), motivo por el que elegimos el tamaño de máquina [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md).
+Hemos creado un script de PowerShell que crea una máquina virtual de Azure con muchos de los requisitos previos ya configurados. La máquina virtual que se cree debe ser capaz de hacer frente a la [virtualización anidada](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization), motivo por el que elegimos el tamaño de máquina [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md).
 
 La máquina virtual de desarrollo se configurará con:
 

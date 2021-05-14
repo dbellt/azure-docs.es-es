@@ -1,18 +1,19 @@
 ---
 title: Ejemplo de plano técnico de FedRAMP Moderate, introducción
 description: Introducción al ejemplo de plano técnico de FedRAMP Moderate. Este ejemplo de plano técnico ayuda a los clientes a evaluar controles concretos de FedRAMP Moderate.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 65deb175c3a608b5f3a14048239bfa8be799619d
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 537053b516f1783969b3031a0924d606539c23f4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033819"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757194"
 ---
 # <a name="overview-of-the-fedramp-moderate-blueprint-sample"></a>Introducción al ejemplo de planos técnico de FedRAMP Moderate
 
-El ejemplo de plano técnico de FedRAMP Moderate proporciona directivas de gobernanza mediante [Azure Policy](../../../policy/overview.md) que le ayudarán a evaluar los controles específicos de FedRAMP Moderate. Este plano técnico ayuda a los clientes a implementar un conjunto básico de directivas para cualquier arquitectura implementada de Azure que deba implementar los controles de FedRAMP Moderate.
+El ejemplo de plano técnico de FedRAMP Moderate proporciona directivas de gobernanza mediante [Azure Policy](../../../policy/overview.md) que le ayudarán a evaluar los controles específicos de FedRAMP Moderate.
+Este plano técnico ayuda a los clientes a implementar un conjunto básico de directivas para cualquier arquitectura implementada de Azure que deba implementar los controles de FedRAMP Moderate.
 
 ## <a name="control-mapping"></a>Asignación de controles
 

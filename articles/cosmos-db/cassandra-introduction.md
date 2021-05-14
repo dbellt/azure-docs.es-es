@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 11/25/2020
-ms.openlocfilehash: 2a778c2e9a44bda148fd40112776858943cffe4e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3a97f62030227eb0c18bd70af2fabbd1f5ef2863
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96188622"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108771278"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Introducción a Cassandra API de Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -60,4 +60,4 @@ Cassandra API permite interactuar con los datos almacenados en Azure Cosmos DB
 
 * Para obtener más información sobre las características de Apache Cassandra admitidas por Cassandra API de Azure Cosmos DB, vea el artículo [Cassandra support](cassandra-support.md) (Compatibilidad de Cassandra).
 
-* Lea las [Preguntas más frecuentes](cassandra-faq.md).
+* Lea las [Preguntas más frecuentes](cassandra-faq.yml).

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2021
-ms.openlocfilehash: 4d4a801d0cf0a2355334272053ff86dd846b6bbf
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 35aa53def1a72f98309e7616ce64194dd77c5a4d
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107030311"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331293"
 ---
 # <a name="troubleshooting-sql-insights-preview"></a>Solución de problemas de SQL Insights (versión preliminar)
 Para solucionar los problemas de recopilación de datos en SQL insights, compruebe el estado de la máquina de supervisión en la pestaña **Administrar perfil**. Contendrá uno de los siguientes estados:
@@ -26,9 +26,12 @@ Haga clic en **Estado** para explorar en profundidad y ver registros y más deta
 ## <a name="not-collecting-state"></a>Estado "No se está recopilando" 
 La máquina de supervisión muestra un estado *No se está recopilando* si no hay ningún dato en *InsightsMetrics* para SQL en los últimos 10 minutos. 
 
+> [!NOTE]
+> Compruebe que está intentando recopilar datos de una [versión compatible de SQL](sql-insights-overview.md#supported-versions). Por ejemplo, si intenta recopilar datos con un perfil y una cadena de conexión válidos, pero desde una versión no admitida de Azure SQL Database dará como resultado un estado de no recopilación.
+
 SQL Insights usa la siguiente consulta para recuperar esta información:
 
-```
+```kusto
 InsightsMetrics 
     | extend Tags = todynamic(Tags) 
     | extend SqlInstance = tostring(Tags.sql_instance) 
@@ -163,14 +166,14 @@ La máquina de supervisión mostrará el estado *Recopilando con errores* si hay
 
 SQL Insights usa las siguientes consultas para recuperar esta información:
 
-```
+```kusto
 InsightsMetrics 
     | extend Tags = todynamic(Tags) 
     | extend SqlInstance = tostring(Tags.sql_instance) 
     | where TimeGenerated > ago(240m) and isnotempty(SqlInstance) and Namespace == 'sqlserver_server_properties' and Name == 'uptime' 
 ```
 
-```
+```kusto
 WorkloadDiagnosticLogs
 | summarize Errors = countif(Status == 'Error')
 ```

@@ -1,16 +1,16 @@
 ---
 title: Conversiones de icono del diseñador de vistas de Azure Monitor en libros
 description: Detalles para convertir iconos en libros cuando se realiza la transición desde vistas en Azure Monitor.
-author: austonli
-ms.author: aul
+author: shijatsu
+ms.author: shijain
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 9b8d1840c0b1cea4c03312d38ed892fde94faa4c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: b73aa0569fb9889de687e7b3eacba5a0fcd54cc1
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043344"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318016"
 ---
 # <a name="azure-monitor-view-designer-tile-conversions"></a>Conversiones de icono del diseñador de vistas de Azure Monitor
 El [diseñador de vistas](view-designer.md) es una característica de Azure Monitor que permite crear vistas personalizadas para ayudar a visualizar datos en el área de trabajo de Log Analytics, con gráficos, listas y escalas de tiempo. Estas vistas se están retirando paulatinamente y están siendo reemplazadas por libros, que proporcionan funcionalidad adicional. En este artículo se proporciona información detallada para convertir distintos iconos en libros.

@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4683bd84873506483209f4a0eb3751a1b163ed48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1d2e741f7f0a98a4b60e94b623afa676423af4c4
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96449852"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108802601"
 ---
 # <a name="geo-restore-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Restauración geográfica de un grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -45,7 +45,7 @@ Para realizar una restauración a partir de una copia de seguridad de replicaci�
 7. Compruebe el estado del almacenamiento de datos restaurado geográficamente.
 8. Para configurar la base de datos una vez finalizada la restauración, consulte [Configuración de la base de datos después de realizar la recuperación]( ../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
-```Powershell
+```powershell
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
@@ -58,7 +58,7 @@ $TargetServiceObjective="<YourTargetServiceObjective-DWXXXc>"
 Connect-AzAccount
 Get-AzSubscription
 Select-AzSubscription -SubscriptionName $SubscriptionName
-Get-AzureSqlDatabase -ServerName $ServerName
+Get-AzSqlDatabase -ServerName $ServerName -ResourceGroupName $ResourceGroupName
 
 # Get the data warehouse you want to recover
 $GeoBackup = Get-AzSqlDatabaseGeoBackup -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName

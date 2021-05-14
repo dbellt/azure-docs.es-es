@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
-ms.date: 03/10/2021
-ms.openlocfilehash: 21ccafe3e15f902e35657a9aa31516bbaeb3b4c8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/21/2021
+ms.openlocfilehash: 0f7d63a1213b6fe6625f16f33f18680b7a9e6bcb
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558013"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906843"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Generación de un URI de SAS para una imagen de máquina virtual
 
@@ -21,7 +21,6 @@ ms.locfileid: "105558013"
 
 La generación de los identificadores URI de SAS para los discos duros virtuales debe cumplir los requisitos siguientes:
 
-- Solo se admiten VHD no administrados.
 - Solo se requieren permisos de lectura y enumeración. No proporcione acceso de escritura o eliminación.
 - La duración del acceso (fecha de expiración) debe ser un mínimo de tres semanas a partir de la creación del identificador URI de SAS.
 - Como protección frente a los cambios de hora UTC, establezca la fecha de inicio en un día antes de la fecha actual. Por ejemplo, si la fecha actual es el 16 de junio de 2020, seleccione 15/6/2020.

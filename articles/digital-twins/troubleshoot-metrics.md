@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 63817c8a65678579ce535a3c2e667e4eb0971a63
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b4f0182c6214f500d10904760087be5c89a07acd
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102434073"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108203566"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Solución de problemas de Azure Digital Twins: Métricas
 
@@ -22,7 +22,7 @@ Las métricas están habilitadas de forma predeterminada. Puede ver las métrica
 
 ## <a name="how-to-view-azure-digital-twins-metrics"></a>Procedimiento para ver las métricas de Azure Digital Twins
 
-1. Cree una instancia de Azure Digital Twins. Puede encontrar instrucciones sobre cómo configurar una instancia de Azure Digital Twins en [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-portal.md).
+1. Cree una instancia de Azure Digital Twins. Puede encontrar instrucciones sobre cómo configurar una instancia de Azure Digital Twins en [Procedimiento: Configuración de una instancia y autenticación](how-to-set-up-instance-portal.md).
 
 2. Busque la instancia de Azure Digital Twins en [Azure Portal](https://portal.azure.com) (puede abrir la página correspondiente escribiendo su nombre en la barra de búsqueda del portal). 
 
@@ -36,12 +36,12 @@ Las métricas están habilitadas de forma predeterminada. Puede ver las métrica
 
     :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Captura de pantalla que muestra la página de configuración de diagnóstico y el botón para agregarla":::
 
-    Para más información sobre este proceso, consulte [*Solución de problemas: Configuración de diagnósticos*](troubleshoot-diagnostics.md).
+    Para más información sobre este proceso, consulte [Solución de problemas: Configuración de diagnósticos](troubleshoot-diagnostics.md).
 
 4. Para optar por configurar alertas para los datos de métricas, seleccione **Alertas** en el menú y, a continuación, **+ Nueva regla de alerta**.
     :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Captura de pantalla que muestra la página Alertas y el botón para agregar":::
 
-    Para más información sobre este proceso, consulte [*Solución de problemas: Configuración de alertas*](troubleshoot-alerts.md).
+    Para más información sobre este proceso, consulte [Solución de problemas: Configuración de alertas](troubleshoot-alerts.md).
 
 ## <a name="azure-digital-twins-metrics-and-how-to-use-them"></a>Métricas de Azure Digital Twins y cómo usarlas
 
@@ -80,7 +80,7 @@ Métricas relacionadas con la facturación:
 | BillingMessagesProcessed | Mensajes de facturación procesados | Count | Total | Métrica de facturación para el número de mensajes enviados desde Azure Digital Twins a puntos de conexión externos.<br><br>Para que se considere un solo mensaje para su facturación, una carga no debe ser superior a 1 KB. Las cargas superiores a este se contarán como mensajes adicionales en incrementos de 1 KB (por lo que un mensaje de entre 1 y 2 KB se contará como dos mensajes, entre 2 y 3 KB serán tres mensajes, etc.).<br>Esta restricción también se aplica a las respuestas, por lo que una llamada que devuelve 1,5 KB en el cuerpo de la respuesta, por ejemplo, se facturará como dos operaciones. | Meter ID |
 | BillingQueryUnits | Facturación de unidades de consulta | Count | Total | Número de unidades de consulta, una medida del uso de recursos de servicio calculada internamente, que se consume para ejecutar consultas. También hay una API auxiliar disponible para medir las unidades de consulta: [Clase de QueryChargeHelper](/dotnet/api/azure.digitaltwins.core.querychargehelper) | Meter ID |
 
-Para obtener más información sobre la forma en que se factura Azure Digital Twins, consulte [*Precios de Azure Digital Twins*](https://azure.microsoft.com/pricing/details/digital-twins/).
+Para obtener más información sobre la forma en que se factura Azure Digital Twins, consulte [Precios de Azure Digital Twins](https://azure.microsoft.com/pricing/details/digital-twins/).
 
 #### <a name="ingress-metrics"></a>Métricas de entrada
 
@@ -119,4 +119,4 @@ Las dimensiones ayudan a identificar más detalles sobre las métricas. Algunas 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre la administración de las métricas registradas para Digital Twins, consulte [*Solución de problemas: Configuración de diagnósticos*](troubleshoot-diagnostics.md).
+Para obtener más información sobre la administración de las métricas registradas para Digital Twins, consulte [Solución de problemas: Configuración de diagnósticos](troubleshoot-diagnostics.md).

@@ -17,12 +17,14 @@
       href: ./quickstarts/client-libraries.md
 - name: Ejemplos
   items:
-    - name: Demostración interactiva
+    - name: Demostración interactiva (univariado)
       href: 'https://aka.ms/adDemo'
-    - name: Jupyter Notebook
+    - name: Jupyter Notebook (univariado)
       href: 'https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook'
+    - name: Jupyter Notebook (multivariado)
+      href: 'https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb'
     - name: Ejemplos de Azure
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure&terms=anomaly-detector'
+      href: /samples/browse/?products=azure&terms=anomaly-detector
 - name: Guías paso a paso
   items:
     - name: Identificación de anomalías en los datos
@@ -33,8 +35,6 @@
           href: how-to/deploy-anomaly-detection-on-iot-edge.md
         - name: Contenedores
           items:
-            - name: Documentación de contenedores de Cognitive Services
-              href: 'https://docs.microsoft.com/azure/cognitive-services/containers/'
             - name: Instalación y ejecución de contenedores
               displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
               href: anomaly-detector-container-howto.md
@@ -43,6 +43,9 @@
               displayName: 'docker, container, apikey, billing, log, mount, run, pull, port'
             - name: Uso de instancias de contenedores
               href: how-to/deploy-anomaly-detection-on-container-instances.md
+            - name: Toda la documentación de contenedores de Cognitive Services
+              href: ../containers/index.yml
+              maintainContext: true
     - name: Adecuado para empresas
       items:
         - name: Configuración de redes virtuales
@@ -92,7 +95,7 @@
     - name: Opciones de ayuda y soporte técnico
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
     - name: Módulos de Microsoft Learn
-      href: 'https://docs.microsoft.com/learn/modules/intro-to-anomaly-detector/'
+      href: /learn/modules/intro-to-anomaly-detector/
     - name: Contenido generado por el usuario
       href: user-generated-content.md
     - name: Unirse al grupo de asesores de Anomaly Detector en Microsoft Teams

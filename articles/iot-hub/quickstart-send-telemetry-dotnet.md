@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 06/01/2020
-ms.openlocfilehash: 1a681cd3f1c624268fdc9bc62cf9841e9ac28827
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: ec26e4a42cdeb7a693c8078c0f065241f32da949
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057514"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863999"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-service-application-net"></a>Inicio rápido: Envío de datos de telemetría desde un dispositivo a un centro de IoT y su lectura con una aplicación de servicio (.NET)
 
@@ -35,7 +35,7 @@ El inicio rápido usa dos aplicaciones C# escritas previamente: una para enviar 
 
 * Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con C#. Se necesita el SDK de .NET Core 3.1, o cualquier versión superior, en su máquina de desarrollo.
 
-    Puede descargar el SDK de .NET Core para varias plataformas desde [.NET](https://www.microsoft.com/net/download/all).
+    Puede descargar el SDK de .NET Core para varias plataformas desde [.NET](https://dotnet.microsoft.com/download).
 
     Puede verificar la versión actual de C# en el equipo de desarrollo con el comando siguiente:
 

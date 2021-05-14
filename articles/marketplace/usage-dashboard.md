@@ -4,15 +4,15 @@ description: Obtenga información sobre cómo obtener acceso a todas las métric
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 04/28/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 765f4f358d593cd5fcc021fbf4ec2276c422c4d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef0e3745d6a45353ef286101bcb5fef1923ce12b
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555132"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108206752"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Panel de uso de los análisis de marketplace comercial
 
@@ -155,6 +155,13 @@ _**Tabla 1: diccionario de términos de datos**_
 | RawUsage | Raw Usage (Uso sin procesar) | Unidades de uso sin procesar totales que usa el recurso que implementa el cliente.<br>Las horas de uso sin procesar se definen como la cantidad de tiempo que las VM se han ejecutado en términos de unidades de uso. | RawUsage |
 | Estimated Extended Charge (CC) [Cargo total estimado (CC)] | Cargo total estimado en la moneda del cliente | Indica los cargos asociados al uso. La columna es el producto de precio (CC) y la cantidad de uso. | EstimatedExtendedChargeCC |
 | Estimated Extended Charge (PC) [Cargo total estimado (PC)] | Cargo total estimado en la moneda de pago | Indica los cargos asociados al uso. La columna es el producto del precio estimado (PC) y la cantidad de uso. | EstimatedExtended ChargePC |
+| Id. de medidor | Id. de medidor | Indica el identificador de medidor de la oferta. | MeterId |
+| Anomalía detectada del Centro de partners | Anomalía detectada del Centro de partners | **Aplicable a las ofertas con dimensiones de medidores personalizados**.<br>Indica si el publicador ha notificado un uso por encima del límite para la dimensión de medidor personalizado de la oferta que el Centro de partners ha marcado como una anomalía. Los valores posibles son: <ul><li>0 (no es una anomalía)</li><li>1 (es una anomalía)</li></ul>_Si el publicador no tiene ofertas con dimensiones de medidores personalizados y exporta esta columna a través del acceso mediante programación, el valor será NULL._ | PartnerCenterDetectedAnomaly |
+| Anomalía marcada por el publicador | Anomalía marcada por el publicador | **Aplicable a las ofertas con dimensiones de medidores personalizados**.<br>Indica si el publicador ha reconocido el uso por encima del límite por parte del cliente para la dimensión de medidor personalizado de la oferta como genuino o falso. Los valores posibles son:<ul><li>0 (el publicador lo ha marcado como que no es una anomalía)</li><li>1 (el publicador lo ha marcado como que es una anomalía)</li></ul>_Si el publicador no tiene ofertas con dimensiones de medidores personalizados y exporta esta columna a través del acceso mediante programación, el valor será NULL._ | PublisherMarkedAnomaly |
+| Nuevo uso notificado | Nuevo uso notificado | **Aplicable a las ofertas con dimensiones de medidores personalizados**.<br>Para el uso por encima del límite por parte del cliente para la dimensión de medidor personalizado de la oferta identificada como anómala por el publicador. Este campo especifica el nuevo uso por encima del límite notificado por el publicador.<br>_Si el publicador no tiene ofertas con dimensiones de medidores personalizados y exporta esta columna a través del acceso mediante programación, el valor será NULL._ | NewReportedUsage |
+| Acción realizada a las | Acción realizada a las | **Aplicable a las ofertas con dimensiones de medidores personalizados**.<br>Indica la hora en que el publicador ha reconocido el uso por encima del límite por parte del cliente para la dimensión de medidor personalizado de la oferta como genuino o falso.<br>_Si el publicador no tiene ofertas con dimensiones de medidores personalizados y exporta esta columna a través del acceso mediante programación, el valor será NULL._ | ActionTakenAt |
+| Acción realizada por | Acción realizada por | **Aplicable a las ofertas con dimensiones de medidores personalizados**.<br>Indica la persona que ha reconocido el uso por encima del límite por parte del cliente para la dimensión de medidor personalizado de la oferta como genuino o falso.<br>_Si el publicador no tiene ofertas con dimensiones de medidores personalizados y exporta esta columna a través del acceso mediante programación, el valor será NULL._ | ActionTakenBy |
+| Impacto financiero estimado (USD) | Impacto financiero estimado en USD | **Aplicable a las ofertas con dimensiones de medidores personalizados**.<br>Cuando el Centro de partners marca como anómalo un uso por encima del límite por parte del cliente para la dimensión de medidor personalizado de la oferta, el campo especifica el impacto financiero estimado (en USD) del uso anómalo por encima del límite.<br>_Si el publicador no tiene ofertas con dimensiones de medidores personalizados y exporta esta columna mediante programación, el valor será NULL._ | EstimatedFinancialImpactUSD |
 |||||
 
 ### <a name="usage-page-filters"></a>Filtros de la página de uso

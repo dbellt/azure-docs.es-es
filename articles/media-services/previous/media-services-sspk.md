@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2021
 ms.author: xpouyat
-ms.openlocfilehash: f2c66b08d399ddf53686074079665e36be9aace7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7eb406a7b584e72f1816c51f68597a38b79e2d08
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104870478"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109714663"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licencias del kit de portabilidad de cliente de Microsoft&reg; Smooth Streaming
 
@@ -114,7 +114,6 @@ Los licenciatarios de productos provisionales y finales del SSPK pueden enviar p
 * ZTE Corporation
 
 ## <a name="microsoft-smooth-streaming-client-final-product-agreement-licensees"></a>Licencias con contrato de producto final de Microsoft Smooth Streaming Client
-* Advanced Digital Broadcast SA
 * AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
 * AmTRAN Technology Co., Ltd 
 * Arcadyan Technology Corporation
@@ -123,6 +122,7 @@ Los licenciatarios de productos provisionales y finales del SSPK pueden enviar p
 * EXPRESS LUCK TECHNOLOGY LIMITED
 * Fluendo S.A.
 * FUNAI ELECTRIC CO., LTD.
+* Hisense Broadband Multimedia Technologies Co.,Ltd.
 * Hisense International Co., Ltd.
 * Hisense Visual Technology Co., Ltd
 * HKC Corporation Limited

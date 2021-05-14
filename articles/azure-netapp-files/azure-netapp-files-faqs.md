@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 04/30/2021
 ms.author: b-juche
-ms.openlocfilehash: d63587eec1f7e6d24ae1638e8365b85fd1ec2c94
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: d1cc59fe2eb3a2938dc776fd62e6645aec62bb1f
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504998"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291808"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Preguntas más frecuentes acerca de Azure NetApp Files
 
@@ -27,9 +27,9 @@ En este artículo se responden algunas preguntas frecuentes sobre Azure NetApp F
 
 ## <a name="networking-faqs"></a>Preguntas frecuentes sobre redes
 
-### <a name="does-the-nfs-data-path-go-over-the-internet"></a>¿La ruta de acceso de datos de NFS pasa a través de Internet?  
+### <a name="does-the-data-path-for-nfs-or-smb-go-over-the-internet"></a>¿La ruta de acceso de datos de NFS o SMB pasa a través de Internet?  
 
-No. La ruta de acceso de NFS no pasa por Internet. Azure NetApp Files es un servicio nativo de Azure que está implementado en Azure Virtual Network (VNet) en donde el servicio está disponible. Azure NetApp Files usa una subred delegada y aprovisiona una interfaz de red directamente en la red virtual (VNet). 
+No. La ruta de acceso de datos de NFS o SMB no pasa a través de Internet. Azure NetApp Files es un servicio nativo de Azure que está implementado en Azure Virtual Network (VNet) en donde el servicio está disponible. Azure NetApp Files usa una subred delegada y aprovisiona una interfaz de red directamente en la red virtual (VNet). 
 
 Consulte [Directrices para el planeamiento de red de Azure NetApp Files](./azure-netapp-files-network-topologies.md) para una información más detallada.  
 
@@ -65,6 +65,10 @@ El tráfico de datos entre los clientes de NFSv3 o SMB3 y los volúmenes de Azur
 ### <a name="can-the-storage-be-encrypted-at-rest"></a>¿Se puede cifrar el almacenamiento en reposo?
 
 Todos los volúmenes de Azure NetApp Files se cifran mediante el estándar FIPS 140-2. El servicio Azure NetApp Files administra todas las claves. 
+
+### <a name="is-azure-netapp-files-cross-region-replication-traffic-encrypted"></a>¿El tráfico de replicación entre regiones de Azure NetApp Files está cifrado?
+
+La replicación entre regiones de Azure NetApp Files usa cifrado TLS 1.2 AES-256 GCM para cifrar todos los datos transferidos entre el volumen de origen y el de destino. Este cifrado es adicional al [cifrado MACSec de Azure](../security/fundamentals/encryption-overview.md) que está activado de manera predeterminada para todo el tráfico de Azure, incluida la replicación entre regiones de Azure NetApp Files. 
 
 ### <a name="how-are-encryption-keys-managed"></a>¿Cómo se administran las claves de cifrado? 
 
@@ -133,10 +137,6 @@ Consulte [Impacto en el rendimiento de Kerberos en los volúmenes de NFSv4.1](pe
 Para que un volumen NFS se monte automáticamente al inicio o reinicio de una máquina virtual, agregue una entrada al archivo `/etc/fstab` en el host. 
 
 Consulte [Montaje o desmontaje de un volumen para máquinas virtuales Windows o Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) para consultar los detalles.  
-
-### <a name="why-does-the-df-command-on-nfs-client-not-show-the-provisioned-volume-size"></a>¿Por qué el comando DF en el cliente NFS no muestra el tamaño del volumen aprovisionado?
-
-El tamaño del volumen notificado en DF es el tamaño máximo que puede alcanzar el volumen de Azure NetApp Files. El tamaño del volumen de Azure NetApp Files en el comando DF no es reflejo de la cuota o el tamaño del volumen.  Puede obtener el tamaño del volumen o la cuota de Azure NetApp Files mediante Azure Portal o la API.
 
 ### <a name="what-nfs-version-does-azure-netapp-files-support"></a>¿Qué versión de NFS admite Azure NetApp Files?
 
@@ -214,23 +214,65 @@ Actualmente no se admite la administración de `SMB Shares`, `Sessions` y `Open 
 
 Use el vínculo de la **vista JSON** en el panel Información general del volumen y busque el identificador **startIP** en **properties** -> **mountTargets**.
 
+### <a name="can-an-azure-netapp-files-smb-share-act-as-an-dfs-namespace-dfs-n-root"></a>¿Puede un recurso compartido de SMB de Azure NetApp Files actuar como raíz del espacio de nombres DFS (DFS-N)?
+
+No. Sin embargo, los recursos compartidos de SMB de Azure NetApp Files pueden actuar como destino de la carpeta del espacio de nombres DFS (DFS-N).   
+Para usar un recurso compartido de SMB de Azure NetApp Files como destino de la carpeta de DFS-N, proporcione la ruta de acceso de montaje de convención de nomenclatura universal (UNC) del recurso compartido de SMB de Azure NetApp Files mediante el procedimiento para [agregar destino de la carpeta DFS](/windows-server/storage/dfs-namespaces/add-folder-targets#to-add-a-folder-target).  
+
+### <a name="smb-encryption-faqs"></a>Preguntas frecuentes sobre el cifrado SMB
+
+En esta sección se responden las preguntas más frecuentes sobre el cifrado SMB (SMB 3.0 y SMB 3.1.1).
+
+#### <a name="what-is-smb-encryption"></a>¿Qué el cifrado SMB?  
+
+El [cifrado SMB](/windows-server/storage/file-server/smb-security) proporciona cifrados de datos SMB de un extremo a otro y protege los datos de los incidentes de interceptación en redes que no son de confianza. El cifrado SMB se admite en SMB 3.0 y versiones mayores. 
+
+#### <a name="how-does-smb-encryption-work"></a>¿Cómo funciona el cifrado SMB?
+
+Al enviar una solicitud al almacenamiento, el cliente cifra la solicitud, que el almacenamiento descifra a continuación. El servidor cifra de forma similar las respuestas y las descifra el cliente.
+
+#### <a name="which-clients-support-smb-encryption"></a>¿Qué clientes admiten el cifrado SMB?
+
+Windows 10, Windows 2012 y versiones posteriores admiten el cifrado SMB.
+
+#### <a name="with-azure-netapp-files-at-what-layer-is-smb-encryption-enabled"></a>Con Azure NetApp Files, ¿en qué nivel se habilita el cifrado SMB?  
+
+El cifrado SMB se habilita en el nivel de recurso compartido.
+
+#### <a name="what-forms-of-smb-encryption-are-used-by-azure-netapp-files"></a>¿Qué formas de cifrado SMB usa Azure NetApp Files?
+
+SMB 3.0 emplea el algoritmo AES-CCM, mientras que SMB 3.1.1 emplea el algoritmo AES-GCM.
+
+#### <a name="is-smb-encryption-required"></a>¿Es necesario el cifrado SMB?
+
+El cifrado SMB no es necesario. Por lo tanto, solo se habilita para un recurso compartido determinado si el usuario solicita que Azure NetApp Files lo habilite. Los recursos compartidos de Azure NetApp Files nunca se exponen a Internet. Solo son accesibles desde una red virtual determinada, a través de VPN o Express Route, por lo que los recursos compartidos de Azure NetApp Files son intrínsecamente seguros. La elección de habilitar el cifrado SMB es totalmente del usuario. Tenga en cuenta la penalización de rendimiento prevista antes de habilitar esta característica.
+
+#### <a name="what-is-the-anticipated-impact-of-smb-encryption-on-client-workloads"></a><a name="smb_encryption_impact"></a>¿Cuál es el impacto previsto del cifrado SMB en las cargas de trabajo de cliente?
+
+Aunque el cifrado SMB afecta tanto al cliente (sobrecarga de CPU para cifrar y descifrar los mensajes) como al almacenamiento (reducción del rendimiento), en la tabla siguiente solo se resalta el impacto en el almacenamiento. Debe probar el impacto en el rendimiento del cifrado en sus propias aplicaciones antes de implementar cargas de trabajo en producción.
+
+|     Perfil de E/S       |     Impacto        |
+|-  |-  |
+|     Cargas de trabajo de lectura y escritura      |     De 10 % a 15 %        |
+|     Uso intensivo de metadatos        |     5 %    |
+
 ## <a name="capacity-management-faqs"></a>Preguntas más frecuentes sobre la administración de la capacidad
 
 ### <a name="how-do-i-monitor-usage-for-capacity-pool-and-volume-of-azure-netapp-files"></a>¿Cómo puedo supervisar el uso de grupo de capacidad y volumen de Azure NetApp Files? 
 
 Azure NetApp Files proporciona métricas de uso de grupo de capacidad y volumen. También puede usar Azure Monitor para supervisar el uso de Azure NetApp Files. Consulte [Métricas de Azure NetApp Files](azure-netapp-files-metrics.md) para más información. 
 
-### <a name="can-i-manage-azure-netapp-files-through-azure-storage-explorer"></a>¿Puedo administrar Azure NetApp Files mediante Explorador de Azure Storage?
-
-No. Explorador de Azure Storage no es compatible con Azure NetApp Files.
-
 ### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>¿Cómo puedo determinar si un directorio está llegando al tamaño límite?
 
-Puede usar el comando `stat` desde un cliente para ver si un directorio está llegando al límite de tamaño máximo de los metadatos del directorio (320 MB).   
+Puede usar el comando `stat` desde un cliente para ver si un directorio está llegando al [límite de tamaño máximo](azure-netapp-files-resource-limits.md#resource-limits) de los metadatos del directorio (320 MB).
+Consulte [Límites de recursos para Azure NetApp Files](azure-netapp-files-resource-limits.md#directory-limit) para el límite y el cálculo. 
 
-En un directorio de 320 MB, el número de bloques es 655 360 y el tamaño de cada bloque es de 512 bytes.  (Es decir, 320 x 1024 x 1024/512). Este número se traduce en aproximadamente 4 millones archivos como máximo para un directorio de 320 MB. Sin embargo, el número máximo real de archivos puede ser menor, en función de factores como el número de archivos que contienen caracteres que no son ASCII en el directorio. Por lo tanto, debe usar el comando `stat` como se indica a continuación para determinar si el directorio está llegando a su límite.  
+<!-- 
+You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit for directory metadata (320 MB).   
 
-Ejemplos:
+For a 320-MB directory, the number of blocks is 655360, with each block size being 512 bytes.  (That is, 320x1024x1024/512.)  This number translates to approximately 4 million files maximum for a 320-MB directory. However, the actual number of maximum files might be lower, depending on factors such as the number of files containing non-ASCII characters in the directory. As such, you should use the `stat` command as follows to determine whether your directory is approaching its limit.  
+
+Examples:
 
 ```console
 [makam@cycrh6rtp07 ~]$ stat bin
@@ -245,7 +287,28 @@ Size: 12288           Blocks: 24         IO Block: 65536  directory
 File: 'tmp1'
 Size: 4096            Blocks: 8          IO Block: 65536  directory
 ```
+--> 
 
+### <a name="does-snapshot-space-count-towards-the-usable--provisioned-capacity-of-a-volume"></a>¿Se cuenta el espacio de instantáneas en la capacidad utilizable o aprovisionada de un volumen?
+
+Sí, la [capacidad de instantáneas consumida](azure-netapp-files-cost-model.md#capacity-consumption-of-snapshots) cuenta para el espacio aprovisionado del volumen. En caso de que el volumen se llene, considere la posibilidad de tomar las siguientes medidas:
+
+* [Cambie el tamaño del volumen](azure-netapp-files-resize-capacity-pools-or-volumes.md).
+* [Quite las instantáneas más antiguas](azure-netapp-files-manage-snapshots.md#delete-snapshots) para liberar espacio en el volumen de hospedaje. 
+
+### <a name="does-azure-netapp-files-support-auto-grow-for-volumes-or-capacity-pools"></a>¿Azure NetApp Files admite el crecimiento automático en los volúmenes o grupos de capacidad?
+
+No, los volúmenes y los grupos de capacidad de Azure NetApp Files no crecen automáticamente al llenarse. Vea [Modelo de costo de Azure NetApp Files](azure-netapp-files-cost-model.md).   
+
+Puede usar la herramienta admitida por la comunidad [ANFCapacityManager de Logic Apps](https://github.com/ANFTechTeam/ANFCapacityManager) para administrar las reglas de alertas basadas en la capacidad. La herramienta puede aumentar automáticamente los tamaños de los volúmenes para evitar que se queden sin espacio.
+
+### <a name="does-the-destination-volume-of-a-replication-count-towards-hard-volume-quota"></a>¿El volumen de destino de una replicación cuenta para la cuota de volumen estricta?  
+
+No, el volumen de destino de una replicación no cuenta para la cuota de volumen estricta.
+
+### <a name="can-i-manage-azure-netapp-files-through-azure-storage-explorer"></a>¿Puedo administrar Azure NetApp Files mediante Explorador de Azure Storage?
+
+No. Explorador de Azure Storage no es compatible con Azure NetApp Files.
 
 ## <a name="data-migration-and-protection-faqs"></a>Preguntas frecuentes sobre migración y protección de datos
 
@@ -266,6 +329,8 @@ Los requisitos para la migración de datos desde un entorno local a Azure NetApp
 ### <a name="how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region"></a>¿Cómo puedo crear una copia de Azure NetApp Files en otra región de Azure?
     
 Azure NetApp Files proporciona volúmenes SMB y NFS.  Cualquier herramienta de copia basada en archivos puede usarse para replicar datos entre regiones de Azure. 
+
+La funcionalidad de [replicación entre regiones](cross-region-replication-introduction.md) permite replicar datos de forma asincrónica desde un volumen de Azure NetApp Files (origen) de una región en otro volumen de Azure NetApp Files (destino) de otra región.  Además, puede [crear un nuevo volumen mediante una instantánea de un volumen existente](azure-netapp-files-manage-snapshots.md#restore-a-snapshot-to-a-new-volume).
 
 NetApp ofrece una solución basada en SaaS, [NetApp Cloud Sync](https://cloud.netapp.com/cloud-sync-service).  La solución le permite replicar datos de NFS o SMB en los recursos compartidos de SMB o exportaciones de NFS de Azure NetApp Files. 
 
@@ -294,6 +359,10 @@ Puede montar volúmenes NFS de Azure NetApp Files en máquinas virtuales Windows
 ### <a name="what-regions-are-supported-for-using-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>¿Qué regiones se admiten para usar volúmenes NFS o SMB de Azure NetApp Files con Azure VMware Solution (AVS)?
 
 El uso de volúmenes NFS o SMB de Azure NetApp Files con AVS se admite en las siguientes regiones: Este de EE. UU., Oeste de EE. UU., Oeste de Europa y Este de Australia.
+
+### <a name="does-azure-netapp-files-work-with-azure-policy"></a>¿Azure NetApp Files funciona con Azure Policy?
+
+Sí. Azure NetApp Files es un servicio de primera entidad. Se adhiere totalmente a los estándares del proveedor de recursos de Azure. Por lo tanto, Azure NetApp Files se puede integrar en Azure Policy a través de *definiciones de directiva personalizadas*. Para obtener información sobre cómo implementar directivas personalizadas para Azure NetApp Files, consulte [Azure Policy ya disponible para Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure/azure-policy-now-available-for-azure-netapp-files/m-p/2282258) en la comunidad tecnológica de Microsoft. 
 
 ## <a name="next-steps"></a>Pasos siguientes  
 

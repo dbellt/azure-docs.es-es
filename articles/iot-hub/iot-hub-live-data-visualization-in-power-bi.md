@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 6/08/2020
 ms.author: robinsh
-ms.openlocfilehash: 82caf13618fe8483ab8d3a622c6c0d51ab05a206
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 6ff0a0bb8bc1ca9b26968d002bb44d206c36e158
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177341"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483918"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualización de datos del sensor en tiempo real desde Azure IoT Hub mediante Power BI
 
@@ -22,24 +22,14 @@ ms.locfileid: "102177341"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-## <a name="what-you-learn"></a>Conocimientos que adquirirá
+En este artículo, aprenderá a visualizar los datos del sensor en tiempo real que la instancia de Azure IoT Hub recibe mediante Power BI. Si desea intentar visualizar los datos en su centro de IoT con una aplicación web, consulte el tema sobre el [uso de una aplicación web para visualizar datos del sensor en tiempo real desde Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
 
-Aprenderá a visualizar los datos del sensor en tiempo real que la instancia de Azure IoT Hub recibe mediante Power BI. Si desea intentar visualizar los datos en su centro de IoT con una aplicación web, consulte el tema sobre el [uso de una aplicación web para visualizar datos del sensor en tiempo real desde Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="what-you-do"></a>Qué debe hacer
-
-* Prepare el IoT Hub para el acceso a datos mediante la adición de un grupo de consumidores.
-
-* Cree, configure y ejecute un trabajo de Stream Analytics para la transferencia de datos desde su IoT Hub a su cuenta de Power BI.
-
-* Cree y publique un informe de Power BI para visualizar los datos.
-
-## <a name="what-you-need"></a>Lo que necesita
-
-* Completar el tutorial [Conectar el simulador en línea de Raspberry Pi a Azure IoT Hub (Node.js)](iot-hub-raspberry-pi-web-simulator-get-started.md) o uno de los tutoriales del dispositivo, por ejemplo, [Conectar Raspberry Pi a Azure IoT Hub (Node.js)](iot-hub-raspberry-pi-kit-node-get-started.md). Estos artículos abarcan los requisitos siguientes:
+* Realice el tutorial del [simulador en línea de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md), o bien uno de los tutoriales del dispositivo. Por ejemplo, puede ir a [Raspberry Pi con node.js](iot-hub-raspberry-pi-kit-node-get-started.md) o a uno de los inicios rápidos de [envío de telemetría](quickstart-send-telemetry-dotnet.md). Estos artículos abarcan los requisitos siguientes:
   
   * Una suscripción de Azure activa.
-  * Un centro de Azure IoT en su suscripción.
+  * Una instancia de Azure IoT Hub en la suscripción.
   * Una aplicación cliente que envía mensajes a su centro de Azure IoT.
 
 * Una cuenta de Power BI ([pruebe Power BI de manera gratuita](https://powerbi.microsoft.com/)).
@@ -84,7 +74,7 @@ Comencemos creando un trabajo de Stream Analytics. Después de crear el trabajo,
 
    **Punto de conexión**: seleccione **Mensajería**.
 
-   **Nombre de directiva de acceso compartido**: seleccione el nombre de la directiva de acceso compartido que quiera que utilice el trabajo de Stream Analytics para su centro de IoT. Para este tutorial, puede seleccionar *service*. La directiva *service* se crea de forma predeterminada en los centros de IoT nuevos y concede permiso de envío y recepción para los puntos de conexión de la nube que expone el centro de IoT. Para obtener más información, consulte el tema sobre [control de acceso y permisos](iot-hub-devguide-security.md#access-control-and-permissions).
+   **Nombre de directiva de acceso compartido**: seleccione el nombre de la directiva de acceso compartido que quiera que utilice el trabajo de Stream Analytics para su centro de IoT. Para este tutorial, puede seleccionar *service*. La directiva *service* se crea de forma predeterminada en los centros de IoT nuevos y concede permiso de envío y recepción para los puntos de conexión de la nube que expone el centro de IoT. Para obtener más información, consulte el tema sobre [control de acceso y permisos](iot-hub-dev-guide-sas.md#access-control-and-permissions).
 
    **Clave de directiva de acceso compartido**: este campo se rellena automáticamente en función de su selección de nombre de directiva de acceso compartido.
 

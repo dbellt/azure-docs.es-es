@@ -5,16 +5,16 @@ description: Creación de un recurso compartido de archivos de Azure mediante Az
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 1/20/2021
+ms.date: 04/05/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 24bee926d84c7a5be3f19c39d39285c2cd486824
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9caabb8dc7f09e4ef3852d9269d178c086744779
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211029"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789814"
 ---
 # <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de archivos de Azure
 Para crear un recurso compartido de archivos de Azure, debe responder a tres preguntas sobre cómo lo usará:
@@ -54,11 +54,11 @@ Para crear una cuenta de almacenamiento mediante Azure Portal, seleccione **+ Cr
 #### <a name="basics"></a>Aspectos básicos
 La primera sección que se debe rellenar para crear una cuenta de almacenamiento se denomina **Datos básicos**. Contiene todos los campos obligatorios para crear una cuenta de almacenamiento. Para crear una cuenta de almacenamiento de GPv2, asegúrese de que el botón de radio **Rendimiento** está establecido en *Estándar* y que la lista desplegable **Tipo de cuenta** tiene seleccionada la opción *StorageV2 (general purpose v2)* StorageV2 (uso general V2).
 
-![Captura de pantalla del botón de radio Rendimiento con la opción Estándar seleccionada y Tipo de cuenta con la opción StorageV2 seleccionada](media/storage-how-to-create-file-share/create-storage-account-1.png)
+:::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-performance-standard.png" alt-text="Captura de pantalla del botón de radio Rendimiento con la opción Estándar seleccionada y el Tipo de cuenta con la opción StorageV2 seleccionada.":::
 
-Para crear una cuenta de almacenamiento FileStorage, asegúrese de que el botón de radio **Rendimiento** está establecido en *Premium* y que la lista desplegable **Tipo de cuenta** tiene seleccionada la opción *FileStorage*.
+Para crear una cuenta de almacenamiento de FileStorage, asegúrese de que el botón de radio **Rendimiento** esté configurado en *Prémium* y **Fileshares** esté seleccionado en la lista desplegable **Tipo de cuenta prémium**.
 
-![Captura de pantalla del botón de radio Rendimiento con la opción Premium seleccionada y Tipo de cuenta con la opción FileStorage seleccionada](media/storage-how-to-create-file-share/create-storage-account-2.png)
+:::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-performance-premium.png" alt-text="Captura de pantalla del botón de radio Rendimiento con la opción Prémium seleccionada y el Tipo de cuenta con la opción FileStorage seleccionada.":::
 
 Los demás campos de datos básicos son independientes de la elección de la cuenta de almacenamiento:
 - **Nombre de la cuenta de almacenamiento**: nombre del recurso de la cuenta de almacenamiento que se va a crear. Este nombre debe ser único globalmente, pero puede ser cualquier nombre que desee. El nombre de la cuenta de almacenamiento se usará como el nombre del servidor al montar un recurso compartido de archivos de Azure a través de SMB.
@@ -75,9 +75,12 @@ La sección de protección de datos le permite configurar la directiva de elimin
 La sección Opciones avanzadas contiene varias opciones de configuración importantes para los recursos compartidos de archivos de Azure:
 
 - **Se requiere transferencia segura**: este campo indica si la cuenta de almacenamiento requiere cifrado en tránsito para la comunicación con la cuenta de almacenamiento. Si requiere compatibilidad con SMB 2.1, debe deshabilitarlo.
+
+    :::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-secure-transfer.png" alt-text="Captura de pantalla de la transferencia segura habilitada en la configuración avanzada de la cuenta de almacenamiento.":::
+
 - **Recursos compartidos de archivos grandes**: este campo habilita la cuenta de almacenamiento para los recursos compartidos de archivos de hasta 100 TiB. Al habilitar esta característica, se limita la cuenta de almacenamiento a las opciones de almacenamiento con redundancia local y redundancia de zona solamente. Una vez habilitada una cuenta de almacenamiento de GPv2 para los recursos compartidos de archivos grandes, no se puede deshabilitar la funcionalidad de recurso compartido de archivos grande. Las cuentas de almacenamiento de FileStorage (cuentas de almacenamiento para recursos compartidos de archivos prémium) no tienen esta opción, ya que todos los recursos compartidos de archivos prémium se pueden escalar hasta 100 TiB. 
 
-![Captura de pantalla de la configuración avanzada importante que se aplica a Azure Files](media/storage-how-to-create-file-share/create-storage-account-3.png)
+    :::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-large-file-shares.png" alt-text="Captura de pantalla de la configuración del recurso compartido de archivos grande en la hoja de opciones avanzadas de la cuenta de almacenamiento.":::
 
 Los demás valores de configuración que están disponibles en la pestaña Opciones avanzadas (espacio de nombres jerárquico para Azure Data Lake Storage Gen 2, nivel de blob predeterminado, NFSv3 para Blob Storage, etc.) no se aplican a Azure Files.
 
@@ -160,7 +163,7 @@ az storage account create \
 
 ---
 
-## <a name="create-file-share"></a>Creación de un recurso compartido de archivos
+## <a name="create-a-file-share"></a>Creación de un recurso compartido de archivos
 Una vez que haya creado su cuenta de almacenamiento, todo lo que queda es crear el recurso compartido de archivos. Este proceso es prácticamente el mismo, independientemente de si usa un recurso compartido de archivos prémium o un recurso compartido de archivos estándar. Debe tener en cuenta las siguientes diferencias.
 
 Los recursos compartidos de archivos estándar pueden implementarse en uno de los niveles estándar: optimizado para transacciones (valor predeterminado), acceso frecuente o acceso esporádico. Se trata de un nivel de recurso compartido de archivos que no se ve afectado por el **nivel de acceso de blob** de la cuenta de almacenamiento (esta propiedad solo se relaciona con Azure Blob Storage, no está relacionada con Azure Files). Puede cambiar el nivel del recurso compartido en cualquier momento una vez implementado. Los recursos compartidos de archivos prémium no se pueden convertir directamente a ningún nivel estándar.
@@ -175,9 +178,7 @@ La propiedad **quota** significa algo ligeramente distinto en los recursos compa
 - En el caso de recursos compartidos de archivos prémium, la cuota indica **tamaño aprovisionado**. El tamaño aprovisionado es la cantidad que se facturará, independientemente del uso real. Para obtener más información sobre cómo planear un recurso compartido de archivos prémium, consulte el tema sobre el [aprovisionamiento de recursos compartidos de archivos prémium](understanding-billing.md#provisioned-model).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Si acaba de crear la cuenta de almacenamiento, puede navegar a esta desde la pantalla de implementación. Para ello, seleccione **Ir al recurso**. Una vez en la cuenta de almacenamiento, seleccione el icono con la etiqueta **Recursos compartidos de archivos** (también puede navegar a **Recursos compartidos de archivos** a través de la tabla de contenido de la cuenta de almacenamiento).
-
-![Captura de pantalla del icono Recursos compartidos de archivos](media/storage-how-to-create-file-share/create-file-share-1.png)
+Si acaba de crear la cuenta de almacenamiento, puede navegar a esta desde la pantalla de implementación. Para ello, seleccione **Ir al recurso**. Una vez en la cuenta de almacenamiento, seleccione **Recurso compartido de archivos** en la tabla de contenido de la cuenta de almacenamiento.
 
 En la lista de recursos compartidos de archivos, debería ver los recursos compartidos de archivos creados previamente en esta cuenta de almacenamiento; se muestra una tabla vacía si aún no se han creado recursos compartidos de archivos. Seleccione **+ Recurso compartido de archivos** para crear un recurso compartido de archivos.
 
@@ -235,13 +236,13 @@ az storage share-rm create \
 > [!Note]  
 > El nombre del recurso compartido de archivos debe estar en minúsculas. Para obtener detalles completos sobre cómo asignar un nombre a los recursos compartidos y los archivos, consulte [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
-### <a name="changing-the-tier-of-an-azure-file-share"></a>Cambio del nivel de un recurso compartido de archivos de Azure
+### <a name="change-the-tier-of-an-azure-file-share"></a>Cambio del nivel de un recurso compartido de archivos de Azure
 Los recursos compartidos de archivos que se implementan en una **cuenta de almacenamiento de uso general v2 (GPv2)** pueden pertenecer a los niveles optimizado para transacciones, de acceso frecuente o de acceso esporádico. Puede cambiar el nivel del recurso compartido de archivos de Azure en cualquier momento, en función de los costos de las transacciones, tal como se ha descrito anteriormente.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 En la página de la cuenta de almacenamiento principal, seleccione **Recursos compartidos de archivos**, seleccione el icono con la etiqueta **Recursos compartidos de archivos** (también puede navegar a **Recursos compartidos de archivos** a través de la tabla de contenido de la cuenta de almacenamiento).
 
-![Captura de pantalla del icono Recursos compartidos de archivos](media/storage-how-to-create-file-share/create-file-share-1.png)
+:::image type="content" source="media/storage-files-quick-create-use-windows/click-files.png" alt-text="Captura de pantalla de la hoja de la cuenta de almacenamiento, con los recursos compartidos de archivos seleccionados.":::
 
 En la lista de tabla de recursos compartidos de archivos, seleccione el recurso para el que desea cambiar el nivel. En la página información general del recurso compartido de archivos, seleccione **Cambiar nivel** en el menú.
 
@@ -276,6 +277,6 @@ az storage share-rm update \
 ---
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Planeamiento de una implementación de Azure Files](storage-files-planning.md) o [una implementación de Azure File Sync](storage-sync-files-planning.md). 
+- [Planeamiento de una implementación de Azure Files](storage-files-planning.md) o [una implementación de Azure File Sync](../file-sync/file-sync-planning.md). 
 - [Introducción a las redes](storage-files-networking-overview.md).
 - Conexión y montaje de un recurso compartido de archivos en [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md) y [Linux](storage-how-to-use-files-linux.md).

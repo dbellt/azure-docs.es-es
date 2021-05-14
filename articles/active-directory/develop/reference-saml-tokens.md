@@ -13,12 +13,12 @@ ms.date: 03/29/2021
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: f636b8ec04d151c855112102421dd2df0ccb6ff8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c23028e4cbbeb7e92fd8b0a7fb6b6b81a54a0806
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932886"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132240"
 ---
 # <a name="saml-token-claims-reference"></a>Referencia de notificaciones de token SAML
 
@@ -34,7 +34,7 @@ La plataforma de identidad de Microsoft emite varios tipos de tokens de segurida
 > |Método de autenticación | `amr` |Identifica cómo se autenticó el firmante del token. | `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` |
 > |Nombre | `given_name` |Proporciona el nombre de pila o "dado" del usuario, tal como se establece en el objeto de usuario de Azure AD. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">`<br>`<AttributeValue>Frank<AttributeValue>`  |
 > |Grupos | `groups` |Proporciona identificadores de objeto que representan la pertenencia al grupo del firmante. Estos valores son únicos (vea el id. de objeto) y se pueden usar de forma segura para administrar el acceso, por ejemplo, para exigir autorización para tener acceso a un recurso. Los grupos incluidos en la notificación de grupos se configuran por aplicación mediante la propiedad "groupMembershipClaims" del manifiesto de aplicación. Un valor NULL excluirá todos los grupos, un valor de "SecurityGroup" incluirá únicamente la pertenencia a grupos de seguridad de Active Directory y un valor de "All" incluirá grupos de seguridad y listas de distribución de Microsoft 365. <br><br> **Notas**: <br> Si el número de grupos en los que el usuario está supera un límite (150 para SAML, 200 para JWT), se agregará una notificación de uso por encima del límite a los orígenes de notificaciones que apuntan al punto de conexión de Graph que contiene la lista de grupos del usuario. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` |
-> | Indicador de uso por encima del límite de los grupos | `groups:src1` | Para las solicitudes de tokens que no tengan limitación de longitud, pero que todavía sean demasiado grandes para el token, se incluirá un vínculo a la lista completa de grupos del usuario. Para SAML esto se agregará como una nueva notificación en lugar de la notificación `groups`. <br><br> **Notas**: <br> Graph API de Azure AD se va a reemplazar por Microsoft Graph API. Para más información sobre el punto de conexión equivalente, consulte [user: getMemberObjects](https://docs.microsoft.com/graph/api/user-getmemberobjects). | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
+> | Indicador de uso por encima del límite de los grupos | `groups:src1` | Para las solicitudes de tokens que no tengan limitación de longitud, pero que todavía sean demasiado grandes para el token, se incluirá un vínculo a la lista completa de grupos del usuario. Para SAML esto se agregará como una nueva notificación en lugar de la notificación `groups`. <br><br> **Notas**: <br> Graph API de Azure AD se va a reemplazar por Microsoft Graph API. Para más información sobre el punto de conexión equivalente, consulte [user: getMemberObjects](/graph/api/user-getmemberobjects). | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
 > |Proveedor de identidades | `idp` |Registra el proveedor de identidades que autenticó al firmante del token. Este valor es idéntico al valor de la notificación del emisor, a menos que la cuenta de usuario esté en un inquilino diferente que el emisor. | `<Attribute Name=" http://schemas.microsoft.com/identity/claims/identityprovider">`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` |
 > |IssuedAt | `iat` |Almacena la hora a la que se emitió el token. A menudo se usa para medir la actualización de tokens. | `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` |
 > |Emisor | `iss` |Identifica el servicio de token de seguridad (STS) que construye y devuelve el token. En los tokens que devuelve Azure AD, el emisor es sts.windows.net. El GUID en el valor de notificación del emisor es el id. de inquilino del directorio de Azure AD. El id. de inquilino es un identificador inmutable y confiable del directorio. | `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` |

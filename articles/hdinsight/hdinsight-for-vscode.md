@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: d098af394906dc120a252bdcda65fb3af31e28c8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d7e2bd2987e7eaf7798093f3918f72b7e09a3cb0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104865798"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313483"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Usar las herramientas Spark y Hive para Visual Studio Code
 
@@ -265,7 +265,7 @@ La herramienta también admite la consulta **Spark SQL**:
 
 > [!NOTE]
 >
-> Se ha resuelto el problema ["Las versiones de ms-python a partir de 2020.5.78807 no se admiten en esta extensión"](#issues-changed). Actualice ahora **ms-python** a la **versión más reciente**.
+> [La versión ms-toolsai.jupyter >2021.3.684299474 no se admite en esta extensión](#known-issues). Esto es un problema conocido. Use el kernel de Synapse adhiriéndose a Microsoft Jupyter 2021.3.684299474.
 
 ## <a name="submit-pyspark-batch-job"></a>Enviar trabajo por lotes de PySpark
 
@@ -372,7 +372,7 @@ Envíe un archivo y observe que la carpeta `.vscode` se agrega automáticamente 
 
   | name | description | type |
   | --- | ---| --- |
-  | ID | Identificador de sesión | Int |
+  | id | Identificador de sesión | Int |
   | appId | Id. de aplicación de esta sesión | String |
   | appInfo | Información detallada de la aplicación | Mapa de clave=valor |
   | log | Líneas de registro | Lista de cadenas |
@@ -485,9 +485,19 @@ Envíe un trabajo a un clúster de HDInsight con Data Lake Storage Gen2. Se le p
 
 En la barra de menús, vaya a **Vista** > **Paleta de comandos** y escriba **Azure: Sign Out** (Cerrar sesión).
 
-## <a name="issues-changed"></a>Incidencias modificadas
+## <a name="known-issues"></a>Problemas conocidos 
 
-Se ha resuelto la incidencia "Las versiones de ms-python a partir de 2020.5.78807 no se admiten en esta extensión", actualice ahora **ms-python** a la **versión más reciente**.
+ La versión ms-toolsai.jupyter >2021.3.684299474 no se admite en esta extensión; use el kernel de Synapse adhiriéndose a Microsoft Jupyter 2021.3.684299474.
+
+ 1. Deshabilite la extensión de actualización automática.
+
+      ![deshabilitar la extensión de actualización automática](./media/hdinsight-for-vscode/disable-auto-updating-extension.png)
+
+2. Instale una versión seleccionada de Microsoft Jupyter.
+
+      ![versión seleccionada de microsoft jupyter](./media/hdinsight-for-vscode/selected-version-of-microsoft-jupyter.png)
+
+3. Instalación de Microsoft Jupyter, versión 2021.3.684299474
 
 
 ## <a name="next-steps"></a>Pasos siguientes

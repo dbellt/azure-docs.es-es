@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74bfa4987f584bbd3490bc5f4f187dee5bc1bd87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22a5388d15b18180539eb95990a29f7ddf4f1951
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646289"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739555"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Acceso condicional para usuarios de colaboración B2B
 
@@ -67,7 +67,7 @@ El inquilino de recursos siempre es responsable de la ejecución de Azure AD Mu
 6. Fabrikam debe tener suficientes licencias Prémium de Azure AD que admitan Azure AD Multi-Factor Authentication. El usuario de Contoso consume esta licencia de Fabrikam. Consulte el [modelo de facturación para Azure AD External Identities](./external-identities-pricing.md) para información sobre las licencias de B2B.
 
 >[!NOTE]
->La comprobación de Azure AD Multi-Factor Authentication se realiza en el inquilino de recursos para garantizar la previsibilidad.
+>La comprobación de Azure AD Multi-Factor Authentication se realiza en el inquilino de recursos para garantizar la previsibilidad. Cuando el usuario invitado inicie sesión, verá la página de inicio de sesión del inquilino de recursos en segundo plano, y su propia página de inicio de sesión del inquilino principal y el logotipo de la empresa en primer plano.
 
 ### <a name="set-up-azure-ad-multi-factor-authentication-for-b2b-users"></a>Configuración de Azure AD Multi-Factor Authentication para usuarios de B2B
 

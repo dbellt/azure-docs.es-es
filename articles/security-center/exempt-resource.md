@@ -3,16 +3,16 @@ title: Exención de una recomendación de Azure Security Center de un recurso, u
 description: Obtenga información sobre cómo crear reglas para excluir las recomendaciones de seguridad de las suscripciones o los grupos de administración y evitar que afecten a la puntuación de seguridad.
 author: memildin
 ms.author: memildin
-ms.date: 03/11/2021
+ms.date: 04/21/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d545610b8fa13d0c0f8b91bf92107d53b81454c3
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: f125b94725ba9d34aa0962ed38b16fb474dc5b2b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313851"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140252"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Exención de recursos y recomendaciones de la puntuación de seguridad 
 
@@ -35,7 +35,7 @@ En tales casos, puede crear una exención para una recomendación para:
 | Estado de la versión:                  | Versión preliminar<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                                                                                                                                                                                                             |
 | Precios:                        | Se trata de una funcionalidad prémium de Azure Policy que se ofrece a los clientes de Azure Defender sin costo adicional. En el caso de otros usuarios, pueden aplicarse cargos en el futuro.                                                                                                                                                                 |
 | Roles y permisos necesarios: | **Propietario** o **Colaborador de la directiva de recursos** para crear una exención<br>Para crear una regla, necesita permisos para editar directivas en Azure Policy.<br>Obtenga más información en [Permisos de Azure RBAC en Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
-| Limitaciones:                    | Solo se pueden crear exenciones para las recomendaciones incluidas en la iniciativa predeterminada de Azure Security Center, Azure Security Benchmark o cualquiera de las iniciativas normativas estándar proporcionadas. No se pueden crear exenciones para las recomendaciones que se generan a partir de iniciativas personalizadas. Obtenga más información sobre las relaciones entre [directivas, iniciativas y recomendaciones](security-policy-concept.md). |
+| Limitaciones:                    | Solo se pueden crear exenciones para las recomendaciones incluidas en la iniciativa predeterminada de Azure Security Center, [Azure Security Benchmark](/security/benchmark/azure/introduction) o cualquiera de las iniciativas normativas estándar proporcionadas. No se pueden crear exenciones para las recomendaciones que se generan a partir de iniciativas personalizadas. Obtenga más información sobre las relaciones entre [directivas, iniciativas y recomendaciones](security-policy-concept.md). |
 | Nubes:                         | ![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)                                                                                                                                                                                         |
 |                                 |                                                                                                                                                                                                                                                                                                                                    |
 
@@ -117,6 +117,14 @@ Para realizar un seguimiento de cómo los usuarios están ejerciendo esta funcio
 - Para más información sobre los cuadernos de estrategias, vea la entrada de blog de la comunidad tecnológica [Seguimiento de las exenciones de recursos en Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580).
 - Encontrará la plantilla de ARM en el [repositorio de GitHub de Azure Security Center](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption).
 - Para implementar todos los componentes necesarios, [use este proceso automatizado](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json).
+
+## <a name="use-the-inventory-to-find-resources-that-have-exemptions-applied"></a>Uso del inventario para buscar recursos a los que se han aplicado exenciones
+
+La página de inventario de recursos de Azure Security Center proporciona una sola página para ver la posición de seguridad de los recursos que se han conectado a Security Center. Más información en [Exploración y administración de los recursos con Asset Inventory](asset-inventory.md).
+
+La página de inventario incluye muchos filtros que le permiten restringir la lista de recursos a los que más le interesen en un escenario determinado. Uno de estos filtros es **Contains exemptions** (Contiene exenciones). Use este filtro para buscar todos los recursos que se han eximido de una o varias recomendaciones.
+
+:::image type="content" source="media/exempt-resource/inventory-filter-exemptions.png" alt-text="Página de inventario de recursos de Security Center y el filtro para buscar recursos con exenciones":::
 
 
 ## <a name="find-recommendations-with-exemptions-using-azure-resource-graph"></a>Uso de Azure Resource Graph para encontrar recomendaciones con exenciones

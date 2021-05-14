@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/11/2021
+ms.date: 04/27/2021
 ms.author: jeedes
-ms.openlocfilehash: a1e62dfd89ccd23ef950767d883fde80f1a5ca26
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98e6290041573adb4dba0dced5268caacae47017
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104953262"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162819"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-truechoice"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con TrueChoice
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar TrueChoice con Azure Active Directory (A
 * Permitir que los usuarios inicien sesión automáticamente en TrueChoice con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -90,19 +90,12 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. La aplicación TrueChoice espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
-    ![imagen](common/default-attributes.png)
-
-1. Además de lo anterior, la aplicación TrueChoice espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
-    
-    | Nombre |  Atributo de origen|
-    | ----------------- | --------- |
-    | country | user.country |
-    | name | user.displayname |
-    |
+    ![imagen](./media/truechoice-tutorial/default-attributes.png)
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
     ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.

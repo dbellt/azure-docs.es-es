@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/12/2020
-ms.openlocfilehash: 1489ce74da2ecff5212feb5a1a2e3c9151b73424
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2bf30e636fc1bf1031f6c379a998979d92909b81
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94555590"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107890499"
 ---
 # <a name="convert-to-image-directory"></a>Conversión al directorio de imagen
 
@@ -36,7 +36,7 @@ En este artículo se describe cómo usar el módulo Conversión al directorio de
     Your_image_folder_name/Category_2/asd932_.png
     ```
     
-    En la carpeta Image DataSet, hay varias subcarpetas. Cada subcarpeta contiene imágenes de una categoría, respectivamente. Los nombres de las subcarpetas se consideran etiquetas para tareas como la clasificación de imágenes. Consulte el artículo sobre los [conjuntos de datos de Torchvision](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) para obtener más información.
+    En la carpeta Image DataSet, hay varias subcarpetas. Cada subcarpeta contiene imágenes de una categoría, respectivamente. Los nombres de las subcarpetas se consideran etiquetas para tareas como la clasificación de imágenes. Consulte el artículo sobre los [conjuntos de datos de Torchvision](https://pytorch.org/vision/stable/datasets.html#imagefolder) para obtener más información.
 
     > [!WARNING]
     > En el diseñador no se admiten los conjuntos de datos etiquetados actualmente exportados desde el etiquetado de datos.

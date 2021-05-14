@@ -5,13 +5,13 @@ tags: azure-service-management
 ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 07/07/2020
-ms.custom: mvc
-ms.openlocfilehash: 61ce290f8ed5e8ad919a253d426d3278233caa3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 61283cac5f9b0c4e720732ec5d9d019eeb89198c
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98747296"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891003"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Ejemplos de la CLI para Azure App Service
 

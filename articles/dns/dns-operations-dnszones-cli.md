@@ -1,6 +1,6 @@
 ---
 title: Administración de zonas DNS en Azure DNS - CLI de Azure | Microsoft Docs
-description: Puede administrar zonas DNS con CLI de Azure. Este artículo muestra cómo actualizar, eliminar y crear zonas DNS en Azure DNS.
+description: Puede administrar zonas DNS con CLI de Azure. En este artículo se muestra cómo actualizar, eliminar y crear zonas DNS en Azure DNS.
 services: dns
 documentationcenter: na
 author: rohinkoul
@@ -9,15 +9,15 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2017
+ms.date: 04/28/2021
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5d902e0172a048527ce8f2fa9e22c5fc9bf22e0b
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 871fa6456847655f4e75ddf8e145a2423715dd08
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102203630"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108203350"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Cómo administrar zonas DNS en Azure DNS con la CLI de Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "102203630"
 > * [CLI de Azure](dns-operations-dnszones-cli.md)
 
 
-Esta guía muestra cómo administrar las zonas DNS mediante la CLI de Azure multiplataforma, que está disponible para Windows, Mac y Linux. También puede administrar sus zonas DNS mediante [Azure PowerShell](dns-operations-dnszones.md) o Azure Portal.
+En este artículo se muestra cómo administrar las zonas DNS mediante la CLI de Azure multiplataforma. La CLI de Azure está disponible para Windows, Mac y Linux. También puede administrar sus zonas DNS mediante [Azure PowerShell](dns-operations-dnszones.md) o Azure Portal.
 
 Esta guía trata específicamente con las zonas DNS públicas. Para más información acerca del uso de CLI de Azure para administrar zonas privadas en Azure DNS, consulte [Creación de una zona privada de Azure DNS mediante la CLI de Azure](private-dns-getstarted-cli.md).
 
@@ -63,23 +63,24 @@ az account list
 
 Elección de la suscripción de Azure que se va a usar.
 
-```azurecli
+```azurecli-interactive
 az account set --subscription "subscription name"
 ```
 
 ### <a name="optional-to-installuse-azure-dns-private-zones-feature"></a>Opcional: Instalar o usar la característica Azure DNS Private Zones
 La característica Azure DNS Private Zones está disponible en una extensión de la CLI de Azure. Instale la extensión de la CLI de Azure de "dns" 
+
 ```
 az extension add --name dns
 ``` 
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Azure Resource Manager requiere que todos los grupos de recursos especifiquen una ubicación. Esta se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Sin embargo, puesto que todos los recursos DNS son globales y no regionales, la elección de la ubicación del grupo de recursos no incide en DNS de Azure.
+Azure Resource Manager requiere que los grupos de recursos tengan una ubicación especificada. Esta ubicación se usa como ubicación predeterminada para los recursos de ese grupo. Puesto que todos los recursos DNS son globales, la elección de la ubicación del grupo de recursos no tiene ningún efecto en Azure DNS.
 
-Puede omitir este paso si utiliza un grupo de recursos existente.
+Si utiliza un grupo de recursos existente, puede omitir este paso.
 
-```azurecli
+```azurecli-interactive
 az group create --name myresourcegroup --location "West US"
 ```
 
@@ -87,7 +88,7 @@ az group create --name myresourcegroup --location "West US"
 
 Los comandos de la CLI de Azure relacionados con Azure DNS comienzan por `az network dns`. La ayuda está disponible para cada comando con la opción `--help` (formato abreviado `-h`).  Por ejemplo:
 
-```azurecli
+```azurecli-interactive
 az network dns --help
 az network dns zone --help
 az network dns zone create --help
@@ -99,7 +100,7 @@ Una zona DNS se crea con el comando `az network dns zone create` . Para obtener 
 
 En el ejemplo siguiente, se crea una zona DNS llamada *contoso.com* en el grupo de recursos *MyResourceGroup*:
 
-```azurecli
+```azurecli-interactive
 az network dns zone create --resource-group MyResourceGroup --name contoso.com
 ```
 
@@ -107,7 +108,7 @@ az network dns zone create --resource-group MyResourceGroup --name contoso.com
 
 En el ejemplo siguiente se muestra cómo crear una zona DNS con dos [etiquetas de Azure Resource Manager](dns-zones-records.md#tags), *project = demo* y *env = test*, con el parámetro `--tags` (forma abreviada `-t`):
 
-```azurecli
+```azurecli-interactive
 az network dns zone create --resource-group MyResourceGroup --name contoso.com --tags "project=demo" "env=test"
 ```
 
@@ -117,7 +118,7 @@ Para recuperar una zona DNS, use `az network dns zone show`. Para obtener ayuda,
 
 El ejemplo siguiente devuelve la zona DNS *contoso.com* y sus datos asociados del grupo de recursos *MyResourceGroup*. 
 
-```azurecli
+```azurecli-interactive
 az network dns zone show --resource-group myresourcegroup --name contoso.com
 ```
 
@@ -143,8 +144,7 @@ El ejemplo siguiente es la respuesta.
 }
 ```
 
-Tenga en cuenta que `az network dns zone show` no devuelve los registros DNS. Para enumerar los registros DNS, utilice `az network dns record-set list`.
-
+Para enumerar los registros DNS, utilice `az network dns record-set list`.
 
 ## <a name="list-dns-zones"></a>Enumeración de zonas DNS
 
@@ -152,13 +152,13 @@ Para enumerar las zonas DNS, utilice `az network dns zone list`. Para obtener ay
 
 Si se especifica el grupo de recursos, se enumeran solo esas zonas dentro del grupo de recursos:
 
-```azurecli
+```azurecli-interactive
 az network dns zone list --resource-group MyResourceGroup
 ```
 
 Si se omite el grupo de recursos, se enumeran todas las zonas en la suscripción:
 
-```azurecli
+```azurecli-interactive
 az network dns zone list 
 ```
 
@@ -170,7 +170,7 @@ Este comando no actualiza los conjuntos de registros DNS de la zona (consulte [A
 
 En el ejemplo siguiente se muestra cómo actualizar las etiquetas en una zona DNS. Las etiquetas existentes se reemplazan por el valor especificado.
 
-```azurecli
+```azurecli-interactive
 az network dns zone update --resource-group myresourcegroup --name contoso.com --set tags.team=support
 ```
 
@@ -187,7 +187,7 @@ Este comando solicita confirmación. El modificador `--yes` opcional suprime est
 
 En el ejemplo siguiente se muestra cómo eliminar la zona *contoso.com* del grupo de recursos *MyResourceGroup*.
 
-```azurecli
+```azurecli-interactive
 az network dns zone delete --resource-group myresourcegroup --name contoso.com
 ```
 

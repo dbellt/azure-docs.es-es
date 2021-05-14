@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 4535e6bf11f8c2abf20b1b323925c3fc3299d362
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3debd58aadb98ab1e78692411e8d0bb66635f0da
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90971777"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279305"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Creación de plantillas de Azure Resource Manager para automatizar la implementación de Azure Logic Apps
 
 Para ayudarle a automatizar la creación e implementación de su aplicación lógica, en este artículo se describen las formas en que puede crear una [plantilla de Azure Resource Manager](../azure-resource-manager/management/overview.md) para la aplicación lógica. Para obtener información general sobre la estructura y la sintaxis de una plantilla que incluye la definición de flujo de trabajo y otros recursos necesarios para la implementación, consulte [Introducción: Implementación automatizada de aplicaciones lógicas con plantillas de Azure Resource Manager](logic-apps-azure-resource-manager-templates-overview.md).
 
-Azure Logic Apps proporciona una [plantilla precompilada de Azure Resource Manager para aplicaciones lógicas](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) que puede reutilizar no solo para crear aplicaciones lógicas, sino también para definir los recursos y parámetros que desea usar para la implementación. Puede usar esta plantilla para sus propios escenarios empresariales o personalizar para satisfacer sus requisitos.
+Azure Logic Apps proporciona una [plantilla precompilada de Azure Resource Manager para aplicaciones lógicas](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json) que puede reutilizar no solo para crear aplicaciones lógicas, sino también para definir los recursos y parámetros que desea usar para la implementación. Puede usar esta plantilla para sus propios escenarios empresariales o personalizar para satisfacer sus requisitos.
 
 > [!IMPORTANT]
 > Asegúrese de que las conexiones de la plantilla usen el mismo grupo de recursos y la misma ubicación de Azure que la aplicación lógica.

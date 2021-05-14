@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b2c77c20bfb6fff60f2242d1ac2dad7b3fc9f6fe
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 5c299bc88331c05c89273756ebaf377ee1378199
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107796291"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124462"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configuración del proxy y el firewall de Azure File Sync
 Azure File Sync conecta los servidores locales a Azure Files, lo que permite sincronizar las características de niveles de nube y de sincronización multisitio. Por lo tanto, un servidor local debe estar conectado a Internet. Un administrador de TI tiene que decidir cuál es la mejor ruta de acceso para que el servidor acceda a los servicios en la nube de Azure.
@@ -97,7 +97,7 @@ Para configurar los valores de proxy en el nivel de máquina, siga estos pasos:
 2. Establecimiento de la configuración del proxy WinHTTP 
 
    > [!Note]  
-   > Hay varios métodos (WPAD, archivo PAC, netsh, etc.) para configurar Windows Server con el fin de usar un servidor proxy. En los siguientes pasos se explica cómo configurar el proxy mediante netsh, pero se admite cualquier método que figure en la documentación [Configuración del servidor proxy en Windows](https://docs.microsoft.com/troubleshoot/windows-server/networking/configure-proxy-server-settings).
+   > Hay varios métodos (WPAD, archivo PAC, netsh, etc.) para configurar Windows Server con el fin de usar un servidor proxy. En los siguientes pasos se explica cómo configurar el proxy mediante netsh, pero se admite cualquier método que figure en la documentación [Configuración del servidor proxy en Windows](/troubleshoot/windows-server/networking/configure-proxy-server-settings).
 
 
    - Ejecute el siguiente comando desde un símbolo del sistema con privilegios elevados o PowerShell para ver la configuración del proxy existente:   

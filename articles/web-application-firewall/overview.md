@@ -4,19 +4,21 @@ description: En este artículo se proporciona una introducción al firewall de a
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 03/18/2020
+ms.date: 05/11/2021
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 49024c86d09f5cdd9e8b04d5a49f60021660b0c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7bcaf46ef6860a9546179b86d6293d24c0064c0c
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "79475794"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751534"
 ---
 # <a name="what-is-azure-web-application-firewall"></a>¿Qué es el firewall de aplicaciones web de Azure?
 
 El firewall de aplicaciones web (WAF) ofrece una protección centralizada de las aplicaciones web contra las vulnerabilidades de seguridad más habituales. Las aplicaciones web son cada vez más el objetivo de ataques malintencionados que aprovechan vulnerabilidades habitualmente conocidas. Los scripts entre sitios y las inyecciones de código SQL están dentro de los ataques más comunes.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWCwkM]
 
 ![Introducción a WAF](media/overview/wafoverview.png)
 

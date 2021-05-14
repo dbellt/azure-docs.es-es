@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69e87fc919893a544f5d0b1b615a110f25486e57
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 23598a3901e23290b860b9b0ab280710aab9b9b6
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96168753"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175845"
 ---
 # <a name="header-based-authentication-with-azure-active-directory"></a>Autenticación basada en encabezados con Azure Active Directory
 
@@ -48,7 +48,7 @@ Los usuarios remotos necesitan un inicio de sesión único (SSO) de forma segura
 
 ## <a name="implement-header-based-authentication-with-azure-ad"></a>Implementación de la autenticación basada en encabezados con Azure AD
 
-* [Adición de una aplicación local para el acceso remoto mediante Application Proxy en Azure AD](../manage-apps/application-proxy-add-on-premises-application.md)  
+* [Adición de una aplicación local para el acceso remoto mediante Application Proxy en Azure AD](../app-proxy/application-proxy-add-on-premises-application.md)  
 
 * [Autenticación basada en el encabezado para el inicio de sesión único con el proxy de aplicación y PingAccess](../manage-apps/application-proxy-configure-single-sign-on-with-headers.md) 
 

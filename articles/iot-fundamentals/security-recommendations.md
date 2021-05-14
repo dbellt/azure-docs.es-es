@@ -12,12 +12,12 @@ ms.custom:
 - security-recommendations
 - amqp
 - mqtt
-ms.openlocfilehash: a1de3a71253b1a82b4423bff279fbf3f7e378da4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eeb8a8132b905254c02c86460c376d69948b9264
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96457606"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481416"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Recomendaciones de seguridad para la implementación de Azure Internet of Things (IoT)
 
@@ -40,14 +40,14 @@ Algunas de las recomendaciones incluidas en este artículo se pueden supervisar 
 
 | Recomendación | Comentarios | Compatible con ASC |
 |-|----|--|
-| Defina el control de acceso para el centro | [Comprenda y defina el tipo de acceso](iot-security-deployment.md#securing-the-cloud) que tendrá cada componente en su solución de IoT Hub, según la funcionalidad. Los permisos permitidos son *Registry Read*, *RegistryReadWrite*, *ServiceConnect* y *DeviceConnect*. Las [directivas de acceso compartido en el centro de IoT](../iot-hub/iot-hub-devguide-security.md#access-control-and-permissions) predeterminadas también pueden ayudarle a definir los permisos para cada componente según su rol. | - |
+| Defina el control de acceso para el centro | [Comprenda y defina el tipo de acceso](iot-security-deployment.md#securing-the-cloud) que tendrá cada componente en su solución de IoT Hub, según la funcionalidad. Los permisos permitidos son *Registry Read*, *RegistryReadWrite*, *ServiceConnect* y *DeviceConnect*. Las [directivas de acceso compartido en el centro de IoT](../iot-hub/iot-hub-dev-guide-sas.md#access-control-and-permissions) predeterminadas también pueden ayudarle a definir los permisos para cada componente según su rol. | - |
 | Defina el control de acceso para los servicios de back-end | Los datos que introduce la solución de IoT Hub pueden aprovecharse en otros servicios de Azure, como, por ejemplo, [Cosmos DB](../cosmos-db/index.yml), [Stream Analytics](../stream-analytics/index.yml), [App Service](../app-service/index.yml), [Logic Apps](../logic-apps/index.yml) y [Blob Storage](../storage/blobs/storage-blobs-introduction.md). Asegúrese de comprender y conceder los permisos de acceso adecuados tal como se documenta para estos servicios. | - |
 
 ## <a name="data-protection"></a>Protección de los datos
 
 | Recomendación | Comentarios | Compatible con ASC |
 |-|----|--|
-| Autenticación de dispositivos segura | Garantice una comunicación segura entre sus dispositivos y el centro de IoT, ya sea mediante [una clave de identidad única o un token de seguridad](iot-security-deployment.md#iot-hub-security-tokens) o bien mediante [un certificado X.509 en el dispositivo](iot-security-deployment.md#x509-certificate-based-device-authentication) para cada uno de los dispositivos. Utilice el método adecuado para [utilizar tokens de seguridad basados en el protocolo elegido (MQTT, AMQP o HTTPS)](../iot-hub/iot-hub-devguide-security.md). | - |
+| Autenticación de dispositivos segura | Garantice una comunicación segura entre sus dispositivos y el centro de IoT, ya sea mediante [una clave de identidad única o un token de seguridad](iot-security-deployment.md#iot-hub-security-tokens) o bien mediante [un certificado X.509 en el dispositivo](iot-security-deployment.md#x509-certificate-based-device-authentication) para cada uno de los dispositivos. Utilice el método adecuado para [utilizar tokens de seguridad basados en el protocolo elegido (MQTT, AMQP o HTTPS)](../iot-hub/iot-hub-dev-guide-sas.md). | - |
 | Comunicación segura con los dispositivos | IoT Hub protege la conexión con los dispositivos mediante el estándar de seguridad de la capa de transporte (TLS), cuyas versiones admitidas son 1.2 y 1.0. Use [TLS 1.2](https://tools.ietf.org/html/rfc5246) para garantizar la máxima seguridad. | - |
 | Comunicación segura del servicio | IoT Hub proporciona puntos de conexión para conectarse a servicios back-end como, por ejemplo, [Azure Storage](../storage/index.yml) o [Event Hubs](../event-hubs/index.yml), usando únicamente el protocolo TLS, de forma que ningún punto de conexión se expone en un canal no cifrado. Una vez que estos datos lleguen a estos servicios de back-end para el almacenamiento o el análisis, asegúrese de emplear los métodos de seguridad y cifrado adecuados para ese servicio y de proteger la información confidencial en el back-end. | - |
 

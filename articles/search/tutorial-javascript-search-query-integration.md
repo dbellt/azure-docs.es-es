@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial de JavaScript: Aspectos destacados de la integración de búsqueda'
 titleSuffix: Azure Cognitive Search
-description: Descripción de las consultas de búsqueda del SDK para JavaScript usadas en el sitio web con la búsqueda habilitada
+description: Descripción de las consultas de integración de funcionalidad de búsqueda del SDK de JavaScript utilizadas en un sitio web habilitado para la búsqueda mediante esta hoja de referencia rápida.
 manager: nitinme
 author: diberry
 ms.author: diberry
@@ -10,16 +10,20 @@ ms.topic: tutorial
 ms.date: 03/09/2021
 ms.custom: devx-track-js
 ms.devlang: javascript
-ms.openlocfilehash: cf4e1b1ecf209b587a45ca4c43607bfa95155aee
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: f6c23c7b0870fe8caed1f82e8ce102539aa2e950
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104723560"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950232"
 ---
-# <a name="4---search-integration-highlights"></a>Cuadro aspectos destacados de la integración de búsqueda
+# <a name="4---javascript-search-integration-cheat-sheet"></a>4\. Hoja de información rápida de integración de funcionalidad de búsqueda de JavaScript
 
 En las lecciones anteriores, agregó la búsqueda a una aplicación web estática. En esta lección se resaltan los pasos esenciales que establecen la integración. Si busca una hoja de referencia rápida sobre cómo integrar la búsqueda en su aplicación de JavaScript, en este artículo se explica lo que necesita saber.
+
+La aplicación está disponible: 
+* [Ejemplo](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website)
+* [Sitio web de demostración: aka.ms/azs-good-books](https://aka.ms/azs-good-books)
 
 ## <a name="azure-sdk-azuresearch-documents"></a>@azure/search-documents de SDK de Azure 
 

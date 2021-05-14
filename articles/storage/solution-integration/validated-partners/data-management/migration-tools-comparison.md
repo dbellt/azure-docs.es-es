@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/31/2021
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 862feace6aab4f49ad3482c4ccd6510669c876a1
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: a1772179313a2465200fc1d6a2cccef836067dde
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107576540"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146606"
 ---
 # <a name="comparison-matrix"></a>Tabla comparativa
 
@@ -22,7 +22,7 @@ En la siguiente matriz de comparación se muestra la funcionalidad básica de la
 
 |    | [Microsoft](https://www.microsoft.com/) | [Datadobi](https://www.datadobi.com) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
-|  **Nombre de la solución**  | [Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview)              | [Movilidad y migración de datos](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Administración de datos inteligentes](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
+|  **Nombre de la solución**  | [Azure File Sync](../../../file-sync/file-sync-deployment-guide.md) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview)              | [Movilidad y migración de datos](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Administración de datos inteligentes](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
 | **Compatibilidad con Azure Files (todos los niveles)** | Sí                          | Sí                      | Sí            | Sí                            |
 | **Compatibilidad con Azure NetApp Files**      | No                           | Sí                      | Sí            | Sí                            |
 | **Compatibilidad con el acceso frecuente y esporádico de blob de Azure**   | No                           | Sí (a través de la versión preliminar de NFS)    | Sí            | Sí                            |
@@ -34,7 +34,7 @@ En la siguiente matriz de comparación se muestra la funcionalidad básica de la
 
 |    | [Microsoft](https://www.microsoft.com/) | [Datadobi](https://www.datadobi.com) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
-| **Nombre de la solución**   | [Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview )              | [Movilidad y migración de datos](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Administración de datos inteligentes](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
+| **Nombre de la solución**   | [Azure File Sync](../../../file-sync/file-sync-deployment-guide.md) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview )              | [Movilidad y migración de datos](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Administración de datos inteligentes](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
 | **SMB 2.1**       | Sí | Sí | Sí | Sí |
 | **SMB 3.0**       | Sí | Sí | Sí | Sí |
 | **SMB 3.1**       | Sí | Sí | Sí | Sí |
@@ -47,7 +47,7 @@ En la siguiente matriz de comparación se muestra la funcionalidad básica de la
 
 |    | [Microsoft](https://www.microsoft.com/) | [Datadobi](https://www.datadobi.com) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
-|  **Nombre de la solución**  | [Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview )              | [Movilidad y migración de datos](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Administración de datos inteligentes](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
+|  **Nombre de la solución**  | [Azure File Sync](../../../file-sync/file-sync-deployment-guide.md) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview )              | [Movilidad y migración de datos](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Administración de datos inteligentes](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
 | **Reasignación de UID/SID**                   | No  | Sí                        | Sí | No                             |
 | **Reasignación de ACL de protocolo**                | No  | No                         | No  | No                             |
 | **Compatibilidad con DFS**                           | Sí | Sí                        | Sí | Sí                            |
@@ -73,13 +73,13 @@ En la siguiente matriz de comparación se muestra la funcionalidad básica de la
 | **Compatibilidad con archivos abiertos o bloqueados**       | Sí | Sí                        | Sí | Sí                            |
 | **Migración incremental**                 | Sí | Sí                        | Sí | Sí                            |
 | **Compatibilidad con la conmutación**                    | No  | Sí                        | Sí | No (solo manual)               |
-| **[Otras características](#other-features)**         | [Vínculo](#azure-file-sync)| [Vínculo](#dobimigrate) | [Vínculo](#data-mobility-and-migration) | [Vínculo](#intelligent-data-management)                |
+| **[Otras características](#other-features)**         | [Vínculo](#azure-file-sync)| [Vínculo](#datadobi-dobimigrate) | [Vínculo](#data-dynamics-data-mobility-and-migration) | [Vínculo](#komprise-intelligent-data-management)                |
 
 ## <a name="assessment-and-reporting"></a>Evaluación e informes
 
 |    | [Microsoft](https://www.microsoft.com/) | [Datadobi](https://www.datadobi.com) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
-| **Nombre de la solución**   | [Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview )              | [Movilidad y migración de datos](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Administración de datos inteligentes](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
+| **Nombre de la solución**   | [Azure File Sync](../../../file-sync/file-sync-deployment-guide.md) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview )              | [Movilidad y migración de datos](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Administración de datos inteligentes](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
 | **Capacity**                        | No      | Sí | Sí | Sí            |
 | **Número de archivos o carpetas**            | No      | Sí | Sí | Sí            |
 | **Distribución de vencimiento a lo largo del tiempo**      | No      | Sí | Sí | Sí            |
@@ -92,7 +92,7 @@ En la siguiente matriz de comparación se muestra la funcionalidad básica de la
 
 |    | [Microsoft](https://www.microsoft.com/) | [Datadobi](https://www.datadobi.com) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
-| **Nombre de la solución**   | [Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview )              | [Movilidad y migración de datos](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Administración de datos inteligentes](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
+| **Nombre de la solución**   | [Azure File Sync](../../../file-sync/file-sync-deployment-guide.md) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview )              | [Movilidad y migración de datos](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Administración de datos inteligentes](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
 | **BYOL**             | N/A | Sí | Sí | Sí |
 | **Compromiso de Azure** | Sí   | Sí | Sí | Sí |
 
@@ -102,7 +102,7 @@ En la siguiente matriz de comparación se muestra la funcionalidad básica de la
 
 - Validación de hash interna
 
-### <a name="dobimigrate"></a>DobiMigrate
+### <a name="datadobi-dobimigrate"></a>Datadobi DobiMigrate
 
 - Comprobaciones previas a la migración
 - Planeamiento de la migración
@@ -122,12 +122,13 @@ En la siguiente matriz de comparación se muestra la funcionalidad básica de la
 - Capacidad de invalidar los permisos de NFSv3 y escribir nuevos bits de modo en el destino
 - Capacidad de convertir las ACL de borrador POSIX de NFSv3 a ACL de NFSv4
 - SMB 1 (CIFS)
+- Soporte técnico 24 x 7 x 365
 
-### <a name="data-mobility-and-migration"></a>Movilidad y migración de datos
+### <a name="data-dynamics-data-mobility-and-migration"></a>Migración y movilidad de datos de Data Dynamics
 
 - Validación de hash
 
-### <a name="intelligent-data-management"></a>Administración de datos inteligentes
+### <a name="komprise-intelligent-data-management"></a>Administración de datos inteligentes de Komprise
 
 - Migraciones basadas en proyectos o directorios
 - Reintento automático de errores
@@ -144,8 +145,8 @@ En la siguiente matriz de comparación se muestra la funcionalidad básica de la
 ## <a name="see-also"></a>Consulte también
 
 - [Información general sobre la migración del almacenamiento](../../../common/storage-migration-overview.md)
-- [Elección de la solución de Azure para la transferencia de datos](/azure/storage/common/storage-choose-data-transfer-solution?toc=/azure/storage/blobs/toc.json)
-- [Migración a recursos compartidos de archivos de Azure](/azure/storage/files/storage-files-migration-overview)
-- [Migración a Data Lake Storage con WANdisco LiveData Platform para Azure](/azure/storage/blobs/migrate-gen2-wandisco-live-data-platform)
-- [Copia o movimiento de datos a Azure Storage con AzCopy](https://aka.ms/azcopy)
+- [Elección de la solución de Azure para la transferencia de datos](../../../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Migración a recursos compartidos de archivos de Azure](../../../files/storage-files-migration-overview.md)
+- [Migración a Data Lake Storage con WANdisco LiveData Platform para Azure](../../../blobs/migrate-gen2-wandisco-live-data-platform.md)
+- [Copia o movimiento de datos a Azure Storage con AzCopy](../../../common/storage-use-azcopy-v10.md)
 - [Migración de grandes conjuntos de datos a Azure Blob Storage con AzReplicate (aplicación de ejemplo)](https://github.com/Azure/AzReplicate/tree/master/)

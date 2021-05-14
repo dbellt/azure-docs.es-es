@@ -4,19 +4,19 @@ description: Información sobre cómo cambiar la delegación de dominios y usar 
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.date: 2/19/2019
+ms.date: 04/19/2021
 ms.author: rohink
 ms.topic: conceptual
-ms.openlocfilehash: 9304556edb5e6207296d8ee4e8392e345869cb92
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4753b07cc2f3ccd998c26a3392eb08c8761dd6f7
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "76939049"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738853"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Delegación de zonas DNS con Azure DNS
 
-DNS de Azure le permite hospedar una zona DNS y administrar los registros DNS de un dominio en Azure. Para que las consultas DNS de un dominio lleguen a DNS de Azure, es necesario haber delegado dicho dominio en DNS de Azure desde el dominio primario. Tenga en cuenta que DNS de Azure no es el registrador de dominios. En este artículo se explica cómo funciona la delegación de dominios y cómo delegar dominios en DNS de Azure.
+DNS de Azure le permite hospedar una zona DNS y administrar los registros DNS de un dominio en Azure. Para que las consultas DNS de un dominio lleguen a DNS de Azure, es necesario haber delegado dicho dominio en DNS de Azure desde el dominio primario. Tenga en cuenta que Azure DNS no es el registrador de dominios. En este artículo se explica cómo funciona la delegación de dominios y cómo delegar dominios en DNS de Azure.
 
 ## <a name="how-dns-delegation-works"></a>Funcionamiento de la delegación de DNS
 
@@ -26,7 +26,7 @@ El sistema de nombres de dominio es una jerarquía de dominios. La jerarquía em
 
 **Zona DNS**: un dominio es un nombre exclusivo dentro del sistema de nombres de dominio, como por ejemplo “contoso.com”. Una zona DNS se usa para hospedar los registros DNS de un dominio concreto. Por ejemplo, puede que el dominio "contoso.com" contenga varios registros DNS, como "mail.contoso.com" (para un servidor de correo) y "www.contoso.com" (para un sitio web).
 
-**Registrador de dominios**: un registrador de dominios es una empresa que puede ofrecer nombres de dominio de Internet. Verificará si el dominio de Internet deseado se encuentra disponible para que pueda adquirirlo. Tras haber registrado el nombre de dominio, será el titular legal de dicho nombre. Si ya dispone de un dominio de Internet, utilizará al registrador de dominios actual para delegar en DNS de Azure.
+**Registrador de dominios**: un registrador de dominios es una empresa que puede ofrecer nombres de dominio de Internet. Verificará si el dominio de Internet deseado se encuentra disponible para que pueda adquirirlo. Tras haber registrado el nombre de dominio, será el titular legal de dicho nombre. Si ya dispone de un dominio de Internet, utilizará al registrador de dominios actual para delegar en Azure DNS.
 
 Para más información sobre registradores de dominios acreditados, consulte [ICANN: Registradores acreditados](https://www.icann.org/registrar-reports/accredited-list.html).
 
@@ -39,11 +39,11 @@ Existen dos tipos de servidores DNS:
 
 DNS de Azure proporciona un servicio DNS autoritativo.  No proporciona un servicio DNS recursivo. Las instancias de Azure Cloud Services y Virtual Machines se configuran automáticamente para que utilicen un servicio DNS recursivo que se proporciona por separado como parte de la infraestructura de Azure. Para más información sobre cómo cambiar esta configuración de DNS, consulte [Resolución de nombres de Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
-Los clientes DNS de equipos o dispositivos móviles suelen llamar a un servidor DNS recursivo para realizar todas las consultas DNS que las aplicaciones cliente necesitan.
+Los clientes DNS de equipos o dispositivos móviles suelen llamar a un servidor DNS recursivo para realizar todas las consultas de DNS que las aplicaciones cliente necesitan.
 
-Cuando un servidor DNS recursivo recibe una consulta para un registro DNS, como “www.contoso.com”, primero necesita encontrar el servidor de nombres que hospeda la zona para el dominio “contoso.com”. Para encontrar el servidor de nombres, empieza por los servidores de nombres raíz y, a partir de ahí, busca los servidores de nombres que hospedan la zona “com”. A continuación, consulta los servidores de nombres “com” para encontrar los servidores de nombres que hospedan la zona “contoso.com”.  Por último, puede consultar estos servidores de nombres para “www.contoso.com”.
+Cuando un servidor DNS recursivo recibe una consulta para un registro DNS, como “www.contoso.com”, primero necesita encontrar el servidor de nombres que hospeda la zona para el dominio “contoso.com”. Para encontrar el servidor de nombres, empieza por los servidores de nombres raíz y, a partir de ahí, busca los servidores de nombres que hospedan la zona “com”. A continuación, consulta los servidores de nombres “com” para encontrar los servidores de nombres que hospedan la zona “contoso.com”.  Por último, puede consultar estos servidores de nombres para "www.contoso.com".
 
-A este procedimiento se le denomina resolución del nombre DNS. En el sentido estricto, la resolución DNS incluye pasos adicionales, como seguir los CNAME, pero no es importante saber cómo funciona la delegación DNS.
+A este procedimiento se le denomina resolución del nombre DNS. En el sentido estricto, la resolución DNS incluye más pasos, como seguir los CNAME, pero no es importante saber cómo funciona la delegación DNS.
 
 ¿Cómo “apunta” una zona primaria a los servidores de nombres de una zona secundaria? Se consigue usando un tipo especial de registro DNS, denominado registro NS (NS, por sus siglas en inglés, significa “servidor de nombres”). Por ejemplo, la zona raíz contiene registros NS para “com”, donde se muestran los servidores de nombres de la zona “com”. A su vez, la zona “com” contiene registros NS para “contoso.com”, donde se muestran los servidores de nombres para la zona “contoso.com”. A la acción que conlleva configurar los registros NS para una zona secundaria en una zona primaria se le denomina delegación de dominios.
 
@@ -68,4 +68,3 @@ Cada delegación realmente contiene dos copias de los registros NS, una en la zo
 ## <a name="next-steps"></a>Pasos siguientes
 
 Aprenda cómo [delegar el dominio a Azure DNS](dns-delegate-domain-azure-dns.md).
-

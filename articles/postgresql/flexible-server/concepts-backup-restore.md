@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: d0e79e42c7c004638336ada23de663bbe74b7e48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5c0e8ae52d2af25c41550df1c59680d47360477
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92532652"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987855"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---flexible-server"></a>Copia de seguridad y restauración en Azure Database for PostgreSQL: servidor flexible
 
@@ -69,9 +69,9 @@ Los archivos físicos de base de datos se restauran primero a partir de las copi
 
 La restauración a un momento dado es útil en diversos escenarios. Por ejemplo, cuando un usuario elimina accidentalmente los datos, elimina una tabla importante o la base de datos, o si una aplicación sobrescribe accidentalmente los datos correctos con datos incorrectos debido a un defecto de la aplicación. Gracias a la copia de seguridad continua de los registros de transacciones, podrá restaurar el servidor a la última transacción.
 
-Puede elegir entre el primer punto de restauración y uno personalizado.
+Puede elegir entre el punto de restauración más reciente y uno personalizado.
 
--   **Punto de restauración más antiguo**: en función del período de retención, será el registro más antiguo que se pueda restaurar. Se seleccionará automáticamente la hora de la copia de seguridad más antigua y se mostrará en el portal. Esto resulta útil si quiere llevar a cabo investigaciones o pruebas a partir de ese momento.
+-   **Punto de restauración más reciente (ahora)** : esta es la opción predeterminada que permite restaurar el servidor al último momento dado. 
 
 -   **Punto de restauración personalizado**: esta opción le permite elegir cualquier momento dentro del período de retención definido para este servidor flexible. De forma predeterminada, se selecciona automáticamente la última hora UTC, que resulta útil para realizar la restauración a la última transacción confirmada con fines de prueba. También puede elegir otros días y horas. 
 

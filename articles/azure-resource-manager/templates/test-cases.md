@@ -2,15 +2,15 @@
 title: Casos de prueba del kit de herramientas para pruebas
 description: En este artículo se describen las pruebas que se ejecutan en el kit de herramientas para pruebas de plantillas de Resource Manager.
 ms.topic: conceptual
-ms.date: 12/03/2020
+ms.date: 04/12/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 31e30b4853da03e28a4a2d15292050805f5bc292
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 5dc4891bbc8bf6397a0f041fa845f4fb0ad6c600
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064160"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142520"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Casos de prueba predeterminados del kit de herramientas para pruebas de plantillas de Resource Manager
 
@@ -637,7 +637,7 @@ En el ejemplo siguiente **se supera** esta prueba.
 
 Nombre de la prueba: **No se debe usar ManagedIdentityExtension**
 
-No aplique la extensión ManagedIdentity a una máquina virtual. Para más información, consulte [Dejar de usar la extensión de identidades administradas de máquina virtual y empezar a usar Azure Instance Metadata Service](../../active-directory/managed-identities-azure-resources/howto-migrate-vm-extension.md).
+No aplique la extensión ManagedIdentity a una máquina virtual. La extensión quedó en desuso en 2019 y ya no debe usarse.
 
 ## <a name="outputs-cant-include-secrets"></a>Las salidas no pueden incluir secretos
 
@@ -698,7 +698,7 @@ Nombre de la prueba: **CommandToExecute debe usar ProtectedSettings para secreto
 En una extensión de script personalizado, use la propiedad cifrada `protectedSettings` cuando `commandToExecute` incluya datos secretos, como una contraseña. Ejemplos de tipos de datos de secreto son las funciones `secureString`, `secureObject`, `list()` o scripts.
 
 Para obtener más información sobre la extensión de scripts personalizados para máquinas virtuales, consulte [Windows](
-/azure/virtual-machines/extensions/custom-script-windows), [Linux](/azure/virtual-machines/extensions/custom-script-linux)y el esquema [Microsoft. Compute virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions).
+/azure/virtual-machines/extensions/custom-script-windows), [Linux](../../virtual-machines/extensions/custom-script-linux.md)y el esquema [Microsoft. Compute virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions).
 
 En este ejemplo, una plantilla con un parámetro denominado `adminPassword` y el tipo `secureString` **pasa** la prueba porque la propiedad cifrada `protectedSettings` incluye `commandToExecute`.
 

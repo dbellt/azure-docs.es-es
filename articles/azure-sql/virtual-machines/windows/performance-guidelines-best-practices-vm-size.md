@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
-ms.openlocfilehash: 88adef7ea50744f913780d99594ce3baadade84b
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: ebceb120f71c64634d005e6ca120f91ca0b1b8c5
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600903"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126514"
 ---
 # <a name="vm-size-performance-best-practices-for-sql-server-on-azure-vms"></a>Tamaño de máquinas virtuales: procedimientos recomendados de rendimiento de SQL Server en VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,9 +33,9 @@ Por lo general, existe un equilibrio entre la optimización de los costos y la o
 
 Revise la siguiente lista de comprobación para obtener una breve introducción sobre los procedimientos recomendados de tamaño de VM que se cubren en el resto del artículo con mayor detalle: 
 
-- Use tamaños de VM con 4 vCPU o más, como [Standard_M8-4ms](/azure/virtual-machines/m-series), [E4ds_v4](../../../virtual-machines/edv4-edsv4-series.md#edv4-series) o [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) o superior. 
+- Use tamaños de VM con 4 vCPU o más, como [Standard_M8-4ms](../../../virtual-machines/m-series.md), [E4ds_v4](../../../virtual-machines/edv4-edsv4-series.md#edv4-series) o [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) o superior. 
 - Use tamaños de máquinas virtuales [optimizados para memoria](../../../virtual-machines/sizes-memory.md) para obtener el mejor rendimiento de las cargas de trabajo de SQL Server. 
-- Las series [DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md), [Edsv4](../../../virtual-machines/edv4-edsv4-series.md), [M-](/azure/virtual-machines/m-series) y [Mv2-](../../../virtual-machines/mv2-series.md) ofrecen la proporción óptima de memoria por núcleo virtual necesaria para las cargas de trabajo de OLTP. Las máquinas virtuales de las series M ofrecen la mayor proporción de memoria por núcleo virtual necesaria para las cargas de trabajo críticas y, además, son ideales para cargas de trabajo de almacenamiento de datos. 
+- Las series [DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md), [Edsv4](../../../virtual-machines/edv4-edsv4-series.md), [M-](../../../virtual-machines/m-series.md) y [Mv2-](../../../virtual-machines/mv2-series.md) ofrecen la proporción óptima de memoria por núcleo virtual necesaria para las cargas de trabajo de OLTP. Las máquinas virtuales de las series M ofrecen la mayor proporción de memoria por núcleo virtual necesaria para las cargas de trabajo críticas y, además, son ideales para cargas de trabajo de almacenamiento de datos. 
 - Considere una mayor proporción de memoria por núcleo virtual para cargas de trabajo críticas y de almacenamiento de datos. 
 - Aproveche las imágenes de Marketplace de máquinas virtuales de Azure, ya que la configuración de SQL Server y las opciones de almacenamiento están configuradas para un rendimiento óptimo de SQL Server. 
 - Recopile las características de rendimiento de la carga de trabajo de destino y úselas para determinar el tamaño de VM adecuado para el negocio.
@@ -65,11 +65,11 @@ Los [tamaños de máquina virtual optimizada para memoria](../../../virtual-mach
 
 ### <a name="m-mv2-and-mdsv2-series"></a>Series M, Mv2 y Mdsv2
 
-La [serie M](/azure/virtual-machines/m-series) ofrece recuentos de núcleos virtuales y memoria para algunas de las cargas de trabajo de SQL Server más grandes.  
+La [serie M](../../../virtual-machines/m-series.md) ofrece recuentos de núcleos virtuales y memoria para algunas de las cargas de trabajo de SQL Server más grandes.  
 
 La [serie Mv2](../../../virtual-machines/mv2-series.md) tiene los mayores recuentos de núcleos virtuales y memoria y se recomienda para cargas de trabajo críticas y de almacenamiento de datos. Las instancias de la serie Mv2 son tamaños de máquinas virtuales optimizados para memoria que proporcionan un rendimiento de proceso sin precedentes para admitir grandes bases de datos y cargas de trabajo en memoria, con una proporción elevada de memoria y CPU que es perfecta para servidores de bases de datos relacionales, grandes almacenamientos en caché y análisis en memoria.
 
-Por ejemplo, [Standard_M64ms](/azure/virtual-machines/m-series) tiene una proporción de memoria a núcleo virtual de 28.
+Por ejemplo, [Standard_M64ms](../../../virtual-machines/m-series.md) tiene una proporción de memoria a núcleo virtual de 28.
 
 La [Serie Msv2 y Mdsv2 de memoria media](../../..//virtual-machines/msv2-mdsv2-series.md) es una nueva serie M que se encuentra actualmente en [versión preliminar](https://aka.ms/Mv2MedMemoryPreview) y que ofrece una gama de máquinas virtuales de Azure de nivel de serie M con una oferta de memoria de nivel medio. Estas máquinas son adecuadas para cargas de trabajo de SQL Server que admiten una proporción mínima de 10 de memoria por núcleo virtual, y máxima de 30.
 
@@ -177,7 +177,7 @@ Se puede restringir el número de vCPU a la mitad o un cuarto del tamaño de VM 
 
 Estos nuevos tamaños de VM tienen un sufijo que especifica el número de vCPU activas para facilitar su identificación. 
 
-Por ejemplo, [M64-32ms](../../../virtual-machines/constrained-vcpu.md) solo requiere licencias para 32 núcleos virtuales de SQL Server con la memoria, la E/S y el rendimiento de [M64ms](/azure/virtual-machines/m-series), y [M64-16ms](../../../virtual-machines/constrained-vcpu.md) solo requiere licencias para 16 núcleos virtuales.  Aunque [M64-16ms](../../../virtual-machines/constrained-vcpu.md) supone un cuarto del costo de las licencias de SQL Server de M64ms, el costo de proceso de la máquina virtual será el mismo.
+Por ejemplo, [M64-32ms](../../../virtual-machines/constrained-vcpu.md) solo requiere licencias para 32 núcleos virtuales de SQL Server con la memoria, la E/S y el rendimiento de [M64ms](../../../virtual-machines/m-series.md), y [M64-16ms](../../../virtual-machines/constrained-vcpu.md) solo requiere licencias para 16 núcleos virtuales.  Aunque [M64-16ms](../../../virtual-machines/constrained-vcpu.md) supone un cuarto del costo de las licencias de SQL Server de M64ms, el costo de proceso de la máquina virtual será el mismo.
 
 > [!NOTE] 
 > - Las cargas de trabajo de almacenamiento de datos de tamaño medio a grande pueden seguir beneficiándose de las [VM de núcleo virtual restringido](../../../virtual-machines/constrained-vcpu.md), pero las cargas de trabajo de almacenamiento de datos se caracterizan normalmente por menos usuarios y procesos que tratan mayores cantidades de datos a través de planes de consulta que se ejecutan en paralelo. 
@@ -194,4 +194,4 @@ Para obtener más información, vea los demás artículos de esta serie:
 
 Para ver los procedimientos recomendados de seguridad, consulte [Consideraciones de seguridad para SQL Server en Azure Virtual Machines](security-considerations-best-practices.md).
 
-Revise otros artículos sobre la máquina virtual de SQL Server en [Introducción a SQL Server en Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md). Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](frequently-asked-questions-faq.md). 
+Revise otros artículos sobre la máquina virtual de SQL Server en [Introducción a SQL Server en Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md). Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](frequently-asked-questions-faq.md).

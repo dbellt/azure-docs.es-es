@@ -4,20 +4,16 @@ description: En este tutorial se muestra cómo utilizar la API de administració
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 04/26/2021
 ms.author: apimpm
-ms.openlocfilehash: 39a3b9d7dd9efbda93de0b5d7c5f9938922d0012
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4419bca71e3523d4b1bf6c803a96fe8190bda780
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96183858"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108230753"
 ---
 # <a name="add-an-api-manually"></a>Adición manual de una API
 
@@ -55,7 +51,7 @@ En esta sección se muestra cómo agregar una operación "/get" para asignarla a
 
 1. Seleccione la API que creó en los pasos anteriores.
 2. Haga clic en **+ Agregar operación**.
-3. En la **URL**, seleccione **GET** y escriba " */get*" en el recurso.
+3. En la **URL**, seleccione **GET** y escriba `/get` en el recurso.
 4. Escriba "*FetchData*" en **Nombre para mostrar**.
 5. Seleccione **Guardar**.
 
@@ -77,8 +73,8 @@ En esta sección se explica cómo agregar una operación que toma un parámetro.
 
 1. Seleccione la API que creó en los pasos anteriores.
 2. Haga clic en **+ Agregar operación**.
-3. En la **URL**, seleccione **GET** y escriba " */status/{code}* " en el recurso. Si lo desea, puede proporcionar cierta información asociada a este parámetro. Por ejemplo, escriba "*Número*" en **TYPE** y "*200*" (valor predeterminado) en **VALUES**.
-4. Escriba "GetStatus" en **Nombre para mostrar**.
+3. En la **URL**, seleccione **GET** y escriba `*/status/{code}` en el recurso. Si lo desea, puede proporcionar cierta información asociada a este parámetro. Por ejemplo, escriba "*Número*" en **TYPE** y "*200*" (valor predeterminado) en **VALUES**.
+4. Escriba "WildcardGet" como **Nombre para mostrar**.
 5. Seleccione **Guardar**.
 
 ### <a name="test-the-operation"></a>Prueba de la operación 
@@ -86,10 +82,34 @@ En esta sección se explica cómo agregar una operación que toma un parámetro.
 Pruebe la operación en Azure Portal.  También puede probarla en el **Portal para desarrolladores**.
 
 1. Seleccione la pestaña **Prueba**.
-2. Seleccione **GetStatus**. De forma predeterminada, el valor de código se establece en "*200*". Puede cambiarlo para probar otros valores. Por ejemplo, escriba "*418*".
+2. Seleccione **WildcardGet**. De forma predeterminada, el valor de código se establece en "*200*". Puede cambiarlo para probar otros valores. Por ejemplo, escriba "*418*".
 3. Presione **Enviar**.
 
     Se muestra la respuesta que genera la operación "http://httpbin.org/status/200". Si desea transformar las operaciones, consulte [Transformación y protección de una API](transform-api.md).
+
+## <a name="add-and-test-a-wildcard-operation"></a>Adición y prueba de una operación con caracteres comodín
+
+En esta sección se indica cómo agregar una operación con caracteres comodín. Una operación con caracteres comodín le permite pasar un valor arbitrario con una solicitud de API. En lugar de crear operaciones GET independientes como se muestra en las secciones anteriores, podría crear una operación GET con caracteres comodín.
+
+### <a name="add-the-operation"></a>Adición de la operación
+
+1. Seleccione la API que creó en los pasos anteriores.
+2. Haga clic en **+ Agregar operación**.
+3. En la **URL**, seleccione **GET** y escriba `/*` en el recurso.
+4. Escriba "*WildcardGet*" como **Nombre para mostrar**.
+5. Seleccione **Guardar**.
+
+### <a name="test-the-operation"></a>Prueba de la operación 
+
+Pruebe la operación en Azure Portal.  También puede probarla en el **Portal para desarrolladores**.
+
+1. Seleccione la pestaña **Prueba**.
+2. Seleccione **WildcardGet**. Pruebe una o varias de las operaciones GET que ha probado en secciones anteriores o pruebe otra operación GET compatible. 
+
+    Por ejemplo, en **Parámetros de la plantilla**, actualice el valor junto al nombre del carácter comodín (*) a `headers`. La operación devuelve los encabezados HTTP de la solicitud entrante.
+1. Presione **Enviar**.
+
+    Se muestra la respuesta que genera la operación "http://httpbin.org/headers". Si desea transformar las operaciones, consulte [Transformación y protección de una API](transform-api.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

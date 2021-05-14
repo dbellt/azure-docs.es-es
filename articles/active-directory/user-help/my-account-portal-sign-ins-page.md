@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/19/2021
+ms.date: 04/22/2021
 ms.author: curtand
-ms.openlocfilehash: 1062c8dfe416af2d39063bf71f39d52e151e28d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 593ec6588e2f55cb9f379dcfac437956bcabc10b
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100096079"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107951359"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-page"></a>Visualización y búsqueda de la actividad de inicio de sesión reciente desde la página Mis inicios de sesión
 
@@ -29,18 +29,18 @@ Puede ver toda la actividad de inicio de sesión de la cuenta profesional o educ
 >[!Note]
 > Si ve un error al iniciar sesión con un cuenta Microsoft personal, puede seguir iniciando sesión con el nombre de dominio de su organización (por ejemplo, contoso.com) o el **Id. de inquilino** de su organización desde el administrador en una de las siguientes direcciones URL:
 >
->   - https://myaccount.microsoft.com?tenantId=*nombre_de_dominio*
->   - https://myaccount.microsoft.com?tenant=*id_de_inquilino*
+>   - `https://myaccount.microsoft.com?tenantId=<your_domain_name>`
+>   - `https://myaccount.microsoft.com?tenant=<your_tenant_ID>`
 
 ## <a name="view-your-recent-sign-in-activity"></a>Visualización de las actividades de inicio de sesión recientes
 
 1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myaccount.microsoft.com/.
 
-2. Seleccione **Mis inicios de sesión** en el panel de navegación izquierdo o seleccione el vínculo **Revisar la actividad reciente** en el bloque **Mis inicios de sesión**.
+1. Seleccione **Mis inicios de sesión** en el panel de navegación izquierdo o seleccione el vínculo **Revisar la actividad reciente** en el bloque **Mis inicios de sesión**.
 
     ![Página Mi cuenta, que muestra vínculos resaltados a Actividad reciente](media/my-account-portal/my-account-portal-sign-ins.png)
 
-3. Expanda y revise cada uno de los elementos de inicio de sesión, asegurándose de que reconoce cada uno de ellos. Si encuentra un elemento de inicio de sesión que no le resulta familiar, le recomendamos que cambie la contraseña para proteger la cuenta en caso de que se viera comprometida.
+1. Expanda y revise cada uno de los elementos de inicio de sesión, asegurándose de que reconoce cada uno de ellos. Si encuentra un elemento de inicio de sesión que no le resulta familiar, le recomendamos que cambie la contraseña para proteger la cuenta en caso de que se viera comprometida.
 
     ![Página Actividad reciente con los detalles de inicio de sesión expandidos](media/my-account-portal-sign-ins-page/recent-activity.png)
 
@@ -73,6 +73,48 @@ Puede buscar en la actividad de inicio de sesión reciente cualquier informació
 Los inicios de sesión marcados como actividad inusual se pueden confirmar en el icono de esa actividad en la página **Mis inicios de sesión**.
 
 ![Icono de inicio de sesión inusual para confirmar que intentó o no iniciar la sesión](media/my-account-portal-sign-ins-page/this-wasnt-me.png)
+
+## <a name="view-sign-in-activity-on-android"></a>Visualización de la actividad de inicio de sesión en Android
+
+Cada vez que vea o cambie la información de seguridad, debe iniciar sesión en su cuenta profesional o educativa para continuar.
+
+1. Abra la aplicación Microsoft Authenticator y seleccione la página principal de su cuenta profesional o educativa.
+
+1. Seleccione **Actividad de cuenta reciente**.
+
+    ![Página principal de la cuenta profesional o educativa, en la que se muestra el vínculo resaltado de actividad de inicio de sesión reciente](media/my-account-portal-sign-ins-page/android-recent-activity.png)
+
+1. Si el inicio de sesión se realiza correctamente, revise cada uno de los elementos de inicio de sesión, asegurándose de que reconoce cada uno de ellos. Si encuentra un elemento de inicio de sesión que no le resulta familiar, le recomendamos que cambie la contraseña para proteger la cuenta en caso de que se viera comprometida.
+
+    ![Página Actividad reciente con los detalles de inicio de sesión](media/my-account-portal-sign-ins-page/android-activity-page.png)
+
+## <a name="change-your-password-on-android"></a>Cambio de la contraseña en Android
+
+El administrador puede permitir restablecer la contraseña desde la aplicación Authenticator. Cada vez que inicie sesión para ver o cambiar la información de seguridad, debe iniciar sesión en su cuenta profesional o educativa para continuar.
+
+1. Abra la aplicación Microsoft Authenticator y seleccione la página principal de su cuenta profesional o educativa.
+
+1. Seleccione **Cambiar contraseña**.
+
+    ![Página principal de la cuenta profesional o educativa, en la que se muestra el vínculo Cambiar contraseña resaltado](media/my-account-portal-sign-ins-page/android-change-password.png)
+
+1. Si el inicio de sesión se realiza correctamente, puede actualizar la información de contraseña en la página **Cambiar contraseña**.
+
+    ![Página de actividad reciente con entrada de contraseña antigua y nueva](media/my-account-portal-sign-ins-page/android-password-page.png)
+
+## <a name="update-security-info-on-android"></a>Actualización de la información de seguridad en Android
+
+Cada vez que inicie sesión para ver o cambiar la información de seguridad, debe iniciar sesión en su cuenta profesional o educativa para continuar.
+
+1. Abra la aplicación Microsoft Authenticator y seleccione la página principal de su cuenta profesional o educativa.
+
+1. Seleccione **Actualizar información de seguridad**.
+
+    ![Página principal de la cuenta profesional o educativa, en la que se muestra el vínculo Actualizar información de seguridad resaltado](media/my-account-portal-sign-ins-page/android-update-security-info.png)
+
+1. Si el inicio de sesión se realiza correctamente, puede actualizar los detalles de seguridad en la página **Información de seguridad**.
+
+    ![Página de actividad reciente con información de seguridad](media/my-account-portal-sign-ins-page/android-security-info-page.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

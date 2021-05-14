@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 03/29/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d01a750948f8e3c264b9bcffdaad3ae72fa40ac0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bce54bb845e3085d654e3980123ef5c8a856fd98
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579117"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530192"
 ---
 # <a name="conditional-access-grant"></a>Acceso condicional: Conceder
 
@@ -130,6 +130,7 @@ Se ha confirmado que las siguientes aplicaciones cliente admiten esta configurac
 - Microsoft Cortana
 - Microsoft Edge
 - Microsoft Excel
+- Microsoft Lists (iOS)
 - Microsoft Office
 - Microsoft OneDrive
 - Microsoft OneNote

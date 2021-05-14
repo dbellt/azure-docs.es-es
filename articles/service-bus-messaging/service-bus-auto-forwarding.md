@@ -2,14 +2,14 @@
 title: Entidades de mensajería de Azure Service Bus con reenvío automático
 description: En este artículo se describe cómo encadenar una cola o suscripción de Azure Service Bus a otra cola u otro tema.
 ms.topic: article
-ms.date: 01/20/2021
+ms.date: 04/23/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 80bef52d568130fa800a1da661f4867abb3df02c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78fb7478e0584d7c6dc79829d4bb242a448d43bd
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98678995"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988701"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Encadenamiento de entidades de Service Bus con reenvío automático
 
@@ -18,22 +18,16 @@ La característica de *reenvío automático* de Service Bus permite encadenar un
 > [!NOTE]
 > El nivel Básico de Service Bus no admite la característica de reenvío automático. Los niveles Estándar y Prémium admiten la característica. Para conocer las diferencias entre estos niveles, consulte [Precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
-## <a name="using-autoforwarding"></a>Uso de reenvío automático
-
-Para habilitar el reenvío automático, establezca las propiedades [QueueDescription.ForwardTo][QueueDescription.ForwardTo] o [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] de los objetos [QueueDescription][QueueDescription] o [SubscriptionDescription][SubscriptionDescription] para el origen, como en este ejemplo:
-
-```csharp
-SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
-srcSubscription.ForwardTo = destTopic;
-namespaceManager.CreateSubscription(srcSubscription));
-```
-
 La entidad de destino debe existir en el momento en que se creó la entidad de origen. Si la entidad de destino no existe, Service Bus devuelve una excepción cuando se le pide que cree la entidad de origen.
 
+## <a name="scenarios"></a>Escenarios
+
+### <a name="scale-out-an-individual-topic"></a>Escalado horizontal de un tema individual
 El reenvío automático se puede usar para escalar horizontalmente un tema individual. Service Bus limita el [número de suscripciones de un tema dado](service-bus-quotas.md) a 2000. Para alojar suscripciones adicionales, cree temas de segundo nivel. Aunque no tenga la limitación de Service Bus sobre el número de suscripciones, el hecho de agregar un segundo nivel de temas puede mejorar el rendimiento general del tema.
 
 ![Diagrama de un escenario de reenvío automático que muestra un mensaje procesado a través de un tema de pedidos que se puede bifurcar a cualquiera de los tres temas de pedidos de segundo nivel.][0]
 
+### <a name="decouple-message-senders-from-receivers"></a>Desacoplar remitentes de mensajes de receptores
 También puede usarlo para desacoplar los remitentes de los destinatarios. Por ejemplo, suponga que un sistema ERP consta de tres módulos: procesamiento de pedidos, administración de inventario y administración de relaciones con clientes. Cada uno de estos módulos genera mensajes que se ponen en cola en el tema correspondiente. Alice y Bob son representantes de ventas que están interesados en todos los mensajes relacionados con sus clientes. Para recibir dichos mensajes, Alice y Bob crean una cola personal y una suscripción en cada uno de los temas de ERP que reenvían automáticamente todos los mensajes a su cola.
 
 ![Diagrama de un escenario de reenvío automático que muestra tres módulos de procesamiento que envían mensajes a través de tres temas correspondientes a dos colas independientes.][1]
@@ -59,22 +53,9 @@ Para crear una suscripción encadenada a otra cola o a otro tema, el creador deb
 No cree una cadena que supere los 4 saltos. Los mensajes que superan los 4 saltos se colocan en la cola de mensajes fallidos.
 
 ## <a name="next-steps"></a>Pasos siguientes
+Para aprender a habilitar o deshabilitar el reenvío automático de maneras diferentes (Azure Portal, PowerShell, CLI, plantilla de Azure Resource Management, etc.), consulte [Habilitación del reenvío automático para colas y suscripciones](enable-auto-forward.md).
 
-Para más información sobre el reenvío automático, vea estos temas de referencia:
 
-* [ForwardTo][QueueDescription.ForwardTo]
-* [QueueDescription][QueueDescription]
-* [SubscriptionDescription][SubscriptionDescription]
-
-Para más información sobre las mejoras de rendimiento de Service Bus, vea: 
-
-* [Procedimientos recomendados para mejorar el rendimiento mediante la mensajería de Service Bus](service-bus-performance-improvements.md)
-* [Entidades de mensajería con particiones][Partitioned messaging entities]
-
-[QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
-[SubscriptionDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.forwardto#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo
-[QueueDescription]: /dotnet/api/microsoft.servicebus.messaging.queuedescription
-[SubscriptionDescription]: /dotnet/api/microsoft.servicebus.messaging.queuedescription
 [0]: ./media/service-bus-auto-forwarding/IC628631.gif
 [1]: ./media/service-bus-auto-forwarding/IC628632.gif
 [Partitioned messaging entities]: service-bus-partitioning.md

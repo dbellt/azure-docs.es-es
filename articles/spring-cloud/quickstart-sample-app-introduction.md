@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: dd36bb18e84ea299195b77286887a3b279f81469
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c1837b6992090f1b02d89720db298fe5714d4c3
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877580"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286514"
 ---
 # <a name="introduction-to-the-sample-app"></a>Introducción a la aplicación de ejemplo
 
@@ -64,33 +64,38 @@ Las instrucciones de las siguientes guías de inicio rápido hacen referencia al
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-En esta guía de inicio rápido, usamos un ejemplo de finanzas personales denominado PiggyMetrics para mostrarle cómo implementar una aplicación en el servicio Azure Spring Cloud. PiggyMetrics muestra el patrón de arquitectura de microservicios y resalta el desglose de los servicios. Verá cómo se implementa en Azure con las potentes funcionalidades de Azure Spring Cloud, como la detección de servicios, el servidor de configuración, los registros, las métricas y el seguimiento distribuido.
+En este inicio rápido, vamos a usar la versión de microservicios de la ya conocida aplicación de ejemplo [PetClinic](https://github.com/spring-petclinic/spring-petclinic-microservices), que le mostrará cómo implementar aplicaciones en el servicio Azure Spring Cloud. **PetClinic** muestra el patrón de arquitectura de microservicios y resalta el desglose de los servicios. Verá cómo se implementan los servicios en Azure con las funcionalidades de Azure Spring Cloud como la detección de servicios, el servidor de configuración, los registros, las métricas, el seguimiento distribuido y el soporte técnico para herramientas sencillo de usar para los desarrolladores. 
 
 Para seguir los ejemplos de implementación de Azure Spring Cloud, solo necesita la ubicación del código fuente, que se proporciona si es necesario.
 
-## <a name="functional-services"></a>Servicios funcionales
+![Arquitectura de PetClinic](media/build-and-deploy/microservices-architecture-diagram.jpg)
 
-PiggyMetrics está compuesto de tres microservicios principales, y todos ellos son aplicaciones que se pueden implementar de forma independiente y organizadas por dominios empresariales.
+## <a name="functional-services-to-be-deployed"></a>Servicios funcionales que se implementarán
 
-* **Servicio de cuenta (para implementar)** : contiene la validación y la lógica de entrada del usuario general: elementos de ingresos o gastos, ahorros y configuración de la cuenta.
-* **Servicio de estadísticas (no se usa en este inicio rápido)** : realiza cálculos en los parámetros de las estadísticas principales y captura series temporales para cada cuenta. El punto de datos contiene valores, normalizados tomando como referencia la moneda base y al período. Estos datos se usan para realizar un seguimiento de la dinámica del flujo de efectivo durante la vigencia de la cuenta.
-* **Servicio de notificación (no se usa en este inicio rápido)** : almacena la información de contacto de los usuarios y la configuración de notificaciones como, por ejemplo, la frecuencia de copia de seguridad y la de los recordatorios. El trabajo programado recopila la información necesaria de otros servicios y envía mensajes de correo electrónico a los clientes suscritos.
+PetClinic se descompone en 4 microservicios principales. y todos ellos son aplicaciones que se pueden implementar de forma independiente y organizadas por dominios empresariales.
 
-## <a name="infrastructure-services"></a>Servicios de infraestructura
+* **Customers service:** contiene la lógica de entrada del usuario general y la validación, incluida la información sobre mascotas y sus propietarios (nombre, dirección, ciudad, teléfono).
+* **Visits service:** almacena y muestra la información sobre las visitas en la información de cada mascota.
+* **Vets service:** almacena y muestra la información sobre los veterinarios, incluidos sus nombres y especialidades.
+* **API Gateway**: API Gateway es un punto de entrada único en el sistema que se usa para controlar las solicitudes y enrutarlas al servicio adecuado, o para invocar varios servicios y agregar los resultados.  los tres servicios principales exponen una API externa al cliente. En los sistemas reales, el número de funciones puede aumentar rápidamente con la complejidad del sistema. Cuando se representa una página web compleja puede haber cientos de servicios implicados. 
 
-En los sistemas distribuidos hay varios patrones comunes que facilitan el funcionamiento de los principales servicios. Azure Spring Cloud proporciona herramientas eficaces que mejoran el comportamiento de las aplicaciones de Spring Boot para implementar esos patrones: 
+## <a name="infrastructure-services-hosted-by-azure-spring-cloud"></a>Servicios de infraestructura que hospeda Azure Spring Cloud
 
-* **Servicio de configuración (hospedado en Azure Spring Cloud)** : Azure Spring Cloud Config es un servicio de configuración centralizado escalable horizontalmente para sistemas distribuidos. Usa un repositorio conectable que actualmente admite el almacenamiento local, Git y Subversion.
-* **Servicio de detección (hospedado en Azure Spring Cloud)** : Permite la detección automática de ubicaciones de red para las instancias de servicio que podrían tener direcciones asignadas dinámicamente debido a la escalabilidad automática, los errores y las actualizaciones.
-* **Servicio de autenticación (se implementará)** : las responsabilidades de autorización se extraen completamente en un servidor independiente, el cual concede tokens de OAuth2 a los servicios de recursos de back-end. El servidor de autorización realiza la autorización de usuarios y protege la comunicación entre máquinas dentro de un perímetro.
-* **API Gateway (se implementará)** : los tres servicios principales exponen una API externa al cliente. En los sistemas reales, el número de funciones puede aumentar rápidamente con la complejidad del sistema. Cuando se representa una página web compleja puede haber cientos de servicios implicados. API Gateway es un punto de entrada único en el sistema que se usa para controlar las solicitudes y enrutarlas al servicio back-end adecuado, o para invocar varios servicios back-end, agregando los resultados. 
+En los sistemas distribuidos hay varios patrones comunes que facilitan el funcionamiento de los principales servicios. Azure Spring Cloud proporciona herramientas que permiten mejorar las aplicaciones de Spring Boot para implementar los siguientes patrones: 
 
-## <a name="sample-usage-of-piggymetrics"></a>Ejemplo de uso de PiggyMetrics
+* **Servicio de configuración**: Azure Spring Cloud Config es un servicio de configuración centralizado escalable horizontalmente para sistemas distribuidos. Usa un repositorio conectable que actualmente admite el almacenamiento local, Git y Subversion.
+* **Detección de servicios**: permite la detección automática de ubicaciones de red para las instancias de servicio que podrían tener direcciones asignadas dinámicamente debido al escalado automático, los errores y las actualizaciones.
 
-Para obtener todos los detalles sobre la implementación, consulte [PiggyMetrics](https://github.com/Azure-Samples/piggymetrics). Los ejemplos hacen referencia al código fuente cuando se necesita.
+## <a name="database-configuration"></a>Configuración de la base de datos
+En su configuración predeterminada, **PetClinic** usa una base de datos en memoria (HSQLDB) que se rellena en el inicio con datos. Se proporciona una configuración similar para MySql si se necesita una configuración de base de datos persistente. La dependencia de Connector/J, el controlador JDBC de MySQL, ya está incluida en los archivos pom.xml.
+
+## <a name="sample-usage-of-petclinic"></a>Ejemplo de uso de PetClinic
+
+Para obtener detalles completos de la implementación, consulte nuestra bifurcación de [PetClinic](https://github.com/Azure-Samples/spring-petclinic-microservices). Los ejemplos hacen referencia al código fuente cuando se necesita.
+
 ::: zone-end
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Aprovisionamiento de una instancia de Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md)
+> [Aprovisionamiento de una instancia de Azure Spring Cloud](./quickstart-provision-service-instance.md)

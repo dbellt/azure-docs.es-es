@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/10/2021
-ms.openlocfilehash: 5548d82326ec4ac2306e2c8945bedc20236a4e54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/06/2021
+ms.openlocfilehash: ee5ccd377ccfe65a061f3fda8967a90501737953
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103009358"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109632662"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformación de receptor en el flujo de datos de asignación
 
@@ -48,7 +48,7 @@ El flujo de datos de asignación sigue un enfoque de extracción, carga y transf
 | [Azure Database for MySQL](connector-azure-database-for-mysql.md) |  | ✓/✓ |
 | [Azure Database para PostgreSQL](connector-azure-database-for-postgresql.md) |  | ✓/✓ |
 | [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
-| [Azure SQL Managed Instance (versión preliminar)](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
+| [Instancia administrada de Azure SQL](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
@@ -120,7 +120,35 @@ A continuación, se muestra un tutorial en vídeo sobre cómo usar el control de
 
 ## <a name="data-preview-in-sink"></a>Vista previa de los datos en el receptor
 
-Al obtener una vista previa de los datos en un clúster de depuración, no se escribirá ningún dato en el receptor. Se devolverá una instantánea de la apariencia de los datos, pero no se escribirá nada en el destino. Para probar la escritura de datos en el receptor, ejecute una depuración de canalización desde el lienzo de canalización.
+Al obtener una vista previa de los datos en modo de depuración, no se escribirá ningún dato en el receptor. Se devolverá una instantánea de la apariencia de los datos, pero no se escribirá nada en el destino. Para probar la escritura de datos en el receptor, ejecute una depuración de canalización desde el lienzo de canalización.
+
+## <a name="data-flow-script"></a>Script de flujo de datos
+
+### <a name="example"></a>Ejemplo
+
+A continuación se muestra un ejemplo de una transformación de receptor con el script de flujo de datos correspondiente:
+
+```
+sink(input(
+        movie as integer,
+        title as string,
+        genres as string,
+        year as integer,
+        Rating as integer
+    ),
+    allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:false,
+    insertable:false,
+    updateable:true,
+    upsertable:false,
+    keys:['movie'],
+    format: 'table',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true,
+    saveOrder: 1,
+    errorHandlingOption: 'stopOnFirstError') ~> sink1
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

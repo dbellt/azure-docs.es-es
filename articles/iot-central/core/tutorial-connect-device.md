@@ -11,12 +11,12 @@ ms.custom:
 - mqtt
 - device-developer
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: bbf94b6e000d5c082debd6a0d41a8d62b8b3f26e
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 479c12ca00614b2d34bd08f41e3451826a253035
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491107"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001830"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application"></a>Tutorial: Creación y conexión de un aplicación cliente a la aplicación de Azure IoT Central
 
@@ -83,7 +83,7 @@ Si prefiere continuar con el conjunto de tutoriales de IoT Central y obtener m�
 > [!div class="nextstepaction"]
 > [Creación de una plantilla de dispositivo de puerta de enlace](./tutorial-define-gateway-device-type.md)
 
-Como desarrollador para dispositivos, ahora que ha aprendido los aspectos básicos de cómo crear un dispositivo mediante Java, se recomiendan los siguientes pasos:
+Como desarrollador para dispositivos, ahora que ha aprendido los aspectos básicos de cómo crear un dispositivo, se recomiendan los siguientes pasos:
 
 * Para más información sobre el rol de las plantillas de dispositivo cuando se está implementando el código del dispositivo, consulte [¿Qué son las plantillas de dispositivo?](./concepts-device-templates.md).
 * Lea [Conexión a Azure IoT Central](./concepts-get-connected.md) para más información sobre cómo registrar dispositivos con IoT Central y cómo IoT Central protege las conexiones de dispositivos.

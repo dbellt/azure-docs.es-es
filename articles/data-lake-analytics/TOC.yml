@@ -8,7 +8,7 @@
       href: data-lake-analytics-whats-new.md
 - name: Introducción
   items:
-    - name: Azure Portal
+    - name: Azure portal
       href: data-lake-analytics-get-started-portal.md
     - name: Visual Studio
       href: data-lake-analytics-data-lake-tools-get-started.md
@@ -26,12 +26,12 @@
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: Línea de base de seguridad para Azure Security Benchmark
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/data-lake-analytics-security-baseline?toc=/azure/data-lake-analytics/TOC.json
 - name: Guías paso a paso
   items:
     - name: Administración con Data Lake Analytics
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: data-lake-analytics-manage-use-portal.md
         - name: Línea de comandos
           items:

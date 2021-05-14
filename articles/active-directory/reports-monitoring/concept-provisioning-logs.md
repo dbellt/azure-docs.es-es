@@ -1,10 +1,10 @@
 ---
-title: Información general sobre los registros de aprovisionamiento en Azure Portal (versión preliminar) | Microsoft Docs
-description: Obtenga una introducción a los informes de registros de aprovisionamiento en Azure Active Directory a través de Azure Portal.
+title: Registros de aprovisionamiento en Azure Active Directory (versión preliminar) | Microsoft Docs
+description: Información general de los registros de aprovisionamiento en Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -13,62 +13,99 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 1/29/2021
+ms.date: 4/25/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 468e885bab6aab4becb5aaaec7b4d52ce5ef5e07
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 42a1ea52c9de3332c2b73b5c03e203f6d6694c49
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107535989"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017398"
 ---
-# <a name="overview-of-provisioning-logs-in-the-azure-portal-preview"></a>Información general sobre los registros de aprovisionamiento en Azure Portal (versión preliminar)
+# <a name="provisioning-logs-in-azure-active-directory-preview"></a>Registros de aprovisionamiento en Azure Active Directory (versión preliminar)
 
-La arquitectura de los informes de Azure Active Directory (Azure AD) consta de los siguientes componentes:
+Como administrador de TI, quiere saber cómo funciona el entorno de TI. La información sobre el estado del sistema le permite evaluar si es necesario responder a posibles problemas y cómo hacerlo. 
 
-- Actividad: 
-    - **Inicios de sesión**: información sobre el uso de aplicaciones administradas y actividades de inicio de sesión de usuario.
-    - [Registros de auditoría](concept-audit-logs.md): información de la actividad del sistema sobre los usuarios y la administración de grupos, sus aplicaciones administradas y actividades de directorio.
-    - **Registros de aprovisionamiento**: la actividad del sistema sobre los usuarios, los grupos y los roles aprovisionados por el servicio de aprovisionamiento de Azure AD. 
+Para ayudarle a conseguir este objetivo, el portal de Azure Active Directory le proporciona acceso a tres registros de actividad:
 
-- Seguridad: 
-    - **Inicios de sesión de riesgo**: un [inicio de sesión de riesgo](../identity-protection/overview-identity-protection.md) es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario.
-    - **Usuarios marcados de riesgo**: un [usuario de riesgo](../identity-protection/overview-identity-protection.md) es un indicador de una cuenta de usuario que puede haber estado en peligro.
+- **[Inicios de sesión](concept-sign-ins.md)** : información sobre los inicios de sesión y cómo los usuarios emplean los recursos.
+- **[Auditoría](concept-audit-logs.md)** : información sobre los cambios aplicados al inquilino, como la administración de usuarios y grupos o las actualizaciones aplicadas a los recursos del inquilino.
+- **[Aprovisionamiento](concept-provisioning-logs.md)** : actividades realizadas por el servicio de aprovisionamiento, como la creación de un grupo en ServiceNow o un usuario importado de Workday.
 
-Este tema ofrece una visión general de los registros de aprovisionamiento. Los registros responden preguntas como las siguientes: 
 
-* ¿Qué grupos se han creado correctamente en ServiceNow?
-* ¿Qué usuarios se han quitado correctamente de Adobe?
-* ¿Qué usuarios de Workday se crearon correctamente en Active Directory? 
+En este artículo se ofrece información general de los registros de aprovisionamiento. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+
+## <a name="what-can-you-do-with-it"></a>¿Para qué sirven?
+
+Puede usar los registros de aprovisionamiento para encontrar respuestas a preguntas como:
+
+-  ¿Qué grupos se han creado correctamente en ServiceNow?
+
+-  ¿Qué usuarios se han quitado correctamente de Adobe?
+
+-  ¿Qué usuarios de Workday se crearon correctamente en Active Directory? 
+
+
+## <a name="who-can-access-it"></a>¿Quién puede acceder a ellos?
 
 Estos usuarios pueden acceder a los datos de los registros de aprovisionamiento:
 
-* Propietarios de aplicaciones (registros para sus propias aplicaciones)
-* Los usuarios con los roles Administrador de seguridad, Lector de seguridad, Lector de informes, Operador de seguridad, Administrador de aplicaciones y Administrador de aplicaciones en la nube
-* Usuarios en un rol personalizado con el [permiso provisioningLogs](../roles/custom-enterprise-app-permissions.md#full-list-of-permissions)
-* Administradores globales
+- Propietarios de aplicaciones (registros para sus propias aplicaciones)
+
+- Los usuarios con los roles Administrador de seguridad, Lector de seguridad, Lector de informes, Operador de seguridad, Administrador de aplicaciones y Administrador de aplicaciones en la nube
+
+- Usuarios en un rol personalizado con el [permiso provisioningLogs](../roles/custom-enterprise-app-permissions.md#full-list-of-permissions)
+
+- Administradores globales
+
+## <a name="what-azure-ad-license-do-you-need"></a>¿Qué licencia de Azure AD necesita?
+
+Para ver el informe de actividad de aprovisionamiento, el inquilino debe tener una licencia de Azure AD Premium asociada. Para actualizar la edición de Azure AD, consulte [Introducción a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md). 
 
 
-Para ver el informe de actividades de aprovisionamiento, el inquilino debe tener una licencia de Azure AD Premium asociada. Para actualizar la edición de Azure AD, consulte [Introducción a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md). 
+## <a name="how-can-you-access-it"></a>¿Cómo se puede acceder a ellos? 
 
+Para acceder a los datos de registro, tiene las siguientes opciones:
 
-## <a name="ways-of-interacting-with-the-provisioning-logs"></a>Maneras de interactuar con los registros de aprovisionamiento 
-Los clientes pueden interactuar con los registros de aprovisionamiento de cuatro maneras:
+- Azure Portal
 
-- Acceder a los registros desde Azure Portal, como se describe en la siguiente sección.
 - Transmitir los registros de aprovisionamiento a [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md). Este método permite la retención extendida de datos y la creación de paneles, alertas y consultas personalizados.
+
 - Consultar la [Microsoft Graph API](/graph/api/resources/provisioningobjectsummary) para los registros de aprovisionamiento.
+
 - Descargar los registros de aprovisionamiento como un archivo CSV o JSON.
 
-## <a name="access-the-logs-from-the-azure-portal"></a>Acceso a los registros desde Azure Portal
+
+
+## <a name="where-can-you-find-it-in-the-azure-portal"></a>¿Dónde se puede encontrar en Azure Portal?
+
+Azure Portal ofrece varias opciones para acceder al registro. Por ejemplo, en el menú de Azure Active Directory, puede abrir el registro en la sección **Supervisión**.  
+
+![Apertura de registros de aprovisionamiento](./media/concept-sign-ins/sign-ins-logs-menu.png)
+
+Además, puede acceder directamente a los registros de inicio de sesión mediante este vínculo: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
+
+
+
+
+
+
+
+
+
+
+
+
 Se puede acceder a los registros de aprovisionamiento si se selecciona **Registros de aprovisionamiento** en la sección **Supervisión** del panel **Azure Active Directory** en [Azure Portal](https://portal.azure.com). Algunos registros de aprovisionamiento pueden tardar hasta dos horas en aparecer en el portal.
 
 ![Captura de pantalla que muestra las selecciones para acceder a los registros de aprovisionamiento.](./media/concept-provisioning-logs/access-provisioning-logs.png "Registros de aprovisionamiento")
 
+
+
+## <a name="what-is-the-default-view"></a>¿Cuál es la vista predeterminada?
 
 Un registro de aprovisionamiento tiene una vista de lista predeterminada que muestra:
 

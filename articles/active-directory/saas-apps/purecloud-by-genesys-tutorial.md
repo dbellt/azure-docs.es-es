@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 05/07/2021
 ms.author: jeedes
-ms.openlocfilehash: 7c6f84ee3bb4920dbe57221b8b0bbf9f5880742b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da3e88706c4a7820920191df419a448a08b9f675
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653042"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736599"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con PureCloud by Genesys
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar PureCloud by Genesys con Azure Active Di
 * Permitir que los usuarios inicien sesión automáticamente en PureCloud by Genesys con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -79,36 +79,39 @@ Para habilitar el inicio de sesión único de Azure AD en Azure Portal, siga es
 1. En la sección **Configuración básica de SAML**, si quiere configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
 
     a. En el cuadro **Identificador**, escriba las direcciones URL que correspondan a su región:
-
-    ```http
-    https://login.mypurecloud.com/saml
-    https://login.mypurecloud.de/saml
-    https://login.mypurecloud.jp/saml
-    https://login.mypurecloud.ie/saml
-    https://login.mypurecloud.au/saml
-    ```
+    
+    | URL del identificador |
+    |---|
+    | https://login.mypurecloud.com/saml |
+    | https://login.mypurecloud.de/saml |
+    | https://login.mypurecloud.jp/saml |
+    | https://login.mypurecloud.ie/saml |
+    | https://login.mypurecloud.com.au/saml |
+    |
 
     b. En el cuadro **URL de respuesta**, escriba las direcciones URL que correspondan a su región:
 
-    ```http
-    https://login.mypurecloud.com/saml
-    https://login.mypurecloud.de/saml
-    https://login.mypurecloud.jp/saml
-    https://login.mypurecloud.ie/saml
-    https://login.mypurecloud.com.au/saml
-    ```
+    | URL de respuesta |
+    |---|
+    | https://login.mypurecloud.com/saml |
+    | https://login.mypurecloud.de/saml |
+    | https://login.mypurecloud.jp/saml |
+    | https://login.mypurecloud.ie/saml |
+    | https://login.mypurecloud.com.au/saml |
+    |
 
 1. Seleccione **Establecer direcciones URL adicionales** y lleve a cabo el siguiente paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
     En el cuadro **URL de inicio de sesión**, escriba las direcciones URL que correspondan a su región:
     
-    ```http
-    https://login.mypurecloud.com
-    https://login.mypurecloud.de
-    https://login.mypurecloud.jp
-    https://login.mypurecloud.ie
-    https://login.mypurecloud.com.au
-    ```
+    |URL de inicio de sesión |
+    |---|
+    | https://login.mypurecloud.com |
+    | https://login.mypurecloud.de |
+    | https://login.mypurecloud.jp |
+    | https://login.mypurecloud.ie |
+    | https://login.mypurecloud.com.au |
+    |
 
 1. La aplicación PureCloud by Genesys espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de atributos de token SAML. En la siguiente captura se muestra la lista de los atributos predeterminados:
 

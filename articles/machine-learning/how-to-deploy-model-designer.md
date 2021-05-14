@@ -9,14 +9,14 @@ ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
 ms.date: 10/29/2020
-ms.topic: conceptual
-ms.custom: how-to, deploy, studio, designer
-ms.openlocfilehash: 35acfc51ae76fdacef11f03b1fbd91ad58650ae6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: how-to
+ms.custom: deploy, studio, designer
+ms.openlocfilehash: 110bb5e6349ab5cb64366ba365ccace8ab029362
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97722630"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949441"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Uso de Studio para implementar modelos entrenados en el diseñador
 
@@ -33,7 +33,7 @@ La implementación en Studio consta de los siguientes pasos:
 
 También puede implementar modelos directamente en el diseñador para omitir los pasos de registro de modelos y descarga de archivos. Esto puede ser útil para una rápida implementación. Para más información, consulte [Implementación de un modelo con el diseñador](tutorial-designer-automobile-price-deploy.md).
 
-Los modelos entrenados en el diseñador también se pueden implementar a través del SDK o la interfaz de la línea de comandos (CLI). Para más información, consulte [Implementación del modelo existente con Azure Machine Learning](how-to-deploy-existing-model.md).
+Los modelos entrenados en el diseñador también se pueden implementar a través del SDK o la interfaz de la línea de comandos (CLI). Para más información, consulte [Implementación del modelo existente con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

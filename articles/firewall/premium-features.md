@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 04/22/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: fdf0113d73b0b2e82ec889caf2a82c77bb7a040c
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: fa7d17b208c4a950e82a8bdc4db243ebb44e4c41
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226708"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107896286"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Características de la versión preliminar de Azure Firewall Prémium
 
@@ -155,6 +155,7 @@ Certificados firmados por clientes que no son de confianza|El firewall no confí
 |Omisión de IDPS|La omisión de IDPS no funciona para el tráfico terminado por TLS y no se admiten la dirección IP de origen ni los grupos de IP de origen.|Corrección programada para la fase de disponibilidad general.|
 |Compatibilidad con TLS 1.3|TLS 1.3 se admite de forma parcial. El túnel TLS del cliente al firewall se basa en TLS 1.2 y desde el firewall al servidor web externo en TLS 1.3.|Se están investigando actualizaciones.|
 |Punto de conexión privado KeyVault|KeyVault admite el acceso de punto de conexión privado para limitar la exposición de la red. Los Servicios de Azure de confianza pueden omitir esta limitación si se configura una excepción como se describe en la [documentación de KeyVault](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Azure Firewall no aparece actualmente como un servicio de confianza y no puede tener acceso a Key Vault.|Corrección programada para la fase de disponibilidad general.|
+|Compatibilidad con grupos de IP|La versión preliminar de Azure Firewall Premium no admite grupos IP.|Corrección programada para la fase de disponibilidad general.|
 
 
 ## <a name="next-steps"></a>Pasos siguientes

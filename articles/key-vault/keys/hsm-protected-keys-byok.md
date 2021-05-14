@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: f1b5d6499594e9026e1615be5361c52c9ce2f4ef
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 44b7d5c4202307eba572caecf6910a90223c51bb
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774816"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108015940"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Importación de claves protegidas con HSM a Key Vault (BYOK)
 
@@ -58,14 +58,15 @@ En la tabla siguiente se enumeran los requisitos previos para el uso de BYOK en 
 
 |Nombre del proveedor|Tipo de proveedor|Modelos de HSM compatibles|Más información|
 |---|---|---|---|
-|nCipher|Fabricante,<br/>HSM como servicio|<ul><li>Familia nShield de HSM</li><li>nShield como servicio</ul>|[Nueva herramienta BYOK y documentación de nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|
-|Thales|Fabricante|<ul><li>Familia Luna HSM 7 con la versión del firmware 7.3 o posterior</li></ul>| [Herramienta y documentación de Luna BYOK](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
-|Fortanix|Fabricante,<br/>HSM como servicio|<ul><li>Self-Defending Key Management Service (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Exportación de claves de SDKMS a proveedores de nube para BYOK: Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
-|Marvell|Fabricante|Todos los HSM de LiquidSecurity con<ul><li>versión de firmware 2.0.4 o posterior</li><li>versión de firmware 3.2 o posterior</li></ul>|[Herramienta BYOK y documentación de Marvell](https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/exporting-marvell-hsm-keys-to-cloud-azure-key-vault.html)|
 |Cryptomathic|ISV (sistema de administración de claves empresariales)|Varias marcas y modelos de HSM, como<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>Consulte el [sitio de Cryptomathic para obtener más información](https://www.cryptomathic.com/azurebyok).|[Herramienta BYOK y documentación de Cryptomathic](https://www.cryptomathic.com/azurebyok)|
+|Entrust|Fabricante,<br/>HSM como servicio|<ul><li>Familia nShield de HSM</li><li>nShield como servicio</ul>|[Nueva herramienta BYOK y documentación de nCipher](https://www.entrust.com/digital-security/hsm/solutions/use-case/cloud-security/bring-your-own-key-hold-your-own-key)|
+|Fortanix|Fabricante,<br/>HSM como servicio|<ul><li>Self-Defending Key Management Service (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Exportación de claves de SDKMS a proveedores de nube para BYOK: Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
+|IBM|Fabricante|IBM 476x, CryptoExpress|[IBM Enterprise Key Management Foundation](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
+|Marvell|Fabricante|Todos los HSM de LiquidSecurity con<ul><li>versión de firmware 2.0.4 o posterior</li><li>versión de firmware 3.2 o posterior</li></ul>|[Herramienta BYOK y documentación de Marvell](https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/exporting-marvell-hsm-keys-to-cloud-azure-key-vault.html)|
+|nCipher|Fabricante,<br/>HSM como servicio|<ul><li>Familia nShield de HSM</li><li>nShield como servicio</ul>|[Nueva herramienta BYOK y documentación de nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|
 |Securosys SA|Fabricante,<br/>HSM como servicio|Familia Primus HSM, Securosys Clouds HSM|[Herramienta y documentación de BYOK de Primus](https://www.securosys.com/primus-azure-byok)|
 |StorMagic|ISV (sistema de administración de claves empresariales)|Varias marcas y modelos de HSM, como<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>Consulte el [sitio web de StorMagic para más información](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm).|[BYOK de SvKMS y Azure Key Vault](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
-|IBM|Fabricante|IBM 476x, CryptoExpress|[IBM Enterprise Key Management Foundation](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
+|Thales|Fabricante|<ul><li>Familia Luna HSM 7 con la versión del firmware 7.3 o posterior</li></ul>| [Herramienta y documentación de Luna BYOK](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
 |Utimaco|Fabricante,<br/>HSM como servicio|u.trust Anchor, CryptoServer|[Guía de integración y herramienta BYOK de Utimaco](https://support.hsm.utimaco.com/support/downloads/byok)|
 ||||
 

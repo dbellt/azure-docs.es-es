@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 371cc78f3ebad638008f4195f164b66a64948c65
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 529a86712994aae91a554589d383cc748f79d07f
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504556"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107520112"
 ---
 # <a name="get-started-with-the-windows-virtual-desktop-agent"></a>Introducción al agente de Windows Virtual Desktop
 
@@ -32,17 +32,18 @@ El agente de Windows Virtual Desktop se instala inicialmente de una de dos maner
 
 ## <a name="agent-update-process"></a>Proceso de actualización del agente
 
-El servicio Windows Virtual Desktop actualiza el agente cada vez que hay disponible una actualización. Las actualizaciones del agente pueden incluir nuevas funcionalidades o correcciones de problemas anteriores. Una vez instalada la versión inicial del agente de Windows Virtual Desktop, el agente consulta periódicamente el servicio Windows Virtual Desktop para establecer si hay disponible una versión más reciente del agente, la pila o el componente de supervisión. Si ya se ha implementado una versión más reciente de cualquiera de los componentes, el componente actualizado se instalará automáticamente.
+El servicio Windows Virtual Desktop actualiza el agente cada vez que hay disponible una actualización. Las actualizaciones del agente pueden incluir nuevas funcionalidades o correcciones de problemas anteriores. Siempre debe tener instalada la versión estable más reciente del agente para que las máquinas virtuales no pierdan conectividad ni seguridad. Una vez instalada la versión inicial del agente de Windows Virtual Desktop, el agente consulta periódicamente el servicio Windows Virtual Desktop para establecer si hay disponible una versión más reciente del agente, la pila o el componente de supervisión. Si ya se ha implementado una versión más reciente de alguno de los componentes, el sistema de distribución de paquetes piloto instalará automáticamente el componente actualizado.
 
 Las nuevas versiones del agente se implementan periódicamente en períodos de una semana en todas las suscripciones de Azure. Estos períodos de actualización se denominan "pilotos". Cuando se produce un piloto, es posible que observe que las máquinas virtuales del grupo de hosts reciben la actualización del agente en momentos diferentes. Todos los agentes de máquina virtual de todas las suscripciones se actualizarán al final del período de implementación. El sistema de distribución de paquetes piloto de Windows Virtual Desktop mejora la confiabilidad del servicio al garantizar la estabilidad y la calidad de la actualización del agente.
 
 
->[!NOTE]
->Dado que las máquinas virtuales del grupo de hosts pueden recibir actualizaciones del agente en momentos diferentes, deberá ser capaz de indicar la diferencia entre los problemas de paquetes piloto y las actualizaciones de agente con errores. Si navega a los registros de eventos de la máquina virtual en **Visor de eventos** > **Registros de Windows** > **Aplicación** y ve un evento con la etiqueta "ID 3277", eso significa que la actualización del agente no funcionó. Si no ve ese evento, la máquina virtual se encuentra en un paquete piloto diferente y se actualizará más adelante.
->- Cuando el agente de Geneva Monitoring se actualiza a la versión más reciente, se busca la antigua tarea GenevaTask y se deshabilita antes de crear una nueva tarea para el nuevo agente de supervisión. La versión anterior del agente de supervisión no se elimina en caso de que la versión más reciente del agente de supervisión tenga un problema que requiera revertir a la versión anterior para corregirlo. Si la versión más reciente tiene un problema, el agente de supervisión anterior se volverá a habilitar para continuar con la entrega de datos de supervisión. Todas las versiones de supervisión anteriores a la última que instaló antes de la actualización se eliminarán de la VM.
->- La VM mantiene tres versiones de la pila en paralelo a la vez. Esto permite una recuperación rápida si algo va mal con la actualización. La versión más antigua de la pila se quita de la VM cada vez que se actualiza la pila.
+Otros aspectos importantes que debe tener en cuenta:
 
-Esta instalación de una actualización normalmente tarda entre 2 y 3 minutos en una nueva VM, y no debe hacer que la VM pierda la conexión o se apague. Este proceso de actualización se aplica a Windows Virtual Desktop (clásico) y a la versión más reciente de Windows Virtual Desktop con Azure Resource Manager.
+- Dado que las máquinas virtuales del grupo de hosts pueden recibir actualizaciones del agente en momentos diferentes, deberá ser capaz de indicar la diferencia entre los problemas de paquetes piloto y las actualizaciones de agente con errores. Si navega a los registros de eventos de la máquina virtual en **Visor de eventos** > **Registros de Windows** > **Aplicación** y ve un evento con la etiqueta "ID 3277", eso significa que la actualización del agente no funcionó. Si no ve ese evento, la máquina virtual se encuentra en un paquete piloto diferente y se actualizará más adelante.
+- Cuando el agente de Geneva Monitoring se actualiza a la versión más reciente, se busca la antigua tarea GenevaTask y se deshabilita antes de crear una nueva tarea para el nuevo agente de supervisión. La versión anterior del agente de supervisión no se elimina en caso de que la versión más reciente del agente de supervisión tenga un problema que requiera revertir a la versión anterior para corregirlo. Si la versión más reciente tiene un problema, el agente de supervisión anterior se volverá a habilitar para continuar con la entrega de datos de supervisión. Todas las versiones de supervisión anteriores a la última que instaló antes de la actualización se eliminarán de la VM.
+- La VM mantiene tres versiones de la pila en paralelo a la vez. Esto permite una recuperación rápida si algo va mal con la actualización. La versión más antigua de la pila se quita de la VM cada vez que se actualiza la pila.
+
+La actualización del agente normalmente tarda entre 2 y 3 minutos en una nueva máquina virtual y no debe hacer que esta pierda la conexión o se apague. Este proceso de actualización se aplica a Windows Virtual Desktop (clásico) y a la versión más reciente de Windows Virtual Desktop con Azure Resource Manager.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

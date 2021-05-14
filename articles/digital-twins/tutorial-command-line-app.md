@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: c18366fd4bc510f32ac0ef255b27709797a3b626
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 419e609c4b78007f215d67ab4a69671bc9cbb198
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103493718"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205636"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-a-sample-client-app"></a>Tutorial: Creación de un grafo de Azure Digital Twins mediante una aplicación cliente de ejemplo
 
 [!INCLUDE [digital-twins-tutorial-selector.md](../../includes/digital-twins-tutorial-selector.md)]
 
-En este tutorial creará un grafo en Azure Digital Twins con modelos, gemelos y relaciones. La herramienta de este tutorial es una **aplicación cliente de línea de comandos de ejemplo** para interactuar con una instancia de Azure Digital Twins. La aplicación cliente es similar a la escrita en el [*Tutorial: Programación de una aplicación cliente*](tutorial-code.md).
+En este tutorial creará un grafo en Azure Digital Twins con modelos, gemelos y relaciones. La herramienta de este tutorial es una **aplicación cliente de línea de comandos de ejemplo** para interactuar con una instancia de Azure Digital Twins. La aplicación cliente es similar a la escrita en el [Tutorial: Programación de una aplicación cliente](tutorial-code.md).
 
 Puede usar este ejemplo para realizar acciones básicas de Azure Digital Twins, como cargar modelos, crear y modificar gemelos y crear relaciones. No obstante, si lo prefiere, también puede examinar el [código del ejemplo](https://github.com/Azure-Samples/digital-twins-samples/tree/master/) para aprender sobre las API de Azure Digital Twins y practicar la implementación de sus propios comandos mediante la modificación del proyecto de ejemplo.
 
@@ -55,7 +55,7 @@ Mantenga la consola del proyecto en ejecución durante el resto de los pasos de 
 
 Ahora que la instancia de Azure Digital Twins y la aplicación de ejemplo están configuradas, puede empezar a crear un grafo de un escenario. 
 
-El primer paso para crear una solución de Azure Digital Twins es definir los [**modelos**](concepts-models.md) de gemelos del entorno. 
+El primer paso para crear una solución de Azure Digital Twins es definir los [modelos](concepts-models.md) de gemelos del entorno. 
 
 Los modelos son parecidos a las clases de los lenguajes de programación orientados a objetos en el sentido de que proporcionan plantillas definidas por el usuario para [gemelos digitales](concepts-twins-graph.md), las cuales se siguen. Más tarde también se crean instancias de estas plantillas. Se escriben en un lenguaje tipo JSON llamado **lenguaje de definición de gemelos digitales (DTDL)** y pueden definir las *propiedades*, la *telemetría*, las *relaciones* y los *componentes* de un gemelo.
 
@@ -95,7 +95,7 @@ CreateModels Room
 ```
 
 Dado que los modelos no se pueden sobrescribir, esto le devolverá un error de servicio.
-Para información detallada sobre cómo eliminar modelos existentes, consulte [*Procedimientos: Administración de modelos DTDL*](how-to-manage-model.md).
+Para información detallada sobre cómo eliminar modelos existentes, consulte [Procedimientos: Administración de modelos DTDL](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)
@@ -112,7 +112,7 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="create-digital-twins"></a>Creación de gemelos digitales
 
-Ahora que algunos modelos se han cargado en la instancia de Azure Digital Twins, puede crear [**gemelos digitales**](concepts-twins-graph.md) basados en las definiciones de modelo. Los gemelos digitales representan las entidades del entorno empresarial, como los sensores de una granja, las salas de un edificio o las luces de un coche. 
+Ahora que algunos modelos se han cargado en la instancia de Azure Digital Twins, puede crear [gemelos digitales](concepts-twins-graph.md) basados en las definiciones de modelo. Los gemelos digitales representan las entidades del entorno empresarial, como los sensores de una granja, las salas de un edificio o las luces de un coche. 
 
 Para crear un gemelo digital, se usa el comando `CreateDigitalTwin`. Se debe hacer referencia al modelo en el que se basa el gemelo y, opcionalmente, puede definir los valores iniciales de las propiedades del modelo. En esta fase, no es necesario pasar ninguna información de relación.
 
@@ -157,9 +157,9 @@ También puede modificar las propiedades de un gemelo que haya creado.
 
 ## <a name="create-a-graph-by-adding-relationships"></a>Creación de un gráfico mediante la adición de relaciones
 
-A continuación, puede crear algunas **relaciones** entre estos gemelos para conectarlos en un [**gráfico de gemelos**](concepts-twins-graph.md). Los gráficos de gemelos se utilizan para representar un entorno completo. 
+A continuación, puede crear algunas **relaciones** entre estos gemelos para conectarlos en un [gráfico de gemelos](concepts-twins-graph.md). Los gráficos de gemelos se utilizan para representar un entorno completo. 
 
-Los tipos de relaciones que puede crear de un gemelo a otro se definen dentro de los [modelos](#model-a-physical-environment-with-dtdl) que cargó anteriormente. La [definición del modelo para *Floor*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) especifica que las plantas pueden tener un tipo de relación denominado *contains*. Esto permite crear una relación de tipo *contains* a partir de cada gemelo de *Floor* en la planta correspondiente que lo contiene.
+Los tipos de relaciones que puede crear de un gemelo a otro se definen dentro de los [modelos](#model-a-physical-environment-with-dtdl) que cargó anteriormente. La [definición de modelo de Floor](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) especifica que los pisos pueden tener un tipo de relación denominado *contains*. Esto permite crear una relación de tipo *contains* a partir de cada gemelo de *Floor* en la planta correspondiente que lo contiene.
 
 Para agregar una relación, use el comando `CreateRelationship`. Especifique el gemelo del que procede la relación, el tipo de relación y el gemelo con el que conecta la relación. Por último, asígnele un identificador único a la relación.
 
@@ -171,7 +171,7 @@ Para agregar una relación, use el comando `CreateRelationship`. Especifique el 
     ```
 
     >[!TIP]
-    >La relación *contains* en el modelo de [ *Floor*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) también se ha definido con dos propiedades de cadena, `ownershipUser` y `ownershipDepartment`, por lo que también puede proporcionar argumentos con los valores iniciales para estas al crear las relaciones.
+    >La relación *contains* en el modelo de  [Floor](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) también se ha definido con dos propiedades de cadena, `ownershipUser` y `ownershipDepartment`, por lo que también puede proporcionar argumentos con los valores iniciales para estas al crear las relaciones.
     > Esta es una versión alternativa del comando anterior para crear *relationship0* que también especifica valores iniciales para estas propiedades:
     > ```cmd/sh
     > CreateRelationship floor0 contains room0 relationship0 ownershipUser string MyUser ownershipDepartment string myDepartment
@@ -279,4 +279,4 @@ En este tutorial ha empezado a usar Azure Digital Twins mediante la creación de
 
 Continúe con el siguiente tutorial para combinar Azure Digital Twins con otros servicios de Azure con el fin de completar un escenario integral basado en datos:
 > [!div class="nextstepaction"]
-> [*Tutorial: Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md).
+> [Tutorial: Conexión de una solución de un extremo a otro](tutorial-end-to-end.md)

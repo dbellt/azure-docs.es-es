@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/10/2020
+ms.date: 04/06/2021
 ms.author: rolyon
-ms.openlocfilehash: 93821979e0c14a879b805049a4f662e9ef6d5b15
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 366692113872856852fd933ca32ab51ca608de14
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075685"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291287"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transferencia de una suscripción de Azure a otro directorio de Azure AD
 
@@ -74,15 +74,15 @@ Varios recursos de Azure tienen una dependencia de una suscripción o un directo
 | Identidades administradas asignadas por el sistema | Sí | Sí | [Lista de identidades administradas](#list-role-assignments-for-managed-identities) | Debe deshabilitar y volver a habilitar las identidades administradas. Debe volver a crear asignaciones de roles. |
 | Identidades administradas asignadas por el usuario | Sí | Sí | [Lista de identidades administradas](#list-role-assignments-for-managed-identities) | Debe eliminar, volver a crear y adjuntar las identidades administradas al recurso adecuado. Debe volver a crear asignaciones de roles. |
 | Azure Key Vault | Sí | Sí | [Lista de directivas de acceso de Key Vault](#list-key-vaults) | Debe actualizar el identificador de inquilino asociado con los almacenes de claves. Debe quitar y agregar nuevas directivas de acceso. |
-| Instancias de Azure SQL Database con integración de la autenticación de Azure AD habilitada | Sí | No | [Consulta de instancias de Azure SQL Database con autenticación de Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  | 
+| Instancias de Azure SQL Database con integración de la autenticación de Azure AD habilitada | Sí | No | [Consulta de instancias de Azure SQL Database con autenticación de Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) | No puede transferir una base de datos de Azure SQL con Autenticación de Azure AD habilitada para un directorio diferente. Para obtener más información, consulte [Uso de la autenticación de Azure Active Directory](../azure-sql/database/authentication-aad-overview.md). | 
 | Azure Storage y Azure Data Lake Storage Gen2 | Sí | Sí |  | Debe volver a crear las ACL. |
 | Azure Data Lake Storage Gen1 | Sí | Sí |  | Debe volver a crear las ACL. |
 | Azure Files | Sí | Sí |  | Debe volver a crear las ACL. |
-| Azure File Sync | Sí | Sí |  |  |
+| Azure File Sync | Sí | Sí |  | El servicio de sincronización del almacenamiento o la cuenta de almacenamiento se pueden mover a un directorio diferente. Para obtener más información, consulte [Preguntas más frecuentes (P+F) sobre Azure Files](../storage/files/storage-files-faq.md#azure-file-sync) |
 | Azure Managed Disks | Sí | Sí |  |  Si usa conjuntos de cifrado de disco para cifrar instancias de Managed Disks con claves administradas por el cliente, debe deshabilitar y volver a habilitar las identidades asignadas por el sistema asociadas a los conjuntos de cifrado de disco. Además, debe volver a crear las asignaciones de roles, es decir, volver a conceder los permisos necesarios a los conjuntos de cifrado de disco en las instancias de Key Vault. |
-| Azure Kubernetes Service | Sí | Sí |  |  |
+| Azure Kubernetes Service | Sí | No |  | No puede transferir el clúster de AKS y sus recursos asociados a otro directorio. Para obtener más información, consulte [Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)](../aks/faq.md) |
 | Azure Policy | Sí | No | Todos los objetos de Azure Policy, incluidas las definiciones personalizadas, las asignaciones, las exenciones y los datos de cumplimiento. | Tendrá que [exportar](../governance/policy/how-to/export-resources.md), importar y volver a asignar las definiciones. Después, cree asignaciones de directiva y las [exenciones de directiva](../governance/policy/concepts/exemption-structure.md) necesarias. |
-| Azure Active Directory Domain Services | Sí | No |  |  |
+| Azure Active Directory Domain Services | Sí | No |  | No puede transferir un dominio administrado de Azure AD Domain Services a otro directorio. Para obtener más información, consulte [Preguntas más frecuentes (P+F) sobre Azure Active Directory (AD) Domain Services](../active-directory-domain-services/faqs.yml) |
 | Registros de aplicaciones | Sí | Sí |  |  |
 
 > [!WARNING]
@@ -116,7 +116,7 @@ Para completar estos pasos, necesitará lo siguiente:
 
 ### <a name="install-the-azure-resource-graph-extension"></a>Instalación de la extensión Azure Resource Graph
 
- La extensión de la CLI de Azure para [Azure Resource Graph](../governance/resource-graph/index.yml), *resource-graph*, le permite usar el comando [az graph](/cli/azure/ext/resource-graph/graph) para consultar los recursos que administra Azure Resource Manager. Usará este comando en pasos posteriores.
+ La extensión de la CLI de Azure para [Azure Resource Graph](../governance/resource-graph/index.yml), *resource-graph*, le permite usar el comando [az graph](/cli/azure/graph) para consultar los recursos que administra Azure Resource Manager. Usará este comando en pasos posteriores.
 
 1. Use [az extension list](/cli/azure/extension#az_extension_list) para ver si tiene instalada la extensión *resource-graph*.
 
@@ -233,7 +233,7 @@ Cuando se crea un almacén de claves, se asocia automáticamente a un identifica
 
 ### <a name="list-azure-sql-databases-with-azure-ad-authentication"></a>Lista de instancias de Azure SQL Database con autenticación de Azure AD
 
-- Use [az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) y la extensión [az graph](/cli/azure/ext/resource-graph/graph) para ver si está usando instancias de Azure SQL Database con integración de la autenticación de Azure AD habilitada. Para obtener más información, consulte [Configuración y administración de la autenticación de Azure Active Directory con SQL](../azure-sql/database/authentication-aad-configure.md).
+- Use [az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) y la extensión [az graph](/cli/azure/graph) para ver si está usando instancias de Azure SQL Database con integración de la autenticación de Azure AD habilitada. Para obtener más información, consulte [Configuración y administración de la autenticación de Azure Active Directory con SQL](../azure-sql/database/authentication-aad-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
@@ -255,7 +255,7 @@ Cuando se crea un almacén de claves, se asocia automáticamente a un identifica
     subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"$//')
     ```
 
-1. Use la extensión [az graph](/cli/azure/ext/resource-graph/graph) para mostrar otros recursos de Azure con dependencias de directorio de Azure AD conocidas.
+1. Use la extensión [az graph](/cli/azure/graph) para mostrar otros recursos de Azure con dependencias de directorio de Azure AD conocidas.
 
     ```azurecli
     az graph query -q \

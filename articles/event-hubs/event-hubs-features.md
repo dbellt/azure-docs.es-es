@@ -3,12 +3,12 @@ title: Información general de las características de Azure Event Hubs | Micros
 description: En este artículo se proporcionan detalles acerca de las características y la terminología de Azure Event Hubs.
 ms.topic: article
 ms.date: 03/15/2021
-ms.openlocfilehash: 8ec4b7cdd13c3407747261ef54cb6b1fc58fdb69
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 4fdcee27cd414069572e996f31de37d1ae641d13
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310096"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988449"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Características y terminología de Azure Event Hubs
 
@@ -149,7 +149,7 @@ Todos los consumidores de Event Hubs se conectan a través de una sesión de AMQ
 Es una práctica habitual al conectarse a particiones usar un mecanismo de concesiones para coordinar las conexiones del lector a particiones concretas. De este modo, es posible que cada partición de un grupo de consumidores solo tenga un lector activo. Los puntos de comprobación, la concesión y la administración de lectores se simplifican mediante el uso de los clientes de los SDK de Event Hubs, que actúan como agentes de consumidor inteligentes. Dichos componentes son:
 
 - [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) para .NET
-- [EventProcessorClient](/java/api/com.azure.messaging.eventhubs.eventprocessorclient) para Java
+- [EventProcessorClient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/main/java/com/azure/messaging/eventhubs/EventProcessorClient.java) para Java
 - [EventHubConsumerClient](/python/api/azure-eventhub/azure.eventhub.aio.eventhubconsumerclient) para Python
 - [EventHubSoncumerClient](/javascript/api/@azure/event-hubs/eventhubconsumerclient) para JavaScript o TypeScript
 

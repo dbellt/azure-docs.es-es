@@ -10,17 +10,17 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: a0f3e3547c38df63bdab77cf378525072d1e9ad4
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 3c80de77546a3b7296d9008ab351715036a43c88
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106125800"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108313616"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Kit de desarrollo de Java (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install), versión 8 o posterior.
+- [Kit de desarrollo de Java (JDK)](/azure/developer/java/fundamentals/java-jdk-install), versión 8 o posterior.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - Un recurso de Communication Services implementado y una cadena de conexión. [Cree un recurso de Communication Services](../create-communication-resource.md).
 

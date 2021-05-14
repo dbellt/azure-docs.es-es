@@ -14,18 +14,18 @@ ms.topic: how-to
 ms.date: 03/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 290b68b90deb669f70fa708e6c3bda83cb7187c0
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: b21d7a5eef36a4aa2deac4d1005a7b82ab06687b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227796"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138938"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Supervisión de los registros de diagnósticos de Media Services
 
 [!INCLUDE [media services api v3 logo](../includes/v3-hr.md)]
 
-[Azure Monitor](/azure/azure-monitor/overview) le permite supervisar métricas y registros de diagnóstico que le ayudan a conocer el rendimiento de sus aplicaciones. Para obtener una descripción detallada de esta característica y saber por qué se recomienda usar las métricas y los registros de diagnósticos de Azure Media Services, consulte [Supervisar las métricas de Media Services y los registros de diagnóstico](monitor-media-services.md).
+[Azure Monitor](../../../azure-monitor/overview.md) le permite supervisar métricas y registros de diagnóstico que le ayudan a conocer el rendimiento de sus aplicaciones. Para obtener una descripción detallada de esta característica y saber por qué se recomienda usar las métricas y los registros de diagnósticos de Azure Media Services, consulte [Supervisar las métricas de Media Services y los registros de diagnóstico](monitor-media-services.md).
 
 En este artículo se muestra cómo enrutar los datos a la cuenta de almacenamiento y, después, ver dichos datos.
 
@@ -183,9 +183,9 @@ Puede que tenga que esperar hasta cinco minutos antes de que el evento aparezca 
 
 ## <a name="see-also"></a>Consulte también
 
-* [Métricas de Azure Monitor](/azure/azure-monitor/data-platform)
-* [Registros de diagnóstico de Azure Monitor](/azure/azure-monitor/essentials/platform-logs-overview)
-* [Recopilación y consumo de datos de registro provenientes de los recursos de Azure](/azure/azure-monitor/essentials/platform-logs-overview)
+* [Métricas de Azure Monitor](../../../azure-monitor/data-platform.md)
+* [Registros de diagnóstico de Azure Monitor](../../../azure-monitor/essentials/platform-logs-overview.md)
+* [Recopilación y consumo de datos de registro provenientes de los recursos de Azure](../../../azure-monitor/essentials/platform-logs-overview.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

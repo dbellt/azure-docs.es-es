@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: ea24716dba5e4e824a4fa986602007035be8e365
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c2725ff58e40bc56aac528a17fe4d66a128d475
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98018384"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146948"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configuración de registros de flujo de grupos de seguridad de red mediante la API de REST
 
@@ -31,7 +31,7 @@ Los registros de flujo de grupos de seguridad de red son una característica de 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-ARMclient se usa para llamar a la API de REST con PowerShell. ARMClient se encuentra en Chocolatey en [ARMClient en Chocolatey](https://chocolatey.org/packages/ARMClient)
+ARMclient se usa para llamar a la API de REST con PowerShell. ARMClient se encuentra en Chocolatey en [ARMClient en Chocolatey](https://chocolatey.org/packages/ARMClient). Las especificaciones detalladas de la API REST de registros de flujo de grupo de seguridad de red se pueden encontrar [aquí](/rest/api/network-watcher/flowlogs). 
 
 En este escenario, se da por hecho que ya ha seguido los pasos descritos en [Creación de una instancia de Network Watcher](network-watcher-create.md) para crear un monitor de red.
 

@@ -1,17 +1,18 @@
 ---
 title: 'Tutorial: Creación y administración de una instancia de VPN Gateway: Azure portal'
-description: Siga este tutorial para aprender a crear, implementar y administrar Azure VPN Gateway mediante Azure Portal
+description: En este tutorial aprenderá a crear, implementar y administrar una instancia de Azure VPN Gateway mediante Azure Portal.
+titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 12/01/2020
-ms.openlocfilehash: 820482a268af038737557c517ccda086cd65d943
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/28/2021
+ms.openlocfilehash: 29f479444679d1f76dc90eec4546539faea5337f
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880565"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108202576"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>Tutorial: Creación y administración de una puerta de enlace de VPN mediante Azure Portal
 
@@ -28,7 +29,7 @@ En este tutorial, aprenderá a:
 
 En el siguiente diagrama se muestran la red virtual y la puerta de enlace de VPN creadas como parte de este tutorial.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagrama de VNet y VPN Gateway":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagrama de VNET y VPN Gateway.":::
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -74,7 +75,7 @@ Cree una puerta de enlace de red virtual con los siguientes valores:
 
 Puede ver la dirección IP pública de la puerta de enlace en la página **Información general** de la puerta de enlace.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Página de información general":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Captura de pantalla de la página de información general.":::
 
 Para ver más información acerca del objeto de dirección IP pública, haga clic en el vínculo del nombre/dirección IP que hay junto a **Dirección IP pública**.
 

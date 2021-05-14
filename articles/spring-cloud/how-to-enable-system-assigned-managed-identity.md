@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 2fbdd46b872c4c70999355d457045f4aac8aa34c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9897ad062de308563dccc7d17191d1757b887fc2
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877426"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135174"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Habilitación de la identidad administrada asignada por el sistema para una aplicación de Azure Spring Cloud
 
@@ -24,7 +24,7 @@ En este artículo se muestra cómo habilitar y deshabilitar las identidades admi
 
 ## <a name="prerequisites"></a>Requisitos previos
 Si no está familiarizado con las identidades administradas para recursos de Azure, consulte la [sección de introducción](../active-directory/managed-identities-azure-resources/overview.md).
-Necesitará una instancia de Azure Spring Cloud implementada. Siga el [Inicio rápido para realizar la implementación mediante la CLI de Azure](spring-cloud-quickstart.md).
+Necesitará una instancia de Azure Spring Cloud implementada. Siga el [Inicio rápido para realizar la implementación mediante la CLI de Azure](./quickstart.md).
 
 ## <a name="add-a-system-assigned-identity"></a>Adición de una identidad asignada por el sistema
 Para crear una aplicación con una identidad asignada por el sistema es necesario configurar una propiedad adicional en la aplicación.

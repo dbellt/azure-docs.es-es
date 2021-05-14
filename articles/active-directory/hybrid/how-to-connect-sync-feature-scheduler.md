@@ -16,12 +16,12 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad7b0039602add7f4cd3cdd300bd829c4f148a79
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2dc22a8615164506b6f2735090fca891b8fc921
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90084743"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278927"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronización de Azure AD Connect: Scheduler
 En este tema se describe el programador incorporado en la sincronización de Azure AD Connect (motor de sincronización).
@@ -41,7 +41,7 @@ El programador es responsable de dos tareas:
 El programador en sí, siempre está en ejecución, pero se puede configurar para que ejecute solo una o ninguna de estas tareas. Por ejemplo, si necesita tener su propio proceso de ciclo de sincronización, puede deshabilitar esta tarea en el programador y continuar ejecutando la tarea de mantenimiento.
 
 >[!IMPORTANT]
->Un ciclo de sincronización se ejecuta cada 30 minutos de manera predeterminada. Si modificó el ciclo de sincronización, deberá asegurarse de que se ejecute un ciclo de sincronización al menos una vez cada siete días. 
+>Un ciclo de sincronización se ejecuta cada 30 minutos de manera predeterminada. Si ha modificado el ciclo de sincronización, deberá asegurarse de que se ejecute un ciclo de sincronización al menos una vez cada siete días. 
 >
 >* Una sincronización diferencial debe ocurrir en un plazo de siete días desde la última sincronización diferencial.
 >* Una sincronización diferencial (después de una sincronización completa) tiene que realizarse en un plazo de siete días a partir del momento en que se completó la última sincronización completa.

@@ -9,19 +9,19 @@ ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: d4510aa5cda61dac88102c89b3e03da231380bd6
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 6aa6537cefb110662f9fbc535832d8c9423a6f68
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389458"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136600"
 ---
 # <a name="migration-guide-mysql-to-azure-sql-database"></a>Guía de migración: de MySQL a Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
 En esta guía obtendrá información sobre [cómo migrar](https://azure.microsoft.com/migration/migration-journey) una base de datos de MySQL a otra de Azure SQL mediante [SQL Server Migration Assistant](https://azure.microsoft.com/en-us/migration/sql-server/) para MySQL (SSMA para MySQL). 
 
-Para ver otras guías de migración, consulte [Guía de Azure Database Migration](https://docs.microsoft.com/data-migration). 
+Para ver otras guías de migración, consulte [Guía de Azure Database Migration](/data-migration). 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -39,10 +39,10 @@ Una vez cumplidos los requisitos previos, estará listo para detectar la topolog
 
 Use SQL Server Migration Assistant (SSMA) para MySQL con el fin de revisar datos y objetos de bases de datos, y evaluar estas últimas para la migración. 
 
-Para crear una evaluación, siga estos pasos:
+Para crear una valoración, siga estos pasos:
 
 1. Abra [SSMA para MySQL](https://www.microsoft.com/download/details.aspx?id=54257). 
-1. Seleccione **File** (Archivo) y, a continuación, seleccione **New Project** (Nuevo proyecto). 
+1. Seleccione **Archivo** y, a continuación, seleccione **Nuevo proyecto**. 
 1. En el panel **Nuevo proyecto**, escriba un nombre y una ubicación para el proyecto y, a continuación, en la lista desplegable **Migrar a**, seleccione **Azure SQL Database**. 
 1. Seleccione **Aceptar**.
 
@@ -80,10 +80,10 @@ Para convertir el esquema, haga lo siguiente:
 
 1. (Opcional) Para convertir consultas dinámicas o especializadas, haga clic con el botón derecho en el nodo y seleccione **Add statement** (Agregar instrucción). 
 
-1. Seleccione la pestaña **Connect to Azure SQL Database** (Conectar a Azure SQL Database) y haga lo siguiente:
+1. Seleccione la pestaña **Conectarse a Azure SQL Database** y haga lo siguiente:
 
    a. Escriba los detalles para conectarse a la base de datos SQL.  
-   b. Seleccione la base de datos SQL de destino en la lista desplegable. También puede proporcionar un nombre nuevo, en cuyo caso se crea una base de datos en el servidor de destino.  
+   b. Seleccione la base de datos SQL de destino en la lista desplegable. También puede proporcionar un nombre nuevo, en cuyo caso se crea una base de datos en el servidor de destino.  
    c. Proporcione los detalles de la autenticación.  
    d. Seleccione **Conectar**.
 
@@ -111,7 +111,7 @@ Para convertir el esquema, haga lo siguiente:
 
 ## <a name="migrate-the-databases"></a>Migración de las bases de datos 
 
-Después de evaluar las bases de datos y de solucionar las discrepancias, puede ejecutar el proceso de migración. La migración implica dos pasos: publicar el esquema y migrar los datos. 
+Después de evaluar las bases de datos y de solucionar las discrepancias, puede llevar a cabo el proceso de migración. La migración implica dos pasos: publicar el esquema y migrar los datos. 
 
 Para publicar el esquema y migrar los datos, haga lo siguiente: 
 
@@ -119,7 +119,7 @@ Para publicar el esquema y migrar los datos, haga lo siguiente:
 
    ![Captura de pantalla del panel "Synchronize with the Database" (Sincronizar con base de datos) para revisar la asignación de base de datos.](./media/mysql-to-sql-database-guide/synchronize-database-review.png)
 
-1. Migre los datos. En el panel **MySQL Metadata Explorer** (Explorador de metadatos de MySQL), haga clic con el botón derecho en el esquema de MySQL que desea migrar y, a continuación, seleccione **Migrate Data** (Migrar datos). Como alternativa, puede seleccionar la pestaña **Migrate Data** (Migrar datos) en la esquina superior derecha.
+1. Migre los datos. En el panel **MySQL Metadata Explorer** (Explorador de metadatos de MySQL), haga clic con el botón derecho en el esquema de MySQL que desea migrar y, a continuación, seleccione **Migrate Data** (Migrar datos). Como alternativa, puede seleccionar la pestaña **Migrar datos** en la esquina superior derecha.
 
    Para migrar datos de toda una base de datos, active la casilla situada junto al nombre de la base de datos. Para migrar datos de tablas concretas, expanda la base de datos, expanda **Tablas** y, a continuación, active la casilla que hay junto a la tabla. Para omitir datos de tablas concretas, desactive la casilla.
 
@@ -133,7 +133,7 @@ Para publicar el esquema y migrar los datos, haga lo siguiente:
 
    ![Captura de pantalla de SQL Server Management Studio.](./media/mysql-to-sql-database-guide/validate-in-ssms.png)
 
-## <a name="post-migration"></a>Después de la migración 
+## <a name="post-migration"></a>Etapa posterior a la migración 
 
 Cuando haya completado correctamente la fase de *migración*, deberá realizar una serie de tareas posteriores para asegurarse de que todo funcione de la forma más fluida y eficaz posible.
 
@@ -180,4 +180,3 @@ El equipo de ingeniería de datos SQL ha desarrollado estos recursos. El objetiv
 - Para ver vídeos sobre migración, consulte [Información general sobre el recorrido de la migración y las herramientas y los servicios de migración y evaluación recomendados](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/).
 
 - Para obtener más [recursos sobre la migración a la nube](https://azure.microsoft.com/migration/resources/), consulte las [soluciones de migración](https://azure.microsoft.com/migration).
-

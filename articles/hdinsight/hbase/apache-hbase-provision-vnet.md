@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
-ms.openlocfilehash: a9a1788473cb31f8e78aac0bbd5979b3d681ad32
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 2cb9be9426c2c1d0446508a0a4f85b587ce68260
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104867600"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108065164"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Creación de clústeres de Apache HBase en HDInsight en Azure Virtual Network
 
@@ -52,7 +52,7 @@ En esta sección, crea un clúster de Apache HBase basado en Linux con la cuenta
 
 1. Complete la plantilla restante con la siguiente información:
 
-    |Propiedad |Value |
+    |Propiedad |Valor |
     |---|---|
     |Subscription|seleccione una suscripción de Azure usada para crear el clúster de HDInsight, la cuenta de Storage dependiente y Azure Virtual Network.|
     Resource group|seleccione **Crear nuevo** y especifique un nuevo nombre al grupo de recursos.|
@@ -105,14 +105,14 @@ Cuando use una aplicación Java para conectarse a HBase en modo remoto, debe usa
 En los datos de notación de objetos JavaScript (JSON) devueltos, busque la entrada "host_name". Contiene el nombre de dominio completo (FQDN) de los nodos del clúster. Por ejemplo:
 
 ```json
-"host_name" : "hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net"
+"host_name" : "hn*.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net"
 ```
 
 La parte del nombre de dominio que comienza con el nombre del clúster es el sufijo DNS. Por ejemplo, `hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
 
 ### <a name="verify-communication-inside-virtual-network"></a>Comprobar la comunicación dentro de la red virtual
 
-Para comprobar que la máquina virtual puede comunicarse con el clúster de HBase, use el comando `ping headnode0.<dns suffix>` desde la máquina virtual. Por ejemplo, `ping hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
+Para comprobar que la máquina virtual puede comunicarse con el clúster de HBase, use el comando `ping headnode0.<dns suffix>` desde la máquina virtual. Por ejemplo, `ping hn*.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
 
 Para usar esta información en una aplicación Java, puede seguir los pasos que se indican en [Uso de Apache Maven para crear aplicaciones Java que utilicen Apache HBase con HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) para crear una aplicación. Para que la aplicación se conecte a un servidor HBase remoto, modifique el archivo **hbase-site.xml** de este ejemplo para que use el FQDN de ZooKeeper. Por ejemplo:
 

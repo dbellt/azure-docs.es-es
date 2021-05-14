@@ -3,12 +3,12 @@ title: Prueba unitaria de Azure Durable Functions
 description: Obtenga información sobre cómo ejecutar una prueba unitaria de Durable Functions.
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: fe5a25e0296eb183ef2426e12f7bdee35633ec78
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 3d3b89337d4643b59d37ebe0aaeaf6f207bf053e
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076639"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165450"
 ---
 # <a name="durable-functions-unit-testing"></a>Prueba unitaria de Durable Functions
 
@@ -38,7 +38,7 @@ La simulación se admite a través de la interfaz siguiente:
 * [IDurableOrchestrationContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext)
 
 * [IDurableActivityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableactivitycontext)
-  
+
 * [IDurableEntityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableentitycontext)
 
 Estas interfaces se pueden usar con los distintos desencadenadores y enlaces que admite Durable Functions. Al ejecutar Azure Functions, el entorno de ejecución de Functions ejecutará el código de función con una implementación concreta de estas interfaces. En las pruebas unitarias, puede pasar una versión ficticia de estas interfaces para probar la lógica de negocios.
@@ -95,7 +95,7 @@ También se simula `ILogger`:
 ```csharp
 // Mock ILogger
 var loggerMock = new Mock<ILogger>();
-```  
+```
 
 Ahora, se llama al método `Run` desde la prueba unitaria:
 
@@ -110,7 +110,7 @@ var result = await HttpStart.Run(
     durableClientMock.Object,
     functionName,
     loggerMock.Object);
- ```
+```
 
  El último paso es comparar la salida con el valor esperado:
 
@@ -183,5 +183,5 @@ Y las pruebas unitarias comprobarán el formato de la salida. Las pruebas unitar
 
 > [!div class="nextstepaction"]
 > [Más información sobre xUnit](https://xunit.net/docs/getting-started/netcore/cmdline)
-> 
+>
 > [Más información sobre moq](https://github.com/Moq/moq4/wiki/Quickstart)

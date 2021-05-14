@@ -1,30 +1,36 @@
 - name: Soluciones de asociados de Azure Storage validados
-  href: /azure/storage/solution-integration
-- name: Asociados de Azure Storage Analytics y Big Data
+  href: ./index.yml
+- name: Asociados de macrodatos y análisis
   items:
     - name: Introducción a los asociados validados
       href: .\validated-partners\analytics\partner-overview.md
   expanded: false
-- name: 'Asociados de continuidad empresarial y recuperación ante desastres, copia de seguridad y archivo de Azure Storage'
+- name: 'Asociados de archivo, copia de seguridad y BCDR'
   items:
     - name: Introducción a los asociados validados
       href: .\validated-partners\backup-archive-disaster-recovery\partner-overview.md
-    - name: Guía de inicio rápido de Commvault
+    - name: Guía de introducción a Commvault
       href: .\validated-partners\backup-archive-disaster-recovery\commvault\commvault-solution-guide.md
-    - name: Guía de inicio rápido de Veeam
+    - name: Guía de introducción a Veeam
       href: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
+    - name: Guía de introducción a DobiProtect
+      href: .\validated-partners\backup-archive-disaster-recovery\datadobi\datadobi-solution-guide.md
   expanded: false
-- name: Asociados de soluciones de contenedor de Azure Storage
+- name: Asociados de soluciones de contenedores
   items:
     - name: Introducción a los asociados validados
       href: .\validated-partners\container-solutions\partner-overview.md
   expanded: false
-- name: Asociados de migración y administración de datos de Azure Storage
+- name: Asociados de migración y administración de datos
   items:
     - name: Introducción a los asociados validados
       href: .\validated-partners\data-management\partner-overview.md
+    - name: Comparación entre herramientas de migración
+      href: ./validated-partners/data-management/migration-tools-comparison.md
+    - name: Guía de introducción de DobiMigrate
+      href: ./validated-partners/data-management/dobimigrate-quick-start-guide.md
   expanded: false
-- name: Asociados de almacenamiento principal y secundario de Azure Storage
+- name: Asociados de almacenamiento principal y secundario
   items:
     - name: Introducción a los asociados validados
       href: .\validated-partners\primary-secondary-storage\partner-overview.md

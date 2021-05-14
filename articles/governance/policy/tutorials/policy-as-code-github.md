@@ -3,12 +3,12 @@ title: 'Tutorial: Implementación de Azure Policy as Code con GitHub'
 description: En este tutorial, implementará un flujo de trabajo de directiva de Azure como código con exportaciones, acciones de GitHub y flujos de trabajo de GitHub.
 ms.date: 03/31/2021
 ms.topic: tutorial
-ms.openlocfilehash: 64957671597ad6df237f92176e10280dc45018c9
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: d7ad4d0487d8a6ead6c89834569e130c7b9945f5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106092762"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752038"
 ---
 # <a name="tutorial-implement-azure-policy-as-code-with-github"></a>Tutorial: Implementación de Azure Policy as Code con GitHub
 
@@ -46,7 +46,7 @@ Para exportar una definición de directiva desde Azure Portal, siga estos pasos:
    - **Directorio**: se trata de la _carpeta de nivel raíz_ en la que se exportarán los recursos de Azure Policy. Las subcarpetas de este directorio se crean en función de los recursos que se exportan.
 
 1. En la pestaña **Directivas**, establezca el ámbito de búsqueda; para ello, seleccione el botón de los puntos suspensivos y elija una combinación de grupos de administración, suscripciones o grupos de recursos.
-   
+
 1. Use el botón **Agregar definiciones de directiva** para realizar la búsqueda en el ámbito cuyos objetos se van a exportar. En la ventana lateral que se abre, seleccione cada uno de los objetos que quiera exportar. Filtre la selección mediante el cuadro de búsqueda o el tipo. Una vez que haya seleccionado todos los objetos que se van a exportar, use el botón **Agregar** de la parte inferior de la página.
 
 1. Para cada objeto seleccionado, seleccione las opciones de exportación que prefiera, como _Solo definición_ o _Definición y asignaciones_, para una definición de directiva. Luego, seleccione la pestaña **Revisar y exportar** o el botón **Siguiente: Revisar y exportar** situado en la parte inferior de la página.
@@ -98,29 +98,27 @@ Los recursos de Azure Policy se exportan en la siguiente estructura dentro del r
 
 Use la acción de [Azure Policy de análisis de cumplimiento](https://github.com/marketplace/actions/azure-policy-compliance-scan) para desencadenar un análisis de evaluación de cumplimiento a petición desde el [flujo de trabajo de GitHub](https://docs.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows) en uno o varios recursos, grupos de recursos o suscripciones, y modifique la ruta de acceso del flujo de trabajo en función del estado de cumplimiento de esos recursos. También puede configurar el flujo de trabajo para que se ejecute a una hora programada para obtener el estado de cumplimiento más reciente en un momento adecuado. Opcionalmente, esta acción de GitHub también puede generar un informe sobre el estado de cumplimiento de los recursos examinados para analizarlos o archivarlos más adelante.
 
-En el ejemplo siguiente se ejecuta el examen de cumplimiento de una suscripción. 
+En el ejemplo siguiente se ejecuta el examen de cumplimiento de una suscripción.
 
 ```yaml
 
 on:
-  schedule:    
+  schedule:
     - cron:  '0 8 * * *'  # runs every morning 8am
 jobs:
-  assess-policy-compliance:    
+  assess-policy-compliance:
     runs-on: ubuntu-latest
-    steps:         
+    steps:
     - name: Login to Azure
       uses: azure/login@v1
       with:
-        creds: ${{secrets.AZURE_CREDENTIALS}} 
+        creds: ${{secrets.AZURE_CREDENTIALS}}
 
-    
     - name: Check for resource compliance
       uses: azure/policy-compliance-scan@v0
       with:
         scopes: |
           /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-
 ```
 
 ## <a name="review"></a>Revisar

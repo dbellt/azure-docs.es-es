@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: db55a29e53c53e26fbb04d96ddf1864946bafbfd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a7fb228763870792765c954589b347a18c560b5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99581285"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758976"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conocidos con Azure Data Lake Storage Gen2
 
@@ -98,10 +98,6 @@ Todavía no se admite la configuración de los días de retención, pero puede e
 ## <a name="lifecycle-management-policies-with-premium-tier-for-azure-data-lake-storage"></a>Directivas de administración del ciclo de vida con nivel prémium para Azure Data Lake Storage
 
 Los datos que se almacenan en el nivel prémium no se pueden mover entre los niveles de acceso frecuente, esporádico y de archivo. Sin embargo, puede copiar los datos del nivel prémium al nivel de acceso frecuente en otra cuenta.
-
-## <a name="dremio-support-with-premium-performance-blockblobstorage-storage-accounts"></a>Soporte técnico de Dremio para las cuentas de almacenamiento de BlockBlobStorage con rendimiento prémium
-
-Dremio todavía no se conecta a una cuenta BlockBlobStorage con la característica de espacio de nombres jerárquico habilitada en ella. 
 
 ## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-data-lake-storage-gen2"></a>Controlador Windows Azure Storage Blob (WASB) (no compatible con Data Lake Storage Gen2)
 

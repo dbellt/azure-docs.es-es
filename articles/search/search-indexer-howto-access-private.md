@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 0b30cb1767e733861d8418ea29e564bc90a5bc70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 59c947684787edcf4863a8388e88c860172a9b59
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676516"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988215"
 ---
 # <a name="make-indexer-connections-through-a-private-endpoint"></a>Establecimiento de conexiones del indexador a través de un punto de conexión privado
 
@@ -192,6 +192,8 @@ Si el valor `properties.provisioningState` del recurso es `Succeeded` y el valor
 
 - Si ha creado el indexador sin establecer la propiedad `executionEnvironment` y se ejecuta correctamente, significa que Azure Cognitive Search ha decidido que su entorno de ejecución es el entorno *privado* específico del servicio de búsqueda. Esto puede cambiar en función de los recursos que haya consumido el indexador y la carga del servicio de búsqueda, entre otros factores, y puede producir un error más adelante. Para solucionar el problema:
   * Se recomienda encarecidamente establecer la propiedad `executionEnvironment` en `private` para asegurarse de que no aparecerán errores en el futuro.
+
+- Si está viendo la página de redes del origen de datos en Azure Portal y selecciona un punto de conexión privado que creó para que el servicio Azure Cognitive Search acceda a este origen de datos, es posible que reciba un error *Sin acceso*. Se espera que esto sea así. Puede cambiar el estado de la solicitud de conexión a través de la página del portal del servicio de destino, pero para administrar aún más el recurso de vínculo privado compartido, debe ver el recurso de vínculo privado compartido en la página de red del servicio de búsqueda en Azure Portal.
 
 [Cuotas y límites](search-limits-quotas-capacity.md) determinan el número de recursos de vínculo privado compartido que se pueden crear y que pueden depender de la SKU del servicio de búsqueda.
 

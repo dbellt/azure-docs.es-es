@@ -13,21 +13,19 @@ metadata:
   author: BlackMist
   ms.date: 09/21/2020
   ms.custom: contperf-fy21q1
-  ms.openlocfilehash: 11815192c0076ed826ede60bfbb741caf87545c1
-  ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+  ms.openlocfilehash: bbf934ef45f66a009c198a5ab0a47b871b419d85
+  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/22/2021
-  ms.locfileid: "107872036"
+  ms.lasthandoff: 05/06/2021
+  ms.locfileid: "108740922"
 landingContent:
 - title: 'Primeros pasos: De tipo código primero'
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Introducción a scripts de Python
-      url: tutorial-1st-experiment-sdk-setup-local.md
-    - text: Introducción a los cuadernos de Jupyter Notebook (Python)
-      url: tutorial-1st-experiment-sdk-setup.md
+    - text: Introducción a Azure Machine Learning
+      url: quickstart-create-resources.md
     - text: Inferencia de Batch con canalizaciones de Machine Learning (Python)
       url: tutorial-pipeline-batch-scoring-classification.md
 - title: 'Primeros pasos: Poco o nada de código'
@@ -55,7 +53,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Implementación de un modelo en la nube
-      url: how-to-deploy-existing-model.md
+      url: how-to-deploy-and-where.md
     - text: Seguimiento de modelos de MLflow
       url: how-to-use-mlflow.md
 - title: Implementación y administración de modelos (MLOps)

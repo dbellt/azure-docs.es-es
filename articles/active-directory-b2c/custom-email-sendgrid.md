@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/09/2021
+ms.date: 04/21/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 44ba2e39de37703de66aefd1fe843d0ca5002b6b
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: a56f8339535c64c6eeac1b06c04aa7c89cd38356
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256980"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107886397"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>Verificación de correo electrónico personalizado con SendGrid
 
@@ -35,13 +35,14 @@ Use el correo electrónico personalizado en Azure Active Directory B2C (Azure�
 
 La verificación del correo electrónico personalizado requiere el uso de un proveedor de correo electrónico de terceros, como [SendGrid](https://sendgrid.com), [Mailjet](https://Mailjet.com) o [SparkPost](https://sparkpost.com), una API de REST personalizada o cualquier proveedor de correo electrónico basado en HTTP (incluido el suyo propio). En este artículo se describe cómo configurar una solución que usa SendGrid.
 
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
-
 ## <a name="create-a-sendgrid-account"></a>Creación de una cuenta de SendGrid
 
 Si aún no tiene una, empiece por configurar una cuenta de SendGrid (los clientes de Azure pueden desbloquear 25 000 mensajes de correo electrónico gratuitos al mes). Para obtener instrucciones de configuración, consulte la sección [Creación de una cuenta de SendGrid](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account) en [Envío de correos electrónicos con SendGrid y Azure](../sendgrid-dotnet-how-to-send-email.md).
 
 Asegúrese de completar la sección en la que [crea una clave de API de SendGrid](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key). Anote la clave de API para usarla en un paso posterior.
+
+> [!IMPORTANT]
+> SendGrid ofrece a los clientes la capacidad de enviar correos electrónicos desde direcciones IP compartidas y [direcciones IP dedicadas](https://sendgrid.com/docs/ui/account-and-settings/dedicated-ip-addresses/). Al usar direcciones IP dedicadas, tiene que mejorar su propia reputación de manera adecuada con un calentamiento de la dirección IP. Para obtener más información, [consulte ¿Cómo caliento mi IP?](https://sendgrid.com/docs/ui/sending-email/warming-up-an-ip-address/)
 
 ## <a name="create-azure-ad-b2c-policy-key"></a>Creación de la clave de directiva de Azure AD B2C
 
@@ -301,6 +302,9 @@ En las definiciones de contenido, todavía dentro de `<BuildingBlocks>`, agregue
 ## <a name="add-otp-technical-profiles"></a>Incorporación de perfiles técnicos de OTP
 
 El perfil técnico `GenerateOtp` genera un código para la dirección de correo electrónico. El perfil técnico `VerifyOtp` verifica el código asociado a la dirección de correo electrónico. Puede cambiar la configuración del formato y la expiración de la contraseña de un solo uso. Para más información sobre los perfiles técnicos de OTP, consulte [Definición de un perfil técnico de una contraseña de un solo uso en una directiva personalizada de Azure AD B2C](one-time-password-technical-profile.md).
+
+> [!NOTE]
+> Los códigos OTP generados por el protocolo Web.TPEngine.Providers.OneTimePasswordProtocolProvider están vinculados a la sesión del explorador. Esto significa que un usuario puede generar códigos OTP únicos en distintas sesiones del explorador que son válidos para sus sesiones correspondientes. Por el contrario, un código OTP que genere el proveedor de correo electrónico integrado es independiente de la sesión del explorador, por lo que si un usuario genera un nuevo código OTP en una nueva sesión del explorador, este reemplaza el código OTP anterior.
 
 Agregue los siguientes perfiles técnicos al elemento `<ClaimsProviders>`.
 

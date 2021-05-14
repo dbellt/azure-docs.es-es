@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/13/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bd45bb264f8e29a2aad870a7daff45fdd44e0d3c
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: b22552147bec789c4b1d796cad2c52165d266334
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107478818"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108207724"
 ---
 # <a name="create-an-app-registration-to-use-with-azure-digital-twins"></a>Creación de un registro de aplicaciones para usar con Azure Digital Twins
 
@@ -94,7 +94,7 @@ Si faltan estos valores, vuelva a intentar los pasos de la [sección para agrega
 
 Es posible que su organización requiera otras acciones por parte de los propietarios o administradores de las suscripciones para configurar correctamente un registro de aplicaciones. Los pasos necesarios pueden variar en función de la configuración específica de su organización.
 
-Estas son algunas posibles actividades comunes que un propietario o administrador de la suscripción puede tener que hacer. Estas y otras operaciones se pueden realizar desde la página [*Registros de aplicaciones de Azure AD*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) en Azure Portal.
+Estas son algunas posibles actividades comunes que un propietario o administrador de la suscripción puede tener que hacer. Estas y otras operaciones se pueden realizar desde la página [Registros de aplicaciones de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) en Azure Portal.
 * Conceda el consentimiento del administrador para el registro de aplicaciones. Es posible que la organización tenga habilitado globalmente el *Consentimiento del administrador necesario* en Azure AD para todos los registros de aplicaciones dentro de la suscripción. Si es así, el propietario o el administrador tendrán que seleccionar este botón para la empresa en la página *Permisos de API* del registro de aplicaciones para que este sea válido:
 
     :::image type="content" source="media/how-to-create-app-registration/grant-admin-consent.png" alt-text="Vista en el portal del botón &quot;Conceder consentimiento del administrador&quot; bajo los permisos de API":::
@@ -105,11 +105,11 @@ Estas son algunas posibles actividades comunes que un propietario o administrado
 * Establecer direcciones URL de respuesta específicas para el acceso web y de escritorio
 * Permitir flujos de autenticación de OAuth2 implícitos
 
-Para más información sobre el registro de aplicaciones y sus distintas opciones de configuración, consulte [*Registro de una aplicación en la plataforma de identidad de Microsoft*](/graph/auth-register-app-v2).
+Para más información sobre el registro de aplicaciones y sus distintas opciones de configuración, consulte [Registro de una aplicación en la plataforma de identidad de Microsoft](/graph/auth-register-app-v2).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo, ha configurado un registro de aplicaciones de Azure AD que se puede usar para autenticar las aplicaciones cliente con las API de Azure Digital Twins.
 
 A continuación, lea sobre los mecanismos de autenticación, tanto los que usan registros de aplicaciones como los que no:
-* [*Procedimiento: Escritura de código de autenticación de aplicación*](how-to-authenticate-client.md)
+* [Procedimiento: Escritura de código de autenticación de aplicación](how-to-authenticate-client.md)

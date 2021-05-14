@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f57cd3361d7888d9d7f747955257d96282274fd6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e45d2ea0c0e44e859f5339459ed834be22fbb5ea
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97357353"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950863"
 ---
 # <a name="recover-a-deleted-storage-account"></a>recuperar una cuenta de almacenamiento eliminada
 
@@ -24,7 +24,7 @@ Hay casos en los que se puede recuperar una cuenta de almacenamiento eliminada e
 - La cuenta de almacenamiento se ha creado con el modelo de implementación de Azure Resource Manager.
 - No se ha creado una cuenta de almacenamiento con el mismo nombre desde que se eliminó la cuenta original.
 
-Antes de intentar recuperar una cuenta de almacenamiento eliminada, asegúrese de que el grupo de recursos de esa cuenta existe. Si se ha eliminado, debe volver a crearlo. No es posible recuperar un grupo de recursos. Para más información al respecto, consulte [Administración de grupos de recursos](../../azure-resource-manager/management/manage-resource-groups-portal.md).
+Antes de intentar recuperar una cuenta de almacenamiento eliminada, asegúrese de que el grupo de recursos de esa cuenta existe. Si se ha eliminado, debe volver a crearlo. No es posible recuperar un grupo de recursos. Para más información, consulte [Administración de grupos de recursos](../../azure-resource-manager/management/manage-resource-groups-portal.md).
 
 Si la cuenta de almacenamiento eliminada ha usado claves administradas por el cliente con Azure Key Vault y también se ha eliminado el almacén de claves, debe restaurarlo antes de restaurar la cuenta de almacenamiento. Para más información, consulte [Introducción a la recuperación en Azure Key Vault](../../key-vault/general/key-vault-recovery.md).
 

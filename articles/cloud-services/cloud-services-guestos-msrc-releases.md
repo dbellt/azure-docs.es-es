@@ -10,17 +10,72 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/28/2021
+ms.date: 4/15/2021
 ms.author: gunnarc
-ms.openlocfilehash: c9a4a5229629b2a65b167a80fce8e502612dcf3c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d537e2ec04189b24adf51285bd40adb39483b93f
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709912"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565821"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
+
+## <a name="april-2021-guest-os"></a>SO invitado de abril de 2021
+
+>[!NOTE] 
+
+>El sistema operativo invitado de abril se está implementando actualmente en las VM del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las revisiones siguientes se incluyen en el sistema operativo invitado de abril. Esta lista está sujeta a cambios. 
+
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+|  Rel 21-04 |  [5001342]  |  Actualización acumulativa más reciente (LCU) | 6.30 | 13 de abril de 2021 |
+|  Rel 21-04 |  [4580325]  |  Actualización de Flash | 3.96, 4.89, 5.54, 6.30 | 13 de octubre de 2020 |
+|  Rel 21-04 |  [5000800]  |  Actualizaciones acumulativas de IE | 2.109, 3.96, 4.89 | 9 de marzo de 2021 |
+|  Rel 21-04 |  [5001347]  |  Actualización acumulativa más reciente (LCU) | 5.54 | 13 de abril de 2021 |
+|  Rel 21-04 |  [4578952]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | 2.109 | 13 de octubre de 2020 |
+|  Rel 21-04 |  [4578955]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2  | 2.109 | 13 de octubre de 2020 |
+|  Rel 21-04 |  [4578953]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | 4.89 | 13 de octubre de 2020 |
+|  Rel 21-04 |  [4578956]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2  | 4.89 | 13 de octubre de 2020 |
+|  Rel 21-04 |  [4578950]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | 3,96 | 13 de octubre de 2020 |
+|  Rel 21-04 |  [4578954]  |  . Acumulación de seguridad y calidad de .NET Framework 4.5.2  | 3,96 | 13 de octubre de 2020 |
+|  Rel 21-04 |  [4601060]  |  . Actualización acumulativa de .NET Framework 3.5 y 4.7.2  | 6.30 | 9 de febrero de 2021 |
+|  Rel 21-04 |  [5001335]  |  Acumulación mensual  | 2.109 | 9 de marzo de 2021 |
+|  Rel 21-04 |  [5001387]  |  Acumulación mensual  | 3,96 | 13 de abril de 2021 |
+|  Rel 21-04 |  [5001382]  |  Acumulación mensual  | 4.89 | 13 de abril de 2021 |
+|  Rel 21-04 |  [5001401]  |  Actualización de la pila de servicio  | 3,96 | 13 de abril de 2021 |
+|  Rel 21-04 |  [5001403]  |  Actualización de la pila de servicio  | 4.89 | 13 de abril de 2021 |
+|  Rel 21-04 OOB |  [4578013]  |  Actualización de seguridad independiente  | 4.89 | 19 de agosto de 2020 |
+|  Rel 21-04 |  [5001402]  |  Actualización de la pila de servicio  | 5.54 | 13 de abril de 2021 |
+|  Rel 21-04 |  [4592510]  |  Actualización de la pila de servicio  | 2.109 | 8 de diciembre de 2020 |
+|  Rel 21-04 |  [5001404]  |  Actualización de la pila de servicio  | 6.30 | 13 de abril de 2021 |
+|  Rel 21-04 |  [4494175]  |  Microcódigo  | 5.54 | 1 de septiembre de 2020 |
+|  Rel 21-04 |  [4494174]  |  Microcódigo  | 6.30 | 1 de septiembre de 2020 |
+
+[5001342]: https://support.microsoft.com/kb/5001342
+[4580325]: https://support.microsoft.com/kb/4580325
+[5000800]: https://support.microsoft.com/kb/5000800
+[5001347]: https://support.microsoft.com/kb/5001347
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4601060]: https://support.microsoft.com/kb/4601060
+[5001335]: https://support.microsoft.com/kb/5001335
+[5001387]: https://support.microsoft.com/kb/5001387
+[5001382]: https://support.microsoft.com/kb/5001382
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5001402]: https://support.microsoft.com/kb/5001402
+[4592510]: https://support.microsoft.com/kb/4592510
+[5001404]: https://support.microsoft.com/kb/5001404
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
 
 ## <a name="march-2021-guest-os"></a>Sistema operativo invitado de marzo de 2021
 

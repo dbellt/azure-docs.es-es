@@ -5,12 +5,12 @@ author: MalcolmTyrrell
 ms.author: matyrr
 ms.date: 09/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 9a094755dfb9381b1e4d6abdf1c0e6342d7427c1
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: ab01143fcab5ceb5468ef8fde233905b8d3e05d1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308446"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124552"
 ---
 # <a name="laying-out-files-for-conversion"></a>Diseño de archivos para la conversión
 
@@ -21,7 +21,7 @@ Estos parámetros se documentan completamente en la página [API REST de convers
 Al colocar archivos, es importante tener en cuenta que `BlobPrefix` determina el conjunto completo de archivos que están disponibles para el servicio de conversión al procesar el recurso.
 
 > [!Note]
-> El servicio descargará todos los archivos en input.BlobPrefix. Asegúrese de que los nombres de archivo y las rutas de acceso no superan los [límites de longitud de la ruta de acceso de Windows](https://docs.microsoft.com/windows/win32/fileio/maximum-file-path-limitation) para evitar problemas en el servicio. 
+> El servicio descargará todos los archivos en input.BlobPrefix. Asegúrese de que los nombres de archivo y las rutas de acceso no superan los [límites de longitud de la ruta de acceso de Windows](/windows/win32/fileio/maximum-file-path-limitation) para evitar problemas en el servicio. 
 
 ## <a name="placing-files-so-they-can-be-found"></a>Colocación de archivos para que se puedan encontrar
 

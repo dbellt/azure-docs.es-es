@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: c5dfd442bb52a5b1d319bd0a40b656d549134e7e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 203ac7252f06b342e7f553bb1900cdf9ac959e0a
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612332"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891397"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Creación, desarrollo y mantenimiento de cuadernos de Synapse Studio en Azure Synapse Analytics
 
@@ -36,11 +36,12 @@ El equipo de Synapse proporciona el nuevo componente de cuaderno en Synapse Stud
 |Característica|Cuaderno clásico|Versión preliminar del cuaderno|
 |--|--|--|
 |%run| No compatible | &#9745;|
-|%history| No compatible |&#9745;
+|%history| No compatible |&#9745;|
 |%load| No compatible |&#9745;|
 |%%html| No compatible |&#9745;|
 |Arrastrar y colocar para desplazar una celda| No compatible |&#9745;|
-|Salida del parámetro Display() persistente|&#9745;| No disponible |
+|Esquema (tabla de contenido)| No compatible |&#9745;|
+|Explorador de variables| No compatible |&#9745;|
 |Formato de celdas de texto con botones de la barra de herramientas|&#9745;| No disponible |
 |Deshacer la operación de la celda| &#9745;| No disponible |
 
@@ -151,6 +152,18 @@ Las características de IntelliSense tienen distintos niveles de madurez para di
 |SparkSQL|Sí|Sí|-|-|-|-|-|-|
 |.NET para Spark ( C# )|Sí|-|-|-|-|-|-|-|
 
+
+
+### <a name="code-snippets"></a>Fragmentos de código
+
+Los cuadernos de Azure Synapse Studio proporcionan fragmentos de código que facilitan la introducción de patrones de código utilizados habitualmente, como la configuración de la sesión de Spark, la lectura de datos como dataframes de Spark o la creación de gráficos con matplotlib.
+
+Los fragmentos de código aparecen en [IntelliSense](#ide-style-intellisense) combinados con otras sugerencias. El contenido de los fragmentos de código se alinea con el lenguaje de las celdas de código. Para ver los fragmentos de código disponibles, escriba **snippet** o cualquier palabra clave que aparezca en el título del fragmento de código en el editor de celdas de código. Por ejemplo, si escribe **read**, puede ver la lista de fragmentos de código para leer datos de varios orígenes de datos.
+
+![Fragmentos de código de Synapse](./media/apache-spark-development-using-notebooks/synapse-code-snippets.gif#lightbox)
+
+
+
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Formato de celdas de texto con botones de la barra de herramientas
 
 # <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
@@ -182,7 +195,7 @@ La operación para deshacer una celda no está disponible aún en la versión pr
 
 # <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
 
-Seleccione los puntos suspensivos (…) para tener acceso al menú de acciones de celda adicionales en el extremo derecho. A continuación, seleccione **Move cell up** (Subir celda) o **Move cell down** (Bajar celda) para desplazar la celda actual. 
+Seleccione los puntos suspensivos (…) para acceder al menú de otras acciones de celda del extremo derecho. A continuación, seleccione **Move cell up** (Subir celda) o **Move cell down** (Bajar celda) para desplazar la celda actual. 
 
 También puede utilizar las [teclas de método abreviado en el modo de comando](#shortcut-keys-under-command-mode). Presione **CTRL+Alt+↑** para subir la celda actual. Presione **CTRL+Alt+↓** para bajar la celda actual.
 
@@ -199,7 +212,7 @@ Haga clic en la parte izquierda de una celda y arrástrela hasta la posición de
 
 # <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
 
-Para eliminar una celda, seleccione los puntos suspensivos (…) para tener acceso al menú de acciones de celda adicionales en el extremo derecho y, a continuación, seleccione **Eliminar celda**. 
+Para eliminar una celda, seleccione los puntos suspensivos (…) para acceder al menú de otras acciones de celda del extremo derecho y, luego, elija **Eliminar celda**. 
 
 También puede utilizar las [teclas de método abreviado en el modo de comando](#shortcut-keys-under-command-mode). Presione **D,D** para eliminar la celda actual.
   
@@ -248,6 +261,20 @@ Seleccione los puntos suspensivos (...) para ver **más comandos** en la barra d
 
 ---
 
+### <a name="notebook-outline"></a>Esquema del cuaderno
+
+# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
+
+No compatible.
+
+# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
+
+En Esquema (tabla de contenido) se presenta el primer encabezado de cualquier celda de Markdown en una ventana de la barra lateral para permitir la navegación rápida. La barra lateral Esquemas es redimensionable y contraíble para ajustarse a la pantalla de la mejor manera posible. Puede seleccionar el botón **Esquema** de la barra de comandos del cuaderno para abrir u ocultar la barra lateral.
+
+<a name="azure-notebook-outline"></a>![azure-notebook-outline](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-outline.png)
+---
+
+
 ## <a name="run-notebooks"></a>Ejecución de cuadernos
 
 Puede ejecutar las celdas de código en el cuaderno individualmente o todas a la vez. El estado y el progreso de cada celda se representan en el cuaderno.
@@ -274,7 +301,7 @@ Seleccione el botón **Ejecutar todo** para ejecutar todas las celdas del cuader
 
 # <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
 
-Para tener acceso al menú de acciones de celda adicionales en el extremo derecho, seleccione los puntos suspensivos ( **…** ). A continuación, seleccione **Run cells above** (Ejecutar las celdas encima) para ejecutar todas las celdas situadas encima de la actual en secuencia. Seleccione **Run cells below** (Ejecutar las celdas debajo) para ejecutar todas las celdas situadas debajo de la actual en secuencia.
+Para acceder al menú de otras acciones de celda del extremo derecho, seleccione los puntos suspensivos ( **…** ) y, luego, elija **Run cells above** (Ejecutar las celdas encima) para ejecutar todas las celdas situadas encima de la actual en secuencia. Seleccione **Run cells below** (Ejecutar las celdas debajo) para ejecutar todas las celdas situadas debajo de la actual en secuencia.
 
    ![run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
@@ -320,6 +347,22 @@ Ejemplo: ``` %run /path/notebookA ```.
 
 ---
 
+### <a name="variable-explorer"></a>Explorador de variables
+
+# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
+
+No compatible.
+
+# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
+
+El cuaderno de Synapse ahora incluye un explorador de variables integrado para que pueda ver la lista de nombres, tipos, longitudes y valores de las variables en la sesión de Spark actual para las celdas de PySpark (Python). Se mostrarán automáticamente más variables a medida que se definan en las celdas de código. Al hacer clic en cada encabezado de columna se ordenarán las variables de la tabla.
+
+Puede seleccionar el botón **Variables** de la barra de comandos del cuaderno para abrir u ocultar el explorador de variables.
+
+![azure-notebook-variable-explorer](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-variable-explorer.png)
+
+
+---
 
 ### <a name="cell-status-indicator"></a>Indicador de estado de la celda
 
@@ -468,7 +511,7 @@ Seleccione el botón **Agregar a la canalización** en la esquina superior derec
 
 # <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
 
-Para parametrizar el cuaderno, seleccione los puntos suspensivos (…) para acceder al menú de acciones de celda adicionales en el extremo derecho. A continuación, seleccione **Toggle parameter cell** (Alternar celda de parámetros) para designar la celda como la celda de parámetros.
+Para parametrizar el cuaderno, seleccione los puntos suspensivos (…) para acceder al menú de otras acciones de celda del extremo derecho. A continuación, seleccione **Toggle parameter cell** (Alternar celda de parámetros) para designar la celda como la celda de parámetros.
 
 ![toggle-parameter](./media/apache-spark-development-using-notebooks/toggle-parameter-cell.png)
 

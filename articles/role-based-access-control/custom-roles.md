@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/15/2020
 ms.author: rolyon
-ms.openlocfilehash: 79aaeee942a6d46243ee1c72d5904484b8698ebe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9779c2a269902d856d1639ce78028d0e658656bb
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97617330"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479838"
 ---
 # <a name="azure-custom-roles"></a>Roles personalizados de Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "97617330"
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Si los [roles integrados de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. Al igual que en el caso de los roles integrados, se pueden asignar roles personalizados a usuarios, grupos y entidades de servicio en los ámbitos del grupo de administración, de la suscripción y del grupo de recursos.
+Si los [roles integrados de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear los suyos propios. Al igual que en el caso de los roles integrados, se pueden asignar roles personalizados a usuarios, grupos y entidades de servicio en los ámbitos del grupo de administración (solo en la versión preliminar), de la suscripción y del grupo de recursos.
 
 Los roles personalizados se pueden compartir entre suscripciones que confían en el mismo directorio de Azure AD. Hay un límite de **5000** roles personalizados por directorio. (En Azure Alemania y Azure China 21Vianet, el límite es 2000 roles personalizados). Se pueden crear roles personalizados con Azure Portal, Azure PowerShell, la CLI de Azure o la API REST.
 

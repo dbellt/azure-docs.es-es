@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 04/05/2021
 ms.author: inhenkel
-ms.openlocfilehash: a481759da3f1e7d67accdca7b4322db53abbcb0c
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 59f74740117ba9f549133c4ca9bcb510928eb105
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490954"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138884"
 ---
 # <a name="content-protection-scenario-based-migration-guidance"></a>Guía de migración basada en escenarios de protección de contenido
 
@@ -51,7 +51,7 @@ Por ejemplo, si anteriormente tenía un elemento Asset de la versión v2 con el
 
 Los elementos Asset que se crearon y publicaron con la API v2 tendrán tanto una propiedad `ContentKeyPolicy` como una propiedad `ContentKey` en la API v3, en lugar de una directiva de clave de contenido predeterminada en `StreamingPolicy`.
 
-Para obtener más información, consulte la documentación de la [Directiva de clave de contenido](https://docs.microsoft.com/azure/media-services/latest/drm-content-key-policy-concept) y la documentación de la [Directiva de streaming](https://docs.microsoft.com/azure/media-services/latest/stream-streaming-policy-concept).
+Para obtener más información, consulte la documentación de la [Directiva de clave de contenido](./drm-content-key-policy-concept.md) y la documentación de la [Directiva de streaming](./stream-streaming-policy-concept.md).
 
 ## <a name="use-azure-media-services-explorer-amse-v2-and-amse-v3-tools-side-by-side"></a>Uso de las herramientas de Azure Media Services Explorer v2 (AMSE) y AMSE v3 en paralelo
 
@@ -63,15 +63,15 @@ Puede consultar un ejemplo de código para comparar las diferencias en los ident
 
 ## <a name="list-the-streaming-locators"></a>Lista de localizadores de streaming
 
-Puede consultar los `StreamingLocators` asociados a los elementos Asset creados en la API v2 mediante el nuevo método [ListStreamingLocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators)de la versión v3 en la entidad Asset.  También debe hacer referencia a la versión del SDK de cliente de .NET de [ListStreamingLocatorsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocatorsasync?view=azure-dotnet&preserve-view=true)
+Puede consultar los `StreamingLocators` asociados a los elementos Asset creados en la API v2 mediante el nuevo método [ListStreamingLocators](/rest/api/media/assets/liststreaminglocators)de la versión v3 en la entidad Asset.  También debe hacer referencia a la versión del SDK de cliente de .NET de [ListStreamingLocatorsAsync](/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocatorsasync?preserve-view=true&view=azure-dotnet)
 
 Los resultados del método `ListStreamingLocators` le proporcionarán las propiedades `Name` y `StreamingLocatorId` del localizador, junto con `StreamingPolicyName`.
 
 ## <a name="find-the-content-keys"></a>Búsqueda de las claves de contenido
 
-Para encontrar la propiedad `ContentKeys` usada con `StreamingLocators`, puede llamar al método [StreamingLocator.ListContentKeysAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?view=azure-dotnet&preserve-view=true).  
+Para encontrar la propiedad `ContentKeys` usada con `StreamingLocators`, puede llamar al método [StreamingLocator.ListContentKeysAsync](/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?preserve-view=true&view=azure-dotnet).  
 
-Para obtener más información sobre la protección de contenido en la API v3, consulte el artículo [Protección del contenido mediante el cifrado dinámico de Media Services](https://docs.microsoft.com/azure/media-services/latest/drm-content-protection-concept).
+Para obtener más información sobre la protección de contenido en la API v3, consulte el artículo [Protección del contenido mediante el cifrado dinámico de Media Services](./drm-content-protection-concept.md).
 
 ## <a name="change-the-v2-contentkeypolicy-keeping-the-same-contentkey"></a>Cambio de la ContentKeyPolicy v2 mientras se conserva la misma ContentKey
 

@@ -3,12 +3,13 @@ title: Visualización de registros de actividad de Azure para supervisar recurso
 description: Use los registros de actividad para revisar las acciones y los errores de los usuarios. Muestra PowerShell de Azure Portal, la CLI de Azure y REST.
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 7612146a0f9407663631f87c57f30ea4c590c7a4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 8917ffe287ecf60659f48dfb947bbd5b06d46005
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773934"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752931"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Visualización de registros de actividad para supervisar acciones sobre recursos
 

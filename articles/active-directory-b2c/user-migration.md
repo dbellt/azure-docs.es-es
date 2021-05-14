@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/11/2021
+ms.date: 04/27/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3e60b80a4ebeaef7d31d4c0c1d9d4bfc41ec3a56
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: e4976deea08b8d0edc9a484f8a8ad4c07ad4512c
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256215"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070522"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrar usuarios a Azure AD B2C
 
@@ -43,9 +43,9 @@ Use el flujo de migración de conexión directa si no se puede tener acceso a la
 - La contraseña se almacena en formato cifrado unidireccional, como con una función hash.
 - El proveedor de identidades heredado ha almacenado la contraseña de modo que no puede tener acceso. Por ejemplo, cuando el proveedor de identidades valida las credenciales mediante una llamada a un servicio web.
 
-El flujo de migración de conexión directa sigue requiriendo la migración previa de las cuentas de usuario, pero después usa una [directiva personalizada](user-flow-overview.md) para consultar una [API de REST](custom-policy-rest-api-intro.md) (que usted crea) a fin de establecer la contraseña de cada usuario al iniciar sesión por primera vez.
+El flujo de migración de conexión directa sigue requiriendo la migración previa de las cuentas de usuario, pero después usa una [directiva personalizada](user-flow-overview.md) para consultar una [API de REST](api-connectors-overview.md) (que usted crea) a fin de establecer la contraseña de cada usuario al iniciar sesión por primera vez.
 
-Por lo tanto, el flujo de migración de conexión directa tiene dos fases: *migración previa* y *establecimiento de credenciales*.
+El flujo de migración de conexión directa consta de dos fases: *migración previa* y *establecimiento de credenciales*.
 
 ### <a name="phase-1-pre-migration"></a>Fase 1: Migración previa
 
@@ -67,15 +67,13 @@ Para ver un ejemplo de una directiva personalizada y una API de REST, consulte e
 
 ![Diagrama de flujo del enfoque de migración de conexión directa de la migración de usuarios](./media/user-migration/diagram-01-seamless-migration.png)<br />*Diagrama: flujo de migración de conexión directa*
 
-## <a name="best-practices"></a>Procedimientos recomendados
-
-### <a name="security"></a>Seguridad
+## <a name="security"></a>Seguridad
 
 El enfoque de migración de conexión directa usa su propia API de REST personalizada para validar las credenciales de un usuario con el proveedor de identidades heredado.
 
 **Debe proteger la API de REST contra ataques por fuerza bruta.** Un atacante puede enviar varias contraseñas con la esperanza de adivinar las credenciales de un usuario. Para ayudar a frustrar estos ataques, deje de servir solicitudes a la API de REST cuando el número de intentos de inicio de sesión supere un determinado umbral. Además, proteja la comunicación entre Azure AD B2C y la API REST. Para aprender a proteger las API RESTful para la producción, consulte [Proteger la API RESTful](secure-rest-api.md).
 
-### <a name="user-attributes"></a>Atributos de usuario
+## <a name="user-attributes"></a>Atributos de usuario
 
 No toda la información del proveedor de identidades heredado debe migrarse al directorio de Azure AD B2C. Identifique el conjunto de atributos de usuario adecuado que se debe almacenar en Azure AD B2C antes de la migración.
 
@@ -92,10 +90,10 @@ Antes de comenzar el proceso de migración, aproveche la oportunidad para limpia
 
 - Identifique el conjunto de atributos de usuario que se van a almacenar en Azure AD B2C y migre solo lo que necesite. Si es necesario, puede crear [atributos personalizados](user-flow-custom-attributes.md) para almacenar más datos sobre un usuario.
 - Si va a migrar desde un entorno con varios orígenes de autenticación (por ejemplo, cada aplicación tiene su propio directorio de usuario), migre a una cuenta unificada en Azure AD B2C.
-- Si varias aplicaciones tienen distintos nombres de usuario, puede almacenarlas todas en una cuenta de usuario de Azure AD B2C mediante la colección de identidades. Con respecto a la contraseña, permita que el usuario elija una y establézcala en el directorio. Por ejemplo, con la migración de conexión directa, solo la contraseña elegida debe almacenarse en la cuenta de Azure AD B2C.
-- Quite las cuentas de usuario no utilizadas antes de la migración o no migre cuentas obsoletas.
+- Si varias aplicaciones tienen distintos nombres de usuario, puede almacenarlas todas en una cuenta de usuario de Azure AD B2C mediante la colección de identidades. En cuanto a la contraseña, permita que el usuario elija una y establézcala en el directorio. Por ejemplo, con la migración de conexión directa, solo la contraseña elegida debe almacenarse en la cuenta de Azure AD B2C.
+- Quite las cuentas de usuario no utilizadas o no migre las cuentas obsoletas.
 
-### <a name="password-policy"></a>Directiva de contraseñas
+## <a name="password-policy"></a>Directiva de contraseñas
 
 Si las cuentas que se van a migrar tienen una seguridad de contraseña inferior a la [seguridad de contraseña segura](../active-directory/authentication/concept-sspr-policy.md) que exige Azure AD B2C, puede deshabilitar el requisito de contraseña segura. Para obtener más información, vea [Propiedad de directiva de contraseñas](user-profile-attributes.md#password-policy-attribute).
 

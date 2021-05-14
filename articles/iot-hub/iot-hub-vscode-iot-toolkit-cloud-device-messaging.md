@@ -10,32 +10,24 @@ ms.date: 01/18/2019
 ms.author: junhan
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: b9d8f0c2a573ba1749b414a389cd7181ddd5f95a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1c4a840233e576c528e9c58d57eca0b3d524bf4d
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87321690"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566935"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Uso de Azure IoT Tools para Visual Studio Code a fin de enviar y recibir mensajes entre el dispositivo e IoT Hub
 
 ![Diagrama integral](./media/iot-hub-vscode-iot-toolkit-cloud-device-messaging/e-to-e-diagram.png)
 
+En este artículo aprenderá a usar Azure IoT Tools para Visual Studio Code a fin de supervisar los mensajes enviados del dispositivo a la nube y de enviar mensajes de la nube al dispositivo. Los mensajes del dispositivo a la nube podrían ser datos de sensor que el dispositivo recopila y, a continuación, envía al IoT Hub. Los mensajes de la nube al dispositivo podrían ser comandos que el IoT Hub envía al dispositivo para hacer parpadear un LED que está conectado al dispositivo.
+
 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) es una útil extensión de Visual Studio Code que facilita la administración de IoT Hub y el desarrollo de aplicaciones de IoT. Este artículo trata de cómo utilizar Azure IoT Tools para Visual Studio Code a fin de enviar y recibir mensajes entre el dispositivo e IoT Hub.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="what-you-will-learn"></a>Aprendizaje
-
-Aprenderá a usar Azure IoT Tools para Visual Studio Code a fin de supervisar los mensajes del dispositivo a la nube y de enviar mensajes de la nube al dispositivo. Los mensajes del dispositivo a la nube podrían ser datos de sensor que el dispositivo recopila y, a continuación, envía al IoT Hub. Los mensajes de la nube al dispositivo podrían ser comandos que el IoT Hub envía al dispositivo para hacer parpadear un LED que está conectado al dispositivo.
-
-## <a name="what-you-will-do"></a>Lo que hará
-
-* Utilizará Azure IoT Tools para Visual Studio Code a fin de supervisar los mensajes del dispositivo a la nube.
-
-* Utilizará Azure IoT Tools para Visual Studio Code a fin de enviar mensajes de la nube al dispositivo.
-
-## <a name="what-you-need"></a>Lo que necesita
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure activa.
 

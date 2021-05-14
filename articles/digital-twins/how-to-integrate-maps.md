@@ -8,12 +8,12 @@ ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 990a0ee73bd91ccb748c948b5fcf0e6124d84a03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b2b6e045a86fff7ba8a0d88a938fae93a0c6812a
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102201437"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790458"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Uso de Azure Digital Twins para actualizar un plano interior de Azure Maps
 
@@ -27,9 +27,9 @@ En estas instrucciones se tratará lo siguiente:
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-* Siga el [*Tutorial de Azure Digital Twins: Conexión de una solución de un extremo a otro*](./tutorial-end-to-end.md).
+* Siga el [Tutorial de Azure Digital Twins: Conexión de una solución de un extremo a otro](./tutorial-end-to-end.md).
     * En él ampliará este gemelo con un punto de conexión y una ruta adicionales. En dicho tutorial también agregará otra función a la aplicación de funciones. 
-* Siga el [*Tutorial de Azure Maps: Uso de Creator para crear planos interiores*](../azure-maps/tutorial-creator-indoor-maps.md) a fin de crear un plano interior de Azure Maps con un *conjunto de estados de características*.
+* Siga el [Tutorial de Azure Maps: Uso de Creator para crear planos interiores](../azure-maps/tutorial-creator-indoor-maps.md) a fin de crear un plano interior de Azure Maps con un *conjunto de estados de características*.
     * Los [conjuntos de estados de características](../azure-maps/creator-indoor-maps.md#feature-statesets) son colecciones de propiedades dinámicas (estados) asignadas a las características del conjunto de datos, como salas o equipamiento. En el tutorial anterior de Azure Maps, el conjunto de estados de las características almacena el estado de la sala que se mostrará en un plano.
     * Necesitará el *id. de conjunto de estados* de las características y la *clave de suscripción* de Azure Maps.
 
@@ -45,18 +45,18 @@ En primer lugar, creará una ruta en Azure Digital Twins para reenviar todos los
 
 ## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>Creación de una ruta y un filtro para las notificaciones de actualización de gemelos
 
-Las instancias de Azure Digital Twins pueden emitir eventos de actualización de gemelos cada vez que se actualiza el estado de uno de estos elementos. El [*Tutorial de Azure Digital Twins: Conexión de una solución de un extremo a otro*](./tutorial-end-to-end.md) vinculado anteriormente le guiará a través de un escenario en el que se usa un termómetro para actualizar un atributo de temperatura conectado al gemelo de una sala. Ampliará esa solución mediante la suscripción a las notificaciones de actualización de gemelos y el uso de dicha información para actualizar los planos.
+Las instancias de Azure Digital Twins pueden emitir eventos de actualización de gemelos cada vez que se actualiza el estado de uno de estos elementos. El [Tutorial de Azure Digital Twins: Conexión de una solución de un extremo a otro](./tutorial-end-to-end.md) vinculado anteriormente le guiará a través de un escenario en el que se usa un termómetro para actualizar un atributo de temperatura conectado al gemelo de una sala. Ampliará esa solución mediante la suscripción a las notificaciones de actualización de gemelos y el uso de dicha información para actualizar los planos.
 
 Este patrón realiza la lectura directamente desde el gemelo de la sala, en lugar de desde el dispositivo IoT, lo que ofrece la flexibilidad de cambiar el origen de datos subyacente para la temperatura sin necesidad de actualizar la lógica de asignación. Por ejemplo, puede agregar varios termómetros o establecer que esta sala comparta un termómetro con otra, todo ello sin necesidad de actualizar la lógica de asignación.
 
 1. Cree un tema de Event Grid, que recibirá eventos de la instancia de Azure Digital Twins.
     ```azurecli-interactive
-    az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
+    az eventgrid topic create --resource-group <your-resource-group-name> --name <your-topic-name> --location <region>
     ```
 
 2. Cree un punto de conexión para vincular el tema de Event Grid a Azure Digital Twins.
     ```azurecli-interactive
-    az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
+    az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> --dt-name <your-Azure-Digital-Twins-instance-name>
     ```
 
 3. Cree una ruta en Azure Digital Twins para enviar eventos de actualización de gemelos al punto de conexión.
@@ -64,17 +64,17 @@ Este patrón realiza la lectura directamente desde el gemelo de la sala, en luga
     >[!NOTE]
     >Actualmente hay un **problema conocido** en Cloud Shell que afecta a estos grupos de comandos: `az dt route`, `az dt model` y `az dt twin`.
     >
-    >Para resolverlo, ejecute `az login` en Cloud Shell antes de ejecutar el comando, o bien use la [CLI local](/cli/azure/install-azure-cli) en lugar de Cloud Shell. Para obtener más información, vea [*Solución de problemas: Problemas conocidos en Azure Digital Twins*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+    >Para resolverlo, ejecute `az login` en Cloud Shell antes de ejecutar el comando, o bien use la [CLI local](/cli/azure/install-azure-cli) en lugar de Cloud Shell. Para obtener más información, vea [Solución de problemas: Problemas conocidos en Azure Digital Twins](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
     ```azurecli-interactive
-    az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
+    az dt route create --dt-name <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
 ## <a name="create-a-function-to-update-maps"></a>Creación de una función para actualizar planos
 
-Va a crear una **función desencadenada por Event Grid** en la aplicación de funciones siguiendo el tutorial de un extremo a otro ([*Tutorial: Conexión de una solución de un extremo a otro*](./tutorial-end-to-end.md)). Esta función desempaquetará esas notificaciones y enviará actualizaciones a un conjunto de estados de características de Azure Maps para actualizar la temperatura de una sala.
+Va a crear una **función desencadenada por Event Grid** en la aplicación de funciones siguiendo el tutorial de un extremo a otro ([Tutorial: Conexión de una solución de un extremo a otro](./tutorial-end-to-end.md)). Esta función desempaquetará esas notificaciones y enviará actualizaciones a un conjunto de estados de características de Azure Maps para actualizar la temperatura de una sala.
 
-Vea el documento siguiente para obtener información de referencia: [*Desencadenador de Azure Event Grid para Azure Functions*](../azure-functions/functions-bindings-event-grid-trigger.md).
+Vea el documento siguiente para obtener información de referencia: [Desencadenador de Azure Event Grid para Azure Functions](../azure-functions/functions-bindings-event-grid-trigger.md).
 
 Reemplace el código de la función por el siguiente. Solo filtrará las actualizaciones de los gemelos de los espacios, leerá la temperatura actualizada y enviará esa información a Azure Maps.
 
@@ -91,9 +91,9 @@ az functionapp config appsettings set --name <your-App-Service-(function-app)-na
 
 Para ver las actualizaciones directas de la temperatura, siga estos pasos:
 
-1. Comience a enviar datos de IoT simulados mediante la ejecución del proyecto **DeviceSimulator** desde el [*Tutorial de Azure Digital Twins: Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md). Las instrucciones se encuentran en la sección [*Configuración y ejecución de la simulación*](././tutorial-end-to-end.md#configure-and-run-the-simulation).
+1. Comience a enviar datos de IoT simulados mediante la ejecución del proyecto **DeviceSimulator** desde el [Tutorial de Azure Digital Twins: Conexión de una solución de un extremo a otro](tutorial-end-to-end.md). Las instrucciones se encuentran en la sección [Configuración y ejecución de la simulación](././tutorial-end-to-end.md#configure-and-run-the-simulation).
 2. Use [el módulo **Azure Maps Indoor**](../azure-maps/how-to-use-indoor-module.md) para representar planos interiores creados en el Creador de Azure Maps.
-    1. Copie el HTML de la sección [*Ejemplo: Uso del módulo de planos interiores*](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) del [*Tutorial: Uso del módulo de mapas de Azure Maps Indoor*](../azure-maps/how-to-use-indoor-module.md) en un archivo local.
+    1. Copie el HTML de la sección [Ejemplo: Uso del módulo de planos interiores](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) del [Tutorial: Uso del módulo de mapas de Azure Maps Indoor](../azure-maps/how-to-use-indoor-module.md) en un archivo local.
     1. Reemplace la *clave de suscripción* y los elementos *tilesetId* y *statesetID* en el archivo HTML local por sus valores.
     1. Abra ese archivo en el explorador.
 
@@ -113,5 +113,5 @@ En función de la configuración de la topología, podrá almacenar estos tres a
 
 Para obtener más información sobre cómo administrar, actualizar y recuperar información del grafo de gemelos, vea las referencias siguientes:
 
-* [*Procedimiento: Administración de Digital Twins*](./how-to-manage-twin.md)
-* [*Procedimiento: Consulta del grafo gemelo*](./how-to-query-graph.md)
+* [Procedimiento: Administración de Digital Twins](./how-to-manage-twin.md)
+* [Procedimiento: Consulta del grafo de gemelos](./how-to-query-graph.md)

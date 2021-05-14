@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 04/21/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 62bfc528886767bc09159ca2a2696c8c9264b307
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: adea0e63c9e285a751a1a0508e84c5b83a10e994
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96349946"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074698"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar los permisos de cuenta del conector de AD DS 
 
@@ -52,7 +52,7 @@ Install-WindowsFeature RSAT-AD-Tools
 ![Configuración](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
 
 >[!NOTE]
->También puede copiar el archivo **C:\Archivos de programa\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** a un controlador de dominio que ya tenga RSAT para AD DS instalado y usar este módulo de PowerShell desde ahí.
+>También puede copiar el archivo **C:\Archivos de programa\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** a un controlador de dominio que ya tenga RSAT para AD DS instalado y usar este módulo de PowerShell desde ahí.  Tenga en cuenta que algunos de los cmdlets solo se pueden ejecutar en el equipo que hospeda Azure AD Connect.
 
 Para comenzar a usar ADSyncConfig, debe cargar el módulo en una ventana de Windows PowerShell: 
 

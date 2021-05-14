@@ -5,12 +5,12 @@ description: Aprenda a actualizar o restablecer las credenciales de la entidad d
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 0b750eb9af7dfd7bcbada7500b6ef71b015db11f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 08a52f68ffdaa3305fbbeefffeeac78a59f3903b
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767482"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949153"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Actualización o modificación de las credenciales de un clúster de Azure Kubernetes Service (AKS)
 
@@ -32,7 +32,7 @@ Cuando quiera actualizar las credenciales de un clúster de AKS, puede hacer alg
 * Crear a una entidad de servicio y actualizar el clúster para usar estas nuevas credenciales. 
 
 > [!WARNING]
-> Si elige crear una entidad de servicio *nueva*, la actualización de un clúster de AKS de gran tamaño para usar estas credenciales puede tardar mucho en completarse.
+> Si decide crear una entidad de servicio *nueva*, espere unos 30 minutos para que el permiso de la entidad de servicio se propague por todas las regiones. La actualización de un clúster de AKS de gran tamaño para usar estas credenciales puede tardar mucho en completarse.
 
 ### <a name="check-the-expiration-date-of-your-service-principal"></a>Comprobación de la fecha de expiración de la entidad de servicio
 

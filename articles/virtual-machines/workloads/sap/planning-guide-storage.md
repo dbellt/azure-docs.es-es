@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/08/2021
+ms.date: 04/26/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecd33549536323658a7116d7d5c311eaaec98487
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: c76ffbbaf6bbbb2afb5d84e92b6fe9ce04dc4a30
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107302954"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128710"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipos de Azure Storage para una carga de trabajo de SAP
 Azure tiene numerosos tipos de almacenamiento que difieren en gran medida en términos de funcionalidad, rendimiento, latencia y precio. Algunos de los tipos de almacenamiento no son para escenarios de SAP, o bien su uso está limitado en ellos. Sin embargo, hay varios tipos de almacenamiento de Azure que son idóneos para escenarios específicos de carga de trabajo de SAP, o bien están optimizados para ello. Especialmente en el caso de SAP HANA, algunos tipos de almacenamiento de Azure han recibido certificación para su uso con SAP HANA. En este documento, vamos a repasar los diferentes tipos de almacenamiento y describir su capacidad y uso con las cargas de trabajo de SAP y los componentes de SAP.
@@ -35,6 +35,7 @@ El almacenamiento en Microsoft Azure HDD estándar, SSD estándar, Azure Premium
 Existen más métodos de redundancia, que se describen en el artículo [Redundancia de Azure Storage](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) y se aplican a algunos de los diferentes tipos de almacenamiento que ofrece Azure. 
 
 Tenga en cuenta también que los distintos tipos de almacenamiento de Azure afectan a los SLA de disponibilidad de una sola máquina virtual, tal como se publica en [SLA para Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines).
+
 
 ### <a name="azure-managed-disks"></a>Azure Managed Disks
 
@@ -69,6 +70,10 @@ Para conocer las restricciones de compatibilidad con los tipos de almacenamiento
 
 En las secciones que describen los diferentes tipos de almacenamiento de Azure se proporcionará más información sobre las restricciones y las posibilidades que ofrece el almacenamiento compatible con SAP. 
 
+### <a name="storage-choices-when-using-dbms-replication"></a>Opciones de almacenamiento al usar la replicación de DBMS
+Nuestras arquitecturas de referencia prevén el uso de funcionalidades de DBMS como SQL Server Always On, la replicación del sistema de HANA, DB2 HADR u Oracle Data Guard. En caso de que use estas tecnologías entre dos o varias máquinas virtuales de Azure, los tipos de almacenamiento elegidos para cada una de las VM deben ser los mismos. Esto significa que si el almacenamiento elegido para el volumen de registro para rehacer un sistema DBMS es Azure Premium Storage en una VM, es necesario que el mismo volumen se base en Azure Premium Storage con todas las demás VM que se encuentran en la misma configuración de sincronización de alta disponibilidad. Lo mismo sucede con los volúmenes de datos que se usan para los archivos de base de datos.
+  
+
 ## <a name="storage-recommendations-for-sap-storage-scenarios"></a>Recomendaciones de almacenamiento para escenarios de almacenamiento de SAP
 Antes de entrar en los detalles, presentamos el resumen y las recomendaciones que ya están al principio del documento. Por su parte, los detalles de los tipos concretos de Azure Storage se presentan en esta sección del documento. El resumen de las recomendaciones de almacenamiento para los escenarios de almacenamiento de SAP en una tabla tiene el siguiente aspecto:
 
@@ -81,9 +86,9 @@ Antes de entrar en los detalles, presentamos el resumen y las recomendaciones qu
 | Familias de máquinas virtuales M/MV2 de SAP HANA en volumen de registro de DBMS | no admitido | no admitido | recomendado<sup>1</sup> | recomendado | recomendado<sup>2</sup> | 
 | Familias de máquinas virtuales Esv3/Edsv4 de SAP HANA en volumen de datos de DBMS | no admitido | no admitido | recomendado | recomendado | recomendado<sup>2</sup> |
 | Familias de máquinas virtuales Esv3/Edsv4 de SAP HANA en volumen de registro de DBMS | no admitido | no admitido | no admitido | recomendado | recomendado<sup>2</sup> | 
-| Volumen de datos DBMS no HANA | no admitido | adecuación restringida (no en prod.) | recomendado | recomendado | no admitido |
-| Familias de máquinas virtuales M/MV2 no de HANA en volumen de registro de DBMS | no admitido | adecuación restringida (no en prod.) | recomendado<sup>1</sup> | recomendado | no admitido |
-| Familias de máquinas virtuales no M/MV2 no de HANA en volumen de registro de DBMS | no admitido | adecuación restringida (no en prod.) | adecuado para carga de trabajo hasta de tamaño medio | recomendado | no admitido |
+| Volumen de datos DBMS no HANA | no admitido | adecuación restringida (no en prod.) | recomendado | recomendado | Solo para versiones específicas de Oracle en Oracle Linux. |
+| Familias de máquinas virtuales M/MV2 no de HANA en volumen de registro de DBMS | no admitido | adecuación restringida (no en prod.) | recomendado<sup>1</sup> | recomendado | Solo para versiones específicas de Oracle en Oracle Linux. |
+| Familias de máquinas virtuales no M/MV2 no de HANA en volumen de registro de DBMS | no admitido | adecuación restringida (no en prod.) | adecuado para carga de trabajo hasta de tamaño medio | recomendado | Solo para versiones específicas de Oracle en Oracle Linux. |
 
 
 <sup>1</sup> Con el uso del [Acelerador de escritura de Azure](../../how-to-enable-write-accelerator.md) para las familias de máquinas virtuales M/MV2 para los volúmenes de registros de registro/rehacer. <sup>2</sup> El uso de UNF requiere que /hana/data y /hana/log estén en ANF. 

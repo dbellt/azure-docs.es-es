@@ -18,6 +18,8 @@
       href: pim-resource-roles-overview-dashboards.md
     - name: Notificaciones por correo electrónico
       href: pim-email-notifications.md
+    - name: Conceptos de API de PIM
+      href: pim-apis-concept.md
     - name: Microsoft Graph API y PIM
       href: pim-apis.md
 - name: Guías paso a paso
@@ -27,30 +29,20 @@
       href: pim-deployment-plan.md
     - name: Primer uso de PIM
       href: pim-getting-started.md
-    - name: Configuración de PIM
-      items:
-        - name: Asistente para seguridad
-          href: pim-security-wizard.md
-        - name: Detección de recursos de Azure
-          href: pim-resource-roles-discover-resources.md
-        - name: Delegación del acceso a PIM
-          href: pim-how-to-give-access-to-pim.md
-        - name: Elevación de los privilegios de acceso para administrar todas las suscripciones
-          href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
-    - name: Activación de mis roles
-      items:
-        - name: Activación de mis roles de Azure AD
-          href: pim-how-to-activate-role.md
-        - name: Activación de mis roles de recursos de Azure
-          href: pim-resource-roles-activate-your-roles.md
     - name: Administración de roles de Azure AD
       items:
         - name: Introducción a las características
           href: azure-ad-roles-features.md
         - name: "PowerShell para roles de Azure\_AD"
           href: powershell-for-azure-ad-roles.md
+        - name: Detección e información
+          href: pim-security-wizard.md
+        - name: Delegación del acceso a PIM
+          href: pim-how-to-give-access-to-pim.md
         - name: Asignación de roles
           href: pim-how-to-add-role-to-user.md
+        - name: Activación de roles
+          href: pim-how-to-activate-role.md
         - name: Aprobar solicitudes
           href: azure-ad-pim-approval-workflow.md
         - name: Configuración de los roles
@@ -71,10 +63,16 @@
           href: pim-how-to-use-audit-log.md
     - name: Administración de roles de Azure
       items:
+        - name: Detección de recursos de Azure
+          href: pim-resource-roles-discover-resources.md
+        - name: Elevación de los privilegios de acceso para administrar todas las suscripciones
+          href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
         - name: Asignación de roles
           href: pim-resource-roles-assign-roles.md
         - name: Invitación a usuarios externos
           href: pim-resource-roles-external-users.md
+        - name: Activación de roles
+          href: pim-resource-roles-activate-your-roles.md
         - name: Aprobar solicitudes
           href: pim-resource-roles-approval-workflow.md
         - name: Ampliación o renovación de los roles

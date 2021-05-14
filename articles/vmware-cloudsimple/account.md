@@ -1,19 +1,19 @@
 ---
 title: 'Administración de cuentas: portal de Azure VMware Solution by CloudSimple'
 description: En este artículo se describe cómo administrar cuentas en el portal de Azure VMware Solution by CloudSimple.
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4c26d5accce77ce6fd8c9b6c2b519b93f95013ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f215eff7f651bce0c4948417761a305dadfc20ba
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97895179"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108182649"
 ---
 # <a name="manage-accounts-on-the-azure-vmware-solution-by-cloudsimple-portal"></a>Administración de cuentas en el portal de Azure VMware Solution by CloudSimple
 

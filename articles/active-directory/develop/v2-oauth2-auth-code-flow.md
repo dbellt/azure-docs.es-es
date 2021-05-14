@@ -13,12 +13,12 @@ ms.date: 03/29/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: caa8f4efa60f8a42856f7cd8e78edf32fce956c6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 05426f6f9eb01fa5a23b6bb20a2b1c50b8720ab1
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937148"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227729"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidad y flujo de código de autorización de OAuth 2.0
 
@@ -45,6 +45,8 @@ Si intenta usar el flujo de código de autorización y ve este error:
 `access to XMLHttpRequest at 'https://login.microsoftonline.com/common/v2.0/oauth2/token' from origin 'yourApp.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
 
 Luego, visite el registro de aplicaciones y actualice el URI de redirección de la aplicación al tipo `spa`.
+
+Las aplicaciones no pueden usar un URI de redirección `spa` con flujos que no son SPA, por ejemplo, flujos de aplicaciones nativas o de credenciales de cliente. Para garantizar la seguridad, Azure AD devuelve un error si se intenta usar un URI de redirección `spa` en estos escenarios, por ejemplo, desde una aplicación nativa que no envía un encabezado `Origin`. 
 
 ## <a name="request-an-authorization-code"></a>Solicitud de un código de autorización
 
@@ -183,7 +185,11 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 | `id_token` | Un token de identificador para el usuario, emitido a través de la *concesión implícita*. Contiene una notificación `c_hash` especial, que es el hash del elemento `code` en la misma solicitud. |
 | `state` | Si se incluye un parámetro de estado en la solicitud, debería aparecer el mismo valor en la respuesta. La aplicación debería comprobar que los valores de state de la solicitud y la respuesta sean idénticos. |
 
-## <a name="request-an-access-token"></a>Solicitud de un token de acceso
+## <a name="redeem-a-code-for-an-access-token"></a>Canje de un código por un token de acceso
+
+Todos los clientes confidenciales tienen la opción de usar secretos de cliente (secretos compartidos simétricos que genera la plataforma de identidad de Microsoft) y [credenciales de certificados](active-directory-certificate-credentials.md) (claves asimétricas que carga el desarrollador).  Para mayor seguridad, se recomienda usar las credenciales de certificados. Los clientes públicos (aplicaciones nativas y aplicaciones de página única) no deben usar secretos ni certificados al canjear un código de autorización. Siempre debe asegurarse de que los URI de redireccionamiento [sean únicos](reply-url.md#localhost-exceptions) e indiquen correctamente el tipo de aplicación. 
+
+### <a name="request-an-access-token-with-a-client_secret"></a>Solicitud de un token de acceso con un client_secret
 
 Ahora que ha adquirido un código de autorización y el usuario le ha concedido permiso, puede canjear el `code` por un `access_token` al recurso deseado. Puede hacer esto mediante el envío de una solicitud `POST` al punto de conexión `/token`:
 
@@ -204,18 +210,49 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Pruebe a ejecutar esta solicitud en Postman (No olvide reemplazar `code`) [![Pruebe a ejecutar esta solicitud en Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Pruebe a ejecutar esta solicitud en Postman (No olvide reemplazar `code`) [![Pruebe a ejecutar esta solicitud en Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://www.getpostman.com/collections/dba7e9c2e0870702dfc6)
 
 | Parámetro  | Obligatorio/opcional | Descripción     |
 |------------|-------------------|----------------|
 | `tenant`   | requerido   | El valor `{tenant}` de la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para obtener más información, consulte los [conceptos básicos sobre el protocolo](active-directory-v2-protocols.md#endpoints).  |
 | `client_id` | requerido  | El identificador de aplicación (cliente) que la página [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. |
-| `grant_type` | requerido   | Debe ser `authorization_code` para el flujo de código de autorización.   |
 | `scope`      | opcional   | Lista de ámbitos separados por espacios. Todos los ámbitos deben provenir de un recurso único, junto con los ámbitos de OIDC (`profile`, `openid`, `email`). Para obtener una explicación más detallada de los ámbitos, consulte [permisos, consentimiento y ámbitos](v2-permissions-and-consent.md). Se trata de una extensión de Microsoft para el flujo de código de autorización, diseñada para permitir que las aplicaciones declaren el recurso para el que quieren el token durante el canje de tokens.|
 | `code`          | requerido  | El authorization_code que adquirió en el primer segmento del flujo. |
 | `redirect_uri`  | requerido  | El mismo valor redirect_uri usado para adquirir el código de autorización. |
-| `client_secret` | requerido para las aplicaciones web confidenciales | El secreto de la aplicación que creó en el portal de registro de aplicaciones para su aplicación. No debe usar el secreto de aplicación en una aplicación nativa ni en una aplicación de página única, porque no es posible almacenar los client_secrets de manera segura en los dispositivos ni páginas web. Es necesario para aplicaciones web y las API web, que tienen la capacidad de almacenar el client_secret de manera segura en el lado del servidor.  Al igual que todos los parámetros que se describen aquí, el secreto de cliente debe estar codificado como URL antes de enviarse, un paso que normalmente realiza el SDK. Para obtener más información sobre la codificación de URI, consulte la [especificación sobre la sintaxis genérica de URI](https://tools.ietf.org/html/rfc3986#page-12). |
+| `grant_type` | requerido   | Debe ser `authorization_code` para el flujo de código de autorización.   |
 | `code_verifier` | recomendado  | El mismo valor de code_verifier que usó para obtener el valor de authorization_code. Se requiere si PKCE se utilizó en la solicitud de concesión de código de autorización. Para obtener más información, consulte [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| `client_secret` | requerido para las aplicaciones web confidenciales | El secreto de la aplicación que creó en el portal de registro de aplicaciones para su aplicación. No debe usar el secreto de aplicación en una aplicación nativa ni en una aplicación de página única, porque no es posible almacenar los client_secrets de manera segura en los dispositivos ni páginas web. Es necesario para aplicaciones web y las API web, que tienen la capacidad de almacenar el client_secret de manera segura en el lado del servidor.  Al igual que todos los parámetros que se describen aquí, el secreto de cliente debe estar codificado como URL antes de enviarse, un paso que normalmente realiza el SDK. Para obtener más información sobre la codificación de URI, consulte la [especificación sobre la sintaxis genérica de URI](https://tools.ietf.org/html/rfc3986#page-12). |
+
+### <a name="request-an-access-token-with-a-certificate-credential"></a>Solicitud de un token de acceso con una credencial de certificados
+
+```HTTP
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
+Host: login.microsoftonline.com
+Content-Type: application/x-www-form-urlencoded
+
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&code=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq3n8b2JRLk4OxVXr...
+&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+&grant_type=authorization_code
+&code_verifier=ThisIsntRandomButItNeedsToBe43CharactersLong
+&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer
+&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg
+```
+
+| Parámetro  | Obligatorio/opcional | Descripción     |
+|------------|-------------------|----------------|
+| `tenant`   | requerido   | El valor `{tenant}` de la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para obtener más información, consulte los [conceptos básicos sobre el protocolo](active-directory-v2-protocols.md#endpoints).  |
+| `client_id` | requerido  | El identificador de aplicación (cliente) que la página [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. |
+| `scope`      | opcional   | Lista de ámbitos separados por espacios. Todos los ámbitos deben provenir de un recurso único, junto con los ámbitos de OIDC (`profile`, `openid`, `email`). Para obtener una explicación más detallada de los ámbitos, consulte [permisos, consentimiento y ámbitos](v2-permissions-and-consent.md). Se trata de una extensión de Microsoft para el flujo de código de autorización, diseñada para permitir que las aplicaciones declaren el recurso para el que quieren el token durante el canje de tokens.|
+| `code`          | requerido  | El authorization_code que adquirió en el primer segmento del flujo. |
+| `redirect_uri`  | requerido  | El mismo valor redirect_uri usado para adquirir el código de autorización. |
+| `grant_type` | requerido   | Debe ser `authorization_code` para el flujo de código de autorización.   |
+| `code_verifier` | recomendado  | El mismo valor de code_verifier que usó para obtener el valor de authorization_code. Se requiere si PKCE se utilizó en la solicitud de concesión de código de autorización. Para obtener más información, consulte [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| `client_assertion_type` | requerido para las aplicaciones web confidenciales | El valor debe establecerse en `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` para usar una credencial de certificados. |
+| `client_assertion` | requerido para las aplicaciones web confidenciales  | Una aserción (JSON Web Token) que debe crear y firmar con el certificado que ha registrado como credenciales de la aplicación. Lea el artículo sobre las [credenciales de certificado](active-directory-certificate-credentials.md) para información sobre cómo registrar el certificado y el formato de la aserción.|
+
+Tenga en cuenta que los parámetros son iguales que en el caso de solicitud con un secreto compartido, salvo que el parámetro `client_secret` se sustituye por dos parámetros: `client_assertion_type` y `client_assertion`.  
 
 ### <a name="successful-response"></a>Respuesta correcta
 
@@ -277,7 +314,7 @@ Las respuestas de error tendrán un aspecto similar al siguiente:
 | `invalid_client` | Se produjo un error de autenticación de cliente.  | Las credenciales del cliente no son válidas. Para corregirlo, el administrador de la aplicación actualiza las credenciales.   |
 | `unsupported_grant_type` | El servidor de autorización no admite el tipo de concesión de autorización. | Cambie el tipo de concesión de la solicitud. Este tipo de error solo debe producirse durante el desarrollo y detectarse en las pruebas iniciales. |
 | `invalid_resource` | El recurso de destino no es válido porque no existe, Azure AD no lo encuentra o no está configurado correctamente. | Este error indica que el recurso, en caso de que exista, no se ha configurado en el inquilino. La aplicación puede pedir al usuario consentimiento para instalar la aplicación y agregarla a Azure AD.  |
-| `interaction_required` | No estándar, ya que la especificación de OIDC lo requiere solo en el punto de conexión `/authorize`. La solicitud requiere la interacción del usuario. Por ejemplo, hay que realizar un paso de autenticación más. | Vuelva a tratar de realizar la solicitud `/authorize` con los mismos ámbitos. |
+| `interaction_required` | No es estándar, ya que la especificación de OIDC lo requiere solo en el punto de conexión `/authorize`. La solicitud requiere la interacción del usuario. Por ejemplo, hay que realizar un paso de autenticación más. | Vuelva a tratar de realizar la solicitud `/authorize` con los mismos ámbitos. |
 | `temporarily_unavailable` | De manera temporal, el servidor está demasiado ocupado para atender la solicitud. | Vuelva a intentar la solicitud después de un pequeño retraso. La aplicación podría explicar al usuario que su respuesta se retrasó debido a una condición temporal. |
 |`consent_required` | La solicitud requiere el consentimiento del usuario. Este error no es estándar, ya que normalmente solo se devuelve en el punto de conexión `/authorize` por las especificaciones de OIDC. Se devuelve cuando se usó un parámetro `scope` en el flujo de canje de código que la aplicación cliente no tiene permiso para solicitar.  | El cliente debe devolver al usuario al punto de conexión `/authorize` con el ámbito correcto para desencadenar el consentimiento. |
 |`invalid_scope` | El ámbito solicitado por la aplicación no es válido.  | Cambie el valor del parámetro de ámbito en la solicitud de autenticación por un valor válido. |
@@ -302,7 +339,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 Los Access_tokens tienen una duración breve y debe actualizarlos una vez expiren para seguir teniendo acceso a los recursos. Puede hacerlo mediante el envío de otra solicitud `POST` al punto de conexión `/token`, esta vez proporcionando el elemento `refresh_token` en lugar del elemento `code`.  Los tokens de actualización son válidos para todos los permisos para los que el cliente ya haya obtenido consentimiento; por tanto, un token de actualización emitido en una solicitud de `scope=mail.read` se puede usar para solicitar un nuevo token de acceso para `scope=api://contoso.com/api/UseResource`.
 
-Los tokens de actualización de aplicaciones web y aplicaciones nativas no tienen una duración especificada. Normalmente, las duraciones de este tipo de tokens son relativamente largas. Sin embargo, en algunos casos, los tokens de actualización expiran, se revocan o carecen de privilegios suficientes para realizar la acción deseada. La aplicación debe esperar y controlar los [errores que devuelve el punto de conexión de emisión de tokens](#error-codes-for-token-endpoint-errors) correctamente. Sin embargo, las aplicaciones de página única obtienen un token con una vigencia de 24 horas, lo que requiere una nueva autenticación cada día.  Esto se puede hacer de forma silenciosa en un iframe cuando las cookies de terceros estén habilitadas, pero se debe realizar en un marco de nivel superior (navegación de página completa o emergente) en exploradores sin cookies de terceros, como Safari.
+Los tokens de actualización de aplicaciones web y aplicaciones nativas no tienen una duración especificada. Normalmente, las duraciones de este tipo de tokens son relativamente largas. Sin embargo, en algunos casos, los tokens de actualización expiran, se revocan o carecen de privilegios suficientes para realizar la acción deseada. La aplicación debe esperar y controlar los [errores que devuelve el punto de conexión de emisión de tokens](#error-codes-for-token-endpoint-errors) correctamente. Sin embargo, las aplicaciones de página única obtienen un token con una vigencia de 24 horas, lo que requiere una nueva autenticación cada día.  Esto se puede hacer de forma silenciosa en un iframe cuando las cookies de terceros estén habilitadas, pero se debe realizar en un marco de nivel superior (navegación de página completa o emergente) en los exploradores sin cookies de terceros, como Safari.
 
 Si bien los tokens de actualización no se revocan cuando se usan para adquirir nuevos tokens de acceso, se espera que los descarte. La [especificación de OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-6) indica: "El servidor de autorización PODRÍA emitir un token de actualización nuevo, en cuyo caso el cliente DEBE descartar el token de actualización anterior y reemplazarlo por el token de actualización nuevo. El servidor de autorización PODRÍA revocar el token de actualización anterior después de la emisión de un token de actualización nuevo al cliente".
 

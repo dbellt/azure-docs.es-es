@@ -9,19 +9,32 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 04300b8d148bb22bf585aa81481c475b347ad462
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 4871f23577213430e530270d23b070e35d831bc4
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222051"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165360"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Búsqueda semántica en Azure Cognitive Search
 
 > [!IMPORTANT]
 > La búsqueda semántica se encuentra en versión preliminar pública y solo está disponible mediante la API REST en versión preliminar y el portal. Las características en versión preliminar se ofrecen tal cual, según las [Condiciones de uso complementarias](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), y no se garantiza que tengan la misma implementación en la disponibilidad general. Estas características son facturables. Para más información, consulte [Disponibilidad y precios](semantic-search-overview.md#availability-and-pricing).
 
-La búsqueda semántica es una colección de funcionalidades relacionadas con las consultas que agrega relevancia semántica y comprensión del lenguaje a los resultados de la búsqueda. La *clasificación semántica* busca el contexto y la relación entre los términos, elevando las coincidencias que tienen más sentido en función de la consulta. Language Understanding busca *descripciones* y *respuestas* en el contenido que resuman el documento coincidente o respondan a una pregunta, que luego se puede representar en una página de resultados de búsqueda para una experiencia de búsqueda más productiva.
+La búsqueda semántica es una colección de funcionalidades relacionadas con las consultas que agrega relevancia semántica y comprensión del lenguaje a los resultados de la búsqueda. Este artículo es una introducción general a la búsqueda semántica, con descripciones de cada característica y su funcionamiento colectivo. La tecnología se describe en el vídeo insertado y la disponibilidad y los precios aparece en la sección del final.
+
+Si necesita información general, le recomendamos revisar este artículo, pero si prefiere empezar de inmediato, siga estos pasos:
+
+1. [Regístrese para obtener la versión preliminar](https://aka.ms/SemanticSearchPreviewSignup), suponiendo que se trata de un servicio que cumple con los [requisitos regionales y de nivel](#availability-and-pricing).
+1. Cree consultas nuevas o modifique las existentes para devolver [leyendas y resaltados semánticos](semantic-how-to-query-request.md).
+1. Agregue algunas otras propiedades para devolver también [respuestas semánticas](semantic-answers.md).
+1. También puede incluir una propiedad de [corrección ortográfica](speller-how-to-add.md) para maximizar la precisión y coincidencia.
+
+## <a name="what-is-semantic-search"></a>¿Qué es la búsqueda semántica?
+
+La búsqueda semántica es una capa opcional de inteligencia artificial relacionada con la búsqueda que extiende la canalización de ejecución de consultas tradicional con un modelo de clasificación semántica y devuelve propiedades adicionales que mejoran la experiencia del usuario.
+
+La *clasificación semántica* busca el contexto y la relación entre los términos, elevando las coincidencias que tienen más sentido en función de la consulta. Language Understanding busca *descripciones* y *respuestas* en el contenido que resuman el documento coincidente o respondan a una pregunta, que luego se puede representar en una página de resultados de búsqueda para una experiencia de búsqueda más productiva.
 
 Los modelos previamente entrenados de última generación se usan para el resumen y la clasificación. Para mantener el rápido rendimiento que los usuarios esperan de la búsqueda, el resumen semántico y la clasificación se aplican solo a los 50 resultados principales, en función de la puntuación del [algoritmo de puntuación de similitud predeterminada](index-similarity-and-scoring.md#similarity-ranking-algorithms). Al usar los resultados como un corpus de documento, la clasificación semántica vuelve a puntuar los resultados en función de la intensidad semántica de la coincidencia.
 
@@ -68,12 +81,6 @@ Entre el lanzamiento de la versión preliminar del 2 de marzo hasta finales de a
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Un nuevo tipo de consulta permite la clasificación de relevancia y las estructuras de respuesta de la búsqueda semántica.
+[Regístrese](https://aka.ms/SemanticSearchPreviewSignup) para obtener la versión preliminar en un servicio de búsqueda que cumple con los requisitos regionales y de nivel indicados en la sección anterior.
 
-Para comenzar, [cree una consulta semántica](semantic-how-to-query-request.md). O bien, consulte los siguientes artículos para obtener información relacionada.
-
-+ [Adición de la corrección ortográfica a los términos de consulta](speller-how-to-add.md)
-+ [Devolución de una respuesta semántica](semantic-answers.md)
-+ [Clasificación semántica](semantic-ranking.md)
-+ [Introducción a la búsqueda semántica (entrada de blog)](https://techcommunity.microsoft.com/t5/azure-ai/introducing-semantic-search-bringing-more-meaningful-results-to/ba-p/2175636)
-+ [Información significativa con las funcionalidades semánticas (vídeo de The AI Show)](https://channel9.msdn.com/Shows/AI-Show/Find-meaningful-insights-using-semantic-capabilities-in-Azure-Cognitive-Search)
+Cuando el servicio esté listo, [cree una consulta semántica](semantic-how-to-query-request.md) para ver la clasificación semántica en acción.

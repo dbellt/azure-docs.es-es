@@ -24,3 +24,6 @@
         - name: Directiva
           tocHref: /azure/web-application-firewall
           topicHref: /azure/governance/policy
+        - name: Directiva
+          tocHref: /security/benchmark/azure/baselines/
+          topicHref: /azure/governance/policy

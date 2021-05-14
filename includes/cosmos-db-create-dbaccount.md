@@ -1,19 +1,16 @@
 ---
-title: archivo de inclusión
-description: archivo de inclusión
-services: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 08/19/2020
+ms.date: 04/21/2021
 ms.custom: include file
-ms.openlocfilehash: efdd4a065e1eab55f5af420585a44754d42a43e9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 23b9385f715993446ebd5392547b51ac06b9ddb1
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96010386"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108065619"
 ---
 1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**.
 
@@ -23,7 +20,7 @@ ms.locfileid: "96010386"
 
 1. En la página **Creación de una cuenta de Azure Cosmos DB** , especifique la configuración básica de la nueva cuenta de Azure Cosmos. 
 
-    |Configuración|Value|Descripción |
+    |Configuración|Valor|Descripción |
     |---|---|---|
     |Subscription|Nombre de suscripción|Seleccione la suscripción de Azure que desea usar para esta cuenta de Azure Cosmos. |
     |Grupo de recursos|Definición de un nombre de grupo de recursos|Seleccione un grupo de recursos o seleccione **Crear nuevo** y escriba un nombre único para el grupo de recursos nuevo. |

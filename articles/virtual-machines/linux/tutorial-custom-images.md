@@ -3,19 +3,19 @@ title: 'Tutorial: Creación de imágenes de máquina virtual personalizadas con 
 description: En este tutorial, aprenderá a usar la CLI de Azure para crear una imagen de máquina virtual personalizada en Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.reviewer: akjosh
-ms.openlocfilehash: 81bbf0b49919db68407a85b9ea2f731c5f8e1d91
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.reviewer: mimckitt
+ms.openlocfilehash: 64c80ec32b0fe151daa24628a22c27fce4c5f21b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769884"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768236"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Tutorial: Creación de una imagen personalizada de una máquina virtual de Azure con la CLI de Azure
 

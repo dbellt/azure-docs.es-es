@@ -4,13 +4,13 @@ description: Implementación y configuración de una red del consorcio de Hyperl
 ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: 42d16adbc5e6396c8d5d38176ac7681c712f4555
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.custom: contperf-fy21q3, devx-track-azurecli
+ms.openlocfilehash: 69f8518482830f143776dc9d11480a1c818f2fc6
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101110"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107886210"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Implementación del consorcio Hyperledger Fabric en Azure Kubernetes Service
 
@@ -124,7 +124,7 @@ En la imagen siguiente se muestra el proceso paso a paso para crear el consorcio
 
 ![Diagrama del proceso para crear un consorcio.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/process-to-build-consortium-flow-chart.png)
 
-Después de finalizar la configuración inicial, use la aplicación cliente para realizar las operaciones siguientes:  
+Después de finalizar la configuración inicial, use la aplicación cliente para realizar las siguientes operaciones:
 
 - Administración de canales
 - Administración de consorcios
@@ -293,15 +293,15 @@ Desde el cliente de la organización del mismo nivel, ejecute el comando para es
 # Peer organization name where the chaincode operation will be performed
 ORGNAME=<PeerOrgName>
 USER_IDENTITY="admin.$ORGNAME"  
-# If you are using chaincode_example02 then set CC_NAME=“chaincode_example02”
+# If you are using chaincode_example02 then set CC_NAME=â€œchaincode_example02â€
 CC_NAME=<chaincodeName>  
-# If you are using chaincode_example02 then set CC_VERSION=“1” for validation
+# If you are using chaincode_example02 then set CC_VERSION=â€œ1â€ for validation
 CC_VERSION=<chaincodeVersion>
 # Language in which chaincode is written. Supported languages are 'node', 'golang', and 'java'  
 # Default value is 'golang'  
 CC_LANG=<chaincodeLanguage>  
 # CC_PATH contains the path where your chaincode is placed. This is the absolute path to the chaincode project root directory.
-# If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/go”
+# If you are using chaincode_example02 to validate then CC_PATH=â€œ/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/goâ€
 CC_PATH=<chaincodePath>  
 # Channel on which chaincode will be instantiated/invoked/queried  
 CHANNEL_NAME=<channelName>  
@@ -355,7 +355,7 @@ Desde el cliente de la organización del mismo nivel, ejecute el siguiente coman
 ./azhlf chaincode invoke -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <invokeFunc> -a <invokeFuncArgs>  
 ```
 
-Pase el nombre de la función de invocación y la lista de argumentos separados por espacios en  `<invokeFunction>`  y  `<invokeFuncArgs>` , respectivamente. Siguiendo con el ejemplo de código de cadena chaincode_example02.go, para realizar una operación de invocación, establezca `<invokeFunction>` en `invoke` y `<invokeFuncArgs>` en `"a" "b" "10"`.  
+Pase el nombre de la función de invocación y la lista de argumentos separados por espacios en `<invokeFunction>` y `<invokeFuncArgs>`, respectivamente. Para continuar con el ejemplo de código de cadena chaincode_example02.go, a fin de realizar una operación de invocación, establezca `<invokeFunction>` en `invoke` y `<invokeFuncArgs>` en `"a" "b" "10"`.  
 
 >[!NOTE]
 > Ejecute el comando una vez desde una organización del mismo nivel en el canal. Después de enviar correctamente la transacción al solicitante, este la distribuye a todas las organizaciones del mismo nivel del canal. A continuación, el estado global se actualiza en todos los nodos del mismo nivel de todas las organizaciones del mismo nivel del canal.  
@@ -372,7 +372,7 @@ Los pares de aprobación son pares en los que se instala el código de cadena y 
 
 Si usa *azhlfTool* para instalar el código de cadena, pase los nombres de nodo del mismo nivel como un valor al argumento del par de aprobación. El código de cadena se instala en todos los nodos del mismo nivel para esa organización. 
 
-Pase el nombre de la función de consulta y la lista de argumentos separados por espacios en `<queryFunction>` y `<queryFuncArgs>` , respectivamente. De nuevo, con el código de cadena chaincode_example02.go como referencia, para consultar el valor "a" en el conjunto de estado global, establezca  `<queryFunction>` en `query` y `<queryArgs>` en `"a"`.  
+Pase el nombre de la función de consulta y la lista de argumentos separados por espacios en `<queryFunction>` y `<queryFuncArgs>`, respectivamente. De nuevo, con el código de cadena chaincode_example02.go como referencia, para consultar el valor "a" en el estado global, establezca `<queryFunction>` en `query` y `<queryArgs>` en `"a"`.  
 
 ## <a name="troubleshoot"></a>Solución de problemas
 

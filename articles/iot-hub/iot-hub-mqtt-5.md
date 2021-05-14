@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: jlian
-ms.openlocfilehash: fb2cc0b81083936a67bcd465e0408b9f4b53996b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fbe51d51da55d6708bfae96d0fec15eec9896602
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96603087"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484854"
 ---
 # <a name="iot-hub-mqtt-5-support-overview-preview"></a>Información general sobre la compatibilidad con MQTT 5 de IoT Hub (versión preliminar)
 
@@ -111,7 +111,7 @@ No se admite la autenticación de nombre de usuario/contraseña usada en version
 
 #### <a name="sas"></a>SAS
 
-Con la autenticación basada en SAS, el cliente debe proporcionar la firma del contexto de conexión. Esto demuestra la autenticidad de la conexión MQTT. La firma debe basarse en una de las dos claves de autenticación de la configuración del cliente en IoT Hub o en una de las dos claves de acceso compartido de una [directiva de acceso compartido](iot-hub-devguide-security.md).
+Con la autenticación basada en SAS, el cliente debe proporcionar la firma del contexto de conexión. Esto demuestra la autenticidad de la conexión MQTT. La firma debe basarse en una de las dos claves de autenticación de la configuración del cliente en IoT Hub o en una de las dos claves de acceso compartido de una [directiva de acceso compartido](iot-hub-dev-guide-sas.md).
 
 La cadena que se va a firmar debe tener el siguiente formato:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 49b267d36fb6c365cf2125912c0d27fe7d669474
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f491681c8054c800e15c3c77516ff22e3c70dbac
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100585282"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001509"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Extender Azure Sentinel por áreas de trabajo e inquilinos
 
@@ -34,7 +34,7 @@ Puede sacar el máximo partido de la experiencia de Azure Sentinel al usar una s
 | Soberanía y cumplimiento normativo | Un área de trabajo está ligada a una región específica. Si los datos se deben mantener en diferentes [zonas geográficas de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) para satisfacer los requisitos normativos, deben dividirse en áreas de trabajo independientes. |  |
 | Propiedad de los datos | Los límites de la propiedad de los datos, por ejemplo de subsidiarias o empresas afiliadas, se delimitan mejor mediante áreas de trabajo independientes. |  |
 | Varios inquilinos de Azure | Azure Sentinel admite la recopilación de datos de los recursos SaaS de Azure y Microsoft solo dentro de su propio límite de inquilino de Azure Active Directory (Azure AD). Por lo tanto, cada inquilino de Azure AD requiere un área de trabajo independiente. |  |
-| Control de acceso a datos pormenorizado | Es posible que una organización tenga que permitir que grupos diferentes, dentro o fuera de la organización, accedan a algunos de los datos recopilados por Azure Sentinel. Por ejemplo:<br><ul><li>Acceso de los propietarios de recursos a los datos que pertenecen a sus recursos</li><li>Acceso de SOC regional o subsidiario a los datos relevantes para sus partes de la organización</li></ul> | Usar [Azure RBAC de recursos](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) o [Azure RBAC de nivel de tabla](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
+| Control de acceso a datos pormenorizado | Es posible que una organización tenga que permitir que grupos diferentes, dentro o fuera de la organización, accedan a algunos de los datos recopilados por Azure Sentinel. Por ejemplo:<br><ul><li>Acceso de los propietarios de recursos a los datos que pertenecen a sus recursos</li><li>Acceso de SOC regional o subsidiario a los datos relevantes para sus partes de la organización</li></ul> | Usar [Azure RBAC de recursos](resource-context-rbac.md) o [Azure RBAC de nivel de tabla](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
 | Configuración de retención pormenorizada | Históricamente, la única manera de establecer diferentes períodos de retención para tipos de datos diferentes era con varias áreas de trabajo. Esto ya no es necesario en muchos casos, gracias a la introducción de la configuración de retención de nivel de tabla. | Usar la [configuración de retención de nivel de tabla](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) o automatizar la [eliminación de datos](../azure-monitor/logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
 | Facturación dividida | Al colocar áreas de trabajo en suscripciones independientes, se pueden facturar a distintas entidades. | Informes de uso y cargos cruzados |
 | Arquitectura heredada | El uso de varias áreas de trabajo puede provenir de un diseño histórico que tuvo en cuenta limitaciones o procedimientos recomendados que ya no son válidos. También podría ser una opción de diseño arbitraria que se puede modificar para adaptarse mejor a Azure Sentinel.<br><br>Algunos ejemplos son:<br><ul><li>Uso de un área de trabajo predeterminada por suscripción al implementar Azure Security Center.</li><li>Necesidad de la configuración de retención o el control de acceso pormenorizado, soluciones para las que son relativamente nuevos.</li></ul> | Volver a diseñar las áreas de trabajo |

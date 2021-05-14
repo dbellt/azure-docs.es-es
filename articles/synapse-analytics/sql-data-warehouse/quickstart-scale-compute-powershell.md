@@ -14,12 +14,12 @@ ms.custom:
 - seo-lt-2019
 - devx-track-azurepowershell
 - mode-api
-ms.openlocfilehash: 73718f0e8e82e7d35ed1ced98f45c1e125a55a00
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 4a178c1104870eb59634537ee659925bdb6abda3
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534245"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163686"
 ---
 # <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Inicio rápido: Escalado del proceso para el grupo de SQL dedicado (anteriormente SQL DW) con Azure PowerShell
 
@@ -74,7 +74,7 @@ En un grupo de SQL dedicado (anteriormente SQL DW), se pueden aumentar o dismin
 
 Para cambiar las unidades de almacenamiento de datos, use el cmdlet de PowerShell [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). En el ejemplo siguiente se establecen las unidades de almacenamiento de datos en DW300c para la base de datos **mySampleDataWarehouse**, que se hospeda en el grupo de recursos **resourcegroupname** del servidor **sqlpoolservername**.
 
-```Powershell
+```powershell
 Set-AzSqlDatabase -ResourceGroupName "resourcegroupname" -DatabaseName "mySampleDataWarehouse" -ServerName "sqlpoolservername" -RequestedServiceObjectiveName "DW300c"
 ```
 
@@ -127,4 +127,4 @@ $database | Select-Object DatabaseName,Status
 Ya ha aprendido cómo escalar el proceso para el grupo de SQL dedicado (anteriormente SQL DW). Para más información sobre el grupo de SQL dedicado (anteriormente SQL DW), continúe con el tutorial sobre la carga de datos.
 
 > [!div class="nextstepaction"]
->[Carga de datos en un grupo de SQL dedicado](load-data-from-azure-blob-storage-using-copy.md)
+> [Carga de datos en un grupo de SQL dedicado](load-data-from-azure-blob-storage-using-copy.md)

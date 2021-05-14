@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 09/01/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e8e70884838d56003694e2da09668527ce5b6c7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d92a5e0b0d1a6953d0043f85ff98f6740aaacebb
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652996"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864021"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introducción a las colas de Service Bus
 En este tutorial, creará aplicaciones de consola de .NET Core para enviar mensajes a una cola de Service Bus y recibir mensajes desde ella.
@@ -21,7 +21,7 @@ En este tutorial, creará aplicaciones de consola de .NET Core para enviar mens
 ## <a name="prerequisites"></a>Prerrequisitos
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs).
-- [NET Core SDK](https://www.microsoft.com/net/download/windows), versión 2.0 o posterior.
+- [NET Core SDK](https://dotnet.microsoft.com/download), versión 2.0 o posterior.
 - Suscripción a Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [ventajas de suscriptor a MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Si no tiene una cola con la que trabajar, siga los pasos del artículo [Uso de Azure Portal para crear una cola de Service Bus](service-bus-quickstart-portal.md) para crear una.
 

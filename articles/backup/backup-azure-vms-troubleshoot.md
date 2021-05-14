@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a solucionar los errores detectados a
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 2d09081533cdb2de5ee97cb000e9844b41a85ac3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 83e6af5737d332bdafbae793286d5ebc0bc09bb8
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105559373"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164892"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solución de errores de copia de seguridad en las máquinas virtuales de Azure
 
@@ -50,7 +50,7 @@ Para resolver este problema, excluya los directorios siguientes en la configurac
 
 ### <a name="copyingvhdsfrombackupvaulttakinglongtime---copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime: Se agotó el tiempo de espera para copiar los datos de copia de seguridad del almacén
 
-Código de error: CopyingVHDsFromBackUpVaultTakingLongTime <br/>
+Código de error: CopyingVHDsFromBackUpVaultTakingLongTime <br/>
 Mensaje de error: Se agotó el tiempo de espera para copiar los datos de copia de seguridad del almacén.
 
 Esto puede deberse a errores transitorios de almacenamiento o a IOPS insuficientes en la cuenta de almacenamiento para que el servicio de copia de seguridad pueda transferir datos al almacén dentro del período del tiempo de expiración. Configure la copia de seguridad de VM mediante estos [procedimientos recomendados](backup-azure-vms-introduction.md#best-practices) y vuelva a intentar la operación de copia de seguridad.
@@ -74,7 +74,7 @@ Mensaje de error: No se pudieron inmovilizar uno o varios puntos de montaje de l
 * Ejecute una comprobación de coherencia del sistema de archivos en estos dispositivos mediante el comando **fsck**.
 * Vuelva a montar los dispositivos e intente realizar de nuevo la operación de copia de seguridad.</ol>
 
-Si no puede desmontar los dispositivos, puede actualizar la configuración de copia de seguridad de la máquina virtual para omitir determinados puntos de montaje. Por ejemplo, si el punto de montaje "mnt/resource" no se puede desmontar y provoca errores de copia de seguridad de la máquina virtual, puede actualizar los archivos de configuración de copia de seguridad de la máquina virtual con la propiedad ```MountsToSkip```, como se indica a continuación.
+Si no puede desmontar los dispositivos, puede actualizar la configuración de copia de seguridad de la máquina virtual para omitir determinados puntos de montaje. Por ejemplo, si el punto de montaje "mnt/resource" no se puede desmontar y provoca errores de copia de seguridad de la máquina virtual, puede actualizar los archivos de configuración de copia de seguridad de la máquina virtual con la propiedad `MountsToSkip`, como se indica a continuación.
 
 ```bash
 cat /var/lib/waagent/Microsoft.Azure.RecoveryServices.VMSnapshotLinux-1.0.9170.0/main/tempPlugin/vmbackup.conf[SnapshotThread]
@@ -82,7 +82,6 @@ fsfreeze: True
 MountsToSkip = /mnt/resource
 SafeFreezeWaitInSeconds=600
 ```
-
 
 ### <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensionSnapshotFailedCOM/ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC: La instalación de la extensión o la operación no se realizaron correctamente debido a un error de COM+
 
@@ -116,12 +115,12 @@ Este error se produce porque las instancias de VSS Writer se encontraban en un e
 
 Paso 1: Reinicie los VSS Writers que se encuentran en estado incorrecto.
 
-* En un símbolo del sistema con privilegios elevados, ejecute ```vssadmin list writers```.
+* En un símbolo del sistema con privilegios elevados, ejecute `vssadmin list writers`.
 * La salida contiene todos los VSS Writers y su estado. Para cada VSS Writer con un estado que no sea **[1] Estable**, reinicie el servicio de la instancia de VSS Writer correspondiente.
 * Para reiniciar el servicio, ejecute los siguientes comandos desde un símbolo del sistema con privilegios elevados:
 
- ```net stop serviceName``` <br>
- ```net start serviceName```
+  `net stop serviceName` <br>
+  `net start serviceName`
 
 > [!NOTE]
 > El reinicio de algunos servicios puede afectar al entorno de producción. Asegúrese de que se sigue el proceso de aprobación y de que el servicio se reinicia en el tiempo de inactividad programado.
@@ -156,8 +155,8 @@ Reinicie el Servicio de instantáneas de volumen (VSS).
 o<br>
 * Ejecute los siguientes comandos en un símbolo del sistema con privilegios elevados:
 
- ```net stop VSS``` <br>
- ```net start VSS```
+  `net stop VSS` <br>
+  `net start VSS`
 
 Si el problema persiste, reinicie la VM en el tiempo de inactividad programado.
 
@@ -178,7 +177,7 @@ Azure Backup admite la copia de seguridad y restauración de las VM que están d
 * Para resolver este problema, use la opción [restaurar discos](./backup-azure-arm-restore-vms.md#restore-disks) durante la operación de restauración y, a continuación, use [PowerShell](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) o los cmdlets de la [CLI de Azure](./tutorial-restore-disk.md) para crear la VM con la información del marketplace más reciente correspondiente a la VM.
 * Si el editor no tiene ninguna información de Marketplace, puede usar los discos de datos para recuperar los datos y puede conectarlos a una VM existente.
 
-### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure: Error al analizar la configuración de la extensión de copia de seguridad
+### <a name="extensionconfigparsingfailure---failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure: error al analizar la configuración de la extensión de copia de seguridad
 
 Código de error: ExtensionConfigParsingFailure<br/>
 Mensaje de error: Error al analizar la configuración de la extensión de copia de seguridad.
@@ -211,7 +210,7 @@ Si ve permisos en el directorio **MachineKeys** distintos de los predeterminados
 
 ### <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState: El estado de la extensión no admite la operación de copia de seguridad
 
-Código de error: ExtensionStuckInDeletionState <br/>
+Código de error: ExtensionStuckInDeletionState <br/>
 Mensaje de error: El estado de la extensión no admite la operación de copia de seguridad
 
 La operación de copia de seguridad no se pudo realizar debido a un estado incoherente de la extensión de copia de seguridad. Para resolver el problema, siga estos pasos:
@@ -224,7 +223,7 @@ La operación de copia de seguridad no se pudo realizar debido a un estado incoh
 
 ### <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>ExtensionFailedSnapshotLimitReachedError: No se pudo realizar la operación de instantánea porque se excedió el límite de instantáneas para algunos de los discos asociados
 
-Código de error: ExtensionFailedSnapshotLimitReachedError  <br/>
+Código de error: ExtensionFailedSnapshotLimitReachedError   <br/>
 Mensaje de error: No se pudo realizar la operación de instantánea porque se excedió el límite de instantáneas para algunos de los discos asociados
 
 No se pudo realizar la operación de instantánea porque se excedió el límite de instantáneas para algunos de los discos asociados. Siga los pasos de solución de problemas siguientes y luego vuelva a intentar la operación.
@@ -331,7 +330,7 @@ Si tiene una instancia de Azure Policy que [rige las etiquetas dentro de su ento
 
 Si después de la restauración observa que los discos están sin conexión:
 
-* Compruebe si el equipo en el que se ejecuta el script cumple los requisitos del sistema operativo. [Obtenga más información](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).  
+* Compruebe si el equipo en el que se ejecuta el script cumple los requisitos del sistema operativo. [Obtenga más información](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).
 * Asegúrese de que no esté restaurando en el mismo origen. [Más información](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 ### <a name="usererrorinstantrpnotfound---restore-failed-because-the-snapshot-of-the-vm-was-not-found"></a>UserErrorInstantRpNotFound: error en la restauración porque no se encontró la instantánea de la máquina virtual
@@ -343,7 +342,8 @@ Este error se produce cuando se intenta realizar una restauración desde un punt
 <br>
 Para resolver este problema, intente restaurar la máquina virtual desde otro punto de restauración.<br>
 
-#### <a name="common-errors"></a>Errores comunes 
+#### <a name="common-errors"></a>Errores comunes
+
 | Detalles del error | Solución alternativa |
 | --- | --- |
 | Error interno de nube en la restauración. |<ol><li>El servicio de nube que está intentando restaurar está configurado con las opciones de DNS. Puede consultar: <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings**.<br>Si la **dirección** está configurada, los valores de DNS están establecidos.<br> <li>El servicio en la nube con el que está tratando de restaurar está configurado con la **IP reservada** y las máquinas virtuales del servicio en la nube están detenidas. Puede comprobar que un servicio en la nube ha reservado una dirección IP mediante los siguientes cmdlets de PowerShell: **$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName**. <br><li>Está intentando restaurar una máquina virtual con las siguientes configuraciones de red especiales en el mismo servicio en la nube: <ul><li>Máquinas virtuales con la configuración del equilibrador de carga interna y externa.<li>Máquinas virtuales con varias direcciones IP reservadas. <li>Máquinas virtuales con varias NIC. </ul><li>Seleccione un nuevo servicio en la nube en la interfaz de usuario o consulte las [consideraciones de restauración](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) de las máquinas virtuales con las configuraciones de red especiales.</ol> |

@@ -10,15 +10,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/20/2020
+ms.date: 4/16/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 92ef2e59dab1921eae8e7d88249e75116601c597
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a243b348c01e6d1297a6a1fe016e3b6bc8d98d47
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670870"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719086"
 ---
 # <a name="know-the-terms"></a>Conocer los términos
 
@@ -41,12 +41,11 @@ En la Guía de implementación técnica y arquitectura, se utilizan con frecuenc
     - **Clase de tipo I**: S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224 y S224m
     - **Clase de tipo II**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm y S960m
 - **Demarcación**: Define el tamaño de la implementación interna de Microsoft de instancias grandes de HANA. Para poder implementar unidades de instancias grandes de HANA, se debe implementar una demarcación de instancias grandes de HANA que conste de bastidores de proceso, red y almacenamiento en una ubicación del centro de datos. Este tipo de implementación se denomina demarcación de instancia grande de Hana o, en la revisión 4 (ver a continuación), usamos el término alternativo **fila de instancia grande**.
-- **Revisión**: Hay dos revisiones de demarcación diferentes para las demarcaciones de instancias grandes de HANA. Estas difieren en la arquitectura y la proximidad de los hosts de Azure Virtual Machine.
-    - "Revisión 3" (Rev 3): es el diseño original implementado a mediados del año 2016.
-    - "Revisión 4" (Rev 4): es un nuevo diseño que puede proporcionar una mayor proximidad a los hosts de Azure Virtual Machine y con menor latencia de red entre las VM de Azure y las unidades de instancia grande de HANA. 
-    - "Revisión 4.2" (Rev 4,2): en los controladores de dominio de la revisión 4 existente, los recursos se remarcan con la infraestructura BareMetal.  Los clientes pueden acceder a sus recursos como instancias de BareMetal desde Azure Portal. 
+- **Revisión**: Hay dos revisiones de demarcación diferentes para las demarcaciones de instancias grandes de HANA. Estas difieren en la arquitectura y la proximidad de los hosts de máquina virtual de Azure.
+    - "Revisión 3" (Rev 3) es el diseño original implementado desde mediados de 2016.
+    - "Revisión 4.2" (Rev 4.2) es un nuevo diseño que proporciona una mayor proximidad a los hosts de máquina virtual de Azure. Rev 4.2 ofrece una latencia de red muy baja entre las máquinas virtuales de Azure y las unidades de HANA (instancias grandes). Los recursos de Azure Portal se conocen como BareMetal Infrastructure. Los clientes pueden acceder a sus recursos como instancias de BareMetal desde Azure Portal. 
 
 Hay una serie de recursos adicionales sobre cómo implementar una carga de trabajo SAP en la nube. Si planea ejecutar una implementación de SAP HANA en Azure, debe poseer conocimientos y experiencia con los principios de IaaS de Azure y la implementación de cargas de trabajo de SAP en IaaS de Azure. Antes de continuar, consulte [Uso de soluciones de SAP enAzure Virtual Machines](get-started.md) para más información. 
 
-**Pasos siguientes**
+## <a name="next-steps"></a>Pasos siguientes
 - Consulte [Certificación de HLI](hana-certification.md).

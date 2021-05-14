@@ -11,12 +11,12 @@ ms.author: nilsp
 author: NilsPohlmann
 ms.date: 07/31/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 1c44f018d558b9426ba6271c0cbb1c2356a2a9b2
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 03a31dc75ca7f8d1d42ae23900084825d201dc20
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107478291"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107888069"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definición de canalizaciones de aprendizaje automático en YAML
 

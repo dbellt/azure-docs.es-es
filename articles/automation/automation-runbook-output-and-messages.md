@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: bb14d5227204a69f8a2ef9e0bf2da05bd7bde51c
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0b41880bea25c1b833ab2a996a50edcf557f37b8
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169103"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161670"
 ---
 # <a name="configure-runbook-output-and-message-streams"></a>Configuración de flujos de salida y de mensajes de runbooks
 
@@ -100,14 +101,14 @@ Workflow Test-Runbook
   $output = "This is some string output."
   Write-Output $output
 }
- ```
+```
 
 #### <a name="declare-output-data-type-in-a-graphical-runbook"></a>Declaración del tipo de datos de salida en un runbook gráfico
 
 Para declarar un tipo de salida en un runbook gráfico o de flujo de trabajo de PowerShell gráfico, puede seleccionar la opción de menú **Entrada y salida** y especificar el tipo de salida. Se recomienda utilizar el nombre completo de clase .NET para que se pueda identificar fácilmente el tipo cuando se haga referencia a él desde un runbook primario. Al usar el nombre completo, se exponen todas las propiedades de la clase al bus de datos del runbook. Además, se aumenta la flexibilidad cuando se usan las propiedades para la lógica condicional, el registro y la referencia como valores para otras actividades de runbooks.<br> ![Opción de entrada y salida de Runbook](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
 
->[!NOTE]
->Después de escribir un valor en el cuadro **Tipo de salida** del panel Propiedades de entrada y salida, asegúrese de hacer clic fuera del control para que reconozca la entrada.
+> [!NOTE]
+> Después de escribir un valor en el cuadro **Tipo de salida** del panel Propiedades de entrada y salida, asegúrese de hacer clic fuera del control para que reconozca la entrada.
 
 En el ejemplo siguiente se utilizan dos runbooks gráficos para mostrar la característica de entrada y salida. Si se aplica el modelo de diseño modular de runbook, tenemos un runbook como plantilla de runbook de autenticación que administra la autenticación con Azure mediante la cuenta de ejecución. El segundo runbook, que normalmente realiza la lógica básica para automatizar un determinado escenario, en este caso ejecuta la plantilla de runbook de autenticación. Muestra los resultados en el panel de salida de la prueba. En circunstancias normales, haríamos que este runbook hiciera algo en un recurso que está aprovechando la salida del runbook secundario.
 
@@ -207,8 +208,8 @@ Puede usar la pestaña **Configurar** de Azure Portal para establecer que un run
 
 Si habilita el registro de progreso, el runbook escribe un registro en el historial de trabajos antes y después de que se ejecute cada actividad. Cuando se prueba un runbook, no se muestran los mensajes de progreso, aunque el runbook esté configurado para escribir estos registros.
 
->[!NOTE]
->El cmdlet [Write-Progress](/powershell/module/microsoft.powershell.utility/write-progress) no es válido en un runbook, ya que está pensado para usarse con un usuario interactivo.
+> [!NOTE]
+> El cmdlet [Write-Progress](/powershell/module/microsoft.powershell.utility/write-progress) no es válido en un runbook, ya que está pensado para usarse con un usuario interactivo.
 
 ## <a name="work-with-preference-variables"></a>Trabajo con variables de preferencia
 
@@ -262,13 +263,13 @@ Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
 
 ### <a name="retrieve-runbook-output-and-messages-in-graphical-runbooks"></a>Recuperación de salidas de runbook y mensajes en runbooks gráficos
 
-En los runbooks gráficos, hay disponible un registro adicional de salida y mensajes en forma de seguimiento del nivel de actividad. Hay dos niveles de seguimiento: básico y detallado. El seguimiento básico muestra la hora de inicio y de finalización de cada actividad del runbook, así como información relacionada con los reintentos de actividad, como el número de intentos y la hora de inicio de la actividad. El seguimiento detallado incluye las características del seguimiento básico más el registro de los datos de entrada y salida de cada actividad. 
+En los runbooks gráficos, hay disponible un registro adicional de salida y mensajes en forma de seguimiento del nivel de actividad. Hay dos niveles de seguimiento: básico y detallado. El seguimiento básico muestra la hora de inicio y de finalización de cada actividad del runbook, así como información relacionada con los reintentos de actividad, como el número de intentos y la hora de inicio de la actividad. El seguimiento detallado incluye las características del seguimiento básico más el registro de los datos de entrada y salida de cada actividad.
 
 Actualmente, el seguimiento en el nivel de actividad escribe registros mediante el flujo detallado. Por lo tanto, debe habilitar el registro detallado cuando habilite el seguimiento. Para los runbooks gráficos con el seguimiento habilitado, no hay ninguna necesidad de escribir registros de progreso. El seguimiento básico tiene la misma finalidad y es más informativo.
 
 ![Vista de secuencias de trabajos de creación gráfica](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
 
-En la imagen puede ver que, cuando se habilita el registro detallado y el seguimiento para los runbooks gráficos, hay mucha más información disponible en la vista **Transmisiones de trabajo** de producción. Esta información adicional puede resultar esencial para solucionar problemas de producción con un runbook. 
+En la imagen puede ver que, cuando se habilita el registro detallado y el seguimiento para los runbooks gráficos, hay mucha más información disponible en la vista **Transmisiones de trabajo** de producción. Esta información adicional puede resultar esencial para solucionar problemas de producción con un runbook.
 
 Sin embargo, a menos que necesite esta información para realizar un seguimiento del progreso de un runbook y solucionar problemas, como procedimiento recomendado le conviene mantener el seguimiento desactivado. Los registros de seguimiento pueden ser particularmente numerosos. Con el seguimiento de runbooks gráficos puede obtener de dos a cuatro registros por actividad, en función de la configuración del seguimiento básico o detallado.
 

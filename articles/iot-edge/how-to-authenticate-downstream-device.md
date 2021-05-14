@@ -8,12 +8,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4702682dcd6af68242fd5a34d1fb2e0a9273da36
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 59b2e3d5ccefaa9740359891815d83ddd14ad09d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482031"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140813"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticación de un dispositivo de bajada en Azure IoT Hub
 
@@ -125,7 +125,7 @@ Para la autenticación con X.509 autofirmado, en ocasiones denominada autenticac
 
 5. En función de su lenguaje preferido, revise los ejemplos de cómo se puede hacer referencia a los certificados X. 509 en las aplicaciones de IoT:
 
-   * C#: [Configuración de la seguridad de X.509 en Azure IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates)
+   * C#: [Configuración de la seguridad de X.509 en Azure IoT Hub](../iot-hub/tutorial-x509-scripts.md)
    * C: [iotedge_downstream_device_sample.c](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iotedge_downstream_device_sample)
    * Node.js: [simple_sample_device_x509.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device_x509.js)
    * Java: [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
@@ -143,19 +143,19 @@ A continuación, [recupere y modifique la cadena de conexión](#retrieve-and-mod
 
 Para la autenticación de certificados X.509 firmados por entidad de certificación (CA), necesita un certificado de entidad de certificación raíz registrado en IoT Hub que use para firmar los certificados para el dispositivo de bajada. Cualquier dispositivo con un certificado emitido por el certificado de entidad de certificación raíz o cualquiera de sus certificados intermedios tendrá permiso para autenticarse.
 
-Esta sección se basa en las instrucciones detalladas en el artículo de IoT Hub [Configuración de la seguridad de X.509 en Azure IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md).
+Esta sección se basa en las instrucciones detalladas en el artículo de IoT Hub [Configuración de la seguridad de X.509 en Azure IoT Hub](../iot-hub/tutorial-x509-scripts.md).
 
 1. Con el certificado de la entidad de certificación, cree dos certificados de dispositivo (principal y secundario) para el dispositivo de bajada.
 
    Si no tiene una entidad de certificación para crear certificados X.509, puede usar los scripts de certificado de demostración de IoT Edge para [crear certificados de dispositivo de bajada](how-to-create-test-certificates.md#create-downstream-device-certificates). Siga los pasos para crear certificados firmados por una entidad de certificación. Use el mismo certificado de entidad de certificación raíz que generó los certificados para el dispositivo de puerta de enlace.
 
-2. Siga las instrucciones de la sección [Registro de certificados de entidad de certificación X.509 en una instancia de IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) de *Configuración de la seguridad de X.509 en Azure IoT Hub*. En esa sección, realice los pasos siguientes:
+2. Siga las instrucciones de la sección [Registro de certificados de entidad de certificación X.509 en una instancia de IoT Hub](../iot-hub/tutorial-x509-scripts.md) de *Configuración de la seguridad de X.509 en Azure IoT Hub*. En esa sección, realice los pasos siguientes:
 
    1. Cargue un certificado de entidad de certificación raíz. Si va a usar los certificados de demostración, la entidad de certificación raíz será **\<path>/certs/azure-iot-test-only.root.ca.cert.pem**.
 
    2. Compruebe que es el propietario de ese certificado de entidad de certificación raíz.
 
-3. Siga las instrucciones de la sección [Creación de un dispositivo X.509 para una instancia de IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub) de *Configuración de la seguridad de X.509 en Azure IoT Hub*. En esa sección, realice los pasos siguientes:
+3. Siga las instrucciones de la sección [Creación de un dispositivo X.509 para una instancia de IoT Hub](../iot-hub/tutorial-x509-scripts.md) de *Configuración de la seguridad de X.509 en Azure IoT Hub*. En esa sección, realice los pasos siguientes:
 
    1. Agregue un nuevo dispositivo. Proporcione un nombre en minúsculas para **Id. de dispositivo** y elija el tipo de autenticación **X.509 firmado por CA**.
 
@@ -169,7 +169,7 @@ Esta sección se basa en las instrucciones detalladas en el artículo de IoT Hub
 
 6. En función de su lenguaje preferido, revise los ejemplos de cómo se puede hacer referencia a los certificados X. 509 en las aplicaciones de IoT:
 
-   * C#: [Configuración de la seguridad de X.509 en Azure IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates)
+   * C#: [Configuración de la seguridad de X.509 en Azure IoT Hub](../iot-hub/tutorial-x509-scripts.md)
    * C: [iotedge_downstream_device_sample.c](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iotedge_downstream_device_sample)
    * Node.js: [simple_sample_device_x509.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device_x509.js)
    * Java: [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)

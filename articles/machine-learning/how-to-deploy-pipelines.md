@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.author: laobri
 author: lobrien
 ms.date: 8/25/2020
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1
-ms.openlocfilehash: efedb21a1ec1ed53a8c6bfadf337d23a89c04383
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: how-to
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: f8ed4a498029b00922219ffdc22ec2db3a1490e8
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102520183"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107889401"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Publicación y seguimiento de canalizaciones de aprendizaje automático
 

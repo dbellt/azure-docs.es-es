@@ -6,15 +6,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 03/11/2021
+ms.date: 04/19/2021
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: d36efaf64edd51fd1c2b46b959af1a994f6ec956
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 1fd102f0f94f1ce53bebfba94d4f4c1a1f9e3812
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105582281"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765149"
 ---
 <a name="HOLTop"></a>
 
@@ -263,7 +263,7 @@ static void SentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client
 }
 ```
 
-### <a name="output"></a>Output
+### <a name="output"></a>Resultados
 
 ```console
 Document sentiment: Positive
@@ -542,7 +542,7 @@ static void RecognizePIIExample(TextAnalyticsClient client)
 }
 ```
 
-### <a name="output"></a>Output
+### <a name="output"></a>Resultados
 
 ```console
 Redacted Text: A developer with SSN *********** whose phone number is ************ is building tools with our APIs.
@@ -680,7 +680,7 @@ static void KeyPhraseExtractionExample(TextAnalyticsClient client)
 }
 ```
 
-### <a name="output"></a>Output
+### <a name="output"></a>Resultados
 
 ```console
 Key phrases:

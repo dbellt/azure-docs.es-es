@@ -10,12 +10,12 @@ author: julieMSFT
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.date: 03/10/2021
-ms.openlocfilehash: 704c30516e9daf047bf5837aa6e2ed08306193db
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 3564eaf27339c39975a23160c6d269a925317fea
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565651"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143204"
 ---
 # <a name="migrate-a-data-warehouse-to-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Migración de un almacenamiento de datos a un grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -23,7 +23,7 @@ En las siguientes secciones se describen los aspectos relativos a la migración 
 
 ## <a name="overview"></a>Información general
 
-Antes de empezar la migración, debe comprobar que Azure Synapse Analytics es la mejor solución para su carga de trabajo. Azure Synapse Analytics es un sistema distribuido diseñado para analizar grandes volúmenes de datos. La migración a Azure Synapse Analytics requiere algunos cambios en el diseño que no son difíciles de entender, pero que pueden tardar algún tiempo en implementarse. Si su negocio requiere un almacenamiento de datos de clase empresarial, las ventajas merecen la pena. No obstante, si no necesita la potencia de Azure Synapse Analytics, es más económico usar [SQL Server](https://docs.microsoft.com/sql/sql-server/) o [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/).
+Antes de empezar la migración, debe comprobar que Azure Synapse Analytics es la mejor solución para su carga de trabajo. Azure Synapse Analytics es un sistema distribuido diseñado para analizar grandes volúmenes de datos. La migración a Azure Synapse Analytics requiere algunos cambios en el diseño que no son difíciles de entender, pero que pueden tardar algún tiempo en implementarse. Si su negocio requiere un almacenamiento de datos de clase empresarial, las ventajas merecen la pena. No obstante, si no necesita la potencia de Azure Synapse Analytics, es más económico usar [SQL Server](/sql/sql-server/) o [Azure SQL Database](../../azure-sql/index.yml).
 
 Considere la posibilidad de usar Azure Synapse Analytics en los casos siguientes:
 
@@ -42,7 +42,7 @@ En lugar de usar Azure Synapse Analytics, valore otras opciones para las cargas 
 
 ## <a name="azure-synapse-pathway"></a>Azure Synapse Pathway
 
-Uno de los principales obstáculos a los que se enfrentan los clientes es la conversión de los objetos de base de datos al migrar de un sistema a otro. [Azure Synapse Pathway](https://docs.microsoft.com/sql/tools/synapse-pathway/azure-synapse-pathway-overview) le ayuda a realizar la actualización a una plataforma moderna de almacenamiento de datos mediante la automatización de la conversión de objetos del almacenamiento de datos existente. Es una herramienta gratuita, intuitiva y fácil de usar que automatiza la conversión de código, lo que permite una migración más rápida a Azure Synapse Analytics.
+Uno de los principales obstáculos a los que se enfrentan los clientes es la conversión de los objetos de base de datos al migrar de un sistema a otro. [Azure Synapse Pathway](/sql/tools/synapse-pathway/azure-synapse-pathway-overview) le ayuda a realizar la actualización a una plataforma moderna de almacenamiento de datos mediante la automatización de la conversión de objetos del almacenamiento de datos existente. Es una herramienta gratuita, intuitiva y fácil de usar que automatiza la conversión de código, lo que permite una migración más rápida a Azure Synapse Analytics.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -61,7 +61,7 @@ Para migrar el almacenamiento de datos de Netezza a Azure Synapse Analytics, as
 - Ha descargado la versión más reciente de la herramienta [Azure Synapse Pathway](https://www.microsoft.com/en-us/download/details.aspx?id=102787) para migrar objetos de SQL Server a objetos de Azure Synapse.
 - Tiene un [grupo de SQL dedicado](../get-started-create-workspace.md) en un área de trabajo de Azure Synapse.
 
-Para más información, vea [Soluciones y migración de Azure Synapse Analytics en Netezza](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-netezza).
+Para más información, vea [Soluciones y migración de Azure Synapse Analytics en Netezza](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-netezza).
 
 # <a name="migrate-from-snowflake"></a>[Migración desde Snowflake](#tab/migratefromSnowflake)
 
@@ -75,11 +75,11 @@ Para migrar el almacenamiento de datos de Snowflake a Azure Synapse Analytics, 
 Para migrar el almacenamiento de datos de Oracle a Azure Synapse Analytics, asegúrese de que cumple los siguientes requisitos previos:
 
 - Tiene una carga de trabajo de análisis o de almacenamiento de datos.
-- Ha descargado SQL Server Migration Assistant para Oracle para convertir objetos de Oracle a SQL Server. Para más información, consulte [Migración de bases de datos de Oracle a SQL Server (OracleToSQL)](https://docs.microsoft.com/sql/ssma/oracle/migrating-oracle-databases-to-sql-server-oracletosql).
+- Ha descargado SQL Server Migration Assistant para Oracle para convertir objetos de Oracle a SQL Server. Para más información, consulte [Migración de bases de datos de Oracle a SQL Server (OracleToSQL)](/sql/ssma/oracle/migrating-oracle-databases-to-sql-server-oracletosql).
 - Ha descargado la versión más reciente de la herramienta [Azure Synapse Pathway](https://www.microsoft.com/download/details.aspx?id=102787) para migrar objetos de SQL Server a objetos de Azure Synapse.
 - Tiene un [grupo de SQL dedicado](../get-started-create-workspace.md) en un área de trabajo de Azure Synapse.
 
-Para más información, vea [Soluciones y migración de Azure Synapse Analytics para un almacenamiento de datos de Oracle](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-exadata).
+Para más información, vea [Soluciones y migración de Azure Synapse Analytics para un almacenamiento de datos de Oracle](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-exadata).
 
 ---
 
@@ -93,14 +93,14 @@ Otro objetivo importante de la planeación es ajustar el diseño para garantizar
 
 Para que la migración sea satisfactoria, es necesario migrar los esquemas de tabla, el código y los datos. Para obtener directrices detalladas, consulte los artículos siguientes:
 
-- [Consideración del diseño de tablas](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview)
-- [Consideración del cambio de código](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-develop#development-recommendations-and-coding-techniques)
-- [Migración de los datos](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading)
-- [Consideración de la administración de cargas de trabajo](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management)
+- [Consideración del diseño de tablas](../sql-data-warehouse/sql-data-warehouse-tables-overview.md)
+- [Consideración del cambio de código](../sql-data-warehouse/sql-data-warehouse-overview-develop.md#development-recommendations-and-coding-techniques)
+- [Migración de los datos](../sql-data-warehouse/design-elt-data-loading.md)
+- [Consideración de la administración de cargas de trabajo](../sql-data-warehouse/sql-data-warehouse-workload-management.md)
 
 ## <a name="more-resources"></a>Más recursos
 
-El equipo de asesoramiento al cliente ofrece una excelente orientación sobre Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse) publicada en entradas de blog. Para más información sobre la migración, vea [Migración de datos a Azure SQL Data Warehouse en la práctica](https://docs.microsoft.com/archive/blogs/sqlcat/migrating-data-to-azure-sql-data-warehouse-in-practice).
+El equipo de asesoramiento al cliente ofrece una excelente orientación sobre Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse) publicada en entradas de blog. Para más información sobre la migración, vea [Migración de datos a Azure SQL Data Warehouse en la práctica](/archive/blogs/sqlcat/migrating-data-to-azure-sql-data-warehouse-in-practice).
 
 ## <a name="migration-assets-from-real-world-engagements"></a>Recursos de migración para compromisos reales
 

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 04/09/2021
 ms.author: rohink
-ms.openlocfilehash: 0e04d7525cbd0c707ba0050f31414c2472602d1b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: ea256292510f662236fe8b9507009c8418849c5e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311420"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772646"
 ---
 # <a name="what-is-a-private-azure-dns-zone"></a>¿Qué es una zona de Azure DNS privada?
 
@@ -38,4 +38,4 @@ Para saber el número de zonas DNS privadas que puede crear en una suscripción 
 
 * Obtenga información sobre algunos [escenarios de zona privada](./private-dns-scenarios.md) habituales que pueden realizarse con zonas privadas en Azure DNS.
 
-* Para ver algunas preguntas y respuestas comunes sobre las zonas privadas en Azure DNS, consulte [Preguntas frecuentes de DNS privado](./dns-faq-private.md).
+* Para ver algunas preguntas y respuestas comunes sobre las zonas privadas en Azure DNS, consulte [Preguntas frecuentes de DNS privado](./dns-faq-private.yml).

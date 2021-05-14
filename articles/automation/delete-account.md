@@ -4,14 +4,15 @@ description: En este artículo se explica cómo eliminar la cuenta de Automation
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-ms.date: 03/18/2021
+ms.date: 04/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: c3a514aa507fcf069671f987e175b7ae5be59d10
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fe2d99a610be3877b4a347e4bd0dd17df53ba326
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105734920"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834163"
 ---
 # <a name="how-to-delete-your-azure-automation-account"></a>Eliminación de la cuenta de Azure Automation
 
@@ -28,7 +29,10 @@ La eliminación de la cuenta de Automation puede realizarse mediante uno de los 
 * Desvincule el área de trabajo de Log Analytics de la cuenta de Automation y elimine la cuenta de Automation.
 * Elimine la característica del área de trabajo vinculada, desvincule la cuenta del área de trabajo y, luego, elimine la cuenta de Automation.
 
-En este artículo se explica cómo quitar completamente la cuenta de Automation mediante Azure Portal, PowerShell, la CLI de Azure o la API REST.
+En este artículo se explica cómo quitar completamente la cuenta de Automation mediante Azure Portal, Azure PowerShell, la CLI de Azure o la API REST.
+
+> [!NOTE]
+> Antes de continuar, compruebe que no hay ningún [bloqueo de Resource Manager](../azure-resource-manager/management/lock-resources.md) aplicado a la suscripción, el grupo de recursos o el recurso, que impida la eliminación o la modificación accidentales de recursos críticos. Al implementar la solución Start/Stop VMs during off-hours, se establece el nivel de bloqueo en **CanNotDelete** en varios recursos dependientes de la cuenta de Automation (específicamente sus runbooks y variables). Los bloqueos deben quitarse para poder eliminar la cuenta de Automation.
 
 ## <a name="delete-the-dedicated-resource-group"></a>Eliminación del grupo de recursos dedicado
 

@@ -3,12 +3,12 @@ title: Glosario de Defender para IoT
 description: En este glosario se proporciona una breve descripción de los términos y conceptos más importantes de la plataforma de Defender para IoT.
 ms.date: 12/09/2020
 ms.topic: article
-ms.openlocfilehash: 191b94ca37118ed6413149dd6047f94c5ee568cd
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 829469a523ffd259b0108fcfc189715ba99cce74
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786828"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108203692"
 ---
 # <a name="defender-for-iot-glossary"></a>Glosario de Defender para IoT
 
@@ -51,7 +51,6 @@ En este glosario se proporciona una breve descripción de los términos y concep
 | Término | Descripción | Más información |
 |--|--|--|
 | **Minería de datos** | Generar informes completos y pormenorizados sobre los dispositivos de red:<br /><br />- **respuesta a los incidentes SOC**: informes en tiempo real para ayudar a gestionar la respuesta inmediata a los incidentes. Por ejemplo, un informe puede mostrar los dispositivos que pueden necesitar la aplicación de revisiones.<br /><br />- **Análisis forense**: informes basados en datos históricos de informes de investigación.<br /><br />- **integridad de la red de TI**: informes que ayudan a mejorar la seguridad general de la red. Por ejemplo, un informe puede enumerar los dispositivos con credenciales de autenticación poco seguras.<br /><br />- **visibilidad**: informes que abarcan todos los elementos de consulta para ver todos los parámetros de línea de base de la red.<br /><br />Guarde los informes de minería de datos para que los usuarios de solo lectura puedan verlos. | **[Línea de base](#b)<br /><br />[Informes](#r)** |
-| **motores de Defender para IoT** | Los motores de análisis de autoaprendizaje de Defender para IoT eliminan la necesidad de actualizar firmas o definir reglas. Los motores emplean el análisis de comportamiento específico de ICS y la ciencia de datos para analizar de forma continua el tráfico de red de OT en busca de anomalías, malware, problemas operativos, infracciones de protocolo y desviaciones de la actividad de red de línea de base.<br /><br />Cuando un motor detecta una desviación, se desencadena una alerta. Las alertas se pueden ver y administrar desde la pantalla **Alertas** o desde un SIEM. | **[Alerta](#glossary-a)** |
 | **plataforma de Defender para IoT** | La solución de Defender para IoT instalada en los sensores de Defender para IoT y la consola de administración local. | **[Sensor](#s)<br /><br />[Consola de administración local](#o)** |
 | **Mapa de dispositivos** | Representación gráfica de los dispositivos de red que detecta Defender para IoT. Muestra las conexiones entre los dispositivos e información sobre cada dispositivo. Use el mapa para:<br /><br />- recuperar y controlar la información crítica del dispositivo.<br /><br />- analizar segmentos de red.<br /><br />- exportar detalles y resúmenes del dispositivo. | **[grupo de capa de Purdue](#p)** |
 | **Inventario de dispositivos: sensor** | El inventario de dispositivos muestra una amplia gama de atributos de dispositivo detectados por Defender para IoT. Hay opciones disponibles para:<br /><br />- filtrar la información mostrada.<br /><br />- exportar esta información a un archivo CSV.<br /><br />- importar los detalles del registro de Windows. | **[Group (Grupo)](#g)** <br /><br />**[Inventario de dispositivos: consola de administración local](#d)** |
@@ -63,6 +62,7 @@ En este glosario se proporciona una breve descripción de los términos y concep
 
 | Término | Descripción | Más información |
 |--|--|--|
+| **Engines** (Motores) | Los motores de análisis de autoaprendizaje de Defender para IoT eliminan la necesidad de actualizar firmas o definir reglas. Los motores emplean el análisis de comportamiento específico de ICS y la ciencia de datos para analizar de forma continua el tráfico de red de OT en busca de anomalías, malware, problemas operativos, infracciones de protocolo y desviaciones de la actividad de red de línea de base.<br /><br />Cuando un motor detecta una desviación, se desencadena una alerta. Las alertas se pueden ver y administrar desde la pantalla **Alertas** o desde un SIEM. | **[Alerta](#glossary-a)** |
 | **Vista empresarial** | Mapa global que presenta las unidades de negocio, los sitios y las zonas en las que se instalan los sensores de Defender para IoT. Ver las ubicaciones geográficas de las alertas malintencionadas, las alertas operativas y mucho más. | **[Unidad de negocio](#b)<br /><br />[Sitio](#s)<br /><br />[Zona](#z)** |
 | **Escala de tiempo de eventos** | Escala de tiempo de la actividad detectada en la red, incluidos:<br /><br />- alertas desencadenadas.<br /><br />- eventos de red (informativo).<br /><br />- operaciones de usuario, como el inicio de sesión, la eliminación de usuarios o la creación de usuarios, y operaciones de administración de alertas, como silenciar, aprender y confirmar. Disponible en las consolas de sensores. | - |
 | **Regla de exclusión** | Indicar a Defender for IoT que ignore los desencadenadores de alertas en función del período de tiempo, la dirección del dispositivo, el nombre de la alerta o un sensor específico.<br /><br />Por ejemplo, si sabe que todos los dispositivos OT supervisados por un sensor específico van a pasar por un procedimiento de mantenimiento entre las 6:30 y las 10:15 de la mañana, puede establecer una regla de exclusión que indique que este sensor no debe enviar ninguna alerta en el período predefinido. | **[Alerta](#glossary-a)<br /><br />[Silenciar evento de alertas](#m)** |

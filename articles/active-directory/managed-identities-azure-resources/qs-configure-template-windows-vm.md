@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4948e17d1e0e782a8fa18c3eb5a2185e816a459a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d8b32413d59abce8bc9d6d523071a701368511fc
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102631411"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163668"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-templates"></a>Configuración de identidades administradas para recursos de Azure en una máquina virtual de Azure mediante plantillas
 
@@ -30,7 +30,7 @@ Las identidades administradas para los recursos de Azure proporcionan a los serv
 
 En este artículo, con la plantilla de implementación de Azure Resource Manager, aprenderá a usar las siguientes entidades administradas para operaciones de recursos de Azure en una VM de Azure:
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Si no está familiarizado con el uso de la plantilla de implementación de Azure Resource Manager, consulte la [sección de información general](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#managed-identity-types)** .
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
@@ -42,7 +42,7 @@ Al igual que con Azure Portal y los scripts, las plantillas de [Azure Resource M
    - Usar una [plantilla personalizada de Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), que permite crear una plantilla desde cero, o bien basada en una plantilla común existente o en una [plantilla de inicio rápido](https://azure.microsoft.com/documentation/templates/).
    - Derivar a partir de un grupo de recursos existente, exportando una plantilla de [la implementación original](../../azure-resource-manager/templates/export-template-portal.md) o del [estado actual de la implementación](../../azure-resource-manager/templates/export-template-portal.md).
    - Usar un [editor de JSON (por ejemplo, VS Code)](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) local y, a continuación, cargarla e implementarla con PowerShell o la CLI.
-   - Usar el [proyecto del grupo de recursos de Azure](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) de Visual Studio tanto para crear como para implementar una plantilla.  
+   - Usar el [proyecto del grupo de recursos de Azure](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) de Visual Studio tanto para crear como para implementar una plantilla.
 
 Independientemente de la opción que elija, la sintaxis de la plantilla es la misma durante la implementación inicial y posteriores implementaciones. La habilitación de una identidad administrada asignada por el sistema o el usuario en una VM existente o nueva se realiza de la misma forma. Además, de forma predeterminada, Azure Resource Manager realiza una [actualización incremental](../../azure-resource-manager/templates/deployment-modes.md) en las implementaciones.
 
@@ -58,17 +58,15 @@ Para habilitar una identidad administrada asignada por el sistema en una máquin
 
 2. Para habilitar la identidad administrada asignada por el sistema, cargue la plantilla en un editor, busque el recurso de interés `Microsoft.Compute/virtualMachines` en la sección `resources` y agregue la propiedad `"identity"` en el mismo nivel que la propiedad `"type": "Microsoft.Compute/virtualMachines"`. Use la sintaxis siguiente:
 
-   ```JSON
+   ```json
    "identity": {
        "type": "SystemAssigned"
    },
    ```
 
-
-
 3. Cuando haya terminado, deben agregarse las siguientes secciones a la sección `resource` de la plantilla para que se parezca a la siguiente:
 
-   ```JSON
+   ```json
     "resources": [
         {
             //other resource provider properties...
@@ -95,7 +93,7 @@ Para asignar un rol a una identidad asignada por el sistema de la máquina virtu
 
    Agregue lo siguiente bajo la sección `parameters`:
 
-    ```JSON
+    ```json
     "builtInRoleType": {
         "type": "string",
         "defaultValue": "Reader"
@@ -107,13 +105,13 @@ Para asignar un rol a una identidad asignada por el sistema de la máquina virtu
 
     Agregue lo siguiente bajo la sección `variables`:
 
-    ```JSON
+    ```json
     "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
     ```
 
     Agregue lo siguiente bajo la sección `resources`:
 
-    ```JSON
+    ```json
     {
         "apiVersion": "2017-09-01",
         "type": "Microsoft.Authorization/roleAssignments",
@@ -135,7 +133,7 @@ Para eliminar una identidad administrada asignada por el sistema de una máquina
 
 1. Independientemente de que inicie sesión localmente en Azure o mediante Azure Portal, use una cuenta que esté asociada a la suscripción de Azure que contiene la máquina virtual.
 
-2. Cargue la plantilla en un [editor](#azure-resource-manager-templates) y busque el `Microsoft.Compute/virtualMachines`recurso de interés dentro de la sección `resources`. Si dispone de una VM que solo tenga una identidad administrada asignada por el sistema, puede deshabilitarla cambiando el tipo de identidad a `None`.  
+2. Cargue la plantilla en un [editor](#azure-resource-manager-templates) y busque el `Microsoft.Compute/virtualMachines`recurso de interés dentro de la sección `resources`. Si dispone de una VM que solo tenga una identidad administrada asignada por el sistema, puede deshabilitarla cambiando el tipo de identidad a `None`.
 
    **Microsoft.Compute/virtualMachines versión 2018-06-01 de la API**
 
@@ -143,27 +141,27 @@ Para eliminar una identidad administrada asignada por el sistema de una máquina
 
    **Microsoft.Compute/virtualMachines versión 2018-06-01 de la API**
 
-   Si `apiVersion` es `2017-12-01` y la VM tiene identidades administradas asignadas tanto por el usuario como por el sistema, quite `SystemAssigned` del tipo de identidad y conserve `UserAssigned` junto con la matriz `identityIds` de identidades administradas asignadas por el usuario.  
+   Si `apiVersion` es `2017-12-01` y la VM tiene identidades administradas asignadas tanto por el usuario como por el sistema, quite `SystemAssigned` del tipo de identidad y conserve `UserAssigned` junto con la matriz `identityIds` de identidades administradas asignadas por el usuario.
 
 En el ejemplo siguiente se muestra cómo quitar una identidad administrada asignada por el sistema de una VM sin identidades administradas asignadas por el usuario:
 
- ```JSON
- {
-     "apiVersion": "2018-06-01",
-     "type": "Microsoft.Compute/virtualMachines",
-     "name": "[parameters('vmName')]",
-     "location": "[resourceGroup().location]",
-     "identity": {
-         "type": "None"
-     }
- }
- ```
+```json
+{
+    "apiVersion": "2018-06-01",
+    "type": "Microsoft.Compute/virtualMachines",
+    "name": "[parameters('vmName')]",
+    "location": "[resourceGroup().location]",
+    "identity": {
+        "type": "None"
+    }
+}
+```
 
 ## <a name="user-assigned-managed-identity"></a>Identidad administrada asignada por el usuario
 
 En esta sección, asignará una identidad administrada asignada por el usuario a una VM de Azure mediante la plantilla de Azure Resource Manager.
 
-> [!Note]
+> [!NOTE]
 > Para crear una identidad administrada asignada por el usuario mediante una plantilla de Azure Resource Manager, consulte [Create a user-assigned managed identity](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity) (Creación de una identidad administrada asignada por el usuario).
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-azure-vm"></a>Asignación de una identidad administrada asignada por el usuario a una VM de Azure
@@ -176,7 +174,7 @@ Para asignar una identidad asignada por un usuario a una máquina virtual, la cu
 
    Si `apiVersion` es `2018-06-01`, las identidades administradas asignadas por el usuario se almacenan en el formato de diccionario `userAssignedIdentities` y el valor `<USERASSIGNEDIDENTITYNAME>` debe almacenarse en una variable definida en la sección `variables` de la plantilla.
 
-   ```JSON
+   ```json
     {
         "apiVersion": "2018-06-01",
         "type": "Microsoft.Compute/virtualMachines",
@@ -195,7 +193,7 @@ Para asignar una identidad asignada por un usuario a una máquina virtual, la cu
 
    Si `apiVersion` es `2017-12-01`, las identidades administradas asignadas por el usuario se almacenan en la matriz `identityIds` y el valor `<USERASSIGNEDIDENTITYNAME>` debe almacenarse en una variable definida en la sección `variables` de la plantilla.
 
-   ```JSON
+   ```json
    {
        "apiVersion": "2017-12-01",
        "type": "Microsoft.Compute/virtualMachines",
@@ -212,9 +210,9 @@ Para asignar una identidad asignada por un usuario a una máquina virtual, la cu
 
 3. Cuando haya terminado, deben agregarse las siguientes secciones a la sección `resource` de la plantilla para que se parezca a la siguiente:
 
-   **Microsoft.Compute/virtualMachines versión 2018-06-01 de la API**    
+   **Microsoft.Compute/virtualMachines versión 2018-06-01 de la API**
 
-   ```JSON
+   ```json
      "resources": [
         {
             //other resource provider properties...
@@ -231,9 +229,10 @@ Para asignar una identidad asignada por un usuario a una máquina virtual, la cu
         }
     ] 
    ```
+
    **Microsoft.Compute/virtualMachines versión 2017-12-01 de la API**
 
-   ```JSON
+   ```json
    "resources": [
         {
             //other resource provider properties...

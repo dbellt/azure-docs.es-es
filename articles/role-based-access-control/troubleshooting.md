@@ -2,7 +2,6 @@
 title: Solución de problemas de Azure RBAC
 description: Solución de problemas con el control de acceso basado en rol de Azure (Azure RBAC).
 services: azure-portal
-documentationcenter: na
 author: rolyon
 manager: mtillman
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
@@ -11,16 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/10/2020
+ms.date: 04/06/2021
 ms.author: rolyon
-ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: d77468619fcd67887273b2fbd452b37add1e19b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d816854c8d8a78931060c6e56fffbaee1fde5150
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555891"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771720"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Solución de problemas de Azure RBAC
 
@@ -68,11 +66,16 @@ $ras.Count
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
+
+- Si crea una entidad de servicio e inmediatamente intenta asignarle un rol, esa asignación de roles puede producir un error en algunos casos.
+
+    Para abordar este escenario, debe establecer la propiedad `principalType` en `ServicePrincipal` al crear la asignación de roles. También debe establecer la propiedad `apiVersion` de la asignación de roles en `2018-09-01-preview` o posterior. Para obtener más información, consulte [Asignación de roles de Azure a una nueva entidad de servicio mediante la API de REST](role-assignments-rest.md#new-service-principal) o [Asignación de roles de Azure a una nueva entidad de servicio mediante plantillas de Azure Resource Manager](role-assignments-template.md#new-service-principal)
+
 - Si intenta quitar la última asignación del rol de propietario de una suscripción, es posible que vea el error "No se puede eliminar la última asignación de administración de RBAC". Para evitar que la suscripción quede huérfana, no se puede eliminar la última asignación del rol de propietario de una suscripción. Si quiere cancelar su suscripción, consulte [Cancelación de la suscripción a Azure](../cost-management-billing/manage/cancel-azure-subscription.md).
 
 ## <a name="problems-with-custom-roles"></a>Problemas con roles personalizados
 
-- Si necesita conocer los pasos para crear un rol personalizado, consulte los tutoriales sobre roles personalizados con [Azure Portal](custom-roles-portal.md) (actualmente en versión preliminar), [Azure PowerShell](tutorial-custom-role-powershell.md) o la [CLI de Azure](tutorial-custom-role-cli.md).
+- Si necesita conocer los pasos para crear un rol personalizado, consulte los tutoriales sobre roles personalizados con [Azure Portal](custom-roles-portal.md), [Azure PowerShell](tutorial-custom-role-powershell.md) o la [CLI de Azure](tutorial-custom-role-cli.md).
 - Si no puede actualizar un rol personalizado existente, compruebe que haya iniciado sesión con un usuario que tenga asignado un rol con el permiso `Microsoft.Authorization/roleDefinition/write`, como [Propietario](built-in-roles.md#owner) o [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator).
 - Si no puede eliminar un rol personalizado y obtiene el mensaje de error "Hay asignaciones de roles existentes que hacen referencia al rol (código: RoleDefinitionHasAssignments)", significa que hay asignaciones de roles que siguen usando el rol personalizado. Quite las asignaciones de roles y vuelva a intentar eliminarlo.
 - Si recibe el mensaje de error "Se ha superado el límite de definiciones de roles. No se pueden crear más definiciones de roles (código: RoleDefinitionLimitExceeded)" al intentar crear un nuevo rol personalizado, elimine los roles personalizados que no se usan. Azure admite hasta **5000** roles personalizados en un directorio. (Para Azure Alemania y Azure China 21Vianet, el límite es 2000 roles personalizados).
@@ -135,7 +138,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-Del mismo modo, si enumera esta asignación de roles con la CLI de Azure, podría ver un elemento `principalName` vacío. Por ejemplo, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) devuelve una asignación de roles que es similar a la salida siguiente:
+Del mismo modo, si enumera esta asignación de roles con la CLI de Azure, podría ver un elemento `principalName` vacío. Por ejemplo, [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list) devuelve una asignación de roles que es similar a la salida siguiente:
 
 ```
 {

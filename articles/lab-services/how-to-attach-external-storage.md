@@ -5,16 +5,16 @@ author: emaher
 ms.topic: article
 ms.date: 03/30/2021
 ms.author: enewman
-ms.openlocfilehash: 888e04db76567051f8c5eae7cf94c77e684cb146
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 70be69cad59cd00ef9feaa78ad2294c64626d07a
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111339"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108125686"
 ---
 # <a name="using-external-file-storage-in-lab-services"></a>Uso de almacenamiento de archivos externo en servicios de laboratorio
 
-En este artículo se tratarán algunas de las opciones de almacenamiento de archivos externos al utilizar Azure Lab Services.  [Azure Files](https://azure.microsoft.com/services/storage/files/) ofrece recursos compartidos de archivos en la nube totalmente administrados a los que [se puede acceder mediante SMB 2.1 and SMB 3.0.](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows)  Un recurso compartido de Azure Files puede conectarse de forma pública o privada dentro de una red virtual.  Además, se puede configurar para utilizar las credenciales de AD de alumno para conectarse al recurso compartido.  El uso de Azure NetApp Files con volúmenes NFS para máquinas Linux es otra opción para el almacenamiento de archivos externos con Azure Lab Services.  
+En este artículo se tratarán algunas de las opciones de almacenamiento de archivos externos al utilizar Azure Lab Services.  [Azure Files](https://azure.microsoft.com/services/storage/files/) ofrece recursos compartidos de archivos en la nube totalmente administrados a los que [se puede acceder mediante SMB 2.1 and SMB 3.0.](../storage/files/storage-how-to-use-files-windows.md)  Un recurso compartido de Azure Files puede conectarse de forma pública o privada dentro de una red virtual.  Además, se puede configurar para utilizar las credenciales de AD de alumno para conectarse al recurso compartido.  El uso de Azure NetApp Files con volúmenes NFS para máquinas Linux es otra opción para el almacenamiento de archivos externos con Azure Lab Services.  
 
 ## <a name="deciding-which-solution-to-use"></a>Decidir qué solución usar
 
@@ -46,16 +46,16 @@ Si usa un punto de conexión privado en el recurso compartido de Azure Files, es
 - Este enfoque requiere que la red virtual de recurso compartido de archivos esté emparejada con la cuenta de laboratorio.  La red virtual de la cuenta de Azure Storage se debe emparejar con la red virtual de la cuenta de laboratorio **antes** de que se cree el laboratorio.
 
 > [!NOTE]
-> Los recursos compartidos de archivos de más de 5 TB solo están disponibles para [[cuentas de almacenamiento con redundancia local (LRS)]](/azure/storage/files/storage-files-how-to-create-large-file-share#restrictions).
+> Los recursos compartidos de archivos de más de 5 TB solo están disponibles para [[cuentas de almacenamiento con redundancia local (LRS)]](../storage/files/storage-files-how-to-create-large-file-share.md#restrictions).
 
 Siga estos pasos para crear una máquina virtual conectada a un recurso compartido de archivos de Azure.
 
-1. Creación de una [cuenta de Azure Storage](/azure/storage/files/storage-how-to-create-file-share). En la página "método de conectividad", elija extremo público o punto de conexión privado.
-2. Si usa, cree un [punto de conexión privado](/azure/private-link/create-private-endpoint-storage-portal) para que los recursos compartidos de archivos sean accesibles desde la red virtual.  Cree una [zona DNS privada](/azure/dns/private-dns-privatednszone) o use una existente. Las zonas de Azure DNS privadas proporcionan la resolución de nombres dentro de una red virtual.
-3. Cree un [recurso compartido de archivos de Azure](/azure/storage/files/storage-how-to-create-file-share). El recurso compartido de archivos es accesible mediante el nombre de host público de la cuenta de almacenamiento.
+1. Creación de una [cuenta de Azure Storage](../storage/files/storage-how-to-create-file-share.md). En la página "método de conectividad", elija extremo público o punto de conexión privado.
+2. Si usa, cree un [punto de conexión privado](../private-link/tutorial-private-endpoint-storage-portal.md) para que los recursos compartidos de archivos sean accesibles desde la red virtual.  Cree una [zona DNS privada](../dns/private-dns-privatednszone.md) o use una existente. Las zonas de Azure DNS privadas proporcionan la resolución de nombres dentro de una red virtual.
+3. Cree un [recurso compartido de archivos de Azure](../storage/files/storage-how-to-create-file-share.md). El recurso compartido de archivos es accesible mediante el nombre de host público de la cuenta de almacenamiento.
 4. Montaje del recurso compartido de archivos de Azure en la plantilla de máquina virtual:
-    - [[Windows]](/azure/storage/files/storage-how-to-use-files-windows)
-    - [[Linux]](/azure/storage/files/storage-how-to-use-files-linux).  Consulte [uso de Azure Files con Linux](#using-azure-files-with-linux) para evitar el montaje de problemas en máquinas virtuales de alumnos.
+    - [[Windows]](../storage/files/storage-how-to-use-files-windows.md)
+    - [[Linux]](../storage/files/storage-how-to-use-files-linux.md).  Consulte [uso de Azure Files con Linux](#using-azure-files-with-linux) para evitar el montaje de problemas en máquinas virtuales de alumnos.
 5. [Publicación](how-to-create-manage-template.md#publish-the-template-vm) de la plantilla de máquina virtual.
 
 > [!IMPORTANT]
@@ -98,14 +98,14 @@ Si la máquina virtual de plantilla ya está publicada que monta el recurso comp
 
 Los alumnos deben ejecutar `mount -a` para volver a montar los directorios.
 
-Para obtener más información general sobre el uso de recursos compartidos de archivos con Linux, consulte [uso de Azure Files con Linux](/azure/storage/files/storage-how-to-use-files-linux).
+Para obtener más información general sobre el uso de recursos compartidos de archivos con Linux, consulte [uso de Azure Files con Linux](../storage/files/storage-how-to-use-files-linux.md).
 
 ## <a name="azure-files-with-identity-base-authorization"></a>Azure Files con autorización de base de identidad
 
 También se puede tener acceso a los recursos compartidos de archivos Azure Files mediante la autenticación de AD si
 
 1. La máquina virtual de alumno está unida a un dominio.
-2. La autenticación de AD está [habilitada en la cuenta Azure Storage](/azure/storage/files/storage-files-active-directory-overview) que hospeda el recurso compartido de archivos.  
+2. La autenticación de AD está [habilitada en la cuenta Azure Storage](../storage/files/storage-files-active-directory-overview.md) que hospeda el recurso compartido de archivos.  
 
 La unidad de red está montada en la máquina virtual mediante la identidad del usuario, no la clave de la cuenta de almacenamiento.  El acceso a la cuenta de almacenamiento puede usar puntos de conexión públicos o privados.
 
@@ -125,13 +125,13 @@ Si usa un punto de conexión privado en el recurso compartido de Azure Files, es
 
 Siga los pasos que se indican a continuación para crear un recurso compartido de Azure Files con autenticación AD y unirse al dominio de las máquinas virtuales del laboratorio.
 
-1. Creación de una [cuenta de Azure Storage](/azure/storage/files/storage-how-to-create-file-share).
-2. Si usa, cree un [punto de conexión privado](/azure/private-link/create-private-endpoint-storage-portal) para que los recursos compartidos de archivos sean accesibles desde la red virtual.  Cree una [zona DNS privada](/azure/dns/private-dns-privatednszone) o use una existente. Las zonas de Azure DNS privadas proporcionan la resolución de nombres dentro de una red virtual.
-3. Cree un [recurso compartido de archivos de Azure](/azure/storage/files/storage-how-to-create-file-share).
-4. Siga los pasos para habilitar la autorización basada en identidad.  Si usa AD local que se sincroniza con Azure AD, siga los pasos para [la autenticación de Active Directory Domain Services local a través de SMB para recursos compartidos de archivos de Azure](/azure/storage/files/storage-files-identity-auth-active-directory-enable).  Si solo usa Azure AD, siga los pasos para [Habilitar la autenticación de Azure Active Directory Domain Services en Azure Files](/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable).
+1. Creación de una [cuenta de Azure Storage](../storage/files/storage-how-to-create-file-share.md).
+2. Si usa, cree un [punto de conexión privado](../private-link/tutorial-private-endpoint-storage-portal.md) para que los recursos compartidos de archivos sean accesibles desde la red virtual.  Cree una [zona DNS privada](../dns/private-dns-privatednszone.md) o use una existente. Las zonas de Azure DNS privadas proporcionan la resolución de nombres dentro de una red virtual.
+3. Cree un [recurso compartido de archivos de Azure](../storage/files/storage-how-to-create-file-share.md).
+4. Siga los pasos para habilitar la autorización basada en identidad.  Si usa AD local que se sincroniza con Azure AD, siga los pasos para [la autenticación de Active Directory Domain Services local a través de SMB para recursos compartidos de archivos de Azure](../storage/files/storage-files-identity-auth-active-directory-enable.md).  Si solo usa Azure AD, siga los pasos para [Habilitar la autenticación de Azure Active Directory Domain Services en Azure Files](../storage/files/storage-files-identity-auth-active-directory-domain-service-enable.md).
     >[!IMPORTANT]
     >Hable con el equipo que administra su AD para comprobar que se cumplen todos los requisitos previos enumerados en las instrucciones.
-5. Asignación de roles de permisos de recurso compartido SMB en Azure.  Para obtener más información sobre los permisos que se conceden a cada rol, consulte [permisos de nivel de recurso compartido](/azure/storage/files/storage-files-identity-ad-ds-assign-permissions).
+5. Asignación de roles de permisos de recurso compartido SMB en Azure.  Para obtener más información sobre los permisos que se conceden a cada rol, consulte [permisos de nivel de recurso compartido](../storage/files/storage-files-identity-ad-ds-assign-permissions.md).
     1. El rol 'Almacenamiento de datos de recurso compartido de SMB con privilegios elevados' se debe asignar a la persona o grupo que configurará los permisos para el contenido del recurso compartido de archivos.
     2. El rol 'Almacenamiento de datos de recurso compartido SMB' debe asignarse a los alumnos que necesiten agregar o editar archivos en el recurso compartido de archivos.
     3. El rol "Almacenamiento del recurso compartido de SMB de datos de archivos de almacenamiento" se debe asignar a los alumnos que solo necesiten leer los archivos del recurso compartido de archivos.
@@ -147,7 +147,7 @@ Siga los pasos que se indican a continuación para crear un recurso compartido d
 10. En el equipo de la plantilla, descargue y ejecute el script para [unir las máquinas de los alumnos al dominio](https://github.com/Azure/azure-devtestlab/blob/master/samples/ClassroomLabs/Scripts/ActiveDirectoryJoin/README.md#usage).  El script `Join-AzLabADTemplate`[publicará la máquina virtual de la plantilla](how-to-create-manage-template.md#publish-the-template-vm) automáticamente.  
     > [!NOTE]
     > La plantilla de máquina virtual no estará unido al dominio. Los instructores deben asignar una máquina virtual de alumno publicada para ver los archivos del recurso compartido.
-11. Los alumnos que usan Windows pueden conectarse al recurso compartido de Azure Files mediante el [Explorador de archivos](/azure/storage/files/storage-how-to-use-files-windows) con sus credenciales una vez dada la ruta de acceso al recurso compartido de archivos.  Como alternativa, los alumnos pueden ejecutar el script creado anteriormente para conectarse a la unidad de red.  Para los alumnos que usan Linux, ejecute el script que creó anteriormente.
+11. Los alumnos que usan Windows pueden conectarse al recurso compartido de Azure Files mediante el [Explorador de archivos](../storage/files/storage-how-to-use-files-windows.md) con sus credenciales una vez dada la ruta de acceso al recurso compartido de archivos.  Como alternativa, los alumnos pueden ejecutar el script creado anteriormente para conectarse a la unidad de red.  Para los alumnos que usan Linux, ejecute el script que creó anteriormente.
 
 ## <a name="netapp-files-with-nfs-volumes"></a>NetApp Files con volúmenes NFS
 
@@ -162,7 +162,7 @@ Siga los pasos que se indican a continuación para crear un recurso compartido d
 Siga los pasos siguientes para usar un recurso compartido de Azure NetApp Files en Azure Lab Services.
 
 1. Incorporar a [Azure NetApp Files](https://aka.ms/azurenetappfiles), si es necesario.
-2. Para crear un grupo de capacidad de NetApp Files y volúmenes NFS, consulte [configuración del volumen de Azure NetApp Files y NFS](/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes).  Para obtener información sobre los niveles de servicio, consulte [niveles de servicio para Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-service-levels).
+2. Para crear un grupo de capacidad de NetApp Files y volúmenes NFS, consulte [configuración del volumen de Azure NetApp Files y NFS](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md).  Para obtener información sobre los niveles de servicio, consulte [niveles de servicio para Azure NetApp Files](../azure-netapp-files/azure-netapp-files-service-levels.md).
 3. [Emparejar la red virtual](how-to-connect-peer-virtual-network.md) del grupo de capacidad de NetApp Files con la cuenta de laboratorio.
 4. [Cree el laboratorio de clase](how-to-manage-classroom-labs.md).
 5. En la plantilla de la máquina virtual, instale los componentes necesarios para usar recursos compartidos de archivos NFS.
@@ -179,7 +179,7 @@ Siga los pasos siguientes para usar un recurso compartido de Azure NetApp Files 
         sudo yum install nfs-utils
         ```
 
-6. En la plantilla de la máquina virtual, guarde el script siguiente como `mount_fileshare.sh` para [montar el recurso compartido de NetApp Files](/azure/azure-netapp-files/azure-netapp-files-mount-unmount-volumes-for-virtual-machines).  Asigne `capacity_pool_ipaddress` a la variable la dirección IP de destino de montaje para el grupo de capacidad.  Obtenga las instrucciones de montaje del volumen para encontrar el valor adecuado.  El script espera la ruta de acceso o el nombre del volumen de NetApp Files.  No olvide ejecutar `chmod u+x mount_fileshare.sh` para asegurarse de que los usuarios pueden ejecutar el script.
+6. En la plantilla de la máquina virtual, guarde el script siguiente como `mount_fileshare.sh` para [montar el recurso compartido de NetApp Files](../azure-netapp-files/azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).  Asigne `capacity_pool_ipaddress` a la variable la dirección IP de destino de montaje para el grupo de capacidad.  Obtenga las instrucciones de montaje del volumen para encontrar el valor adecuado.  El script espera la ruta de acceso o el nombre del volumen de NetApp Files.  No olvide ejecutar `chmod u+x mount_fileshare.sh` para asegurarse de que los usuarios pueden ejecutar el script.
 
     ```bash
     #!/bin/bash
@@ -205,7 +205,7 @@ Siga los pasos siguientes para usar un recurso compartido de Azure NetApp Files 
 
 7. Si todos los alumnos están compartiendo el acceso al mismo volumen de NetApp Files, el script `mount_fileshare.sh` se puede ejecutar en la máquina de la plantilla antes de la publicación.  Si cada alumno obtiene su propio volumen, guarde el script para que el alumno lo ejecute más tarde.
 8. [Publicación](how-to-create-manage-template.md#publish-the-template-vm) de la plantilla de máquina virtual.
-9. [Configure la directiva](/azure/azure-netapp-files/azure-netapp-files-configure-export-policy) para el recurso compartido.  La directiva de exportación puede permitir que una sola máquina virtual o varias máquinas virtuales tengan acceso a un volumen.  Se puede conceder acceso de solo lectura o de lectura y escritura.
+9. [Configure la directiva](../azure-netapp-files/azure-netapp-files-configure-export-policy.md) para el recurso compartido.  La directiva de exportación puede permitir que una sola máquina virtual o varias máquinas virtuales tengan acceso a un volumen.  Se puede conceder acceso de solo lectura o de lectura y escritura.
 10. Los alumnos deben iniciar su máquina virtual y ejecutar el script para montar el recurso compartido de archivos.  Solo tendrán que ejecutar el script una vez.  El comando tendrá un aspecto similar a `./mount_fileshare.sh myvolumename`.
 
 ## <a name="next-steps"></a>Pasos siguientes

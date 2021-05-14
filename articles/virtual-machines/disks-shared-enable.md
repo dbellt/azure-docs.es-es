@@ -4,16 +4,16 @@ description: Configuración de un disco administrado de Azure con discos compart
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 05/10/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: e8bb97196fcceea0c86f58fe4a63146e681c427e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cbeb6ff0ba6222de292dd185b21445ccf94252c8
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96500740"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109733827"
 ---
 # <a name="enable-shared-disk"></a>Habilitación del disco compartido
 

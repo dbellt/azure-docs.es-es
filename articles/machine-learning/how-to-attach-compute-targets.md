@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/02/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: a3a70ac5d5603cad98c199cbd8e3b98bb095d131
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.topic: how-to
+ms.custom: devx-track-python, contperf-fy21q1
+ms.openlocfilehash: 8c60afc16a75b69c85efc29375a5f10ca147a129
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167675"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143600"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Configuración de destinos de proceso para el entrenamiento y la implementación de modelos
 
@@ -124,7 +124,7 @@ Azure Machine Learning también admite la asociación de una máquina virtual de
    ```
 
 > [!TIP]
-> Si desea __quitar__ (desasociar) una máquina virtual del área de trabajo, use el método [RemoteCompute.detach ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.remotecompute#detach--).
+> Si desea __quitar__ (desasociar) una máquina virtual del área de trabajo, use el método [RemoteCompute.detach ()](/python/api/azureml-core/azureml.core.compute.remotecompute#detach--).
 >
 > Azure Machine Learning no eliminará la máquina virtual. Debe eliminar manualmente la máquina virtual mediante el Azure Portal, la CLI o el SDK para la máquina virtual de Azure.
 
@@ -174,7 +174,7 @@ Azure HDInsight es una plataforma popular para el análisis de macrodatos. La pl
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
 > [!TIP]
-> Si desea __quitar__ (desasociar) un clúster de HDInsight del área de trabajo, use el método [HDInsightCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.hdinsight.hdinsightcompute#detach--).
+> Si desea __quitar__ (desasociar) un clúster de HDInsight del área de trabajo, use el método [HDInsightCompute.detach()](/python/api/azureml-core/azureml.core.compute.hdinsight.hdinsightcompute#detach--).
 >
 > Azure Machine Learning no elimina el clúster de HDInsight. Debe eliminarlo manualmente mediante el Azure Portal, la CLI o el SDK para Azure HDInsight.
 

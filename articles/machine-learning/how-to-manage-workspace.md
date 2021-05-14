@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sgilley
 author: sdgilley
-ms.date: 09/30/2020
-ms.topic: conceptual
-ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 472bc66c75881d622e8ecfe23031f58db773a919
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/22/2021
+ms.topic: how-to
+ms.custom: fasttrack-edit
+ms.openlocfilehash: a9afef0e2616664578e66be3735104c47bfcffa9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102518932"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760758"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Creación y administración de áreas de trabajo de Azure Machine Learning 
 
@@ -134,7 +134,7 @@ Si tiene problemas para obtener acceso a su suscripción, consulte [Configuraci�
    Campo|Descripción 
    ---|---
    Nombre del área de trabajo |Escriba un nombre único que identifique el área de trabajo. En este ejemplo, se usa **docs-ws**. Los nombres deben ser únicos en el grupo de recursos. Utilice un nombre que sea fácil de recordar y que se diferencie del de las áreas de trabajo creadas por otros. El nombre del área de trabajo no distingue mayúsculas de minúsculas.
-   Subscription |Seleccione la suscripción de Azure que quiera usar.
+   Suscripción |Seleccione la suscripción de Azure que quiera usar.
    Resource group | Use un grupo de recursos existente en su suscripción o escriba un nombre para crear un nuevo grupo de recursos. Un grupo de recursos almacena los recursos relacionados con una solución de Azure. En este ejemplo, se usa **docs-aml**. Necesita el rol *colaborador* o *propietario* para usar un grupo de recursos existente.  Para obtener más información sobre el acceso, consulte [Administración del acceso a un área de trabajo de Azure Machine Learning](how-to-assign-roles.md).
    Region | Seleccione la región de Azure más cercana a los usuarios y los recursos de datos para crear el área de trabajo.
    | Cuenta de almacenamiento | Cuenta de almacenamiento predeterminada para el área de trabajo. De manera predeterminada, se crea una nueva. |
@@ -186,16 +186,6 @@ El SDK de Azure Machine Learning para Python proporciona la clase [PrivateEndpoi
 > [!IMPORTANT]  
 > El uso de un punto de conexión privado con áreas de trabajo de Azure Machine Learning se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.     
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-### <a name="multiple-workspaces-with-private-endpoint"></a>Varias áreas de trabajo con punto de conexión privado
-
-Al crear un punto de conexión privado, se crea una nueva zona DNS privada denominada __privatelink.api.azureml.ms__. Contiene un vínculo a la red virtual. Si crea varias áreas de trabajo con puntos de conexión privados en el mismo grupo de recursos, solo la red virtual del primer punto de conexión privado se puede agregar a la zona DNS. Para agregar entradas para las redes virtuales usadas por áreas de trabajo o puntos de conexión privados adicionales, siga estos pasos:
-
-1. En [Azure Portal](https://portal.azure.com), seleccione el grupo de recursos que contiene el área de trabajo. A continuación, seleccione el recurso de zona DNS privada denominado __privatelink.api.azureml.ms__.
-2. En __Configuración__, seleccione __Vínculos de red virtual__.
-3. Seleccione __Agregar__. En la página __Agregar el vínculo de red virtual__, proporcione un __Nombre de vínculo__ único y, a continuación, seleccione la __Red virtual__ que se va a agregar. Seleccione __Aceptar__ para agregar el vínculo de red.
-
-Para obtener más información, vea [Configuración de DNS para puntos de conexión privados de Azure](../private-link/private-endpoint-dns.md).
 
 ### <a name="vulnerability-scanning"></a>Examen de vulnerabilidades
 
@@ -262,7 +252,7 @@ from azureml.core import Workspace
 
 ### <a name="download-a-configuration-file"></a>Descarga de un archivo de configuración
 
-Si va a crear una [instancia de proceso](tutorial-1st-experiment-sdk-setup.md#azure), omita este paso.  La instancia de proceso ya ha creado una copia de este archivo.
+Si va a crear una [instancia de proceso](quickstart-create-resources.md), omita este paso.  La instancia de proceso ya ha creado una copia de este archivo.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -401,8 +391,7 @@ El área de trabajo de Azure Machine Learning usa Azure Container Registry (ACR)
 ## <a name="examples"></a>Ejemplos
 
 Ejemplos de creación de un área de trabajo:
-* Uso de Azure Portal para [crear un área de trabajo y una instancia de proceso](tutorial-1st-experiment-sdk-setup.md).
-* Uso del SDK de Python para [crear un área de trabajo en su propio entorno](tutorial-1st-experiment-sdk-setup-local.md).
+* Uso de Azure Portal para [crear un área de trabajo y una instancia de proceso](quickstart-create-resources.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

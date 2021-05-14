@@ -3,12 +3,12 @@ title: Establecimiento del orden de implementación para recursos
 description: En este artículo se describe cómo establecer un recurso de Azure como dependiente de otro recurso durante la implementación. Las dependencias garantizan que los recursos se implementan en el orden correcto.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: f6b63b066da06a17c3a2e51ab0f3ab9bf521a144
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 009f5731e871c47aba418fca0937ae7aa195919e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934754"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737070"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definición del orden de implementación de recursos en las plantillas de ARM
 
@@ -75,7 +75,7 @@ En el siguiente ejemplo se muestran un servidor SQL lógico y una base de datos
 ]
 ```
 
-Para ver la plantilla completa, consulte la [plantilla de inicio rápido para Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/blob/master/101-sql-database/azuredeploy.json).
+Para ver la plantilla completa, consulte la [plantilla de inicio rápido para Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.sql/sql-database/azuredeploy.json).
 
 ## <a name="reference-and-list-functions"></a>Funciones de referencia y lista
 

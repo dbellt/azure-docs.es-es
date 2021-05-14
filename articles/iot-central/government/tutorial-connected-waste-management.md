@@ -7,12 +7,12 @@ ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: ff7cfb8c7aa8469111d4531da17c7cd184920f9b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42a82a59483a582e0d395092558665b12e1cd5a3
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727573"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684368"
 ---
 # <a name="tutorial-create-a-connected-waste-management-app"></a>Tutorial: Creación de una aplicación de administración de residuos conectada
 
@@ -53,8 +53,6 @@ En esta sección, va a usar la plantilla Administración de residuos conectada p
     * **Application name** (Nombre de la aplicación). De forma predeterminada, la aplicación usa **Connected waste management** (Administración de residuos conectada) seguido de una cadena de identificador única que genera Azure IoT Central. Tiene la opción de elegir un nombre descriptivo para la aplicación. También puede cambiar el nombre de la aplicación más adelante.
     * **Dirección URL**. Opcionalmente, puede elegir la dirección URL deseada. Puede cambiar la dirección URL más adelante. 
     * **Pricing plan** (Plan de precios). Si tiene una suscripción de Azure, escriba el directorio, la suscripción de Azure y la región en los campos correspondientes del cuadro de diálogo **Billing info** (Información de facturación). Si no tiene una suscripción, seleccione **Free** (Gratis) para habilitar la suscripción de prueba de 7 días y complete la información de contacto necesaria.  
-
-    Para más información acerca de los directorios y las suscripciones, consulte [Inicio rápido: Creación de una aplicación de Azure IoT Central](../core/quick-deploy-iot-central.md).
 
 1. En la parte inferior de la página, seleccione **Create** (Crear). 
 

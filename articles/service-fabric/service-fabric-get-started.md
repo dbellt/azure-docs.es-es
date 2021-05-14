@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: sfrev, devx-track-azurepowershell
-ms.openlocfilehash: 5d73c02b7fd5e40f3cc23f5b0eba1945cf3c8a40
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 322b9a0c298d81fc3f35819054fc03a0094676d0
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258442"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288227"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparación del entorno de desarrollo en Windows
 
@@ -25,20 +25,7 @@ Para compilar y ejecutar [aplicaciones de Azure Service Fabric][1] en la máquin
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-### <a name="supported-operating-system-versions"></a>Versiones de sistemas operativos admitidos
-
-Se admiten las siguientes versiones de sistemas operativos para desarrollo:
-
-* Windows 7
-* Windows 8/Windows 8.1
-* Windows Server 2012 R2
-* Windows Server 2016
-* Windows 10
-
-> [!NOTE]
-> Compatibilidad con Windows 7:
-> - Windows 7 solo incluye de forma predeterminada Windows PowerShell 2.0. Los cmdlets de PowerShell de Service Fabric requieren PowerShell 3.0 o superior. Puede [descargar Windows PowerShell 5.1][powershell5-download] desde el Centro de descarga de Microsoft.
-> - El proxy inverso de Service Fabric no está disponible en Windows 7.
+Asegúrese de usar una [versión de Windows](service-fabric-versions.md#supported-windows-versions-and-support-end-date) compatible.
 
 ## <a name="install-the-sdk-and-tools"></a>Instalación de SDK y herramientas
 
@@ -49,7 +36,7 @@ El Instalador de plataforma Web (WebPI) es la manera recomendada para instalar e
 
 ### <a name="to-use-visual-studio-2017-or-2019"></a>Cómo usar Visual Studio 2017 o 2019
 
-Las herramientas de Service Fabric forman parte de la carga de trabajo de Azure Development de Visual Studio 2017 y 2019. Habilite esta carga de trabajo durante la instalación de Visual Studio.
+Las herramientas de Service Fabric forman parte de la carga de trabajo de Azure Development de Visual Studio 2019 y 2017. Habilite esta carga de trabajo durante la instalación de Visual Studio.
 Además, debe instalar el SDK de Microsoft Azure Service Fabric y el entorno en tiempo de ejecución mediante el Instalador de plataforma web.
 
 * [Instale el SDK de Microsoft Azure Service Fabric][core-sdk].

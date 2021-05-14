@@ -3,12 +3,12 @@ title: 'Azure Event Grid: Establecimiento de encabezados personalizados en event
 description: Describe el establecimiento de encabezados personalizados (o propiedades de entrega) en eventos entregados.
 ms.topic: conceptual
 ms.date: 03/24/2021
-ms.openlocfilehash: fb6f0de7919ed7cf9072c0fa35e8f9be5cb5e7db
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 515f2687781329d0f9f9648460663a0a30f7c637
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278293"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107887452"
 ---
 # <a name="custom-delivery-properties"></a>Propiedades de entrega personalizadas
 Las suscripciones a eventos permiten configurar encabezados HTTP que se incluyen en los eventos entregados. Esta capacidad permite establecer encabezados personalizados que un destino requiere. Puede configurar hasta 10 encabezados al crear una suscripción de eventos. Cada valor de encabezado no debe ser mayor que 4 096 (4 K) bytes.
@@ -58,7 +58,7 @@ Authorization: BEARER SlAV32hkKG...
 ```
 
 > [!NOTE]
-> La definición de los encabezados de autorización es una opción razonable cuando el destino es un webhook. No debe usarse para las [funciones suscritas con un identificador de recurso](/rest/api/eventgrid/eventsubscriptions/createorupdate#azurefunctioneventsubscriptiondestination), Service Bus, Event Hubs y Conexiones híbridas ya que esos destinos admiten sus propios esquemas de autenticación cuando se usan con Event Grid.
+> La definición de los encabezados de autorización es una opción razonable cuando el destino es un webhook. No debe usarse para las [funciones suscritas con un identificador de recurso](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate#azurefunctioneventsubscriptiondestination), Service Bus, Event Hubs y Conexiones híbridas ya que esos destinos admiten sus propios esquemas de autenticación cuando se usan con Event Grid.
 
 ### <a name="service-bus-example"></a>Ejemplo de Service Bus
 Azure Service Bus admite el uso de un [encabezado HTTP BrokerProperties](/rest/api/servicebus/message-headers-and-properties#message-headers) para definir las propiedades del mensaje al enviar mensajes individuales. El valor del encabezado `BrokerProperties` debe proporcionarse en formato JSON. Por ejemplo, si necesita establecer propiedades de mensaje al enviar un solo mensaje a Service Bus, establezca el encabezado de la siguiente manera:

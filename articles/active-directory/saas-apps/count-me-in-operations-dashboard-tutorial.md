@@ -11,33 +11,33 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/30/2020
 ms.author: jeedes
-ms.openlocfilehash: 3339516193af6e1ff832ac586f4a81f8799c5b83
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44ea8afcb42365b2b01d81674d0f76781cca0ea9
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98727699"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108801737"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-count-me-in---operations-dashboard"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Count Me In - Operations Dashboard
 
 En este tutorial, aprenderá a integrar Meraki Dashboard con Azure Active Directory (Azure AD). Al integrar Count Me In - Operations Dashboard con Azure AD, puede:
 
-* Controlar en Azure AD quién tiene acceso a Count Me In - Operations Dashboard.
-* Permitir que los usuarios inicien sesión automáticamente en Count Me In - Operations Dashboard con sus cuentas de Azure AD.
-* Administrar las cuentas desde una ubicación central (Azure Portal).
+- Controlar en Azure AD quién tiene acceso a Count Me In - Operations Dashboard.
+- Permitir que los usuarios inicien sesión automáticamente en Count Me In - Operations Dashboard con sus cuentas de Azure AD.
+- Administrar las cuentas desde una ubicación central (Azure Portal).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
-* Una suscripción habilitada para el inicio de sesión único (SSO) en Count Me In - Operations Dashboard.
+- Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
+- Una suscripción habilitada para el inicio de sesión único (SSO) en Count Me In - Operations Dashboard.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Count Me In - Operations Dashboard admite el inicio de sesión único iniciado por **SP**.
+- Count Me In - Operations Dashboard admite el inicio de sesión único iniciado por **SP**.
 
 ## <a name="adding-count-me-in---operations-dashboard-from-the-gallery"></a>Adición de Count Me In - Operations Dashboard desde la galería
 
@@ -57,10 +57,10 @@ Configure y pruebe el inicio de sesión único de Azure AD con Count Me In - Op
 Para configurar y probar el inicio de sesión único de Azure AD con Count Me In - Operations Dashboard, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+   1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+   1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Count Me In - Operations Dashboard](#configure-count-me-in-operations-dashboard-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
-    1. **[Creación de un usuario de prueba de Count Me In - Operations Dashboard](#create-count-me-in-operations-dashboard-test-user)** : para tener un homólogo de B.Simon en Count Me In - Operations Dashboard que esté vinculado a la representación del usuario en Azure AD.
+   1. **[Creación de un usuario de prueba de Count Me In - Operations Dashboard](#create-count-me-in-operations-dashboard-test-user)** : para tener un homólogo de B.Simon en Count Me In - Operations Dashboard que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -75,35 +75,36 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://api-us.localz.io/user/v1/saml/initsso?projectId=<PROJECT_ID>`
+   a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://api-us.localz.io/user/v1/saml/initsso?projectId=<PROJECT_ID>`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `api-us.localz.io/<PROJECT_ID>`
+   b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `api-us.localz.io/<PROJECT_ID>`
 
-    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://api-us.localz.io/user/v1/saml/initsso?projectId=<PROJECT_ID>`
+   c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://api-us.localz.io/user/v1/saml/initsso?projectId=<PROJECT_ID>`
 
-    > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Count Me In - Operations Dashboard](mailto:support@localz.co) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+   > [!NOTE]
+   > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Count Me In - Operations Dashboard](mailto:support@localz.co) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. La aplicación Count Me In - Operations Dashboard espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
-    ![imagen](common/default-attributes.png)
+   ![imagen](common/default-attributes.png)
 
 1. Además de lo anterior, la aplicación Count Me In - Operations Dashboard espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
-    
-    | Nombre |  Atributo de origen|
-    | ----------- | --------- |
-    | roles asignados | user.assignedroles |
 
-    > [!NOTE]
-    > Count Me In - Operations Dashboard espera roles para los usuarios asignados a la aplicación. Configure estos roles en Azure AD para que se puedan asignar los roles correspondientes a los usuarios. Para aprender a configurar roles en Azure AD, consulte [este vínculo](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview).
+   | Nombre           | Atributo de origen   |
+   | -------------- | ------------------ |
+   | roles asignados | user.assignedroles |
+
+   > [!NOTE]
+   > Count Me In - Operations Dashboard espera roles para los usuarios asignados a la aplicación. Configure estos roles en Azure AD para que se puedan asignar los roles correspondientes a los usuarios. Para aprender a configurar roles en Azure AD, consulte [este vínculo](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui).
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
-    ![Vínculo de descarga del certificado](common/certificatebase64.png)
+   ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
 1. En la sección **Configurar Count Me In - Operations Dashboard**, copie las direcciones URL adecuadas según sus necesidades.
 
-    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+   ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
@@ -111,7 +112,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
 1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre**, escriba `B.Simon`.
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
    1. Haga clic en **Crear**.
@@ -136,16 +137,15 @@ Para configurar el inicio de sesión único en **Count Me In - Operations Dashbo
 
 En esta sección, creará un usuario llamado Britta Simon en Count Me In - Operations Dashboard. Colabore con el [equipo de soporte técnico de Count Me In - Operations Dashboard](mailto:support@localz.co) para agregar los usuarios en la plataforma de Count Me In - Operations Dashboard. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
-## <a name="test-sso"></a>Prueba de SSO 
+## <a name="test-sso"></a>Prueba de SSO
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
-* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Count Me In - Operations Dashboard, donde podrá iniciar el flujo de inicio de sesión. 
+- Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Count Me In - Operations Dashboard, donde podrá iniciar el flujo de inicio de sesión.
 
-* Vaya directamente a la dirección URL de inicio de sesión de Count Me In - Operations Dashboard e inicie el flujo de inicio de sesión desde allí.
+- Vaya directamente a la dirección URL de inicio de sesión de Count Me In - Operations Dashboard e inicie el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Count Me In - Operations Dashboard en el panel Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Count Me In - Operations Dashboard. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
-
+- Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Count Me In - Operations Dashboard en el panel Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Count Me In - Operations Dashboard. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b294a56a523adaa2629a5d1e72a7ccef532956e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b81e94fddd428da97429fb280f09a16a77229235
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98753281"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165090"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Aplicación web que llama a las API web: Llamada a una API de web
 
@@ -39,7 +39,7 @@ Cuando se usa *Microsoft.Identity.Web*, hay tres opciones de uso para llamar a u
 
 Desea llamar a Microsoft Graph. En este escenario, ha agregado `AddMicrosoftGraph` en el archivo *Startup.cs* tal y como se especifica en [Configuración del código](scenario-web-app-call-api-app-configuration.md#option-1-call-microsoft-graph) y puede insertar directamente el elemento `GraphServiceClient` en el controlador o en el constructor de la página para su uso en las acciones. En la siguiente página de Razor de ejemplo se muestra la foto del usuario que inició sesión.
 
-```CSharp
+```csharp
 [Authorize]
 [AuthorizeForScopes(Scopes = new[] { "user.read" })]
 public class IndexModel : PageModel
@@ -75,7 +75,7 @@ public class IndexModel : PageModel
 
 Desea llamar a una API web que no es Microsoft Graph. En ese caso, ha agregado `AddDownstreamWebApi` en el archivo *Startup.cs* tal y como se especifica en [Configuración del código](scenario-web-app-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph) y puede insertar directamente el servicio `IDownstreamWebApi` en el controlador o en el constructor de la página y usarlo en las acciones:
 
-```CSharp
+```csharp
 [Authorize]
 [AuthorizeForScopes(ScopeKeySection = "TodoList:Scopes")]
 public class TodoListController : Controller
@@ -103,7 +103,7 @@ public class TodoListController : Controller
 
 `CallWebApiForUserAsync` también tiene invalidaciones genéricas fuertemente tipadas que permiten recibir directamente un objeto. Por ejemplo, el método siguiente recibe una instancia de `Todo`, que es una representación fuertemente tipada del código JSON devuelto por la API web.
 
-```CSharp
+```csharp
     // GET: TodoList/Details/5
     public async Task<ActionResult> Details(int id)
     {
@@ -125,30 +125,31 @@ Ha decidido adquirir un token manualmente mediante el servicio `ITokenAcquisitio
 
 Una vez que haya adquirido el token, úselo como token de portador para llamar a la API de nivel inferior, que en este caso es Microsoft Graph.
 
- ```csharp
+```csharp
 public async Task<IActionResult> Profile()
 {
- // Acquire the access token.
- string[] scopes = new string[]{"user.read"};
- string accessToken = await tokenAcquisition.GetAccessTokenForUserAsync(scopes);
+  // Acquire the access token.
+  string[] scopes = new string[]{"user.read"};
+  string accessToken = await tokenAcquisition.GetAccessTokenForUserAsync(scopes);
 
- // Use the access token to call a protected web API.
- HttpClient client = new HttpClient();
- client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+  // Use the access token to call a protected web API.
+  HttpClient client = new HttpClient();
+  client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
   var response = await httpClient.GetAsync($"{webOptions.GraphApiUrl}/beta/me");
 
   if (response.StatusCode == HttpStatusCode.OK)
   {
-   var content = await response.Content.ReadAsStringAsync();
+    var content = await response.Content.ReadAsStringAsync();
 
-   dynamic me = JsonConvert.DeserializeObject(content);
-   ViewData["Me"] = me;
+    dynamic me = JsonConvert.DeserializeObject(content);
+    ViewData["Me"] = me;
   }
 
   return View();
 }
 ```
+
 > [!NOTE]
 > Puede usar el mismo principio para llamar a cualquier API web.
 >
@@ -156,7 +157,7 @@ public async Task<IActionResult> Profile()
 
 # <a name="java"></a>[Java](#tab/java)
 
-```Java
+```java
 private String getUserInfoFromGraph(String accessToken) throws Exception {
     // Microsoft Graph user endpoint
     URL url = new URL("https://graph.microsoft.com/v1.0/me");
@@ -177,12 +178,11 @@ private String getUserInfoFromGraph(String accessToken) throws Exception {
     JSONObject responseObject = HttpClientHelper.processResponse(responseCode, response);
     return responseObject.toString();
 }
-
 ```
 
 # <a name="python"></a>[Python](#tab/python)
 
-```Python
+```python
 @app.route("/graphcall")
 def graphcall():
     token = _get_token_from_cache(app_config.SCOPE)

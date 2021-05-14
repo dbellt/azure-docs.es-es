@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d903f04055d1607ee782bd502d99a8fd9cde87ca
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e53ae26e4ed5bf42a42daa527c81949c876ab5e1
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104578454"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108064024"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>Aplicación de demonio que llama a las API web: paso a producción
 
@@ -40,7 +40,7 @@ Deberá explicar a sus clientes cómo realizar estas operaciones. Para más info
 
 - Documentación de referencia para:
   - Creación de instancias de [ConfidentialClientApplication](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder).
-  - Llamada a [AcquireTokenForClient](/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder).
+  - Llamada a [AcquireTokenForClient](/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder?view=azure-dotnet&preserve-view=true).
 - Otros ejemplos y tutoriales:
   - [microsoft-identity-platform-console-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) incluye una aplicación de consola de demonio de .NET Core pequeña que muestra los usuarios de un inquilino que consultan Microsoft Graph.
 

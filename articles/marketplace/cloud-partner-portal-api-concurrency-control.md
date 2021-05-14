@@ -7,12 +7,12 @@ ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: e468898daffe8fc42250575d3efa42f99279c410
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ed67862bc7c4277d95df7ddf6a6f34c563eed49
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88031655"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736059"
 ---
 # <a name="concurrency-control"></a>Control de simultaneidad
 
@@ -24,8 +24,7 @@ Cada llamada a la API de publicación de Cloud Partner Portal debe especificar e
 -   **Optimista**: el cliente que realiza que la actualización comprueba si los datos han cambiado desde la última lectura de los datos.
 -   **El último gana**: el cliente actualiza directamente los datos, independientemente de si otra aplicación los ha modificado desde la última lectura.
 
-<a name="optimistic-concurrency-workflow"></a>Flujo de trabajo de simultaneidad optimista
--------------------------------
+## <a name="optimistic-concurrency-workflow"></a>Flujo de trabajo de simultaneidad optimista
 
 Se recomienda usar la estrategia de simultaneidad optimista, con el siguiente flujo de trabajo, para garantizar que no se realizan modificaciones inesperadas a los recursos.
 

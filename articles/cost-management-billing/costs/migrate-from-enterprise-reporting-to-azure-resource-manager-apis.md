@@ -6,14 +6,14 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 11/19/2020
+ms.date: 03/10/2021
 ms.author: banders
-ms.openlocfilehash: 93dda4fc3a152b0a07a95ff327c9ea619f25787c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 24fbf52c8fd0338537862a54e15e8a249541a701
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355827"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102635797"
 ---
 # <a name="migrate-from-enterprise-reporting-to-azure-resource-manager-apis"></a>Migración desde las API de Enterprise Reporting a las de Azure Resource Manager
 
@@ -51,28 +51,7 @@ Después de crear una entidad de servicio para llamar mediante programación a l
 
 ### <a name="azure-billing-hierarchy-access"></a>Acceso a la jerarquía de facturación de Azure
 
-Para asignar permisos de entidad de servicio a los ámbitos de cuenta de facturación, departamento o cuenta de inscripción, use las API de [permisos de facturación](/rest/api/billing/2019-10-01-preview/billingpermissions), [definiciones de roles de facturación](/rest/api/billing/2019-10-01-preview/billingroledefinitions) y [asignaciones de roles de facturación](/rest/api/billing/2019-10-01-preview/billingroleassignments).
-
-- Use las API de permisos de facturación para identificar los permisos que una entidad de servicio ya tiene en un ámbito determinado, como una cuenta de facturación o un departamento.
-- Use las API de definiciones de roles de facturación para enumerar los roles disponibles que se pueden asignar a la entidad de servicio.
-  - Actualmente, solo se pueden asignar los roles de Administrador de EA de solo lectura y de Administrador de departamento de solo lectura a las entidades de servicio.
-- Use las API de asignación de roles de facturación para asignar un rol a la entidad de servicio.
-
-En el ejemplo siguiente se muestra cómo llamar a la API de asignaciones de roles para conceder a una entidad de servicio acceso a su cuenta de facturación. Se recomienda usar [Postman](https://postman.com) para realizar estas configuraciones de permisos que se usan una sola vez.
-
-```json
-POST https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/createBillingRoleAssignment?api-version=2019-10-01-preview
-```
-
-#### <a name="request-body"></a>Cuerpo de la solicitud
-
-```json
-{
-  "principalId": "00000000-0000-0000-0000-000000000000",
-  "billingRoleDefinitionId": "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/providers/Microsoft.Billing/billingRoleDefinition/10000000-aaaa-bbbb-cccc-100000000000"
-}
-
-```
+Para asignar permisos de entidad de servicio a los ámbitos de cuenta de facturación de Enterprise, departamentos o cuenta de inscripción, consulte [Asignación de roles a nombres de entidad de seguridad de servicio de Contrato Enterprise de Azure](../manage/assign-roles-azure-service-principals.md).
 
 ### <a name="azure-role-based-access-control"></a>Control de acceso basado en roles de Azure
 

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 769a63819925caa50ff364869b8d9a14c3258a2e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 90e505a4d505cc52920f1c7727afb321f4eda462
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102214548"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814161"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-javascript-version-4"></a>Inicio rápido: Biblioteca cliente de secretos de Azure Key Vault para JavaScript (versión 4)
 
@@ -154,7 +154,7 @@ const { SecretClient } = require("@azure/keyvault-secrets");
 
 En este inicio rápido se emplea el usuario que ha iniciado sesión para autenticarlo en el almacén de claves, que es el método preferido para el desarrollo local. Para las aplicaciones implementadas en Azure, la identidad administrada debe asignarse a App Service o la máquina virtual. Para más información, consulte [Introducción a la identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-En el ejemplo siguiente, el nombre del almacén de claves se expande al URI del almacén de claves, con el formato "https://\<your-key-vault-name\>.vault.azure.net". En este ejemplo se utiliza la clase ["DefaultAzureCredential()"](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) de la [biblioteca Azure Identity](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme), que permite usar el mismo código en entornos diferentes con otras opciones para proporcionar la identidad. Para más información sobre la autenticación en el almacén de claves, consulte la [Guía del desarrollador](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+En el ejemplo siguiente, el nombre del almacén de claves se expande al URI del almacén de claves, con el formato "https://\<your-key-vault-name\>.vault.azure.net". En este ejemplo se utiliza la clase ["DefaultAzureCredential()"](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) de la [biblioteca Azure Identity](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme), que permite usar el mismo código en entornos diferentes con otras opciones para proporcionar la identidad. Para más información sobre la autenticación en Key Vault, consulte la [Guía del desarrollador](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 Agregue el siguiente código a la función "main()".
 
@@ -285,6 +285,6 @@ En este inicio rápido, ha creado un almacén de claves, ha almacenado un secret
 
 - Lea una [introducción a Azure Key Vault](../general/overview.md).
 - Lea una [introducción a los secretos de Azure Key Vault](about-secrets.md).
-- Procedimientos para [proteger el acceso a un almacén de claves](../general/secure-your-key-vault.md)
+- Procedimientos para [proteger el acceso a un almacén de claves](../general/security-features.md)
 - Consulte la [guía del desarrollador de Azure Key Vault](../general/developers-guide.md).
-- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-overview.md)
+- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-features.md)

@@ -3,27 +3,29 @@ title: 'Inicio rápido: Creación de un perfil de alta disponibilidad de aplicac
 description: En este artículo de inicio rápido se describe cómo crear un perfil de Traffic Manager para crear una aplicación web de alta disponibilidad mediante la CLI de Azure.
 services: traffic-manager
 author: duongau
-mnager: kumud
+manager: kumud
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/09/2020
+ms.date: 04/19/2021
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8871392bca12078364c2be9b7104bf2a1dc20cb3
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: e4be2e887876f85e75df254fd6c6a19003ca8a07
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066624"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792496"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Inicio rápido: Creación de un perfil de Traffic Manager para una aplicación web de alta disponibilidad mediante la CLI de Azure
 
 En esta guía de inicio rápido se describe cómo crear un perfil de Traffic Manager que ofrece alta disponibilidad para la aplicación web.
 
 En este inicio rápido, creará dos instancias de una aplicación web. Cada una de ellas se ejecuta en una región de Azure distinta. Creará un perfil de Traffic Manager según la [prioridad del punto de conexión](traffic-manager-routing-methods.md#priority-traffic-routing-method). El perfil dirige el tráfico de usuario al sitio principal que ejecuta la aplicación web. Traffic Manager supervisa continuamente la aplicación web. Si el sitio principal no está disponible, proporciona la conmutación automática por error al sitio de copia de seguridad.
+
+:::image type="content" source="./media/quickstart-create-traffic-manager-profile/environment-diagram.png" alt-text="Diagrama del entorno de implementación de Traffic Manager con la CLI." border="false":::
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -46,7 +48,7 @@ En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGrou
 
 ## <a name="create-a-traffic-manager-profile"></a>Crear un perfil de Traffic Manager
 
-Cree un perfil de Traffic Manager con [az network traffic-manager profile create](/cli/azure/network/traffic-manager/profile#az-network-traffic-manager-profile-create) que dirija el tráfico de los usuarios según la prioridad del punto de conexión.
+Cree un perfil de Traffic Manager con [az network traffic-manager profile create](/cli/azure/network/traffic-manager/profile#az_network_traffic_manager_profile_create) que dirija el tráfico de los usuarios según la prioridad del punto de conexión.
 
 En el siguiente ejemplo, reemplace **<profile_name>** por un nombre de perfil de Traffic Manager único.
 
@@ -69,7 +71,7 @@ az network traffic-manager profile create \
 Esta guía de inicio rápido requiere que haya implementado dos instancias de una aplicación web en dos regiones de Azure distintas (*Este de EE. UU.* y *Oeste de Europa*). Cada una de ellas servirá como los puntos de conexión principal y de conmutación por error de Traffic Manager.
 
 ### <a name="create-web-app-service-plans"></a>Creación de planes de Web App Service
-Cree planes de Web App Service mediante [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) para las dos instancias de la aplicación web que implementará en dos regiones de Azure distintas.
+Cree planes de Web App Service mediante [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) para las dos instancias de la aplicación web que implementará en dos regiones de Azure distintas.
 
 En el siguiente ejemplo, reemplace **<appspname_eastus>** y **<appspname_westeurope>** por un nombre de plan de App Service único.
 
@@ -90,7 +92,7 @@ az appservice plan create \
 ```
 
 ### <a name="create-a-web-app-in-the-app-service-plan"></a>Creación de una aplicación web en el plan de App Service
-Cree dos instancias de la aplicación web con [az webapp create](/cli/azure/webapp#az-webapp-create) en los planes de App Service en las regiones de Azure *Este de EE. UU.* y *Oeste de Europa*.
+Cree dos instancias de la aplicación web con [az webapp create](/cli/azure/webapp#az_webapp_create) en los planes de App Service en las regiones de Azure *Este de EE. UU.* y *Oeste de Europa*.
 
 En el siguiente ejemplo, reemplace **<app1name_eastus>** y **<app2name_westeurope>** por un nombre de aplicación único y **<appspname_eastus>** y **<appspname_westeurope>** , por el nombre que usó para crear los planes de App Service en la sección anterior.
 
@@ -109,7 +111,7 @@ az webapp create \
 ```
 
 ## <a name="add-traffic-manager-endpoints"></a>Incorporación de puntos de conexión de Traffic Manager
-Agregue las dos aplicaciones web como puntos de conexión de Traffic Manager mediante [az network traffic-manager endpoint create](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-create) al perfil de Traffic Manager como se describe a continuación:
+Agregue las dos aplicaciones web como puntos de conexión de Traffic Manager mediante [az network traffic-manager endpoint create](/cli/azure/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_create) al perfil de Traffic Manager como se describe a continuación:
 
 - Determine el identificador de la aplicación web y agregue la aplicación web ubicada e la región *Este de EE. UU.* de Azure como punto de conexión principal para enrutar todo el tráfico de usuarios. 
 - Determine el identificador de la aplicación web y agregue la aplicación web que se encuentra en la región de Azure *Oeste de Europa* como punto de conexión de conmutación por error. 
@@ -177,7 +179,7 @@ En el ejemplo siguiente, reemplace **<app1name_eastus>** y **<app2name_westeurop
 
 ### <a name="determine-the-dns-name"></a>Determinación del nombre DNS
 
-Determine el nombre DNS del perfil de Traffic Manager mediante [az network traffic-manager profile show](/cli/azure/network/traffic-manager/profile#az-network-traffic-manager-profile-show).
+Determine el nombre DNS del perfil de Traffic Manager mediante [az network traffic-manager profile show](/cli/azure/network/traffic-manager/profile#az_network_traffic_manager_profile_show).
 
 ```azurecli-interactive
 
@@ -195,7 +197,7 @@ Copie el valor **RelativeDnsName**. El nombre DNS del perfil de Traffic Manager 
 
     > [!NOTE]
     > En el escenario de esta guía de inicio rápido, todas las solicitudes se enrutan al punto de conexión principal. Se ha establecido en **Prioridad 1**.
-2. Para ver la conmutación por error de Traffic Manager en acción, deshabilite el sitio principal mediante [az network traffic-manager endpoint update](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-update).
+2. Para ver la conmutación por error de Traffic Manager en acción, deshabilite el sitio principal mediante [az network traffic-manager endpoint update](/cli/azure/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_update).
 
    ```azurecli-interactive
 
@@ -213,7 +215,7 @@ Copie el valor **RelativeDnsName**. El nombre DNS del perfil de Traffic Manager 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no los necesite, elimine los grupos de recursos, las aplicaciones web y todos los recursos relacionados mediante [az group delete](/cli/azure/group#az-group-delete).
+Cuando ya no los necesite, elimine los grupos de recursos, las aplicaciones web y todos los recursos relacionados mediante [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 

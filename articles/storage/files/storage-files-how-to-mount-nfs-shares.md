@@ -4,16 +4,16 @@ description: Obtenga información acerca de cómo montar un recurso compartido d
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2020
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 8a993d9c1de35132198de5e3becc4f16d6a2a437
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4369619cd83dffe36cf156f523a951e1360438db
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96621304"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717084"
 ---
 # <a name="how-to-mount-an-nfs-file-share"></a>Montaje de un recurso compartido de archivos de NFS
 
@@ -55,7 +55,7 @@ ms.locfileid: "96621304"
 1. Escriba la ruta de acceso de montaje que quiere usar y, después, copie el script.
 1. Conéctese al cliente y use el script de montaje proporcionado.
 
-    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Captura de pantalla de la hoja de conexión del recurso compartido de archivos":::
+    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Captura de pantalla de la hoja de conexión del recurso compartido de archivos.":::
 
 Ya ha montado el recurso compartido de NFS.
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
-ms.openlocfilehash: f018f591052050431996e3017335ab003973d25a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b191941dff66f28467030a3f367837ca4ed9656c
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104771012"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330825"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Uso de claves SSH con Windows en Azure
 
@@ -68,7 +68,7 @@ az vm create \
    --name myVM \
    --image UbuntuLTS\
    --admin-username azureuser \
-   --ssh-key-value ~/.ssh/id_rsa
+   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 Con PowerShell, use `New-AzVM` y agregue la clave SSH a la configuración de máquina virtual mediante '. Para ver un ejemplo, consulte [Inicio rápido: Creación de una máquina virtual Linux en Azure con PowerShell](quick-create-powershell.md)
@@ -81,7 +81,7 @@ Si realiza muchas implementaciones con el portal, es posible que quiera cargar l
 Con la clave pública implementada en la VM de Azure y la clave privada en su sistema local, aplique SSH en la VM con la dirección IP o nombre DNS de la VM. Reemplace *azureuser* y *10.111.12.123* en el siguiente comando con el nombre de usuario administrador, la dirección IP (o el nombre de dominio completo) y la ruta de acceso a la clave privada:
 
 ```bash
-ssh -i ~/.ssh/id_rsa.pub azureuser@10.111.12.123
+ssh -i ~/.ssh/id_rsa azureuser@10.111.12.123
 ```
 
 Si configuró una frase de contraseña cuando creó el par de claves, escríbala cuando se le solicite.

@@ -1,6 +1,6 @@
 ---
-title: 'Requisitos de infraestructura de la interfaz SIP: Azure Communication Services'
-description: Familiarícese con los requisitos de infraestructura para la configuración de la interfaz SIP de Azure Communication Services
+title: 'Requisitos de infraestructura del enrutamiento directo de Azure: Azure Communication Services'
+description: Familiarícese con los requisitos de infraestructura para la configuración del enrutamiento directo de Azure Communication Services.
 author: boris-bazilevskiy
 manager: nmurav
 services: azure-communication-services
@@ -8,34 +8,34 @@ ms.author: bobazile
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: ede650ae072ef53ed40a9372a292ab69fe8cc1af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f6e5aceaa6824d4bb6fd1bf938973c79cb5847e1
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103492736"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324594"
 ---
-# <a name="sip-interface-infrastructure-requirements"></a>Requisitos de infraestructura de la interfaz SIP 
+# <a name="azure-direct-routing-infrastructure-requirements"></a>Requisitos de infraestructura del enrutamiento directo de Azure 
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
  
-En este artículo se proporcionan detalles acerca de la conectividad de infraestructura, las licencias y el controlador de borde de sesión (SBC) que se pueden tener en cuenta al planear la implementación de una interfaz SIP.
+En este artículo se proporcionan detalles sobre la infraestructura, las licencias y la conectividad del controlador de borde de sesión (SBC) que es conveniente tener en cuenta al planear la implementación del enrutamiento directo de Azure.
 
 
 ## <a name="infrastructure-requirements"></a>Requisitos de infraestructura
-En la tabla siguiente se enumeran los requisitos de infraestructura para los SBC compatibles, dominios y otros requisitos de conectividad para implementar la interfaz SIP:  
+En la tabla siguiente se enumeran los requisitos de infraestructura de los SBC admitidos, los dominios y otros requisitos de conectividad de red para implementar el enrutamiento directo de Azure:  
 
 |Requisito de infraestructura|Necesita lo siguiente|
 |:--- |:--- |
 |Controlador de borde de sesión (SBC)|Un SBC compatible. Para más información, consulte [SBC compatibles](#supported-session-border-controllers-sbcs).|
-|Troncos de telefonía conectados al SBC|Uno o varios troncos de telefonía conectados al SBC. En un extremo, el SBC se conecta a Azure Communication Service a través de la interfaz SIP. El SBC también puede conectarse a entidades de telefonía de terceros, como PBX, adaptadores de telefonía analógicos, etc. Funcionará cualquier opción de conectividad de RTC conectada al SBC (para conocer la configuración de los troncos de RTC en el SBC, consulte los proveedores de SBC o los proveedores de troncos).|
+|Troncos de telefonía conectados al SBC|Uno o varios troncos de telefonía conectados al SBC. En un extremo, el SBC se conecta a Azure Communication Services mediante enrutamiento directo. El SBC también puede conectarse a entidades de telefonía de terceros, como PBX, adaptadores de telefonía analógicos, etc. Funcionará cualquier opción de conectividad de RTC conectada al SBC (Para conocer la configuración de los troncos de RTC en el SBC, consulte a los proveedores de SBC o los proveedores de troncos).|
 |Suscripción de Azure|Una suscripción de Azure que se usa para crear un recurso de ACS, así como la configuración y la conexión al SBC.|
 |Token de acceso de Communication Services|Para realizar llamadas, se necesita un token de acceso válido con el ámbito `voip`. Consulte [Tokens de acceso](../identity-model.md#access-tokens)|
 |Dirección IP pública del SBC|Una dirección IP pública que se puede usar para conectarse al SBC. En función de su tipo, el SBC puede usar NAT.|
-|Nombre de dominio completo (FQDN) del SBC|El nombre de dominio completo del SBC, donde la parte de dominio no coincide con los dominios registrados de una organización de Microsoft 365 u Office 365. Para más información, consulte [Nombres de dominio del SBC](#sbc-domain-names).|
+|Nombre de dominio completo (FQDN) del SBC|El nombre de dominio completo del SBC, donde la parte de dominio no coincide con los dominios registrados de una organización de Microsoft 365 u Office 365. Para más información, consulte [Nombres de dominio del SBC](#sbc-domain-names).|
 |Entrada DNS pública para el SBC |Una entrada DNS pública que asigna el nombre de dominio completo del SBC a la dirección IP pública. |
-|Certificado de confianza público para el SBC |Un certificado para el SBC que se va a usar para todas las comunicaciones con la interfaz SIP. Para más información, consulte el apartado sobre el [certificado de confianza público para el SBC](#public-trusted-certificate-for-the-sbc).|
+|Certificado de confianza público para el SBC |Un certificado para el SBC que se va a usar en todas las comunicaciones con enrutamiento directo de Azure. Para más información, consulte el apartado sobre el [certificado de confianza público para el SBC](#public-trusted-certificate-for-the-sbc).|
 |Direcciones IP y puertos del firewall para los elementos multimedia y la señalización de SIP |El SBC se comunica con los siguientes servicios en la nube:<br/><br/>Proxy SIP, que controla la señalización<br/>Procesador de multimedia, que controla los elementos multimedia<br/><br/>Estos dos servicios tienen direcciones IP independientes en Microsoft Cloud, que se describen más adelante en este documento.
 
 
@@ -43,7 +43,7 @@ En la tabla siguiente se enumeran los requisitos de infraestructura para los SBC
 
 Los clientes que no tengan Office 365 pueden utilizar cualquier nombre de dominio para el que puedan obtener un certificado público.
 
-En la tabla siguiente se muestran ejemplos de nombres DNS registrados para el inquilino, si el nombre se puede usar como nombre de dominio completo (FQDN) para el SBC y ejemplos de nombres de dominio completo válidos:
+En la tabla siguiente se muestran ejemplos de nombres DNS registrados para el inquilino y de nombres de dominio completo válidos, y se indica si el nombre se puede usar como nombre de dominio completo (FQDN) para el SBC:
 
 |Nombre DNS|Se puede usar para el nombre de dominio completo del SBC|Ejemplos de nombres de dominio completo|
 |:--- |:--- |:--- |
@@ -68,9 +68,9 @@ Microsoft recomienda que para solicitar el certificado para el SBC se genere una
 
 El certificado debe tener el nombre de dominio completo del SBC como nombre común (CN) o en el campo de nombre alternativo del firmante (SAN). El certificado debe emitirse directamente desde una entidad de certificación, no desde un proveedor intermedio.
 
-Como alternativa, la interfaz SIP de Communication Services admite un carácter comodín en la CN o la SAN, y el carácter comodín debe ajustarse con el estándar [HTTP de RFC sobre TLS](https://tools.ietf.org/html/rfc2818#section-3.1). 
+Como alternativa, el enrutamiento directo de Communication Services admite un carácter comodín en el CN o el SAN, y el carácter comodín debe ajustarse al estándar [HTTP de RFC sobre TLS](https://tools.ietf.org/html/rfc2818#section-3.1). 
 
-Un ejemplo sería usar `\*.contoso.com`, que coincidiría con el nombre de dominio completo del SBC `sbc.contoso.com`, pero no coincidiría con `sbc.test.contoso.com`.
+Un ejemplo sería usar `\*.contoso.com`, que coincidiría con el nombre de dominio completo del SBC `sbc.contoso.com`, pero no con `sbc.test.contoso.com`.
 
 El certificado debe generarlo una de las siguientes entidades de certificación raíz:
 
@@ -103,7 +103,7 @@ Microsoft está trabajando en agregar las entidades de certificación que solici
 
 ## <a name="sip-signaling-fqdns"></a>Señalización de SIP: nombres de dominio completo 
 
-Los puntos de conexión de la interfaz SIP de Communication Services son los tres nombres de dominio completo siguientes:
+Los puntos de conexión para el enrutamiento directo de Communication Services son los tres nombres de dominio completo siguientes:
 
 - **sip.pstnhub.microsoft.com**: nombre de dominio completo global (es el primero que se debe probar). Cuando el SBC envía una solicitud para resolver este nombre, los servidores DNS de Microsoft Azure devuelven una dirección IP que apunta al centro de recursos de Azure principal asignado al SBC. La asignación se basa en las métricas de rendimiento de los centros de trabajo y en la proximidad geográfica al SBC. La dirección IP devuelta corresponde al nombre de dominio completo principal.
 - **sip2.pstnhub.microsoft.com**: nombre de dominio completo secundario (se asigna geográficamente a la segunda región de prioridad).
@@ -114,7 +114,7 @@ Estos tres nombres de dominio completo deben colocarse en orden para:
 - Proporcionar una experiencia óptima (menos cargada y más cercana al centro de datos del SBC asignado mediante la consulta del primer nombre de dominio completo).
 - Proporcionar conmutación por error cuando se establece la conexión desde un SBC a un centro de datos en el que surge un problema temporal. Para más información, consulte el apartado [Mecanismo de conmutación por error](#failover-mechanism-for-sip-signaling) a continuación.  
 
-Los nombres de dominio completo (sip.pstnhub.microsoft.com, sip2.pstnhub.microsoft.com y sip3.pstnhub.microsoft.com) se resolverán en una de las siguientes direcciones IP:
+Los nombres de dominio completos (sip.pstnhub.microsoft.com, sip2.pstnhub.microsoft.com y sip3.pstnhub.microsoft.com) se resolverán en una de las siguientes direcciones IP:
 
 - `52.114.148.0`
 - `52.114.132.46`
@@ -129,7 +129,7 @@ Abra los puertos del firewall para estas direcciones IP, con el fin de permitir 
 
 ## <a name="sip-signaling-ports"></a>Señalización de SIP: Puertos
 
-Use los siguientes puertos para la interfaz SIP de Communication Services:
+Use los siguientes puertos para el enrutamiento directo de Azure Communication Services:
 
 |Tráfico|From|En|Puerto de origen|Puerto de destino|
 |:--- |:--- |:--- |:--- |:--- |
@@ -175,7 +175,7 @@ Ubicaciones en las que solo se implementan procesadores de multimedia (SIP fluye
 ### <a name="leg-between-sbc-and-cloud-media-processor-or-microsoft-teams-client"></a>Segmento entre el procesador de multimedia en la nube y del SBC o el cliente de Microsoft Teams.
 Se aplica al caso de omisión de elementos multimedia y a los de no omisión.
 
-La interfaz de enrutamiento directo en el segmento entre el controlador de límites de sesión y el procesador de multimedia en la nube puede usar los siguientes códecs:
+La interfaz de enrutamiento directo de Azure en el segmento entre el controlador de borde de sesión y el procesador multimedia en la nube puede usar los siguientes códecs:
 
 - SILK, G.711, G.722, G.729
 

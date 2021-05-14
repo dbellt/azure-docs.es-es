@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 730946a0c581be4697c0f45c8bdeb1d38f0ca23d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d06396c869bb7e9dbfbf99109d0a857302d5e874
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856395"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136218"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Ejemplo: Análisis de vídeos en tiempo real
 
@@ -173,7 +173,7 @@ Cuando esté listo para la integración, **haga referencia a la biblioteca Video
 
 En esta guía, aprendió a ejecutar análisis casi en tiempo real en secuencias de vídeo en directo mediante Face API, Computer Vision API y Emotion API, y a usar el código de ejemplo para empezar a trabajar.
 
-No dude en enviar sus comentarios y sugerencias al [repositorio de GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) o, para enviar comentarios más amplios sobre la API, a nuestro [sitio de UserVoice](https://cognitive.uservoice.com/).
+No dude en enviar sus comentarios y sugerencias al [repositorio de GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) o, para enviar comentarios más amplios sobre la API, a nuestro sitio de UserVoice.
 
 ## <a name="related-topics"></a>Temas relacionados
 - [Detección de caras en imágenes](HowtoDetectFacesinImage.md)

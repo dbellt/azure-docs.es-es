@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 68b9aee49e4cf7c02c07fc7dd90e9cc6065a443c
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 7e2042294ebaefa2640873bb1ce941d9a60c7834
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259428"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128998"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Análisis de registros y métricas con la configuración de diagnóstico
 
@@ -27,7 +27,7 @@ Mediante la funcionalidad de diagnóstico de Azure Spring Cloud puede analizar l
 Elija la categoría de registro y la categoría de métrica que desea supervisar.
 
 > [!TIP]
-> ¿Solo desea transmitir en secuencias los registros? Consulte este [comando de la CLI de Azure](/cli/azure/ext/spring-cloud/spring-cloud/app#ext-spring-cloud-az-spring-cloud-app-logs).
+> ¿Solo desea transmitir en secuencias los registros? Consulte este [comando de la CLI de Azure](/cli/azure/spring-cloud/app#az_spring_cloud_app_logs).
 
 ## <a name="logs"></a>Registros
 
@@ -38,7 +38,7 @@ Elija la categoría de registro y la categoría de métrica que desea supervisar
 
 ## <a name="metrics"></a>Métricas
 
-Para obtener una lista completa de las métricas, consulte la sección [Métricas de Spring Cloud](./spring-cloud-concept-metrics.md#user-metrics-options).
+Para obtener una lista completa de las métricas, consulte la sección [Métricas de Spring Cloud](./concept-metrics.md#user-metrics-options).
 
 Para empezar, habilite uno de estos servicios para recibir los datos. Para más información sobre la configuración de Log Analytics, consulte [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
 
@@ -110,7 +110,7 @@ Existen varios métodos para ver los registros y las métricas, tal y como se de
 > [!NOTE]
 > `==` distingue mayúsculas de minúsculas, pero `=~` no.
 
-Para más información sobre el lenguaje de consulta que se utiliza en Log Analytics, consulte [Consultas de registros de Azure Monitor](/azure/data-explorer/kusto/query/). Para consultar todos los registros de Log Analytics desde un cliente centralizado, eche un vistazo a [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
+Para más información sobre el lenguaje de consulta que se utiliza en Log Analytics, consulte [Consultas de registros de Azure Monitor](/azure/data-explorer/kusto/query/). Para consultar todos los registros de Log Analytics desde un cliente centralizado, eche un vistazo a [Azure Data Explorer](/azure/data-explorer/query-monitor-data).
 
 ### <a name="use-your-storage-account"></a>Uso de la cuenta de almacenamiento
 
@@ -208,4 +208,4 @@ Es posible que pueda usar la misma estrategia para otras bibliotecas de registro
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Inicio rápido: Implementación de la primera aplicación de Azure Spring Cloud](spring-cloud-quickstart.md)
+* [Inicio rápido: Implementación de la primera aplicación de Azure Spring Cloud](./quickstart.md)

@@ -3,15 +3,15 @@ title: Centro de administración
 description: Administración de las conexiones, la configuración de control de código fuente y las propiedades de creación global en el centro de administración de Azure Data Factory
 ms.service: data-factory
 ms.topic: conceptual
-author: dcstwh
-ms.author: weetok
-ms.date: 02/01/2021
-ms.openlocfilehash: b4b9ecef84f8ffcc82107299ad6603466380d1c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: minhe-msft
+ms.author: hemin
+ms.date: 04/27/2021
+ms.openlocfilehash: db87372ab4dd56d8b6a00ca42cb1cf4a8729db69
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100371505"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108178293"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Centro de administración de Azure Data Factory
 

@@ -1,16 +1,16 @@
 ---
 title: Guía de transición del diseñador de vistas de Azure Monitor en Workbooks
 description: Transición de vistas a libros en Azure Monitor.
-author: austonli
-ms.author: aul
+author: shijatsu
+ms.author: shijain
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 19de2a3d3f5a998c09db7c4df689b0378e2597fd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 44c838fcb0728797aa3781da0ad98b37cc2c25a5
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043378"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108317980"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Guía de transición del diseñador de vistas de Azure Monitor en Workbooks
 El [diseñador de vistas](view-designer.md) es una característica de Azure Monitor que permite crear vistas personalizadas para ayudar a visualizar datos en el área de trabajo de Log Analytics, con gráficos, listas y escalas de tiempo. Se ha realizado su transición a Libros para proporcionar un lienzo flexible para el análisis de datos y la creación de informes visuales completos en Azure Portal. Este artículo le ayuda a realizar la transición desde el diseñador de vistas a los libros. 

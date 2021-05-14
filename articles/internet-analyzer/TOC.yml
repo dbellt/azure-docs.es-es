@@ -25,7 +25,7 @@
     - name: Solución de problemas de Internet Analyzer
       href: troubleshoot.md
     - name: Referencia de la CLI de Internet Analyzer
-      href: /cli/azure/ext/internet-analyzer/internet-analyzer
+      href: /cli/azure/internet-analyzer
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: Blog

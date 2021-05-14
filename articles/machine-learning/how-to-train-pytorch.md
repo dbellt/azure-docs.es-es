@@ -9,14 +9,13 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: peterlu
 ms.date: 01/14/2020
-ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: b1cb14e07f6c0e402510abad6f1cb160f5215c63
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.topic: how-to
+ms.openlocfilehash: 1a261a972636021bec88244704b2b491ae8bcc61
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102518388"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107888447"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Entrenamiento de modelos de PyTorch a gran escala con Azure Machine Learning
 
@@ -383,7 +382,7 @@ Para optimizar la inferencia con el [runtime de ONNX](concept-onnx.md), conviert
 En este artículo ha entrenado y registrado un aprendizaje profundo y una red neuronal mediante PyTorch en Azure Machine Learning. Para obtener información sobre cómo implementar un modelo, continúe con nuestro artículo sobre implementación de modelos.
 
 * [Cómo y dónde implementar los modelos](how-to-deploy-and-where.md)
-* [Seguir métricas de ejecución durante el entrenamiento](how-to-track-experiments.md)
+* [Seguir métricas de ejecución durante el entrenamiento](how-to-log-view-metrics.md)
 * [Ajustar los hiperparámetros](how-to-tune-hyperparameters.md)
 * [Implementar un modelo entrenado](how-to-deploy-and-where.md)
 * [Arquitectura de referencia para el entrenamiento del aprendizaje profundo distribuido en Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

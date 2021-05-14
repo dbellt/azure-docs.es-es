@@ -18,7 +18,7 @@
       href: deploy-template.md
     - name: 'Implementación de un servicio en la nube: SDK'
       href: deploy-sdk.md
-    - name: 'Implementación de un servicio en la nube: Visual Studio'
+    - name: "Implementación de un servicio en la nube: Visual\_Studio"
       href: /visualstudio/azure/cloud-services-extended-support?context=%2fazure%2fcloud-services-extended-support%2fcontext%2fcontext
   expanded: true
 - name: Conceptos
@@ -51,25 +51,49 @@
           href: schema-cscfg-role.md
         - name: Esquema de NetworkConfiguration
           href: schema-cscfg-networkconfiguration.md
-    - name: Preguntas más frecuentes
-      href: faq.md
 - name: Procedimientos
   items:
-    - name: Aplicación de extensión de Escritorio remoto
-      href: enable-rdp.md
-    - name: Aplicación de extensión WAD
-      href: enable-wad.md
+    - name: Migración a Azure Cloud Services (soporte extendido)
+      items:
+        - name: Información general sobre la migración
+          href: in-place-migration-overview.md
+        - name: Detalles técnicos de la migración
+          href: in-place-migration-technical-details.md
+        - name: Migración mediante Azure Portal
+          href: in-place-migration-portal.md
+        - name: Migrar mediante PowerShell
+          href: in-place-migration-powershell.md
+        - name: Errores comunes y problemas conocidos
+          href: in-place-migration-common-errors.md
+    - name: Aplicación de extensiones
+      items:
+        - name: Aplicación de extensión de Escritorio remoto
+          href: enable-rdp.md
+        - name: Aplicación de extensión WAD
+          href: enable-wad.md
     - name: Habilitación de alertas
       href: enable-alerts.md
     - name: Configuración del escalado
       href: configure-scaling.md
     - name: Certificados
       href: certificates-and-key-vault.md
+    - name: Generación de una plantilla de ARM mediante el portal
+      href: generate-template-portal.md
+    - name: Intercambio de implementaciones de servicios en la nube
+      href: swap-cloud-service.md
+    - name: Invalidación de detalles de SKU
+      href: override-sku.md
+    - name: Solución de problemas
+      items:
+        - name: Error de inicio de rol
+          href: role-startup-failure.md
+        - name: Preguntas más frecuentes
+          href: faq.md
 - name: Ejemplos
   items:
     - name: Plantillas de ejemplo
       href: 'https://github.com/Azure-Samples/cloud-services-extended-support'
-    - name: Creación de un servicio en la nube
+    - name: Crear un nuevo servicio en la nube
       href: sample-create-cloud-service.md
     - name: Obtención de detalles del servicio en la nube
       href: sample-get-cloud-service.md
@@ -77,7 +101,7 @@
       href: sample-reset-cloud-service.md
 - name: Referencia
   items:
-    - name: Ejemplo de archivos de implementación
+    - name: Archivos de implementación de ejemplo
       href: 'https://github.com/Azure-Samples/cloud-services-extended-support'
     - name: Módulo Az.CloudService
       href: 'https://www.powershellgallery.com/packages/Az.CloudService/0.1.0'
@@ -88,9 +112,11 @@
     - name: REST
       href: /rest/api/compute/cloudservices
     - name: .NET
-      href: /dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet-preview
+      href: /dotnet/api/overview/azure/virtualmachines/management
     - name: SDK
       href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview'
+    - name: CLI
+      href: 'https://docs.microsoft.com/cli/azure/cloud-service?view=azure-cli-latest'
 - name: Recursos
   items:
     - name: Azure Roadmap

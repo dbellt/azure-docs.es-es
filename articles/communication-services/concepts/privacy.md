@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: beb8b81710cf4728259a8eb1df920cd74efce3ce
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9ccc192bb5cf4c5e183e21add8e73d9e096d281c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728137"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136020"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilidad de regiones y residencia de datos
 
@@ -49,7 +49,7 @@ El uso de Azure Portal o las API de Azure Resource Manager con Communication Ser
 
 ### <a name="telephone-number-management"></a>Administración de números de teléfono
 
-Azure Communication Services mantiene un directorio de números de teléfono asociados a un recurso de Communication Services. Utilice [Phone Number Administration API](/rest/api/communication/phonenumberadministration) para recuperar números de teléfono y eliminarlos:
+Azure Communication Services mantiene un directorio de números de teléfono asociados a un recurso de Communication Services. Utilice [Phone Number Administration API](/rest/api/communication/phonenumbers) para recuperar números de teléfono y eliminarlos:
 
 - `Get All Phone Numbers`
 - `Release Phone Number`

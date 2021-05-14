@@ -3,12 +3,12 @@ title: Implementación condicional con plantillas
 description: En este artículo se describe cómo realizar la implementación condicional de un recurso en una plantilla de Azure Resource Manager (plantilla de ARM).
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: 409d258d7dfe3ed186e5cf97cc0dbe6dc149b849
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8be42b4e57e628e41afa5cd914f9dcf72ebe4ab7
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101741181"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736959"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Implementación condicional en las plantillas de ARM
 
@@ -58,7 +58,7 @@ resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = if (deployZone) {
 
 ---
 
-Para obtener un ejemplo más complejo, consulte el [servidor lógico de Azure SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server).
+Para obtener un ejemplo más complejo, consulte el [servidor lógico de Azure SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sql/sql-logical-server).
 
 ## <a name="new-or-existing-resource"></a>Recurso nuevo o existente
 
@@ -138,7 +138,7 @@ resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting =
 
 Cuando el parámetro `newOrExisting` está establecido en **new**, la condición se evalúa como true. Se implementa la cuenta de almacenamiento. Sin embargo, cuando `newOrExisting` está establecido **existing**, la condición se evalúa como false y no se implementa la cuenta de almacenamiento.
 
-Para una plantilla de ejemplo completo que usa el elemento `condition`, consulte [VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) (Máquina virtual con una red virtual nueva o existente, almacenamiento y dirección IP pública).
+Para una plantilla de ejemplo completo que usa el elemento `condition`, consulte [VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-new-or-existing-conditions) (Máquina virtual con una red virtual nueva o existente, almacenamiento y dirección IP pública).
 
 ## <a name="runtime-functions"></a>Funciones en tiempo de ejecución
 

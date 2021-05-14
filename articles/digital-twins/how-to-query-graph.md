@@ -8,33 +8,35 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 6d15e2b8bfcddfd1f554ab2a27083fe5256e9e2b
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 52adba94650c09f731cfb6142852b28a0e3f3906
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226335"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288657"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta del grafo gemelo de Azure Digital Twins
 
-En este artículo se ofrecen ejemplos de consultas e instrucciones más detalladas sobre el uso del **lenguaje de consultas de Azure Digital Twins** para consultar un [grafo de gemelos](concepts-twins-graph.md) para obtener información. (Para obtener una introducción al lenguaje de consulta y una lista completa de sus características, vea [*Conceptos: lenguaje de consulta*](concepts-query-language.md)).
+En este artículo se ofrecen ejemplos de consultas e instrucciones sobre el uso del **lenguaje de consultas de Azure Digital Twins** para consultar un [grafo de gemelos](concepts-twins-graph.md) para obtener información. (Para obtener una introducción al lenguaje de consulta, consulte [Conceptos: lenguaje de consulta](concepts-query-language.md)).
 
-Este artículo comienza con algunas consultas de ejemplo que muestran la estructura del lenguaje de consulta y las operaciones de consulta habituales para los gemelos digitales. Luego, se describe cómo ejecutar las consultas una vez escritas, mediante [Query API](/rest/api/digital-twins/dataplane/query) de Azure Digital Twins o un [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis).
+Contiene consultas de ejemplo que muestran la estructura del lenguaje de consulta y las operaciones de consulta habituales para los gemelos digitales. También describe cómo ejecutar las consultas una vez escritas, mediante [Query API](/rest/api/digital-twins/dataplane/query) de Azure Digital Twins o un [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis).
 
 > [!NOTE]
 > Si ejecuta las consultas de ejemplo siguientes con la llamada a una API o un SDK, deberá condensar el texto de la consulta en una sola línea.
+
+[!INCLUDE [digital-twins-query-reference.md](../../includes/digital-twins-query-reference.md)]
 
 ## <a name="show-all-digital-twins"></a>Mostrar todos los gemelos digitales
 
 Esta es la consulta básica que devolverá una lista de todos los gemelos digitales de la instancia:
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="GetAllTwins":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="GetAllTwins":::
 
 ## <a name="query-by-property"></a>Consulta por propiedad
 
 Obtenga instancias de Digital Twins por **propiedades** (incluidos el identificador y los metadatos):
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty1":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByProperty1":::
 
 Como se muestra en la consulta anterior, el identificador de un gemelo digital se consulta mediante el campo de metadatos `$dtId`.
 
@@ -43,23 +45,23 @@ Como se muestra en la consulta anterior, el identificador de un gemelo digital s
 
 También puede obtener instancias de Digital Twins en función de **si una propiedad determinada está definida**. Esta es una consulta que obtiene instancias de Digital Twins que tienen una propiedad *Location* definida:
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty2":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByProperty2":::
 
 Esto le puede ayudar a obtener instancias de Digital Twins por sus propiedades de *etiqueta*, como se describe en [Incorporación de etiquetas a gemelos digitales](how-to-use-tags.md). Esta es una consulta que obtiene todas las instancias de Digital Twins etiquetadas con *red*:
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags1":::
 
 También puede obtener instancias de Digital Twins en función del **tipo de una propiedad**. Esta es una consulta que obtiene instancias de Digital Twins cuya propiedad *Temperature* es un número:
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty3":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByProperty3":::
 
 >[!TIP]
 > Si una propiedad es de tipo `Map`, puede usar las claves y los valores de mapa directamente en la consulta, de la siguiente manera:
-> :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty4":::
+> :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByProperty4":::
 
 ## <a name="query-by-model"></a>Consulta por modelo
 
-El operador `IS_OF_MODEL` se puede usar para filtrar en función del [**modelo**](concepts-models.md) de la instancia de Digital Twins.
+El operador `IS_OF_MODEL` se puede utilizar para filtrar en función del [modelo](concepts-models.md) del gemelo.
 
 Tiene en cuenta la [herencia](concepts-models.md#model-inheritance) y el [control de versiones](how-to-manage-model.md#update-models) del modelo, y se evalúa como **true** para un gemelo dado si este cumple cualquiera de estas condiciones:
 
@@ -73,22 +75,22 @@ Por ejemplo, si consulta los gemelos del modelo `dtmi:example:widget;4`, la cons
 El uso más simple de `IS_OF_MODEL` solo toma un parámetro `twinTypeName`: `IS_OF_MODEL(twinTypeName)`.
 A continuación, se muestra un ejemplo de consulta que pasa un valor en este parámetro:
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByModel1":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByModel1":::
 
 Para especificar una colección gemela para buscar cuando hay más de uno (como cuando se usa `JOIN`), agregue el parámetro `twinCollection`: `IS_OF_MODEL(twinCollection, twinTypeName)`.
 A continuación, se muestra un ejemplo de consulta que agrega un valor en este parámetro:
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByModel2":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByModel2":::
 
 Para realizar una coincidencia exacta, agregue el parámetro `exact`: `IS_OF_MODEL(twinTypeName, exact)`.
 A continuación, se muestra un ejemplo de consulta que agrega un valor en este parámetro:
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByModel3":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByModel3":::
 
 También puede pasar los tres argumentos juntos: `IS_OF_MODEL(twinCollection, twinTypeName, exact)`.
 A continuación, se muestra un ejemplo de consulta que especifica un valor para los tres parámetros:
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByModel4":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByModel4":::
 
 ## <a name="query-by-relationship"></a>Consulta por relación
 
@@ -105,7 +107,7 @@ En las siguientes secciones se proporcionan ejemplos de su aspecto.
 
 A continuación se muestra un ejemplo de consulta basada en relaciones. Este fragmento de código selecciona todos los gemelos digitales con una propiedad *ID* "ABC" y todos los gemelos digitales relacionados con estos gemelos digitales a través de una relación *contains*.
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationship1":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByRelationship1":::
 
 > [!NOTE]
 > El desarrollador no necesita poner en correlación esta operación `JOIN` con un valor de clave en la cláusula `WHERE` (ni especificar un valor de clave insertado con la definición de `JOIN`). El sistema calcula esta correlación automáticamente, ya que las propias propiedades de la relación identifican la entidad de destino.
@@ -116,11 +118,11 @@ Puede usar la estructura de consulta de la relación para identificar un gemelo 
 
 Por ejemplo, puede empezar con un gemelo de origen y seguir sus relaciones para buscar los gemelos de destino de las relaciones. Este es un ejemplo de una consulta que busca los gemelos de destino de las relaciones *feeds* que proceden del gemelo *source-twin*.
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationshipSource":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByRelationshipSource":::
 
 También puede empezar con el destino de la relación y realizar un seguimiento de la relación para encontrar al gemelo de origen. Este es un ejemplo de una consulta que busca el gemelo de origen de una relación *feeds* con el gemelo *target-twin*.
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationshipTarget":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByRelationshipTarget":::
 
 ### <a name="query-the-properties-of-a-relationship"></a>Consulta de las propiedades de una relación
 
@@ -129,7 +131,7 @@ El lenguaje de consultas de Azure Digital Twins permite filtrar y proyectar rela
 
 Como ejemplo, considere una relación *servicedBy* que tiene una propiedad *reportedCondition*. En la consulta siguiente, a esta relación se le asigna el alias "R" para hacer referencia a su propiedad.
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationship2":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByRelationship2":::
 
 En el ejemplo anterior, observe cómo *reportedCondition* es una propiedad de la propia relación *servicedBy* (NO de un gemelo digital que tiene una relación *servicedBy*).
 
@@ -141,27 +143,27 @@ Para consultar varios niveles de relaciones, use una única instrucción `FROM` 
 
 Este es un ejemplo de una consulta de varias combinaciones, que obtiene todas las bombillas contenidas en los paneles de luz de las salas 1 y 2.
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationship3":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByRelationship3":::
 
 ## <a name="count-items"></a>Recuento de elementos
 
 Puede contar el número de elementos de un conjunto de resultados mediante la cláusula `Select COUNT`:
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="SelectCount1":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="SelectCount1":::
 
-Agregue una cláusula `WHERE` para contar el número de elementos que cumplen determinados criterios. Estos son algunos ejemplos de recuento con un filtro aplicado basado en el tipo de modelo gemelo (para obtener más información sobre esta sintaxis, vea [*Consulta por modelo*](#query-by-model) a continuación):
+Agregue una cláusula `WHERE` para contar el número de elementos que cumplen determinados criterios. Estos son algunos ejemplos de recuento con un filtro aplicado basado en el tipo de modelo gemelo (para obtener más información sobre esta sintaxis, vea [Consulta por modelo](#query-by-model) a continuación):
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="SelectCount2":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="SelectCount2":::
 
 También puede usar `COUNT` junto con la cláusula `JOIN`. Esta es una consulta que cuenta todas las bombillas incluidas en los paneles de luz de los salones 1 y 2:
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="SelectCount3":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="SelectCount3":::
 
 ## <a name="filter-results-select-top-items"></a>Resultados del filtro: seleccionar elementos principales
 
 Puede seleccionar los diversos elementos "principales" en una consulta mediante la cláusula `Select TOP`.
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="SelectTop":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="SelectTop":::
 
 ## <a name="filter-results-specify-return-set-with-projections"></a>Resultados del filtro: especificación del conjunto de devoluciones con proyecciones
 
@@ -172,25 +174,25 @@ El uso de las proyecciones en la instrucción `SELECT` permite elegir las column
 
 Este es un ejemplo de una consulta que usa una proyección para devolver gemelos y relaciones. La siguiente consulta proyecta los valores *Consumidor*, *Fábrica* y *Perimetral* de un escenario en el que una *Fábrica* con un identificador de *ABC* está relacionado con el *Consumidor* mediante una relación de *Factory.customer*, y esa relación se presenta como *Perimetral*.
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="Projections1":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections1":::
 
 También puede usar la proyección para devolver una propiedad de un gemelo. La siguiente consulta proyecta la propiedad *Nombre* de los *Consumidores* que están relacionados con la *Fábrica* con un identificador de *ABC* mediante una relación de *Factory.customer*.
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="Projections2":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections2":::
 
 También puede usar la proyección para devolver una propiedad de una relación. Al igual que en el ejemplo anterior, la siguiente consulta proyecta la propiedad *Nombre* de los *Consumidores* relacionados con la *Fábrica* con un identificador de *ABC* mediante una relación de *Factory.customer*; pero ahora también devuelve dos propiedades de esa relación, *Prop1* y *prop2*. Para ello, se asigna un nombre a la relación *Perimetral* y se recopilan sus propiedades.  
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="Projections3":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections3":::
 
 También puede utilizar alias para simplificar las consultas con proyección.
 
 La siguiente consulta realiza las mismas operaciones que el ejemplo anterior, pero asigna a los nombres de propiedades los alias `consumerName`, `first`, `second` y `factoryArea`.
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="Projections4":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections4":::
 
 Esta es una consulta similar que consulta el mismo conjunto que en el caso anterior, pero solo proyecta la propiedad *Consumer.name* como `consumerName` y proyecta la *Fábrica* completa como gemela.
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="Projections5":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections5":::
 
 ## <a name="build-efficient-queries-with-the-in-operator"></a>Creación de consultas eficientes con el operador IN
 
@@ -200,7 +202,7 @@ Por ejemplo, considere un escenario en el que *Buildings* contenga a *Floors* y 
 
 1. Busque los pisos en el edificio con la relación `contains`.
 
-    :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="INOperatorWithout":::
+    :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="INOperatorWithout":::
 
 2. Para buscar las habitaciones, en lugar de tener que considerar los pisos uno por uno y ejecutar una consulta `JOIN` para buscar las habitaciones de cada uno, puede realizar consultas con una colección de los pisos del edificio (con el nombre *Floor* en la consulta siguiente).
 
@@ -212,22 +214,22 @@ Por ejemplo, considere un escenario en el que *Buildings* contenga a *Floors* y 
     
     En la consulta:
     
-    :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="INOperatorWith":::
+    :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="INOperatorWith":::
 
 ## <a name="other-compound-query-examples"></a>Otros ejemplos de consultas compuestas
 
 Puede **combinar** cualquiera de los tipos de consulta anteriores mediante operadores de combinación con el fin de incluir más detalles en una sola consulta. A continuación se muestran algunos ejemplos adicionales de consultas compuestas que realizan consultas para más de un tipo de descriptor de instancia de Digital Twins a la vez.
 
 * De entre los dispositivos que tiene *Room 123*, se devuelven los dispositivos MxChip que tienen el rol de operador.
-    :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="OtherExamples1":::
+    :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="OtherExamples1":::
 * Se obtienen las instancias de Digital Twins que tienen una relación denominada *Contains* con otra instancia que tiene un identificador *id1*
-    :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="OtherExamples2":::
+    :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="OtherExamples2":::
 * Se obtienen todas las salas de este modelo de sala contenidos en *floor11*
-    :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="OtherExamples3":::
+    :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="OtherExamples3":::
 
 ## <a name="run-queries-with-the-api"></a>Ejecución de consultas con la API
 
-Una vez que haya decidido una cadena de consulta, puede ejecutarla realizando una llamada a [**Query API**](/rest/api/digital-twins/dataplane/query).
+Una vez que haya decidido una cadena de consulta, puede ejecutarla realizando una llamada a la [API de consulta](/rest/api/digital-twins/dataplane/query).
 
 Puede llamar a la API directamente, o bien usar uno de los [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) disponibles para Azure Digital Twins.
 

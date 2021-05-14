@@ -4,16 +4,16 @@ description: Aprenda a usar un recurso compartido de archivos de Azure con Windo
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e64b7efdd430287a7a3a969c5bf62b0c0e2aec9c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e864dcaa2a611746ae813a4f0adf8409fbc50871
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94626901"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789796"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden usar sin problemas en Windows y Windows Server. En este artículo se describen los aspectos que se deben tener en cuenta al usar un recurso compartido de archivos de Azure con Windows y Windows Server.
@@ -48,7 +48,7 @@ Asegúrese de que el puerto 445 esté abierto: el protocolo SMB requiere que est
 ## <a name="using-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
 Para usar un recurso compartido de archivos de Azure con Windows, debe montarlo, lo que significa asignarle una letra de unidad o una ruta de acceso a un punto de montaje, o acceder a él mediante su [ruta de acceso UNC](/windows/win32/fileio/naming-a-file). 
 
-En este artículo se usa la clave de la cuenta de almacenamiento para tener acceso al recurso compartido de archivos. Una clave de cuenta de almacenamiento es una clave de administrador para una cuenta de almacenamiento, lo que incluye los permisos de administrador de todos los archivos y carpetas dentro de un recurso compartido de archivos al que accede, y de todos los recursos compartidos de archivos y otros recursos de almacenamiento (blobs, colas, tablas, etc.) contenidos en la cuenta de almacenamiento. Si esto no es suficiente para la carga de trabajo, se puede usar [Azure File Sync](storage-sync-files-planning.md), o bien se puede usar la [autenticación basada en identidad a través de SMB](storage-files-active-directory-overview.md).
+En este artículo se usa la clave de la cuenta de almacenamiento para tener acceso al recurso compartido de archivos. Una clave de cuenta de almacenamiento es una clave de administrador para una cuenta de almacenamiento, lo que incluye los permisos de administrador de todos los archivos y carpetas dentro de un recurso compartido de archivos al que accede, y de todos los recursos compartidos de archivos y otros recursos de almacenamiento (blobs, colas, tablas, etc.) contenidos en la cuenta de almacenamiento. Si esto no es suficiente para la carga de trabajo, se puede usar [Azure File Sync](../file-sync/file-sync-planning.md), o bien se puede usar la [autenticación basada en identidad a través de SMB](storage-files-active-directory-overview.md).
 
 Un patrón común para elevar y desplazar aplicaciones de línea de negocio (LOB) que esperan un recurso compartido de archivos de SMB es usar un recurso compartido de archivos de Azure como alternativa a ejecutar un servidor de archivos de Windows dedicado en una máquina virtual de Azure. Un aspecto importante que se debe tener en cuenta para migrar correctamente una aplicación de línea de negocio para usar un recurso compartido de archivos de Azure es que muchas de estas aplicaciones se ejecutan en el contexto de una cuenta de servicio dedicada con permisos de sistema limitados y no en la cuenta administrativa de la máquina virtual. Por lo tanto, debe asegurarse de montar o guardar las credenciales del recurso compartido de archivos de Azure desde el contexto de la cuenta de servicio y no de la cuenta administrativa.
 
@@ -63,7 +63,7 @@ Para obtener este script:
 1. Seleccione **Recursos compartidos de archivos**.
 1. Seleccione el recurso compartido de archivos que desea montar.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="ejemplo":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="Captura de pantalla de la hoja de recursos compartidos de archivos con el recurso compartido de archivos resaltado.":::
 
 1. Seleccione **Conectar**.
 
@@ -72,7 +72,7 @@ Para obtener este script:
 1. Seleccione la letra de unidad en la que montar el recurso compartido.
 1. Copie el script proporcionado.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Texto de ejemplo":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Captura de pantalla de la hoja de conexión con el botón de copia en el script resaltado.":::
 
 1. Pegue el script en un shell del host en el que desea montar el recurso compartido de archivos y ejecútelo.
 

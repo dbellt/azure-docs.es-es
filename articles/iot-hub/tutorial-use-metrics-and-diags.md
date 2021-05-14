@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: 099b7f4e812e92503c7ed8e3eb733f2e49ccd8b9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 96a9f7c50f3e30d86497c7a612ddda248db3f703
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107768078"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865700"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Tutorial: Configuración y uso de métricas y registros con un centro de IoT
 
@@ -44,7 +44,7 @@ En este tutorial se realizan las siguientes tareas:
 
 - Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-- Necesita el SDK de .NET Core 2.1, o una versión posterior, en la máquina de desarrollo. Puede descargar el SDK de .NET Core para varias plataformas desde [.NET](https://www.microsoft.com/net/download/all).
+- Necesita el SDK de .NET Core 2.1, o una versión posterior, en la máquina de desarrollo. Puede descargar el SDK de .NET Core para varias plataformas desde [.NET](https://dotnet.microsoft.com/download).
 
   Puede verificar la versión actual de C# en el equipo de desarrollo con el comando siguiente:
 

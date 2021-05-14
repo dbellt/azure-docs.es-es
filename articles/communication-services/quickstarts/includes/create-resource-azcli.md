@@ -4,17 +4,17 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 22a9cf3338f422341928a77f2bf14c497aa2ba31
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 38efd6645b1c1eb88cc8424654a54a682e69852e
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563790"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293267"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/dotnet/).
-- Instalación de la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli) 
+- Instalación de la [CLI de Azure](/cli/azure/install-azure-cli-windows?tabs=azure-cli) 
 
 ## <a name="create-azure-communication-resource"></a>Creación de un recurso de Azure Communication Services
 
@@ -51,4 +51,4 @@ az communication show --name "<communicationName>" --resource-group "<resourceGr
 az communication show --name "<communicationName>" --resource-group "<resourceGroup>" --subscription "<subscriptionID>"
 ```
 
-Para información sobre comandos adicionales, consulte [az communication](/cli/azure/ext/communication/communication).
+Para información sobre comandos adicionales, consulte [az communication](/cli/azure/communication).

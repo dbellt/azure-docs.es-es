@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d41d7d45fd11f2dc26fc50182a7649b23cd21196
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 203ea5bb372c3afc77eb62508d1c95dc5f00bb4b
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103008763"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315730"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Adición de un flujo de trabajo de aprobaciones personalizado al registro de autoservicio
 
@@ -28,7 +28,7 @@ En este artículo se proporciona un ejemplo de cómo realizar la integración co
 - Desencadenar una revisión manual. Si se aprueba la solicitud, el sistema de aprobación utiliza Microsoft Graph para aprovisionar la cuenta de usuario. El sistema de aprobación también puede notificar al usuario que se ha creado su cuenta.
 
 > [!IMPORTANT]
->**A partir del 4 de enero de 2021**, Google [retira la compatibilidad con el inicio de sesión en WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Si usa la federación de Google o el registro de autoservicio con Gmail, debería [comprobar la compatibilidad de las aplicaciones nativas de línea de negocio](google-federation.md#deprecation-of-webview-sign-in-support).
+> **A partir del segundo semestre de 2021,** Google empezará a [retirar la compatibilidad con el inicio de sesión en vista web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si usa la federación de Google para las invitaciones de B2B o [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), o si usa el registro de autoservicio con Gmail, los usuarios de Google Gmail no podrán iniciar sesión si las aplicaciones autentican a los usuarios con una vista web insertada. [Más información](google-federation.md#deprecation-of-web-view-sign-in-support).
 
 ## <a name="register-an-application-for-your-approval-system"></a>Registro de una aplicación para el sistema de aprobación
 

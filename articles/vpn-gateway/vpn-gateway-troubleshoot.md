@@ -1,18 +1,19 @@
 ---
-title: 'Azure VPN Gateway: Solución de problemas de configuraciones y conexiones'
+title: solución de problemas de configuraciones y conexiones
+titleSuffix: Azure VPN Gateway
 description: En este artículo encontrará vínculos a otros artículos que le ayudarán a solucionar problemas con la configuración y las conexiones de VPN Gateway, y a validar el rendimiento.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 01/31/2018
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: a74109594eec87dddf637542f6d85091ed49231b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 19edbd41617a01e54cd14ff7f2991763b2da9bba
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720260"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204502"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>Solución de problemas de VPN Gateway
 

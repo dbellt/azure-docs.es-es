@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 0d6d5a08ea85ebb666acc0336f1e1d7ec5e097da
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e82e9fc93bf8c816fcbfd5869156745dea630313
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044675"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517562"
 ---
 # <a name="claim-sets"></a>Conjuntos de notificaciones
 
@@ -30,11 +30,66 @@ Las notificaciones generadas en el proceso de atestación de enclaves mediante M
 
 Notificaciones que deben usar los creadores de directivas para definir las reglas de autorización en una directiva de atestación de SGX:
 
-- **x-ms-sgx-is-debuggable**: valor booleano que indica si el enclave tiene habilitada la depuración o no
-- **x-ms-sgx-product-id**: valor de identificador del producto del enclave de SGX 
-- **sgx-mrsigner**: valor hexadecimal codificado del campo "mrsigner" de la oferta.
-- **x-ms-sgx-mrenclave**: valor hexadecimal codificado del campo "mrenclave" de la oferta.
-- **x-ms-sgx-svn**: número de versión de seguridad codificado en la oferta. 
+- **x-ms-sgx-is-debuggable**: valor booleano que indica si el enclave tiene o no habilitada la depuración.
+  
+  Los enclaves de SGX se pueden cargar con la depuración deshabilitada o habilitada. Cuando la marca se establece en true en el enclave, se habilitan las características de depuración para el código del enclave. Esto incluye la posibilidad de acceder a la memoria del enclave. Por lo tanto, se recomienda establecer la marca en true solo con fines de desarrollo. Si está habilitada en el entorno de producción, las garantías de seguridad de SGX no se conservarán.
+  
+  Los usuarios de Azure Attestation pueden usar la directiva de atestación para comprobar si la depuración está deshabilitada para el enclave de SGX. Después de agregar la regla de directiva, se producirá un error en la atestación cuando un usuario malintencionado active la compatibilidad con la depuración para obtener acceso al contenido del enclave.
+
+- **x-ms-sgx-product-id**: un valor entero, que indica el identificador de producto del enclave de SGX.
+
+  El autor del enclave asigna un identificador de producto a cada enclave. Dicho identificador permite al autor del enclave segmentar los enclaves firmados con el mismo valor MRSIGNER. Al agregar una regla de validación en la directiva de atestación, los clientes pueden comprobar si están usando los enclaves previstos. Si el identificador de producto del enclave no coincide con el valor publicado por el autor del enclave, se producirá un error en la atestación.
+
+- **x-ms-sgx-mrsigner**: valor de cadena que identifica al autor del enclave de SGX.
+
+  MRSIGNER es el hash de la clave pública del autor del enclave que se usa para firmar el archivo binario del enclave. Al validar MRSIGNER mediante una directiva de atestación, los clientes pueden comprobar si se ejecutan archivos binarios de confianza dentro de un enclave. Cuando la notificación de directiva no coincide con el valor MRSIGNER del autor del enclave, significa que el archivo binario del enclave no está firmado por un origen de confianza y se produce un error en la atestación.
+  
+  Cuando, por motivos de seguridad, el autor del enclave prefiere rotar MRSIGNER, la directiva de Azure Attestation debe actualizarse para admitir los valores de MRSIGNER nuevos y antiguos antes de que se actualicen los archivos binarios. De lo contrario, las comprobaciones de autorización producirán errores de atestación.
+  
+  La directiva de atestación debe actualizarse con el formato siguiente. 
+ 
+  #### <a name="before-key-rotation"></a>Antes de la rotación de claves
+ 
+   ```
+    version= 1.0;
+    authorizationrules 
+    {
+    [ type=="x-ms-sgx-is-debuggable", value==false]&&
+    [ type=="x-ms-sgx-mrsigner", value=="mrsigner1"] => permit(); 
+    };
+  ```
+
+   #### <a name="during-key-rotation"></a>Durante la rotación de claves
+
+    ```
+      version= 1.0;
+      authorizationrules 
+      {
+      [ type=="x-ms-sgx-is-debuggable", value==false]&&
+      [ type=="x-ms-sgx-mrsigner", value=="mrsigner1"] => permit(); 
+      [ type=="x-ms-sgx-is-debuggable", value==false ]&& 
+      [ type=="x-ms-sgx-mrsigner", value=="mrsigner2"] => permit(); 
+      };
+    ```
+
+   #### <a name="after-key-rotation"></a>Después de la rotación de claves
+
+    ```
+      version= 1.0;
+      authorizationrules 
+      { 
+      [ type=="x-ms-sgx-is-debuggable", value==false]&& 
+      [ type=="x-ms-sgx-mrsigner", value=="mrsigner2"] => permit(); 
+      };
+    ```
+
+- **x-ms-sgx-mrenclave**: valor de cadena que identifica el código y los datos cargados en la memoria del enclave. 
+
+  MRENCLAVE es una de las medidas de enclave que se pueden usar para comprobar los archivos binarios del enclave. Es el hash del código que se ejecuta dentro del enclave. La medida cambia con cada cambio en el código binario del enclave. Al validar MRENCLAVE a través de una directiva de atestación, los clientes pueden comprobar si los archivos binarios previstos se ejecutan dentro de un enclave. Sin embargo, como se espera que MRENCLAVE cambie con frecuencia con cualquier modificación del código existente, por mínima que sea, se recomienda comprobar los archivos binarios del enclave mediante la validación de MRSIGNER en una directiva de atestación.
+
+- **x-ms-sgx-svn**: un valor entero que indica el número de versión de seguridad del enclave de SGX.
+
+  El autor del enclave asigna un número de versión de seguridad (SVN) a cada versión del enclave de SGX. Cuando se detecta un problema de seguridad en el código del enclave, el autor del enclave aumenta el valor de SVN después de corregir la vulnerabilidad. Para evitar la interacción con código de enclave poco seguro, los clientes pueden agregar una regla de validación en la directiva de atestación. Si el SVN del código del enclave no coincide con la versión recomendada por el autor del enclave, se producirá un error en la atestación.
 
 Las siguientes notificaciones se consideran en desuso, pero se admiten por completo y seguirán estando incluidas en el futuro. Se recomienda usar los nombres de notificaciones que no estén en desuso.
 

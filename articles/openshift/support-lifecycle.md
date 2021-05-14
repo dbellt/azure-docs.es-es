@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 03/06/2021
-ms.openlocfilehash: 35cbaf2b6d2618d116d2dd322ae5ac28f578cecc
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 22ae9bdbee4b9d6f66d08d0e3ffc37675bc5d3da
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303549"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143564"
 ---
 # <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Ciclo de vida del soporte técnico de Red Hat OpenShift en Azure 4
 
@@ -114,7 +114,7 @@ No se admite la reversión del clúster a una versión anterior. Solo se admite 
 
 **¿Qué significa "fuera de soporte técnico"?**
 
-Si el clúster de ARO ejecuta una versión de OpenShift que no está en la lista de versiones admitidas o usa una [configuración de clúster no admitida](https://docs.microsoft.com/azure/openshift/support-policies-v4), dicho clúster queda “fuera del soporte técnico”. Como resultado:
+Si el clúster de ARO ejecuta una versión de OpenShift que no está en la lista de versiones admitidas o usa una [configuración de clúster no admitida](./support-policies-v4.md), dicho clúster queda “fuera del soporte técnico”. Como resultado:
 - Al abrir una incidencia de soporte técnico para el clúster, se le pedirá que lo actualice con una versión compatible antes de recibir el soporte, a menos que esté en el período de gracia de 30 días desde la finalización del soporte técnico de la versión. 
 - Las garantías de tiempo de ejecución o contrato de nivel de servicio para clústeres fuera del soporte técnico quedan anuladas.
 - Los clústeres fuera del soporte técnico se revisarán dentro de lo posible.

@@ -1,17 +1,17 @@
 ---
 title: 'Azure Data Factory: Preguntas más frecuentes '
 description: Obtenga respuestas a las preguntas más frecuentes acerca de Azure Data Factory.
-author: dcstwh
-ms.author: weetok
+author: ssabat
+ms.author: susabat
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: 2027e3555a7eb616ad024ec00bf6b0f8f452167c
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.date: 04/29/2021
+ms.openlocfilehash: d3cc2d73fb3f1076af62b8ea028260bfd5e600ed
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258527"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108317998"
 ---
 # <a name="azure-data-factory-faq"></a>Preguntas más frecuentes de Azure Data Factory
 
@@ -231,6 +231,94 @@ E entorno de ejecución de integración autohospedado es una construcción de ca
 ### <a name="does-the-data-flow-compute-engine-serve-multiple-tenants"></a>¿El motor de proceso de flujo de datos atiende a varios inquilinos?
 
 Los clústeres nunca se comparten. Garantizamos el aislamiento de cada trabajo ejecutado en las ejecuciones en producción. En caso de los escenarios de depuración, una persona obtiene un clúster, lo inicia y todos los depuradores irán a él.
+
+### <a name="is-there-a-way-to-write-attributes-in-cosmos-db-in-the-same-order-as-specified-in-the-sink-in-adf-data-flow"></a>¿Hay alguna manera de escribir atributos en cosmos DB en el mismo orden que se especifica en el receptor en el flujo de datos de ADF?    
+
+Para cosmos DB, el formato subyacente de cada documento es un objeto JSON que es un conjunto desordenado de pares nombre-valor, por lo que el orden no se puede reservar. El flujo de datos activa un clúster incluso en el entorno de ejecución de integración con un aviso de flujo de datos de configuración del período de vida de 15 minutos sobre período de vida y costos. Esto soluciona los problemas de rendimiento recogidos en el documento de [rendimiento del flujo de datos](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance#time-to-live).
+
+
+###  <a name="why-an-user-is-unable-to-use-data-preview-in-the-data-flows"></a>¿Por qué un usuario no puede usar la vista previa de datos en los flujos de datos?   
+
+Debe comprobar los permisos para el rol personalizado. Hay varias acciones implicadas en la vista previa de datos del flujo de datos. Empiece por comprobar el tráfico de red durante la depuración en el explorador. Siga todas las acciones; para más información, consulte la información sobre el [proveedor de recursos](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdatafactory).
+
+### <a name="does-the-data-flow-compute-engine-serve-multiple-tenants"></a>¿El motor de proceso de flujo de datos atiende a varios inquilinos?   
+
+Este documento de solución de problemas puede ayudar a resolver el problema de [varios inquilinos](https://docs.microsoft.com/azure/data-factory/frequently-asked-questions#does-the-data-flow-compute-engine-serve-multiple-tenants).
+
+
+###  <a name="in-adf-can-i-calculate-value-for-a-new-column-from-existing-column-from-mapping"></a>En ADF, ¿puedo calcular el valor de una nueva columna a partir de una columna existente de la asignación?  
+
+Puede usar la transformación de derivación en el flujo de datos de asignación para crear una nueva columna en la lógica que desee. Para crear una columna derivada, puede generar una nueva columna o actualizar una existente. En el cuadro de texto Columna, especifique la columna que está creando. Para reemplazar una columna existente en el esquema, puede usar la lista desplegable de columnas. Para generar la expresión de la columna derivada, haga clic en el cuadro de texto Escribir expresión. Puede empezar a escribir la expresión o abrir el generador de expresiones para crear la lógica.
+
+### <a name="why-mapping-data-flow-preview-failing-with-gateway-timeout"></a>¿Por qué la vista previa del flujo de datos de asignación da error con el tiempo de espera de la puerta de enlace? 
+
+Pruebe a usar un clúster más grande y aprovechar los límites de fila de la configuración de depuración en un valor más pequeño para reducir el tamaño de la salida de depuración.
+
+### <a name="how-to-parameterize-column-name-in-dataflow"></a>¿Cómo se puede parametrizar el nombre de columna en el flujo de datos?
+
+El nombre de columna se puede parametrizar de forma similar a otras propiedades. Al igual que en la columna derivada, el cliente puede usar **$ColumnNameParam = toString(byName($myColumnNameParamInData)).** Estos parámetros se pueden pasar desde la ejecución de la canalización hacia los flujos de datos.
+
+
+
+## <a name="wrangling-data-flow-data-flow-power-query"></a>Flujo de datos de limpieza y transformación (Power Query de flujo de datos)
+
+### <a name="what-are-the-supported-regions-for-wrangling-data-flow"></a>¿Cuáles son las regiones admitidas para el flujo de datos de limpieza y transformación?
+
+Data Factory está disponible en las [siguientes regiones](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
+La característica Power Query se está implantando en todas las regiones. Si la característica no está disponible en su región, póngase en contacto con el soporte técnico.
+
+### <a name="what-are-the-limitations-and-constraints-with-wrangling-data-flow-"></a>¿Cuáles son las limitaciones y restricciones con el flujo de datos de limpieza y transformación?
+
+Los nombres de los conjuntos de datos solo pueden contener caracteres alfanuméricos. Se admiten los siguientes almacenes de datos:
+
+* Conjunto de datos DelimitedText en Azure Blob Storage mediante la autenticación de clave de cuenta
+* Conjunto de datos DelimitedText de Azure Data Lake Storage gen2 con la clave de cuenta o autenticación de la entidad de servicio
+* Conjunto de datos de DelimitedText en Azure Data Lake Storage gen1 mediante la autenticación de la entidad de servicio
+* Azure SQL Database y Data Warehouse mediante la autenticación de SQL. Consulte los tipos de SQL admitidos a continuación. No hay compatibilidad con PolyBase o ensayo para el almacenamiento de datos.
+
+En este momento, la integración de Key Vault de servicio vinculado no se admite en los flujos de datos de limpieza y transformación.
+
+### <a name="what-is-the-difference-between-mapping-and-wrangling-data-flows"></a>¿Cuál es la diferencia entre los flujos de datos de asignación y de limpieza y transformación?
+
+Los flujos de datos de asignación proporcionan una manera de transformar los datos a escala sin necesidad de programar. Puede diseñar un trabajo de transformación de datos en el lienzo de flujos de datos realizando una serie de transformaciones. Comience realice todas las transformaciones que desee en el origen y, después, continúe con los pasos de transformación de datos. Complete el flujo de datos con un receptor para enviar los resultados a un destino. El flujo de datos de asignación es excelente para asignar y transformar datos con esquemas conocidos y desconocidos en los receptores y orígenes.
+
+Los flujos de datos de limpieza y transformación permite realizar tareas de preparación y exploración de datos ágiles mediante el editor de mashup de Power Query en línea a escala a través de la ejecución de Spark. Con el aumento de los lagos de datos, a veces solo necesita explorar un conjunto de datos o crear un conjunto de datos en el lago. No está asignando a un destino conocido. Los flujos de datos de limpieza y transformación se usan a menudo para escenarios de análisis basados en modelos menos formales.
+
+### <a name="what-is-the-difference-between-power-platform-dataflows-and-wrangling-data-flows"></a>¿Cuál es la diferencia entre los flujos de datos de Power Platform y los flujos de datos de limpieza y transformación?
+
+Los flujos de datos de Power Platform permiten a los usuarios importar y transformar datos de una amplia gama de orígenes de datos en Common Data Service y Azure Data Lake para crear aplicaciones de PowerApps, informes de Power BI o automatizaciones de flujo. Los flujos de datos de Power Platform usan las experiencias de preparación de datos de Power Query establecidas, similares a Power BI y Excel. Los flujos de entrada de Power Platform también permiten una reutilización sencilla dentro de una organización y controlan automáticamente la orquestación (por ejemplo, la actualización automática de los flujos de datos que dependen de otro flujo de entrada cuando se actualiza el primero).
+
+Azure Data Factory (ADF) es un servicio de integración de datos administrado que permite a los ingenieros de datos y al integrador de datos de componentes para crear flujos de trabajo de extracción, transformación y carga de datos (ETL) híbridos complejos y de extracción, carga y transformación (ELT). El flujo de datos de limpieza y transformación en ADF permite a los usuarios un entorno sin servidor ni código que simplifica la preparación de datos en la nube y lo escala a cualquier tamaño de datos, sin la necesidad de administración de infraestructura. Usa la tecnología de preparación de datos de Power Query (también utilizada en flujos de datos de Power Platform, Excel y Power BI) para preparar y dar forma a los datos. Creados para tratar todas las complejidades y desafíos a escala de la integración de macrodatos, los flujos de datos de limpieza y transformación permiten a los usuarios transformar rápidamente los datos a gran escala mediante la ejecución de Spark. Los usuarios pueden crear canalizaciones de datos resistentes en un entorno visual accesible con nuestra interfaz basada en el explorador y permitir que ADF se haga cargo de las complejidades de la ejecución de Spark. Cree programaciones para sus canalizaciones y supervise las ejecuciones del flujo de datos desde el portal de supervisión de ADF. Administre fácilmente los Acuerdos de Nivel de Servicio de la disponibilidad de los datos con la supervisión y las alertas de disponibilidad enriquecidas de ADF, y aproveche las funcionalidades incorporadas de integración continua e implementación para guardar y administrar sus flujos en un entorno administrado. Establezca alertas y vea planes de ejecución para validar que su lógica tenga el rendimiento esperado mientras optimiza sus flujos de datos.
+
+### <a name="supported-sql-types"></a>Tipos de SQL admitidos
+
+El flujo de datos de limpieza y transformación admite los siguientes tipos de datos en SQL. Obtendrá un error de validación para usar un tipo de datos que no se admite.
+
+* short
+* double
+* real
+* FLOAT
+* char
+* NCHAR
+* varchar
+* NVARCHAR
+* integer
+* int
+* bit
+* boolean
+* SMALLINT
+* TINYINT
+* bigint
+* long
+* text
+* date
+* datetime
+* datetime2
+* smalldatetime
+* timestamp
+* UNIQUEIDENTIFIER
+* Xml
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

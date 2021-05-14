@@ -3,14 +3,14 @@ title: Uso de los registros de Azure Monitor para supervisar clústeres de Azure
 description: Aprenda a usar los registros de Azure Monitor para supervisar trabajos que se ejecutan en un clúster de HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: seoapr2020, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: 0dfa89f50dedad41394cb77f1cca9b2dd3a65308
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7f828d5c0183cedca9c763eb2368d1cb460b713e
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104865543"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074122"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Uso de los registros de Azure Monitor para supervisar clústeres de HDInsight
 
@@ -102,7 +102,7 @@ Disable-AzHDInsightMonitoring -Name "<your-cluster>"
 
 ## <a name="enable-azure-monitor-using-azure-cli"></a>Habilitación de Azure Monitor mediante la CLI de Azure
 
-Puede habilitar los registros de Azure Monitor mediante el comando `[az hdinsight monitor enable`](/cli/azure/hdinsight/monitor#az-hdinsight-monitor-enable) de la CLI de Azure.
+Puede habilitar los registros de Azure Monitor mediante el comando `[az hdinsight monitor enable`](/cli/azure/hdinsight/monitor#az_hdinsight_monitor_enable) de la CLI de Azure.
 
 ```azurecli
 # set variables
@@ -117,7 +117,7 @@ az hdinsight monitor enable --name $cluster --resource-group $resourceGroup --wo
 az hdinsight monitor show --name $cluster --resource-group $resourceGroup
 ```
 
-Para deshabilitarlos, use el comando [`az hdinsight monitor disable`](/cli/azure/hdinsight/monitor#az-hdinsight-monitor-disable).
+Para deshabilitarlos, use el comando [`az hdinsight monitor disable`](/cli/azure/hdinsight/monitor#az_hdinsight_monitor_disable).
 
 ```azurecli
 az hdinsight monitor disable --name $cluster --resource-group $resourceGroup

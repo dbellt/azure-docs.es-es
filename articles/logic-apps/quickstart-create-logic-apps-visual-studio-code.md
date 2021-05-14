@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/24/2021
-ms.openlocfilehash: 03cfb49dabd5039453f84ef0e636d3948af70d8d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 04/23/2021
+ms.openlocfilehash: 0163b58017599ceb26f52f0e47cbc87e161f6ed2
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764844"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161254"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Inicio rápido: Creación y administración de definiciones de flujo de trabajo de aplicaciones lógicas mediante Visual Studio Code
 
@@ -224,24 +224,6 @@ Para revisar la aplicación lógica en Azure Portal, siga estos pasos:
 
    ![La nueva aplicación lógica en Azure Portal](./media/quickstart-create-logic-apps-visual-studio-code/published-logic-app-in-azure.png)
 
-<a name="disable-enable-logic-app"></a>
-
-## <a name="disable-or-enable-logic-app"></a>Deshabilitación o habilitación de la aplicación lógica
-
-En Visual Studio Code, si edita una aplicación lógica publicada y guarda los cambios, *sobrescribe* la aplicación ya implementada. Para evitar interrumpir la aplicación lógica en producción y minimizar la interrupción, desactive primero la aplicación lógica. A continuación, puede reactivar la aplicación lógica después de haber confirmado que todavía funciona.
-
-1. Si aún no ha iniciado sesión en su cuenta y suscripción de Azure desde dentro de Visual Studio Code, siga los [pasos anteriores para iniciar sesión ahora](#access-azure).
-
-1. En la ventana de Azure, en **Logic Apps**, expanda su suscripción a Azure para poder ver todas las aplicaciones lógicas de la suscripción.
-
-   1. Para deshabilitar la aplicación lógica que quiera, abra el menú de la aplicación lógica y seleccione **Deshabilitar**.
-
-      ![Deshabilitar la aplicación lógica](./media/quickstart-create-logic-apps-visual-studio-code/disable-published-logic-app.png)
-
-   1. Cuando esté listo para volver a activar la aplicación lógica, abra el menú de la aplicación lógica y seleccione **Habilitar**.
-
-      ![Habilitar la aplicación lógica](./media/quickstart-create-logic-apps-visual-studio-code/enable-published-logic-app.png)
-
 <a name="edit-logic-app"></a>
 
 ## <a name="edit-deployed-logic-app"></a>Edición de la aplicación lógica implementada
@@ -249,13 +231,13 @@ En Visual Studio Code, si edita una aplicación lógica publicada y guarda los 
 En Visual Studio Code, puede abrir y editar la definición de flujo de trabajo de una aplicación lógica ya implementada en Azure.
 
 > [!IMPORTANT] 
-> Antes de editar una aplicación lógica que se ejecuta activamente en producción, evite el riesgo de interrumpir esa aplicación lógica y minimice la interrupción mediante la [deshabilitación de la aplicación lógica en primer lugar](#disable-enable-logic-app).
+> Antes de editar una aplicación lógica que se ejecuta activamente en producción, evite el riesgo de interrumpir esa aplicación lógica y minimice la interrupción mediante la [deshabilitación de la aplicación lógica en primer lugar](#disable-enable-logic-apps).
 
 1. Si aún no ha iniciado sesión en su cuenta y suscripción de Azure desde dentro de Visual Studio Code, siga los [pasos anteriores para iniciar sesión ahora](#access-azure).
 
 1. En la ventana de Azure, en **Logic Apps**, expanda su suscripción de Azure y seleccione la aplicación lógica que quiera.
 
-1. En el menú de la aplicación lógica, seleccione **Abrir en el editor**. O bien, junto al nombre de la aplicación lógica, seleccione el icono de edición.
+1. Abra el menú de la aplicación lógica y seleccione **Abrir en el** . O bien, junto al nombre de la aplicación lógica, seleccione el icono de edición.
 
    ![Abrir el editor para la aplicación lógica existente](./media/quickstart-create-logic-apps-visual-studio-code/open-editor-existing-logic-app.png)
 
@@ -278,7 +260,7 @@ En Visual Studio Code, puede abrir y editar la definición de flujo de trabajo 
 En Visual Studio Code, puede abrir y revisar las versiones anteriores de la aplicación lógica. También puede promover una versión anterior a la versión actual.
 
 > [!IMPORTANT] 
-> Antes de modificar una aplicación lógica que se ejecuta activamente en producción, evite el riesgo de interrumpir esa aplicación lógica y minimice la interrupción mediante la [deshabilitación de la aplicación lógica en primer lugar](#disable-enable-logic-app).
+> Antes de modificar una aplicación lógica que se ejecuta activamente en producción, evite el riesgo de interrumpir esa aplicación lógica y minimice la interrupción mediante la [deshabilitación de la aplicación lógica en primer lugar](#disable-enable-logic-apps).
 
 1. En la ventana de Azure, en **Logic Apps**, expanda su suscripción a Azure para poder ver todas las aplicaciones lógicas de la suscripción.
 
@@ -307,6 +289,61 @@ En Visual Studio Code, puede abrir y revisar las versiones anteriores de la apl
       ![Confirmar la promoción de la versión anterior](./media/quickstart-create-logic-apps-visual-studio-code/confirm-promote-version.png)
 
       Visual Studio Code promueve la versión seleccionada a la versión actual y asigna un nuevo número a la versión promovida. La versión actual anterior aparece ahora bajo la versión promovida.
+
+<a name="disable-enable-logic-apps"></a>
+
+## <a name="disable-or-enable-logic-apps"></a>Deshabilitación o habilitación de la aplicaciones lógicas
+
+En Visual Studio Code, si edita una aplicación lógica publicada y guarda los cambios, *sobrescribe* la aplicación ya implementada. Para evitar interrumpir la aplicación lógica en producción y minimizar la interrupción, deshabilite primero la aplicación lógica. Luego, puede reactivar la aplicación lógica, después de haber confirmado que aún funciona.
+
+> [!NOTE]
+> La deshabilitación de una aplicación lógica tiene los siguientes efectos en las instancias de flujo de trabajo:
+>
+> * El servicio Logic Apps continúa todas las ejecuciones en curso y pendientes hasta que finalizan. Según el volumen o el trabajo pendiente, este proceso puede tardar en completarse.
+>
+> * El servicio Logic Apps no crea ni ejecuta nuevas instancias de flujo de trabajo.
+>
+> * El desencadenador no se activará la próxima vez que se cumplan sus condiciones. Sin embargo, el estado del desencadenador recuerda el punto en el que se detuvo la aplicación lógica. Por lo tanto, si la reactiva, el desencadenador se activará para todos los elementos no procesados desde la última ejecución.
+>
+>   Para evitar que el desencadenador se active con elementos no procesados desde la última ejecución, borre el estado del desencadenador antes de reactivar la aplicación lógica:
+>
+>   1. En la aplicación lógica, edite cualquier parte del desencadenador del flujo de trabajo.
+>   1. Guarde los cambios. Este paso restablece el estado actual del desencadenador.
+>   1. Reactive la aplicación lógica.
+
+1. Si aún no ha iniciado sesión en su cuenta y suscripción de Azure desde dentro de Visual Studio Code, siga los [pasos anteriores para iniciar sesión ahora](#access-azure).
+
+1. En la ventana de Azure, en **Logic Apps**, expanda su suscripción a Azure para poder ver todas las aplicaciones lógicas de la suscripción.
+
+   1. Para deshabilitar la aplicación lógica que desee, abra el menú de la aplicación lógica y seleccione **Deshabilitar**.
+
+      ![Deshabilitar la aplicación lógica](./media/quickstart-create-logic-apps-visual-studio-code/disable-published-logic-app.png)
+
+   1. Cuando esté listo para volver a activar la aplicación lógica, abra el menú de la aplicación lógica y seleccione **Habilitar**.
+
+      ![Habilitar la aplicación lógica](./media/quickstart-create-logic-apps-visual-studio-code/enable-published-logic-app.png)
+
+<a name="delete-logic-apps"></a>
+
+## <a name="delete-logic-apps"></a>Eliminación de aplicaciones lógicas
+
+La eliminación de una aplicación lógica afecta a las instancias de flujo de trabajo de las maneras siguientes:
+
+* El servicio Logic Apps hace todo lo posible por cancelar todas las ejecuciones en curso y pendientes.
+
+  Incluso con un gran volumen o trabajo pendiente, la mayoría de las ejecuciones se cancelan antes de que finalizan o se inician. Sin embargo, el proceso de cancelación puede tardar en completarse. Mientras tanto, pueden seleccionarse algunas ejecuciones para su ejecución mientras el servicio se encarga del proceso de cancelación.
+
+* El servicio Logic Apps no crea ni ejecuta nuevas instancias de flujo de trabajo.
+
+* Si elimina un flujo de trabajo y, luego, vuelve a crearlo, este no tendrá los mismos metadatos que el eliminado. Tiene que volver a guardar cualquier flujo de trabajo que haya llamado al eliminado. De este modo, el autor de la llamada obtiene la información correcta sobre el flujo de trabajo que se ha vuelto a crear. De lo contrario, las llamadas a este flujo de trabajo generarán el error `Unauthorized`. Este comportamiento también se aplica a los flujos de trabajo que usan artefactos en cuentas de integración y a flujos de trabajo que llaman a funciones de Azure.
+
+1. Si aún no ha iniciado sesión en su cuenta y suscripción de Azure desde dentro de Visual Studio Code, siga los [pasos anteriores para iniciar sesión ahora](#access-azure).
+
+1. En la ventana de Azure, en **Logic Apps**, expanda su suscripción a Azure para poder ver todas las aplicaciones lógicas de la suscripción.
+
+1. Busque la aplicación lógica que desee eliminar, abra el menú de la aplicación lógica y seleccione **Eliminar**.
+
+   ![Eliminación de la aplicación lógica](./media/quickstart-create-logic-apps-visual-studio-code/delete-logic-app.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

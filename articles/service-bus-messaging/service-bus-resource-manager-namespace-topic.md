@@ -8,15 +8,14 @@ ms.date: 06/23/2020
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.custom:
-- devx-track-azurecli
 - devx-track-azurepowershell
 - mode-arm
-ms.openlocfilehash: 9c235f8e056bf185267aa0bb493b71b897f3c510
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: aa0435e1d88c960429bb53087599e98e22e17154
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534915"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738885"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Inicio rápido: Creación de un espacio de nombres de Service Bus con un tema y una suscripción mediante una plantilla de Azure Resource Manager
 
@@ -28,12 +27,12 @@ Para ver la plantilla completa, consulte la plantilla de [espacio de nombres de 
 
 > [!NOTE]
 > Las siguientes plantillas de Azure Resource Manager están disponibles para su descarga e implementación.
-> 
+>
 > * [Creación de un espacio de nombres de Service Bus](service-bus-resource-manager-namespace.md)
 > * [Creación de un espacio de nombres de Service Bus con cola](service-bus-resource-manager-namespace-queue.md)
 > * [Creación de un espacio de nombres de Service Bus con regla de autorización y cola](service-bus-resource-manager-namespace-auth-rule.md)
 > * [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md) (Creación de un espacio de nombres de Service Bus con tema, suscripción y regla)
-> 
+>
 > Para buscar las plantillas más recientes, visite la galería de [Plantillas de inicio rápido de Azure][Azure Quickstart Templates] y busque **Service Bus**.
 
 ## <a name="what-do-you-deploy"></a>¿Qué puede implementar?
@@ -44,7 +43,7 @@ Los [temas y suscripciones de Service Bus](service-bus-queues-topics-subscriptio
 
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
 
-[![Implementación en Azure](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-and-subscription%2Fazuredeploy.json)
+[![Implementación en Azure](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.servicebus%2Fservicebus-create-topic-and-subscription%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parámetros
 
@@ -87,11 +86,11 @@ El nombre de la suscripción creada en el espacio de nombres de Service Bus.
 La versión de la API de Service Bus de la plantilla.
 
 ```json
-"serviceBusApiVersion": { 
-       "type": "string", 
-       "defaultValue": "2017-04-01", 
-       "metadata": { 
-           "description": "Service Bus ApiVersion used by the template" 
+"serviceBusApiVersion": {
+       "type": "string",
+       "defaultValue": "2017-04-01",
+       "metadata": {
+           "description": "Service Bus ApiVersion used by the template"
        }
 ```
 

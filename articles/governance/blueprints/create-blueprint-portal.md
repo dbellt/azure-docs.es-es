@@ -1,16 +1,16 @@
 ---
 title: 'Inicio rápido: Creación de un plano técnico en Azure Portal'
 description: En este inicio rápido, se usa Azure Blueprints para crear, definir e implementar artefactos mediante Azure Portal.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 94555b1b73fdac7368c9ac96fa682fb09afc83eb
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 42982ec488fcbd354f110c4778ecbd8c42cd3055
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538964"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108323796"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Definición y asignación de un plano técnico en el portal:
 

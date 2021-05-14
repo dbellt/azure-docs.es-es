@@ -3,12 +3,13 @@ title: Errores de recurso no encontrado
 description: Describe cómo resolver errores cuando no se encuentra un recurso. El error se puede producir al implementar una plantilla de Azure Resource Manager o al realizar acciones de administración.
 ms.topic: troubleshooting
 ms.date: 03/23/2021
-ms.openlocfilehash: 5e3a72eaad99721cec9500956179a3ae9d9cf8d2
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ffd1e5b2bd23c9a3f7ede4c3ee0067e12891d214
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762144"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318844"
 ---
 # <a name="resolve-resource-not-found-errors"></a>Solución de errores de recurso no encontrado
 

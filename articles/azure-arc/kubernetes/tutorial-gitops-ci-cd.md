@@ -6,13 +6,13 @@ ms.author: tcare
 ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
-ms.custom: template-tutorial
-ms.openlocfilehash: a94784f2f3fc622e0232033d63bc957279a7d34c
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.custom: template-tutorial, devx-track-azurecli
+ms.openlocfilehash: e27923ff1f29163f5d3390c2c92a11f3adfa5c87
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076350"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126640"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>Tutorial: Implementación de CI/CD con GitOps mediante clústeres de Kubernetes habilitados para Azure Arc
 
@@ -47,18 +47,18 @@ En este tutorial se da por supuesto que está familiarizado con Azure DevOps, Az
 
   ```azurecli
   az extension add --name connectedk8s
-  az extension add --name k8s-configuration
+  az extension add --name k8sconfiguration
   ```
   * Para actualizar las extensiones a la versión más reciente, ejecute los siguientes comandos:
 
     ```azurecli
     az extension update --name connectedk8s
-    az extension update --name k8s-configuration
+    az extension update --name k8sconfiguration
     ```
 
 ## <a name="import-application-and-gitops-repos-into-azure-repos"></a>Importación de los repositorios de la aplicación y de GitOps en Azure Repos
 
-Importe un [repositorio de aplicación](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd#application-repo) y un [repositorio de GitOps](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd#gitops-repo) en Azure Repos. Para este tutorial, use los siguientes repositorios de ejemplo:
+Importe un [repositorio de aplicación](./conceptual-gitops-ci-cd.md#application-repo) y un [repositorio de GitOps](./conceptual-gitops-ci-cd.md#gitops-repo) en Azure Repos. Para este tutorial, use los siguientes repositorios de ejemplo:
 
 * Repositorio de la aplicación **arc-cicd-demo-src**
    * Dirección URL: https://github.com/Azure/arc-cicd-demo-src
@@ -166,8 +166,7 @@ kubectl create secret docker-registry <secret-name> \
     --docker-password=<service-principal-password>
 ```
 
-> [!TIP]
-> Para evitar tener que establecer un secreto de extracción de imágenes para cada pod, considere la posibilidad de agregar el secreto de extracción de imágenes a la cuenta de servicio en los espacios de nombres `dev` y `stage`. Consulte el [tutorial de Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#add-imagepullsecrets-to-a-service-account) para más información.
+Para evitar tener que establecer un secreto de extracción de imágenes para cada pod, considere la posibilidad de agregar el secreto de extracción de imágenes a la cuenta de servicio en los espacios de nombres `dev` y `stage`. Consulte el [tutorial de Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#add-imagepullsecrets-to-a-service-account) para más información.
 
 ## <a name="create-environment-variable-groups"></a>Creación de grupos de variables de entorno
 
@@ -338,4 +337,4 @@ En este tutorial, ha configurado un flujo de trabajo completo de CI/CD que imple
 Avance a nuestro artículo conceptual para más información sobre GitOps y configuraciones con Kubernetes habilitado para Azure Arc.
 
 > [!div class="nextstepaction"]
-> [Flujo de trabajo de CI/CD con GitOps: Kubernetes habilitado para Azure Arc](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd)
+> [Flujo de trabajo de CI/CD con GitOps: Kubernetes habilitado para Azure Arc](./conceptual-gitops-ci-cd.md)

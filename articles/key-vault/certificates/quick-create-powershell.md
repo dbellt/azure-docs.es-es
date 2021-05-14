@@ -3,20 +3,19 @@ title: 'Inicio rápido: Establecimiento y visualización de certificados de Azur
 description: Inicio rápido en el que se muestra cómo establecer y recuperar un certificado de Azure Key Vault mediante Azure PowerShell
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurepowershell
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 587815cf9628df35f1e1efdbc6a7a3c89a27ed55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32150fb4cce76d5a2537c5ec969f265e0d8aae20
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99071924"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816195"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-powershell"></a>Inicio rápido: Establecimiento y recuperación de un certificado de Azure Key Vault mediante Azure PowerShell
 
@@ -63,6 +62,18 @@ Get-AzKeyVaultCertificate -VaultName "<your-unique-keyvault-name>" -Name "Exampl
 
 Ya ha creado una instancia de Key Vault, ha almacenado un certificado y, posteriormente, lo ha recuperado.
 
+**Solución de problemas**:
+
+La operación devolvió un código de estado no válido "Prohibido"
+
+Si recibe este error, la cuenta que accede a Azure Key Vault no tiene los permisos adecuados para crear certificados.
+
+Ejecute el siguiente comando de Azure PowerShell para asignar dichos permisos:
+
+```azurepowershell-interactive
+Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> -ObjectId <AzureObjectID> -PermissionsToCertificates get,list,update,create
+```
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 [!INCLUDE [Create a key vault](../../../includes/key-vault-powershell-delete-resources.md)]
@@ -73,4 +84,4 @@ En este inicio rápido ha creado una instancia de Key Vault y ha almacenado un c
 
 - Lea una [introducción a Azure Key Vault](../general/overview.md).
 - Consulte la referencia para los [cmdlets de Key Vault de Azure PowerShell](/powershell/module/az.keyvault/).
-- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-overview.md)
+- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-features.md)

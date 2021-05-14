@@ -9,16 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/29/2021
 ms.author: aahi
-ms.openlocfilehash: 5287fe6df4a2f0cb728bf0e705a4ce989ca38487
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: dc9aa1636bf4594d1e0b51315b520c6e893ced88
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934043"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288479"
 ---
-# <a name="configure-face-docker-containers"></a>Configurar los contenedores de Face en Docker
+# <a name="configure-face-docker-containers-retiring"></a>Configuración de los contenedores de Face en Docker (en retirada)
+
+> [!IMPORTANT]
+> La versión preliminar del contenedor de Face ya no acepta aplicaciones, y el contenedor ha quedado en desuso a partir del 29 de abril de 2021. El contenedor de Face se retirará por completo el 26 de julio de 2021.
 
 El entorno en tiempo de ejecución del contenedor de **Face** se configura mediante los argumentos del comando `docker run`. Este contenedor tiene varias opciones de configuración necesarias, así como otras opcionales. Hay disponibles varios [ejemplos](#example-docker-run-commands) del comando. La configuración específica del contenedor es la configuración de facturación. 
 

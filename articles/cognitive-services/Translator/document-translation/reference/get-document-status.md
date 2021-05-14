@@ -1,5 +1,5 @@
 ---
-title: Traducción de documentos - Método de obtención del estado de un documento
+title: Método de obtención del estado de los documentos
 titleSuffix: Azure Cognitive Services
 description: El método de obtención del estado de un documento devuelve el estado de un documento específico.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: 79bc3d076c1a7e164cab9c3231b29be84370e04a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4c6e82af46a012ad53dfa1cc1db1252ef2c0443e
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105613816"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864944"
 ---
-# <a name="document-translation-get-document-status"></a>Traducción de documentos: Obtención del estado de un documento
+# <a name="get-document-status"></a>Obtención del estado del documento
 
 El método de obtención del estado de un documento devuelve el estado de un documento específico. El método devuelve el estado de la traducción de un documento específico en función del identificador de la solicitud y del identificador del documento.
 
@@ -82,11 +82,11 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
 
 |Nombre|Tipo|Descripción|
 |--- |--- |--- |
-|código|string|Enumeraciones que contienen códigos de error generales. Valores posibles:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>No autorizado</li></ul>|
-|message|string|Obtiene un mensaje de error general.|
+|código|string|Enumeraciones que contiene códigos de error de alto nivel. Valores posibles:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>No autorizado</li></ul>|
+|message|string|Obtiene un mensaje de error de alto nivel.|
 |innerError|InnerErrorV2|Nuevo formato de error interno, que cumple las directrices de la API de Cognitive Services. Contiene las propiedades requeridas ErrorCode, mensaje y las propiedades opcionales de destino, detalles (par clave-valor), error interno (puede estar anidado).|
-|innerError.code|string|Obtiene la cadena del código de error.|
-|innerError.message|string|Obtiene un mensaje de error general.|
+|innerError.code|string|Obtiene la cadena de error de código.|
+|innerError.message|string|Obtiene un mensaje de error de alto nivel.|
 
 ## <a name="examples"></a>Ejemplos
 

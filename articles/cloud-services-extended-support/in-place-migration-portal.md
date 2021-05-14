@@ -9,12 +9,12 @@ ms.author: tagore
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ms.custom: ''
-ms.openlocfilehash: 79889b08baa80dc67b30ae445004e37d9f9fe295
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: b1a3d6f1c30cf6c52dde3f70f222d9cbb0fce556
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286768"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293177"
 ---
 # <a name="migrate-to-cloud-services-extended-support-using-the-azure-portal"></a>Migración a Cloud Services (soporte extendido) mediante Azure Portal
 
@@ -37,7 +37,7 @@ Si no puede agregar un coadministrador, póngase en contacto con un administrado
 
 **Registro en el proveedor de recursos de migración**
 
-1. Regístrese con el proveedor de recursos de migración `Microsoft.ClassicInfrastructureMigrate` y la característica de versión preliminar `Cloud Services` en el espacio de nombres Microsoft.Compute mediante [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1).  
+1. Regístrese con el proveedor de recursos de migración `Microsoft.ClassicInfrastructureMigrate` y la característica de versión preliminar `Cloud Services` en el espacio de nombres Microsoft.Compute mediante [Azure Portal](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider-1).  
 1. Espere cinco minutos para que se complete el registro y luego compruebe el estado de la aprobación. 
 
 ## <a name="migrate-your-cloud-service-resources"></a>Migración de los recursos de Cloud Services
@@ -94,4 +94,4 @@ Si no puede agregar un coadministrador, póngase en contacto con un administrado
     Escriba "sí" para aceptar y confirmar la migración. La migración ahora está completa. La implementación de Cloud Services (soporte extendido) migrada está desbloqueada para todas las operaciones. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Revise la sección [Cambios posteriores a la migración](in-place-migration-overview.md#post-migration-changes) para ver los cambios en los archivos de implementación, la automatización y otros atributos de la nueva implementación de Cloud Services (soporte extendido). 
+Revise la sección [Cambios posteriores a la migración](in-place-migration-overview.md#post-migration-changes) para ver los cambios en los archivos de implementación, la automatización y otros atributos de la nueva implementación de Cloud Services (soporte extendido).

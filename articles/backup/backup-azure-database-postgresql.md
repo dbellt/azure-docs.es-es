@@ -3,13 +3,13 @@ title: Copia de seguridad de Azure Database for PostgreSQL
 description: Más información sobre la copia de seguridad de Azure Database for PostgreSQL con retención a largo plazo (versión preliminar)
 ms.topic: conceptual
 ms.date: 04/12/2021
-ms.custom: references_regions
-ms.openlocfilehash: 4730cad32203642f0d1b84529a5822d7595d6bf8
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.custom: references_regions , devx-track-azurecli
+ms.openlocfilehash: 8fd69e016c7f0b175ef49b98add5692743858f62
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375094"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480076"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Copia de seguridad de Azure Database for PostgreSQL con retención a largo plazo (versión preliminar)
 

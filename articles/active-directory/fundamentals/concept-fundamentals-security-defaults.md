@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 04/20/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: efaf6060c0b09e071546038d9e30f2c8065059e7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: efa88e1be5c5df5dd09cb5a97c8ece352496ccdb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98600129"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769704"
 ---
 # <a name="what-are-security-defaults"></a>¿Cuáles son los valores de seguridad predeterminados?
 
@@ -35,7 +35,7 @@ Para más información sobre por qué los valores predeterminados de seguridad s
 
 ## <a name="availability"></a>Disponibilidad
 
-Microsoft pone los valores de seguridad predeterminados a disposición de todos los usuarios. El objetivo es asegurarse de que todas las organizaciones gocen de un nivel básico de seguridad sin ningún costo adicional. Los valores predeterminados de seguridad se activan en Azure Portal. Si el inquilino se creó a partir del 22 de octubre de 2019, es posible que los valores predeterminados de seguridad ya estén habilitados en el inquilino. En un esfuerzo por proteger a todos nuestros usuarios, los valores predeterminados de seguridad se están implementando en todos los nuevos inquilinos creados.
+Microsoft pone los valores de seguridad predeterminados a disposición de todos los usuarios. El objetivo es asegurarse de que todas las organizaciones gocen de un nivel básico de seguridad sin ningún costo adicional. Los valores predeterminados de seguridad se activan en Azure Portal. Si el inquilino se creó a partir del 22 de octubre de 2019, es posible que los valores predeterminados de seguridad ya estén habilitados en el inquilino. Para proteger a todos nuestros usuarios, los valores predeterminados de seguridad se están implementando en todos los nuevos inquilinos creados.
 
 ### <a name="whos-it-for"></a>¿Para quiénes son?
 
@@ -46,7 +46,7 @@ Microsoft pone los valores de seguridad predeterminados a disposición de todos 
 
 - Si es una organización que usa actualmente directivas de acceso condicional para unificar las señales, tomar decisiones y aplicar las directivas de la organización, es probable que los valores predeterminados de seguridad no sean los más adecuados. 
 - Si es una organización con licencias de Azure Active Directory Premium, es probable que los valores predeterminados de seguridad tampoco le convengan.
-- Sin embargo, si su organización tiene requisitos de seguridad complejos, debería plantearse en cuenta el acceso condicional.
+- Sin embargo, si su organización tiene requisitos de seguridad complejos, debería tener en cuenta el acceso condicional.
 
 ## <a name="policies-enforced"></a>Directivas aplicadas
 
@@ -70,6 +70,9 @@ Una vez finalizado el registro con Azure AD Multi-Factor Authentication, los nu
 - Administrador de usuarios
 - Administrador de autenticación
 
+> [!WARNING]
+> Asegúrese de que el directorio tenga al menos dos cuentas que tengan asignados privilegios de administrador global. Esto le ayudará en caso de que un administrador global esté bloqueado. Para obtener más información, consulte el artículo [Administración de cuentas de acceso de emergencia en Azure AD](../roles/security-emergency-access.md).
+
 ### <a name="protecting-all-users"></a>Protección de todos los usuarios
 
 Se tiende a pensar que las cuentas de administrador son las únicas cuentas que necesitan capas adicionales de autenticación. Los administradores tienen un amplio acceso a información confidencial y pueden realizar cambios en la configuración de toda la suscripción. Sin embargo, los atacantes suelen dirigirse a los usuarios finales. 
@@ -80,7 +83,7 @@ Un método común para mejorar la protección de todos los usuarios es exigir a 
 
 ### <a name="blocking-legacy-authentication"></a>Bloqueo de la autenticación heredada
 
-Para brindar a los usuarios un acceso sencillo a las aplicaciones en la nube, Azure AD admite una variedad de protocolos de autenticación, incluida la autenticación heredada. La *autenticación heredada* es un término que hace referencia a una solicitud de autenticación realizada por:
+Para brindar a los usuarios un acceso sencillo a las aplicaciones en la nube, Azure AD admite una variedad de protocolos de autenticación, incluida la autenticación heredada. La *autenticación heredada* es un término que hace referencia a una solicitud de autenticación realizada por:
 
 - Clientes que no usan la autenticación moderna (por ejemplo, el cliente de Office 2010).
 - Cualquier cliente que use protocolos de correo antiguos, como IMAP, SMTP o POP3.

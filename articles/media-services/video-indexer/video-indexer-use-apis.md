@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/07/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fcd194e2503610db314f6a975a4afb1d27962f8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac0b206a86edf3157141b56e0c2623a8429b0c7a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98028217"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785530"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Uso de la API Video Indexer
 
@@ -38,18 +38,19 @@ En este artículo se muestra cómo los desarrolladores pueden sacar partido de [
    > * Debe usar el mismo proveedor que utilizó al suscribirse a Video Indexer.
    > * Las cuentas personales de Google y Microsoft (Outlook/Live) solo se pueden usar para las cuentas de evaluación gratuita. Las cuentas conectadas a Azure requieren Azure AD.
    > * Solo puede haber una cuenta activa por correo electrónico. Si un usuario intenta iniciar sesión con user@gmail.com para LinkedIn y después con user@gmail.com para Google, este último muestra una página de error que indica que el usuario ya existe.
+
 2. Suscríbase.
 
-    Seleccione la pestaña [Products](https://api-portal.videoindexer.ai/products) (Productos). Seleccione Authorization y suscríbase.
+   Seleccione la pestaña [Products](https://api-portal.videoindexer.ai/products) (Productos). Seleccione Authorization y suscríbase.
     
-    ![Pestaña Productos del Portal para desarrolladores de Video Indexer](./media/video-indexer-use-apis/authorization.png)
+   ![Pestaña Productos del Portal para desarrolladores de Video Indexer](./media/video-indexer-use-apis/authorization.png)
 
-    > [!NOTE]
-    > Los nuevos usuarios se suscriben automáticamente a Authorization.
+   > [!NOTE]
+   > Los nuevos usuarios se suscriben automáticamente a Authorization.
     
-    Después de suscribirse, podrá encontrar su suscripción en **Productos** -> **Autorización**. En la página Suscripción, encontrará las claves principal y secundaria. Debe proteger las claves. Las claves solo debe usarlas el código del servidor. No deben estar disponibles en el cliente (.js, .html, etc.).
+   Después de suscribirse, podrá encontrar su suscripción en **Productos** -> **Autorización**. En la página Suscripción, encontrará las claves principal y secundaria. Debe proteger las claves. Las claves solo debe usarlas el código del servidor. No deben estar disponibles en el cliente (.js, .html, etc.).
 
-    ![Suscripción y claves en el Portal para desarrolladores de Video Indexer](./media/video-indexer-use-apis/subscriptions.png)
+   ![Suscripción y claves en el Portal para desarrolladores de Video Indexer](./media/video-indexer-use-apis/subscriptions.png)
 
 > [!TIP]
 > El usuario de Video Indexer puede usar una clave de suscripción única para conectarse a varias cuentas de Video Indexer. A continuación, puede vincular estas cuentas de Video Indexer a diferentes cuentas de Media Services.
@@ -64,7 +65,10 @@ Cada llamada a Operations API debe asociarse con un token de acceso, correspondi
 - Nivel de cuenta: los tokens de acceso de nivel de cuenta permiten realizar operaciones en el nivel de **cuenta** o de **vídeo**. Por ejemplo, cargar vídeo, enumerar todos los vídeos, obtener información de vídeo, etc.
 - Nivel de vídeo: los tokens de acceso de nivel de vídeo permiten realizar operaciones en un **vídeo** concreto. Por ejemplo, obtener información de vídeo, descargar títulos, obtener widgets, etc.
 
-Para controlar si estos tokens son de solo lectura o si permiten editar, especifique **allowEdit=true/false**.
+Puede controlar el nivel de permiso de los tokens de dos maneras:
+
+* Para los tokens de **cuenta**, puede la API para **obtener un token de acceso de cuenta con permiso** y especificar el tipo de permiso (**lector**/**colaborador**/**MyAccessManager**/**propietario**).
+* Para todos los tipos de tokens (incluidos los tokens de **cuenta**), puede especificar **allowEdit=true/false**. **false** es el equivalente de un permiso **lector** (solo lectura) y **true** es el equivalente de un permiso **colaborador** (lectura y escritura).
 
 En la mayoría de los escenarios de servidor a servidor probablemente use el mismo token de **cuenta**, porque abarca tanto operaciones de **cuenta** como de **vídeo**. Pero si va a realizar llamadas de cliente a Video Indexer (por ejemplo, desde JavaScript), probablemente quiera usar un token de acceso de **vídeo** para evitar que los clientes tengan acceso a toda la cuenta. Ese es también el motivo por el que, cuando se inserta código de cliente de Video Indexer en el cliente (por ejemplo, mediante los widgets **Obtener información** u **Obtener reproductor**), se debe proporcionar un token de acceso de **vídeo**.
 
@@ -88,7 +92,7 @@ El parámetro accountId es obligatorio en todas las llamadas a las API de operac
 
 * Use el **portal para desarrolladores de Video Indexer** para obtener mediante programación el identificador de cuenta.
 
-    Use la API [Get account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account?).
+    Use la API [Get account](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account).
 
     > [!TIP]
     > Para generar tokens de acceso para las cuentas, puede definir `generateAccessTokens=true`.

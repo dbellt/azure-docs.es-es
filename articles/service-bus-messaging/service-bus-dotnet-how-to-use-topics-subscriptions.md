@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 03/16/2021
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 79eb7783fd3daf546539dd5b9048f4e9f484374f
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 7cc854c850b02674151da7c88d94a2800b6572f5
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279806"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108015976"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-net"></a>Envío de mensajes a un tema de Azure Service Bus y recepción de mensajes de las suscripciones a ese tema (.NET)
 En este tutorial va a crear una aplicación de C# para realizar las tareas siguientes:
@@ -188,7 +188,7 @@ Este método realiza los pasos siguientes:
     Estos son los pasos importantes del código:
     1. Crea un objeto [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) mediante la cadena de conexión al espacio de nombres. 
     1. Invoca el método [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) en el objeto `ServiceBusClient` para crear un objeto [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) para el tema de Service Bus especificado. 
-    1. Invoca el método auxiliar `GetMessages` para obtener una cola de mensajes que se va a enviar al tema de Service Bus. 
+    1. Invoca el método auxiliar `CreateMessages` para obtener una cola de mensajes que se va a enviar al tema de Service Bus. 
     1. Crea un objeto [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) con [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync).
     1. Agrega mensajes al lote mediante [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage). A medida que los mensajes se agregan al lote, se quitan de la cola de .NET. 
     1. Envía el lote de mensajes al tema de Service Bus mediante el método [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync).

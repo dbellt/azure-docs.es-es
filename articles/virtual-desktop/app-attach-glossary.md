@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: deb02c161dfe41bf79b7905fde23678425aaf55f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: cd038a0632823e4833e75596378f9b25c386d9d0
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448379"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330537"
 ---
 # <a name="msix-app-attach-glossary"></a>Glosario sobre la conexión de aplicaciones en formato MSIX
 
@@ -33,7 +33,7 @@ Un paquete de MSIX es un archivo o aplicación de MSIX.
 
 ## <a name="msix-share"></a>Recurso compartido MSIX
 
-Un recurso compartido MSIX es un recurso compartido de red que contiene paquetes de MSIX expandidos. Los recursos compartidos de MSIX admiten SMB 3 o posterior. Las aplicaciones se almacenan provisionalmente desde este recurso compartido de MSIX sin tener que trasladar los archivos de aplicación a la unidad del sistema.
+Un recurso compartido MSIX es un recurso compartido de red que contiene paquetes de MSIX expandidos. Los recursos compartidos de MSIX deben admitir SMB 3 o posterior. Los recursos compartidos también deben ser accesibles para las máquinas virtuales (VM) en la cuenta de sistema del grupo de hosts. Los paquetes MSIX se almacenan provisionalmente desde el recurso compartido de MSIX sin tener que trasladar los archivos de aplicación a la unidad del sistema. 
 
 ## <a name="msix-image"></a>Imagen de MSIX
 
@@ -110,7 +110,7 @@ El desalmacenamiento notifica al sistema operativo que un paquete MSIX o una apl
 
 .CIM es una nueva extensión de archivo asociada con el sistema de archivos de imagen compuesta (CimFS). El montaje y desmontaje de archivos CIM es más rápido que los archivos VHD. CIM también consume menos CPU y memoria que VHD.
 
-Un archivo CIM es un archivo con la extensión .CIM que contiene metadatos y al menos seis archivos adicionales que contienen datos reales. Los archivos del archivo CIM no tienen extensiones. En la tabla siguiente se muestra una lista de archivos de ejemplo que se encuentran en un archivo CIM:
+Un archivo CIM es un archivo con la extensión .CIM que contiene metadatos y al menos dos archivos adicionales que contienen datos reales. Los archivos del archivo CIM no tienen extensiones. En la tabla siguiente se muestra una lista de archivos de ejemplo que se encuentran en un archivo CIM:
 
 | Nombre de archivo | Extensión | Size |
 |-----------|-----------|------|

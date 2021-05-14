@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: devx-track-js
 ms.devlang: javascript
-ms.openlocfilehash: 03192b8a84b78682b53bf3d47e7de7b65eb8bceb
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: da341d202dcfd0fc81a6becec6646b1116069aa7
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104723564"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123292"
 ---
 # <a name="1---overview-of-adding-search-to-a-website"></a>1\. Introducción a la adición de búsquedas a un sitio web
 
@@ -59,7 +59,7 @@ Instale lo siguiente para el entorno de desarrollo local.
     - [Azure Cognitive Search 0.2.0+](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
     - [Azure Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) 
 - Opcional:
-    - En este tutorial no se ejecuta la API de Azure Functions localmente, pero si piensa ejecutarla localmente, debe instalar [azure-functions-core-tools](/azure/azure-functions/functions-run-local?tabs=linux%2Ccsharp%2Cbash) globalmente con el siguiente comando de Bash: 
+    - En este tutorial no se ejecuta la API de Azure Functions localmente, pero si piensa ejecutarla localmente, debe instalar [azure-functions-core-tools](../azure-functions/functions-run-local.md?tabs=linux%2ccsharp%2cbash) globalmente con el siguiente comando de Bash: 
     
     ```bash
     npm install -g azure-functions-core-tools

@@ -9,18 +9,42 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 7c22381d547029aedc5965d07033e8800fcbddc3
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 1bdc439bc281338fc3df95f7d82784a5eebf7a4a
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313154"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288551"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
 En este artículo conocerá las versiones de Azure Machine Learning.  Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](/python/api/overview/azure/ml/intro) de Azure Machine Learning.
 
 __Fuente RSS__: reciba notificaciones cuando esta página se actualice copiando y pegando la siguiente dirección URL en su lector de fuentes: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+
+## <a name="2021-04-19"></a>19/04/2021
+
+### <a name="azure-machine-learning-sdk-for-python-v1270"></a>SDK de Azure Machine Learning para Python v1.27.0
++ **Mejoras y correcciones de errores**
+  + **azureml-core**
+    + Se ha agregado la capacidad de reemplazar el valor de tiempo de espera predeterminado para la carga de artefactos a través de la variable de entorno "AZUREML_ARTIFACTS_DEFAULT_TIMEOUT".
+    + Se ha corregido un error por el que no se respetaba la configuración de Docker en el objeto Environment de ScriptRunConfig.
+    + Se permite la creación de particiones de un conjunto de datos al copiarlo en un destino.
+    + Se ha agregado un modo personalizado a OutputDatasetConfig para permitir el paso de conjuntos de datos creados en canalizaciones mediante una función de vínculo. Aportan compatibilidad con las mejoras realizadas para habilitar la creación de particiones tabulares para PRS.
+    + Se ha agregado un nuevo tipo de proceso KubernetesCompute a azureml-core.
+  + **azureml-pipeline-core**
+    + Adición de un modo personalizado a OutputDatasetConfig y posibilidad de que un usuario pase a través de los conjuntos de datos creados en las canalizaciones mediante una función de vínculo. Los destinos de ruta de acceso de archivo admiten marcadores de posición. Aportan compatibilidad con las mejoras realizadas para habilitar la creación de particiones tabulares para PRS.
+    + Adición de un nuevo tipo de proceso KubernetesCompute a azureml-core.
+  + **azureml-pipeline-steps**
+    + Adición de un nuevo tipo de proceso KubernetesCompute a azureml-core.
+  + **azureml-synapse**
+    + Actualización de la dirección URL de la interfaz de usuario de Spark en el widget de azureml synapse
+  + **azureml-train-automl-client**
+    + El caracterizador STL para la tarea de previsión usa ahora una detección de estacionalidad más sólida basada en la frecuencia de la series temporales.
+  + **azureml-train-core**
+    + Se ha corregido un error por el que no se respetaba la configuración de Docker en el objeto Environment.
+    + Adición de un nuevo tipo de proceso KubernetesCompute a azureml-core.
 
 
 ## <a name="2021-04-05"></a>05-04-2021
@@ -416,7 +440,7 @@ __Fuente RSS__: reciba notificaciones cuando esta página se actualice copiando 
 
 Ahora está disponible el tipo de proyecto de segmentación de instancias de imagen (anotaciones de polígono) en el etiquetado de datos, de modo que los usuarios pueden dibujar y anotar polígonos alrededor del contorno de los objetos de las imágenes. Los usuarios podrán asignar una clase y un polígono a cada objeto que le interese dentro de una imagen.
 
-Obtenga más información sobre el [etiquetado de segmentación de instancias de imagen](how-to-label-images.md).
+Obtenga más información sobre el [etiquetado de segmentación de instancias de imagen](how-to-label-data.md).
 
 
 
@@ -2179,7 +2203,7 @@ En el momento en que se publica este artículo, se admiten los siguientes explor
   + El rendimiento de `read_parquet` ha mejorado cuando se ejecuta en Spark.
   + Se ha corregido un problema en que se producía un error `column_type_builder` en el caso de una sola columna con formatos de fecha ambiguos.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 + **Característica en vista previa**
   + El streaming de archivos de registro y de salida ahora está disponible para las páginas de detalles de la ejecución. Los archivos transmitirán las actualizaciones en tiempo real cuando se active la alternancia de la vista previa.
   + Se ofrece en versión preliminar la capacidad de establecer la cuota en el nivel de área de trabajo. Las cuotas de AmlCompute se asignan en el nivel de suscripción, pero ahora puede distribuir esa cuota entre las áreas de trabajo y asignarla con el fin de conseguir un uso compartido y una gobernanza equitativos. Solo tiene que hacer clic en la hoja **Usages+Quotas** (Usos y cuotas) de la barra de navegación izquierda del área de trabajo y seleccionar la pestaña **Configure Quotas** (Configurar cuotas). Debe ser administrador de la suscripción para poder establecer cuotas en el nivel de área de trabajo, ya que se trata de una operación entre áreas de trabajo.
@@ -2458,7 +2482,7 @@ SDK de Azure Machine Learning para Python v1.0.30.
 
 ## <a name="2019-04-15"></a>2019-04-15
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
   + Ahora puede volver a enviar un ciclo de script existente de un clúster de proceso remoto existente.
   + Ahora puede ejecutar una canalización publicada con parámetros nuevos en la pestaña Canalizaciones.
   + Los detalles de la ejecución ahora admiten un nuevo visor de archivos de instantánea. Puede ver una instantánea del directorio cuando envió una ejecución concreta. También puede descargar el cuaderno que se envió para iniciar la ejecución.
@@ -2516,7 +2540,7 @@ SDK de Azure Machine Learning para Python v1.0.30.
 + **Mejoras y correcciones de errores**
   + Se ha agregado compatibilidad en las canalizaciones de Azure Machine Learning con el establecimiento de la propiedad source_directory_data_store en un almacén de datos deseado (como un almacenamiento de blobs) en [RunConfigurations](/python/api/azureml-core/azureml.core.runconfig.runconfiguration) que se suministran a [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep). De forma predeterminada los pasos utilizan el almacén de Azure File como el almacén de datos de respaldo, lo que provocar problemas de limitación cuando un gran número de pasos se ejecutan simultáneamente.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 + **Nuevas características:**
   + Nueva experiencia de arrastrar y soltar el editor de tablas en informes. Los usuarios pueden arrastrar una columna desde el cuadro al área de la tabla en la que se mostrará una vista previa de la tabla. Las columnas se pueden reorganizar.

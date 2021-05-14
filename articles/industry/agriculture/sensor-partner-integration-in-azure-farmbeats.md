@@ -1,16 +1,16 @@
 ---
 title: Integración de partners de sensores
 description: En este artículo se describe la integración de asociados de sensores.
-author: uhabiba04
+author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-ummehabiba
-ms.openlocfilehash: 8d1b8203fa50609daf59431c2cfecba68eba52b1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.author: riyazp
+ms.openlocfilehash: 6bce47e07d2f9c2a9a8ac2043488739d2d2421c6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179755"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773834"
 ---
 # <a name="sensor-partner-integration"></a>Integración de partners de sensores
 

@@ -3,12 +3,12 @@ title: Azure NetApp Files con Azure VMware Solution
 description: Use Azure NetApp Files con máquinas virtuales de Azure VMware Solution para migrar y sincronizar datos entre servidores locales, máquinas virtuales de Azure VMware Solution e infraestructuras en la nube.
 ms.topic: how-to
 ms.date: 02/10/2021
-ms.openlocfilehash: 2f2e8fdeb777e7e4b2b4e89c1bb36b51c3083257
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 09b9ba2ff6b95e12558b1ac49e401ce6dede4942
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100575438"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870992"
 ---
 # <a name="azure-netapp-files-with-azure-vmware-solution"></a>Azure NetApp Files con Azure VMware Solution
 
@@ -107,7 +107,7 @@ A continuación, se muestran algunos casos de uso de Azure NetApp Files atractiv
 
 Ahora que ha leído sobre la integración de Azure NetApp Files con las cargas de trabajo de Azure VMware Solution, puede obtener más información acerca de:
 
-- [Límites de recursos para Azure NetApp Files](../azure-netapp-files/azure-netapp-files-resource-limits.md#resource-limits).
-- [Instrucciones para el planeamiento de red de Azure NetApp Files](../azure-netapp-files/azure-netapp-files-network-topologies.md).
-- [Replicación entre regiones de volúmenes de Azure NetApp Files](../azure-netapp-files/cross-region-replication-introduction.md). 
-- [Preguntas frecuentes acerca de Azure NetApp Files](../azure-netapp-files/azure-netapp-files-faqs.md).
+- [Limitaciones de recursos para Azure NetApp Files](../azure-netapp-files/azure-netapp-files-resource-limits.md#resource-limits).
+- [Instrucciones para el planeamiento de red de Azure NetApp Files](../azure-netapp-files/azure-netapp-files-network-topologies.md)
+- [Replicación entre regiones de volúmenes de Azure NetApp Files](../azure-netapp-files/cross-region-replication-introduction.md) 
+- [Preguntas más frecuentes acerca de Azure NetApp Files](../azure-netapp-files/azure-netapp-files-faqs.md)

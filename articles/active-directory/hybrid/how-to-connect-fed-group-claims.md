@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: bef5942707c1ded22ba82bdb0d945b9fdb23fffa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 868d1280179d63bd07b7e01d5e807339439c02f0
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96349357"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163614"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configuración de notificaciones de grupo para aplicaciones con Azure Active Directory
 
@@ -29,9 +29,9 @@ Azure Active Directory puede proporcionar información de suscripción a un grup
 > [!IMPORTANT]
 > Hay una serie de advertencias a tener en cuenta para esta funcionalidad:
 >
->- La compatibilidad con el uso de los atributos del identificador de seguridad (SID) y de sAMAccountName sincronizados de forma local, está diseñada para permitir el traslado de aplicaciones existentes desde AD FS y otros proveedores de identidad. Los grupos administrados en Azure AD no contienen los atributos necesarios para emitir estas notificaciones.
->- En organizaciones más grandes, la cantidad de grupos de los que un usuario es miembro puede exceder el límite que Azure Active Directory agregará a un token. 150 grupos para un token de SAML y 200 para uno de JWT. Esto puede llevar a resultados impredecibles. Si los usuarios tienen un gran número de pertenencias a grupos, se recomienda usar la opción para restringir los grupos emitidos en las notificaciones a los grupos pertinentes de la aplicación.  
->- En cuanto al desarrollo de nuevas aplicaciones, o en los casos en que la aplicación se puede configurar y donde no se requiere una compatibilidad de grupo anidada, le recomendamos que la autorización desde la aplicación se base en roles de aplicación en vez de en grupos.  De este modo, limitará la cantidad de información que se necesita para acceder al token; además, es más seguro y podrá separar la asignación de usuarios de la configuración de la aplicación.
+> - La compatibilidad con el uso de los atributos del identificador de seguridad (SID) y de sAMAccountName sincronizados de forma local, está diseñada para permitir el traslado de aplicaciones existentes desde AD FS y otros proveedores de identidad. Los grupos administrados en Azure AD no contienen los atributos necesarios para emitir estas notificaciones.
+> - En organizaciones más grandes, la cantidad de grupos de los que un usuario es miembro puede exceder el límite que Azure Active Directory agregará a un token. 150 grupos para un token de SAML y 200 para uno de JWT. Esto puede llevar a resultados impredecibles. Si los usuarios tienen un gran número de pertenencias a grupos, se recomienda usar la opción para restringir los grupos emitidos en las notificaciones a los grupos pertinentes de la aplicación.
+> - En cuanto al desarrollo de nuevas aplicaciones, o en los casos en que la aplicación se puede configurar y donde no se requiere una compatibilidad de grupo anidada, le recomendamos que la autorización desde la aplicación se base en roles de aplicación en vez de en grupos.  De este modo, limitará la cantidad de información que se necesita para acceder al token; además, es más seguro y podrá separar la asignación de usuarios de la configuración de la aplicación.
 
 ## <a name="group-claims-for-applications-migrating-from-ad-fs-and-other-identity-providers"></a>Notificaciones de grupo para aplicaciones que migran de AD FS y otros proveedores de identidad
 
@@ -70,13 +70,13 @@ Hay dos pasos para configurar Azure Active Directory y así poder emitir nombres
 
 1. **Sincronice los nombres de los grupos desde Active Directory** Antes de que Azure Active Directory pueda emitir los nombres de los grupos o el SID del grupo local en las notificaciones de grupo o rol, los atributos necesarios deben sincronizarse desde Active Directory.  Debe ejecutar la versión 1.2.70 de Azure AD Connect, o cualquier versión posterior.   Las versiones anteriores a 1.2.70 de Azure AD Connect sincronizarán los objetos del grupo desde Active Directory, pero no incluirán los atributos de nombre de grupo requeridos.  Actualice a la versión actual.
 
-2. **Configure el registro de la aplicación en Azure Active Directory para incluir notificaciones de grupo en los token**. Las notificaciones de grupo pueden configurarse en la sección Aplicaciones de empresa del portal o mediante el Manifiesto de la aplicación que se encuentra en la sección de registros de la aplicación.  Para configurar las notificaciones de grupo en el manifiesto de la aplicación, consulte "Configuración del registro de la aplicación de Azure Active Directory para los atributos de grupo" a continuación.
+2. **Configure el registro de la aplicación en Azure Active Directory para incluir notificaciones de grupo en los token**. Las notificaciones de grupo pueden configurarse en la sección Aplicaciones de empresa del portal o mediante el Manifiesto de la aplicación que se encuentra en la sección de registros de la aplicación.  Para configurar las notificaciones de grupo en el manifiesto de la aplicación, consulte "Configuración del registro de la aplicación de Azure Active Directory para los atributos de grupo" a continuación.
 
 ## <a name="add-group-claims-to-tokens-for-saml-applications-using-sso-configuration"></a>Adición de notificaciones de grupo para aplicaciones SAML mediante la configuración de SSO
 
 Para configurar las notificaciones de grupo de una aplicación SAML de la galería o que no pertenezca a ella, abra **Aplicaciones de empresa**, haga clic en la aplicación de la lista, seleccione **Configuración de inicio de sesión único** y, a continuación, seleccione **Atributos y notificaciones de usuario**.
 
-Haga clic en **Agregar una notificación de grupo**.  
+Haga clic en **Agregar una notificación de grupo**.
 
 ![Captura de pantalla en la que se muestra la página "Atributos y notificaciones de usuario" con la opción "Agregar una notificación de grupo" seleccionada.](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
 
@@ -183,11 +183,11 @@ Los valores válidos son:
    | **name:** | Debe ser "grupos" |
    | **source:** | No se usa. Omitir o especificar null |
    | **essential:** | No se usa. Omitir o especificar falso |
-   | **additionalProperties:** | Lista de propiedades adicionales.  Las opciones válidas son "sam_account_name", “dns_domain_and_sam_account_name”, “netbios_domain_and_sam_account_name”, "emit_as_roles" |
+   | **additionalProperties:** | Lista de propiedades adicionales.  Las opciones válidas son "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles". |
 
-   En additionalProperties solo se necesita un valor de "sam_account_name", “dns_domain_and_sam_account_name”, “netbios_domain_and_sam_account_name”.  Si hay más de uno, se usa el primero y omiten los demás.
+   En additionalProperties solo se necesita un valor de "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name".  Si hay más de uno, se usa el primero y omiten los demás.
 
-   Algunas aplicaciones requieren información de grupo sobre el usuario en la notificación de rol.  Para cambiar el tipo de notificación de una notificación de grupo a una notificación de rol, agregue "emit_as_roles" a propiedades adicionales.  Los valores de grupo se emitirán en la notificación de rol.
+   Algunas aplicaciones requieren información de grupo sobre el usuario en la notificación de rol.  Para cambiar el tipo de notificación de una notificación de grupo a una notificación de rol, agregue "emit_as_roles" a las propiedades adicionales.  Los valores de grupo se emitirán en la notificación de rol.
 
    > [!NOTE]
    > Si se usa "emit_as_roles", cualquier rol de aplicación configurado que se asigne al usuario no aparecerá en la notificación de rol.
@@ -203,7 +203,7 @@ Emita grupos como nombres de grupo en tokens de acceso OAuth con el formato dnsD
         "additionalProperties": ["dns_domain_and_sam_account_name"]
     }]
 }
- ```
+```
 
 Para emitir los nombres de grupo que se devolverán en el formato netbiosDomain\samAccountName como la notificación de roles de los token de SAML y OIDC ID:
 
@@ -218,8 +218,8 @@ Para emitir los nombres de grupo que se devolverán en el formato netbiosDomain\
         "name": "groups",
         "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
     }]
- }
- ```
+}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

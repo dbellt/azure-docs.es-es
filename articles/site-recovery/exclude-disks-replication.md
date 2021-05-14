@@ -3,12 +3,12 @@ title: Exclusión de discos de una replicación con Azure Site Recovery
 description: Cómo excluir discos de una replicación en Azure con Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 15989fbfd65f758eb777c5170c217aba8707e0be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45ee7b23d01ff80bcb2e090688626f3f7fccb146
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96008266"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108131125"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Exclusión de discos de una recuperación ante desastres
 
@@ -267,5 +267,5 @@ La configuración de nuestro archivo de paginación en la máquina virtual de A
 
 - Obtenga más información sobre las directrices relativas al disco de almacenamiento temporal:
     - [Obtenga información sobre cómo](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) usar SSD en máquinas virtuales de Azure para almacenar la base de datos TempDB de SQL Server y las extensiones del grupo de búferes.
-    - [Repase ](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) los procedimientos recomendados de rendimiento de SQL Server en máquinas virtuales de Azure.
+    - [Repase ](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md) los procedimientos recomendados de rendimiento de SQL Server en máquinas virtuales de Azure.
 - Después de que la implementación esté configurada y en ejecución, [obtenga más información](failover-failback-overview.md) sobre los diferentes tipos de conmutación por error.

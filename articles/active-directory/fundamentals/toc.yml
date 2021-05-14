@@ -25,6 +25,8 @@
   items:
     - name: Seguridad
       items:
+        - name: Línea de base de seguridad
+          href: /security/benchmark/azure/baselines/aad-security-baseline?toc=/azure/active-directory/fundamentals/toc.json
         - name: "Protección de Microsoft\_365 de ataques locales"
           href: protect-m365-from-on-premises-attacks.md
         - name: Colaboración externa segura
@@ -49,7 +51,7 @@
               href: 8-secure-access-sensitivity-labels.md
             - name: '9 Acceso seguro a Teams, SharePoint y OneDrive'
               href: 9-secure-access-teams-sharepoint.md
-        - name: Cuentas de servicio seguras
+        - name: Protección de cuentas de servicio
           items:
             - name: Introducción a las cuentas de servicio de Azure
               href: service-accounts-introduction-azure.md
@@ -61,15 +63,15 @@
               href: service-accounts-governing-azure.md
             - name: Introducción a las cuentas de servicio locales
               href: service-accounts-on-premises.md
-            - name: Protección de MSA de grupo
+            - name: Protección de MSA en grupos
               href: service-accounts-group-managed.md
             - name: Protección de MSA independientes
               href: service-accounts-standalone-managed.md
             - name: Protección de cuentas de equipo
               href: service-accounts-computer.md
-            - name: Protección de cuentas de servicio basadas en usuario
+            - name: Protección de cuentas de servicio de usuarios locales
               href: service-accounts-user-on-premises.md
-            - name: Control de las cuentas de servicio locales
+            - name: Gobernanza de cuentas de servicio de usuarios locales
               href: service-accounts-govern-on-premises.md
         - name: Habilitar MFA
           href: concept-fundamentals-mfa-get-started.md
@@ -165,6 +167,8 @@
                   href: resilience-client-app.md
                 - name: Aplicaciones demonio
                   href: resilience-daemon-app.md
+                - name: Actualización de metadatos de OpenID Connect
+                  href: ../develop/howto-build-services-resilient-to-metadata-refresh.md
             - name: Supervisión de la resistencia del estado de la aplicación
               href: monitor-sign-in-health-for-resilience.md
         - name: Certificación de las autoridades usadas en Azure
@@ -181,6 +185,8 @@
           href: active-directory-data-storage-eu.md
         - name: Almacenamiento de datos de identidad para Australia y Nueva Zelanda
           href: active-directory-data-storage-australia-newzealand.md
+    - name: Administración de trabajadores de primera línea
+      href: frontline-worker-management.md
     - name: "Referencia de operaciones de Azure\_AD"
       items:
         - name: Introducción

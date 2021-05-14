@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.openlocfilehash: 33435d2367b92f312d41f0e32fdbb3a93d59a9fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1a0fb15be92e25b576cd29e671eed3c6a5b948f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95999933"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313273"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>Uso de características para aumentar la señal de la lista de palabras
 
@@ -37,7 +37,7 @@ Revise los [conceptos](luis-concept-feature.md) para comprender cuándo y por qu
 
     Una vez que haya especificado suficientes valores para LUIS, aparecerán sugerencias. Puede **agregar todos** los valores propuestos o seleccionar términos individuales.
 
-1. Mantenga activado **Estos valores son intercambiables** si las frases se pueden usar indistintamente.
+1. Mantenga activado **Estos valores son intercambiables** si las frases se pueden usar indistintamente. La característica de lista de frases intercambiables actúa como una lista de sinónimos para el entrenamiento. La lista de frases no intercambiables actúa como características independientes para el entrenamiento (lo que significa que las características son similares, pero la intención cambia al intercambiar frases).
 
 1. La lista de frases se puede aplicar a toda la aplicación con la configuración **Global**, o bien a un modelo específico (intención o entidad). Si crea la lista de frases, como una _característica_ de una intención o entidad, la alternancia no se establece en global. En este caso, el significado de la alternancia es que la característica es solo local para ese modelo, por lo que _no es global_  para la aplicación.
 

@@ -5,14 +5,14 @@ author: alkohli
 ms.assetid: ''
 ms.service: storsimple
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 04/14/2021
 ms.author: alkohli
-ms.openlocfilehash: cdb971851ba678ce18f5a1c7954e5620740f3a4c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 735d7c1a25acb767f9d6352f6c8887af4b9464c0
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104657576"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107895926"
 ---
 # <a name="storsimple-8000-series-update-51-release-notes"></a>Notas de la versión de la serie StorSimple 8000 Update 5.1
 
@@ -26,19 +26,18 @@ Revise la información contenida en las notas de la versión antes de implementa
 
 > [!IMPORTANT]
 >
-> * Update 5.1 es una actualización obligatoria y debe instalarse inmediatamente. Para más información, consulte cómo [aplicar Update 5.1](storsimple-8000-install-update-51.md).
-> * Update 5.1 solo incluye actualizaciones de seguridad. Para instalar esta actualización, se necesitan en torno 30 minutos. Le recomendamos encarecidamente que aplique Update 5.1 para garantizar el funcionamiento del dispositivo.
-> * Para las nuevas versiones, no podrán ver las actualizaciones de inmediato porque hacemos una implementación por fases de las actualizaciones. Espere unos días y luego busque actualizaciones de nuevo, ya que estas estarán disponibles pronto.
+> * Update 5.1 es una actualización obligatoria y debe instalarse inmediatamente para garantizar el funcionamiento del dispositivo. Update 5.0 es una versión mínimamente compatible.
+> * Update 5.1 tiene actualizaciones de seguridad que pueden tardar unos treinta minutos en instalarse. Para más información, consulte cómo [aplicar Update 5.1](storsimple-8000-install-update-51.md).
 
 ## <a name="whats-new-in-update-51"></a>Novedades de Update 5.1
 
 Se han realizado las siguientes mejoras clave y correcciones de errores en Update 5.1:
 
-* **TLS 1.2**: esta actualización de StorSimple aplicará TLS 1.2 en todos los clientes. Se trata de una actualización obligatoria para todos los dispositivos de la serie StorSimple 8000.
+* **TLS 1.2**: esta actualización de StorSimple aplicará TLS 1.2 en todos los clientes. TLS 1.2 es una actualización obligatoria para todos los dispositivos de la serie StorSimple 8000.
 
-   Si ve la siguiente advertencia, debe actualizar el software del dispositivo antes de continuar:
+   Si observa la siguiente advertencia, debe actualizar el software del dispositivo antes de continuar:
 
-   Uno o varios dispositivos StorSimple utilizan una versión antigua del software. Es obligatorio utilizar la actualización más reciente disponible de TLS 1.2, por lo que debe instalarse inmediatamente en estos dispositivos. El protocolo TLS 1.2 se usa en todas las comunicaciones de Azure Portal. Sin esta actualización, el dispositivo no podrá comunicarse con el servicio StorSimple.
+   Uno o varios dispositivos StorSimple están ejecutando una versión de software anterior. La actualización más reciente disponible para TLS 1.2 es obligatoria y debe instalarse inmediatamente en estos dispositivos. El protocolo TLS 1.2 se usa en todas las comunicaciones de Azure Portal. Sin esta actualización, el dispositivo no podrá comunicarse con el servicio StorSimple.
 
 ## <a name="known-issues-in-update-51-from-previous-releases"></a>Problemas conocidos en Update 5.1 de las versiones anteriores
 
@@ -46,7 +45,7 @@ No hay ningún problema conocido en Update 5.1. Si desea ver una lista de los p
 
 ## <a name="storsimple-cloud-appliance-updates-in-update-51"></a>Actualizaciones de StorSimple Cloud Appliance en Update 5.1
 
-Esta actualización no se puede aplicar a StorSimple Cloud Appliance (también conocido como el dispositivo virtual). Los dispositivos en la nube nuevos deben crearse con la imagen de Update 5.1. Para más información sobre cómo crear una instancia de StorSimple Cloud Appliance, vaya a [Implementación y administración de una instancia de StorSimple Cloud Appliance en Azure (Update 3 y versiones posteriores)](storsimple-8000-cloud-appliance-u2.md).
+Esta actualización no se puede aplicar a StorSimple Cloud Appliance (también conocido como el dispositivo virtual). Deberá crear nuevos dispositivos en la nube mediante la imagen de Update 5.1. Para más información sobre cómo crear una instancia de StorSimple Cloud Appliance, vaya a [Implementación y administración de una instancia de StorSimple Cloud Appliance en Azure (Update 3 y versiones posteriores)](storsimple-8000-cloud-appliance-u2.md).
 
 ## <a name="next-step"></a>Paso siguiente
 

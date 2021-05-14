@@ -4,12 +4,12 @@ description: Obtenga información acerca de los tipos de cuentas de usuario y c�
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.custom: seodec18
-ms.openlocfilehash: 02cad0bff9e76ec5db82c417f2439b12ef088045
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 5a071e03b27a2cb612118ad37e078ca8f8f86e08
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389288"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987981"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Ejecución de tareas en cuentas de usuario en Batch
 
@@ -18,7 +18,7 @@ ms.locfileid: "107389288"
 >
 > Para conectarse a un nodo que ejecuta la configuración de máquina virtual Linux mediante SSH, consulte [Instalación y configuración de xrdp para usar Escritorio remoto con Ubuntu](../virtual-machines/linux/use-remote-desktop.md). Para conectarse a nodos que ejecutan Windows a través de RDP, consulte [Conexión a una máquina virtual de Azure donde se ejecuta Windows e inicio de sesión en esta](../virtual-machines/windows/connect-logon.md).
 >
-> Para conectarse a un nodo que ejecuta la configuración del servicio en la nube a través de RDP, consulte [Habilitación de la conexión a Escritorio remoto para un rol de Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
+> Para conectarse a un nodo que se ejecuta a través de RDP, consulte [Habilitación de la conexión a Escritorio remoto para un rol de Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 
 En Azure Batch, las tareas siempre se ejecutan en una cuenta de usuario. De forma predeterminada, las tareas se ejecutan en cuentas de usuario estándar, sin permisos de administrador. Para determinados escenarios, es posible que quiera configurar la cuenta de usuario en la que quiere que se ejecute una tarea. En este artículo se describen los tipos de cuentas de usuario y se configuran para su escenario.
 
@@ -139,7 +139,7 @@ Las cuentas de usuario con nombre permiten SSH sin contraseña entre nodos de Li
 
 ### <a name="create-named-user-accounts"></a>Creación de cuentas de usuario con nombre
 
-Para crear cuentas de usuario con nombre en Batch, agregue una colección de cuentas de usuario al grupo. En los fragmentos de código siguientes se muestra cómo crear cuentas de usuario con nombre en .NET, Java y Python. En estos fragmentos de código se muestra cómo crear cuentas con nombre con y sin derechos administrativos en un grupo. En los ejemplos se crean grupos que usan la configuración del servicio en la nube, pero se utiliza el mismo enfoque al crear un grupo de Windows o Linux con la configuración de máquina virtual.
+Para crear cuentas de usuario con nombre en Batch, agregue una colección de cuentas de usuario al grupo. En los fragmentos de código siguientes se muestra cómo crear cuentas de usuario con nombre en .NET, Java y Python. En estos fragmentos de código se muestra cómo crear cuentas con nombre con y sin derechos administrativos en un grupo.
 
 #### <a name="batch-net-example-windows"></a>Ejemplo de .NET de Batch (Windows)
 
@@ -147,7 +147,7 @@ Para crear cuentas de usuario con nombre en Batch, agregue una colección de cue
 CloudPool pool = null;
 Console.WriteLine("Creating pool [{0}]...", poolId);
 
-// Create a pool using the cloud service configuration.
+// Create a pool using Virtual Machine Configuration.
 pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
     targetDedicatedComputeNodes: 3,

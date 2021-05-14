@@ -2,17 +2,17 @@
 title: Control de código fuente
 description: Aprenda a configurar el control de código fuente en Azure Data Factory
 ms.service: data-factory
-author: dcstwh
-ms.author: weetok
+author: nabhishek
+ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/26/2021
-ms.openlocfilehash: e5cb9090025fe541ad3f70cdac876aca0552f154
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 77f5d940c06ef5a2a504033225b42b7ddd2c17c1
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553165"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903279"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Control de código fuente en Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]

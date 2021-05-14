@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: d1302d44a4cb5b09f6dc3b1bf0cb08a12a932c87
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 92f9c3baaa8260bdc154f8752b56a63cf1444ebe
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029410"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140414"
 ---
 # <a name="what-is-azure-private-endpoint"></a>¿Qué es un punto de conexión privado de Azure?
 
@@ -78,6 +78,7 @@ Un recurso de vínculo privado es el destino de un punto de conexión privado de
 |**Azure Event Grid** | Microsoft.EventGrid/topics    | topic |
 |**Azure Event Grid** | Microsoft.EventGrid/domains    | dominio |
 |**Azure App Service** | Microsoft.Web/sites    | sites |
+|**Espacios de Azure App Service** | Microsoft.Web/sites    | sites-`<slot name>` |
 |**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | amlworkspace |
 |**SignalR** | Microsoft.SignalRService/SignalR    | signalR |
 |**Azure Monitor** | Microsoft.Insights/privateLinkScopes    | azuremonitor |
@@ -110,7 +111,7 @@ El propietario del recurso de vínculo privado puede realizar las siguientes acc
 > Solo un punto de conexión privado en un estado aprobado puede enviar tráfico a un recurso de vínculo privado determinado. 
 
 ### <a name="connecting-using-alias"></a>Conexión mediante alias
-El alias es un moniker único que se genera cuando el propietario del servicio crea el servicio de vínculo privado detrás de un equilibrador de carga estándar. El propietario del servicio puede compartir este alias con sus consumidores sin conexión. Los consumidores pueden solicitar una conexión al servicio de vínculo privado mediante el URI de recurso o el alias. Si desea conectarse mediante el alias, debe crear un punto de conexión privado mediante el método de aprobación de conexión manual. Para usar el método de aprobación de conexión manual, establezca el parámetro solicitud manual en true durante el flujo de creación del punto de conexión privado. Consulte [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) y [az network private-endpoint create](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) para obtener más información. 
+El alias es un moniker único que se genera cuando el propietario del servicio crea el servicio de vínculo privado detrás de un equilibrador de carga estándar. El propietario del servicio puede compartir este alias con sus consumidores sin conexión. Los consumidores pueden solicitar una conexión al servicio de vínculo privado mediante el URI de recurso o el alias. Si desea conectarse mediante el alias, debe crear un punto de conexión privado mediante el método de aprobación de conexión manual. Para usar el método de aprobación de conexión manual, establezca el parámetro solicitud manual en true durante el flujo de creación del punto de conexión privado. Consulte [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) y [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) para obtener más información. 
 
 ## <a name="dns-configuration"></a>Configuración de DNS 
 Al conectarse a un recurso de vínculo privado mediante un nombre de dominio completo (FQDN) como parte de la cadena de conexión, es importante establecer correctamente la configuración de DNS para que se resuelva en la dirección IP privada asignada. Es posible que los servicios de Azure existentes ya tengan una configuración de DNS que usar al conectarse a través de un punto de conexión público. Este se debe invalidar para conectarse con el punto de conexión privado. 
@@ -133,9 +134,9 @@ En la tabla siguiente se incluye una lista de las limitaciones conocidas al usar
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Creación de un punto de conexión privado para SQL Database mediante Azure Portal](create-private-endpoint-portal.md)
-- [Creación de un punto de conexión privado para SQL Database mediante PowerShell](create-private-endpoint-powershell.md)
-- [Creación de un punto de conexión privado para SQL Database mediante la CLI](create-private-endpoint-cli.md)
+- [Creación de un punto de conexión privado para Azure Web Apps mediante el portal](create-private-endpoint-portal.md)
+- [Creación de un punto de conexión privado para Azure Web Apps mediante PowerShell](create-private-endpoint-powershell.md)
+- [Creación de un punto de conexión privado para Azure Web Apps mediante la CLI](create-private-endpoint-cli.md)
 - [Creación de un punto de conexión privado para la cuenta de almacenamiento mediante el portal](./tutorial-private-endpoint-storage-portal.md)
 - [Creación de un punto de conexión privado para la cuenta de Azure Cosmos mediante el portal](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Creación del propio servicio Private Link con Azure PowerShell](create-private-link-service-powershell.md)

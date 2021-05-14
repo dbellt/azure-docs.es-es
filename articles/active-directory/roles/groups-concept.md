@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 11/05/2020
+ms.date: 04/27/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 051963060531283b868a5a20e13e871de1919ccb
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 236606bea3ff4edcd6786828f4cb2379251a77f8
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256079"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108203332"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Uso de grupos en la nube para administrar asignaciones de roles en Azure Active Directory (versión preliminar)
 
@@ -28,7 +28,7 @@ En este ejemplo: Contoso ha contratado a personas en distintas zonas geográfica
 
 ## <a name="how-this-feature-works"></a>Funcionamiento de esta característica
 
-Cree un grupo de seguridad o de Microsoft 365 con la propiedad "isAssignableToRole" establecida en "true". También puede habilitar esta propiedad al crear un grupo en Azure Portal; para ello, active **Los roles de Azure AD se pueden asignar a un grupo**. En cualquier caso, puede asignar el grupo a uno o varios roles de Azure AD de la misma manera que asigna roles a los usuarios. Se puede crear un máximo de 250 grupos a los que se puedan asignar roles en una sola organización de Azure AD (inquilino).
+Cree un grupo de seguridad o de Microsoft 365 con la propiedad "isAssignableToRole" establecida en "true". También puede habilitar esta propiedad al crear un grupo en Azure Portal; para ello, active **Los roles de Azure AD se pueden asignar a un grupo**. En cualquier caso, puede asignar el grupo a uno o varios roles de Azure AD de la misma manera que asigna roles a los usuarios. Se puede crear un máximo de 300 grupos a los que se puedan asignar roles en una sola organización de Azure AD (inquilino).
 
 Si no desea que los miembros del grupo tengan acceso permanente al rol, puede usar Azure AD Privileged Identity Management. Asigne un grupo como miembro apto de un rol de Azure AD. Después, cada miembro del grupo es apto para que se active la asignación del rol al que está asignado el grupo. A continuación, pueden activar su asignación de roles durante un tiempo fijo.
 
@@ -63,6 +63,7 @@ Los siguientes escenarios no se admiten en este momento:
 - Use el nuevo [Centro de administración de Exchange](https://admin.exchange.microsoft.com/) para la asignación de roles mediante la pertenencia a grupos. El antiguo Centro de administración de Exchange no es compatible aún con esta característica. Los cmdlets de PowerShell de Exchange funcionarán según lo previsto.
 - El portal de Azure Information Protection (el portal clásico) todavía no reconoce la pertenencia al rol mediante el grupo. Puede [migrar a la plataforma de etiquetado de confidencialidad unificada](/azure/information-protection/configure-policy-migrate-labels) y, a continuación, usar el Centro de seguridad y cumplimiento de Office 365 a fin de utilizar las asignaciones de grupo para administrar roles.
 - [Apps Admin Center](https://config.office.com/) no es compatible aún con esta característica. Asigne usuarios directamente al rol de administrador de aplicaciones de Office.
+- [M365 Compliance Center](https://compliance.microsoft.com/) aún no es compatible con esta característica. Asigne usuarios directamente a los roles adecuados de Azure AD para usar este portal.
 
 Estamos solucionando estos problemas.
 

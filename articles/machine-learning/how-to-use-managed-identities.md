@@ -8,14 +8,14 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: 3246f6668a653c05599001a2f8d8fc8d376936ce
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 61f0f2a71240c0ade13f7cd20b6c411f3df7f278
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105642421"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279161"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Utilice identidades administradas con Azure Machine Learning (versión preliminar)
 
@@ -234,7 +234,7 @@ Una vez que haya configurado ACR sin el usuario administrador tal y como se ha d
 
 Al crear el área de trabajo, puede especificar una identidad administrada asignada por el usuario para acceder a los recursos asociados: ACR, KeyVault, Storage y App Insights.
 
-En primer lugar, [cree una identidad administrada asignada por el usuario](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli) y anote el identificador de recurso de ARM de la identidad administrada.
+En primer lugar, [cree una identidad administrada asignada por el usuario](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) y anote el identificador de recurso de ARM de la identidad administrada.
 
 A continuación, use CLI de Azure o el SDK de Python para crear el área de trabajo. Cuando use la CLI, especifique el identificador mediante el parámetro `--primary-user-assigned-identity`. Al usar el SDK, use `primary_user_assigned_identity`. A continuación, se muestran ejemplos de uso de la CLI de Azure y de Python para crear un área de trabajo con estos parámetros:
 
@@ -255,7 +255,7 @@ ws = Workspace.create(name="workspace name",
     primary_user_assigned_identity="managed identity ARM ID")
 ```
 
-También puede usar [una plantilla de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) para crear un área de trabajo con una identidad administrada asignada por el usuario.
+También puede usar [una plantilla de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced) para crear un área de trabajo con una identidad administrada asignada por el usuario.
 
 > [!IMPORTANT]
 > Si aporta sus propios recursos asociados, en lugar de crearlos con el servicio Azure Machine Learning, debe conceder los roles de identidad administrados sobre esos recursos. Use la [plantilla de Resource Manager de asignación de roles](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-dependencies-role-assignment) para hacer las asignaciones.

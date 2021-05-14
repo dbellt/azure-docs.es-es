@@ -3,14 +3,14 @@ author: v-demjoh
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/15/2020
+ms.date: 04/28/2021
 ms.author: v-demjoh
-ms.openlocfilehash: ec34ba7b2d3bc026376aeb1cb91847d8eac1cac5
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 3221712fcf74022f2899380b4573ab3a821dce4d
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107073700"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109627276"
 ---
 ## <a name="download-and-install"></a>Descargar e instalar
 
@@ -28,8 +28,7 @@ Siga estos pasos para instalar la CLI de Voz en Windows:
 Escriba `spx` para ver la ayuda de la CLI de Voz.
 
 > [!NOTE]
-> Como alternativa a NuGet, puede descargar y extraer [archivo zip](https://aka.ms/speech/spx-zips.zip) de la CLI de Voz, buscar y extraer la plataforma del directorio `spx-zips`, y agregar la ruta de acceso `spx` a la variable **PATH** del sistema.
-
+> Como alternativa a NuGet, puede descargar y extraer la CLI de Voz para Windows como un [archivo ZIP](https://aka.ms/speech/spx-windows).
 
 ### <a name="font-limitations"></a>Limitaciones de fuentes
 
@@ -60,10 +59,14 @@ Siga estos pasos para instalar la CLI de Voz en Linux en una CPU x64:
 Escriba `spx` para ver la ayuda de la CLI de Voz.
 
 > [!NOTE]
-> Como alternativa a NuGet, puede descargar los binarios en [archivo zip](https://aka.ms/speech/spx-zips.zip), extraer `spx-netcore-30-linux-x64.zip` a un directorio `~/spx` nuevo, escribir `sudo chmod +r+x spx` en el binario y agregar la ruta de acceso `~/spx` a la variable PATH del sistema.
+> Como alternativa a NuGet, puede descargar los archivos binarios de Linux como un [archivo ZIP](https://aka.ms/speech/spx-linux).
+> Extraiga `spx-netcore-30-linux-x64.zip` en un nuevo directorio `~/spx`, escriba `sudo chmod +r+x spx` en el archivo binario y agregue la ruta de acceso `~/spx` a la variable del sistema PATH.
 
 
 #### <a name="docker-install-windows-linux-macos"></a>[Instalación de Docker (Windows, Linux, macOS)](#tab/dockerinstall)
+
+> [!WARNING]
+> No puede usar el micrófono del equipo al ejecutar la CLI de Voz dentro de un contenedor de Docker. Sin embargo, puede leer y guardar archivos de audio en el directorio montado local. 
 
 Siga estos pasos para instalar la CLI de Voz en un contenedor de Docker:
 
@@ -126,9 +129,6 @@ En Windows, escriba este comando para iniciar un contenedor que muestre una inte
 ```console
 docker run -it --entrypoint=/bin/bash -v c:\spx-data:/data --rm msftspeech/spx
 ```
-
-> [!WARNING]
-> No puede usar el micrófono del equipo al ejecutar la CLI de Voz dentro de un contenedor de Docker. Sin embargo, puede leer y guardar archivos de audio en el directorio montado local. 
 
 <!-- Need to troubleshoot issues with docker pull image
 

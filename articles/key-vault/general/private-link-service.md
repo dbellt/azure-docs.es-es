@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e5ddffb17c8f5acf16cf89dd58c634b6e404bf7b
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 825fb15d9c3a0a0a44a77d3feec767adc0368add
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749553"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279197"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integración de Key Vault con Azure Private Link
 
@@ -233,7 +233,7 @@ Aliases:  <your-key-vault-name>.vault.azure.net
     1. Debe tener un recurso Zona DNS privada cuyo nombre sea exactamente privatelink.vaultcore.azure.net. 
     2. Para aprender a configurarlo, consulte el siguiente vínculo. [Zonas DNS privadas](../../dns/private-dns-privatednszone.md)
     
-* Asegúrese de que la zona DNS privada no está vinculada a la red virtual. Si se devuelve la dirección IP pública, es posible que el problema sea este. 
+* Asegúrese de que la zona DNS privada está vinculada a la red virtual. Si se devuelve la dirección IP pública, es posible que el problema sea este. 
     1. Si la zona DNS privada no está vinculada a la red virtual, la consulta de DNS cuyo origen era la red virtual devolverá la dirección IP pública del almacén de claves. 
     2. Vaya al recurso Zona DNS privada de Azure Portal y haga clic en la opción de los vínculos de la red virtual. 
     4. La red virtual que realizará las llamadas al almacén de claves debe aparecer en la lista. 

@@ -71,7 +71,7 @@
         - name: Controles de seguridad de Azure Policy
           href: ./security-controls-policy.md
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=/azure/api-management/TOC.json
     - name: Backends
       href: backends.md
     - name: Suscripciones
@@ -104,8 +104,8 @@
           href: import-soap-api.md
         - name: Importación de API de SOAP y conversión en REST
           href: restify-soap-api.md
-        - name: Importación de una aplicación de API
-          href: import-api-app-as-api.md
+        - name: Importación de una instancia de Web App
+          href: import-app-service-as-api.md
         - name: Importación de una instancia de Function App
           href: import-function-app-as-api.md
         - name: Importación de una aplicación lógica
@@ -128,6 +128,9 @@
           href: configure-custom-domain.md
         - name: Implementación en varias regiones de Azure
           href: api-management-howto-deploy-multi-region.md
+        - name: Habilitación de la redundancia de zona
+          displayName: Availability zones
+          href: zone-redundancy.md
         - name: Aprovisionamiento de una puerta de enlace autohospedada
           href: api-management-howto-provision-self-hosted-gateway.md
         - name: Implementación de una puerta de enlace autohospedada en Azure Kubernetes Service
@@ -170,48 +173,74 @@
           href: api-management-howto-manage-protocols-ciphers.md
     - name: Personalización de la experiencia de los desarrolladores
       items:
-        - name: Descripción del portal para desarrolladores
-          href: api-management-howto-developer-portal.md
-        - name: Migración desde un portal para desarrolladores en desuso a uno nuevo
-          href: developer-portal-deprecated-migration.md
-        - name: Autenticación mediante Azure Active Directory
-          href: api-management-howto-aad.md
-        - name: "Autenticación mediante Azure\_AD\_B2C"
-          href: api-management-howto-aad-b2c.md
-        - name: Autenticación delegada
-          href: api-management-howto-setup-delegation.md
-        - name: Plantillas y notificaciones de correo electrónico
-          href: api-management-howto-configure-notifications.md
-        - name: Habilitar OAuth en la consola
-          href: api-management-howto-oauth2.md
-        - name: 'Portal en desuso: personalización del portal'
-          href: api-management-customize-styles.md
-        - name: 'Portal en desuso: modificación de páginas y diseños'
-          href: api-management-modify-content-layout.md
-        - name: 'Portal en desuso: personalización con plantillas'
-          href: api-management-developer-portal-templates.md
-    - name: Plantillas del portal en desuso
-      items:
-        - name: Referencia de modelo de datos
-          href: api-management-template-data-model-reference.md
-        - name: Controles de página
-          href: api-management-page-controls.md
-        - name: Plantillas
-          href: api-management-developer-portal-templates-reference.md
-        - name: API existentes
-          href: api-management-api-templates.md
-        - name: Productos
-          href: api-management-product-templates.md
-        - name: APLICACIONES
-          href: api-management-application-templates.md
-        - name: Issues
-          href: api-management-issue-templates.md
-        - name: Perfil de usuario
-          href: api-management-user-profile-templates.md
-        - name: Páginas
-          href: api-management-page-templates.md
-        - name: Recursos de plantilla
-          href: api-management-template-resources.md
+        - name: Uso del portal para desarrolladores
+          items:
+            - name: Descripción del portal para desarrolladores
+              href: api-management-howto-developer-portal.md
+            - name: Preguntas más frecuentes
+              href: developer-portal-faq.md
+            - name: Automatización de implementaciones del portal
+              href: automate-portal-deployments.md
+            - name: Migración desde un portal para desarrolladores en desuso a uno nuevo
+              href: developer-portal-deprecated-migration.md
+            - name: Autenticación mediante Azure Active Directory
+              href: api-management-howto-aad.md
+            - name: "Autenticación mediante Azure\_AD\_B2C"
+              href: api-management-howto-aad-b2c.md
+            - name: Delegación de autenticación
+              href: api-management-howto-setup-delegation.md
+            - name: Habilitar OAuth en la consola
+              href: api-management-howto-oauth2.md
+            - name: Plantillas y notificaciones de correo electrónico
+              href: api-management-howto-configure-notifications.md
+            - name: Integración de Application Insights
+              href: developer-portal-integrate-application-insights.md
+            - name: Integración de Google Tag Manager
+              href: developer-portal-integrate-google-tag-manager.md
+        - name: Portal para desarrolladores autohospedado
+          items:
+            - name: Creación del portal autohospedado
+              href: developer-portal-self-host.md
+            - name: Enfoques alternativos al autohospedaje
+              href: developer-portal-alternative-processes-self-host.md
+            - name: Implementación de widgets
+              href: developer-portal-implement-widgets.md
+            - name: Contribución de widgets
+              href: developer-portal-widget-contribution-guidelines.md
+            - name: Uso de widgets de comunidad
+              href: developer-portal-use-community-widgets.md
+            - name: Comprobación del portal autohospedado
+              href: developer-portal-testing.md
+        - name: Portal en desuso
+          items:
+            - name: 'Portal en desuso: personalización del portal'
+              href: api-management-customize-styles.md
+            - name: 'Portal en desuso: modificación de páginas y diseños'
+              href: api-management-modify-content-layout.md
+            - name: 'Portal en desuso: personalización con plantillas'
+              href: api-management-developer-portal-templates.md
+        - name: Plantillas del portal en desuso
+          items:
+            - name: Referencia de modelo de datos
+              href: api-management-template-data-model-reference.md
+            - name: Controles de página
+              href: api-management-page-controls.md
+            - name: Plantillas
+              href: api-management-developer-portal-templates-reference.md
+            - name: API existentes
+              href: api-management-api-templates.md
+            - name: Productos
+              href: api-management-product-templates.md
+            - name: APLICACIONES
+              href: api-management-application-templates.md
+            - name: Issues
+              href: api-management-issue-templates.md
+            - name: Perfil de usuario
+              href: api-management-user-profile-templates.md
+            - name: Páginas
+              href: api-management-page-templates.md
+            - name: Recursos de plantilla
+              href: api-management-template-resources.md
     - name: Definición de directivas
       items:
         - name: Establecimiento o edición de directivas
@@ -245,6 +274,8 @@
           href: api-management-transformation-policies.md
         - name: Directivas de integración de Distributed Application Runtime (Dapr)
           href: api-management-dapr-policies.md
+        - name: Directivas de validación
+          href: validation-policies.md
     - name: Administración en producción
       items:
         - name: Exportación de API a Power Platform

@@ -4,16 +4,13 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 45a772b4a1d65b67f918107fd33135a56f6302f2
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: e11b8354bd1f7cc8357d5c5d64ee2bd69af06a0b
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "106073201"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108313612"
 ---
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
-
-
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
@@ -26,7 +23,7 @@ ms.locfileid: "106073201"
 ### <a name="install-the-package"></a>Instalar el paquete
 
 > [!NOTE]
-> En este documento se usa la versión 1.0.0-beta.8 de Calling SDK.
+> En este documento se usa la versión 1.0.0 del SDK de llamadas.
 
 Busque el nivel de proyecto build.gradle y asegúrese de agregar `mavenCentral()` a la lista de repositorios en `buildscript` y `allprojects`
 ```groovy
@@ -53,7 +50,7 @@ A continuación, en el nivel de módulo build.gradle, agregue las siguientes lí
 ```groovy
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.8'
+    implementation 'com.azure.android:azure-communication-calling:1.0.0'
     ...
 }
 
@@ -82,7 +79,7 @@ CallClient callClient = new CallClient();
 CommunicationTokenCredential tokenCredential = new CommunicationTokenCredential(userToken);
 android.content.Context appContext = this.getApplicationContext(); // From within an Activity for instance
 CallAgent callAgent = callClient.createCallAgent(appContext, tokenCredential).get();
-DeviceManager deviceManager = callClient.getDeviceManager().get();
+DeviceManager deviceManager = callClient.getDeviceManager(appContext).get();
 ```
 Para establecer un nombre para mostrar para el autor de la llamada, use este método alternativo:
 
@@ -93,8 +90,8 @@ CommunicationTokenCredential tokenCredential = new CommunicationTokenCredential(
 android.content.Context appContext = this.getApplicationContext(); // From within an Activity for instance
 CallAgentOptions callAgentOptions = new CallAgentOptions();
 callAgentOptions.setDisplayName("Alice Bob");
+DeviceManager deviceManager = callClient.getDeviceManager(appContext).get();
 CallAgent callAgent = callClient.createCallAgent(appContext, tokenCredential, callAgentOptions).get();
-DeviceManager deviceManager = callClient.getDeviceManager().get();
 ```
 
 
@@ -141,13 +138,15 @@ Una vez que la llamada se conecta, iniciará automáticamente el envío de una s
 Consulte [Versión preliminar de la cámara local](#local-camera-preview) para obtener más detalles.
 ```java
 Context appContext = this.getApplicationContext();
-VideoDeviceInfo desiredCamera = callClient.getDeviceManager().get().getCameras().get(0);
+VideoDeviceInfo desiredCamera = callClient.getDeviceManager(appContext).get().getCameras().get(0);
 LocalVideoStream currentVideoStream = new LocalVideoStream(desiredCamera, appContext);
-VideoOptions videoOptions = new VideoOptions(currentVideoStream);
+LocalVideoStream[] localVideoStreams = new LocalVideoStream[1];
+localVideoStreams[0] = currentVideoStream;
+VideoOptions videoOptions = new VideoOptions(localVideoStreams);
 
 // Render a local preview of video so the user knows that their video is being shared
-Renderer previewRenderer = new Renderer(currentVideoStream, appContext);
-View uiView = previewRenderer.createView(new RenderingOptions(ScalingMode.Fit));
+Renderer previewRenderer = new VideoStreamRenderer(currentVideoStream, appContext);
+View uiView = previewRenderer.createView(new CreateViewOptions(ScalingMode.FIT));
 // Attach the uiView to a viewable location on the app at this point
 layout.addView(uiView);
 
@@ -340,7 +339,7 @@ Las aplicaciones pueden anular el registro de notificaciones push en cualquier m
 
 ```java
 try {
-    callAgent.unregisterPushNotifications().get();
+    callAgent.unregisterPushNotification().get();
 }
 catch(Exception e) {
     System.out.println("Something went wrong while un-registering for all Incoming Calls Push Notifications.")
@@ -367,7 +366,7 @@ List<RemoteParticipant> remoteParticipants = call.getRemoteParticipants();
 La identidad del autor de la llamada si la llamada es entrante:
 
 ```java
-CommunicationIdentifier callerId = call.getCallerId();
+CommunicationIdentifier callerId = call.getCallerInfo().getIdentifier();
 ```
 
 Obtenga el estado de la llamada: 
@@ -377,16 +376,16 @@ CallState callState = call.getState();
 ```
 
 Devuelve una cadena que representa el estado actual de una llamada:
-* "None": estado inicial de la llamada
-* "Connecting": estado de transición inicial una vez que se realiza o acepta la llamada
-* "Ringing": en el caso de una llamada saliente, indica que se está llamando a los participantes remotos.
-* "EarlyMedia": indica un estado en el que se reproduce un anuncio antes de conectar la llamada
-* "Connected": se conecta la llamada
-* "LocalHold": la llamada se pone en espera, no fluye ningún elemento multimedia entre el punto de conexión local y los participantes remotos
-* "RemoteHold": la llamada la pone en espera un participante remoto, no fluye ningún elemento multimedia entre el punto de conexión local y los participantes remotos
-* "Disconnecting": estado de transición antes de que la llamada pase al estado "Disconnected"
-* "Disconnected": estado final de la llamada
-
+* "NONE": estado inicial de la llamada.
+* "EARLY_MEDIA": indica un estado en el que se reproduce un anuncio antes de conectar la llamada.
+* "CONNECTING": estado de transición inicial una vez que se realiza o acepta la llamada.
+* "RINGING": en el caso de una llamada saliente, indica que se está llamando a los participantes remotos.
+* "CONNECTED": la llamada está conectada.
+* "LOCAL_HOLD": el participante local ha puesto la llamada en espera; no fluye ningún elemento multimedia entre el punto de conexión local y los participantes remotos.
+* "REMOTE_HOLD": un participante remoto ha puesto la llamada en espera; no fluye ningún elemento multimedia entre el punto de conexión local y los participantes remotos.
+* "DISCONNECTING": estado de transición antes de que la llamada pase al estado "Desconectado".
+* "DISCONNECTED": estado final de la llamada.
+* "IN_LOBBY": en busca de interoperabilidad de una reunión de Teams.
 
 Para saber por qué ha finalizado una llamada, revise la propiedad `callEndReason`. Contiene código o subcódigo: 
 
@@ -400,20 +399,20 @@ Para ver si la llamada actual es una llamada entrante o saliente, revise la prop
 
 ```java
 CallDirection callDirection = call.getCallDirection(); 
-// callDirection == CallDirection.Incoming for incoming call
-// callDirection == CallDirection.Outgoing for outgoing call
+// callDirection == CallDirection.INCOMING for incoming call
+// callDirection == CallDirection.OUTGOING for outgoing call
 ```
 
 Para ver si el micrófono actual está silenciado, revise la propiedad `muted`:
 
 ```java
-boolean muted = call.getIsMicrophoneMuted();
+boolean muted = call.isMuted();
 ```
 
 Para ver si se está grabando la llamada actual, inspeccione la propiedad `isRecordingActive`:
 
 ```java
-boolean recordinggActive = call.getIsRecordingActive();
+boolean recordingActive = call.isRecordingActive();
 ```
 
 Para revisar las secuencias de vídeo activas, compruebe la colección `localVideoStreams`:
@@ -427,8 +426,9 @@ List<LocalVideoStream> localVideoStreams = call.getLocalVideoStreams();
 Para silenciar o reactivar el sonido del punto de conexión local, puede usar las API asincrónicas `mute` y `unmute`:
 
 ```java
-call.mute().get();
-call.unmute().get();
+Context appContext = this.getApplicationContext();
+call.mute(appContext).get();
+call.unmute(appContext).get();
 ```
 
 ### <a name="start-and-stop-sending-local-video"></a>Inicio y detención del envío de vídeo local
@@ -440,7 +440,7 @@ VideoDeviceInfo desiredCamera = <get-video-device>;
 Context appContext = this.getApplicationContext();
 LocalVideoStream currentLocalVideoStream = new LocalVideoStream(desiredCamera, appContext);
 VideoOptions videoOptions = new VideoOptions(currentLocalVideoStream);
-Future startVideoFuture = call.startVideo(currentLocalVideoStream);
+Future startVideoFuture = call.startVideo(appContext, currentLocalVideoStream);
 startVideoFuture.get();
 ```
 
@@ -453,7 +453,7 @@ currentLocalVideoStream == call.getLocalVideoStreams().get(0);
 Para detener el vídeo local, pase la instancia `LocalVideoStream` disponible en la colección `localVideoStreams`:
 
 ```java
-call.stopVideo(currentLocalVideoStream).get();
+call.stopVideo(appContext, currentLocalVideoStream).get();
 ```
 
 Puede cambiar a un dispositivo de cámara distinto mientras se envía vídeo si invoca `switchSource` en una instancia de `LocalVideoStream`:
@@ -485,14 +485,14 @@ CommunicationIdentifier participantIdentifier = remoteParticipant.getIdentifier(
 ParticipantState state = remoteParticipant.getState();
 ```
 El estado puede ser uno de los siguientes:
-* "Idle": estado inicial
-* "EarlyMedia": se reproduce un anuncio antes de que el participante se conecte a la llamada
-* "Ringing": la llamada del participante está sonando
-* "Connecting": estado de transición mientras el participante se conecta a la llamada
-* "Connected": el participante se conecta a la llamada
-* "Hold": el participante está en espera
-* "InLobby": el participante está esperando que se admita en la sala. Actualmente solo se usa en el escenario de interoperabilidad de Teams
-* "Disconnected": estado final; el participante se desconecta de la llamada
+* "IDLE": estado inicial.
+* "EARLY_MEDIA": se reproduce un anuncio antes de que el participante se conecte a la llamada.
+* "RINGING": la llamada del participante está sonando.
+* "CONNECTING": estado de transición mientras el participante se conecta a la llamada.
+* "CONNECTED": el participante se conecta a la llamada.
+* "HOLD": el participante está en espera.
+* "IN_LOBBY": el participante está esperando que se admita en la sala. Actualmente solo se usa en el escenario de interoperabilidad de Teams
+* "DISCONNECTED": estado final; el participante se desconecta de la llamada.
 
 
 * Para saber por qué el participante dejó la llamada, revise la propiedad `callEndReason`:
@@ -502,12 +502,12 @@ CallEndReason callEndReason = remoteParticipant.getCallEndReason();
 
 * Para comprobar si este participante remoto está silenciado o no, revise la propiedad `isMuted`:
 ```java
-boolean isParticipantMuted = remoteParticipant.getIsMuted();
+boolean isParticipantMuted = remoteParticipant.isMuted();
 ```
 
 * Para comprobar si este participante remoto está hablando o no, revise la propiedad `isSpeaking`:
 ```java
-boolean isParticipantSpeaking = remoteParticipant.getIsSpeaking();
+boolean isParticipantSpeaking = remoteParticipant.isSpeaking();
 ```
 
 * Para revisar todas las secuencias de vídeo que un participante determinado envía en esta llamada, compruebe la colección `videoStreams`:
@@ -554,8 +554,8 @@ En el evento, el cambio de la propiedad `isAvailable` a true indica que el parti
 Cada vez que cambia la disponibilidad de una secuencia remota, puede elegir destruir todo el representador, un `RendererView` específico o mantenerlos, pero esto hará que el fotograma del vídeo se vea en blanco.
 
 ```java
-Renderer remoteVideoRenderer = new Renderer(remoteParticipantStream, appContext);
-View uiView = remoteVideoRenderer.createView(new RenderingOptions(ScalingMode.Fit));
+VideoStreamRenderer remoteVideoRenderer = new VideoStreamRenderer(remoteParticipantStream, appContext);
+VideoStreamRendererView uiView = remoteVideoRenderer.createView(new RenderingOptions(ScalingMode.FIT));
 layout.addView(uiView);
 
 remoteParticipant.addOnVideoStreamsUpdatedListener(e -> onRemoteParticipantVideoStreamsUpdated(p, e));
@@ -581,41 +581,41 @@ int id = remoteVideoStream.getId();
 
 * `MediaStreamType`: puede ser "Video" o "ScreenSharing"
 ```java
-MediaStreamType type = remoteVideoStream.getType();
+MediaStreamType type = remoteVideoStream.getMediaStreamType();
 ```
 
 * `isAvailable`: indica si el punto de conexión del participante remoto envía secuencias de manera activa
 ```java
-boolean availability = remoteVideoStream.getIsAvailable();
+boolean availability = remoteVideoStream.isAvailable();
 ```
 
 ### <a name="renderer-methods-and-properties"></a>Métodos y propiedades del representador
 Objeto del representador que sigue a las API
 
-* Cree una instancia de `RendererView` que se pueda adjuntar posteriormente en la interfaz de usuario de la aplicación para representar la secuencia de vídeo remota.
+* Cree una instancia de `VideoStreamRendererView` que se pueda adjuntar posteriormente en la interfaz de usuario de la aplicación para representar la secuencia de vídeo remota.
 ```java
 // Create a view for a video stream
-renderer.createView()
+VideoStreamRendererView.createView()
 ```
-* Eliminación del representador y de todos los elementos `RendererView` asociados a este representador. Se llamará cuando se hayan quitado todas las vistas asociadas de la interfaz de usuario.
+* Eliminación del representador y de todos los elementos `VideoStreamRendererView` asociados a este representador. Se llamará cuando se hayan quitado todas las vistas asociadas de la interfaz de usuario.
 ```java
-renderer.dispose()
+VideoStreamRenderer.dispose()
 ```
 
 * `StreamSize`: tamaño (ancho y alto) de una secuencia de vídeo remota
 ```java
-StreamSize renderStreamSize = remoteVideoStream.getSize();
+StreamSize renderStreamSize = VideoStreamRenderer.getSize();
 int width = renderStreamSize.getWidth();
 int height = renderStreamSize.getHeight();
 ```
 
 
 ### <a name="rendererview-methods-and-properties"></a>Métodos y propiedades de RendererView
-Al crear `RendererView` puede especificar las propiedades `scalingMode` y `mirrored` que se aplicarán a esta vista: El modo de escalado puede ser "Stretch"| "Crop" | "Fit". Si `mirrored` se establece en `true`, la secuencia representada se volteará de manera vertical.
+Al crear un objeto `VideoStreamRendererView`, puede especificar las propiedades `ScalingMode` y `mirrored` que se aplicarán a esta vista: el modo de escalado puede ser "CROP" | "FIT".
 
 ```java
-Renderer remoteVideoRenderer = new Renderer(remoteVideoStream, appContext);
-RendererView rendererView = remoteVideoRenderer.createView(new RenderingOptions(ScalingMode.Fit));
+VideoStreamRenderer remoteVideoRenderer = new VideoStreamRenderer(remoteVideoStream, appContext);
+VideoStreamRendererView rendererView = remoteVideoRenderer.createView(new CreateViewOptions(ScalingMode.Fit));
 ```
 
 A continuación, el elemento RendererView creado se puede asociar a la interfaz de usuario de la aplicación mediante el siguiente fragmento de código:
@@ -623,10 +623,10 @@ A continuación, el elemento RendererView creado se puede asociar a la interfaz 
 layout.addView(rendererView);
 ```
 
-Posteriormente podrá actualizar el modo de escalado invocando la API `updateScalingMode` en el objeto RendererView con ScalingMode.Stretch | ScalingMode.Crop | ScalingMode.Fit como argumento.
+Posteriormente podrá actualizar el modo de escalado invocando la API `updateScalingMode` en el objeto RendererView con ScalingMode.CROP | ScalingMode.FIT como argumento.
 ```java
 // Update the scale mode for this view.
-rendererView.updateScalingMode(ScalingMode.Crop)
+rendererView.updateScalingMode(ScalingMode.CROP)
 ```
 
 
@@ -639,7 +639,8 @@ Puede llamar al método `callClient.getDeviceManager()` para acceder a `deviceMa
 > Actualmente, se debe crear una instancia de un objeto `callAgent` para poder obtener acceso a DeviceManager.
 
 ```java
-DeviceManager deviceManager = callClient.getDeviceManager().get();
+Context appContext = this.getApplicationContext();
+DeviceManager deviceManager = callClient.getDeviceManager(appContext).get();
 ```
 
 ### <a name="enumerate-local-devices"></a>Enumeración de los dispositivos locales
@@ -649,32 +650,6 @@ Para acceder a los dispositivos locales, puede usar métodos de enumeración en 
 ```java
 //  Get a list of available video devices for use.
 List<VideoDeviceInfo> localCameras = deviceManager.getCameras(); // [VideoDeviceInfo, VideoDeviceInfo...]
-
-// Get a list of available microphone devices for use.
-List<AudioDeviceInfo> localMicrophones = deviceManager.getMicrophones(); // [AudioDeviceInfo, AudioDeviceInfo...]
-
-// Get a list of available speaker devices for use.
-List<AudioDeviceInfo> localSpeakers = deviceManager.getSpeakers(); // [AudioDeviceInfo, AudioDeviceInfo...]
-```
-
-### <a name="set-default-microphonespeaker"></a>Establecimiento de micrófono/altavoz predeterminados
-
-El administrador de dispositivos le permite establecer un dispositivo predeterminado que se usará al iniciar una llamada.
-Si no se establecen los valores predeterminados del cliente, Communication Services revertirá a los valores predeterminados del sistema operativo.
-
-```java
-
-// Get the microphone device that is being used.
-AudioDeviceInfo defaultMicrophone = deviceManager.getMicrophones().get(0);
-
-// Set the microphone device to use.
-deviceManager.setMicrophone(defaultMicrophone);
-
-// Get the speaker device that is being used.
-AudioDeviceInfo defaultSpeaker = deviceManager.getSpeakers().get(0);
-
-// Set the speaker device to use.
-deviceManager.setSpeaker(defaultSpeaker);
 ```
 
 ### <a name="local-camera-preview"></a>Vista previa de la cámara local
@@ -685,10 +660,12 @@ Puede usar `DeviceManager` y `Renderer` para empezar a representar secuencias de
 VideoDeviceInfo videoDevice = <get-video-device>;
 Context appContext = this.getApplicationContext();
 currentVideoStream = new LocalVideoStream(videoDevice, appContext);
-videoOptions = new VideoOptions(currentVideoStream);
+LocalVideoStream[] localVideoStreams = new LocalVideoStream[1];
+localVideoStreams[0] = currentVideoStream;
+videoOptions = new VideoOptions(localVideoStreams);
 
-Renderer previewRenderer = new Renderer(currentVideoStream, appContext);
-View uiView = previewRenderer.createView(new RenderingOptions(ScalingMode.Fit));
+VideoStreamRenderer previewRenderer = new VideoStreamRenderer(currentVideoStream, appContext);
+VideoStreamRendererView uiView = previewRenderer.createView(new RenderingOptions(ScalingMode.Fit));
 
 // Attach the uiView to a viewable location on the app at this point
 layout.addView(uiView);

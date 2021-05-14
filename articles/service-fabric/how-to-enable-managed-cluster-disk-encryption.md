@@ -3,19 +3,16 @@ title: Habilitación del cifrado de disco para nodos de clústeres administrados
 description: Aprenda a habilitar el cifrado de discos en nodos de clústeres administrados de Azure Service Fabric en Windows mediante una plantilla de Resource Manager.
 ms.topic: how-to
 ms.date: 02/15/2021
-ms.openlocfilehash: b7e56ff8db9f94b8c6681a1a7d69a4751b3f43a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa6388d9d165cd149faae3c19b81320198fd0b02
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100641019"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127288"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-managed-cluster-preview-nodes"></a>Habilitación del cifrado de disco para nodos de clústeres administrados (versión preliminar) de Service Fabric
 
 En esta guía, aprenderá a habilitar el cifrado de disco en nodos de clústeres administrados de Service Fabric en Windows con la funcionalidad de [Azure Disk Encryption](../virtual-machines/windows/disk-encryption-overview.md) para [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/disk-encryption-azure-resource-manager.md) a través de plantillas de Azure Resource Manager.
-
-> [!IMPORTANT]
-> La versión preliminar del cifrado de disco del conjunto de escalado de máquinas virtuales todavía no admite la actualización de imágenes ni el restablecimiento de la imagen inicial. No la utilice si necesita actualizar la imagen del sistema operativo.
 
 ## <a name="register-for-azure-disk-encryption"></a>Registro en Azure Disk Encryption
 
@@ -118,7 +115,7 @@ El siguiente paso le guiará a través de los cambios de plantilla necesarios pa
             "properties": { 
                 "publisher": "Microsoft.Azure.Security", 
                 "type": "AzureDiskEncryption", 
-                "typeHandlerVersion": "2.1", 
+                "typeHandlerVersion": "2.2", 
                 "autoUpgradeMinorVersion": true, 
                 "settings": {                     
                     "EncryptionOperation": "EnableEncryption", 

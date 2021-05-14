@@ -5,12 +5,12 @@ author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
 ms.date: 02/14/2021
-ms.openlocfilehash: 7ab719560320882a3a6569bff5df7d2e2cf0b747
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 626f46030fc8ee5ab7c788a9b45f440d8a0fe5a4
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102037564"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109733845"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Llamada a un webhook con una alerta de métrica clásica en Azure Monitor
 
@@ -18,7 +18,7 @@ ms.locfileid: "102037564"
 > En este artículo se describe cómo usar las alertas de métrica clásicas más antiguas. Azure Monitor ahora es compatible con [una nueva experiencia de alertas y las más recientes alertas de métrica casi en tiempo real](./alerts-overview.md). Las alertas clásicas se han [retirado](./monitoring-classic-retirement.md) para los usuarios de la nube pública, aunque siguen estando disponibles con uso limitado hasta el **31 de mayo de 2021**. Las alertas clásicas para la nube de Azure Government y Azure China 21Vianet se retirarán el **29 de febrero de 2024**.
 >
 
-Puede usar los webhooks para redirigir una notificación de alerta de Azure a otros sistemas para su procesamiento posterior o acciones personalizadas. Puede usar un webhook en una alerta para redirigirla a servicios que envían mensajes SMS, para registrar errores, para notificar a un equipo mediante servicios de chat y mensajería o llevar a cabo otras acciones. 
+Puede usar los webhooks para redirigir una notificación de alerta de Azure a otros sistemas para su procesamiento posterior o acciones personalizadas. Puede usar un webhook en una alerta para redirigirla a servicios que envían mensajes SMS, para registrar errores, para notificar a un equipo mediante servicios de chat y mensajería o llevar a cabo otras acciones.
 
 En este artículo se describe cómo establecer un webhook en una alerta de métrica de Azure. También muestra el aspecto de la carga útil para HTTP POST a un webhook. Para obtener información sobre la configuración y el esquema de una alerta de registro de actividad de Azure (alerta de eventos), consulte [Llamada a un webhook cuando se activan alertas del registro de actividades de Azure](../alerts/alerts-log-webhook.md).
 
@@ -105,6 +105,6 @@ La operación POST contiene el siguiente esquema y carga útil de JSON para toda
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprenda más sobre los webhooks y las alertas de Azure en el vídeo [Integración de las alertas de Azure con PagerDuty](https://go.microsoft.com/fwlink/?LinkId=627080).
 * Obtenga información sobre cómo [ejecutar scripts de Azure Automation (Runbooks) en alertas de Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
-* Aprenda a [usar una aplicación lógica para enviar un mensaje SMS a través de Twilio desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
+* Aprenda a [usar una aplicación lógica para enviar un mensaje SMS a través de Twilio desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-text-message-with-logic-app).
 * Sepa cómo [usar una aplicación lógica para enviar un mensaje de Slack desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
-* Obtenga información sobre cómo [usar una aplicación lógica para enviar un mensaje a una cola de Azure desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).
+* Obtenga información sobre cómo [usar una aplicación lógica para enviar un mensaje a una cola de Azure desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-queue-with-logic-app).

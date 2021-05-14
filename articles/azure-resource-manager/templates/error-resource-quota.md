@@ -3,12 +3,13 @@ title: Errores de cuota
 description: Describe cómo resolver errores de cuota de recursos al implementar recursos con Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 03/09/2018
-ms.openlocfilehash: 75e8abf31d035a1e3a106bc0c6561624762db5d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: df789ba83efe5d8a20d6c925b40adfb209f65dd4
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90530427"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318862"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Resolución de errores de cuotas de recursos
 

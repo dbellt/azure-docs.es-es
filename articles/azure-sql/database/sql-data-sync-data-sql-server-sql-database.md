@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: c38e4681c76fb0dd52d77c7dc1438b87a9571a80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 660297beacb6594058a3d83fb622ddeb579c223b
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103562066"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107951727"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>¿Qué es SQL Data Sync para Azure?
 
@@ -151,6 +151,7 @@ El aprovisionamiento y desaprovisionamiento durante la creación, actualización
 - Si hay tablas con el mismo nombre pero distinto esquema (por ejemplo, dbo.customers y sales.customers), solo se puede agregar una de las tablas a la sincronización.
 - No se admiten columnas con tipos de datos definidos por el usuario
 - No se admite el traslado de servidores entre diferentes suscripciones. 
+- Si dos claves principales solo son diferentes en el uso de mayúsculas (por ejemplo, Foo y foo), Data Sync no admitirá este escenario.
 
 #### <a name="unsupported-data-types"></a>Tipos de datos no admitidos
 
@@ -200,7 +201,7 @@ Una vez creado y aprovisionado el grupo de sincronización, puede deshabilitar e
 
 ### <a name="how-much-does-the-sql-data-sync-service-cost"></a>¿Cuánto cuesta el servicio SQL Data Sync?
 
-No hay gastos derivados del uso del servicio SQL Data Sync. Sin embargo, sí se cobrarán cargos de transferencia de datos por la entrada y salida de datos de su instancia de SQL Database. Para más información, consulte [Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+No hay gastos derivados del uso del servicio SQL Data Sync. Sin embargo, sí se cobrarán cargos de transferencia de datos por la entrada y salida de datos de su instancia de SQL Database. Para obtener más información, vea [Cargos de transferencia de datos](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### <a name="what-regions-support-data-sync"></a>¿En qué regiones se admite Data Sync?
 

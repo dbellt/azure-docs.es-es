@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: 6629beacb5c3edc6fe1d21509051b915c0894479
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5b5e1491d7f76cd4cff76d0c9a1af4daa49fa483
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109699"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813009"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Conceptos de alta disponibilidad en el servidor flexible de Azure Database for MySQL (versión preliminar)
 
@@ -69,6 +69,9 @@ Los eventos de tiempo de inactividad planeados incluyen actividades programadas 
 
 ### <a name="failover-process---unplanned-events"></a>Proceso de conmutación por error: eventos no planeados
 Los tiempos de inactividad del servicio no planeados incluyen errores de software o de infraestructura, como los de procesos, redes y almacenamiento, o bien interrupciones de energía que afectan a la disponibilidad de la base de datos. En caso de que la base de datos no esté disponible, la replicación en la réplica en espera se anula y la réplica en espera se activa para ser la base de datos principal. El DNS se actualiza y, después, los clientes se vuelven a conectar al servidor de bases de datos y reanudan sus operaciones. Se espera que el tiempo de conmutación por error global sea de 60-120 segundos. Pero en función de la actividad del servidor de bases de datos principal en el momento de la conmutación por error (como las transacciones de gran tamaño y el tiempo de recuperación) la conmutación por error puede tardar más.
+
+### <a name="forced-failover"></a>Conmutación por error forzada
+La conmutación por error forzada de Azure Database for MySQL le permite forzar manualmente una conmutación por error. Esto a su vez le permite probar la funcionalidad con los escenarios de aplicación y le ayuda a estar listo en caso de que se produzcan interrupciones. La conmutación por error forzada cambia el servidor en espera para que se convierta en el servidor principal mediante el desencadenamiento de una conmutación por error que activa la réplica en espera para que se convierta en el servidor principal con el mismo nombre de servidor de base de datos mediante la actualización del registro DNS. El servidor principal original se reiniciará y se cambiará a la réplica en espera. Las conexiones de cliente se desconectan y deben volver a conectarse para reanudar sus operaciones. Según la carga de trabajo actual y el último punto de control, se medirá el tiempo total de conmutación por error. En general, se espera que oscile entre 60 y 120 s.
 
 ## <a name="schedule-maintenance-window"></a>Programación de la ventana de mantenimiento 
 

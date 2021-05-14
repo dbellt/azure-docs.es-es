@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 3/15/2021
 ms.custom: template-concept,references_regions
-ms.openlocfilehash: 866eb9feb152c0094cd5281fe4820ccc4589386f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 17b3b74bc6879d54577492a13eb93e0e0ab58373
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778326"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486384"
 ---
 # <a name="azure-private-link-availability"></a>Disponibilidad de Azure Private Link
 
@@ -44,7 +44,7 @@ En las tablas siguientes se enumeran los servicios de Private Link y las regione
 
 |Servicios admitidos  |Regiones disponibles | Otras consideraciones | Estado  |
 |:-------------------|:-----------------|:----------------|:--------|
-|Azure App Configuration | Todas las regiones públicas      |  | Vista previa  </br> [Aprenda a crear un punto de conexión privado para Azure App Configuration.](../azure-app-configuration/concept-private-endpoint.md) |
+|Azure App Configuration | Todas las regiones públicas      |  | Disponibilidad general  </br> [Aprenda a crear un punto de conexión privado para Azure App Configuration.](../azure-app-configuration/concept-private-endpoint.md) |
 |Discos administrados por Azure | Todas las regiones públicas<br/> Todas las regiones de Azure Government<br/>Todas las regiones de China    | [Seleccione las limitaciones conocidas](../virtual-machines/disks-enable-private-links-for-import-export-portal.md#limitations) | GA   <br/> [Aprenda a crear un punto de conexión privado para Azure Managed Disks.](../virtual-machines/disks-enable-private-links-for-import-export-portal.md)   |
 
 ### <a name="containers"></a>Contenedores

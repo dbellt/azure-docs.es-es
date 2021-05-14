@@ -4,12 +4,12 @@ description: Aprenda a crear un clúster privado de Azure Kubernetes Service (AK
 services: container-service
 ms.topic: article
 ms.date: 3/31/2021
-ms.openlocfilehash: 474c9a5d58627cec59904ccbcc5b3597de314612
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 20adab9a42cabc0f3fc62378427d2c7bdb669806
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106120374"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108072394"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Creación de un clúster privado de Azure Kubernetes Service
 
@@ -80,13 +80,13 @@ Se pueden aprovechar los siguientes parámetros para configurar la zona DNS priv
 * La versión preliminar 0.5.7 de AKS o posterior.
 * La API, versión 2020-11-01 o posterior
 
-### <a name="create-a-private-aks-cluster-with-private-dns-zone-preview"></a>Creación de un clúster de AKS privado con zona de DNS privado (versión preliminar)
+### <a name="create-a-private-aks-cluster-with-private-dns-zone"></a>Creación de un clúster de AKS privado con zona de DNS privado
 
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [system|none]
 ```
 
-### <a name="create-a-private-aks-cluster-with-a-custom-private-dns-zone-preview"></a>Creación de un clúster de AKS privado con una zona DNS privada (versión preliminar)
+### <a name="create-a-private-aks-cluster-with-a-custom-private-dns-zone"></a>Creación de un clúster de AKS privado con una zona DNS privada
 
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId> --fqdn-subdomain <subdomain-name>
@@ -185,6 +185,7 @@ Tal y como se ha dicho, el emparejamiento de red virtual es un mecanismo para ac
 > Si usa [Traiga su propia tabla de rutas con kubenet](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) y Traiga su propio DNS con un clúster privado, se producirá un error en la creación del clúster. Tendrá que asociar [RouteTable](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) en el grupo de recursos del nodo a la subred después de que se haya producido un error en la creación del clúster, con el fin de que la creación se realice correctamente.
 
 ## <a name="limitations"></a>Limitaciones 
+* AKS-RunCommand no funciona en clústeres que tienen habilitado AAD administrado por AKS y Private Link.
 * Los intervalos autorizados de direcciones IP no se pueden aplicar al punto de conexión del servidor de API privada. Solo se aplican al servidor de API pública.
 * Las [limitaciones del servicio Azure Private Link][private-link-service] aplican a los clústeres privados.
 * No se admiten agentes hospedados por Microsoft en Azure DevOps con clústeres privados. Considere la posibilidad de usar [agentes autohospedados](/azure/devops/pipelines/agents/agents?tabs=browser). 
@@ -195,10 +196,10 @@ Tal y como se ha dicho, el emparejamiento de red virtual es un mecanismo para ac
 * En el caso de mantenimiento en el plano de control, es posible que cambie la [IP de AKS](./limit-egress-traffic.md). En este caso, tendrá que actualizar el registro A que apunta a la dirección IP privada del servidor de la API en el servidor DNS personalizado y reiniciar los pods o las implementaciones personalizados mediante hostNetwork.
 
 <!-- LINKS - internal -->
-[az-provider-register]: /cli/azure/provider#az-provider-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [private-link-service]: ../private-link/private-link-service-overview.md#limitations
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/tutorial-create-host-portal.md

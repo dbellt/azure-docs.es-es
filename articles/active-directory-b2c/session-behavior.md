@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 04/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 3a3cdb93ee4cbf4a2e15540b9daf78b6c231d393
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3898de5bf01ea03a5ad7f951a97da82a6a8c4b14
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579746"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107896232"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configuración del comportamiento de la sesión en Azure Active Directory B2C
 
@@ -123,7 +123,7 @@ Puede habilitar la característica para mantener la sesión iniciada para los us
 
 Esta característica se puede configurar en el nivel de flujo cada usuario. Antes de habilitarla para los flujos de usuario, tenga en cuenta los siguientes aspectos:
 
-- Esta característica solo se admite en las versiones **recomendadas** de los flujos de usuario de registro e inicio de sesión, inicio de sesión y edición de perfiles. Si actualmente tiene versiones **estándar** o **preliminares heredadas - v2** de estos flujos de usuario y desea habilitar esta característica, deberá crear versiones nuevas, **recomendadas**, de estos flujos de usuario.
+- Esta característica solo se admite en las versiones **recomendadas** de los flujos de usuario de registro e inicio de sesión, inicio de sesión y edición de perfiles. Si actualmente tiene las versiones **estándar (heredada)** o **preliminar heredada - v2** de estos flujos de usuario y desea habilitar KMSI, deberá crear versiones nuevas, **recomendadas**, de estos flujos de usuario.
 - La característica Mantener la sesión iniciada no es compatible con los flujos de usuario de restablecimiento de contraseña ni de registro.
 - Si quiere habilitar esta característica para todas las aplicaciones de su inquilino, se recomienda que la habilite para todos los flujos de usuario del inquilino. Dado que se pueden presentar varias directivas a los usuarios durante una sesión, es posible que se encuentren con alguna que no tenga habilitada esta característica, lo que eliminaría su cookie de la sesión.
 - La opción Mantener la sesión iniciada no se debe habilitar en los equipos públicos.
@@ -154,7 +154,7 @@ Los usuarios no deben habilitar esta opción en equipos públicos.
 
 Para habilitar KMSI, establezca el elemento de `DataUri` de la definición de contenido en [identificador de página](contentdefinitions.md#datauri) `unifiedssp` y [versión de la página](page-layout.md) *1.1.0* o superior.
 
-1. Abra el archivo de extensión de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>. Este archivo de extensión es uno de los archivos de directivas incluidos en el paquete de inicio de directivas personalizadas, que debería haber obtenido en el requisito previo, [Introducción a las directivas personalizadas](custom-policy-get-started.md).
+1. Abra el archivo de extensión de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>. Este archivo de extensión es uno de los archivos de directivas incluidos en el paquete de inicio de directivas personalizadas, que debería haber obtenido en el requisito previo, [Introducción a las directivas personalizadas](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 1. Busque el elemento **BuildingBlocks**. Si el elemento no existe, agréguelo.
 1. Agregue el elemento **ContentDefinitions** al elemento **BuildingBlocks** de la directiva.
 

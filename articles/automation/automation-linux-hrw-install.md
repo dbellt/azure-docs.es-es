@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/06/2021
 ms.topic: conceptual
-ms.openlocfilehash: 21bb3a353874e401d86741584d102b5c217e69cc
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 25880a60bd086afa84b0c3eaf901bfb987190f4a
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107030056"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166350"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Linux
 
@@ -34,8 +35,8 @@ Si no tiene ningún área de trabajo de Log Analytics de Azure Monitor, revise l
 
 El rol de Hybrid Runbook Worker requiere el [agente de Log Analytics](../azure-monitor/agents/log-analytics-agent.md) para el sistema operativo Linux compatible. En el caso de servidores o máquinas hospedados fuera de Azure, puede instalar el agente de Log Analytics con [servidores habilitados para Azure Arc](../azure-arc/servers/overview.md).
 
->[!NOTE]
->Después de instalar el agente de Log Analytics para Linux, no debe cambiar los permisos de la carpeta `sudoers.d` ni su propiedad. Se requiere el permiso sudo para la cuenta **nxautomation**, que es el contexto de usuario en el que se ejecuta Hybrid Runbook Worker. No se deberían quitar los permisos. Su restricción a determinadas carpetas o comandos puede dar lugar a un cambio importante.
+> [!NOTE]
+> Después de instalar el agente de Log Analytics para Linux, no debe cambiar los permisos de la carpeta `sudoers.d` ni su propiedad. Se requiere el permiso sudo para la cuenta **nxautomation**, que es el contexto de usuario en el que se ejecuta Hybrid Runbook Worker. No se deberían quitar los permisos. Su restricción a determinadas carpetas o comandos puede dar lugar a un cambio importante.
 >
 
 ### <a name="supported-linux-operating-systems"></a>Sistemas operativos Linux compatibles
@@ -75,8 +76,8 @@ Los requisitos mínimos de un sistema Linux y una instancia de Hybrid Runbook Wo
 
 Puede agregar la máquina de trabajo a un grupo de Hybrid Runbook Worker de una de sus cuentas de Automation. Las máquinas que hospedan la instancia de Hybrid Runbook Worker del sistema administrada por Update Management se pueden agregar a un grupo de Hybrid Runbook Worker. Sin embargo, debe usar la misma cuenta de Automation para Update Management y para la pertenencia al grupo de Hybrid Runbook Worker.
 
->[!NOTE]
->[Update Management](./update-management/overview.md) de Azure Automation instala automáticamente la instancia de Hybrid Runbook Worker del sistema en una máquina de Azure o que no es de Azure habilitada para Update Management. Sin embargo, este trabajo no se registra con ninguno de los grupos de Hybrid Runbook Worker de la cuenta de Automation. Para ejecutar los runbooks en esas máquinas, debe agregarlas a un grupo de Hybrid Runbook Worker. Siga el paso 4 de la sección [Instalación de un Hybrid Runbook Worker de Linux](#install-a-linux-hybrid-runbook-worker) para agregarlo a un grupo.
+> [!NOTE]
+> [Update Management](./update-management/overview.md) de Azure Automation instala automáticamente la instancia de Hybrid Runbook Worker del sistema en una máquina de Azure o que no es de Azure habilitada para Update Management. Sin embargo, este trabajo no se registra con ninguno de los grupos de Hybrid Runbook Worker de la cuenta de Automation. Para ejecutar los runbooks en esas máquinas, debe agregarlas a un grupo de Hybrid Runbook Worker. Siga el paso 4 de la sección [Instalación de un Hybrid Runbook Worker de Linux](#install-a-linux-hybrid-runbook-worker) para agregarlo a un grupo.
 
 ## <a name="supported-linux-hardening"></a>Protección de Linux admitida
 
@@ -115,7 +116,7 @@ El procedimiento de importación se describe en detalle en [Importación de runb
 
 El runbook usa los parámetros siguientes.
 
-| Parámetro | Estado | Descripción |
+| Parámetro | Status | Descripción |
 | ------- | ----- | ----------- |
 | `Location` | Mandatory | La ubicación del área de trabajo de Log Analytics. |
 | `ResourceGroupName` | Mandatory | El grupo de recursos de la cuenta de Automation. |
@@ -165,7 +166,7 @@ Para instalar y configurar una instancia de Hybrid Runbook Worker para Linux, si
     > Para administrar la configuración de las máquinas que admiten el rol de Hybrid Runbook Worker con Desired State Configuration (DSC), debe agregar dichas máquinas como nodos de DSC.
 
     > [!NOTE]
-    > La [cuenta nxautomation](automation-runbook-execution.md#log-analytics-agent-for-linux) con los permisos sudo correspondientes debe estar presente durante la instalación de la instancia de Hybrid Worker en Linux. Si intenta instalar el rol de trabajo y la cuenta no está presente o no tiene los permisos adecuados, no se realizará la instalación.
+    > La [cuenta nxautomation](automation-runbook-execution.md#log-analytics-agent-for-linux) con los permisos sudo correspondientes debe estar presente durante la instalación de la instancia de Hybrid Worker en Linux. Si intenta instalar el trabajo, y la cuenta no está presente o no tiene los permisos adecuados, se producirá un error de la instalación.
 
 3. Compruebe que el agente informa al área de trabajo.
 
@@ -208,9 +209,9 @@ Para instalar y configurar una instancia de Hybrid Runbook Worker para Linux, si
 
 De forma predeterminada, las instancias de Hybrid Runbook Worker de Linux requieren la validación de la firma. Si ejecuta un runbook sin firmar en un trabajo, verá un error `Signature validation failed`. Para desactivar la validación de la firma, ejecute el siguiente comando. Reemplace el segundo parámetro por el identificador de área de trabajo de Log Analytics.
 
- ```bash
- sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <logAnalyticsworkspaceId>
- ```
+```bash
+sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <logAnalyticsworkspaceId>
+```
 
 ## <a name="remove-the-hybrid-runbook-worker"></a><a name="remove-linux-hybrid-runbook-worker"></a>Eliminación de la instancia de Hybrid Runbook Worker
 

@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 03/25/2021
-ms.openlocfilehash: 893d38d7dcf2ef0910bc46d3e9bfd168c2a89162
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/20/2021
+ms.openlocfilehash: 318eebcca3053be2164a1fc52905f36f26b11a6d
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105543370"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331131"
 ---
 # <a name="create-a-test-offer"></a>Crea una oferta de prueba
 
@@ -94,10 +94,11 @@ Para reducir el costo de probar los modelos de precios, incluidas las dimensione
 | ------------ | ------------- |
 | $0.00 | Establezca un costo total de transacción de cero para que no tenga ningún impacto financiero. Use este precio al realizar llamadas a las API de medición o para probar planes de compra en su oferta mientras desarrolla la solución. |
 | $0.01 - $49.99 | Use este rango de precios para probar el análisis, los informes y el proceso de compra. |
-| $50.00 y posteriores | Use este rango de precios para probar el pago. Para obtener información sobre nuestra programación de pago, consulte [Programaciones y procesos de pago](/partner-center/payout-policy-details). |
+| 50,00 $ - 100,00 $ | Use este rango de precios para probar el pago. Para obtener información sobre nuestra programación de pago, consulte [Programaciones y procesos de pago](/partner-center/payout-policy-details). |
 |||
 
-Para evitar que se le cobren honorarios de servicio de tienda en la prueba, abra una [incidencia de soporte técnico](support.md).
+> [!IMPORTANT]
+>  Para evitar que se le cobren honorarios de servicio de tienda en la prueba, abra una [incidencia de soporte técnico](support.md) en un plazo de 7 días desde la compra de la prueba.
 
 #### <a name="free-trial"></a>Evaluación gratuita
 

@@ -4,16 +4,14 @@ description: Conozca en líneas generales el seguimiento del uso por parte de lo
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: cpercy737
-ms.author: camper
 ms.date: 04/12/2021
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 7f09e744dfdd7be73c62c70bcfa91804f14aaa68
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: aadf1f4c9ab8fa20933256749bd8ce37a1258063
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313681"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738813"
 ---
 # <a name="azure-customer-usage-attribution"></a>Atribución del uso de Azure por parte de los clientes
 

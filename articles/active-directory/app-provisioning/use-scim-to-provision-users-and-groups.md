@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/12/2021
+ms.date: 04/28/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 4130ed4bb690edb3c0c5d72d7d158262ed6ff39d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 9a39a1b0df364aeed970f3ed0e0d99d4d31585b2
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305606"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175485"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Tutorial: Desarrollo y planeación del aprovisionamiento de un punto de conexión de SCIM
 
@@ -210,12 +210,14 @@ Al implementar un punto de conexión de SCIM para garantizar la compatibilidad c
 * No exija una coincidencia entre mayúsculas y minúsculas en los elementos estructurales de SCIM, en particular en los valores de operación **PATCH** `op`, como se define en la [sección 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). AAD emite los valores de `op` como **Agregar**, **Reemplazar** y **Quitar**.
 * Microsoft AAD realiza solicitudes para recuperar un usuario y un grupo al azar para tener la seguridad de que el punto de conexión y las credenciales sean válidas. También las realiza como parte del flujo de **Probar conexión** de [Azure Portal](https://portal.azure.com). 
 * El atributo en el que se pueden consultar los recursos debe establecerse como un atributo coincidente en la aplicación en [Azure Portal](https://portal.azure.com). Consulte [Personalización de las asignaciones de atributos de aprovisionamiento de usuarios](customize-application-attributes.md).
-* Admitir HTTPS en el punto de conexión de SCIM
+* No se admite el atributo de derechos.
+* Compatibilidad con HTTPS en el punto de conexión de SCIM.
 * [Detección de esquemas](#schema-discovery)
-  * La detección de esquemas no se admite actualmente en la aplicación personalizada, pero se usa en determinadas aplicaciones de la galería. En el futuro, la detección de esquemas se usará como método principal para agregar atributos adicionales a un conector. 
+  * La detección de esquemas no se admite actualmente en la aplicación personalizada, pero se usa en determinadas aplicaciones de la galería. En el futuro, la detección de esquemas se usará como el único método para agregar atributos adicionales a un conector existente. 
   * Si un valor no está presente, no envíe valores NULL.
   * Los valores de propiedad deben tener mayúsculas y minúsculas (por ejemplo, readWrite).
   * Debe devolver una respuesta de lista.
+  * El cliente de SCIM de Azure AD realizará la solicitud /schemas cada vez que alguien guarde la configuración de aprovisionamiento en Azure Portal o cada vez que un usuario llegue a la página de edición de aprovisionamiento de este portal. Los atributos adicionales detectados se mostrarán a los clientes en las asignaciones de atributos en la lista de atributos de destino. La detección de esquemas solo conduce a la incorporación de atributos de destino adicionales. No dará lugar a la eliminación de atributos. 
   
 ### <a name="user-provisioning-and-deprovisioning"></a>Aprovisionamiento y desaprovisionamiento de usuarios
 

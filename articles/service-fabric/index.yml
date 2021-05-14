@@ -4,40 +4,14 @@ summary: Azure Service Fabric es una plataforma de sistemas distribuidos que fac
 metadata:
   ms.service: service-fabric
   ms.topic: landing-page
-  author: erikadoyle
-  ms.author: edoyle
-  ms.date: 07/31/2020
-  ms.openlocfilehash: e850855a4f794e5e90abe9c86d6ddedd0af26a6b
-  ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+  ms.date: 05/10/2021
+  ms.openlocfilehash: 7fc89c669c88f65abfd89a98a321dd976696cd57
+  ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 02/17/2021
-  ms.locfileid: "100634845"
+  ms.lasthandoff: 05/10/2021
+  ms.locfileid: "109683874"
 landingContent:
-- title: Pruebe los clústeres administrados de Service Fabric (versión preliminar)
-  linkLists:
-  - linkListType: get-started
-    links:
-    - text: Qué son los clústeres administrados de Service Fabric (versión preliminar)
-      url: overview-managed-cluster.md
-    - text: Implementación de un clúster administrado (versión preliminar)
-      url: quickstart-managed-cluster-template.md
-  - linkListType: tutorial
-    links:
-    - text: Escalado horizontal de un tipo de nodo de clúster administrado (versión preliminar)
-      url: tutorial-managed-cluster-scale.md
-    - text: Adición y eliminación de tipos de nodo de clúster administrados (versión preliminar)
-      url: tutorial-managed-cluster-add-remove-node-type.md
-    - text: Implementación de una aplicación en un clúster administrado (versión preliminar)
-      url: tutorial-managed-cluster-deploy-app.md
-    - text: Adición de una extensión del conjunto de escalado de máquina virtual a un tipo de nodo de clúster administrado (versión preliminar)
-      url: how-to-managed-cluster-vmss-extension.md
-    - text: Habilitación del cifrado de disco para nodos de clústeres administrados
-      url: how-to-enable-managed-cluster-disk-encryption.md
-  - linkListType: whats-new
-    links:
-    - text: Preguntas frecuentes sobre los clústeres administrados de Service Fabric
-      url: faq-managed-cluster.md
 - title: Acerca de Service Fabric
   linkLists:
   - linkListType: overview
@@ -68,11 +42,37 @@ landingContent:
       url: service-fabric-guest-executables-introduction.md
     - text: Reliable Services
       url: service-fabric-reliable-services-introduction.md
+    - text: Service Fabric diferencia entre Linux y Windows
+      url: service-fabric-linux-windows-differences.md
   - linkListType: whats-new
     links:
     - text: Notas de la versión
       url: release-notes.md
-- title: Introducción a las aplicaciones .NET y a Windows
+- title: Implementación de un clúster administrado de Service Fabric
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Acerca de los clústeres administrados de Service Fabric
+      url: overview-managed-cluster.md
+    - text: Preguntas frecuentes sobre los clústeres administrados de Service Fabric
+      url: faq-managed-cluster.md
+  - linkListType: quickstart
+    links:
+    - text: Creación de un clúster administrado
+      url: quickstart-managed-cluster-template.md
+  - linkListType: learn
+    links:
+    - text: Escalado horizontal de un tipo de nodo de clúster administrado
+      url: tutorial-managed-cluster-scale.md
+    - text: Adición y eliminación de tipos de nodo de clúster administrados
+      url: tutorial-managed-cluster-add-remove-node-type.md
+    - text: Implementación de una aplicación en un clúster administrado
+      url: tutorial-managed-cluster-deploy-app.md
+    - text: Configuración de un clúster administrado
+      url: how-to-managed-cluster-configuration.md
+    - text: Implementación de secretos de aplicación de un clúster administrado
+      url: how-to-managed-cluster-application-secrets.md
+- title: Introducción a aplicaciones de Service Fabric
   linkLists:
   - linkListType: quickstart
     links:
@@ -82,12 +82,16 @@ landingContent:
       url: service-fabric-quickstart-containers.md
     - text: Creación de una aplicación ejecutable de invitado en Windows
       url: quickstart-guest-app.md
+    - text: Implementación de una aplicación de contenedor en Service Fabric
+      url: service-fabric-quickstart-containers-linux.md
   - linkListType: tutorial
     links:
     - text: Creación, implementación y administración de una aplicación .NET de Service Fabric
       url: service-fabric-tutorial-create-dotnet-app.md
     - text: Inclusión de una aplicación .NET existente en un contenedor para Service Fabric
       url: service-fabric-host-app-in-a-container.md
+    - text: Creación, implementación y administración de una aplicación Java de Service Fabric
+      url: service-fabric-tutorial-create-java-app.md
   - linkListType: how-to-guide
     links:
     - text: Desarrollo de aplicaciones con Visual Studio
@@ -98,30 +102,6 @@ landingContent:
       url: service-fabric-tutorial-create-vnet-and-windows-cluster.md
     - text: Diagnósticos de clústeres de Windows
       url: service-fabric-diagnostics-event-aggregation-wad.md
-- title: Introducción a las aplicaciones Java y a Linux
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Service Fabric diferencia entre Linux y Windows
-      url: service-fabric-linux-windows-differences.md
-  - linkListType: quickstart
-    links:
-    - text: Implementación de una aplicación de contenedor en Service Fabric
-      url: service-fabric-quickstart-containers-linux.md
-  - linkListType: tutorial
-    links:
-    - text: Creación, implementación y administración de una aplicación Java de Service Fabric
-      url: service-fabric-tutorial-create-java-app.md
-  - linkListType: how-to-guide
-    links:
-    - text: Desarrollo de aplicaciones con Eclipse
-      url: service-fabric-get-started-eclipse.md
-    - text: Introducción a Reliable Services (Java en Linux)
-      url: service-fabric-reliable-services-quick-start-java.md
-    - text: Creación de clústeres de Linux en una red virtual de Azure
-      url: service-fabric-tutorial-create-vnet-and-linux-cluster.md
-    - text: Diagnósticos de clústeres de Linux
-      url: service-fabric-diagnostics-oms-syslog.md
 - title: Protección del clúster
   linkLists:
   - linkListType: concept
@@ -164,27 +144,3 @@ landingContent:
     links:
     - text: Preguntas frecuentes sobre Service Fabric
       url: service-fabric-common-questions.md
-- title: Uso de Service Fabric de forma local
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Introducción a los clústeres independientes
-      url: service-fabric-standalone-clusters-overview.md
-    - text: Contenido del paquete independiente
-      url: service-fabric-cluster-standalone-package-contents.md
-  - linkListType: concept
-    links:
-    - text: Actualización de clústeres independientes
-      url: service-fabric-cluster-upgrade-standalone.md
-    - text: Escalado de clústeres independientes
-      url: service-fabric-cluster-scaling-standalone.md
-  - linkListType: how-to-guide
-    links:
-    - text: Planeamiento de la implementación de clústeres independientes
-      url: service-fabric-cluster-standalone-deployment-preparation.md
-    - text: Creación de un clúster independiente con Windows Server
-      url: service-fabric-cluster-creation-for-windows-server.md
-    - text: Configuración de copias de seguridad periódicas
-      url: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
-    - text: Actualización del runtime de Service Fabric
-      url: service-fabric-cluster-upgrade-windows-server.md

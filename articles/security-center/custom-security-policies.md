@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/25/2021
 ms.author: memildin
 zone_pivot_groups: manage-asc-initiatives
-ms.openlocfilehash: a901e71da640f8413e5714ad59073324f582c1b9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a41696ba92757550f9cbaa08ccf78d9a5da528d2
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102441064"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718906"
 ---
 # <a name="create-custom-security-initiatives-and-policies"></a>Creación de directivas e iniciativas de seguridad personalizadas
 
@@ -90,7 +90,7 @@ Conceptos importantes de Azure Policy:
 
 - Una **asignación** es una aplicación de una iniciativa o una directiva para un ámbito concreto (grupo de administración o suscripción, entre otros). 
 
-Security Center tiene una iniciativa integrada, Azure Benchmark, que incluye todas sus directivas de seguridad. Para evaluar las directivas de Security Center sobre los recursos de Azure, debe crear una asignación en el grupo de administración o en la suscripción que quiera evaluar.
+Security Center tiene una iniciativa integrada, [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction), que incluye todas sus directivas de seguridad. Para evaluar las directivas de Security Center sobre los recursos de Azure, debe crear una asignación en el grupo de administración o en la suscripción que quiera evaluar.
 
 De forma predeterminada, lºa iniciativa integrada tiene todas las directivas de Security Center habilitadas. Puede optar por deshabilitar determinadas directivas de la iniciativa integrada. Por ejemplo, para aplicar todas las directivas de Security Center excepto el **firewall de aplicaciones web**, cambie el valor del parámetro de efecto de la directiva a **Deshabilitado**.
 

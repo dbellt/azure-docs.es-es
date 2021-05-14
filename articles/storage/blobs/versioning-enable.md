@@ -10,12 +10,12 @@ ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5b6bd16eacf4b1bbb7b93f5500813e7fa9dc7eef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f6a1d315342ea98ccaf1382630eccca876ada3f1
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100095854"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870200"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Habilitación y administración del control de versiones de blob
 
@@ -54,7 +54,7 @@ Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para habilitar el control de versiones de blobs para una cuenta de almacenamiento con la CLI de Azure, instale primero la versión de la CLI de Azure 2.2.0 o posterior. A continuación, llame al comando [az storage account blob-service-properties update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) para habilitar el control de versiones, tal como se muestra en el ejemplo siguiente. No olvide reemplazar los valores entre corchetes angulares por sus propios valores:
+Para habilitar el control de versiones de blobs para una cuenta de almacenamiento con la CLI de Azure, instale primero la versión de la CLI de Azure 2.2.0 o posterior. A continuación, llame al comando [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) para habilitar el control de versiones, tal como se muestra en el ejemplo siguiente. No olvide reemplazar los valores entre corchetes angulares por sus propios valores:
 
 ```azurecli
 az storage account blob-service-properties update \

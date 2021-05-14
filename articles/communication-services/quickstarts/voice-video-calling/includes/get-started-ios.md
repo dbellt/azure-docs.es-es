@@ -6,19 +6,14 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: e1eed3f9449843e6c2dd8c77719402e709fdeb23
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 77888d1d0fe8c4ef1d948904cf9981ed23276fb8
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107327678"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109719223"
 ---
 En este inicio rápido aprenderá a iniciar una llamadas con Calling SDK de Azure Communication Services para iOS.
-
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
-
-> [!NOTE]
-> En este documento se usa la versión 1.0.0-beta.9 de Calling SDK.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -47,9 +42,7 @@ En Xcode, cree un nuevo proyecto de iOS y seleccione la plantilla **Aplicación 
    use_frameworks!
 
    target 'AzureCommunicationCallingSample' do
-     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.9'
-     pod 'AzureCommunication', '~> 1.0.0-beta.9'
-     pod 'AzureCore', '~> 1.0.0-beta.9'
+     pod 'AzureCommunicationCalling', '~> 1.0.0'
    end
    ```
 
@@ -146,13 +139,12 @@ do {
 self.callClient = CallClient()
 
 // Creates the call agent
-self.callClient?.createCallAgent(userCredential: userCredential) { (agent, error) in
+self.callClient?.createCallAgent(userCredential: userCredential!) { (agent, error) in
     if error != nil {
         print("ERROR: It was not possible to create a call agent.")
         return
     }
-
-    if let agent = agent {
+    else {
         self.callAgent = agent
         print("Call agent successfully created.")
     }
@@ -172,8 +164,14 @@ func startCall()
     AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
         if granted {
             // start call logic
-            let callees:[CommunicationIdentifier] = [CommunicationUserIdentifier(identifier: self.callee)]
-            self.call = self.callAgent?.startCall(participants: callees, options: StartCallOptions())
+            let callees:[CommunicationIdentifier] = [CommunicationUserIdentifier(self.callee)]
+            self.callAgent?.startCall(participants: callees, options: StartCallOptions()) { (call, error) in
+                if (error == nil) {
+                    self.call = call
+                } else {
+                    print("Failed to get call object")
+                }
+            }
         }
     }
 }

@@ -3,7 +3,7 @@ title: Planeamiento de una implementación de revisiones de acceso de Azure Acti
 description: Guía de planeamiento para la correcta implementación de revisiones de acceso
 services: active-directory
 documentationCenter: ''
-author: BarbaraSelden
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/23/2020
-ms.author: barclayn
+ms.date: 04/16/2021
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3af783d7ff8be36c63af871ab4f2d214ca9f9405
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: e17fe0c0ca5f1399c78def37ea7640ba8dfa395e
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532594"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988233"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planeamiento de una implementación de revisiones de acceso de Azure Active Directory
 
@@ -71,9 +71,12 @@ Los siguientes vídeos pueden ser útiles a medida que se familiarice con las re
 
 * [Cómo crear revisiones de acceso en Azure AD](https://youtu.be/6KB3TZ8Wi40)
 
+* [Cómo crear revisiones de acceso automáticas para todos los usuarios invitados con acceso a grupos de Microsoft 365 en Azure AD](https://www.youtube.com/watch?v=3D2_YW2DwQ8)
+
 * [Cómo habilitar las revisiones de acceso en Azure AD](https://youtu.be/X1SL2uubx9M)
 
 * [Cómo revisar el acceso mediante Mi acceso](https://youtu.be/tIKdQhdHLXU)
+
 
 ### <a name="licenses"></a>Licencias
 
@@ -136,17 +139,13 @@ Evidentemente, el equipo de TI querrá mantener el control sobre la decisión de
 
 #### <a name="customize-email-communication"></a>Comunicación personalizada por correo electrónico
 
-Al programar una revisión, tendrá que designar a los usuarios que se encargarán de hacerla. A continuación, se notificará a estos revisores por correo electrónico que tienen nuevas revisiones asignadas. Además recibirán recordatorios antes de que expire la revisión que tienen asignada.
-
-Los administradores pueden optar por enviar esta notificación a mitad del plazo de revisión o el día antes de que expire. 
+Al programar una revisión, tendrá que designar a los usuarios que se encargarán de hacerla. A continuación, se notificará a estos revisores por correo electrónico que tienen nuevas revisiones asignadas. Además recibirán recordatorios antes de que expire la revisión que tienen asignada. 
 
 El correo electrónico enviado a los revisores puede personalizarse para incluir un breve mensaje que les inste a completar la revisión. Se recomienda utilizar texto adicional con el fin de:
 
 * Incluir un mensaje personal para los revisores, de manera que sepan que se lo envía el departamento de TI o de cumplimiento de la empresa.
 
-* Incluir un hipervínculo o una referencia a información interna sobre cuáles son las expectativas de la revisión, junto con material de referencia o aprendizaje adicional.
-
-* Incluir un vínculo a las instrucciones sobre [cómo realizar una autorrevisión de acceso](review-your-access.md). 
+* Incluir una referencia a información interna sobre cuáles son las expectativas de la revisión, junto con material de referencia o aprendizaje adicional.
 
   ![Correo electrónico del revisor](./media/deploy-access-review/2-plan-reviewer-email.png)
 
@@ -164,7 +163,7 @@ Para la prueba piloto, se recomienda que:
 
 * Tome nota de cualquier acceso que se haya eliminado como parte de la prueba piloto por si necesita restaurarlo rápidamente.
 
-* Supervise los registros de auditoría para asegurarse de que todos los eventos se auditen correctamente.
+* Supervise los registros de auditoría para asegurarse de que todos los eventos se auditan correctamente.
 
 Para obtener más información, consulte los [procedimientos recomendados para una prueba piloto](../fundamentals/active-directory-deployment-plans.md).
 
@@ -197,7 +196,6 @@ El rol administrativo que se necesita para crear, administrar o leer una revisi�
 | Roles con privilegios en Azure (Resource)| Administrador global<p>Administrador de usuarios<p>Propietario del recurso| Creadores |
 | Paquete de acceso| Administrador global<p>Creador del paquete de acceso| Solo administrador global |
 
-
 Para obtener más información, consulte los [permisos del rol de administrador en Azure Active Directory](../roles/permissions-reference.md).
 
 ### <a name="who-will-review-the-access-to-the-resource"></a>¿Quién revisará el acceso al recurso?
@@ -209,6 +207,8 @@ El creador de la revisión de acceso decide en el momento de creación quién ha
 * Un conjunto de delegados seleccionados de forma individual por parte del administrador de revisiones de acceso.
 
 * Usuarios finales que atestiguarán su necesidad de acceso continuado.
+
+* Los administradores revisan el acceso de sus informes directos al recurso. 
 
 Al crear una revisión de acceso, los administradores pueden elegir uno o más revisores. Todos los revisores pueden iniciar y llevar a cabo una revisión; y elegir los usuarios que seguirán teniendo acceso a un recurso, o bien eliminarlos. 
 
@@ -238,7 +238,6 @@ Para crear una directiva de revisión de acceso, debe disponer de la informació
 
 * ¿Qué comunicaciones deben enviarse en función de las medidas adoptadas?
 
-
 **Ejemplo de un plan de revisión de acceso**
 
 | Componente| Value |
@@ -246,14 +245,10 @@ Para crear una directiva de revisión de acceso, debe disponer de la informació
 | **Recursos para revisar**| Acceso a Microsoft Dynamics |
 | **Frecuencia de revisión**| Mensual |
 | **Quién hace la revisión**| Administradores de programas del grupo de negocios de Dynamics |
-| **Notificación**| Enviar un correo electrónico 24 horas antes de la revisión al alias Dynamics-Pms.<p>Incluir un mensaje personalizado a los revisores para garantizar su aceptación. |
+| **Notificación**| Correo electrónico enviado al principio de la revisión al alias Dynamics-Pms<p>Incluir un mensaje personalizado a los revisores para garantizar su aceptación. |
 | **Escala de tiempo**| 48 horas después de la notificación. |
 |**Acciones automáticas**| Quitar el acceso a cualquier cuenta que no haya tenido un inicio de sesión interactivo en 90 días. Para ello, quite el usuario del grupo de seguridad dynamics-access. <p>*Tome medidas si la revisión no se realiza dentro de la escala de tiempo prevista.* |
 | **Medidas manuales**| Los revisores pueden aprobar eliminaciones antes de la medida automatizada si se desea. |
-| **Comunicaciones**| Enviar a los usuarios internos (miembros) que sean eliminados un correo electrónico explicando que se les ha quitado el acceso y cómo pueden recuperarlo. |
-
-
- 
 
 ### <a name="automate-actions-based-on-access-reviews"></a>Automatización de medidas basada en las revisiones de acceso
 
@@ -318,6 +313,8 @@ La pertenencia a grupos pueden revisarla los siguientes perfiles:
 
 * Miembros del grupo, que atestiguarán su necesidad de acceso
 
+* Los administradores revisan el acceso de sus informes directos 
+
 ### <a name="group-ownership"></a>Propiedad de grupo
 
 Se recomienda que los propietarios del grupo revisen la pertenencia, ya que están en mejor disposición para saber quién necesita acceso. La propiedad de los grupos es diferente al tipo de grupo:
@@ -335,19 +332,11 @@ Los grupos que se sincronizan desde una instancia local de Active Directory no p
 
 ### <a name="review-membership-of-exclusion-groups-in-conditional-access-policies"></a>Revisión de la pertenencia de los grupos de exclusión en las directivas de acceso condicional 
 
-Hay ocasiones en las que las directivas de acceso condicional diseñadas para proteger su red no se deberían aplicar a todos los usuarios. Por ejemplo, una directiva de acceso condicional que solo permita a los usuarios iniciar sesión cuando están conectados a la red corporativa podría no aplicarse al equipo de ventas, que viaja constantemente. En ese caso, los miembros del equipo de ventas se incluirían en un grupo, y ese grupo se excluiría de la directiva de acceso condicional. 
+Vaya a [Usar las revisiones de acceso de Azure AD para administrar los usuarios excluidos de las directivas de acceso condicional](conditional-access-exclusion.md) para obtener información sobre cómo revisar la pertenencia a grupos de exclusión.
 
-Revise la pertenencia a este grupo con regularidad, ya que la exclusión plantea un riesgo potencial si los miembros equivocados se excluyen del requisito.
+### <a name="review-guest-users-group-memberships"></a>Revisión de la pertenencia a grupos de usuarios invitados
 
-Puede hacer [uso de revisiones de acceso de Azure AD para administrar los usuarios a los que se les ha excluido de las directivas de acceso condicional](conditional-access-exclusion.md).
-
-### <a name="review-external-users-group-memberships"></a>Revisión de la pertenencia a grupos de un usuario externo
-
-A fin de minimizar el trabajo manual y los posibles errores asociados, valore la posibilidad de usar [grupos dinámicos](../enterprise-users/groups-create-rule.md) para asignar la pertenencia a un grupo en función de los atributos de un usuario. Tal vez desee crear uno o varios grupos dinámicos para usuarios externos. El patrocinador interno puede actuar como revisor de la pertenencia al grupo. 
-
-Nota: Los usuarios externos que se quiten de un grupo como consecuencia de una revisión de acceso no se eliminarán del inquilino. 
-
-Se pueden eliminar de un inquilino de forma manual o mediante un script.
+Vaya a [Administrar el acceso de invitado con revisiones de acceso de Azure AD](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews) para aprender a revisar el acceso de los usuarios invitados a pertenencias de grupo.
 
 ### <a name="review-access-to-on-premises-groups"></a>Revisión del acceso a grupos locales
 
@@ -405,7 +394,7 @@ Las revisiones de acceso permiten a los revisores atestiguar si los usuarios tod
 
 * Todos los roles de administración del servicio Dynamics y de Microsoft 365
 
-Los roles seleccionados aquí incluyen roles permanentes y elegibles. 
+Los roles revisados incluyen asignaciones permanentes y elegibles. 
 
 En la sección Revisores, seleccione una o más personas para que revisen a todos los usuarios. También puede seleccionar que los miembros revisen su propio acceso.
 
@@ -425,7 +414,6 @@ Para reducir el riesgo de acceso por parte de dispositivos obsoletos, los admini
 | [Realizar revisiones de acceso](entitlement-management-access-reviews-review-access.md)| Indica cómo realizar revisiones de acceso para otros usuarios asignados a un paquete de acceso. |
 | [Paquetes de acceso con autorrevisión asignada](entitlement-management-access-reviews-self-review.md)| Aborda los paquetes de acceso con autorrevisión asignada. |
 
-
 > [!NOTE]
 > Los usuarios finales que hagan autorrevisión e informen de que ya no necesitan acceso no se eliminarán del paquete de acceso inmediatamente. Se les quitará del paquete de acceso al finalizar la revisión o si un administrador detiene la revisión.
 
@@ -440,7 +428,6 @@ Las necesidades de acceso a grupos y aplicaciones para empleados e invitados pro
 | [Autorrevisión del acceso](review-your-access.md)| Los miembros revisan su propio acceso a un grupo o una aplicación. |
 | [Finalización de una revisión de acceso](complete-access-review.md)| Explica cómo ver una revisión de acceso y aplicar los resultados. |
 | [Tomar medidas para los grupos locales](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises)| Muestra un script de PowerShell de ejemplo para aplicar a las revisiones de acceso para grupos locales. |
-
 
 ### <a name="review-azure-ad-roles"></a>Revisión de roles de Azure AD
 

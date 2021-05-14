@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/31/2021
 ms.reviewer: ''
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4ecaa8a3ee1d11ea13563ae5c74835b8d62fd960
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 65ea6d78eb807671df1732392e112d368877a2b5
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106555943"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132060"
 ---
 # <a name="what-is-block-t-sql-crud-feature"></a>¿Qué es la característica de bloqueo de T-SQL CRUD?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,7 +26,7 @@ Esta característica permite a los administradores de Azure bloquear la creació
 
 ## <a name="overview"></a>Información general
 
-Para bloquear la creación o modificación de recursos con T-SQL y aplicar la administración de recursos mediante una plantilla de Azure Resource Manager (plantilla de ARM) para una suscripción determinada, se pueden utilizar las características en versión preliminar del nivel de suscripción de Azure Portal. Esto es especialmente útil cuando se usan [directivas de Azure](/azure/governance/policy/overview) para aplicar los estándares de la organización mediante plantillas de ARM. Como T-SQL no sigue las directivas de Azure, se puede aplicar un bloqueo en las operaciones de creación o modificación de T-SQL. La sintaxis bloqueada incluye instrucciones CRUD (creación, actualización, eliminación) para bases de datos en Azure SQL, específicamente `CREATE DATABASE`, `ALTER DATABASE` e instrucciones `DROP DATABASE`. 
+Para bloquear la creación o modificación de recursos con T-SQL y aplicar la administración de recursos mediante una plantilla de Azure Resource Manager (plantilla de ARM) para una suscripción determinada, se pueden utilizar las características en versión preliminar del nivel de suscripción de Azure Portal. Esto es especialmente útil cuando se usan [directivas de Azure](../../governance/policy/overview.md) para aplicar los estándares de la organización mediante plantillas de ARM. Como T-SQL no sigue las directivas de Azure, se puede aplicar un bloqueo en las operaciones de creación o modificación de T-SQL. La sintaxis bloqueada incluye instrucciones CRUD (creación, actualización, eliminación) para bases de datos en Azure SQL, específicamente `CREATE DATABASE`, `ALTER DATABASE` e instrucciones `DROP DATABASE`. 
 
 Las operaciones de T-SQL CRUD se pueden bloquear mediante Azure Portal, [PowerShell](/powershell/module/az.resources/register-azproviderfeature) o la [CLI de Azure](/cli/azure/feature#az_feature_register).
 

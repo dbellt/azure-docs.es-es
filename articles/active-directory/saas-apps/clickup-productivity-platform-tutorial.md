@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/30/2021
 ms.author: jeedes
-ms.openlocfilehash: 29bc02466825aa2ea2c1a9ece2826b1262293392
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 617293cf3e74dc58b60fe090f6a71091bcc94684
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285219"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144079"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Tutorial: Integración de Azure Active Directory con la plataforma de productividad ClickUp
 
@@ -162,8 +162,8 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Acceda directamente a la URL de inicio de sesión de ClickUp Productivity Platform y ponga en marcha el flujo de inicio de sesión desde ahí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de ClickUp Productivity Platform en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de ClickUp Productivity Platform. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de ClickUp Productivity Platform en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de ClickUp Productivity Platform. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado ClickUp Productivity Platform, puede aplicar el control de sesión que protege la información confidencial de la organización de la filtración y la infiltración en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado ClickUp Productivity Platform, puede aplicar el control de sesión que protege la información confidencial de la organización de la filtración y la infiltración en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

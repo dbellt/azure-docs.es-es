@@ -190,6 +190,8 @@
                   href: ./optimize-hive-ambari.md
                 - name: Optimización de Apache Pig
                   href: ./optimize-pig-ambari.md
+            - name: Búsqueda de los nombres de host de los nodos de clúster
+              href: ./find-host-name.md
             - name: Reinicio de nodos de clúster
               href: ./cluster-reboot-vm.md
             - name: Uso de la API REST de Apache Ambari
@@ -244,6 +246,8 @@
               href: ./hadoop/apache-hadoop-visual-studio-tools-get-started.md
             - name: Herramientas de Spark y Hive para VSCode
               href: ./hdinsight-for-vscode.md
+            - name: Referencia de configuración de HDInsight
+              href: ./hdinsight-config-for-vscode.md
         - name: Supervisión
           items:
             - name: Uso de registros de Azure Monitor
@@ -256,6 +260,8 @@
               href: ./hdinsight-cluster-availability.md
             - name: 'Disponibilidad del clúster: registros de Azure Monitor'
               href: ./cluster-availability-monitor-logs.md
+            - name: Actualizaciones de tablas de Azure Monitor
+              href: ./log-analytics-migration.md
         - name: Solución de problemas
           items:
             - name: Solicitud de aumento de la cuota de núcleos de CPU
@@ -266,10 +272,14 @@
               href: ./troubleshoot-resource-creation-fails.md
             - name: Solución de problemas de Apache Oozie
               href: ./troubleshoot-oozie.md
+            - name: Solución de problemas de Apache Sqoop
+              href: ./troubleshoot-sqoop.md
             - name: Descripción y resolución de errores recibidos de WebHCat
               href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
     - name: Referencia
       items:
+        - name: Azure CLI
+          href: /cli/azure/hdinsight
         - name: Azure PowerShell
           href: /powershell/module/az.hdinsight
         - name: SDK para .NET
@@ -659,8 +669,6 @@
               href: ./kafka/apache-kafka-auto-create-topics.md
             - name: Uso de Apache Kafka con IoT Hub
               href: ./kafka/apache-kafka-connector-iot-hub.md
-            - name: Registro de esquema de Confluent
-              href: ./kafka/apache-kafka-producer-consumer-api.md
             - name: Creación de canalizaciones de streaming
               items:
                 - name: 'Apache Spark, Apache Kafka y Azure Cosmos DB'
@@ -669,7 +677,7 @@
                   href: ./hdinsight-apache-spark-with-kafka.md
                 - name: Uso de Apache Kafka con Azure Container Service
                   href: ./kafka/apache-kafka-azure-container-services.md
-        - name: Administración
+        - name: Administrar
           items:
             - name: Uso de Apache Kafka en una red virtual
               href: ./kafka/apache-kafka-connect-vpn-gateway.md
@@ -722,7 +730,7 @@
               href: ./hbase/apache-hbase-using-phoenix-query-server-rest-sdk.md
             - name: Carga masiva de datos en Apache Phoenix mediante psql
               href: ./hbase/apache-hbase-phoenix-psql.md
-        - name: Administración
+        - name: Administrar
           items:
             - name: Escrituras aceleradas
               href: ./hbase/apache-hbase-accelerated-writes.md
@@ -732,6 +740,8 @@
               href: ./hbase/apache-hbase-backup-replication.md
             - name: Migración de clústeres de Apache HBase a la versión más reciente
               href: ./hbase/apache-hbase-migrate-new-version.md
+            - name: Migración de la versión y la cuenta de almacenamiento de Apache HBase
+              href: ./hbase/apache-hbase-migrate-new-version-new-storage-account.md
             - name: Procedimientos recomendados para mejorar el rendimiento de Apache Phoenix
               href: ./hbase/apache-hbase-phoenix-performance.md
             - name: Creación de un clúster de Apache HBase en redes virtuales de Azure
@@ -898,7 +908,7 @@
               href: ./r-server/r-server-compute-contexts.md
             - name: ScaleR y SparkR
               href: ./hdinsight-hadoop-r-scaler-sparkr.md
-        - name: Administración
+        - name: Administrar
           items:
             - name: Administración de clústeres de Machine Learning Services
               href: ./r-server/r-server-hdinsight-manage.md
@@ -971,7 +981,7 @@
     - name: Conceptos
       items:
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/hdinsight-security-baseline?toc=/azure/hdinsight/TOC.json
         - name: Directrices generales de seguridad de la empresa
           href: ./domain-joined/general-guidelines.md
         - name: Plan para los clústeres de ESP

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: a91329d3bd0247932614233ef5b1ec71bf4d2a6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a497e5bc9d04577f4b4f9d373aa68d07b5a08043
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103465470"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905061"
 ---
 # <a name="enable-azure-defender-for-sql-servers-on-machines"></a>Habilitación de Azure Defender para servidores de SQL en máquinas 
 
@@ -96,6 +96,20 @@ Las alertas de SQL de Azure Defender están disponibles en la página de alertas
     * Para mejorar la posición de seguridad, siga las recomendaciones de Security Center para la máquina host indicadas en cada alerta. Esto reducirá los riesgos de futuros ataques. 
 
     [Obtenga más información sobre cómo administrar y responder a alertas](security-center-managing-and-responding-alerts.md).
+
+
+## <a name="faq---azure-defender-for-sql-servers-on-machines"></a>Preguntas más frecuentes: Azure Defender para servidores SQL en máquinas
+
+### <a name="if-i-enable-this-azure-defender-plan-on-my-subscription-are-all-sql-servers-on-the-subscription-protected"></a>Si habilito este plan de Azure Defender en mi suscripción, ¿están protegidos todos los servidores SQL Server de la suscripción? 
+
+No. Para defender una implementación de SQL Server en una máquina virtual de Azure o en una instancia de SQL Server que se ejecuta en una máquina habilitada para Azure Arc, Azure Defender requiere lo siguiente:
+
+- Un agente de Log Analytics en la máquina 
+- El área de trabajo de Log Analytics pertinente para tener habilitada la solución de Azure Defender para SQL 
+
+El *estado* de la suscripción, que se muestra en la página del servidor SQL Server de Azure Portal, refleja el estado predeterminado del área de trabajo y se aplica a todas las máquinas conectadas. Solo los servidores SQL Server en hosts con un agente de Log Analytics que informa a esa área de trabajo están protegidos por Azure Defender. 
+
+
 
 
 ## <a name="next-steps"></a>Pasos siguientes

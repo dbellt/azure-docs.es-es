@@ -12,33 +12,60 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 04/30/2021
 ms.author: b-juche
-ms.openlocfilehash: 869f46207b940521ee0b66b5afa9c6e2718ab04f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b57997408112466c45d6ce1364e1ac0a2c358cd1
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594485"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321040"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>Cambiar el tamaño de un grupo de capacidad o de un volumen
-Puede cambiar el tamaño de un grupo de capacidad o de un volumen según sea necesario. 
+Puede cambiar el tamaño de un grupo de capacidad o un volumen según sea necesario, por ejemplo, cuando se llena un volumen o un grupo de capacidad. 
 
-## <a name="resize-the-capacity-pool"></a>Cambiar el tamaño del grupo de capacidad 
+Para obtener información sobre cómo supervisar la capacidad de un volumen, vea [Supervisión de la capacidad de un volumen](monitor-volume-capacity.md).
+
+## <a name="resize-the-capacity-pool-using-the-azure-portal"></a>Cambio del tamaño del grupo de capacidad mediante Azure Portal 
 
 Puede cambiar el tamaño del grupo de capacidad en incrementos o decrementos de 1 TiB. Aun así, el tamaño del grupo de capacidad no puede ser inferior a 4 TiB. Al cambiar el tamaño del grupo de capacidad, cambia la capacidad adquirida de Azure NetApp Files.
 
-1. En la hoja de administración de cuenta de NetApp, haga clic en el grupo de capacidad cuyo tamaño desee cambiar. 
-2. Haga clic con el botón derecho en el nombre del grupo de capacidad o haga clic en el icono "…" al final de la fila del grupo de capacidad para mostrar el menú contextual. 
-3. Use las opciones del menú contextual para cambiar el tamaño del grupo de capacidad o eliminarlo.
+1. En la vista Cuenta de NetApp, vaya a **Grupos de capacidad** y haga clic en el grupo de capacidad al que desea cambiar el tamaño.
+2. Haga clic con el botón derecho en el nombre del grupo de capacidad o haga clic en el icono "..." al final de la fila del grupo de capacidad para mostrar el menú contextual. Haga clic en **Cambiar tamaño**. 
 
-## <a name="resize-a-volume"></a>Cambiar el tamaño de un volumen
+    ![Captura de pantalla que muestra el menú contextual del grupo.](../media/azure-netapp-files/resize-pool-context-menu.png)  
+
+3. En la ventana Cambiar el tamaño del grupo, especifique el tamaño del grupo.  Haga clic en **Aceptar**.
+
+    ![Captura de pantalla que muestra la ventana para cambiar el tamaño del grupo.](../media/azure-netapp-files/resize-pool-window.png) 
+
+## <a name="resize-a-volume-using-the-azure-portal"></a>Cambio del tamaño de un volumen mediante Azure Portal
 
 Puede cambiar el tamaño de un volumen según sea necesario. El consumo de la capacidad de un volumen se descuenta de la capacidad aprovisionada de su grupo.
 
-1. En la hoja de administración de cuenta de NetApp, haga clic en **Volúmenes**. 
-2. Haga clic con el botón derecho en el nombre del volumen cuyo tamaño desee cambiar o haga clic en el icono "…" al final de la fila del volumen para mostrar el menú contextual.
-3. Use las opciones del menú contextual para cambiar el tamaño del volumen o eliminarlo.
+1. En la vista Cuenta de NetApp, vaya a **Volúmenes** y haga clic en el volumen al que desea cambiar el tamaño.
+2. Haga clic con el botón derecho en el nombre del volumen o haga clic en el icono "..." al final de la fila del volumen para mostrar el menú contextual. Haga clic en **Cambiar tamaño**.
+
+    ![Captura de pantalla que muestra el menú contextual del volumen.](../media/azure-netapp-files/resize-volume-context-menu.png) 
+    
+3. En la ventana Actualizar cuota de volumen, especifique la cuota del volumen. Haga clic en **Aceptar**.   
+
+    ![Captura de pantalla que muestra la ventana para actualizar la cuota de volumen.](../media/azure-netapp-files/resize-volume-quota-window.png) 
+
+## <a name="resizing-the-capacity-pool-or-a-volume-using-azure-cli"></a>Cambio del tamaño del grupo de capacidad o un volumen mediante la CLI de Azure  
+
+Puede usar los siguientes comandos de las [herramientas de la línea de comandos (CLI) de Azure](azure-netapp-files-sdk-cli.md) para cambiar el tamaño de un grupo de capacidad o un volumen:
+
+* [`az netappfiles pool`](/cli/azure/netappfiles/pool?preserve-view=true&view=azure-cli-latest)
+* [`az netappfiles volume`](/cli/azure/netappfiles/volume?preserve-view=true&view=azure-cli-latest)
+
+## <a name="resizing-the-capacity-pool-or-a-volume-using-rest-api"></a>Cambio del tamaño del grupo de capacidad o un volumen mediante la API REST
+
+Puede crear una automatización para controlar el cambio del tamaño del grupo de capacidad y el volumen.   
+
+Consulte [API REST para Azure NetApp Files](azure-netapp-files-develop-with-rest-api.md) y [API REST con PowerShell para Azure NetApp Files](develop-rest-api-powershell.md). 
+
+La especificación de la API REST y el código de ejemplo de Azure NetApp Files están disponibles a través del [directorio de GitHub del administrador de recursos](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager/Microsoft.NetApp/stable). 
 
 ## <a name="resize-a-cross-region-replication-destination-volume"></a>Cambio de tamaño de un volumen de destino de replicación entre regiones 
 
@@ -60,3 +87,6 @@ En la tabla siguiente se describe el comportamiento de cambio de tamaño del vol
 - [Configuración de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md)
 - [Administración de un grupo de capacidad de QoS manual](manage-manual-qos-capacity-pool.md)
 - [Cambio dinámico del nivel de servicio de un volumen](dynamic-change-volume-service-level.md) 
+- [Descripción de la cuota de volumen](volume-quota-introduction.md)
+- [Supervisión de la capacidad de un volumen](monitor-volume-capacity.md)
+- [Preguntas más frecuentes sobre la administración de la capacidad](azure-netapp-files-faqs.md#capacity-management-faqs)

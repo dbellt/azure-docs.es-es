@@ -1,25 +1,21 @@
 ---
-title: 'Versión preliminar de la preparación de imágenes de conexión de aplicaciones MSIX para Windows Virtual Desktop: Azure'
+title: 'Preparación de imágenes de conexión de aplicaciones MSIX para Windows Virtual Desktop: Azure'
 description: Creación de una imagen de conexión de aplicaciones MSIX para un grupo de hosts de Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a2d909d04c38a7d6bad42020175cbbbfcfd7bf9f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 443f117907381862639564dfbf9752562f4a3564
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448362"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363672"
 ---
 # <a name="prepare-an-msix-image-for-windows-virtual-desktop"></a>Preparación de una imagen de MSIX para Windows Virtual Desktop
 
-> [!IMPORTANT]
-> La asociación de aplicaciones en formato MSIX está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Conexión de aplicaciones MSIX (versión preliminar) es una solución de aplicaciones en capas que le permite conectar dinámicamente aplicaciones de un paquete MSIX a una sesión de usuario. El sistema de paquetes MSIX separa las aplicaciones del sistema operativo, lo que facilita la creación de imágenes para las máquinas virtuales. Los paquetes MSIX también proporcionan un mayor control sobre las aplicaciones a las que los usuarios pueden acceder en sus máquinas virtuales. Incluso puede separar las aplicaciones de la imagen maestra y proporcionarlas a los usuarios posteriormente.
+La conexión de aplicaciones MSIX es una solución de aplicaciones en capas que le permite conectar dinámicamente las aplicaciones de un paquete MSIX a una sesión de usuario. El sistema de paquetes MSIX separa las aplicaciones del sistema operativo, lo que facilita la creación de imágenes para las máquinas virtuales. Los paquetes MSIX también proporcionan un mayor control sobre las aplicaciones a las que los usuarios pueden acceder en sus máquinas virtuales. Incluso puede separar las aplicaciones de la imagen maestra y proporcionarlas a los usuarios posteriormente.
 
 ## <a name="create-a-vhd-or-vhdx-package-for-msix"></a>Creación de un paquete VHD o VHDX para MSIX
 

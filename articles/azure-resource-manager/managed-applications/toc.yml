@@ -34,7 +34,7 @@
     - name: Seguridad
       items:
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/managed-applications-security-baseline?toc=/azure/azure-resource-manager/managed-applications/toc.json
 - name: Guías paso a paso
   items:
     - name: Publicadores

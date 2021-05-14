@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: c4ca8d8ac24ac174158957e44b5eabe4a89a5340
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: edc74f0379a15c9119d2e3ed4f207832c367866b
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104775211"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108804041"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Configuración de una aplicación en Azure Government 
 
@@ -26,7 +26,7 @@ Siga este artículo para implementar un [dispositivo Azure Migrate](./migrate-ap
 
 El script configura el dispositivo de Azure Migrate en un servidor físico o uno existente.
 
-- El servidor que hará de dispositivo debe ejecutar Windows Server 2016, con 32 GB de memoria, ocho CPU virtuales, cerca de 80 GB de almacenamiento en disco y un conmutador virtual externo. Requiere una dirección IP estática o dinámica y acceso a Internet.
+- El servidor que hará de dispositivo debe ejecutar Windows Server 2016, con 32 GB de memoria, ocho CPU virtuales, cerca de 80 GB de almacenamiento en disco y un conmutador virtual externo. Requiere una dirección IP estática o dinámica. 
 - Antes de implementar el dispositivo, consulte los requisitos detallados del dispositivo para las [servidores en VMware](migrate-appliance.md#appliance---vmware), [en Hyper-V](migrate-appliance.md#appliance---hyper-v)y [servidores físicos](migrate-appliance.md#appliance---physical).
 - No ejecute el script en un dispositivo de Azure Migrate existente.
 
@@ -62,7 +62,7 @@ Funcionamiento del script:
 
 - Instala agentes y una aplicación web.
 - Instala roles de Windows, como el servicio de activación de Windows, IIS y PowerShell ISE.
-- Descarga e instala un módulo de reescritura de IIS. [Más información](https://www.microsoft.com/download/details.aspx?id=7435).
+- Descarga e instala un módulo de reescritura de IIS.
 - Actualiza una clave del registro (HKLM) con una configuración persistente para Azure Migrate.
 - Crea archivos de registro y de configuración del siguiente modo:
     - **Archivos de configuración**: %ProgramData%\Microsoft Azure\Config
@@ -117,7 +117,7 @@ Funcionamiento del script:
 
 - Instala agentes y una aplicación web.
 - Instala roles de Windows, como el servicio de activación de Windows, IIS y PowerShell ISE.
-- Descarga e instala un módulo de reescritura de IIS. [Más información](https://www.microsoft.com/download/details.aspx?id=7435).
+- Descarga e instala un módulo de reescritura de IIS.
 - Actualiza una clave del registro (HKLM) con una configuración persistente para Azure Migrate.
 - Crea archivos de registro y de configuración del siguiente modo:
     - **Archivos de configuración**: %ProgramData%\Microsoft Azure\Config
@@ -170,7 +170,7 @@ Funcionamiento del script:
 
 - Instala agentes y una aplicación web.
 - Instala roles de Windows, como el servicio de activación de Windows, IIS y PowerShell ISE.
-- Descarga e instala un módulo de reescritura de IIS. [Más información](https://www.microsoft.com/download/details.aspx?id=7435).
+- Descarga e instala un módulo de reescritura de IIS.
 - Actualiza una clave del registro (HKLM) con una configuración persistente para Azure Migrate.
 - Crea archivos de registro y de configuración del siguiente modo:
     - **Archivos de configuración**: %ProgramData%\Microsoft Azure\Config

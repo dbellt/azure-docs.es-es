@@ -1,18 +1,19 @@
 ---
-title: Ejemplo de configuración para conectar dispositivos Cisco ASA a puertas de enlace de VPN de Azure
-description: En este artículo se proporciona un ejemplo de configuración para conectar dispositivos Cisco ASA a puertas de enlace de VPN de Azure.
+title: Ejemplo de configuración para conectar dispositivos Cisco ASA a puertas de enlace de VPN
+titleSuffix: Azure VPN Gateway
+description: Vea ejemplos de configuración para conectar dispositivos Cisco ASA a puertas de enlace de VPN de Azure.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 04/29/2021
 ms.author: yushwang
-ms.openlocfilehash: 82e00e0b519040c57fdfd798d8992086c61e5481
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c9de069b657f991444d84f5bff5f61d1150c0b0f
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89426186"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292151"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Ejemplo de configuración: dispositivo Cisco ASA (IKEv2/no BGP)
 En este artículo se proporciona un ejemplo de configuración para conectar dispositivos Cisco Adaptive Security Appliance (ASA) a puertas de enlace de VPN de Azure. El ejemplo se aplica a dispositivos Cisco ASA que ejecutan IKEv2 sin Border Gateway Protocol (BGP). 

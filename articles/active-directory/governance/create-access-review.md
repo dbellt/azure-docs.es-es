@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 3/3/2021
+ms.date: 4/27/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4d6502ffdd13272d396852b11a11d13f929b11b
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: fd283e5ef0d7a3692e819311a749c8c12b1b38b1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532266"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137909"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Creación de una revisión de acceso de los grupos y las aplicaciones en las revisiones de acceso de Azure AD
 
@@ -54,14 +54,14 @@ Para obtener más información, consulte [Requisitos de licencia](access-reviews
     ![Creación de una revisión de acceso: nombre y descripción de la revisión](./media/create-access-review/select-what-review.png)
 
 5. Si seleccionó **Grupos y equipos** en el paso 1, tiene dos opciones en el paso 2
-   - **Todos los grupos de Microsoft 365 con usuarios invitados.** Seleccione esta opción si desea crear revisiones periódicas de todos los usuarios invitados en todos los grupos de Microsoft Teams y M365 de su organización. Puede elegir excluir determinados grupos haciendo clic en "Seleccionar grupos para excluir".
+   - **Todos los grupos de Microsoft 365 con usuarios invitados.** Seleccione esta opción si quiere crear revisiones periódicas de todos los usuarios invitados en todos los grupos de Microsoft Teams y Microsoft 365 de su organización. Puede elegir excluir determinados grupos haciendo clic en "Seleccionar grupos para excluir".
    - **Seleccione Grupos y equipos.** Seleccione esta opción si desea especificar un conjunto finito de equipos o grupos para revisar. Después de hacer clic en esta opción, verá una lista de grupos a la derecha para elegir.
 
      ![Grupos y equipos](./media/create-access-review/teams-groups.png)
 
      ![Grupos y equipos elegidos en la interfaz de usuario](./media/create-access-review/teams-groups-detailed.png)
 
-6. Si seleccionó **Aplicaciones** en el paso 1, puede seleccionar una o más aplicaciones en el paso 2.
+6. Si seleccionó **Aplicaciones** en el paso 1, puede seleccionar una o más aplicaciones en el paso 2.
 
     >[!NOTE]
     > Si selecciona varios grupos o aplicaciones, se crearán varias revisiones de acceso. Por ejemplo, si selecciona 5 grupos para revisar, obtendrá 5 revisiones de acceso independientes
@@ -94,41 +94,45 @@ Para obtener más información, consulte [Requisitos de licencia](access-reviews
 
     ![Creación de una revisión de acceso: configuración de finalización](./media/create-access-review/upon-completion-settings-new.png)
 
-Si desea quitar automáticamente el acceso para los usuarios que se han denegado, establezca Aplicar automáticamente los resultados al recurso en Habilitar. Si desea aplicar manualmente los resultados cuando se complete la revisión, establezca el conmutador en Deshabilitar.
-Use la lista Si los revisores no responden para especificar lo que ocurre con los usuarios a los que el revisor no ha revisado dentro del período de revisión. Este valor no afecta a los usuarios que los revisores revisaron manualmente. Si la decisión final del revisor es Denegar, se quitará el acceso del usuario.
+    Si desea quitar automáticamente el acceso para los usuarios que se han denegado, establezca Aplicar automáticamente los resultados al recurso en Habilitar. Si desea aplicar manualmente los resultados cuando se complete la revisión, establezca el conmutador en Deshabilitar.
+    
+    Use la lista Si los revisores no responden para especificar lo que ocurre con los usuarios a los que el revisor no ha revisado dentro del período de revisión. Este valor no afecta a los usuarios que los revisores revisaron manualmente. Si la decisión final del revisor es Denegar, se quitará el acceso del usuario.
 
-- **Sin cambios**: dejar el acceso del usuario sin cambios
-- **Quitar acceso**: quitar el acceso del usuario
-- **Aprobar acceso**: aprobar el acceso del usuario
-- **Aceptar recomendaciones**: aceptar la recomendación del sistema sobre la denegación o aprobación del acceso continuo del usuario
+    - **Sin cambios**: dejar el acceso del usuario sin cambios
+    - **Quitar acceso**: quitar el acceso del usuario
+    - **Aprobar acceso**: aprobar el acceso del usuario
+    - **Aceptar recomendaciones**: aceptar la recomendación del sistema sobre la denegación o aprobación del acceso continuo del usuario
 
     ![Opciones de configuración de finalización](./media/create-access-review/upon-completion-settings-new.png)
 
-Use la opción Acción que se aplicará a los usuarios **invitados** denegados para especificar lo que ocurre con los usuarios invitados si se deniegan.
-- La eliminación de la pertenencia del usuario del recurso dará lugar a la eliminación del acceso del usuario denegado al grupo o a la aplicación que se está revisando, pero aún podrá iniciar sesión en el inquilino.
-- Impidir que el usuario inicie sesión durante 30 días y, a continuación, quitar al usuario del inquilino hará que se impida que los usuarios denegados inicien sesión en el inquilino, independientemente de si tienen acceso a otros recursos. Si se ha producido un error o si un administrador decide volver a habilitar el acceso de un usuario, puede hacerlo en un plazo de 30 días después de que se haya deshabilitado el usuario. Si no se realiza ninguna acción en los usuarios deshabilitados, se eliminarán del inquilino.
+    Use la opción Acción que se aplicará a los usuarios **invitados** denegados para especificar lo que ocurre con los usuarios invitados si se deniegan.
+    - La eliminación de la pertenencia del usuario del recurso dará lugar a la eliminación del acceso del usuario denegado al grupo o a la aplicación que se está revisando, pero aún podrá iniciar sesión en el inquilino.
+    - Impidir que el usuario inicie sesión durante 30 días y, a continuación, quitar al usuario del inquilino hará que se impida que los usuarios denegados inicien sesión en el inquilino, independientemente de si tienen acceso a otros recursos. Si se ha producido un error o si un administrador decide volver a habilitar el acceso de un usuario, puede hacerlo en un plazo de 30 días después de que se haya deshabilitado el usuario. Si no se realiza ninguna acción en los usuarios deshabilitados, se eliminarán del inquilino.
 
-Para más información sobre los procedimientos recomendados para eliminar los usuarios invitados que ya no tienen acceso a los recursos de su organización, consulte el artículo titulado [Uso de Azure AD Identity Governance para revisar y eliminar usuarios externos que ya no tienen acceso a los recursos.](access-reviews-external-users.md)
+    Para más información sobre los procedimientos recomendados para eliminar los usuarios invitados que ya no tienen acceso a los recursos de su organización, consulte el artículo titulado [Uso de Azure AD Identity Governance para revisar y eliminar usuarios externos que ya no tienen acceso a los recursos.](access-reviews-external-users.md)
 
-   >[!NOTE]
-   >La acción que se aplicará a los usuarios invitados denegados no se puede configurar en las revisiones cuyo ámbito es superior al de los usuarios invitados. Tampoco se puede configurar en las revisiones de **todos los grupos de M365 con usuarios invitados.** Cuando no se puede configurar, se usa la opción predeterminada de eliminación de la pertenencia del usuario del recurso en los usuarios denegados.
+   > [!NOTE]
+   > La acción que se aplicará a los usuarios invitados denegados no se puede configurar en las revisiones cuyo ámbito es superior al de los usuarios invitados. Tampoco se puede configurar en las revisiones de **todos los grupos de M365 con usuarios invitados.** Cuando no se puede configurar, se usa la opción predeterminada de eliminación de la pertenencia del usuario del recurso en los usuarios denegados.
 
-13. En **Habilitar asistentes para la toma de decisiones de revisión**, elija si desea que el revisor reciba recomendaciones durante el proceso de revisión.
+13. Puede enviar notificaciones a usuarios o grupos adicionales (versión preliminar) para recibir actualizaciones de finalización de las revisiones. Esta característica permite que partes interesadas que no sean el creador de la revisión reciban actualizaciones sobre el progreso de la revisión. Para usar esta característica, seleccione **Seleccionar usuarios o grupos** y agregue un usuario o grupo adicional cuando quiera recibir el estado de finalización.
+
+    ![Configuración de finalización: Agregue usuarios adicionales para que reciban notificaciones.](./media/create-access-review/upon-completion-settings-additional-receivers.png) 
+
+14. En **Habilitar asistentes para la toma de decisiones de revisión**, elija si desea que el revisor reciba recomendaciones durante el proceso de revisión.
 
     ![Opciones de habilitación de asistentes para la toma de decisiones](./media/create-access-review/helpers.png)
 
-14. En la sección **Configuración avanzada** puede elegir lo siguiente
+15. En la sección **Configuración avanzada** puede elegir lo siguiente
     - Establezca **Justificación necesaria** en **Habilitar** para requerir un revisor para que proporcione un motivo de aprobación.
     - Establezca **Notificaciones de correo** en **Habilitar** para que Azure AD envíe notificaciones de correo electrónico a los revisores cuando se inicia una revisión de acceso y a los administradores cuando se complete.
     - Establezca **Avisos** en **Habilitar** para que Azure AD envíe recordatorios de revisiones de acceso en curso a los revisores que no hayan completado su revisión. Estos recordatorios serán la mitad de camino de la duración de la revisión.
     - El contenido del correo electrónico enviado a los revisores se genera automáticamente en función de los detalles de la revisión, como el nombre de la revisión, el nombre del recurso, la fecha de vencimiento, etc. Si necesita una forma de comunicar más información, como instrucciones adicionales o información de contacto, puede especificar estos detalles en la sección **Contenido adicional para el correo electrónico del revisor**. La información que escriba se incluirá en la invitación y los correos electrónicos de recordatorio enviados a los revisores asignados. En la sección resaltada en la imagen siguiente se muestra dónde aparece esta información.
 
-
       ![contenido adicional para el revisor](./media/create-access-review/additional-content-reviewer.png)
 
-15. Haga clic en **Siguiente: Revisar y crear** para ir a la página siguiente
-16. Ponga un nombre a la revisión de acceso. Opcionalmente, asigne a la revisión una descripción. El nombre y la descripción se muestran a los revisores.
-17. Revise la información y seleccione **Crear**
+16. Haga clic en **Siguiente: Revisar y crear** para ir a la página siguiente
+17. Ponga un nombre a la revisión de acceso. Opcionalmente, asigne a la revisión una descripción. El nombre y la descripción se muestran a los revisores.
+18. Revise la información y seleccione **Crear**
 
        ![pantalla revisar y crear](./media/create-access-review/create-review.png)
 

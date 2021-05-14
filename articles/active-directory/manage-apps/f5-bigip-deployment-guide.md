@@ -12,12 +12,12 @@ ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 139009c55573e1e115a22069671f66e93695a635
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: aeb48b5ee2bd3fbb127b3a88e7dda4946e96c163
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783330"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108184791"
 ---
 # <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Tutorial para implementar la máquina virtual de F5 BIG-IP Virtual Edition en IaaS de Azure para el acceso híbrido seguro
 
@@ -249,7 +249,7 @@ De forma predeterminada, las redes virtuales de Azure y las subredes asociadas s
  |Direcciones IP de destino|Lista separada por comas de todas las IP privadas secundarias de la máquina virtual de BIG-IP|
  |Puertos de destino| 80, 443|
  |Protocolo| TCP |
- |Acción| Allow|
+ |Acción| Permitir|
  |Priority|Menor valor disponible entre 100 y 4096|
  |Nombre | Un nombre descriptivo, como: `BIG-IP-VM_Web_Services_80_443`|
 
@@ -265,7 +265,7 @@ Un sistema de BIG-IP se administra a través de su interfaz de usuario de la con
 
 - Desde un cliente VPN conectado a la red interna de la máquina virtual de BIG-IP
 
-- Publicado mediante [Azure AD Application Proxy](./application-proxy-add-on-premises-application.md)
+- Publicado mediante [Azure AD Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md)
 
 Tendrá que decidir cuál es el método más adecuado para poder continuar con las configuraciones restantes. Si es necesario, puede conectarse directamente a la configuración web desde Internet mediante la configuración de la dirección IP principal de BIG-IP con una IP pública. Después, agregue una regla de grupo de seguridad de red para permitir el tráfico del puerto 8443 a esa dirección IP principal. Asegúrese de restringir el origen a su propia dirección IP de confianza; de lo contrario, cualquiera podrá conectarse.
 

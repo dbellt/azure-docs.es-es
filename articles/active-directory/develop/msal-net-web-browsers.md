@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 23ba50a6eca1e398b9d459153b84719909f2ecac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4121d4b9ac73ed18da7dce0e397fe919589ac6f0
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99583746"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478767"
 ---
 # <a name="using-web-browsers-msalnet"></a>Uso de exploradores web (MSAL.NET)
 
@@ -63,11 +63,11 @@ De forma predeterminada, MSAL.NET admite el explorador web del sistema en Xamari
 
 El uso del explorador del sistema tiene la ventaja significativa de compartir el estado de inicio de sesión único con otras aplicaciones y con aplicaciones web sin necesidad de un agente (portal de empresa o autenticador). De manera predeterminada, el explorador del sistema se usó en MSAL.NET para las plataformas Xamarin iOS y Xamarin Android porque, en estas plataformas, el explorador del sistema ocupa toda la pantalla y la experiencia del usuario es mejor. La vista web del sistema no se distingue de una ventana de diálogo. En iOS, sin embargo, es posible que el usuario tenga que dar su consentimiento para que el explorador vuelva a llamar a la aplicación, lo que puede resultar molesto.
 
-## <a name="system-browser-experience-on-net-core"></a>Experiencia del explorador del sistema en .NET Core
+## <a name="system-browser-experience-on-net"></a>Experiencia del explorador del sistema en .NET 
 
 En .NET Core, MSAL.NET iniciará el explorador del sistema como un proceso separado. MSAL.NET no tiene control sobre este navegador, pero una vez que el usuario finaliza la autenticación, la página web se redirige de tal manera que MSAL.NET pueda interceptar el Uri.
 
-También puede configurar aplicaciones escritas para la instancia de .NET Classic que usará este navegador, especificando lo siguiente:
+También puede configurar las aplicaciones escritas para .NET Classic o .NET 5 que usará este navegador al especificar lo siguiente:
 
 ```csharp
 await pca.AcquireTokenInteractive(s_scopes)

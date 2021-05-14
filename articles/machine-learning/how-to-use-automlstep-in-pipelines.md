@@ -9,21 +9,21 @@ ms.author: laobri
 author: lobrien
 manager: cgronlun
 ms.date: 02/28/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, automl
-ms.openlocfilehash: 0de3c9a7cf464f38a1a12d8bc19451fb1158a5ad
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.topic: how-to
+ms.custom: devx-track-python, automl
+ms.openlocfilehash: 4a045d7475c2380c9e591e18a37c4f9e99501097
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102520513"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107951943"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Uso de ML automatizado en una canalización de Azure Machine Learning en Python
 
 
 La funcionalidad de ML automatizada de Azure Machine Learning le ayuda a detectar modelos de alto rendimiento sin necesidad de volver a implementar todos los enfoques posibles. En combinación con las canalizaciones de Azure Machine Learning, puede crear flujos de trabajo que se pueden implementar y que pueden detectar rápidamente el algoritmo que funcione mejor para sus datos. En este artículo se muestra cómo unir de forma eficaz un paso de preparación de datos a un paso de ML automatizado. ML automatizado puede detectar rápidamente el algoritmo que funciona mejor para sus datos, al tiempo que le conduce hacia MLOps y a la operacionalización del ciclo de vida del modelo con las canalizaciones.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -260,7 +260,7 @@ Comparación de las dos técnicas:
 Las salidas del objeto `AutoMLStep` son las puntuaciones de métricas finales del modelo de mayor rendimiento y el propio modelo. Para usar estas salidas en pasos posteriores de la canalización, prepare objetos `OutputFileDatasetConfig` para recibirlas.
 
 ```python
-from azureml.pipeline.core import TrainingOutput
+from azureml.pipeline.core import TrainingOutput, PipelineData
 
 metrics_data = PipelineData(name='metrics_data',
                             datastore=datastore,
@@ -450,7 +450,7 @@ with open(model_filename, "rb" ) as f:
 # ... inferencing code not shown ...
 ```
 
-Para más información sobre cómo cargar y trabajar con modelos existentes, vea [Usar un modelo existente con Azure Machine Learning](how-to-deploy-existing-model.md).
+Para más información sobre cómo cargar y trabajar con modelos existentes, vea [Usar un modelo existente con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ### <a name="download-the-results-of-an-automated-ml-run"></a>Descarga de los resultados de una ejecución de ML automatizado
 

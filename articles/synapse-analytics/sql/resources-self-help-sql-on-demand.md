@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: f94134b2a06155b1b1f390175578e501a840038b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae9a1a374724465148f922efe486c4680e1e36ab
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101669416"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144284"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>Autoayuda para grupos de SQL sin servidor
 
@@ -41,7 +41,7 @@ Si la consulta no se puede ejecutar y aparece un mensaje de error en el que se i
 
 - Si la consulta se dirige a archivos CSV, considere la posibilidad de [crear estadísticas](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
 
-- Para optimizar la consulta, visite [los procedimientos recomendados para mejorar el rendimiento en los grupos de SQL sin servidor](best-practices-sql-on-demand.md).  
+- Para optimizar la consulta, visite [los procedimientos recomendados para mejorar el rendimiento en los grupos de SQL sin servidor](./best-practices-serverless-sql-pool.md).  
 
 ## <a name="create-statement-is-not-supported-in-master-database"></a>CREATE 'STATEMENT' no se admite en la base de datos maestra
 

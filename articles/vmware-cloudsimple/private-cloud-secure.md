@@ -1,19 +1,19 @@
 ---
 title: 'Azure VMware Solutions by CloudSimple: nube privada segura'
 description: Se describe cómo proteger la nube privada de Azure VMware Solutions by CloudSimple.
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5e70745cd6e2f6a2a13581052f65e014bd0d0481
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2cf73cfcad43f34bc3977ab7818bb9623d56c4aa
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97899174"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108177267"
 ---
 # <a name="how-to-secure-your-private-cloud-environment"></a>Cómo proteger el entorno de nube privada
 

@@ -5,18 +5,18 @@ description: Información sobre la creación y administración de una instancia 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
+ms.topic: how-to
+ms.custom: devx-track-azurecli, references_regions
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 2778f52b312e5d2fda7879b834fcd204285b7144
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f3e0a14ee917bf9b1396eef9d1ec36709e5e706a
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105628958"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331402"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creación y administración de una instancia de proceso de Azure Machine Learning
 
@@ -41,6 +41,10 @@ Las instancias de proceso pueden ejecutar trabajos de manera segura en un [entor
 * La [extensión de la CLI de Azure para Machine Learning Service](reference-azure-machine-learning-cli.md), el [SDK de Python para Azure Machine Learning](/python/api/overview/azure/ml/intro) o la [extensión de Visual Studio Code para Azure Machine Learning](tutorial-setup-vscode-extension.md).
 
 ## <a name="create"></a>Crear
+
+> [!IMPORTANT]
+> Los elementos marcados (versión preliminar) a continuación se encuentran actualmente en versión preliminar pública.
+> Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 **Tiempo estimado**: Aproximadamente 5 minutos.
 
@@ -93,7 +97,7 @@ Para más información acerca de las clases, los métodos y los parámetros que 
 az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 ```
 
-Para más información, vea la referencia de [az ml computetarget create computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext_azure_cli_ml_az_ml_computetarget_create_computeinstance).
+Para más información, vea la referencia de [az ml computetarget create computeinstance](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_computeinstance).
 
 # <a name="studio"></a>[Estudio](#tab/azure-studio)
 
@@ -105,10 +109,14 @@ Para obtener información sobre cómo crear una instancia de proceso en Estudio,
 
 También puede crear una instancia de proceso con una [plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance). 
 
-### <a name="create-on-behalf-of-preview"></a>Creación en nombre de alguien (versión preliminar)
+
+
+## <a name="create-on-behalf-of-preview"></a>Creación en nombre de alguien (versión preliminar)
 
 Como administrador, puede crear una instancia de proceso en nombre de un científico de datos y asignarle la instancia con:
+
 * [Plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance)  Para más información sobre cómo buscar los valores de TenantID y ObjectID necesarios en esta plantilla, consulte [Encontrar identificadores de objeto de identidad para la configuración de autenticación](../healthcare-apis/fhir/find-identity-object-ids.md).  También puede encontrar estos valores en el portal de Azure Active Directory.
+
 * API DE REST
 
 El científico de datos para el que se crea la instancia de proceso necesita los siguientes permisos de [control de acceso basado en roles de Azure (Azure RBAC)](../role-based-access-control/overview.md): 
@@ -122,6 +130,93 @@ El científico de datos puede iniciar, detener y reiniciar la instancia de proce
 * JupyterLab
 * RStudio
 * Cuadernos integrados
+
+## <a name="customize-the-compute-instance-with-a-script-preview"></a><a name="setup-script"></a> Personalización de la instancia de proceso con un script (versión preliminar)
+
+> [!TIP]
+> Esta versión preliminar está disponible actualmente para las áreas de trabajo de las regiones Centro-oeste de EE. UU. y Este de EE. UU.
+
+Use un script de configuración para una manera automatizada de personalizar y configurar la instancia de proceso en el momento del aprovisionamiento. Como administrador, puede escribir un script de personalización que se usará para aprovisionar todas las instancias de proceso del área de trabajo según sus requisitos. 
+
+A continuación se muestran algunos ejemplos de lo que puede hacer en un script de configuración:
+
+* Instalar paquetes y herramientas
+* Montar datos
+* Crear un entorno de Conda personalizado y kernels de Jupyter
+* Clonar repositorios Git
+
+### <a name="create-the-setup-script"></a>Creación del script de configuración
+
+El script de configuración es un script de shell que se ejecuta como *azureuser*.  Cree o cargue el script en los archivos de **Notebooks**:
+
+1. Inicie sesión en [Studio](https://ml.azure.com) y vaya al área de trabajo.
+1. Seleccione **Notebooks** en la parte izquierda.
+1. Use la herramienta **Agregar archivos** para crear o cargar el script del shell de configuración.  Asegúrese de que el nombre de archivo del script finaliza en ".sh".  Al crear un nuevo archivo, cambie también el **tipo de archivo** a *bash(.sh)* .
+
+:::image type="content" source="media/how-to-create-manage-compute-instance/create-or-upload-file.png" alt-text="Creación o carga del script de configuración en el archivo de Notebooks en Studio":::
+
+Cuando se ejecuta el script, el directorio de trabajo actual es el directorio donde se cargó.  Si carga el script en **Usuarios>administrador**, la ubicación del archivo es */mnt/batch/tasks/shared/LS_root/mounts/clusters/**ciname**/code/Users/admin* al aprovisionar la instancia de proceso denominada **ciname**.
+
+Los argumentos de script se pueden denominar en el script como $1, $2, etc. Por ejemplo, si ejecuta `scriptname ciname`, en el script puede navegar al directorio `cd /mnt/batch/tasks/shared/LS_root/mounts/clusters/$1/code/admin` donde se almacena el script.
+
+También puede recuperar la ruta de acceso dentro del script:
+
+```shell
+#!/bin/bash 
+SCRIPT=$(readlink -f "$0") 
+SCRIPT_PATH=$(dirname "$SCRIPT") 
+```
+
+### <a name="use-the-script-in-the-studio"></a>Uso del script en Studio
+
+Una vez que almacene el script, especifíquelo durante la creación de la instancia de proceso:
+
+1. Inicie sesión en [Studio](https://ml.azureml.com) y seleccione el área de trabajo.
+1. Seleccione **Proceso** a la izquierda.
+1. Seleccione **+Nuevo** para crear una nueva instancia de proceso.
+1. [Rellene el formulario](how-to-create-attach-compute-studio.md#compute-instance).
+1. En la segunda página del formulario, abra **Mostrar configuración avanzada**.
+1. Active la opción **Aprovisionar con un script de configuración**.
+1. Vaya al script de shell que guardó.  O bien, cargue un script desde el equipo.
+1. Agregue argumentos de comando según sea necesario.
+
+:::image type="content" source="media/how-to-create-manage-compute-instance/setup-script.png" alt-text="Aprovisionamiento de una instancia de proceso con un script de configuración en Studio.":::
+
+### <a name="use-script-in-a-resource-manager-template"></a>Uso de una plantilla de Resource Manager
+
+En una [plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance)de Resource Manager, agregue `setupScripts` para invocar el script de configuración cuando se aprovisione la instancia de proceso. Por ejemplo:
+
+```json
+"setupScripts":{
+    "scripts":{
+        "creationScript":{
+        "scriptSource":"workspaceStorage",
+        "scriptData":"[parameters('creationScript.location')]",
+        "scriptArguments":"[parameters('creationScript.cmdArguments')]"
+        }
+    }
+}
+```
+
+En su lugar, podría proporcionar el script en línea para una plantilla de Resource Manager.  El comando de shell puede hacer referencia a las dependencias cargadas en el recurso compartido de archivos de Notebooks.  Cuando se usa una cadena insertada, el directorio de trabajo para el script es */mnt/batch/tasks/shared/LS_root/mounts/clusters/**ciname**/code/Users*.
+
+Por ejemplo, especifique una cadena de comando codificada en Base64 para `scriptData`:
+
+```json
+"setupScripts":{
+    "scripts":{
+        "creationScript":{
+        "scriptSource":"inline",
+        "scriptData":"[base64(parameters('inlineCommand'))]",
+        "scriptArguments":"[parameters('creationScript.cmdArguments')]"
+        }
+    }
+}
+```
+
+### <a name="setup-script-logs"></a>Registros del script de configuración
+
+Los registros de la ejecución del script de configuración aparecen en la carpeta de registros de la página de detalles de la instancia de proceso. Los registros se almacenan de nuevo en el recurso compartido de archivos de Notebooks en la carpeta Registros\<compute instance name>. Los argumentos de archivo de script y comando para una instancia de proceso determinada se muestran en la página de detalles.
 
 ## <a name="manage"></a>Administrar
 
@@ -181,7 +276,7 @@ En todos los siguientes ejemplos, el nombre de la instancia de proceso es **inst
     az ml computetarget stop computeinstance -n instance -v
     ```
 
-    Para más información, consulte [az ml computetarget stop computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
+    Para más información, consulte [az ml computetarget stop computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_stop).
 
 * Start 
 
@@ -189,7 +284,7 @@ En todos los siguientes ejemplos, el nombre de la instancia de proceso es **inst
     az ml computetarget start computeinstance -n instance -v
     ```
 
-    Para más información, consulte [az ml computetarget start computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
+    Para más información, consulte [az ml computetarget start computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_start).
 
 * Reinicio 
 
@@ -197,7 +292,7 @@ En todos los siguientes ejemplos, el nombre de la instancia de proceso es **inst
     az ml computetarget restart computeinstance -n instance -v
     ```
 
-    Para más información, consulte[az ml computetarget restart computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
+    Para más información, consulte[az ml computetarget restart computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_restart).
 
 * Eliminar
 
@@ -205,7 +300,7 @@ En todos los siguientes ejemplos, el nombre de la instancia de proceso es **inst
     az ml computetarget delete -n instance -v
     ```
 
-    Para más información, consulte [az ml computetarget delete computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget#ext-azure-cli-ml-az-ml-computetarget-delete).
+    Para más información, consulte [az ml computetarget delete computeinstance](/cli/azure/ml/computetarget#az_ml_computetarget_delete).
 
 # <a name="studio"></a>[Estudio](#tab/azure-studio)
 

@@ -8,12 +8,12 @@ ms.date: 11/18/2020
 ms.custom: devx-track-java
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 25baa278961b93b04e60f2e997b98753cb6cf3ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 115c55a5833906aa0dcc616a5b1b659468647282
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95024116"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814557"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Desarrollo con Java para Azure Files
 
@@ -36,11 +36,11 @@ Para compilar las muestras, se necesitará el Kit de desarrollo de Java (JDK) y 
 
 Para utilizar las API de Azure Files, agregue el siguiente código al principio del archivo Java desde el que desea acceder a Azure Files.
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="azure-java-sdk-v12"></a>[SDK de Java de Azure v12](#tab/java)
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_ImportStatements":::
 
-# <a name="java-v11"></a>[Java v11](#tab/java11)
+# <a name="azure-java-sdk-v11"></a>[SDK de Java de Azure v11](#tab/java11)
 
 ```java
 // Include the following imports to use Azure Files APIs v11
@@ -54,13 +54,13 @@ import com.microsoft.azure.storage.file.*;
 
 Para usar Azure Files, debe conectarse a su cuenta de almacenamiento de Azure. Configure una cadena de conexión y úsela para conectarse a su cuenta de almacenamiento. Defina una variable estática que contenga la cadena de conexión.
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="azure-java-sdk-v12"></a>[SDK de Java de Azure v12](#tab/java)
 
 Reemplace *\<storage_account_name\>* y *\<storage_account_key\>* por los valores reales de la cuenta de almacenamiento.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_ConnectionString":::
 
-# <a name="java-v11"></a>[Java v11](#tab/java11)
+# <a name="azure-java-sdk-v11"></a>[SDK de Java de Azure v11](#tab/java11)
 
 Reemplace *your_storage_account_name* y *your_storage_account_key* por los valores reales de la cuenta de almacenamiento.
 
@@ -74,15 +74,15 @@ public static final String storageConnectionString =
 
 ---
 
-## <a name="access-azure-files-storage"></a>Acceso al almacenamiento en Azure Files
+## <a name="access-an-azure-file-share"></a>Acceso a un recurso compartido de archivos de Azure
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="azure-java-sdk-v12"></a>[SDK de Java de Azure v12](#tab/java)
 
 Para acceder a Azure Files, cree un objeto [ShareClient](/java/api/com.azure.storage.file.share.shareclient). Use la clase [ShareClientBuilder](/java/api/com.azure.storage.file.share.shareclientbuilder) para crear un nuevo objeto **ShareClient**.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_createClient":::
 
-# <a name="java-v11"></a>[Java v11](#tab/java11)
+# <a name="azure-java-sdk-v11"></a>[SDK de Java de Azure v11](#tab/java11)
 
 Para acceder a su cuenta de almacenamiento, use el objeto **CloudStorageAccount**, pasando la cadena de conexión a su método de **análisis**.
 
@@ -103,13 +103,13 @@ try {
 
 Todos los archivos y directorios de Azure Files se almacenan en un contenedor denominado recurso compartido.
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="azure-java-sdk-v12"></a>[SDK de Java de Azure v12](#tab/java)
 
 El método [ShareClient.create](/java/api/com.azure.storage.file.share.shareclient.create) produce una excepción si el recurso compartido ya existe. Coloque la llamada a **create** en un bloque `try/catch` y controle la excepción.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_createFileShare":::
 
-# <a name="java-v11"></a>[Java v11](#tab/java11)
+# <a name="azure-java-sdk-v11"></a>[SDK de Java de Azure v11](#tab/java11)
 
 Para acceder a un recurso compartido y su contenido, cree un cliente de Azure Files.
 
@@ -141,13 +141,13 @@ En este punto, **share** contiene una referencia a un recurso compartido denomin
 
 En el siguiente código de ejemplo se elimina un recurso compartido de archivos.
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="azure-java-sdk-v12"></a>[SDK de Java de Azure v12](#tab/java)
 
 Elimine un recurso compartido llamando al método [ShareClient.delete](/java/api/com.azure.storage.file.share.shareclient.delete).
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_deleteFileShare":::
 
-# <a name="java-v11"></a>[Java v11](#tab/java11)
+# <a name="azure-java-sdk-v11"></a>[SDK de Java de Azure v11](#tab/java11)
 
 Para eliminar un recurso compartido, llame al método **deleteIfExists** en un objeto **CloudFileShare**.
 
@@ -177,13 +177,13 @@ try
 
 Para organizar el almacenamiento, coloque los archivos en los subdirectorios, en lugar de mantenerlos todos en el directorio raíz.
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="azure-java-sdk-v12"></a>[SDK de Java de Azure v12](#tab/java)
 
 En el código siguiente se crea un directorio llamando a [ShareDirectoryClient.create](/java/api/com.azure.storage.file.share.sharedirectoryclient.create). El método de ejemplo devuelve un valor `Boolean` que indica si se el directorio creó correctamente.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_createDirectory":::
 
-# <a name="java-v11"></a>[Java v11](#tab/java11)
+# <a name="azure-java-sdk-v11"></a>[SDK de Java de Azure v11](#tab/java11)
 
 En el código siguiente se crea un subdirectorio denominado **sampledir** en el directorio raíz.
 
@@ -207,13 +207,13 @@ if (sampleDir.createIfNotExists()) {
 
 Eliminar un directorio es una tarea sencilla. No se puede eliminar un directorio que todavía contenga archivos o subdirectorios.
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="azure-java-sdk-v12"></a>[SDK de Java de Azure v12](#tab/java)
 
 El método [ShareDirectoryClient.delete](/java/api/com.azure.storage.file.share.sharedirectoryclient.delete) produce una excepción si el directorio no existe o no está vacío. Coloque la llamada a **delete** en un bloque `try/catch` y controle la excepción.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_deleteDirectory":::
 
-# <a name="java-v11"></a>[Java v11](#tab/java11)
+# <a name="azure-java-sdk-v11"></a>[SDK de Java de Azure v11](#tab/java11)
 
 ```java
 // Get a reference to the root directory for the share.
@@ -232,13 +232,13 @@ if ( containerDir.deleteIfExists() ) {
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Enumerar los archivos y directorios de un recurso compartido de Azure File
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="azure-java-sdk-v12"></a>[SDK de Java de Azure v12](#tab/java)
 
 Obtenga una lista de archivos y directorios llamando [ShareDirectoryClient.listFilesAndDirectories](/java/api/com.azure.storage.file.share.sharedirectoryclient.listfilesanddirectories). El método devuelve una lista de objetos [ShareFileItem](/java/api/com.azure.storage.file.share.models.sharefileitem) en los que puede efectuar la iteración. En el código siguiente se enumeran los archivos y directorios del directorio especificado por el parámetro *dirName*.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_enumerateFilesAndDirs":::
 
-# <a name="java-v11"></a>[Java v11](#tab/java11)
+# <a name="azure-java-sdk-v11"></a>[SDK de Java de Azure v11](#tab/java11)
 
 Obtenga una lista de archivos y directorios mediante una llamada a **listFilesAndDirectories** en una referencia de **CloudFileDirectory**. El método devuelve una lista de objetos **ListFileItem** en los que puede efectuar la iteración. El siguiente código enumera archivos y directorios dentro del directorio raíz.
 
@@ -257,13 +257,13 @@ for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 
 Obtenga información sobre cómo cargar un archivo desde el almacenamiento local.
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="azure-java-sdk-v12"></a>[SDK de Java de Azure v12](#tab/java)
 
 El código siguiente carga un archivo local en el almacenamiento de Azure File Storage mediante una llamada al método [ShareFileClient.uploadFromFile](/java/api/com.azure.storage.file.share.sharefileclient.uploadfromfile). El método de ejemplo siguiente devuelve un valor `Boolean` que indica si el archivo especificado se cargó correctamente.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_uploadFile":::
 
-# <a name="java-v11"></a>[Java v11](#tab/java11)
+# <a name="azure-java-sdk-v11"></a>[SDK de Java de Azure v11](#tab/java11)
 
 Obtenga una referencia al directorio en el que se cargará el archivo mediante una llamada al método **getRootDirectoryReference** en el objeto del recurso compartido.
 
@@ -286,15 +286,15 @@ cloudFile.uploadFromFile(filePath);
 
 ## <a name="download-a-file"></a>Descarga de un archivo
 
-Una de las operaciones más frecuentes es descargar archivos del almacenamiento de Azure Files.
+Una de las operaciones más frecuentes es descargar archivos de un recurso compartido de archivos de Azure.
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="azure-java-sdk-v12"></a>[SDK de Java de Azure v12](#tab/java)
 
 En el siguiente ejemplo se descarga el archivo especificado en el directorio local especificado en el parámetro *destDir*. El método de ejemplo hace que el nombre de archivo descargado sea único al anteponer la fecha y la hora.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_downloadFile":::
 
-# <a name="java-v11"></a>[Java v11](#tab/java11)
+# <a name="azure-java-sdk-v11"></a>[SDK de Java de Azure v11](#tab/java11)
 
 En el ejemplo siguiente, se descarga el archivo SampleFile.txt y se muestra su contenido.
 
@@ -318,13 +318,13 @@ System.out.println(file.downloadText());
 
 Otra operación habitual en Azure Files es la eliminación de archivos.
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="azure-java-sdk-v12"></a>[SDK de Java de Azure v12](#tab/java)
 
 En el código siguiente se elimina el archivo especificado. En primer lugar, el ejemplo crea un método [ShareDirectoryClient](/java/api/com.azure.storage.file.share.sharedirectoryclient) basándose en el parámetro *dirName*. A continuación, el código obtiene un [ShareFileClient](/java/api/com.azure.storage.file.share.sharefileclient) desde el cliente de directorio, basado en el parámetro *fileName*. Por último, el método de ejemplo llama a [ShareFileClient.delete](/java/api/com.azure.storage.file.share.sharefileclient.delete) para eliminar el archivo.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_deleteFile":::
 
-# <a name="java-v11"></a>[Java v11](#tab/java11)
+# <a name="azure-java-sdk-v11"></a>[SDK de Java de Azure v11](#tab/java11)
 
 El código siguiente elimina un archivo denominado SampleFile.txt que se almacena en un directorio denominado **sampledir**.
 

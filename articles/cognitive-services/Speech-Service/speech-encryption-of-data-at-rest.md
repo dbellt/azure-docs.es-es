@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: aa0fe33dff0161767b74546aad49003d8fc70c16
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3e2f4cbdf7f84f7b6cbd749225a2e0f7ed60cdd5
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95015263"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108202882"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>Cifrado de datos en reposo del servicio de voz
 
@@ -34,6 +34,8 @@ Cuando se usan Custom Speech y Voz personalizada, el servicio de voz puede almac
 De forma predeterminada, los datos se guardan en el almacenamiento de Microsoft y la suscripción usa claves de cifrado administradas por Microsoft. También tiene la opción de preparar su propia cuenta de almacenamiento. El acceso a la tienda lo administra la identidad administrada y el servicio de voz no puede acceder directamente a sus propios datos, como los datos de seguimiento de voz, datos de entrenamiento de personalización y modelos personalizados.
 
 Para más información sobre la identidad administrada, consulte [¿Qué son las identidades administradas?](../../active-directory/managed-identities-azure-resources/overview.md)
+
+Mientras tanto, cuando se usa Comando personalizado, puede administrar la suscripción con sus propias claves de cifrado. Las claves administradas por el cliente (CMK), también conocidas como Bring Your Own Key (BYOK), ofrecen más flexibilidad para crear, girar, deshabilitar y revocar controles de acceso. También permite auditar las claves de cifrado que se usan para proteger los datos. Para obtener más información sobre Comando personalizado y CMK, consulte [Cifrado de Comandos personalizados de datos en reposo](custom-commands-encryption-of-data-at-rest.md).
 
 ## <a name="bring-your-own-storage-byos-for-customization-and-logging"></a>Traiga su propio almacenamiento (BYOS) para la personalización y el registro
 

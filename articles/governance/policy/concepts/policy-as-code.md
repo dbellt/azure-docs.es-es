@@ -3,12 +3,12 @@ title: Diseño de flujos de trabajo de Azure Policy as Code
 description: Aprenda a diseñar flujos de trabajo para implementar sus definiciones de Azure Policy como código y validar automáticamente los recursos.
 ms.date: 03/31/2021
 ms.topic: conceptual
-ms.openlocfilehash: 233a5d4ca6583bc6a2cd9e8366e54f3ed1e2dad3
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 2f28a7798bbfd4fb79395e83b9a175f7b4ca7bfb
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106094904"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752748"
 ---
 # <a name="design-azure-policy-as-code-workflows"></a>Diseño de flujos de trabajo de Azure Policy as Code
 
@@ -44,7 +44,7 @@ Los ejemplos de estos formatos de archivo están disponibles en el [repositorio 
 El flujo de trabajo general recomendado de Azure Policy as Code es similar al de este diagrama:
 
 :::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagrama que muestra los cuadros del flujo de trabajo de Azure Policy as Code, que abarcan las fases de creación, pruebas e implementación." border="false":::
-   El diagrama muestra los cuadros del flujo de trabajo de Azure Policy as Code. La fase de creación abarca la creación de las definiciones de directiva e iniciativa. La fase de pruebas abarca la asignación con el modo de cumplimiento deshabilitado. Después de comprobar el estado de cumplimiento, se otorgan asignaciones de permisos MSI y se corrigen los recursos.  La fase de implementación abarca la asignación con el modo de cumplimiento habilitado.
+   El diagrama muestra los cuadros del flujo de trabajo de Azure Policy as Code. La fase de creación abarca la creación de las definiciones de directiva e iniciativa. La fase de pruebas abarca la asignación con el modo de cumplimiento deshabilitado. Después de comprobar el estado de cumplimiento, se otorgan asignaciones de permisos MSI y se corrigen los recursos. La fase de implementación abarca la asignación con el modo de cumplimiento habilitado.
 :::image-end:::
 
 ### <a name="create-and-update-policy-definitions"></a>Crear y actualizar definiciones de directivas

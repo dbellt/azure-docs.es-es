@@ -3,12 +3,12 @@ title: Configuración de su propia clave para cifrar datos en reposo de Azure Se
 description: En este artículo se proporciona información sobre cómo configurar su propia clave para cifrar datos en reposo de Azure Service Bus.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.openlocfilehash: 88de4ccc2c6997622540664dc15b21f052df622a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: de716b9f14191ba057c83a060104e64937c4192a
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788594"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816015"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configuración de claves administradas por el cliente para cifrar datos en reposo de Azure Service Bus mediante Azure Portal
 Azure Service Bus Premium proporciona cifrado de datos en reposo con Azure Storage Service Encryption (Azure SSE). Service Bus Premium usa Azure Storage para almacenar los datos. Todos los datos almacenados con Azure Storage se cifran con claves administradas por Microsoft. Si usa su propia clave (también conocida como Bring Your Own Key [BYOK] o clave administrada por el cliente), los datos se cifran mediante la clave administrada por Microsoft, pero además la clave administrada por Microsoft se cifrará mediante la clave administrada por el cliente. Esta característica permite crear, rotar, deshabilitar y revocar el acceso a las claves administradas por el cliente que se usan para cifrar claves administradas por Microsoft. La habilitación de la característica BYOK es un proceso que solo hay que configurar una vez en el espacio de nombres.
@@ -70,7 +70,7 @@ Después de habilitar las claves administradas por el cliente, debe asociar la c
     > [!IMPORTANT]
     > Si desea usar la clave administrada por el cliente junto con la recuperación ante desastres geográfica, revise esta sección. 
     >
-    > Para habilitar el cifrado de la clave administrada por Microsoft con una clave administrada por el cliente, se configura una [directiva de acceso](../key-vault/general/security-overview.md) para la identidad administrada de Service Bus en la instancia especificada de Azure Key Vault. Esto garantiza el acceso controlado al almacén de claves de Azure desde el espacio de nombres de Azure Service Bus.
+    > Para habilitar el cifrado de la clave administrada por Microsoft con una clave administrada por el cliente, se configura una [directiva de acceso](../key-vault/general/security-features.md) para la identidad administrada de Service Bus en la instancia especificada de Azure Key Vault. Esto garantiza el acceso controlado al almacén de claves de Azure desde el espacio de nombres de Azure Service Bus.
     >
     > Debido a esto:
     > 
@@ -91,7 +91,7 @@ Puede rotar la clave en el almacén de claves mediante el mecanismo de rotación
 
 ## <a name="revoke-access-to-keys"></a>Revocación del acceso a las claves
 
-Al revocar el acceso a las claves de cifrado, no se purgan los datos de Service Bus. Sin embargo, no se podrá acceder a los datos desde el espacio de nombres de Service Bus. Puede revocar la clave de cifrado mediante la directiva de acceso o eliminando la clave. Obtenga más información sobre las directivas de acceso y la protección del almacén de claves en [Protección del acceso a un almacén de claves](../key-vault/general/security-overview.md).
+Al revocar el acceso a las claves de cifrado, no se purgan los datos de Service Bus. Sin embargo, no se podrá acceder a los datos desde el espacio de nombres de Service Bus. Puede revocar la clave de cifrado mediante la directiva de acceso o eliminando la clave. Obtenga más información sobre las directivas de acceso y la protección del almacén de claves en [Protección del acceso a un almacén de claves](../key-vault/general/security-features.md).
 
 Una vez revocada la clave de cifrado, el servicio Service Bus en el espacio de nombres cifrado dejará de ser operativo. Si el acceso a la clave está habilitado o si se ha restaurado la clave eliminada, el servicio Service Bus seleccionará la clave para que pueda acceder a los datos desde el espacio de nombres de Service Bus cifrado.
 

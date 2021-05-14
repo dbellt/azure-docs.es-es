@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: de342267292c6a93c4a1ba2eae232403ccaf9514
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e7b7445fe293ae6cec975409a15e979873ec64aa
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785278"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331257"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Configuración de una VPN de punto a sitio (P2S) en Windows para su uso con Azure Files
 Puede usar una conexión VPN de punto a sitio (P2S) para montar los recursos compartidos de archivos de Azure a través de SMB desde fuera de Azure, sin necesidad de abrir el puerto 445. Una conexión VPN de punto a sitio es una conexión VPN entre Azure y un cliente individual. Para usar una conexión VPN de punto a sitio con Azure Files, se debe configurar una conexión VPN de punto a sitio para cada cliente que quiera conectarse. Si tiene muchos clientes que necesitan conectarse a sus recursos compartidos de archivos de Azure desde la red local, puede usar una conexión VPN de sitio a sitio (S2S) en lugar de una conexión de punto a sitio para cada cliente. Para obtener más información, consulte [Configuración de una VPN de sitio a sitio para su uso con Azure Files](storage-files-configure-s2s-vpn.md).
@@ -26,56 +26,45 @@ En este artículo se detallan los pasos para configurar una VPN de punto a sitio
 
 - Un recurso compartido de archivos de Azure que le gustaría montar en el entorno local. Los recursos compartidos de archivos de Azure se implementan en cuentas de almacenamiento, que son construcciones que representan un grupo compartido de almacenamiento en el que puede implementar varios recursos compartidos de archivos u otros recursos de almacenamiento, como contenedores de blobs o colas. Puede encontrar más información sobre cómo implementar cuentas de almacenamiento y recursos compartidos de archivos de Azure en [Creación de un recurso compartido de archivos de Azure](storage-how-to-create-file-share.md).
 
-- Un punto de conexión privado para la cuenta de almacenamiento que contiene el recurso compartido de archivos de Azure que quiere montar localmente. Para más información sobre cómo crear un punto de conexión privado, consulte [Configuración de puntos de conexión de red de Azure Files](storage-files-networking-endpoints.md?tabs=azure-powershell). 
+- Una red virtual con un punto de conexión privado para la cuenta de almacenamiento que contiene el recurso compartido de archivos de Azure que quiere montar localmente. Para más información sobre cómo crear un punto de conexión privado, consulte [Configuración de puntos de conexión de red de Azure Files](storage-files-networking-endpoints.md?tabs=azure-powershell). 
 
-## <a name="deploy-a-virtual-network"></a>Implementar una red virtual
-Para acceder al recurso compartido de archivos de Azure y a otros recursos de Azure desde el entorno local a través de una VPN de punto a sitio, debe crear una red virtual o VNet. La conexión VPN de punto a sitio que creará automáticamente es un puente entre la máquina Windows local y esta red virtual de Azure.
+## <a name="collect-environment-information"></a>Recopilación de información del entorno
+Para configurar la VPN de punto a sitio, primero es necesario recopilar información sobre el entorno para su uso a lo largo de la guía. Consulte la sección de [requisitos previos](#prerequisites) si aún no ha creado una cuenta de almacenamiento, una red virtual o puntos de conexión privados.
 
-El siguiente PowerShell creará una red virtual de Azure con tres subredes: una para el punto de conexión de servicio de la cuenta de almacenamiento, otra para el punto de conexión privado de la cuenta de almacenamiento (que es necesaria para acceder a la cuenta de almacenamiento local sin crear un enrutamiento personalizado para la dirección IP pública de la cuenta de almacenamiento que puede cambiar) y otra para la puerta de enlace de red virtual que proporciona el servicio VPN. 
-
-No olvide reemplazar `<region>`, `<resource-group>` y `<desired-vnet-name>` por los valores correctos para su entorno.
+No olvide reemplazar `<resource-group>`, `<vnet-name>`, `<subnet-name>` y `<storage-account-name>` por los valores correctos para su entorno.
 
 ```PowerShell
-$region = "<region>"
-$resourceGroupName = "<resource-group>" 
-$virtualNetworkName = "<desired-vnet-name>"
+$resourceGroupName = "<resource-group-name>" 
+$virtualNetworkName = "<vnet-name>"
+$subnetName = "<subnet-name>"
+$storageAccountName = "<storage-account-name>"
 
-$virtualNetwork = New-AzVirtualNetwork `
-    -ResourceGroupName $resourceGroupName `
-    -Name $virtualNetworkName `
-    -Location $region `
-    -AddressPrefix "192.168.0.0/16"
-
-Add-AzVirtualNetworkSubnetConfig `
-    -Name "ServiceEndpointSubnet" `
-    -AddressPrefix "192.168.0.0/24" `
-    -VirtualNetwork $virtualNetwork `
-    -ServiceEndpoint "Microsoft.Storage" `
-    -WarningAction SilentlyContinue | Out-Null
-
-Add-AzVirtualNetworkSubnetConfig `
-    -Name "PrivateEndpointSubnet" `
-    -AddressPrefix "192.168.1.0/24" `
-    -VirtualNetwork $virtualNetwork `
-    -WarningAction SilentlyContinue | Out-Null
-
-Add-AzVirtualNetworkSubnetConfig `
-    -Name "GatewaySubnet" `
-    -AddressPrefix "192.168.2.0/24" `
-    -VirtualNetwork $virtualNetwork `
-    -WarningAction SilentlyContinue | Out-Null
-
-$virtualNetwork | Set-AzVirtualNetwork | Out-Null
 $virtualNetwork = Get-AzVirtualNetwork `
     -ResourceGroupName $resourceGroupName `
     -Name $virtualNetworkName
 
-$serviceEndpointSubnet = $virtualNetwork.Subnets | `
-    Where-Object { $_.Name -eq "ServiceEndpointSubnet" }
-$privateEndpointSubnet = $virtualNetwork.Subnets | `
-    Where-Object { $_.Name -eq "PrivateEndpointSubnet" }
-$gatewaySubnet = $virtualNetwork.Subnets | ` 
-    Where-Object { $_.Name -eq "GatewaySubnet" }
+$subnetId = $virtualNetwork | `
+    Select-Object -ExpandProperty Subnets | `
+    Where-Object { $_.Name -eq "StorageAccountSubnet" } | `
+    Select-Object -ExpandProperty Id
+
+$storageAccount = Get-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $storageAccountName
+
+$privateEndpoint = Get-AzPrivateEndpoint | `
+    Where-Object {
+        $subnets = $_ | `
+            Select-Object -ExpandProperty Subnet | `
+            Where-Object { $_.Id -eq $subnetId }
+
+        $connections = $_ | `
+            Select-Object -ExpandProperty PrivateLinkServiceConnections | `
+            Where-Object { $_.PrivateLinkServiceId -eq $storageAccount.Id }
+        
+        $null -ne $subnets -and $null -ne $connections
+    } | `
+    Select-Object -First 1
 ```
 
 ## <a name="create-root-certificate-for-vpn-authentication"></a>Creación de certificados raíz para la autenticación de VPN

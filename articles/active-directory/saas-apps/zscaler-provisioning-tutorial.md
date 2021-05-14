@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 9f368a4aebc4d5de38ebbab800241366650633e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 92553e9d598823ee1b812a4f07480dec380b2490
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97936590"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739429"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Tutorial: Configuración de Zscaler para el aprovisionamiento automático de usuarios
 
@@ -76,6 +76,10 @@ Antes de configurar y habilitar el aprovisionamiento automático de usuarios, de
 ## <a name="configuring-automatic-user-provisioning-to-zscaler"></a>Configuración del aprovisionamiento automático de usuarios en Zscaler
 
 Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de AD Azure para crear, actualizar y deshabilitar usuarios o grupos en Zscaler en función de las asignaciones de grupos y usuarios de Azure AD.
+
+
+> [!NOTE]
+> Envíe una [incidencia de soporte técnico](https://help.zscaler.com/) para crear un dominio en Zscaler.
 
 > [!TIP]
 > También puede optar por habilitar el inicio de sesión único basado en SAML para Zscaler siguiendo las instrucciones del [tutorial de inicio de sesión único de Zscaler](zscaler-tutorial.md). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.

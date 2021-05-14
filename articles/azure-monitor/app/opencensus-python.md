@@ -5,12 +5,14 @@ ms.topic: conceptual
 ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
-ms.openlocfilehash: 69472da4f774a1dfae86e1891255907ad711175a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+author: lzchen
+ms.author: lechen
+ms.openlocfilehash: 548cfd9d593e9adaeaaf984f756e58d242ca9f45
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047429"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576557"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configuración de Azure Monitor para la aplicación de Python
 
@@ -19,7 +21,7 @@ Azure Monitor admite seguimiento distribuido, recopilación de métricas y regis
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-- Instalación de Python. En este artículo se usa [Python 3.7.0](https://www.python.org/downloads/release/python-370/), aunque es probable que las versiones anteriores funcionen con cambios menores. El SDK solo es compatible con las versiones de Python 2.7 y 3.6.
+- Instalación de Python. En este artículo se usa [Python 3.7.0](https://www.python.org/downloads/release/python-370/), aunque es probable que las versiones anteriores funcionen con cambios menores. El SDK solo admite Python v2.7 y v3.4-v3.7.
 - Cree un [recurso](./create-new-resource.md) de Application Insights. Se le asignará su propia clave de instrumentación (iKey) para el recurso.
 
 ## <a name="instrument-with-opencensus-python-sdk-for-azure-monitor"></a>Instrumentación con el SDK de Python para OpenCensus en Azure Monitor
@@ -330,6 +332,54 @@ OpenCensus.stats admite cuatro métodos de agregación, pero proporciona compati
     ```
 
 1. El exportador envía los datos de métricas a Azure Monitor según un intervalo fijo. El valor predeterminado es cada 15 segundos. Se está realizando el seguimiento de una sola métrica. Por lo tanto, los datos de esta métrica se envían en cada intervalo con el valor y la marca de tiempo que contengan. El valor es acumulado, solo puede aumentar y volver a establecerse en 0 al reiniciar. Puede encontrar los datos en `customMetrics`, pero las propiedades valueCount, valueSum, valueMin, valueMax y valueStdDev de `customMetrics` no se usan de forma efectiva.
+
+### <a name="setting-custom-dimensions-in-metrics"></a>Establecimiento de dimensiones personalizadas en métricas
+
+El SDK para Python de Opencensus permite agregar dimensiones personalizadas a la telemetría de métricas mediante `tags`, que son básicamente un diccionario de pares clave-valor. 
+
+1. Inserte las etiquetas que quiere usar en el mapa de etiquetas. El mapa de etiquetas actúa como una especie de "grupo" de todas las etiquetas disponibles que puede usar.
+
+```python
+...
+tmap = tag_map_module.TagMap()
+tmap.insert("url", "http://example.com")
+...
+```
+
+1. Para una `View` específica, indique las etiquetas que desea usar al grabar métricas con esa vista mediante la clave de etiqueta.
+
+```python
+...
+prompt_view = view_module.View("prompt view",
+                               "number of prompts",
+                               ["url"], # <-- A sequence of tag keys used to specify which tag key/value to use from the tag map
+                               prompt_measure,
+                               aggregation_module.CountAggregation())
+...
+```
+
+1. Asegúrese de usar el mapa de etiquetas al grabar en el mapa de medida. Las claves de etiqueta especificadas en la `View` deben encontrarse en el mapa de etiquetas que se usa para registrar.
+
+```python
+...
+mmap = stats_recorder.new_measurement_map()
+mmap.measure_int_put(prompt_measure, 1)
+mmap.record(tmap) # <-- pass the tag map in here
+...
+```
+
+1. En la tabla `customMetrics`, todos los registros de métricas emitidos mediante `prompt_view` tendrán dimensiones personalizadas`{"url":"http://example.com"}`.
+
+1. Para generar etiquetas con valores diferentes con las mismas claves, cree nuevas asignaciones de etiquetas para ellas.
+
+```python
+...
+tmap = tag_map_module.TagMap()
+tmap2 = tag_map_module.TagMap()
+tmap.insert("url", "http://example.com")
+tmap2.insert("url", "https://www.wikipedia.org/wiki/")
+...
+```
 
 #### <a name="performance-counters"></a>Contadores de rendimiento
 

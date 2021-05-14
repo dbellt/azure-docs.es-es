@@ -1,19 +1,19 @@
 ---
 title: Reducción de la nube privada de Azure VMware Solution by CloudSimple
 description: Obtenga información sobre cómo reducir dinámicamente una nube privada en CloudSimple mediante la eliminación de un nodo de un clúster de vSphere existente o de un clúster completo.
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 07/01/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a99b9b56f17b78a98f37d47dcefab26dd9c859de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cad88e2b151efb17516fb22a1132fe7d7825454e
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97899140"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108181101"
 ---
 # <a name="shrink-a-cloudsimple-private-cloud"></a>Reducción de una nube privada de CloudSimple
 

@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: ccfda4975b6453ed67edc2640520bc0a76df5709
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d063a0870616b5b977df18c56d9d66515b03d0a5
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644887"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870866"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceptación y recepción de datos con Azure Data Share  
 
@@ -106,7 +106,7 @@ Empiece por preparar el entorno para la CLI de Azure:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Ejecute el comando [az datashare consumer invitation list](/cli/azure/ext/datashare/datashare/consumer/invitation#ext_datashare_az_datashare_consumer_invitation_list) para ver las invitaciones actuales:
+Ejecute el comando [az datashare consumer invitation list](/cli/azure/datashare/consumer/invitation#az_datashare_consumer_invitation_list) para ver las invitaciones actuales:
 
 ```azurecli
 az datashare consumer invitation list --subscription 11111111-1111-1111-1111-111111111111
@@ -140,7 +140,7 @@ Copie el identificador de invitación para usarlo en la sección siguiente.
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Use el comando [az datashare consumer share-subscription create](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_create) para crear la instancia de Data Share.
+Use el comando [az datashare consumer share-subscription create](/cli/azure/datashare/consumer/share-subscription#az_datashare_consumer_share_subscription_create) para crear la instancia de Data Share.
 
 ```azurecli
 az datashare consumer share-subscription create --resource-group share-rg \
@@ -175,7 +175,7 @@ Siga los pasos que se indican a continuación para configurar dónde quiere reci
 
 Use estos comandos para configurar dónde quiere recibir los datos.
 
-1. Ejecute el comando [az datashare consumer share-subscription list-source-dataset](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_list_source_dataset) para obtener el identificador del conjunto de datos:
+1. Ejecute el comando [az datashare consumer share-subscription list-source-dataset](/cli/azure/datashare/consumer/share-subscription#az_datashare_consumer_share_subscription_list_source_dataset) para obtener el identificador del conjunto de datos:
 
    ```azurecli
    az datashare consumer share-subscription list-source-dataset \
@@ -221,7 +221,7 @@ Use estos comandos para configurar dónde quiere recibir los datos.
      \"storage_account_name\":\"datashareconsumersa\",\"kind\":\"BlobFolder\",\"prefix\":\"consumer\"}'
    ```
 
-1. Use el comando [az datashare consumer dataset-mapping create](/cli/azure/ext/datashare/datashare/consumer/dataset-mapping#ext_datashare_az_datashare_consumer_dataset_mapping_create) para crear la asignación del conjunto de datos:
+1. Use el comando [az datashare consumer dataset-mapping create](/cli/azure/datashare/consumer/dataset-mapping#az_datashare_consumer_dataset_mapping_create) para crear la asignación del conjunto de datos:
 
    ```azurecli
    az datashare consumer dataset-mapping create --resource-group "share-rg" \
@@ -230,7 +230,7 @@ Use estos comandos para configurar dónde quiere recibir los datos.
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-1. Ejecute el comando [az datashare consumer share-subscription synchronization start](/cli/azure/ext/datashare/datashare/consumer/share-subscription/synchronization#ext_datashare_az_datashare_consumer_share_subscription_synchronization_start) para iniciar la sincronización del conjunto de datos.
+1. Ejecute el comando [az datashare consumer share-subscription synchronization start](/cli/azure/datashare/consumer/share-subscription/synchronization#az_datashare_consumer_share_subscription_synchronization_start) para iniciar la sincronización del conjunto de datos.
 
    ```azurecli
    az datashare consumer share-subscription synchronization start \
@@ -239,7 +239,7 @@ Use estos comandos para configurar dónde quiere recibir los datos.
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-   Ejecute el comando [az datashare consumer share-subscription synchronization list](/cli/azure/ext/datashare/datashare/consumer/share-subscription/synchronization#ext_datashare_az_datashare_consumer_share_subscription_synchronization_list) para ver una lista de las sincronizaciones:
+   Ejecute el comando [az datashare consumer share-subscription synchronization list](/cli/azure/datashare/consumer/share-subscription/synchronization#az_datashare_consumer_share_subscription_synchronization_list) para ver una lista de las sincronizaciones:
 
    ```azurecli
    az datashare consumer share-subscription synchronization list \
@@ -248,7 +248,7 @@ Use estos comandos para configurar dónde quiere recibir los datos.
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-   Use el comando [az datashare consumer share-subscription list-source-share-synchronization-setting](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_list_source_share_synchronization_setting) para ver la configuración de sincronización establecida en el recurso compartido.
+   Use el comando [az datashare consumer share-subscription list-source-share-synchronization-setting](/cli/azure/datashare/consumer/share-subscription#az_datashare_consumer_share_subscription_list_source_share_synchronization_setting) para ver la configuración de sincronización establecida en el recurso compartido.
 
    ```azurecli
    az datashare consumer share-subscription list-source-share-synchronization-setting \
@@ -274,7 +274,7 @@ Estos pasos solo se aplican al uso compartido basado en instantáneas.
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Ejecute el comando [az datashare consumer trigger create](/cli/azure/ext/datashare/datashare/consumer/trigger#ext_datashare_az_datashare_consumer_trigger_create) para desencadenar una instantánea:
+Ejecute el comando [az datashare consumer trigger create](/cli/azure/datashare/consumer/trigger#az_datashare_consumer_trigger_create) para desencadenar una instantánea:
 
 ```azurecli
 az datashare consumer trigger create --resource-group "share-rg" \

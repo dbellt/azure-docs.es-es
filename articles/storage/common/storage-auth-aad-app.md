@@ -10,12 +10,12 @@ ms.date: 12/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: baad1a0b173ae89fec9d160572224c6cb0aa615d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c2de1dc71579e6915a54e3815edd2858532ba263
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103574635"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108075940"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Adquisición de un token de Azure AD para la autorización de solicitudes desde una aplicación cliente
 
@@ -69,7 +69,7 @@ En el panel **Permisos de API** se muestra ahora que la aplicación de Azure AD
 
 ### <a name="create-a-client-secret"></a>Creación de un secreto de cliente
 
-La aplicación necesita un secreto de cliente para demostrar su identidad al solicitar un token. Para agregar el secreto de cliente, siga estos pasos:
+La aplicación necesita un secreto de cliente para demostrar su identidad al solicitar un token. Por motivos de seguridad, Microsoft limita la creación de secretos de cliente para más de 24 meses y recomienda establecerlo en un valor inferior a 12 meses. Para agregar el secreto de cliente, siga estos pasos:
 
 1. Vaya a su registro de aplicaciones en Azure Portal.
 1. Seleccione la configuración de **Certificados y secretos**.

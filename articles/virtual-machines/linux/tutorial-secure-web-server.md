@@ -1,28 +1,21 @@
 ---
-title: 'Tutorial: Protección de un servidor web con Linux con certificados TLS/SSL en Azure'
+title: 'Tutorial: Protección de un servidor web con certificados TLS/SSL'
 description: En este tutorial, aprenderá a usar la CLI de Azure para proteger una máquina virtual Linux que ejecuta el servidor web NGINX con certificados SSL almacenados en Azure Key Vault.
-services: virtual-machines
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 04/30/2018
+ms.date: 04/20/2021
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 97eee5d852450df2341d57932052839825523933
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4b2290d29d1f6fbf8acd2e2652cd47a321fe674f
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769758"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813171"
 ---
-# <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Tutorial: Protección de un servidor web en una máquina virtual Linux en Azure con certificados TLS/SSL almacenados en Key Vault
+# <a name="tutorial-use-tlsssl-certificates-to-secure-a-web-server"></a>Tutorial: Uso de certificados TLS/SSL para proteger un servidor web
 Para proteger los servidores web, se puede usar un certificado de seguridad de la capa de transporte (TLS), conocido anteriormente como Capa de sockets seguros (SSL), para cifrar el tráfico web. Estos certificados TLS/SSL pueden almacenarse en Azure Key Vault y permiten implementaciones seguras de certificados en máquinas virtuales Linux en Azure. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]

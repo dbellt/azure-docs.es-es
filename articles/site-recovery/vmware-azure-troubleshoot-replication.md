@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 8b44a1d6119cc658b9460e0a52fa0629f759964a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a365ae58442a8448baeee831035f10efb40e24fa
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91336212"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949801"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Solución de problemas de replicación de máquinas virtuales de VMware y de servidores físicos
 
@@ -147,7 +147,7 @@ A continuación se enumeran algunos de los problemas más comunes
 **Solución:** Consulte el [artículo](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) de KB
 
 #### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>Causa 4: La coherencia de aplicaciones no está habilitada en servidores Linux
-**Solución:** Azure Site Recovery para el sistema operativo Linux admite scripts personalizados de aplicaciones para la coherencia de aplicaciones. El agente de movilidad de Azure Site Recovery usará el script personalizado con opciones previas y posteriores para la coherencia de aplicaciones. [Aquí](./site-recovery-faq.md#replication) se indican los pasos necesarios para habilitarlo.
+**Solución:** Azure Site Recovery para el sistema operativo Linux admite scripts personalizados de aplicaciones para la coherencia de aplicaciones. El agente de movilidad de Azure Site Recovery usará el script personalizado con opciones previas y posteriores para la coherencia de aplicaciones. [Aquí](/azure/site-recovery/site-recovery-faq#replication) se indican los pasos necesarios para habilitarlo.
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>Más causas debidas a problemas relacionados con VSS:
 

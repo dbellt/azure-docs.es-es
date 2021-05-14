@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 04/10/2019
 ms.author: wesmc
-ms.openlocfilehash: 6cc20a362ceebe56beb0d2baa48ea479d3b322a7
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 3aa82d36db7e7c31f956bef940a33d2898302dca
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067653"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755520"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT y su lectura con una aplicación de back-end (C)
 
@@ -51,7 +51,7 @@ En esta guía de inicio rápido, usará el [SDK de dispositivo IoT de Azure para
 
 Para los siguientes entornos puede usar el SDK mediante la instalación de paquetes y bibliotecas:
 
-* **Linux**: los paquetes apt-get están disponibles para Ubuntu 16.04 y 18.04 con el uso de las siguientes arquitecturas de CPU: amd64, arm64, armhf e i386. Para más información, vea [Using apt-get to create a C device client project on Ubuntu](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md) (Uso de apt-get para crear un proyecto cliente de dispositivos en C en Ubuntu).
+* **Linux**: los paquetes apt-get están disponibles para Ubuntu 16.04 y 18.04 con el uso de las siguientes arquitecturas de CPU: amd64, arm64, armhf e i386.  Para más información, vea [Using apt-get to create a C device client project on Ubuntu](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#set-up-a-linux-development-environment) (Uso de apt-get para crear un proyecto cliente de dispositivos en C en Ubuntu).
 
 * **mbed**: para los desarrolladores que crean aplicaciones de dispositivo en la plataforma mbed, hemos publicado una biblioteca y ejemplos que le ayudarán a ponerse en marcha en cuestión de minutos con Azure IoT Hub. Para más información, vea [Use the mbed library](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed) (Uso de la biblioteca mbed).
 
@@ -114,7 +114,7 @@ Sin embargo, en esta guía de inicio rápido, preparará un entorno de desarroll
 
 ## <a name="register-a-device"></a>Registrar un dispositivo
 
-Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta sección, usará Azure Cloud Shell con la [extensión de IoT](/cli/azure/ext/azure-iot/iot) para registrar un dispositivo simulado.
+Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta sección, usará Azure Cloud Shell con la [extensión de IoT](/cli/azure/iot) para registrar un dispositivo simulado.
 
 1. Ejecute los siguientes comandos en Azure Cloud Shell para crear la identidad del dispositivo.
 
@@ -183,7 +183,7 @@ La aplicación de dispositivo simulado se conecta a un punto de conexión espec�
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Lectura de los datos de telemetría procedentes de su instancia de IoT Hub
 
-En esta sección, usará Azure Cloud Shell con la [extensión de IoT](/cli/azure/ext/azure-iot/iot) para supervisar los mensajes de dispositivo que envía el dispositivo simulado.
+En esta sección, usará Azure Cloud Shell con la [extensión de IoT](/cli/azure/iot) para supervisar los mensajes de dispositivo que envía el dispositivo simulado.
 
 1. Mediante Azure Cloud Shell, ejecute el siguiente comando para conectarse y leer mensajes desde el centro de IoT:
 

@@ -1,20 +1,20 @@
 ---
 title: Acerca del enrutamiento de centros virtuales
 titleSuffix: Azure Virtual WAN
-description: En este artículo se describe el enrutamiento de centros virtuales.
+description: Obtenga información sobre el enrutamiento del centro de conectividad virtual de Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c1a2a54bf2d4c5de3e6cfca66256f60592fc1f3e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 641fc76775d4aa535490d3c6f720d81777665b36
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101737518"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165288"
 ---
 # <a name="about-virtual-hub-routing"></a>Acerca del enrutamiento de centros virtuales
 

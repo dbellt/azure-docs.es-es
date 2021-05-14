@@ -6,13 +6,13 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 ms.date: 12/22/2020
-ms.author: tyao
-ms.openlocfilehash: 65e378c0380804c13e4b42d855aede7781b93592
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.author: victorh
+ms.openlocfilehash: cb45120f55cd55ae129599a4179f0cd1a60c8648
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211675"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732657"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configuración de una regla de restricción de IP con un firewall de aplicaciones web para Azure Front Door
 
@@ -33,7 +33,7 @@ Para crear un perfil de Azure Front Door, siga las instrucciones que se describe
 1. En Azure Portal, seleccione **Crear un recurso**, escriba **Web application firewall** en el cuadro de búsqueda y, a continuación, seleccione **Web Application Firewall (WAF)** .
 2. Seleccione **Crear**.
 3. En la página **Crear una directiva WAF**, use los valores siguientes para completar la pestaña **Aspectos básicos**:
-   
+
    |Configuración  |Value  |
    |---------|---------|
    |Directiva de     |WAF global (Front Door)|
@@ -95,9 +95,10 @@ Para crear un perfil de Azure Front Door, siga las instrucciones que se describe
 
 ### <a name="create-a-waf-policy"></a>Creación de una directiva WAF
 
-Cree una directiva WAF mediante el comando [az network front-door waf-policy create](/cli/azure/ext/front-door/network/front-door/waf-policy#ext-front-door-az-network-front-door-waf-policy-create). En el ejemplo que se indica a continuación, reemplace el nombre de la directiva *IPAllowPolicyExampleCLI* por un nombre de directiva único.
+Cree una directiva WAF mediante el comando [az network front-door waf-policy create](/cli/azure/network/front-door/waf-policy#az_network_front_door_waf_policy_create).
+En el ejemplo que se indica a continuación, reemplace el nombre de la directiva *IPAllowPolicyExampleCLI* por un nombre de directiva único.
 
-```azurecli-interactive 
+```azurecli-interactive
 az network front-door waf-policy create \
   --resource-group <resource-group-name> \
   --subscription <subscription ID> \
@@ -105,13 +106,13 @@ az network front-door waf-policy create \
   ```
 ### <a name="add-a-custom-ip-access-control-rule"></a>Adición de una regla de control de acceso por IP personalizada
 
-Use el comando [az network front-door waf-policy custom-rule create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule#ext-front-door-az-network-front-door-waf-policy-rule-create) para agregar una regla de control de acceso por IP personalizada para la directiva WAF que acaba de crear.
+Use el comando [az network front-door waf-policy custom-rule create](/cli/azure/network/front-door/waf-policy/rule#az_network_front_door_waf_policy_rule_create) para agregar una regla de control de acceso por IP personalizada para la directiva WAF que acaba de crear.
 
 En los siguientes ejemplos:
 -  Reemplace *IPAllowPolicyExampleCLI* por la directiva única que creó anteriormente.
 -  Reemplace *ip-address-range-1*, *ip-address-range-2* por su propio rango.
 
-En primer lugar, cree una regla de permiso de IP para la directiva creada en el paso anterior. 
+En primer lugar, cree una regla de permiso de IP para la directiva creada en el paso anterior.
 > [!NOTE]
 > **--defer** es necesario porque una regla debe tener una condición de coincidencia para agregarse en el paso siguiente.
 
@@ -134,11 +135,11 @@ az network front-door waf-policy rule match-condition add \
 --negate true \
 --name IPAllowListRule \
   --resource-group <resource-group-name> \
-  --policy-name IPAllowPolicyExampleCLI 
+  --policy-name IPAllowPolicyExampleCLI
   ```
-                                                   
-### <a name="find-the-id-of-a-waf-policy"></a>Búsqueda del identificador de una directiva de WAF 
-Para buscar el identificador de una directiva WAF, utilice el comando [az network front-door waf-policy show](/cli/azure/ext/front-door/network/front-door/waf-policy#ext-front-door-az-network-front-door-waf-policy-show). Reemplace *IPAllowPolicyExampleCLI* en el ejemplo siguiente por la directiva que ha creado anteriormente.
+
+### <a name="find-the-id-of-a-waf-policy"></a>Búsqueda del identificador de una directiva de WAF
+Para buscar el identificador de una directiva WAF, utilice el comando [az network front-door waf-policy show](/cli/azure/network/front-door/waf-policy#az_network_front_door_waf_policy_show). Reemplace *IPAllowPolicyExampleCLI* en el ejemplo siguiente por la directiva que ha creado anteriormente.
 
    ```azurecli
    az network front-door  waf-policy show \
@@ -148,7 +149,7 @@ Para buscar el identificador de una directiva WAF, utilice el comando [az networ
 
 ### <a name="link-a-waf-policy-to-an-azure-front-door-front-end-host"></a>Vinculación de una directiva de WAF a un host de front-end de Azure Front Door
 
-Establezca el identificador *WebApplicationFirewallPolicyLink* de Azure Front Door en el identificador de la directiva mediante el uso del comando [az network front-door update](/cli/azure/ext/front-door/network/front-door#ext-front-door-az-network-front-door-update). Reemplace *IPAllowPolicyExampleCLI* por la directiva única que creó anteriormente.
+Establezca el identificador *WebApplicationFirewallPolicyLink* de Azure Front Door en el identificador de la directiva mediante el uso del comando [az network front-door update](/cli/azure/network/front-door#az_network_front_door_update). Reemplace *IPAllowPolicyExampleCLI* por la directiva única que creó anteriormente.
 
    ```azurecli
    az network front-door update \
@@ -178,10 +179,10 @@ Puede instalar [Azure PowerShell](/powershell/azure/) en el equipo local y usarl
 
     ```
     Install-Module PowerShellGet -Force -AllowClobber
-    ``` 
+    ```
 
-3. Instale el módulo Az.FrontDoor con el siguiente comando. 
-    
+3. Instale el módulo Az.FrontDoor con el siguiente comando.
+
     ```
     Install-Module -Name Az.FrontDoor
     ```
@@ -190,7 +191,7 @@ Para crear un perfil de Azure Front Door, siga las instrucciones que se describe
 
 ### <a name="define-an-ip-match-condition"></a>Definición de una condición de coincidencia IP
 Use el comando [New AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) para definir una condición de coincidencia de IP.
-En el siguiente ejemplo, reemplace *ip-address-range-1*, *ip-address-range-2* por su propio rango.    
+En el siguiente ejemplo, reemplace *ip-address-range-1*, *ip-address-range-2* por su propio rango.
 ```powershell
 $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchVariable  RemoteAddr `
@@ -198,7 +199,7 @@ $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchValue "ip-address-range-1", "ip-address-range-2"
 -NegateCondition 1
 ```
-     
+
 ### <a name="create-a-custom-ip-allow-rule"></a>Creación de una regla de permiso de IP personalizada
 
 Use el comando [New-AzFrontDoorWafCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) para definir una acción y establecer una prioridad. En el ejemplo siguiente, se bloquearán las solicitudes que no procedan de IP de clientes que coincidan con la lista.
@@ -240,7 +241,7 @@ Vincule un objeto de directiva de WAF a un host de front-end existente y actuali
 
 
 ## <a name="configure-a-waf-policy-with-a-resource-manager-template"></a>Configuración de una directiva de WAF con una plantilla de Resource Manager
-Para ver la plantilla que crea una directiva de Azure Front Door y una directiva de WAF con reglas de restricción de IP personalizadas, vaya a [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-waf-clientip).
+Para ver la plantilla que crea una directiva de Azure Front Door y una directiva de WAF con reglas de restricción de IP personalizadas, vaya a [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-waf-clientip).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

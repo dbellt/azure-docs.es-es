@@ -2,18 +2,18 @@
 title: 'Inicio rápido: Biblioteca cliente de claves de Azure Key Vault para Java'
 description: Proporciona un inicio rápido para la biblioteca cliente de claves de Azure Key Vault para Java.
 author: msmbaldwin
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ms.author: mbaldwin
 ms.date: 01/05/2021
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.openlocfilehash: 75cb7b6c9225e8579561f980df10da8994257133
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: bd12a02b4dcd54796d9252417310b77da4ad0b5e
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777192"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291413"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-java"></a>Inicio rápido: Biblioteca cliente de claves de Azure Key Vault para Java
 Comience a trabajar con la biblioteca cliente de claves de Azure Key Vault para Java. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
@@ -269,6 +269,6 @@ public class App {
 En esta guía de inicio rápido ha creado un almacén de claves, ha creado una clave, la ha recuperado y, a continuación, la ha eliminado. Para más información sobre Key Vault y cómo integrarlo con las aplicaciones, continúe con los artículos siguientes.
 
 - Lea una [introducción a Azure Key Vault](../general/overview.md).
-- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-overview.md).
+- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-features.md).
 - Consulte la [guía del desarrollador de Azure Key Vault](../general/developers-guide.md).
-- Procedimientos para [proteger el acceso a un almacén de claves](../general/security-overview.md)
+- Procedimientos para [proteger el acceso a un almacén de claves](../general/security-features.md)

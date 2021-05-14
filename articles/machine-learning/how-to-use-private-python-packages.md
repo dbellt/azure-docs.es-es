@@ -8,14 +8,14 @@ ms.author: roastala
 ms.reviewer: laobri
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 5cc1025528959f8c81aa80703e3fc26d59c5266f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6d199eb684802de948451bd376feda4a254aa06f
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102618107"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107884217"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Uso de paquetes privados de Python con Azure Machine Learning
 

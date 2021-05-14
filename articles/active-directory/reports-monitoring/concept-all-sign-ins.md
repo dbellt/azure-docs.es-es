@@ -1,10 +1,10 @@
 ---
-title: 'Informes de actividad de inicio de sesión de Azure Active Directory: versión preliminar | Microsoft Docs'
-description: Introducción a los informes de actividad de inicio de sesión en el portal de Azure Active Directory
+title: Registros de información de inicio de sesión en Azure Active Directory | Microsoft Docs
+description: Información general de los registros de información de inicio de sesión en Azure Active Directory, incluidas características nuevas en versión preliminar.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -13,29 +13,29 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/16/2021
+ms.date: 04/25/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b17e7f34da1428eec219a393417b0a2a7b461078
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: e25fc61fe99a5c7df19b7c0ecb8265f4dcc681cc
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552740"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137028"
 ---
-# <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Informes de actividad de inicio de sesión de Azure Active Directory: versión preliminar
+# <a name="sign-ins-logs-in-azure-active-directory---preview"></a>Registros de información de inicio de sesión en Azure Active Directory
 
-La arquitectura de los informes de Azure Active Directory (Azure AD) consta de los siguientes componentes:
+Como administrador de TI, quiere saber cómo funciona el entorno de TI. La información sobre el estado del sistema le permite evaluar si es necesario responder a posibles problemas y cómo hacerlo. 
 
-- **Actividad** 
-    - **Inicios de sesión**: información sobre cuándo los usuarios, las aplicaciones y los recursos administrados inician sesión en Azure AD y acceden a los recursos.
-    - **Registros de auditoría** - [: los](concept-audit-logs.md)registros de auditoría proporcionan información de la actividad del sistema sobre la administración de usuarios y grupos, aplicaciones administradas y actividades de directorio.
-- **Seguridad** 
-    - **Inicios de sesión de riesgo**: un [inicio de sesión de riesgo](../identity-protection/overview-identity-protection.md) es un indicador de un intento de inicio de sesión de alguien que no es el propietario legítimo de una cuenta de usuario.
-    - **Usuarios marcados en riesgo**: un [usuario en riesgo](../identity-protection/overview-identity-protection.md) es un indicador de una cuenta de usuario que puede haber estado en peligro.
+Para ayudarle a conseguir este objetivo, el portal de Azure Active Directory le proporciona acceso a tres registros de actividad:
 
-El informe inicios de sesión clásico de Azure Active Directory proporciona información general sobre los inicios de sesión de usuario interactivos. Además, ahora tiene acceso a tres informes de inicio de sesión adicionales que están en versión preliminar:
+- **[Inicios de sesión](concept-sign-ins.md)** : Información sobre los inicios de sesión y cómo los usuarios emplean los recursos.
+- **[Auditoría](concept-audit-logs.md)** : información sobre los cambios aplicados al inquilino, como la administración de usuarios y grupos o las actualizaciones aplicadas a los recursos del inquilino.
+- **[Aprovisionamiento](concept-provisioning-logs.md)** : actividades realizadas por el servicio de aprovisionamiento, como la creación de un grupo en ServiceNow o un usuario importado de Workday.
+
+
+El informe de inicios de sesión clásico de Azure Active Directory proporciona información general sobre los inicios de sesión de usuario interactivos. Además, ahora tiene acceso a tres registros de información de inicio de sesión adicionales que están en versión preliminar:
 
 - Inicios de sesión de usuario no interactivos
 
@@ -43,19 +43,22 @@ El informe inicios de sesión clásico de Azure Active Directory proporciona inf
 
 - Inicios de sesión de identidades administradas para recursos de Azure
 
-En este artículo se ofrece información general sobre el informe de actividad de inicio de sesión con la versión preliminar de los inicios de sesión no interactivos, de aplicaciones y de identidades administradas para recursos de Azure. Para obtener información sobre el informe de inicio de sesión sin las características en versión preliminar, consulte [Informes de actividad de inicio de sesión en el portal de Azure Active Directory](concept-sign-ins.md).
+En este artículo se ofrece información general sobre el informe de actividad de inicio de sesión con la versión preliminar de los inicios de sesión no interactivos, de aplicaciones y de identidades administradas para recursos de Azure. Para obtener información sobre el informe de inicio de sesión sin las características en versión preliminar, consulte [Registros de información de inicio de sesión en Azure Active Directory](concept-sign-ins.md).
 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="what-can-you-do-with-it"></a>¿Para qué sirven el informe?
 
-Antes de poder empezar a usar esta característica, debe conocer las respuestas a:
+El informe de inicios de sesión proporciona respuestas a preguntas como las siguientes:
 
-- ¿Quién puede acceder a los datos?
+- ¿Cuál es el patrón de inicio de sesión de un usuario, una aplicación o un servicio?
 
-- ¿Qué licencia de Azure AD se necesita para acceder a la actividad de inicio de sesión?
+- ¿Cuántos usuarios, aplicaciones o servicios han iniciado sesión durante una semana?
 
-### <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
+- ¿Cuál es el estado de estos inicios de sesión?
+
+
+## <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
 
 - Usuarios de los roles Administrador de seguridad, Lector de seguridad o Lector de informes
 
@@ -63,20 +66,20 @@ Antes de poder empezar a usar esta característica, debe conocer las respuestas 
 
 - Cualquier usuario (no administradores) puede acceder a sus propios inicios de sesión 
 
-### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>¿Qué licencia de Azure AD se necesita para acceder a la actividad de inicio de sesión?
+## <a name="what-azure-ad-license-do-you-need"></a>¿Qué licencia de Azure AD necesita?
 
-El inquilino debe tener una licencia de Azure AD Premium asociada para ver las actividades de inicio de sesión. Consulte [Introducción a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para actualizar la edición de Azure Active Directory. Los datos tardarán un par de días en aparecer en los informes después de actualizar a una licencia Premium sin actividades de datos antes de la actualización.
+El inquilino debe tener una licencia de Azure AD Premium asociada para ver las actividades de inicio de sesión. Consulte [Introducción a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para actualizar la edición de Azure Active Directory. Los datos tardarán un par de días en aparecer en los registros después de actualizar a una licencia Premium sin actividades de datos antes de la actualización.
 
 
 
-## <a name="sign-ins-report"></a>Informe de inicios de sesión
 
-El informe de inicios de sesión proporciona respuestas a las preguntas siguientes:
+## <a name="where-can-you-find-it-in-the-azure-portal"></a>¿Dónde puede encontrarlo en Azure Portal?
 
-- ¿Cuál es el patrón de inicio de sesión de un usuario, una aplicación o un servicio?
-- ¿Cuántos usuarios, aplicaciones o servicios han iniciado sesión durante una semana?
-- ¿Cuál es el estado de estos inicios de sesión?
+Azure Portal ofrece varias opciones para acceder al registro. Por ejemplo, en el menú Azure Active Directory, puede abrir el registro en la sección **Supervisión**.  
 
+![Apertura de registros de inicios de sesión](./media/concept-sign-ins/sign-ins-logs-menu.png)
+
+Además, puede acceder directamente a los registros de información de inicio de sesión mediante este vínculo: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
 
 En la hoja del informe de inicios de sesión, puede cambiar entre:
 
@@ -92,17 +95,6 @@ En la hoja del informe de inicios de sesión, puede cambiar entre:
 ![Tipos de informes de inicios de sesión](./media/concept-all-sign-ins/sign-ins-report-types.png)
 
 
-
-
-
-
-
-
-
-
-
-
-## <a name="user-sign-ins&quot;></a>Inicios de sesión de usuario
 
 Cada pestaña de la hoja de inicios de sesión muestra las columnas predeterminadas que aparecen a continuación. Algunas pestañas tienen columnas adicionales:
 
@@ -120,7 +112,7 @@ Cada pestaña de la hoja de inicios de sesión muestra las columnas predetermina
 
 
 
-### <a name=&quot;interactive-user-sign-ins&quot;></a>Inicios de sesión de usuario interactivos
+### <a name="interactive-user-sign-ins&quot;></a>Inicios de sesión de usuario interactivos
 
 
 Los inicios de sesión de usuario interactivos son inicios de sesión en los que un usuario proporciona un factor de autenticación para Azure AD o interactúa directamente con Azure AD o una aplicación auxiliar, como la aplicación Microsoft Authenticator. Los factores que los usuarios proporcionan incluyen las contraseñas, las respuestas a los desafíos de MFA, los factores biométricos o los códigos QR que un usuario proporciona a Azure AD o a una aplicación auxiliar.
@@ -130,7 +122,8 @@ Los inicios de sesión de usuario interactivos son inicios de sesión en los que
 
 
 
-Nota: El informe de inicios de sesión de usuario interactivo se usa para incluir algunos inicios de sesión no interactivos de los clientes de Microsoft Exchange. Aunque esos inicios de sesión no son interactivos, se han incluido en el informe de inicios de sesión de usuarios interactivos para obtener mayor visibilidad. Una vez que el informe de inicios de sesión de usuarios no interactivos se introdujo en la versión preliminar pública en noviembre de 2020, los registros de eventos de inicio de sesión no interactivos se movieron al informe de inicio de sesión de usuario no interactivo para aumentar la precisión. 
+> [!NOTE] 
+> El informe de inicios de sesión de usuario interactivo se usa para incluir algunos inicios de sesión no interactivos de los clientes de Microsoft Exchange. Aunque esos inicios de sesión no son interactivos, se han incluido en el informe de inicios de sesión de usuarios interactivos para obtener mayor visibilidad. Una vez que el informe de inicios de sesión de usuarios no interactivos se introdujo en la versión preliminar pública en noviembre de 2020, los registros de eventos de inicio de sesión no interactivos se movieron al informe de inicio de sesión de usuario no interactivo para aumentar la precisión. 
 
 
 **Tamaño del informe:** pequeño <br> 
@@ -328,6 +321,18 @@ Seleccione un elemento en la vista de lista para mostrar todos los inicios de se
 Seleccione un elemento agrupado para ver todos los detalles del inicio de sesión. 
 
 
+## <a name="sign-in-error-code"></a>Código de error de inicio de sesión
+
+Si se produce un error al iniciar sesión, puede obtener más información sobre el motivo en la sección **Información básica** del elemento de registro relacionado. 
+
+![Captura de pantalla que muestra una vista de información detallada.](./media/concept-all-sign-ins/error-code.png)
+ 
+Aunque el elemento de registro proporciona un motivo del error, hay casos en los que puede obtener más información con la [herramienta de búsqueda de errores de inicio de sesión](https://login.microsoftonline.com/error). Por ejemplo, si está disponible, esta herramienta proporciona los pasos de corrección.  
+
+![Herramienta de búsqueda de códigos de error](./media/concept-all-sign-ins/error-code-lookup-tool.png)
+
+
+
 ## <a name="filter-sign-in-activities"></a>Filtrado de las actividades de inicio de sesión
 
 Al establecer un filtro, puede restringir el ámbito de los datos de inicio de sesión devueltos. Azure AD proporciona una amplia variedad de filtros adicionales que puede establecer. Al establecer el filtro, siempre debe prestar especial atención al filtro de intervalo del campo **Fecha** configurado. Un filtro de intervalo de fechas adecuado garantiza que Azure AD solo devuelva los datos que realmente le interesen.     
@@ -358,12 +363,12 @@ El filtro para los inicios de sesión interactivos y no interactivos es el mismo
 
 
 
-## <a name="access-the-new-sign-in-activity-reports"></a>Acceso a los nuevos informes de actividad de inicio de sesión 
+## <a name="access-the-new-sign-in-activity-logs"></a>Acceso a los nuevos registro de actividad de inicio de sesión 
 
-El informe actividad de inicios de sesión de Azure Portal proporciona un método sencillo para activar y desactivar el informe de la versión preliminar. Si tiene habilitados los informes de la versión preliminar, obtendrá un nuevo menú que le proporcionará acceso a todos los tipos de informes de actividad de inicio de sesión.     
+El informe actividad de inicios de sesión de Azure Portal proporciona un método sencillo para activar y desactivar el informe de la versión preliminar. Si tiene habilitados los registros de la versión preliminar, obtendrá un nuevo menú que le proporcionará acceso a todos los tipos de informes de actividad de inicio de sesión.     
 
 
-Para acceder a los nuevos informes de inicio de sesión con los inicios de sesión no interactivos y de aplicaciones: 
+Para acceder a los nuevos registros de información de inicio de sesión con los inicios de sesión no interactivos y de aplicaciones: 
 
 1. En [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory**.
 
@@ -387,7 +392,7 @@ Para acceder a los nuevos informes de inicio de sesión con los inicios de sesi�
 
 
 
-## <a name="download-sign-in-activity-reports"></a>Descarga de los informes de actividad de inicio de sesión
+## <a name="download-sign-in-activity-logs"></a>Descarga de los registros de actividad de inicio de sesión
 
 Cuando se descarga un informe de actividad de inicio de sesión, se cumple lo siguiente:
 
@@ -400,7 +405,7 @@ Cuando se descarga un informe de actividad de inicio de sesión, se cumple lo si
 - El número de registros que se puede descargar también está restringido por las [directivas de retención de informes de Azure Active Directory](reference-reports-data-retention.md). 
 
 
-![Descarga de informes](./media/concept-all-sign-ins/download-reports.png "Descarga de informes")
+![Descarga de registros](./media/concept-all-sign-ins/download-reports.png "Descarga de registros")
 
 
 Cada descarga en formato CSV consta de seis archivos diferentes:
@@ -434,6 +439,6 @@ Cada descarga en formato JSON consta de cuatro archivos diferentes:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Códigos de error de los informes de actividad de inicio de sesión](reference-sign-ins-error-codes.md)
+* [Códigos de error de los informes de actividad de inicio de sesión](./concept-sign-ins.md)
 * [Directivas de retención de datos de Azure AD](reference-reports-data-retention.md)
 * [Latencias de informes de Azure AD](reference-reports-latencies.md)

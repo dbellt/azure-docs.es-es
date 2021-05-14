@@ -1,18 +1,18 @@
 ---
 title: Actividad de función de Azure en Azure Data Factory
 description: Obtenga información sobre cómo usar la actividad de las funciones de Azure para ejecutar una función de Azure en una canalización de Data Factory.
-author: dcstwh
-ms.author: weetok
+author: nabhishek
+ms.author: abnarain
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: 13f00907737a99bc5dcd8c21d660ce83aa681908
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 202cf30ae0f620789f300404b26ba04582ea3300
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104783802"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906735"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Actividad de las funciones de Azure en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

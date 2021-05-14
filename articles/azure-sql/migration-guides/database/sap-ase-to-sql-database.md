@@ -9,12 +9,12 @@ ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 0538071ffb9d244fb8b3493d6b63b27c6b56a726
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 6eab839912769ad15723083185c7942f31e3df11
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107388540"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136560"
 ---
 # <a name="migration-guide-sap-ase-to-azure-sql-database"></a>Guía de migración: de SAP ASE a Azure SQL Database
 
@@ -22,7 +22,7 @@ ms.locfileid: "107388540"
 
 En esta guía obtendrá información sobre [cómo migrar](https://azure.microsoft.com/migration/migration-journey) las bases de datos de SAP Adaptive Server Enterprise (ASE) a Azure SQL Database mediante [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant para SAP Adaptive Server Enterprise.
 
-Para ver otras guías de migración, consulte [Guía de Azure Database Migration](https://docs.microsoft.com/data-migration). 
+Para ver otras guías de migración, consulte [Guía de Azure Database Migration](/data-migration). 
 
 ## <a name="prerequisites"></a>Prerrequisitos 
 

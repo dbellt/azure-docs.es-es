@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6b3ac012da97194134f58d061dd9d84e945db554
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 1570906ae036b31dc2e97f35c827385933093f73
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774474"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162210"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-with-azure-cli"></a>Distintas formas de autorizar el acceso para poner datos en cola con la CLI de Azure
 
@@ -52,7 +52,7 @@ Puede asignar permisos en los datos de cola a una entidad de seguridad de Azure�
 
 Las extensiones de Azure Storage se admiten para las operaciones en datos de cola. Las operaciones a las que podrá llamar dependerán de los permisos que se concedan a la entidad de seguridad de Azure AD con la que inicie sesión en la CLI de Azure. Los permisos para las colas se asignan mediante Azure RBAC. Por ejemplo, si se le asigna el rol **Lector de datos de cola de almacenamiento**, puede ejecutar comandos de scripting que leen datos de una cola. Si se le asigna el rol de **Colaborador de datos de cola de almacenamiento**, podrá ejecutar comandos de scripting que lean, escriban o eliminen una cola, o los datos que contiene.
 
-Para más información sobre los permisos requeridos para cada operación de Azure Storage en una cola, consulte la sección [Llamadas a operaciones de almacenamiento con tokens de OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
+Para más información sobre los permisos requeridos para cada operación de Azure Storage en una cola, consulte la sección [Llamadas a operaciones de almacenamiento con tokens de OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).
 
 ### <a name="example-authorize-an-operation-to-create-a-queue-with-azure-ad-credentials"></a>Ejemplo: Autorización de una operación para crear una cola con credenciales de Azure AD
 

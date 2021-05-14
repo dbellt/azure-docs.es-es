@@ -5,12 +5,12 @@ ms.date: 10/21/2020
 ms.topic: conceptual
 description: Describe el proceso de migración de Azure Dev Spaces a Bridge to Kubernetes
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Bridge to Kubernetes
-ms.openlocfilehash: d48814df30c17f9b51d8642efa0960a26bbd24f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ffb7693ff223a9cb952964ded1e6967ceeb326e
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94888528"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107499298"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migración a Bridge to Kubernetes
 
@@ -145,7 +145,6 @@ Más información sobre cómo funciona Bridge to Kubernetes.
 > [Funcionamiento de Bridge to Kubernetes][how-it-works-bridge-to-kubernetes]
 
 
-[azds-delete]: how-to/install-dev-spaces.md#remove-azure-dev-spaces-using-the-cli
 [kubernetes-extension]: https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools
 [btk-sample-app]: /visualstudio/containers/bridge-to-kubernetes#install-the-sample-application
 [how-it-works-bridge-to-kubernetes]: /visualstudio/containers/overview-bridge-to-kubernetes

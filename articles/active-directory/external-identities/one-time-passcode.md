@@ -12,12 +12,12 @@ manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30f22282b00a7ead2e19805f32d78338126e8087
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 3b4089559b341dd268928b1f150b6fc173869ead
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552757"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529918"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Autenticación con código de acceso de un solo uso por correo electrónico
 
@@ -114,7 +114,7 @@ Sin embargo, si prefiere no participar en la característica y permitir que se h
 
 ## <a name="note-for-azure-us-government-customers"></a>Nota para los clientes de Azure Gobierno de EE. UU.
 
-La característica de código de acceso de un solo uso por correo electrónico está deshabilitada de forma predeterminada en la nube de Azure Gobierno de EE UU.  
+La característica de código de acceso de un solo uso por correo electrónico está deshabilitada de forma predeterminada en la nube de Azure Gobierno de EE UU. Los asociados no podrán iniciar sesión a menos que esta característica esté habilitada. A diferencia de la nube pública de Azure, la nube de Azure US Government no admite el canje de invitaciones con cuentas de autoservicio de Azure Active Directory.
 
  ![Código de acceso de un solo uso por correo electrónico deshabilitada](media/one-time-passcode/enable-email-otp-disabled.png)
 
@@ -122,7 +122,7 @@ Para habilitar la característica de código de acceso de un solo uso por correo
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global de Azure AD.
 2. En el panel de navegación, seleccione **Azure Active Directory**.
-3. Seleccione **Relaciones organizativas** > **Configuración**.
+3. Seleccione **Relaciones de organización** > **All identity providers** (Todos los proveedores de identidades).
 
    > [!NOTE]
    > - Si no ve la opción **Relaciones organizativas**, busque "External Identities" en la barra de búsqueda de la parte superior.

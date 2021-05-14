@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
 ms.custom: data4ml
-ms.openlocfilehash: 5ab7bac635a0b670087800212727b0d2e2b96934
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ee51288e3c0ced3d12ed7f4e7ba63692d650591
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103472212"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279089"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Optimización del procesamiento de datos con Azure Machine Learning
 
@@ -86,6 +86,9 @@ Si está familiarizado con `Pandas`| Dataframe `Modin` o `Dask`
 Si prefiere `Spark` | `PySpark`
 Para menos de 1 GB | `Pandas` localmente **o** una instancia de proceso de Azure Machine Learning
 Para datos de más de 10 GB| Muévase a un clúster mediante `Ray`, `Dask`o `Spark`
+
+> [!TIP]
+> Cargue el conjunto de datos en una trama de datos de Dask con el método [to_dask_dataframe()](/python/api/azureml-core/azureml.data.tabulardataset#to-dask-dataframe-sample-size-10000--dtypes-none--on-error--null---out-of-range-datetime--null--) para el procesamiento de datos a gran escala. Este método es una característica en vista previa [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) y puede cambiar en cualquier momento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

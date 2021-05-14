@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 16c3ac10af7d39ec35cde1cd9d279bced54fd8aa
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: f421274513cc3d76f7e8c1119cf98e4e5d36b1f9
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106062512"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950285"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>¿Qué son los destinos de proceso en Azure Machine Learning?
 
@@ -38,23 +38,9 @@ Obtenga más información sobre cómo [enviar una ejecución de entrenamiento a 
 
 ## <a name="compute-targets-for-inference"></a><a name="deploy"></a> Destinos de proceso para inferencia
 
-Los siguientes recursos de proceso se pueden usar hospedar la implementación del modelo.
+Al realizar la inferencia, Azure Machine Learning crea un contenedor de Docker que hospeda el modelo y los recursos asociados necesarios para utilizarlo. A continuación, este contenedor se usa en un destino de proceso.
 
-[!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
-
-Al realizar la inferencia, Azure Machine Learning crea un contenedor de Docker que hospeda el modelo y los recursos asociados necesarios para utilizarlo. Este contenedor se usa después en uno de los siguientes escenarios de implementación:
-
-* Como *servicio web* que se usa para la inferencia en tiempo real. Las implementaciones de servicios web usan uno de los siguientes destinos de proceso:
-
-    * [Equipo local](how-to-attach-compute-targets.md#local)
-    * [Instancia de proceso de Azure Machine Learning](how-to-create-manage-compute-instance.md)
-    * [Azure Container Instances](how-to-attach-compute-targets.md#aci)
-    * [Azure Kubernetes Service](how-to-create-attach-kubernetes.md)
-    * Azure Functions (versión preliminar). La implementación en Functions solo usa Azure Machine Learning para crear el contenedor de Docker. Desde allí, se implementa mediante el uso de Functions. Para obtener más información, consulte [Implementación de un modelo de Machine Learning en Azure Functions (versión preliminar)](how-to-deploy-functions.md).
-
-* Como punto de conexión de _inferencia de lotes_ que se usa para procesar periódicamente lotes de datos. Las inferencias de lotes usan [clústeres de proceso de Azure Machine Learning](how-to-create-attach-compute-cluster.md).
-
-* A un _dispositivo IoT_ (versión preliminar). La implementación en un dispositivo IoT solo usa Azure Machine Learning para compilar el contenedor de Docker. Desde allí, se implementa mediante Azure IoT Edge. Para más información, consulte [Implementación del módulo IoT Edge (versión preliminar)](../iot-edge/tutorial-deploy-machine-learning.md).
+[!INCLUDE [aml-deploy-target](../../includes/aml-compute-target-deploy.md)]
 
 Aprenda [dónde y cómo implementar el modelo en un destino de proceso](how-to-deploy-and-where.md).
 

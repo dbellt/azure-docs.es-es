@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/08/2021
+ms.date: 04/26/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e41c1e74dbe428ee38d4480a1587050b7f96a55f
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: fa1250189c5ba11426ac993bed8fde398ae37ea2
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226233"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001473"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Creación de flujos de usuario en Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ Las [directivas personalizadas](custom-policy-overview.md) son archivos de confi
 
 ::: zone pivot="b2c-user-flow"
 > [!IMPORTANT]
-> Hemos cambiado la manera en que hacemos referencia a las versiones del flujo de usuario. Anteriormente, se ofrecían las versiones V1 (para entornos de producción) y V1.1 y V2 (preliminares). Ahora, hemos consolidado los flujos de usuario en las versiones **recomendada** (versión preliminar de la próxima generación) y **estándar** (disponible con carácter general). Todos los flujos de usuario de las versiones preliminares heredadas (V1.1 y V2) van a pasar a estar en desuso el **1 de agosto de 2021**. Para más información, consulte [Versiones de flujos de usuario de Azure Active Directory B2C](user-flow-versions.md).
+> Hemos cambiado la manera en que hacemos referencia a las versiones del flujo de usuario. Anteriormente, se ofrecían las versiones V1 (para entornos de producción) y V1.1 y V2 (preliminares). Ahora hemos consolidado los flujos de usuario en dos versiones: flujos de usuario **recomendados**, con las características más recientes, y flujos de usuario **estándar (heredado)** . En la nube pública, todos los flujos de usuario de las versiones preliminares heredadas (V1.1 y V2) se encuentran en un proceso de entrada en desuso que finalizará el **1 de agosto de 2021**. Para más información, consulte [Versiones de flujos de usuario de Azure Active Directory B2C](user-flow-versions.md). *Estos cambios solo se aplican a la nube pública de Azure. Otros entornos seguirán usando el [control de versiones de flujos de usuario heredado](user-flow-versions-legacy.md).* 
 ::: zone-end
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -50,9 +50,11 @@ Las [directivas personalizadas](custom-policy-overview.md) son archivos de confi
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
 - Si todavía no tiene uno, [cree un inquilino de Azure AD B2C](tutorial-create-tenant.md) vinculado a la suscripción de Azure.
 - [Registre la aplicación](tutorial-register-applications.md) en el inquilino que ha creado para que pueda comunicarse con Azure AD B2C.
-- Complete los pasos descritos en [Configuración de la suscripción y del inicio de sesión con una cuenta de Facebook](identity-provider-facebook.md) para configurar una aplicación de Facebook. Aunque no se requiere una aplicación de Facebook para el uso de directivas personalizadas, se usa en este tutorial para demostrar la habilitación del inicio de sesión social en una directiva personalizada.
+- [Cree una aplicación de Facebook](identity-provider-facebook.md#create-a-facebook-application). Omita los requisitos previos y el restablecimiento de los pasos descritos en el artículo [Configuración del registro y el inicio de sesión con una cuenta de Facebook](identity-provider-facebook.md). Aunque no se requiere una aplicación de Facebook para el uso de directivas personalizadas, se usa en este tutorial para demostrar la habilitación del inicio de sesión social en una directiva personalizada.
+
 ::: zone-end
 
 ::: zone pivot="b2c-user-flow"

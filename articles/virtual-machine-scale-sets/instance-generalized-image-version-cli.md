@@ -3,18 +3,18 @@ title: Creación de un conjunto de escalado a partir de una imagen generalizada 
 description: Cree un conjunto de escalado con una imagen generalizada en Shared Image Gallery mediante la CLI de Azure.
 author: cynthn
 ms.service: virtual-machine-scale-sets
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
-ms.reviewer: akjosh
-ms.openlocfilehash: de50540345ac6170d229549cad736dafb04e488c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.reviewer: mimckitt
+ms.openlocfilehash: cc2260f4b4220ae79b87a8836b144c3a68672ab0
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107792370"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768506"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image-with-azure-cli"></a>Creación de un conjunto de escalado a partir de una imagen generalizada con la CLI de Azure
 

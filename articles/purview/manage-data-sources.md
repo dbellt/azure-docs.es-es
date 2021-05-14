@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 90a873b7de6ccc1ba21a05bf4c0e288ed668cac0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8eefda763765fd17fbf86bcf3205e854459a9f6
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101694468"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656258"
 ---
 # <a name="manage-data-sources-in-azure-purview-preview"></a>Administración de orígenes de datos en Azure Purview (versión preliminar)
 
@@ -30,11 +30,11 @@ Para registrar un nuevo origen, siga estos pasos.
 
    :::image type="content" source="media/manage-data-sources/select-source-type.png" alt-text="Selección de un tipo de origen de datos en la página Register sources (Registrar orígenes)":::
 
-1. Rellene el formulario en la página **Register sources** (Registrar orígenes). Seleccione un nombre para el origen y escriba la información pertinente. Si eligió **From Azure subscription** (Desde la suscripción de Azure) como método de selección de cuenta, los orígenes de su suscripción aparecen en una lista desplegable. Como alternativa, puede escribir la información de los orígenes manualmente.
+2. Rellene el formulario en la página **Register sources** (Registrar orígenes). Seleccione un nombre para el origen y escriba la información pertinente. Si eligió **From Azure subscription** (Desde la suscripción de Azure) como método de selección de cuenta, los orígenes de su suscripción aparecen en una lista desplegable. 
 
    :::image type="content" source="media/manage-data-sources/register-sources-form.png" alt-text="Formulario de información de orígenes de datos":::
 
-1. Seleccione **Finalizar**.
+3. Seleccione **Registrar**.
 
 ## <a name="view-sources"></a>Visualización de orígenes
 

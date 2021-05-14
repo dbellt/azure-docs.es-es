@@ -1,14 +1,14 @@
 ---
 title: Orden de la secuencia de implementación
 description: Obtenga más detalles sobre el orden predeterminado en el que se implementan los artefactos de plano técnico durante una asignación de plano técnico y aprenda a personalizar el orden de implementación.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: ada7e7771e44e6f43c8546e8307fd5d2b218c009
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ac3823f06b4842a464af8b82438335708bb9599
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98918235"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108323724"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Información sobre la secuencia de implementación en Azure Blueprint
 

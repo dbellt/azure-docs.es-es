@@ -1,15 +1,15 @@
 ---
 title: Definiciones de directivas integradas en Azure Event Grid
 description: Se enumeran las definiciones de directivas integradas de Azure Policy en Azure Event Grid. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 04/14/2021
+ms.date: 05/04/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: b45d848a2627cfd38afb25d1679b098ea2adc66e
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: b1e80fde6f9820b79467fc25fe60613070316072
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107501629"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108741332"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-event-grid"></a>Definiciones integradas de Azure Policy para Azure Event Grid
 

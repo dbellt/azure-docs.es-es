@@ -4,12 +4,12 @@ description: Aprenda a crear y administrar grupos de varios nodos para un clúst
 services: container-service
 ms.topic: article
 ms.date: 02/11/2021
-ms.openlocfilehash: bb10e2023187c74a9e8b9a2e4c72115841e89a84
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: af2766d5692f232970c3c7c735d4c34abebe9c3c
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552604"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070396"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creación y administración de varios grupos de nodos para un clúster de Azure Kubernetes Service (AKS)
 
@@ -131,7 +131,7 @@ Una carga de trabajo puede requerir la división de los nodos de un clúster en 
 
 * Todas las subredes asignadas a grupos de nodos deben pertenecer a la misma red virtual.
 * Los pods del sistema deben tener acceso a todos los nodos o pods del clúster para proporcionar funcionalidad crítica, como la resolución de DNS y la tunelización de logs/exec/port-forward proxy de kubectl.
-* Si expande la red virtual después de crear el clúster, debe actualizar este (es decir, debe realizar cualquier operación de clúster administrada, aunque no cuentan las operaciones del grupo de nodos) antes de agregar una subred fuera del CIDR original. AKS generará un error con la opción Agregar ahora en el grupo de agentes aunque originalmente se hubiera permitido. Si no sabe cómo conciliar el clúster, abra una incidencia de soporte técnico. 
+* Si expande la red virtual después de crear el clúster, debe actualizarlo (es decir, debe realizar cualquier operación de clúster administrado, aunque no cuentan las operaciones del grupo de nodos) antes de agregar una subred fuera del CIDR original. AKS generará un error con la opción Agregar ahora en el grupo de agentes aunque originalmente se hubiera permitido. Si no sabe cómo conciliar el clúster, abra una incidencia de soporte técnico. 
 * No se admite la directiva de red de Calico. 
 * No se admite la directiva de red de Azure.
 * Kube-proxy espera un único CIDR contiguo y lo usa para tres optimizaciones. Consulte esta [propuesta de mejora de Kubernetes](https://github.com/kubernetes/enhancements/tree/master/keps/sig-network/2450-Remove-knowledge-of-pod-cluster-CIDR-from-iptables-rules) y -cluster-cidr [aquí](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) para obtener más información. En Azure CNI, la subred del primer grupo de nodos se asignará a kube-proxy. 
@@ -408,9 +408,12 @@ Tarda unos minutos en crear correctamente *gpunodepool*.
 
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Especificación de un valor taint o una etiqueta para un grupo de nodos
 
-### <a name="setting-nodepool-taints"></a>Configuración de las intolerancias de un grupo de nodos
-
 Al crear un grupo de nodos, puede agregar valores taint o etiquetas a ese grupo de nodos. Al agregar un valor taint o una etiqueta, todos los nodos de ese grupo de nodos también obtienen ese valor taint o etiqueta.
+
+> [!IMPORTANT]
+> Se deben agregar valores taint o etiquetas a los nodos para todo el grupo de nodos mediante `az aks nodepool`. No se recomienda aplicar valores taint o etiquetas a nodos individuales de un grupo de nodos mediante `kubectl`.  
+
+### <a name="setting-nodepool-taints"></a>Configuración de las intolerancias de un grupo de nodos
 
 Para crear un grupo de nodos con un valor taint, use [az aks nodepool add][az-aks-nodepool-add]. Especifique el nombre *taintnp* y use el parámetro `--node-taints` para especificar *sku=gpu:NoSchedule* para el valor taint.
 

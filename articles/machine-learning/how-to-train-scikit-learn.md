@@ -8,14 +8,14 @@ ms.subservice: core
 ms.author: jordane
 author: jpe316
 ms.date: 09/28/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 807174fdbede2e4631b3ca1df7220904038da4c8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.topic: how-to
+ms.custom: devx-track-python
+ms.openlocfilehash: 3337607c8e4dd9dca230456cdf268ec3fbfb2f12
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102518303"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107884415"
 ---
 # <a name="train-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Entrenamiento de modelos de scikit-learn a gran escala con Azure Machine Learning
 
@@ -203,5 +203,5 @@ El [procedimiento](how-to-deploy-and-where.md) completo trata la implementación
 
 En este artículo ha entrenado y registrado un modelo de Scikit-learn y ha aprendido sobre las opciones de implementación. Consulte estos otros artículos para más información sobre Azure Machine Learning.
 
-* [Seguir métricas de ejecución durante el entrenamiento](how-to-track-experiments.md)
+* [Seguir métricas de ejecución durante el entrenamiento](how-to-log-view-metrics.md)
 * [Ajustar los hiperparámetros](how-to-tune-hyperparameters.md)

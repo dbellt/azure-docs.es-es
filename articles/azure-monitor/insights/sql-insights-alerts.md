@@ -5,15 +5,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2021
-ms.openlocfilehash: 5fe853ee0f7a113bfb8b0511744d9087f67927c4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bb42f74f6ac8487a93479bdf980c66ef87e8e742
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608901"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726869"
 ---
 # <a name="create-alerts-with-sql-insights-preview"></a>Creación de alertas con SQL Insights (versión preliminar)
 SQL Insights incluye un conjunto de plantillas de reglas de alertas que puede usar para crear [reglas de alertas en Azure Monitor](../alert/../alerts/alerts-overview.md) para problemas comunes de SQL. Las reglas de alertas de SQL Insights son reglas de alertas de registro basadas en los datos de rendimiento almacenados en la tabla *InsightsMetrics* de los registros de Azure Monitor.  
+
+> [!NOTE]
+> Para crear una alerta para SQL Insights mediante una plantilla de Resource Manager, vea [Ejemplos de plantilla de Resource Manager para SQL Insights](resource-manager-sql-insights.md#create-an-alert-rule-for-sql-insights).
+
 
 > [!NOTE]
 > Si tiene solicitudes de más plantillas de reglas de alertas de SQL Insights, envíe sus comentarios con el vínculo de la parte inferior de esta página o con el vínculo de comentarios de SQL Insights de Azure Portal.

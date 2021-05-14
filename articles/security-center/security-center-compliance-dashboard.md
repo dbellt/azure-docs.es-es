@@ -1,24 +1,18 @@
 ---
 title: 'Tutorial: Comprobaciones de cumplimiento normativo: Azure Security Center'
 description: 'Tutorial: Aprenda a mejorar el cumplimiento de reglamentaciones mediante Azure Security Center.'
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 5f50c4dc-ea42-418d-9ea8-158ffeb93706
 ms.service: security-center
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/10/2021
+ms.date: 04/21/2021
 ms.author: memildin
-ms.openlocfilehash: 284a7f532ed918397fe1cfcf3458bbc6fb0bdd32
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 06a42629df1f22eeb7a90ef5ce4da2ef53162391
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739015"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123166"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Mejora del cumplimiento normativo
 
@@ -26,7 +20,7 @@ Azure Security Center resulta de gran ayuda para simplificar el proceso necesari
 
 Security Center evalúa continuamente el entorno de nube híbrida para analizar los factores de riesgo con arreglo a los controles y los procedimientos recomendados establecidos en los estándares que se aplican a las suscripciones. El panel refleja el estado de cumplimiento con respecto a estos estándares. 
 
-Cuando habilite Security Center en una suscripción de Azure, se asignará automáticamente a esta suscripción el estándar [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction). Este punto de referencia ampliamente respetado está basado en los controles del [Centro de seguridad de Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) y del [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) y hace hincapié en la seguridad centrada en la nube.
+Cuando habilite Security Center en una suscripción de Azure, se asignará automáticamente a esta suscripción el estándar [Azure Security Benchmark](/security/benchmark/azure/introduction). Este punto de referencia ampliamente respetado está basado en los controles del [Centro de seguridad de Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) y del [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) y hace hincapié en la seguridad centrada en la nube.
 
 En el panel de cumplimiento normativo se indica el estado de todas estas valoraciones realizadas en el entorno conforme a las normativas y los estándares elegidos. Al actuar sobre las recomendaciones y reducir los factores de riesgo en su entorno, su estado de cumplimiento normativo mejora.
 
@@ -135,14 +129,15 @@ Por ejemplo, si quiere que Security Center envíe un correo electrónico a un us
 - [¿Cómo puedo descargar un informe con datos de cumplimiento en un formato distinto de PDF?](#how-can-i-download-a-report-with-compliance-data-in-a-format-other-than-pdf)
 - [¿Cómo puedo crear excepciones para algunas de las directivas en el panel de cumplimiento normativo?](#how-can-i-create-exceptions-for-some-of-the-policies-in-the-regulatory-compliance-dashboard)
 - [¿Qué planes o licencias de Azure Defender necesito para usar el panel de cumplimiento normativo?](#what-azure-defender-plans-or-licenses-do-i-need-to-use-the-regulatory-compliance-dashboard)
+- [¿Cómo sé qué punto de referencia o estándar usar?](#how-do-i-know-which-benchmark-or-standard-to-use)
 
 ### <a name="what-standards-are-supported-in-the-compliance-dashboard"></a>¿Qué estándares se admiten en el panel de cumplimiento?
 De forma predeterminada, el panel de cumplimiento normativo muestra Azure Security Benchmark. Azure Security Benchmark es el conjunto de directrices específico de Azure creado por Microsoft para ofrecer los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. Puede obtener más información en [Introducción a las pruebas comparativas de seguridad de Azure](../security/benchmarks/introduction.md).
 
 Para hacer un seguimiento del cumplimiento con cualquier otro estándar, deberá agregarlo explícitamente al panel.
  
-Puede agregar estándares como Azure CIS 1.1.0 (nuevo), NIST SP 800-53 R4, NIST SP 800-171 R2, SWIFT CSP CSCF-v2020, UK Official y UK NHS, HIPAA HITRUST, Canada Federal PBMM, ISO 27001, SOC2-TSP y PCI-DSS 3.2.1.  
- 
+Puede agregar otros estándares, como Azure CIS 1.3.0, NIST SP 800-53, NIST SP 800-171, SWIFT CSP CSCF-v2020, UK oficial y UK NHS, HIPAA, Canada Federal PBMM, ISO 27001, SOC2-TSP, and PCI-DSS 3.2.1.  
+
 Se agregarán más estándares al panel y se incluirán en la información sobre cómo [personalizar el conjunto de estándares en el panel de cumplimiento normativo](update-regulatory-compliance-packages.md).
 
 ### <a name="why-do-some-controls-appear-grayed-out"></a>¿Por qué algunos controles aparecen atenuados?
@@ -195,7 +190,12 @@ En el caso de otras directivas, puede crear una exención directamente en la pro
 Si tiene cualquiera de los paquetes de Azure Defender habilitado en cualquiera de los tipos de recursos de Azure, tiene acceso al panel de cumplimiento normativo, con todos sus datos, en Security Center.
 
 
+### <a name="how-do-i-know-which-benchmark-or-standard-to-use"></a>¿Cómo sé qué punto de referencia o estándar usar?
+[Azure Security Benchmark](/security/benchmark/azure/introduction) (ASB) es el conjunto canónico de recomendaciones de seguridad y procedimientos recomendados definidos por Microsoft, alineado con marcos de control de cumplimiento comunes, incluidos [Microsoft Azure Foundations Benchmark CIS](https://www.cisecurity.org/benchmark/azure/) y [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final). ASB es un punto de referencia muy completo y está diseñado para recomendar las funcionalidades de seguridad más actualizadas de una amplia gama de servicios de Azure. Se recomienda ASB a los clientes que quieran maximizar su posición de seguridad y tengan la capacidad de alinear su estado de cumplimiento con los estándares del sector.
 
+El [punto de referencia CIS](https://www.cisecurity.org/benchmark/azure/) está creado por una entidad independiente (Centro para la seguridad en Internet [CIS]) y contiene recomendaciones sobre un subconjunto de servicios principales de Azure. Trabajamos con CIS para intentar garantizar que sus recomendaciones estén actualizadas con las últimas mejoras de Azure, pero a veces se quedan atrás y quedan obsoletas. Sin embargo, a algunos clientes les gusta usar esta evaluación de terceros objetiva de CIS como línea base de seguridad inicial y principal.
+
+Desde que se ha publicado, muchos clientes han elegido migrar a Azure Security Benchmark como sustituto de los puntos de referencia de CIS.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

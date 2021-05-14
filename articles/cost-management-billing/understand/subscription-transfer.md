@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 163bd7dbdac4de7b7d9c1657ac3debf45382a27a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 746845004a7a1baf1cafb872aae9322177879b6b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027278"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011109"
 ---
 # <a name="about-transferring-billing-ownership-for-an-azure-subscription"></a>Acerca de la transferencia de la propiedad de facturación para una suscripción de Azure
 
@@ -30,16 +30,30 @@ Si es un cliente de Contrato Enterprise (EA), los administradores de la empresa 
 
 Solo el administrador de facturación de una cuenta puede transferir la propiedad de una suscripción.
 
-## <a name="determine-account-billing-administrator"></a>Determinación del administrador de facturación de la cuenta
+## <a name="determine-if-you-are-a-billing-administrator"></a>Determinación de si es usted un administrador de facturación
 
 <a name="whoisaa"></a>
 
-El administrador de facturación es la persona que tiene permiso para administrar la facturación de una cuenta. Está autorizado para tener acceso a la facturación en [Azure Portal](https://portal.azure.com) y realizar diversas tareas de facturación, como crear suscripciones, ver y pagar facturas o actualizar los métodos de pago.
+Para realizar la transferencia, busque la persona que tiene acceso para administrar la facturación de la cuenta. Está autorizado para tener acceso a la facturación en [Azure Portal](https://portal.azure.com) y realizar diversas tareas de facturación, como crear suscripciones, ver y pagar facturas o actualizar los métodos de pago.
 
-Para identificar las cuentas para las que es administrador de facturación, visite la página [Cost Management + Billing en Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview). Seleccione **Todos los ámbitos de facturación** en el panel izquierdo. En la página de suscripciones se muestran todas las suscripciones de las que es administrador de facturación.
+### <a name="check-if-you-have-billing-access"></a>Comprobación de si tiene acceso a la facturación
 
-Si no está seguro de quién es el administrador de la cuenta de una suscripción, visite la [página Suscripciones en Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Luego, seleccione la suscripción que quiera comprobar y consulte **Configuración**. Seleccione **Propiedades** para que se muestre el administrador de cuentas de la suscripción en el cuadro **Administrador de cuenta**.
+1. Para identificar las cuentas para las que tiene acceso de facturación, visite la página [Administración de costos + facturación en Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview).
 
+2. Seleccione **Cuentas de facturación** en el menú de la izquierda.
+
+3. La página **Ámbito de facturación** muestra todas las suscripciones en las que tiene acceso a los detalles de facturación.
+
+### <a name="check-by-subscription"></a>Comprobación por suscripción
+
+1. Si no está seguro de quién es el administrador de la cuenta de una suscripción, visite la [página Suscripciones en Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). 
+
+2. Seleccione la suscripción que desea comprobar.
+
+3. En el encabezado **Configuración**, seleccione **Propiedades**. Consulte el cuadro **Administrador de cuenta** para saber quién es el administrador de cuenta de la suscripción.
+
+   > [!NOTE]
+   > No todos los tipos de suscripción muestran las propiedades.
 
 ## <a name="supported-subscription-types"></a>Tipos de suscripciones admitidos
 

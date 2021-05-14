@@ -9,12 +9,12 @@ metadata:
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: 954712c2056a4251bc92b71c5b7cd2f1309804b2
-  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+  ms.openlocfilehash: 86e1b4de21738ec584d7b5cae1346f166adfd595
+  ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/13/2020
-  ms.locfileid: "91962027"
+  ms.lasthandoff: 04/27/2021
+  ms.locfileid: "108072502"
 landingContent:
 - title: Acerca de la plataforma de identidad de Microsoft
   linkLists:
@@ -52,10 +52,8 @@ landingContent:
     links:
     - text: Angular
       url: quickstart-v2-angular.md
-    - text: 'JavaScript: flujo de código de autenticación'
+    - text: JavaScript
       url: quickstart-v2-javascript-auth-code.md
-    - text: 'JavaScript: flujo implícito'
-      url: quickstart-v2-javascript.md
 - title: Aplicación web
   linkLists:
   - linkListType: get-started
@@ -66,6 +64,8 @@ landingContent:
       url: quickstart-v2-aspnet-core-webapp.md
     - text: Servidor Blazor
       url: tutorial-blazor-server.md
+    - text: Node.js y Express
+      url: tutorial-v2-nodejs-webapp-msal.md
 - title: Aplicaciones móviles y nativas
   linkLists:
   - linkListType: get-started

@@ -5,25 +5,25 @@ description: Aprenda a obtener explicaciones sobre cómo el modelo de aprendizaj
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, automl, responsible-ml
+ms.topic: how-to
+ms.custom: automl, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 535ff489060c8099ba3c695f2b615f3c38309698
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 716ed2920b1e731a8515b7f099e77853955d9943
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167947"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107884811"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Capacidad de interpretación: explicaciones de los modelos en el aprendizaje automático automatizado (versión preliminar)
 
 
-
-En este artículo, obtendrá información sobre cómo obtener explicaciones del aprendizaje automático (AutoML) automatizado con Azure Machine Learning. AutoML lo ayuda a comprender la importancia de las características de los modelos que se generan. 
+En este artículo, aprenderá a obtener explicaciones del aprendizaje automático automatizado en Azure Machine Learning con el SDK de Python. El aprendizaje automático automatizado ayuda a comprender la importancia de las características de los modelos que se generan. 
 
 De forma predeterminada, todas las versiones del SDK posteriores a 1.0.85 establecen `model_explainability=True`. En la versión 1.0.85 del SDK y anteriores, los usuarios deben establecer `model_explainability=True` en el objeto `AutoMLConfig` para poder usar la interpretación de modelos. 
+
 
 En este artículo aprenderá a:
 
@@ -31,10 +31,10 @@ En este artículo aprenderá a:
 - Habilitar visualizaciones para ayudarle a ver patrones en datos y explicaciones.
 - Implementar la interpretación durante la inferencia o puntuación.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Características de interoperabilidad. Ejecute `pip install azureml-interpret` para obtener el paquete necesario.
-- Información sobre la creación de experimentos de AutoML Para más información sobre cómo usar el SDK de Azure Machine Learning, complete este [tutorial de modelo de regresión](tutorial-auto-train-models.md) o consulte cómo [configurar experimentos de AutoML](how-to-configure-auto-train.md).
+- Conocimiento de la compilación de experimentos de aprendizaje automático automatizado. Para más información sobre cómo usar el SDK de Azure Machine Learning, complete este [tutorial de modelo de regresión](tutorial-auto-train-models.md) o consulte cómo [configurar experimentos de aprendizaje automático automatizado](how-to-configure-auto-train.md).
 
 ## <a name="interpretability-during-training-for-the-best-model"></a>Interpretación durante el entrenamiento del mejor modelo
 
@@ -105,11 +105,11 @@ automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, X=X_t
 
 ### <a name="initialize-the-mimic-explainer-for-feature-importance"></a>Inicializar el explicador Mimic para la importancia de la característica
 
-Para generar una explicación para modelos de aprendizaje automático automatizado, utilice la clase `MimicWrapper`. MimicWrapper se puede inicializar con estos parámetros:
+Para generar una explicación de los modelos de aprendizaje automático automatizado, utilice la clase `MimicWrapper`. MimicWrapper se puede inicializar con estos parámetros:
 
 - El objeto de configuración del explicador
 - El área de trabajo
-- Un modelo suplente para explicar el modelo de AutoML `fitted_model`
+- Un modelo suplente para explicar el modelo de ML automatizado `fitted_model`
 
 MimicWrapper también toma el objeto `automl_run` donde se cargarán las explicaciones diseñadas.
 
@@ -128,7 +128,7 @@ explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,
 
 ### <a name="use-mimic-explainer-for-computing-and-visualizing-engineered-feature-importance"></a>Use Mimic Explainer para calcular y visualizar la importancia de las características diseñadas
 
-Puede llamar al método `explain()` de MimicWrapper con los ejemplos de prueba transformados para obtener la importancia de las características diseñadas que se generaron. También puede iniciar sesión en [Azure Machine Learning Studio](https://ml.azure.com/) para obtener la visualización del panel de valores de importancia de las características diseñadas generadas por AutoML.
+Puede llamar al método `explain()` de MimicWrapper con los ejemplos de prueba transformados para obtener la importancia de las características diseñadas que se generaron. También puede iniciar sesión en [Azure Machine Learning Studio](https://ml.azure.com/) para obtener las visualizaciones del panel de explicaciones de los valores de importancia de las características diseñadas generadas por los caracterizadores de aprendizaje automático automatizado.
 
 ```python
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
@@ -184,7 +184,7 @@ print(raw_explanations.get_feature_importance_dict())
 
 ## <a name="interpretability-during-inference"></a>Interpretación durante la inferencia
 
-En esta sección, obtendrá información sobre cómo operar un modelo de AutoML con el explicador, que se utilizó para calcular las explicaciones de la sección anterior.
+En esta sección, obtendrá información sobre cómo operar un modelo de aprendizaje automático automatizado con el explicador, que se utilizó para calcular las explicaciones de la sección anterior.
 
 ### <a name="register-the-model-and-the-scoring-explainer"></a>Registre el modelo y la explicación de la puntuación
 
@@ -321,9 +321,9 @@ if service.state == 'Healthy':
     print('raw_local_importance_values:\n{}\n'.format(output['raw_local_importance_values']))
 ```
 
-### <a name="visualize-to-discover-patterns-in-data-and-explanations-at-training-time"></a>Visualización para detectar patrones en datos y explicaciones durante el entrenamiento
+## <a name="visualize-to-discover-patterns-in-data-and-explanations-at-training-time"></a>Visualización para detectar patrones en datos y explicaciones durante el entrenamiento
 
-Puede visualizar el gráfico de importancia de las características en el área de trabajo de [Machine Learning Studio](https://ml.azure.com). Una vez completada la ejecución de AutoML, seleccione **Ver detalles del modelo** para ver una ejecución específica. Seleccione la pestaña **Explicaciones** para ver el panel de visualización de explicaciones.
+Puede visualizar la tabla de importancia de las características en el área de trabajo de [Azure Machine Learning Studio](https://ml.azure.com). Una vez completada la ejecución de AutoML, seleccione **Ver detalles del modelo** para ver una ejecución específica. Seleccione la pestaña **Explicaciones** para obtener las visualizaciones del panel de explicaciones.
 
 [![Arquitectura de interpretabilidad de Machine Learning](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png)](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png#lightbox)
 

@@ -3,46 +3,45 @@ title: Administración de usuarios y roles en una aplicación de Azure IoT Centr
 description: Como administrador, aquí se indica la forma de administrar usuarios y roles en su aplicación de Azure IoT Central
 author: lmasieri
 ms.author: lmasieri
-ms.date: 12/05/2019
+ms.date: 04/16/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: f6c45b8d9804f16c4e59d259f562cc03f187e6a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cff8830d180b0c234e54f7578ed9fafafeb598f0
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92122984"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719176"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>Administrar usuarios y roles en la aplicación de IoT Central
 
-En este artículo se describe cómo los administradores pueden agregar, editar y eliminar usuarios en la aplicación de Azure IoT Central. También se describe cómo administrar roles en la aplicación de Azure IoT Central.
+En este artículo se describe cómo los administradores pueden agregar, editar y eliminar usuarios en la aplicación de Azure IoT Central. También se describe cómo administrar roles en la aplicación.
 
 Para tener acceso a la sección **Administración** y poder usarla, debe disponer del rol **Administrador** para la aplicación Azure IoT Central. Si crea una aplicación de Azure IoT Central, se le asigna automáticamente el rol **Administrator** para esa aplicación.
 
 ## <a name="add-users"></a>Agregar usuarios
 
-Cada usuario debe tener una cuenta de usuario antes de poder iniciar sesión y acceder a la aplicación Azure IoT Central. Se admiten las cuentas de Microsoft y las de Azure Active Directory en Azure IoT Central. Actualmente no se admiten los grupos de Azure Active Directory en Azure IoT Central.
+Cada usuario debe tener una cuenta de usuario antes de poder iniciar sesión y acceder a la aplicación. IoT Central admite actualmente cuentas de Microsoft y cuentas de Azure Active Directory, pero no grupos de Azure Active Directory.
 
 Para más información, consulte la [ayuda de la cuenta de Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) y la [Guía de inicio rápido: Adición de nuevos usuarios a Azure Active Directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 1. Para agregar un usuario a una aplicación de IoT Central, vaya a la página **Usuarios** de la sección **Administración**.
-    
-    > [!div class="mx-imgBorder"]
-    >![Administrar usuarios](media/howto-manage-users-roles/manage-users-pnp.png)
+
+  :::image type="content" source="media/howto-manage-users-roles/manage-users-pnp.png" alt-text="Administración de usuarios":::
 
 1. Para agregar un usuario, en la página **Usuarios**, seleccione **+ Agregar usuario**.
 
 1. Seleccione un rol para el usuario en el menú desplegable **Rol**. Más información sobre los roles en la sección [Administración de roles](#manage-roles) de este artículo.
 
-    > [!div class="mx-imgBorder"]
-    >![Adición de un usuario y selección de un rol](media/howto-manage-users-roles/add-user-pnp.png)
+  :::image type="content" source="media/howto-manage-users-roles/add-user-pnp.png" alt-text="Adición de un usuario y selección de un rol":::
 
-    > [!NOTE]
-    > Un usuario que tenga un rol personalizado que le conceda permisos para agregar otros usuarios solo puede agregar usuarios a un rol que tenga los mismos permisos que el suyo o unos inferiores.
+  > [!NOTE]
+  > Un usuario que tenga un rol personalizado que le conceda permisos para agregar otros usuarios solo puede agregar usuarios a un rol que tenga los mismos permisos que el suyo o unos inferiores.
 
-Si se elimina un identificador de usuario de IoT Central de Azure Active Directory y, después, se vuelve a agregar, el usuario no podrá iniciar sesión en la aplicación IoT Central. Para volver a habilitar el acceso, el administrador de IoT Central debe eliminar al usuario y en la aplicación y volver a agregarlo.
+  > [!NOTE]
+  > Si se elimina un usuario de Azure Active Directory y, después, se vuelve a agregar, el usuario no podrá iniciar sesión en la aplicación IoT Central. Para volver a habilitar el acceso, el administrador de la aplicación debe eliminar al usuario y en la aplicación y volver a agregarlo también.
 
 ### <a name="edit-the-roles-that-are-assigned-to-users"></a>Modificar los roles asignados a usuarios
 
@@ -74,11 +73,11 @@ Los usuarios del rol **Generador** pueden administrar todas las partes de la apl
 
 ### <a name="operator"></a>Operator
 
-Los usuarios de rol **Operador** pueden supervisar el estado y el mantenimiento del dispositivo. No se les permite realizar cambios en las plantillas de dispositivo ni administrar la aplicación. Esto significa que los operadores pueden agregar y eliminar dispositivos, administrar conjuntos de dispositivos y ejecutar análisis y trabajos. 
+Los usuarios de rol **Operador** pueden supervisar el estado y el mantenimiento del dispositivo. No se les permite realizar cambios en las plantillas de dispositivo ni administrar la aplicación. Esto significa que los operadores pueden agregar y eliminar dispositivos, administrar conjuntos de dispositivos y ejecutar análisis y trabajos.
 
 ## <a name="create-a-custom-role"></a>Crear un rol personalizado
 
-Si la solución requiere controles de acceso más precisos, puede crear roles personalizados con conjuntos de permisos personalizados. Para crear un rol personalizado, vaya a la página **Roles** de la sección **Administration** (Administración) de la aplicación: A continuación, seleccione **+ New role** (+ Nuevo rol) y agregue un nombre y una descripción para el rol. Seleccione los permisos que necesita el rol y, luego, seleccione **Save** (Guardar).
+Si la solución requiere controles de acceso más precisos, puede crear roles con conjuntos de permisos personalizados. Para crear un rol personalizado, vaya a la página **Roles** de la sección **Administration** (Administración) de la aplicación: A continuación, seleccione **+ New role** (+ Nuevo rol) y agregue un nombre y una descripción para el rol. Seleccione los permisos que necesita el rol y, luego, seleccione **Save** (Guardar).
 
 Puede agregar usuarios al rol personalizado de la misma manera que agrega usuarios a un rol integrado.
 
@@ -87,7 +86,7 @@ Puede agregar usuarios al rol personalizado de la misma manera que agrega usuari
 
 ### <a name="custom-role-options"></a>Opciones de roles personalizados
 
-Al definir un rol personalizado, elige el conjunto de permisos que se concede a un usuario si es miembro del rol. Algunos permisos dependen de otros. Por ejemplo, si agrega a un rol el permiso **Update application dashboards** (Actualizar paneles de la aplicación), se agrega automáticamente el permiso **View application dashboards** (Ver paneles de la aplicación). En las tablas siguientes se resumen los permisos disponibles (y sus dependencias), que puede usar al crear roles personalizados.
+Al definir un rol personalizado, elige el conjunto de permisos que se concede a un usuario si es miembro del rol. Algunos permisos dependen de otros. Por ejemplo, si agrega a un rol el permiso **Update personal dashboards** (Actualizar paneles personales), se agrega automáticamente el permiso **View personal dashboards** (Ver paneles personales). En las tablas siguientes se resumen los permisos disponibles (y sus dependencias), que puede usar al crear roles personalizados.
 
 #### <a name="managing-devices"></a>Administración de dispositivos
 
@@ -108,7 +107,8 @@ Al definir un rol personalizado, elige el conjunto de permisos que se concede a 
 | Crear | Ver <br/> Otras dependencias:  Ver plantillas de dispositivo y grupos de dispositivos  |
 | Eliminar | Ver <br/> Otras dependencias: Ver plantillas de dispositivo y grupos de dispositivos  |
 | Ejecutar comandos | Actualizar, ver <br/> Otras dependencias: Ver plantillas de dispositivo y grupos de dispositivos  |
-| Control total | Ver, actualizar, crear, eliminar y ejecutar comandos <br/> Otras dependencias: Ver plantillas de dispositivo y grupos de dispositivos  |
+| Visualización de datos sin procesar | Ver <br/> Otras dependencias: Ver plantillas de dispositivo y grupos de dispositivos  |
+| Control total | Ver, actualizar, crear, eliminar, ejecutar comandos, ver datos sin procesar <br/> Otras dependencias: Ver plantillas de dispositivo y grupos de dispositivos  |
 
 **Permisos de grupos de dispositivos**
 
@@ -117,7 +117,7 @@ Al definir un rol personalizado, elige el conjunto de permisos que se concede a 
 | Ver | None <br/> Otras dependencias: Ver plantillas de dispositivo e instancias de dispositivo |
 | Actualizar | Ver <br/> Otras dependencias: Ver plantillas de dispositivo e instancias de dispositivo   |
 | Crear | Ver, actualizar <br/> Otras dependencias:  Ver plantillas de dispositivo e instancias de dispositivo   |
-| Eliminar | Ver <br/> Otras dependencias:  Ver plantillas de dispositivo e instancias de dispositivo   |
+| Eliminar | Ver <br/> Otras dependencias:  Ver plantillas de dispositivo e instancias de dispositivo  |
 | Control total | Ver, actualizar, crear, eliminar <br/> Otras dependencias: Ver plantillas de dispositivo e instancias de dispositivo |
 
 **Permisos de administración de conectividad de dispositivos**
@@ -125,10 +125,10 @@ Al definir un rol personalizado, elige el conjunto de permisos que se concede a 
 | Nombre | Dependencias |
 | ---- | -------- |
 | Leer instancias | None <br/> Otras dependencias: Ver plantillas de dispositivo, grupos de dispositivos e instancias de dispositivo |
-| Administrar instancia | None |
+| Administrar instancia | Leer instancias <br /> Otras dependencias: Ver plantillas de dispositivo, grupos de dispositivos e instancias de dispositivo |
 | Lectura global | None   |
 | Administración global | Lectura global |
-| Control total | Leer instancias, administrar instancias, lectura global, administración global. <br/> Otras dependencias: Ver plantillas de dispositivo, grupos de dispositivos e instancias de dispositivo |
+| Control total | Leer instancias, administrar instancias, lectura global, administración global <br/> Otras dependencias: Ver plantillas de dispositivo, grupos de dispositivos e instancias de dispositivo |
 
 **Permisos de trabajos**
 
@@ -170,6 +170,14 @@ Al definir un rol personalizado, elige el conjunto de permisos que se concede a 
 | Ver | None     |
 | Exportación | Ver <br/> Otras dependencias:  Ver plantillas de dispositivo, instancias de dispositivo, grupos de dispositivos, paneles, exportación de datos, personalización de marca, vínculos de ayuda, roles personalizados, reglas |
 | Control total | Ver, exportar <br/> Otras dependencias:  Ver plantillas de dispositivo, grupos de dispositivos, paneles de la aplicación, exportación de datos, personalización de marca, vínculos de ayuda, roles personalizados, reglas |
+
+**Permisos de carga de archivos de dispositivo**
+
+| Nombre | Dependencias |
+| ---- | -------- |
+| Ver | None     |
+| Administrar | Ver   |
+| Control total | Ver, administrar |
 
 **Permisos de facturación**
 
@@ -256,10 +264,10 @@ Al definir un rol personalizado, elige el conjunto de permisos que se concede a 
 
 | Nombre | Dependencias |
 | ---- | -------- |
-| Ver | None     |
-| Crear | Ver   |
-| Eliminar | Ver   |
-| Control total | Ver, crear, eliminar |
+| Ver | None  <br/> Otras dependencias: Ver roles personalizados |
+| Crear | Ver <br/> Otras dependencias: Ver roles personalizados |
+| Eliminar | Ver <br/> Otras dependencias: Ver roles personalizados |
+| Control total | Ver, crear, eliminar <br/> Otras dependencias: Ver roles personalizados |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

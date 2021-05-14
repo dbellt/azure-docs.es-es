@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: overview
 ms.date: 12/15/2020
 ms.author: prmitiki
-ms.openlocfilehash: 8f960e58d47963cbb239d498af52e7adfc77caa9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 99cfad67742c5f1261811469b3c41f5bb3bad1ba
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97586873"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145076"
 ---
 # <a name="internet-peering-overview"></a>Introducción al emparejamiento de Internet
 
@@ -53,4 +53,4 @@ Para ver las preguntas más frecuentes sobre el emparejamiento, consulte [Pregun
 
 * Para más información sobre los pasos para configurar el emparejamiento directo con Microsoft, consulte [Tutorial del emparejamiento directo](walkthrough-direct-all.md).
 * Para más información sobre los pasos para configurar el emparejamiento de intercambio con Microsoft, consulte [Tutorial del emparejamiento de Exchange](walkthrough-exchange-all.md).
-* Aprenda sobre las demás [funcionalidades de red](../networking/networking-overview.md) clave de Azure.
+* Aprenda sobre las demás [funcionalidades de red](../networking/fundamentals/networking-overview.md) clave de Azure.

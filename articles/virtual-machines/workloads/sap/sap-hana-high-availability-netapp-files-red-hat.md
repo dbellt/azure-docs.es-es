@@ -10,14 +10,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/17/2021
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: c5f94329920f8c850c0a47dd607ade8e83658b29
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5abbd1ed5c33d0ec0957d34dd8d78a958208e8f6
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599925"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142880"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Alta disponibilidad del escalado vertical de SAP HANA con Azure NetApp Files en Red Hat Enterprise Linux
 
@@ -259,7 +259,6 @@ Primero deberá crear los volúmenes de Azure NetApp Files. Luego, siga estos pa
         1.  Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **hana-lb**).
         1.  Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que ha creado anteriormente (por ejemplo, **hana-frontend**, **hana-backend** y **hana-hp**).
         1.  Seleccione **Puertos HA**.
-        1.  Aumente el **tiempo de espera de inactividad** a 30 minutos.
         1.  Asegúrese de **habilitar la dirección IP flotante**.
         1.  Seleccione **Aceptar**.
 
@@ -473,6 +472,71 @@ En esta sección se describen los pasos necesarios para que el clúster funcione
 
 Siga los pasos de [Configuración de Pacemaker en Red Hat Enterprise Linux en Azure](./high-availability-guide-rhel-pacemaker.md) para crear un clúster de Pacemaker básico para este servidor HANA.
 
+### <a name="implement-the-python-system-replication-hook-saphanasr"></a>Implementación del enlace de replicación del sistema Python SAPHanaSR
+
+Este paso es importante para optimizar la integración con el clúster y mejorar la detección cuando se requiere una conmutación por error del clúster. Se recomienda encarecidamente configurar el enlace de Python SAPHanaSR.    
+
+1. **[A]** Instale el "enlace de replicación del sistema" de HANA. El enlace debe instalarse en ambos nodos de base de datos de HANA.           
+
+   > [!TIP]
+   > El enlace de Python solo puede implementarse para HANA 2.0.        
+
+   1. Prepare el enlace como `root`.  
+
+    ```bash
+     mkdir -p /hana/shared/myHooks
+     cp /usr/share/SAPHanaSR/srHook/SAPHanaSR.py /hana/shared/myHooks
+     chown -R hn1adm:sapsys /hana/shared/myHooks
+    ```
+
+   2. Detenga HANA en ambos nodos. Ejecute como <sid\>adm:  
+   
+    ```bash
+    sapcontrol -nr 03 -function StopSystem
+    ```
+
+   3. Ajuste `global.ini` en cada uno de los nodos del clúster.  
+ 
+    ```bash
+    # add to global.ini
+    [ha_dr_provider_SAPHanaSR]
+    provider = SAPHanaSR
+    path = /hana/shared/myHooks
+    execution_order = 1
+    
+    [trace]
+    ha_dr_saphanasr = info
+    ```
+
+2. **[A]** El clúster requiere la configuración de sudoers en cada nodo de clúster para <sid\>adm. En este ejemplo, esto se consigue mediante la creación de un archivo nuevo. Ejecute los comandos como `root`.    
+    ```bash
+    cat << EOF > /etc/sudoers.d/20-saphana
+    # Needed for SAPHanaSR python hook
+    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
+    EOF
+    ```
+
+3. **[A]** Inicie SAP HANA en ambos nodos. Ejecute como <sid\>adm.  
+
+    ```bash
+    sapcontrol -nr 03 -function StartSystem 
+    ```
+
+4. **[1]** Compruebe la instalación del enlace. Ejecute as <sid\>adm en el sitio activo de replicación del sistema HANA.   
+
+    ```bash
+     cdtrace
+     awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+     { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+     # Example output
+     # 2021-04-12 21:36:16.911343 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-12 21:36:29.147808 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-12 21:37:04.898680 ha_dr_SAPHanaSR SOK
+
+    ```
+
+Para obtener más detalles sobre la implementación del enlace de replicación del sistema SAP HANA, consulte la documentación sobre la [configuración del enlace de proveedor de HA/DR de SAP](https://access.redhat.com/articles/3004101#enable-srhook).  
+
 ### <a name="configure-filesystem-resources"></a>Configuración de recursos del sistema de archivos
 
 En este ejemplo, cada nodo de clúster tiene sus propios sistemas de archivos NFS de HANA /hana/shared, /hana/data y /hana/log.   
@@ -604,7 +668,7 @@ En este ejemplo, cada nodo de clúster tiene sus propios sistemas de archivos NF
 
 A partir de SAP HANA 2.0 SPS 01, SAP permite el uso de configuraciones activas/habilitadas para lectura para la replicación del sistema de SAP HANA, donde los sistemas secundarios de la replicación del sistema de SAP HANA se pueden usar activamente para cargas de trabajo de lectura intensiva. Para admitir esta configuración en un clúster, se requiere una segunda dirección IP virtual que permita a los clientes tener acceso a la base de datos secundaria de SAP HANA habilitada para lectura. Para garantizar que todavía se puede tener acceso al sitio de replicación secundario tras una adquisición, el clúster debe mover la dirección IP virtual con el sistema secundario del recurso SAPHana.
 
-La configuración adicional, necesaria para administrar la replicación del sistema de HANA activo/habilitado para lectura en un clúster de Red Hat de alta disponibilidad con una segunda IP virtual, se describe en [Configuración de la replicación del sistema de HANA activo/habilitado para lectura en el clúster de Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster).  
+La configuración adicional, necesaria para administrar la replicación del sistema de HANA activo/habilitado para lectura en un clúster de Red Hat de alta disponibilidad con una segunda IP virtual, se describe en [Configuración de la replicación del sistema de HANA activo/habilitado para lectura en el clúster de Pacemaker](./sap-hana-high-availability-rhel.md#configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster).  
 
 Antes de continuar, asegúrese de que ha configurado completamente el clúster de Red Hat de alta disponibilidad que administra la base de datos de SAP HANA, tal como se describe en las secciones anteriores de la documentación.    
 

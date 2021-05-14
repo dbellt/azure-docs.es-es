@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 04/13/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 9d2c42a664c8d8a591d95a312cdf1c0034c4d031
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: c067dba3a8af87e354019154fad8304fe9edfbbc
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305470"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829663"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configuración de Azure AD Multi-Factor Authentication
 
@@ -347,7 +347,7 @@ La característica Recordar Multi-Factor Authentication establece una cookie per
 
 La opción **No preguntar de nuevo durante X días** no está disponible en las aplicaciones sin explorador, independientemente de si la aplicación admite la autenticación moderna. Estas aplicaciones usan _tokens de actualización_ que proporcionan nuevos tokens de acceso cada hora. Cuando se valida un token de actualización, Azure AD comprueba que la última autenticación multifactor estaba dentro del número de días especificado.
 
-La característica reduce el número de autenticaciones en las aplicaciones web, que normalmente se solicitan siempre. La característica puede aumentar el número de autenticaciones para los clientes de autenticación moderna, que normalmente se solicita cada 90 días, si se configura una duración inferior. También se puede aumentar el número de autenticaciones cuando se combina con las directivas de acceso condicional.
+La característica reduce el número de autenticaciones en las aplicaciones web, que normalmente se solicitan siempre. La característica puede aumentar el número de autenticaciones para los clientes de autenticación moderna, que normalmente se solicita cada 180 días, si se configura una duración inferior. También se puede aumentar el número de autenticaciones cuando se combina con las directivas de acceso condicional.
 
 > [!IMPORTANT]
 > La característica **Recordar Multi-Factor Authentication** no es compatible con la característica **Mantener la sesión iniciada** de AD FS cuando los usuarios realizan la autenticación multifactor para AD FS mediante el servidor de Azure Multi-Factor Authentication o una solución de terceros para la autenticación multifactor.

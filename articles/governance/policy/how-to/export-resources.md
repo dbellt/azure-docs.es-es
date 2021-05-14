@@ -3,13 +3,13 @@ title: Exportación de recursos de Azure Policy
 description: Obtenga más información sobre cómo exportar recursos de Azure Policy a GitHub, por ejemplo, definiciones y asignaciones de directivas.
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 8fd2a24d2c01b4214eda88054b45a409cd865a32
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 36e3c28d8448bba94222a23581dda7bd6d3ffaeb
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106096553"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752676"
 ---
 # <a name="export-azure-policy-resources"></a>Exportación de recursos de Azure Policy
 
@@ -35,7 +35,7 @@ Para exportar una definición de directiva de Azure Portal, siga estos pasos:
    - **Directorio**: se trata de la _carpeta de nivel raíz_ en la que se exportarán los recursos de Azure Policy. Las subcarpetas de este directorio se crean en función de los recursos que se exportan.
 
 1. En la pestaña **Directivas**, establezca el ámbito de búsqueda; para ello, seleccione el botón de los puntos suspensivos y elija una combinación de grupos de administración, suscripciones o grupos de recursos.
-   
+
 1. Use el botón **Agregar definiciones de directiva** para realizar la búsqueda en el ámbito cuyos objetos se van a exportar. En la ventana lateral que se abre, seleccione cada uno de los objetos que quiera exportar. Filtre la selección mediante el cuadro de búsqueda o el tipo. Una vez que haya seleccionado todos los objetos que se van a exportar, use el botón **Agregar** de la parte inferior de la página.
 
 1. Para cada objeto seleccionado, seleccione las opciones de exportación que prefiera, como _Solo definición_ o _Definición y asignaciones_, para una definición de directiva. Luego, seleccione la pestaña **Revisar y exportar** o el botón **Siguiente: Revisar y exportar** situado en la parte inferior de la página.

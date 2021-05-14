@@ -16,6 +16,10 @@
           href: common-questions-discovery-assessment.md
         - name: Herramienta Server Migration
           href: common-questions-server-migration.md
+- name: Guías de inicio rápido
+  items:
+    - name: 'Creación de un proyecto: plantilla de ARM'
+      href: quickstart-create-migrate-project.md
 - name: Tutoriales
   items:
     - name: Descubra
@@ -73,7 +77,7 @@
     - name: Inclusión en contenedores
       items:
         - name: Inclusión de aplicaciones ASP.NET en contenedores y migración a AKS
-          href: tutorial-containerize-aspnet-kubernetes.md
+          href: tutorial-app-containerization-aspnet-kubernetes.md
         - name: Inclusión de aplicaciones web de Java en contenedores y migración a AKS
           href: tutorial-containerize-java-kubernetes.md
 - name: Conceptos
@@ -85,7 +89,7 @@
     - name: Seguridad
       items:
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/migrate-security-baseline?context=/azure/migrate/context/migrate-context
     - name: Descubra
       items:
         - name: Compatibilidad con la detección de VMware
@@ -130,6 +134,8 @@
   items:
     - name: Creación y administración de proyectos de Azure Migrate
       href: create-manage-projects.md
+    - name: Uso de Azure Migrate con Private Link
+      href: how-to-use-azure-migrate-with-private-endpoints.md
     - name: Preparación para trabajar con herramientas de ISV/Movere
       href: prepare-isv-movere.md
     - name: Descubra
@@ -210,6 +216,8 @@
           href: how-to-delete-project.md
         - name: Uso de la versión anterior de Azure Migrate
           href: migrate-v1.md
+        - name: "Incorporación de los servidores locales del entorno virtual de VMware en Azure\_Arc"
+          href: onboard-to-azure-arc-with-azure-migrate.md
         - name: Administración de proyectos de migración con Azure Lighthouse
           href: ../lighthouse/how-to/migration-at-scale.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
 - name: Solución de problemas
@@ -234,8 +242,13 @@
           href: troubleshoot-changed-block-tracking-replication.md
 - name: Referencia
   items:
+    - name: Azure CLI
+      href: /cli/azure/offazure
     - name: Azure PowerShell
       href: /powershell/module/az.migrate/
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Migración en Cloud Adoption Framework

@@ -52,8 +52,6 @@
           href: costs/ingest-azure-usage-at-scale.md
         - name: Cost Management para asociados
           href: costs/get-started-partners.md
-        - name: Migración de los informes de EA a las API de Azure Resource Manager
-          href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
     - name: Reservations
       items:
         - name: ¿Qué es Azure Reservations?
@@ -128,10 +126,12 @@
           href: manage/azure-plan-subscription-transfer-partners.md
         - name: Introducción al portal de Azure EA
           href: manage/ea-portal-get-started.md
+        - name: 'Solicitud de un crédito de retención de impuestos: India'
+          href: manage/withholding-tax-credit-india.md
     - name: Seguridad
       items:
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/cost-management-security-baseline?toc=/azure/cost-management-billing/toc.json
 - name: Guías paso a paso
   items:
     - name: Configuración de Cost Management + facturación
@@ -150,6 +150,8 @@
               href: manage/understand-mca-roles.md
             - name: Vinculación de Id. de partner
               href: manage/link-partner-id.md
+            - name: Vinculación de un identificador de asociado a cuentas de Power Apps
+              href: manage/link-partner-id-power-apps-accounts.md
         - name: Administración de suscripciones
           items:
             - name: Asignar acceso a datos de Administración de costos
@@ -162,9 +164,9 @@
               href: manage/azurestudents-subscription-disabled.md
             - name: Transferencia de la propiedad
               href: manage/billing-subscription-transfer.md
-            - name: Solicitud de la propiedad de un contrato de cliente de Microsoft
+            - name: Transferencia de la propiedad de Contrato de cliente de Microsoft
               href: manage/mca-request-billing-ownership.md
-            - name: Solicitud de la propiedad de un contrato de Microsoft Partner Agreement
+            - name: Transferencia de la propiedad de Contrato de partner
               href: manage/mpa-request-ownership.md
             - name: Instalación y configuración de la integración de AWS
               href: costs/aws-integration-set-up-configure.md
@@ -206,6 +208,8 @@
               href: manage/transfer-subscriptions-subscribers-csp.md
             - name: Cancelación de la suscripción
               href: manage/cancel-azure-subscription.md
+            - name: Administración de directivas de suscripción
+              href: manage/manage-azure-subscription-policy.md
         - name: Creación de suscripciones mediante programación
           items:
             - name: Creación de suscripciones mediante programación
@@ -216,8 +220,6 @@
               href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
             - name: Creación de suscripciones a MPA mediante programación
               href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
-            - name: 'Creación de suscripciones: plantillas de Resource Manager'
-              href: manage/create-subscription-template.md
             - name: 'Creación de suscripciones mediante programación: API de la versión preliminar'
               href: manage/programmatically-create-subscription-preview.md
         - name: Administración de suscripciones al Contrato Enterprise
@@ -296,8 +298,10 @@
           href: manage/mca-check-azure-credits-balance.md
         - name: Migración desde EA a las API de MCA
           href: costs/migrate-cost-management-api.md
-        - name: Asignación de roles a SPN
+        - name: Asignación de roles a nombres de entidad de seguridad de servicio de Contrato Enterprise de Azure
           href: manage/assign-roles-azure-service-principals.md
+        - name: Migración de los informes de EA a las API de Azure Resource Manager
+          href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
     - name: Compra y administración de reservas
       items:
         - name: Determinación de lo que se debe comprar
@@ -386,6 +390,8 @@
           href: ../azure-portal/supportability/how-to-create-azure-support-request.md
 - name: Referencia
   items:
+    - name: Azure CLI
+      href: /cli/azure/billing
     - name: API REST de Azure Cost Management
       href: /rest/api/cost-management
     - name: API REST de consumo de Azure
@@ -424,6 +430,8 @@
           href: /rest/api/consumption/reservationsdetails
 - name: Recursos
   items:
+    - name: Preguntas más frecuentes
+      href: cost-management-billing-faq.yml
     - name: Desarrollo de aptitudes con Microsoft Learn
       href: /learn/browse/?products=azure-cost-management
     - name: Foro de comentarios de Cost Management

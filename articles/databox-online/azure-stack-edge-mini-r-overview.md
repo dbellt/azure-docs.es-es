@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/03/2021
+ms.date: 04/19/2021
 ms.author: alkohli
-ms.openlocfilehash: 14a425c3aca3a1c296b96855b2c920d558e89f9e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: cdb87e691828db23e8c441fe9933204556fb8417
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104585985"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734151"
 ---
 # <a name="what-is-the-azure-stack-edge-mini-r"></a>¿Qué es Azure Stack Edge Mini R?
 
@@ -68,6 +68,7 @@ La solución Azure Stack Edge Mini R consta de un recurso Azure Stack Edge, un d
 
 * **Interfaz de usuario web local de Azure Stack Edge Mini R**: una interfaz de usuario web local basada en explorador que se encuentra en su dispositivo Azure Stack Edge Mini R y cuya finalidad principal es la configuración inicial del dispositivo. Además, use la interfaz de usuario web local para ejecutar diagnósticos, apagar y reiniciar el dispositivo de Azure Stack Edge Pro, ver registros de copia y ponerse en contacto con el Soporte técnico de Microsoft para realizar una solicitud de servicio.
 
+    [!INCLUDE [azure-stack-edge-gateway-local-web-ui-languages](../../includes/azure-stack-edge-gateway-local-web-ui-languages.md)]
 
 ## <a name="region-availability"></a>Disponibilidad en regiones
 
@@ -79,7 +80,7 @@ El dispositivo físico Azure Stack Edge Mini R, el recurso de Azure y la cuenta 
 
 - **Cuentas de almacenamiento de destino**: las cuentas de almacenamiento que almacenan los datos están disponibles en todas las regiones de Azure. Las regiones en las que las cuentas de almacenamiento almacenan los datos de Azure Stack Edge Mini R deben estar cerca de dónde se encuentra el dispositivo a fin de obtener un rendimiento óptimo. Una cuenta de almacenamiento que se encuentra lejos del dispositivo causa latencias largas y un rendimiento más lento.
 
-Azure Stack Edge es un servicio que no es regional. Para obtener más información, consulte [Regiones y zonas de disponibilidad en Azure](https://docs.microsoft.com/azure/availability-zones/az-overview). Azure Stack Edge no depende de ninguna región específica de Azure, lo que hace que sea resistente a las interrupciones en toda una zona y a las interrupciones en toda una región.
+El servicio Azure Stack Edge es un servicio no regional. Para obtener más información, consulte [Regiones y zonas de disponibilidad en Azure](../availability-zones/az-overview.md). El servicio Azure Stack Edge no depende de una región específica de Azure, lo que lo hace más resistentes a las interrupciones en toda la zona, así como a interrupciones en toda la región.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

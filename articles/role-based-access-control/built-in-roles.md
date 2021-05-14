@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 04/09/2021
+ms.date: 04/26/2021
 ms.custom: generated
-ms.openlocfilehash: f4112d4b9bf55e45ec865f5c8606ead9088a7983
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 4e2df06b67ee9148d3c74700ebfadd72bff8392f
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752397"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108069982"
 ---
 # <a name="azure-built-in-roles"></a>Roles integrados de Azure
 
@@ -137,6 +137,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | [Lector de Custom Vision de Cognitive Services](#cognitive-services-custom-vision-reader) | Acciones de solo lectura en el proyecto. Los lectores no pueden crear ni actualizar el proyecto. | 93586559-c37d-4a6b-ba08-b9f0940c2d73 |
 > | [Entrenador de Custom Vision de Cognitive Services](#cognitive-services-custom-vision-trainer) | Ver, editar proyectos y entrenar los modelos, lo que incluye la capacidad de publicar, anular la publicación y exportar los modelos. Los entrenadores no pueden crear ni eliminar el proyecto. | 0a5ae4ab-0d65-4eeb-be61-29fc9b54394b |
 > | [Lector de datos de Cognitive Services (versión preliminar)](#cognitive-services-data-reader-preview) | Permite leer los datos de Cognitive Services. | b59867f0-fa02-499b-be73-45a86b5b3e1c |
+> | [Cognitive Services Face Recognizer](#cognitive-services-face-recognizer) | Permite detectar, comprobar, identificar, agrupar y buscar operaciones similares en Face API. Este rol no permite operaciones de creación o eliminación, de modo que es adecuado para los puntos de conexión que solo necesitan funcionalidades de inferencia, según los procedimientos recomendados de "privilegios mínimos". | 9894cab4-e18a-44aa-828b-cb588cd6f2d7 |
 > | [Administrador de Metrics Advisor de Cognitive Services](#cognitive-services-metrics-advisor-administrator) | Acceso total al proyecto, lo que incluye la configuración del nivel de sistema. | cb43c632-a144-4ec5-977c-e80c4affc34a |
 > | [Editor de QnA Maker de Cognitive Services](#cognitive-services-qna-maker-editor) | Permite crear, editar, importar y exportar un knowledge base. No se puede publicar ni eliminar un knowledge base. | f4cc2bf9-21be-47a1-bdf1-5c5804381025 |
 > | [Lector de QnA Maker de Cognitive Services](#cognitive-services-qna-maker-reader) | Permite leer y probar solo un knowledge base. | 466ccd10-b268-4a11-b098-b4849f024126 |
@@ -2887,7 +2888,7 @@ Permite que el servidor de aplicaciones acceda al servicio SignalR con opciones 
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/accessKey/action | Genera una clave AccessKey temporal para firmar ClientTokens. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/accessKey/action | Genere una clave de acceso para firmar tokens de acceso; la clave expirará después de 90 minutos de manera predeterminada. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/serverConnection/write | Inicia una conexión de servidor. |
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
@@ -2977,7 +2978,7 @@ Permite que el servicio de acceso a la aplicación esté en modo sin servidor co
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/clientToken/action | Genera un ClientToken para iniciar una conexión de cliente. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/clientToken/action | Genere un AccessToken para que el cliente se conecte a ASRS, el token expirará en 5 minutos de manera predeterminada. |
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
@@ -3016,8 +3017,8 @@ Acceso completo a las API REST de Azure SignalR Service.
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/accessKey/action | Genera una clave AccessKey temporal para firmar ClientTokens. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/clientToken/action | Genera un ClientToken para iniciar una conexión de cliente. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/accessKey/action | Genere una clave de acceso para firmar tokens de acceso; la clave expirará después de 90 minutos de manera predeterminada. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/clientToken/action | Genere un AccessToken para que el cliente se conecte a ASRS, el token expirará en 5 minutos de manera predeterminada. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/hub/send/action | Difunde mensajes a todas las conexiones de cliente en el concentrador. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/send/action | Difunde el mensaje al grupo. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/read | Comprueba la existencia del grupo o la existencia del usuario en el grupo. |
@@ -5707,6 +5708,53 @@ Permite leer los datos de Cognitive Services.
 }
 ```
 
+### <a name="cognitive-services-face-recognizer"></a>Cognitive Services Face Recognizer
+
+Permite detectar, comprobar, identificar, agrupar y buscar operaciones similares en Face API. Este rol no permite operaciones de creación o eliminación, de modo que es adecuado para los puntos de conexión que solo necesitan funcionalidades de inferencia, según los procedimientos recomendados de "privilegios mínimos".
+
+> [!div class="mx-tableFixed"]
+> | Acciones | Descripción |
+> | --- | --- |
+> | *Ninguna* |  |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/detect/action | Detecta caras humanas en una imagen, devuelve rectángulos de caras, opcionalmente con identificadores de cara, puntos de referencia y atributos. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/verify/action | Comprueba si dos caras pertenecen a una misma persona o si una cara pertenece a una persona. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/identify/action | Identificación de 1 a varios para encontrar las coincidencias más cercanas de la cara de la persona de la consulta específica a partir de un grupo de personas o grupo de personas de gran tamaño. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/group/action | Divide las caras de los candidatos en grupos en función de la similitud de la cara. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/findsimilars/action | Dado el elemento faceId de un cara de la consulta, busca las caras similares en una matriz de elementos faceId, una lista de caras o una lista de caras de gran tamaño. faceId |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you perform detect, verify, identify, group, and find similar operations on Face API. This role does not allow create or delete operations, which makes it well suited for endpoints that only need inferencing capabilities, following 'least privilege' best practices.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/9894cab4-e18a-44aa-828b-cb588cd6f2d7",
+  "name": "9894cab4-e18a-44aa-828b-cb588cd6f2d7",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/Face/detect/action",
+        "Microsoft.CognitiveServices/accounts/Face/verify/action",
+        "Microsoft.CognitiveServices/accounts/Face/identify/action",
+        "Microsoft.CognitiveServices/accounts/Face/group/action",
+        "Microsoft.CognitiveServices/accounts/Face/findsimilars/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Cognitive Services Face Recognizer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="cognitive-services-metrics-advisor-administrator"></a>Administrador de Metrics Advisor de Cognitive Services
 
 Acceso total al proyecto, lo que incluye la configuración del nivel de sistema. [Más información](../cognitive-services/metrics-advisor/how-tos/alerts.md)
@@ -8210,7 +8258,7 @@ Permite realizar cualquier acción en los certificados de un almacén de claves,
 
 ### <a name="key-vault-contributor"></a>Colaborador de almacén de claves
 
-Permite administrar almacenes de claves, per no asignar roles en Azure RBAC ni acceder a secretos, claves o certificados. [Más información](../key-vault/general/security-overview.md)
+Permite administrar almacenes de claves, per no asignar roles en Azure RBAC ni acceder a secretos, claves o certificados. [Más información](../key-vault/general/security-features.md)
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |

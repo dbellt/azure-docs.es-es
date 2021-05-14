@@ -1,18 +1,19 @@
 ---
-title: 'Conexión de punto a sitio de un equipo a una red virtual con autenticación RADIUS: PowerShell | Azure'
-description: Conecte clientes Windows y OS X de forma segura a una red virtual con autenticación RADIUS y P2S.
+title: 'Conexión de punto a sitio de un equipo a una red virtual con autenticación RADIUS: PowerShell'
+titleSuffix: Azure VPN Gateway
+description: Obtenga información sobre cómo conectar clientes Windows y OS X de manera segura a una red virtual con autenticación RADIUS y P2S.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9d962d3a4757b4c7b2d217f91aaf73d6ad4164d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1dbfc83a24b1c4db09625a73cf0684acedfb2355
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94964854"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228125"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configuración de una conexión de punto a sitio a una red virtual con autenticación RADIUS: PowerShell
 

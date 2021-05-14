@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8779ee2d3c4d83c06a2c1803e65219d43f0ef14
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: a88bb7904143f69a0eea84ea291c65e3244c70a1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275811"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765870"
 ---
 # <a name="enable-passwordless-security-key-sign-in"></a>Habilitación del inicio de sesión con clave de seguridad sin contraseña 
 
@@ -90,7 +90,9 @@ Si quiere compartir comentarios o detectar problemas con esta característica, c
 
 El aprovisionamiento y desaprovisionamiento de administrador de claves de seguridad no está disponible.
 
-**Nota:** El inicio de sesión almacenado en caché de FIDO2 produce un error en una máquina unida a Azure AD híbrido específica con la versión win10 20H2 (cuando LOS a DC no están disponibles). Esto se encuentra actualmente en investigación con ingeniería.
+### <a name="cached-logon-on-hybrid-azure-ad-joined-devices"></a>Inicio de sesión almacenado en caché en dispositivos unidos de Azure AD híbrido.
+
+El inicio de sesión almacenado en la caché con las claves FIDO2 devuelve un error en los dispositivos unidos a Azure AD híbrido en la versión 20H2 de Windows 10. Como resultado, los usuarios no podrán iniciar sesión cuando la línea de visión al controlador de dominio local no esté disponible. Esta opción se está investigando actualmente.
 
 ### <a name="upn-changes"></a>Cambios de UPN
 

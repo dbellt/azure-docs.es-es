@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 6f25c4172b384abd487d2084f31981d16e73ee93
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 779f1bead820af99b7f0bba859518eaa5d0ea2fc
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877581"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286658"
 ---
-# <a name="quickstart-provision-azure-spring-cloud-service"></a>Inicio rápido: Aprovisionamiento del servicio Azure Spring Cloud
+# <a name="quickstart-provision-an-azure-spring-cloud-service"></a>Inicio rápido: Aprovisionamiento de un servicio de Azure Spring Cloud
 
 ::: zone pivot="programming-language-csharp"
 En esta guía de inicio rápido, usará la CLI de Azure para aprovisionar una instancia del servicio Azure Spring Cloud.
@@ -118,6 +118,8 @@ En el procedimiento siguiente se crea una instancia de Azure Spring Cloud desde 
     - **Grupo de recursos**: se recomienda crear grupos de recursos para los nuevos recursos. Tenga en cuenta que esto se usará en los pasos posteriores como **\<resource group name\>** .
     - **Detalles o nombre del servicio**: Especifique **\<service instance name\>** .  El nombre debe tener entre 4 y 32 caracteres, y solo puede contener números, letras minúsculas y guiones.  El primer carácter del nombre del servicio debe ser una letra y el último debe ser una letra o un número.
     - **Ubicación**: seleccione la ubicación de la instancia de servicio.
+    - En la opción *Plan de tarifa*, seleccione **Estándar**.
+    - En la pestaña **Application Insights**, en *Enable Java in-process agent* (Habilitar agente en proceso de Java), seleccione **sí**.
 
     ![Inicio del portal de ASC](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
@@ -130,6 +132,12 @@ En el procedimiento siguiente se crea una instancia de Azure Spring Cloud desde 
 
 En el siguiente procedimiento se usa la extensión de la CLI de Azure para aprovisionar una instancia de Azure Spring Cloud.
 
+1. Actualice la CLI de Azure con la extensión de Azure Spring Cloud.
+
+    ```azurecli
+    az extension update --name spring-cloud
+    ```
+
 1. Inicie sesión en la CLI de Azure y elija una suscripción activa.
 
     ```azurecli
@@ -140,27 +148,26 @@ En el siguiente procedimiento se usa la extensión de la CLI de Azure para aprov
 
 1. Prepare un nombre para el servicio Azure Spring Cloud.  El nombre debe tener entre 4 y 32 caracteres, y solo puede contener números, letras minúsculas y guiones.  El primer carácter del nombre del servicio debe ser una letra y el último debe ser una letra o un número.
 
-1. Cree un grupo de recursos que contenga el servicio Azure Spring Cloud.
+1. Cree un grupo de recursos que contenga el servicio Azure Spring Cloud.  Cree una instancia del servicio Azure Spring Cloud.  
 
-    ```azurecli
-    az group create --location eastus --name <resource group name>
+    ```azurecli 
+    az group create --name <resource group name>
+    az spring-cloud create -n <service instance name> -g <resource group name> --enable-java-agent
     ```
 
     Más información sobre los [grupos de recursos de Azure](../azure-resource-manager/management/overview.md).
 
-1. Abra una ventana de la CLI de Azure y ejecute los siguientes comandos para aprovisionar una instancia de Azure Spring Cloud.
+1. Establezca los nombres predeterminados del grupo de recursos y del servicio Azure Spring Cloud con el siguiente comando:
 
     ```azurecli
-    az spring-cloud create -n <service instance name> -g <resource group name>
+    az configure --defaults group=<resource group name> spring-cloud=<service name>
     ```
-
-    La instancia de servicio tardará aproximadamente cinco minutos en implementarse.
 ---
 ::: zone-end
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha creado recursos de Azure que seguirán acumulando cargos si permanecen en la suscripción. Si no tiene intención de pasar al siguiente inicio rápido, consulte [Limpieza de recursos](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). De lo contrario, pase al siguiente inicio rápido:
+En esta guía de inicio rápido, ha creado recursos de Azure que seguirán acumulando cargos si permanecen en la suscripción. Si no tiene intención de pasar al siguiente inicio rápido, consulte [Limpieza de recursos](./quickstart-logs-metrics-tracing.md#clean-up-resources). De lo contrario, pase al siguiente inicio rápido:
 
 > [!div class="nextstepaction"]
-> [Configuración de un servidor de configuración](spring-cloud-quickstart-setup-config-server.md)
+> [Configuración de un servidor de configuración](./quickstart-setup-config-server.md)

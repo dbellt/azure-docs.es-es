@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 4891a602e9fb5ebbdaadc980c1960b95816c6653
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: c7033e74c8b6d845346e8f9d1b4fc5fd015a220b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106112900"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108791761"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -32,7 +32,7 @@ Abra el archivo **pom.xml** en el editor de texto. Agregue los siguientes elemen
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-phonenumbers</artifactId>
-    <version>1.0.0-beta.7</version>
+    <version>1.0.0</version>
 </dependency>
 
 <dependency>
@@ -56,10 +56,11 @@ Use el código siguiente para empezar:
 ```java
 import com.azure.communication.phonenumbers.*;
 import com.azure.communication.phonenumbers.models.*;
-import java.io.*;
+import com.azure.core.http.rest.*;
 import com.azure.core.util.Context;
 import com.azure.core.util.polling.PollResponse;
 import com.azure.identity.*;
+import java.io.*;
 
 public class App
 {

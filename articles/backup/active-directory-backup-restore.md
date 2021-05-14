@@ -3,12 +3,12 @@ title: Copia de seguridad y restauración de Active Directory
 description: Aprenda a realizar copias de seguridad y a restaurar controladores de dominio de Active Directory.
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 8db2dab605e90e4748b11a632d6651c23d631b6c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8bc6458895965d4c37667e0cff3051a4e4e8288e
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98733560"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107898214"
 ---
 # <a name="back-up-and-restore-active-directory-domain-controllers"></a>Copia de seguridad y restauración de controladores de dominio de Active Directory
 
@@ -23,7 +23,13 @@ En este artículo se describen los procedimientos adecuados para realizar copias
 
 - Asegúrese de que se haya realizado una copia de seguridad de al menos un controlador de dominio. Si realiza una copia de seguridad de más de un controlador de dominio, asegúrese de que se haya realizado una copia de seguridad de todos los que tengan roles [FSMO (operación de maestro único flexible)](/windows-server/identity/ad-ds/plan/planning-operations-master-role-placement).
 
-- Realice copias de seguridad de Active Directory con frecuencia. La copia de seguridad nunca debe ser superior a la duración del marcador de exclusión (de forma predeterminada, 60 días), ya que los objetos anteriores a la duración del marcador de exclusión se "extinguen" y ya no se consideran válidos.
+- Realice copias de seguridad de Active Directory con frecuencia. La fecha de la copia de seguridad nunca debe ser anterior a la duración del marcador de exclusión (TSL), ya que los objetos anteriores a TSL se "extinguirán" y ya no se consideran válidos.
+  - El TSL predeterminado, para los dominios creados en Windows Server 2003 SP2 y versiones posteriores, es de 180 días.
+  - Puede comprobar el TSL configurado mediante el siguiente script de PowerShell:
+
+    ```powershell
+    (Get-ADObject $('CN=Directory Service,CN=Windows NT,CN=Services,{0}' -f (Get-ADRootDSE).configurationNamingContext) -Properties tombstoneLifetime).tombstoneLifetime
+    ```
 
 - Tenga un plan de recuperación ante desastres claro que incluya instrucciones sobre cómo restaurar los controladores de dominio. Si desea prepararse para restaurar un bosque de Active Directory, lea la [Guía de recuperación de bosques de Active Directory](/windows-server/identity/ad-ds/manage/ad-forest-recovery-guide).
 

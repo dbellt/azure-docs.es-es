@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: a6710a15bd0637eead0051ebb70a7cdd8bb8aa58
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8497e095d4caf6213bbb838b2033845ee65e3834
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877418"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134922"
 ---
 # <a name="how-to-launch-your-spring-cloud-application-from-source-code"></a>Procedimiento para iniciar la aplicación Spring Cloud desde el código fuente
 
@@ -165,6 +165,6 @@ En este tutorial, ha aprendido a hacer lo siguiente:
 > * Asignar una dirección IP pública para la puerta de enlace de aplicaciones
 
 > [!div class="nextstepaction"]
-> [Registros, métricas y seguimiento de Spring Cloud](spring-cloud-quickstart-logs-metrics-tracing.md)
+> [Registros, métricas y seguimiento de Spring Cloud](./quickstart-logs-metrics-tracing.md)
 
 Hay más ejemplos disponibles en GitHub: [Ejemplos de Azure Spring Cloud](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

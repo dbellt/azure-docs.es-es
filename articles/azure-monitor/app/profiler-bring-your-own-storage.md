@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 01/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9c3ff91cbfb6423099040a6ea46eeb66f5461f48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dbd892498675b8a672104a045f5c9f66b1740caf
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100589664"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017877"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configuración de Traiga su propio almacenamiento (BYOS) para Application Insights Profiler y Snapshot Debugger
 
@@ -152,7 +152,7 @@ Para configurar BYOS para el diagnóstico en el nivel de código (Profiler/Debug
     ```
 
     > [!NOTE]
-    > Para realizar actualizaciones en las cuentas de almacenamiento vinculadas al recurso de Application Insights, consulte la [documentación de la CLI de Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage).
+    > Para realizar actualizaciones en las cuentas de almacenamiento vinculadas al recurso de Application Insights, consulte la [documentación de la CLI de Application Insights](/cli/azure/monitor/app-insights/component/linked-storage).
 
 #### <a name="configure-using-azure-resource-manager-template"></a>Configuración de la plantilla de Azure Resource Manager
 

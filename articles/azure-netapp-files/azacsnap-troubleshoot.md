@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: 7ba5a05515284612e17d5aba4cc673c7e78f7ba1
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 66272e59dd67375b1da119648cf461bd0c2baa9b
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104869929"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107929604"
 ---
-# <a name="troubleshoot-azure-application-consistent-snapshot-tool-preview"></a>Solución de problemas con la herramienta Azure Application Consistent Snapshot (versión preliminar)
+# <a name="troubleshoot-azure-application-consistent-snapshot-tool"></a>Solución de problemas con la herramienta Azure Application Consistent Snapshot
 
 Este artículo ofrece contenido de solución de problemas para su uso con la herramienta Azure Application Consistent Snapshot que se puede usar con Azure NetApp Files.
 

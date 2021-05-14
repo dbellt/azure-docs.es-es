@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 2ecc5df9db51bb6c923b9e0f47163e492bd76cfa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 402618872c5a3ee8dd01c35021656312f1fe3371
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101695758"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228449"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registro y examen de un inquilino de Power BI (versión preliminar)
 
@@ -70,15 +70,9 @@ Para configurar la autenticación, cree un grupo de seguridad y agréguele la id
 
 Ahora que le han concedido los permisos de identidad administrada de Purview para conectarse a la API de administración de su inquilino de Power BI, puede configurar el examen desde Azure Purview Studio.
 
-En primer lugar, agregue una marca de característica especial a la dirección URL de Purview. 
+1. Seleccione **Orígenes** en el panel de navegación izquierdo.
 
-1. Seleccione el icono del **Centro de administración**.
-
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/management-center.png" alt-text="Icono del Centro de administración":::.
-
-1. A continuación, seleccione **+ Nuevo** en **Orígenes de datos**.
-
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/data-sources.png" alt-text="Imagen del botón para agregar un nuevo origen de datos":::
+1. Después, seleccione **Register** (Registrar).
 
     Seleccione **Power BI** como origen de datos.
 
@@ -105,6 +99,7 @@ En primer lugar, agregue una marca de característica especial a la dirección U
     > [!Note]
     > * Al cambiar la configuración de un análisis para incluir o excluir un área de trabajo personal, se desencadenará un análisis completo del origen de Power BI.
     > * El nombre del examen debe tener entre 3 y 63 caracteres, y solo puede contener letras, números, guiones bajos y guiones. No están permitidos los espacios.
+    > * El esquema no está disponible en la pestaña Esquema.
 
 5. Configure un desencadenador de examen. Las opciones disponibles son: **Una sola vez**, **Cada 7 días** y **Cada 30 días**.
 

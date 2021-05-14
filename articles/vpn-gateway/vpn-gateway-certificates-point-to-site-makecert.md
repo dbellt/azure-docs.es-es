@@ -1,18 +1,19 @@
 ---
-title: 'Azure VPN Gateway: generación y exportación de certificados para la conexión de punto a sitio: MakeCert'
-description: Cree un certificado raíz autofirmado, exporte la clave pública y genere los certificados de cliente mediante MakeCert.
+title: 'Generación y exportación de certificados para la conexión de punto a sitio: MakeCert'
+titleSuffix: Azure VPN Gateway
+description: Aprenda a crear un certificado raíz autofirmado, exportar la clave pública y generar certificados de cliente mediante MakeCert.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 55e22ebec5853d6b4f10b53be8e24f4dbebe4e1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f28e361c434797e80a0a377842fa375e4b8235de
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94659784"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229745"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Generación y exportación de certificados para conexiones de punto a sitio con MakeCert
 

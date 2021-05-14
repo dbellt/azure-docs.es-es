@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 12/17/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d13db238674cae62f528c3d730bf892a72b8f6c2
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 1c2ebd04fa227bf20570bfee90a97711a0458177
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764700"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318574"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Creación y administración de réplicas de lectura desde la CLI de Azure con API REST
 
@@ -142,14 +142,14 @@ Puede crear y administrar réplicas de lectura mediante [API REST de Azure](/res
    }
    ```
 
-2. [Reinicie el servidor](/rest/api/postgresql/servers/restart) para aplicar el cambio.
+2. [Reinicie el servidor](/rest/api/postgresql/singleserver/servers/restart) para aplicar el cambio.
 
    ```http
    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/restart?api-version=2017-12-01
    ```
 
 ### <a name="create-a-read-replica"></a>Creación de una réplica de lectura
-Puede crear una réplica de lectura mediante la [API de creación](/rest/api/postgresql/servers/create):
+Puede crear una réplica de lectura mediante la [API de creación](/rest/api/postgresql/singleserver/servers/create):
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{replicaName}?api-version=2017-12-01
@@ -177,14 +177,14 @@ Una réplica se crea con la misma configuración de proceso y almacenamiento que
 > Antes de actualizar la configuración de un servidor principal a un nuevo valor, actualice la configuración de réplica a un valor igual o superior. Esta acción ayuda a que la réplica haga frente a los cambios realizados en el servidor maestro.
 
 ### <a name="list-replicas"></a>Lista de réplicas
-Puede ver la lista de réplicas de un servidor principal mediante la [API de lista de réplicas](/rest/api/postgresql/replicas/listbyserver):
+Puede ver la lista de réplicas de un servidor principal mediante la [API de lista de réplicas](/rest/api/postgresql/singleserver/replicas/listbyserver):
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/Replicas?api-version=2017-12-01
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>Detención de la replicación en un servidor de réplica
-Puede detener la replicación entre un servidor principal y una réplica de lectura mediante la [API de actualización](/rest/api/postgresql/servers/update).
+Puede detener la replicación entre un servidor principal y una réplica de lectura mediante la [API de actualización](/rest/api/postgresql/singleserver/servers/update).
 
 Después de detener la replicación en un servidor principal y en una réplica de lectura, este proceso no se puede deshacer. La réplica de lectura se convierte en un servidor independiente que admite operaciones de lectura y escritura. Este servidor independiente no puede volver a convertirse en una réplica.
 
@@ -201,7 +201,7 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 ```
 
 ### <a name="delete-a-primary-or-replica-server"></a>Eliminación de un servidor principal o de réplica
-Para eliminar un servidor principal o de réplica, use la [API de eliminación](/rest/api/postgresql/servers/delete):
+Para eliminar un servidor principal o de réplica, use la [API de eliminación](/rest/api/postgresql/singleserver/servers/delete):
 
 Cuando se elimina un servidor principal, la replicación se detiene en todas las réplicas de lectura. Las réplicas de lectura se convierten en servidores independientes que ahora admiten tanto lectura como escritura.
 

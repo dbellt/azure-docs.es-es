@@ -3,7 +3,7 @@ title: 'Administración del acceso de los invitados con las revisiones de acceso
 description: Administración de los usuarios invitados como miembros de un grupo o asignados a una aplicación con las revisiones de acceso de Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 12/23/2020
-ms.author: barclayn
+ms.date: 4/16/2021
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76aeb63feb006e6962efeb3687363f18acb59904
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 02d7e5fd6fdbb17b91d151875a48b7763d6b93c8
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97746701"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988287"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Administración del acceso de los invitados con las revisiones de acceso de Azure AD
 
@@ -54,6 +54,10 @@ Puede revisar:
 
  - Un grupo de Azure AD con uno o más invitados como miembros.
  - Una aplicación conectada a Azure AD con uno o más usuarios invitados asignados a ella. 
+
+Al revisar el acceso de los usuarios invitados a los grupos de Microsoft 365, puede crear una revisión para cada grupo individualmente o activar las revisiones de acceso periódicas automáticas de los usuarios invitados en todos los grupos de Microsoft 365. En el vídeo siguiente se proporciona más información sobre las revisiones de acceso periódicas de los usuarios invitados: 
+
+> [!VIDEO https://www.youtube.com/watch?v=3D2_YW2DwQ8]
 
 A continuación, puede decidir si solicitar a cada invitado que revise su propio acceso o preguntar a uno o más usuarios que revise el acceso de cada invitado.
 

@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 04/08/2021
 ms.author: banders
-ms.openlocfilehash: 996c974473c53833dd26abae2fb61585999f33b4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ff53131f3078b33b7e7d853c1fca891b0b86d792
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050450"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484611"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Términos en la factura del contrato de cliente de Microsoft
 
@@ -29,6 +29,18 @@ Vea este vídeo con [información sobre la factura del Contrato de cliente de Mi
 ## <a name="billing-period"></a>Período de facturación
 
 Recibe facturas mensuales. Puede averiguar qué día del mes recibe las facturas si revisa la *fecha de la factura* en las propiedades del perfil de facturación en [Azure Portal](https://portal.azure.com/). Los cargos que se producen entre el final del período de facturación y la fecha de la factura se incluyen en la factura del próximo mes, puesto que se encuentran en el período de facturación	 siguiente. Las fechas de inicio y finalización del período de facturación para cada factura aparecen en el archivo PDF de la factura en **Resumen de facturación**.
+
+Si va a migrar de un Contrato Enterprise a un Contrato de cliente de Microsoft, seguirá recibiendo facturas de su Contrato Enterprise hasta el momento de la migración. La nueva factura del Contrato de cliente de Microsoft se genera el quinto día del mes después de la migración. La primera factura muestra un cargo parcial a partir de la fecha de migración. Las facturas posteriores se generan cada mes y muestran todos los cargos de cada mes.
+
+### <a name="changes-for-pay-as-you-go-subscriptions"></a>Cambios en las suscripciones de pago por uso
+
+Cuando se traslada, transfiere o cancela una suscripción, la última factura generada contiene los cargos del ciclo de facturación anterior y el nuevo ciclo de facturación incompleto.
+
+Por ejemplo:
+
+Suponga que el ciclo de facturación de la suscripción de pago por uso es todos los meses del día 8 al día 7 del mes siguiente. La suscripción se transfirió a un Contrato de cliente de Microsoft el 16 de noviembre. La última factura de pago por uso incluye los cargos del 8 de octubre de 2020 al 7 de noviembre de 2020. También incluye los cargos del nuevo ciclo de facturación parcial del Contrato de cliente de Microsoft del 8 de noviembre de 2020 al 16 de noviembre de 2020. A continuación se muestra una imagen de ejemplo.
+
+:::image type="content" source="./media/mca-understand-your-invoice/last-invoice-billing-cycle.png" alt-text="Imagen de ejemplo de una factura que muestra el último ciclo de facturación." lightbox="./media/mca-understand-your-invoice/last-invoice-billing-cycle.png" :::
 
 ## <a name="invoice-terms-and-descriptions"></a>Términos y descripciones de la factura
 

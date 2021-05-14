@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 982c33c5c55e32ce48131a4b2f0911e4f23dd408
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6358f5589e785cfadf243ee2017434aad5dd94a9
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98877295"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108176043"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Acceso condicional: Bloquear la autenticación heredada
 
@@ -43,6 +43,9 @@ Los pasos siguientes le ayudarán a crear una directiva de acceso condicional pa
    1. Elija **Seleccionar**.
 1. Confirme la configuración y establezca **Habilitar directiva** en **Solo informe**.
 1. Seleccione **Crear** para crear la directiva.
+
+> [!NOTE]
+> Las directivas de acceso condicional se aplican una vez que se completa la autenticación en una fase. El acceso condicional no pretende ser una primera línea de defensa de una organización en escenarios como los ataques por denegación de servicio (DoS), pero puede usar señales de estos eventos para determinar el acceso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

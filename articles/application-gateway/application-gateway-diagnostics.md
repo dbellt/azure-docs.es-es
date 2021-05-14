@@ -8,12 +8,13 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 32d96ce79844cd89e06035036bfa68703a738ed1
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a2571706d3b1341d6eb3751e50b699043b376767
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104950491"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108320662"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Mantenimiento del back-end y registros de diagnóstico para Application Gateway
 
@@ -306,7 +307,7 @@ El registro de firewall solo se genera si lo habilitó para cada instancia de Ap
 |ruleSetVersion     | Versión utilizada del conjunto de reglas. Los valores disponibles son 2.2.9 y 3.0.     |
 |ruleId     | Identificador de regla del evento desencadenador.        |
 |message     | Mensaje descriptivo para el evento desencadenador. En la sección de detalles se proporciona más información.        |
-|action     |  Acción realizada en la solicitud. Los valores disponibles son bloqueados y permitidos (para reglas personalizadas), coincidentes (cuando una regla coincide con una parte de la solicitud) y detectados y bloqueados (ambos son para las reglas obligatorias, dependiendo de si WAF está en modo de detección o prevención).      |
+|action     |  Acción realizada en la solicitud. Los valores disponibles son Bloqueados y Permitidos (para reglas personalizadas), Coincidentes (cuando una regla coincide con una parte de la solicitud) y Detectados y Bloqueados (ambos son para las reglas obligatorias, en función de si WAF está en modo de detección o prevención).      |
 |site     | Sitio para el que se generó el registro. Actualmente, solo se incluye Global porque las reglas son globales.|
 |detalles     | Detalles del evento desencadenador.        |
 |details.message     | Descripción de la regla.        |

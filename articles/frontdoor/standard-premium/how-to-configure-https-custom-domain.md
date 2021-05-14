@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
-ms.openlocfilehash: 3f3b4d3e431d9e24549bdb8caa4b2d17f547c82c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 5b14ac194d3cf08a11edc47a84825f447be79e34
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064059"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109516603"
 ---
 # <a name="configure-https-on-a-front-door-standardpremium-sku-preview-custom-domain-using-the-azure-portal"></a>Configuración de HTTPS en un dominio personalizado de la SKU de Front Door Estándar/Prémium (versión preliminar) mediante Azure Portal
 
@@ -49,7 +49,7 @@ Azure Front Door Estándar/Prémium admite tanto certificados administrados por
 
 1. Para validar y asociar el dominio personalizado a un punto de conexión, siga los pasos que se describen en la habitación de un [dominio personalizado](how-to-add-custom-domain.md).
 
-1. Una vez que el dominio personalizado se asocia correctamente al punto de conexión, un certificado administrado por Azure se implementa en Front Door. Este proceso puede tardar unos minutos en completarse.
+1. Una vez que el dominio personalizado se asocia correctamente al punto de conexión, un certificado administrado por Azure se implementa en Front Door. Este proceso puede tardar varios minutos en completarse.
 
 ## <a name="using-your-own-certificate"></a>Uso de su propio certificado
 

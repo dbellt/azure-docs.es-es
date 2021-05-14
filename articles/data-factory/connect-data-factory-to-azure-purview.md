@@ -1,20 +1,20 @@
 ---
 title: Conexión de Data Factory a Azure Purview
 description: Información sobre la conexión de Data Factory a Azure Purview
-ms.author: lle
-author: lrtoyou1223
+ms.author: jingwang
+author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 12/3/2020
-ms.openlocfilehash: 44f093f96d0f4653a6fcca94aaa97264c93e3c7d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fee7f240903f1a812b69fcc359225ea197c56293
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727947"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482424"
 ---
 # <a name="connect-data-factory-to-azure-purview-preview"></a>Conexión de Data Factory a Azure Purview (versión preliminar)
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]

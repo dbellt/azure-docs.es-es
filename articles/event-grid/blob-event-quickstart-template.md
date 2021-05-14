@@ -4,12 +4,12 @@ description: Use Azure Event Grid y una plantilla de Azure Resource Manager para
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: bfaee324f3e46f64fd4ad0d8b7e1240331b56c27
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 88eb547d2c63bdbe1d534d90d026d6857e91a66b
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92093657"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108072664"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Inicio rápido: Enrutamiento de eventos de almacenamiento de blobs a un punto de conexión web mediante una plantilla de Resource Manager
 
@@ -19,7 +19,7 @@ Azure Event Grid es un servicio de eventos para la nube. En este artículo, se u
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.eventgrid%2Fevent-grid-subscription-and-storage%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -40,9 +40,9 @@ Antes de suscribirse a los eventos de Blob Storage, vamos a crear el punto de co
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-event-grid-subscription-and-storage/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-subscription-and-storage).
 
-:::code language="json" source="~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.eventgrid/event-grid-subscription-and-storage/azuredeploy.json":::
 
 En la plantilla se definen dos recursos de Azure:
 
@@ -54,7 +54,7 @@ En la plantilla se definen dos recursos de Azure:
 
 1. Seleccione el vínculo siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea un almacén de claves y un secreto.
 
-    [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json)
+    [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.eventgrid%2Fevent-grid-subscription-and-storage%2Fazuredeploy.json)
 
 2. Especifique el **punto de conexión**: proporcione la dirección URL de la aplicación web y agregue `api/updates` a la dirección URL de la página principal.
 3. Seleccione **Comprar** para implementar la plantilla.

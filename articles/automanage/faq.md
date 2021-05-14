@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: 0b4e116210cf68dc672122ad4ddc98f85067f3b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5a9ff7661fda372631d1bb912b1c137b37c7e07
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688015"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363366"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Preguntas más frecuentes sobre Azure Automanage para máquinas virtuales
 
@@ -104,7 +104,10 @@ No, no se volverá a configurar con Automanage. Se iniciará la supervisión del
 
 **¿Por qué una máquina virtual tiene un estado de error en el portal de Automanage?**
 
-Si ve que el estado es *Erróneo*, puede solucionar los problemas de implementación a través del grupo de recursos donde se encuentra la máquina virtual. Vaya a **Grupos de recursos**, seleccione el grupo de recursos, haga clic en **Implementaciones** y consulte el estado *Erróneo* que aparece ahí junto con los detalles del error.
+Si ve el estado *Error*, puede solucionar problemas de la implementación de varias maneras diferentes:
+* Vaya a **Grupos de recursos**, seleccione el grupo de recursos, haga clic en **Implementaciones** y consulte el estado *Erróneo* que aparece ahí junto con los detalles del error.
+* Vaya a **Suscripciones**, seleccione el grupo de recursos, haga clic en **Implementaciones** y vea ahí el estado *Error* con sus detalles.
+* También puede visitar el registro de actividad de una máquina virtual, que contendrá una entrada para "crear o actualizar asignaciones de perfil de configuración". Esto también puede contener más detalles sobre la implementación.
 
 **¿Cómo se puede obtener ayuda para solucionar problemas de Automanage?**
 

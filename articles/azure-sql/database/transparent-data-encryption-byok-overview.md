@@ -12,19 +12,19 @@ author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 02/01/2021
-ms.openlocfilehash: b812a3feaa900914ef5f16f2f72270d9b6008371
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: b3403558cbc07d152bbae7e901464a8aa4a8e4d2
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107753045"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812775"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 El [Cifrado de datos transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) de Azure SQL con una clave administrada por el cliente habilita el escenario Bring Your Own Key (BYOK) para la protección de datos en reposo y permite a las organizaciones implementar la separación de tareas en la administración de claves y datos. Con el cifrado de datos transparente administrado por el cliente, el cliente es responsable y tiene el control total de la administración del ciclo de vida de una clave (creación, carga, rotación y eliminación), de los permisos de uso de claves y de la auditoría de operaciones con clave.
 
-En este escenario, la clave que se usa para el cifrado de la clave de cifrado de base de datos (DEK), denominada protector de TDE, es una clave asimétrica administrada por el cliente que se almacena en una instancia propiedad del cliente y administrada por él de [Azure Key Vault (AKV)](../../key-vault/general/security-overview.md), un sistema de administración de claves externas basado en la nube. Key Vault ofrece un almacenamiento seguro de alta disponibilidad y escalabilidad para claves criptográficas RSA respaldado opcionalmente por módulos de seguridad de hardware (HSM) con certificación FIPS 140-2 nivel 2. No permite el acceso directo a una clave almacenada, sino que proporciona servicios de cifrado y descifrado mediante el uso de la clave en las entidades autorizadas. La clave puede generarse desde el almacén de claves, así como importarse o [transferirse al almacén de claves desde un dispositivo HSM local](../../key-vault/keys/hsm-protected-keys.md).
+En este escenario, la clave que se usa para el cifrado de la clave de cifrado de base de datos (DEK), denominada protector de TDE, es una clave asimétrica administrada por el cliente que se almacena en una instancia propiedad del cliente y administrada por él de [Azure Key Vault (AKV)](../../key-vault/general/security-features.md), un sistema de administración de claves externas basado en la nube. Key Vault ofrece un almacenamiento seguro de alta disponibilidad y escalabilidad para claves criptográficas RSA respaldado opcionalmente por módulos de seguridad de hardware (HSM) con certificación FIPS 140-2 nivel 2. No permite el acceso directo a una clave almacenada, sino que proporciona servicios de cifrado y descifrado mediante el uso de la clave en las entidades autorizadas. La clave puede generarse desde el almacén de claves, así como importarse o [transferirse al almacén de claves desde un dispositivo HSM local](../../key-vault/keys/hsm-protected-keys.md).
 
 En Azure SQL Database y Azure Synapse Analytics, el protector de TDE se establece en el nivel de servidor y todas las bases de datos cifradas asociadas a dicho servidor lo heredan. En el caso de la Instancia administrada de Azure SQL Database, el protector de TDE se establece en el nivel de instancia y lo heredan todas las bases de datos cifradas que se encuentren en dicha instancia. A menos que se indique lo contrario, a lo largo de este documento el término *servidor* hace referencia tanto a un servidor en SQL Database y Azure Synapse, como a una instancia administrada en Instancia administrada de SQL.
 

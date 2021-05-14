@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 41f6db8cf2454c224addac525e9d039954a95712
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30c3ecb64b8fdb2ff1bf3569803b07d9f0646347
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104601506"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138092"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>Tutorial: Integración de Azure Active Directory con Dropbox Business
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Dropbox Business con Azure Active Direct
 * Permitir que los usuarios inicien sesión automáticamente en Dropbox Business con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -85,6 +85,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     
      b. En el cuadro de texto **Identificador (id. de entidad)** , escriba el valor: `Dropbox`
     
+    c. En el campo **URL de respuesta**, escriba `https://www.dropbox.com/saml_login`.
     > [!NOTE]
     > El **identificador de inicio de sesión único de Dropbox** se puede encontrar en el sitio de Dropbox en Dropbox > Admin console > Settings > Single sign-on > SSO sign-in URL (Dropbox > Consola de administración > Configuración > Inicio de sesión único > Dirección URL de inicio de sesión único).
 

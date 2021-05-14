@@ -1,17 +1,17 @@
 ---
 title: Copia de datos desde Cassandra mediante Azure Data Factory
 description: Obtenga información sobre cómo copiar datos desde Cassandra a almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.author: jingwang
-ms.openlocfilehash: a3cd3c3ae28ae302e9469a71d00054152a9b5fb5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: 50aa5053cf7eff3a56b9afe37dcded033b6988b9
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100383711"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487410"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copia de datos desde Cassandra mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -41,13 +41,13 @@ En concreto, este conector Cassandra admite lo siguiente:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 El entorno Integration Runtime proporciona un controlador de Cassandra integrado, por lo tanto, no es necesario instalar manualmente los controladores cuando se copian datos desde Cassandra.
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Las secciones siguientes proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector Cassandra.
 

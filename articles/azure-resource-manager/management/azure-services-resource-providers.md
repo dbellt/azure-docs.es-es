@@ -3,12 +3,13 @@ title: Proveedores de recursos por servicios de Azure
 description: Se enumeran todos los espacios de nombres de proveedor de recursos para Azure Resource Manager y se muestra el servicio de Azure para ese espacio de nombres.
 ms.topic: conceptual
 ms.date: 03/16/2021
-ms.openlocfilehash: f33017713d8154fb56472ad5f53b97b22d32e0e3
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 40c166a85da1ad5370b6e90096061790f1c77d49
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167879"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745746"
 ---
 # <a name="resource-providers-for-azure-services"></a>Proveedores de recursos para servicios de Azure
 
@@ -80,7 +81,6 @@ Los proveedores de recursos con la marca **registrado** se registran de forma pr
 | Microsoft.DBforMariaDB | [Azure Database for MariaDB](../../mariadb/index.yml) |
 | Microsoft.DBforMySQL | [Azure Database for MySQL](../../mysql/index.yml) |
 | Microsoft.DBforPostgreSQL | [Azure Database para PostgreSQL](../../postgresql/index.yml) |
-| Microsoft.DeploymentManager | [Azure Deployment Manager](../templates/deployment-manager-overview.md) |
 | Microsoft.DesktopVirtualization | [Windows Virtual Desktop](../../virtual-desktop/index.yml) |
 | Microsoft.Devices | [Azure IoT Hub](../../iot-hub/index.yml)<br />[Servicio Azure IoT Hub Device Provisioning](../../iot-dps/index.yml) |
 | Microsoft.DevOps | [Azure DevOps](/azure/devops/) |
@@ -158,7 +158,6 @@ Los proveedores de recursos con la marca **registrado** se registran de forma pr
 | Microsoft.SerialConsole: [registrado](#registration) | [Consola serie de Azure para Windows](/troubleshoot/azure/virtual-machines/serial-console-windows) |
 | Microsoft.ServiceBus | [Service Bus](/azure/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |
-| Microsoft.ServiceFabricMesh | [Service Fabric Mesh](../../service-fabric-mesh/index.yml) |
 | Microsoft.Services | core |
 | Microsoft.SignalRService | [Servicio Azure SignalR](../../azure-signalr/index.yml) |
 | Microsoft.SoftwarePlan | Licencia |

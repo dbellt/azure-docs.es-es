@@ -8,20 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 04/22/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dd21c1dca0dd54331780ba98f9c53d5b99d6b4e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: abe9d9cd46c7d4cbcb383ee9a37fc84cd64fcea8
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100557235"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107896016"
 ---
-# <a name="set-up-phone-sign-up-and-sign-in-for-user-flows-preview"></a>Configuración del registro e inicio de sesión telefónico para flujos de usuario (versión preliminar)
-
-> [!NOTE]
-> Las características de correo electrónico de recuperación y de registro e inicio de sesión telefónico para flujos de usuario se encuentran en versión preliminar pública.
+# <a name="set-up-phone-sign-up-and-sign-in-for-user-flows"></a>Configuración del registro e inicio de sesión telefónico para flujos de usuario
 
 Además del correo electrónico y el nombre de usuario, puede habilitar el número de teléfono como opción de registro para todo el inquilino agregando el registro e inicio de sesión telefónico al proveedor de identidades de la cuenta local. Después de habilitar el registro e inicio de sesión telefónico para cuentas locales, puede agregar el registro telefónico a los flujos de usuario.
 
@@ -32,6 +29,8 @@ La configuración del registro e inicio de sesión telefónico en un flujo de us
 - [Agregue el registro telefónico al flujo de usuario](#add-phone-sign-up-to-a-user-flow) para permitir a los usuarios registrarse en la aplicación con su número de teléfono.
 
 - [Habilite la solicitud de correo electrónico de recuperación (versión preliminar)](#enable-the-recovery-email-prompt-preview) para permitir a los usuarios especificar un correo electrónico que se pueda usar para recuperar su cuenta cuando no tengan su teléfono.
+
+- [Muestre información de consentimiento](#enable-consent-information) al usuario durante el flujo de registro o de inicio de sesión. Puede mostrar la información de consentimiento predeterminada o personalizar su propia información de consentimiento.
 
 La autenticación multifactor (MFA) se deshabilita de forma predeterminada al configurar un flujo de usuario con el registro telefónico. Puede habilitar MFA en los flujos de usuario con el registro telefónico, pero como el número de teléfono se usa como identificador principal, el código de acceso de un solo uso de correo electrónico es la única opción disponible para el segundo factor de autenticación.
 
@@ -139,6 +138,44 @@ Una vez que haya habilitado el registro e inicio de sesión telefónico y la sol
    - A un usuario que ya se haya registrado pero no haya proporcionado un correo electrónico de recuperación se le pedirá que proporcione uno al iniciar sesión.
 
 4. Escriba una dirección de correo electrónico y, a continuación, seleccione **Enviar código de verificación**. Compruebe que se envía un código a la bandeja de entrada del correo electrónico que ha proporcionado. Recupere el código y escríbalo en el cuadro **Código de verificación**. A continuación, seleccione **Verificar código**.
+
+## <a name="enable-consent-information"></a>Habilitación de la información de consentimiento
+
+Se recomienda encarecidamente incluir información de consentimiento en el flujo de registro e inicio de sesión. Se proporciona texto de ejemplo. Consulte el documento Short Code Monitoring Handbook en el [sitio web de CTIA](https://www.ctia.org/programs) y póngase en contacto con sus propios expertos legales o de cumplimiento para obtener instrucciones sobre el texto final y la configuración de características que satisfacen sus propias necesidades de cumplimiento:
+>
+> *Al proporcionar su número de teléfono, da su consentimiento a recibir un código de acceso de un solo uso enviado por mensaje de texto para ayudarle a iniciar sesión en *&lt;insert: el nombre de la aplicación&gt;* . Se pueden aplicar tarifas de datos y mensajes.*
+>
+> *&lt;insert: un vínculo a la declaración de privacidad&gt;*<br/>*&lt;insert: un vínculo a los términos de servicio&gt;*
+
+Para habilitar la información de consentimiento
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+2. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+3. En Azure Portal, busque y seleccione **Azure AD B2C**.
+4. En Azure AD B2C, en **Directivas**, seleccione **Flujos de usuario**.
+5. Seleccione el flujo de usuario de la lista.
+6. En **Personalizar**, seleccione **Idiomas.**
+7. Para mostrar el texto de consentimiento, seleccione **Habilitación de la personalización de idioma**.
+  
+    ![Habilitación de la personalización de idioma](./media/phone-authentication-user-flows/enable-language-customization.png)
+
+8. Para personalizar la información de consentimiento, seleccione un idioma en la lista.
+9. En el panel de idiomas, seleccione **Phone signIn page** (Página de inicio de sesión por teléfono).
+10. Seleccione Descargar valores predeterminados.
+
+    ![Descargar valores predeterminados](./media/phone-authentication-user-flows/phone-sign-in-language-override.png)
+
+11. Abra el archivo JSON descargado. Busque el texto siguiente y personalícelo:
+
+    - **disclaimer_link_1_url**: cambie **override** a "true" y agregue la dirección URL de la información de privacidad.
+
+    - **disclaimer_link_2_url**: cambie **override** a "true" y agregue la dirección URL para los términos de uso.  
+
+    - **disclaimer_msg_intro**: cambie **override** a "true" y cambie **value** a las cadenas de declinación de responsabilidades deseadas.  
+
+12. Guarde el archivo. En **Upload new overrides** (Cargar nuevos reemplazos) busque el archivo y selecciónelo. Confirme que ve la notificación "Se cargaron correctamente los reemplazos.".
+
+13. Seleccione **Phone signUp page** (Página de registro por teléfono) y repita los pasos del 10 al 12. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

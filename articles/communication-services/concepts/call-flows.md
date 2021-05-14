@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 7651142d1c2b24da64d9f72dd2300dc0c3807e93
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 70ece71d1f342ac355878afd592964525ac962fe
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937882"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108016642"
 ---
 # <a name="call-flow-basics"></a>Conceptos básicos del flujo de llamadas
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include-phone-numbers.md)]
 
 En la sección siguiente se ofrece información general sobre los flujos de llamadas en Azure Communication Services. Los flujos de señalización y multimedia dependen de los tipos de llamadas que realizan los usuarios. Algunos ejemplos de tipos de llamadas son VoIP de uno a uno, RTC de uno a uno y llamadas de grupo que contienen una combinación de participantes de VoIP y conectados a RTC. Revise [Tipos de llamada](./voice-video-calling/about-call-types.md).
 

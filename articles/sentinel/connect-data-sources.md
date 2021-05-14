@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 936789ef292ac6d06b9fd3ac1e9a81219f39e4ef
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: c4bcfb6c2814fb6b2e1260dad2a0546de21c5ae8
+ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307833"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107992114"
 ---
 # <a name="connect-data-sources"></a>Conexión con orígenes de datos
 
@@ -56,7 +56,7 @@ Los siguientes métodos de conexión de datos son compatibles con Azure Sentinel
     - [Azure Web Application Firewall (WAF)](connect-azure-waf.md) (anteriormente conocido como Microsoft WAF)
     - [Cloud App Security](connect-cloud-app-security.md)
     - [Servidor de nombres de dominio](connect-dns.md)
-    - [Microsoft 365 Defender](connect-microsoft-365-defender.md): incluye incidentes de M365D y datos sin procesar de MDE
+    - [Microsoft 365 Defender](connect-microsoft-365-defender.md): incluye incidentes de M365D y datos sin procesar de Defender para punto de conexión.
     - [Microsoft Defender para Endpoint](connect-microsoft-defender-advanced-threat-protection.md) (anteriormente Protección contra amenazas avanzada de Microsoft)
     - [Microsoft Defender for Identity](connect-azure-atp.md) (anteriormente Azure ATP)
     - [Microsoft Defender para Office 365](connect-office-365-advanced-threat-protection.md) (anteriormente conocido como Protección contra amenazas avanzada de Office 365)

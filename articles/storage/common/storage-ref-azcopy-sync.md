@@ -8,16 +8,16 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: dc3451a4b46a317dccda0e4292dcb1712b4171f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83d10a7a6e9eb14379d32cc88800a2c443feac60
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98878314"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503055"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
-Replica la ubicación de origen en la ubicación de destino.
+Replica la ubicación de origen en la ubicación de destino. En este artículo se proporciona una referencia detallada del comando azcopy sync. Para más información sobre la sincronización de blobs entre las ubicaciones de origen y destino, consulte [Sincronización con Azure Blob Storage mediante AzCopy v10](storage-use-azcopy-blobs-synchronize.md). Para Azure Files, consulte [Sincronización de archivos](storage-use-azcopy-files.md#synchronize-files).
 
 ## <a name="synopsis"></a>Sinopsis
 
@@ -38,9 +38,9 @@ El comando sync difiere del comando copy de varias maneras:
 ## <a name="related-conceptual-articles"></a>Artículos conceptuales relacionados
 
 - [Introducción a AzCopy](storage-use-azcopy-v10.md)
+- [Tutorial: Migración de datos locales a un almacenamiento en la nube con AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 - [Transferencia de datos con AzCopy y Blob Storage](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferencia de datos con AzCopy y File Storage](storage-use-azcopy-files.md)
-- [Configurar, optimizar y solucionar problemas de AzCopy](storage-use-azcopy-configure.md)
 
 ### <a name="advanced"></a>Avanzado
 

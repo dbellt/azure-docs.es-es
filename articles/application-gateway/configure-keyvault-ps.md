@@ -8,12 +8,13 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: 8f8bc517e70ac84cc7507a958213c7ca4e53d864
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b39ea6835844c21679f6fa026e9a2439032ef329
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313052"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108317800"
 ---
 # <a name="configure-tls-termination-with-key-vault-certificates-using-azure-powershell"></a>Configuración de la terminación TLS con certificados de Key Vault mediante Azure PowerShell
 

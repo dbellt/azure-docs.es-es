@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: efa5c3192ca6f51c219cc308a776e6db7212103c
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 6cf70a6cfa4b1bf0f8d065872698d16977b4cb59
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552247"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127756"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -301,7 +301,7 @@ Puede actualizar el ancho de banda del circuito ExpressRoute mediante el cmdlet 
 
 ### <a name="i-received-a-notification-about-maintenance-on-my-expressroute-circuit-what-is-the-technical-impact-of-this-maintenance"></a>He recibido una notificación sobre el mantenimiento del circuito ExpressRoute. ¿Cuál es el impacto técnico de este mantenimiento?
 
-Si opera el circuito en [modo activo-activo](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute#active-active-connections), debería experimentar un impacto mínimo o negativo durante el mantenimiento. Realizamos el mantenimiento en las conexiones principales y secundarias del circuito por separado. El mantenimiento programado normalmente se realiza fuera del horario comercial en la zona horaria de la ubicación de emparejamiento y no se puede seleccionar una hora de mantenimiento.
+Si opera el circuito en [modo activo-activo](./designing-for-high-availability-with-expressroute.md#active-active-connections), debería experimentar un impacto mínimo o negativo durante el mantenimiento. Realizamos el mantenimiento en las conexiones principales y secundarias del circuito por separado. El mantenimiento programado normalmente se realiza fuera del horario comercial en la zona horaria de la ubicación de emparejamiento y no se puede seleccionar una hora de mantenimiento.
 
 ### <a name="i-received-a-notification-about-a-software-upgrade-or-maintenance-on-my-expressroute-gateway-what-is-the-technical-impact-of-this-maintenance"></a>He recibido una notificación sobre una actualización de software o mantenimiento en la puerta de enlace de ExpressRoute. ¿Cuál es el impacto técnico de este mantenimiento?
 

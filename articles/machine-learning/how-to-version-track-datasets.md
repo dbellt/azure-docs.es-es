@@ -5,18 +5,18 @@ description: Obtenga información sobre cómo controlar las versiones de los con
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: sihhu
-author: MayMSFT
+ms.author: cgronlun
+author: cjgronlund
 ms.reviewer: nibaccam
 ms.date: 03/09/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: fde25e4ba75bfb86c9837582d7168f85335836b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: how-to
+ms.custom: devx-track-python, data4ml
+ms.openlocfilehash: ce1a938b3fac9e22afdf858b37a57ef77a914b35
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102520547"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734853"
 ---
 # <a name="version-and-track-azure-machine-learning-datasets"></a>Control de versiones y seguimiento de conjuntos de datos de Azure Machine Learning
 

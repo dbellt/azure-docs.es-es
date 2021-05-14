@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 02/18/2021
-ms.openlocfilehash: 66e4d498ff7584188d680e35c89c6f10cc43c9cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7dfaf8e8afb4d7a5e39c16cf280c10dcae05859
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104604498"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133050"
 ---
 # <a name="reference-architecture-diagram"></a>Diagrama de arquitectura de referencia
 
@@ -39,4 +39,4 @@ Este diagrama de arquitectura de referencia de ejemplo corresponde a un bot de c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Configuración de la venta conjunta para una oferta del marketplace comercial](commercial-marketplace-co-sell.md)
+- [Configuración de la venta conjunta para una oferta del marketplace comercial](./co-sell-configure.md)

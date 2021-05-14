@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo ver y consultar los datos de telem
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d06fe64ddc0475b5ca7d9c16876c8dfc9acda544
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 47d5bbf8d8a1f85c4f9441076ef29ffd94710947
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101729375"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108064132"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Análisis de la telemetría de Azure Functions en Application Insights 
 
@@ -146,7 +146,7 @@ Además de los datos de telemetría recopilados por Application Insights, tambi�
 
 | Métrica | Descripción |
 | ---- | ---- |
-| **FunctionExecutionCount** | El número de ejecuciones de función indica el número de veces que se ha ejecutado la aplicación de funciones. Este valor se correlaciona con el número de veces que se ejecuta una función en la aplicación. Esta métrica no se admite actualmente en los planes Prémium y Dedicado (App Service) que se ejecutan en Linux. |
+| **FunctionExecutionCount** | El número de ejecuciones de función indica el número de veces que se ha ejecutado la aplicación de funciones. Este valor se correlaciona con el número de veces que se ejecuta una función en la aplicación. |
 | **FunctionExecutionUnits** | Las unidades de ejecución de función son una combinación del tiempo de ejecución y el uso de memoria.  Los datos de memoria no son una métrica disponible actualmente en Azure Monitor. Sin embargo, si desea optimizar el uso de memoria de la aplicación, puede utilizar los datos del contador de rendimiento recopilados por Application Insights. Esta métrica no se admite actualmente en los planes Prémium y Dedicado (App Service) que se ejecutan en Linux.|
 
 Para más información sobre el cálculo de los costos de un plan de consumo con datos de Application Insights, consulte [Estimación de los costos según el plan de consumo](functions-consumption-costs.md). Para más información sobre el uso del explorador de supervisión para ver las métricas, consulte [Introducción al Explorador de métricas de Azure](../azure-monitor/essentials/metrics-getting-started.md).

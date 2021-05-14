@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 09/05/2019
+ms.date: 04/13/2021
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: afb6efcee2ad4f5cf25a411eed353ff2fc27d75c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab94a83a64ca9770f0c216ddf42145b262629c6d
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96460795"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107598999"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Optimización del rendimiento con el índice de almacén de columnas agrupado ordenado  
 
@@ -44,7 +44,7 @@ FROM sys.pdw_nodes_partitions AS pnp
    JOIN sys.pdw_nodes_column_store_segments AS cls ON pnp.partition_id = cls.partition_id AND pnp.distribution_id  = cls.distribution_id
 JOIN sys.columns as cols ON o.object_id = cols.object_id AND cls.column_id = cols.column_id
 WHERE o.name = '<Table Name>' and cols.name = '<Column Name>'  and TMap.physical_name  not like '%HdTable%'
-ORDER BY o.name, pnp.distribution_id, cls.min_data_id 
+ORDER BY o.name, pnp.distribution_id, cls.min_data_id;
 
 
 ```
@@ -66,7 +66,7 @@ En este ejemplo, la tabla T1 tiene un índice de almacén de columnas en clúste
 ```sql
 
 CREATE CLUSTERED COLUMNSTORE INDEX MyOrderedCCI ON  T1
-ORDER (Col_C, Col_B, Col_A)
+ORDER (Col_C, Col_B, Col_A);
 
 ```
 
@@ -134,6 +134,13 @@ La creación de un CCI ordenado es una operación sin conexión.  En el caso de 
 5.    Repita los pasos 3 y 4 para cada partición de la tabla A.
 6.    Una vez que todas las particiones se han cambiado de la tabla A a la tabla B y se han vuelto a generar, elimine la tabla A y cambie el nombre de la tabla B a tabla A. 
 
+>[!TIP]
+> Para una tabla del grupo de SQL dedicada con un CCI ordenado, ALTER INDEX REBUILD volverá a ordenar los datos mediante tempdb. Supervise tempdb durante las operaciones de recompilación. Si necesita más espacio en tempdb, escale verticalmente el grupo. Vuelva a reducirlo verticalmente una vez completada la recompilación del índice.
+>
+> Para una tabla del grupo de SQL dedicada con un CCI ordenado, ALTER INDEX REORGANIZE no vuelve a ordenar los datos. Para volver a ordenar los datos, use ALTER INDEX REBUILD.
+>
+> Para obtener más información sobre el mantenimiento de CCI ordenado, consulte [Optimización de índices de almacén de columnas en clúster](sql-data-warehouse-tables-index.md#optimizing-clustered-columnstore-indexes).
+
 ## <a name="examples"></a>Ejemplos
 
 **A. Para comprobar las columnas ordenadas y el ordinal del orden:**
@@ -142,15 +149,15 @@ La creación de un CCI ordenado es una operación sin conexión.  En el caso de 
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
 FROM sys.index_columns i 
 JOIN sys.columns c ON i.object_id = c.object_id AND c.column_id = i.column_id
-WHERE column_store_order_ordinal <>0
+WHERE column_store_order_ordinal <>0;
 ```
 
 **B. Para cambiar el ordinal de la columna, agregar o eliminar columnas de la lista de ordenación o cambiar de CCI a CCI ordenado:**
 
 ```sql
-CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON  InternetSales
+CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON dbo.InternetSales
 ORDER (ProductKey, SalesAmount)
-WITH (DROP_EXISTING = ON)
+WITH (DROP_EXISTING = ON);
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

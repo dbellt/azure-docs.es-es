@@ -9,12 +9,12 @@ ms.subservice: enterprise
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 643aac7927cc7b14693387fbb5765bdcd0214dc2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 5d945c421dc0a4abed17b3a355339c131dd922df
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598255"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728057"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Descripción de la factura de Azure Enterprise
 
@@ -396,51 +396,6 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 
     Puede obtener la clave de API en Azure Enterprise Portal, en la pestaña **Descargar uso**. Seleccione **API Access Key** (Clave de acceso de la API) y, a continuación, pegue la clave en el cuadro **Clave de cuenta**.
 1. Los datos tardarán aproximadamente de 5 a 30 minutos en cargarse en Power BI, según el tamaño de los conjuntos de datos.
-
-## <a name="reports-faq"></a>Preguntas más frecuentes sobre informes
-
-En esta sección se tratan las preguntas comunes sobre los informes.
-
-### <a name="why-is-my-cost-showing-as-0"></a>¿Por qué se muestra el costo como $0?
-
-Por los clientes de **inscripción directa**, los administradores de empresa pueden proporcionar a los propietarios de la cuenta y administradores de departamento acceso a la información de costos y precios en los informes de uso. Siga estos pasos:
-
-1. En Azure Enterprise Portal, seleccione **Administrar** en el panel de navegación izquierdo.
-1. Seleccione el lápiz azul que hay junto a DA View Charges (El administrador del departamento ve los cargos).
-1. Seleccione **Enabled** (Habilitado) y guarde.
-1. Seleccione el lápiz azul que hay junto a AO View Charges (El propietario de la cuenta ve los cargos).
-1. Seleccione **Enabled** (Habilitado) y guarde.
-
-> [!NOTE]
-> Si es propietario de la cuenta o administrador de departamento, póngase en contacto con su administrador de empresa para habilitar la característica de precios.
-
-Para los clientes de **inscripción indirecta**, consulte con su partner para comprobar que haya habilitado la característica de precios por usted. Esto solo lo puede realizar el partner. Una vez habilitado, puede ver los costos y los precios de su inscripción como administrador de empresa.
-
-Si un partner desea habilitar la característica para ver los cargos para un administrador de la cuenta o administrador de departamento, debe seguir los pasos descritos en **inscripción directa**.
-
-### <a name="why-is-there-no-sku-information-on-my-usage-detail-report"></a>¿Por qué no hay información de SKU en el informe de detalles de uso?
-
-El informe de detalles de uso no contiene información de SKU. Sin embargo, el informe sí contiene información de uso para que pueda descargar el informe de la hoja de precios para obtener la información de las SKU.
-
-### <a name="why-doesnt-the-total-amount-on-azure-marketplace-match-the-reports-for-usage-summary-and-detail"></a>¿Por qué la cantidad total en Azure Marketplace no coincide con los informes de resumen y detalles de uso?
-
-El informe de cargos de Azure Marketplace muestra solo los cargos basados en el uso. No se muestran las tarifas puntuales. Consulte la página de resumen de uso para ver los cargos más actualizados basados en el uso y las tarifas puntuales.
-
-### <a name="why-is-there-no-information-on-my-api-report"></a>¿Por qué no hay información en el informe de la API?
-
-Las claves de API expiran cada seis meses. Si tiene algún problema, un administrador de empresa debe generar una nueva clave de API. Recuerde seguir los pasos descritos en las preguntas más frecuentes sobre informes de API.
-
-### <a name="why-isnt-my-power-bi-report-working"></a>¿Por qué mi informe de Power BI no funciona?
-
-Si tiene problemas con Power BI, registre un vale en el [equipo de Soporte técnico de Power BI](https://support.powerbi.com).
-
-### <a name="why-dont-my-resource-tags-show-on-my-reports"></a>¿Por qué las etiquetas de recursos no aparecen en mis informes?
-
-Las etiquetas de recursos se administran en Azure Portal. Puede ponerse en contacto con el equipo de suscripciones de Azure en [Azure Portal](https://portal.azure.com). Siga los pasos descritos en el artículo [Creación de una solicitud de soporte técnico de Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md).
-
-### <a name="why-does-my-resource-rate-change-every-day"></a>¿Por qué cambia la tasa de recursos cada día?
-
-La tasa de recursos que se muestra en el informe de detalles de uso es un valor calculado. Representa la tasa mensual media que se cargó por el servicio. Esta tasa de recursos se calcula a partir del promedio del compromiso mensual y los cargos mensuales de uso por encima del límite de una unidad de servicio. La parte del uso que se aplica a las tasas de uso por encima del límite y al compromiso cambia hasta el día en que se cierre el mes. Por lo tanto, la tasa de recursos que se enumera también cambia durante el mes. La tasa de recursos se bloquea al quinto día después del final del mes.
 
 ### <a name="glossary-of-processes-for-calculating-the-resource-rate"></a>Glosario de procesos para calcular la tasa de recursos
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: 67ab4c8cf079adaf3b38cdcc30abeec43cd4612f
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 70a0ecb6e9ff2707401517e185964edf512a94c9
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505202"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204268"
 ---
 # <a name="data-storage"></a>Almacenamiento de datos
 
@@ -53,7 +53,7 @@ Los datos del almacenamiento intermedio solo están disponibles mediante las [AP
 
 * Cuando está habilitado, todos los datos transmitidos al entorno se enrutarán al almacenamiento intermedio, independientemente de la marca de tiempo del evento. Tenga en cuenta que la canalización de ingesta de streaming está diseñada para el streaming casi en tiempo real y [no se admite](./concepts-streaming-ingestion-event-sources.md#historical-data-ingestion) la ingesta de eventos históricos.
 * El período de retención se calcula en función del momento en el que el evento se indexa en el almacenamiento intermedio, no según la marca de tiempo del evento. Esto significa que los datos ya no están disponibles en el almacenamiento intermedio una vez transcurrido el período de retención, incluso si la marca de tiempo del evento es para el futuro.
-  * Ejemplo: un evento con pronósticos meteorológicos de 10 días se ingiere y se indexa en un contenedor de almacenamiento intermedio configurado con un período de retención de 7 días. Después de 7 días, el pronóstico no estará accesible en el almacenamiento intermedio, pero se puede consultar desde el almacenamiento en reposo.
+  * Ejemplo: un evento con pronósticos meteorológicos de 10 días se ingiere y se indexa en un contenedor de almacenamiento intermedio configurado con un período de retención de 7 días. Después de siete días, el pronóstico no estará accesible en el almacenamiento intermedio, pero se puede consultar desde el almacenamiento en reposo.
 * Si habilita el almacenamiento intermedio en un entorno existente que ya tiene datos recientes indexados en el almacenamiento en reposo, tenga en cuenta que el almacenamiento intermedio no se rellenará con estos datos.
 * Si acaba de habilitar el almacenamiento intermedio y experimenta problemas al ver los datos recientes en el explorador, puede desactivar temporalmente las consultas del almacenamiento intermedio:
 
@@ -70,6 +70,9 @@ Para obtener una descripción detallada de Azure Blob Storage, lea [Introducció
 Azure Time Series Insights Gen2 conserva un máximo de dos copias de cada evento en su cuenta de Azure Storage. Una copia almacena los eventos ordenados por hora de ingesta, permitiendo siempre el acceso a los eventos en una secuencia ordenada por tiempo. Con el tiempo, Azure Time Series Insights Gen2 también crea una copia con una nueva partición de los datos que se van a optimizar para las consultas eficaces.
 
 Todos los datos se almacenan de forma indefinida en su cuenta de Azure Storage.
+
+> [!WARNING]
+> No restrinja el acceso a través de una red de Internet pública a la cuenta de almacenamiento usada por Time Series Insights o, de lo contrario, se interrumpirá la conexión necesaria.
 
 #### <a name="writing-and-editing-blobs"></a>Escritura y edición de blobs
 

@@ -1,19 +1,19 @@
 ---
-title: 'Conexión de una red local a una instancia de Azure Virtual Network con una VPN de sitio a sitio: PowerShell'
-description: Cree una conexión de puerta de enlace VPN de sitio a sitio de IPsec desde la red local a una red virtual de Azure a través de la red pública de Internet mediante PowerShell.
+title: 'Conexión de una red local a una red virtual de Azure: VPN de sitio a sitio: PowerShell'
+description: Aprenda a crear una conexión de puerta de enlace de VPN de sitio a sitio entre la red local y una red virtual de Azure mediante PowerShell.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 1488aa6f48c05a8c2dfa2c6162c1bd1df35d4f58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3f9b408cd6f6fbeb9123f8e2dc506b14fe0427a1
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100380511"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229709"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Creación de una red virtual con una conexión VPN de sitio a sitio mediante PowerShell
 

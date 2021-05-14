@@ -19,11 +19,11 @@
 - name: Tutoriales
   items:
     - name: Implementación y configuración
-      href: tutorial-firewall-deploy-portal.md
+      href: tutorial-firewall-deploy-portal-policy.md
     - name: Implementación en redes híbridas
-      href: tutorial-hybrid-portal.md
+      href: tutorial-hybrid-portal-policy.md
     - name: Filtrado del tráfico de entrada con DNAT
-      href: tutorial-firewall-dnat.md
+      href: tutorial-firewall-dnat-policy.md
 - name: Ejemplos
   items:
     - name: Azure PowerShell
@@ -63,13 +63,21 @@
     - name: Nombre de dominio completo en las reglas de red
       href: fqdn-filtering-network-rules.md
     - name: Línea de base de seguridad
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/firewall-security-baseline?toc=/azure/firewall/toc.json
     - name: Compatibilidad con FTP activa
       href: active-ftp-support.md
 - name: Guías paso a paso
   items:
+    - name: 'Implementación y configuración: clásico'
+      href: tutorial-firewall-deploy-portal.md
+    - name: 'Implementación en redes híbridas: clásico'
+      href: tutorial-hybrid-portal.md
+    - name: 'Filtrado del tráfico de entrada con DNAT: clásico'
+      href: tutorial-firewall-dnat.md
     - name: Implementación mediante Azure PowerShell
       href: deploy-ps.md
+    - name: Implementación de directivas mediante Azure PowerShell
+      href: deploy-ps-policy.md
     - name: 'Implementación en redes híbridas: PowerShell'
       href: tutorial-hybrid-ps.md
     - name: Implementación con la CLI de Azure
@@ -103,10 +111,12 @@
       href: premium-deploy-certificates-enterprise-ca.md
     - name: Migración a Azure Firewall Prémium
       href: premium-migrate.md
+    - name: Escalado de puertos SNAT de salida
+      href: integrate-with-nat-gateway.md
 - name: Referencia
   items:
     - name: Azure CLI
-      href: /cli/azure/ext/azure-firewall/network/firewall
+      href: /cli/azure/network/firewall
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewall
     - name: .NET

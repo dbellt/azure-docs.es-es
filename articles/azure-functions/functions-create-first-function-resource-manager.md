@@ -4,13 +4,13 @@ description: Cree e implemente en Azure una función sencilla sin servidor desen
 ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: subject-armqs
-ms.openlocfilehash: 1e623405faa89ff41eccdaa57578bc8ac94cd78c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-armqs, devx-track-azurepowershell
+ms.openlocfilehash: 708e66cdf41dbe144ac1178ebf54279b32870910
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93422831"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277946"
 ---
 # <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Inicio rápido: Creación e implementación de recursos de Azure Functions a partir de una plantilla de Resource Manager
 
@@ -22,7 +22,7 @@ Este inicio rápido supone un pequeño costo en su cuenta de Azure.
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-function-app-create-dynamic%2Fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Ffunction-app-create-dynamic%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -70,7 +70,7 @@ Una vez que haya creado el proyecto de forma local, debe crear los recursos nece
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-function-app-create-dynamic/).
 
-:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json":::
 
 Los siguientes cuatro recursos de Azure se han creado mediante esta plantilla:
 
@@ -85,7 +85,7 @@ Los siguientes cuatro recursos de Azure se han creado mediante esta plantilla:
 ```azurecli-interactive
 read -p "Enter a resource group name that is used for generating resource names:" resourceGroupName &&
 read -p "Enter the location (like 'eastus' or 'northeurope'):" location &&
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json" &&
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json" &&
 az group create --name $resourceGroupName --location "$location" &&
 az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri &&
 echo "Press [ENTER] to continue ..." &&
@@ -96,7 +96,7 @@ read
 ```powershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter a resource group name that is used for generating resource names"
 $location = Read-Host -Prompt "Enter the location (like 'eastus' or 'northeurope')"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json"
 
 New-AzResourceGroup -Name $resourceGroupName -Location "$location"
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri

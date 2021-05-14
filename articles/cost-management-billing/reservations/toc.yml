@@ -80,8 +80,10 @@
           href: ../../postgresql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Azure Synapse Analytics
           href: prepay-sql-data-warehouse-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
-        - name: Azure Storage
+        - name: Azure Blob Storage
           href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Azure Files
+          href: ../../storage/files/files-reserve-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Cosmos DB
           href: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Databricks
@@ -100,7 +102,7 @@
           href: ../../azure-sql/database/reserved-capacity-overview.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
         - name: Máquinas virtuales
           href: ../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
-    - name: 'Visualización, administración y optimización después de la compra'
+    - name: 'Permisos, visualización y administración'
       items:
         - name: Permisos para ver y administrar
           href: view-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
@@ -110,21 +112,27 @@
           href: manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Cambio de la configuración de optimización
           href: manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances
-        - name: Reservas de intercambio y devolución
-          href: exchange-and-refund-azure-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Informes de costos
+    - name: Informes de uso y costos
       items:
+        - name: Visualización del uso de las reservas
+          href: reservation-utilization.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Visualización de transacciones de reserva
           href: view-purchase-refunds.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Contracargo de costos de reserva
           href: charge-back-usage.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Cambios y reembolsos
+      items:
+        - name: Reservas de intercambio y devolución
+          href: exchange-and-refund-azure-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Renovación de reservas
       items:
         - name: Renovación de una reserva
           href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Solución de problemas
       items:
-        - name: Solución de problemas de transferencias entre inquilinos
+        - name: Búsqueda de un comprador de reservas en los registros de Azure
+          href: find-reservation-purchaser-from-logs.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Cambio del directorio de la reserva
           href: troubleshoot-reservation-transfers-between-tenants.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: No hay suscripciones aptas
           href: troubleshoot-no-eligible-subscriptions.md?toc=/azure/cost-management-billing/reservations/toc.json

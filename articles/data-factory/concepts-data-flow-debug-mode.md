@@ -6,13 +6,13 @@ author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/19/2021
-ms.openlocfilehash: 0aa472aca40acbaf3f8c8a09469d08fe6b37187a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/16/2021
+ms.openlocfilehash: 681a3643c04472cc42c1f672f4c9433da30e3955
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101699766"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565514"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Modo de depuración de flujos de datos de asignación
 
@@ -20,9 +20,11 @@ ms.locfileid: "101699766"
 
 ## <a name="overview"></a>Información general
 
-El modo de depuración de flujos de datos de asignación de Azure Data Factory permite ver de forma interactiva cómo se transforman los datos mientras se crean y depuran los flujos de datos. La sesión de depuración se puede usar tanto en sesiones de diseño de Data Flow como durante la ejecución de la depuración de la canalización de los flujos de datos. Para activar el modo de depuración, use el botón "Data Flow Debug" (Depuración de Data Flow) situado en la parte superior de la superficie de diseño.
+El modo de depuración de flujos de datos de asignación de Azure Data Factory permite ver de forma interactiva cómo se transforman los datos mientras se crean y depuran los flujos de datos. La sesión de depuración se puede usar tanto en sesiones de diseño de Data Flow como durante la ejecución de la depuración de la canalización de los flujos de datos. Para activar el modo de depuración, use el botón **Data Flow Debug** (Depuración de flujo de datos) de la barra superior del lienzo de flujo de datos o del lienzo de la canalización cuando tenga actividades de flujo de datos.
 
-![Control deslizante de depuración](media/data-flow/debugbutton.png "Control deslizante de depuración")
+![Captura de pantalla que muestra dónde está el control deslizante Depurar 1](media/data-flow/debug-button.png)
+
+![Captura de pantalla que muestra dónde está el control deslizante Depurar 2](media/data-flow/debug-button-4.png)
 
 Cuando active el control deslizante, se le pedirá que seleccione la configuración del entorno de ejecución de integración que quiere usar. Si se elige AutoResolveIntegrationRuntime, se desarrollará un clúster con ocho núcleos de proceso general con un período de vida predeterminado de 60 minutos. Si desea permitir un equipo más inactivo antes de que se agote el tiempo de espera de la sesión, puede elegir un valor de TTL superior. Para más información sobre los entornos de ejecución de integración del flujo de datos, consulte [Rendimiento de flujo de datos](concepts-data-flow-performance.md#ir).
 

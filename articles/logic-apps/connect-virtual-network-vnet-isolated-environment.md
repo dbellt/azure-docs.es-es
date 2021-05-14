@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/30/2021
-ms.openlocfilehash: a56a41b704b12da08cf86b450ac1c734409c8032
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.date: 04/21/2021
+ms.openlocfilehash: bfef9f2b5420ac9377cc369d7bf9a9bdac76743b
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219321"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874232"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectarse a redes virtuales de Azure desde Azure Logic Apps mediante un entorno del servicio de integración (ISE)
 
@@ -122,7 +122,7 @@ En esta tabla se describen los puertos que necesita el ISE para ser accesible y 
 | Propósito | Etiqueta de servicio de origen o direcciones IP | Puertos de origen | Etiqueta de servicio de destino o direcciones IP | Puertos de destino | Notas |
 |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
 | Comunicación entre subredes en una red virtual | Espacio de direcciones de la red virtual con subredes del ISE | * | Espacio de direcciones de la red virtual con subredes del ISE | * | Necesario para que el tráfico fluya *entre* las subredes de la red virtual. <p><p>**Importante**: Para que el tráfico fluya entre los *componentes* de cada subred, asegúrese de abrir todos los puertos de cada subred. |
-| Comunicación con la aplicación lógica | **VirtualNetwork** | * | Varía según el destino | 80, 443 | El destino varía en función de los puntos de conexión del servicio externo con el que la aplicación lógica necesita comunicarse. |
+| Comunicación con la aplicación lógica | **VirtualNetwork** | * | Varía según el destino | Varía según el destino | Los puertos de destino varían en función de los puntos de conexión de los servicios externos con los que la aplicación lógica necesita comunicarse. <p><p>Por ejemplo, el puerto de destino es 443 para un servicio web, el puerto 25 para un servicio SMTP, el puerto 22 para un servicio SFTP, y así sucesivamente. |
 | Azure Active Directory | **VirtualNetwork** | * | **AzureActiveDirectory** | 80, 443 ||
 | Dependencia de Azure Storage | **VirtualNetwork** | * | **Storage** | 80, 443, 445 ||
 | Administración de conexiones | **VirtualNetwork** | * | **AppService** | 443 ||

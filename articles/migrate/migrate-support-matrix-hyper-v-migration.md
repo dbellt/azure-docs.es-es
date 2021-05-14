@@ -6,12 +6,12 @@ ms.author: bsiva
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 90da16789344754c02d46022160db71ee261a056
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 33e34e777a78e1c609d2eacdcb501c0bce1f5c9d
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96754069"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714927"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matriz de compatibilidad para la migración de Hyper-V
 
@@ -83,7 +83,13 @@ backup.windowsazure.us | Transferencia y coordinación de datos de replicación.
 *.hypervrecoverymanager.windowsazure.us | Se usa para la administración de replicación.
 *.blob.core.usgovcloudapi.net | Cargar los datos en las cuentas de almacenamiento.
 dc.services.visualstudio.com | Cargue los registros de aplicaciones que se usan para la supervisión interna.
-time.nist.gov | Verificación de la sincronización de la hora entre el sistema y la hora global.
+time.nist.gov | Verificación de la sincronización de la hora entre el sistema y la hora global.   
+
+>[!Note]
+>
+> Si el proyecto de migración tiene **conectividad de punto de conexión privado**, el software del proveedor de replicación en los hosts de Hyper-V necesitará acceso a estas direcciones URL para la compatibilidad con el vínculo privado. 
+> - *.blob.core.windows.com: Se usa para acceder a la cuenta de almacenamiento que almacena los datos replicados. Esto es opcional y no es obligatorio si la cuenta de almacenamiento tiene asociado un punto de conexión privado. 
+> - login.windows.net para el control de acceso y la administración de identidades mediante Active Directory.
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM de Azure
 

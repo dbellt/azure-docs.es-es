@@ -1,14 +1,15 @@
 ---
 title: Habilitación de la extensión de máquina virtual mediante la plantilla de Azure Resource Manager
 description: En este artículo se describe cómo implementar extensiones de máquina virtual en servidores habilitados para Azure Arc que se ejecutan en entornos de nube híbrida mediante una plantilla de Azure Resource Manager.
-ms.date: 03/01/2021
+ms.date: 04/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: 88296cd4f410defcaf7db15507ddac42e80cba2d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8ad2cd02393404b419bc7028e54571d2db285982
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688270"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108802457"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>Habilitación de las extensiones de máquina virtual de Azure mediante la plantilla de ARM
 
@@ -18,6 +19,9 @@ Las extensiones de máquina virtual se pueden agregar a una plantilla de Azure R
 
 >[!NOTE]
 >Aunque varias extensiones se pueden procesar por lotes, estas se instalan en serie. Una vez completada la instalación de la primera extensión, se intenta la instalación de la siguiente.
+
+> [!NOTE]
+> Los servidores habilitados de Azure Arc no admiten la implementación y administración de extensiones de máquina virtual en máquinas virtuales de Azure. Para las máquinas virtuales de Azure, consulte el siguiente artículo de [información general sobre la extensión de máquina virtual](../../virtual-machines/extensions/overview.md).
 
 ## <a name="deploy-the-log-analytics-vm-extension"></a>Implementación de la extensión de máquina virtual de Log Analytics
 
@@ -323,7 +327,6 @@ Para usar la extensión de Dependency Agent de Azure Monitor, el siguiente ejemp
       "properties": {
         "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
         "type": "DependencyAgentLinux",
-        "typeHandlerVersion": "9.5",
         "autoUpgradeMinorVersion": true
       }
     }
@@ -361,7 +364,6 @@ Para usar la extensión de Dependency Agent de Azure Monitor, el siguiente ejemp
       "properties": {
         "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
         "type": "DependencyAgentWindows",
-        "typeHandlerVersion": "9.5",
         "autoUpgradeMinorVersion": true
       }
     }
@@ -427,7 +429,6 @@ El siguiente código JSON muestra el esquema para la extensión de máquina virt
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForLinux",
-      "typeHandlerVersion": "1.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
           "secretsManagementSettings": {
@@ -497,7 +498,6 @@ El siguiente código JSON muestra el esquema para la extensión de máquina virt
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForWindows",
-      "typeHandlerVersion": "1.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
         "secretsManagementSettings": {

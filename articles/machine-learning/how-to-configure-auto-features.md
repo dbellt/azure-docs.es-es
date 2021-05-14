@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to,automl,contperf-fy21q2
+ms.topic: how-to
+ms.custom: automl,contperf-fy21q2
 ms.date: 12/18/2020
-ms.openlocfilehash: c90ef9fe49a87c18c7f4f55175bafaebfd31d722
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 563f4e84bf17f749eb4a02bd9a470984e20aa289
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98610308"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108131447"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>Caracterización de datos en aprendizaje automático automatizado
 
@@ -319,7 +319,7 @@ Para invocar BERT, establezca `enable_dnn: True` en automl_settings y use un pro
 
 AutoML realiza los siguientes pasos para BERT. 
 
-1. **El preprocesamiento y la tokenización de todas las columnas de texto**. Por ejemplo, el transformador "StringCast" se puede encontrar en el resumen de la caracterización del modelo final. Puede encontrar un ejemplo de cómo generar el resumen de caracterización del modelo en [este cuaderno](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b).
+1. **El preprocesamiento y la tokenización de todas las columnas de texto**. Por ejemplo, el transformador "StringCast" se puede encontrar en el resumen de la caracterización del modelo final. Puede encontrar un ejemplo de cómo generar el resumen de caracterización del modelo en [este cuaderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
 
 2. **Concatene todas las columnas de texto en una sola columna de texto**, por lo tanto, `StringConcatTransformer` en el modelo final. 
 
@@ -363,4 +363,4 @@ automl_settings = {
 
 * Obtenga más información sobre [cómo y dónde implementar un modelo](how-to-deploy-and-where.md).
 
-* Obtenga más información sobre los [procedimientos para entrenar un modelo de regresión con aprendizaje automático automatizado](tutorial-auto-train-models.md) o los [procedimientos para entrenar con aprendizaje automático automatizado en un recurso remoto](how-to-auto-train-remote.md).
+* Obtenga más información sobre los [procedimientos para entrenar un modelo de regresión con aprendizaje automático automatizado](tutorial-auto-train-models.md) o los [procedimientos para entrenar con aprendizaje automático automatizado en un recurso remoto](concept-automated-ml.md#local-remote).

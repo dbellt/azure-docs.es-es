@@ -4,15 +4,15 @@ description: Descubra cómo crear un archivo de conexión de datos de Office par
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/01/2019
+ms.date: 04/27/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8fa657f3b343cdf49723dc68601bb1c9513ff504
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7cabf82c38d0b167f151af6c0abb22048d9a3786
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96487344"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130294"
 ---
 # <a name="create-an-office-data-connection-file"></a>Creación de un archivo de conexión de datos de Office
 

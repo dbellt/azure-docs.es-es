@@ -2,6 +2,7 @@
 title: Guía de la directiva de compatibilidad y retirada del SO invitado de Azure | Microsoft Docs
 description: Proporciona información acerca del soporte ofrecido por Microsoft respecto al SO invitado de Azure usado por Cloud Services.
 services: cloud-services
+ms.subservice: auto-os-updates
 documentationcenter: na
 author: raiye
 manager: timlt
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: fbe9b3379799fe3cf0a56d921ab257bc87606ca9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb59ff08409da14e01b5c36db382ef0f4f779525
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "68945450"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108735990"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Directiva de compatibilidad y retirada del SO invitado de Azure
 La información de esta página se relaciona con el sistema operativo invitado de Azure ([SO invitado](cloud-services-guestos-update-matrix.md)) para los roles web y de trabajo de Cloud Services (PaaS). No se aplica a las máquinas virtuales (IaaS).

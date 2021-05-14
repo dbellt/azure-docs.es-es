@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo: Agregar caras a un objeto PersonGroup: Face'
+title: 'Ejemplo: agregar caras a un objeto PersonGroup: Face'
 titleSuffix: Azure Cognitive Services
 description: En esta guía se muestra cómo agregar una gran cantidad de personas y caras a un objeto PersonGroup con el servicio Face de Azure Cognitive Services.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3643fad1c9e821a78df6d78edeede2341ec79ea8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad669f700fdad6df7306403b3b487d86d6724d10
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303768"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108016984"
 ---
 # <a name="add-faces-to-a-persongroup"></a>Agregar caras a un objeto PersonGroup
 
@@ -59,7 +59,7 @@ static async Task WaitCallLimitPerSecondAsync()
 }
 ```
 
-## <a name="step-2-authorize-the-api-call"></a>Paso 2: Autorización de la llamada a la API
+## <a name="step-2-authorize-the-api-call"></a>Paso 2: Autorización de la llamada API
 
 Cuando usa una biblioteca cliente, debe pasar la clave de suscripción al constructor de la clase **FaceClient**. Por ejemplo:
 
@@ -83,7 +83,7 @@ _timeStampQueue.Enqueue(DateTime.UtcNow);
 await faceClient.LargePersonGroup.CreateAsync(personGroupId, personGroupName);
 ```
 
-## <a name="step-4-create-the-persons-for-the-persongroup"></a>Paso 4: Creación de las personas del objeto PersonGroup
+## <a name="step-4-create-the-persons-for-the-persongroup"></a>Paso 4: Creación de las personas del objeto PersonGroup
 
 Las personas se crean de forma simultánea y se aplica también `await WaitCallLimitPerSecondAsync()` para evitar que se supere el límite de llamadas.
 
@@ -136,7 +136,8 @@ Se explicaron y mostraron las siguientes características:
 - Creación de personas con [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API.
 - Incorporación de caras a personas con [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API.
 
-## <a name="related-topics"></a>Temas relacionados
+## <a name="next-steps"></a>Pasos siguientes
 
-- [Detección de caras en una imagen](HowtoDetectFacesinImage.md)
-- [Uso de la característica a gran escala](how-to-use-large-scale.md)
+En esta guía ha aprendido a agregar datos de caras a un objeto **PersonGroup.** . A continuación, aprenda a usar la estructura de datos mejorada **PersonDirectory** para hacer más con los datos de la cara.
+
+- [Uso de la estructura de PersonDirectory](use-persondirectory.md)

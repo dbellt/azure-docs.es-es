@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 04/25/2021
 ms.author: mjbrown
-ms.openlocfilehash: d542e2b4e5db86fd3354514790e718f0694a09a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ce01bf2f285513e6422f16de927fd532f148f9d
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102489759"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228755"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Administración de una cuenta de Azure Cosmos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -38,6 +38,9 @@ Consulte [Creación de una cuenta de Azure Cosmos DB mediante PowerShell](manage
 Consulte [Creación y administración de Azure Cosmos DB con plantillas de Azure Resource Manager](./manage-with-templates.md).
 
 ## <a name="addremove-regions-from-your-database-account"></a>Incorporación o eliminación de regiones de una cuenta de base de datos
+
+> [!TIP]
+> Cuando se agrega una nueva región, todos los datos deben replicarse por completo y estar confirmados en la nueva región antes de que la región se marque como disponible. La cantidad de tiempo que tarde esta operación dependerá de la cantidad de datos almacenados en la cuenta.
 
 ### <a name="azure-portal"></a><a id="add-remove-regions-via-portal"></a>Azure Portal
 
@@ -115,7 +118,7 @@ Es posible migrar una cuenta desde una única región de escritura a varias regi
             "type": "Microsoft.DocumentDb/databaseAccounts",
             "kind": "GlobalDocumentDB",
             "name": "[parameters('name')]",
-            "apiVersion": "2019-08-01",
+            "apiVersion": "2021-03-15",
             "location": "[parameters('location')]",
             "tags": {},
             "properties": {

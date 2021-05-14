@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: 4eea2611997732a263e9e824bc150b45ed145ecd
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: eb6369e89066451779d05a97057acbdd451de192
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107738979"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146678"
 ---
 # <a name="what-are-security-policies-initiatives-and-recommendations"></a>¿Qué son las directivas de seguridad, las iniciativas y las recomendaciones?
 
@@ -35,7 +35,7 @@ Una iniciativa de seguridad define la configuración deseada de las cargas de tr
 
 Al igual que las directivas de seguridad, las iniciativas de Security Center también se crean en Azure Policy. Puede usar [Azure Policy](../governance/policy/overview.md) para administrar las directivas y crear iniciativas y asignarlas a varias suscripciones o a grupos de administración completos.
 
-La iniciativa predeterminada asignada automáticamente a todas las suscripciones en Azure Security Center es Azure Security Benchmark. Este punto de referencia es el conjunto de directrices específico de Azure y creado por Microsoft relativo a los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. Esta prueba comparativa, que cuenta con amplísimo respaldo, se basa en los controles del [Centro de seguridad de Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) y del [Instituto Nacional de Normas y Tecnología (NIST)](https://www.nist.gov/), con un enfoque en seguridad centrada en la nube. Mas información sobre [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction).
+La iniciativa predeterminada asignada automáticamente a todas las suscripciones en Azure Security Center es Azure Security Benchmark. Este punto de referencia es el conjunto de directrices específico de Azure y creado por Microsoft relativo a los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. Esta prueba comparativa, que cuenta con amplísimo respaldo, se basa en los controles del [Centro de seguridad de Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) y del [Instituto Nacional de Normas y Tecnología (NIST)](https://www.nist.gov/), con un enfoque en seguridad centrada en la nube. Mas información sobre [Azure Security Benchmark](/security/benchmark/azure/introduction).
 
 Security Center le ofrece las siguientes opciones para trabajar con iniciativas y directivas de seguridad:
 

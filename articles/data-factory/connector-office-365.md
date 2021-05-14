@@ -1,17 +1,17 @@
 ---
 title: Copia de datos de Office 365 con Azure Data Factory
 description: Obtenga información sobre cómo copiar datos desde Office 365 a almacenes de datos receptores compatibles mediante una actividad de copia de una canalización de Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/20/2019
-ms.author: jingwang
-ms.openlocfilehash: a7df69e7c5701074b40d6fa8340d8a0e247f00de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: 2140eeb3302799d55a0d45c9469edea9f11ded3b
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100393010"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482154"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copia de datos de Office 365 en Azure con Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

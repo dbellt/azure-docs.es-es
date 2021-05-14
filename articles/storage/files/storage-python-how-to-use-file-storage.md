@@ -8,12 +8,12 @@ ms.date: 10/08/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-python
-ms.openlocfilehash: d45ce3a782d7ee145f769283b82e34647c78f26e
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 8739bfaf1a41758ef3267c71cba883ef2445c39d
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799877"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817799"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Desarrollo para Azure Files con Python
 
@@ -35,11 +35,11 @@ Conozca los aspectos básicos del uso de Python para desarrollar aplicaciones o 
 > [!NOTE]
 > Si va a actualizar desde el SDK de Azure Storage para Python 0.36 o una versión anterior, desinstale el SDK anterior mediante `pip uninstall azure-storage` antes de instalar el paquete más reciente.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="azure-python-sdk-v12"></a>[SDK de Python de Azure v12](#tab/python)
 
 La [biblioteca cliente v12.x de Azure File Storage para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-share) requiere la versión de Python 2.7 o 3.6.
 
-# <a name="python-v2"></a>[Python v2](#tab/python2)
+# <a name="azure-python-sdk-v2"></a>[SDK de Python de Azure v2](#tab/python2)
 
 El [SDK de Azure Storage para Python](https://github.com/azure/azure-storage-python) requiere Python 2.7 o 3.6.
 
@@ -49,13 +49,13 @@ El [SDK de Azure Storage para Python](https://github.com/azure/azure-storage-pyt
 
 Para realizar la instalación mediante el índice de paquetes de Python (PyPI), escriba:
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="azure-python-sdk-v12"></a>[SDK de Python de Azure v12](#tab/python)
 
 ```console
 pip install azure-storage-file-share
 ```
 
-# <a name="python-v2"></a>[Python v2](#tab/python2)
+# <a name="azure-python-sdk-v2"></a>[SDK de Python de Azure v2](#tab/python2)
 
 ```console
 pip install azure-storage-file
@@ -73,11 +73,11 @@ Para ejecutar la aplicación de ejemplo, asegúrese de que ha instalado los paqu
 
 Agregue los elementos siguientes cerca de la parte superior de un archivo de origen de Python para usar los fragmentos de código de este artículo.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="azure-python-sdk-v12"></a>[SDK de Python de Azure v12](#tab/python)
 
 :::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_Imports":::
 
-# <a name="python-v2"></a>[Python v2](#tab/python2)
+# <a name="azure-python-sdk-v2"></a>[SDK de Python de Azure v2](#tab/python2)
 
 ```python
 from azure.storage.file import FileService
@@ -87,13 +87,13 @@ from azure.storage.file import FileService
 
 ## <a name="set-up-a-connection-to-azure-files"></a>Configuración de una conexión a Azure Files
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="azure-python-sdk-v12"></a>[SDK de Python de Azure v12](#tab/python)
 
 [ShareServiceClient](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.shareserviceclient) le permite trabajar con recursos compartidos, directorios y archivos. El código siguiente crea un objeto `ShareServiceClient` con la cadena de conexión de la cuenta de almacenamiento.
 
 :::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_CreateShareServiceClient":::
 
-# <a name="python-v2"></a>[Python v2](#tab/python2)
+# <a name="azure-python-sdk-v2"></a>[SDK de Python de Azure v2](#tab/python2)
 
 El objeto [FileService](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true) le permite trabajar con archivos, directorios y recursos compartidos. El código siguiente crea un objeto `FileService` mediante el nombre de la cuenta de almacenamiento y la clave de la cuenta. Reemplace `<myaccount>` y `<mykey>` por el nombre y la clave de la de cuenta.
 
@@ -105,13 +105,13 @@ file_service = FileService(account_name='myaccount', account_key='mykey')
 
 ## <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de archivos de Azure
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="azure-python-sdk-v12"></a>[SDK de Python de Azure v12](#tab/python)
 
 En el siguiente código de ejemplo, puede usar un objeto [ShareClient](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.shareclient) para crear el recurso compartido, en caso de que no exista.
 
 :::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_CreateFileShare":::
 
-# <a name="python-v2"></a>[Python v2](#tab/python2)
+# <a name="azure-python-sdk-v2"></a>[SDK de Python de Azure v2](#tab/python2)
 
 En el siguiente ejemplo de código, puede usar un objeto [FileService](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true) para crear el recurso compartido si no existe.
 
@@ -125,13 +125,13 @@ file_service.create_share('myshare')
 
 Para organizar el almacenamiento, coloque los archivos en los subdirectorios, en lugar de mantenerlos todos en el directorio raíz.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="azure-python-sdk-v12"></a>[SDK de Python de Azure v12](#tab/python)
 
 El método siguiente crea un directorio en la raíz del recurso compartido de archivos especificado utilizando un objeto [ShareDirectoryClient](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.sharedirectoryclient).
 
 :::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_CreateDirectory":::
 
-# <a name="python-v2"></a>[Python v2](#tab/python2)
+# <a name="azure-python-sdk-v2"></a>[SDK de Python de Azure v2](#tab/python2)
 
 El código siguiente creará un subdirectorio denominado *sampledir* en el directorio raíz.
 
@@ -145,13 +145,13 @@ file_service.create_directory('myshare', 'sampledir')
 
 En esta sección, aprenderá a cargar un archivo de almacenamiento local en Azure Files Storage.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="azure-python-sdk-v12"></a>[SDK de Python de Azure v12](#tab/python)
 
 El método siguiente carga el contenido del archivo especificado en el directorio que está especificado en el recurso compartido de archivos de Azure especificado.
 
 :::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_UploadFile":::
 
-# <a name="python-v2"></a>[Python v2](#tab/python2)
+# <a name="azure-python-sdk-v2"></a>[SDK de Python de Azure v2](#tab/python2)
 
 Un recurso compartido de archivos de Azure contiene como mínimo un directorio raíz donde pueden residir los archivos. Para crear un archivo y cargar datos, use los métodos [create_file_from_path](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#create-file-from-path-share-name--directory-name--file-name--local-file-path--content-settings-none--metadata-none--validate-content-false--progress-callback-none--max-connections-2--file-permission-none--smb-properties--azure-storage-file-models-smbproperties-object---timeout-none-), [create_file_from_stream](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#create-file-from-stream-share-name--directory-name--file-name--stream--count--content-settings-none--metadata-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--file-permission-none--smb-properties--azure-storage-file-models-smbproperties-object--), [create_file_from_bytes](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#create-file-from-bytes-share-name--directory-name--file-name--file--index-0--count-none--content-settings-none--metadata-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--file-permission-none--smb-properties--azure-storage-file-models-smbproperties-object--) o [create_file_from_text](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#create-file-from-text-share-name--directory-name--file-name--text--encoding--utf-8---content-settings-none--metadata-none--validate-content-false--timeout-none--file-permission-none--smb-properties--azure-storage-file-models-smbproperties-object--). Se trata de métodos de alto nivel que realizan la fragmentación necesaria cuando el tamaño de los datos supera los 64 MB.
 
@@ -173,13 +173,13 @@ file_service.create_file_from_path(
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Enumerar los archivos y directorios de un recurso compartido de Azure File
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="azure-python-sdk-v12"></a>[SDK de Python de Azure v12](#tab/python)
 
 Para enumerar los archivos y directorios de un subdirectorio, use el método [list_directories_and_files](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.shareclient#list-directories-and-files-directory-name-none--name-starts-with-none--marker-none----kwargs-). Este método devuelve un objeto iterable de paginación automática. El código siguiente genera el **nombre** de cada archivo y subdirectorio del directorio especificado en la consola.
 
 :::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_ListFilesAndDirs":::
 
-# <a name="python-v2"></a>[Python v2](#tab/python2)
+# <a name="azure-python-sdk-v2"></a>[SDK de Python de Azure v2](#tab/python2)
 
 Para mostrar los archivos y los directorios de un recurso compartido, use el método [list_directories_and_files](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#list-directories-and-files-share-name--directory-name-none--num-results-none--marker-none--timeout-none--prefix-none--snapshot-none-). Este método devuelve un generador. El código siguiente ofrece el **nombre** de todos los archivos y el directorio de un recurso compartido de la consola.
 
@@ -193,7 +193,7 @@ for file_or_dir in generator:
 
 ## <a name="download-a-file"></a>Descarga de un archivo
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="azure-python-sdk-v12"></a>[SDK de Python de Azure v12](#tab/python)
 
 Para descargar los datos de un archivo, use [download_file](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.sharefileclient#download-file-offset-none--length-none----kwargs-).
 
@@ -201,7 +201,7 @@ En el ejemplo siguiente se muestra cómo usar `download_file` para obtener el co
 
 :::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_DownloadFile":::
 
-# <a name="python-v2"></a>[Python v2](#tab/python2)
+# <a name="azure-python-sdk-v2"></a>[SDK de Python de Azure v2](#tab/python2)
 
 Para descargar datos de un archivo, use [get_file_to_path](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#get-file-to-path-share-name--directory-name--file-name--file-path--open-mode--wb---start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-), [get_file_to_stream](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#get-file-to-stream-share-name--directory-name--file-name--stream--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-), [get_file_to_bytes](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#get-file-to-bytes-share-name--directory-name--file-name--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-) o [get_file_to_text](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#get-file-to-text-share-name--directory-name--file-name--encoding--utf-8---start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-). Se trata de métodos de alto nivel que realizan la fragmentación necesaria cuando el tamaño de los datos supera los 64 MB.
 
@@ -217,11 +217,11 @@ file_service.get_file_to_path('myshare', None, 'myfile', 'out-sunset.png')
 
 Puede crear una copia a un punto dado de todo el recurso compartido de archivos.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="azure-python-sdk-v12"></a>[SDK de Python de Azure v12](#tab/python)
 
 :::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_CreateSnapshot":::
 
-# <a name="python-v2"></a>[Python v2](#tab/python2)
+# <a name="azure-python-sdk-v2"></a>[SDK de Python de Azure v2](#tab/python2)
 
 ```python
 snapshot = file_service.snapshot_share(share_name)
@@ -241,11 +241,11 @@ snapshot = file_service.snapshot_share(share_name, metadata=metadata)
 
 Puede enumerar todas las instantáneas para un recurso compartido determinado.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="azure-python-sdk-v12"></a>[SDK de Python de Azure v12](#tab/python)
 
 :::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_ListSharesAndSnapshots":::
 
-# <a name="python-v2"></a>[Python v2](#tab/python2)
+# <a name="azure-python-sdk-v2"></a>[SDK de Python de Azure v2](#tab/python2)
 
 ```python
 shares = list(file_service.list_shares(include_snapshots=True))
@@ -257,11 +257,11 @@ shares = list(file_service.list_shares(include_snapshots=True))
 
 Puede examinar cada instantánea de recurso compartido para recuperar archivos y directorios desde ese punto dado.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="azure-python-sdk-v12"></a>[SDK de Python de Azure v12](#tab/python)
 
 :::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_BrowseSnapshotDir":::
 
-# <a name="python-v2"></a>[Python v2](#tab/python2)
+# <a name="azure-python-sdk-v2"></a>[SDK de Python de Azure v2](#tab/python2)
 
 ```python
 directories_and_files = list(
@@ -274,11 +274,11 @@ directories_and_files = list(
 
 Puede descargar un archivo desde una instantánea de recurso compartido. Esto le permite restaurar una versión anterior de un archivo.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="azure-python-sdk-v12"></a>[SDK de Python de Azure v12](#tab/python)
 
 :::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_DownloadSnapshotFile":::
 
-# <a name="python-v2"></a>[Python v2](#tab/python2)
+# <a name="azure-python-sdk-v2"></a>[SDK de Python de Azure v2](#tab/python2)
 
 ```python
 with open(FILE_PATH, 'wb') as stream:
@@ -291,11 +291,11 @@ with open(FILE_PATH, 'wb') as stream:
 ## <a name="delete-a-single-share-snapshot"></a>Eliminación de una instantánea de recurso compartido única
 Puede eliminar una instantánea de recurso compartido única.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="azure-python-sdk-v12"></a>[SDK de Python de Azure v12](#tab/python)
 
 :::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_DeleteSnapshot":::
 
-# <a name="python-v2"></a>[Python v2](#tab/python2)
+# <a name="azure-python-sdk-v2"></a>[SDK de Python de Azure v2](#tab/python2)
 
 ```python
 file_service.delete_share(share_name, snapshot=snapshot_id)
@@ -305,13 +305,13 @@ file_service.delete_share(share_name, snapshot=snapshot_id)
 
 ## <a name="delete-a-file"></a>Eliminación de un archivo
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="azure-python-sdk-v12"></a>[SDK de Python de Azure v12](#tab/python)
 
 Para eliminar un archivo, llame a [delete_file](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.sharefileclient#delete-file---kwargs-).
 
 :::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_DeleteFile":::
 
-# <a name="python-v2"></a>[Python v2](#tab/python2)
+# <a name="azure-python-sdk-v2"></a>[SDK de Python de Azure v2](#tab/python2)
 
 Para eliminar un archivo, llame a [delete_file](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#delete-file-share-name--directory-name--file-name--timeout-none-).
 
@@ -323,13 +323,13 @@ file_service.delete_file('myshare', None, 'myfile')
 
 ## <a name="delete-share-when-share-snapshots-exist"></a>Eliminación de un recurso compartido cuando existen instantáneas de recurso compartido
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="azure-python-sdk-v12"></a>[SDK de Python de Azure v12](#tab/python)
 
 Para eliminar un recurso compartido que contenga instantáneas, llame a [delete_share](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.shareclient#delete-share-delete-snapshots-false----kwargs-) con `delete_snapshots=True`.
 
 :::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_DeleteShare":::
 
-# <a name="python-v2"></a>[Python v2](#tab/python2)
+# <a name="azure-python-sdk-v2"></a>[SDK de Python de Azure v2](#tab/python2)
 
 No se puede eliminar un recurso compartido que contenga instantáneas a no ser que todas las instantáneas se eliminen primero.
 

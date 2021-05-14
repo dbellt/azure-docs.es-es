@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
 ms.date: 03/30/2021
-ms.openlocfilehash: 53e96f4057b35fa6c849ec643ac1c9e0c7d5b402
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 90ee8ad1113f3c62ff5a1a40440d1b4e9a7a66eb
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076554"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133518"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guía de referencia para usar las funciones en las expresiones para Azure Logic Apps y Power Automate
 
@@ -1284,7 +1284,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*zona_horaria_de_destino*> | Sí | String | Nombre de la zona horaria de destino. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
+| <*zona_horaria_de_destino*> | Sí | String | Nombre de la zona horaria de destino. Para los nombres de zonas horarias, consulte [Zonas horarias predeterminadas de Microsoft Windows](/windows-hardware/manufacture/desktop/default-time-zones), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
 | <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), que cumple la norma [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
@@ -1326,8 +1326,8 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*zona_horaria_de_origen*> | Sí | String | Nombre de la zona horaria de origen. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
-| <*zona_horaria_de_destino*> | Sí | String | Nombre de la zona horaria de destino. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
+| <*zona_horaria_de_origen*> | Sí | String | Nombre de la zona horaria de origen. Para los nombres de zonas horarias, consulte [Zonas horarias predeterminadas de Microsoft Windows](/windows-hardware/manufacture/desktop/default-time-zones), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
+| <*zona_horaria_de_destino*> | Sí | String | Nombre de la zona horaria de destino. Para los nombres de zonas horarias, consulte [Zonas horarias predeterminadas de Microsoft Windows](/windows-hardware/manufacture/desktop/default-time-zones), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
 | <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), que cumple la norma [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
@@ -1369,7 +1369,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*zona_horaria_de_origen*> | Sí | String | Nombre de la zona horaria de origen. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
+| <*zona_horaria_de_origen*> | Sí | String | Nombre de la zona horaria de origen. Para los nombres de zonas horarias, consulte [Zonas horarias predeterminadas de Microsoft Windows](/windows-hardware/manufacture/desktop/default-time-zones), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
 | <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), que cumple la norma [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 

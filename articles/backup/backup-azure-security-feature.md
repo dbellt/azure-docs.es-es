@@ -3,13 +3,13 @@ title: Características de seguridad que protegen las copias de seguridad híbri
 description: Aprenda a usar las características de seguridad de Azure Backup para que las copias de seguridad sean más seguras
 ms.reviewer: utraghuv
 ms.topic: conceptual
-ms.date: 06/08/2017
-ms.openlocfilehash: 8c671b1b54b937f518f7179bb6940f31a28a78d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/26/2021
+ms.openlocfilehash: 6cf2af6016df358243b36d47766eab38dacc5db4
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94841025"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108064204"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup
 
@@ -83,8 +83,10 @@ Se han agregado comprobaciones para asegurarse de que los usuarios válidos son 
 Como parte de la adición de una capa de autenticación adicional para las operaciones críticas, se le solicita que escriba un PIN se seguridad al realizar las operaciones **Detener la protección con eliminación de datos** y **Cambio de la frase de contraseña**.
 
 > [!NOTE]
->
-> Actualmente, no se admite el pin de seguridad para **Detener la protección con eliminación de datos** en DPM y MABS.
+> Actualmente, en el caso de las siguientes versiones de DPM y MABS, se admite el PIN de seguridad para **Detener la protección con eliminación de datos** en el almacenamiento en línea:
+>- DPM 2016 UR9 o versiones posteriores
+>- DPM 2019 UR1 o versiones posteriores
+>- MABS v3 UR1 o versiones posteriores 
 
 Para recibir este PIN:
 
@@ -114,7 +116,7 @@ Las características de seguridad que se mencionan en este artículo proporciona
 | --- | --- | --- |
 | Cambio de directiva |No se ha podido modificar la directiva de copia de seguridad. Error: no se pudo realizar la operación actual debido a un error de servicio interno [0x29834]. Vuelva a intentar la operación más tarde. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft. |**Causa:**<br/>Este error aparece cuando está habilitada la configuración de seguridad, se intenta reducir la duración de retención por debajo de los valores mínimos especificados anteriormente y se utiliza una versión no admitida (las versiones admitidas se especifican en la primera nota de este artículo). <br/>**Acción recomendada:**<br/> En este caso, debe establecer el período de retención por encima del período de retención mínimo especificado (siete días para un valor diario, cuatro semanas para uno semanal, tres semanas para mensual o un año para la copia anual) para continuar con las actualizaciones relacionadas con la directiva. Si lo desea, el enfoque preferido sería actualizar el agente de copia de seguridad y Azure Backup Server o DPM UR para aprovechar todas las actualizaciones de seguridad. |
 | Cambiar la frase de contraseña |El PIN de seguridad escrito no es correcto. (ID: 100130) Proporcione el PIN de seguridad correcto para completar esta operación. |**Causa:**<br/> Este error se genera cuando se escribe un PIN de seguridad no válido o caducado mientras se realiza una operación crítica (por ejemplo, cambiar la frase de contraseña). <br/>**Acción recomendada:**<br/> Para completar la operación, debe escribir un PIN de seguridad válido. Para obtener el PIN, inicie sesión en Azure Portal y navegue hasta Almacén de Recovery Services > Configuración > Propiedades > Generar PIN de seguridad. Use este código PIN para cambiar la frase de contraseña. |
-| Cambiar la frase de contraseña |No se pudo realizar la operación. ID: 120002 |**Causa:**<br/>Este error aparece cuando está habilitada la configuración de seguridad, se intenta cambiar la frase de contraseña y se utiliza una versión no compatible (las versiones válidas se especifican en la primera nota de esta artículo).<br/>**Acción recomendada:**<br/> Para cambiar la frase de contraseña, primero debe actualizar el agente de copia de seguridad a la versión mínima 2.0.9052, Azure Backup Server a la actualización mínima 1 y DPM a la actualización mínima DMP 2012 R2 UR12 o a DPM 2016 UR2 (los enlaces de descarga están disponibles más abajo). A continuación, escriba un PIN de seguridad válido. Para obtener el PIN, inicie sesión en Azure Portal y desplácese hasta Almacén de Recovery Services > Configuración > Propiedades > Generar PIN de seguridad. Use este código PIN para cambiar la frase de contraseña. |
+| Cambiar la frase de contraseña |No se pudo realizar la operación. ID: 120002 |**Causa:**<br/>Este error aparece cuando está habilitada la configuración de seguridad, se intenta cambiar la frase de contraseña y se utiliza una versión no compatible (las versiones válidas se especifican en la primera nota de esta artículo).<br/>**Acción recomendada:**<br/> Para cambiar la frase de contraseña, primero debe actualizar el agente de copia de seguridad a la versión mínima 2.0.9052, Azure Backup Server a la actualización mínima 1, o DPM a la actualización mínima DMP 2012 R2 UR12 o a DPM 2016 UR2 (los enlaces de descarga están disponibles más abajo). A continuación, escriba un PIN de seguridad válido. Para obtener el PIN, inicie sesión en Azure Portal y desplácese hasta Almacén de Recovery Services > Configuración > Propiedades > Generar PIN de seguridad. Use este código PIN para cambiar la frase de contraseña. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

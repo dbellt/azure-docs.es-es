@@ -3,12 +3,12 @@ title: Cumplimiento normativo en las definiciones de iniciativa
 description: Describe cómo usar una definición de iniciativa para agrupar directivas por dominio normativo, como Access Control, Administración de configuración, etc.
 ms.date: 03/31/2021
 ms.topic: conceptual
-ms.openlocfilehash: 08173cd94e0841fa7a18fd55d53aa97281724ede
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: d408d4c2c720a81de315680f774482592b7552b3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106094071"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752694"
 ---
 # <a name="regulatory-compliance-in-azure-policy"></a>Cumplimiento normativo de Azure Policy
 
@@ -29,7 +29,7 @@ Para vincular una iniciativa de Cumplimiento normativo personalizada a su panel 
 
 ## <a name="regulatory-compliance-in-portal"></a>Cumplimiento normativo en el portal
 
-Cuando se ha creado una definición de iniciativa con [grupos](./initiative-definition-structure.md#policy-definition-groups), la página de detalles **Cumplimiento** del portal para esa iniciativa presenta información adicional. 
+Cuando se ha creado una definición de iniciativa con [grupos](./initiative-definition-structure.md#policy-definition-groups), la página de detalles **Cumplimiento** del portal para esa iniciativa presenta información adicional.
 
 Una nueva pestaña, **Controles**, se ha agregado a la página. El filtrado está disponible a través del **dominio de cumplimiento** y las definiciones de directiva se agrupan por el campo `title` del objeto **policyMetadata**. Cada fila representa un **control** que muestra su estado de cumplimiento, el **dominio de cumplimiento** del que forma parte, la información de responsabilidad, y el número de definiciones de directivas conformes y no conformes que componen ese **control**.
 

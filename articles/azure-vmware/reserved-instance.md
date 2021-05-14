@@ -3,12 +3,12 @@ title: Instancias reservadas de Azure VMware Solution
 description: Obtenga información sobre cómo comprar una instancia reservada para Azure VMware Solution. Las instancias reservadas solo cubren la parte del uso dedicada a los procesos y tienen costos de licencias de software.
 ms.topic: how-to
 ms.date: 04/09/2021
-ms.openlocfilehash: 6f181d4b6ee7e2098130633fef0eb8558add0308
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 68f61832ab01b3d7946e3bd8dffb3ef274e74aac
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210031"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145350"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Ahorro de costos con Azure VMware Solution
 
@@ -77,7 +77,7 @@ Los CSP que desean comprar instancias reservadas para sus clientes deben usar el
 
 5. Seleccione **Comprar ahora** y, a continuación, seleccione **Azure VMware Solution**.
 
-   :::image type="content" source="media/reserved-instances/csp-buy-ri-azure-portal.png" alt-text="Reservas de Microsoft Azure Portal" lightbox="media/reserved-instances/csp-buy-ri-azure-portal.png":::
+   :::image type="content" source="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png" alt-text="Reservas de Microsoft Azure Portal" lightbox="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png":::
 
 6. Escriba los campos obligatorios. Los atributos seleccionados que coinciden con los hosts de Azure VMware Solution cumplen con los requisitos para obtener el descuento de la reserva.  Los atributos incluyen la SKU, las regiones (si procede) y el ámbito. El ámbito de la reserva determina dónde se aplica el ahorro de la reserva.
 

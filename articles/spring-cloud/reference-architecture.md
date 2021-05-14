@@ -6,12 +6,12 @@ title: Arquitectura de referencia de Azure Spring Cloud
 ms.author: akaleshian
 ms.service: spring-cloud
 description: Esta arquitectura de referencia es una base que usa un diseño empresarial típico de concentrador y radio (hub-and-spoke) para el uso de Azure Spring Cloud.
-ms.openlocfilehash: 74183ca2decf8487e5c41cf36d5784538021077f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d45d70227be2d88ca69e8a88bbc116a7f8045e74
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877497"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132690"
 ---
 # <a name="azure-spring-cloud-reference-architecture"></a>Arquitectura de referencia de Azure Spring Cloud
 
@@ -212,7 +212,7 @@ En la siguiente lista se muestran los controles de CIS que abordan la seguridad 
 | 6.5 | Asegúrese de que Network Watcher esté "Habilitado". |
 | 6.6 | Asegúrese de que la entrada mediante UDP esté restringida desde Internet. |
 
-Azure Spring Cloud requiere tráfico de administración para la salida de Azure cuando se implementa en un entorno seguro. Para ello, debe permitir las reglas de red y de aplicación enumeradas en [Responsabilidades del cliente para ejecutar Azure Spring Cloud en una red virtual](./spring-cloud-vnet-customer-responsibilities.md).
+Azure Spring Cloud requiere tráfico de administración para la salida de Azure cuando se implementa en un entorno seguro. Para ello, debe permitir las reglas de red y de aplicación enumeradas en [Responsabilidades del cliente para ejecutar Azure Spring Cloud en una red virtual](./vnet-customer-responsibilities.md).
 
 #### <a name="application-security"></a>Seguridad de la aplicación
 
@@ -253,16 +253,16 @@ Explore esta arquitectura de referencia a través de las implementaciones ARM, T
 [5]: /azure/devops/pipelines/
 [6]: ../application-gateway/index.yml
 [7]: ../web-application-firewall/index.yml
-[8]: ./spring-cloud-tutorial-config-server.md
+[8]: ./how-to-config-server.md
 [9]: https://steeltoe.io/
 [10]: https://github.com/Azure/azure-spring-cloud-reference-architecture
-[11]: ./spring-cloud-tutorial-deploy-in-azure-virtual-network.md#virtual-network-requirements
-[12]: ./spring-cloud-vnet-customer-responsibilities.md#azure-spring-cloud-network-requirements
-[13]: ./spring-cloud-vnet-customer-responsibilities.md#azure-spring-cloud-fqdn-requirements--application-rules
-[14]: ./spring-cloud-howto-staging-environment.md
+[11]: ./how-to-deploy-in-azure-virtual-network.md#virtual-network-requirements
+[12]: ./vnet-customer-responsibilities.md#azure-spring-cloud-network-requirements
+[13]: ./vnet-customer-responsibilities.md#azure-spring-cloud-fqdn-requirements--application-rules
+[14]: ./how-to-staging-environment.md
 [15]: https://devblogs.microsoft.com/java/monitor-applications-and-dependencies-in-azure-spring-cloud/
 [16]: /azure/architecture/framework/
-[17]: ./spring-cloud-tutorial-deploy-in-azure-virtual-network.md#virtual-network-requirements
+[17]: ./how-to-deploy-in-azure-virtual-network.md#virtual-network-requirements
 [18]: https://cloudsecurityalliance.org/
 [19]: https://cloudsecurityalliance.org/research/working-groups/cloud-controls-matrix
 [20]: /azure/security/benchmarks/v2-cis-benchmark

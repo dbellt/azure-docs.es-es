@@ -7,16 +7,16 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 281553782774c31ec8cfaf614542fd739c4d3dd9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5942368ba1709127b815a35676b716955c1bee8f
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629536"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819095"
 ---
-# <a name="how-to-configure-virtual-machine-offer-properties"></a>Cómo configurar las propiedades de la oferta de máquinas virtuales
+# <a name="configure-virtual-machine-offer-properties"></a>Configuración de las propiedades de la oferta de máquinas virtuales
 
-En la página **Propiedades** (selecciónela en el menú de navegación de la izquierda del Centro de partners), se definen las categorías que se usan para agrupar la oferta de máquinas virtuales (VM) en Azure Marketplace, la versión de la aplicación y los contratos legales que respaldan la oferta.
+En la página **Propiedades** (selecciónela en el menú de navegación de la izquierda), se definen las categorías que se usan para agrupar la oferta de máquinas virtuales (VM) en Azure Marketplace, la versión de la aplicación y los contratos legales que respaldan la oferta.
 
 ## <a name="select-a-category"></a>Seleccionar una categoría
 

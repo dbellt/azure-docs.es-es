@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: b0e076f3b248942870ba58a51c85c3df1f1277a4
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: a970eb23c171522907b6066454d9ca15d85f0835
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750615"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812299"
 ---
 # <a name="use-named-values-in-azure-api-management-policies"></a>Uso de valores con nombre en las directivas de Azure API Management
 
@@ -42,7 +42,7 @@ Los valores de los secretos se pueden almacenar como cadenas cifradas en API Man
 Se recomienda el uso de secretos de Key Vault, ya que esto ayuda a mejorar la seguridad de API Management:
 
 * Los secretos almacenados en almacenes de claves se pueden reutilizar entre servicios
-* Se pueden aplicar [directivas de acceso](../key-vault/general/security-overview.md#privileged-access) pormenorizadas a los secretos
+* Se pueden aplicar [directivas de acceso](../key-vault/general/security-features.md#privileged-access) pormenorizadas a los secretos
 * Los secretos actualizados en el almacén de claves se rotan automáticamente en API Management. Después de la actualización en el almacén de claves, un valor con nombre en API Management se actualiza en un plazo de 4 horas. También puede actualizar manualmente el secreto mediante Azure Portal o a través de la API REST de administración.
 
 ### <a name="prerequisites-for-key-vault-integration"></a>Requisitos previos para la integración de un almacén de claves

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: rust
 ms.topic: quickstart
 ms.date: 01/12/2021
-ms.openlocfilehash: 91e7bafe98b1aceaf8fe27b07029291a48a31351
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9a6c2b0a106b08d8aad880b0b5f18879ac5645b
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555659"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108206266"
 ---
 # <a name="quickstart-connect-a-rust-application-to-azure-cosmos-dbs-api-for-mongodb"></a>Inicio rápido: Conexión de una aplicación Rust a la API de Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -22,13 +22,12 @@ ms.locfileid: "102555659"
 > * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
-> * [Python](./mongodb-introduction.md)
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-go.md)
 > * [Rust](create-mongodb-rust.md)
 >
 
-Azure Cosmos DB es un servicio de base de datos multimodelo que permite crear y consultar rápidamente bases de datos de documentos, tablas, claves-valores y grafos con funcionalidades de distribución global y escala horizontal. El ejemplo que se ha presentado en este artículo es una sencilla aplicación basada en línea de comandos que usa el [controlador de Rust para MongoDB](https://github.com/mongodb/mongo-rust-driver). Como la API de Azure Cosmos DB para MongoDB es [compatible con el protocolo de conexión de MongoDB](./mongodb-introduction.md#wire-protocol-compatibility), cualquier controlador cliente de MongoDB puede conectarse a ella.
+Azure Cosmos DB es un servicio de base de datos multimodelo que permite crear y consultar rápidamente bases de datos de documentos, tablas, claves-valores y grafos con funcionalidades de distribución global y escala horizontal. El ejemplo que se ha presentado en este artículo es una sencilla aplicación basada en línea de comandos que usa el [controlador de Rust para MongoDB](https://github.com/mongodb/mongo-rust-driver). Como la API de Azure Cosmos DB para MongoDB es [compatible con el protocolo de conexión de MongoDB](./mongodb-introduction.md), cualquier controlador cliente de MongoDB puede conectarse a ella.
 
 Aprenderá a usar el controlador Rust de MongoDB para interactuar con la API de Azure Cosmos DB para MongoDB mediante la exploración de las operaciones de CRUD (crear, leer, actualizar y eliminar) implementadas en el código de ejemplo. Por último, puede ejecutar la aplicación localmente para verla en acción.
 

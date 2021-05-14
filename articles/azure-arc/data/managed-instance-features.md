@@ -4,17 +4,17 @@ description: Características y capacidades de SQL Managed Instance para Azure 
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: vin-yu
-ms.author: vinsonyu
+author: rothja
+ms.author: jroth
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 9c3f973da688a20fa60f2fb649b2c8d689bc2a98
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: d73505c3a0535c3f41b48a82545f6d2f9ac72608
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076656"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109735105"
 ---
 # <a name="features-and-capabilities-of-azure-arc-enabled-sql-managed-instance"></a>Características y capacidades de SQL Managed Instance para Azure Arc
 
@@ -35,27 +35,29 @@ SQL Managed Instance para Azure Arc comparte una base de código común con la 
   
 |Característica|SQL Managed Instance para Azure Arc|
 |-------------|----------------|
-|Trasvase de registros|Sí| 
-|Compresión de copia de seguridad|Sí|
-|Instantáneas de base de datos|Sí|
 |Instancia de clúster de conmutación por error AlwaysOn<sup>1</sup>| No es aplicable. Capacidades similares disponibles |
 |Grupos de disponibilidad AlwaysOn<sup>2</sup>|Se han planeado capacidades de alta disponibilidad.|
 |Grupos de disponibilidad básica <sup>2</sup>|Se han planeado capacidades de alta disponibilidad.|
 |Grupo de disponibilidad de confirmación de réplica mínima<sup>2</sup>|Se han planeado capacidades de alta disponibilidad.|
 |Grupo de disponibilidad sin clúster|Sí|
+|Copia de seguridad de la base de datos | Sí - `COPY_ONLY` Vea [BACKUP - (Transact-SQL)](/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current&preserve-view=true)|
+|Compresión de copia de seguridad|Sí|
+|Reflejo de copia de seguridad |Yes|
+|Cifrado de copia de seguridad|Yes|
+|Copia de seguridad en Azure (copia de seguridad en dirección URL)|Sí|
+|Instantáneas de base de datos|Sí|
+|Recuperación rápida|Sí|
+|Agregar memoria y CPU sin interrupción|Sí|
+|Trasvase de registros|Sí| 
 |Restauración de archivos y páginas en línea|Sí|
 |Índices en línea|Sí|
-|Recompilaciones de índices en línea reanudables|Sí|
 |Cambio de esquema en línea|Sí|
-|Recuperación rápida|Sí|
-|Copias de seguridad reflejadas|Sí|
-|Agregar memoria y CPU sin interrupción|Sí|
-|Copia de seguridad cifrada|Sí|
-|Copia de seguridad híbrida en Azure (copia de seguridad en dirección URL)|Sí|
+|Recompilaciones de índices en línea reanudables|Sí|
 
 <sup>1</sup> En un escenario en el que hay un error de pod, se inicia una nueva instancia de SQL Managed Instance y se vuelve a conectar al volumen persistente que contiene los datos. [Obtenga más información sobre volúmenes persistentes de Kubernetes aquí](https://kubernetes.io/docs/concepts/storage/persistent-volumes).
 
-<sup>2</sup> Las versiones futuras van a proporcionar capacidades de AG 
+<sup>2</sup> Las versiones futuras van a proporcionar capacidades de AG. 
+
 
 ###  <a name="rdbms-scalability-and-performance"></a><a name="RDBMSSP"></a> RDBMS Scalability and Performance  
 

@@ -3,12 +3,13 @@ title: Implementación de recursos en una suscripción
 description: Se describe cómo crear un grupo de recursos en una plantilla de Azure Resource Manager. También se muestra cómo implementar recursos en el ámbito de la suscripción de Azure.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: 3598fe290fd993cbbc662ba9d3a3c5ba8c207bc0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: a2b9fedbd2916953b0ff2166bc7fddb5f877ee07
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781926"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109754093"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Implementaciones de suscripción con plantillas de Resource Manager
 

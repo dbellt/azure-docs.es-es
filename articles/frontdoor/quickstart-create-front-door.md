@@ -4,20 +4,22 @@ description: En este inicio rápido se muestra cómo usar Azure Front Door Servi
 services: front-door
 documentationcenter: na
 author: duongau
-manager: KumudD
-ms.service: frontdoor
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/16/2020
 ms.author: duau
-ms.openlocfilehash: 1869098362e37ea18c7ca9a9f827b0e5ec98ea3c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+manager: KumudD
+ms.date: 04/19/2021
+ms.topic: quickstart
+ms.service: frontdoor
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 74b7c16904c86751076d40056027999fe44cb868
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067578"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727874"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Inicio rápido: Cree una instancia de Front Door para una aplicación web global de alta disponibilidad.
 
@@ -25,7 +27,9 @@ Empiece a trabajar con Azure Front Door mediante Azure Portal para configurar al
 
 En este inicio rápido, Azure Front Door agrupa dos instancias de una aplicación web que se ejecutan en regiones diferentes de Azure. Cree una configuración de Front Door basada en back-ends con la misma ponderación y prioridad. Esta configuración dirige el tráfico al sitio más cercano que ejecuta la aplicación. Azure Front Door supervisa continuamente la aplicación web. El servicio proporciona conmutación automática por error al siguiente sitio disponible si el sitio más cercano no lo está.
 
-## <a name="prerequisites"></a>Prerrequisitos
+:::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagrama del entorno de implementación de Front Door mediante el uso de Azure Portal." border="false":::
+
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -65,8 +69,8 @@ Una vez finalizada la implementación, cree una segunda aplicación web. Utilice
 | ---              | ---  |
 | **Grupos de recursos**   | Seleccione **Crear nuevo** y escriba *FrontDoorQS_rg2*. |
 | **Nombre**             | Escriba un nombre único para la aplicación web, en este ejemplo, *WebAppContoso-2*  |
-| **Región**           | Una región distinta, en este ejemplo, *Centro-sur de EE. UU.* |
-| **Plan de App Service** > **Plan de Windows**         | Seleccione **Nuevo** y escriba *myAppServicePlanSouthCentralUS* y, a continuación, seleccione **Aceptar**. |
+| **Región**           | Una región distinta, en este caso, *Este de EE. UU.* |
+| **Plan de App Service** > **Plan de Windows**         | Seleccione **Nuevo**, escriba *myAppServicePlanEastUS* y seleccione **Aceptar**. |
 
 ## <a name="create-a-front-door-for-your-application"></a>Creación de una instancia de Front Door para una aplicación
 

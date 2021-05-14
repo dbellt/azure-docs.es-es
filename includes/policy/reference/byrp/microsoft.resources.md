@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/14/2021
+ms.date: 05/04/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: f593de75ea5ab7cec81c65d03a5b28582f416024
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 51ce7748e868793090be76a9fbe994c631bcb753
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107499640"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737246"
 ---
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -41,6 +41,7 @@ ms.locfileid: "107499640"
 |[Azure Monitor debe recopilar los registros de actividad de todas las regiones](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41388f1c-2db0-4c25-95b2-35d7f5ccbfa9) |Esta directiva audita el perfil de registro de Azure Monitor que no exporta actividades de todas las regiones admitidas de Azure, incluida la global. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_CaptureAllRegions.json) |
 |[Se debe implementar la solución "Security and Audit" de Azure Monitor](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3e596b57-105f-48a6-be97-03e9243bad6e) |Esta directiva garantiza que se implementa Security and Audit. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/Security_Audit_MustBeDeployed.json) |
 |[Las suscripciones a Azure deben tener un perfil de registro para el registro de actividad](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7796937f-307b-4598-941c-67d3a05ebfe7) |Esta directiva garantiza que un perfil de registro esté habilitado para la exportación de registros de actividad. Audita si no hay ningún perfil de registro creado para exportar los registros a una cuenta de almacenamiento o a un centro de eventos. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/Logprofile_activityLogs_Audit.json) |
+|[Configurar registros de actividad de Azure para transmitirlos al área de trabajo especificada de Log Analytics](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2465583e-4e78-4c15-b6be-a36cbc7c8b0f) |Implementa la configuración de diagnóstico de actividad de Azure para hacer streaming en los registros de auditoría de suscripciones de suscripción a un área de trabajo de Log Analytics para supervisar los eventos en el nivel de suscripción. |DeployIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DataConnectorsAzureActivity.json) |
 |[Configurar la recuperación ante desastres en máquinas virtuales mediante la habilitación de la replicación.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac34a73f-9fa5-4067-9247-a3ecae514468) |Las máquinas virtuales sin configuraciones de recuperación ante desastres pueden verse afectadas por interrupciones. Si la máquina virtual aún no tiene configurada la recuperación ante desastres, esta se iniciará al habilitar la replicación mediante configuraciones predeterminadas para facilitar la continuidad empresarial. Para más información sobre la recuperación ante desastres, visite [https://aka.ms/asr-doc](https://aka.ms/asr-doc). |DeployIfNotExists, Disabled |[1.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/AzureSiteRecovery-Replication-Policy.json) |
 |[Implementación: configuración de reglas de eliminación de alertas de Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F80e94a21-c6cd-4c95-a2c7-beb5704e61c0) |Elimine las alertas de Azure Security Center para reducir la fatiga que estas ocasionan, mediante la implementación de reglas de eliminación en el grupo de administración o la suscripción. |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SuppressionRulesForAlerts_Deploy.json) |
 |[Implementación de la exportación a Event Hubs de los datos de Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcdfcce10-4578-4ecd-9703-530938e4abcb) |Habilite la exportación a Event Hubs de los datos de Azure Security Center. Esta directiva implementa una exportación a la configuración del centro de eventos con sus condiciones y centro de eventos de destino en el ámbito asignado. Para implementar esta directiva en las suscripciones recién creadas, abra la pestaña Compatibilidad, seleccione la asignación no conforme pertinente y cree una tarea de corrección. |deployIfNotExists |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ExportToEventHubAzureSecurityCenterAlertsAndRecommendations_Deploy.json) |

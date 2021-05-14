@@ -1,20 +1,19 @@
 ---
 title: Introducción a los conjuntos de escalado de máquinas virtuales de Azure
 description: Información acerca de los conjuntos de escalado de máquinas virtuales de Azure y de cómo escalar automáticamente sus aplicaciones
-author: mimckitt
-ms.author: mimckitt
+author: ju-shim
+ms.author: jushiman
 ms.topic: overview
 ms.service: virtual-machine-scale-sets
 ms.subservice: ''
 ms.date: 06/30/2020
-ms.reviewer: jushiman
-ms.custom: mimckitt
-ms.openlocfilehash: 76d3bc1e1736e648316bcd81bf8897d1d2f272a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: mimckitt
+ms.openlocfilehash: 519b5388497ee43420befa5eac4a07ffcee8085c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101672578"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108738240"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>¿Qué son los conjuntos de escalado de máquina virtual?
 Los conjuntos de escalado de máquinas virtuales de Azure permiten crear y administrar un grupo de máquinas virtuales con equilibrio de carga. El número de instancias de máquina virtual puede aumentar o disminuir automáticamente según la demanda, o de acuerdo a una programación definida. Los conjuntos de escalado proporcionan una alta disponibilidad a las aplicaciones y le permiten administrar, configurar y actualizar de forma centralizada un gran número de máquinas virtuales. Con los conjuntos de escalado de máquinas virtuales, puede crear servicios a gran escala para áreas como proceso, macrodatos y cargas de trabajo de contenedor.

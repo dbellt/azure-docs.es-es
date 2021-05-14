@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 9fc34532818a742ef67e4b2532966874d083199d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6b9331007ec633fe8b8368bd493ce18b4ddde24
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94959856"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862100"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Guía de inicio rápido: Inscripción de dispositivos X.509 en el servicio Device Provisioning con C#
 
@@ -31,7 +31,7 @@ Aunque los pasos de este artículo funcionan en equipos Windows y Linux, en este
 ## <a name="prerequisites"></a>Prerequisites
 
 * Instale [Visual Studio 2019](https://www.visualstudio.com/vs/).
-* Instalación del [SDK de .NET Core](https://www.microsoft.com/net/download/windows).
+* Instalación del [SDK de .NET Core](https://dotnet.microsoft.com/download).
 * Instale [Git](https://git-scm.com/download/).
 
 ## <a name="prepare-test-certificates"></a>Preparación de los certificados de prueba

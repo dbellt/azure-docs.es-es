@@ -7,12 +7,13 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: cbc415411e05d6fdecee1acf2fbc02b3c170b9d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: eca74ffe7b62cc5071d8ebaeefab52e5e59409d4
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501131"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832237"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Inicio rápido: Configuración de Azure Attestation con Azure PowerShell
 
@@ -120,6 +121,10 @@ $attestationResourceGroup = "<attestation provider resource group name>"
 New-AzResourceGroup -Name $attestationResourceGroup -Location $location 
 ```
 
+ > [!NOTE]
+   > Una vez creado un proveedor de atestación en este grupo de recursos, el usuario de Azure AD debe tener el rol **Colaborador de atestación** en el proveedor para realizar operaciones como la configuración de directivas o la administración de certificados de firmante de directivas. Estos permisos también se pueden heredar con roles tales como **Propietario** (permisos comodín)/**Colaborador** (permisos comodín) en la suscripción o el grupo de recursos.  
+
+
 ## <a name="create-and-manage-an-attestation-provider"></a>Creación y administración de un proveedor de atestación
 
 New-AzAttestation crea un proveedor de atestación.
@@ -170,12 +175,12 @@ Para administrar directivas, un usuario de Azure AD necesita los siguientes per
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
-Estos permisos se pueden asignar a un usuario de AD a través de un rol como "propietario" (permisos con caracteres comodín), "colaborador" (permisos con caracteres comodín) o "colaborador de atestación" (permisos específicos solo para Azure Attestation).  
+ Para realizar estas acciones, un usuario de Azure AD debe tener el rol **Colaborador de atestación** en el proveedor de atestación. Estos permisos también se pueden heredar con roles tales como **Propietario** (permisos comodín)/**Colaborador** (permisos comodín) en la suscripción o el grupo de recursos.  
 
 Para leer directivas, un usuario de Azure AD necesita los siguientes permisos para las "acciones":
 - Microsoft.Attestation/attestationProviders/attestation/read
 
-Este permiso se puede asignar a un usuario de AD a través de un rol como "lector" (permisos con caracteres comodín) o "lector de atestación" (permisos específicos solo para Azure Attestation).
+ Para realizar esta acción, el usuario de Azure AD debe tener el rol **Lector de atestación** en el proveedor de atestación. El permiso de lectura también se puede heredar con roles como **Lector** (permisos comodín) en la suscripción o el grupo de recursos.  
 
 Los siguientes cmdlets de PowerShell proporcionan la administración de certificados de firmante de directivas para un proveedor de atestación (un TEE a la vez):
 

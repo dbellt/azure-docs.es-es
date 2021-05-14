@@ -12,12 +12,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/16/2021
 ms.author: kumud
-ms.openlocfilehash: 7da59e996ec37d3653dbde68c5f56caa9e8261ee
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 1d8a3bf8a17d04d98f605be3bcc01f47a61fdc89
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061917"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906069"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Enrutamiento del tráfico de red con una tabla de rutas mediante Azure Portal
 
@@ -37,10 +37,6 @@ Este tutorial usa [Azure Portal](https://portal.azure.com). También puede usar 
 
 Antes de empezar, debe tener una cuenta de Azure con una suscripción activa. En caso de no tener una, puede [crear una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>Requisitos previos
-
-- Suscripción a Azure.
-
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure Portal en https://portal.azure.com.
@@ -53,7 +49,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 2. En **Creación de una red virtual**, escriba o seleccione esta información:
 
-    | Configuración | Value |
+    | Configuración | Valor |
     | ------- | ----- |
     | Subscription | Seleccione su suscripción.|
     | Resource group | Seleccione **Crear nuevo** y escriba **myResourceGroup**. </br> Seleccione **Aceptar**. |
@@ -98,7 +94,7 @@ Las aplicaciones virtuales de red (NVA) son máquinas virtuales que ayudan con l
    
 2. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
 
-    | Configuración | Value                                          |
+    | Parámetro | Valor                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
     | Suscripción | Selección de su suscripción a Azure |
@@ -122,7 +118,7 @@ Las aplicaciones virtuales de red (NVA) son máquinas virtuales que ayudan con l
   
 4. En la pestaña Redes, seleccione o escriba:
 
-    | Configuración | Value |
+    | Parámetro | Valor |
     |-|-|
     | **Interfaz de red** |  |
     | Virtual network | Seleccione **myVirtualNetwork**. |
@@ -227,7 +223,7 @@ Cree una máquina virtual pública y una máquina virtual privada en la red virt
    
 2. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
 
-    | Configuración | Value                                          |
+    | Parámetro | Valor                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
     | Suscripción | Selección de su suscripción a Azure |
@@ -251,7 +247,7 @@ Cree una máquina virtual pública y una máquina virtual privada en la red virt
   
 4. En la pestaña Redes, seleccione o escriba:
 
-    | Configuración | Value |
+    | Parámetro | Valor |
     |-|-|
     | **Interfaz de red** |  |
     | Virtual network | Seleccione **myVirtualNetwork**. |
@@ -270,7 +266,7 @@ Cree una máquina virtual pública y una máquina virtual privada en la red virt
    
 2. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
 
-    | Configuración | Value                                          |
+    | Parámetro | Valor                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
     | Suscripción | Selección de su suscripción a Azure |
@@ -294,7 +290,7 @@ Cree una máquina virtual pública y una máquina virtual privada en la red virt
   
 4. En la pestaña Redes, seleccione o escriba:
 
-    | Configuración | Value |
+    | Parámetro | Valor |
     |-|-|
     | **Interfaz de red** |  |
     | Virtual network | Seleccione **myVirtualNetwork**. |

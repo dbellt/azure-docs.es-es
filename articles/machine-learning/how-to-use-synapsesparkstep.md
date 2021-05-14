@@ -8,14 +8,14 @@ ms.subservice: core
 ms.author: laobri
 author: lobrien
 ms.date: 03/04/2021
-ms.topic: conceptual
-ms.custom: how-to, synapse-azureml
-ms.openlocfilehash: b03915608c6143a9e205ba1a1e08e411b8aa9093
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.topic: how-to
+ms.custom: synapse-azureml
+ms.openlocfilehash: 8ef4eca10971f9f7f405292fa7b722b26c7d53cd
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868654"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107896772"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Uso de Apache Spark (con tecnología de Azure Synapse Analytics) en la canalización de aprendizaje automático (versión preliminar)
 
@@ -199,7 +199,7 @@ Este script de "preparación de datos" no realiza ninguna transformación de dat
 
 ## <a name="use-the-synapsesparkstep-in-a-pipeline"></a>Uso de `SynapseSparkStep` en una canalización
 
-Otros pasos de la canalización pueden tener sus propios entornos únicos y ejecutarse en distintos recursos de proceso adecuados para la tarea en cuestión. El cuaderno de ejemplo ejecuta el "paso de entrenamiento" en un clúster de CPU pequeño:
+En el ejemplo siguiente se usa la salida de `SynapseSparkStep` creada en la [sección anterior](#create-a-synapsesparkstep-that-uses-the-linked-apache-spark-pool). Otros pasos de la canalización pueden tener sus propios entornos únicos y ejecutarse en distintos recursos de proceso adecuados para la tarea en cuestión. El cuaderno de ejemplo ejecuta el "paso de entrenamiento" en un clúster de CPU pequeño:
 
 ```python
 from azureml.core.compute import AmlCompute

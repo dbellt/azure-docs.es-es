@@ -5,18 +5,18 @@ description: Obtenga información sobre cómo crear una zona y un registro DNS e
 services: dns
 author: rohinkoul
 ms.author: rohink
-ms.date: 10/20/2020
+ms.date: 04/23/2021
 ms.topic: quickstart
 ms.service: dns
 ms.custom:
 - devx-track-azurepowershell
 - mode-api
-ms.openlocfilehash: 9c457b435ca17ce9dc86e1a83a4d1a56d9623b17
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 431afacd8e8097a60c32e5e286026f33dbfa7d8c
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537886"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949999"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Inicio rápido: Creación de una zona y un registro de Azure DNS mediante Azure PowerShell
 
@@ -25,6 +25,8 @@ ms.locfileid: "107537886"
 En este inicio rápido, creará su primera zona y su primer registro DNS mediante Azure PowerShell. También puede llevar a cabo estos pasos con [Azure Portal](dns-getstarted-portal.md) o la [CLI de Azure](dns-getstarted-cli.md). 
 
 Una zona DNS se usa para hospedar los registros DNS de un dominio concreto. Para iniciar el hospedaje de su dominio en DNS de Azure, debe crear una zona DNS para ese nombre de dominio. Cada registro DNS del dominio se crea luego en esta zona DNS. Finalmente, para publicar la zona DNS en Internet, debe configurar los servidores de nombres para el dominio. A continuación, se describen cada uno de estos pasos.
+
+:::image type="content" source="media/dns-getstarted-portal/environment-diagram.png" alt-text="Diagrama del entorno de implementación de DNS mediante el uso de Azure PowerShell." border="false":::
 
 Azure DNS también admite la creación de dominios privados. Para obtener instrucciones paso a paso sobre cómo crear la primera zona DNS privada y registrarla, consulte [Introducción al uso de PowerShell con las zonas privadas de Azure DNS](private-dns-getstarted-powershell.md).
 

@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: 4f6187ccb143f065fed236495128add7a2ab1ee4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d70580a34e832d6465571adbc8f0524abeba609a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928535"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767932"
 ---
 # <a name="reservation-recommendations"></a>Recomendaciones de reserva
 
@@ -65,5 +65,5 @@ Las recomendaciones de compra de reservas están disponibles en Azure Advisor. T
 - Si usa un período retrospectivo de siete días, es posible que no obtenga recomendaciones cuando las máquinas virtuales estén apagadas durante más de un día.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
+- Obtenga [recomendaciones de reserva mediante API REST](/rest/api/consumption/reservationrecommendations/list).
 - Más información sobre la [Aplicación del descuento por reserva de Azure en las máquinas virtuales](../manage/understand-vm-reservation-charges.md).

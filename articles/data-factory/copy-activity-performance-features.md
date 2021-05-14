@@ -1,18 +1,18 @@
 ---
 title: Características de optimización del rendimiento de la actividad de copia
 description: Conozca las características clave que le ayudarán a optimizar el rendimiento de la actividad de copia en Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/24/2020
-ms.openlocfilehash: ecb4550b218b069273cba2e3d70a9510c1cc74ca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e161ddbeaad0f9e366baa1265622bede93d5b567
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100387808"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482622"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Características de optimización del rendimiento de la actividad de copia
 

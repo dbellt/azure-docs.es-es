@@ -1,25 +1,21 @@
 ---
-title: 'PowerShell para asociación de aplicaciones en formato MSIX (versión preliminar) para Windows Virtual Desktop: Azure'
+title: 'PowerShell para la conexión de aplicaciones MSIX en Windows Virtual Desktop: Azure'
 description: Configuración de la asociación de aplicaciones en formato MSIX para Windows Virtual Desktop con PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 8b6bad32ec653fb2ba63c6940cf6a89a13a8afd0
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: f44cbf3764063c511c896f11bb7ebfaae2973f0c
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448328"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365406"
 ---
-# <a name="set-up-msix-app-attach-preview-using-powershell"></a>Configuración de la asociación de aplicaciones en formato MSIX (versión preliminar) con PowerShell
+# <a name="set-up-msix-app-attach-using-powershell"></a>Configuración de la asociación de aplicaciones en formato MSIX (versión preliminar) con PowerShell
 
-> [!IMPORTANT]
-> La asociación de aplicaciones en formato MSIX está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Además de Azure Portal, también puede configurar la asociación de aplicaciones en formato MSIX (versión preliminar) manualmente con PowerShell. Este artículo lo guiará a través del uso de PowerShell para configurar la asociación de aplicaciones en formato MSIX.
+Además de Azure Portal, también puede configurar la conexión de aplicaciones MSIX manualmente con PowerShell. Este artículo lo guiará a través del uso de PowerShell para configurar la asociación de aplicaciones en formato MSIX.
 
 ## <a name="requirements"></a>Requisitos
 

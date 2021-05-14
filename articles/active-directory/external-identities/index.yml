@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 578eb6859114eeef9672e7b58e6bb6b56189dc5a
-  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.openlocfilehash: 0ff35d207fe9ba95352798ca8138a75619b9f852
+  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/02/2021
-  ms.locfileid: "101647377"
+  ms.lasthandoff: 05/06/2021
+  ms.locfileid: "108764340"
 landingContent:
 - title: Acerca de External Identities
   linkLists:
@@ -41,7 +41,7 @@ landingContent:
     links:
     - text: Configuración de los valores de colaboración externa
       url: delegate-invitations.md
-    - text: Configuración de la federación directa (versión preliminar)
+    - text: Configuración de la federación de IdP para SAML y WS-Fed (versión preliminar)
       url: direct-federation.md
     - text: Configuración de códigos de acceso de un solo uso (versión preliminar)
       url: one-time-passcode.md

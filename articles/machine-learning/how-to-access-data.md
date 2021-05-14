@@ -5,18 +5,18 @@ description: Aprenda a usar los almacenes de datos para conectarse de forma segu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
-ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: 78b7bab204a08b474ea3c5cf5c2f7735c019a9c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: contperf-fy21q1, devx-track-python, data4ml
+ms.openlocfilehash: 35a60291017668755f3b98e63d6a15bda59f2b8e
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519935"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143654"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Conexión a los servicios de almacenamiento en Azure
 
@@ -91,18 +91,21 @@ Le recomendamos que cree un almacén de datos para un [contenedor de blobs de Az
 
 Para asegurarse de que se conecta de forma segura a su servicio Azure Storage, Azure Machine Learning requiere que tenga permiso para obtener acceso al contenedor de almacenamiento de datos correspondiente. Este acceso depende de las credenciales de autenticación usadas para registrar el almacén de datos. 
 
-### <a name="virtual-network"></a>Virtual network 
-
-De forma predeterminada, Azure Machine Learning no pueden comunicarse con una cuenta de almacenamiento que esté detrás de un firewall o dentro de una red virtual. Si la cuenta de almacenamiento de datos se encuentra en una **red virtual**, se necesitan pasos de configuración adicionales para garantizar que Azure Machine Learning tenga acceso a los datos. 
-
 > [!NOTE]
 > Esta guía también se aplica a los [almacenes de datos creados con el acceso a datos basado en identidad (versión preliminar)](how-to-identity-based-data-access.md). 
 
-**En el caso de los usuarios del SDK para Python**, para acceder a los datos mediante el script de entrenamiento en un destino de proceso, el destino de proceso debe estar dentro de la misma red virtual y subred de almacenamiento.  
+### <a name="virtual-network"></a>Virtual network 
+
+Azure Machine Learning requiere pasos de configuración adicionales para comunicarse con una cuenta de almacenamiento que esté detrás de un firewall o dentro de una red virtual. Si la cuenta de almacenamiento está detrás de un firewall, puede [permitir enumerar la dirección IP a través de Azure Portal](../storage/common/storage-network-security.md#managing-ip-network-rules).
+
+Azure Machine Learning puede recibir solicitudes de clientes fuera de la red virtual. Para asegurarse de que la entidad que solicita los datos del servicio es segura, [configure Azure Private Link para el área de trabajo](how-to-configure-private-link.md).
+
+**En el caso de los usuarios del SDK para Python**, para acceder a los datos mediante el script de entrenamiento en un destino de proceso, el destino de proceso debe estar dentro de la misma red virtual y subred de almacenamiento. 
 
 **En el caso de los usuarios de Estudio de Azure Machine Learning**, varias características se basan en la capacidad de leer datos desde un conjunto de datos, como las vistas previas del conjunto de datos, los perfiles y el aprendizaje automático automatizado. Para que estas características funcionen con el almacenamiento detrás de redes virtuales, use una [identidad administrada del área de trabajo en el Estudio](how-to-enable-studio-virtual-network.md) para permitir que Azure Machine Learning acceda a la cuenta de almacenamiento desde fuera de la red virtual. 
 
-Azure Machine Learning puede recibir solicitudes de clientes fuera de la red virtual. Para asegurarse de que la entidad que solicita los datos del servicio es segura, [configure Azure Private Link para el área de trabajo](how-to-configure-private-link.md).
+> [!NOTE]
+> Si el almacenamiento de datos es una instancia de Azure SQL Database detrás de una red virtual, asegúrese de establecer *Denegación del acceso público* en **No** a través de [Azure Portal](https://ms.portal.azure.com/) para permitir que Azure Machine Learning acceda a la cuenta de almacenamiento.
 
 ### <a name="access-validation"></a>Validación de acceso
 

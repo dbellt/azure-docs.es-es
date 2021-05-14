@@ -2,13 +2,14 @@
 title: Traslado de máquinas virtuales de Azure a una nueva suscripción o grupo de recursos
 description: Use Azure Resource Manager para trasladar máquinas virtuales a un nuevo grupo de recursos o a una nueva suscripción.
 ms.topic: conceptual
-ms.date: 12/01/2020
-ms.openlocfilehash: ad7023f309f1ca948711eaa9bdf3867d2ef7a6f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/23/2021
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: f57b09900a955a3988c27f8f6990ff18db41c97c
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100104916"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751750"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Guía del traslado de máquinas virtuales
 
@@ -56,7 +57,7 @@ Las máquinas virtuales creadas a partir de recursos de Marketplace con planes a
 
 ## <a name="virtual-machines-with-azure-backup"></a>Máquinas virtuales con Azure Backup
 
-Para trasladar las máquinas virtuales configuradas con Azure Backup, debe eliminar los puntos de restauración del almacén.
+Para trasladar las máquinas virtuales configuradas con Azure Backup, debe eliminar las colecciones de puntos de restauración (instantáneas) del almacén. Los puntos de restauración ya copiados en el almacén se pueden conservar y mover.
 
 Si la [eliminación temporal](../../../backup/soft-delete-virtual-machines.md) está habilitada para la máquina virtual, no podrá moverla mientras se conserven esos puntos de restauración. [Deshabilite la eliminación temporal](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) o espere 14 días después de eliminar los puntos de restauración.
 
@@ -73,7 +74,7 @@ Si la [eliminación temporal](../../../backup/soft-delete-virtual-machines.md) e
    6. Una vez completada la operación de eliminación, puede mover la máquina virtual.
 
 3. Traslade la máquina virtual al grupo de recursos de destino.
-4. Reanude la copia de seguridad.
+4. Vuelva a configurar la copia de seguridad.
 
 ### <a name="powershell"></a>PowerShell
 

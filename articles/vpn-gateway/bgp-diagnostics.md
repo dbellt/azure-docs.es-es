@@ -1,19 +1,19 @@
 ---
 title: Visualización del estado y las métricas de BGP
 titleSuffix: Azure VPN Gateway
-description: Consulte información importante relacionada con BGP para la solución de problemas.
+description: Aprenda a consultar información importante relacionada con BGP para la solución de problemas.
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: sample
 ms.date: 03/10/2021
 ms.author: alzam
-ms.openlocfilehash: f97bbccc980705699af822ba2730233239cdfd5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f7ef69494281684d7846e4490dfcc27ba08080e
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103148942"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108206734"
 ---
 # <a name="view-bgp-metrics-and-status"></a>Visualización de las métricas y el estado de BGP
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: e18193b40bb7c59a21a279f451673dc7d11140e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e3471d778e0589083caaf2dfedbccc4568de471
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92092909"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144662"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Recuperación ante desastres de Azure Spring Cloud
 
@@ -48,7 +48,7 @@ Necesitará dos instancias de servicio de Azure Spring Cloud implementadas en do
 | service-sample-a | Este de EE. UU. | gateway / auth-service / account-service |
 | service-sample-b | Oeste de Europa | gateway / auth-service / account-service |
 
-2. Configure el dominio personalizado para el servicio siguiendo lo indicado en el [documento de dominio personalizado](spring-cloud-tutorial-custom-domain.md) para configurar el dominio personalizado de estas dos instancias de servicio existentes. Después de que la configuración se complete correctamente, ambas instancias estarán enlazadas al dominio personalizado: bcdr-test.contoso.com
+2. Configure el dominio personalizado para el servicio siguiendo lo indicado en el [documento de dominio personalizado](./tutorial-custom-domain.md) para configurar el dominio personalizado de estas dos instancias de servicio existentes. Después de que la configuración se complete correctamente, ambas instancias estarán enlazadas al dominio personalizado: bcdr-test.contoso.com
 
 3. Cree un administrador de tráfico y dos puntos de conexión: [Creación de un perfil de Traffic Manager mediante Azure Portal](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
@@ -67,4 +67,4 @@ Este es el perfil de Traffic Manager:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Inicio rápido: Implementación de la primera aplicación de Azure Spring Cloud](spring-cloud-quickstart.md)
+* [Inicio rápido: Implementación de la primera aplicación de Azure Spring Cloud](./quickstart.md)

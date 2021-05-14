@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 04/04/2021
 ms.author: memildin
-ms.openlocfilehash: 9d376a374d1934f55b6a6fb15f1642c81b30b2fc
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: a1dfc08447ccf37355342f29be3a0b12b6492be7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718672"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764880"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archivo de novedades de Azure Security Center
 
@@ -23,6 +23,123 @@ En este página se proporciona información acerca de lo siguiente:
 - Nuevas características
 - Corrección de errores
 - Funciones obsoletas
+
+
+## <a name="november-2020"></a>Noviembre de 2020
+
+Las actualizaciones de noviembre incluyen:
+
+- [Se han agregado 29 recomendaciones en versión preliminar para aumentar la cobertura de Azure Security Benchmark](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark).
+- [Se ha agregado NIST SP 800 171 R2 al panel de cumplimiento normativo de Security Center](#nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard).
+- [La lista de recomendaciones ahora incluye filtros](#recommendations-list-now-includes-filters)
+- [Mejora y ampliación de la experiencia de aprovisionamiento automático](#auto-provisioning-experience-improved-and-expanded)
+- [La puntuación de seguridad ahora está disponible en la exportación continua (versión preliminar)](#secure-score-is-now-available-in-continuous-export-preview)
+- [La recomendación "Las actualizaciones del sistema deben estar instaladas en las máquinas" ahora incluye recomendaciones secundarias](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations)
+- [En la página de administración de directivas de Azure Portal ahora se muestra el estado de las asignaciones de directivas predeterminadas](#policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments)
+
+### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Se han agregado 29 recomendaciones en versión preliminar para aumentar la cobertura de Azure Security Benchmark.
+
+Azure Security Benchmark es el conjunto de directrices específico de Azure creado por Microsoft para ofrecer los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. [Mas información sobre Azure Security Benchmark](/security/benchmark/azure/introduction).
+
+Se han agregado a Security Center las siguientes 29 recomendaciones en versión preliminar para aumentar la cobertura de la prueba comparativa.
+
+Las recomendaciones de la versión preliminar no representan un recurso incorrecto y no se incluyen en los cálculos de una puntuación segura. Corríjalas siempre que sea posible, de tal forma que, cuando finalice el período de versión preliminar, contribuyan a la puntuación. Puede encontrar más información sobre cómo responder a estas recomendaciones en [Recomendaciones de corrección en Azure Security Center](security-center-remediate-recommendations.md).
+
+| Control de seguridad                     | Nuevas recomendaciones                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Cifrado de los datos en tránsito              | - La aplicación de la conexión SSL debe estar habilitada para los servidores de base de datos PostgreSQL.<br>- La aplicación de la conexión SSL debe estar habilitada para los servidores de bases de datos MySQL.<br>- TLS debe actualizarse a la versión más reciente en la aplicación de API.<br>- TLS debe actualizarse a la versión más reciente en la aplicación de funciones.<br>- TLS debe actualizarse a la versión más reciente en la aplicación web.<br>- Es necesario exigir FTPS en la aplicación de API.<br>- Es necesario exigir FTPS en la aplicación de funciones.<br>- Es necesario exigir FTPS en la aplicación web.                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Administración de acceso y permisos        | - Las aplicaciones web deben solicitar un certificado SSL a todas las solicitudes entrantes.<br>- Se debe usar una identidad administrada en la aplicación de API.<br>- Se debe usar una identidad administrada en la aplicación de funciones.<br>- Se debe usar una identidad administrada en la aplicación web.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Restricción de los accesos de red no autorizados | - El punto de conexión privado debe estar habilitado para servidores PostgreSQL.<br>- El punto de conexión privado debe estar habilitado para servidores MariaDB.<br>- El punto de conexión privado debe estar habilitado para servidores MySQL.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Habilitar auditoría y registro          | - Los registros de diagnóstico de App Services deben estar habilitados                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Implementación de procedimientos recomendados de seguridad    | - Azure Backup debería habilitarse en las máquinas virtuales.<br>- La copia de seguridad con redundancia geográfica debe estar habilitada para Azure Database for MariaDB.<br>- La copia de seguridad con redundancia geográfica debe estar habilitada para Azure Database for MySQL.<br>- La copia de seguridad con redundancia geográfica debe estar habilitada para Azure Database for PostgreSQL.<br>- PHP debe actualizarse a la versión más reciente en la aplicación de API.<br>- PHP debe actualizarse a la versión más reciente en la aplicación web.<br>- Java debe actualizarse a la versión más reciente en la aplicación de API.<br>- Java debe actualizarse a la versión más reciente en la aplicación de funciones.<br>- Java debe actualizarse a la versión más reciente en la aplicación web.<br>- Python debe actualizarse a la versión más reciente en la aplicación de API.<br>- Python debe actualizarse a la versión más reciente en la aplicación de funciones.<br>- Python debe actualizarse a la versión más reciente en la aplicación web.<br>- La retención de la auditoría en los servidores SQL Server debe establecerse en 90 días, como mínimo. |
+|                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+
+Vínculos relacionados:
+
+- [Más información sobre Azure Security Benchmark](/security/benchmark/azure/introduction)
+- [Más información sobre las aplicaciones de API de Azure](../app-service/app-service-web-tutorial-rest-api.md)
+- [Más información sobre las aplicaciones de funciones de Azure](../azure-functions/functions-overview.md)
+- [Más información sobre las aplicaciones web de Azure](../app-service/overview.md)
+- [Más información sobre Azure Database for MariaDB](../mariadb/overview.md)
+- [Más información sobre Azure Database for MySQL](../mysql/overview.md)
+- [Más información sobre Azure Database for PostgreSQL](../postgresql/overview.md)
+
+
+### <a name="nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard"></a>Se ha agregado NIST SP 800 171 R2 al panel de cumplimiento normativo de Security Center.
+
+La norma NIST SP 800-171 R2 ahora está disponible como una iniciativa integrada para su uso con el panel de cumplimiento normativo de Azure Security Center. Las asignaciones de los controles se describen en [Detalles de la iniciativa integrada de cumplimiento normativo NIST SP 800-171 R2](../governance/policy/samples/nist-sp-800-171-r2.md). 
+
+Para aplicar la norma a sus suscripciones y supervisar continuamente el estado de cumplimiento, siga las instrucciones que se describen en [Personalización del conjunto de normas del panel de cumplimiento normativo](update-regulatory-compliance-packages.md).
+
+:::image type="content" source="media/release-notes/nist-sp-800-171-r2-standard.png" alt-text="Norma NIST SP 800 171 R2 en el panel de cumplimiento normativo de Security Center":::
+
+Para más información acerca de este estándar normativo, consulte [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final).
+
+
+### <a name="recommendations-list-now-includes-filters"></a>La lista de recomendaciones ahora incluye filtros
+
+Ahora puede filtrar la lista de recomendaciones de seguridad de acuerdo con una gama de criterios. En el ejemplo siguiente, la lista de recomendaciones se ha filtrado para mostrar recomendaciones que:
+
+- estén **disponibles con carácter general** (es decir, no en versión preliminar).
+- sean para **cuentas de almacenamiento**.
+- admitan las correcciones de **Corrección rápida**.
+
+:::image type="content" source="media/release-notes/recommendations-filters.png" alt-text="Filtros de la lista de recomendaciones":::
+
+
+### <a name="auto-provisioning-experience-improved-and-expanded"></a>Mejora y ampliación de la experiencia de aprovisionamiento automático
+
+La característica de aprovisionamiento automático ayuda a reducir la sobrecarga de administración mediante la instalación de las extensiones necesarias en máquinas virtuales de Azure nuevas y existentes para que puedan beneficiarse de la protección de Security Center. 
+
+A medida que crece Azure Security Center, se han desarrollado más extensiones y Security Center puede supervisar una lista más amplia de tipos de recursos. Las herramientas de aprovisionamiento automático ahora se han ampliado para admitir otras extensiones y tipos de recursos que aprovechan las funcionalidades de Azure Policy.
+
+Ahora puede configurar el aprovisionamiento automático de:
+
+- Agente de Log Analytics
+- (Nuevo) Complemento de Azure Policy para Kubernetes
+- (Nuevo) Microsoft Dependency Agent
+
+Obtenga más información en [Aprovisionamiento automático de agentes y extensiones de Azure Security Center](security-center-enable-data-collection.md).
+
+
+### <a name="secure-score-is-now-available-in-continuous-export-preview"></a>La puntuación de seguridad ahora está disponible en la exportación continua (versión preliminar)
+
+Con la exportación continua de la puntuación de seguridad, puede transmitir los cambios de la puntuación en tiempo real a Azure Event Hubs o a un área de trabajo de Log Analytics. Use esta funcionalidad para:
+
+- Realizar un seguimiento de la puntuación de seguridad en el tiempo con informes dinámicos
+- Exportar datos de puntuación de seguridad a Azure Sentinel (o a cualquier otro SIEM)
+- Integrar estos datos con cualquier proceso que ya esté usando para supervisar la puntuación de seguridad en la organización
+
+Obtenga más información sobre la [Exportación continua de datos de Security Center](continuous-export.md).
+
+
+### <a name="system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations"></a>La recomendación "Las actualizaciones del sistema deben estar instaladas en las máquinas" ahora incluye recomendaciones secundarias
+
+La recomendación **Las actualizaciones del sistema deben estar instaladas en las máquinas** se ha mejorado. La nueva versión incluye recomendaciones secundarias para cada actualización que falta y ofrece las siguientes mejoras:
+
+- Una nueva experiencia en las páginas de Azure Security Center de Azure Portal. La página de detalles de la recomendación **Las actualizaciones del sistema deben estar instaladas en las máquinas** incluye la lista de conclusiones que se muestran a continuación. Al seleccionar una única búsqueda, se abre el panel de detalles con un vínculo a la información de corrección y una lista de los recursos afectados.
+
+    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Apertura de una de las recomendaciones secundarias en la experiencia del portal de la recomendación actualizada":::
+
+- Datos enriquecidos para la recomendación de Azure Resource Graph (ARG). ARG es un servicio de Azure diseñado para proporcionar una exploración de recursos eficaz. Puede usar ARG para realizar consultas a escala para un conjunto determinado de suscripciones a fin de controlar eficazmente su entorno. 
+
+    Para Azure Security Center, puede usar ARG y el [lenguaje de consulta Kusto (KQL)](/azure/data-explorer/kusto/query/) para consultar una amplia variedad de datos de posición de seguridad.
+
+    Anteriormente, si consultaba esta recomendación en ARG, la única información disponible era que la recomendación debía corregirse en una máquina. La siguiente consulta de la versión mejorada devolverá las actualizaciones del sistema que faltan agrupadas por máquina.
+
+    ```kusto
+    securityresources
+    | where type =~ "microsoft.security/assessments/subassessments"
+    | where extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id) == "4ab6e3c5-74dd-8b35-9ab9-f61b30875b27"
+    | where properties.status.code == "Unhealthy"
+    ```
+
+### <a name="policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments"></a>En la página de administración de directivas de Azure Portal ahora se muestra el estado de las asignaciones de directivas predeterminadas
+
+Ahora puede ver si las suscripciones tienen la directiva de Security Center predeterminada asignada, en la página **Directiva de seguridad** de Security Center en Azure Portal.
+
+:::image type="content" source="media/release-notes/policy-assignment-info-per-subscription.png" alt-text="En la página de administración de directivas de Azure Security Center se muestran las asignaciones de directivas predeterminadas":::
+
 
 
 ## <a name="october-2020"></a>Octubre de 2020
@@ -891,7 +1008,7 @@ Ahora, puede agregar estándares como:
 - **Canada Federal PBMM**
 - **Azure CIS 1.1.0 (nuevo)** (que es una representación más completa de Azure CIS 1.1.0)
 
-Además, recientemente hemos agregado el [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction), las instrucciones específicas de Azure creadas por Microsoft para las prácticas recomendadas de seguridad y cumplimiento basadas en los marcos de cumplimiento comunes. Se admitirán estándares adicionales en el panel a medida que estén disponibles.  
+Además, recientemente hemos agregado el [Azure Security Benchmark](/security/benchmark/azure/introduction), las instrucciones específicas de Azure creadas por Microsoft para las prácticas recomendadas de seguridad y cumplimiento basadas en los marcos de cumplimiento comunes. Se admitirán estándares adicionales en el panel a medida que estén disponibles.  
  
 Más información sobre [cómo personalizar el conjunto de estándares en el panel de cumplimiento normativo](update-regulatory-compliance-packages.md).
 

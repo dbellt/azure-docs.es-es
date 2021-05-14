@@ -7,12 +7,12 @@ ms.subservice: enterprise
 ms.topic: article
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 777c8549d79f820c1847e711969919df128cebd3
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 4ac9c38c3f86c1226edf3b448324205cf5f98568
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132421"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058874"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Revisión de la facturación de inscripción de empresa mediante las API REST
 
@@ -37,7 +37,7 @@ Los siguientes encabezados son obligatorios:
 |Encabezado de solicitud|Descripción|  
 |--------------------|-----------------|  
 |*Content-Type:*|Necesario. Establézcalo en `application/json`.|  
-|*Authorization:*|Necesario. Establézcalo en una [clave de API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) `Bearer` válida. |  
+|*Authorization:*|Necesario. Establézcalo en una  [clave de API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)`Bearer` válida. |  
 
 Este ejemplo muestra una llamada sincrónica que devuelve detalles para el ciclo de facturación actual. Por razones de rendimiento, las llamadas sincrónicas devuelven información del último mes.  También puede llamar a la [API de forma asincrónica](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) para devolver datos durante 36 meses.
 
@@ -90,7 +90,7 @@ Los siguientes encabezados son obligatorios:
 |Encabezado de solicitud|Descripción|  
 |--------------------|-----------------|  
 |*Content-Type:*|Necesario. Establézcalo en `application/json`.|  
-|*Authorization:*|Necesario. Establézcalo en una [clave de API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) `Bearer` válida. |  
+|*Authorization:*|Necesario. Establézcalo en una  [clave de API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)`Bearer` válida. |  
 
 Este ejemplo muestra una llamada sincrónica que devuelve detalles para el ciclo de facturación actual. Por razones de rendimiento, las llamadas sincrónicas devuelven información del último mes.  También puede llamar a la [API de forma asincrónica](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) para devolver datos durante 36 meses.
 
@@ -146,7 +146,7 @@ Los siguientes encabezados son obligatorios:
 |Encabezado de solicitud|Descripción|  
 |--------------------|-----------------|  
 |*Content-Type:*|Necesario. Establézcalo en `application/json`.|  
-|*Authorization:*|Necesario. Establézcalo en una [clave de API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) `Bearer` válida. |  
+|*Authorization:*|Necesario. Establézcalo en una  [clave de API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)`Bearer` válida. |  
 
 Este ejemplo muestra una llamada sincrónica que devuelve detalles para el ciclo de facturación actual. Por razones de rendimiento, las llamadas sincrónicas devuelven información del último mes.  También puede llamar a la [API de forma asincrónica](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) para devolver datos durante 36 meses.
 

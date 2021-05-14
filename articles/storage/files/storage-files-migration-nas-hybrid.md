@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 86e79302716fa502d8562dd563b0a5c5fb220a67
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01289345ee6bebc0ab1a4608eb83cb8a2827e924
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102547565"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "108745368"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migración desde un almacenamiento conectado a la red (NAS) a una implementación de nube híbrida con Azure File Sync
 
@@ -54,7 +54,7 @@ Como se mencionó en el [artículo de información general sobre la migración](
 * Cree un servidor de Windows Server 2019 (como mínimo de la edición 2012 R2), como una máquina virtual o un servidor físico. También se admite un clúster de conmutación por error de Windows Server.
 * Aprovisione o agregue almacenamiento de conexión directa (DAS frente a NAS, que no se admite).
 
-    La cantidad de almacenamiento que aprovisione puede ser menor que la que usa actualmente en el dispositivo NAS. Esta opción de configuración requiere que use también la característica de [nube por niveles](storage-sync-cloud-tiering-overview.md) de Azure File Sync.
+    La cantidad de almacenamiento que aprovisione puede ser menor que la que usa actualmente en el dispositivo NAS. Esta opción de configuración requiere que use también la característica de [nube por niveles](../file-sync/file-sync-cloud-tiering-overview.md) de Azure File Sync.
     Sin embargo, cuando en una fase posterior copie los archivos del espacio de NAS más grande al volumen más pequeño de Windows Server, tendrá que trabajar en lotes:
 
     1. Mueva un conjunto de archivos que quepa en el disco.
@@ -65,7 +65,7 @@ Como se mencionó en el [artículo de información general sobre la migración](
 
 La configuración de recursos (de proceso y RAM) de la instancia de Windows Server que implemente depende principalmente del número de elementos (archivos y carpetas) que se van a sincronizar. Se recomienda trabajar con una configuración de rendimiento más alto si tiene problemas.
 
-[Aprenda a cambiar el tamaño de un servidor de Windows Server según el número de elementos (archivos y carpetas) que necesite sincronizar.](storage-sync-files-planning.md#recommended-system-resources)
+[Aprenda a cambiar el tamaño de un servidor de Windows Server según el número de elementos (archivos y carpetas) que necesite sincronizar.](../file-sync/file-sync-planning.md#recommended-system-resources)
 
 > [!NOTE]
 > El artículo vinculado anteriormente presenta una tabla con un intervalo de memoria del servidor (RAM). Puede orientarse hacia el número más pequeño para el servidor, pero espere que la sincronización inicial tarde mucho más.
@@ -114,7 +114,7 @@ Ejecute la primera copia local en la carpeta de destino de Windows Server:
 
 El comando de RoboCopy siguiente copiará los archivos desde el almacenamiento NAS a la carpeta de destino de la instancia de Windows Server. Windows Server los sincronizará con los recursos compartidos de archivos de Azure. 
 
-Si ha aprovisionado menos almacenamiento en la instancia de Windows Server que el que ocupan los archivos en el dispositivo NAS, ha configurado la nube por niveles. A medida que el volumen local de Windows Server se llena, la [nube por niveles](storage-sync-cloud-tiering-overview.md) se iniciará y organizará por niveles los archivos que ya se han sincronizado correctamente. La nube por niveles generará espacio suficiente para continuar con la copia desde el dispositivo NAS. La nube por niveles realiza comprobaciones cada hora para averiguar qué se ha sincronizado y para liberar espacio en disco para alcanzar el 99 % de espacio libre del volumen.
+Si ha aprovisionado menos almacenamiento en la instancia de Windows Server que el que ocupan los archivos en el dispositivo NAS, ha configurado la nube por niveles. A medida que el volumen local de Windows Server se llena, la [nube por niveles](../file-sync/file-sync-cloud-tiering-overview.md) se iniciará y organizará por niveles los archivos que ya se han sincronizado correctamente. La nube por niveles generará espacio suficiente para continuar con la copia desde el dispositivo NAS. La nube por niveles realiza comprobaciones cada hora para averiguar qué se ha sincronizado y para liberar espacio en disco para alcanzar el 99 % de espacio libre del volumen.
 Es posible que RoboCopy mueva los archivos más rápido de lo que se pueden sincronizar con la nube y el nivel localmente, y por tanto quedarse sin espacio en el disco local. Se producirá un error en RoboCopy. Se recomienda trabajar con los recursos compartidos en una secuencia que lo evite. Por ejemplo, no inicie trabajos de RoboCopy para todos los recursos compartidos al mismo tiempo, o bien transfiera solo los recursos compartidos que se ajusten a la cantidad actual de espacio disponible en la instancia de Windows Server, por mencionar algunas soluciones.
 
 [!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
@@ -166,6 +166,6 @@ Consulte el vínculo de la sección siguiente para solucionar problemas de Azure
 
 Hay más información sobre los recursos compartidos de archivos de Azure y Azure File Sync. Los artículos siguientes le ayudarán a comprender las opciones avanzadas, los procedimientos recomendados y también contienen ayuda para la solución de problemas. Estos artículos se vinculan a la [documentación de recursos compartidos de archivos de Azure](storage-files-introduction.md) según corresponda.
 
-* [Información general sobre AFS](./storage-sync-files-planning.md)
-* [Guía de implementación de AFS](./storage-how-to-create-file-share.md)
-* [Solución de problemas de AFS](storage-sync-files-troubleshoot.md)
+* [Introducción a Azure File Sync](../file-sync/file-sync-planning.md)
+* [Implementación de Azure File Sync](../file-sync/file-sync-deployment-guide.md)
+* [Solución de problemas de Azure File Sync](../file-sync/file-sync-troubleshoot.md)

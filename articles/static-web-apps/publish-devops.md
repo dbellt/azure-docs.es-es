@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: apedward
-ms.openlocfilehash: f82ae60ab7f57b20a727deefa6e286d698ee5b6c
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 259d430c79cccef3cd5c581c9a60fa00edf159ec
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365763"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162282"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-with-azure-devops"></a>Tutorial: Publicación de aplicaciones web estáticas de Azure con Azure DevOps
 
@@ -27,7 +27,7 @@ En este tutorial, aprenderá a:
 
 - Una **cuenta activa de Azure**: en caso de no tener una, puede [crear una cuenta gratuita](https://azure.microsoft.com/free/).
 - Un **proyecto de Azure DevOps:** si no tiene uno, puede [crear un proyecto de forma gratuita](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/).
-- Una **canalización de Azure DevOps:** si necesita ayuda para comenzar, consulte [Creación de la primera canalización](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&preserve-view=true).
+- Una **canalización de Azure DevOps:** si necesita ayuda para comenzar, consulte [Creación de la primera canalización](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops).
 
 ## <a name="create-a-static-web-app-in-an-azure-devops-repository"></a>Creación de una aplicación web estática en un repositorio de Azure DevOps
 
@@ -87,20 +87,19 @@ En este tutorial, aprenderá a:
 
     ```yaml
     trigger:
-      - main
-    
+    - main
+
     pool:
       vmImage: ubuntu-latest
-    
+
     steps:
       - checkout: self
         submodules: true
-
       - task: AzureStaticWebApp@0
         inputs:
-          app_location: "/" 
-          api_location: "api"
-          output_location: ""
+          app_location: '/'
+          api_location: 'api'
+          output_location: ''
         env:
           azure_static_web_apps_api_token: $(deployment_token)
     ```
@@ -112,33 +111,33 @@ En este tutorial, aprenderá a:
 
     El valor `azure_static_web_apps_api_token` es autoadministrado y se configura manualmente.
 
-1. Seleccione **Variables**.
+2. Seleccione **Variables**.
 
-1. Cree una nueva variable.
+3. Cree una nueva variable.
 
-1. Asigne a la variable el nombre **deployment_token** (que coincide con el nombre del flujo de trabajo).
+4. Asigne a la variable el nombre **deployment_token** (que coincide con el nombre del flujo de trabajo).
 
-1. Copie el token de implementación que pegó anteriormente en un editor de texto.
+5. Copie el token de implementación que pegó anteriormente en un editor de texto.
 
-1. Pegue el token de implementación en el cuadro _Valor_.
+6. Pegue el token de implementación en el cuadro _Valor_.
 
     :::image type="content" source="media/publish-devops/variable-token.png" alt-text="Token de variable":::
 
-1. Seleccione **Mantener este valor como secreto**.
+7. Seleccione **Mantener este valor como secreto**.
 
-1. Seleccione **Aceptar**.
+8. Seleccione **Aceptar**.
 
-1. Seleccione **Guardar** para volver al archivo YAML de la canalización.
+9. Seleccione **Guardar** para volver al archivo YAML de la canalización.
 
-1. Seleccione **Guardar y ejecutar** para que se abra el cuadro de diálogo del mismo nombre.
+10. Seleccione **Guardar y ejecutar** para que se abra el cuadro de diálogo del mismo nombre.
 
     :::image type="content" source="media/publish-devops/save-and-run.png" alt-text="Canalización":::
 
-1. Seleccione **Guardar y ejecutar** para ejecutar la canalización.
+11. Seleccione **Guardar y ejecutar** para ejecutar la canalización.
 
-1. Una vez que la implementación se haya realizado correctamente, vaya a la página de **información general** de Azure Static Web Apps, que incluye vínculos a la configuración de implementación. Observe cómo el vínculo de _origen_ apunta ahora a la rama y ubicación del repositorio de Azure DevOps.
+12. Una vez que la implementación se haya realizado correctamente, vaya a la página de **información general** de Azure Static Web Apps, que incluye vínculos a la configuración de implementación. Observe cómo el vínculo de _origen_ apunta ahora a la rama y ubicación del repositorio de Azure DevOps.
 
-1. Seleccione la **dirección URL** para ver el sitio web recién implementado.
+13. Seleccione la **dirección URL** para ver el sitio web recién implementado.
 
     :::image type="content" source="media/publish-devops/deployment-location.png" alt-text="Ubicación de implementación":::
 

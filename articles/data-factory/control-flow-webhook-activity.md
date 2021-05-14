@@ -1,18 +1,18 @@
 ---
 title: Actividad de webhook en Azure Data Factory
 description: La actividad de webhook no continúa la ejecución de la canalización hasta que valida el conjunto de datos adjunto con determinados criterios que el usuario especifica.
-author: dcstwh
-ms.author: weetok
+author: nabhishek
+ms.author: abnarain
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4c3ff5d7139f4167769f78aa858c7d7a693539a3
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 0c35a8b25e09029d2f561b107613b13cc40b19de
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104785944"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903909"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Actividad de webhook en Azure Data Factory
 

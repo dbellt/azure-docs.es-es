@@ -7,18 +7,18 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: scottnap
-ms.openlocfilehash: d5af0cc4eb72a2db850e19e47ed11cd9f6f4536e
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 36987789487e97f42a51ff509df58ee0ff2dd2ed
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061866"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107951259"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Acerca de una aplicación virtual de red en un centro de conectividad de Azure Virtual WAN (versión preliminar)
 
 Azure Virtual WAN ha trabajado con asociados de red para crear una automatización que facilite la conexión de su equipo local del cliente (CPE) a una puerta de enlace de VPN de Azure que se encuentre en el centro de conectividad virtual. Azure trabaja con algunos asociados de red seleccionados para que los clientes implementen una aplicación virtual de red (NVA) de terceros directamente en el centro de conectividad virtual. Esto permite a los clientes conectar el CPE de su rama a la NVA de la misma marca en el centro de conectividad virtual para poder sacar provecho de todas las funcionalidades propias de SD-WAN.
 
-Las redes Barracuda y Cisco Systems son los primeros asociados en proporcionar las NVA que se pueden implementar directamente en el centro de conectividad de Virtual WAN.  Consulte [Barracuda CloudGen WAN](https://www.barracuda.com/products/cloudgenwan) y [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) para ver la documentación del producto correspondiente. Azure está trabajando con más asociados, por lo que lo normal es que aparezcan otras ofertas.
+Las redes Barracuda y Cisco Systems son los primeros asociados en proporcionar las NVA que se pueden implementar directamente en el centro de conectividad de Virtual WAN.  Consulte [Barracuda CloudGen WAN](https://www.barracuda.com/products/cloudgenwan), [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) y [VMware SD-WAN](https://kb.vmware.com/s/article/82746) para ver la documentación del producto correspondiente. Azure está trabajando con más asociados, por lo que lo normal es que aparezcan otras ofertas.
 
 > [!NOTE]
 > Las únicas ofertas que se pueden implementar en el centro de Virtual WAN son las que están disponibles para ello. No se pueden implementar en una red virtual arbitraria de Azure.
@@ -77,13 +77,14 @@ NVA en el centro de conectividad virtual está disponible en versión preliminar
 
 |Región geopolítica | Regiones de Azure|
 |---|---|
-| Norteamérica| Oeste de EE. UU., Centro-sur de EE. UU. y Este de EE. UU. 2   |
-| Sudamérica | Sur de Brasil |
-| Europa | Oeste de Europa, Sur de Reino Unido|
+| Norteamérica| Centro de Canadá, Este de Canadá, Centro de EE. UU., Este de EE. UU., Este de EE. UU. 2, Centro-sur de EE. UU., Centro-norte de EE. UU., Centro-oeste de EE. UU., Oeste de EE. UU., Oeste de EE. UU 2 |
+| Sudamérica | Sur de Brasil, Sudeste de Brasil |
+| Europa | Centro de Francia, Sur de Francia, Norte de Alemania, Centro-oeste de Alemania, Norte de Europa, Este de Noruega, Oeste de Noruega, Norte de Suiza, Oeste de Suiza, Sur de Reino Unido, Oeste de Reino Unido, Oeste de Europa|
 |  Oriente Medio | Norte de Emiratos Árabes Unidos |
-| Asia | Japón Oriental |
-| Australia | Este de Australia |
-
+| Asia |  Este de Asia, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Sudeste de Asia | 
+| Australia | Sudeste de Australia, Este de Australia, Centro de Australia, Centro de Australia 2|
+| África | Norte de Sudáfrica |
+| India | Sur de la India, India occidental, India central | 
 ## <a name="faq"></a>Preguntas más frecuentes
 
 ### <a name="i-am-a-network-appliance-partner-and-want-to-get-our-nva-in-the-hub--can-i-join-this-partner-program"></a>Soy asociado de dispositivos de red y quiero que nuestra NVA esté en el centro de conectividad.  ¿Puedo participar en este programa para asociados?
@@ -92,7 +93,7 @@ Desafortunadamente, no tenemos capacidad para incorporar nuevas ofertas para aso
 
 ### <a name="can-i-deploy-any-nva-from-azure-marketplace-into-the-virtual-wan-hub"></a>¿Puedo implementar cualquier NVA desde Azure Marketplace en el centro de conectividad de Virtual WAN?
 
-Actualmente, [Barracuda CloudGen WAN](https://aka.ms/BarracudaMarketPlaceOffer) y [Cisco Cloud vWAN Application](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cisco.cisco_cloud_vwan_app?tab=Overview) son los únicos productos disponibles para implementarse en el centro de conectividad de Virtual WAN.
+Actualmente, solo [Barracuda CloudGen WAN](https://aka.ms/BarracudaMarketPlaceOffer), [Cisco Cloud vWAN Application](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cisco.cisco_cloud_vwan_app?tab=Overview) y [VMware Sd-WAN](https://aka.ms/vmwareMarketplaceLink) son los únicos productos disponibles para implementarse en el centro de conectividad de Virtual WAN.
 
 ### <a name="what-is-the-cost-of-the-nva"></a>¿Cuál es el costo de la NVA?
 
@@ -104,7 +105,7 @@ No. Si desea implementar una NVA, debe usar un centro de conectividad Estándar.
 
 ### <a name="can-i-deploy-an-nva-into-a-secure-hub"></a>¿Se puede implementar una NVA en un centro de conectividad Seguro?
 
-Sí. Barracuda CloudGen WAN se puede implementar en un centro de conectividad con Azure Firewall.
+Sí. Se puede implementar una NVA de asociado en un centro de conectividad con Azure Firewall.
 
 ### <a name="can-i-connect-any-cpe-device-in-my-branch-office-to-barracuda-cloudgen-wan-nva-in-the-hub"></a>¿Se pueden conectar todos los dispositivos CPE de una sucursal a la NVA Barracuda CloudGen WAN del centro de conectividad?
 

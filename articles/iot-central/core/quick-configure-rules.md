@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: f65614de97e8ff6eed732e624ae30c3f2b70bd60
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 94dab0124a1f5e0144aab2e271fbf89e02111d3a
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589013"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108206806"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Inicio rápido: Configuración de reglas y acciones para el dispositivo en Azure IoT Central
 
@@ -31,13 +31,13 @@ Antes de comenzar debe completar los dos inicios rápidos anteriores [Creación 
 
 1. Especifique **Environmental humidity** (Humedad ambiental) como nombre de la regla.
 
-1. En la sección **Target devices** (Dispositivos de destino), seleccione **Sensor Controller** como plantilla de dispositivo. Esta opción filtra los dispositivos a los que se aplica la regla por tipo de plantilla de dispositivo. Para agregar más criterios de filtro, seleccione **+ Filtro**.
+1. En la sección **Dispositivos de destino**, en **Plantilla de dispositivo**, seleccione **Sensor Controller** (Controlador de sensor). Esta opción filtra los dispositivos a los que se aplica la regla por tipo de plantilla de dispositivo. Para agregar más criterios de filtro, seleccione **+ Filtro**.
 
 1. En la sección **Condiciones**, se define lo que desencadena la regla. Use la siguiente información para definir una condición basada en los datos de telemetría de temperatura:
 
     | Campo        | Value            |
     | ------------ | ---------------- |
-    | Medición  | SensorHumid      |
+    | Telemetría    | SensorHumid      |
     | Operator     | es mayor que  |
     | Value        | 55               |
 
@@ -60,14 +60,14 @@ Antes de comenzar debe completar los dos inicios rápidos anteriores [Creación 
 
     :::image type="content" source="media/quick-configure-rules/action.png" alt-text="Captura de pantalla que muestra la acción de correo electrónico agregada a la regla.":::
 
-1. Seleccione **Guardar**. La regla se muestra en la página **Reglas**.
+1. Seleccione **Guardar**. La regla se muestra ahora en la página **Reglas**.
 
 ## <a name="test-the-rule"></a>Prueba de la regla
 
 Poco después de guardar la regla, esta se activa. Cuando se cumplan las condiciones definidas en la regla, la aplicación enviará un correo electrónico a la dirección que especificó en la acción.
 
 > [!NOTE]
-> Una vez terminada la prueba, desactive la regla para dejar de recibir alertas en la bandeja de entrada.
+> Una vez terminada la prueba, deshabilite la regla para dejar de recibir alertas en la bandeja de entrada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

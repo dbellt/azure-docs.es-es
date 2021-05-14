@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.author: alsin
-ms.openlocfilehash: b79e061ae00c42ed2ec2ac39f5653a868f09a15f
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 02c122486ad9ca702e518445761fef05675c9067
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107368573"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209704"
 ---
 # <a name="automanage-accounts"></a>Cuentas de Automanage
 
@@ -46,7 +46,7 @@ La creación de una cuenta de Automanage mediante una plantilla de Resource Mana
 1. Creación de la cuenta de Automanage
 1. Concesión de los permisos suficientes a la cuenta para permitirle realizar operaciones
     1. Necesitará el identificador de objeto de la cuenta que creó para este paso.
-        1. Los pasos para encontrar los detalles de la entidad de servicio de la cuenta (incluido el identificador de objeto) están disponibles [aquí](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-view-managed-identity-service-principal-portal#view-the-service-principal).
+        1. Los pasos para encontrar los detalles de la entidad de servicio de la cuenta (incluido el identificador de objeto) están disponibles [aquí](../active-directory/managed-identities-azure-resources/how-to-view-managed-identity-service-principal-portal.md#view-the-service-principal).
     1. Una vez que haya encontrado la entidad de servicio, copie el **identificador de objeto**. Guárdelo, ya que lo necesitará para delegar permisos a continuación.
 
 #### <a name="1-create-automanage-account-does-not-grant-permissions-to-it"></a>1. Creación de una cuenta de Automanage (no le concede permisos a esta)

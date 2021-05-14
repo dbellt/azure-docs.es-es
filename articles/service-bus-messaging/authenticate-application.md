@@ -3,12 +3,12 @@ title: Autenticación de una aplicación para acceder a entidades de Azure Servi
 description: En este artículo se proporciona información sobre cómo autenticar una aplicación con Azure Active Directory para acceder a entidades de Azure Service Bus (colas, temas, etc.).
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: c4e19c0ab26d491ba0b95159e274383431aefaee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc009c5a84c577c5904b3e0fc834295aa355e802
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92518235"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123112"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autenticación y autorización de una aplicación con Azure Active Directory para acceder a entidades de Azure Service Bus
 Azure Service Bus admite el uso de Azure Active Directory (Azure AD) para autorizar solicitudes a entidades de Service Bus (colas, temas, suscripciones o filtros). Con Azure AD, puede usar el control de acceso basado en rol de Azure (Azure RBAC) para conceder permisos a una entidad de seguridad, que puede ser un usuario, un grupo o una entidad de servicio de aplicación. Para más información sobre los roles y las asignaciones de roles, consulte [Descripción de los distintos roles](../role-based-access-control/overview.md).
@@ -125,29 +125,22 @@ La aplicación necesita un secreto de cliente para demostrar su identidad al sol
 ### <a name="permissions-for-the-service-bus-api"></a>Permisos para la API de Service Bus
 Si la aplicación de ejemplo es una aplicación de consola, debe registrar una aplicación nativa y agregar permisos de API para **Microsoft.ServiceBus** en el conjunto de **permisos necesarios**. Las aplicaciones nativas también necesitan un **URI de redireccionamiento** en Azure AD, que actúa como identificador. No es necesario que este URI sea un destino de red. Use `https://servicebus.microsoft.com` para este ejemplo, dado que el ejemplo de código ya utiliza ese URI.
 
-### <a name="client-libraries-for-token-acquisition"></a>Bibliotecas cliente para la adquisición de tokens  
-Una vez que haya registrado su aplicación y le haya concedido permisos para enviar/recibir datos en Service Bus, podrá agregar código a su aplicación para autenticar una entidad de seguridad y adquirir un token de OAuth 2.0. Para autenticar y adquirir el token, puede usar una de las [bibliotecas de autenticación de la Plataforma de identidad de Microsoft](../active-directory/develop/reference-v2-libraries.md) u otra biblioteca de código abierto que admita OpenID o Connect 1.0. A continuación, su aplicación puede usar el token de acceso para autorizar una solicitud en Azure Service Bus.
+### <a name="authenticating-the-service-bus-client"></a>Autenticación del cliente de Service Bus   
+Una vez que haya registrado la aplicación y se le haya concedido permisos para enviar o recibir datos en Azure Service Bus, puede autenticar el cliente con la credencial de secreto de cliente, lo que le permitirá realizar solicitudes en Azure Service Bus.
 
 Para ver una lista de escenarios en los que se admite la adquisición de tokens, consulte la sección [Escenarios](https://aka.ms/msal-net-scenarios) del repositorio de GitHub [Biblioteca de autenticación de Microsoft (MSAL) para .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet).
 
-## <a name="sample-on-github"></a>Ejemplo en GitHub
-Consulte el siguiente ejemplo en GitHub: [Control de acceso basado en roles de Azure para Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl). 
+# <a name="net"></a>[.NET](#tab/dotnet)
+Con la biblioteca [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) más reciente, puede autenticar [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) con [ClientSecretCredential](/dotnet/api/azure.identity.clientsecretcredential), que se define en la biblioteca [Azure.Identity](https://www.nuget.org/packages/Azure.Identity).
+```cs
+TokenCredential credential = new ClientSecretCredential("<tenant_id>", "<client_id>", "<client_secret>");
+var client = new ServiceBusClient("<fully_qualified_namespace>", credential);
+```
 
-Use la opción **Client Secret Login (Inicio de sesión de secreto de usuario)** , no la opción **Interactive User Login** (Inicio de sesión de usuario interactivo). Cuando se usa la opción de secreto de cliente, no se ve una ventana emergente. La aplicación emplea el identificador de inquilino y el identificador de aplicación para la autenticación. 
-
-### <a name="run-the-sample"></a>Ejecución del ejemplo
-
-Antes de poder ejecutar el ejemplo, edite el archivo **app.config** y, según el escenario, establezca los siguientes valores:
-
-- `tenantId`: establézcalo en el valor de **TenantId**.
-- `clientId`: establézcalo en el valor de **ApplicationId**.
-- `clientSecret`: si desea iniciar sesión mediante el secreto de cliente, créelo en Azure AD. Además, utilice una aplicación web o API en lugar de una aplicación nativa. Además, agregue la aplicación en **Control de acceso (IAM)** en el espacio de nombres que creó anteriormente.
-- `serviceBusNamespaceFQDN`: establézcalo en el nombre DNS completo del espacio de nombres de Service Bus recién creado. Por ejemplo, `example.servicebus.windows.net`.
-- `queueName`: establézcalo en el nombre de la cola que creó.
-- El URI de redireccionamiento que especificó en la aplicación en los pasos anteriores.
-
-Al ejecutar la aplicación de consola, se le pedirá que seleccione un escenario. Seleccione **Interactive User Login** (Inicio de sesión de usuario interactivo); para ello, escriba su número y presione ENTRAR. La aplicación muestra una ventana de inicio de sesión, solicita su consentimiento para acceder a Service Bus y, a continuación, utiliza el servicio para ejecutarse en el escenario de envío o recepción mediante la identidad de inicio de sesión.
-
+Si usa los paquetes de .NET anteriores, consulte los ejemplos siguientes.
+- [RoleBasedAccessControl in Microsoft.Azure.ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/RoleBasedAccessControl)
+- [RoleBasedAccessControl in WindowsAzure.ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Para más información sobre Azure RBAC, consulte [¿Qué es el control de acceso basado en rol de Azure (Azure RBAC) de Azure?](../role-based-access-control/overview.md)

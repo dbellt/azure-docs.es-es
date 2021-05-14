@@ -3,12 +3,12 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 09/15/2020
-ms.openlocfilehash: 2b14c6e679a25ad5f37a9cb10bce78616126990b
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 5bd83dce0fa7154d14c22b1d1076e3bd1c7bcc76
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106113184"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107931662"
 ---
 Introducción a la biblioteca cliente de Custom Vision para .NET. Siga estos pasos para instalar el paquete y probar el código de ejemplo para crear un modelo de detección de objetos. Creará un proyecto, agregará etiquetas, entrenará el proyecto en las imágenes de ejemplo y usará la dirección URL del punto de conexión de predicción del proyecto para probarlo mediante programación. Utilice este ejemplo como plantilla para crear su propia aplicación de reconocimiento de imágenes.
 
@@ -172,7 +172,7 @@ Este método crea la primera iteración de entrenamiento del proyecto. Se consul
 
 ## <a name="publish-the-current-iteration"></a>Publicación de la iteración actual
 
-Este método hace que la iteración actual del modelo esté disponible para realizar consultas. Puede usar el nombre del modelo como referencia para enviar solicitudes de predicción. Debe escribir su propio valor para `predictionResourceId`. Puede encontrar el identificador de recurso de predicción en la pestaña **Información general** del recurso en Azure Portal, que aparece como **Id. de suscripción**.
+Este método hace que la iteración actual del modelo esté disponible para realizar consultas. Puede usar el nombre del modelo como referencia para enviar solicitudes de predicción. Debe escribir su propio valor para `predictionResourceId`. Encontrará el identificador del recurso de predicción en la pestaña de **Propiedades** del recurso en Azure Portal, que aparece como **Id. de recurso**.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ObjectDetection/Program.cs?name=snippet_publish)]
 

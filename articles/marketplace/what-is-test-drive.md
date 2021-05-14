@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 06/19/2020
-ms.openlocfilehash: 193e7bd78046a1d73cb55171c15c9cb6a7278297
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e44d5d94a8dc172962a26f3e0dae9ccbb7f8a865
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96490047"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818897"
 ---
 # <a name="what-is-a-test-drive"></a>¿Qué es una versión de prueba?
 
@@ -60,7 +60,7 @@ Esta plantilla de implementación contiene todos los recursos de Azure que compo
 
 Una versión de prueba hospedada elimina la complejidad de la configuración ya que deja que Microsoft hospede y mantenga el servicio que realiza las tareas de aprovisionamiento y desaprovisionamiento de los usuarios de la versión de prueba. Si tiene una oferta en Microsoft AppSource, compile la versión de prueba para conectarse con una instancia de Dynamics AX/CRM. Puede usar los siguientes tipos de oferta de AppSource:
 
-- Use [Dynamics 365 for Customer Engagement](partner-center-portal/create-new-customer-engagement-offer.md) para un sistema de involucración del cliente como ventas, servicio, servicio de proyecto y servicio de campo.
+- Use [Dynamics 365 for Customer Engagement y Power Apps](dynamics-365-customer-engage-offer-setup.md) para un sistema de involucración del cliente como los de ventas, servicio, servicio de proyecto y servicio de campo.
 - Use [Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md) para un sistema de planeamiento de recursos empresariales de finanzas y operaciones, como finanzas, operaciones y fabricación, cadena de suministro.
 
 ### <a name="logic-app-test-drive"></a>Versión de prueba de aplicación lógica

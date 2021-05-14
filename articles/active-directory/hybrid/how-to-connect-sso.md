@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeede88bfbe024a66e40270240d32488e581dd77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 14519a1e46c3fd3414f9a09521fd6bcb5cb8b851
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102517708"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108285599"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -66,7 +66,7 @@ El inicio de sesión único mediante PRT funciona una vez que los dispositivos s
 - Es una característica gratuita y no es necesario usar ninguna versión de pago de Azure AD para usarla.
 - Se admite en clientes basados en el explorador web y en clientes de Office que admiten la [autenticación moderna](/office365/enterprise/modern-auth-for-office-2013-and-2016) en plataformas con la funcionalidad de autenticación de Kerberos:
 
-| SO\Explorador |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
+| SO\Explorador |Internet Explorer|Microsoft Edge\*\*\*\*|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |Windows 10|Sí\*|Sí|Sí|Sí\*\*\*|N/D
 |Windows 8.1|Sí\*|Sí*\*\*\*|Sí|Sí\*\*\*|N/D
@@ -75,14 +75,17 @@ El inicio de sesión único mediante PRT funciona una vez que los dispositivos s
 |Windows Server 2012 R2 o versiones posteriores|Sí\*\*|N/D|Sí|Sí\*\*\*|N/D
 |Mac OS X|N/D|N/D|Sí\*\*\*|Sí\*\*\*|Sí\*\*\*
 
+ > [!NOTE]
+ >Microsoft Edge (heredado) ya no se admite.
 
-\*Requiere Internet Explorer versión 10 o posterior.
 
-\*\*Requiere Internet Explorer versión 10 o posterior. Deshabilite el modo de protección mejorada.
+\*Requiere Internet Explorer, versión 11 o posterior.
+
+\*\*Requiere Internet Explorer, versión 11 o posterior. Deshabilite el modo de protección mejorada.
 
 \*\*\*Requiere [configuración adicional](how-to-connect-sso-quick-start.md#browser-considerations).
 
-\*\*\*\*Requiere la versión 77 o posterior de Microsoft Edge.
+\*\*\*\*Microosft Edge basado en Chromium
 
 ## <a name="next-steps"></a>Pasos siguientes
 

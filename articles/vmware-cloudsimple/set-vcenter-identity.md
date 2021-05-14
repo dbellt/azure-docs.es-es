@@ -1,19 +1,19 @@
 ---
 title: 'Azure VMware Solution by CloudSimple: configuración de orígenes de identidad de vCenter en la nube privada'
 description: Se describe cómo configurar vCenter de la nube privada para autenticarse con Active Directory de forma que los administradores de VMware accedan a él.
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a76fecb942c5c6da926e37149245e82dcbc4661b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c9067df31c677da7c6f0a6e1b470f85fd785532a
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97899157"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108180093"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configuración de orígenes de identidad de vCenter para usar Active Directory
 

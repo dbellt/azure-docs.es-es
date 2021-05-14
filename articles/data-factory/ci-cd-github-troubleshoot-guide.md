@@ -6,19 +6,19 @@ ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 03/12/2021
-ms.openlocfilehash: 2b6f97f0966cb2c92dbd88c4a70188282ed3ed27
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.date: 04/27/2021
+ms.openlocfilehash: e5745f195fe7620aeb7ffe009c13c52cd5f02e62
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802040"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228647"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Solución de problemas de CI/CD, Azure DevOps y GitHub en ADF 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se exploran métodos habituales de solución de problemas de integración continua/implementación continua (CI/CD), Azure DevOps y GitHub en Azure Data Factory.
+En este artículo vamos a explorar métodos habituales de solución de problemas de integración continua/implementación continua (CI/CD), Azure DevOps y GitHub en Azure Data Factory.
 
 Si tiene preguntas o problemas en relación con el uso de las técnicas de DevOps o el control de código fuente, aquí encontrará algunos artículos que pueden resultarle útiles:
 
@@ -39,7 +39,7 @@ Según se observa, el token se ha obtenido del inquilino original, pero ADF est�
 
 #### <a name="recommendation"></a>Recomendación
 
-Debe usar el token emitido desde el inquilino invitado. Por ejemplo, tiene que asignar la misma instancia de Azure Active Directory para que sea su inquilino invitado y también para DevOps, de modo que pueda establecer correctamente el comportamiento del token y usar el inquilino correcto.
+Debe usar el token emitido desde el inquilino invitado. Por ejemplo, tiene que asignar la misma instancia de Azure Active Directory para que sea su inquilino invitado y DevOps, de modo que pueda establecer correctamente el comportamiento del token y usar el inquilino correcto.
 
 ### <a name="template-parameters-in-the-parameters-file-are-not-valid"></a>Los parámetros de plantilla del archivo de parámetros no son válidos
 
@@ -57,7 +57,7 @@ Error de la canalización de CI/CD:
 
 #### <a name="recommendation"></a>Recomendación
 
-Este error se produce porque a menudo se elimina un desencadenador que está parametrizado, por lo que los parámetros no estarán disponibles en la plantilla de ARM (dado que el desencadenador ya no existe). Dado que el parámetro ya no está en la plantilla de ARM, es necesario actualizar los parámetros invalidados en la canalización de DevOps. De lo contrario, cada vez que cambian los parámetros de la plantilla de ARM, deben actualizar los parámetros invalidados en la canalización de DevOps (en la tarea de implementación).
+Este error se produce porque a menudo se elimina un desencadenador que está parametrizado, por lo que los parámetros no estarán disponibles en la plantilla de Azure Resource Manager (ARM) (dado que el desencadenador ya no existe). Dado que el parámetro ya no está en la plantilla de ARM, es necesario actualizar los parámetros invalidados en la canalización de DevOps. De lo contrario, cada vez que cambian los parámetros de la plantilla de ARM, deben actualizar los parámetros invalidados en la canalización de DevOps (en la tarea de implementación).
 
 ### <a name="updating-property-type-is-not-supported"></a>No se admite la actualización del tipo de propiedad
 
@@ -77,7 +77,7 @@ Error de la canalización de versión de CI/CD:
 
 #### <a name="cause"></a>Causa
 
-Esto se debe a que en la fábrica de destino hay un entorno de ejecución de integración con el mismo nombre pero de un tipo distinto. El entorno de ejecución de integración debe ser del mismo tipo al implementarse.
+Este error se debe a que en la fábrica de destino hay un entorno de ejecución de integración con el mismo nombre, pero de un tipo distinto. El entorno de ejecución de integración debe ser del mismo tipo durante la implementación.
 
 #### <a name="recommendation"></a>Recomendación
 
@@ -103,7 +103,7 @@ Al intentar publicar cambios en una instancia de Data Factory, aparece el mensaj
 `
 ### <a name="cause"></a>Causa
 
-Ha desasociado la configuración de Git y la ha configurado de nuevo con la marca de importar recursos seleccionada, que establece la instancia de Data Factory como sincronizada. Esto significa que no hay cambios que publicar.
+Ha desasociado la configuración de Git y la ha configurado de nuevo con la marca de importar recursos seleccionada, que establece la instancia de Data Factory como sincronizada. Esto significa que no hay ningún cambio durante la publicación.
 
 #### <a name="resolution"></a>Resolución
 
@@ -131,7 +131,7 @@ No se puede trasladar una instancia de Data Factory de un grupo de recursos a ot
 
 #### <a name="resolution"></a>Resolución
 
-Debe eliminar el entorno de ejecución de integración de SSIS y el entorno de ejecución de integración compartido para permitir la operación de traslado. Si no desea eliminar los entornos de ejecución de integración, lo mejor es seguir el documento de copia y clonación para realizar una copia y, tras ello, eliminar la antigua instancia de Data Factory.
+Puede eliminar el entorno de ejecución de integración de SSIS y el entorno de ejecución de integración compartido para permitir la operación de traslado. Si no desea eliminar los entornos de ejecución de integración, lo mejor es seguir el documento de copia y clonación para realizar una copia y, tras ello, eliminar la antigua instancia de Data Factory.
 
 ###  <a name="unable-to-export-and-import-arm-template"></a>No se puede exportar ni importar la plantilla de ARM
 
@@ -157,9 +157,9 @@ Hasta hace poco, la única forma de publicar la canalización de ADF para implem
 
 #### <a name="resolution"></a>Solución
 
-Se ha mejorado el proceso de CI/CD. La característica **Publicación automatizada** toma, valida y exporta todas las características de plantilla de Azure Resource Manager (ARM) de la experiencia de usuario de ADF. Hace que la lógica se consuma a través de un paquete NPM disponible públicamente [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). Esto le permite desencadenar mediante programación estas acciones en lugar de tener que ir a la interfaz de usuario de ADF y hacer clic en un botón. Esto proporciona a las canalizaciones de CI/CD una **verdadera** experiencia de integración continua. Siga las [mejoras de publicación de CI/CD de ADF](./continuous-integration-deployment-improvements.md) para obtener más información. 
+Se ha mejorado el proceso de CI/CD. La característica **Publicación automatizada** toma, valida y exporta todas las características de plantilla de ARM de la experiencia de usuario de ADF. Hace que la lógica se consuma a través de un paquete NPM disponible públicamente [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). Este método le permite desencadenar mediante programación estas acciones en lugar de tener que ir a la interfaz de usuario de ADF y hacer clic en un botón. Este método proporciona a las canalizaciones de CI/CD una **verdadera** experiencia de integración continua. Siga las [mejoras de publicación de CI/CD de ADF](./continuous-integration-deployment-improvements.md) para obtener más información. 
 
-###  <a name="cannot-publish-because-of-4mb-arm-template-limit"></a>No se puede publicar debido a un límite de la plantilla de ARM de 4 MB.  
+###  <a name="cannot-publish-because-of-4-mb-arm-template-limit"></a>No se puede publicar debido a un límite de la plantilla de ARM de 4 MB.  
 
 #### <a name="issue"></a>Problema
 
@@ -167,11 +167,11 @@ No se puede implementar porque se alcanzó el límite de tamaño total de 4 MB 
 
 #### <a name="cause"></a>Causa
 
-Azure Resource Manager restringe el tamaño de la plantilla a 4 MB. Limite el tamaño de la plantilla a 4 MB y cada archivo de parámetros a 64 KB. El límite de 4 MB se aplica al estado final de la plantilla una vez se ha ampliado con definiciones de recursos iterativas y los valores de variables y parámetros. Sin embargo, ha superado el límite. 
+Azure Resource Manager restringe el tamaño de la plantilla a 4 MB. Limite el tamaño de la plantilla a 4 MB y cada archivo de parámetros a 64 KB. El límite de 4 MB se aplica al estado final de la plantilla una vez se ha ampliado con definiciones de recursos iterativas y los valores de variables y parámetros. Sin embargo, ha superado el límite. 
 
 #### <a name="resolution"></a>Solución
 
-En el caso de soluciones pequeñas o medianas, es más fácil entender y mantener una única plantilla. Puede ver todos los recursos y valores en un único archivo. Para los escenarios avanzados, las plantillas vinculadas le permiten desglosar la solución en componentes dirigidos. Siga las prácticas recomendadas en [Uso de plantillas vinculadas y anidadas](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
+En el caso de soluciones pequeñas o medianas, es más fácil entender y mantener una única plantilla. Puede ver todos los recursos y valores en un único archivo. Para los escenarios avanzados, las plantillas vinculadas le permiten desglosar la solución en componentes dirigidos. Siga los procedimientos recomendados en [Uso de plantillas vinculadas y anidadas](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
 
 ### <a name="cannot-connect-to-git-enterprise"></a>No se puede establecer la conexión a GIT Enterprise  
 
@@ -191,13 +191,11 @@ Conceda acceso de OAuth a ADF al principio. Después, tiene que usar la direcci�
 ### <a name="cannot-recover-from-a-deleted-data-factory"></a>No es posible la recuperación desde una factoría de datos eliminada.
 
 #### <a name="issue"></a>Problema
-El cliente eliminó la instancia de Data Factory o el grupo de recursos que contiene dicha instancia. Le gustaría saber cómo restaurar una factoría de datos eliminada.
+El cliente eliminó la instancia de Data Factory o el grupo de recursos que contiene dicha instancia. Al cliente le gustaría saber cómo restaurar una factoría de datos eliminada.
 
 #### <a name="cause"></a>Causa
 
-Es posible recuperar la instancia de Data Factory solo si el cliente tiene configurado el control de código fuente (DevOps o Git). Esta operación proporcionará todos los recursos publicados más recientes y **no** restaurará la canalización, el conjunto de datos y el servicio vinculado sin publicar.
-
-Si no hay ningún control de código fuente, no es posible recuperar una instancia de Data Factory eliminada del back-end porque, una vez que el servicio recibe el comando deleted, se elimina la instancia y no se almacena ninguna copia de seguridad.
+Es posible recuperar la instancia de Data Factory solo si el cliente tiene configurado el control de código fuente (DevOps o Git). Esta acción proporcionará todos los recursos publicados más recientes y **no** restaurará la canalización, el conjunto de datos y el servicio vinculado sin publicar. Si no hay ningún control de código fuente, no es posible recuperar una instancia de Data Factory eliminada del back-end porque, una vez que el servicio recibe el comando deleted, se elimina la instancia y no se almacena ninguna copia de seguridad.
 
 #### <a name="resolution"></a>Solución
 
@@ -211,6 +209,29 @@ Para recuperar la instancia de Data Factory eliminada que tiene el control de c�
 
  * Si el cliente tenía un entorno de ejecución de integración autohospedado en el ADF eliminado, tendrá que crear una nueva instancia en el nuevo ADF, desinstalar y volver a instalar la instancia en su máquina local o VM con la nueva clave obtenida. Una vez completada la configuración del IR, el cliente deberá cambiar el servicio vinculado para que apunte al nuevo IR y probar la conexión, o se producirá el error **Referencia no válida**.
 
+### <a name="cannot-deploy-to-different-stage-using-automatic-publish-method"></a>No se puede implementar en una fase diferente mediante el método de publicación automática
+
+#### <a name="issue"></a>Problema
+El cliente ha seguido todos los pasos necesarios, como instalar el paquete NPM y configurar una fase superior mediante Azure DevOps y ADF, pero la implementación no tiene lugar.
+
+#### <a name="cause"></a>Causa
+
+Aunque los paquetes de npm se pueden consumir de varias maneras, una de las ventajas principales es su consumo a través de una Canalización de Azure. En cada fusión mediante combinación en la rama de colaboración, se puede desencadenar una canalización que primero valide todo el código y, a continuación, exporte la plantilla de ARM a un artefacto de compilación, que una canalización de versión puede consumir. En la canalización inicial, el archivo YAML debe ser válido y estar completo.
+
+
+#### <a name="resolution"></a>Solución
+
+La siguiente sección no es válida porque la carpeta package.json no es válida.
+
+```
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    workingDir: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>' #replace with the package.json folder
+    customCommand: 'run build validate $(Build.Repository.LocalPath) /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'
+  displayName: 'Validate'
+```
+Debe incluir DataFactory en customCommand, como *"run build validate $(Build.Repository.LocalPath)/DataFactory/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/nombreDeSuFábrica".* Asegúrese de que el archivo YAML generado para la fase superior tenga los artefactos JSON necesarios.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,18 +1,18 @@
 ---
 title: Copia de datos de Azure File Storage como origen o destino
 description: Obtenga información sobre cómo copiar datos de Azure File Storage en almacenes de datos receptores o de almacenes de datos de origen compatibles en Azure File Storage mediante Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: 1046aee7eea406cce1141382294a70c7eb2f62d4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c81b3615160cc3e096267f01f2d09b40cb9dc360
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104597545"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109480348"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copia de datos con Azure File Storage como origen o destino mediante Azure Data Factory
 
@@ -38,7 +38,7 @@ En concreto, este conector de Azure File Storage admite las siguientes operacion
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporciona información sobre las propiedades que se usan para definir entidades de Data Factory específicas de Azure File Storage.
 
@@ -213,7 +213,7 @@ Data Factory admite las siguientes propiedades para usar la autenticación con f
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Las propiedades siguientes se admiten para Azure File Storage en la configuración `location` del conjunto de datos basado en formato:
 
@@ -255,7 +255,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="azure-file-storage-as-source"></a>Azure File Storage como origen
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Las propiedades siguientes se admiten para Azure File Storage en la configuración `storeSettings` del origen de copia basado en formato:
 
@@ -320,7 +320,7 @@ Las propiedades siguientes se admiten para Azure File Storage en la configuraci�
 
 ### <a name="azure-file-storage-as-sink"></a>Azure File Storage como destino
 
-[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)]
+[!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)]
 
 Las propiedades siguientes se admiten para Azure File Storage en la configuración `storeSettings` del receptor de copia basado en formato:
 

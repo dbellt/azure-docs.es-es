@@ -4,27 +4,30 @@ description: En este inicio rápido se mostrará cómo usar Azure Front Door par
 services: front-door
 documentationcenter: na
 author: duongau
-manager: KumudD
-ms.assetid: ''
-ms.service: frontdoor
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/21/2020
 ms.author: duau
-ms.openlocfilehash: a3ecb8cacd8fa47709432e26243bd754511658d2
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+manager: KumudD
+ms.date: 04/19/2021
+ms.topic: quickstart
+ms.service: frontdoor
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.custom:
+- mode-api
+ms.openlocfilehash: 17fa18e1f29622b941c281b9cdce27f6e72eb13a
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057922"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739987"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-powershell"></a>Inicio rápido: Creación de una instancia de Front Door para una aplicación web global de alta disponibilidad mediante Azure PowerShell
 
 El primer paso con Azure Front Door es utilizar Azure PowerShell para crear una aplicación web global de alto rendimiento y alta disponibilidad.
 
 Front Door dirige el tráfico web a recursos concretos de un grupo de back-end. Ha definido el dominio del front-end, agregado recursos a un grupo de back-end y creado una regla de enrutamiento. En este artículo se usa una configuración simple de un grupo de back-end con dos recursos de aplicación web y una regla de enrutamiento única que usa la coincidencia de ruta de acceso predeterminada "/*".
+
+:::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagrama del entorno de Front Door con PowerShell." border="false":::
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -54,17 +57,17 @@ Si aún no tiene ninguna aplicación web, use el siguiente script para configura
 ```azurepowershell-interactive
 # Create first web app in Central US region.
 $webapp1 = New-AzWebApp `
--Name "WebAppContoso-$(Get-Random)" `
+-Name "WebAppContoso-1" `
 -Location centralus `
 -ResourceGroupName myResourceGroupFD `
 -AppServicePlan myAppServicePlanCentralUS
 
 # Create second web app in South Central US region.
 $webapp2 = New-AzWebApp `
--Name "WebAppContoso-$(Get-Random)" `
+-Name "WebAppContoso-2" `
 -Location southcentralus `
 -ResourceGroupName myResourceGroupFD `
--AppServicePlan myAppServicePlanSouthCentralUS
+-AppServicePlan myAppServicePlanEastUS
 ```
 
 ## <a name="create-a-front-door"></a>Creación de una instancia de Front Door

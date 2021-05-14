@@ -7,13 +7,13 @@ metadata:
   services: Azure portal
   ms.topic: landing-page
   ms.collection: collection
-  ms.date: 08/05/2020
-  ms.openlocfilehash: c1617f295a101ae645743d60fdbe82a09d936ea2
-  ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+  ms.date: 03/15/2021
+  ms.openlocfilehash: 7b7727d1fdf550b3ab3341bd0dc852f343b00791
+  ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 12/07/2020
-  ms.locfileid: "96749018"
+  ms.lasthandoff: 03/16/2021
+  ms.locfileid: "103563919"
 landingContent:
 - title: Acerca de Azure Portal
   linkLists:
@@ -21,18 +21,44 @@ landingContent:
     links:
     - text: ¿Qué es Azure Portal?
       url: azure-portal-overview.md
+    - text: Incorporación del Centro de inicio rápido de Azure
+      url: azure-portal-quickstart-center.md
     - text: Exploradores y dispositivos compatibles
       url: azure-portal-supported-browsers-devices.md
-- title: Personalización de Azure Portal
+- title: Introducción
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Crear una máquina virtual en el portal
+      url: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+    - text: 'Creación de un panel: CLI de Azure'
+      url: quickstart-portal-dashboard-azure-cli.md
+    - text: 'Creación de un panel: Azure PowerShell'
+      url: quickstart-portal-dashboard-powershell.md
+    - text: 'Creación de un panel: plantilla de Resource Manager'
+      url: quick-create-template.md
+  - linkListType: how-to-guide
+    links:
+    - text: Serie de vídeos sobre "procedimientos" de Azure Portal
+      url: azure-portal-video-series.md
+- title: Creación y administración de solicitudes de soporte técnico
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Configuración de las preferencias del portal
-      url: set-preferences.md
-    - text: Creación y uso compartido de paneles personalizados
-      url: azure-portal-dashboards.md
-    - text: Administración de favoritos
-      url: azure-portal-add-remove-sort-favorites.md
+    - text: Creación de una solicitud de soporte técnico de Azure
+      url: supportability/how-to-create-azure-support-request.md
+    - text: Administración de una solicitud de soporte técnico de Azure
+      url: supportability/how-to-manage-azure-support-request.md
+- title: Uso de opciones de accesibilidad
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Accesos directos del teclado
+      url: azure-portal-keyboard-shortcuts.md
+  - linkListType: how-to-guide
+    links:
+    - text: Activación del contraste alto
+      url: set-preferences.md#choose-a-theme-or-enable-high-contrast
 - title: Administración del acceso a Azure Portal
   linkLists:
   - linkListType: reference
@@ -45,39 +71,17 @@ landingContent:
     links:
     - text: Administración de recursos en Azure
       url: /learn/paths/manage-resources-in-azure/
-    - text: Protección de los recursos de Azure con el control de acceso basado en roles de Azure (Azure RBAC)
-      url: /learn//modules/secure-azure-resources-with-rbac/
-- title: Primeros pasos
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Incorporación del Centro de inicio rápido de Azure
-      url: azure-portal-quickstart-center.md
-  - linkListType: how-to-guide
-    links:
-    - text: Serie de vídeos sobre "procedimientos" de Azure Portal
-      url: azure-portal-video-series.md
-  - linkListType: learn
-    links:
-    - text: Aspectos básicos de Azure
-      url: /learn/paths/azure-fundamentals/
-    - text: 'Conceptos de la nube: Principios de informática en la nube'
-      url: /learn/modules/principles-cloud-computing/
-- title: Uso de opciones de accesibilidad
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: Accesos directos del teclado
-      url: azure-portal-keyboard-shortcuts.md
-  - linkListType: how-to-guide
-    links:
-    - text: Activación del contraste alto
-      url: set-preferences.md#choose-a-theme-or-enable-high-contrast
-- title: Creación y administración de solicitudes de soporte técnico
+    - text: Protección de los recursos con el control de acceso basado en rol de Azure (Azure RBAC)
+      url: /learn/modules/secure-azure-resources-with-rbac
+- title: Personalización de Azure Portal
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Creación de una solicitud de soporte técnico de Azure
-      url: ../azure-portal/supportability/how-to-create-azure-support-request.md
-    - text: Solución de problemas de regiones o suscripciones de SKU
-      url: ../azure-portal/supportability/sku-series-unavailable.md
+    - text: Administración de las preferencias y la configuración de Azure Portal
+      url: set-preferences.md
+    - text: Visualización y filtrado de información de los recursos
+      url: manage-filter-resource-views.md
+    - text: 'Creación de un panel: interfaz de usuario de Azure Portal'
+      url: azure-portal-dashboards.md
+    - text: Adición, eliminación y ordenación de favoritos
+      url: azure-portal-add-remove-sort-favorites.md

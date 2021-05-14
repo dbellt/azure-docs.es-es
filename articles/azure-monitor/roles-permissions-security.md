@@ -4,12 +4,13 @@ description: Obtenga información sobre cómo utilizar los permisos y los roles 
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: 64e770ea328516bdc9dbe1a2e17070c15a252fe7
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 5ba7c9505e49b8d0b35ee592bb0c3bafafad416a
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490036"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319402"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Roles, permisos y seguridad en Azure Monitor
 

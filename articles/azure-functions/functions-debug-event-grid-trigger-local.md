@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: be05d237d2799404c3fd8b5733464e23eeb49aa3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7483a097b188b9f96221a13964992c7b02332258
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94833068"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107892028"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Depuración local de funciones de Azure desencadenadas por Event Grid
 
@@ -41,59 +41,7 @@ A continuación, establezca un punto de interrupción en la línea que comienza 
 
 A continuación, **presione F5** para iniciar una sesión de depuración.
 
-## <a name="allow-azure-to-call-your-local-function"></a>Permitir que Azure llame a su función local
-
-Para interrumpir la depuración de una función en su máquina, debe habilitar una manera de que Azure se comunique con la función local desde la nube.
-
-La utilidad [ngrok](https://ngrok.com/) proporciona una manera de que Azure llame a la función que se ejecuta en la máquina. Inicie *ngrok* con el comando siguiente:
-
-```bash
-ngrok http -host-header=localhost 7071
-```
-Al configurar la utilidad, la ventana de comandos debe ser similar a la que se muestra en la siguiente captura de pantalla:
-
-![Captura de pantalla que muestra el símbolo del sistema después de iniciar la utilidad "ngrok".](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
-
-Copie la dirección URL **HTTPS** generada al ejecutar *ngrok*. Este valor se utiliza al configurar el punto de conexión del desencadenador de Event Grid.
-
-## <a name="add-a-storage-event"></a>Agregar un evento de almacenamiento
-
-Abra Azure Portal, vaya a una cuenta de almacenamiento y haga clic en la opción **Eventos**.
-
-![Agregar un evento de cuenta de almacenamiento](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-event.png)
-
-En la ventana *Eventos*, haga clic en el botón **Suscripción de eventos**. En la ventana *Suscripción de eventos*, haga clic en el menú desplegable *Tipo de punto de conexión* y seleccione **Webhook**.
-
-![Seleccionar el tipo de suscripción](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-type.png)
-
-Una vez configurado el tipo de punto de conexión, haga clic en **Select an endpoint** (Seleccionar un punto de conexión) para configurar el valor del punto de conexión.
-
-![Seleccionar el tipo de punto de conexión](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-endpoint.png)
-
-El valor *Punto de conexión de suscriptor* se compone de tres valores diferentes. El prefijo es la dirección URL HTTPS generada por *ngrok*. El resto de la dirección URL procede de la dirección URL que se encuentra en el archivo de código de función, con el nombre de la función agregado al final. A partir de la dirección URL del archivo de código de función, la dirección URL de *ngrok* reemplaza a `http://localhost:7071` y el nombre de la función reemplaza a `{functionname}`.
-
-La dirección URL final debe ser similar a la siguiente captura de pantalla:
-
-![Selección de punto de conexión](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-endpoint-selection.png)
-
-Una vez que haya escrito el valor adecuado, haga clic en **Confirmar selección**.
-
-> [!IMPORTANT]
-> Cada vez que inicie *ngrok*, se vuelve a generar la dirección URL HTTPS y cambia el valor. Por lo tanto, debe crear una nueva suscripción a eventos cada vez que exponga la función en Azure mediante *ngrok*.
-
-## <a name="upload-a-file"></a>Cargar un archivo
-
-Ahora puede cargar un archivo a su cuenta de almacenamiento para desencadenar un evento de Event Grid para que lo controle su función local. 
-
-Abra [Explorador de Storage](https://azure.microsoft.com/features/storage-explorer/) y conéctelo a la cuenta de almacenamiento. 
-
-- Expanda **Contenedores de blobs**. 
-- Haga clic con el botón derecho en **Crear contenedor de blobs**.
-- Asigne al contenedor el nombre **test**.
-- Seleccione el contenedor *test*.
-- Haga clic en el botón **Cargar**.
-- Haga clic en **Cargar archivos**.
-- Seleccione un archivo y cárguelo en el contenedor de blobs.
+[!INCLUDE [functions-event-grid-local-dev](../../includes/functions-event-grid-local-dev.md)]
 
 ## <a name="debug-the-function"></a>Depurar la función
 

@@ -8,20 +8,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/31/2021
+ms.date: 04/27/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
-ms.openlocfilehash: 6e724b3517d9e5a63d8699e9f66c51cf41f02012
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 2d4ecf925eadd00c40685fbee413df6fca0368d9
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106092524"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070864"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Disponibilidad de región y residencia de datos
 
-La disponibilidad en regiones y residencia de datos son dos conceptos muy diferentes que se aplican de forma diferente a Azure AD B2C del resto de Azure. En este artículo se explican las diferencias entre estos dos conceptos y se compara cómo se aplican a Azure frente a Azure AD B2C.
+Los datos de identidad de Azure AD B2C se almacenan en una ubicación geográfica en función del país o de la región proporcionados al crear el inquilino.
+
+La disponibilidad por región y la residencia de datos son dos conceptos diferentes que se aplican a Azure AD B2C. En este artículo se explican las diferencias entre estos dos conceptos y se compara cómo se aplican a Azure frente a Azure AD B2C.
 
 Azure AD B2C suele estar **disponible en todo el mundo** con la opción de **residencia de datos** en **Estados Unidos, Europa o Asia Pacifico**. Azure AD B2C está en **versión preliminar pública** en Australia.
 
@@ -31,9 +33,7 @@ Azure AD B2C suele estar **disponible en todo el mundo** con la opción de **re
 
 ## <a name="region-availability"></a>Disponibilidad en regiones
 
-Azure AD B2C está disponible en todo el mundo a través de la nube pública de Azure.
-
-Esto difiere del modelo seguido por la mayoría de los demás servicios de Azure, que suelen aunar la *disponibilidad* con la *residencia de datos*. Puede ver ejemplos de esto en la página [Productos disponibles por región](https://azure.microsoft.com/regions/services/) de Azure y en la [calculadora de precios de Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+Azure AD B2C está disponible en todo el mundo a través de la nube pública de Azure. Puede ver ejemplos de esta característica en la página [Productos disponibles por región](https://azure.microsoft.com/regions/services/) de Azure y en la [calculadora de precios de Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 ## <a name="data-residency"></a>Residencia de datos
 
@@ -65,7 +65,7 @@ Los países o regiones siguientes están a punto de agregarse a la lista. De mom
 
 ## <a name="remote-profile-solution"></a>Solución de perfil remoto
 
-Con las [directivas personalizadas](custom-policy-overview.md) de Azure AD B2C, puede realizar la integración con los [servicios de la API RESTful](custom-policy-rest-api-intro.md), lo cual le permite almacenar y leer perfiles de usuario desde una base de datos remota (como, por ejemplo, una base de datos de marketing, un sistema CRM o cual aplicación de línea de negocio).  
+Con las [directivas personalizadas](custom-policy-overview.md) de Azure AD B2C, puede realizar la integración con los [servicios de la API RESTful](api-connectors-overview.md), lo cual le permite almacenar y leer perfiles de usuario desde una base de datos remota (como, por ejemplo, una base de datos de marketing, un sistema CRM o cual aplicación de línea de negocio).  
 - Durante los flujos de edición de perfiles y de registro, Azure AD B2C llama a una API REST personalizada para conservar el perfil de usuario en el origen de datos remoto. Las credenciales del usuario se almacenan en el directorio de Azure AD B2C. 
 - Tras el inicio de sesión, después de la validación de credenciales con una cuenta local o de red social, Azure AD B2C invoca a la API REST, la cual envía el identificador único del usuario como clave principal de usuario (dirección de correo electrónico u objectId de usuario). La API REST lee los datos de la base de datos remota y devuelve el perfil de usuario.  
 

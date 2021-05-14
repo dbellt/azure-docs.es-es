@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 796ac876537aa06253ad6eeec99adaf48de61c79
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ab4e623e91987e7fa415b94ff8278a1de4c03700
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167267"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107945978"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Ejecución de runbooks en Hybrid Runbook Worker
 
@@ -246,6 +247,9 @@ Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
 Una vez firmado el runbook, debe importarlo en la cuenta de Automation y publicarlo con el bloque de firma. Para aprender a importar runbooks, consulte [Importación de un runbook](manage-runbooks.md#import-a-runbook).
+
+>[!NOTE]
+>Use solo caracteres de texto no cifrado en el código del runbook, incluidos los comentarios. El uso de caracteres con marcas diacríticas, como á o ñ, producirá un error. Cuando Azure Automation descargue el código, los caracteres se reemplazarán por un signo de interrogación y se producirá un error en la firma con un mensaje de "error de validación de hash de firma".
 
 ## <a name="work-with-signed-runbooks-on-a-linux-hybrid-runbook-worker"></a>Trabajo con runbooks firmados en Hybrid Runbook Worker en Linux
 

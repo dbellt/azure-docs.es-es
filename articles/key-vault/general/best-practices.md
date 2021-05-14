@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/29/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 5e4ec2749cec8444382e2b6e7c856e74c57ebb59
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7cfa2059cc03b96db39183cfa5056c9934a02290
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777174"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814359"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Procedimientos recomendados para utilizar Key Vault
 
@@ -24,7 +24,7 @@ Nuestra recomendación es usar un almacén por cada aplicación y cada entorno (
 
 ## <a name="control-access-to-your-vault"></a>Controlar el acceso al almacén
 
-Azure Key Vault es un servicio en la nube que protege las claves de cifrado y los secretos, como certificados, cadenas de conexión y contraseñas. Dado que estos datos son confidenciales y críticos para la empresa, debe proteger el acceso a los almacenes de claves, de modo que solo se admita el acceso de las aplicaciones y los usuarios autorizados. En este [artículo](security-overview.md) se proporciona información general sobre modelo de acceso de Key Vault. Se explican la autenticación y la autorización, y se describe cómo proteger el acceso a los almacenes de claves.
+Azure Key Vault es un servicio en la nube que protege las claves de cifrado y los secretos, como certificados, cadenas de conexión y contraseñas. Dado que estos datos son confidenciales y críticos para la empresa, debe proteger el acceso a los almacenes de claves, de modo que solo se admita el acceso de las aplicaciones y los usuarios autorizados. En este [artículo](security-features.md) se proporciona información general sobre modelo de acceso de Key Vault. Se explican la autenticación y la autorización, y se describe cómo proteger el acceso a los almacenes de claves.
 
 Estas son algunas sugerencias a la hora de controlar el acceso al almacén:
 1. Bloquee el acceso a la suscripción, al grupo de recursos y a los distintos Key Vault (Azure RBAC)

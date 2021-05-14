@@ -5,17 +5,17 @@ description: Aprenda cómo hacer que los recursos relacionados con Azure Machine
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 09/16/2020
-ms.openlocfilehash: 7a1a63893e6e2988fc5f21e84f21c74315d856b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e25985d2868ddb6ad48b1f0931a3dce32819faa
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "93325472"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279971"
 ---
 # <a name="increase-azure-machine-learning-resiliency"></a>Aumento de la resistencia Azure Machine Learning
 
@@ -102,4 +102,4 @@ Si proporciona su propia clave administrada por el cliente para implementar el �
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para implementar Azure Machine Learning con los recursos asociados con la configuración de alta disponibilidad, use una [plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced).
+Para implementar Azure Machine Learning con los recursos asociados con la configuración de alta disponibilidad, use una [plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced).

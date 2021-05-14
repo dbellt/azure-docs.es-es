@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 468f1b91d6c6157cd2af6de9599bad7f43c1ad8f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ed73c114c015ce38fefa02d2b71e27e8f85dca39
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103492564"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028679"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Administrador de seguridad de IoT Edge
 
@@ -119,12 +119,17 @@ El silicio seguro es necesario para delimitar la confianza dentro del hardware d
 
 ## <a name="iot-edge-security-manager-integration-and-maintenance"></a>Mantenimiento e integración del administrador de seguridad de IoT Edge
 
-El objetivo del administrador de seguridad de IoT Edge es identificar y aislar los componentes que se encargan de defender la seguridad y la integridad de la plataforma de Azure IoT Edge para el sistema de protección personalizado. Los terceros (como fabricantes de dispositivos) deben usar las características de seguridad personalizadas disponibles con su hardware de dispositivo.  Consulte la sección Pasos siguientes para ver vínculos a ejemplos sobre cómo proteger el administrador de seguridad de Azure con el Módulo de plataforma segura (TPM) en plataformas Linux y Windows. Estos ejemplos usan módulos TPM virtuales o software, pero se aplican directamente al uso de dispositivos TPM discretos.  
+El objetivo del administrador de seguridad de IoT Edge es identificar y aislar los componentes que se encargan de defender la seguridad y la integridad de la plataforma de Azure IoT Edge para el sistema de protección personalizado. Los terceros (como fabricantes de dispositivos) deben usar las características de seguridad personalizadas disponibles con su hardware de dispositivo.  
+
+Aprenda a proteger el administrador de seguridad de Azure IoT con el Módulo de plataforma segura (TPM) mediante TPM virtuales o de software:  
+
+Cree y aprovisione un [dispositivo IoT Edge con un TPM virtual en una máquina virtual con Linux](how-to-auto-provision-simulated-device-linux.md).
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+Cree y aprovisione un [dispositivo IoT Edge con un TPM simulado en Windows](how-to-auto-provision-simulated-device-windows.md).
+:::moniker-end
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Lea el blog sobre [Securing the intelligent edge](https://azure.microsoft.com/blog/securing-the-intelligent-edge/) (Protección del perímetro inteligente).
-
-Cree y aprovisione un [dispositivo IoT Edge con un TPM virtual en una máquina virtual con Linux](how-to-auto-provision-simulated-device-linux.md).
-
-Cree y aprovisione un [dispositivo IoT Edge con un TPM simulado en Windows](how-to-auto-provision-simulated-device-windows.md).

@@ -3,12 +3,12 @@ title: Controles del ejemplo del plano técnico Australian Government ISM PROTEC
 description: Asignación de controles del ejemplo de plano técnico Australian Government ISM PROTECTED. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: ecb6a912d0b1f319022f6b7deff68e1495dccbca
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 2129c3d8e63f11f3902f3ddb0690ed1463206849
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386456"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733992"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico Australian Government ISM PROTECTED
 
@@ -18,7 +18,6 @@ Las siguientes asignaciones se realiza a los controles de **ISM PROTECTED**. Use
 
 > [!IMPORTANT]
 > Cada control que se muestra a continuación está asociado a una o varias definiciones de [Azure Policy](../../../policy/overview.md). Estas directivas pueden ayudarle a [evaluar el cumplimiento](../../../policy/how-to/get-compliance-data.md) mediante el control. Sin embargo, con frecuencia no hay una correspondencia completa o exacta entre un control y una o varias directivas. Como tal, el **cumplimiento** con Azure Policy solo se refiere a las propias directivas; esto no garantiza que sea totalmente compatible con todos los requisitos de un control. Además, el estándar de cumplimiento incluye controles que no se abordan con las definiciones de Azure Policy en este momento. Por lo tanto, el cumplimiento en Azure Policy es solo una vista parcial del estado general de cumplimiento. Las asociaciones entre los controles y las definiciones de Azure Policy para este ejemplo de plano técnico de cumplimiento pueden cambiar con el tiempo. Para ver el historial de cambios, consulte el [historial de confirmación de GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ism-protected/control-mapping.md).
-
 
 ## <a name="location-constraints"></a>Restricciones de ubicación
 
@@ -342,9 +341,8 @@ Este plano técnico le ayuda a restringir la ubicación de la implementación de
 
 - Se debe habilitar DDoS Protection estándar
 
-
 > [!NOTE]
-> La disponibilidad de definiciones específicas de Azure Policy puede variar tanto en Azure Government como en otras nubes nacionales. 
+> La disponibilidad de definiciones específicas de Azure Policy puede variar tanto en Azure Government como en otras nubes nacionales.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

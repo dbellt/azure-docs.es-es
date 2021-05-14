@@ -3,12 +3,12 @@ title: Seguridad y autenticación de Azure Event Grid
 description: Describe Azure Event Grid y sus conceptos.
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.openlocfilehash: e9bcf00e832e4deaaf9c5f81ba5af51609a1c412
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9dda983bdb70f0723b87419ae96ca5bbadccd61a
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104601047"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109735771"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorización de acceso a recursos de Event Grid
 Azure Event Grid le permite controlar el nivel de acceso dado a distintos usuarios para realizar diversas **operaciones de administración**, como enumerar las suscripciones a eventos, crear otras nuevas y generar claves. Event Grid usa el control de acceso basado en roles de Azure (Azure RBAC).
@@ -40,8 +40,8 @@ El rol Colaborador de Event Grid le permite crear y administrar los recursos de 
 
 | Role | Descripción |
 | ---- | ----------- | 
-| [Lector de la suscripción de Event Grid](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-reader) | Permite administrar las operaciones de suscripción de eventos de EventGrid. |
-| [Colaborador de la suscripción de Event Grid](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-contributor) | Permite leer las suscripciones de eventos de EventGrid. |
+| [Lector de la suscripción de Event Grid](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-reader) | Permite leer las suscripciones de eventos de EventGrid. |
+| [Colaborador de la suscripción de Event Grid](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-contributor) | Permite administrar las operaciones de suscripción de eventos de EventGrid. |
 | [Colaborador de Event Grid](../role-based-access-control/built-in-roles.md#eventgrid-contributor) | Permite crear y administrar recursos de Event Grid. |
 
 

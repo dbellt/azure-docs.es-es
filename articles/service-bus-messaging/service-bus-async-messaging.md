@@ -2,13 +2,13 @@
 title: Mensajería asincrónica de Service Bus | Microsoft Docs
 description: Obtenga información acerca de la forma en que Azure Service Bus admite la asincronía a través de un mecanismo de almacenamiento y reenvío con colas, temas y suscripciones.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: e37c18b95bca7ef1e6e8f0d74976bb73b214624a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/23/2021
+ms.openlocfilehash: 32fbbe997819de42eb63b4efd40024cce6087b96
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102500638"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988827"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Patrones de mensajería asincrónica y alta disponibilidad
 
@@ -41,7 +41,7 @@ Hay varias maneras de tratar los problemas de los mensajes y de las entidades, y
 Service Bus contiene varios procedimientos para mitigar estos problemas. En las secciones siguientes se tratan todos estos problema y los respectivos procedimientos para mitigarlos.
 
 ### <a name="throttling"></a>Limitaciones
-Con Service Bus, la limitación permite la administración cooperativa de la velocidad de los mensajes. Cada nodo individual de Service Bus alberga muchas entidades. Cada una de esas entidades realiza peticiones al sistema en cuanto a CPU, memoria, almacenamiento, etc. Si cualquiera de estas facetas detecta un uso que supera los umbrales definidos, Service Bus puede denegar una solicitud determinada. El llamador recibe una excepción [ServerBusyException][ServerBusyException] y lo reintenta transcurridos 10 segundos.
+Con Service Bus, la limitación permite la administración cooperativa de la velocidad de los mensajes. Cada nodo individual de Service Bus alberga muchas entidades. Cada una de esas entidades realiza peticiones al sistema en cuanto a CPU, memoria, almacenamiento, etc. Si cualquiera de estas facetas detecta un uso que supera los umbrales definidos, Service Bus puede denegar una solicitud determinada. El autor de la llamada recibe una excepción de servidor ocupado y reintenta la operación al cabo de 10 segundos.
 
 Como mitigación, el código debe leer el error y detener todos los reintentos del mensaje durante al menos 10 segundos. Puesto que el error puede producirse en varias partes de la aplicación de cliente, se espera que cada una de ellas ejecute la lógica de reintento de forma independiente. El código puede reducir la posibilidad de que la habilitación de particiones en una cola o tema pueda suponer una limitación.
 
@@ -51,27 +51,10 @@ Otros componentes de Azure en ocasiones pueden tener problemas de servicio ocasi
 ### <a name="service-bus-failure-on-a-single-subsystem"></a>Error de Service Bus en un subsistema individual
 Con cualquier aplicación, las circunstancias pueden provocar que algún componente interno de Service Bus pueda volverse incoherente. Cuando Service Bus lo detecta, recopila datos de la aplicación para ayudar a diagnosticar lo que sucedió. Una vez que se hayan recopilado los datos, la aplicación se reinicia para intentar que vuelva a un estado coherente. Este proceso ocurre con bastante rapidez y su resultado es que una entidad parezca que no está disponible durante unos minutos, aunque los tiempos de inactividad son mucho menores.
 
-En estos casos, la aplicación cliente genera una excepción [System.TimeoutException][System.TimeoutException] o [MessagingException][MessagingException]. Service Bus contiene una mitigación para este problema en forma de lógica de reintento de cliente automatizado. Si al agotarse el período de reintento aún no se ha entregado el mensaje, puede probar con otras de las funciones que se mencionan en el artículo sobre la [administración de desastres e interrupciones][handling outages and disasters].
+En estos casos, la aplicación cliente genera una excepción de tiempo de espera o una excepción de mensajería. Service Bus contiene una mitigación para este problema en forma de lógica de reintento de cliente automatizado. Si al agotarse el período de reintento aún no se ha entregado el mensaje, puede probar con otras de las funciones que se mencionan en el artículo sobre la [administración de desastres e interrupciones][handling outages and disasters].
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ya conoce los conceptos básicos de la mensajería asincrónica de Service Bus, puede consultar más información sobre la [administración de desastres e interrupciones][handling outages and disasters].
 
-[ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception
-[System.TimeoutException]: /dotnet/api/system.timeoutexception
-[MessagingException]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
 [Best practices for insulating applications against Service Bus outages and disasters]: service-bus-outages-disasters.md
-[Microsoft.ServiceBus.Messaging.MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
-[MessageReceiver]: /dotnet/api/microsoft.servicebus.messaging.messagereceiver
-[QueueClient]: /dotnet/api/microsoft.servicebus.messaging.queueclient
-[TopicClient]: /dotnet/api/microsoft.servicebus.messaging.topicclient
-[Microsoft.ServiceBus.Messaging.PairedNamespaceOptions]: /dotnet/api/microsoft.servicebus.messaging.pairednamespaceoptions
-[MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
-[SendAvailabilityPairedNamespaceOptions]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
-[NamespaceManager]: /dotnet/api/microsoft.servicebus.namespacemanager
-[PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
-[EnableSyphon]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
-[System.TimeSpan.Zero]: /dotnet/api/system.timespan.zero
-[IsTransient]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
-[UnauthorizedAccessException]: /dotnet/api/system.unauthorizedaccessexception
-[BacklogQueueCount]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
 [handling outages and disasters]: service-bus-outages-disasters.md

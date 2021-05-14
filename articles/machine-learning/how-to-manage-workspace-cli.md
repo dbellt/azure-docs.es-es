@@ -8,14 +8,14 @@ ms.subservice: core
 ms.author: larryfr
 author: Blackmist
 ms.date: 04/02/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 5e9df582ce6eddd50fbecf02858f4afe611dcf18
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.topic: how-to
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: d86350bf96e4c91fb7ea0a635387d4da95cc8581
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220222"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107888987"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creación de un área de trabajo para Azure Machine Learning con la CLI de Azure
 
@@ -283,7 +283,7 @@ La salida de este comando es similar al JSON siguiente:
 ]
 ```
 
-Para obtener más información, consulte la documentación de [az ml workspace list](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-list).
+Para obtener más información, consulte la documentación de [az ml workspace list](/cli/azure/ml/workspace#az_ml_workspace_list).
 
 ## <a name="get-workspace-information"></a>Obtención de la información del área de trabajo
 
@@ -316,7 +316,7 @@ La salida de este comando es similar al JSON siguiente:
 }
 ```
 
-Para obtener más información, consulte la documentación de [az ml workspace show](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-show).
+Para obtener más información, consulte la documentación de [az ml workspace show](/cli/azure/ml/workspace#az_ml_workspace_show).
 
 ## <a name="update-a-workspace"></a>Actualización de un área de trabajo
 
@@ -349,7 +349,7 @@ La salida de este comando es similar al JSON siguiente:
 }
 ```
 
-Para obtener más información, consulte la documentación de [az ml workspace update](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-update).
+Para obtener más información, consulte la documentación de [az ml workspace update](/cli/azure/ml/workspace#az_ml_workspace_update).
 
 ## <a name="share-a-workspace-with-another-user"></a>Uso compartido de un área de trabajo con otro usuario
 
@@ -361,7 +361,7 @@ az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user>
 
 Para obtener más información sobre el control de acceso basado en roles de Azure (Azure RBAC) con Azure Machine Learning, consulte [Administración de usuarios y roles](how-to-assign-roles.md).
 
-Para obtener más información, consulte la documentación de [az ml workspace share](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-share).
+Para obtener más información, consulte la documentación de [az ml workspace share](/cli/azure/ml/workspace#az_ml_workspace_share).
 
 ## <a name="sync-keys-for-dependent-resources"></a>Sincronización de claves para recursos dependientes
 
@@ -373,7 +373,7 @@ az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>
 
 Para obtener más información sobre los cambios de clave, consulte [Regeneración de las claves de la cuenta de almacenamiento](how-to-change-storage-access-key.md).
 
-Para obtener más información, consulte la documentación de [az ml workspace sync-keys](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-sync-keys).
+Para obtener más información, consulte la documentación de [az ml workspace sync-keys](/cli/azure/ml/workspace#az_ml_workspace_sync-keys).
 
 ## <a name="delete-a-workspace"></a>Eliminar un área de trabajo
 
@@ -392,7 +392,7 @@ También puede eliminar el grupo de recursos; al hacerlo, se elimina el área de
 az group delete -g <resource-group-name>
 ```
 
-Para obtener más información, consulte la documentación de [az ml workspace delete](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-delete).
+Para obtener más información, consulte la documentación de [az ml workspace delete](/cli/azure/ml/workspace#az_ml_workspace_delete).
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
@@ -413,4 +413,4 @@ El área de trabajo de Azure Machine Learning usa Azure Container Registry (ACR)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre la extensión de la CLI de Azure para aprendizaje automático, consulte la documentación de [az ml](/cli/azure/ext/azure-cli-ml/ml).
+Para obtener más información sobre la extensión de la CLI de Azure para aprendizaje automático, consulte la documentación de [az ml](/cli/azure/ml).

@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/14/2021
+ms.date: 05/04/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: c1eade03f8c350ff86c2843dbf65f6ef82304538
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 547d14b5e466b1acf339fad5ba99094c882ba0cb
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107499124"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108762303"
 ---
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -82,4 +82,4 @@ ms.locfileid: "107499124"
 |[Las máquinas Windows deben cumplir los requisitos de "Componentes de Windows"](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8537fe96-8cbe-43de-b0ef-131bc72bc22a) |Las máquinas Windows deben tener la configuración de directiva de grupo especificada en la categoría "Componentes de Windows" para la autenticación básica, el tráfico no cifrado, las cuentas de Microsoft, la telemetría, Cortana y otros comportamientos de Windows. Esta directiva requiere que los requisitos previos de configuración de invitado se hayan implementado en el ámbito de asignación de directivas. Para más información, consulte [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_WindowsComponents_AINE.json) |
 |[Las máquinas Windows deben cumplir los requisitos de "Propiedades de Firewall de Windows"](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F35d9882c-993d-44e6-87d2-db66ce21b636) |Las máquinas Windows deben tener la configuración de directiva de grupo especificada en la categoría "Propiedades de Firewall de Windows" para el estado del firewall, las conexiones, la administración de reglas y las notificaciones. Esta directiva requiere que los requisitos previos de configuración de invitado se hayan implementado en el ámbito de asignación de directivas. Para más información, consulte [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_WindowsFirewallProperties_AINE.json) |
 |[\[Vista previa\]: Las máquinas Windows deben cumplir los requisitos de la base de referencia de Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72650e9f-97bc-4b2a-ab5f-9781a9fcecbc) |Requiere que los requisitos previos se implementen en el ámbito de asignación de directivas. Para más información, consulte [https://aka.ms/gcpol](https://aka.ms/gcpol). Las máquinas no son compatibles si la máquina no está configurada correctamente para una de las recomendaciones de la línea de base de Azure Security Center. |AuditIfNotExists, Disabled |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_AzureWindowsBaseline_AINE.json) |
-|[Los servidores web de Windows deben estar configurados para usar protocolos de comunicación seguros](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5752e6d6-1206-46d8-8ab1-ecc2f71a8112) |Para proteger la privacidad de la información que se comunica a través de Internet, los servidores web deben usar la versión más reciente del protocolo criptográfico estándar del sector, Seguridad de la capa de transporte (TLS). TLS protege las comunicaciones que se realizan a través de una red mediante el uso de certificados de seguridad para cifrar una conexión entre máquinas. TLS 1.3 es más rápido y más seguro que las versiones anteriores: TLS 1.0-1.2 y SSL 2-3, que se consideran protocolos heredados. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecureWebProtocol_AINE.json) |
+|[Los servidores web de Windows deben estar configurados para usar protocolos de comunicación seguros](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5752e6d6-1206-46d8-8ab1-ecc2f71a8112) |Para proteger la privacidad de la información que se comunica a través de Internet, los servidores web deben usar la versión más reciente del protocolo criptográfico estándar del sector, Seguridad de la capa de transporte (TLS). TLS protege las comunicaciones que se realizan a través de una red mediante el uso de certificados de seguridad para cifrar una conexión entre máquinas. |AuditIfNotExists, Disabled |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecureWebProtocol_AINE.json) |

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: f98f128e56810e3dd710ce454c8dc34b333690d1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6dbab1b7fa1599add9fb48814a1138bf176c81d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879299"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127468"
 ---
 # <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>Planeamiento de una oferta de Aplicación de Azure para el marketplace comercial
 
@@ -210,7 +210,7 @@ Esta configuración es necesaria si quiere usar [eventos de uso de Batch](partne
 Puede optar por participar en los canales de marketing y ventas respaldados por Microsoft. Al crear la oferta en el Centro de partners, verá dos pestañas hacia el final del proceso:
 
 - **Resell through CSPs** (Revender a través de los CSP): use esta opción para permitir que los asociados de los proveedores de soluciones en la nube (CSP) de Microsoft revendan la solución como parte de una oferta agrupada. Para más información, consulte [Programa del Proveedor de soluciones en la nube](./cloud-solution-providers.md).
-- **Venta conjunta con Microsoft**: esta opción permite que los equipos de ventas de Microsoft consideren la solución idónea para la venta conjunta de IP al evaluar las necesidades de los clientes. Para obtener información detallada sobre cómo preparar la oferta para la evaluación, vea [Opción de venta conjunta en el marketplace comercial](commercial-marketplace-co-sell.md). Para obtener más información sobre los requisitos de la venta conjunta de IP, vea [Requisitos para el estado de la venta conjunta](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Para más información sobre cómo comercializar su oferta a través de los canales de asociados de CSP de Microsoft, consulte [Proveedores de soluciones en la nube](cloud-solution-providers.md).
+- **Venta conjunta con Microsoft**: esta opción permite que los equipos de ventas de Microsoft consideren la solución idónea para la venta conjunta de IP al evaluar las necesidades de los clientes. Para obtener información detallada sobre cómo preparar la oferta para la evaluación, vea [Opción de venta conjunta en el marketplace comercial](./co-sell-configure.md). Para obtener más información sobre los requisitos de la venta conjunta de IP, vea [Requisitos para el estado de la venta conjunta](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Para más información sobre cómo comercializar su oferta a través de los canales de asociados de CSP de Microsoft, consulte [Proveedores de soluciones en la nube](cloud-solution-providers.md).
 
 Para más información, consulte [Desarrollo de un negocio en la nube con Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
 

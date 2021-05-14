@@ -4,12 +4,12 @@ description: Aprenda a controlar las admisiones de pods mediante PodSecurityPoli
 services: container-service
 ms.topic: article
 ms.date: 03/25/2021
-ms.openlocfilehash: d70b8e8efbf96e50575845ac88993012fed936d5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 260b7a0811db4e3c33894d1b43d7fbd38c26214f
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767428"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108015339"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Versión preliminar: Protección del clúster con directivas de seguridad de pod en Azure Kubernetes Service (AKS)
 
@@ -464,7 +464,7 @@ Para más información sobre la limitación del tráfico del pod, consulte [Prot
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
-[az-aks-update]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-update
+[az-aks-update]: /cli/azure/aks#az_aks_update
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md

@@ -1,17 +1,17 @@
 ---
 title: Formato Parquet en Azure Data Factory
 description: En este tema se describe cómo tratar con el formato Parquet en Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/27/2020
-ms.author: jingwang
-ms.openlocfilehash: a10403b5f26b551458a9e20330bc817512f707de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: 279df09cddf2bb8b2bcb5a936666e302987cac27
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100386398"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486618"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Formato Parquet en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -164,7 +164,7 @@ En el caso de las copias que se ejecutan en el IR autohospedado con la serializa
 
 - **Para usar JRE**: el IR de 64 bits necesita JRE de 64 bits. Puede encontrarlo [aquí](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **Para usar OpenJDK**: se admite desde la versión 3.13 de IR. Empaquete jvm.dll con todos los demás ensamblados de OpenJDK necesarios en la máquina del IR autohospedado y establezca la variable de entorno del sistema JAVA_HOME en el valor que corresponda.
-- **Para instalar el paquete Visual C++ 2010 Redistributable**: el paquete Visual C++ 2010 Redistributable no se instala con las instalaciones de IR autohospedadas. Puede encontrarlo [aquí](https://www.microsoft.com/download/details.aspx?id=14632).
+- **Para instalar el paquete Visual C++ 2010 Redistributable**: el paquete Visual C++ 2010 Redistributable no se instala con las instalaciones de IR autohospedadas. Puede encontrarlo [aquí](https://www.microsoft.com/download/details.aspx?id=26999).
 
 > [!TIP]
 > Si copia datos desde o hacia Parquet mediante Integration Runtime autohospedado y recibe un error que indica que "Se produjo un error al invocar Java, mensaje: **Espacio en el montón java.lang.OutOfMemoryError:Java**", puede agregar una variable de entorno `_JAVA_OPTIONS` en la máquina que hospeda IR autohospedado para ajustar el tamaño del montón mínimo y máximo para JVM a fin de facilitar dicha copia y, a continuación, volver a ejecutar la canalización.

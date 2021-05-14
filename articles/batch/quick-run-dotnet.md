@@ -4,12 +4,12 @@ description: En este inicio rápido, se ejecuta las tareas y un trabajo de ejemp
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 48166faa016defb719d8b48c2fff84de32f6c2e4
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 1c2328db520042ceff1861b740313befbed0e20d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168253"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876731"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Inicio rápido: Ejecute su primer trabajo de Azure Batch con la API de .NET
 
@@ -25,7 +25,7 @@ Tras completar esta guía de inicio rápido, entenderá los conceptos clave del 
 
 - Una cuenta de Batch y una cuenta de Azure Storage vinculada. Para crear estas cuentas, consulte las guías de inicio rápido de Batch con [Azure Portal](quick-create-portal.md) o la [CLI de Azure](quick-create-cli.md).
 
-- [Visual Studio 2017 o superior](https://www.visualstudio.com/vs) o [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) para Linux, macOS o Windows. 
+- [Visual Studio 2017 o superior](https://www.visualstudio.com/vs) o el [SDK de .NET Core 2.1](https://dotnet.microsoft.com/download/dotnet/2.1) para Linux, macOS o Windows. 
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 

@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 2a26a71e956a7e1313af9e99cc92232d0caf91e7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f08b9db58ee0e4ec7711afb95085ef27fa5db13c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877695"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132546"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Solución de problemas comunes de Azure Spring Cloud
 
-En este artículo se proporcionan instrucciones para solucionar problemas de desarrollo de Azure Spring Cloud. Para obtener más información, consulte las [preguntas más frecuentes sobre Azure Spring Cloud](spring-cloud-faq.md).
+En este artículo se proporcionan instrucciones para solucionar problemas de desarrollo de Azure Spring Cloud. Para obtener más información, consulte las [preguntas más frecuentes sobre Azure Spring Cloud](./faq.md).
 
 ## <a name="availability-performance-and-application-issues"></a>Incidencias relacionadas con la disponibilidad, el rendimiento y las aplicaciones
 
@@ -58,7 +58,7 @@ Al depurar los bloqueos de la aplicación, empiece por comprobar el estado de la
     * Una explosión de memoria al principio mismo.
     * La asignación de memoria de sobrecarga para una ruta de acceso lógica específica.
     * Fugas de memoria graduales.
-  Para obtener más información, consulte [Métricas](spring-cloud-concept-metrics.md).
+  Para obtener más información, consulte [Métricas](./concept-metrics.md).
   
 * Si la aplicación no se inicia, compruebe que la aplicación tiene parámetros de jvm válidos. Si la memoria de jvm está establecida en un valor demasiado alto, puede aparecer el siguiente mensaje de error en los registros:
 
@@ -80,11 +80,11 @@ Para averiguar qué situación se aplica, haga lo siguiente:
 2. Agregue un filtro **App=** para especificar qué aplicación quiere supervisar.
 3. Divida las métricas por **Instancia**.
 
-Si *todas las instancias* experimentan un uso elevado de la CPU o memoria, debe escalar horizontalmente la aplicación o escalar verticalmente e uso de CPU o memoria. Para más información, consulte el [Tutorial: Escalado de una aplicación en Azure Spring Cloud](spring-cloud-howto-scale-manual.md).
+Si *todas las instancias* experimentan un uso elevado de la CPU o memoria, debe escalar horizontalmente la aplicación o escalar verticalmente e uso de CPU o memoria. Para más información, consulte el [Tutorial: Escalado de una aplicación en Azure Spring Cloud](./how-to-scale-manual.md).
 
 Si solo *algunas instancias* experimentan un uso elevado de la CPU o de la memoria, compruebe el estado de las instancias y su estado de detección.
 
-Para obtener más información, consulte [Métricas en Azure Spring Cloud](spring-cloud-concept-metrics.md).
+Para obtener más información, consulte [Métricas en Azure Spring Cloud](./concept-metrics.md).
 
 Si todas las instancias están en funcionamiento, vaya a Azure Log Analytics para consultar los registros de la aplicación y examine la lógica del código. Esto le ayudará a ver si alguna puede afectar a la creación de particiones de escalado. Para obtener más información, consulte [Análisis de registros y métricas con la configuración de diagnóstico](diagnostic-services.md).
 
@@ -96,7 +96,7 @@ Antes de incorporar la aplicación, asegúrese de que cumple los siguientes crit
 
 * La aplicación se puede ejecutar localmente con la versión del runtime de Java especificada.
 * La configuración del entorno (CPU/RAM/instancias) cumple los requisitos mínimos que establece el proveedor de aplicaciones.
-* Los elementos de configuración tienen los valores esperados. Para más información, consulte el artículo acerca de [Config Server](spring-cloud-howto-config-server.md).
+* Los elementos de configuración tienen los valores esperados. Para más información, consulte el artículo acerca de [Config Server](./how-to-config-server.md).
 * Las variables de entorno tienen los valores esperados.
 * Los parámetros de JVM tienen los valores esperados.
 * Se recomienda deshabilitar o quitar los servicios _Config Server_ y _Spring Service Registry_ insertados del paquete de aplicación.
@@ -111,7 +111,7 @@ Al configurar una instancia de servicio de Azure Spring Cloud desde Azure Portal
 Pero si intenta configurar la instancia de servicio de Azure Spring Cloud mediante la [CLI de Azure](/cli/azure/get-started-with-azure-cli) o una [plantilla de Azure Resource Manager](../azure-resource-manager/index.yml), verifique lo siguiente:
 
 * Que la suscripción está activa.
-* Que Azure Spring Cloud [admite](spring-cloud-faq.md) la ubicación.
+* Que Azure Spring Cloud [admite](./faq.md) la ubicación.
 * Que se ha creado el grupo de recursos de la instancia.
 * Que el nombre del recurso se ajusta a la regla de nomenclatura Solo debe contener minúsculas, números y guiones. El primer carácter debe ser una letra. El último carácter debe ser una letra o un número. El valor tiene que contener entre 2 y 32 caracteres.
 
@@ -151,7 +151,7 @@ Si se interrumpe el sondeo, se puede seguir usando el siguiente comando para cap
 
 `az spring-cloud app show-deploy-log -n <app-name>`
 
-Sin embargo, tenga en cuenta que una instancia de servicio de Azure Spring Cloud solo puede desencadenar un trabajo de compilación para un paquete de origen a la vez. Para obtener más información, vea [Implementación de una aplicación](spring-cloud-quickstart.md) y [Configuración de un entorno de ensayo en Azure Spring Cloud](spring-cloud-howto-staging-environment.md).
+Sin embargo, tenga en cuenta que una instancia de servicio de Azure Spring Cloud solo puede desencadenar un trabajo de compilación para un paquete de origen a la vez. Para obtener más información, vea [Implementación de una aplicación](./quickstart.md) y [Configuración de un entorno de ensayo en Azure Spring Cloud](./how-to-staging-environment.md).
 
 ### <a name="my-application-cant-be-registered"></a>No se puede registrar mi aplicación
 
@@ -227,4 +227,4 @@ Si los registros de la aplicación se pueden archivar en una cuenta de almacenam
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Procedimientos de autodiagnóstico y solución de problemas en Azure Spring Cloud](spring-cloud-howto-self-diagnose-solve.md)
+* [Procedimientos de autodiagnóstico y solución de problemas en Azure Spring Cloud](./how-to-self-diagnose-solve.md)

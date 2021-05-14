@@ -1,14 +1,14 @@
 ---
 title: 'Procedimiento para proteger la jerarquía de recursos: Gobernanza en Azure'
 description: Obtenga información sobre cómo proteger la jerarquía de recursos con configuraciones de jerarquía que incluyen la configuración del grupo de administración predeterminado.
-ms.date: 02/05/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0f0afb5401fc646d26598a211604790af191f156
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 11c20ccf5aff74d810533cd56e0a7b116f2dc64b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99594593"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303651"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Procedimiento para proteger la jerarquía de recursos
 
@@ -50,7 +50,7 @@ Para configurar esta opción en Azure Portal, siga estos pasos:
 
 ### <a name="set-default-management-group-with-rest-api"></a>Establecimiento del grupo de administración predeterminado con la API REST
 
-Para configurar este valor con la API REST, se llama al punto de conexión de la [Configuración de jerarquía](/rest/api/resources/hierarchysettings). Para ello, use el siguiente formato de URI de la API REST y de cuerpo. Reemplace `{rootMgID}` por el identificador del grupo de administración raíz y `{defaultGroupID}` por el identificador del grupo de administración para que se convierta en el grupo de administración predeterminado:
+Para configurar este valor con la API REST, se llama al punto de conexión de la [Configuración de jerarquía](/rest/api/managementgroups/hierarchysettings). Para ello, use el siguiente formato de URI de la API REST y de cuerpo. Reemplace `{rootMgID}` por el identificador del grupo de administración raíz y `{defaultGroupID}` por el identificador del grupo de administración para que se convierta en el grupo de administración predeterminado:
 
 - URI DE LA API REST
 
@@ -91,7 +91,7 @@ Para configurar esta opción en Azure Portal, siga estos pasos:
 
 ### <a name="set-require-authorization-with-rest-api"></a>Configuración: requerir autorización con la API REST
 
-Para configurar este valor con la API REST, se llama al punto de conexión de la [Configuración de jerarquía](/rest/api/resources/hierarchysettings). Para ello, use el siguiente formato de URI de la API REST y de cuerpo. Este es un valor _booleano_, por lo que debe proporcionarle **true** o **false**. Un valor de **true** habilita este método de protección de la jerarquía de grupos de administración:
+Para configurar este valor con la API REST, se llama al punto de conexión de la [Configuración de jerarquía](/rest/api/managementgroups/hierarchysettings). Para ello, use el siguiente formato de URI de la API REST y de cuerpo. Este es un valor _booleano_, por lo que debe proporcionarle **true** o **false**. Un valor de **true** habilita este método de protección de la jerarquía de grupos de administración:
 
 - URI DE LA API REST
 
@@ -110,6 +110,28 @@ Para configurar este valor con la API REST, se llama al punto de conexión de la
   ```
 
 Para volver a desactivar la configuración, use el mismo punto de conexión y establezca **requireAuthorizationForGroupCreation** en un valor de **false**.
+
+## <a name="powershell-sample"></a>Ejemplo de PowerShell
+
+PowerShell no tiene un comando "Az" para establecer el grupo de administración predeterminado o definir la autorización necesaria, pero como solución alternativa puede utilizar la API de REST con el ejemplo de PowerShell siguiente:
+
+```powershell
+$root_management_group_id = "Enter the ID of root management group"
+$default_management_group_id = "Enter the ID of default management group (or use the same ID of the root management group)"
+
+$body = '{
+     "properties": {
+          "defaultManagementGroup": "/providers/Microsoft.Management/managementGroups/' + $default_management_group_id + '",
+          "requireAuthorizationForGroupCreation": true
+     }
+}'
+
+$token = (Get-AzAccessToken).Token
+$headers = @{"Authorization"= "Bearer $token"; "Content-Type"= "application/json"}
+$uri = "https://management.azure.com/providers/Microsoft.Management/managementGroups/$root_management_group_id/settings/default?api-version=2020-02-01"
+
+Invoke-RestMethod -Method PUT -Uri $uri -Headers $headers -Body $body
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

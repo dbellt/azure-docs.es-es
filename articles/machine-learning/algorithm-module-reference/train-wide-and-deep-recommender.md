@@ -8,18 +8,20 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/12/2020
-ms.openlocfilehash: d7dd7105ddb0d6503faefb996b84c0e53a62ce49
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/19/2021
+ms.openlocfilehash: 6c7f4b221b1b9a1eee9a0d4d376bb6707d6b2869
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104655383"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108000861"
 ---
 # <a name="train-wide--deep-recommender"></a>Train Wide & Deep Recommender
 En este artículo se describe cómo usar el módulo **Aprenda a usar el módulo Train Wide & Deep Recommender** de Azure Machine Learning Designer para entrenar un modelo de recomendación. Este módulo se basa en el aprendizaje ancho y profundo que ofrece Google.
 
 En el módulo **Train Wide & Deep Recommender** se estudia un conjunto de datos de triples usuario-elemento-calificación y, de manera opcional, algunas características de usuario y elemento. Devuelve un recomendador Wide & Deep entrenado.  Después, puede usar el modelo entrenado para generar predicciones o recomendaciones de clasificación mediante el uso del módulo [Score Wide and Deep Recommender](score-wide-and-deep-recommender.md).  
+
+<!-- Currently, **Train Wide & Deep Recommender** module supports both single node and distributed training. -->
 
 ## <a name="more-about-recommendation-models-and-the-wide--deep-recommender"></a>Más información sobre los modelos de recomendación y el recomendador Wide & Deep  
 
@@ -34,7 +36,7 @@ El recomendador Wide & Deep combina estos enfoques que utilizan el filtrado de c
 
 Funcionamiento: cuando se trata de un usuario relativamente nuevo en el sistema, para mejorar las predicciones se usa la información de características sobre el usuario, dando respuesta así al conocido problema del "arranque en frío". Sin embargo, una vez que ha recopilado clasificaciones suficientes de un usuario determinado, es posible crear predicciones completamente personalizadas para el usuario según sus clasificaciones específicas, en lugar de hacerlo solo según sus características. Por lo tanto, se trata de una transición sin problemas desde recomendaciones basadas en contenido a recomendaciones basadas en el filtrado de colaboración. Incluso si las características de elemento o usuario no están disponibles, el recomendador Wide & Deep funcionará de todos modos en su modalidad de filtrado de colaboración.  
 
-Puede encontrar más detalles sobre el recomendador Wide & Deep y su algoritmo de probabilidad subyacente en el documento de investigación pertinente (en inglés): [Aprendizaje ancho y profundo de sistemas de recomendación](https://arxiv.org/pdf/1606.07792.pdf).  
+Puede encontrar más detalles sobre el recomendador Wide & Deep y su algoritmo de probabilidad subyacente en el documento de investigación pertinente (en inglés): [Información de Wide & Deep para sistemas de recomendación](https://arxiv.org/pdf/1606.07792.pdf).  
 
 ## <a name="how-to-configure-train-wide--deep-recommender"></a>Configuración del entrenamiento del recomendador Wide & Deep  
 
@@ -43,7 +45,7 @@ Puede encontrar más detalles sobre el recomendador Wide & Deep y su algoritmo d
 
 ### <a name="prepare-data"></a>Preparación de los datos
 
-Antes de intentar usar el módulo, es esencial que los datos tengan el formato esperado por el modelo de recomendación. Se requiere un conjunto de datos de entrenamiento de **triples usuario-elemento-calificación**, pero también puede incluir características de usuario y características de elementos (si están disponibles) en conjuntos de datos independientes.
+Antes de intentar usar el módulo, asegúrese de que los datos están en el formato esperado para el modelo de recomendación. Se requiere un conjunto de datos de entrenamiento de **triples usuario-elemento-calificación**, pero también puede incluir características de usuario y características de elementos (si están disponibles) en conjuntos de datos independientes.
 
 #### <a name="required-dataset-of-user-item-ratings"></a>Se requiere un conjunto de datos del usuario-elemento-clasificaciones
 
@@ -105,9 +107,9 @@ Por ejemplo, un conjunto típico de características del elemento puede tener el
 
     Este hiperparámetro determina el tamaño del paso en cada paso del entrenamiento mientras se desplaza hacia una función de pérdida mínima. Una tasa de aprendizaje demasiado grande puede provocar que el aprendizaje pase por alto los mínimos, mientras que una tasa de aprendizaje demasiado pequeña puede provocar un problema de convergencia.
 
-7.  **Dimensión de características cruzadas**: Escriba la dimensión indicando los identificadores de usuario y las características de identificador de elemento deseados. 
+7.  **Dimensión de características cruzadas**: escriba la dimensión indicando los identificadores de usuario y las características del identificador de elemento deseados. 
 
-    El recomendador Wide & Deep realiza de forma predeterminada una transformación entre productos con las características de identificador de usuario y de elemento. Al resultado cruzado se le aplicará el algoritmo hash según este número para garantizar la dimensión.
+    El recomendador Wide & Deep realiza de forma predeterminada una transformación entre productos con las características de identificador de usuario y de elemento de manera predeterminada. Al resultado cruzado se le aplicará el algoritmo hash según este número para garantizar la dimensión.
 
 8.  **Optimizador de parte profunda**: seleccione un optimizador para que aplique los gradientes a la parte profunda del modelo.
 
@@ -121,9 +123,9 @@ Por ejemplo, un conjunto típico de características del elemento puede tener el
 
 12.  **Dimensión de inserción de características de categorías**: escriba un número entero para especificar las dimensiones de las inserciones de características de categorías.
 
-     En el componente profundo del recomendador Wide & Deep, se aprende un vector de inserción para cada característica de categoría. Y estos vectores de inserción comparten la misma dimensión.
+     En el componente profundo del recomendador Wide & Deep se aprende un vector de inserción para cada característica de categoría. Y estos vectores de inserción comparten la misma dimensión.
 
-13.  **Unidades ocultas**: escriba el número de nodos ocultos del componente profundo. El número de nodos de cada capa está separado por comas. Por ejemplo, si escribe "1000,500,100", especifica que el componente profundo tiene tres capas, donde cada capa tiene 1000, 500 y 100 nodos respectivamente.
+13.  **Unidades ocultas**: escriba el número de nodos ocultos del componente profundo. El número de nodos de cada capa está separado por comas. Por ejemplo, si escribe "1000,500,100", especifica que el componente profundo tiene tres capas, donde cada capa tiene 1000, 500 y 100 nodos respectivamente.
 
 14.  **Función de activación**: seleccione una función de activación que se aplique a cada capa; el valor predeterminado es ReLU.
 
@@ -137,9 +139,50 @@ Por ejemplo, un conjunto típico de características del elemento puede tener el
 
 17.  Ejecución de la canalización
 
-## <a name="results"></a>Results
 
-Una vez completada la ejecución de la canalización, para usar el modelo para la puntuación, conecte el módulo de [entrenamiento del recomendador Wide & Deep](train-wide-and-deep-recommender.md) al módulo de [puntuación del recomendador Wide & Deep](score-wide-and-deep-recommender.md) para predecir valores para los nuevos ejemplos de entrada.
+<!-- ## Distributed training
+
+In distributed training the workload to train a model is split up and shared among multiple mini processors, called worker nodes. These worker nodes work in parallel to speed up model training. Currently the designer support distributed training for **Train Wide & Deep Recommender** module.
+
+### How to enable distributed training
+
+To enable distributed training for **Train Wide & Deep Recommender** module, you can set in **Run settings** in the right pane of the module. Only **[AML Compute cluster](https://docs.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python)** is supported for distributed training.
+
+1. Select the module and open the right panel. Expand the **Run settings** section.
+
+    [![Screenshot showing how to set distributed training in run setting](./media/module/distributed-training-run-setting.png)](./media/module/distributed-training-run-setting.png#lightbox)
+
+1. Make sure you have select AML compute for the compute target.
+
+1. In **Resource layout** section, you need to set the following values:
+
+    - **Node count**: Number of nodes in the compute target used for training. It should be **less than or equal to** the **Maximum number of nodes** your compute cluster. By default it is 1, which means single node job.
+
+    - **Process count per node**: Number of processes triggered per node. It should be **less than or equal to** the **Processing Unit** of your compute. By default it is 1, which means single node job.
+
+    You can check the **Maximum number of nodes** and **Processing Unit** of your compute by clicking the compute name into the compute detail page.
+
+    [![Screenshot showing how to check compute cluster](./media/module/compute-cluster-node.png)](./media/module/compute-cluster-node.png#lightbox)
+
+You can learn more about distributed training in Azure Machine Learning [here](https://docs.microsoft.com/azure/machine-learning/concept-distributed-training).
+
+
+### Troubleshooting for distributed training
+
+If you enable distributed training for this module, there will be driver logs for each process. `70_driver_log_0` is for master process. You can check driver logs for error details of each process under **Outputs+logs** tab in the right pane.
+
+[![Screenshot showing driver log](./media/module/distributed-training-error-driver-log.png)](./media/module/distributed-training-error-driver-log.png#lightbox) 
+
+If the module enabled distributed training fails without any `70_driver` logs, you can check `70_mpi_log` for error details.
+
+The following example shows a common error that is **Process count per node** is larger than **Processing Unit** of the compute.
+
+[![Screenshot showing mpi log](./media/module/distributed-training-error-mpi-log.png)](./media/module/distributed-training-error-mpi-log.png#lightbox)
+
+## Results
+
+After pipeline run is completed, to use the model for scoring, connect the [Train Wide and Deep Recommender](train-wide-and-deep-recommender.md) to [Score Wide and Deep Recommender](score-wide-and-deep-recommender.md), to predict values for new input examples.
+ -->
 
 ##  <a name="technical-notes"></a>Notas técnicas
 

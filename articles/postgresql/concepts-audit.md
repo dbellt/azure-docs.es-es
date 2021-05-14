@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: 33fa6420f52cae9c869cc75a04ea82de0ec48262
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 519105374a2c12807bdac92bfb2b60feaeeb89c2
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100596305"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324804"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Registro de auditoría en Azure Database for PostgreSQL con un único servidor
 
@@ -37,7 +37,7 @@ Para aprender a configurar el registro en Azure Storage, Event Hubs o los regist
 
 ## <a name="installing-pgaudit"></a>Instalación de pgAudit
 
-Para instalar pgAudit, tendrá que incluirlo en las bibliotecas de carga previa compartidas del servidor. Si cambia el parámetro `shared_preload_libraries` de Postgres deberá reiniciar el servidor para que tenga efecto. Puede cambiar los parámetros mediante [Azure Portal](howto-configure-server-parameters-using-portal.md), la [CLI de Azure](howto-configure-server-parameters-using-cli.md) o [API REST](/rest/api/postgresql/configurations/createorupdate).
+Para instalar pgAudit, tendrá que incluirlo en las bibliotecas de carga previa compartidas del servidor. Si cambia el parámetro `shared_preload_libraries` de Postgres deberá reiniciar el servidor para que tenga efecto. Puede cambiar los parámetros mediante [Azure Portal](howto-configure-server-parameters-using-portal.md), la [CLI de Azure](howto-configure-server-parameters-using-cli.md) o [API REST](/rest/api/postgresql/singleserver/configurations/createorupdate).
 
 Mediante [Azure Portal](https://portal.azure.com):
 
@@ -104,4 +104,4 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Obtener información sobre el registro en Azure Database for PostgreSQL](concepts-server-logs.md)
-- Aprenda cómo establecer parámetros mediante [Azure Portal](howto-configure-server-parameters-using-portal.md), la [CLI de Azure](howto-configure-server-parameters-using-cli.md) o [API REST](/rest/api/postgresql/configurations/createorupdate).
+- Aprenda cómo establecer parámetros mediante [Azure Portal](howto-configure-server-parameters-using-portal.md), la [CLI de Azure](howto-configure-server-parameters-using-cli.md) o [API REST](/rest/api/postgresql/singleserver/configurations/createorupdate).

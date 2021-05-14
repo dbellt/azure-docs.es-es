@@ -3,12 +3,13 @@ title: Cómo detener la supervisión del clúster híbrido de Kubernetes | Micro
 description: En este artículo se describe cómo puede detener la supervisión del clúster híbrido de Kubernetes con Container Insights.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: e8708d6b860683cc96a806160ccc7c8e33949ab2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: bd13c3e3c3a1aca3253bc43377a15324db2cc4fb
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101713701"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319942"
 ---
 # <a name="how-to-stop-monitoring-your-hybrid-cluster"></a>Cómo detener la supervisión del clúster híbrido
 

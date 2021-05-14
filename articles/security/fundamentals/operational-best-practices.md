@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 86874a60d48ddcbdaca5ae779ad554ee58cc233b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6634a536828b3c19d771d135fdb3a1224d3dfdf3
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96498853"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717430"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedimientos recomendados de seguridad operativa de Azure
 En este artículo se proporciona un conjunto de procedimientos recomendados operativos para proteger los datos, aplicaciones y otros recursos en Azure.
@@ -122,7 +122,7 @@ La puntuación segura, que se basa en controles del Centro de seguridad de Inter
 **Detalles**: Use [Azure Monitor para recopilar y exportar datos](../../azure-monitor/overview.md#integrate-and-export-data). Este procedimiento es fundamental para habilitar la investigación de incidentes de seguridad, y la retención de registro en línea es limitada. Si usa Azure Sentinel, vea [Conexión de orígenes de datos](../../sentinel/connect-data-sources.md).
 
 **Procedimiento recomendado**: Acelere los procesos de investigación y búsqueda, y reduzca los falsos positivos mediante la integración de funciones de detección y respuesta (EDR) de puntos de conexión en la investigación del ataque.   
-**Detalles**: [Habilitación de la integración de Microsoft Defender para punto de conexión](../../security-center/security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration) mediante la directiva de seguridad de Security Center. Considere la posibilidad de usar Azure Sentinel para la búsqueda de amenazas y la respuesta a los incidentes.
+**Detalles**: [Habilite la integración de Microsoft Defender para punto de conexión](../../security-center/security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration) mediante la directiva de seguridad de Security Center. Considere la posibilidad de usar Azure Sentinel para la búsqueda de amenazas y la respuesta a los incidentes.
 
 ## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>Supervisión de redes de un extremo a otro basada en escenarios
 Los clientes crean una red de un extremo a otro en Azure mediante la combinación de recursos de red como una red virtual, ExpressRoute, Application Gateway y equilibradores de carga. Se puede supervisar cada uno de los recursos de la red.

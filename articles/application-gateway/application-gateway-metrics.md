@@ -2,17 +2,17 @@
 title: Métricas de Azure Monitor para Application Gateway
 description: Obtenga información sobre cómo usar métricas para supervisar el rendimiento de la puerta de enlace de aplicaciones
 services: application-gateway
-author: surajmb
+author: azhar2005
 ms.service: application-gateway
 ms.topic: article
-ms.date: 06/06/2020
-ms.author: surmb
-ms.openlocfilehash: 9faa3a284aa7151880526c1ee70cfadc3dbf3089
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/19/2021
+ms.author: azhussai
+ms.openlocfilehash: 615db7e8d53e397755ae318d171dab1eab9ec6c6
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100576119"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727815"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para Application Gateway
 
@@ -24,7 +24,7 @@ Application Gateway publica puntos de datos, denominados métricas, para [Azure 
 
 Application Gateway proporciona varias métricas de temporización integradas relacionadas con la solicitud y la respuesta, que se miden en milisegundos. 
 
-![Diagrama de métricas de tiempo para Application Gateway.](./media/application-gateway-metrics/application-gateway-metrics.png)
+:::image type="content" source="./media/application-gateway-metrics/application-gateway-metrics.png" alt-text="[Diagrama de métricas de tiempo para Application Gateway" border="false":::
 
 > [!NOTE]
 >

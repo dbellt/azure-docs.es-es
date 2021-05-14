@@ -10,19 +10,19 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 15d94e17bea6a49bb5bf6fdb6c48252365676042
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 4c3fd064eae2eaa918993b9de9789a25a27d05d7
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107228170"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136506"
 ---
 # <a name="migration-guide-ibm-db2-to-azure-sql-managed-instance"></a>Guía de migración: de IBM Db2 a Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
 
 Con esta guía aprenderá a migrar sus bases de datos de IBM Db2 a Azure SQL Managed Instance mediante SQL Server Migration Assistant para Db2. 
 
-Para ver otras guías de migración, consulte la [Guía de Azure Database Migration](https://docs.microsoft.com/data-migration). 
+Para ver otras guías de migración, consulte la [Guía de Azure Database Migration](/data-migration). 
 
 ## <a name="prerequisites"></a>Requisitos previos 
 

@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconocimiento facial, software de reconocimiento facial, análisis facial, coincidencia facial, aplicación de reconocimiento facial, búsqueda de caras por imagen, búsqueda de reconocimiento facial
-ms.openlocfilehash: 26076289d8c6659abdd55fa805c27b13690feccd
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 30707dd844769f730f135a451cd5306ca7e402cb
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258748"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726995"
 ---
 # <a name="what-is-the-azure-face-service"></a>¿Qué es el servicio Azure Face?
 
@@ -33,7 +33,7 @@ Esta documentación contiene los siguientes tipos de artículos:
 * Los [inicios rápidos](./Quickstarts/client-libraries.md) son instrucciones paso a paso que permiten realizar llamadas al servicio y obtener los resultados en un breve período de tiempo. 
 * Las [guías paso a paso](./Face-API-How-to-Topics/HowtoDetectFacesinImage.md) contienen instrucciones para usar el servicio de maneras más específicas o personalizadas.
 * Los [artículos conceptuales](./concepts/face-detection.md) proporcionan explicaciones detalladas de la funcionalidad y las características del servicio.
-* Los [tutoriales](./Tutorials/FaceAPIinCSharpTutorial.md) son guías más largas que muestran cómo usar este servicio como componente en soluciones empresariales más amplias.
+* Los [tutoriales](./enrollment-overview.md) son guías más largas que muestran cómo usar este servicio como componente en soluciones empresariales más amplias.
 
 ## <a name="face-detection"></a>Detección de caras
 
@@ -48,11 +48,11 @@ Para más información sobre la detección de caras, vea el artículo sobre los 
 
 ## <a name="face-verification"></a>Verificación de caras
 
-API Verify se basa en la detección y responde la pregunta, "¿Son estas dos imágenes la misma persona?" La comprobación también se denomina coincidencia "uno a uno", porque la imagen de sondeo se compara con una sola plantilla inscrita. La comprobación se puede usar en escenarios de comprobación de identidad o control de acceso para comprobar que una imagen coincide con una imagen capturada previamente (por ejemplo, una foto de una tarjeta de identificación emitida por el gobierno). Para más información, vea la guía de conceptos [Reconocimiento facial](concepts/face-recognition.md) o la documentación de referencia de [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+Verify API se basa en la detección y responde a la pregunta: "¿Corresponden estas dos imágenes a la misma persona?" La verificación también se denomina coincidencia de "uno a uno", porque la imagen de sondeo se compara con una sola plantilla inscrita. La comprobación se puede usar en escenarios de comprobación de identidad o control de acceso para comprobar que una imagen coincide con una imagen capturada previamente (por ejemplo, una foto de una tarjeta de identificación emitida por el gobierno). Para más información, vea la guía de conceptos [Reconocimiento facial](concepts/face-recognition.md) o la documentación de referencia de [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
 ## <a name="face-identification"></a>Identificación de caras
 
-Identify API también comienza con la detección y responde a la pregunta "¿Coincide la cara detectada con alguna de las caras de una base de datos?" Al ser como la búsqueda de reconocimiento facial, también se denomina coincidencia "uno a varios". Las coincidencias candidatas se devuelven en función del grado de coincidencia de la plantilla de sondeo con la cara detectada de cada una de las plantillas inscritas.
+Identify API también comienza por la detección y responde a la pregunta. "¿Coincide la cara detectada con alguna de las caras de una base de datos?" Al ser una búsqueda similar a la de reconocimiento facial, también se denomina coincidencia de "uno a varios". Las coincidencias candidatas se devuelven en función del grado de coincidencia de la plantilla de sondeo con la cara detectada de cada una de las plantillas inscritas.
 
 La siguiente imagen muestra un ejemplo de una base de datos llamada `"myfriends"`. Cada grupo puede contener hasta un millón de objetos de persona diferentes. Cada objeto de persona puede tener hasta 248 caras registradas.
 
@@ -64,7 +64,7 @@ Para más información sobre la identificación de personas, vea la guía de con
 
 ## <a name="find-similar-faces"></a>Búsqueda de caras similares
 
-Find Similar API realiza una coincidencia facial entre una cara objetivo y un conjunto de caras candidatas, y busca un conjunto más reducido de caras parecidas a la cara objetivo. Esto resulta útil para realizar una búsqueda de caras por imagen. 
+Find Similar API realiza una coincidencia facial entre una cara objetivo y un conjunto de caras candidatas, y busca un conjunto más reducido de caras parecidas a la cara objetivo. Esta operación es útil para hacer una búsqueda de caras por imagen. 
 
 Se admiten dos modos de funcionamiento, **matchPerson** y **matchFace**. El modo **matchPerson** devuelve las caras parecidas tras filtrar por la misma persona mediante [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). El modo **matchFace** ignora el filtro de la misma persona. Devuelve una lista de caras candidatas similares que pueden o no pertenecer a la misma persona.
 

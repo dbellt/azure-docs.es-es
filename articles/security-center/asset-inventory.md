@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 02/10/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 873fdba1d24db55b3269cc2c13f0140da4a9b4e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a6fcb3b3fece367ab950426c29df2d1b39735957
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100393365"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228730"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory"></a>Exploración y administración de los recursos con Asset Inventory
 
@@ -128,8 +128,6 @@ Con el [lenguaje de consulta de Kusto (KQL)](/azure/data-explorer/kusto/query/),
 1. Para ver las opciones de filtro seleccionadas actualmente en forma de consulta en Resource Graph Explorer, seleccione **Abrir consulta**.
 
     ![Consulta de inventario en ARG](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
-
-1. Para ejecutar una aplicación lógica definida previamente con 
 
 1. Si ha definido algunos filtros y ha dejado la página abierta, Security Center no actualizará los resultados de forma automática. Cualquier cambio en los recursos no afectará a los resultados mostrados a menos que se vuelva a cargar manualmente la página o se seleccione **Actualizar**.
 

@@ -8,12 +8,12 @@ author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
 ms.date: 3/04/2021
-ms.openlocfilehash: bb954a32a4e598c45578d4b06606bc133babb50d
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 3455cc5b7ce5e1ddb7db3c3a9de4aedefcedc4b5
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107159"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133410"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migración de soluciones de venta conjunta de OCP GTM al marketplace comercial
 
@@ -36,7 +36,7 @@ Asegúrese de que tiene una pertenencia de Microsoft Partner Network activa y qu
 
 ## <a name="publishing-updates-for-attaining-co-sell-ready-status"></a>Publicación de actualizaciones para alcanzar el estado de listo para la venta conjunta
 
-Para que los vendedores y asociados de Microsoft puedan descubrir su solución, debe cumplir los [requisitos de preparación para realizar ventas conjuntas](marketplace-co-sell.md). Para que un vendedor de Microsoft reciba incentivos, la solución debe cumplir los [requisitos pertinentes](marketplace-co-sell.md). Complete estos requisitos en la pestaña Venta conjunta del Centro de partners (vea [esta imagen](#cosell-tab) que aparece más abajo en este artículo).
+Para que los vendedores y asociados de Microsoft puedan descubrir su solución, debe cumplir los [requisitos de preparación para realizar ventas conjuntas](./co-sell-overview.md). Para que un vendedor de Microsoft reciba incentivos, la solución debe cumplir los [requisitos pertinentes](./co-sell-overview.md). Complete estos requisitos en la pestaña Venta conjunta del Centro de partners (vea [esta imagen](#cosell-tab) que aparece más abajo en este artículo).
 
 > [!NOTE]
 > En el marketplace comercial, las soluciones se conocen como "ofertas" a lo largo de la experiencia de publicación.
@@ -137,7 +137,7 @@ Para obtener instrucciones detalladas sobre la información que debe proporciona
 
     :::image type="content" source="media/co-sell-migrate/offer-setup.png" alt-text="Las pestañas de configuración e información general de ofertas del Centro de partners.":::
 
-3. Algunos de los detalles visibles para los vendedores de Microsoft se copiaron de la solución de OCP GTM. Complete la información necesaria restante en la pestaña **Co-sell with Microsoft** (Realizar venta conjunta con Microsoft) para hacer que la oferta de venta conjunta esté lista. Cuando haya terminado, seleccione **Review and publish** (Revisar y publicar). Para más información, consulte [Configuración de la venta conjunta para una oferta del marketplace comercial](commercial-marketplace-co-sell.md).
+3. Algunos de los detalles visibles para los vendedores de Microsoft se copiaron de la solución de OCP GTM. Complete la información necesaria restante en la pestaña **Co-sell with Microsoft** (Realizar venta conjunta con Microsoft) para hacer que la oferta de venta conjunta esté lista. Cuando haya terminado, seleccione **Review and publish** (Revisar y publicar). Para más información, consulte [Configuración de la venta conjunta para una oferta del marketplace comercial](./co-sell-configure.md).
 
     :::image type="content" source="media/co-sell-migrate/co-sell-page.png" alt-text="La pestaña Co-sell with Microsoft (Realizar venta conjunta con Microsoft) del Centro de partners.":::
 
@@ -155,5 +155,5 @@ Para obtener instrucciones detalladas sobre la información que debe proporciona
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Reventa a través de asociados de CSP](cloud-solution-providers.md)
-- [Configuración de la venta conjunta para una oferta del marketplace comercial](commercial-marketplace-co-sell.md)
+- [Configuración de la venta conjunta para una oferta del marketplace comercial](./co-sell-configure.md)
 - Revisión de estas [preguntas más frecuentes](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)

@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: fc92543f5954cda9db42e53cab18db1d8f3366c3
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 73971d4e7b7e05a03ed0490ff013977e57721b8d
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107284211"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107896628"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Preguntas más frecuentes sobre Azure Spatial Anchors
 
@@ -88,7 +88,7 @@ Azure Spatial Anchors se adhiere a los [Términos del acuerdo de servicio de Azu
 
 **P: ¿En qué regiones está disponible Azure Spatial Anchors?**
 
-**R:** Azure Spatial Anchors está disponible actualmente en Oeste de EE. UU. 2, Este de EE. UU., Este de EE. UU. 2, Centro-sur de EE. UU., Oeste de Europa, Norte de Europa, Sur de Reino Unido y Este de Australia. En el futuro, estarán disponibles más regiones.
+**R:** Azure Spatial Anchors está disponible actualmente en Oeste de EE. UU. 2, Este de EE. UU., Este de EE. UU. 2, Centro-sur de EE. UU., Oeste de Europa, Norte de Europa, Sur de Reino Unido, Este de Australia, Sudeste de Asia y Centro de Corea del Sur. En el futuro, estarán disponibles más regiones.
 
 Esto significa que los recursos tanto de proceso como de almacenamiento están en esas regiones. Aparte de eso, no hay ninguna restricción sobre la ubicación de los clientes. 
 

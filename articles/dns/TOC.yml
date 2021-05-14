@@ -49,7 +49,7 @@
     - name: Seguridad
       items:
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/dns-security-baseline?toc=/azure/dns/TOC.json
     - name: DNS público
       items:
         - name: Zonas y registros
@@ -59,13 +59,13 @@
         - name: Delegación con Azure DNS
           href: dns-domain-delegation.md
         - name: Preguntas más frecuentes
-          href: dns-faq.md
+          href: dns-faq.yml
         - name: Métricas y alertas de DNS
           href: dns-alerts-metrics.md
         - name: Zonas DNS inversas
           href: dns-reverse-dns-overview.md
         - name: Recuperación ante desastres mediante Azure DNS y Traffic Manager
-          href: ../networking/disaster-recovery-dns-traffic-manager.md
+          href: ../networking/disaster-recovery-dns-traffic-manager.md?toc=%2fazure%2fdns%2ftoc.json
     - name: DNS privado
       items:
         - name: Zona DNS privada
@@ -77,9 +77,9 @@
         - name: Escenarios de DNS privado
           href: private-dns-scenarios.md
         - name: Resolución de DNS en redes virtuales
-          href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
+          href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md?toc=%2fazure%2fdns%2ftoc.json
         - name: Preguntas más frecuentes
-          href: dns-faq-private.md
+          href: dns-faq-private.yml
 - name: Guías paso a paso
   items:
     - name: DNS público
@@ -88,7 +88,7 @@
           href: dns-alias-appservice.md
         - name: Administración de zonas DNS
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: dns-operations-dnszones-portal.md
             - name: Azure PowerShell
               href: dns-operations-dnszones.md
@@ -111,9 +111,11 @@
         - name: Importación y exportación de un archivo de zona DNS
           href: dns-import-export.md
         - name: Delegación de un subdominio
-          href: delegate-subdomain.md
-        - name: Delegación de un subdominio mediante PowerShell
-          href: delegate-subdomain-ps.md
+          items:
+            - name: Azure portal
+              href: delegate-subdomain.md
+            - name: Azure PowerShell
+              href: delegate-subdomain-ps.md
         - name: Integración con otros servicios de Azure
           href: dns-for-azure-services.md
         - name: Protección de registros y zonas DNS
@@ -126,6 +128,8 @@
       items:
         - name: Protección de zonas DNS y registros privados
           href: dns-protect-private-zones-recordsets.md
+        - name: Importación y exportación de un archivo de zona DNS
+          href: private-dns-import-export.md
     - name: Solución de problemas
       items:
         - name: Guía de solución de problemas

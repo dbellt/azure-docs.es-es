@@ -2,17 +2,23 @@
 title: Operadores de Bicep
 description: Describe los operadores de Bicep disponibles para las implementaciones de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 04/07/2021
-ms.openlocfilehash: 4bf1005a11b1dcfea9f4b28d6bd3fa7c33e3278f
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.date: 04/15/2021
+ms.openlocfilehash: 0838ebf6bc03f4237ef76e07f1eb6f25aa996fc0
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107211271"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537819"
 ---
 # <a name="bicep-operators"></a>Operadores de Bicep
 
-En este artículo, se describen los operadores de Bicep que están disponibles cuando se crea una plantilla de Bicep y se utiliza Azure Resource Manager para implementar recursos. Los operadores se usan para calcular valores, comparar valores o evaluar condiciones. Hay tres tipos de operadores de Bicep: operadores de [comparación](#comparison), operadores [lógicos](#logical) y operadores [numéricos](#numeric).
+En este artículo, se describen los operadores de Bicep que están disponibles cuando se crea una plantilla de Bicep y se utiliza Azure Resource Manager para implementar recursos. Los operadores se usan para calcular valores, comparar valores o evaluar condiciones. Hay tres tipos de operadores:
+
+- [de comparación](#comparison)
+- [lógicos](#logical)
+- [numeric](#numeric)
+
+Encerrar una expresión entre `(` y `)` permite invalidar la precedencia predeterminada del operador Bicep. Por ejemplo, la expresión x + y/z evalúa primero la división y, después, la suma. Sin embargo, la expresión (x + y)/z evalúa la suma primero y la división después.
 
 ## <a name="comparison"></a>De comparación
 
@@ -25,7 +31,7 @@ Los operadores de comparación comparan valores y devuelven `true` o `false`.
 | `<=` | [Menor que o igual a](bicep-operators-comparison.md#less-than-or-equal-) | Determina si el primer valor es menor o igual que el segundo. |
 | `<`  | [Menor que](bicep-operators-comparison.md#less-than-) | Determina si el primer valor es menor que el segundo. |
 | `==` | [Es igual a](bicep-operators-comparison.md#equals-) | Determina si dos valores son iguales. |
-| `!=` | [No igual a](bicep-operators-comparison.md#not-equal-) | Determina si dos valores **no** son iguales. |
+| `!=` | [No es igual a](bicep-operators-comparison.md#not-equal-) | Determina si dos valores **no** son iguales. |
 | `=~` | [Igual sin distinción de mayúsculas y minúsculas](bicep-operators-comparison.md#equal-case-insensitive-) | Determina si dos valores son iguales sin tener en cuenta la distinción entre mayúsculas y minúsculas. |
 | `!~` | [No es igual sin distinción de mayúsculas y minúsculas](bicep-operators-comparison.md#not-equal-case-insensitive-) | Determina si dos valores **no** son iguales sin tener en cuenta la distinción entre mayúsculas y minúsculas. |
 
@@ -59,7 +65,7 @@ Los operadores numéricos usan enteros para realizar cálculos y devolver valore
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para crear un archivo de Bicep, consulte [Tutorial: Creación e implementación del primer archivo Bicep de Azure Resource Manager](bicep-tutorial-create-first-bicep.md).
-- Para más información acerca de cómo resolver errores de tipos de Bicep, consulte [Función any para Bicep](template-functions-any.md).
+- Para crear un archivo de Bicep, consulte [Tutorial: Creación e implementación del primer archivo de Bicep de Azure Resource Manager](bicep-tutorial-create-first-bicep.md).
+- Para obtener información sobre cómo resolver errores de tipos de Bicep, consulte [Función any para Bicep](template-functions-any.md).
 - Para comparar la sintaxis de Bicep y JSON, consulte [Comparación de JSON y Bicep para plantillas](compare-template-syntax.md).
-- Para ver funciones de plantillas de Bicep y ARM, consulte [Funciones de plantilla de ARM](template-functions.md).
+- Para ver ejemplos de las funciones de plantilla de Bicep y ARM, consulte [Funciones de plantilla de ARM](template-functions.md).

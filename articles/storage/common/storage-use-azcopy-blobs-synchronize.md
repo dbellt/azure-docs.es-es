@@ -4,18 +4,18 @@ description: Este artículo contiene una colección de comandos de ejemplo de Az
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: ec341243811eaa271511baba04ea1c48a4fefdab
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8b3340c00d856b13edefc7728d5baa327399a441
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728902"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502936"
 ---
-# <a name="synchronize-with-azure-blob-storage-by-using-azcopy-v10"></a>Sincronización con Azure Blob Storage mediante AzCopy v10
+# <a name="synchronize-with-azure-blob-storage-by-using-azcopy"></a>Sincronización con Azure Blob Storage mediante AzCopy
 
 Puede sincronizar el almacenamiento local con Azure Blob Storage mediante la utilidad de línea de comandos AzCopy v10. 
 
@@ -41,7 +41,11 @@ Vea el artículo [Introducción a AzCopy](storage-use-azcopy-v10.md) para descar
 
 - Si establece la marca `--delete-destination` en `true`, AzCopy elimina los archivos sin proporcionar un aviso. Si quiere que aparezca un mensaje antes de que AzCopy elimine un archivo, establezca la marca `--delete-destination` en `prompt`.
 
+- Si tiene previsto establecer la marca `--delete-destination` en `prompt` o `false`, considere la posibilidad de usar el comando [copy](storage-ref-azcopy-copy.md) en lugar del comando [sync](storage-ref-azcopy-sync.md) y establezca el parámetro `--overwrite` en `ifSourceNewer`. El comando [copy](storage-ref-azcopy-copy.md) consume menos memoria y genera menos costos de facturación porque una operación de copia no tiene que indexar el origen o el destino antes de mover archivos. 
+
 - Para evitar eliminaciones accidentales, asegúrese de habilitar la característica de [eliminación temporal](../blobs/soft-delete-blob-overview.md) antes de usar la marca `--delete-destination=prompt|true`.
+
+- La máquina en la que ejecute el comando de sincronización debe tener un reloj del sistema preciso porque las últimas horas modificadas son fundamentales para determinar si se debe transferir un archivo. Si el sistema tiene un sesgo de reloj importante, evite modificar los archivos en el destino demasiado cerca de la hora en que planea ejecutar un comando de sincronización.
 
 ## <a name="update-a-container-with-changes-to-a-local-file-system"></a>Actualización de un contenedor con los cambios realizados en un sistema de archivos local
 
@@ -50,10 +54,15 @@ En este caso, el contenedor es el destino y el sistema de archivos local es el o
 > [!TIP]
 > En este ejemplo los argumentos de ruta de acceso se encierran entre comillas simples ('). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
-| Ejemplo de sintaxis  |  Código |
-|--------|-----------|
-| **Sintaxis** | `azcopy sync '<local-directory-path>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
-| **Ejemplo** | `azcopy sync 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive` |
+**Sintaxis**
+
+`azcopy sync '<local-directory-path>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive`
+
+**Ejemplo**
+
+```azcopy
+azcopy sync 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive
+```
 
 ## <a name="update-a-local-file-system-with-changes-to-a-container"></a>Actualización de un sistema de archivos local con los cambios realizados en un contenedor
 
@@ -62,10 +71,15 @@ En este caso, el sistema de archivos local es el destino y el contenedor es el o
 > [!TIP]
 > En este ejemplo los argumentos de ruta de acceso se encierran entre comillas simples ('). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
-| Ejemplo de sintaxis  |  Código |
-|--------|-----------|
-| **Sintaxis** | `azcopy sync 'https://<storage-account-name>.blob.core.windows.net/<container-name>' 'C:\myDirectory' --recursive` |
-| **Ejemplo** | `azcopy sync 'https://mystorageaccount.blob.core.windows.net/mycontainer' 'C:\myDirectory' --recursive` |
+**Sintaxis**
+
+`azcopy sync 'https://<storage-account-name>.blob.core.windows.net/<container-name>' 'C:\myDirectory' --recursive`
+
+**Ejemplo**
+
+```azcopy
+azcopy sync 'https://mystorageaccount.blob.core.windows.net/mycontainer' 'C:\myDirectory' --recursive
+```
 
 ## <a name="update-a-container-with-changes-in-another-container"></a>Actualización de un contenedor con cambios en otro contenedor
 
@@ -74,10 +88,15 @@ El primer contenedor que aparece en este comando es el contenedor origen. El seg
 > [!TIP]
 > En este ejemplo los argumentos de ruta de acceso se encierran entre comillas simples ('). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
-| Ejemplo de sintaxis  |  Código |
-|--------|-----------|
-| **Sintaxis** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
-| **Ejemplo** | `azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
+**Sintaxis**
+
+`azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive`
+
+**Ejemplo**
+
+```azcopy
+azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive
+```
 
 ## <a name="update-a-directory-with-changes-to-a-directory-in-another-container"></a>Actualización de un directorio con cambios en un directorio de otro contenedor
 
@@ -86,10 +105,15 @@ El primer directorio que aparece en este comando es el origen. El segundo es el 
 > [!TIP]
 > En este ejemplo los argumentos de ruta de acceso se encierran entre comillas simples ('). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
-| Ejemplo de sintaxis  |  Código |
-|--------|-----------|
-| **Sintaxis** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive` |
-| **Ejemplo** | `azcopy sync 'https://mysourceaccount.blob.core.windows.net/<container-name>/myDirectory' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myDirectory' --recursive` |
+**Sintaxis**
+
+`azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive`
+
+**Ejemplo**
+
+```azcopy
+azcopy sync 'https://mysourceaccount.blob.core.windows.net/<container-name>/myDirectory' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myDirectory' --recursive
+```
 
 ## <a name="synchronize-with-optional-flags"></a>Sincronización con marcas opcionales
 
@@ -101,7 +125,10 @@ Puede modificar las operaciones de sincronización mediante marcas opcionales. E
 |Excluir archivos en función de un patrón.|**--exclude-path**|
 |Especifique el grado de detalles que quiere que sean las entradas de registro relacionadas con la sincronización.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
 
-Para obtener una lista completa, vea las [opciones](storage-ref-azcopy-sync.md#options).
+Para obtener una lista completa de marcas, vea las [opciones](storage-ref-azcopy-sync.md#options).
+
+> [!NOTE]
+> La marca `--recursive` se establece en `true` de manera predeterminada. Las marcas `--exclude-pattern` y `--include-pattern` solo afectan a los nombres de archivo y no a otros elementos de la ruta de acceso del archivo. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -111,6 +138,13 @@ Encuentre más ejemplos en estos artículos:
 - [Ejemplos: descarga](storage-use-azcopy-blobs-download.md)
 - [Ejemplos: Copia entre cuentas](storage-use-azcopy-blobs-copy.md)
 - [Ejemplos: Cubos de Amazon S3](storage-use-azcopy-s3.md)
+- [Ejemplos: Google Cloud Storage](storage-use-azcopy-google-cloud.md)
 - [Ejemplos: Azure Files](storage-use-azcopy-files.md)
 - [Tutorial: Migración de datos locales al almacenamiento en la nube mediante AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
-- [Configurar, optimizar y solucionar problemas de AzCopy](storage-use-azcopy-configure.md)
+
+Consulte estos artículos para configurar opciones, optimizar el rendimiento y solucionar problemas:
+
+- [Parámetros de configuración de AzCopy](storage-ref-azcopy-configuration-settings.md)
+- [Optimización del rendimiento de AzCopy](storage-use-azcopy-optimize.md)
+- [Solución de problemas de AzCopy v10 en Azure Storage mediante el uso de archivos de registro](storage-use-azcopy-configure.md)
+

@@ -9,18 +9,16 @@ ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, responsible-ml
-ms.openlocfilehash: fda1bc2ef0a112a8a32ba7c4caebf29028c8cdd7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: how-to
+ms.custom: devx-track-python, responsible-ml
+ms.openlocfilehash: 6afe193cb29b313f45335e46aa9fcaec2e8bf240
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98222758"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107889059"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Uso del paquete de interpretación para explicar los modelos de Machine Learning y las predicciones en Python (versión preliminar)
-
-
 
 En este artículo, aprenderá a usar el paquete de interpretación del SDK de Azure Machine Learning para Python para realizar las siguientes tareas:
 
@@ -36,8 +34,9 @@ En este artículo, aprenderá a usar el paquete de interpretación del SDK de Az
 * Implementar un explicador de puntuaciones junto con el modelo para observar las explicaciones durante la inferencia.
 
 
-
 Para más información sobre las técnicas de interpretación admitidas y los modelos de aprendizaje automático, consulte [Interpretación de modelos en Azure Machine Learning](how-to-machine-learning-interpretability.md) y [Cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
+
+Para instrucciones sobre cómo habilitar la interpretación de modelos entrenados con aprendizaje automático automatizado, consulte [Interpretabilidad: explicaciones de modelos de aprendizaje automático automatizado (versión preliminar)](how-to-machine-learning-interpretability-automl.md). 
 
 ## <a name="generate-feature-importance-value-on-your-personal-machine"></a>Generación del valor de importancia de la característica en el equipo personal 
 En el siguiente ejemplo se muestra cómo usar el paquete de interpretación en el equipo personal sin ponerse en contacto con los servicios de Azure.
@@ -296,7 +295,7 @@ En el ejemplo siguiente se muestra cómo usar la clase `ExplanationClient` para 
 
 ## <a name="visualizations"></a>Visualizaciones
 
-Después de descargar las explicaciones en la instancia local de Jupyter Notebook, puede usar el panel de visualización para entender e interpretar el modelo. Para cargar el widget de panel de visualización en el cuaderno de Jupyter Notebook, use el siguiente código:
+Después de descargar las explicaciones en la instancia local de Jupyter Notebook, podrá usar las visualizaciones del panel de explicaciones para entender e interpretar el modelo. Para cargar el widget de panel de explicaciones en el cuaderno de Jupyter Notebook, use el siguiente código:
 
 ```python
 from interpret_community.widget import ExplanationDashboard
@@ -304,7 +303,7 @@ from interpret_community.widget import ExplanationDashboard
 ExplanationDashboard(global_explanation, model, datasetX=x_test)
 ```
 
-La visualización admite explicaciones tanto en características diseñadas como en características sin procesar. Las explicaciones sin procesar se basan en las características del conjunto de datos original y las explicaciones diseñadas se basan en las características del conjunto de datos una vez aplicada la ingeniería de características.
+Las visualizaciones admiten explicaciones tanto en características diseñadas como en características sin procesar. Las explicaciones sin procesar se basan en las características del conjunto de datos original y las explicaciones diseñadas se basan en las características del conjunto de datos una vez aplicada la ingeniería de características.
 
 Al intentar interpretar un modelo con relación al conjunto de datos original, se recomienda usar explicaciones sin procesar, ya que la importancia de cada característica se corresponderá con una columna del conjunto de datos original. Un escenario en el que las explicaciones diseñadas pueden ser útiles es al examinar el impacto de cada categoría de una característica categórica. Si se aplica la codificación de tipo "uno activo" a una característica categórica, las explicaciones resultantes que se diseñen incluirán un valor de importancia diferente para cada categoría, uno por cada característica diseñada con codificación de "uno activo". Esto puede ser útil para identificar qué parte del conjunto de datos es más informativa para el modelo.
 
@@ -353,11 +352,11 @@ La cuarta pestaña de la pestaña de la explicación le permite profundizar en u
 
 ### <a name="visualization-in-azure-machine-learning-studio"></a>Visualización en Azure Machine Learning Studio
 
-Si completa los pasos de la [interpretación remota](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) (mediante la carga de la explicación generada al historial de ejecución de Azure Machine Learning), puede ver el panel de visualización de [Azure Machine Learning Studio](https://ml.azure.com). Este panel es una versión más sencilla del panel de visualización que se explicó anteriormente. La generación de puntos de datos de hipótesis y los gráficos ICE están deshabilitados porque no hay ningún proceso activo en Azure Machine Learning Studio que pueda realizar sus cálculos en tiempo real.
+Si completa los pasos de la [interpretación remota](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) (mediante la carga de las explicaciones generadas en el historial de ejecución de Azure Machine Learning), verá las visualizaciones en el panel de explicaciones de [Azure Machine Learning Studio](https://ml.azure.com). Este panel es una versión más sencilla del widget de panel que se genera en el cuaderno de Jupyter Notebook. La generación de puntos de datos de hipótesis y los gráficos ICE están deshabilitados porque no hay ningún proceso activo en Azure Machine Learning Studio que pueda realizar sus cálculos en tiempo real.
 
 Si el conjunto de datos y las explicaciones globales y locales están disponibles, los datos rellenan todas las pestañas. Si solo hay una explicación global disponible, se deshabilitará la pestaña de importancia de la característica individual.
 
-Siga una de estas rutas de acceso para llegar al panel de visualización de Azure Machine Learning Studio:
+Siga una de estas rutas de acceso para llegar al panel de explicaciones de Azure Machine Learning Studio:
 
 * Panel **Experiments** (Experimentos) (versión preliminar)
   1. Al hacer clic en **Experimentos** en el panel izquierdo, verá una lista de experimentos que se han ejecutado en Azure Machine Learning.
@@ -368,7 +367,7 @@ Siga una de estas rutas de acceso para llegar al panel de visualización de Azur
 
 * Panel **Models** (Modelos)
   1. Si registró el modelo original siguiendo los pasos descritos en [Implementación de modelos con Azure Machine Learning](./how-to-deploy-and-where.md), puede seleccionar **Models** (Modelos) en el panel izquierdo para verlo.
-  1. Desde aquí, haga clic en la pestaña **Explanations** (Explicaciones) para ver el panel de visualización de explicaciones.
+  1. Seleccione un modelo y la pestaña **Explicaciones** para ver el panel de explicaciones.
 
 ## <a name="interpretability-at-inference-time"></a>Interpretación en tiempo de inferencia
 

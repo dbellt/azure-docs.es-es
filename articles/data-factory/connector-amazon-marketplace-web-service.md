@@ -3,16 +3,16 @@ title: Copia de datos de AWS Marketplace
 description: Obtenga información sobre cómo copiar datos de Amazon Marketplace Web Service en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 ms.service: data-factory
 ms.topic: conceptual
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
-ms.openlocfilehash: c25bdac0b52af425557464f17350fb8a46244f2f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6dae2f6e4f17149fcd543ad4c34ff6acf3d6f775
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100364365"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482406"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory"></a>Copiar datos de Amazon Marketplace Web Service con Azure Data Factory
 
@@ -33,7 +33,7 @@ Azure Data Factory proporciona un controlador integrado para habilitar la conect
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de Amazon Marketplace Web Service.
 

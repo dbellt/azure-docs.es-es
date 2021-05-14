@@ -85,7 +85,7 @@
     - name: Seguridad
       items:
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/signalr-security-baseline?toc=/azure/azure-signalr/TOC.json
         - name: Controles de seguridad de Azure Policy
           href: ./security-controls-policy.md
 - name: Guías paso a paso
@@ -129,7 +129,7 @@
 - name: Referencias
   items:
     - name: Azure CLI
-      href: signalr-reference-cli.md
+      href: /cli/azure/signalr
     - name: API DE REST
       href: 'https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md'
     - name: ASP.NET Core SignalR

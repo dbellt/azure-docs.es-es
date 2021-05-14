@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: a3dee22a1ee793641e48be6edb1b33a00219217e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 71a4cebcc11657566f65f53508df18efe822c409
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560317"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514791"
 ---
 # <a name="dv2-and-dsv2-series"></a>Series Dv2 y DSv2
 
@@ -28,7 +28,7 @@ Los tamaños de la serie Dv2 se ejecutan en procesadores Intel® Xeon® Platinum
 [Migración en vivo](maintenance-and-updates.md): Compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1<br>
-[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible (*se requieren 4 vCPU como mínimo*)<br>
+[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): admitidas (*se requieren 2 vCPU como mínimo*)<br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
 <br>
 
@@ -50,7 +50,7 @@ Los tamaños de la serie DSv2 se ejecutan en procesadores Intel® Xeon® Platinu
 [Migración en vivo](maintenance-and-updates.md): Compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
-[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible (*se requieren 4 vCPU como mínimo*)<br>
+[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): admitidas (*se requieren 2 vCPU como mínimo*)<br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
 <br>
 

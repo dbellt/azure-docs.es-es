@@ -1,18 +1,18 @@
 ---
 title: Supervisión de factorías de datos mediante Azure Monitor | Microsoft Docs
 description: Aprenda a utilizar Azure Monitor para supervisar las canalizaciones de Azure Data Factory mediante la habilitación de registros de diagnóstico con la información de Data Factory.
-author: dcstwh
-ms.author: weetok
+author: minhe-msft
+ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: bceacf0a22b7add0533b72b4ebf06d503366baa4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: da0a9b457127400bdeb67c671b2710447b37784e
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932495"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903207"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Alerta y supervisión de Data Factory mediante Azure Monitor
 

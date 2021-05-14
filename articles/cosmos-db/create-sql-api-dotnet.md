@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/07/2021
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: c7dc3a230e2cd3f990771c297de29891de347089
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.custom: devx-track-dotnet, devx-track-azurecli
+ms.openlocfilehash: a805e26ef3776be7bb97c93d23b5c83e1dfc67af
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363417"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001941"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Inicio rápido: Compilar una aplicación de consola .NET para administrar recursos de API de SQL de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "107363417"
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [SDK para Java v4](create-sql-api-java.md)
 > * [Spring Data v3](create-sql-api-spring-data.md)
-> * [Conector Spark v3](create-sql-api-spark.md)
+> * [Conector de Spark v3](create-sql-api-spark.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)

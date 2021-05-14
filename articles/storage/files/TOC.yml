@@ -20,59 +20,41 @@
 - name: Tutoriales
   items:
     - name: Extensión de servidores de archivos de Windows con Azure File Sync
-      href: storage-sync-files-extend-servers.md
+      href: ../file-sync/file-sync-extend-servers.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
 - name: Conceptos
   items:
-    - name: Azure Files
+    - name: Planeamiento de una implementación de Azure Files
+      href: storage-files-planning.md
+    - name: Protocolos de recurso compartido de archivos disponibles
+      href: storage-files-compare-protocols.md
+    - name: Autenticación y autorización basadas en identidad
+      href: storage-files-active-directory-overview.md
+    - name: Consideraciones de red para el acceso directo
+      href: storage-files-networking-overview.md
+    - name: Recuperación ante desastres y conmutación por error
+      href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Instantáneas de recursos compartidos de archivos de Azure
+      href: storage-snapshots-files.md
+    - name: Desarrollo
       items:
-        - name: Planeamiento de una implementación de Azure Files
-          href: storage-files-planning.md
-        - name: Protocolos de recurso compartido de archivos disponibles
-          href: storage-files-compare-protocols.md
-        - name: Autenticación y autorización basadas en identidad
-          href: storage-files-active-directory-overview.md
-        - name: Consideraciones de red para el acceso directo
-          href: storage-files-networking-overview.md
-        - name: Recuperación ante desastres y conmutación por error
-          href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Instantáneas de recursos compartidos de archivos de Azure
-          href: storage-snapshots-files.md
-        - name: Desarrollo
-          items:
-            - name: Autenticación de clave compartida
-              href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
-            - name: Firmas de acceso compartido (SAS)
-              href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Supervisión y solución de problemas
-          items:
-            - name: Transición desde la métrica clásica
-              href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Supervisión (clásica)
-              items:
-                - name: Storage Analytics
-                  href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-                - name: Métricas
-                  href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-                - name: Registros
-                  href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-                - name: 'Supervisión, diagnóstico y solución de problemas'
-                  href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Azure File Sync
+        - name: Autenticación de clave compartida
+          href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
+        - name: Firmas de acceso compartido (SAS)
+          href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Supervisión y solución de problemas
       items:
-        - name: Planeamiento de una implementación de Azure Files Sync
-          href: storage-sync-files-planning.md
-        - name: Consideraciones de red para el acceso híbrido
-          href: storage-sync-files-networking-overview.md
-        - name: Niveles de nube
+        - name: Transición desde la métrica clásica
+          href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Supervisión (clásica)
           items:
-            - name: Información general de nube por niveles
-              href: storage-sync-cloud-tiering-overview.md
-            - name: Información general sobre las directivas de nube por niveles
-              href: storage-sync-cloud-tiering-policy.md
-            - name: Elección de las directivas de nube por niveles
-              href: storage-sync-choose-cloud-tiering-policies.md
-            - name: Supervisión de la nube por niveles
-              href: storage-sync-monitor-cloud-tiering.md
+            - name: Storage Analytics
+              href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Métricas
+              href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Registros
+              href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: 'Supervisión, diagnóstico y solución de problemas'
+              href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Rendimiento y escala
       items:
         - name: Rendimiento de SMB multicanal
@@ -85,10 +67,12 @@
       href: storage-files-prevent-file-share-deletion.md
     - name: Copia de seguridad de recursos compartidos de archivos
       href: ../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Cifrado en reposo
-      href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Cifrado en reposo con claves administradas por el cliente
-      href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Cifrado
+      items:
+        - name: Cifrado en reposo
+          href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Cifrado en reposo con claves administradas por el cliente
+          href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Ofertas de cumplimiento
       href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Preguntas más frecuentes
@@ -99,12 +83,14 @@
       items:
         - name: Crear un recurso compartido de archivos SMB
           href: storage-how-to-create-file-share.md
-        - name: Implementación de Azure File Sync
-          href: storage-sync-files-deployment-guide.md
+        - name: Uso de DFS-N con Azure Files
+          href: files-manage-namespaces.md
         - name: Creación de un recurso compartido NFS
           href: storage-files-how-to-create-nfs-shares.md
         - name: "FCI\_de SQL\_Server con recursos compartidos de archivos Premium"
           href: ../../azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Compra de reservas de almacenamiento
+          href: files-reserve-capacity.md
     - name: Montaje
       items:
         - name: Montaje de un recurso compartido de archivos SMB en Windows
@@ -117,18 +103,10 @@
           href: storage-how-to-use-files-mac.md
     - name: Red
       items:
-        - name: Azure Files
-          items:
-            - name: Configuración de puntos de conexión de red de Azure Files
-              href: storage-files-networking-endpoints.md
-            - name: Configuración del reenvío de DNS para Azure Files
-              href: storage-files-networking-dns.md
-        - name: Azure File Sync
-          items:
-            - name: Configuración de puntos de conexión de red de Azure File Sync
-              href: storage-sync-files-networking-endpoints.md
-            - name: Configuración de los ajustes del proxy y el firewall de File Sync
-              href: storage-sync-files-firewall-and-proxy.md
+        - name: Configuración de puntos de conexión de red de Azure Files
+          href: storage-files-networking-endpoints.md
+        - name: Configuración del reenvío de DNS para Azure Files
+          href: storage-files-networking-dns.md
         - name: Configuración de una VPN de sitio a sitio
           href: storage-files-configure-s2s-vpn.md
         - name: Configuración de una VPN de punto a sitio en Windows
@@ -155,16 +133,10 @@
           href: storage-files-identity-auth-active-directory-domain-service-enable.md
     - name: Administrar
       items:
-        - name: Registro de un servidor en Azure Files Sync
-          href: storage-sync-files-server-registration.md
-        - name: Adición de un punto de conexión de servidor de Azure Files Sync
-          href: storage-sync-files-server-endpoint.md
         - name: Administración del almacenamiento en nubes independientes de Azure
           href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Iniciación de una conmutación por error de la cuenta
           href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Administración de archivos en niveles
-          href: storage-sync-how-to-manage-tiered-files.md
     - name: Protección de los datos
       items:
         - name: Habilitación de la eliminación temporal
@@ -213,20 +185,22 @@
               href: ../../backup/manage-afs-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
             - name: API DE REST
               href: ../../backup/manage-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Supervisión
-      items:
-        - name: Supervisión de Azure Files
-          href: storage-files-monitoring.md
-        - name: Supervisión de Azure File Sync
-          href: storage-sync-files-monitoring.md
+    - name: Supervisión de Azure Files
+      href: storage-files-monitoring.md
     - name: Migrar
       items:
         - name: Migración a recursos compartidos de archivos de Azure
           href: storage-files-migration-overview.md
+        - name: Establecimiento de implementación solo en la nube como destino
+          items:
+            - name: RoboCopy a recursos compartido de archivos de Azure
+              href: storage-files-migration-robocopy.md
+            - name: Migración desde un NAS local a recursos compartido de archivos de Azure con DataBox
+              href: storage-files-migration-nas-cloud-databox.md
         - name: Establecimiento de implementación híbrida como destino
           items:
             - name: Migración de datos en masa a Azure File Sync con Azure Data Box
-              href: storage-sync-offline-data-transfer.md
+              href: ../file-sync/file-sync-offline-data-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
             - name: Migración desde Linux a un servidor de archivos híbridos con Azure File Sync
               href: storage-files-migration-linux-hybrid.md
             - name: Migración desde un NAS local a un servidor de archivos híbridos con Azure File Sync
@@ -301,8 +275,6 @@
           href: storage-troubleshooting-files-performance.md
         - name: Solución de problemas de Azure Files en Linux (NFS)
           href: storage-troubleshooting-files-nfs.md
-        - name: Solución de problemas de Azure Files Sync
-          href: storage-sync-files-troubleshoot.md
         - name: Solución de problemas al eliminar recursos compartido de archivos Azure Files
           href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
         - name: Solución de problemas de copia de seguridad de recursos compartido de archivos
@@ -322,8 +294,6 @@
   items:
     - name: Actualizaciones de Azure
       href: 'https://azure.microsoft.com/updates/?category=storage'
-    - name: Notas de la versión de Azure File Sync
-      href: storage-files-release-notes.md
     - name: Azure Files en Microsoft Q&A
       href: /answers/topics/azure-files.html
     - name: Azure Files en Stack Overflow
@@ -334,6 +304,8 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Vídeos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
+    - name: Comparación entre Azure NetApp Files y Azure Files
+      href: storage-files-netapp-comparison.md
     - name: Paquetes NuGet (.NET)
       items:
         - name: Microsoft.Azure.Storage.Common (versión 11.x)

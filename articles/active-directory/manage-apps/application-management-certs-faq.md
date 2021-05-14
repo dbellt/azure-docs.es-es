@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/19/2021
 ms.author: iangithinji
 ms.reviewer: secherka, mifarca, shchaur, shravank, sureshja
-ms.openlocfilehash: 0868c942a023662a1a6d3053477d85b0245fef4b
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 653a9291cea6b65692ef2a34e2710ed947152a76
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376246"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318502"
 ---
 # <a name="azure-active-directory-azure-ad-application-management-certificates-frequently-asked-questions"></a>Preguntas más frecuentes sobre los certificados de administración de aplicaciones de Azure Active Directory (Azure AD)
 
@@ -55,11 +55,11 @@ En Azure AD, puede configurar las opciones de firma de certificado y el algorit
 
 ## <a name="i-need-to-replace-the-certificate-for-azure-ad-application-proxy-applications-and-need-more-instructions"></a>Necesito reemplazar el certificado para las aplicaciones de Application Proxy de Azure AD y necesito más instrucciones.
 
-Para reemplazar los certificados de las aplicaciones Application Proxy de Azure AD, consulte [Muestra de PowerShell: reemplazar el certificado en aplicaciones de Application Proxy](scripts/powershell-get-custom-domain-replace-cert.md).
+Para reemplazar los certificados de las aplicaciones Application Proxy de Azure AD, consulte [Muestra de PowerShell: reemplazar el certificado en aplicaciones de Application Proxy](../app-proxy/scripts/powershell-get-custom-domain-replace-cert.md).
 
 ## <a name="how-do-i-manage-certificates-for-custom-domains-in-azure-ad-application-proxy"></a>¿Cómo administro los certificados de dominios personalizados en Application Proxy de Azure AD?
 
-Para configurar una aplicación local para que use un dominio personalizado, necesita un dominio personalizado de Azure Active Directory comprobado, un certificado PFX para dicho dominio y una aplicación local para configurar. Para obtener más información, consulte [Dominios personalizados en Application Proxy de Azure AD](application-proxy-configure-custom-domain.md). 
+Para configurar una aplicación local para que use un dominio personalizado, necesita un dominio personalizado de Azure Active Directory comprobado, un certificado PFX para dicho dominio y una aplicación local para configurar. Para obtener más información, consulte [Dominios personalizados en Application Proxy de Azure AD](../app-proxy/application-proxy-configure-custom-domain.md). 
 
 ## <a name="i-need-to-update-the-token-signing-certificate-on-the-application-side-where-can-i-get-it-on-azure-ad-side"></a>Necesito actualizar el certificado de firma de tokens en el lado de la aplicación. ¿Dónde puedo obtenerlo en Azure AD?
 

@@ -1,14 +1,14 @@
 ---
 title: Instalación de Defender para IoT
 description: Obtenga información sobre cómo instalar un sensor y la consola de administración local para Azure Defender para IoT.
-ms.date: 12/2/2020
+ms.date: 04/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 5bdb292750ea041be68a22519583511f58b3b517
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77ff5a6d29544599a74bd6176e8b8e99a5c41968
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104782255"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076547"
 ---
 # <a name="defender-for-iot-installation"></a>Instalación de Defender para IoT
 
@@ -210,7 +210,7 @@ Para configurar el BIOS de Dell, realice lo siguiente:
 
 #### <a name="import-the-bios-configuration-file"></a>Importación del archivo de configuración del BIOS
 
-En este artículo se explica cómo configurar el BIOS mediante el archivo de configuración.
+En esta sección se explica cómo configurar el BIOS mediante el archivo de configuración.
 
 1. Conecte un equipo con una dirección IP preconfigurada estática **10.100.100.200** al puerto de **iDRAC**.
 
@@ -328,11 +328,11 @@ Para instalarlo:
 
 1. Seleccione **SENSOR-RELEASE-\<version\> Enterprise**.
 
-   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Captura de pantalla que muestra la selección de versión.":::   
+   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Seleccione la versión del sensor y el tipo de empresa.":::   
 
 1. Defina el perfil de la aplicación y las propiedades de la red:
 
-   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="Captura de pantalla que muestra el perfil del dispositivo.":::   
+   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="Captura de pantalla que muestra el perfil del dispositivo y las propiedades de la red.":::   
 
    | Parámetro | Configuración |
    |--|--|
@@ -354,7 +354,7 @@ Para instalarlo:
 
 ## <a name="hpe-proliant-dl20-installation"></a>Instalación de HPE ProLiant DL20
 
-En este artículo se describe el proceso de instalación de HPE ProLiant DL20, que incluye los pasos siguientes:
+En esta sección se describe el proceso de instalación de HPE ProLiant DL20, que incluye los pasos siguientes:
 
   - Habilite el acceso remoto y actualice la contraseña de administrador predeterminada.
   - Configure el BIOS y las opciones de RAID.
@@ -470,7 +470,7 @@ Para instalar el software, haga lo siguiente:
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Captura de pantalla de la pantalla para seleccionar una versión.":::
 
-1. En el Asistente de instalación, defina el perfil de dispositivo y las propiedades de la red:
+1. En el Asistente de instalación, defina el perfil de hardware y las propiedades de la red:
 
     :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="Captura de pantalla que muestra al Asistente de instalación.":::
 
@@ -571,10 +571,101 @@ Para instalarlo:
 
 1. Seleccione **Entrar** para continuar.
 
+## <a name="hp-edgeline-300-installation"></a>Instalación de HP EdgeLine 300
+
+•   Se especifica un usuario administrativo predeterminado. Se recomienda cambiar la contraseña durante la configuración de la red.
+
+•   El proceso de instalación tarda aproximadamente 20 minutos. Después de la instalación, el sistema se reinicia varias veces.
+
+### <a name="hp-edgeline-300-back-panel"></a>Panel posterior de HP EdgeLine 300
+
+:::image type="content" source="media/tutorial-install-components/edgeline-el300-panel.png" alt-text="Vista del panel posterior de EL300":::
+
+### <a name="enable-remote-access"></a>Habilitación del acceso remoto
+
+1. Escriba la dirección IP de iSM en el explorador web.
+
+1. Inicie sesión con el nombre de usuario y la contraseña predeterminados que se encuentran en el dispositivo.
+
+1. Vaya a **Wired and Wireless Network** (Red cableada e inalámbrica)  > **IPV4**.
+
+    :::image type="content" source="media/tutorial-install-components/wired-and-wireless.png" alt-text="Vaya a las secciones resaltadas.":::
+
+1. Deshabilite el **botón de alternancia de DHCP**.
+
+1. Configure las direcciones IPv4 como tales:
+    - **Dirección IPV4**: `192.168.1.125`
+    - **Máscara de subred IPv4**: `255.255.255.0`
+    - **Puerta de enlace IPv4**: `192.168.1.1`
+
+1. Seleccione **Aplicar**.
+
+1. Cierre sesión y reinicie el dispositivo.
+
+### <a name="configure-the-bios"></a>Configuración del BIOS
+
+En el procedimiento siguiente se describe cómo configurar el BIOS del dispositivo HP EL300.
+
+Para configurar el BIOS:
+
+1. Encienda el dispositivo y presione **F9** para entrar en el BIOS.
+
+1. Seleccione **Advanced** (Opciones avanzadas) y desplácese hacia abajo hasta **CSM Support** (Compatibilidad con CSM).
+
+    :::image type="content" source="media/tutorial-install-components/csm-support.png" alt-text="Habilite la compatibilidad con CSM para abrir el menú adicional.":::
+
+1. Presione **ENTRAR** para habilitar la compatibilidad con CSM.
+
+1. Vaya a **Storage** (Almacenamiento) y presione **+/-** para cambiarlo a Legacy (Heredado).
+
+1. Vaya a **Video** (Vídeo) y presione **+/-** para cambiarlo a Legacy (Heredado).
+
+    :::image type="content" source="media/tutorial-install-components/storage-and-video.png" alt-text="Navegación a almacenamiento y vídeo para cambiarlos a la configuración heredada.":::
+
+1. Vaya a **Boot** (Arranque)  > **Boot mode select** (Selección de modo de arranque).
+
+1. Presione **+/-** para cambiarlo a Legacy (Heredado).
+
+    :::image type="content" source="media/tutorial-install-components/boot-mode.png" alt-text="Cambio de la selección de modo de arranque a la configuración heredada.":::
+
+1. Vaya a **Save & Exit** (Guardar y salir).
+
+1. Seleccione **Save Changes and Exit** (Guardar cambios y salir).
+
+    :::image type="content" source="media/tutorial-install-components/save-and-exit.png" alt-text="Guarde los cambios y salga del sistema.":::
+
+1. Seleccione **Yes** (Sí), y el dispositivo se reiniciará.
+
+1. Presione **F11** para entrar en el **menú de arranque**.
+
+1. Seleccione el dispositivo con la imagen del sensor. Ya sea **DVD** o **USB**.
+
+1. Seleccione el idioma.
+
+1. Seleccione **sensor-10.0.3.12-62a2a3f724 Office: 4 CPUS, 8GB RAM, 100GB STORAGE**.
+
+    :::image type="content" source="media/tutorial-install-components/sensor-select-screen.png" alt-text="Seleccione la versión del sensor como se muestra.":::
+
+1. En el Asistente de instalación, defina el perfil de dispositivo y las propiedades de la red:
+
+    :::image type="content" source="media/tutorial-install-components/appliance-parameters.png" alt-text="Defina el perfil del dispositivo y las configuraciones de la red con los parámetros siguientes.":::
+
+    | Parámetro | Configuración |
+    |--|--|
+    | **configure hardware profile** | **office** |
+    | **configure management network interface** | **enp3s0** <br />o bien <br />**valor posible** |
+    | **configure management network IP address:** | **dirección IP proporcionada por el cliente** |
+    | **configure subnet mask:** | **dirección IP proporcionada por el cliente** |
+    | **configure DNS:** | **dirección IP proporcionada por el cliente** |
+    | **configure default gateway IP address:** | **dirección IP proporcionada por el cliente** |
+    | **configure input interface(s)** | **enp4s0** <br />o bien <br />**valor posible** |
+    | **configure bridge interface(s)** | N/D |
+
+1. Acepte la configuración y, para continuar, escriba `Y`.
+
 ## <a name="sensor-installation-for-the-virtual-appliance"></a>Instalación del sensor para el aplicación virtual
 
 Puede implementar la máquina virtual para el sensor de Defender para IoT en las siguientes arquitecturas:
-
 
 | Architecture | Especificaciones | Uso | Comentarios |
 |---|---|---|---|
@@ -703,6 +794,111 @@ Para instalarlo:
 
     :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Captura de pantalla que muestra el acceso a la consola de administración.":::
 
+## <a name="on-premises-management-console-installation"></a>instalación de la consola de administración local
+
+Antes de instalar el software en el dispositivo, debe cambiar la configuración del BIOS del dispositivo:
+
+### <a name="bios-configuration"></a>Configuración de BIOS
+
+Para configurar el BIOS del dispositivo:
+
+1. [Habilite el acceso remoto y actualice la contraseña](#enable-remote-access-and-update-the-password).
+
+1. [Configure el BIOS](#configure-the-hpe-bios).
+
+### <a name="software-installation"></a>Instalación de software
+
+El proceso de instalación tarda aproximadamente 20 minutos. Después de la instalación, el sistema se reinicia varias veces. 
+
+Durante el proceso de instalación, puede agregar una NIC secundaria. Si decide no instalar la NIC secundaria durante la instalación, puede [agregar una NIC secundaria](#add-a-secondary-nic) más adelante. 
+
+Para instalar el software, haga lo siguiente:
+
+1. Seleccione el idioma que prefiera para el proceso de instalación.
+
+   :::image type="content" source="media/tutorial-install-components/on-prem-language-select.png" alt-text="Seleccione el idioma que prefiera para el proceso de instalación.":::     
+
+1. Seleccione **MANAGEMENT-RELEASE-\<version\>\<deployment type\>** .
+
+   :::image type="content" source="media/tutorial-install-components/on-prem-install-screen.png" alt-text="Seleccione la versión.":::   
+
+1. En el Asistente de instalación, defina las propiedades de la red:
+
+   :::image type="content" source="media/tutorial-install-components/on-prem-first-steps-install.png" alt-text="Captura de pantalla que muestra el perfil del dispositivo.":::   
+
+   | Parámetro | Configuración |
+   |--|--|
+   | **configure management network interface** | Para Dell: **eth0, eth1** <br /> Para HP: **enu1, enu2** <br /> o bien <br />**valor posible** |
+   | **configure management network IP address:** | **dirección IP proporcionada por el cliente** |
+   | **configure subnet mask:** | **dirección IP proporcionada por el cliente** |
+   | **configure DNS:** | **dirección IP proporcionada por el cliente** |
+   | **configure default gateway IP address:** | **dirección IP proporcionada por el cliente** |
+   
+1. **(Opcional)** Si quiere instalar una tarjeta de interfaz de red (NIC) secundaria, defina el siguiente perfil de dispositivo y las propiedades de la red:
+
+    :::image type="content" source="media/tutorial-install-components/on-prem-secondary-nic-install.png" alt-text="Captura de pantalla que muestra las preguntas de instalación de la NIC secundaria.":::
+
+   | Parámetro | Configuración |
+   |--|--|
+   | **configure sensor monitoring interface (Optional):** | **eth1** o **valor posible** |
+   | **configure an IP address for the sensor monitoring interface:** | **dirección IP proporcionada por el cliente** |
+   | **configure a subnet mask for the sensor monitoring interface:** | **dirección IP proporcionada por el cliente** |
+
+1. Acepte la configuración y, para continuar, escriba `Y`. 
+
+1. Después de unos diez minutos, se muestran los dos conjuntos de credenciales. Uno es para un usuario **CyberX** y otro es para un usuario **Support**.
+
+   :::image type="content" source="media/tutorial-install-components/credentials-screen.png" alt-text="Copie estas credenciales, ya que no se volverán a presentar.":::  
+
+   Guarde los nombres de usuarios y las contraseñas, necesitará estas credenciales para acceder a la plataforma la primera vez que la use.
+
+1. Seleccione **Entrar** para continuar.
+
+Para obtener información sobre cómo buscar el puerto físico en el dispositivo, consulte [Búsqueda del puerto](#find-your-port).
+
+### <a name="add-a-secondary-nic"></a>Adición de una NIC secundaria
+
+Puede mejorar la seguridad de la consola de administración local agregando una NIC secundaria. Al agregar una NIC secundaria, tendrá una dedicada para los usuarios, y la otra admitirá la configuración de una puerta de enlace para redes enrutadas. La segunda NIC está dedicada a todos los sensores conectados dentro de un intervalo de direcciones IP.
+
+Ambas NIC tienen habilitada la interfaz de usuario (UI). Cuando el enrutamiento no es necesario, todas las características que son compatibles con la interfaz de usuario estarán disponibles en la NIC secundaria. La alta disponibilidad se ejecutará en la NIC secundaria.
+
+Si decide no implementar una NIC secundaria, todas las características estarán disponibles a través de la NIC principal. 
+
+Si ya ha configurado la consola de administración local y quiere agregarle una NIC secundaria, siga estos pasos:
+
+1. Use el comando de reconfiguración de red:
+
+    ```bash
+    sudo cyberx-management-network-reconfigure
+    ```
+
+1. Escriba las siguientes respuestas a las siguientes preguntas:
+
+    :::image type="content" source="media/tutorial-install-components/network-reconfig-command.png" alt-text="Escriba las siguientes respuestas para configurar el dispositivo.":::
+
+    | Parámetros | Respuesta para escribir |
+    |--|--|
+    | **Management Network IP address** | `N` |
+    | **Máscara de subred** | `N` |
+    | **DNS** | `N` |
+    | **Default gateway IP Address** | `N` |
+    | **Sensor monitoring interface (Optional. Applicable when sensors are on a different network segment. For more information, see the Installation instructions)**| `Y`, **seleccione un valor posible** |
+    | **An IP address for the sensor monitoring interface (accessible by the sensors)** | `Y`, **dirección IP proporcionada por el cliente**|
+    | **A subnet mask for the sensor monitoring interface (accessible by the sensors)** | `Y`, **dirección IP proporcionada por el cliente** |
+    | **Nombre de host** | **proporcionado por el cliente** |
+
+1. Revise todas las opciones y escriba `Y` para aceptar los cambios. El sistema se reinicia.
+
+### <a name="find-your-port"></a>Búsqueda del puerto
+
+Si tiene problemas para localizar el puerto físico en el dispositivo, puede usar el siguiente comando:
+
+```bash
+sudo ethtool -p <port value> <time-in-seconds>
+```
+
+Este comando hará que la luz del puerto parpadee durante el período de tiempo especificado. Por ejemplo, si escribe `sudo ethtool -p eno1 120`, el puerto eno1 parpadeará durante 2 minutos, lo que le permitirá encontrar el puerto en la parte posterior del dispositivo. 
+
 ## <a name="virtual-appliance-on-premises-management-console-installation"></a>Aplicación virtual: instalación de la consola de administración local
 
 La máquina virtual de la consola de administración local es compatible con las siguientes arquitecturas:
@@ -823,11 +1019,7 @@ Para crear una máquina virtual mediante Hyper-V, haga lo siguiente:
 
 ### <a name="software-installation-esxi-and-hyper-v"></a>Instalación del software (ESXi e Hyper-V)
 
-Al iniciar la máquina virtual, se iniciará el proceso de instalación desde la imagen ISO. Para mejorar la seguridad, puede crear una segunda interfaz de red en la consola de administración local. Una interfaz de red está dedicada a los usuarios y puede admitir la configuración de una puerta de enlace para redes enrutadas. La segunda interfaz de red está dedicada a todos los sensores conectados dentro de un intervalo de direcciones IP.
-
-Ambas interfaces de red tienen habilitada la interfaz de usuario (IU), y todas las características que son compatibles con la interfaz de usuario estarán disponibles en la interfaz de red secundaria cuando el enrutamiento no sea necesario. La alta disponibilidad se ejecutará en la interfaz de red secundaria.
-
-Si decide no implementar una interfaz de red secundaria, todas las características estarán disponibles a través de la interfaz de red principal. 
+Al iniciar la máquina virtual, se iniciará el proceso de instalación desde la imagen ISO.
 
 Para instalar el software, haga lo siguiente:
 
@@ -837,22 +1029,9 @@ Para instalar el software, haga lo siguiente:
 
 1. Defina la interfaz de red para la red de administración del sensor: interfaz, IP, subred, servidor DNS y puerta de enlace predeterminada.
 
-1. (Opcional) Agregue una segunda interfaz de red a la consola de administración local.
+1. Las credenciales de inicio de sesión se generan automáticamente. Guarde el nombre de usuarios y la contraseña, necesitará estas credenciales para acceder a la plataforma la primera vez que la use.
 
-    1. `Please type sensor monitoring interface (Optional. Applicable when sensors are on a different network segment. For more information see the Installation instructions): <name of interface>`
-    
-    1. `Please type an IP address for the sensor monitoring interface (accessible by the sensors): <ip address>`
-    
-    1. `Please type a subnet mask for the sensor monitoring interface (accessible by the sensors): <subnet>`
-
-1. Las credenciales de inicio de sesión se generan y presentan automáticamente. Guarde estas credenciales en un lugar seguro, ya que se necesitarán para el inicio de sesión y administración.
-
-    | Nombre de usuario | Descripción |
-    |--|--|
-    | Soporte técnico | usuario administrativo para la administración de usuarios. |
-    | CyberX | equivalente de usuario raíz para acceder al dispositivo. |
-
-1. El dispositivo se reinicia.
+   A continuación, el dispositivo se reiniciará.
 
 1. Acceda a la consola de administración mediante la dirección IP configurada previamente: `<https://ip_address>`.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 2fa03fa948c7768f5e74cc68b528e847c5351273
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 18fc276ec9d95a52c5bb5890cda313fc14fc7c5f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447868"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144338"
 ---
 # <a name="determine-user-connection-latency-in-windows-virtual-desktop"></a>Determinación de la latencia de la conexión de los usuarios en Windows Virtual Desktop
 
@@ -38,4 +38,4 @@ Windows Virtual Desktop usa [Azure Front Door](https://azure.microsoft.com/servi
 
 - Para comprobar cuál es la mejor ubicación de cara a una latencia óptima, consulte la [herramienta Estimador de experiencia de Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/assessment/).
 - Para información sobre los planes de precios, consulte [Precios de Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/).
-- Para empezar a trabajar con la implementación de Windows Virtual Desktop, consulte [nuestro tutorial](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace).
+- Para empezar a trabajar con la implementación de Windows Virtual Desktop, consulte [nuestro tutorial](./create-host-pools-azure-marketplace.md).

@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 12/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 1a360a19da8006a8ab6d918560f1b1d566fdd66d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6e3827ca9f729f1fa231a58a11c829b1ee8a4f44
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105104395"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108791707"
 ---
 Comience a usar el reconocimiento facial mediante Face REST API. El servicio Face le proporciona acceso a algoritmos avanzados para detectar y reconocer rostros humanas en imágenes.
 
@@ -39,7 +39,7 @@ Use Face REST API para:
 
 Utilizará un comando como el siguiente para llamar a la API Face y obtener los datos de los atributos de las caras de una imagen. En primer lugar, copie el código en un editor de texto; deberá realizar cambios en ciertas partes del comando antes de su ejecución.
 
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="detection_model_2":::
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="detection_model_3":::
 
 Se han realizado los siguientes cambios:
 1. Asigne `Ocp-Apim-Subscription-Key` a la clave de suscripción de Face válida.

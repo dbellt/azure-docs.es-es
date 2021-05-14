@@ -14,12 +14,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-java-uiex
-ms.openlocfilehash: ebd189e1cf6e053f5400b8217fc1c2fc385cdac9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 24a564d836405bf51aacf73af359e987e8c957e1
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101701729"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737140"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Inicio rápido: Creación de una aplicación de Java en Azure App Service
 
@@ -75,7 +75,7 @@ El proceso de implementación en Azure App Service utilizará sus credenciales d
 Ejecute el siguiente comando de Maven para configurar la implementación. Este comando le ayudará a configurar el sistema operativo de App Service, la versión de Java y la versión de Tomcat.
 
 ```bash
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.14.0:config
 ```
 
 ::: zone pivot="platform-windows"

@@ -1,14 +1,14 @@
 ---
 title: Configuración del entorno para un operador de plano técnico
 description: Aprenda a configurar el entorno de Azure para su uso con el rol integrado de Azure en el operador del plano técnico.
-ms.date: 02/05/2021
+ms.date: 05/01/2021
 ms.topic: how-to
-ms.openlocfilehash: b43a33f4bac92903bd07454041d11850f217d480
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: beea51f6d4b320895b235a0362f323a09c2460e3
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100558732"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108323274"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Configuración del entorno para un operador de plano técnico
 

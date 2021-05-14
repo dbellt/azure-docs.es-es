@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 2f321413a275676d0abb1a075ba958885ffcd821
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 67bc4218e28e561b618ab092f0b73207438bd2aa
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505032"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633346"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Solución de problemas comunes del agente de Windows Virtual Desktop
 
@@ -213,33 +213,6 @@ Para solucionar este problema:
 7. Vaya a **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **ClusterSettings**.
 8. En **ClusterSettings**, busque **SessionDirectoryListener** y asegúrese de que su valor de datos es **rdp-sxs...** .
 9. Si **SessionDirectoryListener** no está establecido en **rdp-sxs...** , deberá seguir los pasos descritos en la sección [Desinstalación del agente y el cargador de arranque](#step-1-uninstall-all-agent-boot-loader-and-stack-component-programs) para desinstalar primero el agente, el cargador de arranque y los componentes de la pila y, a continuación, [volver a instalar el agente y el cargador de arranque](#step-4-reinstall-the-agent-and-boot-loader). De esta forma, se volverá a instalar la pila en paralelo.
-
-## <a name="error-heartbeat-issue-where-users-keep-getting-disconnected-from-session-hosts"></a>Error: Problema de latido en el que los usuarios siguen desconectándose de los hosts de sesión
-
-Si el servidor no selecciona un latido del servicio Windows Virtual Desktop, deberá cambiar el umbral de latido. Esto mitigará temporalmente los síntomas del problema, pero no solucionará el problema de red subyacente. Si se aplican uno o varios de los siguientes escenarios, siga estas instrucciones:
-
-- Está recibiendo un error **CheckSessionHostDomainIsReachableAsync**.
-- Está recibiendo un error **ConnectionBrokenMissedHeartbeatThresholdExceeded**.
-- Está recibiendo un error **ConnectionEstablished: UnexpectedNetworkDisconnect**.
-- Los clientes de usuario siguen sin conexión.
-- Los usuarios siguen desconectándose de los hosts de sesión.
-
-Para cambiar el umbral de latidos:
-1. Abra el símbolo del sistema como administrador.
-2. Escriba el comando **qwinsta** y ejecútelo.
-3. Deben mostrarse dos componentes de la pila: **rdp-tcp** y **rdp-sxs**. 
-   - Dependiendo de la versión del sistema operativo que use, **rdp-sxs** puede ir seguido del número de compilación. Si es así, asegúrese de anotar este número para más adelante.
-4. Abra el Editor del Registro.
-5. Vaya a **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **WinStations**.
-6. En **WinStations** puede ver varias carpetas para distintas versiones de pila. Seleccione la carpeta que coincida con el número de versión del paso 3.
-7. Cree un nuevo valor DWORD del registro. Para ello, haga clic con el botón derecho en el editor del registro y, a continuación, seleccione **Nuevo** > **Valor DWORD (32 bits)** . Al crear el valor DWORD, escriba los siguientes valores:
-   - HeartbeatInterval: 10 000
-   - HeartbeatWarnCount: 30 
-   - HeartbeatDropCount: 60 
-8. Reinicie la máquina virtual.
-
->[!NOTE]
->Si al cambiar el umbral del latido no se resuelve el problema, es posible que tenga un problema de red subyacente sobre el que tendrá que ponerse en contacto con el equipo de Redes de Azure.
 
 ## <a name="error-downloadmsiexception"></a>Error: DownloadMsiException
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.openlocfilehash: 6f08fa0b2126112fa17fd61be6f44bb5cc6d5396
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: b9b2270034853832f6795203dfaa60b6809a89ba
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552162"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138956"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planeamiento de una oferta de SaaS en el marketplace comercial
 
@@ -321,7 +321,7 @@ Puede optar por participar en los canales de marketing y ventas respaldados por 
 
 - **Resell through CSPs** (Revender a través de los CSP): use esta opción para permitir que los asociados de los proveedores de soluciones en la nube (CSP) de Microsoft revendan la solución como parte de una oferta agrupada. Para más información sobre este programa, vea el [programa de proveedores de soluciones en la nube](cloud-solution-providers.md).
 
-- **Venta conjunta con Microsoft**: esta opción permite que los equipos de ventas de Microsoft consideren la solución idónea para la venta conjunta de IP al evaluar las necesidades de los clientes. Para obtener más información sobre la elegibilidad de la venta conjunta, vea [Requisitos para el estado de la venta conjunta](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Para información detallada sobre cómo preparar la oferta para la evaluación, vea [Opción de venta conjunta en el Centro de partners](commercial-marketplace-co-sell.md).
+- **Venta conjunta con Microsoft**: esta opción permite que los equipos de ventas de Microsoft consideren la solución idónea para la venta conjunta de IP al evaluar las necesidades de los clientes. Para obtener más información sobre la elegibilidad de la venta conjunta, vea [Requisitos para el estado de la venta conjunta](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Para información detallada sobre cómo preparar la oferta para la evaluación, vea [Opción de venta conjunta en el Centro de partners](./co-sell-configure.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 04/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: 5211c1263af599eb5fd09ad276545c725ce5c867
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7fb5eeb90a26d85b3e56706e0c2b32ceadc8d11
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467007"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330897"
 ---
-# <a name="form-recognizer-prebuilt-business-cards-model"></a>Modelo de tarjetas de presentación pregenerado de Form Recognizer 
+# <a name="form-recognizer-prebuilt-business-cards-model"></a>Modelo de tarjetas de presentación pregenerado de Form Recognizer
 
-Azure Form Recognizer puede analizar y extraer información de contacto de tarjetas de presentación mediante alguno de los modelos pregenerados. Combina funcionalidades eficaces de reconocimiento óptico de caracteres (OCR) con nuestro modelo de comprensión de tarjetas de presentación para extraer información clave de las tarjetas de presentación en inglés. Extrae información de contacto personal, el nombre de la empresa, el puesto y mucho más. La API de tarjeta de presentación precompilada está disponible públicamente en la versión preliminar de Form Recognizer v2.1. 
+Azure Form Recognizer puede analizar y extraer información de contacto de tarjetas de presentación mediante alguno de los modelos pregenerados. Combina funcionalidades eficaces de reconocimiento óptico de caracteres (OCR) con nuestro modelo de comprensión de tarjetas de presentación para extraer información clave de las tarjetas de presentación en inglés. Extrae información de contacto personal, el nombre de la empresa, el puesto y mucho más. La API de tarjeta de presentación precompilada está disponible públicamente en la versión preliminar de Form Recognizer v2.1.
 
 ## <a name="what-does-the-business-card-service-do"></a>¿Qué hace el servicio de tarjetas de presentación?
 
@@ -27,32 +27,40 @@ La API de tarjeta de presentación pregenerada extrae campos clave de las tarjet
 
 ![Imagen de Contoso detallada de FOTT y salida JSON](./media/business-card-example.jpg)
 
-
-
 ### <a name="fields-extracted"></a>Campos extraídos:
 
-|Nombre| Tipo | Descripción | Texto | 
+|Nombre| Tipo | Descripción | Texto |
 |:-----|:----|:----|:----|
 | ContactNames | matriz de objetos | Nombre de contacto extraído de la tarjeta de presentación | [{ "FirstName": "John", "LastName": "Doe" }] |
-| FirstName | string | Nombre (de nacimiento) del contacto | "John" | 
-| LastName | string | Apellidos del contacto |     "Doe" | 
-| CompanyNames | Matriz de cadenas | Nombre de la empresa extraído de la tarjeta de presentación | ["Contoso"] | 
-| Departments | Matriz de cadenas | Departamento u organización del contacto | ["R&D"] | 
-| JobTitles | Matriz de cadenas | Puesto mostrado del contacto | ["Software Engineer"] | 
-| Correos electrónicos | Matriz de cadenas | Dirección de correo electrónico de contacto extraída de la tarjeta de presentación | ["johndoe@contoso.com"] | 
-| Websites | Matriz de cadenas | Sitio web extraído de la tarjeta de presentación | ["https://www.contoso.com"] | 
-| Direcciones | Matriz de cadenas | Dirección extraída de la tarjeta de presentación | ["123 Main Street, Redmond, WA 98052"] | 
+| FirstName | string | Nombre (de nacimiento) del contacto | "John" |
+| LastName | string | Apellidos del contacto |     "Doe" |
+| CompanyNames | Matriz de cadenas | Nombre de la empresa extraído de la tarjeta de presentación | ["Contoso"] |
+| Departments | Matriz de cadenas | Departamento u organización del contacto | ["R&D"] |
+| JobTitles | Matriz de cadenas | Puesto mostrado del contacto | ["Software Engineer"] |
+| Correos electrónicos | Matriz de cadenas | Dirección de correo electrónico de contacto extraída de la tarjeta de presentación | ["johndoe@contoso.com"] |
+| Websites | Matriz de cadenas | Sitio web extraído de la tarjeta de presentación | ["https://www.contoso.com"] |
+| Direcciones | Matriz de cadenas | Dirección extraída de la tarjeta de presentación | ["123 Main Street, Redmond, WA 98052"] |
 | MobilePhones | matriz de números de teléfono | Número de teléfono móvil extraído de la tarjeta de presentación | ["+19876543210"] |
 | Faxes | matriz de números de teléfono | Número de fax extraído de la tarjeta de presentación | ["+19876543211"] |
 | WorkPhones | matriz de números de teléfono | Número de teléfono en el trabajo extraído de la tarjeta de presentación | ["+19876543231"] |
 | OtherPhones     | matriz de números de teléfono | Otros números de teléfono extraídos de la tarjeta de presentación | ["+19876543233"] |
 
 
-La API de tarjeta de presentación también puede devolver todo el texto reconocido de la tarjeta de presentación. Esta salida de OCR se incluye en la respuesta JSON.  
+La API de tarjeta de presentación también puede devolver todo el texto reconocido de la tarjeta de presentación. Esta salida de OCR se incluye en la respuesta JSON.
 
-### <a name="input-requirements"></a>Requisitos de entrada 
+### <a name="input-requirements"></a>Requisitos de entrada
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
+
+## <a name="supported-locales"></a>Configuraciones regionales admitidas
+
+**Las tarjetas de presentación precompiladas v2.1-preview.3** (versión preliminar pública) admiten las siguientes configuraciones regionales:
+
+* **es-es**
+* **en-au**
+* **en-ca**
+* **en-gb**
+* **en-in**
 
 ## <a name="the-analyze-business-card-operation"></a>Operación Analyze Business Card
 
@@ -79,7 +87,7 @@ Cuando el campo **status** tenga el valor **succeeded**, la respuesta JSON inclu
 La respuesta a la operación Get Analyze Business Card Result será la representación estructurada de la tarjeta de presentación con toda la información extraída.  Aquí encontrará un [archivo con una tarjeta de presentación de ejemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-english.jpg) y su salida estructurada, [salida de una tarjeta de presentación de ejemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-result.json).
 
 Consulte el siguiente ejemplo de una respuesta JSON correcta:
-* El nodo `"readResults"` contiene todo el texto reconocido. El texto se organiza por página, después, por líneas y, finalmente, por palabras individuales. 
+* El nodo `"readResults"` contiene todo el texto reconocido. El texto se organiza por página, después, por líneas y, finalmente, por palabras individuales.
 * El nodo `"documentResults"` contiene los valores específicos de la tarjeta de presentción que el modelo haya descubierto. Aquí encontrará información de contacto útil como el nombre, el apellido, el nombre de la compañía y más.
 
 ```json
@@ -96,7 +104,7 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
                 "width": 4032,
                 "height": 3024,
                 "unit": "pixel",
-                   "lines": 
+                   "lines":
                              {
                         "text": "Dr. Avery Smith",
                         "boundingBox": [
@@ -115,7 +123,7 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
                                 "boundingBox": [
                                     419,
                             ]
-    
+
             }
         ],
         "documentResults": [
@@ -384,14 +392,14 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
 
 Siga el [inicio rápido](./QuickStarts/client-library.md) para implementar la extracción de datos de tarjeta de presentación con Python y la API REST.
 
-## <a name="customer-scenarios"></a>Escenarios de cliente  
+## <a name="customer-scenarios"></a>Escenarios de cliente
 
 Los datos extraídos con Business Card API se pueden usar para realizar varias tareas. La extracción de esta información de contacto supone automáticamente un ahorro de tiempo para los usuarios en el caso de los roles orientados al cliente. A continuación se muestran algunos ejemplos de lo que nuestros clientes han realizado con la API de tarjeta de presentación:
 
-* Extraer información de contacto de tarjetas de presentación y crear contactos de teléfono rápidamente. 
-* Integrarse con CRM para crear automáticamente el contacto mediante las imágenes de la tarjeta de presentación. 
-* Realizar un seguimiento de los clientes potenciales.  
-* Extraer información de contacto en masa de imágenes de tarjetas de presentación existentes. 
+* Extraer información de contacto de tarjetas de presentación y crear contactos de teléfono rápidamente.
+* Integrarse con CRM para crear automáticamente el contacto mediante las imágenes de la tarjeta de presentación.
+* Realizar un seguimiento de los clientes potenciales.
+* Extraer información de contacto en masa de imágenes de tarjetas de presentación existentes.
 
 Business Card API también contribuye a la [característica de procesamiento de tarjetas de presentación de AI Builder](/ai-builder/prebuilt-business-card).
 

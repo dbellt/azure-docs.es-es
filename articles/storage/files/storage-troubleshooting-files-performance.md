@@ -1,18 +1,18 @@
 ---
 title: Guía de solución de problemas de rendimiento de recursos compartidos de archivos de Azure
 description: Solución de problemas de rendimiento conocidos con los recursos compartidos de archivos de Azure. Detecte las posibles causas y soluciones alternativas asociadas cuando se producen estos problemas.
-author: gunjanj
+author: roygara
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 11/16/2020
-ms.author: gunjanj
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9f858549f36d196c6412aec549d0ab2e2d864145
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b303dbc20cf0caf4bb0d75f28a2983bc0f27064d
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103417678"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108065032"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Solución de problemas de rendimiento de recursos compartidos de archivos de Azure
 
@@ -65,7 +65,7 @@ Para confirmar si se está limitando el recurso compartido, puede acceder y usar
 
 ### <a name="cause-2-metadata-or-namespace-heavy-workload"></a>Causa 2: Carga de trabajo pesada del espacio de nombres o los metadatos
 
-Si la mayoría de las solicitudes se centran en metadatos (por ejemplo, createfile, openfile, closefile, queryinfo o querydirectory), la latencia será peor en comparación con las operaciones de lectura y escritura.
+Si la mayoría de las solicitudes se centran en metadatos (como `createfile`, `openfile`, `closefile`, `queryinfo` o `querydirectory`), la latencia será peor en comparación con las operaciones de lectura y escritura.
 
 Para determinar si la mayoría de las solicitudes están centradas en los metadatos, empiece por los pasos del 1 al 4, como se ha descrito anteriormente en la causa 1. En el paso 5, en lugar de agregar un filtro para **Tipo de respuesta**, agregue un filtro de propiedad para **Nombre de API**.
 
@@ -74,7 +74,7 @@ Para determinar si la mayoría de las solicitudes están centradas en los metada
 ### <a name="workaround"></a>Solución alternativa
 
 - Compruebe si la aplicación se puede modificar para reducir el número de operaciones de metadatos.
-- Agregue un disco duro virtual (VHD) al recurso compartido de archivos y móntelo a través de SMB desde el cliente para realizar operaciones de archivos en los datos. Este enfoque funciona para los escenarios de un solo escritor y varios lectores y permite que las operaciones de metadatos sean locales. La configuración ofrece un rendimiento similar al de un almacenamiento con conexión directa local.
+- Agregue un disco duro virtual (VHD) al recurso compartido de archivos y móntelo a través de SMB desde el cliente para realizar operaciones de archivos en los datos. Este enfoque funciona para escenarios de escritor o lector único o escenarios con varios lectores y sin escritores. Dado que el sistema de archivos es propiedad del cliente y no de Azure Files, esto permite que las operaciones de metadatos sean locales. La configuración ofrece un rendimiento similar al de un almacenamiento con conexión directa local.
 
 ### <a name="cause-3-single-threaded-application"></a>Causa 3: Aplicación de un único subproceso
 
@@ -117,8 +117,8 @@ Se trata de un problema conocido relacionado con la implementación del cliente 
 ### <a name="workaround"></a>Solución alternativa
 
 - Distribuir la carga entre varias máquinas virtuales.
-- En la misma máquina virtual, use varios puntos de montaje con la opción **nosharesock** y propague la carga entre estos puntos de montaje.
-- En Linux, intente montar una opción **nostrictsync** para evitar forzar un vaciado de SMB en cada llamada a **fsync**. Para Azure Files, esta opción no afecta a la coherencia de los datos, pero puede producir metadatos de archivos obsoletos en la lista de directorios (comando **ls -l**). La consulta directa de metadatos de archivo mediante el comando **stat** devolverá los metadatos de archivo más recientes.
+- En la misma máquina virtual, use varios puntos de montaje con la opción `nosharesock` y propague la carga entre estos puntos de montaje.
+- En Linux, intente montar una opción `nostrictsync` para evitar forzar un vaciado de SMB en cada llamada a `fsync`. Para Azure Files, esta opción no afecta a la coherencia de los datos, pero puede producir metadatos de archivos obsoletos en la lista de directorios (comando `ls -l`). La consulta directa de metadatos de archivo mediante el comando `stat` devolverá los metadatos de archivo más recientes.
 
 ## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Latencias altas para cargas de trabajo con muchos metadatos que implican operaciones de apertura y cierre extensas
 
@@ -129,7 +129,7 @@ Falta de compatibilidad para las concesiones de directorios.
 ### <a name="workaround"></a>Solución alternativa
 
 - Si es posible, evite usar aperturas o cierres excesivos en el mismo directorio en un período de tiempo breve.
-- Para las máquinas virtuales de Linux, aumente el tiempo de espera de caché de entrada de directorio especificando **actimeo=\<sec>** como opción de montaje. De forma predeterminada, el tiempo de espera es de 1 segundo, por lo que un valor mayor, como 3 o 5 segundos, podría ser útil.
+- Para las máquinas virtuales de Linux, aumente el tiempo de espera de caché de entrada de directorio especificando `actimeo=<sec>` como opción de montaje. De forma predeterminada, el tiempo de espera es de 1 segundo, por lo que un valor mayor, como 3 o 5 segundos, podría ser útil.
 - En el caso de las máquinas virtuales de CentOS Linux o Red Hat Enterprise Linux (RHEL), actualice el sistema a CentOS Linux 8.2 o RHEL 8.2. En cuanto a las máquinas virtuales de Linux, actualice el kernel a 5.0 o una versión posterior.
 
 ## <a name="low-iops-on-centos-linux-or-rhel"></a>IOPS bajas en CentOS Linux o RHEL
@@ -292,7 +292,7 @@ Para obtener más información sobre cómo configurar alertas en Azure Monitor, 
 7. En la lista desplegable **Valores de dimensión**, seleccione los recursos compartidos de archivos de los que quiere generar alertas.
 8. Defina los parámetros de alerta mediante la selección de valores en las listas desplegables **Operador**, **Valor de umbral**, **Granularidad de agregación** y **Frecuencia de evaluación** y luego seleccione **Listo**.
 
-   Las métricas de salida, entrada y transacciones se expresan por minuto, aunque se aprovisiona la salida, la entrada y la E/S por segundo. Por lo tanto, por ejemplo, si la salida aprovisionada es 90&nbsp;mebibytes por segundo (MiB/s) y quiere que el umbral sea el 80&nbsp;por ciento de la salida aprovisionada, seleccione los siguientes parámetros de alerta: 
+   Las métricas de salida, entrada y transacciones se expresan por minuto, aunque se aprovisiona la salida, la entrada y la E/S por segundo. Por lo tanto, por ejemplo, si la salida aprovisionada es 90&nbsp; MiB/s y quiere que el umbral sea el 80&nbsp;por ciento de la salida aprovisionada, seleccione los siguientes parámetros de alerta: 
    - Para **Valor del umbral**: *75497472* 
    - Para **Operador**: *mayor o igual que*
    - Para **Tipo de agregación**: *promedio*

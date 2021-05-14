@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: f4477a09f151695b826d0becf28e92ceaf3f9e85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f9f6c18e75b0c8238583742a2a99d0e365edbd0
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102453213"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166368"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Desencadenador de Azure Queue Storage para Azure Functions
 
@@ -101,17 +101,17 @@ En la sección acerca del [uso](#usage) se explica `myQueueItem`, que recibe el 
 
 En el siguiente ejemplo de Java se muestra una función de desencadenador de cola de almacenamiento que registra el mensaje desencadenado que se pone en la cola `myqueuename`.
 
- ```java
- @FunctionName("queueprocessor")
- public void run(
+```java
+@FunctionName("queueprocessor")
+public void run(
     @QueueTrigger(name = "msg",
-                   queueName = "myqueuename",
-                   connection = "myconnvarname") String message,
-     final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
+                queueName = "myqueuename",
+                connection = "myconnvarname") String message,
+    final ExecutionContext context
+) {
+    context.getLogger().info(message);
+}
+```
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -166,32 +166,32 @@ Un desencadenador de cola de almacenamiento se define en el archivo *function.js
 
 ```json
 {
-  "bindings": [
-    {
-      "name": "QueueItem",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "messages",
-      "connection": "MyStorageConnectionAppSetting"
-    }
-  ]
+  "bindings": [
+    {
+      "name": "QueueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "messages",
+      "connection": "MyStorageConnectionAppSetting"
+    }
+  ]
 }
 ```
 
 El código del archivo *Run.ps1* declara un parámetro como `$QueueItem`, que permite leer el mensaje de la cola en la función.
 
 ```powershell
-# Input bindings are passed in via param block.
-param([string] $QueueItem, $TriggerMetadata)
+# Input bindings are passed in via param block.
+param([string] $QueueItem, $TriggerMetadata)
 
-# Write out the queue message and metadata to the information log.
-Write-Host "PowerShell queue trigger function processed work item: $QueueItem"
-Write-Host "Queue item expiration time: $($TriggerMetadata.ExpirationTime)"
-Write-Host "Queue item insertion time: $($TriggerMetadata.InsertionTime)"
-Write-Host "Queue item next visible time: $($TriggerMetadata.NextVisibleTime)"
-Write-Host "ID: $($TriggerMetadata.Id)"
-Write-Host "Pop receipt: $($TriggerMetadata.PopReceipt)"
-Write-Host "Dequeue count: $($TriggerMetadata.DequeueCount)"
+# Write out the queue message and metadata to the information log.
+Write-Host "PowerShell queue trigger function processed work item: $QueueItem"
+Write-Host "Queue item expiration time: $($TriggerMetadata.ExpirationTime)"
+Write-Host "Queue item insertion time: $($TriggerMetadata.InsertionTime)"
+Write-Host "Queue item next visible time: $($TriggerMetadata.NextVisibleTime)"
+Write-Host "ID: $($TriggerMetadata.Id)"
+Write-Host "Pop receipt: $($TriggerMetadata.PopReceipt)"
+Write-Host "Dequeue count: $($TriggerMetadata.DequeueCount)"
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -381,7 +381,7 @@ Si intenta enlazar a `CloudQueueMessage` y obtiene un mensaje de error, asegúre
 Las aplicaciones que usan la [versión 5.0.0 o posterior de la extensión de Azure Storage](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) también pueden usar tipos de [Azure SDK para .NET](/dotnet/api/overview/azure/storage.queues-readme). En esta versión se elimina la compatibilidad con el tipo `CloudQueueMessage` heredado en favor de los siguientes tipos:
 
 - [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
- 
+
 Para obtener ejemplos de uso de estos tipos, consulte el [repositorio de GitHub de la extensión](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
 # <a name="c-script"></a>[Script de C#](#tab/csharp-script)
@@ -390,7 +390,7 @@ Para obtener ejemplos de uso de estos tipos, consulte el [repositorio de GitHub 
 
 Acceda a los datos de mensaje mediante un parámetro de método, como `string paramName`. `paramName` es el valor especificado en la propiedad `name` de *function.json*. Puede enlazar a cualquiera de los siguientes tipos:
 
-* Objeto: el entorno de tiempo de ejecución de Functions deserializa una carga JSON en una instancia de una clase arbitraria definida en el código. 
+* Objeto: el entorno de tiempo de ejecución de Functions deserializa una carga JSON en una instancia de una clase arbitraria definida en el código.
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -462,7 +462,7 @@ En lo que respecta a la facturación, el tiempo dedicado al sondeo por el entorn
 
 Cuando hay varios mensajes en cola en espera, el desencadenador de cola recupera un lote de mensajes e invoca instancias de función de manera simultánea para procesarlas. De manera predeterminada, el tamaño de lote es 16. Cuando el número que se está procesando llega a 8, el entorno en tiempo de ejecución obtiene otro lote y empieza a procesar esos mensajes. Por lo tanto, el número máximo de mensajes simultáneos que se procesan por función en una máquina virtual es 24. Este límite se aplica por separado a cada función desencadenada por la cola en cada máquina virtual. Si la aplicación de función se escala horizontalmente a varias máquinas virtuales, cada máquina virtual esperará los desencadenadores e intentará ejecutar las funciones. Por ejemplo, si una aplicación de función se escala horizontalmente a 3 máquinas virtuales, el número máximo predeterminado de instancias simultáneas de una función desencadenada por la cola es 72.
 
-El tamaño de lote y el umbral para obtener un lote nuevo se configuran en el [archivo host.json](functions-host-json.md#queues). Si quiere minimizar la ejecución en paralelo para las funciones desencadenadas por la cola en una aplicación de función, puede establecer el tamaño de lote en 1. Este valor solo elimina la simultaneidad siempre y cuando la aplicación de función se ejecute en una única máquina virtual (VM). 
+El tamaño de lote y el umbral para obtener un lote nuevo se configuran en el [archivo host.json](functions-host-json.md#queues). Si quiere minimizar la ejecución en paralelo para las funciones desencadenadas por la cola en una aplicación de función, puede establecer el tamaño de lote en 1. Este valor solo elimina la simultaneidad siempre y cuando la aplicación de función se ejecute en una única máquina virtual (VM).
 
 El desencadenador de cola impide automáticamente que una función procese un mensaje de cola varias veces al mismo tiempo.
 

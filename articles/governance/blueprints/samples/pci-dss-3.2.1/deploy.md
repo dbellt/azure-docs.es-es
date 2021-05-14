@@ -3,12 +3,12 @@ title: Implementación del ejemplo de plano técnico para el cumplimiento con PC
 description: Pasos de implementación del ejemplo de plano técnico del Estándar de seguridad de los datos del sector de las tarjetas de pago v3.2.1, incluidos los detalles de los parámetros del artefacto de plano técnico.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: da247a77ab347fffab21ce7614440bc11595e97e
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: c9bc3632544669c646f7f182a13e5e8c3f764acb
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386108"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756906"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Implementación del ejemplo de plano técnico para el cumplimiento con PCI-DSS v3.2.1
 
@@ -93,11 +93,11 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 
 |Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Descripción|
 |-|-|-|-|
-|PCI v3.2.1:2018|Asignación de directiva|Lista de tipos de recursos | Audite la configuración de diagnóstico para los tipos de recursos seleccionados. El valor predeterminado es todos los recursos seleccionados.| 
-|Ubicaciones permitidas|Asignación de directiva|Lista de ubicaciones permitidas|Lista de ubicaciones de centro de datos permitidas en las que cualquier recurso se puede implementar. Esta se puede personalizar hasta las ubicaciones de Azure deseadas de todo el mundo. Seleccione las ubicaciones que quiere permitir.| 
-|Ubicaciones permitidas para grupos de recursos|Asignación de directiva |Ubicación permitida |Esta directiva permite restringir las ubicaciones en las que la organización puede crear grupos de recursos. Úsela para aplicar los requisitos de cumplimiento de replicación geográfica.| 
-|Implementación de auditorías en servidores SQL Server|Asignación de directiva|Días de retención|Retención de datos en número de días. El valor predeterminado es 180, pero PCI requiere 365.| 
-|Implementación de auditorías en servidores SQL Server|Asignación de directiva|Nombre del grupo de recursos para la cuenta de almacenamiento|La auditoría escribe eventos de base de datos en un registro de auditoría en la cuenta de Azure Storage (se creará una cuenta de almacenamiento en cada región donde se cree una instancia de SQL Server que compartirán todos los servidores de esa región).| 
+|PCI v3.2.1:2018|Asignación de directiva|Lista de tipos de recursos | Audite la configuración de diagnóstico para los tipos de recursos seleccionados. El valor predeterminado es todos los recursos seleccionados.|
+|Ubicaciones permitidas|Asignación de directiva|Lista de ubicaciones permitidas|Lista de ubicaciones de centro de datos permitidas en las que cualquier recurso se puede implementar. Esta se puede personalizar hasta las ubicaciones de Azure deseadas de todo el mundo. Seleccione las ubicaciones que quiere permitir.|
+|Ubicaciones permitidas para grupos de recursos|Asignación de directiva |Ubicación permitida |Esta directiva permite restringir las ubicaciones en las que la organización puede crear grupos de recursos. Úsela para aplicar los requisitos de cumplimiento de replicación geográfica.|
+|Implementación de auditorías en servidores SQL Server|Asignación de directiva|Días de retención|Retención de datos en número de días. El valor predeterminado es 180, pero PCI requiere 365.|
+|Implementación de auditorías en servidores SQL Server|Asignación de directiva|Nombre del grupo de recursos para la cuenta de almacenamiento|La auditoría escribe eventos de base de datos en un registro de auditoría en la cuenta de Azure Storage (se creará una cuenta de almacenamiento en cada región donde se cree una instancia de SQL Server que compartirán todos los servidores de esa región).|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

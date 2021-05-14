@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 04/06/2021
 ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: 470ae497acab4c75e83a13e485d1bcb118485ab9
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 6a10d29daaade5c588fc966190cbb81551170fd8
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799520"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139443"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Python para Azure Cosmos DB para SQL API: Notas de la versión y recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,12 +25,13 @@ ms.locfileid: "104799520"
 > * [SDK de .NET Core v2](sql-api-sdk-dotnet-core.md)
 > * [SDK de fuente de cambios de .NET, versión 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [SDK de Java v4](sql-api-sdk-java-v4.md)
+> * [SDK para Java v4](sql-api-sdk-java-v4.md)
 > * [Versión 2 del SDK de Java asincrónico](sql-api-sdk-async-java.md)
 > * [SDK de Java v2 sincrónico](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Conector de Spark](sql-api-sdk-java-spark.md)
+> * [Conector Spark 3 OLTP](sql-api-sdk-java-spark-v3.md)
+> * [Conector Spark 2 OLTP](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Proveedor de recursos de REST](/rest/api/cosmos-db-resource-provider/)
@@ -41,7 +42,7 @@ ms.locfileid: "104799520"
 | Página| Link |
 |---|---|
 |**Descargar SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**Documentación de la API**|[Documentación de referencia de la API de Python](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos?view=azure-python&preserve-view=true)|
+|**Documentación de la API**|[Documentación de referencia de la API de Python](/python/api/azure-cosmos/azure.cosmos?preserve-view=true&view=azure-python)|
 |**Instrucciones de instalación del SDK**|[Instrucciones de instalación del SDK de Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Introducción**|[Introducción al SDK de Python](create-sql-api-python.md)|
 |**Plataforma admitida actualmente**|[Python 2.7](https://www.python.org/downloads/) y [Python 3.6+](https://www.python.org/downloads/)|

@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/16/2020
 ms.custom: devx-track-java, cog-serv-seo-aug-2020
 ms.author: pafarley
-ms.openlocfilehash: d1574d9728036bac393cbecb37e2097be6ef90e7
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 76d62806541e0a3186cd17712b7af3930d9ccf9f
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105105264"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726167"
 ---
 Introducción a la biblioteca cliente de Azure Content Moderator para Java. Siga estos pasos para instalar el paquete Maven y probar el código de ejemplo para realizar tareas básicas. 
 
@@ -58,7 +58,7 @@ Cuando se le solicite que elija un **DSL**, seleccione **Kotlin**.
 
 ## <a name="install-the-client-library"></a>Instalación de la biblioteca cliente
 
-Busque *build.gradle.kts* y ábralo con el IDE o el editor de texto que prefiera. A continuación, cópielo en la siguiente configuración de compilación. Esta configuración define el proyecto como una aplicación Java cuyo punto de entrada es la clase **ContentModeratorQuickstart**. Importa la biblioteca cliente de Content Moderator, así como el SDK de GSON para la serialización de JSON.
+Busque *build.gradle.kts* y ábralo con el IDE o el editor de texto que prefiera. A continuación, cópielo en la siguiente configuración de compilación. Esta configuración define el proyecto como una aplicación Java cuyo punto de entrada es la clase **ContentModeratorQuickstart**. Importa la biblioteca cliente de Content Moderator y el SDK de GSON para la serialización de JSON.
 
 ```kotlin
 plugins {
@@ -105,7 +105,7 @@ En la clase **ContentModeratorQuickstart** de la aplicación, cree variables par
 >
 > Recuerde quitar la clave del código cuando haya terminado y no hacerla nunca pública. En el caso de producción, considere la posibilidad de usar alguna forma segura de almacenar las credenciales, y acceder a ellas. Para más información, consulte el artículo sobre la [seguridad](../../../cognitive-services-security.md) de Cognitive Services.
 
-En el método **main** de la aplicación, agregue llamadas para los métodos que se usan en este inicio rápido. Se definirán más adelante.
+En el método **main** de la aplicación, agregue llamadas para los métodos que se usan en este inicio rápido. Más adelante, definirá estos métodos.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_maincalls)]
 

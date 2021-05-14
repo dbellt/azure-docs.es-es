@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0e1c5f08c4292e4f3dfec448d8bf54d5d5601840
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 710800bdb1dc4a9a2d0bc69493fe1d89d279ff78
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99050505"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108734298"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Unidades de consulta en Azure Digital Twins 
 
@@ -31,7 +31,7 @@ En este artículo se explica cómo comprender las unidades de consulta y realiza
 
 Al ejecutar una consulta con la [API de consulta](/rest/api/digital-twins/dataplane/query) de Azure Digital Twins, puede examinar el encabezado de respuesta para realizar el seguimiento del número de unidades de consulta que la consulta consume. Busque "query-charge" en la respuesta que se devuelve desde Azure Digital Twins.
 
-Los [SDK](how-to-use-apis-sdks.md) de Azure Digital Twins permiten extraer el encabezado de cargo de consulta de la respuesta paginable. En esta sección se muestra cómo consultar los gemelos digitales y cómo recorrer en iteración la respuesta paginable para extraer el encabezado del cargo de la consulta. 
+Los [SDK](concepts-apis-sdks.md) de Azure Digital Twins permiten extraer el encabezado de cargo de consulta de la respuesta paginable. En esta sección se muestra cómo consultar los gemelos digitales y cómo recorrer en iteración la respuesta paginable para extraer el encabezado del cargo de la consulta. 
 
 En el fragmento de código siguiente se muestra cómo se pueden extraer los cargos de consulta en los que se incurre cuando se llama a la API de consulta. Recorre en iteración las páginas de respuesta en primer lugar para acceder al encabezado de cargos de consulta y, a continuación, recorre en iteración los resultados de los gemelos digitales dentro de cada página. 
 
@@ -41,8 +41,8 @@ En el fragmento de código siguiente se muestra cómo se pueden extraer los carg
 
 Para más información sobre cómo hacer consultas en Azure Digital Twins, consulte:
 
-* [*Conceptos: Lenguaje de consulta*](concepts-query-language.md)
-* [*Procedimiento: Consulta del grafo gemelo*](how-to-query-graph.md)
+* [Conceptos: Lenguaje de consulta](concepts-query-language.md)
+* [Procedimiento: Consulta del grafo de gemelos](how-to-query-graph.md)
 * [Documentación de referencia de la API de consulta](/rest/api/digital-twins/dataplane/query/querytwins)
 
-Puede encontrar límites relacionados con las consultas de Azure Digital Twins en [*Límites del servicio Azure Digital Twins*](reference-service-limits.md).
+Puede encontrar límites relacionados con las consultas de Azure Digital Twins en [Límites del servicio Azure Digital Twins](reference-service-limits.md).

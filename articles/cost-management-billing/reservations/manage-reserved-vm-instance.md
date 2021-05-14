@@ -6,14 +6,14 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 02/09/2021
+ms.date: 04/21/2021
 ms.author: banders
-ms.openlocfilehash: 717cf5acb63ee04852ccbb9aae2f7aed2b3c179a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 64a6b3a313f5078368563af29ab97a871b4c3ae0
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392279"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288695"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Administración de reservas para los recursos de Azure
 
@@ -57,8 +57,8 @@ El ámbito solo se aplica a suscripciones individuales con tarifas de pago por u
 
 De forma predeterminada, estos son los usuarios que pueden ver y administrar reservas:
 
-- Tanto la persona que compra una reserva como el administrador de cuenta de la suscripción de facturación que se ha usado para comprar la reserva se agregan al pedido de reserva.
-- Administradores de facturación del Contrato Enterprise y del Contrato de cliente de Microsoft.
+- La persona que compró la reserva y el propietario de la cuenta de la suscripción de facturación tienen acceso mediante el control de acceso basado en roles de Azure al pedido de reserva.
+-  Los colaboradores de facturación del Contrato Enterprise y el Contrato de cliente de Microsoft pueden administrar todas las reservas en Cost Management + Billing > Transacciones de reserva > seleccionando el banner azul.
 
 Para que otras personas puedan administrar las reservas, tiene dos opciones:
 
@@ -81,8 +81,14 @@ Para que otras personas puedan administrar las reservas, tiene dos opciones:
 
 ### <a name="how-billing-administrators-view-or-manage-reservations"></a>De qué forma ven o administran las reservas los administradores de facturación
 
-1. Vaya a **Azure Cost Management + Billing** y, después, en el lado izquierdo de la página, seleccione **Transacciones de reserva**.
-2. Si tiene los permisos de facturación necesarios, puede ver y administrar las reservas. Si no ve ninguna reserva, asegúrese de que ha iniciado sesión mediante el inquilino de Azure AD en el que se crearon las reservas.
+Si es un administrador de facturación, siga estos pasos para ver y administrar todas las reservas y las transacciones de reserva.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a **Cost Management + Billing**.
+    - Los administradores de EA pueden seleccionar **Ámbitos de facturación** en el menú de la izquierda y, después, seleccionar uno de los ámbitos de la lista.
+    - Los propietarios de un perfil de facturación de Contrato de cliente de Microsoft, deben seleccionar **Perfiles de facturación** en el menú de la izquierda. En la lista de perfiles de facturación, seleccione uno.
+2. En el menú de la izquierda, seleccione **Productos y servicios** > **Reservas**.
+3. Se muestra la lista completa de reservas de su perfil de facturación o inscripción de EA.
+4. Los administradores de facturación pueden tomar posesión de una reserva; para ello, la seleccionan y, después, seleccionan **Conceder acceso** en la ventana que aparece.
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>División de una reserva única en dos
 
@@ -177,23 +183,8 @@ Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técni
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información acerca de Azure Reservations, consulte los siguientes artículos:
-
-- [¿Qué son las reservas para Azure?](save-compute-costs-reservations.md)
-
-Compra de un plan de servicio:
-- [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
-- [Pago por adelantado de los recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database](../../azure-sql/database/reserved-capacity-overview.md)
-- [Pago por adelantado para recursos de Azure Cosmos DB con capacidad reservada de Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
-
-Compra de un plan de software:
-- [Pago por adelantado para planes de software de Red Hat con reservas de Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Pago por adelantado para planes de software SUSE con Azure Reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)
-
-Comprender descuentos y uso:
-- [Información sobre cómo se aplica el descuento por la reserva de máquinas virtuales](../manage/understand-vm-reservation-charges.md)
-- [Información sobre cómo se aplica el descuento del plan de reserva de software de Red Hat Linux Enterprise para Azure](understand-rhel-reservation-charges.md)
-- [Descubra cómo se aplica el descuento del plan de software SUSE Linux Enterprise](understand-suse-reservation-charges.md)
-- [Descubra cómo se aplican otros descuentos por reservas](understand-reservation-charges.md)
-- [Información sobre el uso de reservas para suscripciones de pago por uso](understand-reserved-instance-usage.md)
-- [Información sobre el uso de reservas para la inscripción Enterprise](understand-reserved-instance-usage-ea.md)
-- [Costos de software de Windows no incluidos con Reservations](reserved-instance-windows-software-costs.md)
+ - [Visualización del uso de las reservas](reservation-utilization.md)
+ - [Cambios y reembolsos](exchange-and-refund-azure-reservations.md)
+ - [Renovación de reservas](reservation-renew.md)
+ - [Transferencias entre inquilinos](troubleshoot-reservation-transfers-between-tenants.md)
+ - [Búsqueda de un comprador de reservas en los registros de Azure](find-reservation-purchaser-from-logs.md)

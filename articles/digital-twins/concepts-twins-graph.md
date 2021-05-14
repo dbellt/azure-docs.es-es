@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 00058f75a2c4378371c427ff9ebabe7e2336b06a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e0df10d9bbcb69e6a0bf56020c1ef70e1f81df6
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99576555"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108207814"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Explicación del concepto de gemelos digitales y su grafo gemelo
 
@@ -23,7 +23,7 @@ En una solución de Azure Digital Twins, las entidades del entorno se representa
 
 ## <a name="digital-twins"></a>Gemelos digitales
 
-Para poder crear un gemelo digital en la instancia de Azure Digital Twins, debe tener un *modelo* cargado en el servicio. Un modelo describe el conjunto de propiedades, los mensajes de telemetría y las relaciones que puede tener un gemelo determinado, entre otras cosas. Para conocer los tipos de información que se definen en un modelo, consulte [*Conceptos: Modelos personalizados*](concepts-models.md).
+Para poder crear un gemelo digital en la instancia de Azure Digital Twins, debe tener un *modelo* cargado en el servicio. Un modelo describe el conjunto de propiedades, los mensajes de telemetría y las relaciones que puede tener un gemelo determinado, entre otras cosas. Para conocer los tipos de información que se definen en un modelo, consulte [Conceptos: Modelos personalizados](concepts-models.md).
 
 Después de crear y cargar un modelo, la aplicación cliente puede crear una instancia del tipo, que es un gemelo digital. Por ejemplo, después de crear un modelo de *Floor*, puede crear uno o varios gemelos digitales que usen este tipo (como un gemelo de tipo *Floor* denominado *GroundFloor*, otro denominado *Floor2*, etc.).
 
@@ -51,7 +51,7 @@ Puede inicializar las propiedades de un gemelo cuando se crea o hacerlo más ade
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_noHelper":::
 
-También puede usar una clase auxiliar denominada `BasicDigitalTwin` para almacenar campos de propiedades en un objeto "gemelo" más directamente, como alternativa al uso de un diccionario. Para obtener más información sobre la clase auxiliar y observar ejemplos de su uso, vea la sección [*Creación de un gemelo digital*](how-to-manage-twin.md#create-a-digital-twin) de  *Administración de Digital Twins*.
+También puede usar una clase auxiliar denominada `BasicDigitalTwin` para almacenar campos de propiedades en un objeto "gemelo" más directamente, como alternativa al uso de un diccionario. Para obtener más información sobre la clase auxiliar y observar ejemplos de su uso, vea la sección [Creación de un gemelo digital](how-to-manage-twin.md#create-a-digital-twin) de  *Administración de Digital Twins*.
 
 >[!NOTE]
 >Aunque las propiedades del gemelo se tratan como opcionales y, por lo tanto, no tienen que inicializarse, los [componentes](concepts-models.md#elements-of-a-model) del gemelo **deben** establecerse cuando este se crea. Aunque pueden ser objetos vacíos, los componentes en sí deben existir.
@@ -162,8 +162,8 @@ A continuación se muestra un ejemplo de relación formateada como un objeto JSO
 ## <a name="next-steps"></a>Pasos siguientes
 
 Consulte cómo administrar elementos de grafo con las API de Azure Digital Twins:
-* [*Procedimiento: Administración de Digital Twins*](how-to-manage-twin.md)
-* [*Procedimiento: Administración del grafo de gemelos con relaciones*](how-to-manage-graph.md)
+* [Procedimiento: Administración de Digital Twins](how-to-manage-twin.md)
+* [Procedimiento: Administración del grafo de gemelos con relaciones](how-to-manage-graph.md)
 
 O bien, consulte el grafo de gemelos de Azure Digital Twins para obtener información:
-* [*Conceptos: Lenguaje de consulta*](concepts-query-language.md)
+* [Conceptos: Lenguaje de consulta](concepts-query-language.md)

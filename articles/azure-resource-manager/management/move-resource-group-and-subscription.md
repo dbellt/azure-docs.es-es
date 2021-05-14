@@ -2,14 +2,14 @@
 title: Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 description: Use Azure Resource Manager para trasladar recursos a un nuevo grupo de recursos o a una nueva suscripción.
 ms.topic: conceptual
-ms.date: 03/23/2021
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 800e605571ae18b008a86b4add4b0b2adce9c140
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.date: 04/16/2021
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: e899319460c4d9b144a580e0cb093488ea76683c
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078390"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108322174"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -160,7 +160,7 @@ retry-after: 15
 ...
 ```
 
-El código de estado 202 indica que se ha aceptado la solicitud de validación, pero aún no se ha determinado si la operación de movimiento se realizará correctamente. El valor `location` contiene una dirección URL que se usa para comprobar el estado de la operación de ejecución larga.  
+El código de estado 202 indica que se ha aceptado la solicitud de validación, pero aún no se ha determinado si la operación de movimiento se realizará correctamente. El valor `location` contiene una dirección URL que se usa para comprobar el estado de la operación de ejecución larga.
 
 Para comprobar el estado, envíe la solicitud siguiente:
 
@@ -209,8 +209,6 @@ Después de validar que los recursos se pueden mover, verá una notificación de
 
 Cuando haya finalizado, se le notificará del resultado.
 
-Si se produce un error, consulte [Troubleshoot moving Azure resources to new resource group or subscription](troubleshoot-move.md) (Solución de problemas del traslado de los recursos de Azure a una nueva suscripción o grupo de recursos).
-
 ## <a name="use-azure-powershell"></a>Uso de Azure PowerShell
 
 Para mover recursos existentes a otro grupo de recursos o a otra suscripción, use el comando [Move-AzResource](/powershell/module/az.resources/move-azresource). El siguiente ejemplo muestra cómo trasladar varios recursos a un nuevo grupo de recursos.
@@ -223,11 +221,9 @@ Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.Resource
 
 Para moverlos a una nueva suscripción, especifique un valor para el parámetro `DestinationSubscriptionId`.
 
-Si se produce un error, consulte [Troubleshoot moving Azure resources to new resource group or subscription](troubleshoot-move.md) (Solución de problemas del traslado de los recursos de Azure a una nueva suscripción o grupo de recursos).
-
 ## <a name="use-azure-cli"></a>Uso de CLI de Azure
 
-Para trasladar recursos existentes a otro grupo de recursos o a otra suscripción, use el comando [az resource move](/cli/azure/resource#az-resource-move). Proporcione los identificadores de recursos de los recursos que se van a mover. El siguiente ejemplo muestra cómo trasladar varios recursos a un nuevo grupo de recursos. En el parámetro `--ids`, ofrezca una lista separada por espacios de los identificadores de recurso que se van a trasladar.
+Para trasladar recursos existentes a otro grupo de recursos o a otra suscripción, use el comando [az resource move](/cli/azure/resource#az_resource_move). Proporcione los identificadores de recursos de los recursos que se van a mover. El siguiente ejemplo muestra cómo trasladar varios recursos a un nuevo grupo de recursos. En el parámetro `--ids`, ofrezca una lista separada por espacios de los identificadores de recurso que se van a trasladar.
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
@@ -236,8 +232,6 @@ az resource move --destination-group newgroup --ids $webapp $plan
 ```
 
 Para mover a una nueva suscripción, proporcione el parámetro `--destination-subscription-id`.
-
-Si se produce un error, consulte [Troubleshoot moving Azure resources to new resource group or subscription](troubleshoot-move.md) (Solución de problemas del traslado de los recursos de Azure a una nueva suscripción o grupo de recursos).
 
 ## <a name="use-rest-api"></a>Use la API de REST
 
@@ -255,8 +249,6 @@ En el cuerpo de la solicitud, especifique el grupo de recursos de destino y los 
  "targetResourceGroup": "/subscriptions/<subscription-id>/resourceGroups/<target-group>"
 }
 ```
-
-Si se produce un error, consulte [Troubleshoot moving Azure resources to new resource group or subscription](troubleshoot-move.md) (Solución de problemas del traslado de los recursos de Azure a una nueva suscripción o grupo de recursos).
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
@@ -303,6 +295,18 @@ Otro ejemplo común implica mover una red virtual. Es posible que tenga que move
 **Pregunta: ¿Por qué no puedo mover algunos recursos de Azure?**
 
 Actualmente, no todos los recursos de Azure se pueden mover. Para una lista de qué recursos son compatibles con el movimiento, consulte [Compatibilidad con la operación de traslado para recursos](move-support-resources.md).
+
+**Pregunta: ¿Cuántos recursos puedo mover en una sola operación?**
+
+Cuando sea posible, divida las operaciones de movimiento grandes en varias operaciones de movimiento independientes. Resource Manager inmediatamente devolverá un error si hay más de 800 recursos en una sola operación. No obstante, también se puede producir un error por agotamiento del tiempo de espera al mover menos de 800 recursos.
+
+**Pregunta: ¿Qué significa el error de que un recurso no está en el estado correcto?**
+
+Si recibe un mensaje de error que indica que no se puede mover un recurso porque no se encuentra en un estado correcto, es posible que en realidad sea un recurso dependiente lo que esté bloqueando el movimiento. Normalmente, el código de error es **MoveCannotProceedWithResourcesNotInSucceededState**.
+
+Si el grupo de recursos de origen o de destino contiene una red virtual, los estados de todos los recursos dependientes de la red virtual se comprueban durante el traslado. La comprobación incluye los recursos directa e indirectamente dependientes de la red virtual. Si alguno de esos recursos se encuentra en un estado de error, el traslado se bloqueará. Por ejemplo, si se produce un error en una máquina virtual que usa la red virtual, el traslado se bloqueará. El traslado se bloqueará incluso cuando la máquina virtual no sea uno de los recursos que se están trasladando y no esté en uno de los grupos de recursos que forma parte del traslado.
+
+Cuando recibe este error, tiene dos opciones: trasladar los recursos a un grupo de recursos que no tenga una red virtual o [ponerse en contacto con el departamento de soporte técnico](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

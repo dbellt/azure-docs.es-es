@@ -4,12 +4,12 @@ description: Cómo crear un grupo de Batch en una red virtual de Azure para que 
 ms.topic: how-to
 ms.date: 03/26/2021
 ms.custom: seodec18
-ms.openlocfilehash: 7213637e89cfccd1352861002c47a696d942d30f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f376c62a8fda4a84ec8385fb623fa304bb8c035e
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629315"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107947508"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Creación de un grupo de Azure Batch en una red virtual
 
@@ -53,9 +53,11 @@ Es posible que en su organización haya que redirigir (exigir) el tráfico vincu
 
 Si desea asegurarse de que los nodos del grupo funcionen en una red virtual con la tunelización forzada habilitada, debe agregar las siguientes [rutas definidas por el usuario](../virtual-network/virtual-networks-udr-overview.md) (UDR) para esa subred:
 
-- El servicio Batch debe comunicarse con los nodos para programar tareas. Para habilitar esta comunicación, agregue una ruta definida por el usuario para cada dirección IP usada por el servicio Batch en la región donde existe la cuenta de Batch. Para obtener la lista de direcciones IP del servicio Batch, consulte [Etiquetas de servicio en un entorno local](../virtual-network/service-tags-overview.md).
+- El servicio Batch debe comunicarse con los nodos para programar tareas. Para habilitar esta comunicación, agregue una ruta definida por el usuario para cada dirección IP usada por el servicio Batch en la región donde existe la cuenta de Batch. Las direcciones IP del servicio Batch se encuentran en la etiqueta de servicio `BatchNodeManagement.<region>`. Para obtener la lista de direcciones IP, consulte [Etiquetas de servicio en un entorno local](../virtual-network/service-tags-overview.md).
 
-- Asegúrese de que el tráfico saliente hacia Azure Storage (en concreto, las direcciones URL del formulario `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` y `<account>.blob.core.windows.net`) no está bloqueado por la red local.
+- Asegúrese de que la red local no bloquee el tráfico TCP saliente al servicio Azure Batch en el puerto de destino 443. Estas direcciones IP de destino del servicio Azure Batch son las mismas que se encuentran en la etiqueta de servicio `BatchNodeManagement.<region>` que se usa para las rutas anteriores.
+
+- Asegúrese de que la red local no bloquee el tráfico TCP saliente a Azure Storage en el puerto de destino 443 (en concreto, las direcciones URL con el formato `*.table.core.windows.net`, `*.queue.core.windows.net` y `*.blob.core.windows.net`).
 
 - Si usa montajes de archivos virtuales, revise los [requisitos de red](virtual-file-mount.md#networking-requirements) y asegúrese de que no se bloquee el tráfico necesario.
 

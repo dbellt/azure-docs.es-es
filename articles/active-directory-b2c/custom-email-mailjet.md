@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/09/2021
+ms.date: 04/21/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a40f3286b4e832f5c73e650859fa9a1d4fe4b6cb
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 9455045bb03ad03d2e5cf31a27696850f2d31bed
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256963"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107886431"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Verificación de correo electrónico personalizado con Mailjet
 
@@ -35,8 +35,6 @@ Use el correo electrónico personalizado en Azure Active Directory B2C (Azure�
 
 La verificación del correo electrónico personalizado requiere el uso de un proveedor de correo electrónico de terceros, como [Mailjet](https://Mailjet.com), [SendGrid](./custom-email-sendgrid.md) o [SparkPost](https://sparkpost.com), una API REST personalizada o cualquier proveedor de correo electrónico basado en HTTP (incluido el suyo propio). En este artículo se describe cómo configurar una solución que usa Mailjet.
 
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
-
 ## <a name="create-a-mailjet-account"></a>Creación de una cuenta de Mailjet
 
 Si aún no tiene una, empiece por configurar una cuenta de Mailjet (los clientes de Azure pueden desbloquear 6 000 mensajes de correo electrónico con un límite de 200 correos electrónicos al día). 
@@ -44,6 +42,10 @@ Si aún no tiene una, empiece por configurar una cuenta de Mailjet (los clientes
 1. Siga las instrucciones de configuración para [crear una cuenta de Mailjet](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/).
 1. Para poder enviar correo electrónico, [registre y valide](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/#how-to-configure-mailjet-for-use) la dirección de correo electrónico o el dominio del remitente.
 2. Desplácese hasta la [página de administración de claves de API](https://app.mailjet.com/account/api_keys). Anote la **clave de API** y la **clave secreta** para usarlas en un paso posterior. Cuando se crea la cuenta, se generan las dos claves automáticamente.  
+
+> [!IMPORTANT]
+> Mailjet ofrece a los clientes la capacidad de enviar correos electrónicos desde direcciones IP compartidas y [direcciones IP dedicadas](https://documentation.mailjet.com/hc/articles/360043101973-What-is-a-dedicated-IP). Al usar direcciones IP dedicadas, tiene que mejorar su propia reputación de manera adecuada con un calentamiento de la dirección IP. Para obtener más información, consulte [¿Cómo se realiza el calentamiento de la dirección IP?](https://documentation.mailjet.com/hc/articles/1260803352789-How-do-I-warm-up-my-IP-)
+
 
 ## <a name="create-azure-ad-b2c-policy-key"></a>Creación de la clave de directiva de Azure AD B2C
 
@@ -317,6 +319,9 @@ En las definiciones de contenido, todavía dentro de `<BuildingBlocks>`, agregue
 ## <a name="add-otp-technical-profiles"></a>Incorporación de perfiles técnicos de OTP
 
 El perfil técnico `GenerateOtp` genera un código para la dirección de correo electrónico. El perfil técnico `VerifyOtp` verifica el código asociado a la dirección de correo electrónico. Puede cambiar la configuración del formato y la expiración de la contraseña de un solo uso. Para más información sobre los perfiles técnicos de OTP, consulte [Definición de un perfil técnico de una contraseña de un solo uso en una directiva personalizada de Azure AD B2C](one-time-password-technical-profile.md).
+
+> [!NOTE]
+> Los códigos OTP que genera el protocolo Web.TPEngine.Providers.OneTimePasswordProtocolProvider están vinculados a la sesión del explorador. Esto significa que un usuario puede generar códigos OTP únicos en distintas sesiones del explorador que son válidos para sus sesiones correspondientes. Por el contrario, un código OTP que genere el proveedor de correo electrónico integrado es independiente de la sesión del explorador, por lo que si un usuario genera un nuevo código OTP en una nueva sesión del explorador, este reemplaza el código OTP anterior.
 
 Agregue los siguientes perfiles técnicos al elemento `<ClaimsProviders>`.
 

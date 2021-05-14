@@ -11,34 +11,34 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
-ms.openlocfilehash: 413ffa54a7413ad9b2482a3a8b6c698b34116301
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42f6d61d3464b088b7937ba121ac18713a235c78
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98729863"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108802907"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicechannel"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ServiceChannel
 
 En este tutorial, obtendrá información sobre cómo integrar ServiceChannel con Azure Active Directory (Azure AD). Cuando integre ServiceChannel con Azure AD, podrá hacer lo siguiente:
 
-* Controlar en Azure AD quién tiene acceso a ServiceChannel.
-* Permitir que los usuarios inicien sesión automáticamente en ServiceChannel con sus cuentas de Azure AD.
-* Administrar las cuentas desde una ubicación central (Azure Portal).
+- Controlar en Azure AD quién tiene acceso a ServiceChannel.
+- Permitir que los usuarios inicien sesión automáticamente en ServiceChannel con sus cuentas de Azure AD.
+- Administrar las cuentas desde una ubicación central (Azure Portal).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
-* Suscripción de ServiceChannel con el inicio de sesión único (SSO) habilitado.
+- Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
+- Suscripción de ServiceChannel con el inicio de sesión único (SSO) habilitado.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* ServiceChannel admite el inicio de sesión único iniciado por **IDP**.
-* ServiceChannel admite el aprovisionamiento de usuarios **Just-In-Time**.
+- ServiceChannel admite el inicio de sesión único iniciado por **IDP**.
+- ServiceChannel admite el aprovisionamiento de usuarios **Just-In-Time**.
 
 ## <a name="adding-servicechannel-from-the-gallery"></a>Agregar ServiceChannel desde la galería
 
@@ -58,10 +58,10 @@ Configure y pruebe el inicio de sesión único de Azure AD con ServiceChannel m
 Para configurar y probar el inicio de sesión único de Azure AD con ServiceChannel, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+   1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+   1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de ServiceChannel](#configure-servicechannel-sso)** , para configurar los valores del inicio de sesión único en la aplicación.
-    1. **[Creación de usuarios de prueba de ServiceChannel](#create-servicechannel-test-user)**, para tener un homólogo de B. Simon en ServiceChannel que esté vinculado a su representación en Azure AD.
+   1. **[Creación de usuarios de prueba de ServiceChannel](#create-servicechannel-test-user)**, para tener un homólogo de B. Simon en ServiceChannel que esté vinculado a su representación en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -76,22 +76,22 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la página **Configurar el inicio de sesión único con SAML**, escriba los valores de los siguientes campos:
 
-    a. En el cuadro de texto **Identificador**, escriba el valor como `http://adfs.<domain>.com/adfs/service/trust`
+   a. En el cuadro de texto **Identificador**, escriba el valor como `http://adfs.<domain>.com/adfs/service/trust`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<customer domain>.servicechannel.com/saml/acs`
+   b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<customer domain>.servicechannel.com/saml/acs`
 
-    > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Aquí le recomendamos que utilice el valor de cadena único en el identificador. Póngase en contacto con el [equipo de soporte al cliente de ServiceChannel](https://servicechannel.zendesk.com/hc/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+   > [!NOTE]
+   > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Aquí le recomendamos que utilice el valor de cadena único en el identificador. Póngase en contacto con el [equipo de soporte al cliente de ServiceChannel](https://servicechannel.zendesk.com/hc/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. La notificación de rol está preconfigurada, por lo que no tiene que ocuparse de ello, pero aún tiene que crear los roles en Azure AD con la ayuda de este [artículo](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview). Puede consultar la guía de ServiceChannel [aquí](https://servicechannel.zendesk.com/hc/articles/217514326-Azure-AD-Configuration-Example) para obtener más información sobre las notificaciones.
+1. La notificación de rol está preconfigurada, por lo que no tiene que ocuparse de ello, pero aún tiene que crear los roles en Azure AD con la ayuda de este [artículo](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui). Puede consultar la guía de ServiceChannel [aquí](https://servicechannel.zendesk.com/hc/articles/217514326-Azure-AD-Configuration-Example) para obtener más información sobre las notificaciones.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
-    ![Vínculo de descarga del certificado](common/certificatebase64.png)
+   ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
 1. En la sección **Configuración de ServiceChannel**, copie las direcciones URL que necesite.
 
-    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+   ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -100,7 +100,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
 1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre**, escriba `B.Simon`.
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
    1. Haga clic en **Crear**.
@@ -129,10 +129,9 @@ La aplicación admite el aprovisionamiento de usuarios Just-In-Time y, tras la a
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
-* Haga clic en Probar esta aplicación en Azure Portal; debería iniciar sesión automáticamente en la instancia de ServiceChannel para la que ha configurado el inicio de sesión único.
+- Haga clic en Probar esta aplicación en Azure Portal; debería iniciar sesión automáticamente en la instancia de ServiceChannel para la que ha configurado el inicio de sesión único.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de ServiceChannel de Mis aplicaciones, debería iniciar sesión automáticamente en la versión de ServiceChannel para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
-
+- Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de ServiceChannel de Mis aplicaciones, debería iniciar sesión automáticamente en la versión de ServiceChannel para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

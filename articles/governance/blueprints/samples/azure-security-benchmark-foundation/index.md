@@ -1,14 +1,14 @@
 ---
 title: Introducción al ejemplo de plano técnico de Azure Security Benchmark Foundation
 description: Introducción y arquitectura del ejemplo de plano técnico de Azure Security Benchmark Foundation.
-ms.date: 02/17/2020
+ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: ed497eff85e07b6a51939907bc751f3b40c99b30
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a60f70b1f3e9d810ccded8bbeee726ea950524e9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741878"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739266"
 ---
 # <a name="overview-of-the-azure-security-benchmark-foundation-blueprint-sample"></a>Introducción al ejemplo de plano técnico de Azure Security Benchmark Foundation
 
@@ -35,7 +35,7 @@ Este plano técnico implementa varios servicios de Azure para proporcionar una b
 - [Azure Bastion](../../../../bastion/bastion-overview.md) para proporcionar una conectividad segura y sin problemas a una máquina virtual que no requiere una dirección IP pública, un agente o un software cliente especial.
 - [Azure VPN Gateway](../../../../vpn-gateway/vpn-gateway-about-vpngateways.md) para habilitar el tráfico cifrado entre una red virtual de Azure y una ubicación local a través de la red pública de Internet.
 
-> [!NOTE] 
+> [!NOTE]
 > Azure Security Benchmark Foundation diseña una arquitectura básica para las cargas de trabajo. El diagrama arquitectónico anterior incluye varios recursos nocionales para demostrar el uso de subredes. Deberá implementar cargas de trabajo adicionales en esta arquitectura básica.
 
 ## <a name="next-steps"></a>Pasos siguientes

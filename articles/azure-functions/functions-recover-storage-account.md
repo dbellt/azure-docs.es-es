@@ -3,12 +3,12 @@ title: 'Solución del error: No se puede acceder a Azure Functions Runtime'
 description: Aprenda a solucionar los problemas con una cuenta de almacenamiento no válida.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: 392882fc2f0394e61aee973a20479d8f1fa9bc92
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6353e40113c3552ec26b20ded1833c8eb88f9f16
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606980"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137678"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Solución del error: "No se puede acceder a Azure Functions Runtime"
 
@@ -59,7 +59,7 @@ Es necesario que la aplicación de funciones pueda acceder a la cuenta de almace
 * La aplicación de funciones está implementada en App Service Environment (ASE) sin las reglas de red adecuadas para permitir el tráfico de entrada y salida de la cuenta de almacenamiento.
 
 * El firewall de la cuenta de almacenamiento está habilitado, pero no está configurado para permitir el tráfico de entrada y salida de Functions. Para más información, vea [Configuración de Firewalls y redes virtuales de Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
-* Compruebe que el valor `allowSharedKeyAccess` está establecido en `true`, que es su valor predeterminado. Para obtener más información, consulte [Impedir la autorización con clave compartida para una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/shared-key-authorization-prevent?tabs=portal#verify-that-shared-key-access-is-not-allowed). 
+* Compruebe que el valor `allowSharedKeyAccess` está establecido en `true`, que es su valor predeterminado. Para obtener más información, consulte [Impedir la autorización con clave compartida para una cuenta de Azure Storage](../storage/common/shared-key-authorization-prevent.md?tabs=portal#verify-that-shared-key-access-is-not-allowed). 
 
 ## <a name="daily-execution-quota-is-full"></a>Se ha alcanzado la cuota de ejecución diaria
 

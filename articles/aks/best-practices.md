@@ -3,19 +3,24 @@ title: Procedimientos recomendados para Azure Kubernetes Service (AKS)
 description: Colección de procedimientos recomendados de operadores de clúster y desarrolladores para crear y administrar aplicaciones en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/07/2018
-ms.openlocfilehash: e8f9c1946567ac3c3ea1045a216d6b0486fd959a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/09/2021
+ms.openlocfilehash: f4bd109ce6827de26b1649380b6f6a2ba7c10e17
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94686266"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105908"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Procedimientos recomendados de operadores de clúster y desarrolladores para crear y administrar aplicaciones en Azure Kubernetes Service (AKS)
 
-Para compilar y ejecutar aplicaciones correctamente en Azure Kubernetes Service (AKS), hay algunas consideraciones claves que debe comprender e implementar. Estas áreas incluyen las características de servicios multiinquilino y programador, seguridad de pod y clúster, o continuidad empresarial y recuperación ante desastres. Los siguientes procedimientos recomendados se han agrupado para ayudar a los operadores de clúster y desarrolladores a comprender las consideraciones para cada una de estas áreas e implementar las características adecuadas.
+La creación y ejecución correctas de aplicaciones en Azure Kubernetes Service (AKS) requieren la comprensión y la implementación de algunas consideraciones clave, entre las que se incluyen:
+* Características multiinquilino y programador
+* Seguridad de clúster y pod
+* Continuidad empresarial y recuperación ante desastres 
 
-Estos procedimientos recomendados y los artículos conceptuales se han redactado junto con el grupo de productos de AKS, equipos de ingeniería y equipos de campo, incluidos cinturones negros globales (GBB).
+
+El grupo de productos de AKS, los equipos de ingeniería y los equipos de campo (incluidos cinturones negros globales [GBB]) han escrito y agrupado los procedimientos recomendados siguientes y los artículos conceptuales, así como han contribuido a ellos. Su propósito es ayudar a los operadores y desarrolladores de clústeres a comprender las consideraciones anteriores e implementar las características adecuadas.
+
 
 ## <a name="cluster-operator-best-practices"></a>Procedimientos recomendados para operadores de clúster
 

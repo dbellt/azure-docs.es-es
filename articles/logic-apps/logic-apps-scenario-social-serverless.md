@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 22e0c7304f7a53a86bc5c6739a2061352d738d29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f6da9737416eb3d23977d0e4e6b0d981019944cd
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98784819"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277253"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Creación de un panel de streaming de Customer Insights con Azure Logic Apps y Azure Functions
 
@@ -106,7 +106,7 @@ Para ver historiales de ejecuciones anteriores en Visual Studio o en Azure Porta
 
 Después de crear una solución de aplicación lógica, puede capturar e implementar la aplicación como una [plantilla de Azure Resource Manager](../azure-resource-manager/templates/overview.md) en cualquier región de Azure del mundo. Puede utilizar esta funcionalidad para modificar los parámetros para crear versiones diferentes de la aplicación y para integrar la solución en Azure Pipelines. También puede incluir Azure Functions en la plantilla de la implementación, para poder administrar la solución completa con todas las dependencias como una única plantilla. Aprenda a [automatizar la implementación de aplicaciones lógicas](logic-apps-azure-resource-manager-templates-overview.md).
 
-Para acceder a una plantilla de implementación de ejemplo con una función de Azure, consulte el [repositorio de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
+Para acceder a una plantilla de implementación de ejemplo con una función de Azure, consulte el [repositorio de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

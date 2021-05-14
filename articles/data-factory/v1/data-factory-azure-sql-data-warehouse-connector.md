@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aa364ec434db980bf226008537ca928628fcac1b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e46d4c07f3de2441f53648b228ab7a9d2a41ab61
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100392092"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753376"
 ---
 # <a name="copy-data-to-and-from-azure-synapse-analytics-using-azure-data-factory"></a>Copia de datos en y desde Azure Synapse Analytics con Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -30,11 +30,11 @@ En este artículo se explica el uso de la actividad de copia en Azure Data Facto
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 Puede copiar datos **desde Azure Synapse Analytics** a los siguientes almacenes de datos:
 
-[!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sinks](includes/data-factory-supported-sinks.md)]
 
 Puede copiar datos de los siguientes almacenes de datos **a Azure Synapse Analytics**:
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 > [!TIP]
 > Al copiar datos desde SQL Server o Azure SQL Database en Azure Synapse Analytics, si la tabla no se encuentra en el almacén de destino, Data Factory puede crearla automáticamente en Azure Synapse Analytics mediante el esquema de la tabla del almacén de datos de origen. Vea [Creación automática de tablas](#auto-table-creation) para obtener más información.
@@ -252,7 +252,7 @@ Para usar esta característica, cree un [servicio vinculado de Azure Storage](da
 ```
 
 ## <a name="best-practices-when-using-polybase"></a>Procedimientos recomendados al usar PolyBase
-En las secciones siguientes se proporcionan procedimientos recomendados adicionales a los que se mencionan en [Procedimientos recomendados para Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md).
+En las secciones siguientes se proporcionan procedimientos recomendados adicionales a los que se mencionan en [Procedimientos recomendados para Azure Synapse Analytics](../../synapse-analytics/sql/best-practices-dedicated-sql-pool.md).
 
 ### <a name="required-database-permission"></a>Permiso de base de datos necesario
 El uso de PolyBase requiere que el usuario que se usa para cargar datos en Azure Synapse Analytics tenga [permiso "CONTROL"](/sql/relational-databases/security/permissions-database-engine) en la base de datos de destino. Una manera de conseguirlo es agregar ese usuario como miembro del rol "db_owner". Obtenga información sobre cómo hacerlo siguiendo [esta sección](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
@@ -325,7 +325,7 @@ Data Factory crea la tabla en el almacén de destino con el mismo nombre de tabl
 | NVarChar | NVarChar (hasta 4000) |
 | Xml | Varchar (hasta 8000) |
 
-[!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
+[!INCLUDE [data-factory-type-repeatability-for-sql-sources](includes/data-factory-type-repeatability-for-sql-sources.md)]
 
 ## <a name="type-mapping-for-azure-synapse-analytics"></a>Asignación de tipos para Azure Synapse Analytics
 Como se mencionó en el artículo sobre [actividades del movimiento de datos](data-factory-data-movement-activities.md) , la actividad de copia realiza conversiones automáticas de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:

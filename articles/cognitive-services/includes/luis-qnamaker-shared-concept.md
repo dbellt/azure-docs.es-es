@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
-ms.openlocfilehash: b2b405e7f6babf84ef8297310a5a7a34c3f2dc11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b11a6082a5c86526e04a8b78db30650c37d467fc
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102623522"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108792115"
 ---
 Cognitive Services proporciona dos servicios de procesamiento de lenguaje natural, [Language Understanding](../luis/what-is-luis.md) y [QnA Maker](../qnamaker/overview/overview.md), cada uno con un propósito diferente. Sepa cuándo usar cada servicio y cómo se complementan entre sí.
 
@@ -73,7 +73,7 @@ Si el bot de chat necesita más información de la que proporciona el servicio, 
 
 Use la herramienta de la **[CLI de Dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** de la plataforma de bot para ayudar a crear un proceso de trabajo con ambos servicios. Esta herramienta crea una aplicación principal de LUIS de intenciones que envía entre LUIS y QnA Maker como aplicaciones secundarias. [Más información](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs) sobre la integración con LUIS, QnA Maker y Bot Framework.
 
-Use el ejemplo del creador de Bot **NLP con Dispatch**, en [C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) o [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch) para implementar este tipo de bot de chat.
+Use el ejemplo del creador de Bot **NLP con Dispatch**, en [C#](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/14.nlp-with-orchestrator) o [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/javascript_nodejs/14.nlp-with-orchestrator) para implementar este tipo de bot de chat.
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 

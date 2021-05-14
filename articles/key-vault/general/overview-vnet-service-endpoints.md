@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 985cbe1128d1dd64fda86ef062750dc5dd068ffe
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 1bb2b8bc7e55dde7c6fa9098640109f85bebce23
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751740"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108065428"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Puntos de conexión de servicio de red virtual para Azure Key Vault
 
@@ -26,7 +26,7 @@ Hay una excepción importante a esta restricción. Si un usuario ha decidido per
 Puede configurar los [firewalls y redes virtuales de Key Vault](network-security.md) para denegar el acceso al tráfico de todas las redes (incluido el tráfico de Internet) de forma predeterminada. Puede conceder acceso al tráfico desde redes virtuales específicas de Azure y rangos de direcciones IP públicas de Internet, lo que le permite generar un límite de red seguro para las aplicaciones.
 
 > [!NOTE]
-> Los firewall de Key Vault y las reglas de red virtual solo se aplican al [plan de datos](security-overview.md#privileged-access) de Key Vault. Las operaciones del plano de control de Key Vault (como crear, eliminar, modificar operaciones, configurar directivas de acceso, configurar firewalls y reglas de red virtual, e implementar secretos o claves mediante plantillas de ARM) no se ven afectadas por los firewalls ni las reglas de red virtual.
+> Los firewall de Key Vault y las reglas de red virtual solo se aplican al [plan de datos](security-features.md#privileged-access) de Key Vault. Las operaciones del plano de control de Key Vault (como crear, eliminar, modificar operaciones, configurar directivas de acceso, configurar firewalls y reglas de red virtual, e implementar secretos o claves mediante plantillas de ARM) no se ven afectadas por los firewalls ni las reglas de red virtual.
 
 Estos son algunos ejemplos de cómo puede usar los puntos de conexión de servicio:
 
@@ -59,6 +59,7 @@ Esta es una lista de servicios de confianza que tienen permiso para acceder a un
 |Azure Import/Export| [Uso de claves administradas por el cliente en Azure Key Vault para el servicio de importación y exportación](../../import-export/storage-import-export-encryption-key-portal.md)
 |Azure Container Registry|[Cifrado del registro con claves administradas por el cliente](../../container-registry/container-registry-customer-managed-keys.md)
 |Azure Application Gateway |[Usar certificados de Key Vault para los clientes de escucha habilitados para HTTPS](../../application-gateway/key-vault-certs.md)
+|Azure Front Door|[Uso de certificados de Key Vault para HTTPS](../../frontdoor/front-door-custom-domain-https.md#prepare-your-azure-key-vault-account-and-certificate)
 
 > [!NOTE]
 > Debe configurar las directivas de acceso pertinentes de Key Vault para permitir que los servicios correspondientes obtengan acceso a Key Vault.
@@ -66,4 +67,4 @@ Esta es una lista de servicios de confianza que tienen permiso para acceder a un
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para ver las instrucciones detalladas paso a paso, consulte [Configuración de firewalls y redes virtuales de Azure Key Vault](network-security.md).
-- Consulte [Introducción a la seguridad de Azure Key Vault](security-overview.md).
+- Consulte [Introducción a la seguridad de Azure Key Vault](security-features.md).

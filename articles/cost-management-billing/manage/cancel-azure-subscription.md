@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 03/31/2021
 ms.author: banders
-ms.openlocfilehash: 0d0dd5342cfc57da776e38ddef3df3b9c2199ac2
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b20134cbfb85c2dcaef1227e6390c8c6047ad5be
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735782"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109397"
 ---
 # <a name="cancel-your-azure-subscription"></a>Cancelación de su suscripción de Azure
 
@@ -76,6 +76,10 @@ Si tiene una suscripción de evaluación gratuita, no es preciso que espere 30 d
 1. Seleccione la suscripción en la página [Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) de Azure Portal.
 1. Seleccione la suscripción que quiere eliminar.
 1. Seleccione **Información general** y, después, **Eliminar suscripción**.
+
+## <a name="delete-other-subscriptions"></a>Eliminación de las demás suscripciones
+
+El único tipo de suscripción que puede eliminar manualmente es una suscripción de evaluación gratuita. Todos los demás tipos de suscripción, incluidas las suscripciones de pago por uso, solo se eliminan a través del proceso de [cancelación de la suscripción](#cancel-subscription-in-the-azure-portal). En otras palabras, no puede eliminar una suscripción directamente a menos que sea una suscripción de evaluación gratuita. Sin embargo, después de cancelar una suscripción, puede crear una [solicitud de soporte técnico de Azure](https://go.microsoft.com/fwlink/?linkid=2083458) para solicitar que la suscripción se elimine inmediatamente.
 
 ## <a name="reactivate-a-subscription"></a>Reactivación de una suscripción
 

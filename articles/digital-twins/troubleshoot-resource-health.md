@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/6/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b64ee4d1538276bbbcab3fe09054f399ad20c162
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20afd0a696a2bbeda0e2fa8bb114ecb8b5b6a76b
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94616556"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205546"
 ---
 # <a name="troubleshooting-azure-digital-twins-resource-health"></a>Solución de problemas de Azure Digital Twins: Estado de los recursos
 
@@ -32,13 +32,13 @@ Para comprobar el estado de la instancia, siga estos pasos:
 
     :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="Captura de pantalla que muestra la página &quot;Resource Health&quot;. Hay una sección &quot;Historial de estado&quot; que muestra un informe diario de los últimos nueve días. Cada día muestra el estado &quot;Disponible&quot;.":::
 
-En la imagen anterior, esta instancia se muestra como *Disponible* y lo ha estado durante los últimos nueve días. Para más información sobre el estado *Disponible* y los otros tipos de estado que pueden aparecer, consulte [*Introducción a Resource Health*](../service-health/resource-health-overview.md).
+En la imagen anterior, esta instancia se muestra como *Disponible* y lo ha estado durante los últimos nueve días. Para más información sobre el estado *Disponible* y los otros tipos de estado que pueden aparecer, consulte [Introducción a Resource Health](../service-health/resource-health-overview.md).
 
-También puede encontrar más información sobre las distintas comprobaciones que entran en el estado de los recursos para los diferentes tipos de recursos de Azure en [*Tipos de recursos y comprobaciones de estado en Azure Resource Health*](../service-health/resource-health-checks-resource-types.md).
+También puede encontrar más información sobre las distintas comprobaciones que entran en el estado de los recursos para los diferentes tipos de recursos de Azure en [Tipos de recursos y comprobaciones de estado en Azure Resource Health](../service-health/resource-health-checks-resource-types.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Consulte otras formas de supervisar la instancia de Azure Digital Twins en los siguientes artículos:
-* [*Solución de problemas: Visualización de métricas con Azure Monitor*](troubleshoot-metrics.md)
-* [*Solución de problemas: Configuración de diagnósticos*](troubleshoot-diagnostics.md).
-* [*Solución de problemas: Configuración de alertas*](troubleshoot-alerts.md)
+* [Solución de problemas: Visualización de métricas con Azure Monitor](troubleshoot-metrics.md)
+* [Solución de problemas: Configuración de diagnósticos](troubleshoot-diagnostics.md).
+* [Solución de problemas: Configuración de alertas](troubleshoot-alerts.md)

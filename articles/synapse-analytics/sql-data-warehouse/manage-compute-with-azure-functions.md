@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f0731f0deaf46ec419cfe43037804e10f2b73fd4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d471991be570cd5242b5e163409e319e5af4094
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96448375"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790350"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-for-your-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Uso de Azure Functions para administrar los recursos del proceso del grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics.
 
@@ -42,7 +42,8 @@ Una vez que tenga la información anterior, implemente esta plantilla:
 
 Una vez implementada la plantilla, encontrará tres nuevos recursos: un plan gratuito de Azure App Service, un consumo basado en el plan de Function App y una cuenta de almacenamiento que controlará el registro y la cola de operaciones. Seguir leyendo las demás secciones para saber cómo modificar las funciones implementadas para que se ajusten a sus necesidades.
 
-## <a name="change-the-compute-level"></a>Cambio del nivel de proceso
+## <a name="change-the-time-of-the-scale-operation"></a>Cambio de la hora de la operación de escalado
+
 
 1. Vaya a Function App Service. Si ha implementado la plantilla con los valores predeterminados, este servicio debe denominarse *DWOperations*. Una vez se abre Function App, observará cinco funciones implementadas para Function App Service.
 
@@ -66,7 +67,7 @@ Una vez implementada la plantilla, encontrará tres nuevos recursos: un plan gra
 
    Por ejemplo, *"0 30 9 * * 1-5"* reflejaría un desencadenador a las 9:30 a. m. de cada día de la semana. Para más información, visite los [ejemplos de programación](../../azure-functions/functions-bindings-timer.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#example) de Azure Functions.
 
-## <a name="change-the-time-of-the-scale-operation"></a>Cambio de la hora de la operación de escalado
+## <a name="change-the-compute-level"></a>Cambio del nivel de proceso
 
 1. Vaya a Function App Service. Si ha implementado la plantilla con los valores predeterminados, este servicio debe denominarse *DWOperations*. Una vez se abre Function App, observará cinco funciones implementadas para Function App Service.
 

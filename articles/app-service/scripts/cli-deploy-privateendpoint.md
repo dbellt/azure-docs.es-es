@@ -9,12 +9,12 @@ ms.date: 07/06/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: acebc75b579b13ebb2cfad0e18057245781165ad
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3c8d0927c3fb74c52e54ceb5ff8ba5c0361c4f46
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175284"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787858"
 ---
 # <a name="create-an-app-service-app-and-deploy-private-endpoint-using-azure-cli"></a>Creación de una aplicación de App Service e implementación de un punto de conexión privado mediante la CLI de Azure
 
@@ -37,7 +37,7 @@ az group create --name myResourceGroup --location francecentral
 ## <a name="create-an-app-service-plan"></a>Creación de un plan de App Service
 
 Debe crear un plan de App Service para hospedar la aplicación web.
-Hágalo con el comando [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create).
+Hágalo con el comando [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create).
 En este ejemplo se crea un plan de App Service denominado *myAppServicePlan* en la ubicación *francecentral* con el plan de tarifa *P1V2* y un solo rol de trabajo: 
 
 ```azurecli-interactive
@@ -52,7 +52,7 @@ az appservice plan create \
 ## <a name="create-a-web-app"></a>Creación de una aplicación web
 
 Ahora que tiene un plan de App Service puede implementar una aplicación web.
-Cree una aplicación web con [az appservice plan create](/cli/azure/webapp#az-webapp-create.
+Cree una aplicación web con [az appservice plan create](/cli/azure/webapp#az_webapp_create.
 En este ejemplo se crea una aplicación web denominada *mySiteName* en el plan denominado *myAppServicePlan*.
 
 ```azurecli-interactive
@@ -78,7 +78,7 @@ az network vnet create \
 
 ## <a name="configure-the-subnet"></a>Configuración de la subred 
 
-Debe actualizar la subred para deshabilitar las directivas de red del punto de conexión privado. Actualice una configuración de subred denominada *mySubnet* con [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+Debe actualizar la subred para deshabilitar las directivas de red del punto de conexión privado. Actualice una configuración de subred denominada *mySubnet* con [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update):
 
 ```azurecli-interactive
 az network vnet subnet update \

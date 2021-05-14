@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 1366f24ec3bd35ec23d5bf0879fced367c9f6a45
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 6da83ceb6d8ee51916d25949309d7ddfba0e4b30
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552453"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503615"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Compatibilidad con la fuente de cambios en Azure Blob Storage
 
@@ -67,8 +67,8 @@ Estos son algunos aspectos que hay que tener en cuenta al habilitar la fuente de
 Habilite la fuente de cambios en la cuenta de almacenamiento mediante Azure Portal:
 
 1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de almacenamiento.
-1. Vaya a la opción **Protección de datos** en **Blob service**.
-1. En **Seguimiento**, seleccione **Turn on blob change feed** (Activar la fuente de cambios del blob).
+1. Vaya a la opción **Protección de datos** en **Administración de datos**.
+1. En **Seguimiento**, seleccione **Habilitar la fuente de cambios del blob**.
 1. Elija el botón **Guardar** para confirmar la configuración de protección de datos.
 
     :::image type="content" source="media/storage-blob-change-feed/change-feed-enable-portal.png" alt-text="Captura de pantalla que muestra cómo habilitar la fuente de cambios en Azure Portal":::

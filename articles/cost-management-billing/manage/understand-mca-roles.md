@@ -5,20 +5,24 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/05/2021
+ms.date: 03/10/2021
 ms.author: banders
-ms.openlocfilehash: 00ac61567502984759c5db9837060c86aaee378d
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: e334a423fd11aa3a357d52099a792dcc905aedeb
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593593"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011670"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Descripción de los roles administrativos del contrato de cliente de Microsoft en Azure
 
 Para administrar la cuenta de facturación para un contrato de cliente de Microsoft, use los roles descritos en las secciones siguientes. Estos roles son adicionales a los roles integrados que tiene Azure para controlar el acceso a los recursos. Para más información, consulte [Roles integrados en Azure](../../role-based-access-control/built-in-roles.md).
 
-Este artículo se aplica a una cuenta de facturación para un contrato de cliente de Microsoft. Compruebe si tiene acceso a un contrato de cliente de Microsoft.
+Este artículo se aplica a una cuenta de facturación para un contrato de cliente de Microsoft. [Compruebe si tiene acceso a un contrato de cliente de Microsoft](#check-access-to-a-microsoft-customer-agreement).
+
+Vea el vídeo [Administración del acceso a la cuenta de facturación de MCA](https://www.youtube.com/watch?v=9sqglBlKkho) para aprender a controlar el acceso a su cuenta de facturación del Contrato de cliente de Microsoft (MCA).
+
+>[!VIDEO https://www.youtube.com/embed/9sqglBlKkho]
 
 ## <a name="billing-role-definitions"></a>Definiciones de roles de facturación
 
@@ -32,7 +36,7 @@ En la tabla siguiente se describen los roles de facturación que se utilizan par
 |Propietario del perfil de facturación|Administrar todo para el perfil de facturación|
 |Colaborador del perfil de facturación|Administrar todo, excepto los permisos, en el perfil de facturación|
 |Lector del perfil de facturación|Vista de solo lectura de todo en el perfil de facturación|
-|Administrador de facturación|Visualización de facturas de un perfil de facturación|
+|Administrador de facturación|Ver y pagar las facturas para el perfil de facturación|
 |Propietario de la sección de facturas|Administrar todo en la sección de factura|
 |Colaborador de la sección de factura|Administrar todo, excepto los permisos, en la sección de factura|
 |Lector de la sección de facturas|Vista de solo lectura de todo en la sección de factura|
@@ -40,7 +44,7 @@ En la tabla siguiente se describen los roles de facturación que se utilizan par
 
 ## <a name="billing-account-roles-and-tasks"></a>Tareas y roles de la cuenta de facturación
 
-La cuenta de facturación le permite administrar la facturación de la organización. Utilice la cuenta de facturación para organizar costos, supervisar los cargos y facturas y controlar el acceso de facturación para la organización. Para más información, consulte [Descripción de la cuenta de facturación](../understand/mca-overview.md#your-billing-account).
+Cuando se registra para usar Azure, se crea una cuenta de facturación. Use su cuenta de facturación para administrar las facturas, los pagos y hacer seguimiento de los costos. Los roles de la cuenta de facturación tienen el máximo nivel de permisos y los usuarios de estos roles pueden ver el costo y la información de facturación de toda la cuenta. Asigne estos roles solo a los usuarios que necesiten ver las facturas y realizar el seguimiento de los costos de toda la cuenta, como los miembros de los equipos de finanzas y contabilidad. Para más información, consulte [Descripción de la cuenta de facturación](../understand/mca-overview.md#your-billing-account).
 
 En las tablas siguientes se muestra qué rol necesita para completar las tareas en el contexto de la cuenta de facturación.
 
@@ -48,45 +52,44 @@ En las tablas siguientes se muestra qué rol necesita para completar las tareas 
 
 |Tarea|Propietario de la cuenta de facturación|Colaborador de la cuenta de facturación|Lector de la cuenta de facturación|
 |---|---|---|---|
-|Ver los permisos existentes para la cuenta de facturación|✔|✔|✔|
+|Ver las asignaciones de roles para la cuenta de facturación|✔|✔|✔|
 |Conceder a otros usuarios permisos para consultar y administrar la cuenta de facturación|✔|✘|✘|
-|Consultar las propiedades de la cuenta de facturación, como el nombre de la compañía, la dirección y mucho más|✔|✔|✔|
+|Consultar las propiedades de la cuenta de facturación, como la dirección, los contratos, etc.|✔|✔|✔|
+|Actualizar las propiedades de la cuenta de facturación, como el comprador, el nombre para mostrar, etc.|✔|✔|✘|
 
 ### <a name="manage-billing-profiles-for-billing-account"></a>Administrar perfiles de facturación para la cuenta de facturación
 
 |Tarea|Propietario de la cuenta de facturación|Colaborador de la cuenta de facturación|Lector de la cuenta de facturación|
 |---|---|---|---|
 |Ver todos los perfiles de facturación de la cuenta|✔|✔|✔|
+|Crear perfiles de facturación nuevos|✔|✔|✘|
 
 ### <a name="manage-invoices-for-billing-account"></a>Administrar las facturas de la cuenta de facturación
 
 |Tarea|Propietario de la cuenta de facturación|Colaborador de la cuenta de facturación|Lector de la cuenta de facturación|
 |---|---|---|---|
 |Consultar todas las facturas de la cuenta|✔|✔|✔|
-|Descargar facturas, los archivos de uso y de cargos de Azure, las hojas de precios y los documentos fiscales de la cuenta|✔|✔|✔|
+|Pagar las facturas con tarjeta de crédito|✔|✔|✘|
+|Descargar las facturas, los archivos de uso de Azure, las hojas de precios y los documentos fiscales|✔|✔|✔|
 
-### <a name="manage-invoice-sections-for-billing-account"></a>Administrar las secciones de factura para la cuenta de facturación
-
-|Tarea|Propietario de la cuenta de facturación|Colaborador de la cuenta de facturación|Lector de la cuenta de facturación|
-|---|---|---|---|
-|Ver todas las secciones de factura de la cuenta|✔|✔|✔|
-
-### <a name="manage-transactions-for-billing-account"></a>Administrar las transacciones para la cuenta de facturación
+### <a name="manage-products-for-billing-account"></a>Administrar los productos de la cuenta de facturación
 
 |Tarea|Propietario de la cuenta de facturación|Colaborador de la cuenta de facturación|Lector de la cuenta de facturación|
 |---|---|---|---|
-|Ver todas las transacciones de facturación para la cuenta|✔|✔|✔|
 |Ver todos los productos comprados para la cuenta|✔|✔|✔|
+|Administrar la facturación para los productos, como cancelar, desactivar la renovación automática, etc.|✔|✔|✘|
 
 ### <a name="manage-subscriptions-for-billing-account"></a>Administración de suscripciones para la cuenta de facturación
 
 |Tarea|Propietario de la cuenta de facturación|Colaborador de la cuenta de facturación|Lector de la cuenta de facturación|
 |---|---|---|---|
-|Ver todas las suscripciones de Azure en la cuenta de facturación|✔|✔|✔|
+|Ver todas las suscripciones de Azure creadas para la cuenta de facturación|✔|✔|✔|
+|Crear suscripciones de Azure nuevas|✔|✔|✘|
+|Cancelar suscripciones de Azure|✘|✘|✘|
 
 ## <a name="billing-profile-roles-and-tasks"></a>Tareas y roles del perfil de facturación
 
-El perfil de facturación le permite administrar las facturas y los métodos de pago. Se genera una factura mensual para las suscripciones de Azure y otros productos comprados mediante el perfil de facturación. Utilice los métodos de pago para pagar la factura. Para más información, consulte [Descripción de los perfiles de facturación](../understand/mca-overview.md#billing-profiles).
+Cada cuenta de facturación tiene al menos un perfil de facturación. El primer perfil de facturación se configura al registrarse para usar Azure. Para el perfil de facturación se genera una factura mensual, con todos los cargos asociados del mes anterior. Puede configurar más perfiles de facturación en función de sus necesidades. Los usuarios con roles en un perfil de facturación pueden ver el costo, establecer el presupuesto, y administrar y pagar las facturas. Asigne estos roles a los usuarios responsables de administrar el presupuesto y pagar las facturas del perfil de facturación, como los miembros de los equipos de administración de la organización. Para más información, consulte [Descripción de los perfiles de facturación](../understand/mca-overview.md#billing-profiles).
 
 En las tablas siguientes se muestra qué rol necesita para completar las tareas en el contexto del perfil de facturación.
 
@@ -94,20 +97,19 @@ En las tablas siguientes se muestra qué rol necesita para completar las tareas 
 
 |Tarea|Propietario del perfil de facturación|Colaborador del perfil de facturación|Lector del perfil de facturación|Administrador de facturación|Propietario de la cuenta de facturación|Colaborador de la cuenta de facturación|Lector de la cuenta de facturación
 |---|---|---|---|---|---|---|---|
-|Ver los permisos existentes para el perfil de facturación|✔|✔|✔|✔|✔|✔|✔|
-|Conceder a otros usuarios permisos para consultar y administrar el perfil de facturación|✔|✘|✘|✘|✘|✘|✘|
-|Consultar las propiedades del perfil de facturación, como el número de pedido de compra, las preferencias de la factura de correo electrónico y mucho más|✔|✔|✔|✔|✔|✔|✔|
-|Actualizar las propiedades del perfil de facturación |✔|✔|✘|✘|✘|✘|✘|
-|Ver las directivas aplicadas en el perfil de facturación, como habilitar las compras de reservas de Azure, habilitar las compras de Azure Marketplace, y mucho más|✔|✔|✔|✔|✔|✔|✔|
-|Aplicar las directivas en el perfil de facturación |✔|✔|✘|✘|✘|✘|✘|
-|Administrar pedidos de reserva |✔|✔|✘|✘|✘|✘|✘|
-|Ver pedidos de reserva |✔|✔|✔|✘|✘|✘|✘|
+|Ver las asignaciones de roles para el perfil de facturación|✔|✔|✔|✔|✔|✔|✔|
+|Conceder a otros usuarios permisos para consultar y administrar el perfil de facturación|✔|✘|✘|✘|✔|✘|✘|
+|Ver las propiedades del perfil de facturación, como el número del pedido de compra, la facturación, etc.|✔|✔|✔|✔|✔|✔|✔|
+|Actualizar las propiedades del perfil de facturación |✔|✔|✘|✘|✔|✔|✘|
+|Ver las directivas aplicadas en el perfil de facturación, como las compras de reservas de Azure, las compras de Azure Marketplace, etc.|✔|✔|✔|✔|✔|✔|✔|
+|Aplicar las directivas en el perfil de facturación |✔|✔|✘|✘|✔|✔|✘|
 
 ### <a name="manage-invoices-for-billing-profile"></a>Administrar las facturas para el perfil de facturación
 
 |Tarea|Propietario del perfil de facturación|Colaborador del perfil de facturación|Lector del perfil de facturación|Administrador de facturación|Propietario de la cuenta de facturación|Colaborador de la cuenta de facturación|Lector de la cuenta de facturación
 |---|---|---|---|---|---|---|---|
 |Ver todas las facturas para el perfil de facturación|✔|✔|✔|✔|✔|✔|✔|
+|Pagar las facturas con tarjeta de crédito|✔|✔|✘|✔|✔|✘|✘|
 |Descargar facturas, los archivos de uso y de cargos de Azure, las hojas de precios y los documentos fiscales para el perfil de facturación|✔|✔|✔|✔|✔|✔|✔|
 
 ### <a name="manage-invoice-sections-for-billing-profile"></a>Administración de las secciones de factura para el perfil de facturación
@@ -115,19 +117,22 @@ En las tablas siguientes se muestra qué rol necesita para completar las tareas 
 |Tarea|Propietario del perfil de facturación|Colaborador del perfil de facturación|Lector del perfil de facturación|Administrador de facturación|Propietario de la cuenta de facturación|Colaborador de la cuenta de facturación|Lector de la cuenta de facturación
 |---|---|---|---|---|---|---|---|
 |Ver todas las secciones de factura para el perfil de facturación|✔|✔|✔|✔|✔|✔|✔|
-|Crear una nueva sección de factura para el perfil de facturación|✔|✔|✘|✘|✘|✘|✘|
+|Crear una nueva sección de factura para el perfil de facturación|✔|✔|✘|✘|✔|✔|✘|
 
-### <a name="manage-transactions-for-billing-profile"></a>Administrar las transacciones para el perfil de facturación
+### <a name="manage-products-for-billing-profile"></a>Administrar los productos para el perfil de facturación
 
 |Tarea|Propietario del perfil de facturación|Colaborador del perfil de facturación|Lector del perfil de facturación|Administrador de facturación|Propietario de la cuenta de facturación|Colaborador de la cuenta de facturación|Lector de la cuenta de facturación
 |---|---|---|---|---|---|---|---|
-|Ver todas las transacciones de facturación para el perfil de facturación|✔|✔|✔|✔|✔|✔|✔|
+|Ver todos los productos comprads para el perfil de facturación|✔|✔|✔|✔|✔|✔|✔|
+|Administrar la facturación para los productos, como cancelar, desactivar la renovación automática, etc.|✔|✔|✘|✘|✔|✔|✘|
+|Cambiar perfil de facturación de los productos|✔|✔|✘|✘|✔|✔|✘|
 
 ### <a name="manage-payment-methods-for-billing-profile"></a>Administrar los métodos de pago para el perfil de facturación
 
 |Tarea|Propietario del perfil de facturación|Colaborador del perfil de facturación|Lector del perfil de facturación|Administrador de facturación|Propietario de la cuenta de facturación|Colaborador de la cuenta de facturación|Lector de la cuenta de facturación
 |---|---|---|---|---|---|---|---|
 |Ver los métodos de pago para el perfil de facturación|✔|✔|✔|✔|✔|✔|✔|
+|Administrar los métodos de pago, como reemplazar la tarjeta de crédito, desvincular la tarjeta de crédito, etc.|✔|✔|✘|✘|✔|✔|✘|
 |Realizar el seguimiento del saldo del crédito de Azure para el perfil de facturación|✔|✔|✔|✔|✔|✔|✔|
 
 ### <a name="manage-subscriptions-for-billing-profile"></a>Administrar las suscripciones para el perfil de facturación
@@ -135,47 +140,54 @@ En las tablas siguientes se muestra qué rol necesita para completar las tareas 
 |Tarea|Propietario del perfil de facturación|Colaborador del perfil de facturación|Lector del perfil de facturación|Administrador de facturación|Propietario de la cuenta de facturación|Colaborador de la cuenta de facturación|Lector de la cuenta de facturación
 |---|---|---|---|---|---|---|---|
 |Ver todas las suscripciones de Azure para el perfil de facturación|✔|✔|✔|✔|✔|✔|✔|
+|Crear suscripciones de Azure nuevas|✔|✔|✘|✘|✔|✔|✘|
+|Cancelar suscripciones de Azure|✘|✘|✘|✘|✘|✘|✘|
+|Cambiar el perfil de facturación de las suscripciones de Azure|✔|✔|✘|✘|✔|✔|✘|
 
 ## <a name="invoice-section-roles-and-tasks"></a>Tareas y roles de la sección de factura
 
-Una sección de factura le permite organizar los costos en la factura. Puede crear una sección para organizar los costos por departamento, entorno de desarrollo o en función de las necesidades de la organización. Conceda permiso a otros usuarios para crear suscripciones a Azure para la sección. Los cargos por uso y las compras de las suscripciones se muestran entonces en la sección de la factura. Para más información, consulte [Descripción de las secciones de factura](../understand/mca-overview.md#invoice-sections).
+Cada perfil de facturación contiene una sección de factura de forma predeterminada. Puede crear más secciones de factura para agrupar los costos en la factura del perfil de facturación.  Los usuarios con roles en la sección de factura controlan quién crea suscripciones de Azure y realizan otras compras. Asigne estos roles a los usuarios que configuren el entorno de Azure para los equipos de nuestra organización, como los jefes de ingeniería y los arquitectos técnicos. Para más información, consulte [Descripción de las secciones de factura](../understand/mca-overview.md#invoice-sections).
 
 En las tablas siguientes se muestra qué rol necesita para completar las tareas en el contexto de las secciones de factura.
 
 ### <a name="manage-invoice-section-permissions-and-properties"></a>Administración de los permisos y propiedades de la sección de factura
 
-|Tareas|Propietario de la sección de facturas|Colaborador de la sección de factura|Lector de la sección de facturas|Creador de la suscripción a Azure|Propietario de la cuenta de facturación|Colaborador de la cuenta de facturación|Lector de la cuenta de facturación |
-|---|---|---|---|---|---|---|---|
-|Ver todos los permisos en la sección de factura|✔|✔|✔|✔|✔|✔|✔|
-|Conceder a otros usuarios permisos para consultar y administrar la sección de factura|✔|✘|✘|✘|✘|✘|✘|
-|Ver las propiedades de la sección de factura|✔|✔|✔|✔|✔|✔|✔|
-|Actualizar las propiedades de la sección de factura|✔|✔|✘|✘|✘|✘|✘|
+|Tareas|Propietario de la sección de facturas|Colaborador de la sección de factura|Lector de la sección de facturas|Creador de la suscripción a Azure|Propietario del perfil de facturación|Colaborador del perfil de facturación|Lector del perfil de facturación |Administrador de facturación|Propietario de la cuenta de facturación|Colaborador de la cuenta de facturación|Lector de la cuenta de facturación 
+|---|---|---|---|---|---|---|---|---|---|---|---|
+|Ver las asignaciones de roles para la sección de factura|✔|✔|✔|✘|✔|✔|✔|✔|✔|✔|✔|
+|Conceder a otros usuarios permisos para consultar y administrar la sección de factura|✔|✘|✘|✘|✔|✘|✘|✘|✔|✘|✘|
+|Ver las propiedades de la sección de factura|✔|✔|✔|✘|✔|✔|✔|✔|✔|✔|✔|
+|Actualizar las propiedades de la sección de factura|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
 
 ### <a name="manage-products-for-invoice-section"></a>Administrar los productos para la sección de factura
 
-|Tareas|Propietario de la sección de facturas|Colaborador de la sección de factura|Lector de la sección de facturas|Creador de la suscripción a Azure|Propietario de la cuenta de facturación|Colaborador de la cuenta de facturación|Lector de la cuenta de facturación
-|---|---|---|---|---|---|---|---|
-|Ver todos los productos que ha comprado en la sección de factura|✔|✔|✔|✘|✔|✔|✔|
-|Administrar la facturación para los productos para la sección de factura, como cancelar, desactivar la renovación automática y mucho más|✔|✔|✘|✘|✘|✘|✘|
-|Cambiar la sección de factura para los productos|✔|✔|✘|✘|✘|✘|✘|
+|Tareas|Propietario de la sección de facturas|Colaborador de la sección de factura|Lector de la sección de facturas|Creador de la suscripción a Azure|Propietario del perfil de facturación|Colaborador del perfil de facturación|Lector del perfil de facturación |Administrador de facturación|Propietario de la cuenta de facturación|Colaborador de la cuenta de facturación|Lector de la cuenta de facturación 
+|---|---|---|---|---|---|---|---|---|---|---|---|
+|Ver todos los productos comprados en la sección de factura|✔|✔|✔|✘|✔|✔|✔|✔|✔|✔|✔|
+|Administrar la facturación para los productos, como cancelar, desactivar la renovación automática, etc.|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
+|Cambiar la sección de factura para los productos|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
 
 ### <a name="manage-subscriptions-for-invoice-section"></a>Administrar las suscripciones para la sección de factura
 
-|Tareas|Propietario de la sección de facturas|Colaborador de la sección de factura|Lector de la sección de facturas|Creador de la suscripción a Azure|Propietario de la cuenta de facturación|Colaborador de la cuenta de facturación|Lector de la cuenta de facturación
-|---|---|---|---|---|---|---|---|
-|Visualización de todas las suscripciones a Azure para la sección de factura|✔|✔|✔|✘|✔|✔|✔|
-|Cambiar la sección de factura para las suscripciones|✔|✔|✘|✘|✘|✘|✘|
-|Solicitud de la propiedad de la facturación de las suscripciones de usuarios de otras cuentas de facturación|✔|✔|✘|✘|✘|✘|✘|
+|Tareas|Propietario de la sección de facturas|Colaborador de la sección de factura|Lector de la sección de facturas|Creador de la suscripción a Azure|Propietario del perfil de facturación|Colaborador del perfil de facturación|Lector del perfil de facturación |Administrador de facturación|Propietario de la cuenta de facturación|Colaborador de la cuenta de facturación|Lector de la cuenta de facturación 
+|---|---|---|---|---|---|---|---|---|---|---|---|
+|Visualización de todas las suscripciones a Azure para la sección de factura|✔|✔|✔|✘|✔|✔|✔|✔|✔|✔|✔|
+|Creación de suscripciones a Azure|✔|✔|✘|✔|✔|✔|✘|✘|✔|✔|✘|
+|Cancelar suscripciones de Azure|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|
+|Cambiar la sección de factura para la suscripción de Azure|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
+|Solicitud de la propiedad de la facturación de las suscripciones de usuarios de otras cuentas de facturación|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
 
 ## <a name="subscription-billing-roles-and-tasks"></a>Tareas y roles de la facturación de suscripción
 
 En la tabla siguiente se muestra qué rol necesita para completar las tareas en el contexto de una suscripción.
 
-|Tareas|Propietario de la sección de facturas|Colaborador de la sección de factura|Lector de la sección de facturas|Creador de la suscripción a Azure|
-|---|---|---|---|---|
-|Creación de suscripciones a Azure|✔|✔|✘|✔|
-|Actualizar el centro de coste para la suscripción|✔|✔|✘|✘|
-|Cambiar la sección de factura para la suscripción|✔|✔|✘|✘|
+|Tareas|Propietario de la sección de facturas|Colaborador de la sección de factura|Lector de la sección de facturas|Creador de la suscripción a Azure|Propietario del perfil de facturación|Colaborador del perfil de facturación|Lector del perfil de facturación |Administrador de facturación|Propietario de la cuenta de facturación|Colaborador de la cuenta de facturación|Lector de la cuenta de facturación 
+|---|---|---|---|---|---|---|---|---|---|---|---|
+|Creación de suscripciones|✔|✔|✘|✔|✔|✔|✘|✘|✔|✔|✘|
+|Actualizar el centro de coste para la suscripción|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
+|Cambiar la sección de factura para la suscripción|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
+|Cambiar el perfil de facturación para la suscripción|✘|✘|✘|✘|✔|✔|✘|✘|✔|✔|✘|
+|Cancelar suscripciones de Azure|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|
 
 ## <a name="manage-billing-roles-in-the-azure-portal"></a>Administración de roles integrados en Azure Portal
 

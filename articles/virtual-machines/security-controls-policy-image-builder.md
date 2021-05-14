@@ -1,7 +1,7 @@
 ---
 title: Controles de cumplimiento normativo de Azure Policy para Azure Image Builder
 description: En este artículo, se muestran los controles de Cumplimiento normativo de Azure Policy disponibles para Azure Image Builder. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 04/14/2021
+ms.date: 05/04/2021
 ms.topic: sample
 author: cynthn
 ms.author: cynthn
@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 76db40d506e84c5b4621c6fe53991d9748b47e4e
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: c9e315175350d8f308e81bc4232faebc584d110e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502241"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108744122"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-image-builder"></a>Controles de cumplimiento normativo de Azure Policy para Azure Image Builder
 

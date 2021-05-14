@@ -1,14 +1,14 @@
 ---
 title: Ejemplos y plantillas de Azure Lighthouse
-description: En estos ejemplos y plantillas de Azure Resource Manager se muestra cómo incorporar clientes para la administración de recursos delegados de Azure y cómo dar soporte a escenarios de Azure Lighthouse.
+description: Estos ejemplos y plantillas de Azure Resource Manager le ayudan a incorporar clientes y a admitir escenarios de Azure Lighthouse.
 ms.topic: sample
-ms.date: 12/11/2020
-ms.openlocfilehash: c91f79f50b03142a4be935eac6409e0a07371a54
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.date: 05/11/2021
+ms.openlocfilehash: 356b929749e9098dbb618dfd7a484c87ae3d69a5
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356279"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785878"
 ---
 # <a name="azure-lighthouse-samples"></a>Ejemplos de Azure Lighthouse
 
@@ -32,5 +32,5 @@ En la tabla siguiente se incluyen vínculos a plantillas de Azure Resource Manag
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre la [administración de recursos delegados de Azure](../concepts/azure-delegated-resource-management.md).
+- Obtenga información sobre los [conceptos técnicos y la arquitectura de Azure Lighthouse](../concepts/architecture.md).
 - Explore el [repositorio de ejemplos de Azure Lighthouse](https://github.com/Azure/Azure-Lighthouse-samples/).

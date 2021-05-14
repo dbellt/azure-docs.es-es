@@ -1,16 +1,16 @@
 ---
 title: Configuración de reglas y administración de alertas
 description: Se describe cómo configurar reglas y administrar alertas en FarmBeats.
-author: uhabiba04
+author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-ummehabiba
-ms.openlocfilehash: a04f973cbfa3a68016065f50e9e2ff4f7566da94
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.author: riyazp
+ms.openlocfilehash: b9110d522d6b7b07549d022be5c67f204224cd0d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182934"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751416"
 ---
 # <a name="configure-rules-and-manage-alerts"></a>Configuración de reglas y administración de alertas
 

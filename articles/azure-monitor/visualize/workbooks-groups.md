@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: b36dec79e5d60d97c11b9f8c74790527e1bd19fb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b5a599a17a82a7f0798318c10d8dce61d9f39c6a
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101731364"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017380"
 ---
 # <a name="how-to-use-groups-in-workbooks"></a>Uso de grupos en los libros
 
@@ -56,7 +56,7 @@ El elemento Grupo de libro permite agregar un grupo de elementos a un libro. Com
 - Modificable
   - El grupo del libro le permite agregar, quitar o editar el contenido de los elementos en el grupo. Se suele usar con fines de diseño y visibilidad.
 - Desde una plantilla
-  - El grupo del libro se carga desde el contenido de otra plantilla en función de su identificador. El contenido de dicha plantilla se carga y se combina en el libro en tiempo de ejecución. En el modo de edición, no se puede modificar el contenido del grupo, ya que solo se volverá a cargar desde la plantilla la próxima vez que se cargue el elemento.  
+  - El grupo del libro se carga a partir del contenido de otro libro por su identificador. El contenido de ese libro se carga y se combina en el libro en tiempo de ejecución. En el modo de edición, no se puede modificar el contenido del grupo, ya que solo se volverá a cargar desde la plantilla la próxima vez que se cargue el elemento. Al cargar un grupo desde una plantilla, use el identificador de recurso de Azure completo de un libro existente.
 
 ## <a name="load-types"></a>Tipos de carga
 
@@ -140,7 +140,7 @@ Para convertir una plantilla más grande en varias subplantillas, haga lo siguie
 3. Mueva todos los elementos del libro que quiera incluir en la subplantilla al grupo que creó en el paso 1.
 4. Si los pasos individuales que se movieron en el paso 3 tenían una visibilidad condicional, esta será la nueva visibilidad del grupo externo (como se usa en las pestañas). Quite dicha visibilidad de los elementos dentro del grupo y agregue la configuración de visibilidad al grupo. Guarde e este momento para evitar la pérdida de cambios o exporte y guarde una copia del contenido JSON.
 5. Si quiere que ese grupo se cargue desde una plantilla, puede usar el botón *Editar* de la barra de herramientas del grupo. Se abrirá únicamente el contenido de ese grupo como un libro en una ventana nueva. Después, podrá guardarlo como corresponda y cerrar la vista de libro (no cierre el explorador, solo esa vista para volver al libro anterior que estaba editando).
-6. Después, podrá cambiar el paso de grupo para que se cargue desde la plantilla y establecer el campo "Id. de plantilla" en el libro o plantilla que creó en el paso 5. Para trabajar con los identificadores de los libros, el origen debe ser un identificador de recurso de libro compartido. Presione *Cargar* y el contenido de ese grupo ahora se cargará desde esa subplantilla, en lugar de guardarse dentro de este libro externo.
+6. Después, podrá cambiar el paso de grupo para que se cargue desde la plantilla y establecer el campo "Id. de plantilla" en el libro o plantilla que creó en el paso 5. Para trabajar con los identificadores de libro, el origen debe ser el identificador de recurso de Azure de un libro compartido. Presione *Cargar* y el contenido de ese grupo ahora se cargará desde esa subplantilla, en lugar de guardarse dentro de este libro externo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Información general sobre los libros](./workbooks-overview.md)

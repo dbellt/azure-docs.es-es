@@ -6,16 +6,16 @@ ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
-ms.openlocfilehash: 4c344dc09ad6c8aa4b2aa431952fc271d946b60d
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 9a18609ab0dc41031a22db6d8b21c1fff83920f2
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104787310"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137317"
 ---
 # <a name="tutorial-pull-azure-industrial-iot-data-into-adx"></a>Tutorial: Extracción de datos de Azure Industrial IoT en ADX
 
-La plataforma de Azure Industrial IoT (IIoT) combina módulos perimetrales y microservicios en la nube con varios servicios de PaaS de Azure para proporcionar funcionalidades para la detección de recursos industriales y la recopilación de datos de estos recursos mediante OPC UA. [Azure Data Explorer (ADX)](https://docs.microsoft.com/azure/data-explorer) es un destino natural para los datos de IIoT con características de análisis de datos que permiten ejecutar consultas flexibles en los datos ingeridos de los servidores de OPC UA conectados a IoT Hub mediante OPC Publisher. Aunque un clúster de Azure Data Explorer puede ingerir datos directamente de IoT Hub, la plataforma de IIoT realiza un procesamiento adicional de los datos para que sean más útiles antes de colocarlos en el centro de eventos que se proporciona cuando se usa una implementación completa de los microservicios (consulte la arquitectura de la plataforma de IIoT).
+La plataforma de Azure Industrial IoT (IIoT) combina módulos perimetrales y microservicios en la nube con varios servicios de PaaS de Azure para proporcionar funcionalidades para la detección de recursos industriales y la recopilación de datos de estos recursos mediante OPC UA. [Azure Data Explorer (ADX)](/azure/data-explorer) es un destino natural para los datos de IIoT con características de análisis de datos que permiten ejecutar consultas flexibles en los datos ingeridos de los servidores de OPC UA conectados a IoT Hub mediante OPC Publisher. Aunque un clúster de Azure Data Explorer puede ingerir datos directamente de IoT Hub, la plataforma de IIoT realiza un procesamiento adicional de los datos para que sean más útiles antes de colocarlos en el centro de eventos que se proporciona cuando se usa una implementación completa de los microservicios (consulte la arquitectura de la plataforma de IIoT).
 
 En este tutorial, aprenderá a:
 
@@ -31,13 +31,13 @@ Si observamos el formato del mensaje del centro de eventos (tal y como se define
 ![Estructura](media/tutorial-iiot-data-adx/industrial-iot-in-azure-data-explorer-pic-1.png)
 
 A continuación se indican los pasos necesarios para hacer que los datos estén disponibles en el clúster de Azure Data Explorer y poder consultar los datos de forma eficaz.  
-1. Cree un clúster de Azure Data Explorer. Si no tiene aún un clúster de Azure Data Explorer aprovisionado con la plataforma de IIoT, o si desea usar otro clúster, siga los pasos que se indican [aquí](https://docs.microsoft.com/azure/data-explorer/create-cluster-database-portal#create-a-cluster). 
-2. Habilite la ingesta de streaming en el clúster de Azure Data Explorer como se indica [aquí](https://docs.microsoft.com/azure/data-explorer/ingest-data-streaming#enable-streaming-ingestion-on-your-cluster). 
-3. Cree una base de datos de Azure Data Explorer siguiendo los pasos que se indican [aquí](https://docs.microsoft.com/azure/data-explorer/create-cluster-database-portal#create-a-database).
+1. Cree un clúster de Azure Data Explorer. Si no tiene aún un clúster de Azure Data Explorer aprovisionado con la plataforma de IIoT, o si desea usar otro clúster, siga los pasos que se indican [aquí](/azure/data-explorer/create-cluster-database-portal#create-a-cluster). 
+2. Habilite la ingesta de streaming en el clúster de Azure Data Explorer como se indica [aquí](/azure/data-explorer/ingest-data-streaming#enable-streaming-ingestion-on-your-cluster). 
+3. Cree una base de datos de Azure Data Explorer siguiendo los pasos que se indican [aquí](/azure/data-explorer/create-cluster-database-portal#create-a-database).
 
-En el paso siguiente, se usará la [interfaz web de Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/web-query-data) para ejecutar las consultas necesarias. Asegúrese de agregar el clúster a la interfaz web tal como se explica en el vínculo.  
+En el paso siguiente, se usará la [interfaz web de Azure Data Explorer](/azure/data-explorer/web-query-data) para ejecutar las consultas necesarias. Asegúrese de agregar el clúster a la interfaz web tal como se explica en el vínculo.  
  
-4. Cree una tabla de Azure Data Explorer en la que colocar los datos ingeridos.  Aunque la clase MonitoredItemMessageModel se puede usar para definir el esquema de la tabla de Azure Data Explorer, se recomienda ingerir los datos primero en una tabla de almacenamiento provisional con una columna de tipo [Dinámico](https://docs.microsoft.com/azure/data-explorer/kusto/query/scalar-data-types/dynamic). Esto nos proporciona más flexibilidad a la hora de administrar los datos y de procesarlos en otras tablas (posiblemente combinándolos con otros orígenes de datos) que satisfacen las necesidades de varios casos de uso. La siguiente consulta de Azure Data Explorer crea la tabla de almacenamiento provisional "iiot_stage" con una columna "payload".
+4. Cree una tabla de Azure Data Explorer en la que colocar los datos ingeridos.  Aunque la clase MonitoredItemMessageModel se puede usar para definir el esquema de la tabla de Azure Data Explorer, se recomienda ingerir los datos primero en una tabla de almacenamiento provisional con una columna de tipo [Dinámico](/azure/data-explorer/kusto/query/scalar-data-types/dynamic). Esto nos proporciona más flexibilidad a la hora de administrar los datos y de procesarlos en otras tablas (posiblemente combinándolos con otros orígenes de datos) que satisfacen las necesidades de varios casos de uso. La siguiente consulta de Azure Data Explorer crea la tabla de almacenamiento provisional "iiot_stage" con una columna "payload".
 
 ```
 .create table ['iiot_stage']  (['payload']:dynamic)
@@ -50,7 +50,7 @@ También es necesario agregar una asignación de ingesta de JSON para indicar al
 ```
 
 5. Nuestra tabla ya está lista para recibir datos del centro de eventos. 
-6. Siga las instrucciones que se indican [aquí](https://docs.microsoft.com/azure/data-explorer/ingest-data-event-hub#connect-to-the-event-hub) para conectar el centro de eventos al clúster de Azure Data Explorer y comenzar a ingerir los datos en nuestra tabla de almacenamiento provisional. Solo es necesario crear la conexión, ya que ya tenemos un centro de eventos aprovisionado por la plataforma de IIoT.  
+6. Siga las instrucciones que se indican [aquí](/azure/data-explorer/ingest-data-event-hub#connect-to-the-event-hub) para conectar el centro de eventos al clúster de Azure Data Explorer y comenzar a ingerir los datos en nuestra tabla de almacenamiento provisional. Solo es necesario crear la conexión, ya que ya tenemos un centro de eventos aprovisionado por la plataforma de IIoT.  
 7. Una vez que se comprueba la conexión, los datos comenzarán a fluir hasta la tabla y, después de un breve intervalo, se podrán empezar a examinar los datos de la tabla. Use la siguiente consulta de la interfaz web de Azure Data Explorer para ver una muestra de datos de 10 filas. Aquí se puede ver cómo los datos de la carga se asemejan a la clase MonitoredItemMessageModel mencionada anteriormente.
 
 ![Consultar](media/tutorial-iiot-data-adx/industrial-iot-in-azure-data-explorer-pic-2.png)
@@ -95,9 +95,9 @@ iiot_stage
 }
 ```
 
-Para más información sobre la asignación de tipos de datos en Azure Data Explorer, consulte [esta información](https://docs.microsoft.com/azure/data-explorer/kusto/query/scalar-data-types/dynamic) y para ver las funciones de Azure Data Explorer puede empezar por [aquí](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/stored-functions).
+Para más información sobre la asignación de tipos de datos en Azure Data Explorer, consulte [esta información](/azure/data-explorer/kusto/query/scalar-data-types/dynamic) y para ver las funciones de Azure Data Explorer puede empezar por [aquí](/azure/data-explorer/kusto/query/schema-entities/stored-functions).
  
-11. Aplique la función del paso anterior a la tabla analizada mediante una directiva de actualización. La [directiva](https://docs.microsoft.com/azure/data-explorer/kusto/management/updatepolicy) de actualización indica a Azure Data Explorer que anexe datos automáticamente a una tabla de destino cada vez que se inserten nuevos datos en la tabla de origen, en función de una consulta de transformación que se ejecuta en los datos insertados en la tabla de origen. Se puede usar la siguiente consulta para asignar la tabla analizada como destino y la tabla de almacenamiento provisional como origen de la directiva de actualización definida por la función que se creó en el paso anterior.
+11. Aplique la función del paso anterior a la tabla analizada mediante una directiva de actualización. La [directiva](/azure/data-explorer/kusto/management/updatepolicy) de actualización indica a Azure Data Explorer que anexe datos automáticamente a una tabla de destino cada vez que se inserten nuevos datos en la tabla de origen, en función de una consulta de transformación que se ejecuta en los datos insertados en la tabla de origen. Se puede usar la siguiente consulta para asignar la tabla analizada como destino y la tabla de almacenamiento provisional como origen de la directiva de actualización definida por la función que se creó en el paso anterior.
 
 ```
 .alter table iiot_parsed policy update

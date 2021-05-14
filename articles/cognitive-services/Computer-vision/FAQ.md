@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: e8ab205a43e5cb1e8e2b96dbd9600e1fceb29403
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a266023bbf44ef0a3ad4a6f4951fa3995ad917c0
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "68564602"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785446"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Preguntas frecuentes sobre Computer Vision API
 
 > [!TIP]
-> Si no puede encontrar respuestas a sus preguntas en estas P+F, puede plantearlas en la comunidad de Computer Vision API en [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) o ponerse en contacto con [Ayuda y soporte técnico en UserVoice](https://cognitive.uservoice.com/).
+> Si no puede encontrar respuestas a sus preguntas en estas P+F, puede plantearlas en la comunidad de Computer Vision API en [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) o ponerse en contacto con Ayuda y soporte técnico en UserVoice.
 
 ---
 
@@ -31,44 +31,16 @@ ms.locfileid: "68564602"
 
 ---
 
-**Pregunta**: *¿Se puede usar Computer Vision localmente sin una conexión a Internet?*
 
-**Respuesta**: Actualmente no ofrecemos una solución local.
+**Pregunta**: *¿Puedo implementar la capacidad OCR (Read) en las instalaciones?*
+
+**Respuesta**: Sí, la API de la nube de OCR (Read) también está disponible como contenedor de Docker para la implementación local. Aprenda [cómo implementar los contenedores de OCR](/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers).
 
 ---
 
 **Pregunta**: *¿Se puede usar Computer Vision para leer matrículas de entidad de almacén?*
 
-**Respuesta**: Vision API ofrece una buena detección de texto con OCR, pero en este momento no está actualizada para matrículas de entidad de almacén. En nuestro esfuerzo constante por mejorar nuestros servicios, hemos agregado OCR para el reconocimiento automático de matrículas a nuestra lista de solicitudes de características.
+**Respuesta**: La API de Vision incluye las capacidades OCR con tecnología de aprendizaje profundo con la última característica de Read. Nos esforzamos constantemente por mejorar nuestros servicios para que funcionen en todos los escenarios.
 
 ---
 
-**Pregunta**: *¿Qué tipos de superficies se admiten para el reconocimiento de escritura a mano?*
-
-**Respuesta**: La tecnología funciona con distintas clases de superficies, como pizarras, notas del producto y notas rápidas.
-
----
-
-**Pregunta**: *¿Cuánto tarda la operación de reconocimiento de escritura a mano?*
-
-**Respuesta**: Depende de la longitud del texto. Con textos más largos, puede tardar hasta varios segundos. Por lo tanto, una vez finalizada la operación de reconocimiento de texto escrito a mano, puede que deba esperar antes de poder recuperar los resultados mediante la operación de obtención de resultados de la operación de texto escrito a mano.
-
----
-
-**Pregunta**: *¿Cómo trata la tecnología de reconocimiento de escritura a mano el texto que se ha insertado mediante un signo de intercalación en medio de una línea?*
-
-**Respuesta**: La operación de reconocimiento de escritura a mano devuelve dicho texto como una línea independiente.
-
----
-
-**Pregunta**: *¿Cómo trata la tecnología de reconocimiento de escritura a mano las palabras o líneas tachadas?*
-
-**Respuesta**: Si las palabras están tachadas con varias líneas para presentarlas como irreconocibles, la operación de reconocimiento de escritura a mano no las selecciona. Sin embargo, si las palabras están tachadas con una sola línea, ese tachado se trata como ruido y la operación de reconocimiento de escritura a mano sigue seleccionando las palabras.
-
----
-
-**Pregunta**: *¿Qué orientación de texto se admite en la tecnología de reconocimiento de escritura a mano?*
-
-**Respuesta**: La operación de reconocimiento de escritura a mano puede seleccionar texto orientado en ángulos de entre 30 y 40 grados.
-
----

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/10/2021
 ms.author: duau
-ms.openlocfilehash: 7214e06b42cbc69a31ad66504301038c72728aa1
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 524ce2b1049d9ce9818c1cfdcd8c272063b4ddb9
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310757"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324426"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Asociados de conectividad de ExpressRoute y ubicaciones de emparejamiento
 
@@ -83,12 +83,13 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **[Centros de datos de Ascenty](https://www.ascenty.com/en/cloud/microsoft-express-route)** |Compatible |Compatible |Sao Paulo |
 | **[AT&amp;T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Compatible |Compatible |Ámsterdam, Chicago, Dallas, Frankfurt, Hong Kong, Londres, Silicon Valley, Singapur, Sidney, Tokio, Toronto, Washington DC |
 | **[AT TOKYO](https://www.attokyo.com/connectivity/azure.html)** | Compatible | Compatible | Osaka, Tokyo2 |
-| **[BBIX](https://www.bbix.net/en/service/ix/)** | Compatible | Compatible | Tokio |
+| **[BICS](https://bics.com/bics-solutions-suite/cloud-connect/bics-cloud-connect-an-official-microsoft-azure-technology-partner/)** | Compatible | Compatible | Ámsterdam2 |
+| **[BBIX](https://www.bbix.net/en/service/ix/)** | Compatible | Compatible | Osaka, Tokyo |
 | **[BCX](https://www.bcx.co.za/solutions/connectivity/data-networks)** |Compatible |Compatible |Ciudad del cabo, Johannesburgo|
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Compatible |Compatible |Montreal, Toronto, Ciudad de Quebec |
-| **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** |Compatible |Compatible |Ámsterdam, Ámsterdam2, Chicago, RAE de Hong Kong, Johannesburgo, Londres, Londres2, Newport (Gales), París, Sao Paulo, Silicon Valley, Singapur, Sídney, Tokio, Washington DC |
+| **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** |Compatible |Compatible |Ámsterdam, Ámsterdam2, Chicago, Frankfurt, RAE de Hong Kong, Johannesburgo, Londres, Londres2, Newport (Gales), París, Sao Paulo, Silicon Valley, Singapur, Sídney, Tokio, Washington DC. |
 | **[BSNL](https://www.bsnl.co.in/opencms/bsnl/BSNL/services/enterprises/cloudway.html)** |Compatible |Compatible |Chennai, Mumbai |
-| **[C3ntro](https://www.c3ntro.com/data1/express-route1.php)** |Compatible |Compatible |Miami |
+| **[C3ntro](https://www.c3ntro.com/)** |Compatible |Compatible |Miami |
 | **CDC** | Compatible | Compatible | Canberra, Canberra 2 |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Compatible |Compatible |Ámsterdam2, Chicago, Dublín, Frankfurt, Hong Kong, Las Vegas, Londres2, Nueva York, París, San Antonio, Silicon Valley, Tokio, Toronto, Washington DC, Washington DC2 |
 | **[Chief Telecom](https://www.chief.com.tw/)** |Compatible |Compatible |Hong Kong, Taipéi |
@@ -98,11 +99,13 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **[Chunghwa Telecom](https://www.cht.com.tw/en/home/cht/about-cht/products-and-services/International/Cloud-Service)** |Compatible |Compatible |Taipéi |
 | **[Claro](https://www.usclaro.com/enterprise-mnc/connectivity/mpls/)** |Compatible |Compatible |Miami |
 | **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Compatible |Compatible |Chicago, Dallas, Mineápolis, Montreal, Toronto, Vancouver, Washington DC |
-| **[Colt](https://www.colt.net/direct-connect/azure/)** |Compatible |Compatible |Ámsterdam, Ámsterdam2, Chicago, Dublín, Fráncfort, Londres, Londres2, Milán, Newport, Nueva York, Osaka, París, Silicon Valley, Silicon Valley2, Singapur2, Tokio, Washington DC |
+| **[Colt](https://www.colt.net/direct-connect/azure/)** |Compatible |Compatible |Ámsterdam, Ámsterdam2, Berlín, Chicago, Dublín, Fráncfort, Hong Kong, Londres, Londres2, Marsella, Milán, Newport, Nueva York, Osaka, París, Silicon Valley, Silicon Valley2, Singapu2, Tokio, Washington DC, Zúrich. |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Compatible |Compatible |Chicago, Silicon Valley, Washington DC |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Compatible |Compatible |Chicago, Denver, Los Ángeles, Nueva York, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2 |
 | **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange/find-a-cloud-service/detail/microsoft-azure)** | Compatible |Compatible |Ámsterdam2, Dubái2, Fráncfort, Marsella, Bombay, Múnich, Nueva York |
 | **[Devoli](https://devoli.com/expressroute)** | Compatible |Compatible | Auckland, Melbourne, Sidney |
+| **[Deutsche Telekom AG IntraSelect]()** | Compatible |Compatible |Fráncfort |
+| **[Deutsche Telekom AG]()** | Compatible |Compatible |Frankfurt2 |
 | **du datamena** |Compatible |Compatible | Dubai2 |
 | **eir** |Compatible |Compatible |Dublín|
 | **[Epsilon Global Communications](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Compatible |Compatible |Singapur, Singapur2 |
@@ -128,11 +131,11 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|Compatible |Compatible | Ámsterdam, Londres2, Silicon Valley, Toronto, Washington |
 | **Jaguar Network** |Compatible |Compatible |Marsella, París |
 | **[Jisc](https://www.jisc.ac.uk/microsoft-azure-expressroute)** |Compatible |Compatible |Londres, Newport (Gales) |
-| **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Compatible |Compatible |Seúl |
+| **[KINX](https://www.kinx.net/service/cloudhub/ms-expressroute/?lang=en)** |Compatible |Compatible |Seúl |
 | **[Kordia](https://www.kordia.co.nz/cloudconnect)** | Compatible |Compatible |Auckland, Sídney |
 | **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | Compatible | Compatible | Ámsterdam |
 | **[KT](https://cloud.kt.com/)** | Compatible | Compatible | Seúl |
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Compatible |Compatible |Ámsterdam, Chicago, Dallas, Londres, Newport (Gales), Sao Paulo, Seattle, Silicon Valley, Singapur y Washington DC |
+| **[Level 3 Communications](https://www.lumen.com/en-us/hybrid-it-cloud/cloud-connect.html)** |Compatible |Compatible |Ámsterdam, Chicago, Dallas, Londres, Newport (Gales), Sao Paulo, Seattle, Silicon Valley, Singapur y Washington DC |
 | **LG CNS** |Compatible |Compatible |Busan, Seúl |
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |Compatible |Compatible |Ciudad del cabo, Johannesburgo |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Compatible |Compatible |Ámsterdam, Atlanta, Auckland, Chennai, Chicago, Ciudad de Quebec, Dallas, Denver, Dubai2, Dublín, Estocolmo, Fráncfort, Ginebra, Hong Kong, Hong Kong2, Las Vegas, Londres, Londres2, Los Ángeles, Melbourne, Miami, Minneapolis, Montreal, Nueva York, Osaka, Oslo, París, Perth, San Antonio, Seattle, Silicon Valley, Singapur, Singapur2, Stavanger, Sídney, Sídney2, Tokio, Tokio2, Toronto, Vancouver, Washington D. C., Washington D. C. 2, Zúrich |
@@ -149,7 +152,7 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **[Optus](https://www.optus.com.au/enterprise/)** |Compatible |Compatible |Melbourne, Sidney |
 | **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |Compatible |Compatible |Ámsterdam, Ámsterdam2, Dubái2, Fráncfort, Johannesburgo, Londres, París, RAE de Hong Kong, Sao Paulo, Silicon Valley, Singapur, Sídney, Tokio, Washington DC |
 | **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Compatible | Compatible | Dubai2 |
-| **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |Compatible |Compatible |Chicago, Dallas, Las Vegas, Silicon Valley, Washington DC |
+| **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |Compatible |Compatible |Chicago, Dallas, Denver, Las Vegas, Silicon Valley, Washington DC. |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Compatible |Compatible |Chicago, Hong Kong, Hong Kong2, Londres, Singapur2 |
 | **[REANNZ](https://www.reannz.co.nz/products-and-services/cloud-connect/)** | Compatible | Compatible | Auckland |
 | **[Retelit](https://www.retelit.it/EN/Home.aspx)** | Compatible | Compatible | Milán | 
@@ -162,7 +165,7 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **[Spark NZ](https://www.sparkdigital.co.nz/solutions/connectivity/cloud-connect/)** |Compatible |Compatible |Auckland, Sídney |
 | **[Sprint](https://business.sprint.com/solutions/cloud-networking/)** |Compatible |Compatible |Chicago, Silicon Valley, Washington DC |
 | **[Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/cloud-data-center/microsoft-cloud-services/microsoft-azure-von-swisscom.html)** | Compatible | Compatible | Ginebra, Zurich |
-| **[Tata Communications](https://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Compatible |Compatible |Ámsterdam, Chennai, RAE de Hong Kong, Londres, Mumbai, Sao Paulo, Silicon Valley, Singapur, Washington DC |
+| **[Tata Communications](https://www.tatacommunications.com/solutions/network/cloud-ready-networks/)** |Compatible |Compatible |Ámsterdam, Chennai, RAE de Hong Kong, Londres, Mumbai, Sao Paulo, Silicon Valley, Singapur, Washington DC |
 | **[Telefónica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Compatible |Compatible |Ámsterdam, Sao Paulo |
 | **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** |Compatible |Compatible |Londres, Londres2, Singapur2 |
 | **Telenor** |Compatible |Compatible |Ámsterdam, Londres, Oslo |
@@ -231,7 +234,7 @@ Si su proveedor de conectividad no aparece en la lista de las secciones anterior
   * [Cologix](https://www.cologix.com/)
   * [CoreSite](https://www.coresite.com/)
   * [DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange)
-  * [Equinix Cloud Exchange](https://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
+  * [Equinix Cloud Exchange](https://www.equinix.com/interconnection-services/equinix-fabric)
   * [Interxion](https://www.interxion.com/products/interconnection/cloud-connect/)
   * [IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
@@ -265,7 +268,7 @@ Si es un empleado remoto y no tiene conectividad de fibra o quiere explorar otra
 | **[Bezeq International Ltd.](https://www.bezeqint.net/english)** | euNetworks | London |
 | **[BICS](https://bics.com/bics-solutions-suite/cloud-connect/)** | Equinix | Ámsterdam, Fráncfort, Londres, Singapur y Washington DC |
 | **[BroadBand Tower, Inc.](https://www.bbtower.co.jp/product-service/data-center/network/dcconnect-for-azure/)** | Equinix | Tokio |
-| **[C3ntro Telecom](https://www.c3ntro.com/data/express-route)** | Equinix, Megaport | Dallas |
+| **[C3ntro Telecom](https://www.c3ntro.com/)** | Equinix, Megaport | Dallas |
 | **[Chief](https://www.chief.com.tw/)** | Equinix | RAE de Hong Kong |
 | **[Cinia](https://www.cinia.fi/en/services/connectivity-services/direct-public-cloud-connection.html)** | Equinix, Megaport | Fráncfort, Hamburgo |
 | **[CloudXpress](https://www2.telenet.be/fr/business/produits-services/internet/cloudxpress/)** | Equinix | Ámsterdam | 
@@ -281,7 +284,7 @@ Si es un empleado remoto y no tiene conectividad de fibra o quiere explorar otra
 | **[Fastweb S.p.A](https://www.fastweb.it/grandi-aziende/connessione-voce-e-wifi/scheda-prodotto/rete-privata-virtuale/)** | Equinix | Ámsterdam |
 | **[Fibrenoire](https://www.fibrenoire.ca/en/cloudextn)** | Megaport | Ciudad de Quebec |
 | **[Gtt Communications Inc](https://www.gtt.net)** |Equinix | Washington DC |
-| **[Gulf Bridge International](https://www.gbiinc.com/microsoft-azure-expressroute/)** | Equinix | Ámsterdam |
+| **[Gulf Bridge International](https://gbiinc.com/)** | Equinix | Ámsterdam |
 | **[HSO](https://www.hso.co.uk/products/cloud-direct)** |Equinix | Londres, Slough |
 | **[IVedha Inc](http://www.ivedha.com/cloud/manage-azure-cloud/express-route-4/)**| Equinix | Toronto |
 | **[Kaalam Telecom Bahrain B.S.C](http://www.kalaam-telecom.com/azure/)**| Level 3 Communications |Ámsterdam |

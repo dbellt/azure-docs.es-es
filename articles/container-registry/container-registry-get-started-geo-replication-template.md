@@ -10,12 +10,12 @@ ms.service: azure-resource-manager
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: c59c7897054b2ad65a76353e6d886af46cac91e0
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 044c5abe7b44ebc4b9d0cd172f14a8cd1a648b2a
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537440"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107951583"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Inicio rápido: Creación de un registro de contenedor con replicación geográfica mediante una plantilla de Resource Manager
 
@@ -25,7 +25,7 @@ En este inicio rápido se muestra cómo crear una instancia de Azure Container R
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-container-registry-geo-replication%2Fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.containerregistry%2Fcontainer-registry-geo-replication%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -35,7 +35,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/). La plantilla configura un registro y una réplica regional adicional.
 
-:::code language="json" source="~/quickstart-templates/101-container-registry-geo-replication/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.containerregistry/container-registry-geo-replication/azuredeploy.json":::
 
 Los recursos siguientes se definen en la plantilla:
 
@@ -48,7 +48,7 @@ Encontrará más ejemplos de plantillas de Azure Container Registry en la [galer
 
  1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla.
 
-    [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-container-registry-geo-replication%2Fazuredeploy.json)
+    [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.containerregistry%2Fcontainer-registry-geo-replication%2Fazuredeploy.json)
 
  1. Seleccione o escriba los siguientes valores.
 

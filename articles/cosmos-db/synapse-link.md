@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2020
 ms.reviewer: sngun
 ms.custom: synapse-cosmos-db
-ms.openlocfilehash: 123c443e1afaf8eaded7021b963b68b3d8a8f554
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: c9c751338db45a7d9df3f6e63e3d53e4e1ef4f74
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107483765"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903243"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db"></a>¿Qué es Azure Synapse Link para Azure Cosmos DB (versión preliminar)?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -152,6 +152,6 @@ Para obtener más información, consulte la siguiente documentación:
  
 * [Características compatibles con el entorno de ejecución de Azure Synapse Analytics](../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md)
 
-* [Preguntas frecuentes sobre Azure Synapse Link para Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
+* [Preguntas frecuentes sobre Azure Synapse Link para Azure Cosmos DB](synapse-link-frequently-asked-questions.yml)
 
 * [Casos de uso de Azure Synapse Link para Azure Cosmos DB](synapse-link-use-cases.md)

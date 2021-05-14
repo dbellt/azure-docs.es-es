@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "67185990"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
@@ -18,10 +18,10 @@ ms.locfileid: "67185990"
 
 Ya tenemos la tabla. Pasemos a ver ahora cómo administrar las entidades (o filas) de esa tabla. 
 
-Las entidades pueden tener hasta 255 propiedades, incluidas tres propiedades del sistema: **PartitionKey**, **RowKey** y **Timestamp**. Usted será responsable de insertar y actualizar los valores de **PartitionKey** y **RowKey**. El servidor se encargará de administrar el valor **Timestamp**, así que no podrá modificarlo. Tanto **PartitionKey** como **RowKey** identifican de forma exclusiva todas las entidades de una tabla.
+Las entidades pueden tener hasta 255 propiedades, incluidas tres propiedades del sistema: **PartitionKey**, **RowKey** y **Timestamp**. Usted será responsable de insertar y actualizar los valores de **PartitionKey** y **RowKey**. El servidor se encargará de administrar el valor **Timestamp**, así que no podrá modificarlo. Tanto **PartitionKey** como **RowKey** identifican de forma exclusiva todas las entidades de una tabla.
 
 * **PartitionKey**: determina la partición en la que se almacena la entidad.
-* **RowKey**: identifica de manera única la entidad dentro de la partición.
+* **RowKey**: identifica de forma única la entidad dentro de la partición.
 
 Puede definir hasta 252 propiedades personalizadas para una entidad. 
 
@@ -60,7 +60,7 @@ Add-AzTableRow `
 Puede consultar las entidades de una tabla mediante el comando **Get AzTableRow**.
 
 > [!NOTE]
-> Los cmdlets **Get-AzureStorageTableRowAll**, **Get-AzureStorageTableRowByPartitionKey**, **Get AzureStorageTableRowByColumnName** y  **Get-AzureStorageTableRowByCustomFilter** están en desuso y se eliminarán en una actualización de una versión futura.
+> Los cmdlets **Get-AzureStorageTableRowAll**, **Get-AzureStorageTableRowByPartitionKey**, **Get AzureStorageTableRowByColumnName** y **Get-AzureStorageTableRowByCustomFilter** están en desuso y se eliminarán en una actualización de una versión futura.
 
 #### <a name="retrieve-all-entities"></a>Recuperar todas las entidades
 

@@ -5,20 +5,24 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: b6689220873aaeb65337ba480e346e5d2c8020ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/22/2021
+ms.openlocfilehash: eb54ad3e5e7d3db5fc1a399c473de81531e27178
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91707870"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988593"
 ---
 # <a name="logical-replication-and-logical-decoding-in-azure-database-for-postgresql---flexible-server"></a>Replicación lógica y descodificación lógica en Azure Database for PostgreSQL con servidor flexible
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL: servidor flexible está en versión preliminar
 
-Las funciones de replicación lógica y descodificación lógica de PostgreSQL se admiten en Azure Database for PostgreSQL con servidor flexible, en la versión 11 de Postgres.
+Azure Database for PostgreSQL: servidor flexible admite las siguientes metodologías de replicación y extracción de datos lógicos:
+1. **Replicación lógica**
+   1. Uso de la [replicación lógica nativa](https://www.postgresql.org/docs/12/logical-replication.html) de PostgreSQL para replicar objetos de datos. La replicación lógica permite un control preciso sobre la replicación de datos, incluida la replicación de datos de nivel de tabla.
+   2. El uso de la extensión [pglogical](https://github.com/2ndQuadrant/pglogical) que proporciona replicación lógica de streaming y funcionalidades adicionales, como la copia del esquema inicial de la base de datos, la compatibilidad con TRUNCATE, la capacidad de replicar DDL, etc.
+2. La **descodificación lógica** que se implementa mediante la [descodificación](https://www.postgresql.org/docs/12/logicaldecoding-explanation.html) del contenido del registro de escritura previa (WAL). 
 
 ## <a name="comparing-logical-replication-and-logical-decoding"></a>Comparación de la replicación lógica y la descodificación lógica
 La replicación lógica y la descodificación lógica tienen varias similitudes. Ambas
@@ -35,8 +39,7 @@ Las dos tecnologías tienen sus diferencias: Replicación lógica
 
 Descodificación lógica 
 * extrae los cambios en todas las tablas de una base de datos 
-* no se pueden enviar datos directamente entre instancias de PostgreSQL
-
+* no se pueden enviar datos directamente entre instancias de PostgreSQL.
 
 ## <a name="pre-requisites-for-logical-replication-and-logical-decoding"></a>Requisitos previos para la comparación de la replicación lógica y la descodificación lógica
 
@@ -48,10 +51,9 @@ Descodificación lógica
    ALTER ROLE <adminname> WITH REPLICATION;
    ```
 
-
 ## <a name="using-logical-replication-and-logical-decoding"></a>Uso de la replicación lógica y la descodificación lógica
 
-### <a name="logical-replication"></a>Replicación lógica
+### <a name="native-logical-replication"></a>Replicación lógica nativa
 La replicación lógica utiliza los términos "publicador" y "suscriptor". 
 * El publicador es la base de datos de PostgreSQL **desde** la que va a enviar datos. 
 * El suscriptor es la base de datos de PostgreSQL **a** la que va a enviar datos.
@@ -89,6 +91,31 @@ Puede agregar más filas a la tabla del publicador y ver los cambios en el suscr
 
 Visite la documentación de PostgreSQL para comprender mejor la [replicación lógica](https://www.postgresql.org/docs/current/logical-replication.html).
 
+
+### <a name="pglogical-extension"></a>Extensión pglogical
+
+Este es un ejemplo de configuración de pglogical en el servidor de bases de datos de proveedor y suscriptor. Para más información, consulte la documentación de la extensión pglogical.
+
+1. Instale la extensión pglogical en los servidores de bases de datos de proveedor y suscriptor.
+    ```SQL
+   CREATE EXTENSION pglogical;
+   ```
+2. En el servidor de bases de datos de proveedor, cree el nodo de proveedor.
+   ```SQL
+   select pglogical.create_node( node_name := 'provider1', dsn := ' host=myProviderDB.postgres.database.azure.com port=5432 dbname=myDB');
+   ```
+3. Agregue tablas del esquema testUser al conjunto de replicación predeterminado.
+    ```SQL
+   SELECT pglogical.replication_set_add_all_tables('default', ARRAY['testUser']);
+   ```
+4. En el servidor de suscriptor, cree un nodo de suscriptor.
+   ```SQL
+   select pglogical.create_node( node_name := 'subscriber1', dsn := ' host=mySubscriberDB.postgres.database.azure.com port=5432 dbname=myDB');
+   ```
+5. Cree una suscripción para iniciar el proceso de sincronización y replicación.
+    ```SQL
+   select pglogical.create_subscription( subscription_name := 'subscription1', provider_dsn := ' host=myProviderDB.postgres.database.azure.com port=5432 dbname=myDB');
+   ```
 ### <a name="logical-decoding"></a>Descodificación lógica
 La descodificación lógica se puede consumir mediante el protocolo de streaming o la interfaz SQL. 
 
@@ -175,6 +202,7 @@ SELECT * FROM pg_replication_slots;
 [Establezca alertas](howto-alert-on-metrics.md) para las métricas **Máximo de identificadores de transacción usados** y **Almacenamiento usado** del servidor flexible para recibir una notificación cuando los valores aumenten por encima de los umbrales normales. 
 
 ## <a name="limitations"></a>Limitaciones
+* Las limitaciones de la **replicación lógica** se aplican como se documenta [aquí](https://www.postgresql.org/docs/12/logical-replication-restrictions.html).
 * **Réplicas de lectura**: las réplicas de lectura de Azure Database for PostgreSQL no se admiten actualmente en los servidores flexibles.
 * **Ranuras y conmutación por error de alta disponibilidad**: las ranuras de replicación de alta disponibilidad del servidor principal no están disponibles en el servidor en espera de la zona de disponibilidad secundaria. Esto se aplica a usted si el servidor usa la opción de alta disponibilidad con redundancia de zona. En el caso de una conmutación por error al servidor en espera, las ranuras de replicación lógica no estarán disponibles en dicho servidor.
 

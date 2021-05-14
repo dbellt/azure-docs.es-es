@@ -3,26 +3,30 @@ title: 'Inicio rápido: Creación de un perfil de alta disponibilidad de aplicac
 description: En este inicio rápido se describe cómo crear un perfil de Traffic Manager para crear una aplicación web de alta disponibilidad mediante Azure Portal.
 services: traffic-manager
 author: duongau
-manager: twooley
-ms.service: traffic-manager
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/15/2020
 ms.author: duau
-ms.openlocfilehash: 1a26becbc7ffaddc09dc06c5dff12f83deaa9ee2
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+manager: twooley
+ms.date: 04/19/2021
+ms.topic: quickstart
+ms.service: traffic-manager
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 13b5925310c615461424f78d90ba9849c9bf58c5
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067221"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727985"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Inicio rápido: Creación de un perfil de Traffic Manager mediante Azure Portal
 
 En esta guía de inicio rápido se describe cómo crear un perfil de Traffic Manager que ofrece alta disponibilidad para la aplicación web.
 
 En esta guía de inicio rápido, obtendrá información sobre dos instancias de una aplicación web. Cada una de ellas se ejecuta en una región de Azure distinta. Creará un perfil de Traffic Manager según la [prioridad del punto de conexión](traffic-manager-routing-methods.md#priority-traffic-routing-method). El perfil dirige el tráfico de usuario al sitio principal que ejecuta la aplicación web. Traffic Manager supervisa continuamente la aplicación web. Si el sitio principal no está disponible, proporciona la conmutación automática por error al sitio de copia de seguridad.
+
+:::image type="content" source="./media/quickstart-create-traffic-manager-profile/environment-diagram.png" alt-text="Diagrama del entorno de implementación de Traffic Manager" border="false":::
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ahora.
 
@@ -38,7 +42,7 @@ Esta guía de inicio rápido requiere que haya implementado dos instancias de un
 
     | Parámetro                 | Value |
     | ---                     | --- |
-    | Subscription            | Seleccione su suscripción. |    
+    | Suscripción            | Seleccione su suscripción. |    
     | Resource group          | Seleccione **Crear** y escriba *myResourceGroupTM1* en el cuadro de texto.|
     | Nombre                    | Escriba un **Nombre** único para la aplicación web. En este ejemplo se usa *myWebAppEastUS*. |
     | Publicar                 | Seleccione **Código**. |
@@ -81,7 +85,7 @@ Agregue el sitio web en la región *Este de EE. UU.* como punto de conexión pri
 1. Seleccione el perfil en los resultados de la búsqueda.
 1. En **Perfil de Traffic Manager**, en la sección **Configuración**, seleccione **Puntos de conexión** y, a continuación, seleccione **Agregar**.
 
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-endpoint-menu.png" alt-text="Configuración de los puntos de conexión del perfil de Traffic Manager":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-endpoint-menu.png" alt-text="Captura de pantalla de la configuración de los puntos de conexión del perfil de Traffic Manager":::
 
 1. Escriba o seleccione estas opciones:
 
@@ -93,7 +97,7 @@ Agregue el sitio web en la región *Este de EE. UU.* como punto de conexión pri
     | Recurso de destino | Seleccione **Elegir un servicio de aplicaciones** > **Este de EE. UU.** |
     | Priority | Seleccione **1**. Todo el tráfico se dirige a este punto de conexión cuando está en buen estado. |
 
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png" alt-text="Captura de pantalla de la adición de un punto de conexión al perfil de Traffic Manager":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png" alt-text="Captura de pantalla de la adición de un punto de conexión al perfil de Traffic Manager.":::
     
 1. Seleccione **Aceptar**.
 1. Para crear un punto de conexión de conmutación por error para la segunda región de Azure, repita los pasos 3 y 4 con esta configuración:
@@ -120,7 +124,7 @@ En esta sección, comprobará el nombre de dominio del perfil de Traffic Manager
 1. Seleccione el perfil de Traffic Manager. Aparece la página **Información general**.
 1. La hoja **Perfil de Traffic Manager** muestra el nombre DNS del perfil de Traffic Manager que acaba de crear.
   
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png" alt-text="Captura de pantalla de la ubicación del nombre DNS de Traffic Manager":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png" alt-text="Captura de pantalla de la ubicación del nombre DNS de Traffic Manager.":::
 
 ### <a name="view-traffic-manager-in-action"></a>Ver a Traffic Manager en acción
 

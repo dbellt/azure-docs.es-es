@@ -3,21 +3,31 @@ title: Tipos de clase de ejemplo en Azure Lab Services | Microsoft Docs
 description: Proporciona algunos tipos de clases para los que puede configurar laboratorios mediante Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 5a90fb128f5954f3eb713714ff22ff40a3beab36
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81b3426446894b9dd7bfccc942e04c3d9a7ea492
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99627440"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278765"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Información general sobre tipos de clase: Azure Lab Services
 
 Azure Lab Services le permite configurar rápidamente un entorno de laboratorio educativo en la nube. En los artículos de esta sección se proporcionan instrucciones sobre cómo configurar varios tipos de laboratorios mediante Azure Lab Services.
 
+## <a name="adobe-creative-cloud"></a>Adobe Creative Cloud
+La colección [Adobe Creative Cloud](https://www.adobe.com/creativecloud.html) de aplicaciones se usa normalmente en clases de artes digitales y medios.  
+
+Para obtener más información sobre cómo configurar este tipo de laboratorio, consulte [Configuración de un laboratorio de Adobe Creative Cloud](class-type-adobe-creative-cloud.md).
+
 ## <a name="arcgis"></a>ArcGIS
 [ArcGIS](https://www.esri.com/en-us/arcgis/products/arcgis-solutions/overview) es un tipo de sistema de información geográfica (GIS).  Puede configurar un laboratorio que use distintas aplicaciones de ArcGIS Desktop, como [ArcMap](https://desktop.arcgis.com/en/arcmap/latest/map/main/what-is-arcmap-.htm), para crear, editar y analizar mapas 2D.
 
 Para más información sobre cómo configurar este tipo de laboratorio, consulte [Configuración de un laboratorio de ArcMap\ArcGIS Desktop](class-type-arcgis.md).
+
+## <a name="autodesk"></a>AutoDesk
+[AutoDesk](https://www.autodesk.com/) ofrece soluciones de software para arquitectura, ingeniería, construcción, diseño, fabricación, etc.  Estas soluciones se usan normalmente en clases de ingeniería y en el plan de estudios [Project Lead the Way](class-type-pltw.md).
+
+Para obtener más información sobre cómo configurar este tipo de laboratorio, consulte [AutoDesk](class-type-autodesk.md).
 
 ## <a name="big-data-analytics"></a>Análisis de macrodatos
 Puede configurar un laboratorio de GPU para enseñar una clase de análisis de macrodatos. Con este tipo de clase, los alumnos aprenden a manipular grandes volúmenes de datos y a aplicar algoritmos de aprendizaje automático y estadístico para obtener conclusiones sobre los datos. Un objetivo clave para los alumnos es aprender a usar herramientas de análisis de datos, como el paquete de software de código abierto de Apache Hadoop, que proporciona herramientas para almacenar, administrar y procesar macrodatos. 

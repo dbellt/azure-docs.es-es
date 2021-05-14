@@ -3,13 +3,13 @@ title: Proveedores de recursos y tipos de recursos
 description: Describe los proveedores de recursos compatibles con Azure Resource Manager. Describe sus esquemas, versiones de API disponibles y las regiones que pueden hospedar los recursos.
 ms.topic: conceptual
 ms.date: 03/15/2021
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 584f3065d0e696f2ee379a8cf6c048994a1e68d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: d5936e1e4c80869495d5b71023e26264dc9a2cde
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103493142"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319204"
 ---
 # <a name="azure-resource-providers-and-types"></a>Tipos y proveedores de recursos de Azure
 

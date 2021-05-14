@@ -1,23 +1,23 @@
 ---
-title: Conexión de los registros de auditoría y diagnóstico de bases de datos de Azure SQL a Azure Sentinel
-description: Obtenga información sobre cómo conectar los registros de auditoría de seguridad y diagnóstico de bases de datos de Azure SQL a Azure Sentinel.
+title: Conexión de todos los registros de auditoría y diagnóstico de bases de datos de Azure SQL a Azure Sentinel
+description: Aprenda a usar Azure Policy para exigir la conexión de los registros de auditoría de seguridad y diagnóstico de bases de datos de Azure SQL a Azure Sentinel.
 author: yelevin
 manager: rkarlin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: a3a09ceffc75e2d396d7bd7aeedd97b7f2b6ec2b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ba4cefaca7225f25076efa5cdcb81de46aa5cd60
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99807740"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891327"
 ---
 # <a name="connect-azure-sql-database-diagnostics-and-auditing-logs"></a>Conexión de los registros de auditoría y diagnóstico de bases de datos de Azure SQL
 
-Azure SQL es un motor de base de datos de plataforma como servicio (PaaS) totalmente administrado que se encarga de la mayoría de las funciones de administración de bases de datos, como actualizar, aplicar revisiones, crear copias de seguridad y supervisar sin la intervención del usuario. 
+Azure SQL es un motor de base de datos de plataforma como servicio (PaaS) totalmente administrado que se encarga de la mayoría de las funciones de administración de bases de datos, como actualización, aplicación de revisiones, creación de copias de seguridad y supervisión, sin la intervención del usuario. 
 
 El conector de Azure SQL Database permite transmitir registros de auditoría y diagnóstico de bases de datos a Azure Sentinel, para poder supervisar continuamente la actividad en todas las instancias.
 
@@ -25,7 +25,7 @@ El conector de Azure SQL Database permite transmitir registros de auditoría y 
 
 - La conexión de registros de auditoría permite transmitir los registros de auditoría de seguridad de todas las bases de datos de Azure SQL en el nivel de servidor.
 
-Más información sobre la [supervisión de bases de datos de Azure SQL](../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md)
+Más información sobre la [telemetría de diagnóstico de Azure SQL Database](../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) y sobre la [auditoría de servidores de Azure SQL](../azure-sql/database/auditing-overview.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -33,79 +33,57 @@ Más información sobre la [supervisión de bases de datos de Azure SQL](../azu
 
 - Para conectar los registros de auditoría, debe tener permisos de lectura y escritura para la configuración de auditoría de Azure SQL Server.
 
+- Para usar Azure Policy con el fin de aplicar una directiva de streaming de registro a recursos de servidor y base de datos de Azure SQL, debe tener el rol de propietario para el ámbito de asignación de directivas.
+
 ## <a name="connect-to-azure-sql-database"></a>Conexión a una base de datos de Azure SQL
-    
+
+Este conector usa Azure Policy para aplicar una única configuración de streaming de registro de Azure SQL a una colección de instancias, definida como un ámbito. El conector de Azure SQL Database envía dos tipos de registros a Azure Sentinel: registros de diagnóstico (de bases de datos SQL) y registros de auditoría (en el nivel de SQL Server). Puede ver los tipos de registro ingeridos de las bases de datos y los servidores de Azure SQL en el lado izquierdo de la página del conector, en **Data types** (Tipos de datos).
+
 1. En el menú de navegación de Azure Sentinel, seleccione **Conectores de datos**.
 
-1. Seleccione **Azure SQL Database** en la galería de conectores de datos y, luego, seleccione **Open Connector Page** (Abrir página del conector) en el panel de vista previa.
+1. Seleccione **Azure SQL Database** en la galería de conectores de datos y, luego, elija **Open Connector Page** (Abrir página del conector) en el panel de vista previa.
 
 1. En la sección **Configuración** de la página del conector, tenga en cuenta las dos categorías de registros que puede conectar.
 
 ### <a name="connect-diagnostics-logs"></a>Conexión de registros de diagnóstico
 
-1. En **Registros de diagnóstico**, expanda **Enable diagnostics logs on each of your Azure SQL databases manually** (Habilitar los registros de diagnóstico manualmente en cada base de datos de Azure SQL).
+1. Expanda **Stream diagnostics logs from your Azure SQL databases at scale** (Transmitir registros de diagnóstico desde la base de datos de Azure SQL a gran escala).
 
-1. Seleccione el vínculo **Open Azure SQL >** (Abrir Azure SQL >) para abrir la hoja de recursos de **Azure SQL**.
+1. Seleccione el botón **Launch Azure Policy Assignment wizard** (Iniciar el asistente para asignación de Azure Policy).
 
-1. **(Opcional)** Para encontrar fácilmente el recurso de base de datos, seleccione **Agregar filtro** en la barra de filtros de la parte superior.
-    1. En la lista desplegable **Filtro**, seleccione **Tipo de recurso**.
-    1. En la lista desplegable **Valor**, desactive **Seleccionar todo** y, después, seleccione **Base de datos SQL**.
-    1. Haga clic en **Aplicar**.
-    
-1. Seleccione el recurso de base de datos cuyos registros de diagnóstico desea enviar a Azure Sentinel.
+    Se abre el asistente para asignación de directivas, preparado para crear una directiva denominada **Deploy - Configure diagnostic settings for Azure Key Vault to Log Analytics workspace** (Implementar: configurar valores de diagnóstico de Azure Key Vault para el área de trabajo de Log Analytics).
 
-    > [!NOTE]
-    > Para cada recurso de base de datos cuyos registros desea recopilar, debe repetir este proceso a partir de este paso.
+    1. En la pestaña **Básico**, haga clic en el botón con los tres puntos debajo de **Ámbito** para seleccionar la suscripción (y, opcionalmente, un grupo de recursos). También puede agregar una descripción.
 
-1. En la página de recursos de la base de datos que ha seleccionado, en **Supervisión** en el menú de navegación, seleccione **Configuración de diagnóstico**.
+    1. En la pestaña **Parámetros**, deje las dos primeras opciones como están. Elija el área de trabajo de Azure Sentinel en la lista desplegable **Área de trabajo de Log Analytics**. Los campos desplegables restantes representan los tipos de registro de diagnóstico disponibles. Deje marcado como "True" todos los tipos de registro que quiera ingerir.
 
-    1. Seleccione el vínculo **+ Agregar configuración de diagnóstico** en la parte inferior de la tabla.
+    1. La directiva se aplicará a los recursos agregados en el futuro. Para aplicar la directiva también a los recursos existentes, seleccione la pestaña **Corrección** y marque la casilla **Crear una tarea de corrección**.
 
-    1. En la pantalla **Configuración de diagnóstico**, escriba un nombre en el campo **Nombre de configuración de diagnóstico**.
-    
-    1. En la columna **Detalles del destino**, marque la casilla **Send to Log Analytics workspace** (Enviar a área de trabajo de Log Analytics). Se mostrarán dos nuevos campos debajo. Elija la **suscripción** y el **área de trabajo de Log Analytics** pertinentes (donde reside Azure Sentinel).
-
-    1. En la columna **Detalles de la categoría**, active las casillas de los tipos de registro y métrica que desee ingerir. Se recomienda seleccionar todos los tipos disponibles en **registro** y **métrica**.
-
-    1. En la parte superior de la pantalla, seleccione **Guardar**.
-
-- Como alternativa, puede usar el **script de PowerShell** proporcionado para conectar los registros de diagnóstico.
-    1. En **Registros de diagnósticos**, expanda **Enable by PowerShell script** (Habilitar mediante el script de PowerShell).
-
-    1. Copie el bloque de código y péguelo en PowerShell.
+    1. En la pestaña **Revisar y crear**, haga clic en **Crear**. La directiva se asigna ahora al ámbito elegido.
 
 ### <a name="connect-audit-logs"></a>Conexión de los registros de auditoría
 
-1. En **Auditing logs (preview)** [Registros de auditoría (versión preliminar)], expanda **Enable auditing logs on all Azure SQL databases (at the server level)** [Habilitar registros de auditoría en todas las bases de datos de Azure SQL (en el nivel de servidor)].
+1. De nuevo en la página del conector, expanda **Stream auditing logs from your Azure SQL databases at the server level at scale** (Transmitir registros de auditoría desde las bases de datos de Azure SQL en el nivel de servidor a gran escala).
 
-1. Seleccione el vínculo **Open Azure SQL >** (Abrir Azure SQL >) para abrir la hoja de recursos de **Servidores SQL Server**.
+1. Seleccione el botón **Launch Azure Policy Assignment wizard** (Iniciar el asistente para asignación de Azure Policy).
 
-1. Seleccione la instancia de SQL Server cuyos registros de auditoría desea enviar a Azure Sentinel.
+    Se abre el asistente para asignación de directivas, preparado para crear una directiva denominada **Deploy - Configure auditing settings for Azure Key Vault to Log Analytics workspace** (Implementar: configurar valores de auditoría de Azure Key Vault para el área de trabajo de Log Analytics).
 
-    > [!NOTE]
-    > Para cada recurso de servidor cuyos registros desea recopilar, debe repetir este proceso a partir de este paso.
+    1. En la pestaña **Básico**, haga clic en el botón con los tres puntos debajo de **Ámbito** para seleccionar la suscripción (y, opcionalmente, un grupo de recursos). También puede agregar una descripción.
 
-1. En la página de recursos del servidor que ha seleccionado, en **Seguridad** en el menú de navegación, seleccione **Auditoría**.
+    1. En la pestaña **Parámetros**, elija el área de trabajo de Azure Sentinel en la lista desplegable **Área de trabajo de Log Analytics**. Deje la opción **Efecto**.
 
-    1. Mueva el botón de alternancia **Enable Azure SQL Auditing** (Habilitar auditoría de Azure SQL) a **ON** (Activar).
+    1. La directiva se aplicará a los recursos agregados en el futuro. Para aplicar la directiva también a los recursos existentes, seleccione la pestaña **Corrección** y marque la casilla **Crear una tarea de corrección**.
 
-    1. En **Destino del registro de auditoría**, seleccione **Log Analytics (versión preliminar)** .
-    
-    1. En la lista de áreas de trabajo que aparece, elija el área de trabajo (donde reside Azure Sentinel).
-
-    1. En la parte superior de la pantalla, seleccione **Guardar**.
-
-- Como alternativa, puede usar el **script de PowerShell** proporcionado para conectar los registros de diagnóstico.
-    1. En **Auditing logs** (Registros de auditoría), expanda **Enable by PowerShell script** (Habilitar mediante el script de PowerShell).
-
-    1. Copie el bloque de código y péguelo en PowerShell.
-
+    1. En la pestaña **Revisar y crear**, haga clic en **Crear**. La directiva se asigna ahora al ámbito elegido.
 
 > [!NOTE]
 >
-> Con este conector de datos concreto, los indicadores de estado de conectividad (una franja de color en la galería de conectores de datos y los iconos de conexión situados junto a los nombres de tipo de datos) se mostrarán como *Conectado* (verde) solo si los datos se han ingerido en algún momento en las dos últimas semanas. Transcurridas dos semanas sin ingesta de datos, el conector se mostrará como desconectado. En el momento en que circulen más datos, se devolverá el estado *conectado*.
+> Con este conector de datos concreto, los indicadores de estado de conectividad (una franja de color en la galería de conectores de datos y los iconos de conexión situados junto a los nombres de tipo de datos) mostrarán el estado *Conectado* (verde) solo si los datos se han ingerido en algún momento en los últimos 14 días. Transcurrido este período sin ingesta de datos, el conector se mostrará como desconectado. En el momento en que circulen más datos, se devolverá el estado *conectado*.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, ha aprendido a conectar los registros de auditoría y diagnóstico de bases de datos de Azure SQL a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+
+En este documento, ha aprendido a usar Azure Policy para conectar los registros diagnóstico y auditoría de bases de datos de Azure SQL a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
 - Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).

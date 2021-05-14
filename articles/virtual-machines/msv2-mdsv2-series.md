@@ -1,5 +1,5 @@
 ---
-title: Máquinas virtuales de Azure de la serie Msv2 (versión preliminar)
+title: 'Serie de memoria media Msv2 y Mdsv2: Azure Virtual Machines'
 description: Especificaciones de las máquinas virtuales de la serie Msv2.
 author: ayshakeen
 ms.service: virtual-machines
@@ -7,30 +7,19 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: a7f4757467523837423d52998eb6b8204090e627
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 696125f75e41d39b4f9aaa1ff852b03eff589fb0
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562578"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204250"
 ---
-# <a name="msv2-and-mdsv2-series-medium-memory-preview"></a>Serie Msv2 y Mdsv2 de memoria media (versión preliminar)
-
-
-> [!IMPORTANT]
-> Para unirse a la versión preliminar, rellene el formulario en **https://aka.ms/Mv2MedMemoryPreview** .  
+# <a name="msv2-and-mdsv2-series-medium-memory"></a>Serie de memoria media Msv2 y Mdsv2
 
 La serie de máquinas virtuales Msv2 y Mdsv2 de memoria media incluye el procesador Intel® Xeon® Platinum 8280 (Cascade Lake) con una frecuencia de base en todos los núcleos de 2,7 GHz y una frecuencia turbo en un único núcleo de 4,0 GHz. Con estas máquinas virtuales, los clientes consiguen una mayor flexibilidad con las opciones de disco local y sin disco. Los clientes también tienen acceso a un conjunto de nuevos tamaños de máquina virtual aislada con más CPU y memoria: hasta 192 vCPU con 4 TiB de memoria. 
 
-
-Las máquinas virtuales de la serie Msv2 y Mdsv2 solo son de segunda generación y admiten un subconjunto de imágenes compatibles de segunda generación. A continuación, puede encontrar la lista completa de imágenes compatibles de la serie Msv2 y Mdsv2.  
-
-- Windows Server 2019 o posterior
-- SUSE Linux Enterprise Server 12 SP4 y las versiones posteriores o SUSE Linux Enterprise Server 15 SP1 y las versiones posteriores.
-- Red Hat Enterprise Linux 7.6, 7.7, 8.1 o posterior 
-- Oracle Enterprise Linux 7.7 o posterior
-
-Para más información sobre las máquinas virtuales de segunda generación, consulte [Compatibilidad con máquinas virtuales de segunda generación en Azure](./generation-2.md).
+> [!NOTE]
+> Las máquinas virtuales de memoria media Msv2 y Mdsv2 son solo de generación 2. Para obtener más información sobre las máquinas virtuales de segunda generación, consulte [Compatibilidad para máquinas virtuales de generación 2 en Azure](./generation-2.md).
 
 
 

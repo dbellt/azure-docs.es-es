@@ -3,17 +3,17 @@ title: Solución de problemas de ejecución de paquetes en SSIS Integration Runt
 description: En este artículo se proporciona orientación para solucionar problemas de ejecución de paquetes de SSIS en SSIS Integration Runtime
 ms.service: data-factory
 ms.topic: conceptual
-ms.author: wenjiefu
-author: RodgeFu
+ms.author: sawinark
+author: swinarko
 ms.reviewer: sawinark
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 6eecedbc28bcb8bc0bd46534a2c2692636f6f2c1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 17ab31faa24f2267b9d804e9820bdfc32fbfc76c
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934009"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001455"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Solución de problemas de ejecución de paquetes en SSIS Integration Runtime
 
@@ -150,10 +150,14 @@ Asegúrese de que el proveedor correspondiente utilizado por los conectores de O
 
 Una posible causa es que el entorno de ejecución de integración autohospedado no está instalado o actualizado correctamente. Se recomienda descargar y volver a instalar el entorno de ejecución de integración autohospedado más reciente. Puede obtener más información en [Creación y configuración de un entorno de ejecución de integración autohospedado](create-self-hosted-integration-runtime.md#installation-best-practices).
 
+### <a name="error-message-staging-task-failed-taskstatus-failed-errorcode-2906-errormessage-package-execution-failed-for-more-details-select-the-output-of-your-activity-run-on-the-same-row-output-operationerrormessages-4142021-71035-am-0000---failed-to-start-named-pipe-proxy"></a>Mensaje de error: "Error en la tarea de almacenamiento provisional. TaskStatus: Error, ErrorCode: 2906, ErrorMessage: Error al ejecutar paquete. Para obtener más información, seleccione la salida de la ejecución de la actividad en la misma fila. Salida: {"OperationErrorMessages": "4/14/2021 7:10:35 AM +00:00 : = No se pudo iniciar el proxy de canalización con nombre..."
+
+Compruebe si las directivas de seguridad están asignadas correctamente a la cuenta que ejecuta el servicio IR autohospedado. Si se usa la autenticación de Windows en la actividad Ejecutar paquete SSIS, o la credencial de ejecución se establece en el catálogo de SSIS (SSISDB), se deben asignar las mismas directivas de seguridad a la cuenta de Windows utilizada. Puede encontrar más información en [Configuración del entorno de ejecución de integración autohospedado como un proxy para Azure-SSIS IR en Azure Data Factory](self-hosted-integration-runtime-proxy-ssis.md#enable-windows-authentication-for-on-premises-tasks).
+
 ### <a name="error-message-a-connection-is-required-when-requesting-metadata-if-you-are-working-offline-uncheck-work-offline-on-the-ssis-menu-to-enable-the-connection"></a>Mensaje de error: "A connection is required when requesting metadata. If you are working offline, uncheck Work Offline on the SSIS menu to enable the connection" (Se requiere una conexión al solicitar metadatos. Si está trabajando sin conexión, desactive Trabajar sin conexión en el menú SSIS para habilitar la conexión).
 
 * Causa posible y acción recomendada:
-  * Si se muestra también un mensaje de advertencia que indica que el componente no admite el uso del administrador de conexiones con el valor de ConnectByProxy establecido en true en el registro de ejecución, significa que se usa un administrador de conexiones en un componente que todavía no ha admitido "ConnectByProxy". Los componentes admitidos se pueden encontrar en [Configuración del entorno de ejecución de integración autohospedado como un proxy para Azure-SSIS IR en Azure Data Factory](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-connect-by-proxy).
+  * Si se muestra también un mensaje de advertencia que indica que el componente no admite el uso del administrador de conexiones con el valor de ConnectByProxy establecido en true en el registro de ejecución, significa que se usa un administrador de conexiones en un componente que todavía no ha admitido "ConnectByProxy". Los componentes admitidos se pueden encontrar en [Configuración del entorno de ejecución de integración autohospedado como un proxy para Azure-SSIS IR en Azure Data Factory](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-use-a-proxy).
   * El registro de ejecución se puede encontrar en el [informe de SSMS](/sql/integration-services/performance/monitor-running-packages-and-other-operations#reports) o en la carpeta de registro especificada en la actividad de ejecución de paquetes SSIS.
   * Como alternativa, la red virtual también se puede usar para acceder a los datos locales. Se puede encontrar más información en [Unión de Azure-SSIS Integration Runtime a una red virtual](join-azure-ssis-integration-runtime-virtual-network.md).
 

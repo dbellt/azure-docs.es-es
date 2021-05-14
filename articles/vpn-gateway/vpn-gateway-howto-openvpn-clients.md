@@ -1,18 +1,19 @@
 ---
-title: Cómo configurar los clientes OpenVPN de Azure VPN Gateway | Microsoft Docs
-description: Obtenga información sobre cómo configurar OpenVPN para Azure VPN Gateway para clientes del sistema operativo Windows, Linux y Mac.
+title: Configuración de clientes OpenVPN para VPN Gateway de punto a sitio
+titleSuffix: Azure VPN Gateway
+description: Obtenga información sobre cómo configurar los clientes OpenVPN para Azure VPN Gateway. Este artículo le ayuda a configurar clientes Windows, Linux, iOS y Mac.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 04/29/2021
 ms.author: cherylmc
-ms.openlocfilehash: 4be903fa17ce95e96c82241249b421e1d794c80f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a7b125ef89d5d598e22fc4458b5b1c7f8c4a41c
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89435786"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108289361"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Configuración de los clientes OpenVPN de Azure VPN Gateway
 

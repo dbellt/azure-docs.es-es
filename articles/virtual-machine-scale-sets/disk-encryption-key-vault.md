@@ -8,17 +8,17 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: 3d30d506ae3b49b2e247ee77ef17d101f94854c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: d0b35b0976b46dd22bbf7f15ebb1def3ec721b5d
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501024"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891471"
 ---
 # <a name="create-and-configure-a-key-vault-for-azure-disk-encryption"></a>Creación y configuración de un almacén de claves para Azure Disk Encryption
 
-Azure Disk Encryption usa Azure Key Vault para controlar y administrar las claves y los secretos de cifrado de discos.  Para más información sobre los almacenes de claves, consulte [Introducción a Azure Key Vault](../key-vault/general/overview.md) y [Protección de un almacén de claves](../key-vault/general/secure-your-key-vault.md).
+Azure Disk Encryption usa Azure Key Vault para controlar y administrar las claves y los secretos de cifrado de discos.  Para más información sobre los almacenes de claves, consulte la [introducción a Azure Key Vault](../key-vault/general/overview.md) y las [características de seguridad de Azure Key Vault](../key-vault/general/security-features.md).
 
 La creación y configuración de un almacén de claves para su uso con Azure Disk Encryption conlleva estos tres pasos:
 

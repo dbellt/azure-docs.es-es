@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2020
+ms.date: 04/29/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 31812a7b2dddad474ab5cd422a15f6e5368dba5c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7050718955c9a2651ecf8c646ceae7c5bb8cdd02
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774636"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319022"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configuración de acceso de lectura público anónimo a contenedores y blobs
 
@@ -195,13 +195,13 @@ No puede cambiar el nivel de acceso público para un blob individual. El nivel d
 Para actualizar el nivel de acceso público en uno o varios contenedores desde Azure Portal, siga estos pasos:
 
 1. Vaya a la información general de su cuenta de almacenamiento en Azure Portal.
-1. En **Blob service** en la hoja de menú, seleccione **Contenedores**.
+1. En **Almacenamiento de datos** en la hoja de menú, seleccione **Contenedores de blob**.
 1. Seleccione los contenedores para el que quiere establecer el nivel de acceso público.
 1. Use el botón **Cambiar nivel de acceso** para mostrar la configuración de acceso público.
 1. Seleccione el nivel de acceso público deseado en la lista desplegable **Nivel de acceso público** y haga clic en el botón Aceptar para aplicar el cambio a los contenedores seleccionados.
 
-    ![Captura de pantalla que muestra cómo establecer el nivel de acceso público en el portal](./media/anonymous-read-access-configure/configure-public-access-container.png)
-
+    :::image type="content" source="media/anonymous-read-access-configure/configure-public-access-container.png" alt-text="Captura de pantalla que muestra cómo establecer el nivel de acceso público en el portal." lightbox="media/anonymous-read-access-configure/configure-public-access-container.png":::
+    
 Cuando el acceso público no está permitido en la cuenta de almacenamiento, no es posible establecer el nivel de acceso público de ningún contenedor. Si intenta establecer el nivel de acceso público del contenedor, verá que el valor está deshabilitado porque el acceso público no está permitido para la cuenta.
 
 :::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Captura de pantalla que muestra que el valor del nivel de acceso público del contenedor está bloqueado cuando no se permite el acceso público":::

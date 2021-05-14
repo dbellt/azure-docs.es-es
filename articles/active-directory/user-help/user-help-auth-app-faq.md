@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/28/2021
+ms.date: 04/30/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 8ddc02075d2cdeba4a4fa83a2475ec20c3f18d6e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6cc64c9b3ad3f177d50f3e659e8ea628ba485159
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103418086"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764178"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Preguntas frecuentes (P+F) sobre la aplicación Microsoft Authenticator
 
@@ -26,6 +26,30 @@ En este artículo se proporcionan respuestas a preguntas habituales sobre la apl
 La aplicación Microsoft Authenticator reemplaza a la aplicación Azure Authenticator y es la aplicación recomendada cuando se utiliza Azure AD Multi-Factor Authentication. La aplicación Microsoft Authenticator está disponible para [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) e [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+
+### <a name="permission-to-access-your-location"></a>Permiso para acceder a su ubicación
+
+**P**: He recibido un mensaje que me pide que conceda permiso para que la aplicación acceda a mi ubicación. ¿Por qué veo esto?
+
+**R**: Verá un mensaje de Microsoft Authenticator solicitando acceso a su ubicación si el administrador de TI ha creado una directiva que le exige que comparta su ubicación de GPS antes de poder acceder a recursos específicos. Tendrá que compartir su ubicación una vez por hora para asegurar que siga dentro de un país en el que tenga permiso para acceder al recurso.
+
+En iOS, Microsoft recomienda permitir que la aplicación acceda a la ubicación siempre. Siga las indicaciones de iOS para conceder ese permiso. Esto es lo que significa para usted cada nivel de permiso:
+
+- **Allow while using the app** (Permitir mientras se usa la aplicación): Si elige esta opción, se le pedirá que seleccione dos opciones más.
+- **Always allow** (Permitir siempre [recomendado]): Mientras siga teniendo acceso al recurso protegido, durante las próximas 24 horas, la ubicación se compartirá de forma silenciosa una vez por hora desde el dispositivo, por lo que no tendrá que salir del teléfono y aprobar manualmente cada hora.
+- **Keep only while using** (Mantener solo mientras se use): Mientras siga teniendo acceso al recurso protegido, cada hora, deberá aprobar manualmente la solicitud desde el dispositivo.
+- **Allow once** (Permitir una vez): Una vez cada hora en que todavía tenga acceso al recurso, o la próxima vez que intente acceder al recurso, tendrá que conceder el permiso de nuevo. Tendrá que ir a Configuración y habilitar manualmente el permiso. 
+- **Don’t allow** (No permitir): Si selecciona esta opción, se le bloqueará el acceso al recurso. Si cambia de parecer, tendrá que ir a Configuración y habilitar manualmente el permiso.
+
+En Android, Microsoft recomienda permitir que la aplicación acceda a la ubicación en todo momento. Siga las indicaciones de Android para conceder ese permiso. Esto es lo que significa para usted cada nivel de permiso:
+
+- **Allow all the time**  (Permitir en todo momento[recomendado]): Mientras siga teniendo acceso al recurso protegido, durante las próximas 24 horas, la ubicación se compartirá de forma silenciosa una vez por hora desde el dispositivo, por lo que no tendrá que salir del teléfono y aprobar manualmente cada hora.
+- **Allow only while using the app** (Permitir solo mientras se usa la aplicación): Mientras siga teniendo acceso al recurso protegido, cada hora, deberá aprobar manualmente la solicitud desde el dispositivo.
+- **Deny and don’t ask again** (Denegar y no volver a preguntar): Si selecciona esta opción, se le bloqueará el acceso al recurso.
+
+**P**: ¿Cómo se usa y almacena la información de mi ubicación?
+
+**R**: La aplicación Authenticator recopila la información de GPS para determinar en qué país se encuentra. El nombre del país y las coordenadas de la ubicación se envían de vuelta al sistema para determinar si puede acceder al recurso protegido. El nombre del país se almacena y se notifica al administrador de TI, pero las coordenadas reales nunca se guardan ni almacenan en servidores de Microsoft.
 
 ### <a name="registering-a-device"></a>Registro de un dispositivo
 
@@ -179,7 +203,13 @@ La aplicación Microsoft Authenticator reemplaza a la aplicación Azure Authenti
 
 **P.** : ¿Por qué tengo problemas con Apple Watch en watchOS 7?
 
-**R.** : Hay un problema con la aprobación de notificaciones en watchOS 7 y estamos trabajando con Apple para solucionarlo. Mientras tanto, todas las notificaciones que requieran la aplicación watchOS de Microsoft Authenticator se deben autenticar en el teléfono.
+**R**: En algunas ocasiones, la aprobación o denegación de una sesión en watchOS 7 genera un error con el mensaje "No se pudo comunicar con el teléfono. Asegúrese de mantener la pantalla de Watch activa durante futuras solicitudes. Consulte las preguntas más frecuentes para más información". Hay un problema conocido con las notificaciones cuando se habilita el bloqueo de la aplicación o cuando se requiere la coincidencia de números, y estamos trabajando con Apple para solucionarlo. Mientras tanto, todas las notificaciones que requieran la aplicación watchOS de Microsoft Authenticator se deben autenticar en el teléfono.
+
+### <a name="signing-into-an-ios-app"></a>Inicio de sesión en una aplicación iOS
+
+**P**: Estoy intentando iniciar sesión en una aplicación iOS y necesito aprobar una notificación en la aplicación Authenticator. Cuando vuelvo a la aplicación iOS, me quedo bloqueado. ¿Qué puedo hacer?
+
+**R**: Este es un problema conocido en iOS 13 y versiones posteriores. Para obtener ayuda, puede ponerse en contacto con el administrador de soporte técnico y proporcionar los detalles siguientes: `Use Azure MFA, not MFA server.`
 
 ### <a name="apple-watch-doesnt-show-accounts"></a>Apple Watch no muestra las cuentas
 

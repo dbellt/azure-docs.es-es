@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
 ms.date: 03/02/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 38fd5b779c3a8ae71c2e4fafcaf65921b1be3f93
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.topic: how-to
+ms.custom: devx-track-python,contperf-fy21q1
+ms.openlocfilehash: 6a77cfd933b79e3ada02e90f900467cedf08e406
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105642262"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107889977"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning
 
@@ -32,7 +32,7 @@ Las canalizaciones de ML se ejecutan en destinos de proceso (consulte [¿Qué so
 
 Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Cree un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md) que contendrá todos los recursos de la canalización.
 

@@ -3,12 +3,12 @@ title: Referencia de configuración de aplicación para Azure Functions
 description: Documentación de referencia para la configuración de la aplicación de Azure Functions o de variables de entorno.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 327f120d387a3a08f0de9db2da718d530346e545
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: b1a3563d766f0f4636086024a1f23d157e8e9a06
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773086"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228611"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
@@ -205,6 +205,45 @@ Valores válidos:
 | `powershell` | [PowerShell](functions-reference-powershell.md) |
 | `python` | [Python](functions-reference-python.md) |
 
+## <a name="mdmaxbackgroundupgradeperiod"></a>MDMaxBackgroundUpgradePeriod 
+
+Controla el período de actualización en segundo plano de las dependencias administradas para las aplicaciones de función de PowerShell, con un valor predeterminado `7.00:00:00` de (semanal). 
+
+Cada proceso de trabajo de PowerShell inicia la comprobación de las actualizaciones de módulo en la Galería de PowerShell en el inicio del proceso y, después, cada `MDMaxBackgroundUpgradePeriod`. Cuando hay disponible una nueva versión de módulo en la Galería de PowerShell, se instala en el sistema de archivos y se pone a disposición de los trabajadores de PowerShell. Si se reduce este valor, la aplicación de funciones obtiene versiones más recientes de los módulos, pero también aumenta el uso de recursos de la aplicación (E/S de red, CPU, almacenamiento). Al aumentar este valor, se reduce el uso de recursos de la aplicación, pero también se puede retrasar la entrega de nuevas versiones de módulos a la aplicación. 
+
+|Clave|Valor de ejemplo|
+|---|------------|
+|MDMaxBackgroundUpgradePeriod|7.00:00:00|
+
+Para obtener más información, consulte [Administración de dependencias](functions-reference-powershell.md#dependency-management).
+
+## <a name="mdnewsnapshotcheckperiod"></a>MDNewSnapshotCheckPeriod
+
+Especifica la frecuencia con la que cada trabajo de PowerShell comprueba si se han instalado actualizaciones de dependencias administradas. La frecuencia predeterminada es `01:00:00` (cada hora). 
+
+Una vez instaladas las nuevas versiones del módulo en el sistema de archivos, se debe reiniciar cada proceso de trabajo de PowerShell. Reiniciar los trabajos de PowerShell afecta la disponibilidad de la aplicación, ya que puede interrumpir la ejecución de la función actual. Hasta que se reinicien todos los procesos de trabajo de PowerShell, las invocaciones de función pueden usar las versiones de módulos anteriores o nuevas. El reinicio de todos los trabajos de PowerShell se completa dentro del período `MDNewSnapshotCheckPeriod`. 
+
+En cada `MDNewSnapshotCheckPeriod`, el trabajo de PowerShell comprueba si se han instalado actualizaciones de dependencias administradas. Cuando se han instalado las actualizaciones, se inicia un reinicio. Al aumentar este valor, se reduce la frecuencia de interrupciones debido a los reinicios. Sin embargo, el aumento también podría incrementar el tiempo durante el que las invocaciones de función podrían usar las versiones anteriores o nuevas del módulo, de forma no determinista. 
+
+|Clave|Valor de ejemplo|
+|---|------------|
+|MDNewSnapshotCheckPeriod|01:00:00|
+
+Para obtener más información, consulte [Administración de dependencias](functions-reference-powershell.md#dependency-management).
+
+
+## <a name="mdminbackgroundupgradeperiod"></a>MDMinBackgroundUpgradePeriod
+
+Período de tiempo después de una comprobación de actualización de dependencia administrada anterior antes de iniciar otra comprobación de actualización, con un valor predeterminado de `1.00:00:00` (diariamente). 
+
+Para evitar que se actualicen excesivamente los módulos en los reinicios frecuentes de los trabajos, no se realizará la comprobación de las actualizaciones de los módulos si ya se inició algún trabajo en el último `MDMinBackgroundUpgradePeriod`. 
+
+|Clave|Valor de ejemplo|
+|---|------------|
+|MDMinBackgroundUpgradePeriod|1.00:00:00|
+
+Para obtener más información, consulte [Administración de dependencias](functions-reference-powershell.md#dependency-management).
+
 ## <a name="pip_extra_index_url"></a>PIP\_EXTRA\_INDEX\_URL
 
 El valor de esta configuración indica una dirección URL de índice de paquetes personalizado para las aplicaciones de Python. Use esta configuración cuando necesite ejecutar una compilación remota mediante dependencias personalizadas que se encuentran en un índice de paquetes adicional.   
@@ -265,7 +304,7 @@ La ruta de acceso del archivo al código y la configuración de la aplicación d
 
 Solo se usa cuando se implementa en un plan prémium o en un plan de consumo que se ejecuta en Windows. No se admite para los planes de consumo que se ejecutan en Linux. El cambio o la eliminación de esta configuración puede hacer que la aplicación de funciones no se inicie. Para más información, consulte [este artículo de solución de problemas](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
-Al usar una instancia de Azure Resource Manager para crear una aplicación de funciones durante la implementación, no incluya WEBSITE_CONTENTSHARE en la plantilla. Esta configuración de aplicación se genera durante la implementación. Para más información, consulte [Automatización de la implementación de recursos para una aplicación de funciones](functions-infrastructure-as-code.md#windows).   
+Al usar una plantilla de Azure Resource Manager para crear una aplicación de funciones durante la implementación, no incluya WEBSITE_CONTENTSHARE en la plantilla. Esta configuración de aplicación se genera durante la implementación. Para más información, consulte [Automatización de la implementación de recursos para una aplicación de funciones](functions-infrastructure-as-code.md#windows).   
 
 ## <a name="website_dns_server"></a>SERVIDOR \_DNS\_ DEL SITIO WEB
 
@@ -274,6 +313,10 @@ Establece el servidor DNS que usa una aplicación al resolver direcciones IP. Es
 |Clave|Valor de ejemplo|
 |---|------------|
 |SERVIDOR \_DNS\_ DEL SITIO WEB|168.63.129.16|
+
+## <a name="website_enable_brotli_encoding"></a>WEBSITE\_ENABLE\_BROTLI\_ENCODING 
+
+Controla si se usa la codificación Brotli para la compresión en lugar de la compresión gzip predeterminada. Cuando `WEBSITE_ENABLE_BROTLI_ENCODING` se establece en `1`, se usa la codificación Brotli; de lo contrario, se usa la codificación gzip. 
 
 ## <a name="website_max_dynamic_application_scale_out"></a>ESCALABILIDAD\_HORIZONTAL\_MÁXIMA\_DE LA\_APLICACIÓN\_DINÁMICA
 
@@ -318,7 +361,7 @@ Permite establecer la zona horaria para la aplicación de funciones.
 
 ## <a name="website_vnet_route_all"></a>SITIO WEB\_VNET\_ROUTE\_ALL
 
-Indica si todo el tráfico saliente de la aplicación se enruta a través de la red virtual. Un valor de configuración de `1` indica que todo el tráfico se enruta a través de la red virtual. Debe usar esta opción al usar las características de la [Integración de red virtual regional](functions-networking-options.md#regional-virtual-network-integration). También se usa cuando [se usa una puerta de enlace NAT de red virtual para definir una dirección IP de salida estática](functions-how-to-use-nat-gateway.md). 
+Indica si todo el tráfico saliente de la aplicación se enruta a través de la red virtual. Un valor de configuración de `1` indica que todo el tráfico se enruta a través de la red virtual. Debe usar esta opción al usar las características de [Integración de red virtual regional](functions-networking-options.md#regional-virtual-network-integration). También se usa cuando [se usa una puerta de enlace NAT de red virtual para definir una dirección IP de salida estática](functions-how-to-use-nat-gateway.md). 
 
 |Clave|Valor de ejemplo|
 |---|------------|

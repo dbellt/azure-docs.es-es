@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.custom: designer
-ms.openlocfilehash: ec563371ab505113117707f56c31f506f7fdf377
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1846b5478c824caa954b85ea6346d773f46b279c
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659520"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315676"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implementación de un modelo de Machine Learning con el diseñador
 
@@ -28,7 +28,7 @@ Puede implementar el modelo predictivo desarrollado en la [parte uno del tutoria
 > * Implementación del punto de conexión en tiempo real.
 > * Prueba del punto de conexión en tiempo real.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Complete la [parte uno del tutorial](tutorial-designer-automobile-price-train-score.md) para aprender a entrenar y puntuar un modelo de Machine Learning en el diseñador.
 
@@ -140,6 +140,8 @@ Para más información sobre cómo utilizar el servicio web, consulte [Consumo d
 
 ## <a name="limitations"></a>Limitaciones
 
+### <a name="update-inference-pipeline"></a>Actualizar canalización de inferencia
+
 Si realiza cualquier modificación en la canalización de entrenamiento, debe volver a enviarla, **actualizar** la canalización de inferencia y volver a ejecutar esta última canalización.
 
 Tenga en cuenta que en la canalización de inferencia solo se actualizarán los modelos entrenados, la transformación de datos no se actualizará.
@@ -153,6 +155,10 @@ Luego, reemplace de forma manual el módulo **TD-** en la canalización de infer
 ![Captura de pantalla que muestra cómo reemplazar el módulo de la transformación](./media/tutorial-designer-automobile-price-deploy/replace-td-module.png)
 
 A continuación, puede enviar la canalización de inferencia con el modelo y la transformación actualizados e implementarla.
+
+### <a name="deploy-real-time-endpoint"></a>Implementar un punto de conexión en tiempo real
+
+Debido a la limitación del acceso al almacén de datos, si la canalización de inferencia contiene el módulo **Importar datos** o **Exportar datos**, se quitará automáticamente cuando se implemente en el punto de conexión en tiempo real.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

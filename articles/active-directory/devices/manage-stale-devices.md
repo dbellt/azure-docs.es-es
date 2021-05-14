@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6774e172c4e8607bfadd95f947d650afa62a984f
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 16edc850382ba9023b54eb34cebb7ebafb539161
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550429"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286679"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Instrucciones: Administración de dispositivos obsoletos en Azure AD
 
@@ -125,7 +125,7 @@ Deshabilite o elimine los dispositivos registrados de Azure AD en Azure AD.
 
 ## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Limpieza de dispositivos obsoletos en Azure Portal  
 
-Aunque puede limpiar los dispositivos obsoletos en Azure Portal, es más eficiente tratar este proceso mediante un script de PowerShell. Utilice el módulo PowerShell V1 más reciente para usar el filtro de marca de tiempo y para filtrar los dispositivos administrados por el sistema, como Autopilot. En este momento, no se recomienda el uso de PowerShell V2.
+Aunque puede limpiar los dispositivos obsoletos en Azure Portal, es más eficiente tratar este proceso mediante un script de PowerShell. Use el módulo de PowerShell V2 más reciente para usar el filtro de marca de tiempo y para filtrar los dispositivos administrados por el sistema, como Autopilot.
 
 Una rutina típica consta de los pasos siguientes:
 

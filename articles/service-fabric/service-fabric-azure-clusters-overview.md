@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: bbfdc0a30aa673e8602ec9233fde4236c99ef5aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4aed4ab38db9f8d8b95647b6662245c93778afed
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97882218"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107520163"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Introducción a los clústeres de Service Fabric en Azure
 Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Una máquina física o virtual que forma parte de un clúster se denomina nodo del clúster. Los clústeres pueden escalarse a miles de nodos. Si agrega nuevos nodos al clúster, Service Fabric reequilibra las réplicas e instancias de la partición del servicio en el número aumentado de nodos. El rendimiento general de la aplicación mejora y se reduce la contención para el acceso a la memoria. Si los nodos del clúster no se usan de forma eficaz, puede reducir su número de nodos. Service Fabric vuelve a reequilibrar las réplicas e instancias de la partición en el número reducido de nodos para aprovechar mejor el hardware de cada nodo.
@@ -92,25 +92,7 @@ Un clúster de Azure Service Fabric es un recurso de su propiedad que está parc
 Para obtener más información, lea sobre la [actualización de clústeres](service-fabric-cluster-upgrade.md).
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
-Puede crear clústeres en máquinas virtuales que ejecuten estos sistemas operativos:
-
-| Sistema operativo | Versión más antigua admitida de Service Fabric | Última versión admitida de Service Fabric |
-| --- | --- | --- | 
-| Windows Server 2019 | 6.4.654.9590 | N/D |
-| Windows Server 2016 | Todas las versiones | N/D |
-| Windows Server 20H2 | 7.2.445.9590 | N/D |
-| Windows Server 1809 | 6.4.654.9590 | 7.2.445.9590 |
-| Windows Server 1803 | 6.4 | 7.2.445.9590 |
-| Windows Server 1709 | 6.0 | 7.2.445.9590 |
-| Windows Server 2012 | Todas las versiones | N/D | 
-| Linux Ubuntu 16.04 | 6.0 | N/D |
-| Linux Ubuntu 18.04 | 7.1 | N/D |
-
-Para más información, consulte [Versiones de clúster admitidas en Azure](./service-fabric-versions.md#supported-operating-systems).
-
-> [!NOTE]
-> Si decide implementar Service Fabric en Windows Server 1709, tenga en cuenta que (1) no es una rama de mantenimiento a largo plazo, así que puede que tenga que mover versiones en el futuro, y (2) si implementa contenedores, los integrados en Windows Server 2016 no funcionarán en Windows Server 1709, y viceversa (tendrá que volver a compilarlos para implementarlos).
->
+Para más información, consulte [Versiones admitidas en Azure](./service-fabric-versions.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

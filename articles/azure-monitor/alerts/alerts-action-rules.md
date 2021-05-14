@@ -3,12 +3,12 @@ title: Reglas de acción para las alertas de Azure Monitor
 description: Descripción de qué son las reglas de acción en Azure Monitor y cómo configurarlas y administrarlas.
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: 4f54ee7d21d52386bd18921aec33cabe02046852
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 61c9912fbe12c706c717bed448d3b7c141b40cd2
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772566"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108018356"
 ---
 # <a name="action-rules-preview"></a>Reglas de acción (versión preliminar)
 
@@ -129,7 +129,7 @@ Por último, configure los siguientes detalles de la regla de acción:
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Puede crear reglas de acción con la CLI de Azure mediante el comando [az monitor action-rule create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create).  La referencia a `az monitor action-rule` es solo una de las muchas [referencias de la CLI de Azure para Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
+Puede crear reglas de acción con la CLI de Azure mediante el comando [az monitor action-rule create](/cli/azure/monitor/action-rule#az_monitor_action_rule_create).  La referencia a `az monitor action-rule` es solo una de las muchas [referencias de la CLI de Azure para Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
 
 ### <a name="prepare-your-environment"></a>Preparación del entorno
 
@@ -165,7 +165,7 @@ Puede crear reglas de acción con la CLI de Azure mediante el comando [az monito
 
 ### <a name="create-action-rules-with-the-azure-cli"></a>Creación de reglas de acción con la CLI de Azure
 
-Consulte el contenido de referencia de la CLI de Azure para [az monitor action-rule create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) para obtener información sobre los parámetros obligatorios y opcionales.
+Consulte el contenido de referencia de la CLI de Azure para [az monitor action-rule create](/cli/azure/monitor/action-rule#az_monitor_action_rule_create) para obtener información sobre los parámetros obligatorios y opcionales.
 
 Cree una regla de acción para suprimir las notificaciones en un grupo de recursos.
 
@@ -251,7 +251,7 @@ Desde aquí, puede habilitar, deshabilitar o eliminar reglas de acción a escala
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Puede ver y administrar las reglas de acción mediante el comando [az monitor action-rule](/cli/azure/ext/alertsmanagement/monitor) de la CLI de Azure.
+Puede ver y administrar las reglas de acción mediante el comando [az monitor action-rule](/cli/azure/monitor) de la CLI de Azure.
 
 Antes de administrar las reglas de acción con la CLI de Azure, prepare el entorno según las instrucciones proporcionadas en [Configuración de una regla de acciones](#configuring-an-action-rule).
 

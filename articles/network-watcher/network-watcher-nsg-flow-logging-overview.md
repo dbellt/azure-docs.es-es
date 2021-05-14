@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: bc085163b4f738d022ab9771794ec85293de5ed8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 92500be4ef793fc71c828b84b6b62f833884b372
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100521686"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109628291"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introducción al registro de flujo de grupos de seguridad de red
 
@@ -93,10 +93,10 @@ Los registros de flujo incluyen las siguientes propiedades:
                     * **Traffic Flow**: la dirección del flujo de tráfico. Los valores válidos son **I** para el correo entrante y **O** para el saliente.
                     * **Decisión de tráfico**: indica si el tráfico se permitió o se denegó. Los valores válidos son **A** para permitido y **D** para denegado.
                     * **Estado de flujo, solo versión 2**: captura el estado del flujo. Los estados posibles son **B**: Begin (Comienzo), cuando se crea el flujo. No se proporcionan las estadísticas. **C**: Continuación de un flujo en curso. Las estadísticas se proporcionan a intervalos de cinco minutos. **E**: End (Final), cuando termina el flujo. Se proporcionan las estadísticas.
-                    * **Paquetes: origen a destino, solo versión 2** El número total de paquetes TCP o UDP enviados desde el origen al destino desde la última actualización.
-                    * **Bytes enviados: origen a destino, solo versión 2** El número total de bytes de paquetes TCP o UDP enviados desde el origen al destino desde la última actualización. Los bytes de paquete incluyen el encabezado y la carga del paquete.
-                    * **Paquetes: destino a origen, solo versión 2** El número total de paquetes TCP o UDP enviados desde el destino al origen desde la última actualización.
-                    * **Bytes enviados: destino a origen, solo versión 2** El número total de bytes de paquetes TCP y UDP enviados desde el destino al origen desde la última actualización. Los bytes de paquete incluyen el encabezado y la carga del paquete.
+                    * **Paquetes: origen a destino, solo versión 2** El número total de paquetes TCP enviados desde el origen al destino desde la última actualización.
+                    * **Bytes enviados: origen a destino, solo versión 2** El número total de bytes de paquetes TCP enviados desde el origen al destino desde la última actualización. Los bytes de paquete incluyen el encabezado y la carga del paquete.
+                    * **Paquetes: destino a origen, solo versión 2** El número total de paquetes TCP enviados desde el destino al origen desde la última actualización.
+                    * **Bytes enviados: destino a origen, solo versión 2** El número total de bytes de paquetes TCP enviados desde el destino al origen desde la última actualización. Los bytes de paquete incluyen el encabezado y la carga del paquete.
 
 
 **Versión 2 de los registros de flujo de NSG (frente a la versión 1)** 
@@ -347,6 +347,18 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 - [[Tutorial] Administración y análisis de registros de flujo de NSG con Grafana](./network-watcher-nsg-grafana.md)
 - [[Tutorial] Administración y análisis de registros de flujo de NSG con Graylog](./network-watcher-analyze-nsg-flow-logs-graylog.md)
 
+*Deshabilitar los registros de flujo*
+
+Cuando se deshabilita el registro de flujo, se detiene el registro de flujo para el NSG asociado. Pero el registro de flujo como recurso sigue existiendo con toda su configuración y sus asociaciones. Se puede habilitar en cualquier momento para iniciar el registro de flujo en el grupo de seguridad de red configurado. Puede encontrar los pasos para deshabilitar o habilitar los registros de flujo [en esta guía de procedimientos](./network-watcher-nsg-flow-logging-powershell.md).  
+
+*Eliminar registros de flujo*
+
+Cuando se elimina el registro de flujo, no solo se detiene el registro de flujo para el NSG asociado, sino que también se elimina el recurso de registro de flujo con su configuración y sus asociaciones. Para volver a iniciar el registro de flujo, se debe crear un nuevo recurso de registro de flujo para ese NSG. Un registro de flujo se puede eliminar mediante [PowerShell](/powershell/module/az.network/remove-aznetworkwatcherflowlog), en [la CLI](/cli/azure/network/watcher/flow-log#az_network_watcher_flow_log_delete) o con la [API de REST](/rest/api/network-watcher/flowlogs/delete). La opción de eliminar registros de flujo desde Azure Portal está en desarrollo.    
+
+Además, cuando se elimina un NSG, se elimina de forma predeterminada el recurso de registro de flujo asociado.
+
+> [!NOTE]
+> Para mover un grupo de seguridad de red a otro grupo de recursos o a otra suscripción, se deben eliminar los registros de flujo asociados: deshabilitar simplemente los registros de flujo no surtirá efectos. Después de la migración de NSG, los registros de flujo deben volver a crearse para habilitar el registro de flujo.  
 
 ## <a name="nsg-flow-logging-considerations"></a>Consideraciones acerca del registro de flujo de NSG
 
@@ -366,6 +378,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Servicios incompatibles**: debido a las limitaciones actuales de la plataforma, los registros de flujo de NSG no admiten un pequeño conjunto de servicios de Azure. La lista actual de servicios incompatibles es:
 - [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/)
+- [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances/)
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
 
 ## <a name="best-practices"></a>Procedimientos recomendados

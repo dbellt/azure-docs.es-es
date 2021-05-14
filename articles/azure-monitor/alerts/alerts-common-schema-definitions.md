@@ -4,12 +4,12 @@ description: Información sobre las definiciones del esquema de alertas comunes 
 author: ofirmanor
 ms.topic: conceptual
 ms.date: 04/12/2021
-ms.openlocfilehash: 5ec2adc4594c71f640b027d799b0a3c133ca2333
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: a026fa846901d4db7cb56196de50508f077e4fc6
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308666"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108018266"
 ---
 # <a name="common-alert-schema-definitions"></a>Definiciones de esquemas de alertas comunes
 
@@ -72,7 +72,7 @@ Cualquier instancia de alerta describe el recurso afectado y la causa de la aler
 
 | Campo | Descripción|
 |:---|:---|
-| alertId | GUID que identifica de forma única la instancia de alerta. |
+| alertId | Identificador de recurso único que identifica la instancia de alerta. |
 | alertRule | Nombre de la regla de alertas que generó la instancia de la alerta. |
 | severity | Gravedad de la alerta. Valores posibles: Sev0, Sev1, Sev2, Sev3 o Sev4. |
 | signalType | Identifica la señal en que se definió la regla de alertas. Valores posibles: Métrica, Registro o Registro de actividad. |
@@ -179,7 +179,7 @@ Cualquier instancia de alerta describe el recurso afectado y la causa de la aler
 ### <a name="log-alerts"></a>Alertas de registro
 
 > [!NOTE]
-> En el caso de las alertas de registro que tienen definida una carga de JSON o un asunto de correo electrónico personalizados, habilitar el esquema común revierte el esquema de la carga o el asunto de correo electrónico a los que se describen a continuación. Las alertas con el esquema común habilitado tienen un límite de tamaño superior de 256 KB por alerta. Los resultados de la búsqueda no se insertan en la carga de las alertas de registro si hicieron que el tamaño de la alerta superara este umbral. Para determinar esto, compruebe la marca `IncludeSearchResults`. Cuando no se incluyen los resultados de la búsqueda, se recomienda usar `LinkToFilteredSearchResultsAPI` o `LinkToSearchResultsAPI` para acceder a los resultados de la búsqueda con la [API de Log Analytics](/rest/api/loganalytics/dataaccess/query/get).
+> En el caso de las alertas de registro que tienen definida una carga de JSON o un asunto de correo electrónico personalizados, habilitar el esquema común revierte el esquema de la carga o el asunto de correo electrónico a los que se describen a continuación. Esto significa que, si quiere que se defina una carga de JSON personalizada, el webhook no puede usar el esquema de alertas común. Las alertas con el esquema común habilitado tienen un límite de tamaño superior de 256 KB por alerta. Los resultados de la búsqueda no se insertan en la carga de las alertas de registro si hicieron que el tamaño de la alerta superara este umbral. Para determinar esto, compruebe la marca `IncludeSearchResults`. Cuando no se incluyen los resultados de la búsqueda, se recomienda usar `LinkToFilteredSearchResultsAPI` o `LinkToSearchResultsAPI` para acceder a los resultados de la búsqueda con la [API de Log Analytics](/rest/api/loganalytics/dataaccess/query/get).
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 

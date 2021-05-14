@@ -1,19 +1,19 @@
 ---
 title: Solución de problemas de asignación de Cloud Services (clásico) | Microsoft Docs
 description: Solucione un error de asignación al implementar Azure Cloud Services. Obtenga información sobre cómo funciona la asignación y por qué se pueden producir errores en la asignación.
-ms.topic: article
+ms.topic: troubleshooting
 ms.service: cloud-services
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 95fe4a8e1f6c6ee5f519311f8e756be89a09acf8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b9cfb7e2d57d194e9f9317d0dcbff3e87318ac9f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738317"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736206"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-classic-in-azure"></a>Solución de problemas de asignación al implementar Cloud Services (clásico) en Azure
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 48686fb78dc4295da3bd390d92ae3837cd09a4d0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 66d41ed1bb900f55db0d3670c1ce312950ff165d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639418"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108147056"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template"></a>Inicio rápido: Creación de un almacén de claves de Azure y una clave mediante una plantilla de Resource Manager 
 
@@ -168,7 +168,7 @@ En la plantilla se definen dos recursos:
 Puede encontrar más ejemplos de plantillas de Azure Key Vault en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular).
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
-Puede utilizar [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal), Azure PowerShell, CLI de Azure o API REST. Para obtener información sobre otros métodos de implementación, consulte [Implementación de plantillas](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell).
+Puede utilizar [Azure Portal](../../azure-resource-manager/templates/deploy-portal.md), Azure PowerShell, CLI de Azure o API REST. Para obtener información sobre otros métodos de implementación, consulte [Implementación de plantillas](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="review-deployed-resources"></a>Revisión de los recursos implementados
 
@@ -223,4 +223,4 @@ En este inicio rápido, ha creado un almacén de claves y una clave mediante una
 
 - Lea una [introducción a Azure Key Vault](../general/overview.md).
 - Obtenga más información sobre [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
-- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-overview.md)
+- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-features.md)

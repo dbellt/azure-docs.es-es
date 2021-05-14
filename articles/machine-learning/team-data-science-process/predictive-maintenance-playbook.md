@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 1e939b86eeadfee276378488cfcb40c07f28684d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a8b722b7bef393422eec395f16de0f38e806152
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98880665"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141764"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guía de Azure AI para soluciones de mantenimiento predictivo
 
@@ -439,15 +439,16 @@ Microsoft Azure ofrece rutas de aprendizaje de los conceptos fundamentales sobre
 
 | Recursos de aprendizaje  | Disponibilidad |
 |:-------------------|--------------|
-| [Ruta de aprendizaje de mantenimiento predictivo mediante árboles y bosques aleatorios](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Público | 
-| [Ruta de aprendizaje de mantenimiento predictivo mediante aprendizaje profundo](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Público |
-| [Desarrollador de inteligencia artificial en Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Público |
-| [Microsoft AI School](https://aischool.microsoft.com/learning-paths) | Público |
-| [Aprendizaje de Azure AI de GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Público |
+| [Microsoft Docs: rol Científico de datos](/learn/roles/data-scientist) | Público |
+| [Microsoft Docs: rol Ingeniero de IA](/learn/roles/ai-engineer) | Público |
+| [Microsoft Docs: rol Ingeniero de datos](/learn/roles/data-engineer) | Público |
+| [Microsoft AI School](https://www.microsoft.com/ai/ai-school) | Público |
 | [LinkedIn Learning](https://www.linkedin.com/learning) | Público |
-| [Seminarios web sobre Microsoft AI en YouTube](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Público |
+| [Microsoft: Listas de reproducción en YouTube para inteligencia artificial y análisis](https://www.youtube.com/c/MicrosoftAzure/playlists?view=50&sort=dd&shelf_id=7) | Público |
 | [Presentación de Microsoft AI](https://channel9.msdn.com/Shows/AI-Show) | Público |
-| [LearnAI@MS](https://learnanalytics.microsoft.com) | Asociados |
+| [Introducción a la plataforma de IA](https://azure.microsoft.com/overview/ai-platform/) | Público |
+| [Laboratorio de inteligencia artificial](https://www.microsoft.com/ai/ai-lab) | Público |
+| [IA de Microsoft](https://www.microsoft.com/AI) | Público |
 | [Microsoft Partner Network](https://partner.microsoft.com/training/training-center) | Asociados |
 
 Además, instituciones académicas, como Stanford y MIT, además de otras empresas educativas, ofrecen cursos en línea abiertos y masivos (MOOC) gratis sobre la inteligencia artificial.

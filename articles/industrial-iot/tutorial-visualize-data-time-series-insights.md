@@ -6,12 +6,12 @@ ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
-ms.openlocfilehash: 5bd218c0d94922b6137a964e3993f516216ca4b7
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 9a07f2b1d4b63005bff4a8963bd1258ad72e87ee
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104787350"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137281"
 ---
 # <a name="tutorial-visualize-data-with-time-series-insights-tsi"></a>Tutorial: Visualización de datos con Time Series Insights (TSI)
 
@@ -54,13 +54,13 @@ En el explorador de Time Series Insights, tenga en cuenta las instancias de Time
 
 Para visualizar los datos de telemetría en el gráfico, haga clic con el botón derecho en la instancia de Time Series Insights y seleccione el valor. El periodo de tiempo que se va a usar en el gráfico se puede ajustar desde la esquina superior derecha. El valor de varias instancias se puede visualizar en la misma selección por tiempo.
 
-Para más información, consulte [Inicio rápido: Exploración del entorno de demo de Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart)
+Para más información, consulte [Inicio rápido: Exploración del entorno de demo de Azure Time Series Insights Gen2](../time-series-insights/quickstart-explore-tsi.md)
 
 ## <a name="define-and-apply-a-new-model"></a>Definición y aplicación de un modelo nuevo
 
 Dado que las instancias de telemetría se encuentran ahora en formato sin procesar, deben configurarse con el formato correspondiente 
 
-Para obtener información detallada sobre los modelos de Time Series Insights, consulte [Modelo de serie temporal en la versión preliminar de Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-tsm)
+Para obtener información detallada sobre los modelos de Time Series Insights, consulte [Modelo de serie temporal en la versión preliminar de Azure Time Series Insights](../time-series-insights/concepts-model-overview.md)
 
 1. Paso 1: En la pestaña Modelo del explorador, defina una nueva jerarquía para los datos de telemetría ingeridos. Una jerarquía es la estructura de árbol lógico diseñada para permitir al usuario insertar la metainformación necesaria para una navegación más intuitiva a través de las instancias del Time Series Insights. Un usuario puede crear, eliminar o modificar plantillas de jerarquía que se pueden usar más adelante para las distintas instancias de Time Series Insights.
 
@@ -88,7 +88,7 @@ Para obtener información detallada sobre los modelos de Time Series Insights, c
 
 ## <a name="connect-time-series-insights-to-power-bi"></a>Conexión Time Series Insights con Power BI
 
-También puede conectar el entorno de Time Series Insights a Power BI.  Para más información, consulte los artículos en los que se explica [cómo conectar Time Series Insights a Power BI](https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi) y la [visualización de datos de Time Series Insights en Power BI](https://docs.microsoft.com/azure/time-series-insights/concepts-power-bi).
+También puede conectar el entorno de Time Series Insights a Power BI.  Para más información, consulte los artículos en los que se explica [cómo conectar Time Series Insights a Power BI](../time-series-insights/how-to-connect-power-bi.md) y la [visualización de datos de Time Series Insights en Power BI](../time-series-insights/concepts-power-bi.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

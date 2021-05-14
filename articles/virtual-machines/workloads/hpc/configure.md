@@ -5,36 +5,59 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/18/2021
+ms.date: 04/28/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 0c6f5dc55f7406aba7d6e3dc1a278b57fe4ec9ba
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 7269309a3ed682da4d67e2509508276a3133601e
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721268"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109516873"
 ---
 # <a name="configure-and-optimize-vms"></a>Configuración y optimización de máquinas virtuales
 
-En este artículo se incluyen algunas instrucciones sobre la configuración y optimización de las máquinas virtuales de la [serie H](../../sizes-hpc.md) y la [serie N](../../sizes-gpu.md) habilitadas para InfiniBand para HPC.
+En este artículo se incluyen algunas instrucciones sobre la configuración y optimización de las VM de la [serie H](../../sizes-hpc.md) y la [serie N](../../sizes-gpu.md) habilitadas para InfiniBand para HPC.
 
 ## <a name="vm-images"></a>Imágenes de VM
-En las máquinas virtuales habilitadas para InfiniBand, se necesitan los controladores adecuados para habilitar RDMA.
-- Las [imágenes de máquina virtual de CentOS-HPC](#centos-hpc-vm-images) en Marketplace están preconfiguradas con los controladores de IB adecuados y son la manera más fácil de empezar.
-- Las [imágenes de VM Ubuntu](#ubuntu-vm-images) se pueden configurar con los controladores IB adecuados. Se recomienda crear [imágenes de máquina virtual personalizadas](../../linux/tutorial-custom-images.md) con los controladores y la configuración adecuados y reutilizarlas de forma periódica.
+En las VM habilitadas para InfiniBand (IB), se necesitan los controladores adecuados para habilitar RDMA.
+- Las [imágenes de las VM de la versión de CentOS-HPC](#centos-hpc-vm-images) en Marketplace se configuran previamente con los controladores de IB adecuados.
+- Las [imágenes de las VM de la versión de Ubuntu-HPC](#ubuntu-hpc-vm-images) en Marketplace se configuran previamente con los controladores de IB y de GPU adecuados.
 
-En las máquinas virtuales de la [serie N](../../sizes-gpu.md) habilitadas para GPU, también se requieren los controladores de GPU adecuados, que se pueden agregar a través de las [extensiones de máquina virtual](../../extensions/hpccompute-gpu-linux.md) o [manualmente](../../linux/n-series-driver-setup.md). Algunas imágenes de VM de Marketplace también vienen preinstaladas con los controladores de GPU de Nvidia, incluidas algunas imágenes VM de Nvidia.
+Estas imágenes de VM (VMI) se basan en las imágenes de VM base de CentOS y Ubuntu en Marketplace. Los scripts usados en la creación de imágenes de VM a partir de su imagen base de CentOS en Marketplace se encuentran en el [repositorio azhpc-images](https://github.com/Azure/azhpc-images/tree/master/centos).
+
+En las VM de la [serie N](../../sizes-gpu.md) habilitadas para GPU, también se requieren los controladores de GPU adecuados. Pueden estar disponibles mediante los métodos siguientes:
+- Use las [imágenes de VM de Ubuntu-HPC](#ubuntu-hpc-vm-images) que vienen preconfiguradas con los controladores de GPU de Nvidia y la pila de software de proceso de GPU (CUDA, NCCL).
+- Adición de los controladores de GPU a través de las [extensiones de VM](../../extensions/hpccompute-gpu-linux.md)
+- Instale los controladores de GPU [manualmente](../../linux/n-series-driver-setup.md).
+- Algunas otras imágenes de VM de Marketplace también vienen preinstaladas con los controladores de GPU de Nvidia, incluidas algunas imágenes VM de Nvidia.
+
+En función de las necesidades de distribución y versión de Linux de las cargas de trabajo, las [imágenes de VM de CentOS-HPC](#centos-hpc-vm-images) y las [imágenes de VM de Ubuntu-HPC](#ubuntu-hpc-vm-images) en Marketplace son la manera más fácil de empezar a trabajar con cargas de trabajo de HPC e IA en Azure.
+También se recomienda crear [imágenes de VM personalizadas](../../linux/tutorial-custom-images.md) con personalización y configuración específicas de las cargas de trabajo, y reutilizarlas de forma periódica.
+
+### <a name="vm-sizes-supported-by-the-hpc-vm-images"></a>Tamaños de VM admitidos por las imágenes de VM de HPC
+Las imágenes HPC de Azure Marketplace más recientes vienen con OFED 5.1 de Mellanox y versiones posteriores, que no admiten tarjetas InfiniBand ConnectX3-Pro. Estas imágenes de VM solo admiten tarjetas InfiniBand ConnextX-5 y versiones más recientes. Esto implica la siguiente matriz de compatibilidad de tamaño de VM para InfiniBand OFED en estas imágenes de VM de HPC:
+- [Serie H](../../sizes-hpc.md): HB, HC, HBv2, HBv3
+- [Serie N](../../sizes-gpu.md): NDv2, NDv4
+
+Tenga en cuenta que para la compatibilidad con GPU en los tamaños de VM de la serie N, NDv2 y NDv4, actualmente solo las [imágenes de VM de Ubuntu-HPC](#ubuntu-hpc-vm-images) vienen preconfiguradas con los controladores de GPU de Nvidia y la pila de software de proceso de GPU (CUDA, NCCL). 
+
+Además, tenga en cuenta que todos los tamaños de VM anteriores admiten VM de "Gen 2", aunque algunas más antiguas también admiten VM de "Gen 1".
 
 ### <a name="centos-hpc-vm-images"></a>Imágenes de máquina virtual de CentOS-HPC
 
 #### <a name="sr-iov-enabled-vms"></a>Máquinas virtuales habilitadas para SR-IOV
-Para las [máquinas virtuales compatibles con RDMA](../../sizes-hpc.md#rdma-capable-instances) habilitadas para SR-IOV, [las imágenes de máquinas virtuales CentOS-HPC](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview) en la versión 7.6 y posteriores de Marketplace son adecuadas. Estas imágenes de máquina virtual, que se han optimizado y cargado previamente con los controladores OFED para RDMA y varias bibliotecas de MPI y paquetes de informática científica más usados, son la manera más fácil de empezar.
-- Los detalles sobre lo que se incluye en la versión 7.6 y posteriores de las imágenes de máquina virtual de CentOS-HPC se encuentran en un [artículo de TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557).
+Para las [VM habilitadas para RDMA con SR-IOV](../../sizes-hpc.md#rdma-capable-instances), las imágenes de VM de CentOS-HPC versión 7.6 y posteriores son adecuadas. Estas imágenes de VM vienen optimizadas y cargadas previamente con los controladores OFED de Mellanox para RDMA, y con varias bibliotecas de MPI y paquetes de informática científica más usados.
+- Las versiones disponibles o más recientes de las imágenes de VM se pueden enumerar con la siguiente información mediante la [CLI](/cli/azure/vm/image#az_vm_image_list) o [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview).
+   ```bash
+   "publisher": "OpenLogic",
+   "offer": "CentOS-HPC",
+   ```
 - Los Scripts usados en la creación de imágenes de máquina virtual de la versión 7.6 y posterior de CentOS-HPC a partir de una imagen base de Marketplace de CentOS base en el [repositorio azhpc-images](https://github.com/Azure/azhpc-images/tree/master/centos).
-  
+- Además, los detalles sobre lo que se incluye en la versión 7.6 y posteriores de las imágenes de VM de CentOS-HPC y cómo implementarlas se encuentran en un [artículo de TechCommunity](https://techcommunity.microsoft.com/t5/azure-compute/azure-hpc-vm-images/ba-p/977094).
+
 > [!NOTE] 
-> Las imágenes HPC de Azure Marketplace más recientes tienen OFED 5.1 de Mellanox y versiones posteriores, que no admiten tarjetas InfiniBand ConnectX3-Pro. Los tamaños de máquina virtual de la serie N habilitados para SR-IOV con FDR InfiniBand (por ejemplo, NCv3) podrán usar las siguientes versiones de imagen de máquina virtual CentOS-HPC o anteriores de Marketplace:
+> Los tamaños de máquina virtual de la serie N habilitados para SR-IOV con FDR InfiniBand (por ejemplo, NCv3) podrán usar las siguientes versiones de imagen de máquina virtual CentOS-HPC o anteriores de Marketplace:
 >- OpenLogic:CentOS-HPC:7.6:7.6.2020062900
 >- OpenLogic:CentOS-HPC:7_6gen2:7.6.2020062901
 >- OpenLogic:CentOS-HPC:7.7:7.7.2020062600
@@ -48,20 +71,30 @@ En el caso de las [máquinas virtuales compatibles con RDMA](../../sizes-hpc.md#
 > [!NOTE]
 > En las imágenes de HPC basadas en CentOS para máquinas virtuales no habilitadas para SR-IOV, las actualizaciones del kernel están deshabilitadas en el archivo de configuración **yum**. Esto se debe a que los controladores RDMA de Linux de Network Direct se distribuyen en forma de paquete RPM y sus actualizaciones de estos podrían no funcionar si se actualiza el kernel.
 
-### <a name="rhelcentos-vm-images"></a>Imágenes de máquina virtual de RHEL/CentOS
-Las imágenes de máquinas virtuales que no son HPC basadas en RHEL o CentOS de Marketplace pueden configurarse para usarse en [máquinas virtuales compatibles con RDMA](../../sizes-hpc.md#rdma-capable-instances) habilitadas para SR-IOV. Obtenga más información sobre cómo [habilitar InfiniBand](enable-infiniband.md) y [configurar MPI](setup-mpi.md) en las máquinas virtuales.
-- También se pueden utilizar los scripts utilizados en la creación de CentOS-HPC versión 7.6 y las imágenes de VM posteriores a partir de una imagen base de CentOS Marketplace del [repositorio azhpc-images](https://github.com/Azure/azhpc-images/tree/master/centos).
-  
-> [!NOTE]
-> OFED 5.1 de Mellanox y versiones posteriores no admiten tarjetas InfiniBand ConnectX3-Pro en tamaños de máquina virtual de la serie N habilitados para SR-IOV con InfiniBand FDR (por ejemplo, NCv3). Use la versión de LTS de OFED de Mellanox 4.9-0.1.7.0 o anterior en las máquinas virtuales de la serie N con tarjetas ConnectX3-Pro. Consulte más detalles [aquí](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed).
+### <a name="ubuntu-hpc-vm-images"></a>Imágenes de VM de Ubuntu-HPC
+Para las [VM compatibles con RDMA](../../sizes-hpc.md#rdma-capable-instances) habilitadas para SR-IOV, las imágenes de VM de Ubuntu-HPC, versión 18.04 y posteriores, son adecuadas. Estas imágenes de VM vienen optimizadas y cargadas previamente con los controladores OFED de Mellanox para RDMA, controladores de GPU de Nvidia, la pila de software de proceso de GPU (CUDA, NCCL), y varias bibliotecas de MPI y paquetes de informática científica más usados.
+- Las versiones disponibles o más recientes de las imágenes de VM se pueden enumerar con la siguiente información mediante la [CLI](/cli/azure/vm/image#az_vm_image_list) o [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-hpc?tab=overview).
+   ```bash
+   "publisher": "Microsoft-DSVM",
+   "offer": "Ubuntu-HPC",
+   ```
+- Los scripts usados en la creación de las imágenes de VM de Ubuntu-HPC a partir de una imagen base de Ubuntu en Marketplace se encuentran en el [repositorio azhpc-images](https://github.com/Azure/azhpc-images/tree/master/ubuntu).
+- Además, los detalles sobre lo que se incluye en las imágenes de VM de Ubuntu-HPC y cómo implementarlas se encuentran en un [artículo de TechCommunity](https://techcommunity.microsoft.com/t5/azure-compute/azure-hpc-vm-images/ba-p/977094).
 
+### <a name="rhelcentos-vm-images"></a>Imágenes de máquina virtual de RHEL/CentOS
+Las imágenes base de VM que no son HPC basadas en RHEL o CentOS de Marketplace pueden configurarse para usarse en [máquinas virtuales compatibles con RDMA](../../sizes-hpc.md#rdma-capable-instances) habilitadas para SR-IOV. Obtenga más información sobre cómo [habilitar InfiniBand](enable-infiniband.md) y [configurar MPI](setup-mpi.md) en las máquinas virtuales.
+- También se pueden utilizar los scripts utilizados en la creación de CentOS-HPC versión 7.6 y las imágenes de VM posteriores a partir de una imagen base de CentOS Marketplace del [repositorio azhpc-images](https://github.com/Azure/azhpc-images/tree/master/centos).
+ 
 ### <a name="ubuntu-vm-images"></a>Imágenes de máquina virtual de Ubuntu
-Las imágenes de máquina virtual de Ubuntu Server 16.04 LTS, 18.04 LTS y 20.04 LTS de Marketplace son compatibles con las [máquinas virtuales compatibles con SR-IOV y las no compatibles con SR-IOV](../../sizes-hpc.md#rdma-capable-instances). Obtenga más información sobre cómo [habilitar InfiniBand](enable-infiniband.md) y [configurar MPI](setup-mpi.md) en las máquinas virtuales.
+Las imágenes base de VM de Ubuntu Server 16.04 LTS, 18.04 LTS y 20.04 LTS de Marketplace son compatibles con las [máquinas virtuales compatibles con SR-IOV y las no compatibles con SR-IOV](../../sizes-hpc.md#rdma-capable-instances). Obtenga más información sobre cómo [habilitar InfiniBand](enable-infiniband.md) y [configurar MPI](setup-mpi.md) en las máquinas virtuales.
 - Las instrucciones para habilitar InfiniBand en las imágenes de máquina virtual de Ubuntu se encuentran en un [artículo de TechCommunity](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351).
 - Los scripts usados en la creación de las imágenes de máquina virtual de HPC basadas en Ubuntu 18.04 y 20.04 LTS de una imagen base de Ubuntu Marketplace se encuentran en el [repositorio azhpc-images](https://github.com/Azure/azhpc-images/tree/master/ubuntu).
 
+> [!NOTE]
+> OFED 5.1 de Mellanox y versiones posteriores no admiten tarjetas InfiniBand ConnectX3-Pro en tamaños de máquina virtual de la serie N habilitados para SR-IOV con InfiniBand FDR (por ejemplo, NCv3). Use la versión de LTS de OFED de Mellanox 4.9-0.1.7.0 o anterior en las máquinas virtuales de la serie N con tarjetas ConnectX3-Pro. Consulte más detalles [aquí](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed).
+
 ### <a name="suse-linux-enterprise-server-vm-images"></a>Imágenes de máquina virtual de SUSE Linux Enterprise Server
-Las imágenes de máquina virtual de SLES 12 SP3 para HPC, SLES 12 SP3 para HPC (Premium), SLES 12 SP1 para HPC, SLES 12 SP1 para HPC (Premium), SLES 12 SP4 y SLES 15 de Marketplace son compatibles. Estas imágenes de máquina virtual se cargan previamente con los controladores de Network Direct para RDMA y la versión 5.1 de Intel MPI. Obtenga más información sobre cómo [configurar MPI](setup-mpi.md) en las máquinas virtuales.
+Las imágenes de máquina virtual de SLES 12 SP3 para HPC, SLES 12 SP3 para HPC (Premium), SLES 12 SP1 para HPC, SLES 12 SP1 para HPC (Premium), SLES 12 SP4 y SLES 15 de Marketplace son compatibles. Estas imágenes de VM vienen cargadas previamente con los controladores de Network Direct para RDMA (en tamaños de VM que no son compatibles con SR-IOV) y la versión 5.1 de Intel MPI. Obtenga más información sobre cómo [configurar MPI](setup-mpi.md) en las máquinas virtuales.
 
 ## <a name="optimize-vms"></a>Optimización de máquinas virtuales
 
@@ -124,7 +157,7 @@ Si lo desea, WALinuxAgent puede estar deshabilitado como un paso anterior al tra
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga más información sobre cómo [habilitar InfiniBand](enable-infiniband.md) en las máquinas virtuales de la serie [H](../../sizes-hpc.md) y [N](../../sizes-gpu.md) habilitadas para InfiniBand.
-- Obtenga más información sobre la instalación de varias [bibliotecas de MPI compatibles](setup-mpi.md), así como sobre su configuración óptima de las VM.
+- Obtenga más información sobre cómo instalar y ejecutar varias [bibliotecas MPI admitidas](setup-mpi.md) en las máquinas virtuales.
 - Revise la [información general de la serie HBv3](hbv3-series-overview.md) y la [información general de la serie HC](hc-series-overview.md).
 - En los [blogs de Azure Compute Community Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute), encontrará los anuncios más recientes, ejemplos de la carga de trabajo HPC y resultados de HPC.
 - Si desea una visión general de la arquitectura de la ejecución de cargas de trabajo de HPC, consulte [Informática de alto rendimiento (HPC) en Azure](/azure/architecture/topics/high-performance-computing/).

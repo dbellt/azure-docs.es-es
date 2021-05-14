@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 12/23/2020
-ms.openlocfilehash: 9b5526af03bdbefeb54633c49bbd43743555f60b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a20571e411b2849c3487582a9c316f0f0b35c91d
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100383235"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790944"
 ---
 # <a name="how-to-create-plans-for-your-managed-service-offer"></a>Creación de planes para la oferta de servicio administrado
 
@@ -79,7 +79,7 @@ Para agregar hasta 10 000 identificadores de suscripción con un archivo CSV, h
 
 ## <a name="technical-configuration"></a>Configuración técnica
 
-En esta sección se crea un manifiesto con información de autorización para administrar los recursos de los clientes. Esta información es necesaria para habilitar la [administración de recursos delegados de Azure](../lighthouse/concepts/azure-delegated-resource-management.md).
+En esta sección se crea un manifiesto con información de autorización para administrar los recursos de los clientes. Esta información es necesaria para habilitar la [administración de recursos delegados de Azure](../lighthouse/concepts/architecture.md).
 
 Revise [Inquilinos, roles y usuarios de los escenarios de Azure Lighthouse](../lighthouse/concepts/tenants-users-roles.md#best-practices-for-defining-users-and-roles) para comprender qué roles se admiten y cuáles son los procedimientos recomendados para definir las autorizaciones.
 

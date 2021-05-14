@@ -6,12 +6,12 @@ ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
-ms.openlocfilehash: 4d4f9c90fd96365216480164f29f08fad92eb9d0
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: e4d26856d269a07ce87b22843c61be97b73bbea3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104787342"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137263"
 ---
 # <a name="tutorial-configure-the-opc-publisher"></a>Tutorial: Configuración de OPC Publisher
 
@@ -100,7 +100,7 @@ Se puede acceder a esta interfaz mediante una aplicación cliente de OPC UA, por
 >[!NOTE] 
 > Esta característica solo está disponible en la versión 2.5 y anteriores de OPC Publisher.**
 
-OPC Publisher implementa los siguientes [métodos directos de IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods), a los que se puede llamar desde una aplicación (desde cualquier lugar del mundo) con el [SDK de dispositivo de IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks):
+OPC Publisher implementa los siguientes [métodos directos de IoT Hub](../iot-hub/iot-hub-devguide-direct-methods.md), a los que se puede llamar desde una aplicación (desde cualquier lugar del mundo) con el [SDK de dispositivo de IoT Hub](../iot-hub/iot-hub-devguide-sdks.md):
 
   - PublishNodes
   - UnpublishNodes

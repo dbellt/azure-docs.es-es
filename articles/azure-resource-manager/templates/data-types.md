@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: tomfitz
 author: tfitzmac
 ms.date: 03/04/2021
-ms.openlocfilehash: 7d3f15c8852e6e25c621baad9bc6f20c303ffdb9
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 4d6c8306b3dbdfe895055dc008d81cc0d85d8d6c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102125023"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538057"
 ---
 # <a name="data-types-in-arm-templates"></a>Tipos de datos en plantillas de ARM
 
@@ -143,11 +143,9 @@ En el caso de los enteros pasados como parámetros en línea, el intervalo de va
 
 Los objetos comienzan con una llave de apertura (`{`) y terminan con una llave de cierre (`}`). Cada propiedad de un objeto consta de una clave y un valor. La clave y el valor están separados por dos puntos (`:`).
 
-En JSON, la clave va entre comillas dobles. Cada propiedad está separada por una coma.
-
-En Bicep, la clave no está entre comillas. No use comas entre las propiedades.
-
 # <a name="json"></a>[JSON](#tab/json)
+
+En JSON, la clave va entre comillas dobles. Cada propiedad está separada por una coma.
 
 ```json
 "parameters": {
@@ -165,6 +163,8 @@ En Bicep, la clave no está entre comillas. No use comas entre las propiedades.
 
 # <a name="bicep"></a>[Bicep](#tab/bicep)
 
+En Bicep, la clave no está entre comillas. No use comas entre las propiedades.
+
 ```bicep
 param exampleObject object = {
   name: 'test name'
@@ -173,6 +173,22 @@ param exampleObject object = {
   tier: 1
 }
 ```
+
+Los descriptores de acceso de propiedad se usan para acceder a las propiedades de un objeto. Se construyen mediante el operador `.`. Por ejemplo:
+
+```bicep
+var x = {
+  y: {
+    z: 'Hello`
+    a: true
+  }
+  q: 42
+}
+```
+
+Dada la declaración anterior, la expresión x.y.z se evalúa como la cadena literal "Hello". De igual modo, la expresión x.q se evalúa como el entero literal 42.
+
+Los descriptores de acceso de propiedad se pueden usar con cualquier objeto. Esto incluye a los parámetros y variables de los tipos de objeto y los literales de objeto. Usar un descriptor de acceso de propiedad en una expresión que no sea de tipo objeto es un error.
 
 ---
 

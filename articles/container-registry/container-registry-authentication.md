@@ -3,12 +3,12 @@ title: Opciones de autenticación de registro
 description: Opciones de autenticación de una instancia privada de Azure Container Registry, incluido el inicio de sesión con una identidad de Azure Active Directory, mediante entidades de servicio y credenciales de administrador opcionales.
 ms.topic: article
 ms.date: 03/15/2021
-ms.openlocfilehash: 7ff55d569e2659262ce9f323e4db2ea7ed671d20
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 097a322260e4c4f55d4e0d7e3e107abdd15a3b8a
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784288"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831643"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Autenticación con un registro de contenedor de Azure
 
@@ -65,7 +65,7 @@ La salida muestra el token de acceso, abreviado aquí:
   "loginServer": "myregistry.azurecr.io"
 }
 ``` 
-Para la autenticación de registro, se recomienda almacenar la credencial de token en una ubicación segura y seguir las prácticas recomendadas para administrar las credenciales [docker login](https://docs.docker.com/engine/reference/commandline/login/). Por ejemplo, almacene el valor del token en una variable de entorno:
+Para la autenticación de registro, se recomienda almacenar la credencial de token en una ubicación segura y seguir las prácticas recomendadas para administrar las credenciales de [inicio de sesión de Docker](https://docs.docker.com/engine/reference/commandline/login/). Por ejemplo, almacene el valor del token en una variable de entorno:
 
 ```bash
 TOKEN=$(az acr login --name <acrName> --expose-token --output tsv --query accessToken)

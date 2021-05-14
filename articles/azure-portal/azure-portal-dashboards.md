@@ -3,43 +3,46 @@ title: Crear un panel en el Azure Portal
 description: En este artículo se describe cómo crear y personalizar un panel en Azure Portal.
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.topic: how-to
-ms.date: 03/16/2021
-ms.openlocfilehash: fa7f1813d86571b568d23d64cab5705f8a117faa
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.date: 04/15/2021
+ms.openlocfilehash: 0666a9f8ca9df2fa44a7eaa4045c9b5e9a724ff5
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104774658"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726107"
 ---
 # <a name="create-a-dashboard-in-the-azure-portal"></a>Crear un panel en el Azure Portal
 
 Los paneles son una vista centrada y organizada de los recursos de nube de Azure Portal. Use los paneles como un área de trabajo donde puede supervisar los recursos e iniciar tareas rápidamente para las operaciones diarias. Por ejemplo, puede crear paneles personalizados basados en proyectos, tareas o roles de usuario.
 
-Azure Portal proporciona un panel predeterminado como punto de partida. Puede editar el panel predeterminado y crear y personalizar paneles adicionales. En este artículo se describe cómo crear un nuevo panel y personalizarlo. Para más información sobre cómo compartir paneles, consulte [Uso compartido de paneles de Azure mediante el control de acceso basado en rol de Azure](azure-portal-dashboard-share-access.md).
+Azure Portal proporciona un panel predeterminado como punto de partida. Puede editar el panel predeterminado y crear y personalizar paneles adicionales.
+
+> [!NOTE]
+> Cada usuario puede crear hasta 100 paneles privados. Si [publica y comparte el panel](azure-portal-dashboard-share-access.md), se implementará como un recurso de Azure en la suscripción y no contará para este límite.
+
+En este artículo se describe cómo crear un nuevo panel y personalizarlo. Para más información sobre cómo compartir paneles, consulte [Uso compartido de paneles de Azure mediante el control de acceso basado en rol de Azure](azure-portal-dashboard-share-access.md).
 
 ## <a name="create-a-new-dashboard"></a>Creación de un panel
 
-En este ejemplo, se crea un nuevo panel privado y se le asigna un nombre. Para comenzar, siga estos pasos:
+En este ejemplo se muestra cómo crear un nuevo panel privado con un nombre asignado. Todos los paneles son privados cuando se crean, aunque puede optar por publicar y compartir el panel con otros usuarios de la organización si lo desea.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. En el menú de Azure Portal, seleccione **Panel**. Es posible que la vista predeterminada ya esté definida en el panel.
 
-    ![Apertura del panel](./media/azure-portal-dashboards/portal-menu-dashboard.png)
+    ![Captura de pantalla de Azure Portal con el panel seleccionado.](./media/azure-portal-dashboards/portal-menu-dashboard.png)
 
 1. Seleccione **Nuevo panel** y, a continuación, **Panel en blanco**.
 
-    ![Captura de pantalla del nuevo panel](./media/azure-portal-dashboards/create-new-dashboard.png)
+    ![Captura de pantalla de las opciones del nuevo panel.](./media/azure-portal-dashboards/create-new-dashboard.png)
 
-    Esta acción abre la **Galería de iconos**, desde la que podrá seleccionar los iconos, y una cuadrícula vacía, desde donde podrá organizarlos.
+    Esta acción abre la **Galería de iconos**, desde la que puede seleccionar los iconos, y una cuadrícula vacía, desde donde podrá organizarlos.
 
 1. Seleccione el texto **Mi panel** en la etiqueta del panel y escriba un nombre que le ayude a identificar fácilmente el panel personalizado.
 
-    ![Captura de pantalla de la galería de iconos y la cuadrícula vacía](./media/azure-portal-dashboards/dashboard-name.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-name.png" alt-text="Captura de pantalla de una cuadrícula vacía con la Galería de iconos.":::
 
-1. En el encabezado de página, seleccione **Personalización finalizada** para salir del modo de edición y, a continuación, seleccione **Guardar**.
-
-    :::image type="content" source="media/azure-portal-dashboards/dashboard-save.png" alt-text="Captura de pantalla del proceso de guardado del panel":::
+1. Para guardar el panel tal y como está, seleccione **Personalización finalizada** en el encabezado de la página. O bien, continúe con la sección siguiente para agregar iconos y guardar el panel.
 
 Ahora, la vista de panel muestra el panel nuevo. Seleccione la flecha situada junto al nombre del panel para ver los paneles disponibles. La lista puede incluir paneles que otros usuarios hayan creado y compartido.
 
@@ -47,15 +50,17 @@ Ahora, la vista de panel muestra el panel nuevo. Seleccione la flecha situada ju
 
 Ahora vamos a editar el panel para agregar y organizar los iconos que representan los recursos de Azure y cambiar su tamaño.
 
-### <a name="add-tiles-from-the-tile-gallery"></a>Agregar iconos desde la galería de iconos
+### <a name="add-tiles-from-the-tile-gallery"></a>Adición de iconos desde la galería de iconos
 
 Para agregar iconos a un panel, siga estos pasos:
 
-1. Seleccione ![icono de edición](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Editar** en el encabezado de la página.
+1. Seleccione ![icono de edición](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Editar** en el encabezado de la página del panel.
 
-    ![Captura de pantalla con el icono de edición resaltado](./media/azure-portal-dashboards/dashboard-edit.png)
+    ![Captura de pantalla del panel con la opción de edición resaltada.](./media/azure-portal-dashboards/dashboard-edit.png)
 
-1. Examine la **Galería de iconos** o use el campo de búsqueda para buscar el icono que quiera.
+1. Examine la **Galería de iconos** o use el campo de búsqueda para buscar un icono determinado. Seleccione el icono que desea agregar al panel.
+
+   :::image type="content" source="media/azure-portal-dashboards/dashboard-tile-gallery.png" alt-text="Captura de pantalla de la galería de iconos.":::
 
 1. Seleccione **Agregar** para agregar el icono al panel con una ubicación y un tamaño predeterminados. O bien, arrastre el icono a la cuadrícula y colóquelo donde quiera. Agregue los iconos que desee, pero aquí tiene un par de ideas:
 
@@ -63,13 +68,21 @@ Para agregar iconos a un panel, siga estos pasos:
 
     - Si trabaja con más de una organización, agregue el icono **Identidad de la organización** al panel para mostrar con claridad a qué organización pertenecen los recursos.
 
-1. En el encabezado de página, seleccione **Guardar**.
+1. Si lo desea, cambie el tamaño del icono arrastrando y colocando la esquina inferior derecha del icono.
 
-### <a name="add-tiles-from-a-resource-page"></a>Adición de iconos de una página de recursos
+1. Para guardar los cambios, seleccione **Guardar** en el encabezado de la página. También puede obtener una vista previa de los cambios sin guardarlos; para ello, seleccione **Vista previa** en el encabezado de la página. En la pantalla de vista previa, puede seleccionar **Guardar** para conservar los cambios, **Descartar** para quitarlos o **Editar** para volver a las opciones de edición y realizar más cambios.
 
-Existe una forma alternativa de agregar iconos al panel. Muchas páginas de recursos incluyen un icono de marcador en la barra de comandos. Si selecciona el icono, se ancla un icono que representa la página de origen al panel activo. 
+   :::image type="content" source="media/azure-portal-dashboards/dashboard-save.png" alt-text="Captura de pantalla de las opciones Vista previa, Guardar y Descartar.":::
+
+### <a name="pin-content-from-a-resource-page"></a>Anclaje del contenido desde una página de recursos
+
+Otra manera de agregar iconos al panel es directamente desde una página de recursos.
+
+Muchas páginas de recursos incluyen un icono de anclaje en la barra de comandos. Si selecciona este icono, puede anclar un icono que represente la página de origen a un panel existente o a un nuevo panel que cree.
 
 ![Captura de pantalla de la barra de comandos de la página con el icono de anclaje](./media/azure-portal-dashboards/dashboard-pin-blade.png)
+
+En algunos casos, un icono de anclaje también puede aparecer por cada contenido específico dentro de una página, lo que significa que puede anclar un icono para ese contenido específico en lugar de para toda la página.
 
 ### <a name="resize-or-rearrange-tiles"></a>Reorganizar los iconos o cambiar su tamaño
 
@@ -79,7 +92,7 @@ Para cambiar el tamaño de un icono o para reorganizar los iconos de un panel, s
 
 1. Seleccione el menú contextual en la esquina superior derecha de un icono. A continuación, elija un tamaño de icono. Los iconos que admiten cualquier tamaño también incluyen un "identificador" en la esquina inferior derecha que le permite arrastrar el icono al tamaño que quiera.
 
-    ![Captura de pantalla del panel con el menú de tamaño de icono abierto](./media/azure-portal-dashboards/dashboard-tile-resize.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-tile-resize.png" alt-text="Captura de pantalla del panel con el menú de tamaño de icono abierto.":::
 
 1. Seleccione un icono y arrástrelo a una nueva ubicación en la cuadrícula para organizar el panel.
 
@@ -104,11 +117,11 @@ Los datos del panel muestran automáticamente la actividad de las últimas 24 h
 
 1. Seleccione **Personalizar los datos del icono** en el menú contextual o el filtro ![icono de filtro](./media/azure-portal-dashboards/dashboard-filter.png) en la esquina superior izquierda del icono.
 
-    ![Captura de pantalla del menú contextual del icono](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
+    ![Captura de pantalla del menú contextual del icono.](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
 
 1. Active la casilla para **Anular la configuración de tiempo del panel en el nivel de icono**.
 
-    ![Captura de pantalla del cuadro de diálogo para configurar las opciones de tiempo del icono](./media/azure-portal-dashboards/dashboard-override-time-settings.png)
+    ![Captura de pantalla del cuadro de diálogo para configurar las opciones de tiempo del icono.](./media/azure-portal-dashboards/dashboard-override-time-settings.png)
 
 1. Elija el intervalo de tiempo que se mostrará para este icono. Puede elegir entre los últimos 30 minutos y los últimos 30 días o definir un intervalo personalizado.
 
@@ -118,13 +131,13 @@ Los datos del panel muestran automáticamente la actividad de las últimas 24 h
 
 ## <a name="delete-a-tile"></a>Eliminar un icono
 
-Para quitar un icono de un panel, siga estos pasos:
+Para quitar un icono de un panel, realice una de las acciones siguientes:
 
-* Seleccione el menú contextual en la esquina superior derecha del icono y, a continuación, seleccione **Quitar del panel**. O bien,
+- Seleccione el menú contextual en la esquina superior derecha del icono y, a continuación, seleccione **Quitar del panel**.
 
-* Seleccione ![icono de edición](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Editar** para acceder al modo de personalización. Mantenga el puntero en la esquina superior derecha del icono y, a continuación, seleccione el icono de eliminación ![icono de eliminación](./media/azure-portal-dashboards/dashboard-delete-icon.png) para quitar el icono del panel.
+- Seleccione ![icono de edición](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Editar** para acceder al modo de personalización. Mantenga el puntero en la esquina superior derecha del icono y, a continuación, seleccione el icono de eliminación ![icono de eliminación](./media/azure-portal-dashboards/dashboard-delete-icon.png) para quitar el icono del panel.
 
-   ![Captura de pantalla que muestra cómo quitar el icono del panel](./media/azure-portal-dashboards/dashboard-delete-tile.png)
+   ![Captura de pantalla que muestra cómo quitar un icono del panel.](./media/azure-portal-dashboards/dashboard-delete-tile.png)
 
 ## <a name="clone-a-dashboard"></a>Clonar un panel
 
@@ -170,13 +183,13 @@ Para eliminar permanentemente un panel privado o compartido, siga estos pasos:
 
 1. Para un panel privado, seleccione **Aceptar** en el cuadro de diálogo de confirmación para quitar el panel. Para un panel compartido, en el cuadro de diálogo de confirmación, active la casilla para confirmar que otros usuarios ya no podrán ver el panel publicado. Después, seleccione **Aceptar**.
 
-    ![Captura de pantalla de confirmación de eliminación](./media/azure-portal-dashboards/dashboard-delete-dash.png)
+    ![Captura de pantalla de la confirmación de la eliminación.](./media/azure-portal-dashboards/dashboard-delete-dash.png)
 
 ## <a name="recover-a-deleted-dashboard"></a>Recuperación de un panel eliminado
 
-Si se encuentra en la nube global de Azure y elimina un panel _publicado_ en Azure Portal, puede recuperar el panel en el plazo de 14 días a partir de la eliminación. Para obtener más información, consulte [Recuperación de un panel eliminado en Azure Portal](recover-shared-deleted-dashboard.md).
+Si se encuentra en la nube global de Azure y elimina un panel _publicado_ en Azure Portal, puede recuperar el panel en el plazo de 14 días a partir de la eliminación. Para más información, consulte [Recuperación de un panel eliminado en Azure Portal](recover-shared-deleted-dashboard.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Uso compartido de paneles de Azure mediante el control de acceso basado en rol de Azure](azure-portal-dashboard-share-access.md)
-* [Creación mediante programación de paneles de Azure](azure-portal-dashboards-create-programmatically.md)
+- [Uso compartido de paneles de Azure mediante el control de acceso basado en rol de Azure](azure-portal-dashboard-share-access.md)
+- [Creación mediante programación de paneles de Azure](azure-portal-dashboards-create-programmatically.md)

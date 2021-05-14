@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 00f9c6510a87770367472c0da6774b94034c6d72
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 5790c7c62b9d97df9683773170301b6e09a47667
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029784"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728489"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Cómo llamar a la API REST de Text Analytics
 
@@ -64,6 +64,8 @@ A partir de v3.1-preview.3, la API Text Analytics proporciona dos puntos de cone
 * El punto de conexión `/analyze` para Text Analytics permite analizar el mismo conjunto de documentos de texto con varias características de análisis de texto en una llamada API. Anteriormente, para usar varias características sería preciso realizar llamadas API independientes para cada operación. Tenga en cuenta esta funcionalidad cuando necesite analizar grandes conjuntos de documentos con más de una característica de Text Analytics.
 
 * El punto de conexión `/health` para Text Analytics fo Health, que puede extraer y etiquetar información médica relevante de documentos clínicos.  
+
+Tenga en cuenta que los puntos de conexión /analyze y /health solo están disponibles en las siguientes regiones: Oeste de EE. UU. 2, Este de EE. UU. 2, Centro de EE. UU., Norte de Europa y Oeste de Europa.
 
 En la tabla siguiente puede ver qué características se pueden usar de forma asincrónica. Tenga en cuenta que desde el punto de conexión `/analyze` solo se puede llamar a unas pocas características. 
 

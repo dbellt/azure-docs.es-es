@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: vikancha
-ms.openlocfilehash: aa67a858d0396badc25a625b23dc2f2fdf1bdff9
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 69af7e2129136128e87b4c9b28806b2f02f09e27
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551380"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205402"
 ---
 # <a name="np-series"></a>Serie NP 
 Las máquinas virtuales de la serie NP cuentan con tecnología de FPGA [Xilinx U250 ](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) para acelerar las cargas de trabajo, como inferencia de aprendizaje automático, transcodificación de vídeo, y búsqueda y análisis de bases de datos. Las VM de la serie NP también cuentan con tecnología de CPU Intel Xeon 8171M (Skylake) con toda la velocidad de reloj de la turbo de 3,2 GHz.
@@ -43,10 +43,17 @@ Compatibilidad con generación de VM: Generación 1<br>
 
 **R:** Xilinx recomienda [Vitis 2020.2](https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html)
 
-
 **P:** ¿Necesito usar máquinas virtuales de NP para desarrollar mi solución? 
 
-**R:** No, puede desarrollarla en el entorno local e implementarla en la nube. Asegúrese de seguir la documentación de atestación para realizar la implementación en máquinas virtuales de NP. 
+**R:** No, puede desarrollarla en el entorno local e implementarla en la nube. Asegúrese de seguir la [documentación de atestación](https://docs.microsoft.com/azure/virtual-machines/field-programmable-gate-arrays-attestation) para realizar la implementación en VM de NP. 
+
+**P:** ¿Qué archivo devuelto por la atestación tengo que usar al programar la FPGA en una VM de NP?
+
+**R:** La atestación devuelve dos archivos .xclbins, **design.bit.xclbin** y **design.azure.xclbin**. Use **design.azure.xclbin**.
+
+**P:** ¿De dónde debo obtener todos los archivos XRT/Platform?
+
+**R:** Visite el sitio de [Microsoft-Azure](https://www.xilinx.com/microsoft-azure.html) de Xilinx para obtener todos los archivos.
 
 **P:** ¿Qué versión de XRT debo usar?
 
@@ -135,6 +142,15 @@ Para deshabilitar Host_Mem(SB): sudo xbutil host_mem --disable
 **P:** ¿Cómo se puede consultar la información de PLP? 
 
 **R:** Es necesario ejecutar la consulta de xbutil y observar la parte inferior. 
+
+**P:** Si creo mi propia VM e implemento XRT manualmente, ¿qué cambios adicionales debo realizar? 
+
+**R:** En /opt/xilinx/xrt/setup.sh, agregue una entrada para XRT_INI_PATH que apunte a /opt/xilinx/xrt/xrt.ini.
+
+ 
+El contenido de /opt/xilinx/xrt/xrt.ini debe contener: <br>
+[Runtime]<br>
+ert=false <br>
 
 ## <a name="other-sizes"></a>Otros tamaños
 

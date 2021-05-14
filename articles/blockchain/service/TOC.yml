@@ -60,6 +60,8 @@
       href: manage-cli.md
     - name: Administración de consorcio con PowerShell
       href: manage-consortium-powershell.md
+    - name: Guía de migración
+      href: migration-guide.md
     - name: Uso de Logic Apps
       href: ethereum-logic-app.md
     - name: Supervisión de Azure Blockchain Service
@@ -67,7 +69,7 @@
 - name: Referencia
   items:
     - name: Azure CLI
-      href: /cli/azure/ext/blockchain/blockchain
+      href: /cli/azure/blockchain
 - name: Recursos
   items:
     - name: Kit de desarrollo de Azure Blockchain

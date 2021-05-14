@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4c64a4e06ed452c895c1bc2cf20adc2d9c0060c3
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 1f7d73a6553d8baed86c87da0c4e7a5b036e99f7
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219270"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134328"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Tutorial: Requisitos previos para crear grupos de disponibilidad en VM con SQL Server en Azure
 
@@ -374,7 +374,7 @@ A continuación, cree tres máquinas virtuales: dos de SQL Server y una para el
 <br/>
 
 > [!NOTE]
-> Los tamaños de máquina que se sugieren aquí están diseñados para probar los grupos de disponibilidad en Azure Virtual Machines. Para optimizar el rendimiento de las cargas de trabajo de producción, consulte las recomendaciones de tamaños de máquina y la configuración de SQL Server en [Procedimientos recomendados de SQL Server en Azure Virtual Machines](performance-guidelines-best-practices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Los tamaños de máquina que se sugieren aquí están diseñados para probar los grupos de disponibilidad en Azure Virtual Machines. Para optimizar el rendimiento de las cargas de trabajo de producción, consulte las recomendaciones de tamaños de máquina y la configuración de SQL Server en [Procedimientos recomendados de SQL Server en Azure Virtual Machines](./performance-guidelines-best-practices-checklist.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 >
 
 Una vez que las tres máquinas virtuales estén totalmente aprovisionadas, tendrá que unirlas al dominio **corp.contoso.com** y conceder a CORP\Install los derechos administrativos sobre las máquinas.

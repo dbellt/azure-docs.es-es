@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 514f1af2a1b120254840986fc5ceb803dfc24345
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 970c0a2705bc9a559eb531c8b44780053343a712
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363383"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209722"
 ---
-# <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage para máquinas virtuales
+# <a name="preview-azure-automanage-for-virtual-machines"></a>Versión preliminar: Azure Automanage para máquinas virtuales
 
 En este artículo se incluye información sobre Azure Automanage para máquinas virtuales. Este servicio presenta las siguientes ventajas:
 
@@ -24,7 +24,6 @@ En este artículo se incluye información sobre Azure Automanage para máquinas 
 - Configura automáticamente cada servicio según los procedimientos recomendados de Azure.
 - Supervisa las desviaciones y las corrige cuando se detectan.
 - Proporciona una experiencia sencilla (punto, clic, establecer, olvidar)
-
 
 ## <a name="overview"></a>Información general
 
@@ -183,6 +182,12 @@ Lea detenidamente los mensajes del elemento emergente resultante antes de acepta
 
 
 En primer lugar, no se desactivará la máquina virtual de ninguno de los servicios que hayamos incorporado y configurado. Los cargos que generen esos servicios se seguirán facturando. Si es necesario, debe desactivarlos. Cualquier acción de Automanage se detendrá inmediatamente. Por ejemplo, ya no se supervisarán las desviaciones de la máquina virtual.
+
+## <a name="automanage-and-azure-disk-encryption"></a>Automanage y Azure Disk Encryption
+Automanage es compatible con máquinas virtuales que tienen Azure Disk Encryption (ADE) habilitado.
+
+Si usa el entorno de producción, también se le incorporará a Azure Backup. Hay un requisito previo para usar correctamente ADE y Azure Backup:
+* Antes de incorporar la máquina virtual habilitada para ADE al entorno de producción de Automanage, asegúrese de que ha seguido los pasos que se encuentran en la sección **Antes de comenzar** de [este documento](../backup/backup-azure-vms-encryption.md#before-you-start).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

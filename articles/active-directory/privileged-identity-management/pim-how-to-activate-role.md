@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 03/22/2021
+ms.date: 03/15/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa9861dd1ffbdd33f59abe76c7ebbd1befe3e7a6
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 99829d6afbec638f26ae91fcb73bd20220c54ffa
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799435"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481902"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Activación de mis roles de Azure AD en PIM
 

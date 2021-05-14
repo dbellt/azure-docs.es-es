@@ -2,13 +2,13 @@
 title: Novedades de Azure Backup
 description: Obtenga información acerca de las nuevas características de Azure Backup.
 ms.topic: conceptual
-ms.date: 11/11/2020
-ms.openlocfilehash: 68e0e5cc0876840c30ab9e428a2b96bd7d667756
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 04/22/2021
+ms.openlocfilehash: 09a1008871df61cdf38097b692b99237f97057b9
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107516338"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326513"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novedades de Azure Backup
 
@@ -18,6 +18,8 @@ Para obtener más información acerca de las nuevas versiones, puede marcar esta
 
 ## <a name="updates-summary"></a>Resumen de actualizaciones
 
+- Abril de 2021
+  - [Mejoras en el cifrado mediante claves administradas por el cliente para Azure Backup (en versión preliminar)](#enhancements-to-encryption-using-customer-managed-keys-for-azure-backup-in-preview)
 - Marzo de 2021
   - [Azure Disk Backup ya está disponible con carácter general](#azure-disk-backup-is-now-generally-available).
   - [El centro de Backup ya está disponible de forma general](#backup-center-is-now-generally-available).
@@ -89,7 +91,7 @@ Para más información, consulte [Plantillas de Azure Resource Manager para Azur
 
 Azure Backup ahora admite las copias de seguridad incrementales para las bases de datos SAP HANA hospedadas en máquinas virtuales de Azure. Esto permite realizar copias de seguridad más rápidas y rentables de sus datos de SAP HANA.
 
-Para obtener más información, consulte las [distintas opciones disponibles durante la creación de una directiva de copia de seguridad](/sap-hana-faq-backup-azure-vm.yml#policy) y [cómo crear una directiva de copia de seguridad para las bases de datos SAP HANA](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
+Para obtener más información, consulte las [distintas opciones disponibles durante la creación de una directiva de copia de seguridad](/azure/backup/sap-hana-faq-backup-azure-vm#policy) y [cómo crear una directiva de copia de seguridad para las bases de datos SAP HANA](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
 
 ## <a name="backup-center-in-preview"></a>Centro de copia de seguridad (en versión preliminar)
 
@@ -152,6 +154,22 @@ Una de estas características es la eliminación temporal. Con la eliminación t
 Ahora, además de la compatibilidad con la eliminación temporal para las máquinas virtuales de Azure, las cargas de trabajo de SQL Server y SAP HANA en las máquinas virtuales de Azure también están protegidas a través de la eliminación temporal.
 
 Para obtener más información, consulte [Eliminación temporal de servidores SQL Server en máquinas virtuales de Azure e instancias de SAP HANA en cargas de trabajo de máquinas virtuales de Azure](soft-delete-sql-saphana-in-azure-vm.md).
+
+## <a name="enhancements-to-encryption-using-customer-managed-keys-for-azure-backup-in-preview"></a>Mejoras en el cifrado mediante claves administradas por el cliente para Azure Backup (en versión preliminar)
+
+Azure Backup ahora proporciona funcionalidades mejoradas (en versión preliminar) para administrar el cifrado con claves administradas por el cliente. Azure Backup permite traer sus propias claves para cifrar los datos de copia de seguridad en los almacenes de Recovery Services, lo que proporciona un mejor control.
+
+- Admite identidades administradas asignadas por el usuario para conceder permisos a las claves para administrar el cifrado de datos en el almacén de Recovery Services.
+- Habilita el cifrado con claves administradas por el cliente al crear un almacén de Recovery Services.
+  >[!NOTE]
+  >Esta característica está en versión preliminar limitada actualmente. Para registrarse, rellene [este formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURDNTVVhGOUxXSVBZMEwxUU5FNDkyQkU4Ny4u) y escríbanos a [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+- Permite usar directivas de Azure para auditar y aplicar el cifrado mediante claves administradas por el cliente.
+>[!NOTE]
+>- Las funcionalidades anteriores solo se admiten a través de Azure Portal; PowerShell no se admite actualmente.<br>Si usa PowerShell para administrar las claves de cifrado para la copia de seguridad, no se recomienda actualizar las claves desde el portal.<br>Si actualiza la clave desde el portal, no puede usar PowerShell para actualizar también la clave de cifrado hasta que esté disponible una actualización de PowerShell que admita el nuevo modelo. Sin embargo, puede seguir actualizando la clave desde Azure Portal.
+>- La directiva de auditoría se puede usar para auditar almacenes con cifrado mediante claves administradas por el cliente habilitadas después del 01/04/2021.  
+>- En el caso de los almacenes con el cifrado de CMK habilitado antes de esta fecha, pudiera ser que la directiva no se aplicara o que se mostraran falsos resultados negativos (es decir, estos almacenes se pueden presentar como no compatibles, a pesar de tener habilitado el cifrado de CMK). [Más información](encryption-at-rest-with-cmk.md#using-azure-policies-for-auditing-and-enforcing-encryption-utilizing-customer-managed-keys-in-preview).
+
+Para más información, consulte [Cifrado para Azure Backup mediante claves administradas por el cliente](encryption-at-rest-with-cmk.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

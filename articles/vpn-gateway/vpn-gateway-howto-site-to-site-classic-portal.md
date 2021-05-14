@@ -1,18 +1,19 @@
 ---
-title: 'Conexión de una red local a una instancia de Azure Virtual Network con una VPN de sitio a sitio (clásico): Portal | Microsoft Docs'
-description: Cree una conexión de IPsec desde la red local a una red virtual clásica de Azure a través de la red pública de Internet.
+title: 'Conexión de la red local a una red virtual: VPN de sitio a sitio (clásico): Portal'
+titleSuffix: Azure VPN Gateway
+description: Obtenga información sobre cómo crear una conexión de IPsec entre la red local y una red virtual de Azure clásico a través de la red pública de Internet.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4ad05281f13885327c855a261a3101388f38af83
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f440ec76d3085e7a5ef7ec99f1a5a76c9c444ef9
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98878060"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205348"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Creación de una conexión de sitio a sitio mediante Azure Portal (clásico)
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 96a6692524eca3a2845d648ab3df2932d00ce823
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4519bc187c4ec53294e5eef15c4ad1954b691224
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91951152"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870848"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-with-azure-stack-edge-pro"></a>Desarrollo de un módulo IoT Edge en C# para mover archivos con Azure Stack Edge Pro
 
@@ -42,7 +42,7 @@ El dispositivo Azure Stack Edge Pro puede implementar y ejecutar módulos de IoT
 
 Una vez que el archivo está en el recurso compartido en la nube, se carga automáticamente en la cuenta de Azure Storage.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, asegúrese de que tiene:
 
@@ -57,10 +57,10 @@ Antes de comenzar, asegúrese de que tiene:
     - [Visual Studio Code](https://code.visualstudio.com/).
     - [Extensión de C# para Visual Studio Code (con tecnología de OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
     - [Extensión de Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
-    - [SDK de .NET Core 2.1](https://www.microsoft.com/net/download).
+    - [SDK de .NET Core 2.1](https://dotnet.microsoft.com/download/dotnet/2.1).
     - [Docker CE](https://store.docker.com/editions/community/docker-ce-desktop-windows). Es posible que deba crear una cuenta para descargar e instalar el software.
 
-## <a name="create-a-container-registry"></a>Creación de un Registro de contenedor
+## <a name="create-a-container-registry"></a>Creación de un registro de contenedor
 
 Azure Container Registry es un registro privado de Docker en Azure donde se pueden almacenar y administrar las imágenes de contenedor privado de Docker. Los dos servicios de Docker Registry más conocidos disponibles en la nube son Azure Container Registry y Docker Hub. En este artículo se usa Container Registry.
 

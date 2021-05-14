@@ -9,13 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: pdecarlo
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1cd89f3f772effce4997fb69b37858ce2077c1dc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2d0152f18660716a641766327eaaa36829d7fafc
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103201085"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108073623"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Ejecución de Azure IoT Edge en máquinas virtuales Ubuntu
 

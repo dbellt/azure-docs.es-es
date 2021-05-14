@@ -4,12 +4,12 @@ description: Aprenda a habilitar la redundancia de zona en Azure Container Regis
 ms.topic: article
 ms.date: 02/23/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 8c1ab42aa505448bd81ff42eba54727b24773c60
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 731962437c4890c665513241e756dbbc2acfc5de
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479022"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891597"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>Habilitación de la redundancia de zona en Azure Container Registry para lograr resistencia y alta disponibilidad
 

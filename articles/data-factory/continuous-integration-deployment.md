@@ -2,17 +2,17 @@
 title: Integración y entrega continuas en Azure Data Factory
 description: Aprenda a usar la integración y la entrega continuas para mover canalizaciones de Data Factory de un entorno (desarrollo, prueba o producción) a otro.
 ms.service: data-factory
-author: dcstwh
-ms.author: weetok
+author: nabhishek
+ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 04/01/2021
-ms.openlocfilehash: 7ffcb93493ada36df59c0a8305e941176e8320b8
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.date: 04/27/2021
+ms.openlocfilehash: fad2fce019848c752217f15aaba8ba4c28a7c874
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121479"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108177397"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integración y entrega continuas en Azure Data Factory
 
@@ -181,9 +181,9 @@ El equipo de Data Factory ha proporcionado un [script de ejemplo anterior y post
 
 ## <a name="manually-promote-a-resource-manager-template-for-each-environment"></a>Promoción manual de una plantilla de Resource Manager para cada entorno
 
-1. En la lista **Plantilla de ARM**, seleccione **Export ARM Template** (Exportar plantilla de ARM) para exportar la plantilla de Resource Manager de la factoría de datos en el entorno de desarrollo.
+1. Vaya al centro **Administrar** en la factoría de datos y seleccione **Plantilla de ARM** en la sección "Control de código fuente". En la lista **Plantilla de ARM**, seleccione **Exportar plantilla de ARM** para exportar la plantilla de Resource Manager de la factoría de datos en el entorno de desarrollo.
 
-   ![Exportación de una plantilla de Resource Manager](media/continuous-integration-deployment/continuous-integration-image1.png)
+   ![Exportación de una plantilla de Resource Manager](media/continuous-integration-deployment/continuous-integration-image-1.png)
 
 1. En las factorías de datos de prueba y de producción, seleccione **Import ARM Template** (Importar plantilla de ARM). Esta acción abrirá Azure Portal, donde puede importar la plantilla exportada. Seleccione **Cree su propia plantilla en el editor** para abrir el editor de plantillas de Resource Manager.
 

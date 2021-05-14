@@ -1,18 +1,19 @@
 ---
-title: 'Azure VPN Gateway: Eliminación de una puerta de enlace: portal'
-description: Eliminación de una puerta de enlace de red virtual mediante Azure Portal
+title: 'Eliminación de una puerta de enlace de red virtual: portal'
+titleSuffix: Azure VPN Gateway
+description: Obtenga información sobre cómo eliminar una puerta de enlace de red virtual mediante Azure Portal.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.date: 02/10/2021
 ms.author: cherylmc
 ms.topic: how-to
-ms.openlocfilehash: 413fd8c7f03ef44abe4bece39ca717c533dea66b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0510292b27d61c9142edd710e903ebad74b3d244
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100376398"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228935"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Eliminación de una puerta de enlace de red virtual mediante el portal
 

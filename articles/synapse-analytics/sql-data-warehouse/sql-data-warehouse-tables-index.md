@@ -2,21 +2,21 @@
 title: Indexación de tablas
 description: Recomendaciones y ejemplos para indexar tablas en un grupo de SQL dedicado.
 services: synapse-analytics
-author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 03/18/2019
+ms.date: 04/16/2021
+author: XiaoyuMSFT
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: fabbdf330d43737ffa85379f9cc4d5ac59c4a734
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 58f3eed8b16ff3ed02c6dfac6dc7d72ebb4ca374
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98673525"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599985"
 ---
 # <a name="indexing-dedicated-sql-pool-tables-in-azure-synapse-analytics"></a>Indexación de tablas de un grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -70,7 +70,7 @@ WITH ( HEAP );
 
 ## <a name="clustered-and-nonclustered-indexes"></a>Índices clúster y no clúster
 
-Los índices clúster pueden ser mejores que las tablas del almacén de columnas en clúster cuando se necesita recuperar rápidamente una sola fila. En el caso de las consultas en las que se deba efectuar una búsqueda en una sola o en muy pocas filas a gran velocidad, considere la posibilidad de incorporar un índice de clúster o un índice secundario sin clúster. La desventaja de utilizar un índice clúster es que solo se benefician las consultas que utilicen un filtro muy selectivo en la columna del índice agrupado. Para mejorar el filtro en las restantes columnas se puede agregar un índice no clúster a las mismas. Sin embargo, cada índice que se agrega a una tabla agrega espacio y tiempo de procesamiento a las cargas.
+Los índices clúster pueden ser mejores que las tablas del almacén de columnas en clúster cuando se necesita recuperar rápidamente una sola fila. En el caso de las consultas en las que se deba efectuar una búsqueda en una sola o en muy pocas filas a gran velocidad, considere la posibilidad de incorporar un índice agrupado o un índice secundario sin agrupar. La desventaja de utilizar un índice clúster es que solo se benefician las consultas que utilicen un filtro muy selectivo en la columna del índice agrupado. Para mejorar el filtro en las restantes columnas se puede agregar un índice no clúster a las mismas. Sin embargo, cada índice que se agrega a una tabla agrega espacio y tiempo de procesamiento a las cargas.
 
 Para crear una tabla de índice clúster, solo es preciso especificar CLUSTERED INDEX en la cláusula WITH:
 
@@ -177,6 +177,16 @@ Una vez ejecutada la consulta, puede empezar a examinar los datos y analizar los
 | [CLOSED_rowgroup_rows_AVG] |Mismo caso anterior. |
 | [Rebuild_Index_SQL] |SQL para volver a generar un índice de almacén de columnas de una tabla |
 
+## <a name="impact-of-index-maintenance"></a>Impacto del mantenimiento de índices
+
+La columna `Rebuild_Index_SQL` de la vista `vColumnstoreDensity` contiene una instrucción `ALTER INDEX REBUILD` que se puede usar para volver a generar los índices. Al volver a crear los índices, asegúrese de asignar suficiente memoria a la sesión que volverá a generar el índice. Para ello, aumente la [clase de recurso](resource-classes-for-workload-management.md) de un usuario que tenga permisos para volver a generar el índice en esta tabla al mínimo recomendado. Para obtener un ejemplo, consulte [Regeneración de índices para mejorar la calidad de los segmentos](#rebuilding-indexes-to-improve-segment-quality) más adelante en este artículo.
+
+Para una tabla con un índice de almacén de columnas agrupado ordenado, `ALTER INDEX REBUILD` reordenará los datos mediante el uso de tempdb. Supervise tempdb durante las operaciones de recompilación. Si necesita más espacio en tempdb, escale verticalmente el grupo de bases de datos. Vuelva a reducirlo verticalmente una vez completada la recompilación del índice.
+
+En una tabla con un índice de almacén de columnas agrupado ordenado, `ALTER INDEX REORGANIZE` no reordenará los datos. Para reordenar los datos, use `ALTER INDEX REBUILD`.
+
+Para más información sobre los índices de almacén de columnas agrupados ordenados, consulte [Optimización del rendimiento con el índice de almacén de columnas agrupado ordenado](performance-tuning-ordered-cci.md).
+
 ## <a name="causes-of-poor-columnstore-index-quality"></a>Causas de una calidad deficiente del índice de almacén de columnas
 
 Si ha identificado las tablas con una calidad deficiente de sus segmentos, querrá identificar la causa principal.  A continuación se muestran otras causas comunes de baja calidad de los segmentos:
@@ -218,38 +228,38 @@ Una vez que las tablas se hayan cargado las tablas con datos, siga los pasos que
 
 ### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Paso 1: Identificación o creación de un usuario que use la clase de recurso adecuada
 
-Una manera rápida de mejorar rápidamente la calidad de los segmentos es volver a generar el índice.  La instrucción SQL que devuelve la vista anterior devuelve una instrucción ALTER INDEX REBUILD que puede utilizarse para volver a crear los índices. Al volver a crear los índices, asegúrese de asignar suficiente memoria a la sesión que volverá a generar el índice.  Para ello, aumente la clase de recurso de un usuario que tenga permisos para volver a generar el índice en esta tabla al mínimo recomendado.
+Una manera rápida de mejorar rápidamente la calidad de los segmentos es volver a generar el índice.  La instrucción SQL que devuelve la vista anterior devuelve una instrucción ALTER INDEX REBUILD que puede utilizarse para volver a crear los índices. Al volver a crear los índices, asegúrese de asignar suficiente memoria a la sesión que volverá a generar el índice. Para ello, aumente la clase de recurso de un usuario que tenga permisos para volver a generar el índice en esta tabla al mínimo recomendado.
 
 A continuación se muestra un ejemplo de cómo asignar más memoria a un usuario mediante el aumento de su clase de recurso. Para trabajar con clases de recursos, consulte [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md).
 
 ```sql
-EXEC sp_addrolemember 'xlargerc', 'LoadUser'
+EXEC sp_addrolemember 'xlargerc', 'LoadUser';
 ```
 
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Paso 2: Recompilación de índices de almacén de columnas en clúster con un usuario de clase de recurso mayor
 
-Inicie sesión como el usuario del paso 1 (p. ej., LoadUser), que ahora usa una clase de recurso superior, y ejecute las instrucciones ALTER INDEX. Asegúrese de que este usuario tiene el permiso ALTER en las tablas en las que se vuelve a generar el índice. En estos ejemplos se muestra cómo volver a generar todo el índice de almacén de columnas y una sola partición. En tablas mayores, es más práctico volver a generar los índices partición a partición.
+Inicie sesión como el usuario del paso 1 (LoadUser), que ahora usa una clase de recurso superior, y ejecute las instrucciones ALTER INDEX. Asegúrese de que este usuario tiene el permiso ALTER en las tablas en las que se vuelve a generar el índice. En estos ejemplos se muestra cómo volver a generar todo el índice de almacén de columnas y una sola partición. En tablas mayores, es más práctico volver a generar los índices partición a partición.
 
 Como alternativa, en lugar de volver a crear el índice, se puede copiar la tabla en otra tabla nueva con [CTAS](sql-data-warehouse-develop-ctas.md). ¿De qué manera es mejor? En el caso de grandes volúmenes de datos, CTAS suele ser más rápido que [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Sin embargo, en el caso de volúmenes menores de datos, ALTER INDEX es más fácil de usar y no requerirá el intercambio de la tabla.
 
 ```sql
 -- Rebuild the entire clustered index
-ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD
+ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 ```
 
 ```sql
 -- Rebuild a single partition
-ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5;
 ```
 
 ```sql
 -- Rebuild a single partition with archival compression
-ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE_ARCHIVE)
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE_ARCHIVE);
 ```
 
 ```sql
 -- Rebuild a single partition with columnstore compression
-ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE);
 ```
 
 La regeneración de un índice en el grupo de SQL dedicado es una operación que se realiza sin conexión.  Para más información sobre cómo volver a crear los índices, consulte la sección ALTER INDEX REBUILD de [Desfragmentación de índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) y [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).

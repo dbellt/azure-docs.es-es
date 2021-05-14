@@ -5,16 +5,16 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.subservice: management
+ms.subservice: extensions
 ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 078c78f9fe9e52ee2a71784d5c5ae5c2a478fbe4
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 1cc8e06b2057444efc4fa317790047e3bb9c4f00
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107484262"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768488"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementación de la aplicación en conjuntos de escalado de máquinas virtuales
 

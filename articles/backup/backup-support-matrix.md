@@ -2,14 +2,14 @@
 title: Matriz de compatibilidad de Azure Backup
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para el servicio Azure Backup.
 ms.topic: conceptual
-ms.date: 02/17/2019
+ms.date: 04/14/2021
 ms.custom: references_regions
-ms.openlocfilehash: 349a48b6178d5e4618aa62d9f0c3a150fe561e05
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 5c74a34efe8075ab7a34fab4570d9513900b3f81
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107284398"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517426"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de compatibilidad para Azure Backup
 
@@ -33,7 +33,7 @@ En esta tabla se describen las características de los almacenes de Recovery Ser
 --- | ---
 **Vaults in subscription** (Almacenes en la suscripción) | Hasta 500 almacenes de Recovery Services en una suscripción única.
 **Machines in a vault** (Máquinas en un almacén) | Se pueden proteger hasta 2000 orígenes de datos en todas las cargas de trabajo (como máquinas virtuales de Azure, máquinas virtuales de SQL Server, servidores de MABS, etc.) en un solo almacén.<br><br>Hasta 1000 máquinas virtuales de Azure en un solo almacén.<br/><br/> Se pueden registrar hasta 50 servidores MABS en un único almacén.
-**Orígenes de datos** | El tamaño máximo de un [origen de datos](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined) individual es de 54 400 KB. Este límite no se aplica a las copias de seguridad de máquinas virtuales de Azure. No se aplica ningún límite a la cantidad total de datos de los que se puede hacer copia de seguridad en el almacén.
+**Orígenes de datos** | El tamaño máximo de un [origen de datos](./backup-azure-backup-faq.yml#how-is-the-data-source-size-determined-) individual es de 54 400 KB. Este límite no se aplica a las copias de seguridad de máquinas virtuales de Azure. No se aplica ningún límite a la cantidad total de datos de los que se puede hacer copia de seguridad en el almacén.
 **Backups to vault** (Copias de seguridad en el almacén) | **Máquinas virtuales de Azure:** una vez al día.<br/><br/>**Máquinas protegidas por DPM/MABS:** dos veces al día.<br/><br/> **Máquinas con copia de seguridad realizada directamente con el agente de MARS:** tres veces al día.
 **Backups between vaults** (Copias de seguridad entre almacenes) | Las copias de seguridad se realizan dentro de una región.<br/><br/> Necesita un almacén en cada región de Azure que contenga máquinas virtuales de las que desee realizar copias de seguridad. No se pueden realizar copias de seguridad en una región diferente.
 **Move vaults** (Mover almacenes) | Puede [mover almacenes](./backup-azure-move-recovery-services-vault.md) entre suscripciones o entre grupos de recursos de la misma suscripción. Sin embargo, no se admite el traslado de almacenes entre regiones.
@@ -151,7 +151,7 @@ Azure Backup ha agregado la característica Restauración entre regiones para re
 
 | Tipo de administración de copias de seguridad | Compatible                                                    | Regiones admitidas |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Compatible con máquinas virtuales de Azure tanto con discos administrados como no administrados. No se admite para máquinas virtuales clásicas. | Disponible en todas las regiones públicas de Azure y las regiones soberanas, excepto Centro de Francia, Centro de Australia, Norte de Sudáfrica, Norte de Emiratos Árabes Unidos, Norte de Suiza, Centro-oeste de Alemania, Este de Noruega, US Gov Iowa y US Gov Virginia. <br>Para obtener información sobre el uso en esas regiones, póngase en contacto con [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
+| Azure VM               | Compatible con máquinas virtuales de Azure (incluidas máquinas virtuales de Azure cifradas), con discos administrados y no administrados. No se admite para máquinas virtuales clásicas. | Disponible en todas las regiones públicas de Azure y las regiones soberanas, excepto Centro de Francia, Centro de Australia, Norte de Sudáfrica, Norte de Emiratos Árabes Unidos, Norte de Suiza, Centro-oeste de Alemania, Este de Noruega, US Gov Iowa y US Gov Virginia. <br>Para obtener información sobre el uso en esas regiones, póngase en contacto con [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
 | SQL/SAP HANA | En versión preliminar                                                      | Disponible en todas las regiones públicas de Azure y las regiones soberanas, excepto Centro de Francia, Centro de Australia, Norte de Sudáfrica, Norte de Emiratos Árabes Unidos, Norte de Suiza, Centro-oeste de Alemania, Este de Noruega, US Gov Iowa y US Gov Virginia. <br>Para obtener información sobre el uso en esas regiones, póngase en contacto con [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
 | Agente de MARS/local  | No                                                           | N/D               |
 | AFS (recursos compartidos de archivos de Azure)                 | No                                                           | N/D               |

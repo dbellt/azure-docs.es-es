@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/24/2020
+ms.date: 04/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 325f6ad7d9685fac17e17b28c4ffbe31b1245cca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef121112bb4ff3ff6a297677a5c713f642cb3b78
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98734552"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519601"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-confluence"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con EasySSO for Confluence
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar EasySSO for Confluence con Azure Active�
 * Permitir que los usuarios inicien sesión automáticamente en Confluence con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -40,7 +40,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * EasySSO for Confluence admite el inicio de sesión único iniciado por **SP e IDP**.
 * EasySSO for Confluence admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-## <a name="adding-easysso-for-confluence-from-the-gallery"></a>Incorporación de EasySSO for Confluence desde la galería
+## <a name="add-easysso-for-confluence-from-the-gallery"></a>Incorporación de EasySSO for Confluence desde la galería
 
 Para configurar la integración de EasySSO for Confluence en Azure AD, tiene que agregar EasySSO for Confluence desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -50,7 +50,6 @@ Para configurar la integración de EasySSO for Confluence en Azure AD, tiene qu
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **EasySSO for Confluence** en el cuadro de búsqueda.
 1. Seleccione **EasySSO for Confluence** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-easysso-for-confluence"></a>Configuración y prueba del inicio de sesión único de Azure AD para Confluence
 
@@ -71,7 +70,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de aplicaciones de **EasySSO for Confluence**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -129,9 +128,7 @@ En esta sección va a permitir que B.Simon acceda a EasySSO for Confluence media
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **EasySSO for Confluence**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.

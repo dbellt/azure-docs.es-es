@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/22/2021
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 6f70ae726cf41395e46760dc5cf7da5b4d61478a
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 40e3e804d62bfd0ece669ebd46891f0c72dcb71e
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802903"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140342"
 ---
 # <a name="how-to-configure-blob-indexing-in-cognitive-search"></a>Configuración de una indexación de blobs en Cognitive Search
 
@@ -113,6 +113,7 @@ En un índice de búsqueda, la clave del documento identifica de forma exclusiva
 > [!IMPORTANT]
 > Si no hay ninguna asignación explícita para el campo de clave en el índice, Azure Cognitive Search usa automáticamente `metadata_storage_path` como clave y valores de clave de codificaciones Base64 (la segunda opción anterior).
 >
+> Si usa una propiedad de metadatos personalizada como clave, evite realizar cambios en esa propiedad. Los indexadores agregarán documentos duplicados para el mismo blob si cambia la propiedad de clave.
 
 #### <a name="example"></a>Ejemplo
 

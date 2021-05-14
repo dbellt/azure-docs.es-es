@@ -8,13 +8,13 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 03/17/2021
 ms.author: mbaldwin
-ms.custom: mvc, devx-track-csharp, devx-track-azurepowershell
-ms.openlocfilehash: c08d0c210e992cba5bca2695fda0bcf08c4689dc
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: mvc, devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 9688ca47efabd8023f29879f9963ab43f0882cf4
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772098"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286391"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>Tutorial: Uso de Azure Key Vault con una máquina virtual en .NET
 
@@ -138,7 +138,7 @@ Cree una aplicación de consola e instale los paquetes necesarios con el comando
 
 ### <a name="install-net-core"></a>Instalar .NET Core
 
-Para instalar .NET Core, vaya a la [página de descargas de .NET](https://www.microsoft.com/net/download).
+Para instalar .NET Core, vaya a la [página de descargas de .NET](https://dotnet.microsoft.com/download).
 
 ### <a name="create-and-run-a-sample-net-app"></a>Creación y ejecución de una aplicación de .NET de ejemplo
 

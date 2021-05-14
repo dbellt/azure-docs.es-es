@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: memildin
-ms.openlocfilehash: 2f5d98dd9bf893065f2bf9c37cbec4384d0f7c94
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 889c79357037afb0d9c83c645e86d05edc0df6f1
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727147"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903765"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Puntuación de seguridad de Azure Security Center
 
@@ -83,7 +83,7 @@ Un ejemplo de una recomendación en versión preliminar:
 
 ## <a name="improve-your-secure-score"></a>Mejora de su puntuación de seguridad
 
-Para mejorar la puntuación de seguridad, corrija las recomendaciones de seguridad de la lista de recomendaciones. Puede corregir cada recomendación manualmente para cada recurso o utilizar la opción **Corrección rápida** (si está disponible) para aplicar rápidamente una corrección de una recomendación a un grupo de recursos. Para más información, consulte [Corrección de recomendaciones](security-center-remediate-recommendations.md).
+Para mejorar la puntuación de seguridad, corrija las recomendaciones de seguridad de la lista de recomendaciones. Puede corregir cada recomendación manualmente para cada recurso o bien usar la opción **Corregir** (cuando esté disponible) para resolver rápidamente un problema en varios recursos. Para más información, consulte [Corrección de recomendaciones](security-center-remediate-recommendations.md).
 
 Otra forma de mejorar la puntuación y de asegurarse de que los usuarios no creen recursos que afecten negativamente a la puntuación es configurar las opciones de aplicar y denegar en las recomendaciones pertinentes. Más información en [Evitar errores de configuración con Aplicar/Denegar](prevent-misconfigurations.md).
 

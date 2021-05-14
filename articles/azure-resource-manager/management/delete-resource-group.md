@@ -3,13 +3,13 @@ title: Eliminación del grupo de recursos y los recursos
 description: Se describe cómo eliminar grupos de recursos y recursos. También se describe cómo Azure Resource Manager ordena la eliminación de recursos al eliminar un grupo de recursos. Describe los códigos de respuesta y cómo Resource Manager los controla para determinar si la eliminación se realizó correctamente.
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.custom: seodec18
-ms.openlocfilehash: 3c062c2f775e145347129f24b201748ee517daf4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: ccf5a9b1fac50dbf96d648acbf625b360bafb249
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107768676"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315244"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Eliminación de grupos de recursos y recursos en Azure Resource Manager
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: Edge Secured-core Certification Requirements
 ms.service: certification
-ms.openlocfilehash: 5bb02f939bb63fd1c6365fd4570996f09119e958
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: c52a1fe215223d8aceca19f2f382a999f8b470de
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166911"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108131718"
 ---
 # <a name="azure-certified-device---edge-secured-core-preview"></a>Azure Certified Device: Edge Secured-Core (versión preliminar) #
 
@@ -161,7 +161,7 @@ Edge Secured-Core es una certificación incremental en el programa de Azure Cert
 |SO|Independiente|
 |Tipo de validación|Manual/herramientas|
 Validación|Dispositivo que se va a validar mediante el conjunto de herramientas para asegurarse de que el dispositivo admite una versión de TLS mínima de 1.2 y admite los siguientes conjuntos de cifrado TLS necesarios.<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
-|Recursos| [Compatibilidad con TLS en IoT Hub](../iot-hub/iot-hub-tls-support.md) <br /> [Conjuntos de cifrado TLS en Windows 10](https://docs.microsoft.com/windows/win32/secauthn/tls-cipher-suites-in-windows-10-v1903) |
+|Recursos| [Compatibilidad con TLS en IoT Hub](../iot-hub/iot-hub-tls-support.md) <br /> [Conjuntos de cifrado TLS en Windows 10](/windows/win32/secauthn/tls-cipher-suites-in-windows-10-v1903) |
 
 ---
 |Nombre|SecuredCore.Protection.SignedUpdates|

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 04/05/2021
-ms.openlocfilehash: 2debf7d350f4f1fde5e86a60ad03a6858bc02743
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.date: 04/16/2021
+ms.openlocfilehash: 286da1412e8a74ffbf34e4abb493241914d4f925
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490342"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764880"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -391,7 +391,7 @@ Cuando la aplicación lógica necesita comunicarse a través de un firewall que 
 
 Por ejemplo, para admitir llamadas que las aplicaciones lógicas de la región Oeste de EE. UU. envían o reciben a través de desencadenadores y acciones integrados, como el [desencadenador o acción HTTP](../connectors/connectors-native-http.md), el firewall debe permitir el acceso para *todas*  las direcciones IP de entrada del servicio Logic Apps *y* las direcciones IP de salida que existen en la región Oeste de EE. UU.
 
-Si la aplicación lógica también usa [conectores administrados](../connectors/apis-list.md#managed-api-connectors), como el conector de Outlook de Office 365 o el conector de SQL, o emplea [conectores personalizados](/connectors/custom-connectors/), el firewall también debe permitir el acceso a *todas* las [direcciones IP de salida del conector administrado](#outbound) en la región de Azure de la aplicación lógica. Además, si usa conectores personalizados que acceden a recursos locales a través del [recurso de puerta de enlace de datos local en Azure](logic-apps-gateway-connection.md), debe configurar la instalación de la puerta de enlace para permitir el acceso a las *[direcciones IP de salida](#outbound) de conectores administrados* correspondientes.
+Si la aplicación lógica también usa [conectores administrados](../connectors/managed.md), como el conector de Outlook de Office 365 o el conector de SQL, o emplea [conectores personalizados](/connectors/custom-connectors/), el firewall también debe permitir el acceso a *todas* las [direcciones IP de salida del conector administrado](#outbound) en la región de Azure de la aplicación lógica. Además, si usa conectores personalizados que acceden a recursos locales a través del [recurso de puerta de enlace de datos local en Azure](logic-apps-gateway-connection.md), debe configurar la instalación de la puerta de enlace para permitir el acceso a las *[direcciones IP de salida](#outbound) de conectores administrados* correspondientes.
 
 Para obtener más información sobre cómo configurar las opciones de comunicación en la puerta de enlace, consulte los siguientes temas:
 
@@ -406,7 +406,7 @@ Antes de configurar el firewall con direcciones IP, revise estas consideraciones
 
 * Si está usando [Power Automate](/power-automate/getting-started), algunas acciones como **HTTP** y **HTTP + OpenAPI** pasan directamente por el servicio Azure Logic Apps y proceden de las direcciones IP que se indican aquí. Para más información sobre las direcciones IP que usa Power Automate, consulte [Límites y configuración para Power Automate](/flow/limits-and-config#ip-address-configuration).
 
-* En el caso de [Azure China 21Vianet](/azure/china/), las direcciones IP fijas o reservadas no están disponibles para [conectores personalizados](../logic-apps/custom-connector-overview.md) y [conectores administrados](../connectors/apis-list.md#managed-api-connectors), como Azure Storage, SQL Server, Office 365 Outlook, etc.
+* En el caso de [Azure China 21Vianet](/azure/china/), las direcciones IP fijas o reservadas no están disponibles para [conectores personalizados](../logic-apps/custom-connector-overview.md) y [conectores administrados](../connectors/managed.md), como Azure Storage, SQL Server, Office 365 Outlook, etc.
 
 * Si sus aplicaciones lógicas se ejecutan en un [entorno de servicio de integración (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), asegúrese de [abrir estos puertos también](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
 
@@ -544,9 +544,9 @@ En esta sección se enumeran las direcciones IP salientes para el servicio Azure
 | Sur de Reino Unido | 51.140.74.14, 51.140.73.85, 51.140.78.44, 51.140.137.190, 51.140.153.135, 51.140.28.225, 51.140.142.28, 51.140.158.24 | 51.140.74.150, 51.140.80.51, 51.140.61.124, 51.105.77.96 - 51.105.77.127, 51.140.148.0 - 51.140.148.15 |
 | Oeste de Reino Unido | 51.141.54.185, 51.141.45.238, 51.141.47.136, 51.141.114.77, 51.141.112.112, 51.141.113.36, 51.141.118.119, 51.141.119.63 | 51.141.52.185, 51.141.47.105, 51.141.124.13, 51.140.211.0 - 51.140.211.15, 51.140.212.224 - 51.140.212.255 |
 | Centro-Oeste de EE. UU. | 52.161.27.190, 52.161.18.218, 52.161.9.108, 13.78.151.161, 13.78.137.179, 13.78.148.140, 13.78.129.20, 13.78.141.75 | 52.161.101.204, 52.161.102.22, 13.78.132.82, 13.71.195.32 - 13.71.195.47, 13.71.199.192 - 13.71.199.223 |
-| Oeste de Europa | 40.68.222.65, 40.68.209.23, 13.95.147.65, 23.97.218.130, 51.144.182.201, 23.97.211.179, 104.45.9.52, 23.97.210.126 | 52.166.78.89, 52.174.88.118, 40.91.208.65, 13.69.64.208 - 13.69.64.223, 13.69.71.192 - 13.69.71.223 |
+| Oeste de Europa | 40.68.222.65, 40.68.209.23, 13.95.147.65, 23.97.218.130, 51.144.182.201, 23.97.211.179, 104.45.9.52, 23.97.210.126, 13.69.71.160, 13.69.71.161, 13.69.71.162, 13.69.71.163, 13.69.71.164, 13.69.71.165, 13.69.71.166, 13.69.71.167 | 52.166.78.89, 52.174.88.118, 40.91.208.65, 13.69.64.208 - 13.69.64.223, 13.69.71.192 - 13.69.71.223 |
 | Oeste de la India | 104.211.164.80, 104.211.162.205, 104.211.164.136, 104.211.158.127, 104.211.156.153, 104.211.158.123, 104.211.154.59, 104.211.154.7 | 104.211.189.124, 104.211.189.218, 20.38.128.224 - 20.38.128.255, 104.211.146.224 - 104.211.146.239 |
-| Oeste de EE. UU. | 52.160.92.112, 40.118.244.241, 40.118.241.243, 157.56.162.53, 157.56.167.147, 104.42.49.145, 40.83.164.80, 104.42.38.32 | 13.93.148.62, 104.42.122.49, 40.112.195.87, 13.86.223.32 - 13.86.223.63, 40.112.243.160 - 40.112.243.175 |
+| Oeste de EE. UU. | 52.160.92.112, 40.118.244.241, 40.118.241.243, 157.56.162.53, 157.56.167.147, 104.42.49.145, 40.83.164.80, 104.42.38.32, 13.86.223.0, 13.86.223.1, 13.86.223.2, 13.86.223.3, 13.86.223.4, 13.86.223.5 | 13.93.148.62, 104.42.122.49, 40.112.195.87, 13.86.223.32 - 13.86.223.63, 40.112.243.160 - 40.112.243.175 |
 | Oeste de EE. UU. 2 | 13.66.210.167, 52.183.30.169, 52.183.29.132, 13.66.210.167, 13.66.201.169, 13.77.149.159, 52.175.198.132, 13.66.246.219 | 52.191.164.250, 52.183.78.157, 13.66.140.128 - 13.66.140.143, 13.66.145.96 - 13.66.145.127 |
 ||||
 

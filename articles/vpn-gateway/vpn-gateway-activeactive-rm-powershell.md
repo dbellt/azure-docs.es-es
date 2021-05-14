@@ -1,6 +1,7 @@
 ---
-title: Configuración de conexiones S2S activo-activo de Azure VPN Gateway
-description: Este artículo le guiará a la hora de configurar conexiones activo-activo con Azure VPN Gateway usando Azure Resource Manager y PowerShell.
+title: Configuración de conexiones VPN S2S en modo activo-activo
+titleSuffix: Azure VPN Gateway
+description: Aprenda a configurar conexiones en modo activo-activo con VPN Gateway mediante PowerShell.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
@@ -8,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: yushwang
 ms.reviewer: cherylmc
-ms.openlocfilehash: 022ccaab0b210cd2d656b69f505791d1a2aa963f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7942de38cdbfd5e3b90d4eabdc87cf1188edefb5
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89440786"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290171"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configuración de conexiones VPN S2S activo-activo con Azure VPN Gateway
 

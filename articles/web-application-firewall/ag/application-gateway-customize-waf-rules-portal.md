@@ -4,15 +4,15 @@ description: En este artículo se proporciona información acerca de cómo perso
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 04/21/2021
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: c4635333614ee1c0fd0322c29a659380fb4315c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ab122d178e5390a53e5a3a39f1b7763b298dc6d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "74048375"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107878333"
 ---
 # <a name="customize-web-application-firewall-rules-using-the-azure-portal"></a>Personalización de reglas de Firewall de aplicaciones web con Azure Portal
 
@@ -21,7 +21,7 @@ El Firewall de aplicaciones web (WAF) de Azure Application Gateway proporciona p
 >[!NOTE]
 > Si la puerta de enlace de aplicaciones no usa el nivel WAF, la opción para actualizar la puerta de enlace de aplicaciones al nivel WAF aparece en el panel derecho. 
 
-![Habilitar WAF][fig1]
+:::image type="content" source="../media/application-gateway-customize-waf-rules-portal/1.png" alt-text="Habilitar WAF"::: 
 
 ## <a name="view-rule-groups-and-rules"></a>Visualización de reglas y grupos de reglas
 
@@ -37,16 +37,13 @@ El Firewall de aplicaciones web (WAF) de Azure Application Gateway proporciona p
 > [!IMPORTANT]
 > Tenga cuidado al deshabilitar los grupos de reglas o reglas. Esta acción puede exponerlo a mayores riesgos de seguridad.
 
-Cuando deshabilita reglas, puede deshabilitar un grupo de reglas completo o reglas específicas de uno o más grupos de reglas. 
-
 **Para deshabilitar grupos de reglas o reglas concretas**
 
    1. Busque las reglas o los grupos de reglas que desea deshabilitar.
    2. Active las casillas de las reglas que quiere deshabilitar. 
    3. Seleccione la acción que se encuentra en la parte superior de la página (habilitar o deshabilitar) para las reglas seleccionadas.
-   2. Seleccione **Guardar**. 
-
-![Guardar cambios][3]
+   2. Seleccione **Guardar**.
+    :::image type="content" source="../media/application-gateway-customize-waf-rules-portal/figure3.png" alt-text="Almacenamiento de reglas deshabilitadas"::: 
 
 ## <a name="mandatory-rules"></a>Reglas obligatorias
 
@@ -66,6 +63,3 @@ Específico de CRS 3.x:
 ## <a name="next-steps"></a>Pasos siguientes
 
 Después de configurar las reglas deshabilitadas, puede aprender a ver los registros de WAFS. Para más información, consulte [Diagnósticos de Application Gateway](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
-
-[fig1]: ../media/application-gateway-customize-waf-rules-portal/1.png
-[3]: ../media/application-gateway-customize-waf-rules-portal/figure3.png

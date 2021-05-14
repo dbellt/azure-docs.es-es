@@ -13,22 +13,22 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf2d0d3335468147575eb53a99940866baa18375
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df4cb32720d80dd23289be7e760c9934e9a8db8a
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98222528"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107501508"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restricción de los permisos de acceso de invitados (versión preliminar) en Azure Active Directory
 
 Azure Active Directory (Azure AD) le permite restringir qué usuarios invitados externos se pueden ver en su organización de Azure AD. De forma predeterminada, los usuarios invitados se establecen en un nivel de permisos limitado en Azure AD, mientras que el valor predeterminado para los usuarios miembros es el conjunto completo de permisos de usuario predeterminados. Se trata de la versión preliminar de un nuevo nivel de permisos de usuarios invitados en la configuración de colaboración externa de la organización de Azure AD para un acceso aún más restringido, por lo que las opciones de acceso de invitado ahora son:
 
-Nivel de permiso         | Nivel de acceso
-----------------         | ------------
-Igual que los usuarios miembros     | Los invitados tienen el mismo acceso a los recursos de Azure AD que los usuarios miembros
-Acceso limitado (predeterminado) | Los invitados pueden ver la pertenencia de todos los grupos no ocultos
-**Acceso restringido (nuevo)**  | **Los invitados no pueden ver la pertenencia de ningún grupo**
+Nivel de permiso         | Nivel de acceso | Value
+----------------         | ------------ | -----
+Igual que los usuarios miembros     | Los invitados tienen el mismo acceso a los recursos de Azure AD que los usuarios miembros | a0b1b346-4d3e-4e8b-98f8-753987be4970
+Acceso limitado (predeterminado) | Los invitados pueden ver la pertenencia de todos los grupos no ocultos | 10dae51f-b6af-4016-8d66-8c2a99b929b3
+**Acceso restringido (nuevo)**  | **Los invitados no pueden ver la pertenencia de ningún grupo** | **2af84b1e-32c8-42b7-82bc-daa82404023b**
 
 Cuando el acceso de invitado está restringido, los invitados solo pueden ver su propio perfil de usuario. No se admite el permiso para ver a otros usuarios aunque el invitado busque por nombre principal de usuario o identificador de objeto. El acceso restringido también impide que los usuarios vean la pertenencia de los grupos de los que forman parte. Para más información sobre los permisos generales de usuario predeterminados, incluidos los permisos de usuarios invitados, vea [¿Cuales son los permisos de usuario predeterminados en Azure Active Directory?](../fundamentals/users-default-permissions.md)
 

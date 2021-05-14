@@ -3,12 +3,12 @@ title: Configuración de laboratorios de Project Lead the Way con Azure Lab Serv
 description: Obtenga información sobre cómo configurar laboratorios para impartir clases de Project Lead the Way.
 ms.topic: article
 ms.date: 10/28/2020
-ms.openlocfilehash: ca4fdae2372895c17c4a98dd3959935108846744
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12efa11d2062b5a4d919dbdcdb4a824dec33f5fb
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95024626"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278729"
 ---
 # <a name="set-up-labs-for-project-lead-the-way-classes"></a>Configuración de laboratorios para las clases de Project Lead the Way
 
@@ -75,15 +75,15 @@ El tamaño de la máquina virtual que se recomienda usar para las clases de PLTW
 
 | Configuración del laboratorio | Valor y descripción | Recomendación de clase |
 | ------------ | ------------------ | --- |
-| Tamaño de la máquina virtual | **GPU pequeña (visualización)**<br>Es el más adecuado para la visualización, la realización de streaming, los juegos y la codificación de forma remota que usan marcos como OpenGL y DirectX. | Se recomienda usar este tamaño para las siguientes clases de PLTW: Arquitectura e ingeniería civil, Electrónica digital, Fabricación integrada en PC, y Diseño y desarrollo de ingeniería.
-| Tamaño de la máquina virtual | **Grande**<br>Es ideal para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y memorias caché grandes. | Se recomienda usar este tamaño para las siguientes clases de PLTW: Introducción al diseño de ingeniería, Principios de ingeniería, Conceptos básicos de la informática, Principios de la informática e Informática A. |
+| Tamaño de la máquina virtual | **GPU pequeña (visualización)**<br>Es el más adecuado para la visualización, la realización de streaming, los juegos y la codificación de forma remota que usan marcos como OpenGL y DirectX. | Se recomienda usar este tamaño con las siguientes clases de PLTW: Arquitectura e ingeniería civil, Electrónica digital, Fabricación integrada de equipos, Diseño y desarrollo de ingeniería e Introducción al diseño de ingeniería.
+| Tamaño de la máquina virtual | **Grande**<br>Es ideal para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y memorias caché grandes. | Se recomienda usar este tamaño con las siguientes clases de PLTW: Principios de ingeniería, Conceptos básicos de la informática, Principios de la informática e Informática A. |
 
 <br>
 
 ### <a name="license-server"></a>Servidor de licencias
 La mayor parte del software que se usa en las clases de PLTW mencionadas anteriormente *no* necesitan acceso a un servidor de licencias.  Sin embargo, tendrá que acceder a un servidor de licencias si tiene previsto usar el modelo de licencias de red de Autodesk para el siguiente software:
 -   Revit
--   Inventor
+-   Inventor CAD
 -   Inventor CAM
 
 Para usar las licencias de red con el software de Autodesk, [PLTW proporciona pasos detallados](https://www.pltw.org/pltw-software) para instalar el administrador de licencias de Autodesk en el servidor de licencias.  Este servidor de licencias se encuentra normalmente en la red local u hospedado en una máquina virtual de Azure en Azure Virtual Network.

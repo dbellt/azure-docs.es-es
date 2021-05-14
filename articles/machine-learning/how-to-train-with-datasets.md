@@ -5,19 +5,19 @@ description: Obtenga información sobre cómo poner los datos a disposición del
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: sihhu
-author: MayMSFT
+ms.author: yogipandey
+author: ynpandey
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 8b984a17c8c10c3dff7c57b7d0223ba8b4197012
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.topic: how-to
+ms.custom: devx-track-python, data4ml
+ms.openlocfilehash: 25dfad48d3782c50797c855a0a8cbfded6581e0e
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640122"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788020"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Entrenamiento de modelos con conjuntos de datos de Azure Machine Learning 
 
@@ -44,7 +44,7 @@ Para crear conjuntos de datos y entrenar con ellos, necesita:
 
 Si tiene datos estructurados que aún no se han registrado como un conjunto de datos, cree un conjunto de datos TabularDataset y úselo directamente en el script de entrenamiento para su experimento local o remoto.
 
-En este ejemplo, se crea un elemento [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) no registrado y se especifica como un argumento de script en el objeto ScriptRunConfig para el entrenamiento. Si desea volver a usar este conjunto de datos TabularDataset con otros experimentos en su área de trabajo, consulte [Registro de conjuntos de registros en su área de trabajo](how-to-create-register-datasets.md#register-datasets).
+En este ejemplo, se crea un elemento [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) no registrado y se especifica como un argumento de script en el objeto [ScriptRunConfig](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig) para el entrenamiento. Si desea volver a usar este conjunto de datos TabularDataset con otros experimentos en su área de trabajo, consulte [Registro de conjuntos de registros en su área de trabajo](how-to-create-register-datasets.md#register-datasets).
 
 ### <a name="create-a-tabulardataset"></a>Creación de un objeto TabularDataset
 
@@ -119,16 +119,25 @@ run.wait_for_completion(show_output=True)
 
 Si tiene datos no estructurados, cree un conjunto de datos [FileDataset](/python/api/azureml-core/azureml.data.filedataset) y monte o descargue los archivos de datos para que estén disponibles para el destino de proceso remoto para el entrenamiento. Obtenga información acerca de cuándo usar [el montaje frente a la descarga](#mount-vs-download) para los experimentos de entrenamiento remoto. 
 
-En el ejemplo siguiente se crea un conjunto de datos FileDataset y se monta el conjunto de datos en el destino de proceso, para lo cual se pasa como un argumento al script de entrenamiento. 
+En el ejemplo siguiente: 
+
+* Se crea un objeto FileDataset de entrada, `mnist_ds`, para los datos de entrenamiento.
+* Se especifica dónde escribir los resultados del entrenamiento y promover esos resultados como un objeto FileDataset.
+* Se monta el conjunto de datos de entrada en el destino de proceso.
 
 > [!Note]
 > Si usa una imagen base de Docker personalizada, tendrá que instalar Fuse a través de `apt-get install -y fuse` como una dependencia para que el montaje del conjunto de datos funcione. Obtenga información sobre cómo [compilar una imagen de compilación personalizada](how-to-deploy-custom-docker-image.md#build-a-custom-base-image).
 
+Para obtener el ejemplo de cuaderno, consulte [Configuración de una ejecución de entrenamiento con entrada y salida de datos](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/scriptrun-with-data-input-output/how-to-use-scriptrun.ipynb).
+
 ### <a name="create-a-filedataset"></a>Creación de un objeto FileDataset
 
-En el ejemplo siguiente se crea un objeto FileDataset no registrado a partir de direcciones URL web. Más información sobre [cómo crear conjuntos de datos](how-to-create-register-datasets.md) desde otros orígenes.
+En el ejemplo siguiente se crea un objeto FileDataset no registrado, `mnist_data`, a partir de direcciones URL web. Este objeto FileDataset son los datos de entrada de la ejecución de entrenamiento.
+
+Más información sobre [cómo crear conjuntos de datos](how-to-create-register-datasets.md) desde otros orígenes.
 
 ```Python
+
 from azureml.core.dataset import Dataset
 
 web_paths = [
@@ -137,22 +146,49 @@ web_paths = [
             'http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz',
             'http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz'
             ]
+
 mnist_ds = Dataset.File.from_files(path = web_paths)
+
+```
+### <a name="where-to-write-training-output"></a>Dónde escribir la salida del entrenamiento
+
+Puede especificar dónde escribir los resultados del entrenamiento con un [objeto OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig). 
+
+Los objetos OutputFileDatasetConfig permiten: 
+
+* Montar o cargar la salida de una ejecución en el almacenamiento en la nube que especifique.
+* Guardar la salida como un objeto FileDataset en estos tipos de almacenamiento admitidos:
+    * Blob de Azure
+    * Recurso compartido de archivos de Azure
+    * Azure Data Lake Storage Gen 1 y Gen 2
+* Realizar un seguimiento del linaje de datos entre las ejecuciones de entrenamiento.
+
+El código siguiente especifica que los resultados del entrenamiento se deben guardar como un objeto FileDataset en la carpeta `outputdataset` del almacén de datos de blobs predeterminado, `def_blob_store`. 
+
+```python
+from azureml.core import Workspace
+from azureml.data import OutputFileDatasetConfig
+
+ws = Workspace.from_config()
+
+def_blob_store = ws.get_default_datastore()
+output = OutputFileDatasetConfig(destination=(def_blob_store, 'sample/outputdataset'))
 ```
 
 ### <a name="configure-the-training-run"></a>Configuración de la ejecución de entrenamiento
 
-Se recomienda pasar el conjunto de datos como argumento cuando se realiza el montaje mediante el parámetro `arguments` del constructor de `ScriptRunConfig`. Al hacerlo, tendrá la ruta de acceso de datos (punto de montaje) en el script de entrenamiento mediante argumentos. En otras palabras, podrá usar el mismo script de entrenamiento para la depuración local y el entrenamiento remoto en todas las plataformas en la nube.
+Se recomienda pasar el conjunto de datos como argumento cuando se realiza el montaje mediante el parámetro `arguments` del constructor de `ScriptRunConfig`. Al hacerlo, tendrá la ruta de acceso de los datos (punto de montaje) en el script de entrenamiento mediante argumentos. En otras palabras, podrá usar el mismo script de entrenamiento para la depuración local y el entrenamiento remoto en todas las plataformas en la nube.
 
-En el ejemplo siguiente se crea un objeto ScriptRunConfig que pasa el conjunto de datos FileDataset mediante `arguments`. Después de enviar la ejecución, los archivos de datos a los que el conjunto de datos `mnist_ds` hace referencia se montarán en el destino de proceso.
+En el ejemplo siguiente se crea un objeto ScriptRunConfig que pasa el conjunto de datos FileDataset mediante `arguments`. Después de enviar la ejecución, los archivos de datos a los que hace referencia el conjunto de datos `mnist_ds` se montan en el destino de proceso y los resultados del entrenamiento se guardan en la carpeta `outputdataset` especificada en el almacén de datos predeterminado.
 
 ```python
 from azureml.core import ScriptRunConfig
 
+input_data= mnist_ds.as_named_input('input').as_mount()# the dataset will be mounted on the remote compute 
+
 src = ScriptRunConfig(source_directory=script_folder,
-                      script='train_mnist.py',
-                      # the dataset will be mounted on the remote compute and the mounted path passed as an argument to the script
-                      arguments=['--data-folder', mnist_ds.as_mount(), '--regularization', 0.5],
+                      script='dummy_train.py',
+                      arguments=[input_data, output],
                       compute_target=compute_target,
                       environment=myenv)
 
@@ -161,40 +197,31 @@ run = experiment.submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
-### <a name="retrieve-data-in-your-training-script"></a>Recuperación de los datos en el script de entrenamiento
+### <a name="simple-training-script"></a>Script de entrenamiento simple
 
-En el código siguiente se muestra cómo recuperar los datos en el script.
+El siguiente script se envía con ScriptRunConfig. Lee el conjunto de datos `mnist_ds ` como entrada y escribe el archivo en la carpeta `outputdataset` del almacén de datos de blobs predeterminado, `def_blob_store`.
 
 ```Python
-%%writefile $script_folder/train_mnist.py
+%%writefile $source_directory/dummy_train.py
 
-import argparse
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+import sys
 import os
-import numpy as np
-import glob
 
-from utils import load_data
+print("*********************************************************")
+print("Hello Azure ML!")
 
-# retrieve the 2 arguments configured through `arguments` in the ScriptRunConfig
-parser = argparse.ArgumentParser()
-parser.add_argument('--data-folder', type=str, dest='data_folder', help='data folder mounting point')
-parser.add_argument('--regularization', type=float, dest='reg', default=0.01, help='regularization rate')
-args = parser.parse_args()
+mounted_input_path = sys.argv[1]
+mounted_output_path = sys.argv[2]
 
-data_folder = args.data_folder
-print('Data folder:', data_folder)
-
-# get the file paths on the compute
-X_train_path = glob.glob(os.path.join(data_folder, '**/train-images-idx3-ubyte.gz'), recursive=True)[0]
-X_test_path = glob.glob(os.path.join(data_folder, '**/t10k-images-idx3-ubyte.gz'), recursive=True)[0]
-y_train_path = glob.glob(os.path.join(data_folder, '**/train-labels-idx1-ubyte.gz'), recursive=True)[0]
-y_test = glob.glob(os.path.join(data_folder, '**/t10k-labels-idx1-ubyte.gz'), recursive=True)[0]
-
-# load train and test set into numpy arrays
-X_train = load_data(X_train_path, False) / 255.0
-X_test = load_data(X_test_path, False) / 255.0
-y_train = load_data(y_train_path, True).reshape(-1)
-y_test = load_data(y_test, True).reshape(-1)
+print("Argument 1: %s" % mounted_input_path)
+print("Argument 2: %s" % mounted_output_path)
+    
+with open(mounted_input_path, 'r') as f:
+    content = f.read()
+    with open(os.path.join(mounted_output_path, 'output.csv'), 'w') as fw:
+        fw.write(content)
 ```
 
 ## <a name="mount-vs-download"></a>Montaje frente a descarga
@@ -257,7 +284,7 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 
 ## <a name="notebook-examples"></a>Ejemplos de cuadernos
 
-+ Los [cuadernos de conjunto de datos](https://aka.ms/dataset-tutorial) se demuestran y se analizan con mayor profundidad sobre los conceptos en este artículo.
++ Para obtener conceptos y ejemplos adicionales de conjuntos de datos, consulte los [Cuadernos de conjuntos de datos](https://aka.ms/dataset-tutorial).
 + Consulte cómo [parametrizar conjuntos de datos en las canalizaciones de ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb).
 
 ## <a name="troubleshooting"></a>Solución de problemas
@@ -289,7 +316,7 @@ Si usa un recurso compartido de archivos para otras cargas de trabajo, como la t
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Entrenamiento automático de modelos de aprendizaje automático](how-to-auto-train-remote.md) con TabularDatasets.
+* [Entrenamiento automático de modelos de aprendizaje automático](how-to-configure-auto-train.md#data-source-and-format) con TabularDatasets.
 
 * [Entrenamiento de modelos de clasificación de imágenes](https://aka.ms/filedataset-samplenotebook) con FileDatasets.
 

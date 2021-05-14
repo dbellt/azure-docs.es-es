@@ -20,6 +20,8 @@
       href: walkthrough-exchange-all.md
     - name: Tutorial para asociados de Peering Service
       href: walkthrough-peering-service-all.md
+    - name: Tutorial para asociados de Communications Services
+      href: walkthrough-communications-services-partner.md
     - name: Asociación de un ASN del mismo nivel a una suscripción de Azure
       items:
         - name: Portal

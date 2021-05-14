@@ -1,18 +1,18 @@
 ---
 title: Ejecución de un entorno de ejecución de integración autohospedado en un contenedor de Windows
 description: Aprenda a ejecutar un entorno de ejecución de integración autohospedado en un contenedor de Windows.
-ms.author: abnarain
-author: nabhishek
+ms.author: lle
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/05/2020
-ms.openlocfilehash: e34e1f589442be41e2a4eac3ac893f377675e4b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe951881d2f8fa4c38e529122a96f3ca1ed078bb
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100379512"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483504"
 ---
 # <a name="how-to-run-self-hosted-integration-runtime-in-windows-container"></a>Ejecución de un entorno de ejecución de integración autohospedado en un contenedor de Windows
 
@@ -24,7 +24,7 @@ Azure Data Factory proporciona la compatibilidad de contenedor oficial de Wind
 ## <a name="prerequisites"></a>Prerrequisitos 
 - [Requisitos de los contenedores de Windows](/virtualization/windowscontainers/deploy-containers/system-requirements)
 - Docker, versión 2.3 y posterior 
-- Entorno de ejecución de integración autohospedado, versión 4.11.7512.1 y posterior 
+- Entorno de ejecución de integración autohospedado, versión 5.2.7713.1 y posterior 
 ## <a name="get-started"></a>Primeros pasos 
 1.  Instale Docker y habilite el contenedor de Windows 
 2.  Descargue el código fuente desde https://github.com/Azure/Azure-Data-Factory-Integration-Runtime-in-Windows-Container
@@ -40,7 +40,7 @@ docker build . -t "yourDockerImageName" 
 ```
 6.  Ejecute el contenedor de Docker: 
 ```console
-docker run -d -e NODE_NAME="irNodeName" -e AUTH_KEY="IR_AUTHENTICATION_KEY" -e ENABLE_HA=true HA_PORT=8060 "yourDockerImageName"    
+docker run -d -e NODE_NAME="irNodeName" -e AUTH_KEY="IR_AUTHENTICATION_KEY" -e ENABLE_HA=true -e HA_PORT=8060 "yourDockerImageName"    
 ```
 > [!NOTE]
 > AUTH_KEY es obligatorio para este comando. NODE_NAME, ENABLE_HA y HA_PORT son opcionales. Si no establece el valor, el comando usa los valores predeterminados. El valor predeterminado de ENABLE_HA es false y el de HA_PORT es 8060.

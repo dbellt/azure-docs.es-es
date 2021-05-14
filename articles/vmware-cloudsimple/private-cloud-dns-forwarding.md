@@ -1,19 +1,19 @@
 ---
 title: 'Solución VMware de Azure: Búsqueda directa de DNS de la nube privada a un entorno local'
 description: Describe cómo habilitar el servidor DNS de la nube privada de CloudSimple para la búsqueda directa de recursos locales.
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 02/29/2020
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3481e21a93fbf5f658c5ca00513ea179c8f95400
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: eed8addcf9064bddf761fabb7db22e7bcecc7a71
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97899208"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108185259"
 ---
 # <a name="enable-cloudsimple-private-cloud-dns-servers-to-forward-dns-lookup-of-on-premises-resources-to-your-dns-servers"></a>Habilitación de los servidores DNS de la nube privada de CloudSimple para la búsqueda directa de DNS de recursos locales a servidores DNS
 

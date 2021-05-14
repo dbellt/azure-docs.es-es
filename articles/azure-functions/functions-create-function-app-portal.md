@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo crear su primera función de Azure
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: ea5b6a9e51b6982a33dc748f72557ed539b8e2e0
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 336e531f4ec64141770fc26d7e6eea9ebfedf922
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385996"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517153"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Creación de su primera función en Azure Portal
 
@@ -64,9 +64,9 @@ Después, cree una función en la nueva aplicación de funciones.
 
     Si la dirección URL de la solicitud incluye una [clave de acceso](functions-bindings-http-webhook-trigger.md#authorization-keys) (`?code=...`), significa que debe elegir **Función** en lugar del nivel de acceso **Anónimo** al crear la función. En este caso, debería anexar `&name=<your_name>` en su lugar.
 
-1. Cuando se ejecuta la función, se escribe información de seguimiento en los registros. Para ver los resultados del seguimiento, vuelva a la página **Código y prueba** en el portal y expanda la flecha **Registros** en la parte inferior de la página.
+1. Cuando se ejecuta la función, se escribe información de seguimiento en los registros. Para ver los resultados del seguimiento, vuelva a la página **Código y prueba** en el portal y expanda la flecha **Registros** en la parte inferior de la página. Vuelva a llamar a la función para ver la salida de seguimiento escrita en los registros. 
 
-   ![Visor de registros de las funciones en Azure Portal.](./media/functions-create-first-azure-function/function-view-logs.png)
+    :::image type="content" source="media/functions-create-first-azure-function/function-view-logs.png" alt-text="Visor de registros de las funciones en Azure Portal":::.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

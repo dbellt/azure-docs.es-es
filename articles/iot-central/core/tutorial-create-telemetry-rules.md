@@ -7,16 +7,14 @@ ms.date: 01/08/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: b0b5aafd85fe6d992afa9d879f73ef0ec43e00d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d59f50d6fa4f21676cef01ffe0dde8ed1fa4441
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99834381"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768776"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Tutorial: Creación de una regla y configuración de las notificaciones en la aplicación de Azure IoT Central
-
-*Este artículo se aplica a los administradores, operadores y compiladores.*
 
 Puede usar Azure IoT Central para supervisar de forma remota los dispositivos conectados. Las reglas de Azure IoT Central le permiten supervisar los dispositivos casi en tiempo real e invocar acciones automáticamente, como el envío de correo electrónico. En este artículo se explica cómo crear reglas para supervisar los datos de telemetría enviados por el dispositivo.
 

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: krsh
 ms.author: krsh
-ms.date: 03/10/2021
-ms.openlocfilehash: 4711ea76af83594ec529cfda13a308fbe6646398
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 04/23/2021
+ms.openlocfilehash: 2ed498c528e3e0a86644588c4c7b26b0dd057128
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103200456"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107946248"
 ---
 # <a name="how-to-create-a-virtual-machine-using-your-own-image"></a>Procedimiento para crear una máquina virtual mediante su propia imagen
 
@@ -49,15 +49,20 @@ Todas las imágenes de Azure Marketplace deben ser reutilizables de forma genér
 
 ## <a name="bring-your-image-into-azure"></a>Incorporación de su imagen en Azure
 
+> [!NOTE]
+> La suscripción de Azure que contiene la SIG debe estar en el mismo inquilino que la cuenta de publicador para poder publicar. Además, la cuenta de publicador debe tener al menos acceso de colaborador a la suscripción que contiene el SIG.
+
 Hay tres maneras de llevar la imagen a Azure:
 
-1. Cargue el disco duro virtual en una instancia de Shared Image Gallery (SIG).
+1. Cargue el disco duro virtual de una de las formas siguientes:
+    1. en una galería de imágenes compartidas
+    1. como una imagen compartida en la galería de imágenes compartidas
 1. Cargue el disco duro virtual en una cuenta de Azure Storage.
 1. Extraiga el disco duro virtual de una imagen administrada (si se usan servicios de creación de imágenes).
 
 En las siguientes tres secciones se describen estas opciones.
 
-### <a name="option-1-upload-the-vhd-as-shared-image-gallery"></a>Opción 1: carga del disco duro virtual como Shared Image Gallery
+### <a name="option-1-upload-the-vhd-as-shared-image-gallery"></a>Opción 1: carga del disco duro virtual como una galería de imágenes compartidas
 
 1. Cargue los discos duros virtuales en la cuenta de almacenamiento.
 2. En Azure Portal, busque la opción **Implementar una plantilla personalizada**.

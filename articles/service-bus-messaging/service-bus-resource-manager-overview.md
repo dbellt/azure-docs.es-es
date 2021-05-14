@@ -8,12 +8,12 @@ ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: df8a7fde9114f03521f0e57e072f81a867efcf39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5af10bc30a7a3bd8ca211c3fd74364c74ee36fb5
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89075263"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278513"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Creación de recursos de Service Bus con las plantillas de Azure Resource Manager
 
@@ -38,7 +38,7 @@ Estas plantillas de Service Bus y Azure Resource Manager están disponibles para
 
 ## <a name="deploy-with-powershell"></a>Implementación con PowerShell
 
-El siguiente procedimiento describe cómo usar PowerShell para implementar una plantilla de Azure Resource Manager que cree un espacio de nombres de Service Bus de nivel Estándar y una cola dentro de ese espacio de nombres. Este ejemplo se basa en la plantilla de [Creación de un espacio de nombres de Service Bus con cola](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue). El flujo de trabajo aproximado es el siguiente:
+El siguiente procedimiento describe cómo usar PowerShell para implementar una plantilla de Azure Resource Manager que cree un espacio de nombres de Service Bus de nivel Estándar y una cola dentro de ese espacio de nombres. Este ejemplo se basa en la plantilla de [Creación de un espacio de nombres de Service Bus con cola](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.servicebus/servicebus-create-queue/azuredeploy.json). El flujo de trabajo aproximado es el siguiente:
 
 1. Instale PowerShell.
 2. Cree la plantilla y (opcionalmente) un archivo de parámetros.
@@ -56,7 +56,7 @@ Instale Azure PowerShell siguiendo las instrucciones de [Getting started with Az
 
 ### <a name="create-a-template"></a>Creación de una plantilla
 
-Clone el repositorio o copie la plantilla [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) de GitHub:
+Clone el repositorio o copie la plantilla [servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.servicebus/servicebus-create-queue/azuredeploy.json) desde GitHub:
 
 ```json
 {
@@ -131,7 +131,7 @@ Clone el repositorio o copie la plantilla [201-servicebus-create-queue](https://
 
 ### <a name="create-a-parameters-file-optional"></a>Creación de un archivo de parámetros (opcional)
 
-Para utilizar un archivo de parámetros opcional, copie el archivo [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json). Reemplace el valor de `serviceBusNamespaceName` por el nombre del espacio de nombres de Service Bus que desee crear en esta implementación y sustituya el valor de `serviceBusQueueName` por el nombre de la cola que desee crear.
+Para usar un archivo de parámetros opcional, copie el archivo [servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.servicebus/servicebus-create-queue/azuredeploy.parameters.json). Reemplace el valor de `serviceBusNamespaceName` por el nombre del espacio de nombres de Service Bus que desee crear en esta implementación y sustituya el valor de `serviceBusQueueName` por el nombre de la cola que desee crear.
 
 ```json
 {

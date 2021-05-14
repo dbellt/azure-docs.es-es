@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 1f656a41b0f447b90f58ec14173e418a2defb72e
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 93bf6f1a7026a7557eb1ec2a8b6f8644e959eb82
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107484836"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107887223"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-have-two-sets-of-authentication-credentials"></a>Automatización de la rotación de un secreto para recursos que tienen dos conjuntos de credenciales de autenticación
 

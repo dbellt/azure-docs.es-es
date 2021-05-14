@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: a6225fec30a87ca0bbe57e414733bc21489f87ad
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0aee0030937a6e11860907e27b775c2671137f71
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577451"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331113"
 ---
 # <a name="configure-openssl-for-linux"></a>Configuración de OpenSSL para Linux
 
@@ -53,7 +54,7 @@ export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
 
 ## <a name="certificate-revocation-checks"></a>Comprobaciones de revocación de certificados
-Al conectarse al servicio Voz, el SDK de Voz comprobará que el certificado TLS usado por dicho servicio no se ha revocado. Para realizar esta comprobación, el SDK de Voz necesitará acceso a los puntos de distribución de CRL para las entidades de certificación que utiliza Azure. En [este documento](https://docs.microsoft.com/azure/security/fundamentals/tls-certificate-changes)se puede encontrar una lista de las posibles ubicaciones de descarga de CRL. Si un certificado se ha revocado o no se puede descargar la lista CRL, el SDK de Voz anulará la conexión y generará el evento Cancelado.
+Al conectarse al servicio Voz, el SDK de Voz comprobará que el certificado TLS usado por dicho servicio no se ha revocado. Para realizar esta comprobación, el SDK de Voz necesitará acceso a los puntos de distribución de CRL para las entidades de certificación que utiliza Azure. En [este documento](../../security/fundamentals/tls-certificate-changes.md)se puede encontrar una lista de las posibles ubicaciones de descarga de CRL. Si un certificado se ha revocado o no se puede descargar la lista CRL, el SDK de Voz anulará la conexión y generará el evento Cancelado.
 
 Si la red donde se usa el SDK de Voz está configurada para impedir el acceso a las ubicaciones de descarga de CRL, la comprobación de CRL puede deshabilitarse o establecerse para que no genere errores si no se puede recuperar la lista CRL. Esta configuración se realiza a través del objeto de configuración utilizado para crear un objeto de reconocedor.
 

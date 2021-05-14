@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2021
 ms.author: Zhchia
-ms.openlocfilehash: b74175c7847bb19aa9410edd613afbfe1d762d05
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0afd2e2420868e40847ff1243fc61fb5b15c4853
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105548789"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144122"
 ---
 # <a name="tutorial-configure-olfeo-saas-for-automatic-user-provisioning"></a>Tutorial: Configuración de Olfeo SAAS para el aprovisionamiento automático de usuarios
 
-En este tutorial, se describen los pasos que debe realizar en Olfeo SAAS y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando se configura, Azure AD aprovisiona y desaprovisiona usuarios y grupos de manera automática en [Olfeo SAAS](https://www.olfeo.com) mediante su servicio de aprovisionamiento. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../manage-apps/user-provisioning.md). 
+En este tutorial, se describen los pasos que debe realizar en Olfeo SAAS y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando se configura, Azure AD aprovisiona y desaprovisiona usuarios y grupos de manera automática en [Olfeo SAAS](https://www.olfeo.com) mediante su servicio de aprovisionamiento. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funcionalidades admitidas
@@ -60,7 +60,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
 ## <a name="step-3-add-olfeo-saas-from-the-azure-ad-application-gallery"></a>Paso 3. Adición de Olfeo SAAS desde la galería de aplicaciones de Azure AD
 
-Para empezar a administrar el aprovisionamiento de Olfeo SAAS, agregue esta aplicación desde la galería de aplicaciones de Azure AD. Si ha configurado previamente Olfeo SAAS para el inicio de sesión único, puede usar la misma aplicación. Sin embargo, se recomienda que cree una aplicación independiente al probar la integración inicialmente. Puede encontrar más información sobre cómo agregar una aplicación desde la galería [aquí](../manage-apps/add-gallery-app.md). 
+Para empezar a administrar el aprovisionamiento de Olfeo SAAS, agregue esta aplicación desde la galería de aplicaciones de Azure AD. Si ha configurado previamente Olfeo SAAS para el inicio de sesión único, puede usar la misma aplicación. Sin embargo, se recomienda que cree una aplicación independiente al probar la integración inicialmente. Puede encontrar más información sobre cómo agregar una aplicación desde la galería [aquí](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Paso 4. Determinar quién estará en el ámbito de aprovisionamiento 
 

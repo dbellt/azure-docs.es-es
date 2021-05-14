@@ -3,14 +3,14 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 04/19/2021
 ms.author: aahi
-ms.openlocfilehash: 791591f3d98f9e6902e89a880c464e6a609e3a1f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d36666ea35a4ce3fc894e35dd8ca3860900ecef6
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599079"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107880444"
 ---
 <a name="HOLTop"></a>
 
@@ -409,7 +409,7 @@ language_detection_example(client)
 ```
 
 
-### <a name="output"></a>Output
+### <a name="output"></a>Resultados
 
 ```console
 Language:  French
@@ -471,7 +471,7 @@ def entity_recognition_example(client):
 entity_recognition_example(client)
 ```
 
-### <a name="output"></a>Output
+### <a name="output"></a>Resultados
 
 ```console
 Named Entities:
@@ -597,7 +597,7 @@ def pii_recognition_example(client):
 pii_recognition_example(client)
 ```
 
-### <a name="output"></a>Output
+### <a name="output"></a>Resultados
 
 ```console
 Redacted Text: The employee's SSN is ***********.
@@ -639,7 +639,7 @@ def entity_recognition_example(client):
 entity_recognition_example(client)
 ```
 
-### <a name="output"></a>Output
+### <a name="output"></a>Resultados
 
 ```console
 Named Entities:
@@ -805,18 +805,22 @@ key_phrase_extraction_example(client)
 
 [!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
 
-Cree una función denominada `analyze_batch_actions_example()` que tome el cliente como argumento y, luego, llame a la función `begin_analyze_batch_actions()`. El resultado será una operación de larga duración que se sondeará para encontrar resultados.
+Cree una función denominada `analyze_batch_example()` que tome el cliente como argumento y, luego, llame a la función `begin_analyze_batch_actions()`. El resultado será una operación de larga duración que se sondeará para encontrar resultados.
 
 ```python
-    def analyze_batch_actions_example(client):
+from azure.ai.textanalytics import (
+    RecognizeEntitiesAction
+)
+
+def analyze_batch_example(client):
         documents = [
             "Microsoft was founded by Bill Gates and Paul Allen."
         ]
 
-        poller = text_analytics_client.begin_analyze_batch_actions(
+        poller = client.begin_analyze_batch_actions(
             documents,
             display_name="Sample Text Analysis",
-            entities_recognition_tasks=[EntitiesRecognitionTask()]
+            actions=[RecognizeEntitiesAction()]
         )
 
         result = poller.result()
@@ -824,7 +828,7 @@ Cree una función denominada `analyze_batch_actions_example()` que tome el clien
 
         entities_recognition_task_result = action_results[0]
         print("Results of Entities Recognition action:")
-        docs = [doc for doc in first_action_result.document_results if not doc.is_error]
+        docs = [doc for doc in entities_recognition_task_result.document_results if not doc.is_error]
 
         for idx, doc in enumerate(docs):
             print("\nDocument text: {}".format(documents[idx]))
@@ -835,7 +839,7 @@ Cree una función denominada `analyze_batch_actions_example()` que tome el clien
                 print("...Offset: {}".format(entity.offset))
             print("------------------------------------------")
 
-analyze_example(client)
+analyze_batch_example(client)
 ```
 
 ### <a name="output"></a>Output

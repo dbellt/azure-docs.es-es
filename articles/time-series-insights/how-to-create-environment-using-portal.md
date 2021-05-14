@@ -1,21 +1,21 @@
 ---
 title: 'Configuración de un entorno de Gen2 mediante Azure Portal: Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Aprenda a configurar un entorno en Azure Time Series Insights Gen2 con Azure Portal.
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: riserrad
+ms.author: riserrad
+manager: edett
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.custom: seodec18
-ms.openlocfilehash: 09068d966df871d4b6804978a543db50bccbee37
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: e10685b1b64e8e3cd636245625c13df12f177fbb
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952854"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107951849"
 ---
 # <a name="create-an-azure-time-series-insights-gen2-environment-using-the-azure-portal"></a>Creación de un entorno de Azure Time Series Insights Gen2 mediante Azure Portal
 
@@ -77,6 +77,11 @@ De manera alternativa, también puede traer su propio almacenamiento (BYOS) a tr
    * Azure Time Series Insights admite [Azure IoT Hub](./how-to-ingest-data-iot-hub.md) y [Azure Event Hubs](./how-to-ingest-data-event-hub.md) como opciones de origen del evento. Si bien solo puede agregar un origen del evento único en el momento de crear el entorno, puede agregar otro origen del evento más adelante.
 
      Puede seleccionar un grupo de consumidores existente o crear uno nuevo cuando agregue el origen del evento. Asegúrese de que el origen del evento use un único grupo de consumidores para que el entorno lea los datos en él.
+
+   * Elija cuándo empezar a recopilar datos del origen del evento. El valor predeterminado es empezar a recopilar desde el momento en que se crea el origen del evento.
+
+     > [!TIP]
+     > Si elige la opción **Todos mis datos** para recopilar datos preexistentes del origen del evento, podría experimentar una latencia inicial alta a medida que el entorno de Azure Time Series Insights Gen2 procesa todos los datos. La latencia debería mitigarse a medida que se indexan los datos.
 
    * Elija la propiedad Timestamp adecuada. De manera predeterminada, Azure Time Series Insights usa el tiempo de puesta en cola del mensaje para cada origen del evento.
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 8e14b22895c4734f1efd8688a5b20c946422a080
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a08dfd1771ab0a8f866ffad1faa2c7d867b3072
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103225632"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108075508"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Equilibrador de carga entre regiones (versión preliminar)
 
@@ -152,5 +152,5 @@ El equilibrador de carga entre regiones comparte el [Acuerdo de Nivel de Servici
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte [Tutorial: Creación de un equilibrador de carga entre regiones mediante Azure Portal](tutorial-cross-region-portal.md) para crear un equilibrador de carga entre regiones.
-- Consulte [Creación de un equilibrador de carga estándar público](quickstart-load-balancer-standard-public-portal.md) para crear un equilibrador de carga regional estándar.
+- Obtenga más información sobre el [equilibrador de carga entre regiones.](https://www.youtube.com/watch?v=3awUwUIv950)
 - Más información sobre [Azure Load Balancer](load-balancer-overview.md).

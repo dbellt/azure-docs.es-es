@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: overview
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7f8bc4cadc720c7ac02a7246e741552e81eb3876
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: ab54192480a1c36a27c175254d6d4d275b67c8b7
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057157"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835333"
 ---
 # <a name="what-is-azure-virtual-wan"></a>¿Qué es Azure Virtual WAN?
 
@@ -73,7 +73,7 @@ Virtual WAN permite dos tipos de conectividad: VPN de sitio a sitio, VPN de usua
 
 Puede conectarse a los recursos de Azure por medio de una conexión IPsec/IKE (IKEv2) de sitio a sitio. Para más información, consulte [Creación de una conexión de sitio a sitio mediante Virtual WAN](virtual-wan-site-to-site-portal.md). 
 
-Este tipo de conexión requiere un dispositivo VPN o un dispositivo de asociado de Virtual WAN. Los asociados de Virtual WAN proporcionan automatización de la conectividad, que es la capacidad de exportar la información del dispositivo a Azure, descargar la configuración de Azure y establecer conectividad con el centro de conectividad de Azure Virtual WAN. Para ver una lista de los asociados y las ubicaciones disponibles, consulte el artículo acerca [asociados y ubicaciones de Virtual WAN](virtual-wan-locations-partners.md). Si el proveedor de dispositivos VPN/SD-WAN no aparece en el vínculo mencionado, puede simplificar la operación mediante el uso de las instrucciones detalladas que se proporcionan en [Creación de una conexión de sitio a sitio mediante Azure Virtual WAN](virtual-wan-site-to-site-portal.md) para configurar la conexión.
+Este tipo de conexión requiere un dispositivo VPN o un dispositivo de asociado de Virtual WAN. Los asociados de Virtual WAN proporcionan automatización de la conectividad, que es la capacidad de exportar la información del dispositivo a Azure, descargar la configuración de Azure y establecer conectividad con el centro de conectividad de Azure Virtual WAN. Para ver una lista de los asociados y las ubicaciones disponibles, consulte el artículo acerca [asociados y ubicaciones de Virtual WAN](virtual-wan-locations-partners.md). Si el proveedor del dispositivo VPN o SD-WAN no aparece en el vínculo mencionado, puede usar simplemente las instrucciones detalladas que se proporcionan en [Creación de una conexión de sitio a sitio mediante Azure Virtual WAN](virtual-wan-site-to-site-portal.md) para configurar la conexión.
 
 ### <a name="user-vpn-point-to-site-connections"></a><a name="uservpn"></a>Conexiones de VPN de usuario (de punto a sitio)
 

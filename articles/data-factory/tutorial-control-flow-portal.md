@@ -1,19 +1,19 @@
 ---
 title: Actividades de bifurcación y encadenamiento en una canalización mediante Azure Portal
 description: Obtenga información sobre cómo controlar el flujo de datos en la canalización de Azure Data Factory mediante Azure Portal.
-author: dcstwh
-ms.author: weetok
+author: ssabat
+ms.author: susabat
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 034b0400190cadd750e7420ab37800783afa050c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a1e30bb59d81e949720560f2ce5da796a2c7fbe2
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104783428"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905349"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Bifurcación y encadenamiento de actividades en una canalización de Azure Data Factory mediante Azure Portal
 

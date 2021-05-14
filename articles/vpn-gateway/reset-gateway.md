@@ -1,18 +1,18 @@
 ---
-title: Restablecimiento de una conexión o puerta de enlace de VPN para volver a establecer túneles IPsec
+title: Restablecimiento de una conexión o una puerta de enlace de VPN para volver a establecer túneles IPsec
 titleSuffix: Azure VPN Gateway
-description: Restablezca una conexión o una puerta de enlace de VPN para volver a establecer túneles IPsec.
+description: Aprenda a restablecer una puerta de enlace o una conexión de puerta de enlace para restablecer los túneles IPsec.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: adc2ffd63d73baaddce00324787df61061ea69dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fcf92808f41d7681f2fe5c44cc958435438a1f86
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101726654"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229223"
 ---
 # <a name="reset-a-vpn-gateway-or-a-connection"></a>Restablecimiento de una puerta de enlace o conexión de VPN
 

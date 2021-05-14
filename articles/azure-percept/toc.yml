@@ -18,7 +18,7 @@
       href: overview-percept-security.md
     - name: Integración con 80/20
       href: overview-8020-integration.md
-    - name: Actualización de los dispositivos Percept
+    - name: Actualizaciones del dispositivo
       href: overview-update-experience.md
 - name: Guías de inicio rápido
   items:
@@ -44,6 +44,10 @@
       items:
         - name: Comportamiento de indicadores LED y botones
           href: audio-button-led-behavior.md
+    - name: Seguridad
+      items:
+        - name: Recomendaciones de seguridad y configuración del firewall
+          href: concept-security-configuration.md
 - name: Guías paso a paso
   items:
     - name: "Desarrollo de soluciones de visión con Azure Percept\_DK"
@@ -58,14 +62,16 @@
           href: how-to-view-telemetry.md
     - name: "Desarrollo de soluciones de voz con Azure Percept\_DK"
       items:
-        - name: Configuración del asistente para voz en Azure Percept Studio
-          href: how-to-configure-voice-assistant.md
         - name: Configuración del asistente para voz en IoT Hub
+          href: how-to-configure-voice-assistant.md
+        - name: Configuración del asistente para voz en Azure Percept Studio
           href: how-to-manage-voice-assistant.md
     - name: Actualización de dispositivos Azure Percept
       items:
         - name: Configuración de actualizaciones por vía inalámbrica
           href: how-to-set-up-over-the-air-updates.md
+        - name: Identificación del paquete de actualizaciones
+          href: how-to-select-update-package.md
         - name: "Actualización de Azure Percept\_DK de forma inalámbrica"
           href: how-to-update-over-the-air.md
         - name: "Actualización de Azure Percept\_DK mediante USB"

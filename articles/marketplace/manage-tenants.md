@@ -8,12 +8,12 @@ author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
 ms.date: 04/07/2021
-ms.openlocfilehash: 446792b26527126a4db99da14a2585c17cf8610c
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 79120eb6d3d5aad9c27ed42bc825fdad4907af49
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107108072"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144770"
 ---
 # <a name="manage-tenants-in-the-commercial-marketplace"></a>Administración de inquilinos en el marketplace comercial
 
@@ -53,7 +53,7 @@ Para crear un nuevo inquilino de Azure AD con la cuenta del Centro de partners:
 1. Seleccione Crear para confirmar la nueva información de dominio y de cuenta.
 1. Inicie sesión con el nuevo nombre de usuario y contraseña de administrador global de Azure AD para empezar a [agregar y administrar usuarios](add-manage-users.md).
 
-Para más información acerca de la creación de nuevos inquilinos en Azure Portal, en lugar de consultar el portal del Centro de partners, consulte el artículo [Creación de un inquilino en Azure Active Directory](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+Para más información acerca de la creación de nuevos inquilinos en Azure Portal, en lugar de consultar el portal del Centro de partners, consulte el artículo [Creación de un inquilino en Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 ## <a name="remove-a-tenant"></a>Eliminación de un inquilino
 

@@ -3,12 +3,12 @@ title: Operaciones de plano de control y de plano de datos
 description: Describe la diferencia entre las operaciones de plano de control y de plano de datos. Las operaciones de plano de control se gestionan mediante Azure Resource Manager. Las operaciones de plano de datos se gestionan mediante un servicio.
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: 76304c81a1af1eef87d12cfd4130867851a61d28
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 40bb3291e4eec589c88bcd6ffd0f94a718ce8d1f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105544101"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132096"
 ---
 # <a name="azure-control-plane-and-data-plane"></a>Plano de control y plano de datos de Azure
 
@@ -33,7 +33,7 @@ Todas las solicitudes de las operaciones de plano de control se envían a la dir
 * En el caso de Azure Germany, la dirección URL es `https://management.microsoftazure.de/`.
 * En el caso de Microsoft Azure China 21Vianet, la dirección URL es `https://management.chinacloudapi.cn`.
 
-Para saber qué operaciones usan la dirección URL de Azure Resource Manager, consulte [API REST de Azure](/rest/api/azure/). Por ejemplo, la [operación de creación o actualización](/rest/api/mysql/databases/createorupdate) para MySql es una operación de plano de control porque la dirección URL de la solicitud es:
+Para saber qué operaciones usan la dirección URL de Azure Resource Manager, consulte [API REST de Azure](/rest/api/azure/). Por ejemplo, la [operación de creación o actualización](/rest/api/mysql/flexibleserver(preview)/servers/update) para MySql es una operación de plano de control porque la dirección URL de la solicitud es:
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/databases/{databaseName}?api-version=2017-12-01
@@ -52,7 +52,7 @@ El plano de control incluye dos escenarios para la gestión de solicitudes: "cam
 
 ## <a name="data-plane"></a>Plano de datos
 
-Las solicitudes de operaciones de plano de datos se envían a un punto de conexión específico de la instancia. Por ejemplo, la [operación Detectar idioma](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection) en Cognitive Services es una operación de plano de datos porque la dirección URL de la solicitud es:
+Las solicitudes de operaciones de plano de datos se envían a un punto de conexión específico de la instancia. Por ejemplo, la [operación Detectar idioma](../../cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md) en Cognitive Services es una operación de plano de datos porque la dirección URL de la solicitud es:
 
 ```http
 POST {Endpoint}/text/analytics/v2.0/languages

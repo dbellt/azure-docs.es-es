@@ -1,19 +1,19 @@
 ---
 title: 'Azure VMware Solution by CloudSimple: modelo de permisos para la nube privada'
 description: Describe el modelo de permisos, los grupos y las categorías de la nube privada de CloudSimple
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1c8cfeda008955006f2fbad1df58c8047bd36541
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be77be14acf05aa543c1494f16e499f00598e2b4
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97898052"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108184521"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>Modelo de permisos de la nube privada de VMware vCenter de CloudSimple
 

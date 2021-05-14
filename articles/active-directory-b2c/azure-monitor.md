@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 01/29/2021
-ms.openlocfilehash: 0231f7f3882218ef88d6151488da6aa23e4cb8e4
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 4ac0cc618ec03d844c73961dcdb66f7357ce60f2
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106694"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783790"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Supervisión de Azure AD B2C con Azure Monitor
 
@@ -38,7 +38,7 @@ En este artículo, aprenderá a transferir los registros a un área de trabajo d
 
 ## <a name="deployment-overview"></a>Introducción a la implementación
 
-Azure AD B2C aprovecha la [supervisión de Azure Active Directory](../active-directory/reports-monitoring/overview-monitoring.md). Para habilitar la *configuración de diagnóstico* en Azure Active Directory dentro de su inquilino de Azure AD B2C, use [Azure Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) para [delegar un recurso](../lighthouse/concepts/azure-delegated-resource-management.md), lo que permite que su instancia de Azure AD B2C (el **proveedor de servicios**) administre un recurso de Azure AD (el **cliente**). Después de completar los pasos de este artículo, tendrá acceso al grupo de recursos *azure-ad-b2c-monitor* que contiene el [área de trabajo Log Analytics](../azure-monitor/logs/quick-create-workspace.md) en el portal de **Azure AD B2C**. También podrá transferir los registros desde Azure AD B2C al área de trabajo de Log Analytics.
+Azure AD B2C aprovecha la [supervisión de Azure Active Directory](../active-directory/reports-monitoring/overview-monitoring.md). Para habilitar la *configuración de diagnóstico* en Azure Active Directory dentro de su inquilino de Azure AD B2C, use [Azure Lighthouse](../lighthouse/overview.md) para [delegar un recurso](../lighthouse/concepts/architecture.md), lo que permite que su instancia de Azure AD B2C (el **proveedor de servicios**) administre un recurso de Azure AD (el **cliente**). Después de completar los pasos de este artículo, tendrá acceso al grupo de recursos *azure-ad-b2c-monitor* que contiene el [área de trabajo Log Analytics](../azure-monitor/logs/quick-create-workspace.md) en el portal de **Azure AD B2C**. También podrá transferir los registros desde Azure AD B2C al área de trabajo de Log Analytics.
 
 Durante esta implementación, autorizará a un usuario o grupo en el directorio de Azure AD B2C para configurar la instancia del área de trabajo de Log Analytics en el inquilino que contiene su suscripción a Azure. Para crear la autorización, implemente una plantilla de [Azure Resource Manager](../azure-resource-manager/index.yml) en el inquilino de Azure AD que contiene la suscripción.
 
@@ -259,7 +259,7 @@ El libro mostrará los informes en forma de panel.
 
 ## <a name="create-alerts"></a>Creación de alertas
 
-Las alertas se crean mediante reglas de alertas en Azure Monitor y pueden ejecutar automáticamente consultas guardadas o búsquedas de registros personalizadas a intervalos regulares. Puede crear alertas basadas en métricas de rendimiento específicas o cuando se creen determinados eventos, haya un evento ausente o se cree una serie de eventos dentro de una ventana de tiempo determinada. Por ejemplo, las alertas se pueden usar para recibir una notificación cuando el número medio de inicios de sesión supere un determinado umbral. Para más información, consulte [Creación de alertas](../azure-monitor/alerts/tutorial-response.md).
+Las alertas se crean mediante reglas de alertas en Azure Monitor y pueden ejecutar automáticamente consultas guardadas o búsquedas de registros personalizadas a intervalos regulares. Puede crear alertas basadas en métricas de rendimiento específicas o cuando se creen determinados eventos, haya un evento ausente o se cree una serie de eventos dentro de una ventana de tiempo determinada. Por ejemplo, las alertas se pueden usar para recibir una notificación cuando el número medio de inicios de sesión supere un determinado umbral. Para más información, consulte [Creación de alertas](../azure-monitor/alerts/alerts-log.md).
 
 
 Use las siguientes instrucciones para crear una nueva alerta de Azure, que enviará una [notificación de correo electrónico](../azure-monitor/alerts/action-groups.md#configure-notifications) siempre que haya un descenso del 25 % en el **total de solicitudes** en comparación con el período anterior. La alerta se ejecutará cada 5 minutos y buscará el descenso en períodos que comprenden las últimas 24 horas. Las alertas se crean mediante el lenguaje de consulta Kusto.

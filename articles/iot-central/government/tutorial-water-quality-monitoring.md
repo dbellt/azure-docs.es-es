@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 3e55970b0603da9be9bf28a50d4c474e34a1cad3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bdebe0d29f6ef781cc4b4747ff80010eeac9ff7e
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103017246"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684260"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Tutorial: Creación de una aplicación de supervisión de la calidad del agua en Azure IoT Central
 
@@ -54,9 +54,7 @@ En esta sección, usará la plantilla **Water quality monitoring** de Azure IoT 
 
     * **Nombre de la aplicación**: de forma predeterminada, el nombre de la aplicación es **Water quality monitoring** seguido de una cadena de identificación única que genera Azure IoT Central. Si quiere, puede escribir un nombre para mostrar o cambiar el nombre de la aplicación más adelante.
     * **URL**: puede escribir cualquier dirección URL que desee o cambiar el valor de la dirección URL más adelante.
-    * Si tiene una suscripción a Azure, escriba valores para **Directory** (Directorio), **Azure subscription** (Suscripción a Azure) y **Region** (Región). Si no tiene una suscripción, puede activar **7-day free trial** (Evaluación gratuita de 7 días) y completar la información de contacto necesaria.
-
-    Para más información sobre los directorios y las suscripciones, consulte el inicio rápido [Creación de una aplicación](../core/quick-deploy-iot-central.md).
+    * Si tiene una suscripción a Azure, escriba valores para **Directorio**, **Suscripción a Azure** y **Región**. Si no tiene una suscripción, puede activar **7-day free trial** (Evaluación gratuita de 7 días) y completar la información de contacto necesaria.
 
 1. Seleccione el botón **Create** (Crear) en la parte inferior izquierda de la página.
 
@@ -102,7 +100,7 @@ El panel incluye los siguientes tipos de iconos:
 
 * **Gráfico de barras de Concentration of chemical agents**: puede visualizar la telemetría del dispositivo en un gráfico de barras.
 
-* **Botón de acción**: el panel incluye un icono de acciones que puede iniciar un operador directamente desde el panel de supervisión. Un ejemplo de tales acciones podría ser el restablecimiento de las propiedades de un dispositivo.
+* **Reset sensors parameters tile** (Restablecer icono de parámetros de sensores): el panel incluye un icono de las acciones que puede iniciar un operador directamente desde el panel de supervisión. Un ejemplo de tales acciones podría ser el restablecimiento de las propiedades de un dispositivo.
 
 * **Iconos de la lista de propiedades**: el panel incluye varios iconos de propiedades que representan la información de umbral, la información de estado del dispositivo y la información de mantenimiento.
 
@@ -125,7 +123,7 @@ La aplicación de supervisión de la calidad del agua que creó incluye una plan
 Para ver la plantilla de dispositivo, siga estos pasos:
 
 1. Seleccione **Device templates** (Plantillas de dispositivo) en el panel izquierdo de la aplicación en Azure IoT Central.
-1. En la lista de plantillas de dispositivo, seleccione **Water Quality Monitor**. Se abre la plantilla de dispositivo.
+1. En la lista de plantillas de dispositivo, seleccione **Water Quality Monitor** (Monitor de calidad del agua) para abrirla.
 
     ![La plantilla de dispositivo](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devicetemplate.png)
 
@@ -141,8 +139,9 @@ Practique la personalización de la siguiente configuración de la plantilla de 
 
 #### <a name="add-a-cloud-property"></a>Adición de una propiedad de la nube
 
-1. En el menú de la plantilla de dispositivo, seleccione **Cloud property** (Propiedad de la nube).
+1. En el menú de la plantilla de dispositivo, seleccione **Propiedades de nube**.
 1. Para agregar una nueva propiedad de la nube, seleccione **+ Add Cloud Property** (+ Agregar propiedad de la nube). En Azure IoT Central, puede agregar a un dispositivo una propiedad pertinente, aunque no se espera que la envíe el dispositivo. Un ejemplo de este tipo de propiedad sería un umbral de alerta específico del área de instalación, información de recursos o información de mantenimiento.
+1. Escriba **Área de instalación** en **Nombre para mostrar** y elija **Cadena** en **Esquema**.
 1. Seleccione **Guardar**.
 
 ### <a name="explore-views"></a>Exploración de las vistas
@@ -157,7 +156,7 @@ Si realiza algún cambio, asegúrese de seleccionar **Publish** (Publicar) para 
 
 ### <a name="create-a-new-device-template"></a>Creación de una nueva plantilla de dispositivo
 
-1. Seleccione **+ New** (+ Nueva) para crear una plantilla de dispositivo y siga el proceso de creación.
+1. En la página **Plantillas de dispositivo**, seleccione **+Nuevo** para crear una plantilla de dispositivo y siga el proceso de creación.
 1. Cree una plantilla de dispositivo personalizada o elija una del catálogo de dispositivos Azure IoT.
 
 ## <a name="explore-simulated-devices"></a>Explorar los dispositivos simulados
@@ -174,7 +173,7 @@ La aplicación de supervisión de la calidad del agua que creó con la plantilla
 
     ![Selección del dispositivo 1](./media/tutorial-waterqualitymonitoring/waterqualitymonitor-device1.png)
 
-1. En la pestaña **Cloud Properties** (Propiedades de la nube), cambie el valor de **Acidity (pH) threshold** de **8** a **9**.
+1. En la pestaña **Propiedades de nube**, cambie el valor de **Acidity (pH) threshold** (Umbral de acidez [pH]) de **8** a **9** y seleccione **Guardar**.
 1. Explore las pestañas **Device Properties** (Propiedades del dispositivo) **Device Dashboard** (Panel del dispositivo).
 
 > [!NOTE]
@@ -182,7 +181,11 @@ La aplicación de supervisión de la calidad del agua que creó con la plantilla
 
 ### <a name="add-new-devices"></a>Adición de nuevos dispositivos
 
-En la pestaña **Devices** (Dispositivos), seleccione **+ New** )+ Nuevo) para agregar un nuevo dispositivo.
+1. En la pestaña **Devices** (Dispositivos), seleccione **+ New** )+ Nuevo) para agregar un nuevo dispositivo.
+1. Use el **identificador de dispositivo** sugerido o escriba el suyo propio. También, en **Nombre de dispositivo**, puede escribir un nombre para el nuevo dispositivo.
+1. Seleccione **Water Quality Monitor** (Monitor de calidad del agua) en **Plantilla de dispositivo**. 
+1. Asegúrese de que **Simulate this device** (Simular este dispositivo) está establecido en **Sí** si quiere crear un dispositivo simulado. 
+1. Seleccione **Crear**.  
 
 ## <a name="explore-and-configure-rules"></a>Exploración y configuración de reglas
 
@@ -209,7 +212,7 @@ A continuación, agregue una acción de correo electrónico a la regla:
 1. En el cuadro **To** (Para), escriba la dirección de correo electrónico asociada a la cuenta de Azure IoT Central.
 1. Tiene la opción de escribir una nota e incluirla en el texto del correo electrónico.
 1. Seleccione **Done** (Listo) para completar la acción.
-1. Seleccione **Save** (Guardar) para guardar y activar la nueva regla.
+1. Establezca la regla en **Habilitado** y seleccione **Guardar**.
 
 A los pocos minutos de que se cumpla la condición configurada, recibirá un correo electrónico.
 
@@ -223,32 +226,31 @@ Para crear una regla, seleccione **Rules** (Reglas) en el panel izquierdo de la 
 Con los trabajos de Azure IoT Central, puede desencadenar actualizaciones de propiedades de dispositivo o de la nube en varios dispositivos. También puede usar trabajos para desencadenar comandos de dispositivo en varios dispositivos. Azure IoT Central automatiza el flujo de trabajo.
 
 1. Seleccione **Jobs** (Trabajos) en el panel izquierdo de la aplicación.
-1. Seleccione **+New** (+ Nuevo) y configure uno o varios trabajos.
+1. Seleccione **+Nuevo trabajo** y configure uno o varios trabajos.
 
 ## <a name="customize-your-application"></a>Personalización de la aplicación
 
 Como creador, puede cambiar varias opciones de configuración para personalizar la experiencia del usuario en la aplicación.
 
 1. Seleccione **Administration** > **Customize your application** (Administración > Personalizar la aplicación).
-1. En **Application logo** (Logotipo de la aplicación), seleccione **Change** (Cambiar) para elegir la imagen que quiere cargar como logotipo.
+1. En **Logotipo de encabezado**, seleccione **Cambiar** para elegir la imagen que quiere cargar como logotipo.
 1. En **Browser icon** (Icono del explorador), seleccione **Change** (Cambiar) para elegir la imagen que aparece en las pestañas del explorador.
 1. En **Browser colors** (Colores del explorador), puede reemplazar los valores predeterminados por códigos de color HTML hexadecimales.
-1. Seleccione **Settings** (Configuración) para cambiar el valor de **Theme** (Tema).
 
    ![Personalización de la aplicación](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-customize-your-application1.png)
 
 ### <a name="update-the-application-image"></a>Actualización de la imagen de la aplicación
 
-1. Seleccione **Administration** > **Application settings** (Administración > Configuración de la aplicación).
+1. Seleccione **Administración**  > **Su aplicación**.
 
-1. Use el botón **Select image** (Seleccionar imagen) para elegir una imagen para cargar como la imagen de la aplicación.
+1. Seleccione **Cambiar** para elegir una imagen para cargar como imagen de la aplicación.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si no va a seguir usando la aplicación, elimínela mediante los siguientes pasos:
 
 1. Abra la pestaña **Administration** (Administración) del panel izquierdo de la aplicación.
-1. Seleccione **Application settings** (Configuración de la aplicación) y seleccione el botón **Delete** (Eliminar).
+1. Seleccione **Su aplicación** y elija el botón **Eliminar**.
 
     ![Eliminación de la aplicación](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-application-settings-delete-app1.png)
 

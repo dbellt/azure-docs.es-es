@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: 41423ce34a62dfdbd5b9a60f683a2366a94d1bfd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1f917087eb15d8c77356995299e27dfc1657cb5d
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97976799"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107497207"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Límites de las claves y el modelo de LUIS
 LUIS tiene varias áreas de límites. La primera es el [límite de modelo](#model-limits), que controla las intenciones, las entidades y las características de LUIS. La segunda área son los [límites de cuota](#key-limits) según el tipo de clave. Una tercera área de límites es la [combinación de teclas](#keyboard-controls), para controlar el sitio web de LUIS. Una cuarta área es la [asignación de regiones del mundo](luis-reference-regions.md) entre el sitio web de creación de LUIS y las API de [punto de conexión](luis-glossary.md#endpoint) de LUIS.
@@ -30,7 +30,7 @@ Si la aplicación supera los límites de modelo de LUIS, puede usar una aplicaci
 | Entidades externas | sin límites |
 | [Intenciones][intents]|500 por aplicación: 499 intenciones personalizadas y la intención _Ninguno_ necesaria.<br>La aplicación [basada en la distribución](https://aka.ms/dispatch-tool) tiene 500 orígenes de distribución correspondientes.|
 | [Listar entidades](./luis-concept-entity-types.md) | Elemento principal: 50, elemento secundario: 20 000 elementos. El nombre canónico es *Máximo de caracteres predeterminado. Los valores de los sinónimos no tienen ninguna restricción de longitud. |
-| [Entidades de aprendizaje automático y roles](./luis-concept-entity-types.md):<br> compuesta,<br>simple,<br>rol de entidad|Un límite de 100 entidades primarias o 330 entidades, el que sea que alcance primero el usuario. Un rol cuenta como una entidad para los fines de este límite. Un ejemplo es una composición con una entidad sencilla que tiene dos roles: 1 compuesta + 1 simple + 2 roles = 4 de las 330 entidades.<br>Las subentidades se pueden anidar hasta cinco niveles, con un máximo de 10 elementos secundarios por nivel.|
+| [Entidades de aprendizaje automático y roles](./luis-concept-entity-types.md):<br> compuesta,<br>simple,<br>rol de entidad|Un límite de 100 entidades primarias o 330 entidades, el que sea que alcance primero el usuario. Un rol cuenta como una entidad para los fines de este límite. Un ejemplo es una composición con una entidad sencilla que tiene dos roles: 1 compuesta + 1 simple + 2 roles = 4 de las 330 entidades.<br>Las entidades secundarias se pueden anidar hasta 5 niveles, con un máximo de 20 elementos secundarios por nivel.|
 |Modelo como característica| El número máximo de modelos que se pueden usar como característica para un modelo específico es de 10 modelos. El número máximo de listas de frases utilizadas como característica para un modelo específico es de 10 listas de frases.|
 | [Versión preliminar: entidades de lista dinámica](./luis-migration-api-v3.md)|2 listas de ~1 K por solicitud de punto de conexión de predicción de consulta|
 | [Patrones](luis-concept-patterns.md)|500 patrones por aplicación.<br>El patrón puede contener 400 caracteres como máximo.<br>3 entidades Pattern.any por patrón<br>Máximo de 2 textos opcionales anidados en el patrón|

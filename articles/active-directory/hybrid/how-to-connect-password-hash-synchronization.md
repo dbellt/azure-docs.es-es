@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47d7d541ed7d9805641ffdfde381d482c8700006
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee22ba3816e667bc58247fa81142e54587124fd6
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96858746"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865304"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 En este artículo se ofrece información que se necesita para sincronizar las contraseñas de usuario desde una instancia de Active Directory local con otra de Azure Active Directory (Azure AD) basado en la nube.
@@ -210,7 +210,7 @@ Si el servidor se bloquea según el Estándar Federal de Procesamiento de la Inf
 
 **Para habilitar el MD5 para la sincronización de hash de contraseñas, realice los pasos siguientes:**
 
-1. Vaya a %programfiles%\Azure AD Sync\Bin.
+1. Vaya a %programfiles%\Microsoft Azure AD Sync\Bin.
 2. Abra miiserver.exe.config.
 3. Vaya al nodo configuration/runtime (al final del archivo).
 4. Agregue el siguiente nodo: `<enforceFIPSPolicy enabled="false"/>`

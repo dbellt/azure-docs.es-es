@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: aaa690a4205951bd251a5230721e34fcb960a3b1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 193213c55a56f745c45eec829dfbe1e81ee0f363
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104782748"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107886989"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Servicios vinculados en Azure Data Factory
 
@@ -93,7 +93,7 @@ El siguiente servicio vinculado no es un servicio vinculado de Azure Blob Storag
 
 Se pueden crear servicios vinculados en la experiencia de usuario de Azure Data Factory mediante el [centro de administración](author-management-hub.md) y cualquier actividad, conjunto de datos o flujo de datos que haga referencia a ellos.
 
-Los servicios vinculados se pueden crear mediante una de estas herramientas o SDK: [API de .NET](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API REST](quickstart-create-data-factory-rest-api.md), plantilla de Azure Resource Manager y Azure Portal.
+Los servicios vinculados se pueden crear mediante una de estas herramientas o SDK: [API de .NET](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API REST](quickstart-create-data-factory-rest-api.md), [plantilla de Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md) y [Azure Portal](quickstart-create-data-factory-portal.md).
 
 
 ## <a name="data-store-linked-services"></a>Servicios vinculados con almacenes de datos

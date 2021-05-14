@@ -3,12 +3,12 @@ title: 'Tutorial: Usar Azure Event Grid para automatizar el cambio de tamaño de
 description: 'Tutorial: Azure Event Grid puede desencadenarse en cargas de blob de Azure Storage. Puede usarlo para enviar archivos de imagen cargados en Azure Storage a otros servicios, como Azure Functions, a fin de cambiar el tamaño y otras mejoras.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: ca231fc65162fe38f4dcb8b8d5677ef42c7807bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e88dff9dcf06ad5eb120c11c4c17c3ef318e4418
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99550526"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897170"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar el cambio de tamaño de imágenes cargadas mediante Event Grid
 
@@ -35,7 +35,7 @@ En este tutorial, aprenderá a:
 > * Implementar código sin servidor con Azure Functions
 > * Crear una suscripción de eventos de Blob Storage en Event Grid
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -329,3 +329,4 @@ Vaya a la tercera parte de la serie de tutoriales sobre almacenamiento para apre
 + Para probar otro tutorial sobre Azure Functions, vea [Creación de una función que se integre con Azure Logic Apps](../azure-functions/functions-twitter-email.md).
 
 [previous-tutorial]: ../storage/blobs/storage-upload-process-images.md
+

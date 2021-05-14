@@ -1,18 +1,19 @@
 ---
-title: 'VPN Gateway: solución de problemas de un cliente de VPN con autenticación de Azure AD'
-description: Solución de problemas de clientes de autenticación de VPN Gateway P2S Azure AD
+title: 'Solución de problemas de clientes VPN de punto a sitio: autenticación de Azure AD'
+titleSuffix: Azure VPN Gateway
+description: Obtenga información sobre cómo solucionar los problemas de los clientes VPN Gateway de punto a sitio que usan la autenticación de Azure AD.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 11/04/2019
+ms.date: 04/29/2021
 ms.author: cherylmc
-ms.openlocfilehash: 56a8514fc2531ba0b18925427814e5bfef7d64bf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d307524fffd9b129044cd0f4e4b20d833db5ba83
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "84988097"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292205"
 ---
 # <a name="troubleshoot-an-azure-ad-authentication-vpn-client"></a>Solución de problemas de un cliente VPN de autenticación Azure AD
 

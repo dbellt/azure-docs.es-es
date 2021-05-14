@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b38b4910773c433ed63fd2082c5cbefce81e0e9e
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 547081122b1bc6611200e2abc2042a111e4284e1
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107480237"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208084"
 ---
 # <a name="extending-ontologies"></a>Extensión de las ontologías 
 
@@ -30,7 +30,7 @@ Una parte de la jerarquía tiene el aspecto del diagrama siguiente.
 
 :::image type="content" source="media/concepts-ontologies-extend/real-estate-core-original.png" alt-text="Diagrama de flujo que ilustra parte de la jerarquía de espacios de RealEstateCore. En el nivel superior, hay un elemento denominado Espacio que está conectado mediante una flecha de &quot;extensión&quot; que baja un nivel con el elemento Sala. Este, a su vez, está conectado mediante dos flechas de &quot;extensión&quot;, que bajan otro nivel, con los elementos SalaDeConferencias y Oficina."::: 
 
-Para más información acerca de la ontología de RealEstateCore, consulte [*Conceptos: Adopción de ontologías estándar del sector*](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology).
+Para más información acerca de la ontología de RealEstateCore, consulte [Conceptos: Adopción de ontologías estándar del sector](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology).
 
 ## <a name="extending-the-realestatecore-space-hierarchy"></a>Extensión de la jerarquía de espacios de RealEstateCore 
 
@@ -162,4 +162,4 @@ El DTDL de las interfaces extendidas, limitado a la parte descrita anteriormente
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Continúe la ruta para desarrollar modelos basados en ontologías: [*Uso de estrategias de ontología en un procedimiento de desarrollo de modelos*](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).
+Continúe la ruta para desarrollar modelos basados en ontologías: [Uso de estrategias de ontología en un procedimiento de desarrollo de modelos](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).

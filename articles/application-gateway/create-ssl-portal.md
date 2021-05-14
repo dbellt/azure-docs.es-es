@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 01/28/2021
 ms.author: victorh
-ms.openlocfilehash: c976ea236ae1d37cc0a543b10a9de55609035632
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa7123a1c4dea5fcede3e94250576f6677671176
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98986758"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872252"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Tutorial: Configuración de una puerta de enlace de aplicaciones con terminación TLS mediante Azure Portal
 
@@ -36,7 +36,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 ## <a name="create-a-self-signed-certificate"></a>Creación de un certificado autofirmado
 
-En esta sección, usará [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) para crear un certificado autofirmado. Cargará el certificado en Azure Portal al crear el agente de escucha para la puerta de enlace de aplicaciones.
+En esta sección, usará [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) para crear un certificado autofirmado. Cargará el certificado en Azure Portal al crear el agente de escucha para la puerta de enlace de aplicaciones.
 
 En el equipo local, abra una ventana de Windows PowerShell como administrador. Ejecute el siguiente comando para crear el certificado:
 
@@ -56,7 +56,7 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-Use [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) con la huella digital que se devolvió al exportar un archivo PFX del certificado. Asegúrese de que la contraseña tiene entre 4 y 12 caracteres de longitud:
+Use [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) con la huella digital que se devolvió al exportar un archivo PFX del certificado. Asegúrese de que la contraseña tiene entre 4 y 12 caracteres de longitud:
 
 
 ```powershell

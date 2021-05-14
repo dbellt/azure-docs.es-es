@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: f9a14ee6ee3e10b36d64ec11fc23807efe2bfaf2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 84fe935c1122d3d5c65423341b8760643257f992
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94966571"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868578"
 ---
 # <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Tutorial: Inscripción del dispositivo en una instancia de IoT Hub mediante el cliente del servicio Azure IoT Hub Device Provisioning (.NET)
 
@@ -32,7 +32,7 @@ Antes de continuar, asegúrese de configurar el dispositivo y su *módulo de seg
 * Visual Studio
 
 > [!NOTE]
-> Visual Studio no es obligatorio. La instalación de [.NET](https://www.microsoft.com/net) es suficiente y los desarrolladores pueden utilizar su editor preferido en Windows o Linux.  
+> Visual Studio no es obligatorio. La instalación de [.NET](https://dotnet.microsoft.com) es suficiente y los desarrolladores pueden utilizar su editor preferido en Windows o Linux.  
 
 Este tutorial simula el período durante el proceso de fabricación del hardware (o justo después de esto) cuando se agrega la información del dispositivo al servicio de aprovisionamiento. Normalmente, este código se ejecuta en un equipo o un dispositivo de fábrica que puede ejecutar código .NET y no se debe agregar a los propios dispositivos.
 

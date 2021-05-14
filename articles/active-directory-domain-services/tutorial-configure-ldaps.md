@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: justinha
-ms.openlocfilehash: 928b1a6dcff7ad186bf5fe9ce07d1a886d429867
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 27e8c108447a3e16a5e61854eb9d43c4a8efffee
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933345"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126933"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configuración de LDAP seguro para un dominio administrado de Azure Active Directory Domain Services
 
@@ -152,7 +152,7 @@ Antes de poder usar el certificado digital creado en el paso anterior con el dom
 
     En la página **Seguridad**, elija la opción de **Contraseña** para proteger el archivo de certificado *.PFX*. El algoritmo de cifrado debe ser *TripleDES-SHA1*. Escriba y confirme una contraseña y, después, seleccione **Siguiente**. Esta contraseña se usará en la sección siguiente para habilitar LDAP seguro para el dominio administrado.
 
-    Si realiza la exportación con el [cmdlet export-pfxcertificate de PowerShell](/powershell/module/pkiclient/export-pfxcertificate), deberá pasar la marca *-CryptoAlgorithmOption* con TripleDES_SHA1.
+    Si realiza la exportación con el [cmdlet export-pfxcertificate de PowerShell](/powershell/module/pki/export-pfxcertificate), deberá pasar la marca *-CryptoAlgorithmOption* con TripleDES_SHA1.
 
     ![Captura de pantalla que muestra cómo cifrar la contraseña](./media/tutorial-configure-ldaps/encrypt.png)
 
@@ -312,7 +312,7 @@ Para la coincidencia del nombre del firmante del certificado, el controlador de 
 
 El cliente intenta establecer la conexión TLS con el nombre proporcionado. El tráfico tiene que llegar hasta el final. El controlador de dominio envía la clave pública del certificado de autenticación del servidor. El certificado debe tener el uso correcto en el certificado, el nombre firmado en el asunto debe ser compatible para que el cliente confíe en que el servidor es el nombre DNS al que se está conectando (es decir, un comodín puede servir, sin errores ortográficos) y el cliente debe confiar en el emisor. Puede comprobar si hay algún problema en esa cadena en el registro del sistema en Visor de eventos y filtrar los eventos donde el origen sea igual a Schannel. Cuando estos elementos están en su lugar, forman una clave de sesión.  
 
-Para más información, consulte [Protocolo de enlace de TLS](https://docs.microsoft.com/windows/win32/secauthn/tls-handshake-protocol).
+Para más información, consulte [Protocolo de enlace de TLS](/windows/win32/secauthn/tls-handshake-protocol).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -336,4 +336,4 @@ En este tutorial, ha aprendido a:
 <!-- EXTERNAL LINKS -->
 [rsat]: /windows-server/remote/remote-server-administration-tools
 [ldap-query-basics]: /windows/desktop/ad/creating-a-query-filter
-[New-SelfSignedCertificate]: /powershell/module/pkiclient/new-selfsignedcertificate
+[New-SelfSignedCertificate]: /powershell/module/pki/new-selfsignedcertificate

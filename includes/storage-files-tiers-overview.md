@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6d06a46d2eaaad362890f1e3e44dbc746fa10898
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5fd0394feb8b58688bd163d62af30b031125b46
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98633431"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109663927"
 ---
 Azure Files ofrece cuatro niveles diferentes de almacenamiento: Premium, Optimizado para transacciones, Frecuente y Esporádico, con el fin de que pueda adaptar sus recursos compartidos a los requisitos de rendimiento y precio de su escenario:
 
@@ -22,7 +22,7 @@ Azure Files ofrece cuatro niveles diferentes de almacenamiento: Premium, Optimiz
 - **Acceso frecuente**: Los recursos compartidos de nivel de acceso frecuente ofrecen almacenamiento optimizado para escenarios de uso compartido de archivos de uso general, como los recursos compartidos de los equipos. Los recursos compartidos de archivos de nivel de acceso frecuente se ofrecen en el hardware de almacenamiento estándar respaldado por unidades de disco duro.
 - **Acceso esporádico**: Los recursos compartidos de archivos de acceso esporádico ofrecen un almacenamiento económico optimizado para escenarios de almacenamiento de archivo en línea. Los recursos compartidos de archivos de nivel de acceso esporádico se ofrecen en el hardware de almacenamiento estándar respaldado por unidades de disco duro.
 
-Los recursos compartidos de archivos Premium se implementan en la **cuenta de almacenamiento de FileStorage** y solo están disponibles en un modelo de facturación aprovisionado. Para más información sobre el modelo de facturación aprovisionado para recursos compartidos de archivos Premium, consulte [Planeamiento de una implementación de Azure Files](../articles/storage/files/understanding-billing.md#provisioned-model). Los recursos compartidos de archivos estándar, que incluyen los optimizados para las transacciones, los de nivel de acceso frecuente y los de nivel de acceso esporádico, se implementan en la **cuenta de almacenamiento de uso general, versión 2 (GPv2)** y están disponibles en un modelo de pago por uso. Los recursos compartidos de archivos de acceso frecuente y esporádico están disponibles en todas las regiones públicas y de Azure Government de Azure. Los recursos compartidos de archivos optimizados para transacciones están disponibles en todas las regiones de Azure, incluidas las regiones de Azure China y Azure Germany.
+Los recursos compartidos de archivos Premium se implementan en la **cuenta de almacenamiento de FileStorage** y solo están disponibles en un modelo de facturación aprovisionado. Para más información sobre el modelo de facturación aprovisionado para recursos compartidos de archivos Premium, consulte [Planeamiento de una implementación de Azure Files](../articles/storage/files/understanding-billing.md#provisioned-model). Los recursos compartidos de archivos estándar, que incluyen los optimizados para las transacciones, los de nivel de acceso frecuente y los de nivel de acceso esporádico, se implementan en la **cuenta de almacenamiento de uso general, versión 2 (GPv2)** y están disponibles en un modelo de pago por uso. 
 
 Al seleccionar una capa de almacenamiento para la carga de trabajo, tenga en cuenta los requisitos de rendimiento y uso. Si la carga de trabajo requiere una latencia de un solo dígito o si usa medios de almacenamiento SSD en un entorno local, es probable que el nivel Premium sea el más adecuado. Si no es muy importante que la latencia sea baja, por ejemplo, en el caso de recursos compartidos de equipo montados localmente desde Azure o almacenados en la caché local mediante Azure File Sync, desde el punto de vista del costo es posible que sea más adecuado usar el almacenamiento estándar.
 

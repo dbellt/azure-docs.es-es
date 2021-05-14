@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/06/2021
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 0a25e1b50455cad5bdbe5b76b2a291f2a1c11940
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: b17041f25fdd26bd0f8328a206267ef1c4984672
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107013"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144752"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transacción de marketplace comercial
 
@@ -73,7 +73,7 @@ En función de la opción de transacción usada, los cargos de suscripción son 
 > [!NOTE]
 > Las ofertas que se facturan según el uso nos on aptas para reembolsos una vez que se ha usado la solución.
 
-Los editores que quieran cambiar las tarifas de uso asociadas a una oferta deben quitar primero la oferta (o el plan específico dentro de esta) del marketplace comercial. La eliminación debe realizarse de acuerdo con los requisitos del [contrato para editores de Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560). Luego, el editor puede publicar una nueva oferta (o plan dentro de una oferta) que incluya las nuevas cuotas de uso. Para información sobre cómo quitar una oferta o plan, consulte [Detención de la venta de una oferta o un plan](./partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
+Los editores que quieran cambiar las tarifas de uso asociadas a una oferta deben quitar primero la oferta (o el plan específico dentro de esta) del marketplace comercial. La eliminación debe realizarse de acuerdo con los requisitos del [contrato para editores de Microsoft](/legal/marketplace/msft-publisher-agreement). Luego, el editor puede publicar una nueva oferta (o plan dentro de una oferta) que incluya las nuevas cuotas de uso. Para información sobre cómo quitar una oferta o plan, consulte [Detención de la venta de una oferta o un plan](./partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
 
 ### <a name="free-contact-me-and-bring-your-own-license-byol-pricing"></a>Precios de Gratis, Ponerse en contacto conmigo y traiga su propia licencia (BYOL)
 
@@ -147,7 +147,7 @@ En este escenario, Microsoft factura 100,00 USD por su licencia de software y l
 
 ### <a name="commercial-marketplace-service-fees"></a>Tarifas de servicio de Marketplace comercial
 
-Se cobra una cuota de servicio de almacenamiento estándar del 20 % cuando los clientes compran su oferta de transacción en Marketplace comercial. Para obtener más información sobre esta cuota, consulte la sección 5c del [Contrato de Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560).
+Se cobra una cuota de servicio de almacenamiento estándar del 20 % cuando los clientes compran su oferta de transacción en Marketplace comercial. Para obtener más información sobre esta cuota, consulte la sección 5c del [Contrato de Microsoft Publisher](/legal/marketplace/msft-publisher-agreement).
 
 En el caso de ciertas ofertas de transacciones que publique en Marketplace comercial, puede optar por una tarifa de servicio reducida en tienda del 10 %. Para que una oferta sea apta, Microsoft debe designarla como _incentivo de venta conjunta de Azure IP_. Para recibir el precio reducido del servicio Marketplace, se deben cumplir los criterios de idoneidad al menos cinco días hábiles antes del final de cada mes natural. Una vez que se cumplan los criterios de idoneidad, se concederá el precio reducido del servicio a todas las transacciones vigentes el primer día del mes siguiente hasta que se pierda el estado _Venta conjunta con incentivos de IP de Azure_. Para obtener más información sobre la elegibilidad de la venta conjunta de IP, vea [Requisitos para el estado de la venta conjunta](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 
@@ -178,7 +178,7 @@ Normalmente, los clientes compran con contrato Enterprise o mediante contrato de
 
 #### <a name="billing-questions-and-support"></a>Soporte técnico y preguntas sobre facturación
 
-Para más información y conocer las directivas legales, consulte el [contrato para editores de Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560). Para obtener ayuda si tiene preguntas sobre facturación, póngase en contacto con el [equipo de soporte técnico para publicadores de Marketplace comercial](https://aka.ms/marketplacepublishersupport).
+Para más información y conocer las directivas legales, consulte el [contrato para editores de Microsoft](/legal/marketplace/msft-publisher-agreement). Para obtener ayuda si tiene preguntas sobre facturación, póngase en contacto con el [equipo de soporte técnico para publicadores de Marketplace comercial](https://aka.ms/marketplacepublishersupport).
 
 ## <a name="transact-requirements"></a>Requisitos de las transacciones
 

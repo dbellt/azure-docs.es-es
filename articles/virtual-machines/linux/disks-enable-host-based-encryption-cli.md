@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 3eecb584f468bc170f0325da8d734a1890691483
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 45cdb9217eebf6e3129718a96d9f7b72a3ab62b3
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104601778"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533608"
 ---
 # <a name="use-the-azure-cli-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Use la CLI de Azure para habilitar el cifrado de un extremo a otro mediante el cifrado en host
 
@@ -27,7 +27,8 @@ Cuando se habilita el cifrado en el host, los datos almacenados en el host de m�
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
 
-También puede encontrar los tamaños de máquina virtual mediante programación. Para obtener información sobre cómo recuperarlos mediante programación, consulte la sección [Búsqueda de tamaños de máquinas virtuales admitidos](#finding-supported-vm-sizes).
+La lista completa de tamaños de máquina virtual admitidos se puede obtener mediante programación. Para obtener información sobre cómo recuperarlos mediante programación, consulte la sección [Búsqueda de tamaños de máquinas virtuales admitidos](#finding-supported-vm-sizes).
+La actualización del tamaño de la máquina virtual producirá una validación para comprobar si el nuevo tamaño de máquina virtual admite la característica EncryptionAtHost.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

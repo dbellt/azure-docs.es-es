@@ -1,18 +1,18 @@
 ---
 title: Azure Private Link para Azure Data Factory
 description: Más información sobre el funcionamiento de Azure Private Link en Azure Data Factory.
-ms.author: abnarain
-author: nabhishek
+ms.author: lle
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: d572509b3b2b3a0fc69f207d005984ee07ce34a4
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: f84d7d7a02b75723f78cfbed9ee23e19ebea9a15
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076826"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481686"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Private Link para Azure Data Factory
 

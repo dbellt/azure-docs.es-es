@@ -2,13 +2,13 @@
 title: Novedades del agente de servidores habilitados para Azure Arc
 description: En este artículo se incluyen las notas de la versión del agente de servidores habilitados para Azure Arc. Muchos de los problemas resumidos incluyen vínculos para obtener detalles adicionales.
 ms.topic: conceptual
-ms.date: 03/31/2021
-ms.openlocfilehash: ecff23225f4d482cc1e9a4f7b7724c8ffe0a1d73
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.date: 04/27/2021
+ms.openlocfilehash: c223b5dd75ac82706a2b35268813391899170f73
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109074"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071548"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Novedades del agente de servidores habilitados para Azure Arc
 
@@ -18,17 +18,28 @@ El agente de Connected Machine de los servidores habilitados para Azure Arc se m
 - Problemas conocidos
 - Corrección de errores
 
+## <a name="april-2021"></a>Abril de 2021
+
+Versión 1.5
+
+### <a name="new-feature"></a>Nueva característica
+
+- Se ha agregado compatibilidad con Red Hat Enterprise Linux 8 y CentOS Linux 8.
+- Nuevo parámetro `-useStderr` para dirigir la salida de error y detallada a stderr.
+- El nuevo parámetro `-json` para dirigir la salida da lugar al formato JSON (cuando se usa con -useStderr).
+- Recopile otros metadatos de instancia: fabricante, modelo, si SQL Server está instalado (booleano) y el identificador de recurso del clúster (para nodos de Azure Stack HCI).
+ 
 ## <a name="march-2021"></a>Marzo de 2021
 
 Versión 1.4
 
-## <a name="new-feature"></a>Nueva característica
+### <a name="new-feature"></a>Nueva característica
 
 - Se ha agregado compatibilidad con puntos de conexión privados, que actualmente se encuentra en versión preliminar limitada.
 - Lista expandida de códigos de salida para azcmagent.
 - Los parámetros de configuración del agente ahora se pueden leer a partir desde un archivo mediante el parámetro `--config`.
 
-## <a name="fixed"></a>Fijo
+### <a name="fixed"></a>Fijo
 
 Las comprobaciones de punto de conexión de red son ahora más rápidas.
 

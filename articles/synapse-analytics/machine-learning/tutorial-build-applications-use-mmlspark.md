@@ -9,12 +9,12 @@ ms.reviewer: ''
 ms.date: 03/08/2021
 author: ruixinxu
 ms.author: ruxu
-ms.openlocfilehash: 5258d8f16e288e7df7e1286eb1902cc6ba6d10f7
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: aeb0e84400ae4a4d48bd070e9c9902c5b005ac9e
+ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227728"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109664877"
 ---
 # <a name="tutorial-build-machine-learning-applications-using-microsoft-machine-learning-for-apache-spark-preview"></a>Tutorial: Creación de aplicaciones de aprendizaje automático con Microsoft Machine Learning para Apache Spark (versión preliminar)
 
@@ -54,18 +54,12 @@ from mmlspark.cognitive import *
 from notebookutils import mssparkutils
 
 # A general Cognitive Services key for Text Analytics and Computer Vision (or use separate keys that belong to each service)
-service_key =  "ADD_YOUR_SUBSCRIPION_KEY" 
+cognitive_service_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_SERVICE_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME") 
 # A Bing Search v7 subscription key
-bing_search_key = "ADD_YOUR_SUBSCRIPION_KEY" 
+bingsearch_service_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_BING_SEARCH_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME")
 # An Anomaly Dectector subscription key
-anomaly_key =  "ADD_YOUR_SUBSCRIPION_KEY" 
-# Your linked key vault for Synapse workspace
-key_vault = "YOUR_KEY_VAULT_NAME"
+anomalydetector_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_ANOMALY_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME")
 
-
-cognitive_service_key = mssparkutils.credentials.getSecret(key_vault, service_key)
-bingsearch_service_key = mssparkutils.credentials.getSecret(key_vault, bing_search_key)
-anomalydetector_key = mssparkutils.credentials.getSecret(key_vault, anomaly_key)
 
 ```
 
@@ -249,5 +243,5 @@ display(anamoly_detector.transform(df_timeseriesdata).select("timestamp", "value
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Consulte los cuadernos de ejemplo de Synapse](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks) 
+* [Consulte los cuadernos de ejemplo de Synapse](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
 * [Repositorio de GitHub para MMLSpark](https://github.com/Azure/mmlspark)

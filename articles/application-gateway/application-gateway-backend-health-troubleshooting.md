@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 8664f9327af37345c7104c65b2521212669ae806
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3bb3a89443cdefeedbe5df254d215dfcec770983
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107786333"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737854"
 ---
-<a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Solución de problemas de estado del back-end en Application Gateway
-==================================================
+# <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Solución de problemas de estado del back-end en Application Gateway
 
-<a name="overview"></a>Información general
---------
+## <a name="overview"></a>Información general
+
 
 De forma predeterminada, Application Gateway sondea los servidores back-end para comprobar su estado de mantenimiento y si están listos para atender solicitudes. Los usuarios pueden crear también sondeos personalizados para mencionar el nombre de host, la ruta de acceso que se va a sondear y los códigos de estado que se van a aceptar como correctos. En cada caso, si el servidor back-end no responde correctamente, Application Gateway lo marca como incorrecto y deja de reenviarle solicitudes. Una vez que el servidor comienza a responder correctamente, Application Gateway reanuda el reenvío de las solicitudes.
 
@@ -36,8 +36,7 @@ El estado recuperado por cualquiera de estos métodos puede ser uno de los sigui
 
 Si el estado de mantenimiento del back-end de un servidor es correcto, significa que Application Gateway reenviará las solicitudes a ese servidor. Pero si el mantenimiento del back-end de todos los servidores de un grupo back-end es incorrecto o desconocido, es posible que se produzcan problemas al intentar acceder a las aplicaciones. En este artículo se describen los síntomas, la causa y la resolución de cada uno de los errores mostrados.
 
-<a name="backend-health-status-unhealthy"></a>Estado de mantenimiento del back-end: Unhealthy (Incorrecto)
--------------------------------
+## <a name="backend-health-status-unhealthy"></a>Estado de mantenimiento del back-end: Unhealthy (Incorrecto)
 
 Si el estado de mantenimiento del back-end es incorrecto, la vista del portal se parecerá a la siguiente captura de pantalla:
 
@@ -76,6 +75,7 @@ BackendAddressPoolsText : [
                             }
                         ]
 ```
+
 Después de recibir un estado incorrecto para todos los servidores de un grupo back-end, las solicitudes no se reenvían a los servidores y Application Gateway devuelve un error "502 Puerta de enlace incorrecta" al cliente que realiza la solicitud. Para solucionar este problema, compruebe la columna **Detalles** de la pestaña **Estado del back-end**.
 
 El mensaje que se muestra en la columna **Detalles** proporciona información más detallada sobre el problema y, según dicha información, podemos empezar a solucionarlo.
@@ -83,9 +83,10 @@ El mensaje que se muestra en la columna **Detalles** proporciona información m�
 > [!NOTE]
 > La solicitud de sondeo predeterminada se envía con el formato \<protocol\>://127.0.0.1:\<port\>/. Por ejemplo, http://127.0.0.1:80 para un sondeo HTTP en el puerto 80. Solo los códigos de estado HTTP del 200 al 399 se consideran correctos. El protocolo y el puerto de destino se heredan de la configuración de HTTP. Si quiere que Application Gateway sondee en un protocolo, un nombre de host o una ruta de acceso diferentes, y acepte como correcto un código de estado distinto, configure un sondeo personalizado y asócielo con la configuración de HTTP.
 
-<a name="error-messages"></a>Mensajes de error
-------------------------
-#### <a name="backend-server-timeout"></a>Tiempo de espera del servidor back-end
+## <a name="error-messages"></a>Mensajes de error
+
+
+### <a name="backend-server-timeout"></a>Tiempo de espera del servidor back-end
 
 **Mensaje**: Time taken by the backend to respond to application gateway\'s health probe is more than the time-out threshold in the probe setting. (El tiempo que tarda el servidor back-end en responder al sondeo de estado de Application Gateway es mayor que el umbral de tiempo de espera de la configuración de sondeo).
 
@@ -103,7 +104,7 @@ Para aumentar el valor de tiempo de espera, siga estos pasos:
 
 1.  Guarde la configuración de sondeo personalizada y compruebe si el estado del back-end aparece ahora como correcto.
 
-#### <a name="dns-resolution-error"></a>Error de resolución DNS
+### <a name="dns-resolution-error"></a>Error de resolución DNS
 
 **Mensaje**: Application Gateway could not create a probe for this backend. This usually happens when the FQDN of the backend has not been entered correctly. (Application Gateway no pudo crear un sondeo para este back-end. Esto suele ocurrir cuando el nombre de dominio completo del back-end no se ha escrito de forma apropiada). 
 
@@ -121,7 +122,7 @@ Para aumentar el valor de tiempo de espera, siga estos pasos:
 
 1.  Si el dominio es privado o interno, intente resolverlo desde una máquina virtual de la misma red virtual. Si puede resolverlo, reinicie Application Gateway y vuelva a comprobarlo. Para reiniciar Application Gateway, debe [detenerlo](/powershell/module/azurerm.network/stop-azurermapplicationgateway) e [iniciarlo](/powershell/module/azurerm.network/start-azurermapplicationgateway) mediante los comandos de PowerShell descritos en estos servicios vinculados.
 
-#### <a name="tcp-connect-error"></a>Error de conexión TCP
+### <a name="tcp-connect-error"></a>Error de conexión TCP
 
 **Mensaje**: Application Gateway could not connect to the backend.
 Please check that the backend responds on the port used for the probe.
@@ -187,7 +188,7 @@ O bien, si cree que la respuesta es legítima y desea que Application Gateway ac
 
 Para crear un sondeo personalizado, siga [estos pasos](./application-gateway-create-probe-portal.md).
 
-#### <a name="http-response-body-mismatch"></a>Error de coincidencia del cuerpo de la respuesta HTTP
+### <a name="http-response-body-mismatch"></a>Error de coincidencia del cuerpo de la respuesta HTTP
 
 **Mensaje**: Body of the backend\'s HTTP response did not match the probe setting. Received response body does not contain {string}. (El cuerpo de la respuesta HTTP del back-end no coincidía con la configuración de sondeo. El cuerpo de respuesta recibido no contiene {string}).
 
@@ -207,7 +208,7 @@ Más información sobre la [coincidencia del sondeo de Application Gateway](./ap
 > En el caso de todos los mensajes de error relacionados con TLS, para obtener más información sobre el comportamiento de SNI y las diferencias entre las versiones 1 y 2 de la SKU, consulte la página de [información general de TLS](ssl-overview.md).
 
 
-#### <a name="backend-server-certificate-invalid-ca"></a>Entidad de certificación no válida del certificado de servidor back-end
+### <a name="backend-server-certificate-invalid-ca"></a>Entidad de certificación no válida del certificado de servidor back-end
 
 **Mensaje**: The server certificate used by the backend is not signed by a well-known Certificate Authority (CA). Allow the backend on the application gateway by uploading the root certificate of the server certificate used by the backend. (La entidad de certificación conocida no ha firmado el certificado de servidor usado por el back-end. Permita el back-end en la puerta de enlace de aplicaciones cargando el certificado raíz del certificado de servidor usado por el back-end).
 
@@ -240,7 +241,7 @@ Como alternativa, para exportar el certificado raíz desde una máquina cliente,
 
 Para más información sobre cómo extraer y cargar certificados raíz de confianza en Application Gateway, consulte [Exportación del certificado raíz de confianza (para SKU V2) ](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
 
-#### <a name="trusted-root-certificate-mismatch"></a>Error de coincidencia de certificado raíz de confianza
+### <a name="trusted-root-certificate-mismatch"></a>Error de coincidencia de certificado raíz de confianza
 
 **Mensaje**: The root certificate of the server certificate used by the backend does not match the trusted root certificate added to the application gateway. Asegúrese de agregar el certificado raíz correcto para incluir en la lista de elementos permitidos en el back-end.
 
@@ -254,6 +255,7 @@ El certificado que se ha cargado en la configuración HTTP de Application Gatewa
 Siga los pasos del 1 al 11 del método anterior para cargar el certificado raíz de confianza correcto en Application Gateway.
 
 Para más información sobre cómo extraer y cargar certificados raíz de confianza en Application Gateway, consulte [Exportación del certificado raíz de confianza (para SKU V2) ](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
+
 > [!NOTE]
 > Este error también podría producirse si el servidor back-end no intercambia la cadena completa del certificado, incluido el elemento Raíz > Intermedio (si es aplicable) > Hoja durante el protocolo de enlace de TLS. Para comprobarlo, puede usar los comandos de OpenSSL desde cualquier cliente y conectarse al servidor back-end con los valores configurados en el sondeo de Application Gateway.
 
@@ -261,6 +263,7 @@ Por ejemplo:
 ```
 OpenSSL> s_client -connect 10.0.0.4:443 -servername www.example.com -showcerts
 ```
+
 Si la salida no muestra la cadena completa del certificado que se devuelve, vuelva a exportar el certificado con la cadena completa, incluido el certificado raíz. Configure ese certificado en el servidor back-end. 
 
 ```
@@ -280,7 +283,7 @@ Si la salida no muestra la cadena completa del certificado que se devuelve, vuel
   \-----END CERTIFICATE-----
 ```
 
-#### <a name="backend-certificate-invalid-common-name-cn"></a>Nombre común (CN) del certificado de back-end no válido
+### <a name="backend-certificate-invalid-common-name-cn"></a>Nombre común (CN) del certificado de back-end no válido
 
 **Mensaje**: The Common Name (CN) of the backend certificate does not match the host header of the probe. [El nombre común (CN) del certificado de back-end no coincide con el encabezado de host del sondeo].
 
@@ -321,7 +324,7 @@ En Linux con OpenSSL:
 
 2.  En las propiedades mostradas, busque el CN del certificado y escriba el mismo en el campo Nombre de host de la configuración HTTP. Si ese no es el nombre de host deseado para el sitio web, debe obtener un certificado para ese dominio o escribir el nombre de host correcto en la configuración del sondeo personalizado o de HTTP.
 
-#### <a name="backend-certificate-is-invalid"></a>El certificado de back-end no es válido.
+### <a name="backend-certificate-is-invalid"></a>El certificado de back-end no es válido.
 
 **Mensaje**: Backend certificate is invalid. (El certificado de back-end no es válido). La fecha actual está dentro del intervalo de fechas \"Válido desde\" y \"Válido hasta\" en el certificado.
 
@@ -335,7 +338,7 @@ En Linux con OpenSSL:
 
 1.  Elimine el certificado antiguo con el icono **Eliminar** situado junto a él y, luego, seleccione **Guardar**.
 
-#### <a name="certificate-verification-failed"></a>Error en la verificación del certificado
+### <a name="certificate-verification-failed"></a>Error en la verificación del certificado
 
 **Mensaje**: The validity of the backend certificate could not be verified. Para averiguar el motivo, compruebe el diagnóstico de OpenSSL para el mensaje asociado al código de error {errorCode}.
 
@@ -343,8 +346,8 @@ En Linux con OpenSSL:
 
 **Solución:** para resolver este problema, compruebe que el certificado del servidor se ha creado correctamente. Por ejemplo, puede usar [OpenSSL](https://www.openssl.org/docs/man1.0.2/man1/verify.html) para comprobar el certificado y sus propiedades e intentar volver a cargarlo en la configuración HTTP de Application Gateway.
 
-<a name="backend-health-status-unknown"></a>Estado de mantenimiento del back-end: desconocido
--------------------------------
+## <a name="backend-health-status-unknown"></a>Estado de mantenimiento del back-end: desconocido
+
 Si el estado del back-end se muestra como desconocido, la vista del portal se parecerá a la siguiente captura de pantalla:
 
 ![Estado del back-end de Application Gateway: desconocido](./media/application-gateway-backend-health-troubleshooting/appgwunknown.png)
@@ -395,7 +398,6 @@ Este comportamiento puede producirse por uno o varios de los siguientes motivos:
 
 1.  Para comprobar que Application Gateway está en un estado correcto y en ejecución, vaya a la opción **Resource Health** (Estado de los recursos) en el portal y compruebe si es **Healthy** (Correcto). Si ve el estado **Unhealthy** (Incorrecto) o **Degraded** (Degradado), [póngase en contacto con el soporte técnico](https://azure.microsoft.com/support/options/).
 
-<a name="next-steps"></a>Pasos siguientes
-----------
+## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre el [registro y el diagnóstico de Application Gateway](./application-gateway-diagnostics.md).

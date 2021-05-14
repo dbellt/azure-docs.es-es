@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 04/02/2021
 ms.author: aahi
-ms.openlocfilehash: e2148f56c216795c5022b86b6a1d90b476a4672e
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: d7f62082d860d8ec39a5937af5c1bae81b372caa
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277290"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906591"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Ejemplo: Detectar idioma con Text Analytics
 
@@ -163,7 +163,7 @@ Una puntuación positiva de 1,0 expresa el nivel más alto de confianza posible 
 
 ### <a name="ambiguous-content"></a>Contenido ambiguo
 
-En algunos casos, puede ser difícil eliminar la ambigüedad de los idiomas en función de la entrada. Puede usar el parámetro `countryHint` para especificar un código de país o región de dos letras. De forma predeterminada, la API usa "US" como valor de countryHint predeterminado; para quitar este comportamiento, puede restablecer este parámetro y configurarlo como una cadena `countryHint = ""` vacía.
+En algunos casos, puede ser difícil eliminar la ambigüedad de los idiomas en función de la entrada. Puede usar el parámetro `countryHint` para especificar un código de país o región [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). De forma predeterminada, la API usa "US" como valor de countryHint predeterminado; para quitar este comportamiento, puede restablecer este parámetro y configurarlo como una cadena `countryHint = ""` vacía.
 
 Por ejemplo, "impossible" es igual en inglés que en francés, y si se proporciona con un contexto limitado, la respuesta se basará en la sugerencia de país o región de "US". Si se sabe que el origen del texto procede de Francia, eso se puede proporcionar como sugerencia.
 

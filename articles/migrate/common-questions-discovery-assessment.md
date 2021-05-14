@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: c10963d28e0d2ecee73150e8b5af89cee96d28b2
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: ff7bd9145b64f82ca514897ebb67526bc28de867
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077013"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143582"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Detección, valoración y análisis de dependencias: preguntas comunes
 
@@ -147,7 +147,7 @@ Si la instancia está lista para Azure SQL Database y Azure SQL Managed Instanc
 Esto puede suceder si el tipo de implementación de destino elegido en las propiedades de evaluación es **Recomendado** y la instancia de SQL no está lista para Azure SQL Database y Azure SQL Managed Instance. Se recomienda que el usuario cree una evaluación en Azure Migrate con el tipo de evaluación como **Máquina virtual de Azure** para determinar si el servidor en el que se ejecuta la instancia está listo para migrarse a una máquina virtual de Azure.
 Se recomienda que el usuario cree una evaluación en Azure Migrate con el tipo de evaluación como **Azure VM** para determinar si el servidor en el que se ejecuta la instancia está listo para migrarse a una máquina virtual de Azure en su lugar:
 - Las evaluaciones de máquinas virtuales de Azure en Azure Migrate siguen actualmente el enfoque de migración mediante lift-and-shift y no tendrán en cuenta las métricas de rendimiento específicas para ejecutar instancias y bases de datos de SQL en la máquina virtual de Azure. 
-- Al ejecutar una evaluación de máquinas virtuales de Azure en un servidor, el tamaño recomendado y las estimaciones de costos serán para todas las instancias que se ejecutan en ese servidor y se pueden migrar a una máquina virtual de Azure mediante la herramienta Server Migration. Antes de migrar, [revise las directrices de rendimiento](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) para SQL Server en máquinas virtuales de Azure.
+- Al ejecutar una evaluación de máquinas virtuales de Azure en un servidor, el tamaño recomendado y las estimaciones de costos serán para todas las instancias que se ejecutan en ese servidor y se pueden migrar a una máquina virtual de Azure mediante la herramienta Server Migration. Antes de migrar, [revise las directrices de rendimiento](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md) para SQL Server en máquinas virtuales de Azure.
 
 ## <a name="i-cant-see-some-databases-in-my-assessment-even-though-the-instance-is-part-of-the-assessment"></a>No veo algunas bases de datos en mi evaluación, aunque la instancia forma parte de ella
 
@@ -155,7 +155,7 @@ La evaluación de Azure SQL solo incluye las bases de datos que presentan el est
 
 ## <a name="i-want-to-compare-costs-for-running-my-sql-instances-on-azure-vm-vs-azure-sql-databaseazure-sql-managed-instance"></a>Quiero comparar los costos de la ejecución de mis instancias de SQL en máquinas virtuales de Azure con los de hacerlo en Azure SQL Database o Azure SQL Managed Instance
 
-Puede crear una evaluación con el tipo **Máquina virtual de Azure** en el mismo grupo que se usó en la evaluación de **Azure SQL**. Después, puede comparar los dos informes en paralelo. Sin embargo, las evaluaciones de máquinas virtuales de Azure en Azure Migrate siguen actualmente el enfoque de migración mediante lift-and-shift y no tendrán en cuenta las métricas de rendimiento específicas para ejecutar instancias de SQL y bases de datos en la máquina virtual de Azure. Al ejecutar una evaluación de máquinas virtuales de Azure en un servidor, el tamaño recomendado y las estimaciones de costos serán para todas las instancias que se ejecutan en ese servidor y se pueden migrar a una máquina virtual de Azure mediante la herramienta Server Migration. Antes de migrar, [revise las directrices de rendimiento](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) para SQL Server en máquinas virtuales de Azure.
+Puede crear una evaluación con el tipo **Máquina virtual de Azure** en el mismo grupo que se usó en la evaluación de **Azure SQL**. Después, puede comparar los dos informes en paralelo. Sin embargo, las evaluaciones de máquinas virtuales de Azure en Azure Migrate siguen actualmente el enfoque de migración mediante lift-and-shift y no tendrán en cuenta las métricas de rendimiento específicas para ejecutar instancias de SQL y bases de datos en la máquina virtual de Azure. Al ejecutar una evaluación de máquinas virtuales de Azure en un servidor, el tamaño recomendado y las estimaciones de costos serán para todas las instancias que se ejecutan en ese servidor y se pueden migrar a una máquina virtual de Azure mediante la herramienta Server Migration. Antes de migrar, [revise las directrices de rendimiento](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md) para SQL Server en máquinas virtuales de Azure.
 
 ## <a name="the-storage-cost-in-my-azure-sql-assessment-is-zero"></a>El costo de almacenamiento en mi evaluación de Azure SQL es cero
 Para Azure SQL Managed Instance, no se agrega ningún costo de almacenamiento para el almacenamiento de los primeros 32 GB, por instancia y mes, y se agrega un costo de almacenamiento adicional para el almacenamiento en incrementos de 32 GB. [Más información](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)
@@ -242,7 +242,7 @@ La diferencia entre la visualización sin agente y la visualización basada en a
 --- | --- | ---
 Soporte técnico | Esta opción se encuentra actualmente en versión preliminar y solo está disponible servidores en un entorno VMware. [Revise](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) los sistemas operativos compatibles. | En disponibilidad general (GA).
 Agente | No es necesario instalar agentes en las máquinas que quiere comprobar. | Agentes que debe instalar en las máquinas locales que quiere analizar: [Microsoft Monitoring Agent (MMA)](../azure-monitor/agents/agent-windows.md) y el [agente de dependencia](../azure-monitor/agents/agents-overview.md#dependency-agent). 
-Requisitos previos | [Revise](concepts-dependency-visualization.md#agentless-analysis) los requisitos previos y los requisitos de implementación. | [Revise](concepts-dependency-visualization.md#agent-based-analysis) los requisitos previos y los requisitos de implementación.
+Prerrequisitos | [Revise](concepts-dependency-visualization.md#agentless-analysis) los requisitos previos y los requisitos de implementación. | [Revise](concepts-dependency-visualization.md#agent-based-analysis) los requisitos previos y los requisitos de implementación.
 Log Analytics | No se requiere. | Azure Migrate utiliza la solución [Service Map](../azure-monitor/vm/service-map.md) de los [registros de Azure Monitor](../azure-monitor/logs/log-query-overview.md) para la visualización de dependencias. [Más información](concepts-dependency-visualization.md#agent-based-analysis).
 Funcionamiento | Captura los datos de conexión TCP en las máquinas habilitadas para la visualización de dependencias. Después de la detección, recopila datos en intervalos de cinco minutos. | Los agentes de Service Map instalados en una máquina recopilan datos acerca de los procesos de TCP, así como de las conexiones de entrada o salida para cada proceso.
 data | Nombre de aplicación, proceso y nombre del servidor de la máquina de origen.<br/><br/> Puerto, nombre de aplicación, proceso y nombre del servidor de la máquina de destino. | Nombre de aplicación, proceso y nombre del servidor de la máquina de origen.<br/><br/> Puerto, nombre de aplicación, proceso y nombre del servidor de la máquina de destino.<br/><br/> Se recopila la información sobre el número de conexiones, la latencia y la transferencia de datos, y está disponible para las consultas de Log Analytics. 

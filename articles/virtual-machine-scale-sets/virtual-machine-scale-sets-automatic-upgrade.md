@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: automatic-os-upgrade
 ms.date: 06/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 39649d9fc12e78f962fac25a12db796b71015db8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: avverma
+ms.openlocfilehash: 17a5e49cce4445ef5ef917dcb1b8f5250cd5e069
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934553"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074482"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Actualización automática de imágenes del sistema operativo en un conjunto de escalado de máquinas virtuales de Azure
 
@@ -79,7 +79,7 @@ Las siguientes SKU de plataforma se admiten actualmente (y periódicamente se ag
 ### <a name="service-fabric-requirements"></a>Requisitos de Service Fabric
 
 Si utiliza Service Fabric, asegúrese de que se cumplen las condiciones siguientes:
--   El [nivel de durabilidad](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) de Service Fabric es Plata u Oro, no Bronce.
+-   El [nivel de durabilidad](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) de Service Fabric es Silver o Gold, no Bronze (excepto para los tipos de nodo sin estado, que admiten actualizaciones automáticas de la imagen de sistema operativo).
 -   La extensión de Service Fabric en la definición del modelo de conjunto de escalado debe tener la versión 1.1 o posterior de TypeHandlerVersion.
 -   El nivel de durabilidad debe ser el mismo en el clúster de Service Fabric y la extensión Service Fabric de la definición del modelo de conjunto de escalado.
 - No es necesario realizar un sondeo de estado adicional o el uso de la extensión de estado de aplicación.
@@ -130,7 +130,7 @@ Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" 
 ```
 
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
-Use el cmdlet [az vmss update](/cli/azure/vmss#az-vmss-update) para configurar las actualizaciones automáticas de imágenes del sistema operativo para el conjunto de escalado. Use la CLI de Azure 2.0.47 o superior. En el ejemplo siguiente se configuran actualizaciones automáticas para el conjunto de escalado llamado *myScaleSet* en el grupo de recursos llamado *myResourceGroup*:
+Use el cmdlet [az vmss update](/cli/azure/vmss#az_vmss_update) para configurar las actualizaciones automáticas de imágenes del sistema operativo para el conjunto de escalado. Use la CLI de Azure 2.0.47 o superior. En el ejemplo siguiente se configuran actualizaciones automáticas para el conjunto de escalado llamado *myScaleSet* en el grupo de recursos llamado *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
@@ -163,7 +163,7 @@ Se puede hacer referencia al sondeo de equilibrador de carga en el valor *networ
 ```
 
 > [!NOTE]
-> Al utilizar actualizaciones automáticas del sistema operativo con Service Fabric, la nueva imagen del sistema operativo se implanta de dominio de actualización en dominio de actualización para mantener una alta disponibilidad de los servicios que se ejecutan en Service Fabric. Para utilizar las actualizaciones automáticas del sistema operativo en Service Fabric, el clúster debe estar configurado para utilizar el nivel de durabilidad Silver o superior. Para más información sobre las características de durabilidad de los clústeres de Service Fabric, consulte [esta documentación](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster).
+> Al utilizar actualizaciones automáticas del sistema operativo con Service Fabric, la nueva imagen del sistema operativo se implanta de dominio de actualización en dominio de actualización para mantener una alta disponibilidad de los servicios que se ejecutan en Service Fabric. Para usar las actualizaciones automáticas del sistema operativo en Service Fabric, el tipo de nodo del clúster debe estar configurado para usar el nivel de durabilidad Silver o superior. En el nivel de durabilidad Bronze, la actualización automática de la imagen de sistema operativo solo se admite para los tipos de nodo sin estado. Para más información sobre las características de durabilidad de los clústeres de Service Fabric, consulte [esta documentación](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster).
 
 ### <a name="keep-credentials-up-to-date"></a>Mantener actualizadas las credenciales
 Si el conjunto de escalado usa credenciales para acceder a recursos externos (por ejemplo, si se configura una extensión de máquina virtual que usa un token de SAS para la cuenta de almacenamiento), asegúrese de que las credenciales estén actualizadas. Si las credenciales, incluidos los certificados y tokens, han expirado, se producirá un error en la actualización y el primer lote de máquinas virtuales se quedará en estado de error.
@@ -237,7 +237,7 @@ Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -OS
 ```
 
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
-Use [az vmss get-os-upgrade-history](/cli/azure/vmss#az-vmss-get-os-upgrade-history) para comprobar el historial de actualizaciones del sistema operativo de su conjunto de escalado. Use la CLI de Azure 2.0.47 o superior. En el ejemplo siguiente se detalla cómo revisar el estado de actualización del sistema operativo para un conjunto de escalado denominado *myScaleSet* en el grupo de recursos denominado *myResourceGroup*:
+Use [az vmss get-os-upgrade-history](/cli/azure/vmss#az_vmss_get_os_upgrade_history) para comprobar el historial de actualizaciones del sistema operativo de su conjunto de escalado. Use la CLI de Azure 2.0.47 o superior. En el ejemplo siguiente se detalla cómo revisar el estado de actualización del sistema operativo para un conjunto de escalado denominado *myScaleSet* en el grupo de recursos denominado *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss get-os-upgrade-history --resource-group myResourceGroup --name myScaleSet
@@ -285,7 +285,7 @@ Start-AzVmssRollingOSUpgrade -ResourceGroupName "myResourceGroup" -VMScaleSetNam
 ```
 
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
-Use [az vmss rolling-upgrade start](/cli/azure/vmss/rolling-upgrade#az-vmss-rolling-upgrade-start) para comprobar el historial de actualizaciones del sistema operativo del conjunto de escalado. Use la CLI de Azure 2.0.47 o superior. En el ejemplo siguiente se detalla cómo empezar una actualización de sistema operativo en un conjunto de escalado denominado *myScaleSet* en el grupo de recursos denominado *myResourceGroup*:
+Use [az vmss rolling-upgrade start](/cli/azure/vmss/rolling-upgrade#az_vmss_rolling_upgrade_start) para comprobar el historial de actualizaciones del sistema operativo del conjunto de escalado. Use la CLI de Azure 2.0.47 o superior. En el ejemplo siguiente se detalla cómo empezar una actualización de sistema operativo en un conjunto de escalado denominado *myScaleSet* en el grupo de recursos denominado *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss rolling-upgrade start --resource-group "myResourceGroup" --name "myScaleSet" --subscription "subscriptionId"

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/15/2021
+ms.date: 04/16/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 358e066631304e727d18d092bd4b9a5b2a0bb89a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc1b5356ab607ecb60a457a7295831958e6815e1
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199609"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727067"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos de aplicación y de entidad de servicio de Azure Active Directory
 
@@ -47,15 +47,21 @@ La [entidad de aplicación][MS-Graph-App-Entity] de Microsoft Graph define el es
 ## <a name="service-principal-object"></a>Objeto de entidad de servicio
 Para acceder a los recursos que están protegidos por un inquilino de Azure AD, la entidad que requiere acceso debe estar representada por una entidad de seguridad. Este requisito es cierto para los usuarios (entidad de seguridad de usuario) y para las aplicaciones (entidad de servicio). La entidad de seguridad define la directiva de acceso y los permisos para el usuario o aplicación de ese inquilino de Azure AD. Esto habilita características básicas como la autenticación del usuario o de la aplicación durante el inicio de sesión y la autorización durante el acceso a los recursos.
 
-Una entidad de servicio es la representación local o la instancia de aplicación de un objeto de aplicación global en un único inquilino o directorio. Se trata de una instancia concreta creada a partir del objeto de aplicación, que hereda ciertas propiedades de ese objeto de aplicación. La entidad de servicio se crea en cada inquilino donde se usa la aplicación y hace referencia al objeto de aplicación único global.  El objeto de entidad de servicio define lo que la aplicación puede hacer en el inquilino específico, quién puede acceder a la aplicación y a qué recursos tiene acceso la aplicación.
+Hay tres tipos de entidad de servicio: aplicación, identidad administrada y heredada.
+
+El primer tipo de entidad de servicio es la representación local o la instancia de aplicación de un objeto de aplicación global en un único inquilino o directorio. En este caso, una entidad de servicio es una instancia concreta creada a partir del objeto de aplicación, que hereda determinadas propiedades de ese objeto de aplicación. La entidad de servicio se crea en cada inquilino donde se usa la aplicación y hace referencia al objeto de aplicación único global.  El objeto de entidad de servicio define lo que la aplicación puede hacer en el inquilino específico, quién puede acceder a la aplicación y a qué recursos tiene acceso la aplicación.
 
 Cuando una aplicación tiene permiso para acceder a los recursos de un inquilino (tras el registro o [consentimiento](developer-glossary.md#consent)), se crea un objeto de entidad de seguridad de servicio. También puede crear objetos de entidad de servicio en un inquilino mediante [Azure PowerShell](howto-authenticate-service-principal-powershell.md), la [CLI de Azure](/cli/azure/create-an-azure-service-principal-azure-cli), [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?tabs=http), [Azure Portal][AZURE-Portal] y otras herramientas. Si usa el portal, se crea automáticamente una entidad de servicio al registrar una aplicación.
+
+El segundo tipo de entidad de servicio se usa para representar una [identidad administrada](/azure/active-directory/managed-identities-azure-resources/overview). Las identidades administradas eliminan la necesidad de que los desarrolladores administren las credenciales. Además, proporcionan una identidad que usan las aplicaciones al conectarse a recursos que admiten la autenticación de Azure AD. Cuando se habilita una identidad administrada, se crea en el inquilino una entidad de servicio que representa esa identidad administrada. A las entidades de servicio que representan identidades administradas se les pueden conceder acceso y permisos, pero no se pueden actualizar ni modificar directamente.
+
+El tercer tipo de entidad de servicio representa una aplicación heredada (una aplicación creada antes de que se introdujeran o crearan registros de aplicaciones mediante experiencias heredadas). Una entidad de servicio heredada puede tener credenciales, nombres de entidad de seguridad de servicio, direcciones URL de respuesta y otras propiedades que un usuario autorizado puede editar, pero no tiene un registro de aplicación asociado. La entidad de servicio solo se puede usar en el inquilino donde se creó.
+
+La [entidad ServicePrincipal][MS-Graph-Sp-Entity] de Microsoft Graph define el esquema para las propiedades de un objeto de entidad de servicio.
 
 La hoja **Aplicaciones empresariales** del portal se usa para enumerar y administrar las entidades de servicio de un inquilino. Se pueden ver los permisos de la entidad de servicio, los permisos con consentimiento del usuario, los usuarios que han dado ese consentimiento, la información de inicio de sesión, etc.
 
 ![Hoja Aplicaciones empresariales](./media/app-objects-and-service-principals/enterprise-apps-blade.png)
-
-La [entidad ServicePrincipal][MS-Graph-Sp-Entity] de Microsoft Graph define el esquema para las propiedades de un objeto de entidad de servicio.
 
 ## <a name="relationship-between-application-objects-and-service-principals"></a>Relación entre los objetos de aplicación y las entidades de servicio
 

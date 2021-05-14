@@ -1,16 +1,16 @@
 ---
-title: Administración de sensores y suscripciones en el portal de Defender para IoT
+title: Administración de sensores en el portal de Defender para IoT
 description: Aprenda a incorporar, ver y administrar sensores en el portal de Defender para IoT.
-ms.date: 2/18/2021
+ms.date: 04/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 5b4c8b3d10fe88816e07eb775b2bf3827d578b17
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: f407a65f60a1b969f17ebe00be39a888a09ec83d
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383055"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752721"
 ---
-# <a name="manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>Administración de sensores y suscripciones en el portal de Defender para IoT
+# <a name="manage-sensors-in-the-defender-for-iot-portal"></a>Administración de sensores en el portal de Defender para IoT
 
 En este artículo se describe cómo incorporar, ver y administrar sensores en el [portal de Defender para IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
@@ -26,16 +26,14 @@ Para registrarse:
 1. Seleccione **Onboard sensor** (Incorporar sensor).
 1. Cree un nombre de sensor. Se recomienda incluir la dirección IP del sensor instalado como parte del nombre o usar un nombre que sea fácil de identificar. De esta forma, se garantiza un seguimiento más sencillo y una nomenclatura coherente entre el nombre de registro en el [portal de Azure Defender para IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) y la dirección IP del sensor implementado que se muestra en la consola del sensor.
 1. Asocie el sensor a una suscripción de Azure.
-1. Elija un modo de administración de sensor mediante el botón de alternancia **Cloud connected** (Conectado a la nube). Si el botón de alternancia está activado, el sensor está conectado a la nube. Si el botón de alternancia está desactivado, el sensor está administrado de forma local.
+1. Elija un modo de conexión del sensor mediante el botón de alternancia **Cloud connected** (Conectado a la nube). Si el botón de alternancia está activado, el sensor está conectado a la nube. Si el botón de alternancia está desactivado, el sensor está administrado de forma local.
 
-   - **Cloud-connected sensors** (Sensores conectados a la nube): la información que detecta el sensor se muestra en la consola del sensor. Además, se proporciona información de alertas mediante un centro de IoT, que puede compartirse con otros servicios de Azure, como Azure Sentinel.
+   - **Cloud-connected sensors** (Sensores conectados a la nube): la información que detecta el sensor se muestra en la consola del sensor. Además, se proporciona información de alertas mediante un centro de IoT, que puede compartirse con otros servicios de Azure, como Azure Sentinel. Asimismo, los paquetes de inteligencia sobre amenazas pueden insertarse en los sensores desde el portal de Azure Defender para IoT. Por el contrario, cuando el sensor no está conectado a la nube, debe descargar los paquetes de inteligencia sobre amenazas y, después, cargarlos en los sensores de la empresa. Para permitir que Defender para IoT inserte los paquetes en los sensores, habilite el botón de alternancia **Automatic Threat Intelligence Updates** (Actualizaciones automáticas de inteligencia sobre amenazas). Para obtener más información, vea [Investigación y paquetes de inteligencia sobre amenazas](how-to-work-with-threat-intelligence-packages.md).
+   Elija un centro de IoT que sirva como puerta de enlace entre este sensor y el portal de Azure Defender para IoT. Defina un nombre de sitio y una zona. También puede agregar etiquetas descriptivas. El nombre del sitio, la zona y las etiquetas son entradas descriptivas en la página [Sites and sensors](#view-onboarded-sensors) (Sitios y sensores).
 
    - **Locally managed sensors** (Sensores administrados de forma local): la información que detectan los sensores se muestra en la consola del sensor. Si trabaja en una red aislada y quiere una vista unificada de toda la información detectada por varios sensores administrados de forma local, trabaje con la consola de administración local.
 
-   En el caso de los sensores conectados a la nube, el nombre que se define durante la incorporación es el nombre que aparece en la consola del sensor. Este nombre no se puede cambiar directamente desde la consola. En el caso de los sensores administrados de forma local, el nombre que se aplique durante la incorporación se almacenará en Azure y se puede actualizar en la consola del sensor.
-
-1. Elija un centro de IoT que sirva como puerta de enlace entre este sensor y Azure Defender para IoT.
-1. Si el sensor está conectado a la nube, asócielo a un centro de IoT y luego defina un nombre de sitio y una zona. También puede agregar etiquetas descriptivas. El nombre del sitio, la zona y las etiquetas son entradas descriptivas en la página [Sites and sensors](#view-onboarded-sensors) (Sitios y sensores).
+   En el caso de los sensores conectados a la nube, el nombre que se define durante la incorporación es el nombre que aparece en la consola del sensor. Este nombre no se puede cambiar directamente desde la consola. En el caso de los sensores administrados de forma local, el nombre que se aplique durante la incorporación se almacenará en Azure, pero se puede actualizar en la consola del sensor.
 
 ### <a name="download-the-sensor-activation-file"></a>Descarga del archivo de activación del sensor
 
@@ -48,15 +46,16 @@ Para descargar un archivo de activación:
 
 ## <a name="view-onboarded-sensors"></a>Visualización sensores incorporados
 
-En el [portal de Defender para IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started), puede ver información básica sobre los sensores incorporados.
+En el [portal de Defender para IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started), puede ver información operativa importante sobre los sensores incorporados.
 
-1. Seleccione **Sites and sensors** (Sitios y sensores).
-1. Use las herramientas de filtro y búsqueda para encontrar la información necesaria sobre el sensor y la inteligencia sobre amenazas.
+1. Seleccione **Sites and sensors** (Sitios y sensores). La página muestra el número de sensores incorporados, el número de sensores conectados a la nube y administrados localmente, así como:
 
-- Cuántos sensores se incorporaron
-- El número de sensores conectados a la nube y administrados localmente
-- El centro asociado a un sensor incorporado
-- Detalles agregados sobre un sensor, como el nombre asignado al sensor durante la incorporación, la zona asociada al sensor u otra información descriptiva agregada con etiquetas
+- El nombre de sensor asignado durante la incorporación.
+- El tipo de conexión (conectado a la nube o administrado localmente).
+- La zona asociada al sensor.
+- La versión instalada del sensor.
+- El estado de conexión del sensor a la nube.
+- La última vez que se detectó que el sensor se conectaba a la nube.
 
 ## <a name="manage-onboarded-sensors"></a>Administración de sensores incorporados
 
@@ -118,24 +117,6 @@ Para reactivar un sensor:
 8. Seleccione **Cargar** y elija el archivo que guardó en la página de incorporación del sensor.
 
 9. Seleccione **Activar**.
-
-## <a name="offboard-a-subscription"></a>Retirada de suscripciones
-
-Las suscripciones se administran mensualmente. Si retira una suscripción, se le facturará hasta el final del mes. 
-
-Desinstale todos los sensores asociados con la suscripción antes de retirarla. Para obtener más información sobre cómo eliminar un sensor, consulte [Eliminación de un sensor](#delete-a-sensor). 
-
-Para retirar una suscripción:
-
-1. Vaya a la página **Precios**.
-1. Seleccione la suscripción y, a continuación, el icono **eliminar** :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/delete-icon.png" border="false":::.
-1. En el menú emergente de confirmación, active la casilla para confirmar que ha eliminado todos los sensores asociados con la suscripción.
-
-    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/offboard-popup.png" alt-text="Active la casilla y seleccione Retirar para retirar el sensor.":::
-
-1. Seleccione el botón **Retirar**. 
-
-El entorno local no se ve afectado, pero debe desinstalar el sensor del entorno local o volver a asignarlo a otra suscripción para evitar que los datos relacionados fluyan a la consola de administración local. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: ba351053c876c31d945ec7e4127a5caebd6a71ce
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 31db8c4d8a371aaad939e3a85972958befb2206e
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877473"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137570"
 ---
 # <a name="azure-maps-web-sdk-best-practices"></a>Procedimientos recomendados del SDK de Azure Maps Web
 
@@ -25,7 +25,7 @@ Por lo general, al considerar mejorar el rendimiento del mapa, busque formas de 
 
 ## <a name="security-basics"></a>Aspectos básicos de la seguridad
 
-La parte más importante de la aplicación es su seguridad. Si su aplicación no es segura, un pirata informático puede estropear cualquier aplicación, con independencia de la calidad de la experiencia del usuario. A continuación se muestran algunas sugerencias para proteger la aplicación Azure Maps. Al usar Azure, asegúrese de familiarizarse con las herramientas de seguridad disponibles. Consulte este documento para obtener una [Introducción a la seguridad de Azure](https://docs.microsoft.com/azure/security/fundamentals/overview).
+La parte más importante de la aplicación es su seguridad. Si su aplicación no es segura, un pirata informático puede estropear cualquier aplicación, con independencia de la calidad de la experiencia del usuario. A continuación se muestran algunas sugerencias para proteger la aplicación Azure Maps. Al usar Azure, asegúrese de familiarizarse con las herramientas de seguridad disponibles. Consulte este documento para obtener una [Introducción a la seguridad de Azure](../security/fundamentals/overview.md).
 
 > [!IMPORTANT]
 > Azure Maps proporciona dos métodos de autenticación.
@@ -41,7 +41,7 @@ Cuando los datos se agregan a los SDK de mapas interactivos Azure Maps, se repre
 
 Si la aplicación está cargando datos que no deben ser accesibles públicamente, asegúrese de que los datos se almacenan en una ubicación segura, se tiene acceso a ellos de forma segura y que la propia aplicación está bloqueada y solo está disponible para los usuarios deseados. Si se omite alguno de estos pasos, una persona no autorizada tiene la posibilidad de tener acceso a estos datos. Azure Active Directory puede ayudarle a bloquear esto.
 
-Vea este tutorial en [Incorporación de la autenticación a una aplicación web en Azure App Service](https://docs.microsoft.com/azure/app-service/scenario-secure-app-authentication-app-service)
+Vea este tutorial en [Incorporación de la autenticación a una aplicación web en Azure App Service](../app-service/scenario-secure-app-authentication-app-service.md)
 
 ### <a name="use-the-latest-versions-of-azure-maps"></a>Usar las versiones más recientes de Azure Maps
 

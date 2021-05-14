@@ -4,12 +4,13 @@ description: En este artículo se muestra cómo usar Azure AD en Azure Automati
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 336c0387ac9febcc517c2ce358d0b04c80d10678
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 34033589a297b1a3a2abb97d346f1da478f950e6
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99576810"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830293"
 ---
 # <a name="use-azure-ad-to-authenticate-to-azure"></a>Uso de Azure AD para autenticarse en Azure
 

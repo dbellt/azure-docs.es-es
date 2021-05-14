@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
 ms.custom: seodec18,references_regions
-ms.openlocfilehash: 646d29e72b91cd6afcde8e70ad8fd8715442b88e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab3e61a9c6593f8ee3075dd0ef6f0dee62c3a9c2
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98786798"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315262"
 ---
 # <a name="speech-service-supported-regions"></a>Regiones admitidas del servicio de voz
 
@@ -42,7 +42,7 @@ El servicio de voz está disponible en estas regiones para el **reconocimiento d
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
-Si usa el [SDK de Voz](speech-sdk.md), las regiones se especifican mediante el **identificador de región** (por ejemplo, como un parámetro de `SpeechConfig.FromSubscription`). Asegúrese de que la región coincide con la región de la suscripción.
+Si usa el [SDK de Voz](speech-sdk.md), las regiones se especifican mediante el **identificador de región** (por ejemplo, como un parámetro de `SpeechConfig.FromSubscription`). Asegúrese de que la región coincida con la región de la suscripción.
 
 Si tiene previsto entrenar un modelo personalizado con datos de audio, use una de las [regiones con hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para agilizar el entrenamiento. Puede usar la [API de REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) para copiar el modelo totalmente entrenado en otra región más adelante.
 

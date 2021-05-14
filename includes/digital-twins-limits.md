@@ -3,14 +3,14 @@ author: baanders
 description: incluir archivo para límites de Azure Digital Twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 6/9/2020
+ms.date: 4/8/2021
 ms.author: baanders
-ms.openlocfilehash: 4a69b2ff15fc4857e9fb292d2f753aa68ed875d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34fec713c3764987f07bc7fb89ecb0a0d770a840
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100370122"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728031"
 ---
 ### <a name="functional-limits"></a>Límites funcionales
 
@@ -46,7 +46,8 @@ En la tabla siguiente se reflejan los límites de frecuencia de distintas API.
 | API | Capacidad | Límite predeterminado | ¿Ajustable? |
 | --- | --- | --- | --- |
 | API de modelos | Número de solicitudes por segundo | 100 | Sí |
-| API de Digital Twins | Número de solicitudes por segundo | 2\.000 | Sí |
+| API de Digital Twins | Número de solicitudes de lectura por segundo | 1,000 | Sí |
+| API de Digital Twins | Número de solicitudes de revisión por segundo | 1,000 | Sí |
 | API de Digital Twins | Número de operaciones de creación y eliminación por segundo en **todos los gemelos y las relaciones** | 50 | Sí |
 | API de Digital Twins | Número de operaciones de creación, actualización y eliminación por segundo en un **único gemelo** o sus relaciones | 10 | No |
 | API de consulta | Número de solicitudes por segundo | 500 | Sí |

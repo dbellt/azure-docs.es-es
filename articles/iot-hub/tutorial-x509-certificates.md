@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 5503f9ad57180146c25a01c133a27b34e643496c
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 0acb337af36bdc62504ad7b32de1b31871c1a795
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378353"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141728"
 ---
 # <a name="tutorial-understanding-x509-public-key-certificates"></a>Tutorial: Descripción de los certificados de clave pública X.509
 
@@ -111,7 +111,7 @@ Un formato complejo que puede almacenar y proteger una clave y toda la cadena de
 Para obtener más información, vea los temas siguientes:
 
 * [Guía para novatos sobre la jerga del certificado X.509](https://techcommunity.microsoft.com/t5/internet-of-things/the-layman-s-guide-to-x-509-certificate-jargon/ba-p/2203540)
-* [Explicación de los conceptos de certificados de entidad de certificación X.509 en el sector de IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-concept)
+* [Explicación de los conceptos de certificados de entidad de certificación X.509 en el sector de IoT](./iot-hub-x509ca-concept.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

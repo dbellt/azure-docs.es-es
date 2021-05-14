@@ -1,18 +1,18 @@
 ---
 title: Configuración de clientes de OpenVPN para Azure Virtual WAN
-description: Pasos para configurar clientes de OpenVPN para Azure VPN Gateway
+description: Este artículo lo ayuda a configurar clientes de OpenVPN para Azure Virtual WAN. Incluye los pasos de configuración de los clientes Windows, Mac, iOS y Linux.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: 05502b344b1224dff5d12f95b96b05baace98970
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91b4a9a69912f7a5980348cc2b9a874673fa0eb2
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94491008"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163398"
 ---
 # <a name="configure-an-openvpn-client-for-azure-virtual-wan"></a>Configuración de un cliente de OpenVPN para Azure virtual WAN
 

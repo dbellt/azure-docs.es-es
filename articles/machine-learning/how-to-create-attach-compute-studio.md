@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 08/06/2020
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1
-ms.openlocfilehash: 4194c71823e1affde1dcae47fd7e64668b57c0cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: how-to
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: fbe9c1585ab2eee6e0d38c309a2d1d279ffab0b4
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103149365"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331491"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Creación de destinos de proceso para la implementación y el entrenamiento de modelos en Azure Machine Learning Studio
 
@@ -80,7 +80,7 @@ Siga los pasos anteriores para ver la lista de destinos de proceso. A continuaci
     :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="Visualización del estado del proceso en una lista":::
 
 
-### <a name="compute-instance"></a>Instancia de proceso
+### <a name="compute-instance"></a><a name="compute-instance"></a> Instancia de proceso
 
 Utilice los [pasos anteriores](#portal-create) para crear la instancia de proceso.  Después, rellene el formulario de la manera siguiente:
 
@@ -93,7 +93,7 @@ Utilice los [pasos anteriores](#portal-create) para crear la instancia de proces
 |Tipo de máquina virtual |  Elija CPU o GPU. Este tipo no se puede cambiar después de la creación     |
 |Tamaño de la máquina virtual     |  Los tamaños de máquina virtual admitidos podrían estar restringidos en su región. Comprobación de la [lista de disponibilidad](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Habilitación o deshabilitación del acceso SSH     |   El acceso SSH está deshabilitado de forma predeterminada.  El acceso SSH no se puede. cambiar después de la creación. Asegúrese de habilitar el acceso si tiene previsto depurar de forma interactiva con [VS Code Remote](how-to-set-up-vs-code-remote.md)   |
-|Configuración avanzada     |  Opcional. Configurar una red virtual. Especifique el **Grupo de recursos**, **Red virtual** y **Subred** para crear la instancia de proceso dentro de una Azure Virtual Network (vnet). Para más información, consulte estos [requisitos de red](./how-to-secure-training-vnet.md) para la red virtual.  |
+|Configuración avanzada     |  Opcional. Configurar una red virtual. Especifique el **Grupo de recursos**, **Red virtual** y **Subred** para crear la instancia de proceso dentro de una Azure Virtual Network (vnet). Para más información, consulte estos [requisitos de red](./how-to-secure-training-vnet.md) para la red virtual.  Use también la configuración avanzada para especificar un [script de configuración](how-to-create-manage-compute-instance.md#setup-script). |
 
 ### <a name="compute-clusters"></a><a name="amlcompute"></a> Clústeres de proceso
 

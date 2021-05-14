@@ -9,16 +9,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: 8771c61f96b244e0cc0bca1c61ceb8042b4a5b4c
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 6aa502e1ed0e49192220174d5a8573690035a4a3
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220205"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739141"
 ---
 # <a name="issuer-service-communication-examples-preview"></a>Ejemplos de comunicación del servicio emisor (versión preliminar)
 
-El servicio emisor de credenciales verificables puede emitir credenciales verificables mediante la recuperación de notificaciones de un token de id. generado por el proveedor de identidades compatible con la instancia de OpenID de la organización. En este artículo se indica cómo configurar el proveedor de identidades para que Authenticator pueda comunicarse con él y recuperar el token de id. correcto para pasarlo al servicio de emisión. 
+El servicio de credenciales verificables de Azure AD puede emitir credenciales verificables mediante la recuperación de notificaciones de un token de identificación generado por el proveedor de identidades compatible con la instancia de OpenID de la organización. En este artículo se indica cómo configurar el proveedor de identidades para que Authenticator pueda comunicarse con él y recuperar el token de id. correcto para pasarlo al servicio de emisión. 
 
 > [!IMPORTANT]
 > Las credenciales verificables de Azure Active Directory se encuentran actualmente en versión preliminar pública.
@@ -31,9 +31,9 @@ Para emitir una credencial verificable, se dan instrucciones a Authenticator a t
 | ------- | ----------- |
 | Tipo de concesión | Debe ser compatible con el tipo de concesión de código de autorización. |
 | Formato de tokens | Debe generar JWT compactos sin cifrar. |
-| Algoritmo de firma | Debe generar JWT firmados mediante RSA 256. |
+| Algoritmo de firma | Debe generar JWT firmados mediante RS 256. |
 | Documento de configuración | Debe ser compatible con el documento de configuración de OpenID Connect y `jwks_uri`. | 
-| Registro de cliente | Debe admitir el registro de cliente público mediante un valor `redirect_uri` de `vclient://openid/`. | 
+| Registro de cliente | Debe admitir el registro de cliente público mediante un valor `redirect_uri` de `vcclient://openid/`. | 
 | PKCE | Se recomienda por motivos de seguridad, pero no es necesario. |
 
 A continuación, se incluyen ejemplos de las solicitudes HTTP enviadas al proveedor de identidades. El proveedor de identidades debe aceptar y responder a estas solicitudes de acuerdo con el estándar de autenticación de OpenID Connect.

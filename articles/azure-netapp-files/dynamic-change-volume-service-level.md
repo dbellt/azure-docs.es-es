@@ -12,19 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 05/06/2021
 ms.author: b-juche
-ms.openlocfilehash: 7b5bbad1f0691f76c12f161d1dd1f9d6ddc43270
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d75bd3580f66d7948d28b0d9ff34e247bc51c6b5
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102184328"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795031"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>Cambio dinámico del nivel de servicio de un volumen
-
-> [!IMPORTANT] 
-> Actualmente no se admite el cambio dinámico del nivel de servicio de un volumen de destino de replicación.
 
 Puede cambiar el nivel de servicio de un volumen existente al moverlo a otro grupo de capacidad que use el [nivel de servicio](azure-netapp-files-service-levels.md) que quiere para dicho volumen. Este cambio de nivel de servicio local para el volumen no requiere que se migren los datos. Tampoco afecta al acceso al volumen.  
 
@@ -41,6 +38,8 @@ El grupo de capacidad al que quiera trasladar el volumen ya debe existir. Ademá
 ## <a name="register-the-feature"></a>Registrar la característica
 
 La característica para trasladar un volumen a otro grupo de capacidad está actualmente en versión preliminar. Si usa esta característica por primera vez, debe registrarla primero.
+
+Si tiene varias suscripciones de Azure, asegúrese de que se está registrando para la suscripción deseada mediante el comando ["Set-AzContext"](/powershell/module/az.accounts/set-azcontext). <!-- GitHub #74191 --> 
 
 1. Registre la característica: 
 

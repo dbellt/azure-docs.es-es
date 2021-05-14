@@ -1,5 +1,5 @@
 ---
-title: 'Configuración de la directiva de exportación para el volumen NFS: Azure NetApp Files'
+title: 'Configuración de la directiva de exportación para volúmenes NFS o de protocolo dual de Azure NetApp Files: Azure NetApp Files'
 description: Describe cómo configurar la directiva de exportación para controlar el acceso a un volumen NFS mediante Azure NetApp Files
 services: azure-netapp-files
 author: b-juche
@@ -8,16 +8,16 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.openlocfilehash: d3f268a4ce2660350055367770e987a06828e2d7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b71d3cc0636e5edeb78e1d88be1df2d2d61f239b
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101740127"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988467"
 ---
-# <a name="configure-export-policy-for-an-nfs-volume"></a>Configuración de la directiva de exportación para un volumen NFS
+# <a name="configure-export-policy-for-nfs-or-dual-protocol-volumes"></a>Configuración de la directiva de exportación para volúmenes NFS o de protocolo dual
 
-Puede configurar la directiva de exportación para controlar el acceso a un volumen de Azure NetApp Files. La directiva de exportación de Azure NetApp Files admite volúmenes que usan el protocolo NFS (NFSv3 y NFSv4.1) y el protocolo dual (NFSv3 y SMB). 
+Puede configurar la directiva de exportación para controlar el acceso a un volumen de Azure NetApp Files que usa el protocolo NFS (NFSv3 y NFSv4.1) o el protocolo dual (NFSv3 y SMB). 
 
 Puede crear hasta cinco reglas en la directiva de exportación.
 
@@ -49,5 +49,5 @@ Puede crear hasta cinco reglas en la directiva de exportación.
       ![Directiva de exportación](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 
 ## <a name="next-steps"></a>Pasos siguientes 
-* [Instalación o desinstalación de un volumen para máquinas virtuales](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Montaje o desmontaje de un volumen](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Administración de instantáneas](azure-netapp-files-manage-snapshots.md)

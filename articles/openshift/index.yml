@@ -9,12 +9,12 @@ metadata:
   author: jimzim
   ms.author: jzim
   ms.date: 03/06/2020
-  ms.openlocfilehash: 06c6b14d62bb471ecc6dee50d72f11469e3cd161
-  ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+  ms.openlocfilehash: 25c96daa5bdebb07eb868a5e2d5b574e14e38d96
+  ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 02/17/2021
-  ms.locfileid: "100633213"
+  ms.lasthandoff: 04/16/2021
+  ms.locfileid: "107535617"
 landingContent:
 - title: Acerca de Red Hat OpenShift en Azure
   linkLists:
@@ -26,23 +26,27 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Creación de un clúster de Red Hat OpenShift en Azure 4
+    - text: Creación de un clúster de Red Hat OpenShift en Azure
       url: tutorial-create-cluster.md
-    - text: Conexión a un clúster de Red Hat OpenShift en Azure 4
+    - text: Conexión a un clúster de Red Hat OpenShift en Azure
       url: tutorial-connect-cluster.md
-    - text: Eliminación de un clúster de Red Hat OpenShift en Azure 4
+    - text: Eliminación de un clúster de Red Hat OpenShift en Azure
       url: tutorial-delete-cluster.md
 - title: Configurar
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Creación de un clúster de Red Hat OpenShift en Azure 4 privado
-      url: ./howto-create-private-cluster-3x.md
-    - text: Configuración del reenvío de DNS para un clúster de Red Hat OpenShift en Azure 4
+    - text: Creación de un clúster de Red Hat OpenShift en Azure privado
+      url: ./howto-create-private-cluster-4x.md
+    - text: Configuración del reenvío de DNS para un clúster de Red Hat OpenShift en Azure
       url: dns-forwarding.md
-    - text: Configuración del registro de contenedor integrado para Red Hat OpenShift 4 en Azure
+    - text: Configuración del registro de contenedor integrado para Red Hat OpenShift en Azure
       url: built-in-container-registry.md
-    - text: Implementación de la aplicación Open Liberty o WebSphere Liberty en un clúster de Red Hat OpenShift 4 en Azure
+    - text: Implementación de una aplicación desde el origen
+      url: howto-deploy-with-s2i.md
+    - text: Implementación de una aplicación mediante OpenShift Serverless
+      url: howto-deploy-with-serverless.md
+    - text: Implementación de una aplicación Open Liberty o WebSphere Liberty en un clúster de Red Hat OpenShift en Azure
       url: howto-deploy-java-liberty-app.md
 - title: Referencia
   linkLists:

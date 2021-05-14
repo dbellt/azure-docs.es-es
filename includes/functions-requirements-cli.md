@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: f102a5dd5b7dccba6643176d06d17a2a65171c90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a390c0d19a37ea18f9eac8636683ec35ecbc844
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96904085"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107880311"
 ---
 ## <a name="configure-your-local-environment"></a>Configuración del entorno local
 
@@ -39,7 +39,7 @@ Antes de empezar, debe disponer de lo siguiente:
 + [Python 3.8 (64 bits)](https://www.python.org/downloads/release/python-382/), [Python 3.7 (64 bits)](https://www.python.org/downloads/release/python-375/), [Python 3.6 (64 bits)](https://www.python.org/downloads/release/python-368/), que son compatibles con Azure Functions. 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
-+ [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
++ [SDK de .NET Core 3.1](https://dotnet.microsoft.com/download).
 ::: zone-end
 ::: zone pivot="programming-language-java"  
 + [Kit para desarrolladores de Java](/azure/developer/java/fundamentals/java-jdk-long-term-support), versión 8 u 11. 

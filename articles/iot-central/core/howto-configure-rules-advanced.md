@@ -7,16 +7,14 @@ ms.date: 05/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: af6adcf408c9790b09830e986cd1cac00774a2ec
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 9cbcfa355198b94a60242503745f5cfc183e170d
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491940"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683763"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>Uso de flujos de trabajo para integrar la aplicación de Azure IoT Central con otros servicios en la nube
-
-*Este artículo se aplica a los generadores de soluciones.*
 
 Puede crear reglas en IoT Central que desencadenen acciones, como el envío de un correo electrónico, en respuesta a condiciones basadas en datos de telemetría, como la temperatura de un dispositivo que supera un umbral.
 
@@ -27,9 +25,9 @@ El conector Azure IoT Central V3 para Power Automate y Azure Logic Apps permite 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Recuerde que para completar los pasos de esta guía paso a paso, necesita una suscripción activa a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+Necesitará lo siguiente para completar los pasos de esta guía:
 
-La configuración de la solución requiere una aplicación de la versión 3 de IoT Central. Para obtener información sobre cómo comprobar la versión de la aplicación, vea [Acerca de la aplicación](./howto-get-app-info.md). Para obtener información sobre cómo crear una aplicación de IoT Central, vea [Creación de una aplicación de Azure IoT Central](./quick-deploy-iot-central.md).
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
 
 > [!NOTE]
 > Si usa una aplicación de la versión 2 de IoT Central, vea [Creación de flujos de trabajo con el conector de IoT Central en Azure Logic Apps](/previous-versions/azure/iot-central/core/howto-build-azure-logic-apps) en el sitio de documentación de las versiones anteriores y use el conector Azure IoT Central V2

@@ -9,12 +9,12 @@ ms.author: tagore
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ms.custom: ''
-ms.openlocfilehash: 58203730793202649c401d96182469fa1eac6ef1
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 2e56e3d6b5f29996d8fe9606ac9a1b3778201803
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286815"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288731"
 ---
 # <a name="common-errors-and-known-issues-when-migration-to-azure-cloud-services-extended-support"></a>Errores comunes y problemas conocidos al migrar a Azure Cloud Services (soporte extendido)
 
@@ -42,8 +42,8 @@ Errores de migración comunes y pasos de mitigación.
 | Mensaje de error | Detalles | 
 |---|---|
 | No se pudo encontrar el tipo de recurso en el espacio de nombres `Microsoft.Compute` del valor api version "2020-10-01-preview". | [Registre la suscripción](in-place-migration-overview.md#setup-access-for-migration) para la marca de características CloudServices para acceder a la versión preliminar pública. | 
-| Se produjo un error interno en el servidor. Vuelva a intentarlo. | Vuelva a intentar la operación, use [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) o póngase en contacto con el soporte técnico. | 
-| El servidor detectó un error inesperado al intentar asignar recursos de red para el servicio en la nube. Vuelva a intentarlo. | Vuelva a intentar la operación, use [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) o póngase en contacto con el soporte técnico. | 
+| Se produjo un error interno en el servidor. Vuelva a intentarlo. | Vuelva a intentar la operación, use [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html) o póngase en contacto con el soporte técnico. | 
+| El servidor detectó un error inesperado al intentar asignar recursos de red para el servicio en la nube. Vuelva a intentarlo. | Vuelva a intentar la operación, use [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html) o póngase en contacto con el soporte técnico. | 
 | La implementación nombre-de-implementación en el servicio en la nube nombre-del-servicio-en-la-nube debe estar dentro de una red virtual para poder migrarla. | La implementación no se encuentra en una red virtual. Consulte [este](in-place-migration-technical-details.md#migration-of-deployments-not-in-a-virtual-network) documento para obtener más detalles. | 
 | No se admite la migración de la implementación nombre-de-implementación en el servicio en la nube nombre-del-servicio-en-la-nube porque está en la región nombre-de-región. Regiones permitidas: [lista de regiones disponibles]. | La región todavía no se admite para la migración. | 
 | No se puede migrar la implementación nombre-de-implementación en el servicio en la nube nombre-del-servicio-en-la-nube porque no hay subredes asociadas a los roles nombre-de-rol. Asocie todos los roles con una subred y vuelva a intentar la migración del servicio en la nube. | Para actualizar la implementación de Cloud Services (clásico), colóquela en una subred antes de la migración. |  
@@ -62,11 +62,11 @@ Errores de migración comunes y pasos de mitigación.
 | Opción de destino de red virtual predeterminada no implementada. | El valor "default" no se admite para la propiedad DestinationVirtualNetwork en el cuerpo de la solicitud de REST. | 
 | No se puede migrar la implementación {0} porque CSPKG no está disponible. | Actualice la implementación y vuelva a intentarlo. | 
 | La subred con el identificador "{0}" está en una ubicación diferente a la de la implementación "{1}" en el servicio hospedado "{2}". La ubicación de la subred es "{3}"y la ubicación del servicio hospedado es "{4}".  Especifique una subred en la misma ubicación que la implementación. | Actualice el servicio en la nube para que tenga tanto la subred como el servicio en la nube en la misma ubicación antes de la migración. | 
-| La migración de la implementación {0} en HostedService {1} está en proceso de anularse y no puede cambiarse hasta que se complete correctamente. | Espere a que se complete la anulación o vuelva a intentar la anulación. Use [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) o, de lo contrario, póngase en contacto con el soporte técnico. | 
+| La migración de la implementación {0} en HostedService {1} está en proceso de anularse y no puede cambiarse hasta que se complete correctamente. | Espere a que se complete la anulación o vuelva a intentar la anulación. Use [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html) o, de lo contrario, póngase en contacto con el soporte técnico. | 
 | La implementación {0} de HostedService {1} no está preparada para la migración. | Ejecute la preparación en el servicio en la nube antes de ejecutar la operación de confirmación. | 
-| Error UnknownExceptionInEndExecute: Contract.Assert: rgName es NULL o está vacío: Excepción recibida en EndExecute que no es RdfeException. |   Use [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) o póngase en contacto con el soporte técnico. | 
-| UnknownExceptionInEndExecute: se canceló una tarea: Excepción recibida en EndExecute que no es RdfeException. | Use [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) o póngase en contacto con el soporte técnico. | 
-| XrpVirtualNetworkMigrationError: Error de migración de la red virtual. | Use [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) o póngase en contacto con el soporte técnico. | 
+| Error UnknownExceptionInEndExecute: Contract.Assert: rgName es NULL o está vacío: Excepción recibida en EndExecute que no es RdfeException. |   Use [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html) o póngase en contacto con el soporte técnico. | 
+| UnknownExceptionInEndExecute: se canceló una tarea: Excepción recibida en EndExecute que no es RdfeException. | Use [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html) o póngase en contacto con el soporte técnico. | 
+| XrpVirtualNetworkMigrationError: Error de migración de la red virtual. | Use [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html) o póngase en contacto con el soporte técnico. | 
 | La implementación {0} de HostedService {1} pertenece a la red virtual {2}. Migre la red virtual {2} para migrar este HostedService {1}. | Consulte [Migración de redes virtuales](in-place-migration-technical-details.md#virtual-network-migration). | 
 | La cuota actual para el nombre de recurso en Azure Resource Manager es insuficiente para completar la migración. La cuota actual es de {0}, el adicional necesario es de {1}. Genere una solicitud de soporte técnico para aumentar la cuota y vuelva a intentar la migración una vez que se haya aumentado la cuota.    | Siga los canales adecuados para solicitar un aumento de la cuota: <br>[Aumento de la cuota de recursos de red](../azure-portal/supportability/networking-quota-requests.md) <br>[Aumento de cuota de recursos de proceso](../azure-portal/supportability/per-vm-quota-requests.md) | 
 

@@ -5,18 +5,18 @@ services: automation
 ms.subservice: dsc
 ms.date: 04/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 95072970004ae53663f130a78af36a84a6fab685
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ff365200828b786b4cf770508e5a811983abd58
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99051505"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732747"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Introducción a Azure Automation State Configuration
 
 En este artículo se proporciona una guía paso a paso para realizar las tareas más comunes con Azure Automation State Configuration, como, por ejemplo, crear, importar y compilar configuraciones, habilitar máquinas para administrarlas y ver informes. Para una introducción a State Configuration, consulte [Introducción a State Configuration](automation-dsc-overview.md). Para obtener documentación de Desired State Configuration, consulte [Información general sobre la configuración de estado deseado de Windows PowerShell](/powershell/scripting/dsc/overview/overview).
 
-Si busca un entorno de ejemplo que ya esté configurado sin seguir los pasos descritos en este artículo, puede usar [Azure Automation Managed Node](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Esta plantilla configura un entorno completado de State Configuration (DSC), incluida una máquina virtual de Azure administrada por State Configuration (DSC).
+Si busca un entorno de ejemplo que ya esté configurado sin seguir los pasos descritos en este artículo, puede usar [Azure Automation Managed Node](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.automation/automation-configuration). Esta plantilla configura un entorno completado de State Configuration (DSC), incluida una máquina virtual de Azure administrada por State Configuration (DSC).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -216,16 +216,7 @@ Puede asignar un nodo para que use una configuración de nodo diferente a la que
 
 ## <a name="unregister-a-node"></a>Anular el registro de un nodo
 
-Si ya no desea que State Configuration administre un nodo, puede anular su registro.
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. A la izquierda, haga clic en **Todos los recursos** y, luego, en el nombre de la cuenta de Automation.
-1. En la página Cuenta de Automation, haga clic en **State configuration (DSC)** en **Administración de configuración**.
-1. En la página State configuration (DSC), haga clic en la pestaña **Nodos**.
-1. En la pestaña **Nodos**, haga clic en el nombre del nodo cuyo registro desea anular.
-1. En el panel de dicho nodo, haga clic en **Anular registro**.
-
-    ![Captura de pantalla de la página de detalles del nodo donde se resalta el botón Anular registro](./media/automation-dsc-getting-started/UnregisterNode.png)
+Si ya no desea que State Configuration administre un nodo, puede anular su registro. Consulte [Cómo quitar una configuración y un nodo de Automation State Configuration](./state-configuration/remove-node-and-configuration-package.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

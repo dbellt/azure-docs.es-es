@@ -3,7 +3,6 @@ title: 'Plantillas de inicio rápido de Azure: Establecimiento y recuperación d
 description: Inicio rápido en el que se muestra cómo establecer y recuperar un certificado de Azure Key Vault mediante Azure Portal
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
@@ -11,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e55c0832638105ad681f74cbeb6429a6704b7fb2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b7a3126aef94ccdef7f6c9120ddeb6f20d872ab5
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97935145"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815781"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>Inicio rápido: Establecimiento y recuperación de un certificado de Azure Key Vault mediante Azure Portal
 
@@ -61,7 +60,8 @@ Para agregar un certificado al almacén, no tiene más que realizar un par de pa
     - **Método de creación de certificados**: Generar.
     - **Nombre del certificado**: ExampleCertificate.
     - **Firmante**: CN=ExampleDomain
-    - Deje las restantes opciones con sus valores predeterminados. Haga clic en **Crear**.
+    - Deje las restantes opciones con sus valores predeterminados. (De forma predeterminada, si no especifica nada especial en directiva avanzada, se podrá usar como certificado de autenticación de cliente).
+ 4. Haga clic en **Crear**.
 
 Una vez que haya recibido el mensaje de que el certificado se ha creado correctamente, puede hacer clic en él en la lista. A continuación, puede ver algunas de las propiedades. Si hace clic en la versión actual puede ver el valor especificado en el paso anterior.
 
@@ -88,4 +88,4 @@ En este inicio rápido ha creado una instancia de Key Vault y ha almacenado un c
 
 - Lea una [introducción a Azure Key Vault](../general/overview.md).
 - Consulte la [guía del desarrollador de Azure Key Vault](../general/developers-guide.md).
-- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-overview.md)
+- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-features.md)

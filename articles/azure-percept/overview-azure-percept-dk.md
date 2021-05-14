@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: b20448a88cee6c4ea4af0bcbfaa6ec465f2e28bb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5c510bbe6717b37664ac67ea7d10c79d1af74d78
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105560971"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128368"
 ---
 # <a name="azure-percept-dk-overview"></a>Introducción a Azure Percept DK
 
@@ -31,7 +31,7 @@ Azure Percept DK es un kit de desarrollo de inteligencia artificial y perimetra
 
 - Seguridad de la raíz de confianza del hardware integrada. Más información sobre la [seguridad de Azure Percept](./overview-percept-security.md).
 
-- Integración perfecta con [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) y otros servicios de Azure, como Azure IoT Hub, Azure Cognitive Services y [Live Video Analytics](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview).
+- Integración perfecta con [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) y otros servicios de Azure, como Azure IoT Hub, Azure Cognitive Services y [Live Video Analytics](../media-services/live-video-analytics-edge/overview.md).
 
 - Compatible con [Azure Percept Audio](./overview-azure-percept-audio.md), un accesorio opcional para la creación de soluciones de inteligencia artificial para audio.
 

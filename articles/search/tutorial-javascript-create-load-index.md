@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: devx-track-js
 ms.devlang: javascript
-ms.openlocfilehash: 0fd28262f4a4b852386fa354037e69c5097109c5
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: ef48074c5346374b12eb5a3a3aea50b2c753a082
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104723587"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950305"
 ---
 # <a name="2---create-and-load-search-index-with-javascript"></a>2 - Creación y carga de índices de búsqueda con JavaScript
 
@@ -61,14 +61,14 @@ El script utiliza el SDK de Azure para Cognitive Search:
 * [Paquete npm @azure/search-documents](https://www.npmjs.com/package/@azure/search-documents)
 * [Documentación de referencia](/javascript/api/overview/azure/search-documents-readme)
 
-1. En Visual Studio Code, abra el archivo `bulk_insert_books.js` del subdirectorio, `search-web/bulk-insert`, y reemplace las siguientes variables por sus propios valores para autenticarse con el SDK de Azure Search:
+1. En Visual Studio Code, abra el archivo `bulk_insert_books.js` del subdirectorio, `search-website/bulk-insert`, y reemplace las siguientes variables por sus propios valores para autenticarse con el SDK de Azure Search:
 
     * YOUR-SEARCH-RESOURCE-NAME
     * YOUR-SEARCH-ADMIN-KEY
 
     :::code language="javascript" source="~/azure-search-javascript-samples/search-website/bulk-insert/bulk_insert_books.js" highlight="16,17" :::
 
-1. Abra un terminal integrado en Visual Studio para el subdirectorio del directorio del proyecto, `search-web/bulk-insert`, y ejecute el siguiente comando para instalar las dependencias. 
+1. Abra un terminal integrado en Visual Studio para el subdirectorio del directorio del proyecto, `search-website/bulk-insert`, y ejecute el siguiente comando para instalar las dependencias. 
 
     ```bash
     npm install 
@@ -76,7 +76,7 @@ El script utiliza el SDK de Azure para Cognitive Search:
 
 ## <a name="run-the-bulk-import-script-for-search"></a>Ejecución del script de importación en bloque para Search
 
-1. Siga utilizando el terminal integrado en Visual Studio para el subdirectorio del directorio del proyecto, `search-web/bulk-insert`, a fin de ejecutar el siguiente comando de Bash para ejecutar el script `bulk_insert_books.js`:
+1. Siga utilizando el terminal integrado en Visual Studio para el subdirectorio del directorio del proyecto, `search-website/bulk-insert`, a fin de ejecutar el siguiente comando de Bash para ejecutar el script `bulk_insert_books.js`:
 
     ```javascript
     npm start

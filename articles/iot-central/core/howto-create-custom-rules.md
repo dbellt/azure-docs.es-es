@@ -1,20 +1,20 @@
 ---
 title: Ampliación de Azure IoT Central con notificaciones y reglas personalizadas | Microsoft Docs
 description: Como desarrollador de soluciones, configure una aplicación de IoT Central para enviar notificaciones por correo electrónico cuando un dispositivo deja de enviar datos de telemetría. Esta solución utiliza Azure Stream Analytics, Azure Functions y SendGrid.
-author: TheJasonAndrew
-ms.author: v-anjaso
+author: philmea
+ms.author: philmea
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: 6146676121bac0089d5f520d60a97d74567a32bc
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: a65d9dbaed4d197c2e0843e73ff3f45b8678017e
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102179347"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864224"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Extensión de Azure IoT Central con reglas personalizadas mediante Stream Analytics, Azure Functions y SendGrid
 
@@ -119,28 +119,26 @@ Puede configurar una aplicación de IoT Central para la exportación continua de
 
 El espacio de nombres de Event Hubs se parece a la captura de pantalla siguiente: 
 
-:::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace.png" alt-text="Captura de pantalla del espacio de nombres de Event Hubs." border="false":::
+```:::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace.png" alt-text="Screenshot of Event Hubs namespace." border="false":::
 
+## Define the function
 
-## <a name="define-the-function"></a>Definición de la función
+This solution uses an Azure Functions app to send an email notification when the Stream Analytics job detects a stopped device. To create your function app:
 
-Esta solución usa una aplicación de Azure Functions para enviar una notificación por correo electrónico cuando el trabajo de Stream Analytics detecta un dispositivo detenido. Para crear la aplicación de función:
+1. In the Azure portal, navigate to the **App Service** instance in the **DetectStoppedDevices** resource group.
+1. Select **+** to create a new function.
+1. Select **HTTP Trigger**.
+1. Select **Add**.
 
-1. En Azure Portal, vaya a la instancia de **App Service** en el grupo de recursos **DetectStoppedDevices**.
-1. Seleccione **+** para crear una nueva función.
-1. Seleccione **HTTP Trigger** (Desencadenador HTTP).
-1. Seleccione **Agregar**.
+    :::image type="content" source="media/howto-create-custom-rules/add-function.png" alt-text="Image of the Default HTTP trigger function"::: 
 
-    :::image type="content" source="media/howto-create-custom-rules/add-function.png" alt-text="Imagen de la función de desencadenador HTTP predeterminada"::: 
+## Edit code for HTTP Trigger
 
-## <a name="edit-code-for-http-trigger"></a>Edición de código para el desencadenador HTTP
+The portal creates a default function called **HttpTrigger1**:
 
-El portal crea una función predeterminada denominada **HttpTrigger1**:
+```:::image type="content" source="media/howto-create-custom-rules/default-function.png" alt-text="Screenshot of Edit HTTP trigger function.":::
 
-:::image type="content" source="media/howto-create-custom-rules/default-function.png" alt-text="Captura de pantalla de edición de la función de desencadenador HTTP.":::
-
-
-1. Reemplace el código de C# por el siguiente código:
+1. Replace the C# code with the following code:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -179,50 +177,50 @@ El portal crea una función predeterminada denominada **HttpTrigger1**:
     }
     ```
 
-    Es posible que vea un mensaje de error hasta que guarde el nuevo código.
-1. Seleccione **Guardar** para guardar la función.
+    You may see an error message until you save the new code.
+1. Select **Save** to save the function.
 
-## <a name="add-sendgrid-key"></a>Adición de una clave de SendGrid
+## Add SendGrid Key
 
-Para agregar la clave de API de SendGrid, debe agregarla a las **claves de función** de la siguiente manera:
+To add your SendGrid API Key, you need to add it to your **Function Keys** as follows:
 
-1. Seleccione **Claves de función**.
-1. Elija **+ Nueva clave de función**.
-1. Escriba el *nombre* y el *valor* de la clave de API que creó antes.
-1. Haga clic en **Aceptar**.
+1. Select **Function Keys**.
+1. Choose **+ New Function Key**.
+1. Enter the *Name* and *Value* of the API Key you created before.
+1. Click **OK.**
 
-    :::image type="content" source="media/howto-create-custom-rules/add-key.png" alt-text="Captura de pantalla de adición de una clave de SendGrid.":::
+    :::image type="content" source="media/howto-create-custom-rules/add-key.png" alt-text="Screenshot of Add Sangrid Key.":::
 
 
-## <a name="configure-httptrigger-function-to-use-sendgrid"></a>Configuración de la función HttpTrigger para usar SendGrid
+## Configure HttpTrigger function to use SendGrid
 
-Para enviar correos electrónicos con SendGrid, tiene que configurar los enlaces de la función como sigue:
+To send emails with SendGrid, you need to configure the bindings for your function as follows:
 
-1. Haga clic en **Integrar**.
-1. Elija **Agregar salida** en **HTTP ($return)** .
-1. Seleccione **Eliminar**.
-1. Elija **+ Nueva salida**.
-1. Como tipo de enlace, elija **SendGrid**.
-1. Como tipo de configuración de clave de API de SendGrid, haga clic en Nuevo.
-1. Escriba el *nombre* y el *valor* de la clave de API de SendGrid.
-1. Agregue la siguiente información:
+1. Select **Integrate**.
+1. Choose **Add Output** under **HTTP ($return)**.
+1. Select **Delete.**
+1. Choose **+ New Output**.
+1. For Binding Type, then choose **SendGrid**.
+1. For SendGrid API Key Setting Type, click New.
+1. Enter the *Name* and *Value* of your SendGrid API key.
+1. Add the following information:
 
-| Configuración | Valor |
+| Setting | Value |
 | ------- | ----- |
-| Nombre del parámetro de mensaje | Elija el nombre. |
-| Dirección de destino | Elija el nombre de la dirección de destino. |
-| Dirección De | Elija el nombre de la dirección de origen. |
-| Asunto del mensaje | Escriba el encabezado del asunto. |
-| Texto del mensaje | Escriba el mensaje de la integración. |
+| Message parameter name | Choose your name |
+| To address | Choose the name of your To Address |
+| From address | Choose the name of your From Address |
+| Message subject | Enter your subject header |
+| Message text | Enter the message from your integration |
 
-1. Seleccione **Aceptar**.
+1. Select **OK**.
 
-    :::image type="content" source="media/howto-create-custom-rules/add-output.png" alt-text="Captura de pantalla de adición de salida de SendGrid.":::
+    :::image type="content" source="media/howto-create-custom-rules/add-output.png" alt-text="Screenshot of Add SandGrid Output.":::
 
 
-### <a name="test-the-function-works"></a>Prueba del funcionamiento de la función
+### Test the function works
 
-Para probar la función en el portal, elija **Registros** en la parte inferior del editor de código. A continuación, elija **Probar** a la derecha del editor de código. Use el siguiente archivo JSON como **Cuerpo de la solicitud**:
+To test the function in the portal, first choose **Logs** at the bottom of the code editor. Then choose **Test** to the right of the code editor. Use the following JSON as the **Request body**:
 
 ```json
 [{"deviceid":"test-device-1","time":"2019-05-02T14:23:39.527Z"},{"deviceid":"test-device-2","time":"2019-05-02T14:23:50.717Z"},{"deviceid":"test-device-3","time":"2019-05-02T14:24:28.919Z"}]
@@ -230,9 +228,9 @@ Para probar la función en el portal, elija **Registros** en la parte inferior d
 
 Los mensajes del registro de la función aparecen en el panel **Registros**:
 
-:::image type="content" source="media/howto-create-custom-rules/function-app-logs.png" alt-text="Salida del registro de función":::
+```:::image type="content" source="media/howto-create-custom-rules/function-app-logs.png" alt-text="Function log output":::
 
-Después de unos minutos, la dirección de correo electrónico de **destino** recibe un correo electrónico con el siguiente contenido:
+After a few minutes, the **To** email address receives an email with the following content:
 
 ```txt
 The following device(s) have stopped sending telemetry:

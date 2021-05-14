@@ -5,18 +5,18 @@ description: Aprenda a utilizar el acceso a datos basado en identidades para con
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.author: sihhu
-author: MayMSFT
+ms.topic: how-to
+ms.author: yogipandey
+author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 02/22/2021
-ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: a46f54bd037dcf8d71ba3fbafb2ba0fd961a32cc
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.custom: contperf-fy21q1, devx-track-python, data4ml
+ms.openlocfilehash: 2ca7eec3bcc40d5c0f93c43cc32b9395feb1e5d0
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210659"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790422"
 ---
 # <a name="connect-to-storage-by-using-identity-based-data-access-preview"></a>Conexión al almacenamiento mediante el acceso a datos basado en identidades (versión preliminar)
 

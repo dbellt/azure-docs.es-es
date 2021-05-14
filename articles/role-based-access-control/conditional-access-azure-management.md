@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: 2a52635dbaa7a76034f3a535b099320a901e8c07
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 79c7171db1ac80126dcf1174f8b303b5b99da615
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83758782"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751588"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Administración el acceso a la administración de Azure con acceso condicional
 
@@ -44,6 +44,11 @@ La Directiva que se crea se aplica a todos los puntos de conexión de administra
 - Portal de administrador de suscripciones de Visual Studio
 - Azure DevOps
 - Portal de Azure Data Factory
+- Azure Event Hubs
+- Azure Service Bus
+- [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/conditional-access-configure)
+- Instancia administrada de SQL
+- Azure Synapse
 
 Tenga en cuenta que la directiva se aplica a Azure PowerShell, que llama a la API de Azure Resource Manager. No es aplicable a [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), que llama a Microsoft Graph.
 

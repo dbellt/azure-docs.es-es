@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 1/25/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2545915edf9e39b63100a2bb16bd34fa6777675c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ff1589eb496cbc4482aaf93dfd4f0faeeda5e9cd
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100473477"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208876"
 ---
 # <a name="enable-private-access-with-private-link-preview-azure-portal"></a>Habilitación del acceso privado con Private Link (versión preliminar): Azure portal
 
@@ -20,7 +20,7 @@ ms.locfileid: "100473477"
 
 En este artículo se describen las distintas formas de [habilitar Private Link con un punto de conexión privado para una instancia de Azure Digital Twins](concepts-security.md#private-network-access-with-azure-private-link-preview) (actualmente en versión preliminar). La configuración de un punto de conexión privado para la instancia de Azure Digital Twins le permite protegerla y eliminar la exposición pública, además de evitar la filtración de datos desde la instancia de [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md).
 
-En este artículo se describe el proceso que utiliza [**Azure Portal**](https://portal.azure.com).
+En este artículo se describe el proceso que utiliza [Azure Portal](https://portal.azure.com).
 
 Estos son los pasos que se describen en este artículo: 
 1. Activación de Private Link y configuración de un punto de conexión privado para una instancia de Azure Digital Twins.
@@ -28,7 +28,7 @@ Estos son los pasos que se describen en este artículo:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para poder configurar un punto de conexión privado, necesitará una [**red virtual de Azure (VNet)**](../virtual-network/virtual-networks-overview.md) en la que se pueda implementar el punto de conexión. Si todavía no tiene una red virtual, puede seguir uno de los [inicios rápidos](../virtual-network/quick-create-portal.md) de Azure Virtual Network para configurarla.
+Para poder configurar un punto de conexión privado, necesitará una [red virtual de Azure (VNet)](../virtual-network/virtual-networks-overview.md)  en la que se pueda implementar el punto de conexión. Si todavía no tiene una red virtual, puede seguir uno de los [inicios rápidos](../virtual-network/quick-create-portal.md) de Azure Virtual Network para configurarla.
 
 ## <a name="add-a-private-endpoint-for-an-azure-digital-twins-instance"></a>Adición de un punto de conexión privado para una instancia de Azure Digital Twins 
 
@@ -43,7 +43,7 @@ Cualquiera de estos métodos de creación proporcionará las mismas opciones de 
 
 ### <a name="add-a-private-endpoint-during-instance-creation"></a>Adición de un punto de conexión privado durante la creación de la instancia
 
-En esta sección, habilitará Private Link con un punto de conexión privado en una instancia de Azure Digital Twins que se está creando actualmente. Esta sección se centra en el paso de red del proceso de creación; para obtener un tutorial completo sobre la creación de una instancia de Azure Digital Twins, vea [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-portal.md).
+En esta sección, habilitará Private Link con un punto de conexión privado en una instancia de Azure Digital Twins que se está creando actualmente. Esta sección se centra en el paso de red del proceso de creación; para obtener un tutorial completo sobre la creación de una instancia de Azure Digital Twins, vea [Procedimiento: Configuración de una instancia y autenticación](how-to-set-up-instance-portal.md).
 
 Las opciones de Private Link se encuentran en la pestaña **Redes** de configuración de la instancia.
 
@@ -148,4 +148,4 @@ Para deshabilitar o habilitar el acceso a la red pública en [Azure Portal](http
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información sobre Private Link para Azure: 
-* [*¿Qué es el servicio Azure Private Link?*](../private-link/private-link-service-overview.md)
+* [¿Qué es el servicio Azure Private Link?](../private-link/private-link-service-overview.md)

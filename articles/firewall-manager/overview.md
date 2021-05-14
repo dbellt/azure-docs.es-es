@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 03/29/2021
+ms.date: 04/29/2021
 ms.author: victorh
-ms.openlocfilehash: 6725bea562d3e7841b5ab82acc0a54f91f0488b4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a9f63b41afebc12566c8cc2e04664850203f1e5a
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732931"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279935"
 ---
 # <a name="what-is-azure-firewall-manager"></a>¿Qué es Azure Firewall Manager?
 
@@ -88,7 +88,6 @@ Azure Firewall Manager presenta los siguientes problemas conocidos:
 |Error en la incorporación en masa de direcciones IP|El firewall del centro de conectividad seguro pasa al estado con errores si se agregan varias direcciones IP públicas.|Agregue incrementos menores de direcciones IP públicas. Por ejemplo, agréguelas de 10 en 10.|
 |La versión Estándar de DDoS Protection no es compatible con los centros virtuales protegidos|La versión Estándar de DDoS Protection no se integra con las vWAN.|Investigando|
 |Los registros de actividad no son totalmente compatibles|La directiva de firewall no admite actualmente registros de actividad.|Investigando|
-|Algunas configuraciones de firewall no se migran cuando se migra el firewall para usar la directiva de firewall|Las zonas de disponibilidad y las direcciones privadas SNAT no se migran al migrar a la directiva de Azure Firewall.|Investigando| 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

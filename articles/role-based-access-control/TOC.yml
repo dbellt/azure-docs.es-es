@@ -5,6 +5,8 @@
   items:
     - name: ¿Qué es Azure RBAC?
       href: overview.md
+    - name: ¿Qué es Azure ABAC?
+      href: conditions-overview.md
     - name: Descripción de los distintos roles
       href: rbac-and-directory-admin-roles.md
 - name: Guías de inicio rápido
@@ -34,13 +36,23 @@
       href: scope-overview.md
     - name: Procedimientos recomendados
       href: best-practices.md
-    - name: Acceso condicional para la administración de Azure
-      href: conditional-access-azure-management.md
+    - name: Condiciones
+      items:
+        - name: Formato de condición
+          href: conditions-format.md
+        - name: Condiciones de ejemplo
+          href: ../storage/common/storage-auth-abac-examples.md?toc=%2fazure%2frole-based-access-control%2ftoc.json
+        - name: Requisitos previos de las condiciones
+          href: conditions-prerequisites.md
+        - name: Preguntas más frecuentes sobre las condiciones
+          href: conditions-faq.md
     - name: Seguridad
       items:
         - name: Controles de seguridad de Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
+    - name: Acceso condicional para la administración de Azure
+      href: conditional-access-azure-management.md
 - name: Guías paso a paso
   items:
     - name: Lista de definiciones de roles
@@ -71,13 +83,25 @@
               href: role-assignments-external-users.md
         - name: PowerShell
           href: role-assignments-powershell.md
-        - name: Azure CLI
+        - name: CLI
           href: role-assignments-cli.md
         - name: API DE REST
           href: role-assignments-rest.md
         - name: Plantilla ARM
           displayName: Resource Manager
           href: role-assignments-template.md
+    - name: Incorporación o edición de condiciones
+      items:
+        - name: Portal
+          href: conditions-role-assignments-portal.md
+        - name: PowerShell
+          href: conditions-role-assignments-powershell.md
+        - name: CLI
+          href: conditions-role-assignments-cli.md
+        - name: API DE REST
+          href: conditions-role-assignments-rest.md
+        - name: Solución de problemas de condiciones
+          href: conditions-troubleshoot.md
     - name: Eliminación de asignaciones de rol
       href: role-assignments-remove.md
     - name: Enumeración de asignaciones de denegación
@@ -98,7 +122,7 @@
           href: custom-roles-portal.md
         - name: PowerShell
           href: custom-roles-powershell.md
-        - name: Azure CLI
+        - name: CLI
           href: custom-roles-cli.md
         - name: API DE REST
           href: custom-roles-rest.md
@@ -125,7 +149,7 @@
       href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-role-based-access-control-limits
     - name: Azure PowerShell
       href: /powershell/module/az.resources
-    - name: Azure CLI
+    - name: CLI
       href: /cli/azure/role
     - name: API DE REST
       href: /rest/api/authorization/

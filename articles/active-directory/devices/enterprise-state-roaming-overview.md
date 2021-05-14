@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c22baf0a08718883f0c0c9844cc395f607b5b20d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5cd64a9372f8f987ae79ed6c2927d179d71d141c
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "77194286"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286589"
 ---
 # <a name="what-is-enterprise-state-roaming"></a>¿Qué es Enterprise State Roaming?
 
@@ -31,7 +31,7 @@ Enterprise State Roaming está disponible en varias regiones de Azure. En la pá
 | Artículo | Descripción |
 | --- | --- |
 | [Habilitación de Enterprise State Roaming en Azure Active Directory](enterprise-state-roaming-enable.md) |Enterprise State Roaming está disponible para cualquier organización con una suscripción Premium de Azure Active Directory (Azure AD). Para más información acerca de cómo obtener una suscripción de Azure AD, consulte la [página de producto de Azure AD](https://azure.microsoft.com/services/active-directory). |
-| [Preguntas más frecuentes sobre itinerancia de datos y configuración](enterprise-state-roaming-faqs.md) |Este artículo responde a algunas preguntas que los administradores de TI podrían tener sobre la sincronización de datos de aplicación y la configuración. |
+| [Preguntas más frecuentes sobre itinerancia de datos y configuración](enterprise-state-roaming-faqs.yml) |Este artículo responde a algunas preguntas que los administradores de TI podrían tener sobre la sincronización de datos de aplicación y la configuración. |
 | [Configuración de MDM y directivas de grupo](enterprise-state-roaming-group-policy-settings.md) |Windows 10 proporciona configuración de la directiva de directiva de grupo y de administración de dispositivos móviles (MDM) para limitar la sincronización de configuración. |
 | [Referencia de la configuración de movilidad de Windows 10](enterprise-state-roaming-windows-settings-reference.md) |Una lista de opciones de configuración que se movilizan o de las que se realiza una copia de seguridad en Windows 10. |
 | [Solución de problemas](enterprise-state-roaming-troubleshooting.md) |En este artículo se llevan a cabo algunos pasos básicos de solución de problemas y en él se incluye una lista de problemas conocidos. |

@@ -9,12 +9,12 @@ ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 08/25/2020
-ms.openlocfilehash: 45fbc1f85c5d7f66716fbf69deb430ce74575435
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: bf602cabaef92bfa9096ab3225f0f6d726617776
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107388506"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136686"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-database"></a>Guía de migración: de Oracle a Azure SQL Database
 
@@ -22,7 +22,7 @@ ms.locfileid: "107388506"
 
 Con esta guía [aprenderá a migrar](https://azure.microsoft.com/migration/migration-journey) sus esquemas de Oracle a Azure SQL Database mediante [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant para Oracle (SSMA para Oracle).
 
-Para ver otras guías de migración, consulte la [Guía de Azure Database Migration](https://docs.microsoft.com/data-migration).
+Para ver otras guías de migración, consulte la [Guía de Azure Database Migration](/data-migration).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -44,7 +44,7 @@ Al usar SSMA para Oracle, puede revisar los objetos y datos de base de datos, ev
 Para crear una evaluación:
 
 1. Abra [SSMA para Oracle](https://www.microsoft.com/download/details.aspx?id=54258).
-1. Seleccione **Archivo** y, a continuación, **Nuevo proyecto**.
+1. Seleccione **Archivo** y, a continuación, seleccione **Nuevo proyecto**.
 1. Escriba el nombre del proyecto y elija una ubicación para guardar el proyecto. Después, seleccione **Azure SQL Database** como destino de la migración en la lista desplegable y seleccione **Aceptar**.
 
    ![Captura de pantalla que muestra el cuadro de diálogo Conectarse a Oracle.](./media/oracle-to-sql-database-guide/connect-to-oracle.png)

@@ -3,18 +3,18 @@ title: Representación de datos personalizados en un mapa de trama | Microsoft A
 description: Aprenda a agregar chinchetas, etiquetas y formas geométricas a un mapa de tramas. Vea cómo usar el servicio de imágenes estáticas de Azure Maps para este fin.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 04/26/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5c70835c11bafb3fd06645ba51099b33d1eb6149
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 80919473d5d3f4b34ce8d621d82bf4bc458b8b58
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96906087"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326856"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Representación de datos personalizados en un mapa de trama
 
@@ -35,7 +35,7 @@ Para completar los procedimientos descritos en este artículo, primero debe crea
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>Representación de marcadores con etiquetas e imágenes personalizadas
 
 > [!Note]
-> El procedimiento descrito en esta sección requiere una cuenta de Azure Maps en el plan de tarifa S0 o S1.
+> El procedimiento descrito en esta sección requiere una cuenta de Azure Maps en el plan de tarifa Gen 1 o Gen 2.
 
 El nivel S0 de la cuenta de Azure Maps solo admite una única instancia del parámetro `pins`. Permite representar hasta cinco marcadores, especificados en la solicitud de dirección URL, con una imagen personalizada.
 
@@ -60,7 +60,7 @@ Para representar los marcadores con etiquetas y una imagen personalizada, siga e
 ## <a name="get-data-from-azure-maps-data-storage"></a>Obtener datos del almacenamiento de datos de Azure Maps
 
 > [!Note]
-> El procedimiento descrito en esta sección requiere una cuenta de Azure Maps en el plan de tarifa S1.
+> El procedimiento descrito en esta sección requiere una cuenta de Azure Maps en el plan de tarifa Gen 1 (S1) o Gen 2.
 
 También puede obtener la información de ubicación de ruta de acceso y de pin mediante la [API de carga de datos](/rest/api/maps/data/uploadpreview). Siga los pasos descritos a continuación para cargar los datos de la ruta de acceso y de los marcadores.
 
@@ -169,7 +169,7 @@ También puede obtener la información de ubicación de ruta de acceso y de pin 
 ## <a name="render-a-polygon-with-color-and-opacity"></a>Representación de un polígono con color y opacidad
 
 > [!Note]
-> El procedimiento descrito en esta sección requiere una cuenta de Azure Maps en el plan de tarifa S1.
+> El procedimiento descrito en esta sección requiere una cuenta de Azure Maps en el plan de tarifa Gen 1 (S1) o Gen 2.
 
 
 Puede modificar la apariencia de un polígono mediante el uso de modificadores de estilo con el [parámetro path](/rest/api/maps/render/getmapimage#uri-parameters).
@@ -189,7 +189,7 @@ Puede modificar la apariencia de un polígono mediante el uso de modificadores d
 ## <a name="render-a-circle-and-pushpins-with-custom-labels"></a>Representación de un círculo y marcadores con etiquetas personalizadas
 
 > [!Note]
-> El procedimiento descrito en esta sección requiere una cuenta de Azure Maps en el plan de tarifa S1.
+> El procedimiento descrito en esta sección requiere una cuenta de Azure Maps en el plan de tarifa Gen 1 (S1) o Gen 2.
 
 
 Puede aplicar modificadores de estilo para modificar la apariencia de los marcadores. Por ejemplo, para hacer que los marcadores y sus etiquetas sean mayores o menores, use el modificador "estilo de escala" `sc`. Este modificador toma un valor que es mayor que cero. Un valor de 1 es la escala estándar. Los valores mayores que 1 aumentarán el tamaño de los marcadores, mientras que los valores menores que 1 reducirán su tamaño. Para más información sobre los modificadores de estilo, consulte los [parámetros path del servicio de imagen estática](/rest/api/maps/render/getmapimage#uri-parameters).

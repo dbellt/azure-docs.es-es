@@ -4,12 +4,12 @@ description: Supervise las llamadas de dependencia de su aplicación web o local
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 124b8d3de59d1645379d50360e69a5fdbd5587e5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: e832da335453151ee60a458cb259d4add15d6e1d
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045299"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228182"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Seguimiento de dependencias en Azure Application Insights 
 
@@ -29,7 +29,7 @@ Los SDK de Application Insights para .NET y .NET Core se suministran con `Depend
 |[Azure Storage (blobs, tablas, colas)](https://www.nuget.org/packages/WindowsAzure.Storage/) | Llamadas realizadas con el cliente de Azure Storage. |
 |[SDK de cliente de EventHub](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | Versión 1.1.0 y posteriores. |
 |[SDK de cliente de Service Bus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Versión 3.0.0 y posteriores. |
-|Azure Cosmos DB | Se realiza un seguimiento automático solo si se usa HTTP/HTTPS. Application Insights no capturará el modo TCP. |
+|Azure Cosmos DB | Se realiza un seguimiento automático solo si se usa HTTP/HTTPS. Application Insights no capturará el modo TCP. |
 
 Si falta una dependencia o está usando un SDK diferente, asegúrese de que se encuentra en la lista de [dependencias recopiladas automáticamente](./auto-collect-dependencies.md). Si la dependencia no se recopila automáticamente, todavía puede realizar un seguimiento manual con una [llamada a TrackDependency ](./api-custom-events-metrics.md#trackdependency).
 
@@ -90,7 +90,7 @@ Para las páginas web, el SDK de JavaScript de Application Insights recopila aut
 ## <a name="advanced-sql-tracking-to-get-full-sql-query"></a>Seguimiento de SQL avanzado para obtener la consulta SQL completa
 
 > [!NOTE]
-> Azure Functions requiere una configuración independiente para habilitar la recopilación de texto de SQL, consulte la [configuración de la supervisión de Azure Functions](../../azure-functions/configure-monitoring.md) para obtener más información.
+> Azure Functions requiere una configuración independiente para habilitar la colección de texto de SQL: dentro de [host.jsen](../../azure-functions/functions-host-json.md#applicationinsights) establezca `"EnableDependencyTracking": true,` y `"DependencyTrackingOptions": { "enableSqlCommandTextInstrumentation": true }` en `applicationInsights`.
 
 Para las llamadas SQL, el nombre del servidor y la base de datos siempre se recopilan y almacenan como el nombre de la `DependencyTelemetry` recopilada. Hay un campo adicional denominado "data", que puede contener el texto completo de la consulta SQL.
 

@@ -3,12 +3,13 @@ title: Sintaxis y expresiones de plantillas
 description: En este artículo se describe la sintaxis JSON declarativa de las plantillas de Azure Resource Manager (plantillas de ARM).
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.openlocfilehash: 44a386ed849771dfba717c8d1414e64422d0c7bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0c010d71217dcae23348098355bf1752ffc43337
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97797050"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108314902"
 ---
 # <a name="syntax-and-expressions-in-arm-templates"></a>Sintaxis y expresiones en las plantillas de ARM
 

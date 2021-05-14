@@ -1,17 +1,17 @@
 ---
 title: Introducción a las transformaciones en el flujo de datos de asignación
 description: Información general sobre las distintas transformaciones disponibles en el flujo de datos de asignación
-author: dcstwh
-ms.author: weetok
+author: kromerm
+ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: bb5021c0125c3140ef44a1ec3304b9d0ac40c30f
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: ebcb3298419fe53fe44418ce5f8147ed619becee
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060234"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903651"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Introducción a las transformaciones en el flujo de datos de asignación
 

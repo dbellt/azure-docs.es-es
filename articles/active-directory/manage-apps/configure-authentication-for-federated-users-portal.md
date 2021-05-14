@@ -12,12 +12,12 @@ ms.date: 02/12/2021
 ms.author: iangithinji
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1af80979a4712f6d25d994835128f9d5d2205f42
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: d4dc415d4ce7b32c1581618c7a351110af8edaa3
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534728"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108160770"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configuración del comportamiento de inicio de sesión de Azure Active Directory de una aplicación mediante una directiva de detección del dominio de inicio
 
@@ -39,7 +39,7 @@ Es posible que el usuario sea dirigido a uno de los siguientes proveedores de id
 
 ## <a name="auto-acceleration"></a>Aceleración automática
 
-Algunas organizaciones configuran dominios en su inquilino de Azure Active Directory para federarlos con otro IdP, como AD FS, y así poder realizar la autenticación de usuario.  
+Algunas organizaciones configuran dominios en su inquilino de Azure Active Directory para federarlos con otro IdP, como AD FS, y así poder realizar la autenticación de usuario.
 
 Cuando un usuario inicia sesión en una aplicación, en primer lugar se le muestra una página de inicio de sesión de Azure AD. Una vez que escribe su UPN, si está en un dominio federado, se le redirige a la página de inicio de sesión del IdP que sirve a ese dominio. En determinadas circunstancias, es posible que los administradores quieran dirigir a los usuarios a la página de inicio de sesión cuando inician sesión en aplicaciones específicas.
 
@@ -47,8 +47,8 @@ Como resultado, los usuarios pueden omitir la página inicial de Azure Active Di
 
 En casos donde el inquilino está federado a otro IdP para el inicio de sesión, la aceleración automática simplifica más el inicio de sesión del usuario.  Puede configurar la aceleración automática en aplicaciones individuales.
 
->[!NOTE]
->Si configura una aplicación para la aceleración automática, los usuarios no podrán usar credenciales administradas (como FIDO) y los usuarios invitados no podrán iniciar sesión. Si lleva a un usuario directamente a un IdP federado para que se autentique, este no podrá volver a la página de inicio de sesión de Azure Active Directory. Los usuarios invitados, que es posible que deban dirigirse a otros inquilinos o a un IdP externo, como una cuenta de Microsoft, no pueden iniciar sesión en esa aplicación porque omiten el paso de detección del dominio de inicio.  
+> [!NOTE]
+> Si configura una aplicación para la aceleración automática, los usuarios no podrán usar credenciales administradas (como FIDO) y los usuarios invitados no podrán iniciar sesión. Si lleva a un usuario directamente a un IdP federado para que se autentique, este no podrá volver a la página de inicio de sesión de Azure Active Directory. Los usuarios invitados, que es posible que deban dirigirse a otros inquilinos o a un IdP externo, como una cuenta de Microsoft, no pueden iniciar sesión en esa aplicación porque omiten el paso de detección del dominio de inicio.
 
 Hay tres formas de controlar la aceleración automática en un IdP federado:
 
@@ -58,7 +58,7 @@ Hay tres formas de controlar la aceleración automática en un IdP federado:
 
 ### <a name="domain-hints"></a>Sugerencias de dominio
 
-Las sugerencias de dominio son directivas que se incluyen en la solicitud de autenticación de una aplicación. Se pueden usar para enviar el usuario a su página de inicio de sesión del IdP federado. O también las puede usar una aplicación de varios inquilinos para enviar al usuario directamente a la página de inicio de sesión de Azure AD del inquilino.  
+Las sugerencias de dominio son directivas que se incluyen en la solicitud de autenticación de una aplicación. Se pueden usar para enviar el usuario a su página de inicio de sesión del IdP federado. O también las puede usar una aplicación de varios inquilinos para enviar al usuario directamente a la página de inicio de sesión de Azure AD del inquilino.
 
 Por ejemplo, la aplicación "largeapp.com" puede permitir que sus clientes obtengan acceso a la aplicación mediante la dirección URL personalizada "contoso.largeapp.com". La aplicación también puede incluir una sugerencia de dominio contoso.com en la solicitud de autenticación.
 
@@ -79,16 +79,16 @@ Si la sugerencia de dominio no hace referencia a un dominio federado verificado,
 
 Para obtener más información sobre la aceleración automática con las sugerencias de dominio que son compatibles con Azure Active Directory, consulte el [blog de Enterprise Mobility + Security](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/11/using-azure-ad-to-land-users-on-their-custom-login-page-from-within-your-app/).
 
->[!NOTE]
->Si se incluye una sugerencia de dominio en una solicitud de autenticación y [debe respetarse](#home-realm-discovery-policy-to-prevent-auto-acceleration), su presencia invalida la aceleración automática que se establezca para la aplicación en la directiva HRD.
+> [!NOTE]
+> Si se incluye una sugerencia de dominio en una solicitud de autenticación y [debe respetarse](#home-realm-discovery-policy-to-prevent-auto-acceleration), su presencia invalida la aceleración automática que se establezca para la aplicación en la directiva HRD.
 
 ### <a name="home-realm-discovery-policy-for-auto-acceleration"></a>Directiva de detección del dominio de inicio para la aceleración automática
 
-Algunas aplicaciones no proporcionan ninguna manera de configurar la solicitud de autenticación que emiten. En estos casos, no es posible utilizar sugerencias de dominio para controlar la aceleración automática. La aceleración automática se puede configurar mediante la directiva Detección de dominio principal y así lograr el mismo comportamiento.  
+Algunas aplicaciones no proporcionan ninguna manera de configurar la solicitud de autenticación que emiten. En estos casos, no es posible utilizar sugerencias de dominio para controlar la aceleración automática. La aceleración automática se puede configurar mediante la directiva Detección de dominio principal y así lograr el mismo comportamiento.
 
 ### <a name="home-realm-discovery-policy-to-prevent-auto-acceleration"></a>Directiva Detección de dominio principal para impedir la aceleración automática
 
-Algunas aplicaciones de Microsoft y SaaS incluyen domain_hints de forma automática (por ejemplo, `https://outlook.com/contoso.com` genera una solicitud de inicio de sesión con `&domain_hint=contoso.com` anexado), lo que puede interrumpir la implementación de credenciales administradas, como Fido.  Puede usar la [directiva Detección de dominio principal](/graph/api/resources/homeRealmDiscoveryPolicy) para omitir las sugerencias de dominio que proceden de determinadas aplicaciones, o para determinados dominios, durante la implementación de credenciales administradas.  
+Algunas aplicaciones de Microsoft y SaaS incluyen domain_hints de forma automática (por ejemplo, `https://outlook.com/contoso.com` genera una solicitud de inicio de sesión con `&domain_hint=contoso.com` anexado), lo que puede interrumpir la implementación de credenciales administradas, como Fido.  Puede usar la [directiva Detección de dominio principal](/graph/api/resources/homeRealmDiscoveryPolicy) para omitir las sugerencias de dominio que proceden de determinadas aplicaciones, o para determinados dominios, durante la implementación de credenciales administradas.
 
 ## <a name="enable-direct-ropc-authentication-of-federated-users-for-legacy-applications"></a>Habilitación de la autenticación de ROPC directa de los usuarios federados para aplicaciones heredadas
 
@@ -109,21 +109,21 @@ Hay que seguir tres pasos para configurar la directiva de HRD en una aplicación
 
 Las directivas solo surten efecto para una aplicación específica cuando se adjuntan a una entidad de servicio.
 
-Solo puede haber una directiva de HRD activa en una entidad de servicio en un momento dado.  
+Solo puede haber una directiva de HRD activa en una entidad de servicio en un momento dado.
 
 Puede usar los cmdlets de PowerShell de Azure Active Directory para crear y administrar la directiva de HRD.
 
 Este es un ejemplo de la definición de la directiva de HRD:
 
- ```JSON
-   {  
-    "HomeRealmDiscoveryPolicy":
-    {  
+```json
+{  
+  "HomeRealmDiscoveryPolicy":
+  {  
     "AccelerateToFederatedDomain":true,
     "PreferredDomain":"federated.example.edu",
     "AllowCloudPasswordValidation":false,    
-    }
-   }
+  }
+}
 ```
 
 El tipo de directiva es "[HomeRealmDiscoveryPolicy](/graph/api/resources/homeRealmDiscoveryPolicy)".
@@ -174,13 +174,13 @@ En los ejemplos siguientes, podrá crear, actualizar, vincular y eliminar direct
 
 2. Cuando tenga los cmdlets de PowerShell de Azure AD descargados, ejecute el comando Connect para iniciar sesión en la cuenta de administrador de Azure AD:
 
-    ``` powershell
+    ```powershell
     Connect-AzureAD -Confirm
     ```
 
 3. Ejecute el siguiente comando para ver todas las directivas de la organización:
 
-    ``` powershell
+    ```powershell
     Get-AzureADPolicy
     ```
 
@@ -198,25 +198,25 @@ En este ejemplo, puede crear una directiva que, cuando se asigne a una aplicaci�
 
 La directiva siguiente acelera automáticamente a los usuarios hacia una pantalla de inicio de sesión de AD FS cuando estos inician sesión en una aplicación y cuando hay un solo dominio en su inquilino.
 
-``` powershell
+```powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 La siguiente directiva acelera automáticamente a los usuarios hacia una pantalla de inicio de sesión de AD FS cuando hay más de un dominio federado en su inquilino. Si tiene más de un dominio federado que autentica a los usuarios para las aplicaciones, es necesario especificar el dominio para la aceleración automática.
 
-``` powershell
+```powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true, `"PreferredDomain`":`"federated.example.edu`"}}") -DisplayName MultiDomainAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 Para crear una directiva a fin de habilitar la autenticación de nombre de usuario y contraseña para los usuarios federados directamente con Azure Active Directory para aplicaciones específicas, ejecute el siguiente comando:
 
-``` powershell
+```powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuthPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 Para ver la nueva directiva y obtener el valor de **ObjectID**, ejecute el siguiente comando:
 
-``` powershell
+```powershell
 Get-AzureADPolicy
 ```
 
@@ -230,7 +230,7 @@ Puede usar el portal, o bien puede consultar [Microsoft Graph](/graph/api/resour
 
 Dado que usa PowerShell, puede usar el cmdlet siguiente para enumerar las entidades de servicio y sus identificadores.
 
-``` powershell
+```powershell
 Get-AzureADServicePrincipal
 ```
 
@@ -238,7 +238,7 @@ Get-AzureADServicePrincipal
 
 Una vez tenga el valor de **ObjectID** de la entidad de servicio de la aplicación para el que quiere configurar la aceleración automática, ejecute el siguiente comando. Este comando asocia la directiva HRD que creó en el paso 1 con la entidad de servicio que encuentra en el paso 2.
 
-``` powershell
+```powershell
 Add-AzureADServicePrincipalPolicy -Id <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
 ```
 
@@ -250,7 +250,7 @@ En caso de que una aplicación ya tenga una directiva HomeRealmDiscovery asignad
 
 Para comprobar qué aplicaciones tienen configurada la directiva de aceleración automática, use el cmdlet **Get-AzureADPolicyAppliedObject**. Pásele el valor de **ObjectID** de la directiva que quiera comprobar.
 
-``` powershell
+```powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
@@ -262,15 +262,15 @@ Pruebe la aplicación para comprobar que la nueva directiva funciona correctamen
 
 #### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>Paso 1: Enumeración de todas las directivas creadas en la organización
 
-``` powershell
+```powershell
 Get-AzureADPolicy
 ```
 
 Apunte el valor de **ObjectID** de la directiva de la cual quiere enumerar las asignaciones.
 
-#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Paso 2: Enumeración de las entidades de servicio a las que se asignó la directiva  
+#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Paso 2: Enumeración de las entidades de servicio a las que se asignó la directiva
 
-``` powershell
+```powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
@@ -280,15 +280,15 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 
 Use el ejemplo anterior para obtener el valor de **ObjectID** de la directiva y el de la entidad de servicio de aplicación de la que quiere eliminarlo.
 
-#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Paso 2: Supresión de la asignación de directiva de la entidad de servicio de aplicación  
+#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Paso 2: Supresión de la asignación de directiva de la entidad de servicio de aplicación
 
-``` powershell
+```powershell
 Remove-AzureADServicePrincipalPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
 #### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Paso 3: Comprobación de que se eliminó correctamente; para ello, enumere las entidades de servicio a las que se asignó la directiva
 
-``` powershell
+```powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 

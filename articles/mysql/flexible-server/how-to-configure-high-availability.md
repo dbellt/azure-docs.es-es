@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: d65b074385311e74444929ef74901e402e29ec03
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e217dcaeafd553803f5c9699ab6d7779ed755b67
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93241742"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818300"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-mysql-flexible-server-preview"></a>Administración de la alta disponibilidad con redundancia de zona en un servidor flexible de Azure Database for MySQL (versión preliminar)
 
@@ -62,6 +62,27 @@ Siga estos pasos para deshabilitar la alta disponibilidad en el servidor flexibl
 5.  Haga clic en el botón **Disable HA** (Deshabilitar la alta disponibilidad) para deshabilitar esta opción.
 
 6.  Aparece una notificación que muestra que la retirada de la implementación de la alta disponibilidad está en curso.
+
+
+## <a name="forced-failover"></a>conmutación por error forzada
+
+Siga estos pasos para forzar la conmutación por error desde el servidor flexible principal al servidor flexible en espera.
+
+1.  En [Azure Portal](https://portal.azure.com/), seleccione el servidor flexible de Azure Database for MySQL existente con la característica de alta disponibilidad habilitada.
+
+2.  En la página del servidor flexible, haga clic en **Alta disponibilidad** en el panel frontal para abrir la página de alta disponibilidad.
+
+3.  Compruebe la **zona de disponibilidad principal** y la **zona de disponibilidad en espera**
+
+4.  Haga clic en **Conmutación por error forzada** para iniciar el procedimiento de conmutación por error manual. Un elemento emergente le informará sobre el tiempo esperado de la conmutación por error en función de la carga de trabajo actual en el dispositivo principal y la antigüedad del último punto de control. Tras leer el mensaje, haga clic en Aceptar.
+ 
+5. Aparecerá una notificación donde se menciona que la conmutación por error está en curso.
+
+6. Una vez que la conmutación por error al servidor en espera se realice correctamente, se abrirá una notificación.
+
+7. Compruebe la nueva **zona de disponibilidad principal** y la **zona de disponibilidad en espera**.
+
+![Cómo llevar a cabo la conmutación por error forzada](media/how-to-configure-high-availability/how-to-forced-failover.png) 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,20 +1,19 @@
 ---
 title: Habilitación de Azure Disk Encryption para conjuntos de escalado de máquinas virtuales
 description: En este artículo se proporcionan instrucciones sobre cómo habilitar Microsoft Azure Disk Encryption para conjuntos de escalado de máquinas virtuales.
-author: mimckitt
-ms.author: mimckitt
+author: ju-shim
+ms.author: jushiman
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: disks
 ms.date: 10/10/2019
-ms.reviewer: jushiman
-ms.custom: mimckitt
-ms.openlocfilehash: 6b9805d66149a18216a200bc89a79b3e06106c9d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: mimckitt
+ms.openlocfilehash: 9e9a0a8b07c300282f26ce12b989a8510ccd1e98
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83195109"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108738358"
 ---
 # <a name="azure-disk-encryption-for-virtual-machine-scale-sets"></a>Azure Disk Encryption para conjuntos de escalado de máquinas virtuales.
 

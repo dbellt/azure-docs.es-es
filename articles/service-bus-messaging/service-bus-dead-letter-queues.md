@@ -4,12 +4,12 @@ description: Aquí se describen las colas de mensajes fallidos de Azure Service 
 ms.topic: article
 ms.date: 04/08/2021
 ms.custom: fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: cb791982b50d7afff7b74d70adfd285bb5e0a11c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 9a7eaf3cee7af4ba0f0049ee8b7a8dd0b271a94a
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773232"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108804473"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Información general de colas de mensajes fallidos de Service Bus
 
@@ -50,7 +50,7 @@ Hay un límite en el número de intentos de entregar mensajes para las colas y s
 ## <a name="time-to-live"></a>Período de vida
 Cuando se habilitan los mensajes con problemas de entrega en colas o suscripciones, todos los mensajes que expiran se mueven a la cola de mensajes fallidos. El código del motivo del problema de entrega se establece en: TTLExpiredException.
 
-Los mensajes expirados solo se purgan y se mueven a la cola de mensajes fallidos cuando hay, al menos, un receptor activo que extrae contenido de la cola o suscripción principal. Los mensajes diferidos tampoco se purgarán ni moverán a la cola de mensajes fallidos tras expirar. Este comportamiento es así por diseño.
+Los mensajes diferidos tampoco se purgarán ni moverán a la cola de mensajes fallidos tras expirar. Este comportamiento es así por diseño.
 
 ## <a name="errors-while-processing-subscription-rules"></a>Errores al procesar reglas de suscripción
 Si habilita los mensajes con problemas de entrega en las excepciones de evaluación de filtro, los errores que se producen mientras se ejecuta la regla de filtro SQL de una suscripción se capturan en la cola de mensajes fallidos junto con el mensaje infractor. No use esta opción en un entorno de producción en el que no todos los tipos de mensaje tienen suscriptores.
@@ -75,8 +75,4 @@ Puede tener acceso a la cola de mensajes fallidos mediante la sintaxis siguiente
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-Para más información sobre colas de Service Bus, consulte los siguientes artículos:
-
-* [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
-* [Comparación de colas de Azure y colas de Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+Consulte el artículo sobre la [habilitación de mensajes fallidos para una cola o suscripción](enable-dead-letter.md) para obtener información sobre las distintas formas de establecer la configuración de los **mensajes fallidos cuando expire un mensaje**.

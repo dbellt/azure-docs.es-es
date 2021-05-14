@@ -10,20 +10,22 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/21/2020
+ms.date: 4/19/2021
 ms.author: duau
-ms.openlocfilehash: a64c91910ba65901a6d1374df9633062398a90e4
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 3567d5af31b0c7bc2443e3d02426a5bb7aba06f7
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067663"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862010"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-cli"></a>Inicio rápido: Creación de una instancia de Front Door para una aplicación web global de alta disponibilidad mediante la CLI de Azure
 
 El primer paso con Azure Front Door es utilizar la CLI de Azure para crear una aplicación web global de alto rendimiento y alta disponibilidad.
 
 Front Door dirige el tráfico web a recursos concretos de un grupo de back-end. Ha definido el dominio del front-end, agregado recursos a un grupo de back-end y creado una regla de enrutamiento. En este artículo se usa una configuración simple de un grupo de back-end con dos recursos de aplicación web y una regla de enrutamiento única que usa la coincidencia de ruta de acceso predeterminada "/*".
+
+:::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagrama del entorno de implementación de Front Door mediante la CLI de Azure." border="false":::
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -45,7 +47,7 @@ En Azure, puede asignar recursos relacionados a un grupo de recursos. Puede usar
 
 Para este inicio rápido, necesita dos grupos de recursos. Uno en *Centro de EE. UU.* y el segundo en *Centro-sur de EE. UU.* .
 
-Cree un grupo de recursos con [az group create](/cli/azure/group#az-group-create):
+Cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create):
 
 ```azurecli-interactive
 az group create \
@@ -53,8 +55,8 @@ az group create \
     --location centralus
 
 az group create \
-    --name myRGFDSouthCentral \
-    --location southcentralus
+    --name myRGFDEast \
+    --location eastus
 ```
 
 ## <a name="create-two-instances-of-a-web-app"></a>Creación de dos instancias de una aplicación web
@@ -65,7 +67,7 @@ Si aún no tiene una aplicación web, use el siguiente script para configurar do
 
 ### <a name="create-app-service-plans"></a>Creación de planes de App Service
 
-Para poder crear las aplicaciones web, necesitará dos planes de App Service, uno en *Centro de EE. UU.* y el segundo en *Centro-sur de EE. UU.* .
+Para poder crear las aplicaciones web, necesitará dos planes de App Service, uno en *Centro de EE. UU.* y el segundo en *Este de EE. UU.* .
 
 Cree planes de App Service con [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create&preserve-view=true):
 
@@ -75,8 +77,8 @@ az appservice plan create \
 --resource-group myRGFDCentral
 
 az appservice plan create \
---name myAppServicePlanSouthCentralUS \
---resource-group myRGFDSouthCentral
+--name myAppServicePlanEastUS \
+--resource-group myRGFDEast
 ```
 
 ### <a name="create-web-apps"></a>Creación de aplicaciones web
@@ -87,14 +89,14 @@ Cree una aplicación web con [az webapp create](/cli/azure/webapp#az_webapp_crea
 
 ```azurecli-interactive
 az webapp create \
---name WebAppContoso1 \
+--name WebAppContoso-1 \
 --resource-group myRGFDCentral \
 --plan myAppServicePlanCentralUS 
 
 az webapp create \
---name WebAppContoso2 \
---resource-group myRGFDSouthCentral \
---plan myAppServicePlanSouthCentralUS
+--name WebAppContoso-2 \
+--resource-group myRGFDEast \
+--plan myAppServicePlanEastUS
 ```
 
 Anote el nombre de host predeterminado de cada aplicación web, con el fin de que pueda definir las direcciones de back-end al implementar la instancia de Front Door en el paso siguiente.
@@ -103,14 +105,14 @@ Anote el nombre de host predeterminado de cada aplicación web, con el fin de qu
 
 Cree una instancia de Front Door básica con la configuración predeterminada del equilibrio de carga, el sondeo de estado y las reglas de enrutamiento mediante la ejecución de lo siguiente:
 
-Cree una instancia de Front Door con [az network front-door create](/cli/azure/ext/front-door/network/front-door#ext_front_door_az_network_front_door_create&preserve-view=true):
+Cree una instancia de Front Door con [az network front-door create](/cli/azure/network/front-door#az_network_front_door_create&preserve-view=true):
 
 ```azurecli-interactive
 az network front-door create \
 --resource-group myRGFDCentral \
 --name contoso-frontend \
 --accepted-protocols http https \
---backend-address webappcontoso1.azurewebsites.net webappcontoso2.azurewebsites.net 
+--backend-address webappcontoso-1.azurewebsites.net webappcontoso-2.azurewebsites.net 
 ```
 
 **--resource-group:** especifique el grupo de recursos en el que desea implementar la instancia de Front Door.
@@ -140,7 +142,7 @@ az group delete \
 --name myRGFDCentral 
 
 az group delete \
---name myRGFDSouthCentral
+--name myRGFDEast
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

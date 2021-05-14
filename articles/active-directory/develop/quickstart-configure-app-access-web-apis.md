@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 0b064e8491b5d4fa988e9f476143cc0711e3934a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cfa4239fb6a3c78d861885478c1c643151ee6e13
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100651381"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128566"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Inicio rápido: Configuración de una aplicación cliente para acceder a las API web
 
@@ -149,4 +149,4 @@ El botón **Conceder consentimiento de administrador** está *deshabilitado* si 
 Avance al siguiente inicio rápido de la serie para aprender a configurar los tipos de cuenta que pueden acceder a la aplicación. Por ejemplo, puede que quiera limitar el acceso solo a los usuarios de su organización (un solo inquilino) o permitir a los usuarios de otros inquilinos de Azure AD (multiinquilino) y a quienes tengan cuentas personales de Microsoft (MSA).
 
 > [!div class="nextstepaction"]
-> [Modificación de las cuentas compatibles con una aplicación](quickstart-modify-supported-accounts.md)
+> [Modificación de las cuentas compatibles con una aplicación](./howto-modify-supported-accounts.md)

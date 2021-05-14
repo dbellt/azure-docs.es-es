@@ -4,13 +4,14 @@ description: En este artículo se indica cómo configurar las máquinas en un es
 services: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.date: 08/08/2018
-ms.openlocfilehash: f16db3f55ebd0f09e4d7b75750fa319daf03977e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/15/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d29c8ec4e0b992f38eec9e203ad6ad302f71308b
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99053574"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108018500"
 ---
 # <a name="configure-machines-to-a-desired-state"></a>Configuración de máquinas en un estado deseado
 
@@ -137,32 +138,11 @@ $reports = Get-AzAutomationDscNodeReport -ResourceGroupName 'MyResourceGroup' -A
 $reports[0]
 ```
 
-## <a name="remove-nodes-from-service"></a>Eliminación de los nodos del servicio
-
-Cuando se agrega un nodo a Azure Automation State Configuration, la configuración en el Administrador de configuración local se establece para registrarse en las configuraciones de servicio y de extracción y en los módulos necesarios para configurar la máquina.
-Si decide quitar el nodo del servicio, puede hacerlo mediante Azure Portal o con cmdlets Az.
-
-> [!NOTE]
-> Cuando se anula el registro de un nodo en el servicio, solo establece la configuración del Administrador de configuración local de forma que el nodo deja de conectarse al servicio.
-> Esto no afecta a la configuración vigente del nodo.
-> Para quitar la configuración actual, use [PowerShell](/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument) o elimine el archivo de configuración local (esta es la única opción con los nodos de Linux).
-
-### <a name="azure-portal"></a>Portal de Azure
-
-En Azure Automation, haga clic en **State Configuration (DSC)** en la tabla de contenido.
-Luego, haga clic en **Nodos** para ver la lista de nodos que están registrados con el servicio.
-Haga clic en el nombre del nodo que quiera quitar.
-En la vista Nodo que se abre, haga clic en **Anular registro**.
-
-### <a name="powershell"></a>PowerShell
-
-Para anular el registro de un nodo del servicio de Azure Automation State Configuration con PowerShell, siga la documentación del cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode).
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para dar los primeros pasos, consulte [Introducción a Azure Automation State Configuration](automation-dsc-getting-started.md).
 - Para aprender a habilitar nodos, consulte el artículo sobre [Habilitar Azure Automation State Configuration](automation-dsc-onboarding.md).
-- Para aprender a compilar configuraciones de DSC para poder asignarlas a los nodos de destino, consulte [Compilación de configuraciones de DSC en State Configuration de Azure Automation](automation-dsc-compile.md).
+- Para aprender a compilar configuraciones de DSC para poder asignarlas a los nodos de destino, consulte [Compilación de configuraciones de DSC en Azure Automation State Configuration](automation-dsc-compile.md).
 - Para ver un ejemplo del uso de State Configuration de Azure Automation en una canalización de implementación continua, consulte [Configuración de la implementación continua con Chocolatey](automation-dsc-cd-chocolatey.md).
 - Para obtener información de precios, consulte [Precios de State Configuration de Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
 - Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation).

@@ -1,19 +1,19 @@
 ---
 title: Transformación de datos mediante un flujo de datos de asignación
 description: Este tutorial proporciona instrucciones detalladas para usar Azure Data Factory con el objetivo de transformar los datos con un flujo de datos de asignación.
-author: dcstwh
-ms.author: weetok
+author: kromerm
+ms.author: makromer
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/11/2021
-ms.openlocfilehash: 2363afc4c84ee7606410ceecd6819c12d0333dbb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/16/2021
+ms.openlocfilehash: dda6d756b1e660fa90e54c6cc0b80178363cd73e
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563300"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905745"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformación de datos mediante flujos de datos de asignación
 
@@ -78,15 +78,15 @@ En este paso, creará una canalización que contiene una actividad de Data Flow.
    ![Creación de una canalización](./media/doc-common-process/get-started-page.png)
 
 1. En la pestaña **General** de la canalización, escriba **TransformMovies** como **Nombre** de la canalización.
-1. En la barra superior de Data Factory, deslice el control deslizante **Depuración de Data Flow** para activarlo. El modo de depuración permite realizar pruebas interactivas de la lógica de transformación en un clúster de Spark activo. Los clústeres de Data Flow tardan de 5 a 7 minutos en prepararse y se recomienda que los usuarios activen primero la depuración si planean realizar el desarrollo de Data Flow. Para más información, consulte [Modo de depuración](concepts-data-flow-debug-mode.md).
-
-    ![Actividad de Data Flow](media/tutorial-data-flow/dataflow1.png)
 1. En el panel **Actividades** expanda el acordeón **Movimiento y transformación**. Arrastre y coloque la actividad **Data Flow** del panel al lienzo de la canalización.
 
     ![Captura de pantalla que muestra el lienzo de canalización donde puede colocar la actividad de Data Flow.](media/tutorial-data-flow/activity1.png)
 1. En el menú emergente **Adding Data Flow** (Agregando Data Flow), seleccione **Create New Data Flow** (Crear nuevo Data Flow) y, a continuación, asigne el nombre **TransformMovies** al flujo de datos. Haga clic en Finalizar cuando haya terminado.
 
     ![Captura de pantalla que muestra la ubicación donde se asigna nombre al flujo de datos al crear uno nuevo.](media/tutorial-data-flow/activity2.png)
+1. En la barra superior del lienzo de la canalización, mueva el control deslizante **Depuración de flujo de datos** a la posición de activado. El modo de depuración permite realizar pruebas interactivas de la lógica de transformación en un clúster de Spark activo. Los clústeres de Data Flow tardan de 5 a 7 minutos en prepararse y se recomienda que los usuarios activen primero la depuración si planean realizar el desarrollo de Data Flow. Para más información, consulte [Modo de depuración](concepts-data-flow-debug-mode.md).
+
+    ![Actividad de Data Flow](media/tutorial-data-flow/dataflow1.png)
 
 ## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Generación de la lógica de transformación en el lienzo de flujo de datos
 
@@ -100,7 +100,7 @@ Una vez creado el flujo de datos, se le enviará automáticamente al lienzo fluj
     ![Captura de pantalla que muestra la ubicación donde se selecciona Nuevo después de asignar un nombre al origen.](media/tutorial-data-flow/dataflow3.png)
 1. Elija **Azure Data Lake Storage Gen2**. Haga clic en Continue.
 
-    ![Captura de pantalla que muestra el icono de Azure Data Lake Storage Gen2.](media/tutorial-data-flow/dataset1.png)
+    ![Captura de pantalla que muestra el mosaico de Azure Data Lake Storage Gen2.](media/tutorial-data-flow/dataset1.png)
 1. Elija **DelimitedText**. Haga clic en Continue.
 
     ![Captura de pantalla que muestra el icono de DelimitedText.](media/tutorial-data-flow/dataset2.png)

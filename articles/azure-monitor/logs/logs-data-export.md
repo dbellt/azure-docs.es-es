@@ -2,16 +2,16 @@
 title: Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)
 description: La exportación de datos de Log Analytics permite exportar continuamente los datos de las tablas seleccionadas del área de trabajo de Log Analytics en una cuenta de Azure Storage o Azure Event Hubs a medida que se recopilan.
 ms.topic: conceptual
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: bwren
 ms.author: bwren
 ms.date: 02/07/2021
-ms.openlocfilehash: 981ebbecd4783ae529c5b0d97c82ea052511f77f
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 4f3e5a22b9692823f1e9542fb3a6d9ad42fe79cf
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384194"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321148"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)
 La exportación de datos del área de trabajo de Log Analytics en Azure Monitor permite exportar continuamente los datos de las tablas seleccionadas del área de trabajo de Log Analytics en una cuenta de Azure Storage o Azure Event Hubs a medida que se recopilan. En este artículo se ofrecen detalles sobre esta característica y pasos para configurar la exportación de datos en las áreas de trabajo.
@@ -44,7 +44,8 @@ La exportación de datos del área de trabajo de Log Analytics permite exportar 
   - Sudeste de Brasil
   - Este de Noruega
   - Norte de Emiratos Árabes Unidos
-- Puede crear dos reglas de exportación en un área de trabajo: puede ser una regla para el centro de eventos y una regla para la cuenta de almacenamiento.
+- Puede tener hasta 10 reglas habilitadas en el área de trabajo. Se pueden crear reglas adicionales por encima de 10 en estado de deshabilitación. 
+- El destino debe ser único en todas las reglas de exportación del área de trabajo.
 - La cuenta de almacenamiento de destino o el centro de eventos deben estar en la misma región que el área de trabajo de Log Analytics.
 - Los nombres de las tablas que se vayan a exportar no pueden tener más de 60 caracteres para una cuenta de almacenamiento, ni más de 47 caracteres en el caso de un centro de eventos. Las tablas con nombres más largos no se exportarán.
 - La compatibilidad con Anexar blobs para Azure Data Lake Storage ahora se encuentra en [versión preliminar pública limitada](https://azure.microsoft.com/updates/append-blob-support-for-azure-data-lake-storage-preview/).
@@ -75,16 +76,16 @@ La exportación de datos de Log Analytics puede escribir blobs en anexos en cuen
 Los datos se envían al centro de eventos prácticamente en tiempo real a medida que llegan a Azure Monitor. Se crea un centro de eventos para cada tipo de datos que se exporta con el nombre *am-* seguido del nombre de la tabla. Por ejemplo, la tabla *SecurityEvent* se enviaría a un centro de eventos denominado *am-SecurityEvent*. Si quiere que los datos exportados lleguen a un centro de eventos específico, o si tiene una tabla con un nombre que supere el límite de 47 caracteres, puede proporcionar el nombre de su propio centro de eventos y exportar todos los datos para las tablas definidas en él.
 
 > [!IMPORTANT]
-> El [número de centros de eventos admitidos por espacio de nombres es de 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). Si exporta más de 10 tablas, proporcione su propio nombre de centro de eventos para exportar todas las tablas a ese centro de eventos.
+> El [número de centros de eventos admitidos por los niveles de espacios de nombres "Básico" y "Estándar"](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers) es 10. Si exporta más de 10 tablas, divida las tablas entre varias reglas de exportación en distintos espacios de nombres del centro de eventos o proporcione el nombre del centro de eventos en la regla de exportación y exporte todas las tablas a ese centro de eventos.
 
 Consideraciones:
-1. La SKU del centro de eventos 'básico' admite un [límite](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) de tamaño de evento inferior y algunos registros del área de trabajo pueden superarlo y quitarse. Recomendamos que se use el centro de eventos 'estándar' o 'dedicado' como destino de exportación.
+1. El nivel del centro de eventos "Básico" admite un [tamaño de evento](../../event-hubs/event-hubs-quotas.md) inferior y algunos registros del área de trabajo pueden superarlo y quitarse. Recomendamos que se use el centro de eventos 'estándar' o 'dedicado' como destino de exportación.
 2. El volumen de los datos exportados suele aumentar con el tiempo, y es necesario aumentar la escala del centro de eventos para administrar velocidades de transferencia mayores, así como para evitar escenarios de limitación y latencia de datos. Debe usar la característica de inflado automático de Event Hubs para escalar verticalmente y aumentar el número de unidades de procesamiento de forma automática y, de este modo, satisfacer las necesidades de uso. Consulte [Escalado vertical y automático de las unidades de procesamiento de Azure Event Hubs](../../event-hubs/event-hubs-auto-inflate.md) para obtener más información.
 
 ## <a name="prerequisites"></a>Requisitos previos
 A continuación se indican los requisitos previos que hay que cumplir para poder configurar la exportación de datos de Log Analytics.
 
-- La cuenta de almacenamiento y el centro de eventos deben haberse creado ya y estar en la misma región que el área de trabajo de Log Analytics. Si tiene que replicar los datos en otras cuentas de almacenamiento, puede utilizar cualquiera de las [opciones de redundancia Azure Storage](../../storage/common/storage-redundancy.md).  
+- Los destinos deben crearse antes de la configuración de la regla de exportación y deben estar en la misma región que el área de trabajo de Log Analytics. Si tiene que replicar los datos en otras cuentas de almacenamiento, puede utilizar cualquiera de las [opciones de redundancia Azure Storage](../../storage/common/storage-redundancy.md).  
 - La cuenta de almacenamiento debe ser StorageV1 o StorageV2. No se admite el almacenamiento clásico.  
 - Si ha configurado la cuenta de almacenamiento para permitir el acceso desde las redes seleccionadas, tiene que agregar una excepción en la configuración de la cuenta de almacenamiento para permitir que Azure Monitor escriba en el almacenamiento.
 
@@ -114,7 +115,12 @@ Si ha configurado la cuenta de almacenamiento para permitir el acceso desde las 
 [![Firewalls y redes virtuales de la cuenta de almacenamiento](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
 ### <a name="create-or-update-data-export-rule"></a>Creación o actualización de una regla de exportación de datos
-Una regla de exportación de datos define las tablas cuyos datos se exportarán y el destino. Actualmente, puede crear una sola regla para cada destino.
+Una regla de exportación de datos define las tablas cuyos datos se exportarán y el destino. Puede tener 10 reglas habilitadas en el área de trabajo, y entonces cualquier regla adicional superior a 10 debe estar en estado de deshabilitación. Un destino debe ser único en todas las reglas de exportación del área de trabajo.
+
+> [!NOTE]
+> La exportación de datos envía registros a los destinos que posee, mientras que estos tienen algunos límites: [escalabilidad de cuentas de almacenamiento](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts), [cuota de espacio de nombres del centro de eventos](../../event-hubs/event-hubs-quotas.md). Se recomienda supervisar los destinos para verificar la limitación y aplicar medidas al acercarse al límite de destino. Por ejemplo: 
+> - Establezca la característica de inflado automático en el centro de eventos para escalarse verticalmente y aumentar automáticamente el número de TU (unidades de procesamiento). Puede solicitar más TU cuando el inflado automático esté al máximo.
+> - Divida las tablas en varias reglas de exportación, cada una de ellas con diferentes destinos.
 
 La regla de exportación debe incluir las tablas que tenga en el área de trabajo. Ejecute esta consulta para obtener una lista de tablas disponibles en el área de trabajo.
 
@@ -149,7 +155,7 @@ az monitor log-analytics workspace data-export create --resource-group resourceG
 Use el siguiente comando para crear una regla de exportación de datos en un centro de eventos específico mediante la CLI. Todas las tablas se exportan al nombre del centro de eventos proporcionado. 
 
 ```azurecli
-$eventHubResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name/eventHubName/eventhub-name'
+$eventHubResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name/eventhubs/eventhub-name'
 az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubResourceId
 ```
 

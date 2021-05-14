@@ -5,12 +5,13 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 8759a539005a38892498c9450d31f97884547db7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: c362603771744cf94f3e1d70a9f636f31bbd399a
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033714"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750976"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de registro mediante Azure Monitor
 

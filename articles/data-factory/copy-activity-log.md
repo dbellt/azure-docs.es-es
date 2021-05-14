@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: yexu
-ms.openlocfilehash: 7cb00d62556babbd8e43e2fac2faa815a63943ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f979ca04a276f52e5f76a8e4327f9ff8ef390fe6
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100385275"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143708"
 ---
 #  <a name="session-log-in-copy-activity"></a>Registro de sesión en la actividad de copia
 
@@ -77,7 +77,7 @@ path | Ruta de acceso de los archivos de registro. | Especifique la ruta de acce
 ## <a name="monitoring"></a>Supervisión
 
 ### <a name="output-from-copy-activity"></a>Salida de la actividad de copia
-Cuando la actividad de copia se ha ejecutado completamente, puede ver la ruta de acceso de los archivos de registro desde la salida de cada ejecución de la actividad de copia. Puede encontrar los archivos de registro en la ruta de acceso: `https://[your-blob-account].blob.core.windows.net/[logFilePath]/copyactivity-logs/[copy-activity-name]/[copy-activity-run-id]/[auto-generated-GUID].csv`.  Los archivos de registro serán los archivos CSV. 
+Cuando la actividad de copia se ha ejecutado completamente, puede ver la ruta de acceso de los archivos de registro desde la salida de cada ejecución de la actividad de copia. Puede encontrar los archivos de registro en la ruta de acceso: `https://[your-blob-account].blob.core.windows.net/[logFilePath]/copyactivity-logs/[copy-activity-name]/[copy-activity-run-id]/[auto-generated-GUID].txt`.  Los archivos de registro generados tienen la extensión .txt, y sus datos están en formato CSV.
 
 ```json
 "output": {

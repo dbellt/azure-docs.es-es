@@ -3,15 +3,14 @@ title: Procedimiento para actualizar las herramientas de Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.custom: devx-track-azurecli
 description: Obtenga información sobre cómo actualizar las herramientas de línea de comandos de Azure Dev Spaces, la extensión de Visual Studio Code y la extensión de Visual Studio.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contenedores
-ms.openlocfilehash: f17643e6130abbc9d5da8b484144c95b0e803f33
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ba9bb220862396c7265eb012996ae93b8208473d
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199244"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108075472"
 ---
 # <a name="how-to-upgrade-azure-dev-spaces-tools"></a>Procedimiento para actualizar las herramientas de Azure Dev Spaces
 

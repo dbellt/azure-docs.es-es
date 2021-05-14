@@ -2,6 +2,7 @@
 title: Aviso de retirada de la familia 1 del SO invitado | Microsoft Docs
 description: Proporciona información acerca de cuándo se produjo la retirada de la familia 1 del SO invitado de Azure y cómo determinar si el usuario se ve afectado.
 services: cloud-services
+ms.subservice: auto-os-updates
 documentationcenter: na
 author: raiye
 manager: timlt
@@ -9,12 +10,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: 7f6d3feee95d4cce654b2cc1547b8bd7f4eb45d2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b4ba01ddeb0f0fe7392abc0eec2d947ec387a99e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98743022"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736164"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Aviso de retirada de la familia 1 del SO invitado
 
@@ -27,6 +28,7 @@ La retirada de la familia 1 del SO se anunció por primera vez el 1 de junio de 
 Si tiene alguna pregunta adicional, visite la [página de preguntas y respuestas de Microsoft para Cloud Services](/answers/topics/azure-cloud-services.html) o [póngase en contacto con Soporte técnico de Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="are-you-affected"></a>Cómo saber si se ve afectado
+
 Si se observa cualquiera de las situaciones siguientes, Cloud Services se ven afectados:
 
 1. Se especifica de manera explícita el valor "osFamily = "1" en el archivo ServiceConfiguration.cscfg del servicio en la nube.
@@ -35,7 +37,7 @@ Si se observa cualquiera de las situaciones siguientes, Cloud Services se ven af
 
 Para determinar la familia de SO que ejecuta cada servicio en la nube, puede ejecutar el siguiente script en Azure PowerShell, aunque antes debe [configurar Azure PowerShell](/powershell/azure/). Para más información sobre el script, consulte [Azure Guest OS Family 1 End of Life: June 2014](/archive/blogs/ryberry/azure-guest-os-family-1-end-of-life-june-2014) (Final de la vida de la familia 1 del SO invitado de Azure: junio de 2014).
 
-```Powershell
+```powershell
 foreach($subscription in Get-AzureSubscription) {
     Select-AzureSubscription -SubscriptionName $subscription.SubscriptionName
 
@@ -48,17 +50,18 @@ foreach($subscription in Get-AzureSubscription) {
 Los servicios en la nube se verán afectados por la retirada de la familia 1 del SO si la columna osFamily del resultado del script está vacía o contiene un "1".
 
 ## <a name="recommendations-if-you-are-affected"></a>Recomendaciones en caso de verse afectado
+
 Se recomienda migrar los roles de los servicios en la nube a una de las familias del SO invitado compatibles:
 
 **Familia 4.x del SO invitado** : Windows Server 2012 R2 *(recomendado)*
 
 1. Asegúrese de que la aplicación use el SDK 2.1 o posterior con .NET Framework 4.0, 4.5 o 4.5.1.
-2. Establezca el atributo osFamily en “4” en el archivo ServiceConfiguration.cscfg y vuelva a implementar el servicio en la nube.
+2. Establezca el atributo osFamily en "4" en el archivo ServiceConfiguration.cscfg y vuelva a implementar el servicio en la nube.
 
 **Familia 3.x del SO invitado** : Windows Server 2012
 
 1. Asegúrese de que la aplicación use el SDK 1.8 o posterior con .NET Framework 4.0 o 4.5.
-2. Establezca el atributo osFamily en “3” en el archivo ServiceConfiguration.cscfg y vuelva a implementar el servicio en la nube.
+2. Establezca el atributo osFamily en "3" en el archivo ServiceConfiguration.cscfg y vuelva a implementar el servicio en la nube.
 
 **Familia 2.x del SO invitado** : Windows Server 2008 R2
 
@@ -66,7 +69,9 @@ Se recomienda migrar los roles de los servicios en la nube a una de las familias
 2. Establezca el atributo osFamily en "2" en el archivo ServiceConfiguration.cscfg y vuelva a implementar el servicio en la nube.
 
 ## <a name="extended-support-for-guest-os-family-1-ended-nov-3-2014"></a>El soporte extendido para la familia 1 del SO invitado finalizó el 3 de noviembre de 2014.
-Los servicios en la nube de la familia 1 del SO invitado ya no son compatibles. Migre la familia 1 lo antes posible para evitar la interrupción del servicio.  
+
+Los servicios en la nube de la familia 1 del SO invitado ya no son compatibles. Migre la familia 1 lo antes posible para evitar la interrupción del servicio.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Revise las [versiones del SO invitado](cloud-services-guestos-update-matrix.md)más recientes.

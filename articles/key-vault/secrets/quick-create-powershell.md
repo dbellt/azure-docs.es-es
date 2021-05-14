@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 5e3b78dfb8f08f1a596ad12884ec088cd36c4a98
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6d4864252aef5ea241c88abfd2fb4eee35f8c6ae
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104582462"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770756"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante PowerShell
 
@@ -69,14 +69,7 @@ $secret = Set-AzKeyVaultSecret -VaultName "<your-unique-keyvault-name>" -Name "E
 Para ver el valor contenido en el secreto como texto sin formato:
 
 ```azurepowershell-interactive
-$secret = Get-AzKeyVaultSecret -VaultName "<your-unique-keyvault-name>" -Name "ExamplePassword"
-$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
-try {
-   $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
-} finally {
-   [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
-}
-Write-Output $secretValueText
+$secret = Get-AzKeyVaultSecret -VaultName "<your-unique-keyvault-name>" -Name "ExamplePassword" -AsPlainText
 ```
 
 Ya ha creado una instancia de Key Vault, ha almacenado un secreto y, posteriormente, lo ha recuperado.
@@ -98,4 +91,4 @@ En este inicio rápido, ha creado una instancia de Key Vault y ha almacenado un 
 - Lea una [introducción a Azure Key Vault](../general/overview.md).
 - Aprenda a [almacenar secretos multilínea en Key Vault](multiline-secrets.md)
 - Consulte la referencia para los [cmdlets de Key Vault de Azure PowerShell](/powershell/module/az.keyvault/#key_vault).
-- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-overview.md)
+- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-features.md)

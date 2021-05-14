@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 robots: noindex
-ms.openlocfilehash: fbd1e1d652db3bbd91344ea828278d057baeb060
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 103a3bad91018a2a7b91cbc6a7839e8be56489ba
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100368819"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108741420"
 ---
 # <a name="move-data-to-and-from-sql-server-using-azure-data-factory"></a>Migración de datos hacia y desde SQL Server mediante Azure Data Factory
 
@@ -30,11 +30,11 @@ En este artículo se explica el uso de la actividad de copia en Azure Data Facto
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 Puede copiar datos **de una base de datos SQL Server** a los siguientes almacenes de datos:
 
-[!INCLUDE [data-factory-supported-sink](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sink](includes/data-factory-supported-sinks.md)]
 
 Puede copiar datos de los siguientes almacenes de datos **a una base de datos SQL Server**:
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 ## <a name="supported-sql-server-versions"></a>Versiones admitidas de SQL Server
 Este conector de SQL Server permite copiar datos con las siguientes versiones de la instancia hospedada en un entorno local o en IaaS de Azure como origen y destino mediante la autenticación de Windows y SQL: SQL Server 2016, SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 y SQL Server 2005.

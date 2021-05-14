@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
-ms.openlocfilehash: 001a9a15c259d0b0d73eec9c9a39ad7c27f26721
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 23e006c637285ad484e98b23b2a9f506156f519c
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105572288"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389730"
 ---
 # <a name="storage-performance-best-practices-for-sql-server-on-azure-vms"></a>Almacenamiento: procedimientos recomendados de rendimiento de SQL Server en VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -53,7 +53,7 @@ Revise la siguiente lista de comprobación para obtener una breve descripción d
 - La [expansión de disco basada en crédito](../../../virtual-machines/disk-bursting.md#credit-based-bursting) (P1-P20) solo se debe tener en cuenta para cargas de trabajo de desarrollo y pruebas más pequeñas y sistemas departamentales.
 - Aprovisione la cuenta de almacenamiento en la misma región que la VM de SQL Server. 
 - Deshabilite el almacenamiento con redundancia geográfica de Azure (replicación geográfica) y use LRS (almacenamiento con redundancia local) en la cuenta de almacenamiento.
-- Formatee el disco de datos para que use un tamaño de unidad de asignación de 64 KB para todos los archivos de datos ubicados en una unidad que no sea la unidad temporal `D:\` (que tiene un valor predeterminado de 4 KB). Las VM de SQL Server implementadas a través de Azure Marketplace se ofrecen con discos de datos formateados con el tamaño de la unidad de asignación y la intercalación para el bloque de almacenamiento establecido en 64 KB. 
+- Formatee el disco de datos para que use un tamaño de bloque (tamaño de unidad de asignación) de 64 KB para todos los archivos de datos ubicados en una unidad que no sea la unidad temporal `D:\` (que tiene un valor predeterminado de 4 KB). Las VM con SQL Server implementadas mediante Azure Marketplace se ofrecen con discos de datos formateados con un tamaño de bloque y una intercalación del bloque de almacenamiento establecidos en 64 KB. 
 
 Para comparar la lista de comprobación de almacenamiento con las demás, consulte la [Lista de comprobación de procedimientos recomendados de rendimiento](performance-guidelines-best-practices-checklist.md). 
 

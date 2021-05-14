@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: mayg
-ms.openlocfilehash: 9e1008f7acbfe0685b7a171176c7dc54592d1491
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1404b2dd035b7fd4b06c5f959fd9ba45f6be9c75
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96019249"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164982"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalación de un servidor de destino maestro de Linux para la conmutación por recuperación
 Después de conmutar por error las máquinas virtuales a Azure, puede conmutarlas por recuperación en el sitio local. Para ello, debe volver a proteger la máquina virtual de Azure en el sitio local. Para realizar este proceso, necesitará un servidor de destino maestro local que reciba el tráfico. 
@@ -21,7 +21,6 @@ Después de conmutar por error las máquinas virtuales a Azure, puede conmutarla
 Si la máquina virtual protegida es una máquina virtual Windows, necesitará un destino maestro de Windows. Para una máquina virtual Linux, se necesita un destino maestro de Linux. Lea los pasos siguientes para aprender a crear e instalar un destino maestro de Linux.
 
 > [!IMPORTANT]
-> A partir de la versión 9.10.0 del servidor de destino maestro, el servidor de destino maestro más reciente solo puede instalarse en un servidor Ubuntu 16.04. Las nuevas instalaciones no están permitidas en servidores CentOS6.6. Pero puede seguir actualizando los servidores de destino maestros anteriores con la versión 9.10.0.
 > El servidor de destino maestro no se admite en LVM.
 
 ## <a name="overview"></a>Información general
@@ -58,6 +57,9 @@ Siga los siguientes pasos para instalar el sistema operativo Ubuntu 16.04.2 de 6
 
 1.   Vaya al [vínculo de descarga](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), elija el reflejo más adecuado y descargue una imagen ISO de 64 bits mínima de Ubuntu 16.04.2.
 Coloque una imagen ISO de 64 bits mínima de Ubuntu 16.04.2 en la unidad de DVD e inicie el sistema.
+
+>[!NOTE]
+> A partir de la versión [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), el sistema operativo Ubuntu 20.04 es compatible con el servidor de destino maestro de Linux. Si quiere usar el sistema operativo más reciente, continúe con la configuración de la máquina con la imagen ISO de Ubuntu 20.04.
 
 1.  Seleccione el **inglés** como idioma preferido y, a continuación, seleccione **Entrar**.
     
@@ -182,6 +184,10 @@ El servidor de destino maestro de Azure Site Recovery exige una versión concret
 > Asegúrese de que tiene conectividad a Internet para descargar e instalar paquetes adicionales. Si no tiene conectividad a Internet, tiene que encontrar manualmente estos paquetes Deb e instalarlos.
 
  `apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx`
+
+>[!NOTE]
+> A partir de la versión [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), el sistema operativo Ubuntu 20.04 es compatible con el servidor de destino maestro de Linux.
+> Si quiere usar el sistema operativo más reciente, actualice el sistema operativo a Ubuntu 20.04 antes de continuar. Para actualizar el sistema operativo más adelante, puede seguir las instrucciones que se indican [aquí](#upgrade-os-of-master-target-server-from-ubuntu-1604-to-ubuntu-2004).
 
 ### <a name="get-the-installer-for-setup"></a>Obtención del instalador para la configuración
 
@@ -335,6 +341,17 @@ Ejecute al programa de instalación. Detecta automáticamente que el agente est�
 
 
 Verá que el campo **Versión** indica el número de versión del destino maestro.
+
+## <a name="upgrade-os-of-master-target-server-from-ubuntu-1604-to-ubuntu-2004"></a>Actualización del sistema operativo del servidor de destino maestro de Ubuntu 16.04 a Ubuntu 20.04
+
+A partir de la versión 9.42, ASR admite el servidor de destino maestro de Linux en Ubuntu 20.04. Para actualizar el sistema operativo del servidor de destino maestro existente:
+
+1. Asegúrese de que el servidor de destino maestro de escalabilidad horizontal de Linux no se use para volver a proteger el funcionamiento de ninguna VM protegida.
+2. Desinstalación del instalador del servidor de destino maestro de la máquina
+3. Ahora, actualice el sistema operativo de Ubuntu 16.04 a 20.04.
+4. Después de actualizar correctamente el sistema operativo, reinicie la máquina.
+5. Ahora [descargue el instalador más reciente](#download-the-master-target-installation-packages) y siga las instrucciones indicadas [anteriormente](#install-the-master-target) para completar la instalación del servidor de destino maestro.
+
 
 ## <a name="common-issues"></a>Problemas comunes
 

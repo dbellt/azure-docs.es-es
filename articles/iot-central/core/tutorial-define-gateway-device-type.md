@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: cdace22072e4122150c878d43b99765cd6fd59e1
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 7d2321189e32c77d9360ff6d772fcebf9c6abb1d
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490784"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324570"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definición de un nuevo tipo de dispositivo de puerta de enlace de IoT en la aplicación de Azure IoT Central
 
@@ -45,15 +45,15 @@ En este tutorial se usan plantillas de dispositivo para un dispositivo con **sen
 
 Para crear una plantilla para un dispositivo con **sensor S1**:
 
-1. Seleccione **Device Templates** (Plantillas de dispositivo) en el panel izquierdo. A continuación, seleccione **+** para empezar a agregar la plantilla.
+1. Seleccione **Device Templates** (Plantillas de dispositivo) en el panel izquierdo. A continuación, seleccione **+Nuevo** para empezar a agregar la plantilla.
 
-1. Desplácese hacia abajo hasta que pueda ver el icono del dispositivo con **sensor S1**. Seleccione el icono y, a continuación, seleccione **Siguiente: Customize** (Personalizar)
+1. Desplácese hacia abajo hasta que pueda ver el icono del dispositivo **Minew S1**. Seleccione el icono y, a continuación, seleccione **Siguiente: Customize** (Personalizar)
 
 1. En la página **Revisar**, seleccione **Crear** para agregar la plantilla de dispositivo a la aplicación. 
 
-Para crear una plantilla para un dispositivo con **sensor de ocupación RS40**:
+Para crear una plantilla de dispositivo para un dispositivo **Sensor de ocupación RS40**:
 
-1. Seleccione **Device Templates** (Plantillas de dispositivo) en el panel izquierdo. A continuación, seleccione **+** para empezar a agregar la plantilla.
+1. Seleccione **Device Templates** (Plantillas de dispositivo) en el panel izquierdo. A continuación, seleccione **+Nuevo** para empezar a agregar la plantilla.
 
 1. Desplácese hacia abajo hasta que vea el icono del dispositivo con el ***sensor de ocupación RS40**. Seleccione el icono y, a continuación, seleccione **Siguiente: Customize** (Personalizar)
 
@@ -70,19 +70,28 @@ En este tutorial se va a crear una plantilla para un dispositivo de puerta de en
 
 Para agregar una nueva plantilla de dispositivo de puerta de enlace a la aplicación:
 
-1. Seleccione **Device Templates** (Plantillas de dispositivo) en el panel izquierdo. A continuación, seleccione **+** para empezar a agregar la plantilla.
+1. Seleccione **Device Templates** (Plantillas de dispositivo) en el panel izquierdo. A continuación, seleccione **+Nuevo** para empezar a agregar la plantilla.
 
 1. En la página **Seleccionar tipo de plantilla**, seleccione el icono **Dispositivo IoT** y, después, seleccione **Siguiente: Customize** (Personalizar)
 
-1. En la página **Personalizar dispositivo**, seleccione la casilla **Dispositivo de puerta de enlace**.
+1. En la página **Customize device** (Personalizar dispositivo), active la casilla **This is a gateway device** (Este es un dispositivo de puerta de enlace).
+
+1. Escriba **Smart Building gateway device** (Dispositivo de puerta de enlace de edificio inteligente) como nombre de la plantilla y, luego, seleccione **Siguiente: revisión**.
 
 1. En la página **Revisar**, seleccione **Crear**. 
 
-1. Escriba **Dispositivo de puerta de enlace de edificio inteligente** como nombre de la plantilla.
 
-1. En la página **Crear un modelo de funcionalidad**, seleccione el icono **Personalizar**.
 
-1. Seleccione **+** para agregar una interfaz.  Elija la interfaz estándar **Información del dispositivo**.
+1. En la página **Create a model** (Crear un modelo), seleccione el icono **Custom model** (Personalizar modelo).
+
+1. Seleccione **+Agregar funcionalidad** para agregar una funcionalidad.
+
+1. Escriba **Enviar datos** como nombre para mostrar y, luego, seleccione **Propiedad** como tipo de funcionalidad.
+
+1. Seleccione **+Agregar funcionalidad** para agregar otra funcionalidad. Escriba **Telemetría booleana** como nombre para mostrar, seleccione **Telemetría** como tipo de funcionalidad y, luego, elija **Booleano** como esquema.
+
+1. Seleccione **Guardar**.
+
 
 ### <a name="add-relationships"></a>Adición de relaciones
 
@@ -152,7 +161,7 @@ Para crear un dispositivo simulado de puerta de enlace:
 
 1. En la página **Dispositivos**, seleccione **Dispositivo de puerta de enlace de edificio inteligente** en la lista de plantillas de dispositivo.
 
-1. Seleccione **+** para empezar a agregar un nuevo dispositivo.
+1. Seleccione **+Nuevo** para empezar a agregar un nuevo dispositivo.
 
 1. Conserve el **Id. de dispositivo** y el **Nombre de dispositivo** que se han generado. Asegúrese de que el conmutador **Simulado** esté **Activado**. Seleccione **Crear**.
 
@@ -160,13 +169,13 @@ Para crear dispositivos simulados de nivel inferior:
 
 1. En la página **Dispositivos**, seleccione **Sensor de ocupación RS40** en la lista de plantillas de dispositivo.
 
-1. Seleccione **+** para empezar a agregar un nuevo dispositivo.
+1. Seleccione **+Nuevo** para empezar a agregar un nuevo dispositivo.
 
 1. Conserve el **Id. de dispositivo** y el **Nombre de dispositivo** que se han generado. Asegúrese de que el conmutador **Simulado** esté **Activado**. Seleccione **Crear**.
 
 1. En la página **Dispositivos**, seleccione **Sensor S1** en la lista de plantillas de dispositivo.
 
-1. Seleccione **+** para empezar a agregar un nuevo dispositivo.
+1. Seleccione **+Nuevo** para empezar a agregar un nuevo dispositivo.
 
 1. Conserve el **Id. de dispositivo** y el **Nombre de dispositivo** que se han generado. Asegúrese de que el conmutador **Simulado** esté **Activado**. Seleccione **Crear**.
 
@@ -178,11 +187,11 @@ Ahora que tiene los dispositivos simulados en la aplicación, puede crear las re
 
 1. En la página **Dispositivos**, seleccione **Sensor S1** en la lista de plantillas de dispositivo y, a continuación, seleccione el dispositivo simulado **Sensor S1**.
 
-1. Seleccione **Conectar con la puerta de enlace**.
+1. Seleccione **Attach to gateway** (Conectar a la puerta de enlace).
 
-1. En el cuadro de diálogo **Conectar con la puerta de enlace**, seleccione la plantilla **Dispositivo de puerta de enlace de edificio inteligente** y, a continuación, seleccione la instancia simulada que creó anteriormente.
+1. En el cuadro de diálogo **Attach to a gateway** (Conectar a la puerta de enlace), seleccione la plantilla **Smart Building gateway device** (Dispositivo de puerta de enlace de edificio inteligente) y, luego, elija la instancia simulada que creó anteriormente.
 
-1. Seleccione **Combinar**.
+1. Seleccione **Adjuntar**.
 
 1. En la página **Dispositivos**, seleccione **Sensor de ocupación RS40** en la lista de plantillas de dispositivo y, a continuación, seleccione el dispositivo simulado **Sensor de ocupación RS40**.
 
@@ -190,13 +199,12 @@ Ahora que tiene los dispositivos simulados en la aplicación, puede crear las re
 
 1. En el cuadro de diálogo **Conectar con la puerta de enlace**, seleccione la plantilla **Dispositivo de puerta de enlace de edificio inteligente** y, a continuación, seleccione la instancia simulada que creó anteriormente.
 
-1. Seleccione **Combinar**.
+1. Seleccione **Adjuntar**.
 
 Los dispositivos simulados de nivel inferior ahora están ya conectados al dispositivo simulado de puerta de enlace. Si va a la vista **Dispositivos de bajada** del dispositivo de puerta de enlace, podrá ver los dispositivos de nivel inferior relacionados:
 
 ![Vista Dispositivos de bajada](./media/tutorial-define-gateway-device-type/downstream-device-view.png)
 
-Seleccione una plantilla de dispositivo de puerta de enlace y la instancia del dispositivo de puerta de enlace y haga clic en **Unir**.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

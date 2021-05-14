@@ -7,16 +7,14 @@ author: viv-liu
 ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: ea4a47f1ba3eac39820e839a10330840f57afe42
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3f933393b331d24e5de05a00d1abdc7302282308
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629077"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684152"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualización y análisis de los datos de Azure IoT Central en un panel de Power BI
-
-*Este tema se aplica a administradores y desarrolladores de soluciones.*
 
 > [!Note] 
 > Esta solución utiliza [características de exportación de datos heredados](./howto-export-data-legacy.md). Manténgase atento a las instrucciones actualizadas sobre cómo conectarse a Power BI con la exportación de datos más reciente.
@@ -34,11 +32,10 @@ Esta solución configura una canalización que lee datos de la cuenta de Azure B
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Recuerde que para completar los pasos de esta guía paso a paso, necesita una suscripción activa a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+Necesitará lo siguiente para completar los pasos de esta guía:
 
-Para configurar la solución, son necesarios los recursos siguientes:
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
 
-- Una versión 3 de la aplicación de IoT Central. Para obtener información sobre cómo comprobar la versión de la aplicación, vea [Acerca de la aplicación](./howto-get-app-info.md). Para obtener información sobre cómo crear una aplicación de IoT Central, vea [Creación de una aplicación de Azure IoT Central](./quick-deploy-iot-central.md).
 - La exportación continua de datos heredados configurada para exportar datos de telemetría, dispositivos y plantillas de dispositivo a Azure Blog Storage. Para obtener más información, consulte la [documentación de exportación de datos heredados](howto-export-data-legacy.md).
   - Asegúrese de que solo la aplicación de IoT Central exporte datos al contenedor de blobs.
   - Los [dispositivos deben enviar mensajes codificados por JSON](../../iot-hub/iot-hub-devguide-messages-d2c.md). Los dispositivos deben especificar `contentType:application/JSON` y `contentEncoding:utf-8` o `contentEncoding:utf-16` o `contentEncoding:utf-32` en las propiedades del sistema de mensajes.

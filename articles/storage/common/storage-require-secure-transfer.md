@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/21/2020
+ms.date: 04/27/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: a0a942daae6b106bce928f8214e92c0c6294203d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 7b62265d75aa7c7c09f1f6e55632dcbe98efc411
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555715"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128948"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>Requisito de transferencia segura para garantizar conexiones seguras
 
@@ -38,14 +38,14 @@ Puede activar la propiedad **Se requiere transferencia segura** al crear una cue
 ### <a name="require-secure-transfer-for-a-new-storage-account"></a>Solicitud de transferencia segura en una nueva cuenta de almacenamiento
 
 1. Abra el panel **Crear cuenta de almacenamiento** en Azure Portal.
-1. En **Se requiere transferencia segura**, seleccione **Habilitado**.
+1. En la página **Avanzado**, seleccione la casilla **Habilitar transferencia segura**.
 
    ![Creación de una hoja de la cuenta de almacenamiento](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
 
 ### <a name="require-secure-transfer-for-an-existing-storage-account"></a>Solicitud de transferencia segura en una cuenta de almacenamiento existente
 
 1. Seleccione una cuenta de almacenamiento existente en Azure Portal.
-1. En el panel de menú de la cuenta de almacenamiento, en **CONFIGURACIÓN**, seleccione **Configuración**.
+1. En el panel de menú de la cuenta de almacenamiento, en **Configuración**, seleccione **Opciones de configuración**.
 1. En **Se requiere transferencia segura**, seleccione **Habilitado**.
 
    ![Panel de menú de la cuenta de almacenamiento](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)

@@ -1,14 +1,14 @@
 ---
 title: Administración de asignaciones con PowerShell
 description: Obtenga información sobre cómo administrar las asignaciones de planos técnicos con el módulo oficial de PowerShell de Azure Blueprints, Az.Blueprint.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: how-to
-ms.openlocfilehash: d60fb887e07b4697b8e86a4e2fd74a735ac0bb58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81c3c3a5fa7a472a9fddebff1ac83a3814d68656
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98919383"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325416"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Administración de asignaciones con PowerShell
 

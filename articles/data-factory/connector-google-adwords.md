@@ -1,18 +1,18 @@
 ---
 title: Copia de datos de Google AdWords
 description: Obtenga información sobre cómo copiar datos de Google AdWords en almacenes de datos receptores compatibles a través de una actividad de copia en una canalización de Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/25/2019
-ms.openlocfilehash: 8b3036f09e41b20bc3c190f06842acd817fcece6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 38ba36c049076059192385694d10008615b0eafe
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100380957"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487986"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory"></a>Copia de datos de Google AdWords mediante Azure Data Factory
 
@@ -35,7 +35,7 @@ Azure Data Factory proporciona un controlador integrado para habilitar la conect
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas para el conector Google AdWords.
 

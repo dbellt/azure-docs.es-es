@@ -12,12 +12,12 @@ ms.service: notification-hubs
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: a328d6b8942c3209e13dc91a2fb892e98e3016f6
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: a887821cf468fd0cd5cd3b8a5a044466d1e130c4
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533481"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279485"
 ---
 # <a name="quickstart-create-a-notification-hub-using-an-arm-template"></a>Inicio rápido: Creación de un centro de notificaciones mediante una plantilla de Resource Manager
 
@@ -29,7 +29,7 @@ En este inicio rápido se usa una plantilla de Azure Resource Manager para crear
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.notificationhubs%2Fnotification-hub%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -39,7 +39,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-notification-hub/).
 
-:::code language="json" source="~/quickstart-templates/101-notification-hub/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.notificationhubs/notification-hub/azuredeploy.json":::
 
 * [Microsoft.NotificationHubs/namespaces](/azure/templates/microsoft.notificationhubs/namespaces)
 * [Microsoft.NotificationHubs/namespaces/notificationHubs](/azure/templates/microsoft.notificationhubs/namespaces/notificationhubs)
@@ -48,7 +48,7 @@ La plantilla usada en este inicio rápido forma parte de las [plantillas de inic
 
 Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla toma un nombre de espacio de nombres de Notification Hubs como parámetro. Luego, la plantilla crea un espacio de nombres con ese nombre y un centro de notificaciones llamado **MyHub** en ese espacio de nombres.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.notificationhubs%2Fnotification-hub%2Fazuredeploy.json)
 
 ## <a name="review-deployed-resources"></a>Revisión de los recursos implementados
 

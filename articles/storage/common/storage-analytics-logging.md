@@ -9,12 +9,12 @@ ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: a5d1d6af68fcbd6a5822b2652ee79c464d02241f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d48ab6223485807400b6749bcf72691261405495
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200761"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134562"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registro de Azure Storage Analytics
 
@@ -35,7 +35,7 @@ También puede habilitar los registros de Storage Analytics mediante programaci�
  Las entradas del registro se crean solo si se presentan solicitudes al punto de conexión de servicio. Por ejemplo, si una cuenta de almacenamiento tiene actividad en el punto de conexión de Blob service, pero no en los puntos de conexión de Table service o Queue service, solo se crearán los registros correspondientes a Blob service.
 
 > [!NOTE]
->  Actualmente, el registro de Storage Analytics está disponible solo para los servicios Blob, Queue y Table service. El registro de Storage Analytics también está disponible para las cuentas [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) de rendimiento Premium. Sin embargo, no está disponible para las cuentas de uso general v2 con rendimiento Premium.
+>  Actualmente, el registro de Storage Analytics está disponible solo para los servicios Blob, Queue y Table service. El registro de Storage Analytics también está disponible para las cuentas [BlockBlobStorage](./storage-account-create.md) de rendimiento Premium. Sin embargo, no está disponible para las cuentas de uso general v2 con rendimiento Premium.
 
 ## <a name="requests-logged-in-logging"></a>Solicitudes registradas en el registro
 ### <a name="logging-authenticated-requests"></a>Registrar solicitudes de autenticación

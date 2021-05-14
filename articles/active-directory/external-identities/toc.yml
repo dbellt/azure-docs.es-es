@@ -94,9 +94,9 @@
               href: google-federation.md
             - name: Federación de Facebook
               href: facebook-federation.md
-            - name: Federación directa
+            - name: Federación de IdP de SAML/WS-Fed
               href: direct-federation.md
-            - name: Ejemplo de federación directa con AD FS
+            - name: "Ejemplo de federación de IdP de SAML/WS-Fed (AD\_FS)"
               href: direct-federation-adfs.md
         - name: Habilitación de códigos de acceso de un solo uso (OTP)
           href: one-time-passcode.md
@@ -114,13 +114,11 @@
               href: self-service-sign-up-add-approvals.md
         - name: Administración de cuentas de usuario invitado
           items:
-            - name: Adición de un usuario B2B a un rol
-              href: add-guest-to-role.md
             - name: Grupos dinámicos y usuarios de B2B
               href: use-dynamic-groups.md
             - name: Descripción del usuario de B2B
               href: user-properties.md
-            - name: Restablecimiento del estado de canje
+            - name: Restablecimiento del estado de canje (versión preliminar)
               href: reset-redemption-status.md
             - name: B2B para las aplicaciones integradas de Azure AD
               href: configure-saas-apps.md
