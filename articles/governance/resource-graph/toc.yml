@@ -23,6 +23,9 @@
     - name: "Ejecución de la primera consulta:\_Go"
       displayName: 'package, sdk, golang'
       href: ./first-query-go.md
+    - name: 'Ejecución de la primera consulta: Java'
+      displayName: 'maven, zulu, mvn'
+      href: ./first-query-java.md
     - name: 'Ejecución de la primera consulta: JavaScript'
       displayName: 'library, node, arm-resourcegraph'
       href: ./first-query-javascript.md
@@ -74,7 +77,7 @@
     - name: Seguridad
       items:
         - name: Línea de base de seguridad para Azure Security Benchmark
-          href: ./concepts/azure-security-benchmark-baseline.md
+          href: /security/benchmark/azure/baselines/resource-graph-security-baseline?toc=/azure/governance/resource-graph/toc.json&bc=/azure/governance/resource-graph/breadcrumb/toc.json
 - name: Guías paso a paso
   items:
     - name: Obtención de los cambios del recurso
@@ -90,7 +93,7 @@
     - name: CLI y SDK
       items:
         - name: CLI de Azure
-          href: /cli/azure/ext/resource-graph/graph
+          href: /cli/azure/graph
         - name: Azure PowerShell
           href: /powershell/module/az.resourcegraph/#resourcegraph
         - name: SDK de Azure para .NET

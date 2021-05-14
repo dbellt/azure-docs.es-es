@@ -24,23 +24,21 @@
     - name: Desarrollo de módulos de código personalizados
       items:
         - name: C
-          items:
-            - name: Módulos de C para dispositivos Linux
-              href: tutorial-c-module.md
-            - name: Módulos de C para dispositivos Windows
-              href: tutorial-c-module-windows.md
+          href: tutorial-c-module.md
         - name: C#
-          items:
-            - name: Módulos de C# para dispositivos Linux
-              href: tutorial-csharp-module.md
-            - name: Módulos de C# para dispositivos Windows
-              href: tutorial-csharp-module-windows.md
+          href: tutorial-csharp-module.md
         - name: Java
           href: tutorial-java-module.md
         - name: Node.js
           href: tutorial-node-module.md
         - name: Python
           href: tutorial-python-module.md
+        - name: Uso de contenedores de Windows
+          items:
+            - name: C
+              href: tutorial-c-module-windows.md
+            - name: C#
+              href: tutorial-csharp-module-windows.md
     - name: Implementación de servicios de Azure como módulos
       items:
         - name: Filtrado de datos con Azure Functions
@@ -115,8 +113,6 @@
       href: support.md
     - name: Lista de comprobación de implementación de producción
       href: production-checklist.md
-    - name: Glosario de IoT Edge
-      href: iot-edge-glossary.md
 - name: Guías paso a paso
   items:
     - name: Crear un dispositivo IoT Edge
@@ -133,6 +129,8 @@
           href: how-to-update-iot-edge.md
         - name: Administración de certificados de dispositivo
           href: how-to-manage-device-certificates.md
+        - name: Configuración de la virtualización anidada para máquinas virtuales Windows
+          href: nested-virtualization.md
     - name: Escenarios de dispositivos alternativos
       items:
         - name: Ejecución de IoT Edge con contenedores de Windows
@@ -169,7 +167,7 @@
       items:
         - name: Implementación en dispositivos individuales
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: how-to-deploy-modules-portal.md
             - name: Azure CLI
               href: how-to-deploy-modules-cli.md
@@ -177,7 +175,7 @@
               href: how-to-deploy-modules-vscode.md
         - name: Implementación a escala
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: how-to-deploy-at-scale.md
             - name: Azure CLI
               href: how-to-deploy-cli-at-scale.md
@@ -251,14 +249,16 @@
       href: how-to-create-test-certificates.md
     - name: Scripts de administración de dispositivos de Windows
       href: reference-windows-scripts.md
-    - name: Scripts de IoT Edge para Linux en Windows
-      href: reference-iot-edge-for-linux-on-windows-scripts.md
+    - name: Funciones de IoT Edge para Linux en Windows
+      href: reference-iot-edge-for-linux-on-windows-functions.md
     - name: Azure CLI
       href: /cli/azure/azure-cli-reference-for-IoT
 - name: Recursos
   items:
     - name: Opciones de ayuda y soporte técnico
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
+    - name: Glosario de IoT
+      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
     - name: Servicios de IoT de Azure
       items:
         - name: IoT Hub
@@ -296,7 +296,7 @@
         - name: Plataforma de iOS
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
     - name: Catálogo de dispositivos de Azure Certified for IoT
-      href: 'https://catalog.azureiotsolutions.com/'
+      href: 'https://devicecatalog.azure.com/'
     - name: Centro para desarrolladores de Azure
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Azure Roadmap

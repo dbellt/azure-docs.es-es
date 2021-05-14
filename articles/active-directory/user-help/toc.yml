@@ -16,6 +16,8 @@
       href: multi-factor-authentication-end-user-app-passwords.md
     - name: Inicio de sesión
       href: user-help-sign-in.md?toc=./toc.json
+    - name: Inicio de sesión en la cuenta profesional o educativa
+      href: multi-factor-authentication-end-user-signin.md
     - name: Obtener ayuda
       href: multi-factor-authentication-end-user-troubleshoot.md
 - name: Ayuda para el restablecimiento de contraseña

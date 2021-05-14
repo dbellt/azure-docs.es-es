@@ -8,13 +8,13 @@
       href: azure-vmware-solution-platform-updates.md
 - name: Inicio rápido
   items:
-    - name: 0 - Planeamiento de la implementación
+    - name: 1 - Planeamiento de la implementación
       href: production-ready-deployment-steps.md
-    - name: 1 - Implementación de Azure VMware Solution
+    - name: 2 - Implementación de Azure VMware Solution
       href: deploy-azure-vmware-solution.md
-    - name: 2 - Conexión al entorno local
-      href: azure-vmware-solution-on-premises.md
-    - name: 3 - Implementación y configuración de VMware HCX
+    - name: 3 - Conexión al entorno local
+      href: tutorial-expressroute-global-reach-private-cloud.md
+    - name: 4 - Implementación y configuración de VMware HCX
       href: tutorial-deploy-vmware-hcx.md
 - name: Tutoriales
   items:
@@ -32,7 +32,7 @@
       href: tutorial-expressroute-global-reach-private-cloud.md
     - name: 7 - Implementación y configuración de VMware HCX
       href: tutorial-deploy-vmware-hcx.md
-    - name: 8 - Escalado de una nube privada
+    - name: 8- Expansión o reducción de clústeres en una nube privada
       href: tutorial-scale-private-cloud.md
     - name: 9 - Eliminación de una nube privada
       href: tutorial-delete-private-cloud.md
@@ -46,79 +46,145 @@
       href: concepts-storage.md
     - name: Acceso e identidad en nubes privadas
       href: concepts-identity.md
-    - name: Control de acceso basado en rol de vSphere
-      href: concepts-role-based-access-control.md
     - name: Supervisión y reparación de nubes privadas
-      href: concepts-monitor-repair-private-cloud.md
-    - name: Actualizaciones de nube privada
-      href: concepts-upgrades.md
+      href: concepts-private-clouds-clusters.md#host-monitoring-and-remediation
+    - name: API Management
+      href: concepts-api-management.md
+    - name: En estrella tipo hub-and-spoke
+      href: concepts-hub-and-spoke.md
 - name: Guías paso a paso
   items:
-    - name: Solicitud de la cuota del host y habilitación de Azure VMware Solution
+    - name: Solicitud de la cuota del host para Azure VMware Solution
       href: enable-azure-vmware-solution.md
+    - name: Traslado de recursos
+      items:
+        - name: Traslado de las suscripciones de Azure VMware Solution
+          href: move-ea-csp-subscriptions.md
     - name: Ahorro de costos con una instancia reservada
       href: reserved-instance.md
-    - name: Evaluación de migraciones
-      href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
+    - name: Creación de una evaluación de Azure VMware Solution
+      href: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
     - name: Administración de DHCP
       href: manage-dhcp.md
     - name: Configuración de componentes de red de NSX
       href: configure-nsx-network-components-azure-portal.md
-    - name: Implementación de la recuperación ante desastres para máquinas virtuales
-      href: disaster-recovery-for-virtual-machines.md
-    - name: Implementación de una máquina virtual a través de la biblioteca de contenido
-      href: ./deploy-vm-content-library.md
     - name: Configuración del servidor de GitHub Enterprise
       href: github-enterprise-server.md
-    - name: Uso de IP pública
-      href: public-ip-usage.md
-    - name: Creación de un túnel IPSec
-      href: create-ipsec-tunnel.md
-    - name: Clúster de conmutación por error de Windows Server
-      href: windows-server-failover-cluster.md
+    - name: Habilitación del acceso a través de una red de Internet pública
+      href: enable-public-internet-access.md
+    - name: Configuración de una VPN de sitio a sitio en vWAN
+      href: configure-site-to-site-vpn-gateway.md
+    - name: Configurar los clústeres de conmutación por error de Windows Server
+      href: configure-windows-server-failover-cluster.md
+    - name: Restablecimiento de las credenciales de vSphere
+      href: reset-vsphere-credentials.md
+    - name: Copia de seguridad y restauración con Azure Backup Server
+      items:
+        - name: Copias de seguridad de máquinas virtuales de VMware
+          href: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
+        - name: Restauración de máquinas virtuales de VMware
+          href: /azure/backup/restore-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
+        - name: Supervisión de las cargas de trabajo de Azure Backup
+          href: /azure/backup/backup-azure-monitoring-built-in-monitor?context=/azure/azure-vmware/context/context
+    - name: Recuperación ante desastres
+      items:
+        - name: Implementación de la recuperación ante desastres para máquinas virtuales
+          href: disaster-recovery-for-virtual-machines.md
+        - name: Recuperación ante desastres en Azure
+          items:
+            - name: Preparación de Azure
+              href: /azure/site-recovery/avs-tutorial-prepare-azure?context=/azure/azure-vmware/context/context
+            - name: Preparación de Azure VMware Solution
+              href: /azure/site-recovery/avs-tutorial-prepare-avs?context=/azure/azure-vmware/context/context
+            - name: Configuración de la replicación
+              href: /azure/site-recovery/avs-tutorial-replication?context=/azure/azure-vmware/context/context
+            - name: Ejecución de un simulacro de recuperación ante desastres
+              href: /azure/site-recovery/avs-tutorial-dr-drill-azure?context=/azure/azure-vmware/context/context
+            - name: Conmutación por error a Azure
+              href: /azure/site-recovery/avs-tutorial-failover?context=/azure/azure-vmware/context/context
+            - name: Reprotección de máquinas virtuales
+              href: /azure/site-recovery/avs-tutorial-reprotect?context=/azure/azure-vmware/context/context
+            - name: Conmutación por recuperación desde Azure
+              href: /azure/site-recovery/avs-tutorial-failback?context=/azure/azure-vmware/context/context
     - name: Integración nativa de Azure
       items:
-        - name: API Management
-          href: concepts-api-management.md
-        - name: En estrella tipo hub-and-spoke
-          href: concepts-hub-and-spoke.md
-        - name: Azure Security Center
+        - name: Protección de máquinas virtuales con Azure Security Center
           href: azure-security-integration.md
-        - name: Azure Backup Server
-          items:
-            - name: Configuración Backup Server
-              href: set-up-backup-server-for-azure-vmware-solution.md
-            - name: Copia de seguridad de las máquinas virtuales de una nube privada con Backup Server
-              href: backup-azure-vmware-solution-virtual-machines.md
-        - name: Administración del ciclo de vida de máquinas virtuales
+        - name: Copia de seguridad de máquinas virtuales de VMware con Azure Backup Server
+          href: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
+        - name: Supervisión y administración de máquinas virtuales
           href: lifecycle-management-of-azure-vmware-solution-vms.md
-        - name: Azure NetApp Files
+        - name: Integración con Azure NetApp Files
           href: netapp-files-with-azure-vmware-solution.md
-        - name: Application Gateway
+        - name: Protección de aplicaciones web con Azure Application Gateway
           href: protect-azure-vmware-solution-with-application-gateway.md
-        - name: Traffic Manager
+        - name: Implementación de Traffic Manager para equilibrar cargas de trabajo
           href: deploy-traffic-manager-balance-workloads.md
+        - name: Configuración de alertas y trabajo con métricas
+          href: configure-alerts-for-azure-vmware-solution.md
     - name: Soluciones de VMware
       items:
-        - name: Configuración de vRealize Operations
+        - name: Configuración de operaciones de vRealize
           href: vrealize-operations-for-azure-vmware-solution.md
         - name: Implementación de VMware Horizon
           href: azure-vmware-solution-horizon.md
+        - name: Implementación de máquinas virtuales desde la biblioteca de contenido
+          href: deploy-vm-content-library.md
     - name: Ecosistema de VMware
       items:
         - name: Soluciones de copia de seguridad para máquinas virtuales
           href: ecosystem-back-up-vms.md
+        - name: Soluciones de migración para máquinas virtuales
+          href: ecosystem-migration-vms.md
 - name: Recursos
   items:
     - name: Solución de problemas
       items:
         - name: Abrir una solicitud de soporte técnico para los errores de implementación
           href: fix-deployment-provisioning-failures.md
+        - name: Código de error vix de las herramientas de VMware = 21009
+          href: 'https://kb.vmware.com/s/article/2129927'
     - name: Preguntas más frecuentes
-      href: faq.yml
+      items:
+        - name: General
+          href: /azure/azure-vmware/faq#general
+        - name: Comunicación al cliente
+          href: /azure/azure-vmware/faq#customer-communication
+        - name: Instalación y configuración
+          href: /azure/azure-vmware/faq#configuration-and-setup
+        - name: Software de VMware
+          href: /azure/azure-vmware/faq#vmware-software
+        - name: 'Procesamiento, copia de seguridad y recuperación ante desastres'
+          href: '/azure/azure-vmware/faq#compute,-backup,-and-disaster-recovery'
+        - name: Redes e interconectividad
+          href: /azure/azure-vmware/faq#networking-and-interconnectivity
+        - name: Storage
+          href: /azure/azure-vmware/faq#storage
+        - name: 'Hosts, clústeres y nubes privadas'
+          href: '/azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds'
+        - name: Administración de identidades
+          href: /azure/azure-vmware/faq#identity-management
+        - name: Facturación y soporte técnico
+          href: /azure/azure-vmware/faq#billing-and-support
+    - name: Vídeos
+      items:
+        - name: Lista de reproducción
+          href: 'https://youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin'
+        - name: Integración con los servicios de Azure
+          href: 'https://youtu.be/m26iLu6DHbU'
+        - name: Integración con Azure Application Gateway
+          href: 'https://youtu.be/BoQYvqzb6Y8'
+        - name: Migración y planeamiento de capacidad
+          href: 'https://youtu.be/NoNG-hkksrA'
+        - name: Rotación de contraseñas de vCenter y NSX-T mediante Azure Logic App
+          href: 'https://youtu.be/cK1qY3knj88'
 - name: Referencia
   items:
+    - name: API DE REST
+      href: /rest/api/avs
     - name: Azure CLI
-      href: /cli/azure/ext/vmware/vmware
+      href: /cli/azure/vmware
     - name: Azure PowerShell
       href: /powershell/module/az.vmware/
+    - name: Proveedor de Azure para Terraform
+      href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud'

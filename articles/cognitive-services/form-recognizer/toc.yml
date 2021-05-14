@@ -27,6 +27,18 @@
       href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
     - name: SDK de la biblioteca cliente de Form Recognizer de JavaScript
       href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
+- name: Uso responsable de la inteligencia artificial
+  items:
+    - name: Notas de transparencia
+      items:
+        - name: Casos de uso de Form Recognizer
+          href: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/cognitive-services/form-recognizer/context/context
+        - name: Características y limitaciones
+          href: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/cognitive-services/form-recognizer/context/context
+    - name: Integración y uso responsable
+      href: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/cognitive-services/form-recognizer/context/context
+    - name: 'Datos, privacidad y seguridad'
+      href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/cognitive-services/form-recognizer/context/context
 - name: Guías paso a paso
   items:
     - name: Creación de un conjunto de datos de aprendizaje

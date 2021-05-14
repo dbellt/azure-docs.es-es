@@ -3,16 +3,16 @@ title: 'Patrón: uso de etiquetas en una definición de directiva'
 description: En este patrón de Azure Policy se proporcionan ejemplos de cómo agregar etiquetas con parámetros o heredar etiquetas de un grupo de recursos en una definición de directiva.
 ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: c748eb9b8ea795f9725082ec0aa0b8065ada8c65
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 30357632e92535368505fd72d2414292da0f5ca1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106093391"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752316"
 ---
 # <a name="azure-policy-pattern-tags"></a>Patrón de Azure Policy: etiquetas
 
-Las [etiquetas](../../..//azure-resource-manager/management/tag-resources.md) son una parte importante de la administración, organización y control de los recursos de Azure. Azure Policy permite configurar etiquetas en los recursos nuevos y existentes a escala con el efecto [modificar](../concepts/effects.md#modify) y las [tareas de corrección](../how-to/remediate-resources.md).
+Las [etiquetas](../../../azure-resource-manager/management/tag-resources.md) son una parte importante de la administración, organización y control de los recursos de Azure. Azure Policy permite configurar etiquetas en los recursos nuevos y existentes a escala con el efecto [modificar](../concepts/effects.md#modify) y las [tareas de corrección](../how-to/remediate-resources.md).
 
 ## <a name="sample-1-parameterize-tags"></a>Muestra 1: Parametrizar
 

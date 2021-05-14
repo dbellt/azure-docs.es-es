@@ -8,12 +8,12 @@ ms.topic: reference
 ms.service: media-services
 ms.custom: subject-monitoring
 ms.date: 04/21/2021
-ms.openlocfilehash: 1fff4cdf24f9be245026757e18050aa121b4d62a
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: a9bc17528e1314a033cf2e45fee4b112eb088cc3
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138866"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715581"
 ---
 # <a name="monitoring-media-services-data-reference"></a>Supervisión de la referencia de datos de Media Services
 
@@ -56,7 +56,7 @@ Media Services admite los siguientes registros de recursos: [Microsoft.Media/med
 
 Para obtener una descripción detallada del esquema de registros de diagnóstico de nivel superior, consulte [Servicios, esquemas y categorías admitidos en los registros de diagnóstico de Azure](../../../azure-monitor/essentials/resource-logs-schema.md).
 
-## <a name="key-delivery-log-schema-properties"></a>Propiedades del esquema de registro de entrega de claves
+### <a name="key-delivery"></a>Entrega de claves 
 
 Estas propiedades son específicas del esquema de registro de entrega de claves.
 
