@@ -4,12 +4,12 @@ description: Aprenda sobre las directivas de soporte técnico de Azure Kubernete
 services: container-service
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: 86b1c0bba30b41a2ee17cfbdf05286c4d2b3fb8a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d30e2aa5ab13c5d7676ca7cb455a2372981e4a46
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91892717"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109714483"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Directivas de soporte técnico para Azure Kubernetes Service
 
@@ -62,6 +62,7 @@ Microsoft proporciona soporte técnico para lo siguiente:
   * Conectividad con otros servicios y aplicaciones de Azure
   * Controladores de entrada y las configuraciones del equilibrador de carga o de entrada
   * Rendimiento y latencia de la red
+  * [Directivas de red](use-network-policies.md#differences-between-azure-and-calico-policies-and-their-capabilities)
 
 
 > [!NOTE]

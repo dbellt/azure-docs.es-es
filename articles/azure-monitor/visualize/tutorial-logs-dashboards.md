@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: 84c710e44fbbccdefd5bf811477e1fa4c3989114
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e4a76367b65556c0f6b030eba79355382e8db0c6
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102043463"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109754522"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Creación y uso compartido de paneles de datos de Log Analytics
 
@@ -86,7 +86,7 @@ Ahora que tenemos una consulta anclada al panel, podrá observar que tiene un t�
 ![Configuración completada del panel de ejemplo](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-02.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial aprendió a crear un panel en Azure Portal y a agregarle una consulta de registro.  Vaya al siguiente tutorial para conocer las diferentes respuestas que puede implementar según los resultados de consulta de registro.  
+En este tutorial aprendió a crear un panel en Azure Portal y a agregarle una consulta de registro.  Siga este vínculo para ver ejemplos de scripts de Log Analytics creados previamente.
 
 > [!div class="nextstepaction"]
-> [Respuesta a eventos con las alertas de Log Analytics](../alerts/tutorial-response.md)
+> [Ejemplos de scripts de Log Analytics](../powershell-samples.md)

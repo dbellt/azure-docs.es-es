@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5972882a582a0e612ecbed3f6a4ab70be8ba393c
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: a99f5ebf0fd4f3c4684446a868e1c4e342f3785e
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108207490"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783845"
 ---
 # <a name="add-tags-to-digital-twins"></a>Incorporación de etiquetas a gemelos digitales 
 
-Puede usar el concepto de etiquetas para detallar la identificación y la categorización de los gemelos digitales. En concreto, los usuarios podrían querer replicar etiquetas de sistemas existentes, como las [etiquetas de Haystack](https://project-haystack.org/doc/TagModel), en las instancias de Azure Digital Twins. 
+Puede usar el concepto de etiquetas para detallar la identificación y la categorización de los gemelos digitales. En concreto, los usuarios podrían querer replicar etiquetas de sistemas existentes, como las [etiquetas de Haystack](https://project-haystack.org/doc/appendix/tags), en las instancias de Azure Digital Twins. 
 
 En este documento se describen los patrones que se pueden usar para implementar etiquetas en gemelos digitales.
 

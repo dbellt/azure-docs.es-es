@@ -3,13 +3,13 @@ title: Creación de nuevos recursos basados en área de trabajo de Application I
 description: Obtenga información sobre los pasos necesarios para habilitar los nuevos recursos basados en área de trabajo de Application Insights de Azure Monitor.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9a0d41b88c1d2958fd3d5b075d54eaa8de522cc3
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: a84a9de854123b70ca96531942debc00afb2d6c6
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319996"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109754504"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Recursos de Application Insights basados en áreas de trabajo
 

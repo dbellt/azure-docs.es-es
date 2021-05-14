@@ -3,14 +3,14 @@ title: Exploradores y dispositivos compatibles con Azure Portal
 description: Puede usar Azure Portal en todos los dispositivos modernos y con las versiones más recientes del explorador. Consulte este artículo para asegurarse de que el explorador sea compatible.
 ms.assetid: 35fa18ec-21d8-41bf-af2b-e5e92703401d
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 05/06/2021
 ms.custom: accessibility
-ms.openlocfilehash: 2637dd6112d1cf1f9a3131cb9043a8b6aac2884f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 75d763b3249bb0a95b260bcdcba83d44581fed1f
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98735833"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481344"
 ---
 # <a name="supported-devices"></a>Dispositivos compatibles
 
@@ -23,7 +23,6 @@ Si necesita administrar los recursos de Azure desde un dispositivo móvil, prueb
 Se recomienda usar el explorador más actualizado compatible con el sistema operativo. Se admiten los siguientes exploradores:
 
 * Microsoft Edge (versión más recientes)
-* Internet Explorer 11 (con soporte técnico hasta el 31 de marzo de 2021)
 * Safari (versión más reciente, solo Mac)
 * Chrome (versión más reciente)
 * Firefox (versión más reciente)

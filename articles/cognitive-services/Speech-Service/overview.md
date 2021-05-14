@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: trbye
-ms.openlocfilehash: cacf317e433ec89b3bc82f86844e5e6b5e143547
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: af76ba2a4ee8610a0f64265889c009416f477543
+ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108330569"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109665075"
 ---
 # <a name="what-is-the-speech-service"></a>¿Qué es Speech Service?
 
-El servicio de voz es la unificación de las funcionalidades de conversión de voz a texto, conversión de texto a voz y traducción de voz en una sola suscripción de Azure. Con la [CLI de Voz](spx-overview.md), el [SDK de voz](./speech-sdk.md), el [SDK de dispositivos de voz](./speech-devices-sdk-quickstart.md?pivots=platform-android), [Speech Studio](https://speech.microsoft.com/) o las [API REST](#reference-docs) es fácil habilitar aplicaciones, herramientas y dispositivos para el uso de la voz.
+El servicio de voz es la unificación de las funcionalidades de conversión de voz a texto, conversión de texto a voz y traducción de voz en una sola suscripción de Azure. Con la [CLI de Voz](spx-overview.md), el [SDK de voz](./speech-sdk.md), el [SDK de dispositivos de voz](./speech-devices-sdk-quickstart.md?pivots=platform-android), [Speech Studio](speech-studio-overview.md) o las [API REST](#reference-docs) es fácil habilitar aplicaciones, herramientas y dispositivos para el uso de la voz.
 
 > [!IMPORTANT]
 > El servicio de voz ha reemplazado a Bing Speech API y Translator Speech. Consulte la sección de _migración_ para obtener instrucciones sobre migración.

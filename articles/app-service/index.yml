@@ -7,12 +7,12 @@ metadata:
   ms.topic: landing-page
   ms.service: app-service
   ms.date: 08/06/2020
-  ms.openlocfilehash: 60e96d9d7f930a733f107f4fee2d1d7ca0348223
-  ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+  ms.openlocfilehash: d385cfd0d6b83fb1c6f41751849c4bd79c09f7fe
+  ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/04/2021
-  ms.locfileid: "102122245"
+  ms.lasthandoff: 04/07/2021
+  ms.locfileid: "106579871"
 landingContent:
 - title: Acerca de App Service
   linkLists:
@@ -32,10 +32,8 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Primera aplicación ASP.NET Core
+    - text: Primera aplicación web de ASP.NET
       url: quickstart-dotnetcore.md
-    - text: Primera aplicación de ASP.NET (solo Windows)
-      url: quickstart-dotnet-framework.md
     - text: Primera aplicación Node.js
       url: quickstart-nodejs.md
     - text: Primera aplicación PHP
@@ -82,6 +80,8 @@ landingContent:
       url: deploy-ci-cd-custom-container.md
     - text: Conexión de un contenedor con archivos de Storage
       url: configure-connect-to-azure-storage.md
+    - text: Implementación con acciones de GitHub
+      url: deploy-container-github-action.md
 - title: Aplicación CRUD con base de datos
   linkLists:
   - linkListType: tutorial
