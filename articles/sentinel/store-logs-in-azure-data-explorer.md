@@ -14,19 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/25/2021
 ms.author: bagol
-ms.openlocfilehash: b0bffbba34e7816b62325db7999a7f5c6398b881
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 12a6ae76b1eb4dced661b811d8f6e9030f74b4f1
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124516"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795733"
 ---
 # <a name="integrate-azure-data-explorer-for-long-term-log-retention"></a>Integración con Azure Data Explorer para conservar registros a largo plazo
-
-<!--Info not included:>
-
-Script - can't xref out to a private github repo from docs
--->
 
 De forma predeterminada, los registros ingeridos en Azure Sentinel se almacenan en Azure Monitor Log Analytics. En este artículo se explica cómo reducir los costos de retención de Azure Sentinel enviándolos a Azure Data Explorer para conservarlos a largo plazo.
 
@@ -44,7 +39,7 @@ Azure Sentinel proporciona funcionalidades completas de SIEM y SOAR, implementac
 
 Si solo necesita acceder ocasionalmente a tablas específicas, como para las investigaciones o auditorías periódicas, podría llegar a la conclusión de que conservar los datos en Azure Sentinel ya no es rentable. En este punto, se recomienda almacenar datos en Azure Data Explorer, lo que cuesta menos, pero permite explorar usando las mismas consultas KQL que se ejecutan en Azure Sentinel.
 
-Puede acceder a los datos de Azure Data Explorer directamente desde Azure Sentinel mediante la [característica de proxy de Azure Data Explorer en Log Analytics](//azure/azure-monitor/logs/azure-monitor-data-explorer-proxy). Para ello, use consultas entre clústeres en la búsqueda de registros o en los libros.
+Puede acceder a los datos de Azure Data Explorer directamente desde Azure Sentinel mediante la [característica de proxy de Azure Data Explorer en Log Analytics](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy). Para ello, use consultas entre clústeres en la búsqueda de registros o en los libros.
 
 > [!IMPORTANT]
 > Las funcionalidades principales de SIEM, incluidas las reglas de análisis, UEBA y el gráfico de investigación, no admiten los datos almacenados en Azure Data Explorer.

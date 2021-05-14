@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d5c638a63e4e8dc1a55c07f4bdf713fd36ca6b3d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8999889bf09d5dc9bb40989c5d71ebf324ef56f4
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550882"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753043"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Conexión de un disco a una VM Windows con PowerShell
 
-En este artículo se explica cómo conectar discos nuevos y existentes a una máquina virtual Windows con PowerShell. 
+En este artículo se explica cómo conectar discos nuevos y existentes a una máquina virtual Windows con PowerShell.
 
 En primer lugar, revise estas sugerencias:
 
@@ -35,14 +35,14 @@ En este ejemplo se muestra cómo agregar un disco de datos vacío a una máquina
 ```azurepowershell-interactive
 $rgName = 'myResourceGroup'
 $vmName = 'myVM'
-$location = 'East US' 
+$location = 'East US'
 $storageType = 'Premium_LRS'
 $dataDiskName = $vmName + '_datadisk1'
 
 $diskConfig = New-AzDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 128
 $dataDisk1 = New-AzDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
 
-$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName 
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName
 $vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
 
 Update-AzVM -VM $vm -ResourceGroupName $rgName
@@ -62,7 +62,7 @@ $dataDiskName = $vmName + '_datadisk1'
 $diskConfig = New-AzDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 128 -Zone 1
 $dataDisk1 = New-AzDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
 
-$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName 
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName
 $vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
 
 Update-AzVM -VM $vm -ResourceGroupName $rgName
@@ -90,7 +90,7 @@ El archivo de script puede contener código para inicializar los discos, por eje
 
     foreach ($disk in $disks) {
         $driveLetter = $letters[$count].ToString()
-        $disk | 
+        $disk |
         Initialize-Disk -PartitionStyle MBR -PassThru |
         New-Partition -UseMaximumSize -DriveLetter $driveLetter |
         Format-Volume -FileSystem NTFS -NewFileSystemLabel $labels[$count] -Confirm:$false -Force
@@ -105,11 +105,11 @@ También puede conectar un disco administrado existente a una máquina virtual c
 ```azurepowershell-interactive
 $rgName = "myResourceGroup"
 $vmName = "myVM"
-$location = "East US" 
+$location = "East US"
 $dataDiskName = "myDisk"
-$disk = Get-AzDisk -ResourceGroupName $rgName -DiskName $dataDiskName 
+$disk = Get-AzDisk -ResourceGroupName $rgName -DiskName $dataDiskName
 
-$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName 
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName
 
 $vm = Add-AzVMDataDisk -CreateOption Attach -Lun 0 -VM $vm -ManagedDiskId $disk.Id
 
@@ -118,4 +118,4 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-También puede implementar discos administrados mediante plantillas. Para más información, consulte [Uso de Managed Disks en plantillas de Azure Resource Manager](../using-managed-disks-template-deployments.md) o la [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) para implementar varios discos de datos.
+También puede implementar discos administrados mediante plantillas. Para más información, consulte [Uso de Managed Disks en plantillas de Azure Resource Manager](../using-managed-disks-template-deployments.md) o la [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-multiple-data-disk) para implementar varios discos de datos.

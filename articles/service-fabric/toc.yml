@@ -2,18 +2,18 @@
   href: index.yml
 - name: Información general
   items:
-    - name: ¿Qué es Service Fabric?
-      href: service-fabric-overview.md
     - name: Clústeres administrados de Service Fabric
       href: overview-managed-cluster.md
+    - name: ¿Qué es Service Fabric?
+      href: service-fabric-overview.md
 - name: Guías de inicio rápido
   expanded: true
   items:
+    - name: Clúster administrado
+      href: quickstart-managed-cluster-template.md
     - name: Plantilla ARM
       displayName: Resource Manager
       href: quickstart-cluster-template.md
-    - name: Clúster administrado
-      href: quickstart-managed-cluster-template.md
     - name: Creación de una aplicación .NET
       href: service-fabric-quickstart-dotnet.md
     - name: Implementación de una aplicación contenedora de Linux
@@ -28,6 +28,16 @@
           href: service-fabric-quickstart-java-reliable-services.md
 - name: Tutoriales
   items:
+    - name: Creación de un clúster administrado de Service Fabric
+      items:
+        - name: 1- Implementación de un clúster administrado de Service Fabric
+          href: tutorial-managed-cluster-deploy.md
+        - name: 2- Escalado horizontal de un tipo de nodo de clúster administrado
+          href: tutorial-managed-cluster-scale.md
+        - name: 3- Adición y eliminación de tipos de nodo de clúster administrados
+          href: tutorial-managed-cluster-add-remove-node-type.md
+        - name: 4- Conexión a un clúster administrado e implementación de una aplicación
+          href: tutorial-managed-cluster-deploy-app.md
     - name: Implementación de una aplicación .NET
       items:
         - name: 1- Compilación de una aplicación .NET
@@ -68,17 +78,7 @@
           href: service-fabric-tutorial-package-containers.md
         - name: 3- Conmutación por error y escalado
           href: service-fabric-tutorial-containers-failover.md
-    - name: Creación de un clúster administrado de Service Fabric
-      items:
-        - name: 1- Implementación de un clúster administrado de Service Fabric
-          href: tutorial-managed-cluster-deploy.md
-        - name: 2- Escalado horizontal de un tipo de nodo de clúster administrado
-          href: tutorial-managed-cluster-scale.md
-        - name: 3- Adición y eliminación de tipos de nodo de clúster administrados
-          href: tutorial-managed-cluster-add-remove-node-type.md
-        - name: 4- Conexión a un clúster administrado e implementación de una aplicación
-          href: tutorial-managed-cluster-deploy-app.md
-    - name: Creación y administración de un clúster
+    - name: Creación de un clúster en Azure
       items:
         - name: 1--Creación de un clúster en Azure
           href: service-fabric-tutorial-create-vnet-and-windows-cluster.md
@@ -106,8 +106,6 @@
           href: service-fabric-tutorial-standalone-clean-up.md
 - name: Procedimientos recomendados
   items:
-    - name: Introducción a los procedimientos recomendados de Service Fabric
-      href: service-fabric-best-practices-overview.md
     - name: Seguridad
       href: service-fabric-best-practices-security.md
     - name: Redes
@@ -156,7 +154,7 @@
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: Línea de base de seguridad para Azure Security Benchmark
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/service-fabric-security-baseline?toc=/azure/service-fabric/toc.json
     - name: Terminología
       href: service-fabric-technical-overview.md
     - name: Creación de aplicaciones
@@ -358,6 +356,8 @@
               href: service-fabric-cluster-resource-manager-movement-cost.md
             - name: Servicios de escalado automático
               href: service-fabric-cluster-resource-manager-autoscaling.md
+            - name: Etiquetado de nodos
+              href: service-fabric-cluster-resource-manager-node-tagging.md
     - name: Supervisión y diagnóstico
       items:
         - name: Información general de la supervisión
@@ -396,6 +396,30 @@
       href: configure-container-repository-credentials.md
 - name: Guías paso a paso
   items:
+    - name: Uso de clústeres administrados de Service Fabric
+      items:
+        - name: Adición de una extensión del conjunto de escalado de máquina virtual a un tipo de nodo de clúster administrado
+          href: how-to-managed-cluster-vmss-extension.md
+        - name: Incorporación de las reglas de grupo de seguridad de red y otras opciones de red de clúster administrado
+          href: how-to-managed-cluster-networking.md
+        - name: Configuración de la expansión de la zona de disponibilidad de un clúster administrado
+          href: how-to-managed-cluster-availability-zones.md
+        - name: Configuración de un clúster administrado
+          href: how-to-managed-cluster-configuration.md
+        - name: Implementación de secretos de aplicación de un clúster administrado
+          href: how-to-managed-cluster-application-secrets.md
+        - name: Implementación de aplicaciones de clúster administrados mediante la plantilla ARM
+          href: how-to-managed-cluster-app-deployment-template.md
+        - name: Implementación de aplicaciones de clúster administrado con una identidad administrada
+          href: how-to-managed-cluster-application-managed-identity.md
+        - name: Implementación de tipos de nodo sin estado en un clúster administrado
+          href: how-to-managed-cluster-stateless-node-type.md
+        - name: Habilitación del cifrado de disco para nodos de clústeres administrados
+          href: how-to-enable-managed-cluster-disk-encryption.md
+        - name: Selección de tipos de disco administrado para nodos de clúster administrados
+          href: how-to-managed-cluster-managed-disk.md
+        - name: Uso de la identidad administrada para nodos de clúster administrados
+          href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: Configurado su entorno de desarrollo
       items:
         - name: Windows
@@ -442,20 +466,6 @@
                   href: service-fabric-develop-csharp-applications-with-vs-code.md
                 - name: Desarrollo de aplicaciones Java de Service Fabric con VS Code
                   href: service-fabric-develop-java-applications-with-vs-code.md
-    - name: Uso de clústeres administrados de Service Fabric
-      items:
-        - name: Adición de una extensión del conjunto de escalado de máquinas virtuales a un tipo de nodo de clúster administrado
-          href: how-to-managed-cluster-vmss-extension.md
-        - name: Configuración de un clúster administrado
-          href: how-to-managed-cluster-configuration.md
-        - name: Incorporación de las reglas de grupo de seguridad de red y otras opciones de red de clúster administrado
-          href: how-to-managed-cluster-networking.md
-        - name: Implementación de aplicaciones de clúster administrados mediante la plantilla ARM
-          href: how-to-managed-cluster-app-deployment-template.md
-        - name: Habilitación del cifrado de disco para nodos de clústeres administrados
-          href: how-to-enable-managed-cluster-disk-encryption.md
-        - name: Uso de la identidad administrada para nodos de clúster administrados
-          href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: Planeación y preparación
       items:
         - name: Planeamiento de la capacidad del clúster
@@ -466,7 +476,7 @@
           href: service-fabric-disaster-recovery.md
         - name: Planeamiento de la capacidad de aplicación
           href: service-fabric-capacity-planning.md
-    - name: Creación y administración de clústeres
+    - name: Creación y mantenimiento de clústeres
       items:
         - name: Clústeres en Azure
           items:
@@ -504,7 +514,7 @@
                   href: service-fabric-how-to-remove-node-type.md
             - name: Actualizar
               items:
-                - name: Actualización de la versión de Service Fabric
+                - name: Administración de actualizaciones del clúster de Service Fabric
                   href: service-fabric-cluster-upgrade-version-azure.md
                 - name: Actualización de la configuración del clúster
                   href: service-fabric-cluster-config-upgrade-azure.md
@@ -923,12 +933,12 @@
       href: ./policy-reference.md
 - name: Recursos
   items:
-    - name: Azure Roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Preguntas frecuentes
-      href: service-fabric-common-questions.md
     - name: Preguntas frecuentes sobre los clústeres administrados de Service Fabric
       href: faq-managed-cluster.md
+    - name: Preguntas frecuentes
+      href: service-fabric-common-questions.md
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
     - name: Página de preguntas y respuestas de Microsoft
       href: /answers/topics/azure-service-fabric.html
     - name: Protecciones en la implementación de Azure Resource Manager

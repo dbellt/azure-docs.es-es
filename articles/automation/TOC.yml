@@ -51,7 +51,7 @@
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: Línea de base de seguridad
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/automation-security-baseline?toc=/azure/automation/TOC.json
     - name: Seguridad de los datos
       items:
         - name: Cifrado de recursos seguros
@@ -66,6 +66,14 @@
           href: automation-create-standalone-account.md
         - name: Creación de una cuenta de Automation con una plantilla de Resource Manager
           href: quickstart-create-automation-account-template.md
+        - name: Identidad administrada
+          items:
+            - name: Habilitación de una entidad administrada
+              href: enable-managed-identity-for-automation.md
+            - name: Deshabilitar la identidad administrada
+              href: disable-managed-identity-for-automation.md
+            - name: Solución de problemas de identidad administrada
+              href: troubleshoot/managed-identity.md
         - name: Cuenta de ejecución
           items:
             - name: Creación de cuenta de ejecución
@@ -86,6 +94,8 @@
           href: automation-role-based-access-control.md
         - name: Traslado de una cuenta de Automation a otra suscripción
           href: how-to/move-account.md
+        - name: Eliminación de una cuenta de Automation
+          href: delete-account.md
         - name: Migración de Orchestrator a Azure Automation (versión beta)
           href: automation-orchestrator-migration.md
     - name: Recursos compartidos
@@ -114,7 +124,7 @@
           href: troubleshoot/shared-resources.md
     - name: Automatización de procesos
       items:
-        - name: Uso de runbooks y módulos en la Galería de PowerShell
+        - name: Uso de los runbooks y módulos existentes
           href: automation-runbook-gallery.md
         - name: Información acerca del flujo de trabajo de PowerShell
           href: automation-powershell-workflow.md
@@ -136,8 +146,6 @@
               href: start-runbooks.md
             - name: Inicio de un runbook desde un webhook
               href: automation-webhooks.md
-            - name: Seguimiento de archivos actualizados con las tareas del monitor
-              href: automation-watchers-tutorial.md
             - name: Uso del SDK de runbooks gráficos
               href: graphical-runbook-sdk.md
         - name: Supervisión de runbooks
@@ -184,6 +192,8 @@
               href: automation-dsc-compile.md
             - name: Corrección de servidores de State Configuration no conformes
               href: automation-dsc-remediate.md
+            - name: Eliminación de nodo y configuración
+              href: state-configuration/remove-node-and-configuration-package.md
             - name: Configuración de la implementación continua con Chocolatey
               href: automation-dsc-cd-chocolatey.md
             - name: Integración con registros de Azure Monitor
@@ -312,7 +322,7 @@
               href: troubleshoot/update-agent-issues.md
             - name: Solución de problemas del agente de actualización de Linux
               href: troubleshoot/update-agent-issues-linux.md
-    - name: Escenarios con varios componentes
+    - name: Escenarios
       items:
         - name: Envío de un correo electrónico desde un runbook
           href: automation-send-email.md
@@ -320,6 +330,8 @@
           href: automation-alert-metric.md
         - name: Desencadenamiento de un runbook desde una alerta de Azure
           href: automation-create-alert-triggered-runbook.md
+        - name: Seguimiento de archivos actualizados con las tareas del monitor
+          href: automation-scenario-using-watcher-task.md
         - name: Administración de servicios de Office 365
           href: manage-office-365.md
         - name: Implementación de una máquina virtual de AWS con un runbook de Automation
@@ -332,6 +344,8 @@
           href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir
 - name: Referencia
   items:
+    - name: Azure CLI
+      href: /cli/azure/automation
     - name: Azure PowerShell Az
       href: /powershell/module/az.automation
     - name: Azure PowerShell AzureRM

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2018
 robots: noindex
-ms.openlocfilehash: b40e9dc83629362da899d2b5ff29ad42e21c4e32
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 99f914ff793accbea4d348e83e2a515dfd2368e8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100382657"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108741368"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Movimiento de datos de un servidor FTP mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -214,7 +214,7 @@ Para ver una lista completa de las secciones y propiedades disponibles para defi
 
 Por otra parte, las propiedades disponibles en la sección typeProperties de la actividad varían con cada tipo de actividad. Para la actividad de copia, las propiedades de tipo varían en función de los tipos de orígenes y receptores.
 
-[!INCLUDE [data-factory-file-system-source](../../../includes/data-factory-file-system-source.md)]
+[!INCLUDE [data-factory-file-system-source](includes/data-factory-file-system-source.md)]
 
 ## <a name="supported-file-and-compression-formats"></a>Formatos de archivo y de compresión admitidos
 Consulte los detalles en [Formatos de compresión y de archivos en Azure Data Factory](data-factory-supported-file-and-compression-formats.md).

@@ -2,19 +2,19 @@
 title: 'Azure Communication Services: ejemplo de llamada web'
 titleSuffix: An Azure Communication Services sample
 description: Obtenga información sobre el ejemplo de llamada web de Azure Communication Services
-author: chriswhilar
+author: mariusu-msft
 manager: mariusu-msft
 services: azure-communication-services
 ms.author: mariusu
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 35c3bd0213b6d895a81605f5858f924182e1e307
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: fb5d16e0aa73b889800d64be310176c5733633a6
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168865"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685736"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Introducción al ejemplo de llamada web
 

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 55d58a6c4724bd01325db029ed75d77ccc96d0f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1ff0543ebc341788ee9492f3e2a117c8e64c44f5
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93333586"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737391"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Implementación de Azure Cosmos DB y Azure App Service con una aplicación web desde GitHub con una plantilla de Azure Resource Manager
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,9 +36,9 @@ La implementación resultante tiene una aplicación web totalmente funcional que
 
 ## <a name="step-1-deploy-the-template"></a>Paso 1: Implementación de la plantilla
 
-En primer lugar, seleccione el botón **Implementar en Azure** para abrir el Azure Portal para crear una implementación personalizada. También puede ver la plantilla de Resource Management en la [Galería de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-webapp)
+En primer lugar, seleccione el botón **Implementar en Azure** para abrir el Azure Portal para crear una implementación personalizada. También puede ver la plantilla de Resource Management en la [Galería de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.documentdb/cosmosdb-webapp)
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementación en Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-webapp%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementación en Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.documentdb%2Fcosmosdb-webapp%2Fazuredeploy.json)
 
 Una vez en el Azure Portal, seleccione la suscripción en la que desea realizar la implementación y seleccione o cree un nuevo grupo de recursos. Después, rellene los siguientes valores.
 
@@ -118,5 +118,5 @@ Por último, es necesario implementar la aplicación web desde GitHub en el App 
 
 Felicidades. Ha implementado Azure Cosmos DB, Azure App Service y una aplicación web de muestra que tiene automáticamente la información de conexión necesaria para conectarse a Cosmos DB, todo en una sola operación y sin tener que cortar y pegar información confidencial. Con esta plantilla como punto de partida, puede modificarla para implementar sus propias aplicaciones web de la misma manera.
 
-* Para ver la plantilla de Azure Resource Manager de esta muestra, vaya a [Galería de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-webapp)
+* Para ver la plantilla de Azure Resource Manager de esta muestra, vaya a [Galería de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.documentdb/cosmosdb-webapp)
 * Para el código fuente de la aplicación de muestra, vaya a [Cosmos DB para realizar la aplicación en GitHub](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app).

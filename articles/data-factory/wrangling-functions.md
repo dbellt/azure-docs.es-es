@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/16/2021
-ms.openlocfilehash: f7a4041d87e00fa01ae5ae4dff0cade3b9755d31
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 5985db37e6b88dc39ce1ac166c4aaf9ba368240d
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600947"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737712"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>Funciones de transformación en Power Query para la limpieza y transformación de datos
 
@@ -63,8 +63,8 @@ Las siguientes funciones de M agregan o transforman columnas: [Table.AddColumn](
 * Filtros de fila como columna lógica
 * Constantes de número, texto, lógica, fecha, y fecha y hora
 
-<a name="mergingjoining-tables"></a>Combinar o unir tablas
-----------------------
+## <a name="mergingjoining-tables"></a>Combinar o unir tablas
+
 * Power Query generará una combinación anidada (Table.NestedJoin; los usuarios también pueden escribir manualmente [Table.AddJoinColumn](/powerquery-m/table-addjoincolumn)).
     Los usuarios deben expandir la columna de combinación anidada en una combinación no anidada (Table.ExpandTableColumn no se admite en ningún otro contexto).
 * La función de M [Table.join](/powerquery-m/table-join) puede escribirse directamente para evitar la necesidad de un paso adicional de expansión, pero el usuario debe asegurarse de que no haya nombres de columna duplicados entre las tablas combinadas.
@@ -87,7 +87,7 @@ Mantener y quitar la parte superior, mantener el rango (funciones M correspondie
 
 ## <a name="known-unsupported-functions"></a>Funciones conocidas no admitidas
 
-| Función | Estado |
+| Función | Status |
 | -- | -- |
 | Table.PromoteHeaders | No compatible. Se puede lograr el mismo resultado si se establece "Primera fila como encabezado" en el conjunto de resultados. |
 | Table.CombineColumns | Se trata de un escenario habitual que no se admite directamente, pero se puede realizar si se agrega una nueva columna que concatene dos columnas concretas.  Por ejemplo, Table.AddColumn(RemoveEmailColumn, "Name", each [FirstName] & " " & [LastName]) |

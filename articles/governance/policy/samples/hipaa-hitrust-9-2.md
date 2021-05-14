@@ -1,15 +1,15 @@
 ---
 title: Detalles del cumplimiento normativo de HIPAA HITRUST 9.2
 description: Detalles de la iniciativa integrada de cumplimiento normativo de HIPAA HITRUST 9.2. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 04/28/2021
+ms.date: 05/04/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 6c0e71609037cc1ceff63595afebe1b950e7fed9
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 5db40c10bbd7f2975737f2c6bdf5d968a69c85de
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108179949"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743604"
 ---
 # <a name="details-of-the-hipaa-hitrust-92-regulatory-compliance-built-in-initiative"></a>Detalles de la iniciativa integrada de cumplimiento normativo de HIPAA HITRUST 9.2
 

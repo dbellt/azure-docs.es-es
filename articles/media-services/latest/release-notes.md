@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 40d61de140cb0b3537c56af37eb18f004a72c148
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: bb331f8829252b69499944e5354c9343e96c78bd
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138902"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684746"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -62,7 +62,7 @@ Los últimos idiomas disponibles se puede ver en el [artículo Análisis de arch
 
 El codificador estándar ahora admite la codificación HEVC (H.265) de 8 bits. El contenido de HEVC se puede entregar y empaquetar a través del empaquetador dinámico con el formato "hev1".  
 
-Hay disponible una nueva codificación .NET personalizada con un ejemplo de HEVC en el [repositorio de Git Hub media-services-v3-dotnet](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPreset_HEVC).
+Hay disponible una nueva codificación .NET personalizada con un ejemplo de HEVC en el [repositorio de Git Hub media-services-v3-dotnet](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_HEVC).
 Además de la codificación personalizada, ahora están disponibles los siguientes valores preestablecidos de la codificación HEVC integrados:
 
 - H265ContentAwareEncoding
@@ -98,7 +98,7 @@ Vea el anuncio oficial de [las actualizaciones de Azure](https://azure.microsoft
 Además de la nueva compatibilidad agregada con la codificación HEVC (H.265), las siguientes características están disponibles en la versión 2020-05-01 de la API de codificación.
 
 - Se admite la unión de varios archivos de entrada mediante la nueva compatibilidad con **JobInputClip**.
-    - Hay un ejemplo disponible para .NET que muestra cómo [unir dos recursos](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomStitchTwoAssets).
+    - Hay un ejemplo disponible para .NET que muestra cómo [unir dos recursos](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_StitchTwoAssets).
 - La selección de pistas de audio permite a los clientes seleccionar y asignar las pistas de audio entrante y enrutarlas a la salida para la codificación
     - Consulte [OpenAPI API REST para más información](https://github.com/Azure/azure-rest-api-specs/blob/8d15dc681b081cca983e4d67fbf6441841d94ce4/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json#L385) sobre **AudioTrackDescriptor** y la selección de pistas
 - Selección de pista para codificación: permite a los clientes elegir pistas en un archivo de origen ABR o un archivo activo que tenga pistas de varias velocidades de bits. Es muy útil para generar archivos MP4 a partir de los archivos de almacenamiento de eventos en directo.

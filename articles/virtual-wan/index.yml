@@ -10,12 +10,13 @@ metadata:
   author: cherylmc
   ms.author: cherylmc
   ms.date: 01/15/2020
-  ms.openlocfilehash: 3aaf42935e292bda64d9227d01f498c83f4c9f7a
-  ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+  ms.custom: e2e-hybrid
+  ms.openlocfilehash: a6a0660d960ad04145288475986f1bd40143b0aa
+  ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 01/16/2021
-  ms.locfileid: "98250781"
+  ms.lasthandoff: 04/27/2021
+  ms.locfileid: "108071847"
 landingContent:
 - title: Acerca de Virtual WAN
   linkLists:
@@ -31,6 +32,12 @@ landingContent:
       url: virtual-wan-locations-partners.md
     - text: Preguntas más frecuentes
       url: virtual-wan-faq.md
+  - linkListType: video
+    links:
+    - text: Conectividad de usuario remoto con Azure Virtual WAN
+      url: https://www.youtube.com/watch?v=nP5XntjA7OQ
+    - text: Diseño de redes híbridas con Azure Virtual WAN y SD-WAN
+      url: https://www.youtube.com/watch?v=2g-_empU0GU&list=PLLasX02E8BPA5V-waZPcelhg9l3IkeUQo&index=6
 - title: Introducción
   linkLists:
   - linkListType: tutorial
@@ -101,8 +108,8 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: CLI de Azure
-      url: /cli/azure/ext/virtual-wan/network
+    - text: Azure CLI
+      url: /cli/azure/
     - text: Azure PowerShell
       url: /powershell/module/az.network#networking
     - text: REST
