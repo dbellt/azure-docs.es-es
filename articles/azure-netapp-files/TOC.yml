@@ -77,15 +77,17 @@
       href: azure-netapp-files-register.md
     - name: Creación de una cuenta de NetApp
       href: azure-netapp-files-create-netapp-account.md
-    - name: Configuración de un grupo de capacidad
-      href: azure-netapp-files-set-up-capacity-pool.md
-    - name: Administración de un grupo de capacidad de QoS manual
-      href: manage-manual-qos-capacity-pool.md
+    - name: Creación y administración de grupos de capacidad
+      items:
+        - name: Configuración de un grupo de capacidad
+          href: azure-netapp-files-set-up-capacity-pool.md
+        - name: Administración de un grupo de capacidad de QoS manual
+          href: manage-manual-qos-capacity-pool.md
     - name: Delegación de una subred en Azure NetApp Files
       href: azure-netapp-files-delegate-subnet.md
     - name: Creación y administración de conexiones de Active Directory
       href: create-active-directory-connections.md
-    - name: Creación y administración de un volumen NFS
+    - name: Creación y administración de volúmenes NFS
       items:
         - name: Creación de un volumen NFS
           href: azure-netapp-files-create-volumes.md
@@ -97,8 +99,12 @@
           href: configure-ldap-extended-groups.md
         - name: Configuración de un cliente NFS para Azure NetApp Files
           href: configure-nfs-clients.md
-    - name: Creación de un volumen SMB
-      href: azure-netapp-files-create-volumes-smb.md
+    - name: Creación y administración de volúmenes SMB
+      items:
+        - name: Creación de un volumen SMB
+          href: azure-netapp-files-create-volumes-smb.md
+        - name: Conversión de volúmenes SMB existentes para usar la disponibilidad continua
+          href: convert-smb-continuous-availability.md
     - name: Creación de un volumen de protocolo dual
       href: create-volumes-dual-protocol.md
     - name: Configuración de ADDS LDAP sobre TLS

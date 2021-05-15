@@ -130,14 +130,16 @@
           href: backup.md
     - name: Seguridad
       items:
+        - name: Configuración de redes del almacén de claves
+          href: how-to-azure-key-vault-network-security.md
+        - name: Acceso a Key Vault detrás de un firewall
+          href: access-behind-firewall.md
         - name: Azure Private Link
           items:
             - name: Integración con el servicio Azure Private Link
               href: private-link-service.md
             - name: Diagnóstico de problemas de configuración de Private Links
               href: private-link-diagnostics.md
-        - name: Acceso a Key Vault detrás de un firewall
-          href: access-behind-firewall.md
     - name: Traslado de Key Vault
       items:
         - name: Traslado de Key Vault a otro grupo de recursos
@@ -162,7 +164,7 @@
       href: versions.md
     - name: Azure PowerShell
       href: /powershell/module/az.keyvault/#key_vault
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/keyvault
     - name: .NET
       href: /dotnet/api/overview/azure/key-vault

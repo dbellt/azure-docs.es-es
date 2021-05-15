@@ -14,27 +14,31 @@
           href: getting-started.md
         - name: Azure portal
           href: get-started-portal.md
-        - name: Azure CLI
+        - name: CLI de Azure
           href: get-started-cli.md
 - name: Conceptos
   items:
-    - name: Configuración
-      href: configuration.md
-      displayName: Routing
     - name: Compatibilidad de API con Azure Functions
       href: apis.md
-    - name: Rutas
-      href: routes.md
-    - name: Autenticación y autorización
-      href: authentication-authorization.md
-    - name: Acceso a la información del usuario
-      href: user-information.md
+    - name: Configuración
+      items:
+        - name: Configuración de aplicación
+          href: configuration.md
+          displayName: 'routing, routes'
+        - name: Creación y configuración de flujos de trabajo
+          href: github-actions-workflow.md
+    - name: Seguridad
+      items:
+        - name: Autenticación y autorización
+          href: authentication-authorization.md
+        - name: Acceso a la información del usuario
+          href: user-information.md
+        - name: Autenticación personalizada
+          href: authentication-custom.md
     - name: Revisión de las solicitudes de incorporación de cambios en entornos de pre-producción
       href: review-publish-pull-requests.md
     - name: Dominio personalizado
       href: custom-domain.md
-    - name: Creación y configuración de flujos de trabajo
-      href: github-actions-workflow.md
 - name: Guías paso a paso
   items:
     - name: Configuración del desarrollo local
@@ -43,6 +47,8 @@
       href: add-api.md
     - name: Configuración de aplicaciones
       href: application-settings.md
+    - name: Publicación con Azure DevOps
+      href: publish-devops.md
     - name: Configuración de bibliotecas y marcos de front-end
       href: front-end-frameworks.md
     - name: Habilitar supervisión
@@ -50,9 +56,13 @@
       displayName: Application Insights
     - name: Restablecimiento de tokens de implementación
       href: deployment-token-management.md
-    - name: Solucionar errores
+    - name: Solucionar problemas
       href: troubleshooting.md
       displayName: 'deployment, runtime, errors'
+    - name: Traiga sus propias funciones
+      href: functions-bring-your-own.md
+    - name: Secretos de la autenticación segura
+      href: key-vault-secrets.md
 - name: Tutoriales
   items:
     - name: Publicación desde un generador de sitios estáticos
@@ -95,5 +105,7 @@
           href: /learn/modules/create-deploy-static-webapp-gatsby-app-service
         - name: Creación y publicación de una aplicación web estática con Blazor
           href: /learn/modules/publish-app-service-static-web-app-api-dotnet
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/app-service/static/'
     - name: Cuotas
       href: quotas.md

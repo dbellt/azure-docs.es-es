@@ -282,7 +282,7 @@
               href: managed-aad.md
             - name: "Integración de Azure\_AD (heredado)"
               href: azure-ad-integration-cli.md
-        - name: Uso de Azure RBAC para la autorización de Kubernetes (versión preliminar)
+        - name: Uso de la autorización de Azure RBAC para Kubernetes
           href: manage-azure-rbac.md
         - name: Uso del acceso basado en rol de Kubernetes con integración de Azure AD
           href: azure-ad-rbac.md

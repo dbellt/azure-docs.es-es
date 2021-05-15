@@ -54,7 +54,7 @@ items:
         items:
           - name: Crear un área de trabajo
             items:
-              - name: Azure portal
+              - name: Azure Portal
                 href: quickstart-create-workspace.md
                 displayName: quickstart
               - name: Azure CLI
@@ -644,11 +644,17 @@ items:
                 href: monitoring/how-to-monitor-spark-pools.md
               - name: Análisis de JSON con Apache Spark
                 href: how-to-analyze-complex-schema.md
-          - name: Ingesta y preparación de datos
+          - name: Orígenes de datos
             items:
-              - name: SQL Data Warehouse
+              - name: Azure Cosmos DB
+                href: ./synapse-link/how-to-query-analytical-store-spark.md
+              - name: Azure Data Explorer (Kusto)
+                href: ./spark/data-sources/apache-spark-kusto-connector.md
+              - name: "Azure\_SQL\_Data\_Warehouse"
                 href: ./spark/synapse-spark-sql-pool-import-export.md
-              - name: Análisis de JSON
+              - name: Azure SQL y SQL Server
+                href: ./spark/data-sources/apache-spark-sql-connector.md
+              - name: JSON
                 href: how-to-analyze-complex-schema.md
   - name: Synapse Link
     items:

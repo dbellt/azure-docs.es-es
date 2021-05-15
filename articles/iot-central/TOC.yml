@@ -8,6 +8,8 @@
       href: core/overview-iot-central-tour.md
     - name: Actualizaciones recientes
       items:
+        - name: "Características nuevas y actualizadas de abril de\_2021"
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-april-2021/'
         - name: "Características nuevas y actualizadas de marzo de\_2021"
           href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-march-2021/'
         - name: "Características nuevas y actualizadas de febrero de\_2021"
