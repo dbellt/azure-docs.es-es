@@ -273,7 +273,7 @@
           items:
             - name: Desencadenador HTTP
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: functions-create-function-app-portal.md
                 - name: Línea de comandos
                   href: ./create-first-function-cli-csharp.md
@@ -504,7 +504,7 @@
             - name: Output
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
-        - name: "Azure Cosmos\_DB"
+        - name: Azure Cosmos DB
           items:
             - name: Functions 1.x
               href: functions-bindings-cosmosdb.md
@@ -642,6 +642,16 @@
           href: functions-bindings-twilio.md
         - name: Preparación
           href: functions-bindings-warmup.md
+    - name: Errores y diagnósticos
+      items:
+        - name: Reglas de trabajo de .NET
+          items:
+            - name: AZFW0001
+              href: errors-diagnostics/net-worker-rules/azfw0001.md
+        - name: Reglas de SDK
+          items:
+            - name: AZF0001
+              href: errors-diagnostics/sdk-rules/azf0001.md
     - name: host.json 2.x reference
       href: functions-host-json.md
     - name: host.json 1.x reference

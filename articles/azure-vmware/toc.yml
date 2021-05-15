@@ -76,8 +76,8 @@
       href: configure-site-to-site-vpn-gateway.md
     - name: Configurar los clústeres de conmutación por error de Windows Server
       href: configure-windows-server-failover-cluster.md
-    - name: Restablecimiento de las credenciales de vSphere
-      href: reset-vsphere-credentials.md
+    - name: Rotación de credenciales de cloudadmin
+      href: rotate-cloudadmin-credentials.md
     - name: Copia de seguridad y restauración con Azure Backup Server
       items:
         - name: Copias de seguridad de máquinas virtuales de VMware

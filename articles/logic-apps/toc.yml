@@ -2,7 +2,7 @@
   href: index.yml
 - name: Información general
   items:
-    - name: ¿Qué es Azure Logic Apps?
+    - name: Acerca de Azure Logic Apps
       href: logic-apps-overview.md
 - name: Guías de inicio rápido
   expanded: true
@@ -36,13 +36,15 @@
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic'
 - name: Conceptos
   items:
-    - name: Introducción a los conectores de Logic Apps
-      href: ../connectors/apis-list.md
-    - name: Conectores administrados para Logic Apps
-      href: ../connectors/managed.md
-    - name: Conectores integrados de Logic Apps
-      href: ../connectors/built-in.md
-    - name: Programación de flujos de trabajo repetitivos
+    - name: Conectores y operaciones integradas
+      items:
+        - name: Introducción a los conectores
+          href: ../connectors/apis-list.md
+        - name: Conectores administrados
+          href: ../connectors/managed.md
+        - name: Operaciones integradas
+          href: ../connectors/built-in.md
+    - name: Flujos de trabajo periódicos programados
       href: concepts-schedule-automated-recurring-tasks-workflows.md
     - name: Sin servidor con Azure
       href: logic-apps-serverless-overview.md
@@ -61,13 +63,13 @@
           href: /security/benchmark/azure/baselines/logic-apps-security-baseline?toc=/azure/logic-apps/toc.json
 - name: Guías paso a paso
   items:
-    - name: Versión preliminar de Azure Logic Apps
+    - name: Azure Logic Apps (versión preliminar) de un solo inquilino
       items:
-        - name: Introducción a la versión preliminar de Azure Logic Apps
+        - name: Introducción a un solo inquilino (versión preliminar)
           href: logic-apps-overview-preview.md
-        - name: 'Creación de flujos de trabajo con estado y sin estado: Azure Portal'
+        - name: 'Creación de aplicaciones lógicas en versión preliminar: Azure Portal'
           href: create-stateful-stateless-workflows-azure-portal.md
-        - name: "Creación de flujos de trabajo con estado o sin estado: Visual Studio\_Code"
+        - name: "Creación de aplicaciones lógicas en versión preliminar: Visual\_Studio Code"
           href: create-stateful-stateless-workflows-visual-studio-code.md
     - name: Desarrollar
       items:

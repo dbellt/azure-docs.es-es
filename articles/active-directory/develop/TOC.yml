@@ -657,6 +657,8 @@
     - name: Inicio de sesión único (SSO) para dispositivos móviles
       href: mobile-sso-support-overview.md
       displayName: 'android, ios'
+    - name: Desafíos y solicitudes de notificaciones
+      href: claims-challenge.md
     - name: Permisos y consentimiento
       displayName: Scopes
       items:

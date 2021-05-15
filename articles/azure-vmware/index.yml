@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: shortpatti
   ms.author: v-patsho
-  ms.date: 05/04/2021
-  ms.openlocfilehash: 20d2d685c6ac634a1463669c262f599fb465e05d
-  ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+  ms.date: 05/11/2021
+  ms.openlocfilehash: ae12f4ed9d356eb7a196164574766868ea469f1a
+  ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/06/2021
-  ms.locfileid: "108803917"
+  ms.lasthandoff: 05/11/2021
+  ms.locfileid: "109754342"
 landingContent:
 - title: Acerca de Azure VMware Solution
   linkLists:
@@ -64,7 +64,7 @@ landingContent:
       url: /azure/azure-vmware/faq#identity-management
     - text: Facturación y soporte técnico
       url: /azure/azure-vmware/faq#billing-and-support
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: deploy
     links:
@@ -94,6 +94,14 @@ landingContent:
       url: tutorial-scale-private-cloud.md
     - text: Eliminación de una nube privada
       url: tutorial-delete-private-cloud.md
+- title: Administración de identidades
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Acceso e identidad en nubes privadas
+      url: concepts-identity.md
+    - text: Rotación de credenciales de cloudadmin
+      url: rotate-cloudadmin-credentials.md
 - title: Extensión de Azure VMware Solution
   linkLists:
   - linkListType: reference
