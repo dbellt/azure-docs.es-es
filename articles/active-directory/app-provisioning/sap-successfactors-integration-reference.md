@@ -1,21 +1,22 @@
 ---
 title: Referencia de la integración de Azure Active Directory y SAP SuccessFactors
-description: Información técnica detallada sobre el aprovisionamiento controlado por recursos humanos de SAP SuccessFactors
+description: Información técnica detallada sobre el aprovisionamiento controlado por recursos humanos de SAP SuccessFactors para Azure Active Directory.
 services: active-directory
-author: cmmdesai
-manager: daveba
+author: kenwith
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 01/19/2021
-ms.author: chmutali
-ms.openlocfilehash: ed97600ca1802629f81f93f4f51c92ad4b1c9bd1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/11/2021
+ms.author: kenwith
+ms.reviewer: chmutali
+ms.openlocfilehash: 7c7ba58383481e2b776b27015f98080b35f3084d
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99256228"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784942"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Integración del aprovisionamiento de Azure Active Directory con SAP SuccessFactors 
 

@@ -1,14 +1,14 @@
 ---
 title: Exploración de los recursos de Azure
 description: Aprenda a usar el lenguaje de consulta de Resource Graph para explorar los recursos y descubrir cómo se conectan.
-ms.date: 05/01/2021
+ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 768c99c2db06fdf805498921bf11d140dd8390ce
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: f76d163ca113617aa25917feb24908eb72d4f515
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325074"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750888"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Exploración de recursos de Azure con el gráfico de recursos
 
@@ -20,7 +20,7 @@ Un recurso común en Azure es una máquina virtual. Como tipo de recurso, las m�
 
 ### <a name="virtual-machine-discovery"></a>Detección de la máquina virtual
 
-Comencemos con una simple consulta para obtener una única máquina virtual de nuestro entorno y ver las propiedades devueltas.
+Comencemos con una consulta simple para obtener una única máquina virtual de nuestro entorno y ver las propiedades devueltas.
 
 ```kusto
 Resources
@@ -33,11 +33,11 @@ az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines'
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | limit 1" | ConvertTo-Json -Depth 100
+(Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | limit 1").Data | ConvertTo-Json -Depth 100
 ```
 
 > [!NOTE]
-> El cmdlet `Search-AzGraph` de Azure PowerShell devuelve un objeto **PSCustomObject** de forma predeterminada. Para que la salida sea parecida a lo que devuelve la CLI de Azure, se usa el cmdlet `ConvertTo-Json`. El valor predeterminado de **Depth** es _2_. Si se establece en _100_ Se deberían convertir todos los niveles devueltos.
+> El cmdlet `Search-AzGraph` de Azure PowerShell devuelve un objeto **PSResourceGraphResponse** de forma predeterminada. Para que la salida sea parecida a lo que devuelve la CLI de Azure, se usa el cmdlet `ConvertTo-Json` en la propiedad **Data**. El valor predeterminado de **Depth** es _2_. Si se establece en _100_ Se deberían convertir todos los niveles devueltos.
 
 Los resultados de JSON tienen una estructura similar a la del ejemplo siguiente:
 
@@ -121,7 +121,7 @@ az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines'
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by location"
+(Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by location").Data | ConvertTo-Json
 ```
 
 Los resultados de JSON tienen una estructura similar a la del ejemplo siguiente:
@@ -160,7 +160,7 @@ az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines'
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup"
+(Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup").Data | ConvertTo-Json
 ```
 
 ### <a name="virtual-machines-connected-to-premium-managed-disks"></a>Máquinas virtuales conectadas a discos administrados premium
@@ -180,7 +180,7 @@ az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualmachines'
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
+(Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id").Data | ConvertTo-Json
 ```
 
 El resultado es una lista de identificadores de disco.
@@ -215,7 +215,7 @@ az graph query -q "Resources | where type =~ 'Microsoft.Compute/disks' and id ==
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'"
+(Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'").Data | ConvertTo-Json
 ```
 
 Los resultados de JSON tienen una estructura similar a la del ejemplo siguiente:
@@ -266,7 +266,7 @@ cat nics.txt
 
 ```azurepowershell-interactive
 # Use Resource Graph to get all NICs and store in the $nics variable
-$nics = Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project nic = tostring(properties['networkProfile']['networkInterfaces'][0]['id']) | where isnotempty(nic) | distinct nic | limit 20"
+$nics = (Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project nic = tostring(properties['networkProfile']['networkInterfaces'][0]['id']) | where isnotempty(nic) | distinct nic | limit 20").Data
 
 # Review the output of the query stored in the variable
 $nics.nic
@@ -284,7 +284,7 @@ cat ips.txt
 
 ```azurepowershell-interactive
 # Use Resource Graph  with the $nics variable to get all related public IP addresses and store in $ips variable
-$ips = Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/networkInterfaces' | where id in ('$($nics.nic -join "','")') | project publicIp = tostring(properties['ipConfigurations'][0]['properties']['publicIPAddress']['id']) | where isnotempty(publicIp) | distinct publicIp"
+$ips = (Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/networkInterfaces' | where id in ('$($nics.nic -join "','")') | project publicIp = tostring(properties['ipConfigurations'][0]['properties']['publicIPAddress']['id']) | where isnotempty(publicIp) | distinct publicIp").Data
 
 # Review the output of the query stored in the variable
 $ips.publicIp
@@ -299,7 +299,7 @@ az graph query -q="Resources | where type =~ 'Microsoft.Network/publicIPAddresse
 
 ```azurepowershell-interactive
 # Use Resource Graph with the $ips variable to get the IP address of the public IP address resources
-Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$($ips.publicIp -join "','")') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip"
+(Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$($ips.publicIp -join "','")') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip").Data | ConvertTo-Json
 ```
 
 Para ver cómo llevar a cabo estos pasos en una sola consulta con el operador `join`, consulte el ejemplo [Enumeración de máquinas virtuales con su interfaz de red y dirección IP pública](../samples/advanced.md#join-vmpip).

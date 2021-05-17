@@ -1,20 +1,20 @@
 ---
 title: Red virtual administrada y puntos de conexión privados administrados
 description: Obtenga información sobre la red virtual administrada y los puntos de conexión privados administrados en Azure Data Factory.
-ms.author: abnarain
-author: nabhishek
+ms.author: lle
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 34211feb34b3e2ec21b9bc0e6a180df0febd8c76
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: dd4e5838c97d6a2e86f67bb40457b797462183d9
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987945"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785482"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Red virtual administrada de Azure Data Factory (versión preliminar)
 
@@ -57,7 +57,7 @@ El punto de conexión privado usa una dirección IP privada en la red virtual ad
 > Se recomienda crear puntos de conexión privados administrados para conectarse a todos los orígenes de datos de Azure. 
  
 > [!WARNING]
-> Si un almacén de datos de PaaS (Blob, ADLS Gen2 o Azure Synapse Analytics) tiene un punto de conexión privado que ya se ha creado, aunque permita el acceso desde todas las redes, ADF solo podrá acceder a dicho almacén mediante un punto de conexión privado administrado. Asegúrese de crear un punto de conexión privado en estos escenarios. 
+> Si un almacén de datos de PaaS (Blob, ADLS Gen2 o Azure Synapse Analytics) tiene un punto de conexión privado que ya se ha creado, aunque permita el acceso desde todas las redes, ADF solo podrá acceder a dicho almacén mediante un punto de conexión privado administrado. Si aún no existe un punto de conexión privado, debe crear uno en estos escenarios. 
 
 Una conexión de punto de conexión privado se crea en un estado "pendiente" cuando se crea un punto de conexión privado administrado en Azure Data Factory. Se inicia un flujo de trabajo de aprobación. El propietario del recurso de vínculo privado es responsable de aprobar o rechazar la conexión.
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 05/24/2019
+ms.date: 05/04/2021
 ms.author: alkohli
-ms.openlocfilehash: d0c45626016049424c8028eea7ffbd7f281e9012
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2b3a89178648d90d1b9aa54fe7963a1baa7270ef
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91744158"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109735947"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Apertura de una incidencia de soporte técnico en Azure Data Box
 
@@ -83,5 +83,9 @@ Después de crear una incidencia de soporte técnico, puede administrar el ciclo
 ## <a name="next-steps"></a>Pasos siguientes
 
 Aprenda a [solucionar problemas relacionados con Data Box Disk](data-box-disk-troubleshoot.md).
+
 Aprenda a [solucionar problemas relacionados con Data Box](data-box-troubleshoot.md).
+
+Obtenga información sobre cómo [revisar los errores de copia en una carga desde un dispositivo Data Box o Data Box Disk](data-box-troubleshoot-data-upload.md).
+
 Aprenda a [solucionar problemas relacionados con el almacenamiento de blobs de Data Box](data-box-troubleshoot-rest.md).

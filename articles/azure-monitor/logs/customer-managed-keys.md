@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 04/21/2021
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c9f59c5c4410bbb3a8f53a53b0febaa2b04ba2aa
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: dff35243db327d2b224855e1f65e8e98296d8c8e
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315998"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752272"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clave administrada por el cliente de Azure Monitor 
 
@@ -275,14 +275,14 @@ La rotación de clave tiene dos modos:
 
 Se puede acceder a todos los datos después de la operación de rotación de claves, incluidos los datos ingeridos antes y después de la rotación, ya que todos los datos permanecen cifrados mediante la clave de cifrado de cuenta (AEK), mientras que la AEK ahora se cifra con la nueva versión de la clave de cifrado de claves (KEK).
 
-## <a name="customer-managed-key-for-saved-queries"></a>Clave administrada por el cliente para consultas guardadas
+## <a name="customer-managed-key-for-saved-queries-and-log-alerts"></a>Clave administrada por el cliente para consultas guardadas y alertas de registro
 
 El lenguaje de consulta utilizado en Log Analytics es expresivo y puede contener información confidencial en los comentarios que se agregan a las consultas o en la sintaxis de la consulta. Algunas organizaciones requieren que dicha información se mantenga protegida en el marco de la directiva de la clave administrada por el cliente y debe guardar las consultas cifradas con su clave. Azure Monitor le permite almacenar consultas de *búsquedas guardadas* y de *alertas del registro* cifradas con su clave en su propia cuenta de almacenamiento cuando se conecta al área de trabajo. 
 
 > [!NOTE]
 > Las consultas de Log Analytics se pueden guardar en varios almacenes según el escenario usado. Las consultas permanecen cifradas con la clave de Microsoft (MMK) en los escenarios siguientes, con independencia de la configuración de la clave administrada por el cliente: Libros en Azure Monitor, paneles de Azure, Azure Logic Apps, Azure Notebooks y runbooks de automatización.
 
-Cuando traiga su propio almacenamiento (BYOS) y lo asocie a su área de trabajo, el servicio carga consultas de *búsquedas guardadas* y de *alertas del registro* en la cuenta de almacenamiento. Esto significa que puede controlar la cuenta de almacenamiento y la [directiva de cifrado en reposo](../../storage/common/customer-managed-keys-overview.md) con la misma clave que se usa para cifrar los datos en el clúster de Log Analytics o con una clave diferente. Sin embargo, será responsable de los costos asociados a esa cuenta de almacenamiento. 
+Cuando traiga su propio almacenamiento (BYOS) y lo vincule a su área de trabajo, el servicio carga consultas de *búsquedas guardadas* y de *alertas del registro* en la cuenta de almacenamiento. Esto significa que puede controlar la cuenta de almacenamiento y la [directiva de cifrado en reposo](../../storage/common/customer-managed-keys-overview.md) con la misma clave que se usa para cifrar los datos en el clúster de Log Analytics o con una clave diferente. Sin embargo, será responsable de los costos asociados a esa cuenta de almacenamiento. 
 
 **Consideraciones antes de establecer la clave administrada por el cliente en las consultas**
 * Debe tener permisos de "escritura" en el área de trabajo y la cuenta de almacenamiento.
@@ -292,6 +292,7 @@ Cuando traiga su propio almacenamiento (BYOS) y lo asocie a su área de trabajo,
 * No se admite el historial de consultas y no podrá ver las consultas que se han ejecutado.
 * Puede vincular una sola cuenta de almacenamiento al área de trabajo con el fin de guardar las consultas, pero se puede usar tanto para las consultas de *búsquedas guardadas* como para las de *alertas del registro*.
 * No se admite el anclaje a un panel.
+* Las alertas del registro desencadenadas no contendrán resultados de búsqueda ni consultas de alertas. Puede usar [dimensiones de alerta](../alerts/alerts-unified-log.md#split-by-alert-dimensions) para obtener contexto en las alertas desencadenadas.
 
 **Configuración de BYOS para las consultas de búsquedas guardadas**
 
@@ -339,7 +340,7 @@ Después de la configuración, se guardará en el almacenamiento cualquier nueva
 
 **Configuración de BYOS para las consultas de alertas del registro**
 
-Vincule una cuenta de almacenamiento de *Alertas* con el área de trabajo. Las consultas de *alertas del registro* se guardan en la cuenta de almacenamiento. 
+Vincule una cuenta de almacenamiento de *Alertas* al área de trabajo. Las consultas de *alertas del registro* se guardan en la cuenta de almacenamiento. 
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 

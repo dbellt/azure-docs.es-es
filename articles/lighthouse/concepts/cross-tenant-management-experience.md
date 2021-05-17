@@ -1,21 +1,21 @@
 ---
 title: Experiencias de administración entre inquilinos
-description: La administración de recursos delegados de Azure habilita una experiencia de administración entre inquilinos.
-ms.date: 03/29/2021
+description: Azure Lighthouse habilita y mejora las experiencias entre inquilinos en muchos servicios de Azure.
+ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 005d8f15c20749dff7d45385124a08a64b213afb
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: f482c4738fd0bec8f32eaeb540b2d0ef2e0d4b15
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108139046"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790440"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
-Como proveedor de servicios, puede usar [Azure Lighthouse](../overview.md) para administrar los recursos para varios clientes desde su propio inquilino de Azure Active Directory (Azure AD). Muchas tareas y servicios se pueden realizar en inquilinos administrados mediante la [administración de recursos delegados de Azure](../concepts/azure-delegated-resource-management.md).
+Como proveedor de servicios, puede usar [Azure Lighthouse](../overview.md) para administrar los recursos para varios clientes desde su propio inquilino de Azure Active Directory (Azure AD). Muchas tareas y servicios se pueden realizar en inquilinos administrados mediante la [administración de recursos delegados de Azure](../concepts/architecture.md).
 
 > [!TIP]
-> La administración de recursos delegados de Azure también se puede usar [en una empresa que tenga varios inquilinos Azure AD propios](enterprise.md) para simplificar la administración entre inquilinos.
+> Azure Lighthouse también se puede usar [en una empresa que tenga varios inquilinos de Azure AD propios](enterprise.md) para simplificar la administración entre inquilinos.
 
 ## <a name="understanding-tenants-and-delegation"></a>Descripción de los inquilinos y la delegación
 
@@ -88,7 +88,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 
 - administre los entornos de Kubernetes hospedados e implemente y administre aplicaciones en contenedores en inquilinos de clientes
 - Implementación y administración de clústeres en inquilinos de clientes
--   Uso de Azure Monitor para que los contenedores supervisen el rendimiento en los inquilinos de cliente
+- Uso de Azure Monitor para que los contenedores supervisen el rendimiento en los inquilinos de cliente
 
 [Azure Migrate](../../migrate/index.yml):
 
@@ -175,7 +175,7 @@ Solicitudes de soporte técnico:
 Con todos los escenarios, tenga en cuenta las siguientes limitaciones actuales:
 
 - Las solicitudes controladas por Azure Resource Manager pueden realizarse mediante Azure Lighthouse. Los URI de operación de estas solicitudes comienzan por `https://management.azure.com`. Sin embargo, las solicitudes que se administran mediante una instancia de un tipo de recurso (por ejemplo, acceso a los secretos de Key Vault o acceso a datos de almacenamiento) no son compatibles con Azure Lighthouse. Los URI de la operación para estas solicitudes suelen empezar con una dirección que es única para la instancia, como `https://myaccount.blob.core.windows.net` o `https://mykeyvault.vault.azure.net/`. Esta última también suelen ser operaciones de datos, en lugar de operaciones de administración.
-- Las asignaciones de roles deben usar [roles integrados de Azure](../../role-based-access-control/built-in-roles.md). Actualmente, todos los roles integrados se admiten con la administración de recursos delegados de Azure, excepto el rol Propietario o los roles integrados con el permiso [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions). El rol administrador de acceso de usuario solo se admite para uso limitado en la [asignación de roles a identidades administradas](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  No se admiten los roles personalizados ni [los roles de administrador de suscripciones clásicas](../../role-based-access-control/classic-administrators.md).
+- Las asignaciones de roles deben usar [roles integrados de Azure](../../role-based-access-control/built-in-roles.md). Actualmente se admiten todos los roles integrados con Azure Lighthouse, excepto el rol de Propietario y los roles integrados con el permiso [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions). El rol administrador de acceso de usuario solo se admite para uso limitado en la [asignación de roles a identidades administradas](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  No se admiten los roles personalizados ni [los roles de administrador de suscripciones clásicas](../../role-based-access-control/classic-administrators.md).
 - Aunque puede incorporar suscripciones que usan Azure Databricks, los usuarios del inquilino de administración no pueden iniciar áreas de trabajo de Azure Databricks en una suscripción delegada en este momento.
 - Aunque puede incorporar suscripciones y grupos de recursos que tengan bloqueos de recursos, dichos bloqueos no impedirán que los usuarios realicen acciones en el inquilino de administración. Las [asignaciones de denegación](../../role-based-access-control/deny-assignments.md) que protegen los recursos administrados por el sistema, como los que crean Azure Managed Applications o Azure Blueprints (asignaciones de denegación asignadas por el sistema), impiden que los usuarios del inquilino de administración actúen en esos recursos; sin embargo, actualmente, los usuarios del inquilino del cliente no pueden crear sus propias asignaciones de denegación (asignaciones de denegación asignadas por el usuario).
 - No se admite la delegación de suscripciones entre una [nube nacional](../../active-directory/develop/authentication-national-cloud.md) y la nube pública de Azure o entre dos nubes nacionales independientes.

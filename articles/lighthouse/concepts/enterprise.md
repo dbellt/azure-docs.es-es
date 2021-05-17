@@ -1,14 +1,14 @@
 ---
 title: Azure Lighthouse en escenarios empresariales
 description: Las funcionalidades de Azure Lighthouse se pueden usar para simplificar la administración entre inquilinos en empresas que utilizan varios inquilinos de Azure AD.
-ms.date: 03/12/2021
+ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 97b44f71750bdb533e889546f370a9b36ea5d3b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 139c7be2c1736841e81e70aa562ab9841fd76337
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419361"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788722"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse en escenarios empresariales
 
@@ -20,7 +20,7 @@ En la mayoría de las organizaciones, la administración es más fácil cuando h
 
 Es posible que algunas organizaciones necesiten usar varios inquilinos de Azure AD. Puede tratarse de una situación temporal, como por ejemplo si se han realizado adquisiciones y nos se ha definido todavía una estrategia de consolidación de inquilinos a largo plazo. También se puede dar el caso de que una organización necesite mantener varios inquilinos de forma continuada, debido a subsidiarias totalmente independientes, requisitos geográficos o legales, u otras consideraciones.
 
-En los casos en los que se requiere una arquitectura de multiinquilino, Azure Lighthouse se puede ayudar a centralizar y simplificar las operaciones de administración. Al usar [administración de recursos delegados de Azure](azure-delegated-resource-management.md), los usuarios de un inquilino de administración pueden realizar [funciones de administración entre inquilinos](cross-tenant-management-experience.md) de una manera centralizada y escalable.
+En los casos en los que se requiere una arquitectura de multiinquilino, Azure Lighthouse se puede ayudar a centralizar y simplificar las operaciones de administración. Al usar [administración de recursos delegados de Azure](architecture.md), los usuarios de un inquilino de administración pueden realizar [funciones de administración entre inquilinos](cross-tenant-management-experience.md) de una manera centralizada y escalable.
 
 ## <a name="tenant-management-architecture"></a>Arquitectura de administración de inquilinos
 
@@ -61,4 +61,4 @@ En ese ejemplo, los usuarios del Inquilino A con los permisos adecuados pueden 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre las [experiencias de administración entre inquilinos](cross-tenant-management-experience.md).
-- Más información sobre la [administración de recursos delegados de Azure](azure-delegated-resource-management.md).
+- Obtenga más información sobre [cómo funciona Azure Lighthouse](architecture.md).

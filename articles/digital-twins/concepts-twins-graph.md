@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0e0df10d9bbcb69e6a0bf56020c1ef70e1f81df6
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: e0591d9897b1ea20978afc663e63e74af7153832
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108207814"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788517"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Explicación del concepto de gemelos digitales y su grafo gemelo
 
@@ -25,7 +25,7 @@ En una solución de Azure Digital Twins, las entidades del entorno se representa
 
 Para poder crear un gemelo digital en la instancia de Azure Digital Twins, debe tener un *modelo* cargado en el servicio. Un modelo describe el conjunto de propiedades, los mensajes de telemetría y las relaciones que puede tener un gemelo determinado, entre otras cosas. Para conocer los tipos de información que se definen en un modelo, consulte [Conceptos: Modelos personalizados](concepts-models.md).
 
-Después de crear y cargar un modelo, la aplicación cliente puede crear una instancia del tipo, que es un gemelo digital. Por ejemplo, después de crear un modelo de *Floor*, puede crear uno o varios gemelos digitales que usen este tipo (como un gemelo de tipo *Floor* denominado *GroundFloor*, otro denominado *Floor2*, etc.).
+Después de crear y cargar un modelo, la aplicación cliente puede crear una instancia del tipo, que es un gemelo digital. Por ejemplo, después de crear un modelo de Floor, puede crear uno o varios gemelos digitales que usen este tipo (como un gemelo de tipo Floor denominado GroundFloor, otro denominado Floor2, etc.).
 
 [!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
 
@@ -33,7 +33,7 @@ Después de crear y cargar un modelo, la aplicación cliente puede crear una ins
 
 Los gemelos se conectan a un grafo de gemelos a través de sus relaciones. Las relaciones que un gemelo puede tener se definen como parte de su modelo.  
 
-Por ejemplo, el modelo *Floor* podría definir una relación *contains* dirigida a gemelos de tipo *Room*. Con esta definición, Azure Digital Twins le permitirá crear relaciones *contains* desde cualquier gemelo *Floor* en cualquier gemelo *Room* (incluidos los gemelos que son de subtipos *Room*). 
+Por ejemplo, el modelo Floor podría definir una relación *contains* dirigida a gemelos de tipo Room. Con esta definición, Azure Digital Twins le permitirá crear relaciones *contains* desde cualquier gemelo Floor en cualquier gemelo Room (incluidos los gemelos que son de subtipos Room). 
 
 El resultado de este proceso es un conjunto de nodos (los gemelos digitales) conectado a través de bordes (sus relaciones) en un grafo.
 
@@ -45,7 +45,7 @@ En esta sección se muestra en qué se basa la creación de gemelos digitales y 
 
 ### <a name="create-digital-twins"></a>Creación de gemelos digitales
 
-A continuación se muestra un fragmento de código de cliente que usa las [API de DigitalTwins](/rest/api/digital-twins/dataplane/twins) para crear una instancia de un gemelo de tipo *Room*.
+A continuación, se muestra un fragmento de código de cliente que usa las [API de DigitalTwins](/rest/api/digital-twins/dataplane/twins) para crear una instancia de un gemelo de tipo Room.
 
 Puede inicializar las propiedades de un gemelo cuando se crea o hacerlo más adelante. Para crear un gemelo con propiedades inicializadas, cree un documento JSON que proporcione los valores de inicialización necesarios.
 

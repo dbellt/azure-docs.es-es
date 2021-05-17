@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: fb53fc37227e040ed7bd7fc8e47de9aed538bc2e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b85855238beb9887a35369011ff8daaaf58bef9e
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721399"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787246"
 ---
 # <a name="use-azure-spot-virtual-machines"></a>Uso de máquinas virtuales de acceso puntual de Azure 
 

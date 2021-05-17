@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.custom: contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: ed4047b7ac4187138f29bc3f53b5bc5995132296
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: ae5aacf48fdc038e485226476509e14c551bfbfa
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107898142"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785212"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entrenamiento automático de un modelo de previsión de series temporales
 
@@ -286,7 +286,7 @@ Las operaciones de agregación admitidas para los valores de columna de destino 
 ### <a name="enable-deep-learning"></a>Habilitar el aprendizaje profundo.
 
 > [!NOTE]
-> La compatibilidad con DNN para la previsión en el aprendizaje automático automatizado se encuentra en **versión preliminar** y no es compatible con las ejecuciones locales.
+> La compatibilidad con DNN para la previsión en el aprendizaje automático automatizado se encuentra en **versión preliminar** y no es compatible con las ejecuciones locales ni las ejecuciones iniciadas en Databricks.
 
 También puede aplicar el aprendizaje profundo con redes neuronal profundas, o DNN, para mejorar las puntuaciones del modelo. El aprendizaje profundo de ML automatizado permite pronosticar datos de series temporales de variable única y de varias variables.
 

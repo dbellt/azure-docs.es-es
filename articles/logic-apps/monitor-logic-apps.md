@@ -6,21 +6,21 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 174f177080a421ec65f4ba79c550292737284de4
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 356353da639ab97a1a4e5483abf56050f5a236f8
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109734799"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676064"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Supervisión del estado de ejecución, revisión del historial de los desencadenadores y configuración de alertas en Azure Logic Apps
 
 Después de [crear y ejecutar una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md), puede comprobar su estado de ejecución, el [historial de ejecuciones](#review-runs-history), el [historial de los desencadenadores](#review-trigger-history) y el rendimiento. Para recibir notificaciones sobre errores u otros posibles problemas, configure [alertas](#add-azure-alerts). Por ejemplo, puede crear una alerta que detecte "cuando se produzcan errores en más de cinco ejecuciones en una hora".
 
-Para la supervisión de eventos en tiempo real y una depuración más rica, configure el registro de diagnóstico de la aplicación lógica mediante los [registros de Azure Monitor](../azure-monitor/overview.md). Este servicio de Azure le ayuda a supervisar los entornos locales y en la nube para que pueda mantener más fácilmente su disponibilidad y rendimiento. De este modo, puede buscar y ver eventos, como los de desencadenador, de ejecución y de acción. Al almacenarla en [registros de Azure Monitor](../azure-monitor/logs/data-platform-logs.md), puede crear [consultas de registro](../azure-monitor/logs/log-query-overview.md) que le ayuden a buscar y analizar esta información. También puede usar estos datos de diagnóstico con otros servicios de Azure, como Azure Storage y Azure Event Hubs. Para más información, consulte [Supervisión de aplicaciones lógicas con Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
+Para la supervisión de eventos en tiempo real y una depuración más rica, configure el registro de diagnóstico de la aplicación lógica mediante los [registros de Azure Monitor](../azure-monitor/overview.md). Este servicio de Azure le ayuda a supervisar los entornos locales y en la nube para que pueda mantener más fácilmente su disponibilidad y rendimiento. De este modo, puede buscar y ver eventos, como los de desencadenador, de ejecución y de acción. Al almacenarla en [registros de Azure Monitor](../azure-monitor/platform/data-platform-logs.md), puede crear [consultas de registro](../azure-monitor/log-query/log-query-overview.md) que le ayuden a buscar y analizar esta información. También puede usar estos datos de diagnóstico con otros servicios de Azure, como Azure Storage y Azure Event Hubs. Para más información, consulte [Supervisión de aplicaciones lógicas con Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
 
 > [!NOTE]
-> Si las aplicaciones lógicas se ejecutan en un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) que se creó para usar un [punto de conexión de acceso interno](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access), puede ver las entradas y salidas del historial de ejecuciones de la aplicación lógica y acceder a ellas *solo desde dentro de la red virtual*. Asegúrese de tener conectividad de red entre los puntos de conexión privados y el equipo desde el que desea acceder al historial de ejecuciones. Por ejemplo, el equipo cliente puede existir dentro de la red virtual del ISE o en una red virtual que esté conectada a la red virtual del ISE, por ejemplo, a través de emparejamiento o de una red privada virtual. Para obtener más información, consulte [Acceso al punto de conexión del ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access).
+> Si las aplicaciones lógicas se ejecutan en un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) que se creó para usar un [punto de conexión de acceso interno](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access), puede ver las entradas y salidas del historial de ejecuciones de la aplicación lógica y acceder a ellas *solo desde dentro de la red virtual*. Asegúrese de tener conectividad de red entre los puntos de conexión privados y el equipo desde el que desea acceder al historial de ejecuciones. Por ejemplo, el equipo cliente puede existir dentro de la red virtual del ISE o en una red virtual que esté conectada a la red virtual del ISE, por ejemplo, a través de emparejamiento o de una red privada virtual. Para obtener más información, consulte [Acceso al punto de conexión del ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
 
 <a name="review-runs-history"></a>
 
@@ -43,8 +43,7 @@ Cada vez que el desencadenador se activa por un elemento o un evento, el motor d
    En el panel de información general, en **Runs history** (Historial de ejecuciones), aparecen todas las ejecuciones pasadas, actuales y en espera de la aplicación lógica. Si en la lista aparece una gran cantidad de ejecuciones y no se encuentra la entrada deseada, intente filtrar la lista.
 
    > [!TIP]
-   > Si el estado de ejecución no aparece, intente actualizar la página de información general seleccionando **Actualizar**.
-   > No se produce ninguna ejecución para un desencadenador que se omite debido a criterios que no se cumplen o si no se encuentra ningún dato.
+   > Si el estado de ejecución no aparece, intente actualizar la página de información general seleccionando **Actualizar**. No se produce ninguna ejecución para un desencadenador que se omite debido a criterios que no se cumplen o si no se encuentra ningún dato.
 
    ![Introducción, historial de ejecuciones y otros datos de la aplicación lógica](./media/monitor-logic-apps/overview-pane-logic-app-details-run-history.png)
 
@@ -52,12 +51,12 @@ Cada vez que el desencadenador se activa por un elemento o un evento, el motor d
 
    | Estado de ejecución | Descripción |
    |------------|-------------|
-   | **Anulado** | La ejecución se ha detenido o no ha finalizado debido a problemas externos; por ejemplo, una interrupción del sistema o una suscripción de Azure vencida. |
+   | **Anulado** | La ejecución se ha detenido o no ha finalizado debido a problemas externos, por ejemplo, una interrupción del sistema o una suscripción de Azure vencida. |
    | **Cancelado** | La ejecución se ha desencadenado y se ha iniciado, pero ha recibido una solicitud de cancelación. |
-   | **Erróneo** | Se ha producido un error en al menos en una acción de la ejecución. No se ha configurado ninguna acción posterior en el flujo de trabajo para controlar el error. |
-   | **Ejecución** | La ejecución se ha desencadenado y está en curso, pero este estado también puede aparecer para una ejecución que está limitada debido a los [límites de acción](logic-apps-limits-and-config.md) o al [plan de precios actual](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Sugerencia**: Si se configura un [registro de diagnóstico](monitor-logic-apps-log-analytics.md), se puede obtener información sobre los eventos de limitación que se produzcan. |
+   | **Erróneo** | Se ha producido un error en al menos una acción de la ejecución. No se ha configurado ninguna acción posterior en el flujo de trabajo para controlar el error. |
+   | **Ejecución** | La ejecución se ha desencadenado y está en curso, pero este estado también puede aparecer para una ejecución que está limitada debido a [límites de acción](logic-apps-limits-and-config.md) o al [plan de precios actual](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Sugerencia**: Si se configura un [registro de diagnóstico](monitor-logic-apps-log-analytics.md), se puede obtener información sobre los eventos de limitación que se produzcan. |
    | **Correcto** | La ejecución se ha completado correctamente. Si se ha producido un error en alguna acción, se ha controlado mediante una acción posterior en el flujo de trabajo. |
-   | **Tiempo de espera agotado** | Se ha agotado el tiempo de espera de la ejecución porque la duración actual ha superado el límite de duración de la ejecución, que se controla mediante el valor [**Retención del historial de ejecución en días**](logic-apps-limits-and-config.md#run-duration-retention-limits). La duración de una ejecución se calcula mediante su hora de inicio y su límite de duración en esa hora de inicio. <p><p>**Nota**: Si la duración de la ejecución también supera el *límite de retención del historial de ejecución actual*, que también se controla mediante la opción [**Retención del historial de ejecución en días**](logic-apps-limits-and-config.md#run-duration-retention-limits), la ejecución se borra del historial de ejecuciones mediante un trabajo de limpieza diaria. Con independencia de que la ejecución agote el tiempo de espera o se complete, el período de retención siempre se calcula mediante la hora de inicio de la ejecución y el límite de retención *actual*. Por tanto, si reduce el límite de duración de una ejecución en curso, se agota su tiempo de espera. Sin embargo, la ejecución se mantiene o se borra del historial de ejecución en función de si su duración supera el límite de retención. |
+   | **Tiempo de espera agotado** | Se ha agotado el tiempo de espera de la ejecución porque la duración actual ha superado el límite de duración de la ejecución, que se controla mediante [el valor **Retención del historial de ejecución en días**](logic-apps-limits-and-config.md#run-duration-retention-limits). La duración de una ejecución se calcula mediante su hora de inicio y su límite de duración en esa hora de inicio. <p><p>**Nota**: Si la duración de la ejecución también supera el *límite de retención del historial de ejecución* actual, que también se controla mediante el [valor **Retención del historial de ejecución en días**](logic-apps-limits-and-config.md#run-duration-retention-limits), la ejecución se borra del historial de ejecución mediante un trabajo de limpieza diaria. Con independencia de que la ejecución agote el tiempo de espera o se complete, el período de retención siempre se calcula mediante la hora de inicio de la ejecución y el límite de retención *actual*. Por tanto, si reduce el límite de duración de una ejecución en curso, se agota su tiempo de espera. Pero la ejecución se mantiene o se borra del historial de ejecución en función de si su duración supera el límite de retención. |
    | **En espera** | La ejecución no se ha iniciado o está en pausa, por ejemplo, debido a un flujo de trabajo anterior que sigue en ejecución. |
    |||
 
@@ -92,9 +91,7 @@ Cada vez que el desencadenador se activa por un elemento o un evento, el motor d
      Podrá ver información como las entradas y las salidas de ese paso, por ejemplo:
 
    > [!NOTE]
-   > Todos los eventos y los detalles de runtime se cifran en el servicio Logic Apps.
-   > Solo se descifran cuando un usuario solicita ver esos datos.
-   > Puede [ocultar las entradas y salidas en el historial de ejecución](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) o controlar el acceso de los usuarios a esta información mediante el [control de acceso basado en roles de Azure (RBAC de Azure)](../role-based-access-control/overview.md).
+   > Todos los eventos y los detalles de runtime se cifran en el servicio Logic Apps. Solo se descifran cuando un usuario solicita ver esos datos. Puede [ocultar las entradas y salidas en el historial de ejecución](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) o controlar el acceso de los usuarios a esta información mediante el [control de acceso basado en roles de Azure (RBAC de Azure)](../role-based-access-control/overview.md).
 
 <a name="review-trigger-history"></a>
 
@@ -146,7 +143,7 @@ Cada ejecución de aplicación lógica se inicia con un desencadenador. En este 
 
 ## <a name="set-up-monitoring-alerts"></a>Configuración de alertas de supervisión
 
-Para obtener alertas de métricas o umbrales superados concretos de la aplicación lógica, configure las [alertas en Azure Monitor](../azure-monitor/alerts/alerts-overview.md). Más información sobre [métricas de Azure](../azure-monitor/data-platform.md). Para configurar alertas sin [Azure Monitor](../azure-monitor/logs/log-query-overview.md), siga estos pasos.
+Para obtener alertas de métricas o umbrales superados concretos de la aplicación lógica, configure las [alertas en Azure Monitor](../azure-monitor/platform/alerts-overview.md). Más información sobre [métricas de Azure](../azure-monitor/platform/data-platform.md). Para configurar alertas sin [Azure Monitor](../azure-monitor/log-query/log-query-overview.md), siga estos pasos.
 
 1. En el menú de la aplicación lógica, en **Supervisión**, seleccione **Alertas** > **Nueva regla de alertas**.
 
@@ -192,10 +189,10 @@ Para obtener alertas de métricas o umbrales superados concretos de la aplicaci�
 
 > [!TIP]
 > Para ejecutar una aplicación lógica desde una alerta, puede incluir el [desencadenador de solicitud](../connectors/connectors-native-reqres.md) en el flujo de trabajo, lo que permite realizar tareas como estos ejemplos:
->
+> 
 > * [Publicar en Slack](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
-> * [Enviar un texto](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-text-message-with-logic-app)
-> * [Agregar un mensaje a una cola](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-queue-with-logic-app)
+> * [Enviar un texto](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
+> * [Agregar un mensaje a una cola](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

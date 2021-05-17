@@ -20,7 +20,7 @@
   items:
     - name: Creación y modificación de la configuración de emparejamiento
       items:
-        - name: Azure portal
+        - name: Azure Portal
           href: expressroute-howto-routing-portal-resource-manager.md
         - name: Azure PowerShell
           href: expressroute-howto-routing-arm.md
@@ -28,13 +28,13 @@
           href: howto-routing-cli.md
     - name: Configuración de una puerta de enlace de red virtual para ExpressRoute
       items:
-        - name: Azure portal
+        - name: Azure Portal
           href: expressroute-howto-add-gateway-portal-resource-manager.md
         - name: Azure PowerShell
           href: expressroute-howto-add-gateway-resource-manager.md
     - name: Vinculación de una red virtual a un circuito ExpressRoute
       items:
-        - name: Azure portal
+        - name: Azure Portal
           href: expressroute-howto-linkvnet-portal-resource-manager.md
         - name: Azure PowerShell
           href: expressroute-howto-linkvnet-arm.md
@@ -42,7 +42,7 @@
           href: howto-linkvnet-cli.md
     - name: Configuración de filtros de ruta para el emparejamiento de Microsoft
       items:
-        - name: Azure portal
+        - name: Azure Portal
           href: how-to-routefilter-portal.md
         - name: Azure PowerShell
           href: how-to-routefilter-powershell.md
@@ -148,6 +148,8 @@
           href: expressroute-network-insights.md
         - name: 'Supervisión, métricas y alertas de ExpressRoute'
           href: expressroute-monitoring-metrics-alerts.md
+        - name: Visualización y configuración de alertas de mantenimiento
+          href: maintenance-alerts.md
         - name: Configuración de Network Performance Monitor para ExpressRoute
           href: how-to-npm.md
         - name: Configuración de alertas personalizadas para supervisar rutas anunciadas

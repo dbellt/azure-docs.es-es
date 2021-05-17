@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 23e116eba6393f834b3368901d4440e668b16fca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4bde035a468c4cc543410d6eb5c2e68d11138050
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101724292"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790242"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Detección avanzada de ataques de varias fases en Azure Sentinel
 
@@ -26,7 +26,7 @@ ms.locfileid: "101724292"
 
 Mediante el uso de la tecnología Fusion, basada en el aprendizaje automático, Azure Sentinel puede detectar automáticamente ataques de varias fases identificando combinaciones de comportamientos anómalos y de actividades sospechosas que se observan en diversas etapas de la cadena de eliminación. A partir de estas detecciones, Azure Sentinel genera incidentes que, de otro modo, serían muy difíciles de detectar. Estos incidentes incluyen dos o más alertas o actividades. Por diseño, estos incidentes tienen poco volumen, alta fidelidad y alta gravedad.
 
-Cuando se personaliza para adaptarla a su entorno, esta tecnología de detección no solo reduce las tasas de falsos positivos, sino que también puede detectar ataques con información limitada o que falta.
+Cuando se personaliza para adaptarla a su entorno, esta tecnología de detección no solo reduce las tasas de [falsos positivos](false-positives.md), sino que también puede detectar ataques con información limitada o que falta.
 
 ## <a name="configuration-for-advanced-multistage-attack-detection"></a>Configuración de la detección avanzada de ataques de varias fases
 
@@ -515,4 +515,3 @@ Este escenario está actualmente en **versión preliminar**.
 Ahora que conoce más detalles sobre la detección avanzada de ataques de varias fases, puede que le interese el siguiente inicio rápido para aprender a obtener visibilidad sobre sus datos y a detectar posibles amenazas: [Introducción a Azure Sentinel](quickstart-get-visibility.md).
 
 Si está preparado para investigar los incidentes que se han creado, consulte el siguiente tutorial: [Investigación de incidentes con Azure Sentinel](tutorial-investigate-cases.md).
-

@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 11/18/2020
+ms.date: 05/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 64d110243a8be5756e7de635b55e229078251a3c
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: fc04655db898902a93c4e404f51d15393db3d92e
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897350"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785266"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Uso de áreas de trabajo detrás de un firewall en Azure Machine Learning
 
@@ -131,10 +131,6 @@ Los hosts de esta sección son propiedad de Microsoft y proporcionan servicios n
 | ----- | ----- | ----- | ----- |
 | Azure Machine Learning Studio | ml.azure.com | ml.azure.us | studio.ml.azure.cn |
 | API |\*.azureml.ms | \*.ml.azure.us | \*.ml.azure.cn |
-| Experimentación, historial, Hyperdrive, etiquetado | \*.experiments.azureml.net | \*.ml.azure.us | \*.ml.azure.cn |
-| Administración de modelos | \*.modelmanagement.azureml.net | \*.ml.azure.us | \*.ml.azure.cn |
-| Canalización | \*.aether.ms | \*.ml.azure.us | \*.ml.azure.cn |
-| Diseñador (servicio de Studio) | \*.studioservice.azureml.com | \*.ml.azure.us | \*.ml.azure.cn |
 | Cuaderno integrado | \*.notebooks.azure.net | \*.notebooks.usgovcloudapi.net |\*.notebooks.chinacloudapi.cn |
 | Cuaderno integrado | \*.file.core.windows.net | \*.file.core.usgovcloudapi.net | \*.file.core.chinacloudapi.cn |
 | Cuaderno integrado | \*.dfs.core.windows.net | \*.dfs.core.usgovcloudapi.net | \*.dfs.core.chinacloudapi.cn |
@@ -150,6 +146,9 @@ Los hosts de esta sección son propiedad de Microsoft y proporcionan servicios n
 | Instancia/clúster de proceso | graph.windows.net | graph.windows.net | graph.chinacloudapi.cn |
 | Instancia de proceso | \*.instances.azureml.net | \*.instances.azureml.us | \*.instances.azureml.cn |
 | Instancia de proceso | \*.instances.azureml.ms |  |  |
+
+> [!IMPORTANT]
+> El firewall debe permitir la comunicación con \*.instances.azureml.ms a través del puerto __TCP__ __18881__.
 
 **Recursos asociados usados por Azure Machine Learning**
 

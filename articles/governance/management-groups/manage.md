@@ -3,12 +3,12 @@ title: 'Trabajo con grupos de administración: Gobernanza en Azure'
 description: Aprenda a visualizar, mantener, actualizar y eliminar la jerarquía de grupos de administración.
 ms.date: 05/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7e0e4a2a58802895ac579015ac116373c03f0ead
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 31d63cf493ae548b8172071c133655900d8c3be7
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326406"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753820"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Administración de los recursos con grupos de administración
 
@@ -19,7 +19,7 @@ Los grupos de administración proporcionan capacidad de administración de nivel
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 > [!IMPORTANT]
-> Los tokens de usuario y la memoria caché del grupo de administración de Azure Resource Manager duran 30 minutos antes de que se produzca una actualización obligatoria. Después de realizar cualquier acción como mover un grupo de administración o una suscripción, puede tardar hasta 30 minutos en mostrarse. Para ver las actualizaciones antes de que tenga que actualizar el token actualizando el explorador, inicie y cierre sesión, o solicite un nuevo token.  
+> Los tokens de usuario y la memoria caché del grupo de administración de Azure Resource Manager duran 30 minutos antes de que se produzca una actualización obligatoria. Después de realizar cualquier acción como mover un grupo de administración o una suscripción, puede tardar hasta 30 minutos en mostrarse. Para ver las actualizaciones antes de que tenga que actualizar el token actualizando el explorador, inicie y cierre sesión, o solicite un nuevo token.
 
 ## <a name="change-the-name-of-a-management-group"></a>Cambio del nombre de un grupo de administración
 
@@ -67,8 +67,7 @@ Para eliminar un grupo de administración, deben cumplirse los siguientes requis
 
 1. No deben existir grupos de administración secundarios ni suscripciones en el grupo de administración. Para mover una suscripción o un grupo de administración a otro grupo de administración, consulte [Movimiento de grupos de administración y suscripciones en la jerarquía](#moving-management-groups-and-subscriptions).
 
-1. Necesita permisos de escritura sobre el grupo de administración (propietario, colaborador o colaborador de grupo de administración). Para ver qué permisos tiene, seleccione el grupo de administración y, a continuación, seleccione **IAM**. Para más información sobre los roles de Azure, vea:  
-   [Control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/overview.md).
+1. Necesita permisos de escritura sobre el grupo de administración (propietario, colaborador o colaborador de grupo de administración). Para ver qué permisos tiene, seleccione el grupo de administración y, a continuación, seleccione **IAM**. Para más información sobre los roles de Azure, consulte [¿Qué es el control de acceso basado en roles de Azure (RBAC)?](../../role-based-access-control/overview.md).
 
 ### <a name="delete-in-the-portal"></a>Eliminar en el portal
 
@@ -111,7 +110,7 @@ az account management-group delete --name 'Contoso'
 
 ## <a name="view-management-groups"></a>Visualización de los grupos de administración
 
-Puede ver cualquier grupo de administración sobre el que tenga un rol de Azure directo o heredado.  
+Puede ver cualquier grupo de administración sobre el que tenga un rol de Azure directo o heredado.
 
 ### <a name="view-in-the-portal"></a>Ver en el portal
 
@@ -127,7 +126,7 @@ Puede ver cualquier grupo de administración sobre el que tenga un rol de Azure 
 
 ### <a name="view-in-powershell"></a>Ver en PowerShell
 
-Use el comando Get-AzManagementGroup para recuperar todos los grupos. Consulte los módulos [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) para ver la lista completa de comandos GET de PowerShell del grupo de administración.  
+Use el comando Get-AzManagementGroup para recuperar todos los grupos. Consulte los módulos [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) para ver la lista completa de comandos GET de PowerShell del grupo de administración.
 
 ```azurepowershell-interactive
 Get-AzManagementGroup
@@ -139,7 +138,7 @@ Para obtener información de un único grupo de administración, use el parámet
 Get-AzManagementGroup -GroupName 'Contoso'
 ```
 
-Para devolver un grupo de administración específico y todos los niveles de la jerarquía que hay debajo, use los parámetros **-Expand** y **-Recurse**.  
+Para devolver un grupo de administración específico y todos los niveles de la jerarquía que hay debajo, use los parámetros **-Expand** y **-Recurse**.
 
 ```azurepowershell-interactive
 PS C:\> $response = Get-AzManagementGroup -GroupName TestGroupParent -Expand -Recurse
@@ -176,7 +175,7 @@ Children    :
 
 ### <a name="view-in-azure-cli"></a>Ver en la CLI de Azure
 
-Use el comando list para recuperar todos los grupos.  
+Use el comando list para recuperar todos los grupos.
 
 ```azurecli-interactive
 az account management-group list
@@ -194,13 +193,13 @@ Para devolver un grupo de administración específico y todos los niveles de la 
 az account management-group show --name 'Contoso' -e -r
 ```
 
-## <a name="moving-management-groups-and-subscriptions"></a>Movimiento de grupos de administración y suscripciones   
+## <a name="moving-management-groups-and-subscriptions"></a>Movimiento de grupos de administración y suscripciones
 
 Uno de los motivos de crear un grupo de administración es agrupar las suscripciones. Solo los grupos de administración y las suscripciones pueden convertirse en secundarios de otro grupo de administración. Una suscripción que se mueve a un grupo de administración hereda todas las directivas y accesos de usuario del grupo de administración primario.
 
 Al mover un grupo de administración o una suscripción para ser secundarios de otro grupo de administración, es preciso evaluar tres reglas como verdaderas.
 
-Si va a realizar la acción de movimiento, necesitará lo siguiente: 
+Si va a realizar la acción de movimiento, necesitará lo siguiente:
 
 - Permisos de escritura de grupos de administración y de escritura de la asignación de roles en la suscripción o en el grupo de administración secundarios.
   - Ejemplo del rol integrado **Propietario**
@@ -215,7 +214,7 @@ Si el rol de propietario de la suscripción se hereda del grupo de administraci�
 
 Para ver qué permisos tiene en Azure Portal, seleccione el grupo de administración y, luego, **IAM**. Para más información sobre los roles de Azure, consulte [¿Qué es el control de acceso basado en roles de Azure (RBAC)?](../../role-based-access-control/overview.md).
 
-## <a name="move-subscriptions"></a>Movimiento de suscripciones 
+## <a name="move-subscriptions"></a>Movimiento de suscripciones
 
 ### <a name="add-an-existing-subscription-to-a-management-group-in-the-portal"></a>Adición una suscripción existente a un grupo de administración del portal
 
@@ -239,7 +238,7 @@ Para ver qué permisos tiene en Azure Portal, seleccione el grupo de administrac
 
 1. Seleccione **Todos los servicios** > **Grupos de administración**.
 
-1. Seleccione el grupo de administración que tiene previsto que sea el primario actual.  
+1. Seleccione el grupo de administración que tiene previsto que sea el primario actual.
 
 1. Seleccione los puntos suspensivos al final de la fila correspondiente a la suscripción de la lista que quiere mover.
 
@@ -255,7 +254,7 @@ Para ver qué permisos tiene en Azure Portal, seleccione el grupo de administrac
 
 ### <a name="move-subscriptions-in-powershell"></a>Mover las suscripciones en PowerShell
 
-Para mover una suscripción en PowerShell, use el comando New-AzManagementGroupSubscription.  
+Para mover una suscripción en PowerShell, use el comando New-AzManagementGroupSubscription.
 
 ```azurepowershell-interactive
 New-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
@@ -275,7 +274,7 @@ Para mover una suscripción en la CLI, utilice el comando add.
 az account management-group subscription add --name 'Contoso' --subscription '12345678-1234-1234-1234-123456789012'
 ```
 
-Para quitar la suscripción del grupo de administración, use el comando subscription remove.  
+Para quitar la suscripción del grupo de administración, use el comando subscription remove.
 
 ```azurecli-interactive
 az account management-group subscription remove --name 'Contoso' --subscription '12345678-1234-1234-1234-123456789012'
@@ -283,7 +282,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ### <a name="move-subscriptions-in-arm-template"></a>Traslado de las suscripciones de la plantilla de ARM
 
-Para trasladar una suscripción de una plantilla de Azure Resource Manager (plantilla de ARM), use la siguiente plantilla.
+Para trasladar una suscripción de una plantilla de Azure Resource Manager (plantilla de ARM), use la siguiente plantilla e impleméntela en el [nivel de inquilino](../../azure-resource-manager/templates/deploy-to-tenant.md).
 
 ```json
 {
@@ -305,7 +304,7 @@ Para trasladar una suscripción de una plantilla de Azure Resource Manager (plan
     },
     "resources": [
         {
-            "scope": "/", 
+            "scope": "/",
             "type": "Microsoft.Management/managementGroups/subscriptions",
             "apiVersion": "2020-05-01",
             "name": "[concat(parameters('targetMgId'), '/', parameters('subscriptionId'))]",
@@ -317,7 +316,7 @@ Para trasladar una suscripción de una plantilla de Azure Resource Manager (plan
 }
 ```
 
-## <a name="move-management-groups"></a>Movimiento de grupos de administración 
+## <a name="move-management-groups"></a>Movimiento de grupos de administración
 
 ### <a name="move-management-groups-in-the-portal"></a>Mover grupos de administración en el portal
 
@@ -332,7 +331,7 @@ Para trasladar una suscripción de una plantilla de Azure Resource Manager (plan
 1. En el menú que se abre, seleccione si quiere un grupo de administración nuevo o usar uno existente.
 
    - Al seleccionar Nuevo se crea un grupo de administración.
-   - Al seleccionar un grupo existente se mostrará una lista desplegable de todos los grupos de administración que se pueden mover a este grupo de administración.  
+   - Al seleccionar un grupo existente se mostrará una lista desplegable de todos los grupos de administración que se pueden mover a este grupo de administración.
 
    :::image type="content" source="./media/add_context_MG.png" alt-text="Captura de pantalla de las opciones de &quot;Agregar grupo de administración&quot; para crear un nuevo grupo de administración." border="false":::
 
@@ -345,7 +344,7 @@ Use el comando Update-AzManagementGroup de PowerShell para mover un grupo de adm
 ```azurepowershell-interactive
 $parentGroup = Get-AzManagementGroup -GroupName ContosoIT
 Update-AzManagementGroup -GroupName 'Contoso' -ParentId $parentGroup.id
-```  
+```
 
 ### <a name="move-management-groups-in-azure-cli"></a>Mover grupos de administración en la CLI de Azure
 
@@ -365,7 +364,7 @@ Si observa las consultas en los grupos de administración fuera de Azure Portal,
 
 ## <a name="referencing-management-groups-from-other-resource-providers"></a>Referencia a grupos de administración de otros proveedores de recursos
 
-Al hacer referencia a grupos de administración desde las acciones de otro proveedor de recursos, use la siguiente ruta de acceso como ámbito. Esta ruta de acceso se usa cuando se utiliza PowerShell, la CLI de Azure y las API REST.  
+Al hacer referencia a grupos de administración desde las acciones de otro proveedor de recursos, use la siguiente ruta de acceso como ámbito. Esta ruta de acceso se usa cuando se utiliza PowerShell, la CLI de Azure y las API REST.
 
 `/providers/Microsoft.Management/managementGroups/{yourMgID}`
 

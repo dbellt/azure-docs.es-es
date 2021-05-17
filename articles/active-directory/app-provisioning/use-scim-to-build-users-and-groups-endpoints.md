@@ -1,24 +1,24 @@
 ---
 title: Creación de un punto de conexión de SCIM para el aprovisionamiento de usuarios en aplicaciones desde Azure Active Directory
-description: Aprenda a desarrollar un punto de conexión de SCIM, integrar la API de SCIM con Azure AD y aprovisionar automáticamente usuarios y grupos en las aplicaciones en la nube con Azure Active Directory.
+description: Aprenda a desarrollar un punto de conexión de SCIM, integrar la API de SCIM con Azure Active Directory, y aprovisionar automáticamente usuarios y grupos en las aplicaciones en la nube.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 4e933000c8e700d8bfd193b542e3855b2fca26f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac876ff4370c20ca0b4db59575a3d8ab49b7b0a3
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101689341"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784852"
 ---
-# <a name="tutorial-develop-a-sample-scim-endpoint"></a>Tutorial: Desarrollo un punto de conexión SCIM de ejemplo
+# <a name="tutorial-develop-a-sample-scim-endpoint-in-azure-active-directory"></a>Tutorial: Desarrollo de un punto de conexión SCIM de ejemplo en Azure Active Directory
 
 Nadie quiere crear un punto de conexión desde cero, por lo que hemos creado [código de referencia](https://aka.ms/scimreferencecode) para que pueda empezar a trabajar con [System for Cross-domain Identity Management (SCIM)](https://aka.ms/scimoverview). En apenas 5 minutos, podrá poner en marcha el punto de conexión de SCIM sin código.
 

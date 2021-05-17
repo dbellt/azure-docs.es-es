@@ -519,7 +519,10 @@
                 - name: Actualización de la configuración del clúster
                   href: service-fabric-cluster-config-upgrade-azure.md
                 - name: Aplicación de parches a nodos de clúster (Windows)
-                  href: service-fabric-patch-orchestration-application.md
+                  href: how-to-patch-cluster-nodes-windows.md
+                  items:
+                    - name: Uso de la aplicación de orquestación de revisiones
+                      href: service-fabric-patch-orchestration-application.md
                 - name: Habilitación del cifrado de disco (Windows)
                   href: service-fabric-enable-azure-disk-encryption-windows.md
                 - name: Habilitación del cifrado de disco (Linux)
@@ -561,7 +564,7 @@
                 - name: Establecimiento del control de acceso
                   href: service-fabric-cluster-security-roles.md
                 - name: Aplicación de parches a nodos de clúster (Windows)
-                  href: service-fabric-patch-orchestration-application.md
+                  href: how-to-patch-cluster-nodes-windows.md
         - name: Visualización mediante Service Fabric Explorer
           href: service-fabric-visualizing-your-cluster.md
         - name: Conexión a un clúster seguro

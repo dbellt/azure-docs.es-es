@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 03/31/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 58e37cb1cffadf841e6d9450f1ce908cf6f22c69
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 1118e44e822068566579fdc516479afeda294cf6
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108296494"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789504"
 ---
 # <a name="azure-digital-twins-query-language-reference-select-clause"></a>Referencia del lenguaje de consulta de Azure Digital Twins: cláusula SELECT
 
@@ -70,11 +70,11 @@ Si una propiedad incluida en la proyección no está presente para una fila de d
 #### <a name="example-scenario"></a>Escenario de ejemplo
 
 Para los ejemplos siguientes, considere la posibilidad de usar un gráfico gemelo que contenga los siguientes elementos de datos:
-* Un gemelo de Factory denominado `FactoryA`.
+* Un gemelo de Factory denominado FactoryA
     - Contiene una propiedad denominada `name` con un valor de `FactoryA`.
-* Un gemelo de consumidor denominado `Contoso`.
+* Un gemelo de consumidor denominado Contoso
     - Contiene una propiedad denominada `name` con un valor de `Contoso`.
-* Una relación consumerRelationship de `FactoryA` a `Contoso`, denominada `FactoryA-consumerRelationship-Contoso`.
+* Una relación consumerRelationship de FactoryA a Contoso, denominada `FactoryA-consumerRelationship-Contoso`
     - Contiene una propiedad denominada `managedBy` con un valor de `Jeff`.
 
 El diagrama siguiente ilustra este escenario:

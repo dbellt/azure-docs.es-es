@@ -4,15 +4,15 @@ description: Aprenda a configurar un cifrado basado en host en un clúster de Az
 services: container-service
 ms.topic: article
 ms.date: 03/03/2021
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7eb3215aeb1f7c6508092d18fbebd90f852efe63
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 3d5009c164ab09d3977bb15d85b166a31c1f1a0b
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772926"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109754324"
 ---
-# <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Cifrado basado en host en Azure Kubernetes Service (AKS) (versión preliminar)
+# <a name="host-based-encryption-on-azure-kubernetes-service-aks"></a>Cifrado basado en host en Azure Kubernetes Service (AKS)
 
 Con el cifrado basado en host, los datos almacenados en el host de máquina virtual de las máquinas virtuales de los nodos de agente de AKS se cifran en reposo y se transmiten cifrados al servido Storage. Esto significa que los discos temporales se cifran en reposo con claves administradas por la plataforma. La memoria caché de los discos de datos y del sistema operativo se cifra en reposo con claves administradas por la plataforma o por el cliente, según el tipo de cifrado establecido en esos discos. De forma predeterminada, cuando se usa AKS, el sistema operativo y los discos de datos se cifran en reposo con claves administradas por la plataforma, lo que significa que las memorias caché de estos discos también se cifran de forma predeterminada en reposo con claves administradas por la plataforma.  Puede especificar sus propias claves administradas siguiendo [Traiga sus propias claves (BYOK) con discos de Azure en Azure Kubernetes Service (AKS)](azure-disk-customer-managed-keys.md). La memoria caché de estos discos también se cifrará con la clave que especifique en este paso.
 
@@ -26,33 +26,7 @@ Esta característica solo se puede establecer durante la creación del clúster 
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-- Asegúrese de que tiene instalada la extensión de la CLI `aks-preview` versión v0.4.73 o posterior.
-- Asegúrese de que tiene habilitada la marca de características `EnableEncryptionAtHostPreview` bajo `Microsoft.ContainerService`.
-
-Debe habilitar la característica para su suscripción antes de usar la propiedad EncryptionAtHost para el clúster de Azure Kubernetes Service. Siga los pasos que se indican a continuación para habilitar la característica para su suscripción:
-
-1. Ejecute el siguiente comando para registrar la característica para su suscripción
-
-```azurecli-interactive
-Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"
-```
-2. Compruebe que el estado de registro es Registrado (tarda unos minutos) mediante el comando siguiente antes de probar la característica.
-
-```azurecli-interactive
-Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"
-```
-
-### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
-
-Para crear un clúster de AKS que realice el cifrado basado en host, requiere la extensión de la CLI *aks-preview* más reciente. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] o busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+- La CLI de Azure, versión 2.23.0 o posterior
 
 ### <a name="limitations"></a>Limitaciones
 
@@ -60,7 +34,7 @@ az extension update --name aks-preview
 - Solo se puede habilitar en [regiones de Azure][supported-regions] que admiten el cifrado del lado servidor de discos administrados de Azure y solo con [tamaños de máquinas virtuales compatibles][supported-sizes] específicos.
 - Requiere un clúster de AKS y un grupo de nodos basado en Virtual Machine Scale Sets (VMSS) como *tipo de conjunto de máquinas virtuales*.
 
-## <a name="use-host-based-encryption-on-new-clusters-preview"></a>Uso del cifrado basado en host en clústeres nuevos (versión preliminar)
+## <a name="use-host-based-encryption-on-new-clusters"></a>Uso del cifrado basado en host en clústeres nuevos
 
 Configure los nodos de agente de clúster para usar el cifrado basado en host cuando se cree el clúster. 
 
@@ -70,7 +44,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_D
 
 Si quiere crear clústeres sin el cifrado basado en host, puede omitir el parámetro `--enable-encryption-at-host` para hacerlo.
 
-## <a name="use-host-based-encryption-on-existing-clusters-preview"></a>Uso del cifrado basado en host en clústeres existentes (versión preliminar)
+## <a name="use-host-based-encryption-on-existing-clusters"></a>Uso del cifrado basado en host en clústeres existentes
 
 Puede habilitar el cifrado basado en host en clústeres existentes agregando un nuevo grupo de nodos al clúster. Configure un grupo de nodos nuevo para usar el cifrado basado en host mediante el parámetro `--enable-encryption-at-host`.
 

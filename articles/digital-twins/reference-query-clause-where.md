@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 03/31/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 9ec1680d5dbad0ca18fe145bab8804dcbcee7fd4
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 58c0d35178c2683bd2626ad0b9d9209c2819e463
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108296471"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789486"
 ---
 # <a name="azure-digital-twins-query-language-reference-where-clause"></a>Referencia del lenguaje de consulta de Azure Digital Twins: cláusula WHERE
 
@@ -44,7 +44,7 @@ Condición que se evalúa como un valor `Boolean`.
 
 ### <a name="examples"></a>Ejemplos
 
-Este es un ejemplo que usa propiedades y operadores. La siguiente consulta especifica en la cláusula WHERE que solo se debe devolver el gemelo cuyo valor de `$dtId` sea *Room1*.
+Este es un ejemplo que usa propiedades y operadores. La siguiente consulta especifica en la cláusula WHERE que solo se debe devolver el gemelo cuyo valor de `$dtId` sea Room1.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="WhereExample":::
 

@@ -3,12 +3,12 @@ title: Actualización de una delegación
 description: Obtenga información sobre cómo actualizar una delegación para un cliente previamente incorporado a Azure Lighthouse.
 ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: f0ed5222cdbac3d0e4d193941c2a6f233d15938c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f93dcda5eead60c22457d4e8be30f352ad8a8c81
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555766"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785986"
 ---
 # <a name="update-a-delegation"></a>Actualización de una delegación
 
@@ -69,3 +69,4 @@ Si desea cambiar el inquilino de administración, tendrá que [crear y publicar 
 
 - Puede [ver y administrar clientes](view-manage-customers.md) desde **Mis clientes**, en Azure Portal.
 - Obtenga información sobre cómo [quitar el acceso a una delegación](remove-delegation.md) que se incorporó previamente.
+- Obtenga más información sobre la [arquitectura de Azure Lighthouse](../concepts/architecture.md).

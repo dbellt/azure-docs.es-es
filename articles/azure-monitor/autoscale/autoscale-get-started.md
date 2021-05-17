@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo escalar Web Apps, Cloud Services, 
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: edc58ed4af3475a45804e3833424bec79d50ff89
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f229b3087bd616dfb55cbec4b0f6c3fcc4ec9fe1
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641557"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737535"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introducción al escalado automático en Azure
 Este artículo describe cómo configurar el escalado automático de recursos en Microsoft Azure Portal.
@@ -115,7 +115,7 @@ Siempre se puede volver al escalado automático; para ello, haga clic en **Enabl
 
 ### <a name="cool-down-period-effects"></a>Efectos del período de recuperación
 
-La escalabilidad automática usa un período de recuperación para evitar la "oscilación", que es un escalado rápido, repetitivo y vertical de las instancias.  Para obtener más información, consulte [Pasos para la evaluación de la escalabilidad automática](autoscale-understanding-settings.md#autoscale-evaluation).  Otra información valiosa sobre la oscilación y la comprensión sobre cómo supervisar el motor de escalado automático se puede encontrar en [Procedimientos recomendados de escalado automático](autoscale-best-practices.md#choose-the-thresholds-carefully-for-all-metric-types) y [Solución de problemas de escalado automático](autoscale-troubleshoot.md) respectivamente. 
+La escalabilidad automática usa un período de recuperación para evitar la "oscilación", que es el escalado rápido, repetitivo y vertical de las instancias.  Para obtener más información, consulte [Pasos para la evaluación de la escalabilidad automática](autoscale-understanding-settings.md#autoscale-evaluation).  Otra información valiosa sobre la oscilación y la comprensión sobre cómo supervisar el motor de escalado automático se puede encontrar en [Procedimientos recomendados de escalado automático](autoscale-best-practices.md#choose-the-thresholds-carefully-for-all-metric-types) y [Solución de problemas de escalado automático](autoscale-troubleshoot.md) respectivamente.
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Enrutamiento del tráfico a instancias en buen estado (App Service)
 
@@ -132,14 +132,14 @@ En esta sección se describe cómo trasladar el escalado automático de Azure a 
 ### <a name="move"></a>Mover
 Use la [API REST](/rest/api/monitor/autoscalesettings/createorupdate) para crear una configuración de escalado automático en el nuevo entorno. La configuración creada en la región de destino será una copia de la configuración de la región de origen.
 
-Los [valores de configuración de diagnóstico](../essentials/diagnostic-settings.md) que se crearon junto con la configuración del escalado automático de la región de origen no se pueden trasladar. Tendrá que volver a crear la configuración de diagnóstico en la región de destino, una vez creada la configuración de escalado automático. 
+Los [valores de configuración de diagnóstico](../essentials/diagnostic-settings.md) que se crearon junto con la configuración del escalado automático de la región de origen no se pueden trasladar. Tendrá que volver a crear la configuración de diagnóstico en la región de destino, una vez creada la configuración de escalado automático.
 
 ### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Más información sobre cómo trasladar recursos entre regiones de Azure
 Para más información sobre cómo trasladar recursos entre regiones y la recuperación ante desastres en Azure, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Creación de una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
-- [Creación de una alerta de registro de actividades para supervisar todas las operaciones erróneas de escalado automático y reducción horizontal en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+- [Creación de una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
+- [Creación de una alerta de registro de actividades para supervisar todas las operaciones erróneas de escalado automático y reducción horizontal en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert)
 
 
 <!--Reference-->

@@ -3,12 +3,12 @@ title: Optimización de cargas de trabajo de Azure mediante Advisor Score
 description: Use Azure Advisor Score para sacar el máximo partido a Azure.
 ms.topic: article
 ms.date: 09/09/2020
-ms.openlocfilehash: 11b20bc3b4d604d3a7ff4608cd1c21f129c1cb6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e439e5283f2d311d9efb3b30fe157750d589664e
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97630129"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787930"
 ---
 # <a name="optimize-azure-workloads-by-using-advisor-score"></a>Optimización de cargas de trabajo de Azure mediante Advisor Score
 

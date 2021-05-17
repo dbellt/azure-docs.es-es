@@ -4,14 +4,14 @@ description: Creación de una instancia de Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 05/05/2021
 ms.author: v-erkel
-ms.openlocfilehash: 02934a1943ef37d282dd2a2e7862c5695bbd6ecb
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 0cb4317a874e0f342c799fabad55aaefe5ba485d
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107862712"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109733809"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Creación de una instancia de Azure HPC Cache
 
@@ -42,7 +42,7 @@ En **Detalles del servicio**, establezca el nombre de la memoria caché y estos 
 
 En la página **Caché**, debe establecer la capacidad de la memoria caché. Estos valores determinan la cantidad de datos que puede contener la memoria caché y la rapidez con la que puede atender las solicitudes de cliente.
 
-La capacidad también afecta al costo de la caché.
+La capacidad también afecta al costo de la memoria caché y a cuántos destinos de almacenamiento puede admitir.
 
 Para elegir la capacidad, establezca estos dos valores:
 
@@ -50,6 +50,9 @@ Para elegir la capacidad, establezca estos dos valores:
 * La cantidad de almacenamiento asignado a los datos en caché, en TB
 
 Elija uno de los valores de rendimiento disponibles y los tamaños de almacenamiento en caché.
+
+> [!TIP]
+> Si quiere usar más de 10 destinos de almacenamiento con la memoria caché, debe elegir el valor de tamaño de almacenamiento de caché más alto disponible para el tamaño de rendimiento. Obtenga más información en [Adición de destinos de almacenamiento](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
 
 Tenga en cuenta que la velocidad de transferencia de datos real depende de la carga de trabajo, las velocidades de red y el tipo de destinos de almacenamiento. Los valores que elija establecen el rendimiento máximo para todo el sistema de caché, pero una parte se usa para tareas de sobrecarga. Por ejemplo, si un cliente solicita un archivo que aún no está almacenado en la memoria caché, o si el archivo está marcado como obsoleto, la memoria caché utiliza parte de su capacidad de proceso para recuperarlo del almacenamiento back-end.
 
@@ -137,6 +140,8 @@ nets/<cache_subnet_name>"``
   | 12288 GB   | sí         | sí         | sí         |
   | 24576 GB   | No          | sí         | sí         |
   | 49152 GB   | No          | no          | sí         |
+
+  Si quiere usar más de 10 destinos de almacenamiento con la memoria caché, elija el valor de tamaño de caché más alto disponible para el SKU. Estas configuraciones admiten hasta 20 destinos de almacenamiento.
 
   Lea la sección **Establecimiento de la capacidad de la memoria caché** en la pestaña de instrucciones del portal para obtener información importante sobre los precios, el rendimiento y la definición del tamaño adecuado de la caché para su flujo de trabajo.
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperf-fy21q1, contperf-fy21q2
 ms.date: 12/14/2020
-ms.openlocfilehash: 5dabae76308f32da7968d8cfa89b95f1eb19c142
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7a31fde34a65d69ca862a6dd8bd4fb638b15cb3a
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104863775"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751426"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Escalado automático de clústeres de Azure HDInsight
 
@@ -70,12 +70,12 @@ En la tabla siguiente se describen las versiones y los tipos de clúster que son
 
 | Versión | Spark | Hive | Interactive Query | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 sin ESP | Sí | Sí | Sí | Sí* | No | No | No |
-| HDInsight 4.0 sin ESP | Sí | Sí | Sí | Sí* | No | No | No |
-| HDInsight 3.6 sin ESP | Sí | Sí | Sí | Sí* | No | No | No |
-| HDInsight 4.0 con ESP | Sí | Sí | Sí | Sí* | No | No | No |
+| HDInsight 3.6 sin ESP | Sí | Sí | Sí* | Sí* | No | No | No |
+| HDInsight 4.0 sin ESP | Sí | Sí | Sí* | Sí* | No | No | No |
+| HDInsight 3.6 sin ESP | Sí | Sí | Sí* | Sí* | No | No | No |
+| HDInsight 4.0 con ESP | Sí | Sí | Sí* | Sí* | No | No | No |
 
-\* Los clústeres de HBase solo se pueden configurar para escalado basado en programación, no basado en cargas.
+\* Los clústeres de HBase y Interactive Query solo se pueden configurar para escalado basado en programación, no basado en cargas.
 
 ## <a name="get-started"></a>Introducción
 
@@ -85,7 +85,7 @@ Para habilitar la característica Escalabilidad automática con escalado basado 
 
 1. En la pestaña **Configuración y precios**, marque la casilla **Habilitar escalabilidad automática**.
 1. Seleccione **Load-based** (Basada en carga) en **Tipo de escalabilidad automática**.
-1. Escriba los valores previstos para estas propiedades:  
+1. Escriba los valores previstos para estas propiedades:
 
     * **Número de nodos** inicial para **Nodo de trabajo**.
     * Número **Mín.** de nodos de trabajo.
@@ -120,16 +120,16 @@ Seleccione el tipo de máquina virtual de los nodos de trabajo; para ello, selec
 
 La suscripción tiene una cuota de capacidad para cada región. El número total de núcleos de los nodos principales y el máximo de nodos de trabajo no puede superar la cuota de capacidad. Sin embargo, esta cuota tiene un límite flexible; sencillamente puede crear una incidencia de soporte técnico en cualquier momento para que la aumenten.
 
-> [!Note]  
+> [!Note]
 > Si se supera el límite de cuota de núcleos total, recibirá un mensaje de error que dice "the maximum node exceeded the available cores in this region, please choose another region or contact the support to increase the quota" (El nodo máximo superó los núcleos disponibles en esta región, elija otra región o póngase en contacto con soporte técnico para aumentar la cuota).
 
-Para obtener más información sobre la creación de clústeres de HDInsight con Azure Portal, consulte [Crear clústeres basados en Linux en HDInsight con Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md).  
+Para obtener más información sobre la creación de clústeres de HDInsight con Azure Portal, consulte [Crear clústeres basados en Linux en HDInsight con Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ### <a name="create-a-cluster-with-a-resource-manager-template"></a>Creación de un clúster con una plantilla del Administrador de recursos
 
 #### <a name="load-based-autoscaling"></a>Escalado automático basado en carga
 
-Para crear un clúster de HDInsight con el escalado automático basado en carga de una plantilla de Azure Resource Manager, agregue un nodo `autoscale` a la sección `computeProfile` > `workernode` con las propiedades `minInstanceCount` y `maxInstanceCount`, tal como se muestra en el fragmento de código JSON a continuación. Para obtener una plantilla de Resource Manager completa, consulte [Plantilla de inicio rápido: Implementación de un clúster de Spark con la escalabilidad automática basada en carga habilitada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-loadbased).
+Para crear un clúster de HDInsight con el escalado automático basado en carga de una plantilla de Azure Resource Manager, agregue un nodo `autoscale` a la sección `computeProfile` > `workernode` con las propiedades `minInstanceCount` y `maxInstanceCount`, tal como se muestra en el fragmento de código JSON a continuación. Para obtener una plantilla de Resource Manager completa, consulte [Plantilla de inicio rápido: Implementación de un clúster de Spark con la escalabilidad automática basada en carga habilitada](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-autoscale-loadbased).
 
 ```json
 {
@@ -157,7 +157,7 @@ Para crear un clúster de HDInsight con el escalado automático basado en carga 
 
 #### <a name="schedule-based-autoscaling"></a>Escalado automático basado en programación
 
-Para crear un clúster de HDInsight con el escalado automático basado en programación de una plantilla de Azure Resource Manager, agregue un nodo `autoscale` a la sección `computeProfile` > `workernode`. El nodo `autoscale` contiene una `recurrence` que tiene una `timezone` y una `schedule` que describe cuándo se aplicará el cambio. Para obtener una plantilla de Resource Manager completa, consulte [Implementación de un clúster de Spark con la escalabilidad automática basada en programación habilitada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-schedulebased).
+Para crear un clúster de HDInsight con el escalado automático basado en programación de una plantilla de Azure Resource Manager, agregue un nodo `autoscale` a la sección `computeProfile` > `workernode`. El nodo `autoscale` contiene una `recurrence` que tiene una `timezone` y una `schedule` que describe cuándo se aplicará el cambio. Para obtener una plantilla de Resource Manager completa, consulte [Implementación de un clúster de Spark con la escalabilidad automática basada en programación habilitada](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-autoscale-schedulebased).
 
 ```json
 {
@@ -251,25 +251,37 @@ Durante el proceso de reducción vertical de un clúster, la característica Esc
 
 Los trabajos seguirán en ejecución. Los trabajos pendientes esperarán una programación con menos nodos de trabajo disponibles.
 
+### <a name="configure-schedule-based-autoscale-based-on-usage-pattern"></a>Configuración de la escalabilidad automática basada en programación en función del patrón de uso
+
+Debe comprender el patrón de uso del clúster al configurar la escalabilidad automática basada en programación. El [panel de Grafana](./interactive-query/hdinsight-grafana.md) puede ayudarle a comprender las ranuras de carga y ejecución de consultas. Puede obtener las ranuras de ejecutor disponibles y el total de ranuras de ejecutor desde el panel.
+
+Esta es una manera de estimar cuántos nodos de trabajo se necesitarán. Se recomienda proporcionar un 10 % de búfer adicional para controlar la variación de la carga de trabajo.
+
+Número de ranuras de ejecutor realmente usadas = Total de ranuras de ejecutor – Total de ranuras de ejecutor disponibles.
+
+Número de nodos de trabajo necesarios = Número de ranuras de ejecutor realmente usadas / (hive.llap.daemon.num.executors + hive.llap.daemon.task.scheduler.wait.queue.size)
+
+*hive.llap.daemon.num.executors es configurable y el valor predeterminado es 4
+
+*hive.llap.daemon.task.scheduler.wait.queue.size es configurable y el valor predeterminado es 10
+
+
 ### <a name="be-aware-of-the-minimum-cluster-size"></a>Consideración del tamaño mínimo del clúster
 
 No reduzca verticalmente el clúster a menos de tres nodos. El escalado del clúster a menos de tres nodos puede hacer que se quede atascado en el modo seguro debido a una replicación de archivos insuficiente. Para más información, vea [Bloqueo en modo seguro](hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
 
 ### <a name="increase-the-number-of-mappers-and-reducers"></a>Aumento del número de asignadores y reductores
 
-La escalabilidad automática para clústeres de Hadoop también supervisa el uso de HDFS. Si HDFS está ocupado, se supone que el clúster aún necesita los recursos actuales. Cuando hay datos masivos implicados en la consulta, puede aumentar el número de asignadores y reductores para aumentar el paralelismo y acelerar las operaciones de HDFS. De este modo, se activará la reducción vertical adecuada cuando haya recursos adicionales. 
+La escalabilidad automática para clústeres de Hadoop también supervisa el uso de HDFS. Si HDFS está ocupado, se supone que el clúster aún necesita los recursos actuales. Cuando hay datos masivos implicados en la consulta, puede aumentar el número de asignadores y reductores para aumentar el paralelismo y acelerar las operaciones de HDFS. De este modo, se activará la reducción vertical adecuada cuando haya recursos adicionales.
 
 ### <a name="set-the-hive-configuration-maximum-total-concurrent-queries-for-the-peak-usage-scenario"></a>Establecimiento del número máximo de consultas simultáneas totales de configuración de Hive para el escenario de uso máximo
 
 Los eventos de escalabilidad automática no cambian la configuración de Hive de *Número máximo total de consultas simultáneas* en Ambari. Esto significa que el servicio interactivo del servidor de Hive 2 solo puede controlar el número dado de consultas simultáneas en cualquier momento, incluso si el número de demonios de cola interactiva se escala y reduce verticalmente en función de la carga y programación. La recomendación general es establecer esta configuración para el escenario de uso máximo para evitar la intervención manual.
 
-Sin embargo, es posible que experimente un error de reinicio del servidor de Hive 2 si solo hay un número pequeño de nodos de trabajo y el valor configurado del máximo de consultas simultáneas totales es demasiado alto. Como mínimo, se necesita el número mínimo de nodos de trabajo que pueden dar cabida al número especificado de AM de Tez (igual a la configuración de consultas simultáneas máximas en total). 
+Sin embargo, es posible que experimente un error de reinicio del servidor de Hive 2 si solo hay un número pequeño de nodos de trabajo y el valor configurado del máximo de consultas simultáneas totales es demasiado alto. Como mínimo, se necesita el número mínimo de nodos de trabajo que pueden dar cabida al número especificado de AM de Tez (igual a la configuración de consultas simultáneas máximas en total).
 
 ## <a name="limitations"></a>Limitaciones
 
-### <a name="node-label-file-missing"></a>Ausencia del archivo de etiqueta de nodo
-
-La escalabilidad automática de HDInsight usa un archivo de etiqueta de nodo para determinar si un nodo está listo para ejecutar tareas. El archivo de etiqueta de nodo se almacena en HDFS con tres réplicas. Si el tamaño del clúster experimenta una reducción vertical drástica y hay una gran cantidad de datos temporales, existe una pequeña probabilidad de que se puedan eliminar las tres réplicas. Si esto sucede, el clúster entra en un estado de error.
 
 ### <a name="interactive-query-daemons-count"></a>Recuento de demonios de Interactive Query
 

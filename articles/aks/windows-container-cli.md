@@ -4,12 +4,12 @@ description: Aprenda a crear rápidamente un clúster de Kubernetes y a implemen
 services: container-service
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 617590a3f482e246b8af5db6dd906591c16b20fa
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 1093020bb0a98745ca47176fb5eaa6ddc4736295
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769434"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789900"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Creación de un contenedor de Windows Server en un clúster de Azure Kubernetes Service (AKS) mediante la CLI de Azure
 
@@ -70,19 +70,19 @@ En la siguiente salida de ejemplo se muestra que los recursos se crearon correct
 Para ejecutar un clúster de AKS que admita grupos de nodos para contenedores de Windows Server, el clúster debe utilizar una directiva de red que use el complemento de red (avanzado) de [Azure CNI][azure-cni-about]. Para más información que le ayude a planear los intervalos de subred necesarios y las consideraciones de red, vea [Configuración de redes de Azure CNI][use-advanced-networking]. Use el comando [az aks create][az-aks-create] para crear un clúster de AKS denominado *myAKSCluster*. Este comando creará los recursos de red necesarios en caso de que no existan.
 
 * El clúster se configura con dos nodos.
-* Los parámetros `--windows-admin-password` y `--windows-admin-username` establecen las credenciales de administrador de los contenedores de Windows Server creados en el clúster y deben satisfacer los [requisitos de contraseña de Windows Server][windows-server-password]. Si no especifica el parámetro *windows-admin-password*, se le pedirá que proporcione un valor.
+* Los parámetros `--windows-admin-password` y `--windows-admin-username` establecen las credenciales de administrador para los nodos de Windows Server del clúster y deben satisfacer los [requisitos de contraseña de Windows Server][windows-server-password]. Si no especifica el parámetro *windows-admin-password*, se le pedirá que proporcione un valor.
 * El grupo de nodos usa `VirtualMachineScaleSets`.
 
 > [!NOTE]
 > Para asegurarse de que el clúster funcione de forma confiable, debe ejecutar al menos 2 (dos) nodos del grupo de nodos predeterminado.
 
-Cree un nombre de usuario para usarlo como credenciales de administrador para los contenedores de Windows Server en el clúster. Los comandos siguientes le solicitan un nombre de usuario y lo establecen en WINDOWS_USERNAME para su uso en un comando posterior (recuerde que los comandos de este artículo se incluyen en un shell de BASH).
+Cree un nombre de usuario para usarlo como credenciales de administrador para los nodos de Windows Server en el clúster. Los comandos siguientes le solicitan un nombre de usuario y lo establecen en WINDOWS_USERNAME para su uso en un comando posterior (recuerde que los comandos de este artículo se incluyen en un shell de BASH).
 
 ```azurecli-interactive
-echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
+echo "Please enter the username to use as administrator credentials for Windows Server nodes on your cluster: " && read WINDOWS_USERNAME
 ```
 
-Cree el clúster y asegúrese de especificar el parámetro `--windows-admin-username`. El siguiente comando de ejemplo crea un clúster con el valor de *WINDOWS_USERNAME* establecido en el comando anterior. También, puede proporcionar un nombre de usuario diferente directamente en el parámetro, en lugar de usar *WINDOWS_USERNAME*. El siguiente comando también le pedirá que cree una contraseña para las credenciales de administrador para los contenedores de Windows Server en el clúster. Como alternativa, puede usar el parámetro *windows-admin-password* y especificar aquí su propio valor.
+Cree el clúster y asegúrese de especificar el parámetro `--windows-admin-username`. El siguiente comando de ejemplo crea un clúster con el valor de *WINDOWS_USERNAME* establecido en el comando anterior. También, puede proporcionar un nombre de usuario diferente directamente en el parámetro, en lugar de usar *WINDOWS_USERNAME*. El siguiente comando también le pedirá que cree una contraseña para las credenciales de administrador de los nodos de Windows Server en el clúster. Como alternativa, puede usar el parámetro *windows-admin-password* y especificar aquí su propio valor.
 
 ```azurecli-interactive
 az aks create \
@@ -98,6 +98,10 @@ az aks create \
 
 > [!NOTE]
 > Si recibe un error de validación de contraseña, compruebe que el parámetro establecido cumple los [requisitos de contraseña de Windows Server][windows-server-password]. Si la contraseña cumple los requisitos, pruebe a crear el grupo de recursos en otra región. A continuación, intente crear el clúster con el nuevo grupo de recursos.
+>
+> Si no especifica un nombre de usuario y una contraseña de administrador al establecer `--vm-set-type VirtualMachineScaleSets` y `--network-plugin azure`, el nombre de usuario se establece en *azureuser* y la contraseña se establece en un valor aleatorio.
+> 
+> No se puede cambiar el nombre de usuario del administrador, pero puede cambiar la contraseña de administrador que el clúster de AKS usa para los nodos de Windows Server mediante `az aks update`. Para más información, consulte [Preguntas frecuentes sobre los grupos de nodos de Windows Server][win-faq-change-admin-creds].
 
 Transcurridos unos minutos, el comando se completa y devuelve información en formato JSON sobre el clúster. En ocasiones, el clúster puede tardar más de unos minutos en aprovisionarse. Espere hasta 10 minutos en estos casos.
 
@@ -294,6 +298,7 @@ Para obtener más información sobre AKS y un ejemplo completo desde el código 
 [use-advanced-networking]: configure-azure-cni.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 [windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
+[win-faq-change-admin-creds]: windows-faq.md#how-do-i-change-the-administrator-password-for-windows-server-nodes-on-my-cluster

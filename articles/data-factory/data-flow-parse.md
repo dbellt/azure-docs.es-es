@@ -5,19 +5,19 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/08/2021
-ms.openlocfilehash: 4db9503ea84ae13148a89a03048c73399413e5cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/10/2021
+ms.openlocfilehash: 7a01d2d17a4c98656588530f5b288c6a69b8a206
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101710199"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734173"
 ---
 # <a name="parse-transformation-in-mapping-data-flow"></a>Transformación de análisis en el flujo de datos de asignación
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Use la transformación de análisis para analizar las columnas de los datos del documento. Los tipos admitidos actualmente de los documentos insertados que se pueden analizar son JSON y texto delimitado.
+Use la transformación de análisis para analizar las columnas de los datos del documento. Los tipos de documentos insertados admitidos actualmente que se pueden analizar son JSON, XML y texto delimitado.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWykdO]
 
@@ -29,11 +29,22 @@ En el panel de configuración de la transformación de análisis, primero se sel
 
 ### <a name="column"></a>Columna
 
-De forma similar a las columnas derivadas y los agregados, aquí es donde modificará una columna de salida, para lo cual deberá seleccionarla en el selector desplegable. También puede escribir aquí el nombre de una nueva columna. ADF almacenará los datos de origen analizados en esta columna.
+De forma similar a las columnas derivadas y los agregados, aquí es donde modificará una columna de salida, para lo cual deberá seleccionarla en el selector desplegable. También puede escribir aquí el nombre de una nueva columna. ADF almacenará los datos de origen analizados en esta columna. En la mayoría de los casos, será aconsejable definir una nueva columna que analice el campo de documento insertado de entrada.
 
 ### <a name="expression"></a>Expression
 
 Use el generador de expresiones para establecer el origen del análisis. Esto puede ser tan sencillo como seleccionar la columna de origen con los datos independientes que desea analizar, o bien puede crear expresiones complejas para analizarlas.
+
+#### <a name="example-expressions"></a>Expresiones de ejemplo
+
+* Datos de la cadena de origen: ```chrome|steel|plastic```
+  * Expresión: ```(desc1 as string, desc2 as string, desc3 as string)```
+
+* Datos JSON de origen: ```{"ts":1409318650332,"userId":"309","sessionId":1879,"page":"NextSong","auth":"Logged In","method":"PUT","status":200,"level":"free","itemInSession":2,"registration":1384448}```
+  * Expresión: ```(level as string, registration as long)```
+
+* Datos XML de origen: ```<Customers><Customer>122</Customer><CompanyName>Great Lakes Food Market</CompanyName></Customers>```
+  * Expresión: ```(Customers as (Customer as integer, CompanyName as string))```
 
 ### <a name="output-column-type"></a>Tipo de columna de salida
 
@@ -105,7 +116,7 @@ ParseCsv select(mapColumn(
 ```
 parse(json = jsonString ? (trade as boolean,
                                 customers as string[]),
-                format: 'json',
+                format: 'json|XML|delimited',
                 documentForm: 'singleDocument') ~> ParseJson
 
 parse(csv = csvString ? (id as integer,

@@ -8,12 +8,12 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3b19fab33d0c8f53025605fd14fe65f08e660392
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 15ade6fca3885bfabba7a23e2c3d8e561a9e6a0c
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101677926"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738471"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Tipos de archivo y orígenes de datos admitidos en Azure Purview
 
@@ -21,23 +21,7 @@ En este artículo se describen los orígenes de datos, los tipos de archivo y lo
 
 ## <a name="supported-data-sources"></a>Orígenes de datos admitidos
 
-Azure Purview admite los siguientes orígenes:
-
-| Tipo de almacén | Tipo de autenticación admitido | Configuración de exámenes mediante experiencia de usuario/PowerShell |
-| ---------- | ------------------- | ------------------------------ |
-| SQL Server local                   | Autenticación de SQL                        | Experiencia de usuario                                |
-| Azure Synapse Analytics (anteriormente SQL DW)            | Autenticación de SQL, entidad de servicio, MSI               | Experiencia de usuario                             |
-| Azure SQL Database (DB)                  | Autenticación de SQL, entidad de servicio, MSI               | Experiencia de usuario |
-| Instancia administrada de Azure SQL Database      | Autenticación de SQL, entidad de servicio, MSI               | Experiencia de usuario    |
-| Azure Blob Storage                       | Clave de cuenta, entidad de servicio, MSI | Experiencia de usuario            |
-| Explorador de datos de Azure                      | Entidad de servicio                              | Experiencia de usuario            |
-| Azure Data Lake Storage Gen1 (ADLS Gen1) | Entidad de servicio, MSI                              | Experiencia de usuario            |
-| Azure Data Lake Storage Gen2 (ADLS Gen2) | Clave de cuenta, entidad de servicio, MSI            | Experiencia de usuario            |
-| Azure Cosmos DB                          | Clave de cuenta                                    | Experiencia de usuario            |
-
-
-> [!Note]
-> Azure Data Lake Storage Gen2 ya está disponible con carácter general. Se recomienda que empiece a usarlo hoy mismo. Para más información, consulte la [página del producto](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
+Purview admite todos los orígenes de datos enumerados [aquí](purview-connector-overview.md).
 
 ## <a name="file-types-supported-for-scanning"></a>Tipos de archivo admitidos para examen
 
@@ -48,7 +32,10 @@ Los siguientes tipos de archivo se admiten para los exámenes y para la extracci
 - Purview también admite extensiones de archivo personalizadas y analizadores personalizados.
  
 > [!Note]
-> Cada archivo Gzip debe estar asignado a un solo archivo CSV. Los archivos Gzip están sujetos a reglas de clasificación personalizadas y del sistema. Actualmente no se admite el examen de un archivo Gzip asignado a varios archivos o cualquier otro tipo de archivo que no sea CSV. 
+> Cada archivo Gzip debe estar asignado a un solo archivo CSV. Los archivos Gzip están sujetos a reglas de clasificación personalizadas y del sistema. Actualmente no se admite el examen de un archivo Gzip asignado a varios archivos o cualquier otro tipo de archivo que no sea CSV. Además, el analizador de Purview admite el examen de tipos de archivo PARQUET y AVRO comprimidos con Snappy para la extracción y clasificación de esquemas.
+
+> [!Note]
+> El analizador de Purview no admite tipos de datos complejos en los tipos de archivo AVRO, ORC y PARQUET para la extracción de esquemas.   
 
 ## <a name="sampling-within-a-file"></a>Muestreo en un archivo
 
@@ -74,28 +61,6 @@ Muestreo de archivos para conjuntos de recursos por tipos de archivo:
 - **Otros tipos de archivo estructurados (JSON, XML, TXT)** : se muestrea uno de cada 100 archivos (examen L3) de una carpeta o grupo de archivos de partición que se considere un grupo de recursos.
 - **Objetos SQL y entidades de CosmosDB**: cada archivo se somete a un examen L3.
 - **Tipos de archivo de documento**: cada archivo se somete a un examen L3. Los patrones de conjuntos de recursos no se aplican a estos tipos de archivo.
-
-## <a name="scan-regions"></a>Regiones de la exploración
-A continuación se muestra una lista de todas las regiones de origen de datos de Azure (centro de datos) donde se ejecuta el explorador de Purview. Si el origen de datos de Azure se encuentra en una región que no está en esta lista, el explorador se ejecutará en la región de la instancia de Purview.
- 
-### <a name="purview-scanner-regions"></a>Regiones del explorador de Purview
-
-- EastUs
-- EastUs2 
-- SouthCentralUS
-- WestUs
-- WestUs2
-- SoutheastAsia
-- Oeste de Europa
-- Norte de Europa
-- UkSouth
-- AustraliaEast
-- CanadaCentral
-- BrazilSouth
-- CentralIndia
-- JapanEast
-- SouthAfricaNorth
-- FranceCentral
 
 ## <a name="classification"></a>clasificación
 

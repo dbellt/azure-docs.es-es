@@ -5,12 +5,12 @@ description: Vea las preguntas frecuentes cuando ejecute cargas de trabajo de ap
 services: container-service
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: cc5a5ec2bbfb64a1e787277bf67579bad0543cd6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e9b2072ddcb688cd320700d47bb5f5f3670e6543
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739583"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790080"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Preguntas frecuentes sobre los grupos de nodos de Windows Server en AKS
 
@@ -82,6 +82,24 @@ Para corregir este error:
 Los grupos de nodos de Windows no admiten la rotación de la entidad de servicio. Para actualizar la entidad de servicio, cree un nuevo grupo de nodos de Windows y migre los pods del grupo anterior al nuevo. Cuando termine, elimine el grupo de nodos antiguo.
 
 En su lugar, use identidades administradas que, básicamente, son contenedores en torno a entidades de servicio. Para obtener más información, consulte [Uso de identidades administradas en Azure Kubernetes Service][managed-identity].
+
+## <a name="how-do-i-change-the-administrator-password-for-windows-server-nodes-on-my-cluster"></a>¿Cómo cambio la contraseña de administrador de los nodos de Windows Server en el clúster?
+
+Al crear el clúster de AKS, se especifican los parámetros `--windows-admin-password` y `--windows-admin-username` para establecer las credenciales de administrador de los nodos de Windows Server del clúster. Si no especificó la credenciales de administrador como, por ejemplo, al crear un clúster mediante Azure Portal o al establecer `--vm-set-type VirtualMachineScaleSets` y `--network-plugin azure` mediante la CLI de Azure, el nombre de usuario tiene como valor predeterminado *azureuser* y una contraseña aleatoria.
+
+Para cambiar la contraseña de administrador, use el comando `az aks update`:
+
+```azurecli
+az aks update \
+    --resource-group $RESOURCE_GROUP \
+    --name $CLUSTER_NAME \
+    --windows-admin-password $NEW_PW
+```
+
+> [!IMPORTANT]
+> Al realizar esta operación, se actualizarán todos los grupos de nodos de Windows Server. Los grupos de nodos de Linux no se ven afectados.
+> 
+> Al cambiar `--windows-admin-password`, la nueva contraseña debe tener al menos 14 caracteres y cumplir los [requisitos de contraseña de Windows Server][windows-server-password].
 
 ## <a name="how-many-node-pools-can-i-create"></a>¿Cuántos grupos de nodos puedo crear?
 
@@ -200,3 +218,4 @@ Para comenzar con los contenedores de Windows Server en AKS, [cree un grupo de n
 [hybrid-vms]: ../virtual-machines/windows/hybrid-use-benefit-licensing.md
 [resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks
 [dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip
+[windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference

@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 11/12/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3628669890d23dd504e7900afa8910a5586db938
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 96d9e64a7b3443b4c2e835bfe824bd7d9197cb1c
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322228"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752164"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Trasladar un área de trabajo de Log Analytics a otro grupo de recursos o suscripción
 
@@ -44,7 +44,7 @@ Las suscripciones de origen y destino del área de trabajo deben existir dentro 
 > - Si ya ha movido el área de trabajo, deshabilite todas las reglas activas en **Análisis** y vuelva a habilitarlas después de cinco minutos. Esto debe ser una solución efectiva en la mayoría de los casos; sin embargo, cabe reiterar que no se admite y se realiza bajo su responsabilidad.
 > 
 > **Nueva creación de alertas**
-> - Todas las alertas deben volver a crearse después de un movimiento, ya que los permisos se basan en el identificador de recurso de Azure del área de trabajo, que cambia durante el movimiento del área de trabajo.
+> - Todas las alertas deben volver a crearse después de una operación de cambio de nombre o de movimiento de área de trabajo, ya que los permisos se basan en el id. de recurso de Azure del área de trabajo, que cambia durante el movimiento del área de trabajo o cambio de nombre de recurso.
 >
 > **Actualización de las rutas de acceso a los recursos**
 > - Después de un movimiento del área de trabajo, los recursos externos o de Azure que apunten al área de trabajo deben revisarse y actualizarse para que apunten a la nueva ruta de acceso de destino del recurso.

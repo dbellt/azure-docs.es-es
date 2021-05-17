@@ -3,21 +3,22 @@ title: Sincronización de atributos en Azure Active Directory para asignación
 description: Al configurar el aprovisionamiento de usuarios con Azure Active Directory y aplicaciones SaaS, use la característica de extensión de directorio para agregar atributos de origen que no están sincronizados de manera predeterminada.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 03/31/2021
 ms.author: kenwith
-ms.openlocfilehash: f7a2429161cebe867d844b4ca7aa08ec3613edcd
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.reviewer: arvinh
+ms.openlocfilehash: 2cc6c3ec2b58a64491b0741658db325e808f0fa5
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107388217"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784654"
 ---
-# <a name="syncing-extension-attributes-for-app-provisioning"></a>Sincronización de atributos de extensión para el aprovisionamiento de aplicaciones
+# <a name="syncing-extension-attributes-for-azure-active-directory-application-provisioning"></a>Sincronización de los atributos de extensión para el aprovisionamiento de aplicaciones de Azure Active Directory
 
 Azure Active Directory (Azure AD) debe contener todos los datos (atributos) necesarios para crear un perfil de usuario al aprovisionar cuentas de usuario de Azure AD en una [aplicación SaaS](../saas-apps/tutorial-list.md). Al personalizar las asignaciones de atributos para el aprovisionamiento de usuarios, es posible que el atributo que quiera asignar no aparezca en la lista **Atributo de origen**. En este artículo se muestra cómo agregar el atributo que falta.
 

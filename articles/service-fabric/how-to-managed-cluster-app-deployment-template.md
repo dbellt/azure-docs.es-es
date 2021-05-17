@@ -1,18 +1,18 @@
 ---
-title: Implementación de una aplicación de clúster administrado de Service Fabric (versión preliminar) mediante una plantilla de ARM
-description: Implemente una aplicación en un clúster administrado de Azure Service Fabric (versión preliminar) mediante una plantilla de Azure Resource Manager.
+title: Implementación de una aplicación de clúster administrado de Service Fabric mediante una plantilla de ARM
+description: Implemente una aplicación en un clúster administrado de Azure Service Fabric mediante una plantilla de Azure Resource Manager.
 ms.topic: how-to
-ms.date: 02/15/2021
-ms.openlocfilehash: e860c77d77e3aabb70f70defdaa25de14e77e0e1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 5/10/2021
+ms.openlocfilehash: 0712040032f0e7b33720df5bef1555652c27fbb0
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728018"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109735627"
 ---
-# <a name="deploy-a-service-fabric-managed-cluster-preview-application-using-arm-template"></a>Implementación de una aplicación de clúster administrado de Service Fabric (versión preliminar) mediante una plantilla de ARM
+# <a name="deploy-a-service-fabric-managed-cluster-application-using-arm-template"></a>Implementación de una aplicación de clúster administrado de Service Fabric mediante una plantilla de ARM
 
-Dispone de varias opciones a la hora de implementar aplicaciones de Azure Service Fabric en un clúster administrado de Service Fabric. y la más aconsejable es usar Azure Resource Manager, ya que de esa forma es posible describir las aplicaciones y los servicios en JSON y, después, implementarlos en la misma plantilla de Resource Manager en que se encuentre el clúster. A diferencia del uso de PowerShell o la CLI de Azure para implementar y administrar aplicaciones, si se utiliza Resource Manager, no es preciso esperar a que el clúster esté preparado; el registro, aprovisionamiento e implementación de las aplicaciones se pueden realizar en un solo paso. Resource Manager es la mejor opción para administrar el ciclo de vida de las aplicaciones en el clúster. Para obtener más información, consulte [Procedimientos recomendados: Infraestructura como código](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources).
+Dispone de varias opciones a la hora de implementar aplicaciones de Azure Service Fabric en un clúster administrado de Service Fabric. y la más aconsejable es usar Azure Resource Manager, ya que de esa forma es posible describir las aplicaciones y los servicios en JSON y, después, implementarlos en la misma plantilla de Resource Manager en que se encuentre el clúster. A diferencia del uso de PowerShell o la CLI de Azure para implementar y administrar aplicaciones, si se utiliza Resource Manager, no es preciso esperar a que el clúster esté preparado; el registro, aprovisionamiento e implementación de las aplicaciones se pueden realizar en un solo paso. Resource Manager es la mejor opción para administrar el ciclo de vida de las aplicaciones en el clúster. Para obtener más información, consulte [Procedimientos recomendados: Infraestructura como código](service-fabric-best-practices-infrastructure-as-code.md#service-fabric-resources).
 
 La administración de las aplicaciones como recursos en Resource Manager puede ayudarle a obtener mejoras en estas áreas:
 
@@ -101,25 +101,25 @@ La aplicación de ejemplo contiene [plantillas de Azure Resource Manager](https:
 
 ```json
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applications",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applicationTypes",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applicationTypes/versions",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'), '/', parameters('applicationTypeVersion'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applications/services",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
     "location": "[variables('clusterLocation')]"
@@ -181,12 +181,10 @@ Para eliminar una aplicación implementada mediante el modelo de recursos de apl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre el modelo de recurso de la aplicación:
+Más información sobre la implementación de aplicaciones de clúster administradas:
 
-* [Modelar una aplicación en Service Fabric](service-fabric-application-model.md)
-* [Manifiestos de servicio y de aplicación de Service Fabric](service-fabric-application-and-service-manifests.md)
-* [Procedimientos recomendados: Infraestructura como código](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources)
-* [Administración de aplicaciones y servicios como recursos de Azure](service-fabric-best-practices-infrastructure-as-code.md)
+* [Implementación de secretos de aplicación de un clúster administrado](how-to-managed-cluster-application-secrets.md)
+* [Implementación de aplicaciones de clúster administrado con una identidad administrada](how-to-managed-cluster-application-managed-identity.md)
 
 
 <!--Image references-->
