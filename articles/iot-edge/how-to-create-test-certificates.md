@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: adfb46894e769a23a2ac48bdb4ac3e432d9cebce
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: ea7d44cc704e6937a0d3f396b8eea3f298a02931
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108139064"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772322"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Creación de certificados de demostración para probar las características de dispositivo IoT Edge
 
@@ -159,7 +159,7 @@ Antes de continuar con los pasos de esta sección, siga los descritos en la secc
 
 1. Vaya al directorio de trabajo donde colocó los scripts de generación de certificados.
 
-1. Cree el certificado de entidad de certificación raíz y firme con él un certificado intermedio. Los certificados se colocan en el directorio de trabajo.
+1. Cree el certificado de entidad de certificación raíz y firme con él un certificado intermedio. Los certificados se colocan en el directorio de trabajo. 
 
    ```powershell
    New-CACertsCertChain rsa
@@ -168,6 +168,8 @@ Antes de continuar con los pasos de esta sección, siga los descritos en la secc
    Este comando de script crea varios archivos de certificado y clave, pero cuando los artículos solicitan el **certificado de CA raíz**, use el siguiente archivo:
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
+   
+   Este certificado es necesario para poder crear más certificados para los dispositivos IoT Edge y los dispositivos hoja, como se explica en las secciones siguientes.
 
 ### <a name="linux"></a>Linux
 
@@ -206,6 +208,9 @@ El nuevo comando de identidad de dispositivo crea varios archivos de certificado
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>\private\iot-edge-device-identity-<name>.key.pem`
+
+Para la inscripción individual del dispositivo IoT Edge en DPS, use `iot-edge-device-identity-<name>.cert.pem`. Para registrar el dispositivo Iot Edge en IoT Hub, use los certificados `iot-edge-device-identity-<name>-full-chain.cert.pem` e `iot-edge-device-identity-<name>.key.pem`. Para obtener más información, vea [Creación y aprovisionamiento de un dispositivo IoT Edge mediante certificados X.509](how-to-auto-provision-x509-certs.md).
+
 
 ### <a name="linux"></a>Linux
 
@@ -361,7 +366,7 @@ Al autenticar un dispositivo IoT con certificados autofirmados, debe cargar el c
 A continuación, realice una comprobación para demostrar IoT Hub que posee el certificado de CA raíz.
 Por último, va a usar el mismo certificado de CA raíz para crear certificados de dispositivo que se colocarán en el dispositivo de IoT para que pueda autenticarse con IoT Hub.
 
-Los certificados de esta sección son para los pasos descritos en [Configuración de la seguridad de X.509 en el centro de IoT de Azure](../iot-hub/tutorial-x509-scripts.md).
+Los certificados de esta sección son para los pasos de la serie de tutoriales sobre el certificado X.509 de IoT Hub. Vea [Descripción de la criptografía de clave pública y la infraestructura de clave pública X.509](../iot-hub/tutorial-x509-introduction.md) para obtener la introducción de esta serie.
 
 #### <a name="windows"></a>Windows
 

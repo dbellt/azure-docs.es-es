@@ -7,18 +7,14 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 04/19/2021
 ms.topic: how-to
-ms.openlocfilehash: 6b535ecb80fae9f55eb6ab11751c26e0c6d0e9e5
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: f32f36399eec2b54b872ae9750ea2ddf2fb5a218
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107713747"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683792"
 ---
 # <a name="use-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Uso del puente de dispositivos de IoT Central para conectar otras nubes de IoT a IoT Central
-
-*Este artículo está destinado a los administradores*.
-
-## <a name="azure-iot-central-device-bridge"></a>Puente de dispositivos de Azure IoT Central
 
 El puente de dispositivos de IoT Central es una solución de código abierto que conecta otras nubes de IoT a su aplicación de IoT Central. Entre los ejemplos de otras nubes de IoT se incluyen [Sigfox](https://www.sigfox.com/), [Device Cloud de Particle](https://www.particle.io/) y [The Things Network](https://www.thethingsnetwork.org/). El puente de dispositivos funciona mediante el reenvío de datos desde dispositivos conectados a otras nubes de IoT a través de la aplicación de IoT Central. El puente de dispositivo solo reenvía datos a IoT Central, no envía comandos ni actualizaciones de propiedades de IoT Central a los dispositivos.
 
@@ -28,15 +24,13 @@ La solución del puente de dispositivos aprovisiona varios recursos de Azure en 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Recuerde que para completar los pasos de esta guía paso a paso, necesita una suscripción activa a Azure.
+Necesitará lo siguiente para completar los pasos de esta guía:
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-
-Complete el inicio rápido [Creación de una aplicación de Azure IoT Central](./quick-deploy-iot-central.md) para crear una aplicación de IoT Central mediante la plantilla **Aplicación personalizada > Aplicación personalizada**.
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
 
 ## <a name="overview"></a>Información general
 
-El puente de dispositivos de IoT Central es una solución de código abierto en GitHub. Usa una plantilla de Azure Resource Manager personalizada que implementa varios recursos en la suscripción de Azure, incluida una aplicación de funciones de Azure.
+El puente de dispositivos de IoT Central es una solución de código abierto en GitHub. Usa una plantilla de Azure Resource Manager personalizada para implementar varios recursos en la suscripción de Azure, incluida una aplicación de funciones de Azure Functions.
 
 La aplicación de funciones es la pieza fundamental del puente de dispositivos. Recibe las solicitudes HTTP POST de otras plataformas de IoT a través de un webhook simple. El [puente de dispositivos de Azure IoT Central](https://github.com/Azure/iotc-device-bridge) incluye ejemplos que muestran cómo conectar nubes de Sigfox, Particle y The Things Network. Puede ampliar esta solución para conectarse a su nube de IoT personalizada si su plataforma puede enviar solicitudes HTTP POST a la aplicación de funciones.
 
@@ -62,7 +56,7 @@ Para implementar el puente de dispositivos en su suscripción:
 
 Una vez completada la implementación, debe instalar los paquetes NPM que requiere la función:
 
-1. En Azure Portal, abra la aplicación de funciones que se implementó en su suscripción. A continuación, vaya a **Herramientas de desarrollo > Consola**. En la consola, ejecute los siguientes comandos para instalar los paquetes:
+1. En Azure Portal, abra la aplicación de funciones que se implementó en su suscripción. Luego vaya a **Herramientas de desarrollo** > **Consola**. En la consola, ejecute los siguientes comandos para instalar los paquetes:
 
     ```bash
     cd IoTCIntegration
@@ -114,16 +108,16 @@ Para activar el registro de la aplicación de funciones con Application Insights
 
 La plantilla de Resource Manager aprovisiona los siguientes recursos en la suscripción de Azure:
 
-* Function App
+* Aplicación de función
 * Plan de App Service
 * Cuenta de almacenamiento
 * Almacén de claves
 
 El almacén de claves almacena la clave de grupo SAS para la aplicación de IoT Central.
 
-La aplicación de funciones se ejecuta en un [plan de consumo](https://azure.microsoft.com/pricing/details/functions/). Aunque esta opción no ofrece recursos de proceso dedicados, permite que el puente de dispositivos controle cientos de mensajes de dispositivo por minuto, adecuados para flotas más pequeñas de dispositivos o dispositivos que envían mensajes con menos frecuencia. Si la aplicación depende de la transmisión de un gran número de mensajes del dispositivo, reemplace el plan de consumo por un[plan de App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) dedicado. Este plan ofrece recursos de proceso dedicados, que ofrecen tiempos de respuesta del servidor más rápidos. Con un plan de App Service estándar, el rendimiento máximo observado de la función de Azure de este repositorio era de aproximadamente 1500 mensajes de dispositivo por minuto. Para más información, consulte las [opciones de hospedaje de Azure Functions](../../azure-functions/functions-scale.md).
+La aplicación de funciones se ejecuta en un [plan de consumo](https://azure.microsoft.com/pricing/details/functions/). Aunque esta opción no ofrece recursos de proceso dedicados, permite que el puente de dispositivos controle cientos de mensajes de dispositivo por minuto, adecuados para flotas más pequeñas de dispositivos o dispositivos que envían mensajes con menos frecuencia. Si la aplicación depende de la transmisión de un gran número de mensajes del dispositivo, reemplace el plan de consumo por un[plan de App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) dedicado. Este plan ofrece recursos de proceso dedicados, que ofrecen tiempos de respuesta del servidor más rápidos. Con un plan de App Service estándar, el rendimiento máximo observado de la función de Azure en este repositorio fue de aproximadamente 1500 mensajes de dispositivo por minuto. Para más información, consulte las [opciones de hospedaje de Azure Functions](../../azure-functions/functions-scale.md).
 
-Para usar un plan de App Service dedicado en lugar de un plan de consumo, edite la plantilla personalizada antes de la implementación. Seleccione **Editar plantilla**.
+Para usar un plan de App Service dedicado en lugar de un plan de consumo, edite la plantilla personalizada antes de implementar. Seleccione **Editar plantilla**.
 
 :::image type="content" source="media/howto-build-iotc-device-bridge/edit-template.png" alt-text="Captura de pantalla de Editar plantilla.":::
 
@@ -185,16 +179,16 @@ Para conectar un dispositivo Particle a través del puente de dispositivos a IoT
     "deviceId": "{{{PARTICLE_DEVICE_ID}}}"
   },
   "measurements": {
-    "{{{PARTICLE_EVENT_NAME}}}": {{{PARTICLE_EVENT_VALUE}}}
+    "{{{PARTICLE_EVENT_NAME}}}": "{{{PARTICLE_EVENT_VALUE}}}"
   }
 }
 ```
 
-Pegue la **dirección URL de la función** desde la aplicación de funciones de Azure y verá que los dispositivos Particle aparecen como dispositivos no asociados en IoT Central. Para obtener más información, consulte la entrada de blog [Here's how to integrate your Particle-powered projects with Azure IoT Central](https://blog.particle.io/2019/09/26/integrate-particle-with-azure-iot-central/) (A continuación se indica cómo integrar los proyectos con tecnología de Particle con Azure IoT Central).
+Pegue la **URL de función** de la aplicación de funciones; se ve que los dispositivos Particle aparecen como dispositivos no asociados en IoT Central. Para obtener más información, consulte la entrada de blog [Here's how to integrate your Particle-powered projects with Azure IoT Central](https://blog.particle.io/2019/09/26/integrate-particle-with-azure-iot-central/) (A continuación se indica cómo integrar los proyectos con tecnología de Particle con Azure IoT Central).
 
 ### <a name="example-2-connecting-sigfox-devices-through-the-device-bridge"></a>Ejemplo 2: Conexión de dispositivos Sigfox a través del puente de dispositivos
 
-Es posible que algunas plataformas no le permitan especificar el formato de los mensajes de dispositivo enviados a través de un webhook. Para estos sistemas, debe convertir la carga del mensaje al formato de cuerpo esperado antes de que el puente de dispositivos la procese. Puede realizar la conversión en la misma función de Azure que ejecuta el puente de dispositivos.
+Es posible que algunas plataformas no le permitan especificar el formato de los mensajes de dispositivo enviados a través de un webhook. Para estos sistemas, debe convertir la carga del mensaje al formato de cuerpo esperado antes de que el puente de dispositivos la procese. Puede realizar la conversión en la misma función que ejecuta el puente de dispositivos.
 
 En esta sección se muestra cómo convertir la carga de una integración de webhook de Sigfox al formato de cuerpo esperado por el puente de dispositivos. La nube de Sigfox transmite los datos del dispositivo en un formato de cadena hexadecimal. Para mayor comodidad, el puente de dispositivos incluye una función de conversión para este formato, que acepta un subconjunto de los posibles tipos de campo en una carga del dispositivo Sigfox:`int` y `uint` de 8, 16, 32 o 64 bits; `float` de 32 bits o 64 bits; little-endian y big-endian. Para procesar mensajes desde una integración de webhook de Sigfox, realice los siguientes cambios en el archivo _IoTCIntegration/index.js_ en la aplicación de funciones.
 
@@ -224,7 +218,7 @@ context.res = {
 Para conectar los dispositivos The Things Network a IoT Central:
 
 * Agregue una nueva integración HTTP a su aplicación en The Things Network: **Aplicación > Integraciones > agregar integración > Integración HTTP**.
-* Asegúrese de que la aplicación incluye una función descodificador que convierte automáticamente la carga de los mensajes del dispositivo a JSON antes de enviarla a la instancia de Azure Functions: **Aplicación > Funciones de carga > descodificador**.
+* Asegúrese de que la aplicación incluye una función descodificador que convierte automáticamente la carga de los mensajes del dispositivo en JSON antes de enviarla a la función: **Aplicación > Funciones de carga > descodificador**.
 
 En el ejemplo siguiente se muestra una función descodificador de JavaScript que puede usar para descodificar tipos numéricos comunes a partir de datos binarios:
 
@@ -271,7 +265,7 @@ function Decoder(bytes, port) {
 }
 ```
 
-Después de definir la integración, agregue el código siguiente antes de llamar a `handleMessage` en la línea 21 del archivo *IoTCIntegration/index.js* de la aplicación de funciones de Azure. Este código traduce el cuerpo de la integración HTTP al formato esperado.
+Después de definir la integración, agregue el código siguiente antes de llamar a `handleMessage` en la línea 21 del archivo *IoTCIntegration/index.js* de la aplicación de funciones. Este código traduce el cuerpo de la integración HTTP al formato esperado.
 
 ```javascript
 device: {

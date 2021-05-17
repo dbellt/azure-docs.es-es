@@ -7,15 +7,16 @@ ms.date: 12/11/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 1d098f56bbadfe115620580c8d93fb6dd021550d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a62e87e97a719991169112d7280593f6ab4b340
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97586681"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772358"
 ---
 # <a name="build-end-to-end-solution-with-azure-iot-central-and-dynamics-365-field-service"></a>Creación de una solución de un extremo a otro con Azure IoT Central y Dynamics 365 for Field Service 
-Como generador, puede habilitar la integración de una aplicación de Azure IoT Central en otros sistemas empresariales. 
+
+En este artículo se explica cómo habilitar la integración de la aplicación de Azure IoT Central en otros sistemas empresariales. 
 
 Por ejemplo, en una solución de administración de residuos conectada, puede optimizar el envío de camiones de recogida de basura. La optimización se puede realizar en función de los datos de los sensores de IoT de los cubos de basura conectados. En la [aplicación de administración de residuos conectada de IoT Central](./tutorial-connected-waste-management.md) puede configurar reglas y acciones, y establecer que desencadene la creación de alertas en Dynamics 365 for Field Service. Este escenario se consigue mediante el uso de Power Automate, que se configurará directamente en IoT Central para automatizar los flujos de trabajo entre aplicaciones y servicios. Además, en función de las actividades de los servicios de Field Service, la información se puede devolver a Azure IoT Central. 
 

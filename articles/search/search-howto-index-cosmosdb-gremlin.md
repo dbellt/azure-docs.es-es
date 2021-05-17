@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/11/2021
-ms.openlocfilehash: 2d247f9e1529b7667e52f33a4a22841b8933fbaf
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: a1181af6bf7f8c734d7cb90c7e9bb28c22e00b08
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108163074"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517989"
 ---
 # <a name="how-to-index-data-available-through-cosmos-db-gremlin-api-using-an-indexer-preview"></a>Cómo indexar los datos disponibles mediante Gremlin API de Cosmos DB con un indexador (versión preliminar)
 
@@ -24,9 +24,9 @@ ms.locfileid: "108163074"
 > En esta versión preliminar, se recomienda usar la [API REST, versión 2020-06-30-Preview](search-api-preview.md). Actualmente hay compatibilidad limitada con el portal y no la hay con .NET SDK.
 
 > [!WARNING]
-> Para que Azure Cognitive Search indexe los datos de Cosmos DB mediante Gremlin API, la [propia indexación de Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/index-overview) también debe habilitarse y establecerse en [Coherente](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode). Esta es la configuración predeterminada en Cosmos DB. La indexación de Azure Cognitive Search no funcionará sin no está ya habilitada la indexación de Cosmos DB.
+> Para que Azure Cognitive Search indexe los datos de Cosmos DB mediante Gremlin API, la [propia indexación de Cosmos DB](../cosmos-db/index-overview.md) también debe habilitarse y establecerse en [Coherente](../cosmos-db/index-policy.md#indexing-mode). Esta es la configuración predeterminada en Cosmos DB. La indexación de Azure Cognitive Search no funcionará sin no está ya habilitada la indexación de Cosmos DB.
 
-La [indexación de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/index-overview) y la [indexación de Azure Cognitive Search](search-what-is-an-index.md) son operaciones distintas, específicas de cada servicio. Antes de comenzar la indexación de Azure Cognitive Search, ya debe existir la base de datos de Azure Cosmos DB.
+La [indexación de Azure Cosmos DB](../cosmos-db/index-overview.md) y la [indexación de Azure Cognitive Search](search-what-is-an-index.md) son operaciones distintas, específicas de cada servicio. Antes de comenzar la indexación de Azure Cognitive Search, ya debe existir la base de datos de Azure Cosmos DB.
 
 En este artículo se muestra cómo configurar Azure Cognitive Search para indexar el contenido de Azure Cosmos DB mediante Gremlin API. Este flujo de trabajo crea un índice de Azure Cognitive Search y lo carga con texto existente extraído de Azure Cosmos DB mediante Gremlin API.
 
@@ -54,7 +54,7 @@ También puede encontrar estos valores en Azure Portal:
 
 3. Cambie a las páginas del portal en la cuenta de Cosmos DB. En el panel de navegación de la izquierda, en **Configuración**, haga clic en **Claves**. En esta página se proporciona un URI, dos conjuntos de cadenas de conexión y dos conjuntos de claves. En el Bloc de notas, copie una de las cadenas de conexión.
 
-### <a name="step-2---create-a-data-source"></a>Paso 2: Creación de un origen de datos
+### <a name="step-2---create-a-data-source"></a>Paso 2: creación de un origen de datos
 
 A **origen de datos** especifica los datos para indexar, las credenciales y las directivas para identificar cambios en los datos (por ejemplo, los documentos modificados o eliminados dentro de la colección). El origen de datos se define como un recurso independiente para que puedan usarlo múltiples indizadores.
 
@@ -147,6 +147,7 @@ Asegúrese de que el esquema del índice de destino sea compatible con el grafo.
 En el caso de las colecciones con particiones, la clave de documento predeterminada es la propiedad `_rid` de Azure Cosmos DB, a la que Azure Cognitive Search cambia el nombre automáticamente a `rid`, porque los nombres de los campos no pueden comenzar por un carácter de guion bajo. Además, los valores `_rid` de Azure Cosmos DB contienen caracteres que no son válidos en las claves de Azure Cognitive Search. Por esta razón, los valores `_rid` deben estar codificados en Base64 si quiere convertirlo en la clave del documento.
 
 ### <a name="mapping-between-json-data-types-and-azure-cognitive-search-data-types"></a>Asignación entre tipos de datos de JSON y de Azure Cognitive Search
+
 | Tipo de datos JSON | Tipos de campos de índice de destino compatibles |
 | --- | --- |
 | Bool |Edm.Boolean, Edm.String |
@@ -158,7 +159,7 @@ En el caso de las colecciones con particiones, la clave de documento predetermin
 | Objetos GeoJSON, por ejemplo {"type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
 | Otros objetos JSON |N/D |
 
-### <a name="step-4---configure-and-run-the-indexer"></a>Paso 4: Configuración y ejecución del indexador
+### <a name="step-4---configure-and-run-the-indexer"></a>Paso 4: configuración y ejecución del indexador
 
 Una vez creados el origen de datos y los índices, ya podrá crear el indizador:
 
@@ -292,5 +293,6 @@ Observe que la asignación de campos de salida comienza con `/document` y no inc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre Gremlin API de Azure Cosmos DB, consulte [Introducción a Gremlin API de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/graph-introduction).
-* Para obtener más información sobre Azure Cognitive Search, consulte la [página del servicio Search](https://azure.microsoft.com/services/search/).
++ Para obtener más información sobre Gremlin API de Azure Cosmos DB, vea [Introducción a Gremlin API de Azure Cosmos DB]()../cosmos-db/graph-introduction.md).
+
++ Para obtener más información sobre escenarios y precios de Azure Cognitive Search, vea la [página del servicio Search en azure.microsoft.com](https://azure.microsoft.com/services/search/).

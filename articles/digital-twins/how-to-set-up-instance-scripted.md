@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 4ef4e1f11018c82d96907518b79cc5737c49b946
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 5b6b2a2c8fdee17cef6c74ebfab758fe2fdb7bc0
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107104055"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108766850"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configuración de una instancia de Azure Digital Twins y autenticación (con scripts)
 
@@ -21,20 +21,22 @@ ms.locfileid: "107104055"
 
 En este artículo se describen los pasos para **configurar una nueva instancia de Azure Digital Twins**, incluidas la creación de la instancia y la configuración de la autenticación. Después de completar este artículo, tendrá una instancia de Azure Digital Twins lista para empezar a programar.
 
-En esta versión de este artículo se completan estos pasos mediante la ejecución de un [**script de implementación automatizada** de ejemplo](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) que simplifica el proceso. 
-* Para ver los pasos manuales de la CLI que el script se ejecuta en segundo plano, consulte la versión de la CLI de este artículo: [*Procedimiento: Configuración de una instancia y autenticación (CLI)*](how-to-set-up-instance-cli.md).
-* Para ver los pasos manuales según Azure Portal, consulte la versión del portal de este artículo: [*Procedimiento: Configuración de una instancia y autenticación (portal)*](how-to-set-up-instance-portal.md).
+En esta versión de este artículo se completan estos pasos mediante la ejecución de un [script de implementación automatizada de ejemplo](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) que simplifica el proceso. 
+* Para ver los pasos manuales de la CLI que el script se ejecuta en segundo plano, consulte la versión de la CLI de este artículo: [Procedimiento: Configuración de una instancia y autenticación (CLI)](how-to-set-up-instance-cli.md) .
+* Para ver los pasos manuales según Azure Portal, consulte la versión del portal de este artículo: [Procedimiento: Configuración de una instancia y autenticación (portal)](how-to-set-up-instance-portal.md) .
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
+
+## <a name="prerequisites-permission-requirements"></a>Requisitos previos: Requisitos de permisos
 [!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
 
 ## <a name="prerequisites-download-the-script"></a>Requisitos previos: Descarga del script
 
-El script de ejemplo se escribe en PowerShell. Forma parte de los [**ejemplos completos de Azure Digital Twins**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), que puede descargar en la máquina. Para ello, vaya a ese vínculo de ejemplo y seleccione el botón *Browse code* (Examinar código) situado debajo del título. Esto le llevará al repositorio de GitHub para los ejemplos, que puede descargar como *.ZIP* al seleccionar el botón *Código* y *Descargar archivo ZIP*.
+El script de ejemplo se escribe en PowerShell. Forma parte de los [ejemplos completos de Azure Digital Twins](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), que puede descargar en la máquina. Para ello, vaya a ese vínculo de ejemplo y seleccione el botón *Browse code* (Examinar código) situado debajo del título. Esto lleva al repositorio de GitHub de los ejemplos, que se pueden descargar como un archivo .zip si se selecciona el botón *Código* y *Descargar archivo ZIP*.
 
 :::image type="content" source="media/includes/download-repo-zip.png" alt-text="Vista del repositorio digital-gemelos-samples en GitHub. El botón Código está seleccionado, lo que genera un pequeño cuadro de diálogo en el que el botón Descargar archivo ZIP está resaltado." lightbox="media/includes/download-repo-zip.png":::
 
-Se descargará una carpeta *.ZIP* en la máquina denominada **digital-twins-samples-master.zip**. Vaya a la carpeta en la máquina y descomprímala para extraer los archivos.
+Con esto se descarga una carpeta .zip en la máquina como **digital-twins-samples-master.zip**. Vaya a la carpeta en la máquina y descomprímala para extraer los archivos.
 
 En la carpeta descomprimida, el script de implementación se encuentra en _digital-twins-samples-master > scripts > **deploy.ps1**_.
 
@@ -59,7 +61,7 @@ Estos son los pasos para ejecutar el script de implementación en Cloud Shell.
 
     :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Ventana de Cloud Shell que muestra la selección del icono Cargar":::
 
-    Vaya al archivo _**deploy.ps1**_ en la máquina (en _digital-twins-samples-master > scripts > **deploy.ps1**_) y presione "Abrir". Con esta acción se cargará el archivo en Cloud Shell para que pueda ejecutarlo en la ventana de Cloud Shell.
+    Vaya al archivo _**deploy.ps1**_ en la máquina (en _digital-twins-samples-master > scripts > **deploy.ps1**_) y seleccione "Abrir". Con esta acción se cargará el archivo en Cloud Shell para que pueda ejecutarlo en la ventana de Cloud Shell.
 
 4. Ejecute el script mediante el envío del comando `./deploy.ps1` en la ventana de Cloud Shell. Puede copiar el comando siguiente (recuerde que, para pegar contenido en Cloud Shell, puede usar **Control + Mayús + V** en Windows y Linux, o **Cmd + Mayús + V** en macOS. También puede utilizar el menú contextual).
 
@@ -71,7 +73,7 @@ Estos son los pasos para ejecutar el script de implementación en Cloud Shell.
 
     Cuando el script se ejecuta a través de los pasos de configuración automatizada, se le solicitará que pase los valores siguientes:
     * Por ejemplo, el *identificador de suscripción* de la suscripción de Azure.
-    * Por ejemplo, una *ubicación* en la que quiera implementar la instancia. Para ver qué regiones admiten Azure Digital Twins, visite [*Productos de Azure disponibles por región*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+    * En la instancia: una *ubicación* en la que quiera implementar la instancia. Para ver qué regiones admiten Azure Digital Twins, visite [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
     * Por ejemplo, el nombre de un *grupo de recursos*. Puede usar un grupo de recursos existente o escribir un nuevo nombre para crear uno.
     * Por ejemplo, un *nombre* para la instancia de Azure Digital Twins. Si su suscripción tiene otra instancia de Azure Digital Twins en la región que ya usa el nombre especificado, se le pedirá que elija un nombre diferente.
 
@@ -87,9 +89,9 @@ Si el script se completa correctamente, la copia impresa final indicará `Deploy
 >[!NOTE]
 >Actualmente hay un **problema conocido** con la instalación con scripts, por el que algunos usuarios (especialmente los usuarios de las [cuentas de Microsoft personales o MSA](https://account.microsoft.com/account)) pueden encontrar que no se creó la **asignación de roles para el _Propietario de datos de Azure Digital Twins_**.
 >
->Puede comprobar la asignación de roles mediante la sección [*Comprobación de la asignación de roles de usuario*](#verify-user-role-assignment) que aparece más adelante en este artículo y, si es necesario, configurar la asignación de roles manualmente mediante [Azure Portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) o la [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
+>Puede comprobar la asignación de roles mediante la sección [Comprobación de la asignación de roles de usuario](#verify-user-role-assignment) que aparece más adelante en este artículo y, si es necesario, configurar la asignación de roles manualmente mediante [Azure Portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) o la [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 >
->Para más información, consulte [*Solución de problemas: Problemas conocidos en Azure Digital Twins*](troubleshoot-known-issues.md#missing-role-assignment-after-scripted-setup).
+>Para más información, consulte [Solución de problemas: Problemas conocidos en Azure Digital Twins](troubleshoot-known-issues.md#missing-role-assignment-after-scripted-setup).
 
 ## <a name="verify-success-and-collect-important-values"></a>Comprobación de que la operación es correcta y recopilación de valores importantes
 
@@ -124,7 +126,7 @@ Si la comprobación no se ha realizado correctamente, también puede rehacer su 
 
 Pruebe las llamadas individuales de la API de REST en su instancia mediante los comandos de la CLI de Azure Digital Twins: 
 * [Referencia de az dt](/cli/azure/dt)
-* [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
+* [Conceptos: Conjunto de comandos de la CLI de Azure Digital Twins](concepts-cli.md)
 
 O bien consulte cómo conectar una aplicación cliente a la instancia mediante el código de autenticación:
-* [*Procedimiento: Escritura de código de autenticación de aplicación*](how-to-authenticate-client.md)
+* [Procedimiento: Escritura de código de autenticación de aplicación](how-to-authenticate-client.md)

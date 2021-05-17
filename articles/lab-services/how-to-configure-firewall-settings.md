@@ -5,12 +5,12 @@ author: emaher
 ms.author: enewman
 ms.date: 06/26/2020
 ms.topic: article
-ms.openlocfilehash: 067a2c9672b87974557f650cef07b0394e7d5a63
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b37d94249c136d2ec90a955e71e61e8eef0aeb6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85445855"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772304"
 ---
 # <a name="firewall-settings-for-azure-lab-services"></a>Configuración del firewall para Azure Lab Services
 
@@ -20,6 +20,9 @@ Cada laboratorio usa una sola dirección IP pública y varios puertos.  Todas la
 
 >[!IMPORTANT]
 >Cada laboratorio tendrá una dirección IP pública diferente.
+
+> [!NOTE]
+> Si la escuela necesita realizar filtrado de contenido, por ejemplo, para el cumplimiento de la [Ley de Protección de la Infancia en Internet (Children's Internet Protection Act, CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), tiene que usar software de terceros.  Para obtener más información, lea las instrucciones sobre [filtrado de contenido con Lab Services](./administrator-guide.md#content-filtering).
 
 ## <a name="find-public-ip-for-a-lab"></a>Búsqueda de la dirección IP pública de un laboratorio
 

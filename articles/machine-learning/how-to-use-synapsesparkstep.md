@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 03/04/2021
 ms.topic: how-to
 ms.custom: synapse-azureml
-ms.openlocfilehash: 8ef4eca10971f9f7f405292fa7b722b26c7d53cd
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 6541cc008c479d8836f90ea99874d24713adb434
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107896772"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746862"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Uso de Apache Spark (con tecnología de Azure Synapse Analytics) en la canalización de aprendizaje automático (versión preliminar)
 
@@ -65,7 +65,7 @@ for service in LinkedService.list(ws) :
 linked_service = LinkedService.get(ws, 'synapselink1')
 ```
 
-En primer lugar, `Workspace.from_config()` accede al área de trabajo de Azure Machine Learning mediante la configuración de `config.json` (consulte [Tutorial: Introducción a Azure Machine Learning en el entorno de desarrollo](tutorial-1st-experiment-sdk-setup-local.md)). Luego, el código imprime todos los servicios vinculados disponibles en el área de trabajo. Finalmente, `LinkedService.get()` recupera un servicio vinculado denominado `'synapselink1'`. 
+En primer lugar, `Workspace.from_config()` accede al área de trabajo de Azure Machine Learning mediante la configuración de `config.json` (vea [Creación de un archivo de configuración del área de trabajo](how-to-configure-environment.md#workspace)). Luego, el código imprime todos los servicios vinculados disponibles en el área de trabajo. Finalmente, `LinkedService.get()` recupera un servicio vinculado denominado `'synapselink1'`. 
 
 ## <a name="attach-your-apache-spark-pool-as-a-compute-target-for-azure-machine-learning"></a>Conexión del grupo de Apache Spark como destino de proceso de Azure Machine Learning
 

@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 05/03/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9ee81abd7cd0268a7cbd6b16aa6065ec7b54bef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 068a3852371c44086717a6f0164e42d6a3ee33a6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96861313"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754548"
 ---
 # <a name="plan-an-azure-ad-multi-factor-authentication-deployment"></a>Plan de una implementación de Azure AD Multi-Factor Authentication
 
@@ -144,6 +144,9 @@ Se envía al usuario un mensaje de texto que contiene un código de verificació
 
 1. Haga clic en **Guardar**.
 1. Cierre la pestaña **configuración del servicio**.
+
+> [!WARNING]
+> No deshabilite los métodos de la organización si está usando [Valores predeterminados de seguridad](../fundamentals/concept-fundamentals-security-defaults.md). La deshabilitación de los métodos puede dar lugar a su propia expulsión del inquilino. Deje todos los **Métodos disponibles para los usuarios** habilitados en el portal de configuración del servicio MFA.
 
 ## <a name="plan-registration-policy"></a>Planificación de la directiva de registro
 

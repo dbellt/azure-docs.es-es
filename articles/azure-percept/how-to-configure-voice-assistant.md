@@ -1,26 +1,26 @@
 ---
 title: Configuración de la aplicación de asistente para voz mediante Azure IoT Hub
 description: Configuración de la aplicación de asistente para voz mediante Azure IoT Hub
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.custom: template-how-to
-ms.openlocfilehash: b22ef4ee0a8b5978bb2ec1c02fadf368815f3014
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 514bee115ee0e01910fe726ee8ae378352f89d99
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102095789"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754368"
 ---
 # <a name="configure-voice-assistant-application-using-azure-iot-hub"></a>Configuración de la aplicación de asistente para voz mediante Azure IoT Hub
 
-En este artículo se describe cómo configurar la aplicación de asistente para voz mediante IoT Hub. Para obtener un tutorial paso a paso que le guíe en el proceso de creación de un asistente para voz mediante una plantilla de demostración, consulte [Creación de un asistente para voz sin código con Azure Percept Studio y Azure Percept Audio](./tutorial-no-code-speech.md).
+En este artículo se describe cómo configurar la aplicación de asistente para voz mediante IoT Hub. Para obtener un tutorial paso a paso del proceso de creación de un asistente para voz, vea [Compilación de un asistente para voz sin código con Azure Percept Studio y Azure Percept Audio](./tutorial-no-code-speech.md).
 
 ## <a name="update-your-voice-assistant-configuration"></a>Actualización de la configuración del asistente para voz
 
-1. Abra [Azure Portal](https://portal.azure.com) y escriba **IoT Hub** en la barra de búsqueda. Haga clic en el icono para abrir la página de IoT Hub.
+1. Abra [Azure Portal](https://portal.azure.com) y escriba **IoT Hub** en la barra de búsqueda. Seleccione el icono para abrir la página de IoT Hub.
 
 1. En la página de IoT Hub, seleccione la instancia de IoT Hub en la que se aprovisionó el dispositivo.
 
@@ -28,11 +28,11 @@ En este artículo se describe cómo configurar la aplicación de asistente para 
 
 1. Seleccione el dispositivo en el que se implementó la aplicación de asistente para voz.
 
-1. Haga clic en **Establecer módulos**.
+1. Seleccione **Set modules** (Establecer módulos).
 
     :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/set-modules.png" alt-text="Captura de pantalla de la página de dispositivos con la opción Establecer módulos resaltada.":::
 
-1. Compruebe que la siguiente entrada está presente en la sección **Credenciales de Container Registry**. Agregue credenciales si es necesario.
+1. Compruebe que la siguiente entrada está presente en la sección **Credenciales de Container Registry**. Agregue credenciales, si fuera necesario.
 
     |NOMBRE|Dirección|Nombre de usuario|Contraseña|
     |----|-------|--------|--------|
@@ -42,17 +42,17 @@ En este artículo se describe cómo configurar la aplicación de asistente para 
 
     :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/modules.png" alt-text="Captura de pantalla que muestra la lista de todos los módulos de IoT Edge del dispositivo.":::
 
-1. Haga clic en la pestaña **Configuración del módulo**. Compruebe la siguiente configuración:
+1. Seleccione la pestaña **Configuración del módulo**. Compruebe la siguiente configuración:
 
     URI de imagen|Directiva de reinicio|Estado deseado
     ---------|--------------|--------------
-    mcr.microsoft.com/azureedgedevices/azureearspeechclientmodule:preload-devkit|Siempre|en ejecución
+    mcr.microsoft.com/azureedgedevices/azureearspeechclientmodule: preload-devkit|Siempre|en ejecución
 
-    Si la configuración no coincide, edítela y haga clic en **Actualizar**.
+    Si la configuración no coincide, edítela y seleccione **Actualizar**.
 
-1. Haga clic en la pestaña **Variables de entorno**. Compruebe que no haya variables de entorno definidas.
+1. Seleccione la pestaña **Variables de entorno**. Compruebe que no haya variables de entorno definidas.
 
-1. Haga clic en la pestaña **Configuración de módulos gemelos**. Actualice la sección **speechConfigs** como se indica a continuación:
+1. Seleccione la pestaña **Configuración de módulos gemelos**. Actualice la sección **speechConfigs** como se indica a continuación:
 
     ```
     "speechConfigs": {
@@ -72,12 +72,12 @@ En este artículo se describe cómo configurar la aplicación de asistente para 
 Para obtener el **identificador de la aplicación**, la **clave** y la **región**, vaya a [Speech Studio](https://speech.microsoft.com/):
 
 1. Inicie sesión y seleccione el recurso de voz adecuado.
-1. En la página principal de **Speech Studio**, haga clic en **Comandos personalizados** en **Asistentes de voz**.
+1. En la página principal de **Speech Studio**, seleccione **Comandos personalizados** en **Asistentes para voz**.
 1. Seleccione el proyecto de destino.
 
     :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/project.png" alt-text="Captura de pantalla de la página del proyecto en Speech Studio.":::
 
-1. En el panel del menú izquierdo, haga clic en **Configuración**.
+1. Seleccione **Configuración** en el panel de menús izquierdo.
 1. El **identificador de la aplicación** y la **clave** se encuentran en la pestaña de configuración **General**.
 
     :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/general-settings.png" alt-text="Captura de pantalla de la configuración general del proyecto de voz.":::
@@ -86,9 +86,9 @@ Para obtener el **identificador de la aplicación**, la **clave** y la **región
 
     :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/luis-resources.png" alt-text="Captura de pantalla de los recursos de LUIS del proyecto de voz.":::
 
-1. Después de escribir la información de **speechConfigs**, haga clic en **Actualizar**.
+1. Después de escribir la información de **speechConfigs**, seleccione **Actualizar**.
 
-1. Haga clic en la pestaña **Rutas** en la parte superior de la página **Establecer módulos**. Asegúrese de tener una ruta con el siguiente valor:
+1. Seleccione la pestaña **Rutas** en la parte superior de la página **Establecer módulos**. Asegúrese de tener una ruta con el siguiente valor:
 
     ```
     FROM /messages/modules/azureearspeechclientmodule/outputs/* INTO $upstream
@@ -96,9 +96,9 @@ Para obtener el **identificador de la aplicación**, la **clave** y la **región
 
     Agregue la ruta si no existe.
 
-1. Haga clic en **Revisar y crear**.
+1. Seleccione **Revisar + crear**.
 
-1. Haga clic en **Crear**.
+1. Seleccione **Crear**.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

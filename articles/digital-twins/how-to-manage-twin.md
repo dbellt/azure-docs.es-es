@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 68127a7603db2d408ed1bbdb244f49de4eb21031
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 19e679b3bc899053ddcf75ff058ec19165b785cc
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208498"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790476"
 ---
 # <a name="manage-digital-twins"></a>Administración de Digital Twins
 
-Las entidades de su entorno se representan mediante [gemelos digitales](concepts-twins-graph.md). La administración de los gemelos digitales puede incluir las operaciones de creación, modificación y eliminación. Para realizar estas operaciones, puede usar las [API de DigitalTwins](/rest/api/digital-twins/dataplane/twins), el [SDK de .NET ( C# )](/dotnet/api/overview/azure/digitaltwins/client) o la [CLI de Azure Digital Twins](how-to-use-cli.md).
+Las entidades de su entorno se representan mediante [gemelos digitales](concepts-twins-graph.md). La administración de los gemelos digitales puede incluir las operaciones de creación, modificación y eliminación.
 
 Este artículo se centra en la administración de gemelos digitales; para trabajar con relaciones y con el [grafo de gemelos](concepts-twins-graph.md) en conjunto, consulte [Procedimiento: Administración del grafo de gemelos con relaciones](how-to-manage-graph.md).
 
@@ -27,9 +27,7 @@ Este artículo se centra en la administración de gemelos digitales; para trabaj
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-## <a name="ways-to-manage-twins"></a>Formas de administrar gemelos
-
-[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+[!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
 
 ## <a name="create-a-digital-twin"></a>Creación de un gemelo digital
 
@@ -95,11 +93,11 @@ Solo se devuelven las propiedades que se han establecido al menos una vez cuando
 
 Para recuperar varios gemelos mediante una única llamada API, consulte los ejemplos de la API de consulta en [Procedimiento: consultar el grafo de gemelos](how-to-query-graph.md).
 
-Tenga en cuenta el siguiente modelo, escrito en el [lenguaje de definición de gemelos digitales (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL), que define un objeto *Moon*:
+Tenga en cuenta el siguiente modelo (escrito en el [Lenguaje de definición de gemelos digitales (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) que define un objeto Moon:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/Moon.json":::
 
-El resultado de llamar a `object result = await client.GetDigitalTwinAsync("my-moon");` en un gemelo de tipo *Moon* puede ser similar al siguiente:
+El resultado de llamar a `object result = await client.GetDigitalTwinAsync("my-moon");` en un gemelo de tipo Moon puede ser similar al siguiente:
 
 ```json
 {
@@ -135,11 +133,11 @@ Las propiedades definidas del gemelo digital se devuelven como propiedades de ni
   - Estado de sincronización de cada propiedad grabable. Esto es útil principalmente para los dispositivos, donde es posible que el servicio y el dispositivo tengan estados divergentes (por ejemplo, cuando un dispositivo está sin conexión). Actualmente, esta propiedad solo se aplica a dispositivos físicos conectados a IoT Hub. Los datos de la sección de metadatos permiten comprender el estado completo de una propiedad, así como las últimas marcas de tiempo modificadas. Para obtener más información sobre el estado de sincronización, consulte [este tutorial de IoT Hub](../iot-hub/tutorial-device-twins.md) sobre la sincronización del estado del dispositivo.
   - Metadatos específicos del servicio, como de IoT Hub o Azure Digital Twins. 
 
-Para más información sobre las clases auxiliares de serialización como `BasicDigitalTwin`, consulte [Procedimiento: Uso de las API y los SDK de Azure Digital Twins](how-to-use-apis-sdks.md).
+Puede obtener más información sobre las clases auxiliares de serialización como `BasicDigitalTwin` en [Conceptos: API y SDK de Azure Digital Twins](concepts-apis-sdks.md).
 
 ## <a name="view-all-digital-twins"></a>Visualización de todos los gemelos digitales
 
-Para ver todos los gemelos digitales de la instancia, use una [consulta](how-to-query-graph.md). Puede ejecutar una consulta con las [API de consulta](/rest/api/digital-twins/dataplane/query) o los [comandos de la CLI](how-to-use-cli.md).
+Para ver todos los gemelos digitales de la instancia, use una [consulta](how-to-query-graph.md). Puede ejecutar una consulta con las [API de consulta](/rest/api/digital-twins/dataplane/query) o los [comandos de la CLI](concepts-cli.md).
 
 Este es el cuerpo de la consulta básica que devolverá una lista de todos los gemelos digitales en la instancia:
 
@@ -183,8 +181,8 @@ Por ejemplo, tenga en cuenta el siguiente documento de revisión de JSON que ree
 Esta operación solo se realizará correctamente si el gemelo digital que la revisión está modificando se ajusta al nuevo modelo. 
 
 Considere el ejemplo siguiente:
-1. Imagine un gemelo digital con un modelo de *foo_old*. *foo_old* define una propiedad *mass* necesaria.
-2. El nuevo modelo *foo_new* define una propiedad mass y agrega una nueva propiedad *temperature* necesaria.
+1. Imagine un gemelo digital con un modelo de foo_old. foo_old define una propiedad *mass* necesaria.
+2. El nuevo modelo foo_new define una propiedad mass y agrega una nueva propiedad *temperature* necesaria.
 3. Después de la revisión, el gemelo digital debe tener ambas propiedades mass y temperature. 
 
 La revisión para esta situación debe actualizar tanto el modelo como la propiedad temperature del gemelo, de la siguiente manera:
@@ -198,11 +196,11 @@ Azure Digital Twins garantiza que todas las solicitudes entrantes se procesan un
 Este comportamiento se basa en cada gemelo. 
 
 Por ejemplo, imagine un escenario en el que llegan estas tres llamadas al mismo tiempo: 
-*   Escribir propiedad A en *Gemelo1*
-*   Escribir propiedad B en *Gemelo1*
-*   Escribir propiedad A en *Gemelo2*
+*   Escribir propiedad A en Gemelo1
+*   Escribir propiedad B en Gemelo1
+*   Escribir propiedad A en Gemelo2
 
-Las dos llamadas que modifican *Gemelo1* se ejecutan una tras otra, y se generan mensajes para cada cambio. La llamada para modificar *Gemelo2* puede ejecutarse simultáneamente sin ningún conflicto, en cuanto llega.
+Las dos llamadas que modifican Gemelo1 se ejecutan una tras otra, y se generan mensajes para cada cambio. La llamada para modificar Gemelo2 puede ejecutarse simultáneamente sin ningún conflicto, en cuanto llega.
 
 ## <a name="delete-a-digital-twin"></a>Eliminación de un gemelo digital
 
@@ -220,14 +218,22 @@ Para obtener un ejemplo de cómo eliminar todos los gemelos a la vez, descargue 
 
 Puede usar el ejemplo de código ejecutable siguiente para crear un gemelo, actualizar sus detalles y eliminar el gemelo. 
 
-### <a name="set-up-the-runnable-sample"></a>Configuración del ejemplo ejecutable
+### <a name="set-up-sample-project-files"></a>Configuración de archivos del proyecto de ejemplo
 
-En el fragmento de código se usa la definición de modelo [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) de [Tutorial: Exploración de Azure Digital Twins con una aplicación cliente de ejemplo](tutorial-command-line-app.md). Puede usar este vínculo para ir directamente al archivo o descargarlo como parte del [proyecto de ejemplo completo de un extremo a otro](/samples/azure-samples/digital-twins-samples/digital-twins-samples/).
+El fragmento de código usa una definición de modelo de ejemplo [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/Room.json). Para **descargar el archivo del modelo** a fin de poder usarlo en el código, use este vínculo para ir directamente a él en GitHub. Luego haga clic con el botón derecho en cualquier lugar de la pantalla, seleccione **Guardar como** en el menú contextual del explorador y use la ventana Guardar como para guardar el archivo como **Room.json**.
 
-Antes de ejecutar el ejemplo, haga lo siguiente:
-1. Descargue el archivo del modelo, colóquelo en el proyecto y reemplace el marcador de posición `<path-to>` en el código siguiente para indicar al programa dónde encontrarlos.
+Después cree un **nuevo proyecto de aplicación de consola** en Visual Studio o el editor que prefiera.
+
+Luego **copie el código siguiente** del ejemplo ejecutable en el proyecto:
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs":::
+
+### <a name="configure-project"></a>Configurar proyecto
+
+Luego siga estos pasos para configurar el código del proyecto:
+1. Agregue el archivo **Room.json** descargado anteriormente al proyecto y reemplace el marcador de posición `<path-to>` en el código para indicar al programa dónde encontrarlo.
 2. Reemplace el marcador de posición `<your-instance-hostname>` por el nombre de host de la instancia de Azure Digital Twins.
-3. Agregue dos dependencias al proyecto ya que las necesitará para trabajar con Azure Digital Twins. El primero es el paquete para el [SDK de Azure Digital Twins para .NET](/dotnet/api/overview/azure/digitaltwins/client), el segundo proporciona herramientas para ayudar con la autenticación en Azure.
+3. Agregue dos dependencias al proyecto ya que las necesitará para trabajar con Azure Digital Twins. La primera es el paquete del [SDK de Azure Digital Twins para .NET](/dotnet/api/overview/azure/digitaltwins/client) y la segunda proporciona herramientas para ayudar con la autenticación en Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core
@@ -239,9 +245,7 @@ También necesitará configurar las credenciales locales si desea ejecutar el ej
 
 ### <a name="run-the-sample"></a>Ejecución del ejemplo
 
-Después de completar los pasos anteriores, puede ejecutar directamente el siguiente código de ejemplo.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs":::
+Ahora que ha completado la configuración, puede ejecutar el proyecto de código de ejemplo.
 
 Esta es la salida de consola del programa anterior: 
 

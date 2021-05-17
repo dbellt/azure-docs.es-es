@@ -7,12 +7,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 04/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 3e5e126815d0171a6c1627a08419b05b9a3c0c23
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: f84aa2c6e89c0a40249423ec8e45ac804cf03a66
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107719212"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685106"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Administración de IoT Central desde Azure Portal
 
@@ -32,6 +32,8 @@ Para crear una aplicación, vaya a la página [Aplicación IoT Central](https://
 
 * La **dirección URL de la aplicación** es la dirección URL que puede usar para acceder a la aplicación.
 
+* La **plantilla** es el tipo de aplicación de IoT Central que quiere crear. Puede crear una nueva aplicación desde la lista de plantillas relevantes del sector para empezar a trabajar rápidamente o desde cero con la plantilla **Aplicación personalizada**.
+
 * **Ubicación** es la [zona geográfica](https://azure.microsoft.com/global-infrastructure/geographies/) en la que desea crear la aplicación. Normalmente, se debe elegir la ubicación más cercana físicamente a los dispositivos para un rendimiento óptimo. Azure IoT Central está disponible actualmente en las siguientes ubicaciones:
 
   * Asia Pacífico
@@ -43,7 +45,7 @@ Para crear una aplicación, vaya a la página [Aplicación IoT Central](https://
 
   Una vez que elija una ubicación, no puede mover la aplicación a otra más adelante.
 
-Después de rellenar todos los campos, seleccione **Crear**. Para más información, consulte el inicio rápido [Creación de una aplicación de Azure IoT Central](quick-deploy-iot-central.md).
+Después de rellenar todos los campos, seleccione **Crear**. Para obtener más información, vea [Creación de una aplicación de Azure IoT Central](howto-create-iot-central-application.md).
 
 ## <a name="manage-existing-iot-central-applications"></a>Administrar las aplicaciones existentes de IoT Central
 

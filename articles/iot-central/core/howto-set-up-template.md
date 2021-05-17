@@ -1,6 +1,6 @@
 ---
 title: Definición de un nuevo tipo de dispositivo IoT en Azure IoT Central | Microsoft Docs
-description: En este artículo se muestra a los creadores de soluciones cómo crear una plantilla de dispositivo de Azure IoT en una aplicación de Azure IoT Central. Se definen la telemetría, el estado, las propiedades y los comandos del tipo.
+description: En este artículo se muestra cómo crear una plantilla de dispositivo Azure IoT en la aplicación de Azure IoT Central. Se definen la telemetría, el estado, las propiedades y los comandos del tipo.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/06/2019
@@ -10,16 +10,14 @@ services: iot-central
 ms.custom:
 - contperf-fy21q1
 - device-developer
-ms.openlocfilehash: 9ef4be54f5c6025a09314a04504cff40fc39478d
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 8d51297b353a72861f864e42bf87cad4f1a712b3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168168"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747204"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definición de un nuevo tipo de dispositivo IoT en la aplicación de Azure IoT Central
-
-*Este artículo se aplica a generadores de soluciones y desarrolladores de dispositivos.*
 
 Una plantilla de dispositivo es un plano técnico que define las características y los comportamientos de un tipo de dispositivo que se conecta a una [aplicación de Azure IoT Central](concepts-app-templates.md).
 
@@ -284,4 +282,4 @@ Después de publicar una plantilla de dispositivo, el operador puede ir a la pá
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si es desarrollador de dispositivos, el siguiente paso sugerido es leer información sobre el [control de versiones de las plantillas de dispositivo](./howto-version-device-template.md).
+Un próximo paso sugerido es leer sobre [control de versiones de plantilla de dispositivo](./howto-version-device-template.md).

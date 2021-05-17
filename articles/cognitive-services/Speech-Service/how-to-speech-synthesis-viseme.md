@@ -12,17 +12,17 @@ ms.date: 03/03/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: a7808b3b5db9d01d6a1a2cd352a912d44a4e7908
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 630e05b50f153b816f74a9df1f5783c0e36cb53e
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904503"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734637"
 ---
 # <a name="get-facial-pose-events"></a>Obtención de eventos de postura facial
 
 > [!NOTE]
-> Por ahora, los eventos de visema solo están disponibles para la voz `en-US-AriaNeural`.
+> Los eventos de visema solo están disponibles para `en-US`voces neuronales[ en ](language-support.md#text-to-speech) inglés (Estados Unidos) por ahora.
 
 Un _visema_ es la descripción visual de un fonema en lenguaje hablado.
 Define la posición de la esfera y la boca al hablar de una palabra.

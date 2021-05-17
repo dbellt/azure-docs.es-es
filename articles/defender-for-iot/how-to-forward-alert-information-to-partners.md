@@ -3,12 +3,12 @@ title: Reenvío de la información de las alertas
 description: Puede enviar información de alertas a los sistemas asociados mediante las reglas de reenvío.
 ms.date: 12/02/2020
 ms.topic: how-to
-ms.openlocfilehash: bc405f7d4837bf81d9cfcd859d562b7152cfc54b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0fec86a6212cc0f4cb3df67280a0e6d39ed329ac
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104778804"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732234"
 ---
 # <a name="forward-alert-information"></a>Reenvío de la información de las alertas
 
@@ -140,6 +140,20 @@ Escriba los siguientes parámetros:
 | Message | Nombre del sensor: el nombre del dispositivo de Azure Defender para IoT. <br />LEEF:1.0 <br />Azure Defender para IoT <br />Sensor  <br />Versión del sensor <br />Alerta de Azure Defender para IoT <br />título: el título de la alerta. <br />msg: el mensaje de la alerta. <br />protocol: el protocolo de la alerta.<br />severity:  **advertencia**, **leve**, **grave** o **crítica**. <br />type: el tipo de la alerta: **Infracción del protocolo**, **infracción de la directiva**, **malware**, **anomalía** u **operativa**. <br />start: la hora de la alerta. Tenga en cuenta que puede ser diferente de la hora en la máquina del servidor de syslog. (Esto depende de la configuración de zona horaria). <br />src_ip: dirección IP del dispositivo de origen.<br />dst_ip: dirección IP del dispositivo de destino. <br />cat: el grupo de alertas asociado a la alerta. |
 
 Después de escribir la información, seleccione **Enviar**.
+
+#### <a name="webhook-server-action"></a>Acción del servidor de webhooks
+
+Envíe información de alertas a un servidor de webhooks. El trabajo con servidores de webhooks permite configurar integraciones que se suscriben a eventos de alerta con Defender para IoT. Cuando se desencadena un evento de alerta, la consola de administración envía una carga HTTP POST a la dirección URL configurada del webhook. Los webhooks se pueden usar para actualizar un sistema SIEM externo, sistemas SOAR, sistemas de administración de incidentes, etc.   
+
+**Para definir en una acción de webhook:**
+
+1. Seleccione la acción de webhook.
+
+:::image type="content" source="media/how-to-work-with-alerts-sensor/webhook.png" alt-text="Defina una regla de reenvío de webhook.":::
+
+1. Escriba la dirección del servidor en el campo **URL**.
+1. En los campos **Clave** y **Valor**, personalice el encabezado HTTP con una definición de clave y valor. Las claves solo pueden contener letras, números, guiones y subrayados. Los valores solo pueden contener un espacio inicial o uno final.
+1. Seleccione **Guardar**.
 
 #### <a name="netwitness-action"></a>Acción de NetWitness
 

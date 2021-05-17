@@ -1,5 +1,5 @@
 ---
-title: Instalación del agente de aprovisionamiento en la nube de Azure AD Connect con PowerShell
+title: Instalación del agente de aprovisionamiento en la nube de Azure AD Connect mediante una interfaz de la línea de comandos (CLI) y PowerShell
 description: Aprenda a instalar el agente de aprovisionamiento en la nube de Azure AD Connect con cmdlets de PowerShell.
 services: active-directory
 author: billmath
@@ -11,16 +11,18 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c20cfb96b5cd6e1d05e332fa7157fe6e0cde8656
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d5f560321b13e4c7a47aed262a1d312093e9be56
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98612769"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758832"
 ---
-# <a name="install-the-azure-ad-connect-provisioning-agent-using-powershell-cmdlets"></a>Instalación del agente de aprovisionamiento de Azure AD Connect con cmdlets de PowerShell 
+# <a name="install-the-azure-ad-connect-provisioning-agent-using-a-command-line-interface-cli-and-powershell"></a>Instalación del agente de aprovisionamiento de Azure AD Connect mediante una interfaz de la línea de comandos (CLI) y PowerShell
 En el siguiente documento se le mostrará cómo instalar el agente de aprovisionamiento de Azure AD Connect con cmdlets de PowerShell.
  
+>[!NOTE]
+>En este documento se habla de la instalación del agente de aprovisionamiento mediante la interfaz de la línea de comandos.  Para obtener información sobre la instalación del agente de aprovisionamiento de Azure AD Connect mediante el asistente, vea [Instalación del agente de aprovisionamiento de Azure AD Connect](how-to-install.md).
 
 ## <a name="prerequisite"></a>Requisito previo: 
 
@@ -28,11 +30,11 @@ En el siguiente documento se le mostrará cómo instalar el agente de aprovision
 >[!IMPORTANT]
 >En las siguientes instrucciones de instalación se supone que se han cumplido todos los [requisitos previos](how-to-prerequisites.md).
 >
-> Windows Server debe tener TLS 1.2 habilitado antes de instalar el agente de aprovisionamiento de Azure AD Connect con cmdlets de PowerShell. Para habilitar TLS 1.2, puede usar los pasos que se encuentran [aquí](how-to-prerequisites.md#tls-requirements).
+> Windows Server debe tener TLS 1.2 habilitado para poder instalar el agente de aprovisionamiento de Azure AD Connect con cmdlets de PowerShell. Para habilitar TLS 1.2, puede usar los pasos que se encuentran [aquí](how-to-prerequisites.md#tls-requirements).
 
  
 
-## <a name="install-the-azure-ad-connect-provisioning-agent-using-powershell-cmdlets"></a>Instalación del agente de aprovisionamiento de Azure AD Connect con cmdlets de PowerShell 
+## <a name="install-the-azure-ad-connect-provisioning-agent-using-powershell-cmdlets"></a>Instalación del agente de aprovisionamiento de Azure AD Connect con cmdlets de PowerShell 
 
 
  1. Inicie sesión en Azure Portal y, a continuación, vaya a **Azure Active Directory**.
@@ -51,7 +53,7 @@ En el siguiente documento se le mostrará cómo instalar el agente de aprovision
  7. Importación del módulo PS del agente de aprovisionamiento 
 
    ```
-   Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Microsoft.CloudSync.Powershell.dll" 
+   Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Microsoft.CloudSync.PowerShell.dll" 
    ```
  8. Conéctese a Azure AD con las credenciales de administrador global; puede personalizar esta sección para capturar la contraseña desde un almacén seguro. 
 
