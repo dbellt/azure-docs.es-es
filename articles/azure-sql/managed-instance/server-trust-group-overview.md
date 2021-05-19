@@ -12,12 +12,12 @@ author: sasapopo
 ms.author: sasapopo
 ms.reviewer: sstein, bonova
 ms.date: 10/08/2020
-ms.openlocfilehash: f9d5528746a85668677ab122d98e954bd39cd163
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1f732c29d977ff421496809f149ee722c766072
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92790736"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517431"
 ---
 # <a name="use-server-trust-groups-to-set-up-and-manage-trust-between-sql-managed-instances"></a>Uso de grupos de confianza de servidor para configurar y administrar la confianza entre instancias de SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -30,7 +30,7 @@ Un [grupo de confianza del servidor](/azure/templates/microsoft.sql/allversions)
 
 ## <a name="server-trust-group-setup"></a>Configuración de un grupo de confianza del servidor
 
-En la siguiente sección se describe la configuración del grupo de confianza del servidor.
+El grupo de confianza del servidor se puede configurar mediante [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservertrustgroup) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/sql/stg). En la siguiente sección se describe la configuración del grupo de confianza del servidor mediante Azure Portal.
 
 1. Vaya a [Azure Portal](https://portal.azure.com/).
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 05/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 330c02f15c0818f0a5c69088757c92a91a523589
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c292838305baa44699b6309fcaaf7de7366ba94
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952670"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753424"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-samsung-knox-and-business-services"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Samsung Knox and Business Services
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Samsung Knox and Business Services con A
 * Permitir que los usuarios inicien sesión automáticamente en Samsung Knox and Business Services con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -37,7 +37,7 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Samsung Knox and Business Services admiten el inicio de sesión único iniciado por **SP**.
+* Samsung Knox and Business Services admite el inicio de sesión único iniciado por **SP**.
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
@@ -78,7 +78,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    * En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://www.samsungknox.com`
+    * En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://www2.samsungknox.com/en/sso/login/ad`
     * En el cuadro de texto **URL de respuesta (URL del servicio de consumidor de aserciones)** , escriba la siguiente URL: `https://central.samsungknox.com/ams/ad/saml/acs`.
     
     ![Valores de Configuración básica de SAML](https://docs.samsungknox.com/assets/merge/ad-sso/basic-saml-configuration.png)

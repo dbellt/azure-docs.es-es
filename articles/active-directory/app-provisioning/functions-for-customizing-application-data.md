@@ -1,24 +1,24 @@
 ---
-title: Referencia para la escritura de expresiones para la asignación de atributos en Azure Active Directory
+title: Referencia para la escritura de expresiones para la asignación de atributos en el aprovisionamiento de aplicaciones de Azure Active Directory
 description: Obtenga información sobre cómo usar asignaciones de expresiones para transformar valores de atributos en un formato aceptable durante el aprovisionamiento automático de objetos de aplicaciones SaaS en Azure Active Directory. Incluye una lista de referencias de funciones.
 services: active-directory
-author: kenwith
+author: mtillman
 manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.custom: contperf-fy21q2
-ms.openlocfilehash: 0334f52b87071c8f363a0dfcc793170316747096
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.reviewer: arvinh
+ms.openlocfilehash: 3c5d2023ebc26aca0e6d1a14f43a94d2d3e3dd87
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198513"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109782962"
 ---
-# <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Referencia para la escritura de expresiones para la asignación de atributos en Azure AD
+# <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Referencia para la escritura de expresiones para la asignación de atributos en Azure Active Directory
 
 Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos de asignaciones de atributos que puede especificar es una asignación de expresiones. En estos casos, debe escribir una expresión similar a un script que permita transformar los datos de los usuarios en formatos más aceptables para la aplicación SaaS.
 

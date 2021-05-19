@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2021
 ms.author: jeedes
-ms.openlocfilehash: d21ccdcb1f3854733d045b47a5f43e27bbdf4ccb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 79153734beb9ddc8bb43c1c4928844c5d4bd18e7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98807912"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108740004"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Box
 
@@ -26,7 +26,7 @@ En este tutorial, obtendrá información sobre cómo integrar Box con Azure Act
 * Permitir que los usuarios inicien sesión automáticamente en Box con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -153,12 +153,21 @@ En esta sección, se crea un usuario llamado a Britta Simon en Box. Box admite e
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
-* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Box, donde puede iniciar el flujo de inicio de sesión.
+* En Azure Portal, seleccione **Probar esta aplicación**. Esta acción le redirigirá a la dirección URL de inicio de sesión de Box, donde puede comenzar el flujo de inicio de sesión.
 
 * Vaya directamente a la dirección URL de inicio de sesión de Box e inicie el flujo de inicio de sesión desde allí.
 
 * Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Box en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
+### <a name="push-an-azure-group-to-box"></a>Inserción de un grupo de Azure en Box
+
+Puede insertar un grupo de Azure en Box y sincronizar ese grupo. Azure inserta grupos en Box mediante una integración de nivel de API.
+
+1. En **Usuarios y grupos**, busque el grupo que quiere asignar a Box.
+1. En **Aprovisionamiento**, asegúrese de que la opción **Synchronize Azure Active Directory Groups to Box** (Sincronizar Azure Active Directory con Box) esté seleccionada. Esta configuración sincroniza los grupos que asignó en el paso anterior. Estos grupos pueden tardar algún tiempo en insertarse desde Azure.
+
+> [!NOTE]
+> Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

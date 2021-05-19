@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Introducción a Azure Synapse Analytics: visualización de datos de un área de trabajo con Power BI'
-description: En este tutorial, aprenderá a crear un área de trabajo de Power BI, vinculará el área de trabajo de Azure Synapse y creará un conjunto de datos de Power BI que use los datos en el área de trabajo de Azure Synapse.
+description: En este tutorial, aprenderá a usar Power BI para visualizar datos en Azure Synapse Analytics.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,18 +10,18 @@ ms.service: synapse-analytics
 ms.subservice: business-intelligence
 ms.topic: tutorial
 ms.date: 03/25/2021
-ms.openlocfilehash: 829daaa9c739657528a9085201c61c88635931d0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fe830d277fa2e2ff57661500c3c56c0927637ab4
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608449"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109516910"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualización de datos con Power BI
 
 En este tutorial, aprenderá a crear un área de trabajo de Power BI, vinculará el área de trabajo de Azure Synapse y creará un conjunto de datos de Power BI que use los datos en el área de trabajo de Azure Synapse. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Para completar el tutorial, [instale Power BI Desktop](https://aka.ms/pbidesktopstore).
 
 ## <a name="overview"></a>Información general

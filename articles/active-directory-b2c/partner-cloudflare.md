@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 04/24/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 8494e9048ef298fbb3c2e70de10ec793f2bddec5
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 3eea91d1cbbb8fe34dcdc8668840503e6dc9d014
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161616"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517359"
 ---
-# <a name="tutorial-configure-clouldflare-with-azure-active-directory-b2c"></a>Tutorial: configuración de Cloudflare con Azure Active Directory B2C
+# <a name="tutorial-configure-cloudflare-with-azure-active-directory-b2c"></a>Tutorial: Configuración de Cloudflare con Azure Active Directory B2C
 
 En este tutorial de ejemplo, aprenderá a habilitar la solución [Web Application Firewall (WAF) Cloudflare](https://www.cloudflare.com/waf/) para el inquilino de Azure Active Directory (AD) B2C con dominio personalizado. Cloudflare WAF ayuda a su organización a protegerse contra ataques maliciosos que tienen como objetivo explotar vulnerabilidades como SQL y XSS.
 
@@ -38,7 +38,7 @@ La integración de Cloudflare WAF incluye los siguientes componentes:
 
 - **Inquilino de Azure AD B2C**: el servidor de autorización, responsable de comprobar las credenciales del usuario en función de las directivas personalizadas definidas en el inquilino.  También se conoce como proveedor de identidades.
 
-- [**Azure Front Door:** ](../frontdoor/front-door-overview.md) es el responsable de habilitar dominios personalizados para el inquilino de Azure B2C. Todo el tráfico de Cloudflare WAF se enrutará a Azure Front Door antes de llegar al inquilino de Azure AD B2C.
+- [**Azure Front Door:**](../frontdoor/front-door-overview.md) es el responsable de habilitar dominios personalizados para el inquilino de Azure B2C. Todo el tráfico de Cloudflare WAF se enrutará a Azure Front Door antes de llegar al inquilino de Azure AD B2C.
 
 - **Cloudflare:** es el firewall de aplicaciones web, que administra todo el tráfico que se envía al servidor de autorización.
 

@@ -6,25 +6,25 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 05/10/2021
 ms.author: alkohli
-ms.openlocfilehash: a9304936f746b82b59550d62e8b60a9e0035d188
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d98141c52acc3cd0628943d17a89ec9822299d48
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92147935"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738147"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Seguimiento y registro de eventos para un pedido de importación de Azure Data Box y Azure Data Box Heavy
 
 Un pedido de importación de Data Box o Data Box Heavy recorre los pasos siguientes: pedido, configuración, copia de datos, devolución, carga en Azure y comprobación, y eliminación de datos. Acorde a cada paso del pedido, puede realizar varias acciones para controlar el acceso al pedido, auditar los eventos, hacer un seguimiento del pedido e interpretar los distintos registros que se generan.
 
-En la tabla siguiente se muestra un resumen de los pasos del pedido de importación de Data Box o Data Box Heavy y las herramientas disponibles para realizar un seguimiento y auditar el pedido durante cada paso.
+En la tabla siguiente se proporciona un resumen de cada paso en el procesamiento de un pedido de importación y las herramientas disponibles para realizar un seguimiento y auditar el pedido durante el paso.
 
-| Fase del pedido de importación de Data Box       | Herramienta de seguimiento y auditoría                                                                        |
-|----------------------------|------------------------------------------------------------------------------------------------|
+| Fase del pedido de importación de Data Box| Herramienta de seguimiento y auditoría|
+|----------------------------|------------------------|
 | Crear pedido               | [Configuración del control de acceso en el pedido a través de RBAC de Azure](#set-up-access-control-on-the-order)                                                    |
-| Pedido procesado            | [Seguimiento del pedido](#track-the-order) a través de: <ul><li> Azure portal </li><li> Sitio web del transportista </li><li>Notificaciones por correo electrónico</ul> |
+| Pedido procesado            | [Seguimiento del pedido](#track-the-order) a través de: <ul><li> Portal de Azure </li><li> Sitio web del transportista </li><li>Notificaciones por correo electrónico</ul> |
 | Configuración de un dispositivo              | Registro del acceso de las credenciales del dispositivo en los [registros de actividad](#query-activity-logs-during-setup)                                              |
 | Copia de los datos a un dispositivo        | [Visualización de los archivos *error.xml*](#view-error-log-during-data-copy) para la copia de datos                                                             |
 | Preparación para el envío            | [Inspección de los archivos BOM](#inspect-bom-during-prepare-to-ship) o los archivo de manifiesto en el dispositivo                                      |
@@ -78,8 +78,8 @@ Durante la copia de datos en Data Box o Data Box Heavy, se genera un archivo de 
 
 Asegúrese de que los trabajos de copia se hayan completado sin errores. Si hay errores durante el proceso de copia, descargue los registros de la página **Conectar y copiar**.
 
-- Si copió un archivo que no tiene 512 bytes alineados a una carpeta de disco administrado en Data Box, el archivo no se carga como blob en páginas en la cuenta de almacenamiento provisional. Verá un error en los registros. Quite el archivo y copie uno que tenga 512 bytes alineados.
-- Si copió un archivo VHDX, un VHD dinámico o un VHD diferenciado (estos archivos no son compatibles), verá un error en los registros.
+- Si ha copiado un archivo que no tiene una alineación de 512 bytes a una carpeta de disco administrado en el dispositivo Data Box, el archivo no se carga como un blob en páginas en la cuenta de almacenamiento provisional. Verá un error en los registros. Quite el archivo y copie uno que tenga una alineación de 512 bytes.
+- Si ha copiado un archivo VHDX, VHD dinámico o VHD diferenciado (no se admiten estos tipos de archivos), verá un error en los registros.
 
 Este es un ejemplo del archivo *error.xml* para los distintos errores al copiar a discos administrados.
 
@@ -161,7 +161,7 @@ Para obtener más información sobre los errores recibidos durante la preparaci�
 
 ### <a name="bom-or-manifest-file"></a>El archivo de BOM o de manifiesto
 
-El archivo de BOM o de manifiesto contiene la lista de todos los archivos que se copian en el dispositivo Data Box. El archivo de BOM contiene los nombres de archivo y los tamaños correspondientes, así como la suma de comprobación. Se crea un archivo de BOM independiente para los blobs en bloques, los blobs en páginas, Azure Files, para copiar a través de las API de REST y para la copia de discos administrados en Data Box. Puede descargar los archivos de BOM de la interfaz de usuario web local del dispositivo durante la preparación para el envío.
+El archivo de BOM o de manifiesto contiene la lista de todos los archivos que se copian en el dispositivo Data Box. El archivo BOM tiene los nombres y tamaños de los archivos y la suma de comprobación. Se crea un archivo de BOM independiente para los blobs en bloques, los blobs en páginas, Azure Files, para copiar a través de las API de REST y para la copia de discos administrados en Data Box. Puede descargar los archivos de BOM de la interfaz de usuario web local del dispositivo durante la preparación para el envío.
 
 Estos archivos también residen en el dispositivo Data Box y se cargan en la cuenta de almacenamiento asociada en el centro de datos de Azure.
 
@@ -211,7 +211,7 @@ La ruta de acceso del registro de copia también se muestra en la hoja **Informa
 
 ![Ruta de acceso al registro de copia en la hoja Información general cuando se completa](media/data-box-logs/copy-log-path-1.png)
 
-### <a name="upload-completed-successfully"></a>La carga se completó correctamente 
+### <a name="upload-completed-successfully"></a>La carga se completó correctamente
 
 En el ejemplo siguiente se describe el formato general de un registro de copia para una carga de Data Box que se ha completado correctamente:
 
@@ -224,40 +224,15 @@ En el ejemplo siguiente se describe el formato general de un registro de copia p
 </CopyLog>
 ```
 
-### <a name="upload-completed-with-errors"></a>La carga se completó con errores 
-
-La carga en Azure también puede finalizar con errores.
-
-![Ruta de acceso al registro de copia en la hoja Información general cuando se completa con errores](media/data-box-logs/copy-log-path-2.png)
-
-Este es un ejemplo de un registro de copia donde la carga se completó con errores:
-
-```xml
-<ErroredEntity Path="iso\samsungssd.iso">
-  <Category>UploadErrorCloudHttp</Category>
-  <ErrorCode>409</ErrorCode>
-  <ErrorMessage>The blob type is invalid for this operation.</ErrorMessage>
-  <Type>File</Type>
-</ErroredEntity><ErroredEntity Path="iso\iSCSI_Software_Target_33.iso">
-  <Category>UploadErrorCloudHttp</Category>
-  <ErrorCode>409</ErrorCode>
-  <ErrorMessage>The blob type is invalid for this operation.</ErrorMessage>
-  <Type>File</Type>
-</ErroredEntity><CopyLog Summary="Summary">
-  <Status>Failed</Status>
-  <TotalFiles_Blobs>72</TotalFiles_Blobs>
-  <FilesErrored>2</FilesErrored>
-</CopyLog>
-```
 ### <a name="upload-completed-with-warnings"></a>Carga completada con advertencias
 
 La carga en Azure se completa con advertencias si los datos tenían nombres de contenedor, blob o archivo que no se ajustaban a las convenciones de nomenclatura de Azure y los nombres se modificaron para cargar los datos en Azure.
 
 ![Ruta de acceso al registro de copia en la hoja Información general cuando se completa con advertencias](media/data-box-logs/copy-log-path-3.png)
 
-Este es un ejemplo de un registro de copia donde los contenedores que no se ajustaban a las convenciones de nomenclatura de Azure cambiaron de nombre durante la carga de datos en Azure.
+Este es un ejemplo de un registro de copia en el que los contenedores que no se ajustaban a las convenciones de nomenclatura de Azure se cambiaron de nombre durante la carga de datos en Azure.
 
-Los nuevos nombres únicos para los contenedores tienen el formato: `DataBox-GUID` y los datos del contenedor se colocan en el nuevo contenedor. El registro de copia especifica el nombre del contenedor nuevo y antiguo.
+Los nombres únicos de los nuevos contenedores tienen el formato `DataBox-GUID`. Los datos de los contenedores originales se colocan en los nuevos contenedores cuyo nombre ha cambiado. El registro de copia especifica el nombre del contenedor nuevo y antiguo.
 
 ```xml
 <ErroredEntity Path="New Folder">
@@ -268,7 +243,7 @@ Los nuevos nombres únicos para los contenedores tienen el formato: `DataBox-GUI
 </ErroredEntity>
 ```
 
-Este es un ejemplo de un registro de copia donde los blobs o archivos que no se ajustaban a las convenciones de nomenclatura de Azure cambiaron de nombre durante la carga de datos en Azure. Los nuevos nombres de blob o de archivo se convierten en el resumen de SHA256 de la ruta de acceso relativa al contenedor y se cargan en la ruta de acceso basada en el tipo de destino. El destino puede ser blobs en bloques, blobs en páginas o Azure Files.
+Este es un ejemplo de un registro de copia en el que los blobs o archivos que no se ajustaban a las convenciones de nomenclatura de Azure se cambiaron de nombre durante la carga de datos en Azure. Los nuevos nombres de blob o de archivo se convierten en el resumen de SHA256 de la ruta de acceso relativa al contenedor y se cargan en la ruta de acceso en función del tipo de destino. El destino puede ser blobs en bloques, blobs en páginas o Azure Files.
 
 El `copylog` especifica el nombre de archivo o blob antiguo y el nuevo, y la ruta de acceso en Azure.
 
@@ -289,6 +264,35 @@ El `copylog` especifica el nombre de archivo o blob antiguo y el nuevo, y la rut
   <ErrorMessage>The original container/share/blob has been renamed to: BlockBlob/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
   <Type>File</Type>
 </ErroredEntity>
+```
+
+
+### <a name="upload-completed-with-errors"></a>La carga se completó con errores
+
+La carga en Azure también puede finalizar con errores.
+
+![Ruta de acceso al registro de copia en la hoja Información general cuando se completa con errores](media/data-box-logs/copy-log-path-2.png)
+
+En ocasiones, puede obtener un error que no se puede reintentar y que hace que un archivo no se cargue. En ese caso, recibirá una notificación. Para obtener información sobre cómo realizar un seguimiento de la notificación, consulte [Revisión de los errores de copia en las cargas desde dispositivos Azure Data Box y Azure Data Box Heavy](data-box-troubleshoot-data-upload.md).
+
+Este es un ejemplo de un registro de copia donde la carga se completó con errores:
+
+```xml
+<ErroredEntity Path="iso\samsungssd.iso">
+  <Category>UploadErrorCloudHttp</Category>
+  <ErrorCode>409</ErrorCode>
+  <ErrorMessage>The blob type is invalid for this operation.</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="iso\iSCSI_Software_Target_33.iso">
+  <Category>UploadErrorCloudHttp</Category>
+  <ErrorCode>409</ErrorCode>
+  <ErrorMessage>The blob type is invalid for this operation.</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><CopyLog Summary="Summary">
+  <Status>Failed</Status>
+  <TotalFiles_Blobs>72</TotalFiles_Blobs>
+  <FilesErrored>2</FilesErrored>
+</CopyLog>
 ```
 
 ## <a name="get-chain-of-custody-logs-after-data-erasure"></a>Obtener la cadena de registros de custodia después de la eliminación de datos

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 04/04/2021
-ms.openlocfilehash: f4cc631bd3ff05dc63566677ec96ef0360d362c9
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: f36d5deb93f141bb7467a50d4b5dba7f3df1ea92
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107517358"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517017"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Exploración del Centro de conocimientos de Synapse
 
@@ -51,7 +51,7 @@ En esta sección, hay tres elementos:
 1. Desplácese hasta la primera consulta (líneas 28 a 32) y seleccione el texto de la consulta.
 1. Haga clic en Ejecutar. Solo se ejecutará el código que haya seleccionado.
 
-## <a name="gallery-a-collectiopn-of-sample-data-sets-and-sample-code"></a>Galería: recopilación de conjuntos de datos de ejemplo y código de ejemplo
+## <a name="gallery-a-collection-of-sample-datasets-and-sample-code"></a>Galería: recopilación de conjuntos de datos de ejemplo y código de ejemplo
 
 1. Vaya al **Centro de conocimiento** y haga clic en **Examinar la galería**.
 1. Seleccione la pestaña **Scripts de SQL** en la parte superior.

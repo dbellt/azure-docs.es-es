@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 66d41ed1bb900f55db0d3670c1ce312950ff165d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 261b939d62c4952b7dc6d1f1a4b0e91c2922b4ce
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108147056"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108744936"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template"></a>Inicio rápido: Creación de un almacén de claves de Azure y una clave mediante una plantilla de Resource Manager 
 
@@ -166,6 +166,17 @@ En la plantilla se definen dos recursos:
 - Microsoft.KeyVault/vaults/keys
 
 Puede encontrar más ejemplos de plantillas de Azure Key Vault en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular).
+
+## <a name="parameters-and-definitions"></a>Parámetros y definiciones
+
+|Parámetro  |Definición  |
+|---------|---------|
+|**Keysize**  | Especifica las operaciones que se pueden realizar utilizando esta clave. Si no se especifica este parámetro, se pueden realizar todas las operaciones. Los valores aceptables para este parámetro son una lista separada por comas de las operaciones con clave, tal y como se define en la [especificación JSON Web Key (JWK):](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41) <br> `["sign", "verify", "encrypt", "decrypt", " wrapKey", "unwrapKey"]` |
+|**CurveName**  |  Nombre de la curva elíptica para el tipo de clave EC. Consulte [JsonWebKeyCurveName](/rest/api/keyvault/createkey/createkey#jsonwebkeycurvename) |
+|**Kty**  |  Tipo de clave que se va a crear. Para saber qué valores pueden usarse, consulte [JsonWebKeyType](/rest/api/keyvault/createkey/createkey#jsonwebkeytype) |
+|**Etiquetas** | Metadatos específicos de la aplicación en forma de pares clave-valor.  |
+|**nbf**  |  Especifica una hora como un objeto DateTime antes de la cual no se puede usar la clave. El formato sería una marca temporal de Unix (el número de segundos transcurridos en la época Unix, desde el 1 de enero de 1970 UTC).  |
+|**exp**  |  Especifica la hora de vencimiento como un objeto DateTime. El formato sería una marca temporal de Unix (el número de segundos transcurridos en la época Unix, desde el 1 de enero de 1970 UTC). |
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 Puede utilizar [Azure Portal](../../azure-resource-manager/templates/deploy-portal.md), Azure PowerShell, CLI de Azure o API REST. Para obtener información sobre otros métodos de implementación, consulte [Implementación de plantillas](../../azure-resource-manager/templates/deploy-powershell.md).

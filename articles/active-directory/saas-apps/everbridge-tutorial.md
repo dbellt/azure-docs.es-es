@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 05/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 6e281931eb4646e09bb9aa3226ed7d0735c84e3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74ea971a16d1c16be17f16cc5345e162fd974f43
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643786"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737202"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Tutorial: Integración de Azure Active Directory con Everbridge
 
@@ -79,8 +79,6 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 4. Para configurar la aplicación **Everbridge** como **portal administrador de Everbridge**, en la sección **Configuración básica de SAML**, siga estos pasos:
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de Everbridge](common/idp-intiated.png)
-
     a. En el cuadro **Identificador**, escriba una dirección URL que siga el patrón.
     `https://sso.everbridge.net/<API_Name>`
 
@@ -94,15 +92,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
   * Después, realice los siguientes pasos si quiere configurar la aplicación en modo iniciado por IDP:
 
-     ![Información sobre dominio y direcciones URL de inicio de sesión único de Everbridge para el modo iniciado por IDP](common/idp-intiated.png)
-
     a. En el cuadro **Identificador**, escriba una dirección URL con el formato `https://sso.everbridge.net/<API_Name>/<Organization_ID>`.
 
     b. En el cuadro **URL de respuesta**, escriba una dirección URL con el formato `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`.
 
    * Seleccione **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por SP:
-
-     ![Información sobre dominio y direcciones URL de inicio de sesión único de Everbridge para modo iniciado por SP](common/both-signonurl.png)
 
      a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el formato `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`.
 
@@ -141,15 +135,15 @@ En esta sección, va a permitir que B.Simon acceda a Everbridge mediante el inic
 1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="configure-everbridge-sso"></a>Configuración del inicio de sesión único de Everbridge
+## <a name="configure-everbridge-sso"></a>Configuración del inicio de sesión único de Everbridge
 
 Para configurar el inicio de sesión único en **Everbridge** como **portal administrador de Everbridge**, siga estos pasos.
  
 1. En otra ventana del explorador web, inicie sesión en Everbridge como administrador.
 
-1. En el menú de la parte superior, seleccione "**Settings**" (Configuración). En **Security** (Security), seleccione **Single Sign-On** (Inicio de sesión único).
+1. En el menú de la parte superior, seleccione la pestaña **Settings** (Configuración). En **Security** (Security), seleccione **Single Sign-On for Manager Portal** (Inicio de sesión único para Manager Portal).
    
-     ![Configurar inicio de sesión único](./media/everbridge-tutorial/sso.png)
+     ![Configurar inicio de sesión único](./media/everbridge-tutorial/settings.png)
    
      a. En el cuadro **Name** (Nombre), escriba el nombre del proveedor de identificador. Un ejemplo es el nombre de su empresa.
    
@@ -165,7 +159,7 @@ Para configurar el inicio de sesión único en **Everbridge** como **portal admi
 
      g. Seleccione **Guardar**.
 
-### <a name="configure-everbridge-as-everbridge-member-portal-sso"></a>Configuración de Everbridge con el inicio de sesión único en el portal de miembros de Everbridge
+## <a name="configure-everbridge-as-everbridge-member-portal-sso"></a>Configuración de Everbridge con el inicio de sesión único en el portal de miembros de Everbridge
 
 Para configurar el inicio de sesión único en **Everbridge** como **portal miembro de Everbridge**, tiene que enviar el **archivo XML de metadatos de federación** descargado al [equipo de soporte técnico de Everbridge](mailto:support@everbridge.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
@@ -173,7 +167,7 @@ Para configurar el inicio de sesión único en **Everbridge** como **portal miem
 
 En esta sección, creará un usuario de prueba llamado Britta Simon en Everbridge. Para agregar usuarios en la plataforma Everbridge, colabore con el [equipo de soporte técnico de Everbridge](mailto:support@everbridge.com). Los usuarios se tienen que crear y activar en Everbridge antes de usar el inicio de sesión único. 
 
-### <a name="test-sso"></a>Prueba de SSO
+## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 

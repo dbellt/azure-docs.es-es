@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q2
-ms.openlocfilehash: 84338f81f5f75665c0aa874a0da16786887b4422
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 84fbea3d7d38e16a2069c40a459d5f86e7412a09
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897440"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739050"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Aprendizaje de refuerzo (versión preliminar) con Azure Machine Learning
 
@@ -42,7 +42,7 @@ Ejecute este código en cualquiera de estos entornos. Le recomendamos que pruebe
 
  - Instancia de proceso de Azure Machine Learning
 
-     - Obtenga información sobre cómo clonar cuadernos de ejemplo en el [Tutorial: Configuración del entorno y el área de trabajo](tutorial-1st-experiment-sdk-setup.md).
+     - Obtenga información sobre cómo clonar cuadernos de ejemplo en el [Tutorial: Configuración del entorno y el área de trabajo](tutorial-train-models-with-aml.md).
          - clonación de la carpeta **How-to-use-azureml** en lugar de **tutoriales**
      - Ejecute el cuaderno de configuración de la red virtual que se encuentra en `/how-to-use-azureml/reinforcement-learning/setup/devenv_setup.ipynb` para abrir los puertos de red que se usan para el aprendizaje de refuerzo distribuido.
      - Ejecute el cuaderno de ejemplo `/how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb`

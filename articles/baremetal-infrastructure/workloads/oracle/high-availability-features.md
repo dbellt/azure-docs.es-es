@@ -4,12 +4,12 @@ description: Obtenga más información sobre las características disponibles si
 ms.topic: overview
 ms.subservice: workloads
 ms.date: 04/16/2021
-ms.openlocfilehash: b27dc4b857d553be791528cbd91aee70b2294a92
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 91ec416c6f7c98100bf8ee00af2c060219e54693
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600223"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109518349"
 ---
 # <a name="high-availability-features-for-oracle-on-azure-baremetal"></a>Características de alta disponibilidad para Oracle en Azure sin sistema operativo
 
@@ -59,7 +59,7 @@ La fase de rehacer se puede aplazar por un tiempo establecido previamente, por l
 
 La solución de almacenamiento NetApp Files utilizada sin sistema operativo permite crear instantáneas de volúmenes. Las instantáneas permiten revertir rápidamente un sistema de archivos a un momento temporal específico. Las tecnologías de instantáneas permiten objetivos de tiempo de recuperación (RTO) que requieren una fracción del tiempo necesario para restaurar una copia de seguridad de una base de datos.
 
-La funcionalidad de instantáneas para las bases de datos de Oracle está disponible a través de Azure NetApp SnapCenter. SnapCenter facilita las instantáneas con fines de copia de seguridad, SnapVault habilita el almacenamiento sin conexión y Snap Clone ofrece el autoservicio de restauración y otras operaciones.
+La funcionalidad de instantáneas para las bases de datos de Oracle está disponible a través de Azure NetApp SnapCenter. SnapCenter facilita las instantáneas con fines de copia de seguridad, SnapVault habilita el almacenamiento sin conexión y Snap Clone ofrece el autoservicio de restauración y otras operaciones. Para más información, consulte [La integración de SnapCenter para Oracle en BareMetal Infrastructure](netapp-snapcenter-integration-oracle-baremetal.md).
 
 ## <a name="recovery-manager"></a>Recovery Manager
 

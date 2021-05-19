@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/13/2019
+ms.date: 05/05/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc3ef7d168c17ec10fe64925adbda7044a2a4c82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc07e038ef382a44c4672b2d63c49d8f5a961cda
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87907686"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486342"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Salir de una organización como usuario invitado
 
@@ -32,18 +32,18 @@ Para salir de una organización, siga estos pasos.
 1. Siga uno de estos pasos para ir a la página Perfil del Panel de acceso:
    
    - En [Azure Portal](https://portal.azure.com), haga clic en su nombre en la esquina superior derecha y seleccione **Ver cuenta**.
-   - Abra su [Panel de acceso](https://myapps.microsoft.com), haga clic en su nombre en la esquina superior derecha y, junto a **Organizaciones**, seleccione el icono de configuración (engranaje).
+   - Abra el [Panel de acceso](https://myapps.microsoft.com), haga clic en su nombre en la parte superior derecha y, al lado de **Organizaciones**, seleccione **Ver cuenta**.
  
-   ![Captura de pantalla que muestra la configuración de usuario en el panel de acceso](media/leave-the-organization/UserSettings.png) 
-
-   > [!NOTE]
-   > Si aún no ha iniciado sesión en la organización de la que quiere salir, en **Organizaciones**, haga clic en el vínculo **Inicie sesión para salir de la organización** situado junto al nombre de la organización. Después de iniciar sesión, vuelva a hacer clic en su nombre en la esquina superior derecha y, junto a **Organizaciones**, seleccione el icono de configuración (engranaje).
-
+ 
+2. Seleccione **Administrar organizaciones**.
+  ![Captura de pantalla que muestra la configuración de usuario en el panel de acceso](media/leave-the-organization/manage-organizations.png) 
+  
 3. En **Organizaciones**, busque la organización que quiere abandonar y seleccione **Salir de la organización**.
 
-   ![Captura de pantalla que muestra la opción Salir de la organización en la interfaz de usuario](media/leave-the-organization/LeaveOrg.png)
-
-4. Cuando se le pida que confirme, seleccione **Salir**. 
+   ![Captura de pantalla que muestra la opción Salir de la organización en la interfaz de usuario](media/leave-the-organization/leave-org.png)
+4. Cuando se le pida que confirme, seleccione **Salir**.
+> [!NOTE]
+   > No puede abandonar la organización principal.
 
 ## <a name="account-removal"></a>Eliminar cuenta
 

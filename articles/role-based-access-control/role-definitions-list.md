@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/26/2021
+ms.date: 05/06/2021
 ms.author: rolyon
-ms.openlocfilehash: b285755d24cdbf1f8ef06eb850fc218a00734f16
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 96eb88bf1e62753cff5606881af471d32bf1e85c
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771738"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483714"
 ---
 # <a name="list-azure-role-definitions"></a>Enumeración de las definiciones de roles de Azure
 
@@ -28,7 +28,7 @@ Para ver la lista de los roles de administrador de Azure Active Directory, consu
 
 Siga estos pasos para enumerar todos los roles de Azure Portal.
 
-Si está interesado en ver una experiencia de roles actualizada, consulte la pestaña **Roles (versión preliminar)** , que se encuentra actualmente en versión preliminar pública. La pestaña **Roles (versión preliminar)** muestra la misma lista de roles que la pestaña **Roles**, pero incluye algunas características adicionales. Puede usar cualquiera de las pestañas de roles para trabajar con los roles; sin embargo, si crea o elimina roles personalizados, es posible que tenga que actualizar manualmente la página para ver los últimos cambios.
+La pestaña **Roles** se actualizó recientemente con algunas características adicionales. Si quiere ver la experiencia anterior, consulte la pestaña **Roles (Classic)** (Roles [clásico]). Puede usar cualquiera de las pestañas de roles para trabajar con los roles; sin embargo, si crea o elimina roles personalizados, es posible que tenga que actualizar manualmente la página para ver los últimos cambios.
 
 #### <a name="roles"></a>[Roles](#tab/roles/)
 
@@ -40,21 +40,7 @@ Si está interesado en ver una experiencia de roles actualizada, consulte la pes
 
 1. Haga clic en la pestaña **Roles** para ver una lista de todos los roles integrados y personalizados.
 
-   Puede ver el número de usuarios y grupos asignados a cada rol en el ámbito actual.
-
-   ![Lista Roles](./media/role-definitions-list/roles-list-current.png)
-
-#### <a name="roles-preview"></a>[Roles (versión preliminar)](#tab/roles-preview/)
-
-1. En Azure Portal, haga clic en **Todos los servicios** y luego seleccione cualquier ámbito. Por ejemplo, puede seleccionar **Grupos de administración**, **Suscripciones**, **Grupos de recursos** o un recurso.
-
-1. Haga clic en el recurso específico.
-
-1. Haga clic en **Control de acceso (IAM).**
-
-1. Haga clic en la pestaña **Roles (versión preliminar)** para ver una lista de todos los roles integrados y personalizados.
-
-   ![Lista de roles con la experiencia de versión preliminar](./media/role-definitions-list/roles-list.png)
+   ![Captura de pantalla que muestra la lista de roles con la nueva experiencia.](./media/role-definitions-list/roles-list.png)
 
 1. Para ver los permisos de un rol determinado, en la columna **Detalles**, haga clic en el vínculo **Ver**.
 
@@ -62,7 +48,21 @@ Si está interesado en ver una experiencia de roles actualizada, consulte la pes
 
 1. Haga clic en la pestaña **Permisos** para ver y buscar los permisos del rol seleccionado.
 
-   ![Permisos de rol con la experiencia de versión preliminar](./media/role-definitions-list/role-permissions.png)
+   ![Captura de pantalla que muestra los permisos de rol con la nueva experiencia.](./media/role-definitions-list/role-permissions.png)
+
+#### <a name="roles-classic"></a>[Roles (Classic)](#tab/roles-classic/) (Roles [clásico])
+
+1. En Azure Portal, haga clic en **Todos los servicios** y luego seleccione cualquier ámbito. Por ejemplo, puede seleccionar **Grupos de administración**, **Suscripciones**, **Grupos de recursos** o un recurso.
+
+1. Haga clic en el recurso específico.
+
+1. Haga clic en **Control de acceso (IAM).**
+
+1. Haga clic en la pestaña **Roles (Classic)** (Roles [clásico]) para ver una lista de todos los roles integrados y personalizados.
+
+   Puede ver el número de usuarios y grupos asignados a cada rol en el ámbito actual.
+
+   ![Lista Roles](./media/role-definitions-list/roles-list-classic.png)
 
 ---
 

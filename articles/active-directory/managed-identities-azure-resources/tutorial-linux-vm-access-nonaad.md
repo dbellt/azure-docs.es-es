@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/16/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f808c9d01ecbd125e2ef0e3a7b61152767b1b4b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5ac851c54a17893082d70bec5d96e8b8cf63b482
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124030"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517899"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutorial: Uso de identidades administradas asignadas por el sistema de una máquina virtual Linux para acceder a Azure Key Vault 
 
@@ -47,7 +47,7 @@ Aprenderá a:
 
 En esta sección se muestra cómo conceder acceso a la máquina virtual a un secreto almacenado en un almacén de claves. Mediante Managed Identities for Azure Resources, el código puede obtener tokens de acceso para autenticarse en aquellos recursos que admitan la autenticación de Azure AD.Sin embargo, no todos los servicios de Azure admiten la autenticación de Azure AD. Para usar Managed Identities for Azure Resources con esos servicios, almacene las credenciales del servicio en Azure Key Vault y use una identidad administrada de la máquina virtual a fin de acceder a Key Vault y recuperar las credenciales.
 
-En primer lugar, es necesario crear un almacén de claves y conceder a la identidad administrada asignada por el sistema de la máquina virtual acceso al mismo.
+En primer lugar, es necesario crear un almacén de claves y conceder acceso a él a la identidad administrada asignada por el sistema de la máquina virtual.
 
 1. Abra [Azure Portal](https://portal.azure.com/).
 1. En la parte superior de la barra de navegación izquierda, seleccione **Crear un recurso**.  
@@ -97,10 +97,10 @@ Para completar estos pasos, necesitará un cliente SSH.  Si usa Windows, puede u
 
 >[!IMPORTANT]
 > Todos los SDK de Azure admiten la biblioteca Azure.Identity, lo que facilita la adquisición de tokens de Azure AD para acceder a los servicios de destino. Obtenga más información sobre [los SDK de Azure](https://azure.microsoft.com/downloads/) y saque provecho de la biblioteca Azure.Identity.
-> - [.NET](/dotnet/api/overview/azure/identity-readme?view=azure-dotnet)
-> - [JAVA](/java/api/overview/azure/identity-readme?view=azure-java-stable)
-> - [Javascript](/javascript/api/overview/azure/identity-readme?view=azure-node-latest)
-> - [Python](/python/api/overview/azure/identity-readme?view=azure-python)
+> - [.NET](/dotnet/api/overview/azure/identity-readme)
+> - [JAVA](/java/api/overview/azure/identity-readme)
+> - [Javascript](/javascript/api/overview/azure/identity-readme)
+> - [Python](/python/api/overview/azure/identity-readme)
 
 
 1. En el portal, vaya a la máquina virtual Linux y, en **Información general**, haga clic en **Conectar**. 
@@ -126,7 +126,7 @@ Para completar estos pasos, necesitará un cliente SSH.  Si usa Windows, puede u
     "token_type":"Bearer"} 
     ```
     
-    Puede usar este token de acceso para autenticarse en Azure Key Vault.  La siguiente solicitud CURL muestra cómo leer un secreto desde el almacén de claves usando CURL y la API de REST de Key Vault.  Necesitará la dirección URL de su almacén de claves, que se encuentra en la sección de **Información esencial** de la página **Introducción** del almacén de claves.  También necesitará el token de acceso que obtuvo en la llamada anterior. 
+    Puede usar este token de acceso para autenticarse en Azure Key Vault.  La siguiente solicitud CURL muestra cómo leer un secreto desde el almacén de claves usando CURL y la API de REST de Key Vault.  Necesitará la dirección URL de su almacén de claves, que se encuentra en la sección **Información esencial** de la página **Información general** del almacén de claves.  También necesitará el token de acceso que obtuvo en la llamada anterior. 
         
     ```bash
     curl 'https://<YOUR-KEY-VAULT-URL>/secrets/<secret-name>?api-version=2016-10-01' -H "Authorization: Bearer <ACCESS TOKEN>" 
@@ -138,7 +138,7 @@ Para completar estos pasos, necesitará un cliente SSH.  Si usa Windows, puede u
     {"value":"p@ssw0rd!","id":"https://mytestkeyvault.vault.azure.net/secrets/MyTestSecret/7c2204c6093c4d859bc5b9eff8f29050","attributes":{"enabled":true,"created":1505088747,"updated":1505088747,"recoveryLevel":"Purgeable"}} 
     ```
     
-Cuando haya recuperado el secreto del almacén de claves, podrá usarlo para autenticarse en un servicio que requiere un nombre y una contraseña.
+Cuando haya recuperado el secreto del almacén de claves, podrá usarlo para autenticarse en un servicio que requiera un nombre y una contraseña.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

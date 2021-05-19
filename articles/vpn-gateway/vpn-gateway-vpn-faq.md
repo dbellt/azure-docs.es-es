@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: yushwang
-ms.openlocfilehash: 0fee7a7a58a6aabc7d545981b1f8b56033bf9857
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 2c2730025d39f03824489c6f46ae625de49ea0cf
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108203764"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753550"
 ---
 # <a name="vpn-gateway-faq"></a>Preguntas más frecuentes sobre VPN Gateway
 
@@ -219,6 +219,10 @@ No, todos los túneles VPN, incluidas las VPN de punto a sitio, comparten la mis
 ### <a name="can-i-configure-multiple-tunnels-between-my-virtual-network-and-my-on-premises-site-using-multi-site-vpn"></a>¿Puedo configurar varios túneles entre mi red virtual y mi sitio local utilizando VPN multisitio?
 
 Sí, pero debe configurar BGP en ambos túneles de la misma ubicación.
+
+### <a name="does-azure-vpn-gateway-honor-as-path-prepending-to-influence-routing-decisions-between-multiple-connections-to-my-on-premises-sites"></a>¿Respeta Azure VPN Gateway la anteposición de la ruta de acceso de AS para influir en las decisiones de enrutamiento entre varias conexiones a mis sitios locales?
+
+Sí, Azure VPN Gateway respetará la anteposición de la ruta de acceso de AS para ayudar a tomar decisiones de enrutamiento cuando Protocolo de puerta de enlace de borde esté habilitado. Se preferirá una ruta de acceso de AS más corta en la selección de la ruta de acceso del Protocolo de puerta de enlace de borde.
 
 ### <a name="can-i-use-point-to-site-vpns-with-my-virtual-network-with-multiple-vpn-tunnels"></a>¿Puedo usar VPN de punto a sitio con mi red virtual con varios túneles VPN?
 

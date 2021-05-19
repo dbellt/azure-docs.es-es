@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5dcd4b7b76752ca5396fc68afc8d4c8e4e1edca5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea98666b38628dcf0284b4fabbf7aa239bf270df
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96462310"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751840"
 ---
 # <a name="create-and-use-external-tables-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Creación y uso de tablas externas mediante un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -108,6 +108,10 @@ CREATE EXTERNAL TABLE Taxi (
          FILE_FORMAT = ParquetFormat
 );
 ```
+
+> [!NOTE]
+> La tabla se crea en una estructura de carpetas con particiones, pero no se pueden eliminar algunas de estas particiones. Si desea mejorar el rendimiento omitiendo los archivos que no cumplen algunos criterios (como un año o un mes específicos), utilice las [vistas de datos externos](create-use-views.md).
+
 ## <a name="use-an-external-table"></a>Uso de una tabla externa
 
 Puede usar [tablas externas](develop-tables-external-tables.md) en las consultas de la misma manera que las utiliza en las consultas de SQL Server.

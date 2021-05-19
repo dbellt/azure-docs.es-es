@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 04/12/2021
 ms.author: banders
-ms.openlocfilehash: 15aa3acab9fe98a4c2f5103ba211dde34220c54e
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: af9a56dd52a0ee70a457e4e53fd37962dca9c90d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107255691"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739913"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurar la cuenta de facturación para un contrato de cliente de Microsoft
 
@@ -60,9 +60,9 @@ Puede usar las siguientes opciones para iniciar la experiencia de migración de 
 
 - Inicie sesión en Azure Portal mediante el vínculo en el correo electrónico que recibió en el momento de firmar el contrato del cliente de Microsoft.
 
-- Si no tiene el correo electrónico, inicie sesión con el siguiente vínculo. Reemplace `enrollmentNumber` por el número de inscripción de su Contrato Enterprise que se haya renovado.
+- Si no tiene el correo electrónico, inicie sesión con el siguiente vínculo.
 
-  `https://portal.azure.com/#blade/Microsoft_Azure_EA/EATransitionToMCA/enrollmentId/<enrollmentNumber>`
+  `https://portal.azure.com/#blade/Microsoft_Azure_SubscriptionManagement/TransitionEnrollment`
 
 Si tiene los roles de administrador de la empresa y propietario de la cuenta de facturación o el rol de perfil de facturación, verá la página siguiente en Azure Portal. Puede seguir configurando las inscripciones de EA y la cuenta de facturación del Contrato de cliente de Microsoft para la transición.
 
@@ -70,7 +70,7 @@ Si tiene los roles de administrador de la empresa y propietario de la cuenta de 
 
 Si no tiene el rol de administrador de la empresa para el contrato Enterprise o el rol de propietario del perfil de facturación para el Contrato de cliente de Microsoft, use la siguiente información para obtener el acceso que necesita para completar la configuración.
 
-### <a name="if-youre-not-an-enterprise-administrator-on-the-enrollment"></a>Si no es un administrador de Enterprise en la inscripción
+#### <a name="if-youre-not-an-enterprise-administrator-on-the-enrollment"></a>Si no es un administrador de Enterprise en la inscripción
 
 Verá la página siguiente en Azure Portal si tiene un rol de propietario de la cuenta de facturación o del perfil de facturación, pero no es un administrador de empresa.
 
@@ -83,9 +83,9 @@ Tiene dos opciones:
 
 Si tiene el rol de administrador de empresa, copie el vínculo de la página Configurar la cuenta de facturación. Ábralo en el explorador web para seguir configurando el Contrato de cliente de Microsoft. De lo contrario, envíelo al administrador de la empresa.
 
-### <a name="if-youre-not-an-owner-of-the-billing-profile"></a>Si no es un propietario del perfil de facturación
+#### <a name="if-youre-not-an-owner-of-the-billing-profile"></a>Si no es un propietario del perfil de facturación
 
-Si es administrador de empresa, pero no tiene un rol de propietario de la cuenta de facturación o del perfil de facturación del Contrato de cliente de Microsoft, verá la página siguiente en Azure Portal.
+Si es un administrador de empresa pero no tiene una cuenta de facturación, verá en Azure Portal el siguiente error, que impide la transición.
 
 Si cree que tiene acceso de propietario del perfil de facturación al Contrato de cliente de Microsoft correcto y ve el mensaje siguiente, asegúrese de que se encuentra en el inquilino correcto de la organización. Es posible que tenga que cambiar los directorios.
 
@@ -97,6 +97,42 @@ Tiene dos opciones:
 - Dele el rol de administrador de empresa a un propietario de la cuenta de facturación existente. Para más información, consulte [Creación de otro administrador de empresa](ea-portal-administration.md#create-another-enterprise-administrator).
 
 Si se le asigna el rol de propietario de la cuenta de facturación o del perfil de facturación, copie el vínculo en la página Configurar la cuenta de facturación. Ábralo en el explorador web para seguir configurando el Contrato de cliente de Microsoft. De lo contrario, envíe el vínculo al propietario de la cuenta de facturación.
+
+#### <a name="prepare-enrollment-for-transition"></a>Preparación de la inscripción para la transición
+
+Una vez que tenga acceso de propietario a su perfil de facturación e inscripción de EA, prepárelos para la transición.
+
+Abra la migración que se le mostró anteriormente o abra el vínculo que se le envió por correo electrónico. El vínculo es `https://portal.azure.com/#blade/Microsoft_Azure_SubscriptionManagement/TransitionEnrollment`.
+
+En la imagen siguiente se muestra un ejemplo de la ventana Prepare your enterprise agreement enrollments for transition (Preparar las inscripciones del contrato Enterprise para la transición).
+
+:::image type="content" source="./media/mca-setup-account/setup-billing-account-prepare-enrollment-transition.png" alt-text="Captura de pantalla que muestra la página Configurar la cuenta de facturación: Prepare your Enterprise Agreement enrollments for transition ready for selections (Preparación de las inscripciones del Contrato Enterprise para la transición)." lightbox="./media/mca-setup-account/setup-billing-account-prepare-enrollment-transition.png" :::
+
+A continuación, seleccione la inscripción de origen para realizar la transición. Luego seleccione la cuenta de facturación y el perfil de facturación. Si la validación se supera sin problemas, de forma similar a la pantalla siguiente, seleccione **Continuar** para continuar.
+
+:::image type="content" source="./media/mca-setup-account/setup-billing-account-prepare-enrollment-transition-continue.png" alt-text="Captura de pantalla que muestra la página Configurar la cuenta de facturación: Preparación de las inscripciones del Contrato Enterprise para la transición con las opciones validadas." lightbox="./media/mca-setup-account/setup-billing-account-prepare-enrollment-transition-continue.png" :::
+
+**Condiciones del error**
+
+Si tiene el rol de Administrador de empresa (solo lectura), verá el siguiente error que impide la transición. Debe tener el rol de Administrador de empresa para poder realizar la transición de la inscripción.
+
+`Select another enrollment. You do not hve Enterprise Administrator write permission to the enrollment.`
+
+Si la inscripción tiene más de 60 días hasta su fecha de finalización, verá el siguiente error que impide la transición. La fecha actual debe estar a menos de 60 días del final de la inscripción para poder realizar la transición de la inscripción.
+
+`Select another enrollment. This enrollment has more than 60 days before its end date.`
+
+Si la inscripción aún tiene créditos, verá el siguiente error, que impide la transición. Debe usar todos los créditos para poder realizar la transición de la inscripción.
+
+`Select another enrollment. This enrollment still has credits and can't be transitioned to a billing account.`
+
+Si no tiene permiso de propietario para el perfil de facturación, verá el siguiente error que impide la transición. Para poder realizar la transición de la inscripción debe tener el rol de propietario del perfil de facturación.
+
+`Select another Billing Profile. You do not have owner permission to this profile.`
+
+Si el nuevo perfil de facturación no tiene habilitado el plan nuevo, verá el siguiente error. Para poder realizar la transición de la inscripción debe habilitar el plan.
+
+`Select another Billing Profile. The current selection does not have Azure Plan and Azure dev test plan enabled on it.`
 
 ## <a name="understand-changes-to-your-billing-hierarchy"></a>Descripción de los cambios realizados en la jerarquía de facturación
 
@@ -197,9 +233,9 @@ Para completar la configuración, necesita acceso a la nueva cuenta de facturaci
 
 1. Inicie sesión en Azure Portal mediante el vínculo en el correo electrónico que recibió en el momento de firmar el contrato del cliente de Microsoft.
 
-2. Si no tiene el correo electrónico, inicie sesión con el siguiente vínculo. Reemplace `<enrollmentNumber>` por el número de inscripción de su Contrato Enterprise que se haya renovado.
+2. Si no tiene el correo electrónico, inicie sesión con el siguiente vínculo.
 
-   `https://portal.azure.com/#blade/Microsoft_Azure_EA/EATransitionToMCA/enrollmentId/<enrollmentNumber>`
+   `https://portal.azure.com/#blade/Microsoft_Azure_SubscriptionManagement/TransitionEnrollment`
 
 3. Seleccione **Iniciar transición** en el último paso de la configuración. Una vez que seleccione la transición de inicio:
 

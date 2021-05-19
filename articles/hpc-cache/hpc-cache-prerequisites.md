@@ -4,14 +4,14 @@ description: Requisitos previos para usar Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/14/2021
+ms.date: 05/06/2021
 ms.author: v-erkel
-ms.openlocfilehash: 3cddbba3dca64561d7e2b7b27715152a26a8c9e9
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 59b83132f4de25886494bdc5c23819243240e962
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717592"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737337"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Requisitos previos para Azure HPC Cache
 
@@ -95,6 +95,8 @@ Antes de empezar a crear la caché, compruebe estos requisitos previos relaciona
 
 La memoria caché admite contenedores de blobs de Azure, exportaciones de almacenamiento de hardware NFS y contenedores de blobs ADLS montados en NFS (actualmente en versión preliminar). Agregar destino de almacenamiento después de crear la memoria caché.
 
+El tamaño de la memoria caché determina cuántos destinos de almacenamiento puede admitir: hasta 10 destinos de almacenamiento para la mayoría de las memorias caché o hasta 20 para los tamaños más grandes. Consulte [Asignación del tamaño correcto a la caché para respaldar a los destinos de almacenamiento](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets) para más información.
+
 Cada tipo de almacenamiento tiene unos requisitos previos específicos.
 
 ### <a name="blob-storage-requirements"></a>Requisitos de Blob Storage
@@ -129,7 +131,7 @@ Si usa un sistema de almacenamiento NFS (por ejemplo, un sistema NAS de hardware
 
 Se puede encontrar más información en [Solución de problemas de configuración de NAS y destinos de almacenamiento de NFS](troubleshoot-nas.md).
 
-* Conectividad de red: Azure HPC Cache necesita un acceso de red de alto ancho de banda entre la subred de la memoria caché y el centro de datos del sistema NFS. Se recomienda el acceso [ExpressRoute](../expressroute/index.yml) o similar. Si usa una VPN, es posible que deba configurarla para fijar TCP MSS en 1350 para asegurarse de que no se bloqueen los paquetes grandes. Lea [Restricciones de tamaño de paquetes de VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) como ayuda adicional para solucionar problemas de configuración de VPN.
+* Conectividad de red: Azure HPC Cache necesita un acceso de red de alto ancho de banda entre la subred de la memoria caché y el centro de datos del sistema NFS. Se recomienda el acceso [ExpressRoute](../expressroute/index.yml) o similar. Si usa una VPN, es posible que deba configurarla para fijar TCP MSS en 1350 para asegurarse de que no se bloqueen los paquetes grandes. Consulte [Restricciones de tamaño de paquetes de VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) como ayuda adicional para solucionar problemas de configuración de VPN.
 
 * Acceso a puertos: La memoria caché necesita acceso a determinados puertos TCP/UDP en el sistema de almacenamiento. Los distintos tipos de almacenamiento tienen distintos requisitos de puertos.
 

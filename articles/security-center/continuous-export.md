@@ -1,19 +1,18 @@
 ---
 title: La exportación continua puede enviar alertas y recomendaciones de Azure Security Center para áreas de trabajo de Log Analytics o Azure Event Hubs.
 description: Aprenda a configurar la exportación continua de alertas de seguridad y recomendaciones a áreas de trabajo de Log Analytics o a Azure Event Hubs.
-services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 12/24/2020
+ms.date: 05/05/2021
 ms.author: memildin
-ms.openlocfilehash: fc3774a01665b88ccae2e25ae8382497f8010c35
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 3a64b385cbac972fd55eae5c341b4ecb7a431d5b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096979"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108732984"
 ---
 # <a name="continuously-export-security-center-data"></a>Exportación continua de alertas y recomendaciones de seguridad
 
@@ -59,7 +58,7 @@ La exportación continua puede exportar los siguientes tipos de datos siempre qu
 - Datos de cumplimiento normativo
 
 > [!NOTE]
-> La exportación de datos de cumplimiento normativo y puntuación segura es una característica en versión preliminar y no está disponible en las nubes gubernamentales. 
+> La exportación de datos de cumplimiento normativo y puntuación segura es una característica en versión preliminar. 
 
 ## <a name="set-up-a-continuous-export"></a>Configuración de una exportación continua 
 

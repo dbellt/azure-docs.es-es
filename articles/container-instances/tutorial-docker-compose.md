@@ -4,12 +4,12 @@ description: Use Docker Compose para compilar y ejecutar una aplicación de vari
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.custom: ''
-ms.openlocfilehash: ef08b9f9e0f596f1d94c0e6edfd46f735fe78053
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 73699e9d0b7b63dcc2960521b26f0c615a608ed9
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107786927"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753298"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-docker-compose"></a>Tutorial: Implementación de un grupo de varios contenedores mediante Docker Compose 
 

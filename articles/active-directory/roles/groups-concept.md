@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 04/27/2021
+ms.date: 05/05/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 236606bea3ff4edcd6786828f4cb2379251a77f8
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: c8a3015fa2c078232ca9c37c2b0ce0ded313c859
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108203332"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109480840"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Uso de grupos en la nube para administrar asignaciones de roles en Azure Active Directory (versión preliminar)
 
@@ -39,8 +39,7 @@ Si no desea que los miembros del grupo tengan acceso permanente al rol, puede us
 
 Si se asigna un rol a un grupo, cualquier administrador de TI que pueda administrar la pertenencia a grupos también podría administrar indirectamente la pertenencia a ese rol. Por ejemplo, supongamos que se asigna un grupo Contoso_User_Administrators al rol de administrador de cuentas de usuario. Un administrador de Exchange que puede modificar la pertenencia a grupos podría agregarse a sí mismo al grupo Contoso_User_Administrators y, de esta forma, convertirse en administrador de cuentas de usuario. Como puede ver, un administrador podría elevar sus privilegios de una forma no prevista.
 
-Azure AD permite proteger un grupo asignado a un rol mediante una nueva propiedad denominada isAssignableToRole para los grupos. Solo los grupos en la nube que tenían la propiedad isAssignableToRole establecida en "true" en el momento de la creación pueden asignarse a un rol. Esta propiedad es inalterable; una vez que se crea un grupo con esta propiedad establecida en "true", ya no se puede modificar. No se puede establecer la propiedad en un grupo existente.
-Hemos diseñado cómo se asignan los grupos a los roles para evitar que se produzca esa posible vulneración:
+Azure AD permite proteger un grupo asignado a un rol mediante una nueva propiedad denominada isAssignableToRole para los grupos. Solo los grupos en la nube que tenían la propiedad isAssignableToRole establecida en "true" en el momento de la creación pueden asignarse a un rol. Esta propiedad es inalterable; una vez que se crea un grupo con esta propiedad establecida en "true", ya no se puede modificar. No se puede establecer la propiedad en un grupo existente. Hemos diseñado cómo se asignan los grupos a los roles para evitar que se produzcan posibles vulneraciones:
 
 - Solo los administradores globales y los administradores de roles con privilegios pueden crear un grupo al que se pueden asignar roles (con la propiedad "isAssignableToRole" habilitada).
 - No puede ser un grupo dinámico de Azure AD; es decir, debe tener un tipo de pertenencia "Asignado". El rellenado automático de grupos dinámicos podría dar lugar a la adición de una cuenta no deseada al grupo y, por tanto, a la asignación del rol.
@@ -63,7 +62,7 @@ Los siguientes escenarios no se admiten en este momento:
 - Use el nuevo [Centro de administración de Exchange](https://admin.exchange.microsoft.com/) para la asignación de roles mediante la pertenencia a grupos. El antiguo Centro de administración de Exchange no es compatible aún con esta característica. Los cmdlets de PowerShell de Exchange funcionarán según lo previsto.
 - El portal de Azure Information Protection (el portal clásico) todavía no reconoce la pertenencia al rol mediante el grupo. Puede [migrar a la plataforma de etiquetado de confidencialidad unificada](/azure/information-protection/configure-policy-migrate-labels) y, a continuación, usar el Centro de seguridad y cumplimiento de Office 365 a fin de utilizar las asignaciones de grupo para administrar roles.
 - [Apps Admin Center](https://config.office.com/) no es compatible aún con esta característica. Asigne usuarios directamente al rol de administrador de aplicaciones de Office.
-- [M365 Compliance Center](https://compliance.microsoft.com/) aún no es compatible con esta característica. Asigne usuarios directamente a los roles adecuados de Azure AD para usar este portal.
+- El [Centro de cumplimiento de Microsoft 365](https://compliance.microsoft.com/) aún no admite esta característica. Asigne usuarios directamente a los roles adecuados de Azure AD para usar este portal.
 
 Estamos solucionando estos problemas.
 

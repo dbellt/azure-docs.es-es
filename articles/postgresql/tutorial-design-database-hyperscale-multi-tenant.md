@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: d8dee086f55c5596af50245b5271d98536eb7e57
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe58822755959b35fce2a7e714b6e81c2ca58c2c
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95026206"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109518133"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutorial: Diseño de una base de datos multiinquilino con Azure Database for PostgreSQL Hiperescala (Citus)
 
@@ -62,6 +62,9 @@ CREATE TABLE campaigns (
   PRIMARY KEY (company_id, id)
 );
 ```
+
+>[!NOTE]
+> Este artículo contiene referencias a *lista negra*, un término que Microsoft ya no utiliza. Cuando se quite el término del software, se quitará también del artículo.
 
 Cada campaña pagará por anunciarse. Agregue también una tabla para anuncios, ejecutando el siguiente código en psql después del código anterior:
 

@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: b7afc6c82f06e977caea90ac3e8d2355d56c920d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 561cc2a32ce7c9d3fd61fafb47326ce9c95cad45
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129772"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753208"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migración de MySQL a Azure Database for MySQL en línea mediante DMS
 
 Azure Database Migration Service se puede usar para migrar las bases de datos de una instancia local de MySQL a [Azure Database for MySQL](../mysql/index.yml) con un tiempo de inactividad mínimo. En otras palabras, se puede lograr la migración con un tiempo de inactividad mínimo para la aplicación. En este tutorial, va a migrar la base de datos de ejemplo **Employees** de una instancia local de MySQL 5.7 a Azure Database for MySQL mediante una actividad de migración en línea de Azure Database Migration Service.
 
 > [!IMPORTANT]
-> El escenario de migración en línea "MySQL a Azure Database for MySQL" se va a sustituir por un escenario de migración sin conexión en paralelo y de alto rendimiento el 1 de junio de 2021. En el caso de las migraciones en línea, puede usar esta nueva oferta junto con la [replicación de datos](../mysql/concepts-data-in-replication.md). Como alternativa, use herramientas de código abierto, como [MyDumper/MyLoader](https://centminmod.com/mydumper.html), con replicación de datos en las migraciones en línea. 
+> El escenario de migración en línea "MySQL a Azure Database for MySQL" **no estará disponible a partir del 1 de junio de 2021**. Una [funcionalidad de migración sin conexión](./tutorial-mysql-azure-mysql-offline-portal.md) paralelizada y de alto rendimiento está **ahora disponible en versión preliminar** para admitir migraciones de "MySQL a Azure Database for MySQL". Para las migraciones en línea, puede usar herramientas de código abierto, como [MyDumper/MyLoader](https://centminmod.com/mydumper.html), con [replicación de datos de entrada](/azure/mysql/concepts-data-in-replication).
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
@@ -153,7 +153,7 @@ Ejecute el script de colocación de clave externa (que es el de la segunda colum
 
 Si la base de datos utiliza desencadenadores, se aplicará la integridad de datos en el destino antes de llevar a cabo la migración completa de los datos desde el origen. Es recomendable deshabilitar los desencadenadores en todas las tablas del destino durante la migración y, a continuación, habilitar los desencadenadores una vez finalizada esta.
 
-Ejecute el siguiente script en MySQL Workbench en la base de datos de destino con el fin de obtener el script para descartar desencadenadores y el script para agregar desencadenadores.
+Ejecute el siguiente script en MySQL Workbench en la base de datos de destino para extraer el script del desencadenador de anulación y el script del desencadenador de adición.
 
 ```sql
 SELECT
@@ -175,7 +175,7 @@ ORDER BY EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, ACTION_TIMING, EVENT_MANIPULAT
 GROUP BY SchemaName
 ```
 
-Ejecute la consulta generada para descartar desencadenadores (columna DropQuery) en el resultado con el fin de poder descartar desencadenadores en la base de datos de destino. La consulta para agregar desencadenadores se puede guardar y usar una vez finalizada la migración de datos.
+Ejecute la consulta del desencadenador de anulación generada (columna DropQuery) en el resultado para quitar los desencadenadores de la base de datos de destino. La consulta para agregar desencadenadores se puede guardar y usar una vez finalizada la migración de datos.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registro del proveedor de recursos Microsoft.DataMigration
 

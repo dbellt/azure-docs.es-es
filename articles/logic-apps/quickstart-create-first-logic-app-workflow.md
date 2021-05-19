@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: contperf-fy21q4
 ms.date: 04/28/2021
-ms.openlocfilehash: ea115d42f84562e67adb7e6f45ce8d35be21d6b0
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 1ff7ba5e3835fccb2f67fa56cf3737adb9d36b45
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108292591"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738903"
 ---
 # <a name="quickstart-create-an-integration-workflow-using-azure-logic-apps-in-the-azure-portal"></a>Inicio rápido: Creación de un flujo de trabajo de integración con Azure Logic Apps en Azure Portal
 
@@ -51,7 +51,7 @@ Para crear y administrar una aplicación lógica mediante otras herramientas, re
 
 * Si tiene un firewall que limite el tráfico a direcciones IP específicas, configúrelo para permitir el acceso para *ambas* direcciones IP, la [de entrada](logic-apps-limits-and-config.md#inbound) y la [de salida](logic-apps-limits-and-config.md#outbound), utilizadas por el servicio Logic Apps en la región de Azure donde se encuentra la aplicación lógica.
 
-  En este ejemplo también se usan los conectores RSS y Office 365 Outlook que [administra Microsoft](/connectors/managed.md). Estos conectores requieren que configure el firewall para permitir el acceso a *todas* las [direcciones IP de salida del conector administrado](logic-apps-limits-and-config.md#outbound) en la región de Azure de la aplicación lógica.
+  En este ejemplo también se usan los conectores RSS y Office 365 Outlook que [administra Microsoft](../connectors/managed.md). Estos conectores requieren que configure el firewall para permitir el acceso a *todas* las [direcciones IP de salida del conector administrado](logic-apps-limits-and-config.md#outbound) en la región de Azure de la aplicación lógica.
 
 <a name="create-logic-app-resource"></a>
 

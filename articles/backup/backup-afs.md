@@ -2,13 +2,13 @@
 title: Copia de seguridad de los recursos compartidos de archivos de Azure en Azure Portal
 description: Aprenda a usar Azure Portal para realizar copias de seguridad de recursos compartidos de archivos de Azure en almacenes de Recovery Services
 ms.topic: conceptual
-ms.date: 01/20/2020
-ms.openlocfilehash: e7f44a71388468be432bdfcb0eb2bf67c0fcc8ef
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 05/07/2021
+ms.openlocfilehash: e236980310889e84fe905861c5843f5a7b7039a2
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107519942"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109516765"
 ---
 # <a name="back-up-azure-file-shares"></a>Copia de seguridad de recursos compartidos de archivos de Azure
 
@@ -25,7 +25,7 @@ En este artículo, aprenderá a:
 
 * [Obtenga información](azure-file-share-backup-overview.md) sobre la solución de copia de seguridad basada en instantáneas de recursos compartidos de archivos de Azure.
 * Asegúrese de que el recurso compartido de archivos se encuentra en uno de los [tipos de cuenta de almacenamiento admitidos](azure-file-share-support-matrix.md).
-* Identifique o cree un [almacén de Recovery Services](#create-a-recovery-services-vault) en la misma región que la cuenta de almacenamiento que hospeda el recurso compartido de archivos.
+* Identifique o cree un [almacén de Recovery Services](#create-a-recovery-services-vault) en la misma región y suscripción que la cuenta de almacenamiento que hospeda el recurso compartido de archivos.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

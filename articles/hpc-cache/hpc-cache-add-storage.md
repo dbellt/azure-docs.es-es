@@ -4,23 +4,23 @@ description: Definición de los destinos de almacenamiento para que Azure HPC Ca
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 05/05/2021
 ms.custom: subject-rbac-steps
 ms.author: v-erkel
-ms.openlocfilehash: 81d361a82a05bed83156857b2381be0d6d113827
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: aae7d29abbb9ef18846e85e9a54ff0fb97f09181
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209902"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738525"
 ---
 # <a name="add-storage-targets"></a>Incorporación de destinos de almacenamiento
 
 Los *destinos de almacenamiento* son espacios de almacenamiento en servidores de back-end para archivos a los que se accede mediante una instancia de Azure HPC Cache. Puede agregar almacenamiento NFS (como un sistema de hardware local) o almacenar datos en Azure Blob Storage.
 
-Puede definir hasta 20 destinos de almacenamiento diferentes para una caché. La caché presenta todos los destinos de almacenamiento en un espacio de nombres agregado.
+Puede definir 10 destinos de almacenamiento diferentes para cualquier caché, y las memorias caché más grandes pueden [admitir hasta 20 destinos de almacenamiento](#size-your-cache-correctly-to-support-your-storage-targets).
 
-Las rutas de acceso del espacio de nombres se configuran por separado después de agregar los destinos de almacenamiento.
+La caché presenta todos los destinos de almacenamiento en un espacio de nombres agregado. Las rutas de acceso del espacio de nombres se configuran por separado después de agregar los destinos de almacenamiento.
 
 Recuerde que las exportaciones de almacenamiento deben ser accesibles desde la red virtual de la caché. En el caso del almacenamiento en hardware local, es posible que tenga que configurar un servidor DNS que pueda resolver nombres de host para el acceso al almacenamiento de NFS. Obtenga más información en [Acceso DNS](hpc-cache-prerequisites.md#dns-access).
 
@@ -35,6 +35,15 @@ El procedimiento para agregar un destino de almacenamiento es ligeramente difere
 Haga clic en la imagen siguiente para ver una [demostración en vídeo](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) sobre cómo crear una caché y agregar un destino de almacenamiento de Azure Portal.
 
 [![Miniatura de vídeo: Azure HPC Cache: Instalación (haga clic para visitar la página del vídeo)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
+
+## <a name="size-your-cache-correctly-to-support-your-storage-targets"></a>Asigne el tamaño correcto a la caché para respaldar a los destinos de almacenamiento
+
+El número de destinos de almacenamiento admitidos depende del tamaño de la caché, el cual se establece durante su creación. El tamaño es una combinación de la capacidad de rendimiento (en GB/s) y la capacidad de almacenamiento (en TB).
+
+* Hasta 10 destinos de almacenamiento: si elige el tamaño de almacenamiento de caché más pequeño o medio para el valor de rendimiento seleccionado, la memoria caché puede tener hasta 10 destinos de almacenamiento.
+* Hasta 20 destinos de almacenamiento: elija el mayor tamaño de caché disponible para el valor de rendimiento seleccionado si desea usar más de 10 destinos de almacenamiento. (Si usa la CLI de Azure, elija el tamaño de caché válido más alto para la SKU de caché).
+
+Consulte [Establecimiento de la capacidad de la memoria caché](hpc-cache-create.md#set-cache-capacity) para más información sobre la configuración de rendimiento y el tamaño de la caché.
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>Incorporación de un nuevo destino de almacenamiento de Azure Blob Storage
 

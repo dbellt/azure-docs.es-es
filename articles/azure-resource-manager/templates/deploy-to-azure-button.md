@@ -2,13 +2,13 @@
 title: Botón Implementación en Azure
 description: Use el botón para implementar plantillas de Azure Resource Manager desde un repositorio de GitHub.
 ms.topic: conceptual
-ms.date: 03/25/2021
-ms.openlocfilehash: e25d49571347bb5ed27dbd52bb60c68cbeb4360d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 05/05/2021
+ms.openlocfilehash: 77d23852941177aca35a582f64b21bfac02d7942
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105543792"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736908"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Usar un botón de implementación para implementar plantillas desde el repositorio de GitHub
 
@@ -46,20 +46,20 @@ Para crear la dirección URL de la plantilla, comience con la dirección URL ori
 El formato de la dirección URL es:
 
 ```html
-https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
+https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json
 ```
 
 A continuación, convierta la dirección URL en un valor con codificación URL. Puede usar un codificador en línea o ejecutar un comando. En el siguiente ejemplo de PowerShell se muestra cómo codificar un valor como una dirección URL.
 
 ```powershell
-$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json"
 [uri]::EscapeDataString($url)
 ```
 
 La dirección URL de ejemplo tiene el siguiente valor cuando se codifica como una URL.
 
 ```html
-https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json
+https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json
 ```
 
 Cada vínculo comienza con la misma dirección URL base:
@@ -71,7 +71,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/
 Agregue el vínculo de la plantilla con codificación URL al final de la dirección URL base.
 
 ```html
-https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json
+https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json
 ```
 
 Ya tiene la dirección URL completa del vínculo.
@@ -93,13 +93,13 @@ Por último, coloque el vínculo y la imagen juntos.
 Para agregar el botón con Markdown en el archivo _README.md_ en el repositorio de GitHub o en una página web, use:
 
 ```markdown
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json)
 ```
 
 Para HTML, use:
 
 ```html
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json" target="_blank">
   <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
 ```
@@ -114,9 +114,9 @@ En el caso de Git con el repositorio de Azure, el botón tiene el siguiente form
 
 Para probar la solución completa, seleccione el botón siguiente:
 
-[![Implementación en Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json)
+[![Implementación en Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json)
 
-El portal muestra un panel que le permite proporcionar fácilmente los valores de parámetros. Los parámetros se rellenan previamente con los valores predeterminados de la plantilla.
+El portal muestra un panel que le permite proporcionar fácilmente los valores de parámetros. Los parámetros se rellenan previamente con los valores predeterminados de la plantilla. El nombre del parámetro con mayúsculas y minúsculas Camel, *storageAccountType*, definido en la plantilla se convierte en una cadena separada por espacios cuando se muestra en el portal.
 
 ![Usar el portal para realizar la implementación](./media/deploy-to-azure-button/portal.png)
 

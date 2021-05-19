@@ -12,12 +12,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78fd91e2ba7badb1936b8603c8ed089130b29ffb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d64fd91d3f033c0a04c4936f11d096aa640942a1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101644072"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743892"
 ---
 # <a name="what-are-external-identities-in-azure-active-directory"></a>¿Qué son External Identities de Azure Active Directory?
 
@@ -39,7 +39,7 @@ En la tabla siguiente se proporciona una comparación detallada de los escenario
 | ---- | --- | --- |
 | **Escenario principal** | Colaboración mediante aplicaciones de Microsoft (Microsoft 365, Teams, etc.) o sus propias aplicaciones (aplicaciones SaaS, aplicaciones personalizadas, etc.).  | Administración de identidades y acceso para aplicaciones SaaS o personalizadas modernas (no aplicaciones propias de Microsoft).   |
 | **Destinado a**    | Colaborar con socios comerciales de organizaciones externas como proveedores o asociados. Los usuarios aparecen como usuarios invitados en el directorio. Estos usuarios pueden tener TI administrado o no.  | Clientes de su producto. Estos usuarios se administran en un directorio de Azure AD independiente.  |
-| **Se admiten proveedores de identidades** | Los usuarios externos pueden colaborar mediante cuentas profesionales, cuentas educativas, cualquier dirección de correo electrónico, proveedores de identidades basados en SAML y WS-Fed, Gmail y Facebook.  | Usuarios consumidores con cuentas de aplicaciones locales (cualquier dirección de correo electrónico o nombre de usuario), diversas identidades admitidas de redes sociales y usuarios con identidades corporativas o emitidas por una entidad gubernamental mediante la federación directa.       |
+| **Se admiten proveedores de identidades** | Los usuarios externos pueden colaborar mediante cuentas profesionales, cuentas educativas, cualquier dirección de correo electrónico, proveedores de identidades basados en SAML y WS-Fed, Gmail y Facebook.  | Usuarios consumidores con cuentas de aplicaciones locales (cualquier dirección de correo electrónico o nombre de usuario), diversas identidades admitidas de redes sociales y usuarios con identidades corporativas o emitidas por una entidad gubernamental mediante la federación del proveedor de identidades basada en SAML o WS-Fed.       |
 | **Administración de usuarios externos**   | Los usuarios externos se administran en el mismo directorio que los empleados, pero normalmente se les etiqueta como usuarios invitados. Los usuarios invitados pueden administrarse del mismo modo que los empleados, pueden agregarse a los mismos grupos, etc.    | Los usuarios externos se administran en el directorio de Azure AD B2C. Se administran de manera independiente del directorio de asociados y de empleados de la organización (si existe).  |
 | **Inicio de sesión único (SSO)**      | se admite SSO en todas las aplicaciones conectadas a Azure AD. Por ejemplo, puede proporcionar acceso a Microsoft 365, o bien a aplicaciones locales y a otras aplicaciones SaaS como Salesforce o Workday.    | Se admite el inicio de sesión único para aplicaciones propiedad de los clientes dentro de los inquilinos de Azure AD B2C. No se admite el inicio de sesión único en Microsoft 365 ni en otras aplicaciones SaaS de Microsoft.    |
 | **Directiva de seguridad y cumplimiento**        | los administra la organización anfitriona o que realiza la invitación (por ejemplo, con [directivas de acceso condicional](conditional-access.md)). | Las administra la organización mediante el acceso condicional y Identity Protection.        |
