@@ -78,7 +78,7 @@ Opcionalmente, puede habilitar la recuperación ante desastres al crear una máq
 
 7. En **Opciones de disponibilidad**, especifique si la máquina virtual se implementa como independiente, en una zona de disponibilidad o en un conjunto de disponibilidad.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/create-vm.png" alt-text="Habilitación de la replicación en la página de propiedades de administración de máquinas virtuales".
+    :::image type="content" source="./media/tutorial-disaster-recovery/create-vm.png" alt-text="Habilitación de la replicación en la página de propiedades de administración de máquinas virtuales.":::
 
 8. Termine de crear la máquina virtual.
 
