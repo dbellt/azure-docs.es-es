@@ -122,7 +122,7 @@ Visualización del registro <abbr title="Las llamadas realizadas a `console.log`
 
 Busque la aplicación en el explorador de **AZURE APP SERVICE**, haga clic con el botón derecho en el nombre de la aplicación y seleccione **Eliminar**. 
 
-:::image type="content" source="./media/quickstart-nodejs/delete-resource-ieux.png" alt-text="":::Busque la aplicación en el explorador de `**`AZURE APP SERVICE`**`, haga clic con el botón derecho en el nombre de la aplicación y seleccione `Eliminar`
+:::image type="content" source="./media/quickstart-nodejs/delete-resource-ieux.png" alt-text=" ":::Busque la aplicación en el explorador de `**`AZURE APP SERVICE`**`, haga clic con el botón derecho en el nombre de la aplicación y seleccione `Eliminar`
 
 ## <a name="next-steps"></a>Pasos siguientes
 
