@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 07611a3620a2fd8efe0da075b03b55a5be3a5be9
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 6561de6c8483c5bcdb02ff4b6aa7732fc508164e
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107505384"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684764"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migración de tráfico de Azure SQL Database a puertas de enlace más recientes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,6 +29,14 @@ La información más actualizada se mantendrá en la tabla [Direcciones IP de la
 ## <a name="status-updates"></a>Actualizaciones de estado
 
 # <a name="in-progress"></a>[En curso](#tab/in-progress-ip)
+## <a name="june-2021"></a>Junio de 2021
+Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones:
+- Oeste de Reino Unido: 51.140.208.96, 51.140.208.97
+- Centro de Corea del Sur y EE. UU.: 20.44.24.32, 20.194.64.33
+- Este de Japón: 13.78.104.32
+
+Esta puerta de enlace de SQL comenzará a aceptar el tráfico de clientes el 1 de junio de 2021.
+
 ## <a name="may-2021"></a>Mayo de 2021
 Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones:
 - Sur de Reino Unido: 51.140.144.36, 51.105.72.32  

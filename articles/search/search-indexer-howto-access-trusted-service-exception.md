@@ -7,13 +7,13 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: e139c15ef6de00376a4e1a88000d263c3486994b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/11/2021
+ms.openlocfilehash: 16808be9b4a0c3a03a2a56a5255809b585aa404f
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92101382"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715801"
 ---
 # <a name="indexer-access-to-azure-storage-using-the-trusted-service-exception-azure-cognitive-search"></a>Acceso del indexador a Azure Storage mediante una excepción de servicio de confianza (Azure Cognitive Search)
 
@@ -25,6 +25,9 @@ En un servicio Azure Cognitive Search, los indexadores que acceden a los datos d
 ## <a name="step-1-configure-a-connection-using-a-managed-identity"></a>Paso 1: Configurar una conexión mediante una identidad administrada
 
 Siga las instrucciones de [Configuración de una conexión a una cuenta de Azure Storage mediante una identidad administrada](search-howto-managed-identities-storage.md). Cuando haya terminado, habrá registrado el servicio Search en Azure Active Directory como un servicio de confianza y tendrá permisos concedidos en Azure Storage que proporcionan a la identidad de búsqueda permisos específicos para acceder a los datos o a la información.
+
+> [!NOTE]
+> Las instrucciones le enseñan un enfoque del portal para configurar Cognitive Search como un servicio de confianza. Para hacerlo mediante código, puede usar la [API REST](/rest/api/searchmanagement/services/createorupdate), [Azure PowerShell](search-manage-powershell.md#create-a-service-with-a-system-assigned-managed-identity) o la [CLI de Azure](search-manage-azure-cli.md#create-a-service-with-a-system-assigned-managed-identity).
 
 ## <a name="step-2-allow-trusted-microsoft-services-to-access-the-storage-account"></a>Paso 2: Permitir que los servicios de Microsoft de confianza accedan a la cuenta de almacenamiento
 

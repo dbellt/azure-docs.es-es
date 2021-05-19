@@ -6,13 +6,13 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 2/26/2021
-ms.openlocfilehash: f3503dd986f037310b2b24dec535cc05b9d4c4a4
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 05/08/2021
+ms.openlocfilehash: ce78b36a07a0648e869a2a382554fdc41b408f96
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127504"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656333"
 ---
 # <a name="register-and-scan-multiple-sources-in-azure-purview"></a>Registro y examen de varios orígenes en Azure Purview
 
@@ -73,7 +73,7 @@ Para registrar varios orígenes nuevos en el catálogo de datos, haga lo siguien
 
       :::image type="content" source="media/register-scan-azure-multiple-sources/azure-multiple-source-setup.png" alt-text="Captura de pantalla que muestra los cuadros para seleccionar una suscripción y un grupo de recursos.":::
    1. En el cuadro **Seleccionar una colección**, seleccione una colección o cree una nueva (opcional).
-   1. A continuación, seleccione **Finalizar** para registrar el origen de datos.
+   1. Seleccione **Registrar** para registrar los orígenes de datos.
 
 
 ## <a name="create-and-run-a-scan"></a>Creación y ejecución de un trabajo

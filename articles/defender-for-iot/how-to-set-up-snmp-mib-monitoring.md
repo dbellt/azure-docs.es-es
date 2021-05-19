@@ -3,12 +3,12 @@ title: Configuración de la supervisión de MIB del protocolo simple de administ
 description: Puede realizar la supervisión del estado del sensor mediante SNMP. El sensor responde a las consultas SNMP enviadas desde un servidor de supervisión autorizado.
 ms.date: 12/14/2020
 ms.topic: how-to
-ms.openlocfilehash: 1ba52236f65c6c5daba68c67677cdc6adfb699b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 14803fd2f9c088fb4454f97ff1524e8d651ccd05
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781677"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109654839"
 ---
 # <a name="set-up-snmp-mib-monitoring"></a>Configuración de la supervisión de MIB del protocolo simple de administración de redes
 
@@ -22,17 +22,19 @@ Antes de empezar a configurar la supervisión SNMP, debe abrir el puerto UDP 161
 
 | Consola de administración y sensor | OID | Formato | Descripción |
 |--|--|--|--|
-| Nombre del dispositivo | 1.3.6.1.2.1.1.5.0 | DISPLAYSTRING | Nombre del dispositivo de la consola de administración local |
-| Vendor | 1.3.6.1.2.1.1.4.0 | DISPLAYSTRING | Soporte técnico de Microsoft (support.microsoft.com) |
-| Plataforma | 1.3.6.1.2.1.1.1.0 | DISPLAYSTRING | Sensor o consola de administración local |
-| Número de serie | 1.3.6.1.4.1.9.9.53313.1 | DISPLAYSTRING | Cadena que la licencia usa |
-| Versión del software | 1.3.6.1.4.1.9.9.53313.2 | DISPLAYSTRING | Cadena de versión completa de Xsense y cadena de versión completa de administración |
-| Uso de CPU | 1.3.6.1.4.1.9.9.53313.3.1 | GAUGE32 | Indicación de 0 a 100 |
-| Temperatura de la CPU | 1.3.6.1.4.1.9.9.53313.3.2 | DISPLAYSTRING | Indicación Celsius de 0 a 100 basada en la entrada de Linux |
-| Uso de la memoria | 1.3.6.1.4.1.9.9.53313.3.3 | GAUGE32 | Indicación de 0 a 100 |
-| Uso de disco | 1.3.6.1.4.1.9.9.53313.3.4 | GAUGE32 | Indicación de 0 a 100 |
-| Estado del servicio | 1.3.6.1.4.1.9.9.53313.5 | DISPLAYSTRING | En línea o sin conexión si uno de los cuatro componentes esenciales está fuera de servicio |
-| Ancho de banda | Fuera de ámbito para 2.4 |  | El ancho de banda recibido en cada interfaz de supervisión en Xsense |
+| Nombre del dispositivo | 1.3.6.1.2.1.1.5.0 | STRING | Nombre del dispositivo de la consola de administración local |
+| Vendor | 1.3.6.1.2.1.1.4.0 | STRING | Soporte técnico de Microsoft (support.microsoft.com) |
+| Plataforma | 1.3.6.1.2.1.1.1.0 | STRING | Sensor o consola de administración local |
+| Número de serie | 1.3.6.1.4.1.53313.1 |STRING | Cadena que la licencia usa |
+| Versión del software | 1.3.6.1.4.1.53313.2 | STRING | Cadena de versión completa de Xsense y cadena de versión completa de administración |
+| Uso de CPU | 1.3.6.1.4.1.53313.3.1 | GAUGE32 | Indicación de 0 a 100 |
+| Temperatura de la CPU | 1.3.6.1.4.1.53313.3.2 | STRING | Indicación Celsius de 0 a 100 basada en la entrada de Linux. Se devolverá el mensaje "No se encontraron sensores" desde cualquier máquina que no tenga ningún sensor de temperatura física real (por ejemplo, máquinas virtuales).|
+| Uso de la memoria | 1.3.6.1.4.1.53313.3.3 | GAUGE32 | Indicación de 0 a 100 |
+| Uso de disco | 1.3.6.1.4.1.53313.3.4 | GAUGE32 | Indicación de 0 a 100 |
+| Estado del servicio | 1.3.6.1.4.1.53313.5  |STRING | En línea o sin conexión si uno de los cuatro componentes esenciales está fuera de servicio |
+| Estado del servicio | 1.3.6.1.4.1.53313.5  |STRING | En línea o sin conexión si uno de los cuatro componentes esenciales está fuera de servicio |
+| Conexión local o en la nube | 1.3.6.1.4.1.53313.6   |STRING | Indica si el sensor está conectado al portal de Defender para IoT o si se administra solo en el entorno local |
+| Estado de licencia | 1.3.6.1.4.1.53313.5  |STRING | Indica si el archivo de activación ha expirado o no |
 
    - Las claves no existentes responden con NULL, HTTP 200, basándose en [Stack Overflow](https://stackoverflow.com/questions/51419026/querying-for-non-existing-record-returns-null-with-http-200).
     

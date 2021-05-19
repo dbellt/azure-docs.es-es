@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 2188aaea0cf5a4616291d3fdad839aefb2dbc413
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 85aad5435add7ca32de4cf6fcb91944431ab5506
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280707"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685178"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Administración y búsqueda de datos de Azure Blob con etiquetas de índice de blobs (versión preliminar)
 
@@ -114,6 +114,7 @@ Los criterios siguientes se aplican al filtrado de índices de blobs:
 - Los filtros se aplican con la ordenación lexicográfica a las cadenas.
 - Las operaciones de intervalo del mismo lado en la misma clave no son válidas (por ejemplo, `"Rank" > '10' AND "Rank" >= '15'`).
 - Al usar REST para crear una expresión de filtro, los caracteres deben estar codificados por URI.
+- Las consultas de etiquetas están optimizadas para las coincidencias de igualdad de una sola etiqueta (por ejemplo, StoreID = "100").  Las consultas de intervalo que usan una sola etiqueta que incluye >, >=, <, <= también son eficaces. Cualquier consulta que use AND con más de una etiqueta no será tan eficaz.  Por ejemplo, Cost > "01" AND Cost <= "100" es eficaz. Cost > "01 AND StoreID = "2" no es tan eficaz.
 
 En la tabla siguiente se muestran todos los operadores válidos para `Find Blobs by Tags`:
 
@@ -281,7 +282,7 @@ En la tabla siguiente se resumen las diferencias entre los metadatos y las etiqu
 
 ## <a name="pricing"></a>Precios
 
-Los precios del índice de blobs se encuentran en versión preliminar pública y están sujetos a cambios para disponibilidad general. Se le cobrará por el número promedio mensual de etiquetas de índice en una cuenta de almacenamiento. El motor de indexación no tiene ningún costo. Las solicitudes a `Set Blob Tags`, `Get Blob Tags` y `Find Blobs by Tags` se cobran según sus tipos de operación correspondientes. Para obtener más información, consulte [Precios de los blobs en bloques](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Los precios del índice de blobs se encuentran en versión preliminar pública y están sujetos a cambios para disponibilidad general. Se le cobrará por el número promedio mensual de etiquetas de índice en una cuenta de almacenamiento. El motor de indexación no tiene ningún costo. Las solicitudes para establecer etiquetas de blog, obtenerlas o buscarlas se cobran según las tarifas de transacción correspondientes actuales. Tenga en cuenta que el número de transacciones de lista consumidas al realizar una transacción para buscar blobs por etiqueta es igual al número de cláusulas de la solicitud. Por ejemplo, la consulta (StoreID = 100) es una transacción de lista.  La consulta (StoreID = 100 AND SKU = 10010) son dos transacciones de lista. Para obtener más información, consulte [Precios de los blobs en bloques](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="regional-availability-and-storage-account-support"></a>Disponibilidad región y compatibilidad para cuentas de almacenamiento
 

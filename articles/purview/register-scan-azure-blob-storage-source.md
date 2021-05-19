@@ -6,13 +6,13 @@ ms.author: sandeepshah
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/25/2020
-ms.openlocfilehash: b27b46c68d018d2ddf79d284b20cc05b51640891
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/08/2021
+ms.openlocfilehash: 9ae996d344604ebdaf4e166f6c0536eb6acb169b
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880648"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656618"
 ---
 # <a name="register-and-scan-azure-blob-storage"></a>Registro y examen de Azure Blob Storage
 
@@ -120,9 +120,9 @@ En la pantalla **Registrar orígenes (Azure Blob Storage)** , haga lo siguiente:
 
 1. Escriba un **nombre** con el que se mostrará el origen de datos en el catálogo. 
 1. Elija la suscripción para filtrar las cuentas de almacenamiento.
-1. Seleccione una cuenta de almacenamiento
+1. Seleccione una cuenta de almacenamiento.
 1. Seleccione una colección o cree una nueva (opcional).
-1. **Finalice** el proceso para registrar el origen de datos.
+1. Seleccione **Registrar** para registrar el origen de datos.
 
 :::image type="content" source="media/register-scan-azure-blob-storage-source/register-sources.png" alt-text="Opciones de registro de orígenes" border="true":::
 

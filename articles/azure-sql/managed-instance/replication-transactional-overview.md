@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
-ms.date: 04/20/2020
-ms.openlocfilehash: e08fe67dece02b936aa3a22e9cac58d809f19f46
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.date: 05/10/2020
+ms.openlocfilehash: 23c9650a4bb53257e369e87e7a03681f94ed9cae
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285690"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684332"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replicación transaccional con Azure SQL Managed Instance (versión preliminar)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -152,8 +152,6 @@ En esta configuración, una base de datos de Azure SQL Database o Instancia admi
 
 ## <a name="with-failover-groups"></a>Con grupos de conmutación por error
 
-La [replicación geográfica activa](../database/active-geo-replication-overview.md) no es compatible con una instancia administrada de SQL con replicación transaccional. En lugar de replicación geográfica activa, use [grupos de conmutación por error automática](../database/auto-failover-group-overview.md), pero tenga en cuenta que la publicación se debe [eliminar manualmente](transact-sql-tsql-differences-sql-server.md#replication) de la instancia administrada principal y volver a crearse en la instancia administrada de SQL secundaria después de la conmutación por error.
-
 Si una instancia de SQL Managed Instance que es **publicador** o **distribuidor** se encuentra en un [grupo de conmutación por error](../database/auto-failover-group-overview.md), el administrador de SQL Managed Instance debe limpiar todas las publicaciones en la instancia principal anterior y volver a configurarlas en la nueva instancia principal después de una conmutación por error. En este escenario, debe llevar a cabo las siguientes acciones:
 
 1. Detenga todos los trabajos de replicación que se ejecutan en la base de datos, si hay alguno.
@@ -184,7 +182,7 @@ Si una instancia de SQL Managed Instance que es **publicador** o **distribuidor*
    EXEC sp_dropdistributor 1,1
    ```
 
-Si la replicación geográfica está habilitada en una instancia de **suscriptor** de un grupo de conmutación por error, la publicación debe configurarse para conectarse al punto de conexión del cliente de escucha del grupo de conmutación por error para la instancia administrada del suscriptor. En el caso de una conmutación por error, la acción posterior por parte del administrador de instancia administrada depende del tipo de conmutación por error que se produjo:
+Si un **suscriptor** de SQL Managed Instance se encuentra en un grupo de conmutación por error, la publicación debe configurarse para conectarse al punto de conexión del cliente de escucha del grupo de conmutación por error para la instancia administrada del suscriptor. En el caso de una conmutación por error, la acción posterior por parte del administrador de instancia administrada depende del tipo de conmutación por error que se produjo:
 
 - Para una conmutación por error sin pérdida de datos, la replicación seguirá funcionando después de la conmutación por error.
 - En el caso de una conmutación por error con pérdida de datos, la replicación también funcionará. Se replicarán de nuevo los cambios perdidos.

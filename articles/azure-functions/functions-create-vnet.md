@@ -3,25 +3,25 @@ title: Uso de puntos de conexión privados para integrar Azure Functions con una
 description: En este tutorial se explica cómo conectar una función a una red virtual de Azure y cómo bloquearla con puntos de conexión privados.
 ms.topic: article
 ms.date: 2/22/2021
-ms.openlocfilehash: e1ed944250f05f52860c47f6cb61130f50b08e7c
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 0f18712e9881c60754d5729751609f6458104daf
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078781"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715491"
 ---
 # <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>Tutorial: Integración de Azure Functions con una red virtual de Azure mediante puntos de conexión privados
 
-En este tutorial se explica cómo se utiliza Azure Functions para conectarse a recursos de una red virtual de Azure mediante puntos de conexión privados. Creará una función mediante una cuenta de almacenamiento que está bloqueada tras una red virtual. La red virtual usa un desencadenador de cola del bus de servicio.
+En este tutorial se explica cómo se utiliza Azure Functions para conectarse a recursos de una red virtual de Azure mediante puntos de conexión privados. Creará una función mediante una cuenta de almacenamiento que está bloqueada tras una red virtual. La red virtual usa un desencadenador de cola de Service Bus.
 
 En este tutorial, hará lo siguiente:
 
 > [!div class="checklist"]
 > * Crear una aplicación de funciones en el plan Premium.
-> * Crear recursos de Azure, como bus de servicio, cuenta de almacenamiento y red virtual.
+> * Crear recursos de Azure, como la instancia de Service Bus, la cuenta de almacenamiento y la red virtual.
 > * Bloquear la cuenta de almacenamiento tras un punto de conexión privado.
-> * Bloquear el bus de servicio tras un punto de conexión privado.
-> * Implementar una aplicación de funciones que utiliza desencadenadores HTTP y bus de servicio.
+> * Bloquear la instancia de Service Bus tras un punto de conexión privado.
+> * Implementar una aplicación de funciones que usa desencadenadores HTTP y de Service Bus.
 > * Bloquear la aplicación de funciones tras un punto de conexión privado.
 > * Probar para comprobar si la aplicación de funciones está protegida dentro de la red virtual.
 > * Limpieza de recursos.
@@ -71,7 +71,7 @@ Creará una aplicación de funciones para .NET en el plan Premium, porque en est
 
 ## <a name="create-azure-resources"></a>Creación de recursos de Azure
 
-A continuación, creará una cuenta de almacenamiento, un bus de servicio y una red virtual. 
+A continuación, creará una cuenta de almacenamiento, una instancia de Service Bus y una red virtual. 
 ### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
 Las redes virtuales necesitarán una cuenta de almacenamiento independiente de la que creó con la aplicación de funciones.
@@ -95,16 +95,16 @@ Las redes virtuales necesitarán una cuenta de almacenamiento independiente de l
 
 1. En el menú de Azure Portal o la página **Inicio**, seleccione **Crear un recurso**.
 
-1. En la página **Nuevo**, busque *bus de servicio*. Seleccione **Crear**.
+1. En la página **Nuevo**, busque *Service Bus*. Seleccione **Crear**.
 
-1. En la pestaña **Aspectos básicos**, use la tabla siguiente para configurar las opciones del bus de servicio. Todas las demás opciones de configuración pueden usar los valores predeterminados.
+1. En la pestaña **Aspectos básicos**, use la tabla siguiente para configurar las opciones de Service Bus. Todas las demás opciones de configuración pueden usar los valores predeterminados.
 
     | Configuración      | Valor sugerido  | Descripción      |
     | ------------ | ---------------- | ---------------- |
     | **Suscripción** | Su suscripción | Suscripción en la que se han creado los recursos. |
     | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | El grupo de recursos que creó con la aplicación de funciones. |
-    | **Nombre** | myServiceBus| El nombre del bus de servicio al que se aplicará el punto de conexión privado. |
-    | **[Región](https://azure.microsoft.com/regions/)** | myFunctionRegion | La región en la que creó la aplicación de funciones. |
+    | **Nombre del espacio de nombres** | myServiceBus| Nombre de la instancia de Service Bus al que se aplicará el punto de conexión privado. |
+    | **[Ubicación](https://azure.microsoft.com/regions/)** | myFunctionRegion | La región en la que creó la aplicación de funciones. |
     | **Plan de tarifa** | Premium | Elija este nivel para usar puntos de conexión privados con Azure Service Bus. |
 
 1. Seleccione **Revisar + crear**. Una vez que se complete la validación, seleccione **Crear**.
@@ -129,7 +129,7 @@ Cree la red virtual con la que se integra la aplicación de funciones:
     | ------------ | ---------------- | ---------------- |
     | **Suscripción** | Su suscripción | Suscripción en la que se han creado los recursos. | 
     | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | El grupo de recursos que creó con la aplicación de funciones. |
-    | **Nombre** | myVirtualNet| El nombre de la red virtual a la que se conectará la aplicación de funciones. |
+    | **Nombre** | myVirtualNet| Nombre de la red virtual a la que se conectará la aplicación de funciones. |
     | **[Región](https://azure.microsoft.com/regions/)** | myFunctionRegion | La región en la que creó la aplicación de funciones. |
 
 1. En la pestaña **Direcciones IP**, seleccione **Agregar subred**. Use la tabla siguiente para configurar las opciones de subred.
@@ -138,7 +138,7 @@ Cree la red virtual con la que se integra la aplicación de funciones:
 
     | Configuración      | Valor sugerido  | Descripción      |
     | ------------ | ---------------- | ---------------- |
-    | **Nombre de subred** | functions | El nombre de la subred a la que se conectará la aplicación de funciones. | 
+    | **Nombre de subred** | functions | Nombre de la subred a la que se conectará la aplicación de funciones. | 
     | **Intervalo de direcciones de subred** | 10.0.1.0/24 | El intervalo de direcciones de subred. En la imagen anterior, observe que el espacio de direcciones IPv4 es 10.0.0.0/16. Si el valor fuese 10.1.0.0/16, el intervalo de direcciones de subred recomendado sería 10.1.1.0/24. |
 
 1. Seleccione **Revisar + crear**. Una vez que se complete la validación, seleccione **Crear**.
@@ -183,18 +183,22 @@ Cree los puntos de conexión privados para Azure File Storage y Azure Blob Sto
     | ------------ | ---------------- | ---------------- |
     | **Suscripción** | Su suscripción | Suscripción en la que se han creado los recursos. | 
     | **Tipo de recurso**  | Microsoft.Storage/storageAccounts | El tipo de recurso de las cuentas de almacenamiento. |
+    | **Nombre** | blob-endpoint | Nombre del punto de conexión privado para los blobs de la cuenta de almacenamiento. |
     | **Recurso** | mysecurestorage | La cuenta de almacenamiento que creó. |
     | **Recurso secundario de destino** | blob | El punto de conexión privado se usará para los blobs de la cuenta de almacenamiento. |
+1. Una vez creados los puntos de conexión privados, vuelva a la sección **Firewalls y redes virtuales** de la cuenta de almacenamiento.  
+1. Asegúrese de que esté seleccionada la opción **Redes seleccionadas**.  No es necesario agregar una red virtual existente.
 
-## <a name="lock-down-your-service-bus"></a>Bloqueo del bus de servicio
+Los recursos de la red virtual ahora pueden comunicarse con la cuenta de almacenamiento mediante el punto de conexión privado.
+## <a name="lock-down-your-service-bus"></a>Bloqueo de Service Bus
 
-Cree el punto de conexión privado para bloquear el bus de servicio:
+Cree el punto de conexión privado para bloquear la instancia de Service Bus:
 
-1. En el menú de la izquierda del bus de servicio nuevo, seleccione **Redes**.
+1. En el menú de la izquierda de la instancia de Service Bus nueva, seleccione **Redes**.
 
 1. En la pestaña **Conexiones de puntos de conexión privados**, seleccione **Punto de conexión privado**.
 
-    :::image type="content" source="./media/functions-create-vnet/3-navigate-private-endpoint-service-bus.png" alt-text="Captura de pantalla de cómo ir a los puntos de conexión privados para el bus de servicio.":::
+    :::image type="content" source="./media/functions-create-vnet/3-navigate-private-endpoint-service-bus.png" alt-text="Captura de pantalla de cómo ir a los puntos de conexión privados para la instancia de Service Bus.":::
 
 1. En la pestaña **Aspectos básicos**, use la configuración de punto de conexión privado que se muestra en la tabla siguiente.
 
@@ -210,15 +214,32 @@ Cree el punto de conexión privado para bloquear el bus de servicio:
     | Configuración      | Valor sugerido  | Descripción      |
     | ------------ | ---------------- | ---------------- |
     | **Suscripción** | Su suscripción | Suscripción en la que se han creado los recursos. | 
-    | **Tipo de recurso**  | Microsoft.ServiceBus/namespaces | El tipo de recurso del bus de servicio. |
-    | **Recurso** | myServiceBus | El bus de servicio que creó anteriormente en el tutorial. |
-    | **Subrecurso de destino** | namespace | El punto de conexión privado que se usará para el espacio de nombres del bus de servicio. |
+    | **Tipo de recurso**  | Microsoft.ServiceBus/namespaces | Tipo de recurso de la instancia de Service Bus. |
+    | **Recurso** | myServiceBus | El bus de servicio que ha creado anteriormente en el tutorial. |
+    | **Subrecurso de destino** | namespace | Punto de conexión privado que se usará para el espacio de nombres de la instancia de Service Bus. |
 
 1. En la pestaña **Configuración**, en **Subred**, elija **Valor predeterminado**.
 
 1. Seleccione **Revisar + crear**. Una vez que se complete la validación, seleccione **Crear**. 
+1. Una vez creado el punto de conexión privado, vuelva a la sección **Firewalls y redes virtuales** del espacio de nombres de Service Bus.
+1. Asegúrese de que esté seleccionada la opción **Redes seleccionadas**.
+1. Seleccione **+ Agregar red virtual existente** para agregar la red virtual creada recientemente.
+1. En la pestaña **Agregar redes**, use la configuración de red de la tabla siguiente:
 
-Los recursos de la red virtual ahora pueden comunicarse con el bus de servicio.
+    | Configuración | Valor sugerido | Descripción|
+    |---------|-----------------|------------|
+    | **Suscripción** | Su suscripción | Suscripción en la que se han creado los recursos. |
+    | **Redes virtuales** | myVirtualNet | Nombre de la red virtual a la que se conectará la aplicación de funciones. |
+    | **Subredes** | functions | Nombre de la subred a la que se conectará la aplicación de funciones. |
+
+1. Seleccione **Agregar la dirección IP del cliente** para dar acceso a esa IP de cliente actual al espacio de nombres.
+    > [!NOTE]
+    > Es necesario habilitar la dirección IP del cliente para permitir que Azure Portal [publique mensajes en la cola más adelante en este tutorial](#test-your-locked-down-function-app).
+1. Seleccione **Habilitar** para habilitar el punto de conexión de servicio.
+1. Seleccione **Agregar** para agregar la red virtual y la subred seleccionadas a las reglas de firewall para la instancia de Service Bus.
+1. Seleccione **Guardar** para almacenar las reglas de firewall actualizadas.
+
+Los recursos de la red virtual ahora pueden comunicarse con la instancia de Service Bus mediante el punto de conexión privado.
 
 ## <a name="create-a-file-share"></a>Creación de un recurso compartido de archivos
 
@@ -240,23 +261,23 @@ Los recursos de la red virtual ahora pueden comunicarse con el bus de servicio.
 
 ## <a name="create-a-queue"></a>Creación de una cola
 
-Cree la cola en la que el desencadenador del bus de servicio de Azure Functions obtendrá eventos:
+Cree la cola en la que el desencadenador de Azure Functions Service Bus obtendrá los eventos:
 
-1. En el menú de la izquierda del bus de servicio, seleccione **Colas**.
+1. En el menú de la izquierda de la instancia de Service Bus, seleccione **Colas**.
 
-1. Seleccione **Directivas de acceso compartido**. Para los fines de este tutorial, asigne el nombre *queue* a la lista.
+1. Seleccione **Cola**. Para los fines de este tutorial, especifique *queue* como nombre de la nueva cola.
 
-    :::image type="content" source="./media/functions-create-vnet/6-create-queue.png" alt-text="Captura de pantalla sobre cómo crear una cola de bus de servicio.":::
+    :::image type="content" source="./media/functions-create-vnet/6-create-queue.png" alt-text="Captura de pantalla sobre cómo crear una cola de Service Bus.":::
 
 1. Seleccione **Crear**.
 
-## <a name="get-a-service-bus-connection-string"></a>Obtención de la cadena de conexión de un bus de servicio
+## <a name="get-a-service-bus-connection-string"></a>Obtención de la cadena de conexión de Service Bus
 
-1. En el menú de la izquierda del bus de servicio, seleccione **Directivas de acceso compartido**.
+1. En el menú de la izquierda de Service Bus, seleccione **Directivas de acceso compartido**.
 
 1. Seleccione **RootManageSharedAccessKey**. Copie la **Cadena de conexión principal** y guárdela. Necesitará esta cadena de conexión cuando configure los valores de la aplicación.
 
-    :::image type="content" source="./media/functions-create-vnet/7-get-service-bus-connection-string.png" alt-text="Captura de pantalla sobre cómo obtener la cadena de conexión de un bus de servicio.":::
+    :::image type="content" source="./media/functions-create-vnet/7-get-service-bus-connection-string.png" alt-text="Captura de pantalla sobre cómo obtener la cadena de conexión de Service Bus.":::
 
 ## <a name="integrate-the-function-app"></a>Integración de la aplicación de funciones
 
@@ -272,7 +293,7 @@ Para usar la aplicación de funciones con redes virtuales, debe unirla a una sub
 
 1. En **Red virtual**, seleccione la red virtual que creó anteriormente.
 
-1. Seleccione la subred de **funciones** que creó anteriormente. Ahora la aplicación de funciones está integrada con la red virtual.
+1. Seleccione la subred de **funciones** que creó anteriormente. Seleccione **Aceptar**.  Ahora la aplicación de funciones está integrada con la red virtual.
 
     :::image type="content" source="./media/functions-create-vnet/9-connect-app-subnet.png" alt-text="Captura de pantalla sobre cómo conectar una aplicación de funciones a una subred.":::
 
@@ -289,7 +310,7 @@ Para usar la aplicación de funciones con redes virtuales, debe unirla a una sub
     | **AzureWebJobsStorage** | mysecurestorageConnectionString | La cadena de conexión de la cuenta de almacenamiento que ha creado. Esta cadena de conexión de almacenamiento proviene de la sección [Obtención de la cadena de conexión de la cuenta de almacenamiento](#get-the-storage-account-connection-string). Esta configuración permite que la aplicación de funciones utilice la cuenta de almacenamiento segura para las operaciones habituales en tiempo de ejecución. | 
     | **WEBSITE_CONTENTAZUREFILECONNECTIONSTRING**  | mysecurestorageConnectionString | La cadena de conexión de la cuenta de almacenamiento que ha creado. Esta configuración permite que la aplicación de funciones utilice la cuenta de almacenamiento segura para Azure Files, que se usa durante la implementación. |
     | **WEBSITE_CONTENTSHARE** | archivos | El nombre del recurso compartido de archivos creado en la cuenta de almacenamiento. Use esta configuración con WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. |
-    | **SERVICEBUS_CONNECTION** | myServiceBusConnectionString | Cree una configuración de aplicación para la cadena de conexión del bus de servicio. Esta cadena de conexión de almacenamiento proviene de la sección [Obtención de la cadena de conexión de un bus de servicio](#get-a-service-bus-connection-string).|
+    | **SERVICEBUS_CONNECTION** | myServiceBusConnectionString | Cree una configuración de aplicación para la cadena de conexión de la instancia de Service Bus. Esta cadena de conexión de almacenamiento proviene de la sección [Obtención de la cadena de conexión de Service Bus](#get-a-service-bus-connection-string).|
     | **WEBSITE_CONTENTOVERVNET** | 1 | Cree esta configuración de aplicación. Un valor de 1 permite escalar la aplicación de funciones cuando la cuenta de almacenamiento está restringida a una red virtual. |
     | **WEBSITE_DNS_SERVER** | 168.63.129.16 | Cree esta configuración de aplicación. Cuando la aplicación se integre con una red virtual, usará el mismo servidor DNS que esta. La aplicación de funciones necesita esta configuración para poder trabajar con zonas privadas de Azure DNS. Se requiere cuando se utilizan puntos de conexión privados. Esta configuración y WEBSITE_VNET_ROUTE_ALL enviarán todas las llamadas salientes desde la aplicación a la red virtual. |
     | **WEBSITE_VNET_ROUTE_ALL** | 1 | Cree esta configuración de aplicación. Cuando la aplicación se integra con una red virtual, usa el mismo servidor DNS que esta. La aplicación de funciones necesita esta configuración para poder trabajar con zonas privadas de Azure DNS. Se requiere cuando se utilizan puntos de conexión privados. Esta configuración y WEBSITE_DNS_SERVER enviarán todas las llamadas salientes desde la aplicación a la red virtual. |
@@ -300,9 +321,9 @@ Para usar la aplicación de funciones con redes virtuales, debe unirla a una sub
 
     :::image type="content" source="./media/functions-create-vnet/11-enable-runtime-scaling.png" alt-text="Captura de pantalla sobre cómo habilitar el escalado controlado por el entorno de ejecución para Azure Functions.":::
 
-## <a name="deploy-a-service-bus-trigger-and-http-trigger"></a>Implementación de un desencadenador de bus de servicio y un desencadenador HTTP
+## <a name="deploy-a-service-bus-trigger-and-http-trigger"></a>Implementación de un desencadenador de Service Bus y un desencadenador HTTP
 
-1. En GitHub, vaya al repositorio de ejemplo siguiente. Contiene una aplicación de funciones y dos funciones, un desencadenador HTTP y un desencadenador de cola de bus de servicio.
+1. En GitHub, vaya al repositorio de ejemplo siguiente. Contiene una aplicación de funciones y dos funciones, un desencadenador HTTP y un desencadenador de cola de Service Bus.
 
     <https://github.com/Azure-Samples/functions-vnet-tutorial>
 
@@ -316,9 +337,10 @@ Para usar la aplicación de funciones con redes virtuales, debe unirla a una sub
     | ------------ | ---------------- | ---------------- |
     | **Origen** | GitHub | Debe haber creado un repositorio de GitHub para el código de ejemplo del paso 2. | 
     | **Organización**  | myOrganization | La organización en la que está insertado el repositorio. Por lo general, se trata de su cuenta. |
-    | **Repositorio** | myRepo | El repositorio que creó para el código de ejemplo. |
+    | **Repositorio** | functions-vnet-tutorial | Repositorio bifurcado desde https://github.com/Azure-Samples/functions-vnet-tutorial. |
     | **Rama** | main (principal) | La rama principal del repositorio que creó. |
     | **Pila en tiempo de ejecución** | .NET | El código de ejemplo está en C#. |
+    | **Versión** | .NET Core 3.1 | Versión del entorno de ejecución. |
 
 1. Seleccione **Guardar**. 
 
@@ -326,7 +348,7 @@ Para usar la aplicación de funciones con redes virtuales, debe unirla a una sub
 
 1. La implementación inicial debería tardar unos minutos. Cuando la aplicación se implementa correctamente, en la pestaña **Registros**, verá un mensaje de estado **correcto (activo)** . Si es necesario, actualice la página.
 
-Felicidades. Implementó correctamente la aplicación de funciones de ejemplo.
+¡Enhorabuena! Implementó correctamente la aplicación de funciones de ejemplo.
 
 ## <a name="lock-down-your-function-app"></a>Bloqueo de la aplicación de funciones
 
@@ -348,7 +370,7 @@ Para más información, consulte la [documentación sobre los puntos de conexió
 
 1. Seleccione **Aceptar** para agregar el punto de conexión privado. 
  
-Felicidades. Protegió correctamente la aplicación de funciones, el bus de servicio y la cuenta de almacenamiento al agregar puntos de conexión privados.
+¡Enhorabuena! Protegió correctamente la aplicación de funciones, la instancia de Service Bus y la cuenta de almacenamiento al agregar puntos de conexión privados.
 
 ### <a name="test-your-locked-down-function-app"></a>Prueba de la aplicación de funciones bloqueada
 
@@ -368,7 +390,7 @@ A continuación, se muestra una forma alternativa de supervisar la función medi
 
 1. En el menú de la izquierda, seleccione **Métricas activas**.
 
-1. Abra una nueva pestaña. En el menú de la izquierda del bus de servicio, seleccione **Colas**.
+1. Abra una nueva pestaña. En el menú de la izquierda de Service Bus, seleccione **Colas**.
 
 1. Seleccione la cola.
 
@@ -376,13 +398,13 @@ A continuación, se muestra una forma alternativa de supervisar la función medi
 
 1. Seleccione **Enviar** para enviar el mensaje.
 
-    :::image type="content" source="./media/functions-create-vnet/17-send-service-bus-message.png" alt-text="Captura de pantalla sobre cómo enviar mensajes de bus de servicio mediante el portal.":::
+    :::image type="content" source="./media/functions-create-vnet/17-send-service-bus-message.png" alt-text="Captura de pantalla sobre cómo enviar mensajes de Service Bus mediante el portal.":::
 
-1. En la pestaña **Live Metrics**, debería ver que se activó el desencadenador de la cola de bus de servicio. Si no es así, vuelva a enviar el mensaje desde **Service Bus Explorer**.
+1. En la pestaña **Live Metrics**, debería ver que se activó el desencadenador de la cola de Service Bus. Si no es así, vuelva a enviar el mensaje desde **Service Bus Explorer**.
 
     :::image type="content" source="./media/functions-create-vnet/18-hello-world.png" alt-text="Captura de pantalla sobre cómo ver mensajes mediante Live Metrics para las aplicaciones de funciones.":::
 
-Felicidades. Probó correctamente la configuración de la aplicación de funciones con puntos de conexión privados.
+¡Enhorabuena! Probó correctamente la configuración de la aplicación de funciones con puntos de conexión privados.
 
 ## <a name="understand-private-dns-zones"></a>Descripción de las zonas DNS privadas
 Usó un punto de conexión privado para conectarse a los recursos de Azure. Está estableciendo una conexión a una dirección IP privada en lugar del punto de conexión público. Los servicios de Azure existentes están configurados para usar un DNS existente para conectarse al punto de conexión público. Debe reemplazar la configuración de DNS para conectarse al punto de conexión privado.
@@ -400,13 +422,11 @@ En este tutorial se han creado las siguientes zonas DNS:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, creó una aplicación de funciones, una cuenta de almacenamiento y un bus de servicio de nivel Premium. Protegió todos estos recurso tras puntos de conexión privados. 
+En este tutorial, creó una aplicación de funciones, una cuenta de almacenamiento y una instancia de Service Bus de nivel Premium. Protegió todos estos recurso tras puntos de conexión privados. 
 
-Si necesita más información sobre las caracterísitcas de red disponibles, use estos vínculos:
+Use los vínculos siguientes para obtener más información sobre las opciones de red y puntos de conexión privados de Azure Functions:
 
-> [!div class="nextstepaction"]
-> [Opciones de redes en Azure Functions](./functions-networking-options.md)
-
-
-> [!div class="nextstepaction"]
-> [Plan prémium de Azure Functions](./functions-premium-plan.md)
+- [Opciones de redes en Azure Functions](./functions-networking-options.md)
+- [Plan prémium de Azure Functions](./functions-premium-plan.md)
+- [Puntos de conexión privados de Service Bus](../service-bus-messaging/private-link-service.md)
+- [Puntos de conexión privados de Azure Storage](../storage/common/storage-private-endpoints.md)

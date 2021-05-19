@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1115c08214db19227b4b8d7be671ce4da1cf2b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f1a3a146b2622963fb20deeb2a8915eadb028ac3
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87798604"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109714411"
 ---
 # <a name="review-access-of-an-access-package-in-azure-ad-entitlement-management"></a>Revisión del acceso de un paquete de acceso de administración de derechos de Azure AD
 
@@ -31,8 +31,7 @@ La administración de derechos de Azure AD simplifica el modo en que las empres
 
 Para revisar las asignaciones de paquete de acceso activas de los usuarios, debe cumplir los requisitos previos para realizar una revisión de acceso:
 - Azure AD Premium P2
-- Administrador global
-- Administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso designados
+- Administrador global, Administrador de Identity Governance, Administrador de usuarios, Propietario del catálogo o Administrador de paquetes de acceso.
 
 Para obtener más información, consulte [Requisitos de licencia](entitlement-management-overview.md#license-requirements).
 
