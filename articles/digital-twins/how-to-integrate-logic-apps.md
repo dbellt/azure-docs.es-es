@@ -101,7 +101,7 @@ La instancia de Swagger personalizada para este tutorial se encuentra en la carp
 
 A continuación, diríjase a la página de información general del conector en [Azure Portal](https://portal.azure.com) y pulse *Editar* .
 
-:::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="Vista del portal de un registro de aplicaciones de Azure AD. Hay un resaltado alrededor de &quot;Certificados y secretos&quot; en el menú de recursos y un resaltado en la página alrededor de &quot;Nuevo secreto de cliente&quot;." para el color.
+:::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="Vista del portal de un registro de aplicaciones de Azure AD. Hay un resaltado alrededor de Certificados y secretos en el menú de recursos y un resaltado en la página alrededor de Nuevo secreto de cliente para el color.":::
     - Descripción: rellene los valores que desee.
     - Esquema: HTTPS (dejar el valor predeterminado)
     - Host: *nombre de host* de la instancia de Azure Digital Twins.
