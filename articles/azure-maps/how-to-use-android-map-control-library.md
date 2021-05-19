@@ -147,7 +147,7 @@ Android SDK de Azure Maps es compatible con la nube de Azure Government. Se acc
 
 En el mismo lugar donde se especifican los detalles de autenticación de Azure Maps, agregue la línea de código siguiente para indicar al mapa que use el dominio de nube del gobierno de Azure Maps.
 
-::: zone pivot=&quot;programming-language-java-android&quot;
+::: zone pivot="programming-language-java-android"
 
 ```java
 AzureMaps.setDomain(&quot;atlas.azure.us");
