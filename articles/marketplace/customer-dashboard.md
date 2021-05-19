@@ -80,7 +80,7 @@ En esta sección, encontrará la tendencia y el recuento de todos los clientes, 
 
 El gráfico **Clientes por pedidos o uso** tiene tres pestañas: Pedidos, Uso normalizado y Uso sin procesar. Seleccione la pestaña **Pedidos** para mostrar detalles de pedido.
 
-:::image type=&quot;content&quot; source=&quot;./media/customer-dashboard/customers-by-orders-usage.png&quot; alt-text=&quot;Muestra la pestaña Pedidos del widget Clientes por pedidos y uso en la página Clientes.&quot;:::
+:::image type="content" source="./media/customer-dashboard/customers-by-orders-usage.png" alt-text="Muestra la pestaña Pedidos del widget Clientes por pedidos y uso en la página Clientes.":::
 
 Tenga en cuenta lo siguiente:
 
