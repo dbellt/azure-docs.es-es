@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
-ms.openlocfilehash: 639efab3a9eaef400b3fbe3d0b134d02f458b865
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b0c8ff4e360fa0641c3e50420c2ce7085cd5f68
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94966299"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746912"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Instalar y configurar el adaptador de StorSimple para SharePoint
 ## <a name="overview"></a>Información general
@@ -37,7 +37,7 @@ El adaptador de StorSimple para SharePoint funciona como un proveedor de almacen
 El resto de esta introducción describe brevemente el rol del adaptador de StorSimple para SharePoint y los límites de capacidad y rendimiento de SharePoint que debe tenerse en cuenta antes de instalar y configurar el adaptador. Después de revisar esta información, vaya a [Instalación del adaptador de StorSimple para SharePoint](#storsimple-adapter-for-sharepoint-installation) para comenzar a configurar el adaptador.
 
 ### <a name="storsimple-adapter-for-sharepoint-benefits"></a>Beneficios del adaptador de StorSimple para SharePoint
-En un sitio de SharePoint, el contenido se almacena como datos BLOB no estructurados en una o más bases de datos de contenido. De forma predeterminada, estas bases de datos se hospedan en equipos que ejecutan SQL Server y se encuentran en la granja de servidores de SharePoint. Los BLOBs pueden aumentar rápidamente de tamaño, consumiendo grandes cantidades de almacenamiento local. Por este motivo, es posible que desee encontrar otra solución de almacenamiento más económica. SQL Server proporciona una tecnología denominada almacenamiento remoto de blobs (RBS) que le permite almacenar contenido BLOB en el sistema de archivos, fuera de la base de datos de SQL Server. Con RBS, los BLOBs pueden residir en el sistema de archivos del equipo que ejecuta SQL Server, o pueden almacenarse en el sistema de archivos de otro equipo del servidor.
+En un sitio de SharePoint, el contenido se almacena como datos BLOB no estructurados en una o más bases de datos de contenido. De manera predeterminada, estas bases de datos se hospedan en equipos que ejecutan SQL Server y se encuentran en la granja de servidores de SharePoint. Los BLOBs pueden aumentar rápidamente de tamaño, consumiendo grandes cantidades de almacenamiento local. Por este motivo, es posible que desee encontrar otra solución de almacenamiento más económica. SQL Server proporciona una tecnología denominada almacenamiento remoto de blobs (RBS) que le permite almacenar contenido BLOB en el sistema de archivos, fuera de la base de datos de SQL Server. Con RBS, los BLOBs pueden residir en el sistema de archivos del equipo que ejecuta SQL Server, o pueden almacenarse en el sistema de archivos de otro equipo del servidor.
 
 RBS requiere el uso de un proveedor RBS, como el adaptador de StorSimple para SharePoint, para habilitar RBS en SharePoint. El adaptador de StorSimple para SharePoint funciona con RBS, lo que le permite mover los BLOBs a un servidor con copia de seguridad en el sistema Microsoft Azure StorSimple. Microsoft Azure StorSimple luego almacena los datos de blob de manera local o en la nube, según el uso. Los BLOBs que son muy activos (normalmente conocidos como datos de capa 1 o datos activos) residen localmente. Los datos menos activos y los datos de archivo residen en la nube. Después de habilitar RBS en una base de datos de contenido, cualquier contenido BLOB nuevo creado en SharePoint se almacena en el dispositivo StorSimple y no en la base de datos de contenido.
 

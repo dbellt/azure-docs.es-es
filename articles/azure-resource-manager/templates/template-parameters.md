@@ -2,13 +2,13 @@
 title: Parámetros en plantillas
 description: Se describe cómo definir parámetros en una plantilla de Azure Resource Manager (plantilla de ARM) y un archivo de Bicep.
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.openlocfilehash: a8608e4733960d7f5ba7e5f548c47f16a2b244bb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 05/05/2021
+ms.openlocfilehash: c42a1a178785351bb1148c047737f62baebefa30
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102123401"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736872"
 ---
 # <a name="parameters-in-arm-templates"></a>Parámetros en plantillas de ARM
 
@@ -23,6 +23,8 @@ Cada parámetro debe establecerse en uno de los [tipos de datos](data-types.md).
 ## <a name="minimal-declaration"></a>Declaración mínima
 
 Como mínimo, cada parámetro necesita un nombre y un tipo. En Bicep, un parámetro no puede tener el mismo nombre que una variable, recurso, salida u otro parámetro en el mismo ámbito.
+
+Al implementar una plantilla mediante Azure Portal, los nombres de parámetro con mayúsculas y minúsculas Camel se convierten en nombres separados por espacios. Por ejemplo, *demoString* en el ejemplo siguiente se muestra como *cadena de demostración*. Para más información, consulte [Usar un botón de implementación para implementar plantillas desde el repositorio de GitHub](./deploy-to-azure-button.md) e [Implementación de recursos con plantillas de ARM y Azure Portal](./deploy-portal.md).
 
 # <a name="json"></a>[JSON](#tab/json)
 

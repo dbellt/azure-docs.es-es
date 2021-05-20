@@ -13,12 +13,12 @@ ms.reviewer: krbain
 ms.date: 03/29/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08f6e636be885fa2e647a61a6ca1a3d35281a9eb
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 0708548e1ece88cbf575301ee779fd5e5000dc5d
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108226595"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683521"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Revocación del acceso de usuario en Azure Active Directory
 
@@ -50,23 +50,24 @@ La mayoría de las aplicaciones basadas en explorador usan tokens de sesión en 
 
 - Las directivas de autorización de Azure AD se vuelven a evaluar con la frecuencia con la que la aplicación vuelve a enviar al usuario a Azure AD. Normalmente, la reevaluación se produce de forma silenciosa, aunque la frecuencia depende de cómo esté configurada la aplicación. Es posible que la aplicación nunca vuelva a enviar al usuario a Azure AD siempre y cuando el token de sesión sea válido.
 
-- Para poder revocar un token de sesión, la aplicación debe revocar el acceso en función de sus propias directivas de autorización. Azure AD no puede revocar directamente un token de sesión emitido por una aplicación.  
+- Para poder revocar un token de sesión, la aplicación debe revocar el acceso en función de sus propias directivas de autorización. Azure AD no puede revocar directamente un token de sesión emitido por una aplicación.  
 
 ## <a name="revoke-access-for-a-user-in-the-hybrid-environment"></a>Revocar el acceso de un usuario en el entorno híbrido
 
-Para un entorno híbrido con Active Directory local sincronizado con Azure Active Directory, Microsoft recomienda a los administradores de TI que realicen las siguientes acciones. Si tiene un **entorno solo de Azure AD**, puede omitir la sección [Entorno de Active Directory local](https://docs.microsoft.com/azure/active-directory/enterprise-users/users-revoke-access#on-premises-active-directory-environment).
+Para un entorno híbrido con Active Directory local sincronizado con Azure Active Directory, Microsoft recomienda a los administradores de TI que realicen las siguientes acciones. Si tiene un **entorno solo de Azure AD**, pase a la sección [Entorno de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/enterprise-users/users-revoke-access#azure-active-directory-environment).
+
 
 ### <a name="on-premises-active-directory-environment"></a>Entorno de Active Directory local
 
 Como administrador de Active Directory, conéctese a la red local, abra PowerShell y realice las siguientes acciones:
 
-1. Deshabilite al usuario en Active Directory. Consulte [Disable-ADAccount](/powershell/module/activedirectory/disable-adaccount?view=win10-ps).
+1. Deshabilite al usuario en Active Directory. Consulte [Disable-ADAccount](/powershell/module/activedirectory/disable-adaccount).
 
     ```PowerShell
     Disable-ADAccount -Identity johndoe  
     ```
 
-2. Restablezca la contraseña del usuario dos veces en Active Directory. Consulte [Set-ADAccountPassword](/powershell/module/activedirectory/set-adaccountpassword?view=win10-ps).
+2. Restablezca la contraseña del usuario dos veces en Active Directory. Consulte [Set-ADAccountPassword](/powershell/module/activedirectory/set-adaccountpassword).
 
     > [!NOTE]
     > La razón para cambiar la contraseña de un usuario dos veces es mitigar el riesgo de ataques Pass-the-hash, especialmente si hay retrasos en la replicación de contraseñas local. Si puede suponer con seguridad que esta cuenta no está en peligro, puede restablecer la contraseña solo una vez.
@@ -83,19 +84,19 @@ Como administrador de Active Directory, conéctese a la red local, abra PowerShe
 
 Como administrador de Azure Active Directory, abra PowerShell, ejecute ``Connect-AzureAD`` y realice las siguientes acciones:
 
-1. Deshabilite al usuario en Azure AD. Consulte [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
+1. Deshabilite al usuario en Azure AD. Consulte [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser).
 
     ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
     ```
 
-2. Revoque los tokens de actualización de Azure AD del usuario. Consulte [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
+2. Revoque los tokens de actualización de Azure AD del usuario. Consulte [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken).
 
     ```PowerShell
     Revoke-AzureADUserAllRefreshToken -ObjectId johndoe@contoso.com
     ```
 
-3. Deshabilite los dispositivos del usuario. Consulte [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
+3. Deshabilite los dispositivos del usuario. Consulte [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice).
 
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false
@@ -130,4 +131,4 @@ Una vez que los administradores han realizado los pasos anteriores, el usuario n
 
 - [Procedimientos de acceso seguro para administradores de Azure AD](../roles/security-planning.md)
 - [Agregar o actualizar la información del perfil de usuario](../fundamentals/active-directory-users-profile-azure-portal.md)
-- [Eliminación de un ex empleado](https://docs.microsoft.com/microsoft-365/admin/add-users/remove-former-employee?view=o365-worldwide)
+- [Eliminación de un ex empleado](/microsoft-365/admin/add-users/remove-former-employee)

@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e02df83d4b7874a1d158aae45f1619eb543e0aec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd215f0c10f8aebd2a7494ecb5894484ce7bedb9
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92362457"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109714051"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>¿Qué es Azure AD Identity Governance?
 
@@ -112,6 +112,9 @@ Se recomienda usar el rol con menos privilegios para realizar tareas administrat
 | Revisiones de acceso | Administrador de usuarios (con la excepción de las revisiones de acceso de Azure o los roles de Azure AD, que requiere el administrador de roles con privilegios) |
 |Privileged Identity Management | Administrador de roles con privilegios |
 | Términos de uso | Administrador de seguridad o Administrador de acceso condicional |
+
+>[!NOTE]
+>El rol con privilegios mínimos para la administración de derechos dejará de ser el rol Administrador de usuarios para ser el rol Administrador de gobernanza de identidades.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

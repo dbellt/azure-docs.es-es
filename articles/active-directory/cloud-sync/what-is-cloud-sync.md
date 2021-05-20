@@ -11,12 +11,12 @@ ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df178b49e3f9853bd8561794e7e6444e73630edd
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: f58eea2ecc994a0cb97cf8460029e4d87a5b7f74
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323685"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748932"
 ---
 # <a name="what-is-azure-ad-connect-cloud-sync"></a>¿Qué es la sincronización en la nube de Azure AD Connect?
 La sincronización en la nube de Azure AD Connect es una nueva oferta de Microsoft que se ha concebido para cumplir los objetivos de identidad híbrida con fines de sincronización de usuarios, grupos y contactos en Azure AD.  Para ello, se usa el agente de aprovisionamiento de Azure AD en la nube, en lugar de la aplicación Azure AD Connect.  No obstante, se puede usar junto con la sincronización de Azure AD Connect y ofrece las siguientes ventajas:
@@ -72,11 +72,12 @@ En la tabla siguiente se proporciona una comparación entre Azure AD Connect y 
 | Compatibilidad con la escritura diferida (contraseñas, dispositivos, grupos) |● | |
 | Compatibilidad con Azure AD Domain Services|● | |
 | [Reescritura híbrida de Exchange](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
+| Número ilimitado de objetos por dominio de AD |● | |
 | Compatibilidad con hasta 150 000 objetos por dominio de AD |● |● |
 | Grupos con un máximo de 50 000 miembros |● |● |
 | Grupos grandes con un máximo de 250 000 miembros |● |  |
 | Referencias entre dominios|● | |
-| Aprovisionamiento a petición| |● |
+| Aprovisionamiento a petición|● |● |
 
 ## <a name="next-steps"></a>Pasos siguientes 
 

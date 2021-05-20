@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: yluiu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 72fd005ce44d116f86d9a0b4c0d1932e2e4facfb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d5fc09bd554bc61f38a3b208de808a621cbfda80
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102425777"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748032"
 ---
 # <a name="specify-a-face-detection-model"></a>Especificación de un modelo de detección de caras
 
@@ -102,7 +102,7 @@ Los diferentes modelos de detección de caras están optimizados para llevar a c
 |---------|---------|---|
 |Opción predeterminada para todas las operaciones de detección de caras. | Publicado en mayo de 2019 y disponible de forma opcional en todas las operaciones de detección de caras. |  Publicado en febrero de 2021 y disponible de forma opcional en todas las operaciones de detección de caras.
 |No está optimizado para caras pequeñas, de perfil o borrosas.  | Precisión mejorada en caras pequeñas, de perfil o borrosas. | Mayor precisión, también en caras más pequeñas (64 x 64 píxeles) y orientaciones de caras giradas.
-|Devuelve los atributos principales de la cara (posición de la cabeza, edad, emociones, etc.) si se especifican en la llamada de detección. |  No devuelve atributos de la cara.     | Devuelve los atributos "faceMask" y "noseAndMouthCovered" si se especifican en la llamada de detección.
+|Devuelve los atributos principales de la cara (posición de la cabeza, edad, emociones, etc.) si se especifican en la llamada de detección. |  No devuelve atributos de la cara.     | Devuelve el atributo "mask" si se especifica en la llamada de detección.
 |Devuelve puntos de referencia de la cara si se especifican en la llamada de detección.   | No devuelve puntos de referencia de la cara.  | No devuelve puntos de referencia de la cara.
 
 La mejor manera de comparar el rendimiento de los modelos de detección es usarlos en un conjunto de datos de ejemplo. Se recomienda llamar a la API [Face - Detect] con cada modelo de detección en varias imágenes diferentes, sobre todo en imágenes con muchas caras o con caras difíciles de ver. Preste atención al número de caras que devuelve cada modelo.

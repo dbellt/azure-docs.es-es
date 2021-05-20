@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 540247752be27af268a0485ea9eb68d121a25240
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 33f25542e23704f69ccab2aafe8812c7efed21f7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104775312"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108749166"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>Conexión de una red virtual a instancias grandes de HANA
 
@@ -93,12 +93,12 @@ New-AzVirtualNetworkGatewayConnection -Name $myConnectionName `
 ```
 
 > [!NOTE]
-> El último parámetro del comando New-AzVirtualNetworkGatewayConnection, **ExpressRouteGatewayBypass**, es un nuevo parámetro que habilita ExpressRoute Fast Path. Se trata de una funcionalidad que reduce la latencia de red entre las unidades de instancias grandes de HANA y las máquinas virtuales de Azure. Esta funcionalidad se agregó en mayo de 2019. Para más información, consulte el artículo [Arquitectura de red de SAP HANA (instancias grandes)](./hana-network-architecture.md). Antes de ejecutar los comandos, asegúrese de que ejecuta la versión más reciente de los cmdlets de PowerShell.
+> El último parámetro del comando New-AzVirtualNetworkGatewayConnection, **ExpressRouteGatewayBypass**, es un nuevo parámetro que habilita ExpressRoute FastPath. Se trata de una funcionalidad que reduce la latencia de red entre las unidades de instancias grandes de HANA y las máquinas virtuales de Azure. Esta funcionalidad se agregó en mayo de 2019. Para más información, consulte el artículo [Arquitectura de red de SAP HANA (instancias grandes)](./hana-network-architecture.md). Antes de ejecutar los comandos, asegúrese de que ejecuta la versión más reciente de los cmdlets de PowerShell.
 
 Para conectar la puerta de enlace a más de un circuito de ExpressRoute asociado a la suscripción, puede que tenga que ejecutar este paso más de una vez. Por ejemplo, probablemente vaya a conectar la misma puerta de enlace de la red virtual al circuito de ExpressRoute que conecta la red virtual a la red local.
 
-## <a name="applying-expressroute-fast-path-to-existing-hana-large-instance-expressroute-circuits"></a>Aplicación de ExpressRoute Fast Path a circuitos de ExpressRoute de instancias grandes de HANA existentes
-Hasta ahora, se ha explicado en la documentación cómo conectar un nuevo circuito ExpressRoute que se creó con una implementación de instancia grande de HANA a una puerta de enlace de Azure ExpressRoute de una de las redes virtuales de Azure. Pero muchos clientes ya tienen configurados sus circuitos ExpressRoute y ya tienen conectadas sus redes virtuales a instancias grandes de HANA. Como la nueva característica ExpressRoute Fast Path reduce la latencia de red, se recomienda que aplique el cambio para usar esta funcionalidad. Los comandos para conectar un nuevo circuito ExpreesRoute y cambiar un circuito ExpressRoute existente son los mismos. Como resultado, es necesario ejecutar esta secuencia de comandos de PowerShell para cambiar un circuito existente. 
+## <a name="applying-expressroute-fastpath-to-existing-hana-large-instance-expressroute-circuits"></a>Aplicación de ExpressRoute FastPath a circuitos de ExpressRoute de instancias grandes de HANA existentes
+Hasta ahora, se ha explicado en la documentación cómo conectar un nuevo circuito ExpressRoute que se creó con una implementación de instancia grande de HANA a una puerta de enlace de Azure ExpressRoute de una de las redes virtuales de Azure. Pero muchos clientes ya tienen configurados sus circuitos ExpressRoute y ya tienen conectadas sus redes virtuales a instancias grandes de HANA. Como la nueva característica ExpressRoute FastPath reduce la latencia de red, se recomienda que aplique el cambio para usar esta funcionalidad. Los comandos para conectar un nuevo circuito ExpreesRoute y cambiar un circuito ExpressRoute existente son los mismos. Como resultado, es necesario ejecutar esta secuencia de comandos de PowerShell para cambiar un circuito existente. 
 
 ```powershell
 # Populate with information provided by Microsoft Onboarding team
@@ -121,7 +121,7 @@ New-AzVirtualNetworkGatewayConnection -Name $myConnectionName `
 -PeerId $PeerID -ConnectionType ExpressRoute -AuthorizationKey $AuthGUID -ExpressRouteGatewayBypass
 ```
 
-Para habilitar la funcionalidad ExpressRoute Fast Path, es importante agregar el último parámetro como se mostró anteriormente.
+Para habilitar la funcionalidad ExpressRoute FastPath, es importante agregar el último parámetro como se mostró anteriormente.
 
 
 ## <a name="expressroute-global-reach"></a>Global Reach de ExpressRoute

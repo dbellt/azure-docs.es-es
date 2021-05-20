@@ -1,196 +1,214 @@
 ---
 title: Conexión con el servidor IBM MQ
-description: Envío y recuperación de mensajes con un servidor de Azure o servidor IBM MQ local y Azure Logic Apps
+description: Conéctese a un servidor MQ local o en Azure desde un flujo de trabajo mediante Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: ChristopherHouser
 ms.author: chrishou
 ms.reviewer: valthom, estfan, logicappspm
 ms.topic: article
-ms.date: 03/10/2021
+ms.date: 04/26/2021
 tags: connectors
-ms.openlocfilehash: a07eb6e592c68794f0e4038a7cf9a42bd396b47a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 80ff8508caefd355f00a0407df0d9a65c76c999a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103495239"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742110"
 ---
-# <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Conectarse a un servidor IBM MQ desde Azure Logic Apps
+# <a name="connect-to-an-ibm-mq-server-from-a-workflow-in-azure-logic-apps"></a>Conexión a un servidor IBM MQ desde un flujo de trabajo en Azure Logic Apps
 
-El conector MQ envía y recupera mensajes almacenados en un servidor MQ local o en Azure. Este conector incluye un cliente de Microsoft MQ que se comunica con un servidor IBM MQ remoto a través de una red TCP/IP. En este artículo se proporciona una guía de inicio para usar el conector MQ. Puede empezar por examinar un único mensaje en una cola y luego intentar otras acciones.
+El conector de MQ le ayuda a conectar los flujos de trabajo de la aplicación lógica a un servidor IBM MQ en el entorno local o en Azure. A continuación, puede hacer que los flujos de trabajo reciban y envíen mensajes almacenados en el servidor MQ. En este artículo se proporciona una guía de introducción al uso del conector de MQ en la que se muestra cómo conectarse al servidor MQ y agregar una acción de MQ al flujo de trabajo. Por ejemplo, puede empezar por examinar un único mensaje en una cola y luego intentar otras acciones.
 
-El conector MQ incluye estas acciones, pero no proporciona ningún desencadenador:
+Este conector incluye un cliente de MQ de Microsoft que se comunica con un servidor IBM MQ remoto mediante una red TCP/IP. Puede conectarse a las siguientes versiones de IBM WebSphere MQ:
 
-- Examinar un único mensaje sin eliminarlo del servidor MQ.
-- Examinar un lote de mensajes sin eliminarlos del servidor MQ.
-- Recibir un único mensaje y eliminarlo del servidor MQ.
-- Recibir un lote de mensajes y eliminarlos del servidor MQ.
-- Enviar un único mensaje al servidor MQ.
+* MQ 7.5
+* MQ 8.0
+* MQ 9.0, 9.1 y 9.2
 
-Estas son las versiones oficialmente compatibles de IBM WebSphere MQ:
+<a name="available-operations"></a>
 
-  * MQ 7.5
-  * MQ 8.0
-  * MQ 9.0
-  * MQ 9.1
+## <a name="available-operations"></a>Operaciones disponibles
 
-## <a name="prerequisites"></a>Requisitos previos
+El conector de IBM MQ proporciona acciones, pero no desencadenadores.
 
-* Si usa un servidor MQ local, debe [instalar la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md) en un servidor de la red.
+* Azure Logic Apps multiinquilino: al crear un flujo de trabajo de una aplicación lógica basada en el consumo, puede conectarse a un servidor MQ mediante el conector de MQ *administrado*.
 
-  > [!NOTE]
-  > Si el servidor MQ está disponible públicamente o en Azure, no debe usar la puerta de enlace de datos.
+* Azure Logic Apps para un solo inquilino (versión preliminar): al crear un flujo de trabajo de aplicación lógica de la versión preliminar, puede conectarse a un servidor MQ mediante el conector de MQ administrado o las operaciones *integradas* de MQ (versión preliminar).
 
-  * Para que el conector MQ funcione, el servidor donde se instala la puerta de enlace de datos local también debe tener instalado .NET Framework 4.6.
-  
-  * Después de instalar la puerta de enlace de datos local, también debe [crear un recurso de puerta de enlace de Azure para la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-connection.md) que usa el conector MQ para tener acceso a su servidor MQ local.
+Para más información sobre la diferencia entre un conector administrado y las operaciones integradas, consulte [Términos clave de Logic Apps](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-* La aplicación lógica en la que desea usar el conector MQ. El conector de MQ no tiene ningún desencadenador, por lo que debe agregar primero un desencadenador a la aplicación lógica. Por ejemplo, puede usar el [desencadenador de periodicidad](../connectors/connectors-native-recurrence.md). Si no está familiarizado con el uso de aplicaciones lógicas, pruebe este [inicio rápido para crear su primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+#### <a name="managed"></a>[Administrado](#tab/managed)
+
+En la lista siguiente solo se describen algunas de las operaciones administradas disponibles para MQ:
+
+* Examinar un único mensaje o una matriz de mensajes sin eliminarlos del servidor MQ. Para varios mensajes, puede especificar el número máximo de mensajes que se devolverán por cada lote. De lo contrario, se devuelven todos los mensajes.
+* Eliminar un mensaje individual o una matriz de mensajes del servidor MQ.
+* Recibir un único mensaje o una matriz de mensajes y, a continuación, eliminarlos del servidor MQ.
+* Enviar un único mensaje al servidor MQ.
+
+Para obtener información sobre todas las operaciones del conector administrado y otra información técnica, como propiedades, límites, etc., consulte la [página de referencia del conector de MQ](/connectors/mq/).
+
+#### <a name="built-in-preview"></a>[Integrado (versión preliminar)](#tab/built-in)
+
+En la lista siguiente solo se describen algunas de las operaciones integradas disponibles para MQ:
+
+* Recibir un mensaje individual o una matriz de mensajes del servidor MQ. Para varios mensajes, puede especificar el número máximo de mensajes que se devolverán por cada lote y el tamaño máximo del lote en KB.
+* Enviar un mensaje individual o una matriz de mensajes al servidor MQ.
+
+Estas operaciones integradas de MQ también tienen las siguientes funcionalidades, además de las ventajas de todas las demás funcionalidades de las aplicaciones lógicas en el [servicio Logic Apps para inquilino único](../logic-apps/logic-apps-overview-preview.md):
+
+* Cifrado de los datos en tránsito mediante Seguridad de la capa de transporte (TLS)
+* Codificación de mensajes para las operaciones de envío y recepción
+* Compatibilidad con la integración de redes virtuales de Azure cuando la aplicación lógica usa el plan Premium de Azure Functions
+
+---
 
 ## <a name="limitations"></a>Limitaciones
 
-El conector MQ no admite ni usa el campo de **formato** del mensaje ni realiza ninguna conversión de juego de caracteres. El conector solo coloca los datos que aparecen en el campo de mensaje en un mensaje JSON y envía el mensaje.
+El conector de MQ no usa el campo de **formato** del mensaje ni realiza ninguna conversión de juegos de caracteres. El conector solo coloca los datos que aparecen en el campo de mensaje en un mensaje JSON y envía el mensaje.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* Una cuenta y una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+* Si usa un servidor MQ local, [instale la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md) en un servidor de la red. Para que el conector de MQ funcione, el servidor donde se instala la puerta de enlace de datos local también debe tener instalado .NET Framework 4.6.
+
+  Después de instalar la puerta de enlace, debe crear también un recurso de puerta de enlace de datos en Azure. El conector de MQ usa este recurso para acceder al servidor MQ. Para más información, consulte [Conexión a orígenes de datos locales desde Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md). 
+
+  > [!NOTE]
+  > No se necesita la puerta de enlace en los escenarios siguientes:
+  > 
+  > * Va a usar las operaciones integradas, no el conector administrado.
+  > * El servidor MQ está disponible públicamente o está disponible en Azure.
+
+* El flujo de trabajo de la aplicación lógica desde donde quiere acceder al servidor MQ. El recurso de aplicación lógica debe tener la misma ubicación que el recurso de puerta de enlace en Azure.
+
+  El conector de MQ no tiene desencadenadores, por lo que el flujo de trabajo ya debe comenzar con un desencadenador o primero debe agregar un desencadenador al flujo de trabajo. Por ejemplo, puede usar el [desencadenador de periodicidad](../connectors/connectors-native-recurrence.md).
+
+  Si no está familiarizado con Azure Logic Apps, pruebe este [inicio rápido para crear un flujo de trabajo de aplicación lógica de ejemplo](../logic-apps/quickstart-create-first-logic-app-workflow.md) que se ejecuta en el servicio Logic Apps multiinquilino.
 
 <a name="create-connection"></a>
 
-## <a name="create-mq-connection"></a>Creación de una conexión de MQ
+## <a name="create-an-mq-connection"></a>Creación de una conexión de MQ 
 
-Si aún no tiene ninguna conexión de MQ al agregar una acción de MQ, se le pedirá que la cree; por ejemplo:
+Cuando agregue una acción de MQ por primera vez, se le pedirá que cree una conexión con el servidor MQ.
 
-![Proporcionar la información de conexión](media/connectors-create-api-mq/connection-properties.png)
+> [!NOTE]
+> Actualmente, el conector de MQ solo admite la autenticación de servidor, no la de cliente. Para obtener más información, consulte [Connection and authentication problems](#connection-problems) (Problemas de conexión y autenticación).
+
+#### <a name="managed"></a>[Administrado](#tab/managed)
 
 1. Si se conecta a un servidor MQ local, seleccione **Conectarse mediante una puerta de enlace de datos local**.
 
 1. Proporcione la información de conexión para el servidor MQ.
 
-   * Para **Servidor**, especifique el nombre del servidor MQ, o escriba la dirección IP seguida de dos puntos y el número del puerto.
+   | Propiedad | Local o Azure | Descripción |
+   |----------|----------------------|-------------|
+   | **Puertas de enlace** | Solo en entornos locales | Seleccione **Connect via on-premises data gateway** (Conectarse a través de la puerta de enlace de datos local). |
+   | **Nombre de la conexión** | Ambos | El nombre que usar para su conexión |
+   | **Server** | Ambos | Uno de los valores siguientes: <p><p>- Nombre de host del servidor MQ <br>- Dirección IP seguida de dos puntos y el número de puerto |
+   | **Nombre del administrador de colas** | Ambos | Administrador de colas que quiere utilizar |
+   | **Nombre del canal** | Ambos | Canal para conectarse al administrador de colas |
+   | **Nombre predeterminado de la cola** | Ambos | Nombre predeterminado de la cola |
+   | **Conectar como** | Ambos | Nombre de usuario para conectarse al servidor MQ |
+   | **Nombre de usuario** | Ambos | Credenciales de nombre de usuario |
+   | **Contraseña** | Ambos | Credenciales de contraseña |
+   | **¿Quiere habilitar SSL?** | Solo en entornos locales | Usar Seguridad de la capa de transporte (TLS) o Capa de sockets seguros (SSL) |
+   | **Puerta de enlace: suscripción** | Solo en entornos locales | Suscripción de Azure asociada al recurso de puerta de enlace en Azure |
+   | **Puerta de enlace: puerta de enlace de conexión** | Solo en entornos locales | Recurso de puerta de enlace que se va a usar |
+   ||||
 
-   * Para usar seguridad de la capa de transporte (TLS) o la capa de sockets seguros (SSL), seleccione **¿Quiere habilitar SSL?**
+   Por ejemplo:
 
-     Actualmente, el conector de MQ solo admite la autenticación de servidor, no la de cliente. Para obtener más información, consulte [Connection and authentication problems](#connection-problems) (Problemas de conexión y autenticación).
-
-1. En la sección **Puerta de enlace**, siga estos pasos:
-
-   1. En la lista **Suscripción**, seleccione la suscripción de Azure asociada con el recurso de la puerta de enlace de Azure.
-
-   1. En la lista **Puerta de enlace de conexión**, seleccione el recurso de puerta de enlace de Azure que quiera usar.
+   ![Captura de pantalla que muestra los detalles de conexión de MQ administrado.](media/connectors-create-api-mq/managed-connection-properties.png)
 
 1. Seleccione **Crear** cuando haya terminado.
+
+#### <a name="built-in-preview"></a>[Integrado (versión preliminar)](#tab/built-in)
+
+1. Proporcione la información de conexión para el servidor MQ.
+
+   | Propiedad | Local o Azure | Descripción |
+   |----------|----------------------|-------------|
+   | **Nombre de la conexión** | Ambos | El nombre que usar para su conexión |
+   | **Nombre del servidor** | Ambos | Nombre o dirección IP del servidor MQ |
+   | **Número de puerto** | Ambos | Número de puerto TCP para conectarse al administrador de colas en el host |
+   | **Canal** | Ambos | Canal para conectarse al administrador de colas |
+   | **Nombre del administrador de colas** | Ambos | Administrador de colas que quiere utilizar |
+   | **Nombre predeterminado de la cola** | Ambos | Nombre predeterminado de la cola |
+   | **Conectar como** | Ambos | Nombre de usuario para conectarse al servidor MQ |
+   | **Nombre de usuario** | Ambos | Credenciales de nombre de usuario |
+   | **Contraseña** | Ambos | Credenciales de contraseña |
+   | **Usar TLS** | Ambos | Usar Seguridad de la capa de transporte (TLS) |
+   ||||
+
+   Por ejemplo:
+
+   ![Captura de pantalla que muestra los detalles de conexión de MQ integrado.](media/connectors-create-api-mq/built-in-connection-properties.png)
+
+1. Seleccione **Crear** cuando haya terminado.
+
+---
+
+<a name="add-action"></a>
+
+## <a name="add-an-mq-action"></a>Adición de una acción de MQ
+
+En Azure Logic Apps, una acción sigue al desencadenador o a otra acción y realiza alguna operación en el flujo de trabajo. En los pasos siguientes se describe la manera general de agregar una acción, por ejemplo, **Examinar un único mensaje**.
+
+1. En el Diseñador de aplicaciones lógicas, abra el flujo de trabajo, si aún no está abierto.
+
+1. En el desencadenador u otra acción, agregue un nuevo paso.
+
+   Para agregar un paso entre los ya existentes, mueva el mouse sobre la flecha. Seleccione el signo más (+) que aparece y, a continuación, seleccione **Agregar una acción**.
+
+1. En el cuadro de búsqueda de operaciones, escriba `mq`. En la lista de acciones, seleccione la acción **Examinar mensaje**.
+
+1. Si se le pide que cree una conexión al servidor MQ, [proporcione la información de conexión solicitada](#create-connection).
+
+1. En la acción, proporcione los valores de las propiedades que necesita la acción.
+
+   Para especificar propiedades adicionales, abra la lista **Agregar nuevo parámetro** y seleccione las propiedades que quiera agregar.
+
+1. Cuando esté listo, seleccione **Guardar** en la barra de herramientas del diseñador.
+
+1. Para probar el flujo de trabajo, seleccione **Ejecutar** en la barra de herramientas del diseñador.
+
+   Una vez que finaliza la ejecución, el diseñador muestra el historial de ejecución del flujo de trabajo junto con el estado del paso.
+
+1. Para revisar las entradas y salidas de cada paso que se ejecutó (no omitido), expanda o seleccione el paso.
+
+   * Para revisar más detalles de entrada, seleccione **Mostrar entradas sin procesar**.
+   * Para revisar más detalles de salida, seleccione **Mostrar salidas sin procesar**. Si establece **IncludeInfo** en **true**, se incluirá una salida adicional.
+
+## <a name="troubleshoot-problems"></a>Solucionar problemas
+
+### <a name="failures-with-browse-or-receive-actions"></a>Errores con las acciones de exploración o recepción
+
+Si ejecuta una acción de exploración o recepción en una cola vacía, se produce un error en la acción con las siguientes salidas de encabezado:
+
+![Error de MQ que indica que no hay mensajes](media/connectors-create-api-mq/mq-no-message-error.png)
 
 <a name="connection-problems"></a>
 
 ### <a name="connection-and-authentication-problems"></a>Problemas de conexión y autenticación
 
-Cuando la aplicación lógica intente conectarse al servidor MQ local, puede que aparezca este error:
+Cuando el flujo de trabajo intente conectarse al servidor MQ local, puede que aparezca este error:
 
 `"MQ: Could not Connect the Queue Manager '<queue-manager-name>': The Server was expecting an SSL connection."`
 
 * Si usa el conector de MQ directamente en Azure, el servidor MQ debe usar un certificado emitido por una [entidad de certificación](https://www.ssl.com/faqs/what-is-a-certificate-authority/) de confianza.
 
-* Si usa la puerta de enlace de datos local, intente usar un certificado emitido por una [entidad de certificación](https://www.ssl.com/faqs/what-is-a-certificate-authority/) de confianza siempre que sea posible. Sin embargo, si esta opción no es posible, puede usar un certificado autofirmado, que no está emitido por una [entidad de certificación](https://www.ssl.com/faqs/what-is-a-certificate-authority/) de confianza, lo que se considera menos seguro.
+* El servidor MQ requiere que defina la especificación de cifrado que se va a usar para las conexiones TLS. Sin embargo, por motivos de seguridad y para incluir los mejores conjuntos de seguridad, el sistema operativo Windows envía un conjunto de especificaciones de cifrado admitidas.
 
-  Para instalar el certificado autofirmado del servidor, puede usar la herramienta **Administrador de certificación de Windows** (certmgr.msc). En este escenario, en el equipo local en el que se ejecuta el servicio de puerta de enlace de datos local, debe instalar el certificado en el almacén de certificados del **equipo local** en el nivel de **entidades de certificación raíz de confianza**.
+  El sistema operativo donde se ejecuta el servidor MQ elige los conjuntos que se usarán. Para que la configuración coincida, debe cambiar la configuración del servidor MQ para que la especificación de cifrado coincida con la opción elegida en la negociación de TLS.
 
-  1. En el equipo en el que se ejecuta el servicio de puerta de enlace de datos local, abra el menú Inicio, y busque y seleccione **Administrar certificados de usuario**.
-
-  1. Una vez abierta la herramienta Administrador de certificación de Windows, vaya a la carpeta **Certificados: Equipo local** >  **Entidades de certificación raíz de confianza** e instale el certificado.
-
-     > [!IMPORTANT]
-     > Asegúrese de instalar el certificado en el almacén **Certificados: Equipo local** > **Entidades de certificación raíz de confianza**.
-
-* El servidor MQ requiere que defina la especificación de cifrado que desea usar para las conexiones TLS/SSL. Pero SslStream en .NET no permite especificar el orden de las especificaciones de cifrado. Para evitar esta limitación, puede cambiar la configuración del servidor MQ para que coincida con la primera especificación de cifrado del conjunto que el conector envía en la negociación de TLS/SSL.
-
-  Al intentar la conexión, el servidor MQ registra un mensaje de evento que indica que se produjo un error en la conexión porque el otro extremo usaba una especificación de cifrado incorrecta. El mensaje de evento contiene la especificación de cifrado que aparece en primer lugar en la lista. Actualice la especificación de cifrado en la configuración del canal para que coincida con la especificación de cifrado del mensaje de evento.
-
-## <a name="browse-single-message"></a>Exploración de un único mensaje
-
-1. En la aplicación lógica, en el desencadenador u otra acción, seleccione **Nuevo paso**.
-
-1. En el cuadro de búsqueda, escriba `mq` y seleccione la acción **Buscar mensaje**.
-
-   ![Selección de la acción "Buscar mensaje"](media/connectors-create-api-mq/browse-message.png)
-
-1. Si aún no ha creado ninguna conexión de MQ, se le pedirá que [la cree](#create-connection).
-
-1. Una vez creada, configure las propiedades de la acción **Buscar mensaje**:
-
-   | Propiedad | Descripción |
-   |----------|-------------|
-   | **Cola** | Si es diferente de la cola especificada en la conexión, especifique esa cola. |
-   | **MessageId**, **CorrelationId**, **GroupId** y otras propiedades | Busque un mensaje en función de distintas propiedades de mensaje de MQ. |
-   | **IncludeInfo** | Para incluir información de mensaje adicional en el resultado, seleccione **true**. Para omitir información de mensaje adicional en el resultado, seleccione **false**. |
-   | **Tiempo de espera** | especifique un valor para determinar cuánto tiempo esperar a que llegue un mensaje a una cola vacía. Si no se especifica nada, se recupera el primer mensaje de la cola y no hay tiempo de espera para que aparezca un mensaje. |
-   |||
-
-   Por ejemplo:
-
-   ![Propiedades de la acción "Buscar mensaje"](media/connectors-create-api-mq/browse-message-properties.png)
-
-1. Cuando esté listo, seleccione **Guardar** en la barra de herramientas del diseñador. Para probar la aplicación, seleccione **Ejecutar**.
-
-   Una vez finalizada la ejecución, el diseñador muestra los pasos del flujo de trabajo y su estado para que pueda revisar la salida.
-
-1. Para ver los detalles de cada paso, haga clic en la barra de título del paso. Para revisar más información sobre la salida del paso, seleccione **Mostrar salidas sin procesar**.
-
-   ![Salida de Buscar mensaje](media/connectors-create-api-mq/browse-message-output.png)
-
-   Presentamos algunas salidas sin procesar de ejemplo:
-
-   ![Salida sin procesar de Browse message](media/connectors-create-api-mq/browse-message-raw-output.png)
-
-1. Si define **IncludeInfo** como **true**, se mostrará una salida adicional:
-
-   ![IncludeInfo de Buscar mensaje](media/connectors-create-api-mq/browse-message-include-info.png)
-
-## <a name="browse-multiple-messages"></a>Examen de varios mensajes
-
-La acción **Examinar mensajes** incluye la opción **BatchSize** para indicar cuántos mensajes se deben devolver de la cola. Si no se especifica ningún valor para **BatchSize**, se devuelven todos los mensajes. El resultado devuelto es una matriz de mensajes.
-
-1. Siga los pasos anteriores, pero agregue la acción **Examinar mensajes**.
-
-1. Si aún no ha creado ninguna conexión de MQ, se le pedirá que [la cree](#create-connection). De lo contrario, de forma predeterminada, se usa la primera conexión configurada previamente. Para crear una nueva conexión, seleccione **Cambiar conexión**. O bien, seleccione una conexión diferente.
-
-1. Proporcione la información para la acción.
-
-1. Guarde y ejecute la aplicación lógica.
-
-   Una vez que termina la ejecución de la aplicación lógica, presentamos algunos resultados de ejemplo de la acción **Examinar mensajes**:
-
-   ![Salida de muestra de la acción "Examinar mensajes"](media/connectors-create-api-mq/browse-messages-output.png)
-
-## <a name="receive-single-message"></a>Recibir un mensaje único
-
-La acción **Receive message** tiene las mismas entradas y salidas que la acción **Browse message**. Cuando se usa **Recibir mensaje**, el mensaje se elimina de la cola.
-
-## <a name="receive-multiple-messages"></a>Recepción de varios mensajes
-
-La acción **Receive messages** tiene las mismas entradas y salidas que la acción **Browse messages**. Cuando se usa **Recibir mensajes**, los mensajes se eliminan de la cola.
-
-> [!NOTE]
-> Al ejecutar una acción de exploración o recepción en una cola sin mensajes, la acción devuelve este error:
->
-> ![Error de MQ que indica que no hay mensajes](media/connectors-create-api-mq/mq-no-message-error.png)
-
-## <a name="send-message"></a>Enviar mensaje
-
-1. Siga los pasos anteriores, pero agregue la acción **Enviar mensaje** en su lugar.
-
-1. Si aún no ha creado ninguna conexión de MQ, se le pedirá que [la cree](#create-connection). De lo contrario, de forma predeterminada, se usa la primera conexión configurada previamente. Para crear una nueva conexión, seleccione **Cambiar conexión**. O bien, seleccione una conexión diferente.
-
-1. Proporcione la información para la acción. En **MessageType**, seleccione un tipo de mensaje válido: **Datagrama**, **Responder** o **Solicitud**
-
-   ![Propiedades de la acción "Enviar mensaje"](media/connectors-create-api-mq/send-message-properties.png)
-
-1. Guarde y ejecute la aplicación lógica.
-
-   Cuando finalice la aplicación lógica, presentamos algunos resultados de ejemplo de la acción **Enviar mensaje**:
-
-   ![Salida de muestra de la acción "Enviar mensaje"](media/connectors-create-api-mq/send-message-output.png)
+  Al intentar la conexión, el servidor MQ registra un mensaje de evento que indica que se produjo un error en el intento de conexión porque el servidor MQ ha elegido una especificación de cifrado incorrecta. El mensaje del evento contiene la especificación de cifrado que el servidor MQ eligió de la lista. Actualice la especificación de cifrado en la configuración del canal para que coincida con la especificación de cifrado del mensaje del evento.
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener información técnica, como las acciones y los límites, que se describen en el archivo de Swagger del conector, consulte la [página de referencia del conector](/connectors/mq/).
+Para obtener información sobre todas las operaciones del conector administrado y otra información técnica, como propiedades, límites, etc., consulte la [página de referencia del conector de MQ](/connectors/mq/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

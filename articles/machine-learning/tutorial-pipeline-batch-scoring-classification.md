@@ -11,12 +11,12 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
 ms.custom: contperf-fy20q4, devx-track-python
-ms.openlocfilehash: 570bfed5ae5fc6fafea36b9ed1f2673a0daae22b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 75e87e004190ebe86c983c5956105ec629dcc673
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102521516"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772286"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Compilación de una canalización de Azure Machine Learning para la puntuación por lotes
 
@@ -40,8 +40,11 @@ Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Complete la [parte 1 del tutorial de instalación](tutorial-1st-experiment-sdk-setup.md) si aún no tiene un área de trabajo de Azure Machine Learning o una máquina virtual de cuadernos.
-* Una vez terminado el tutorial de instalación, use el mismo servidor de cuadernos para abrir el cuaderno *tutorials/machine-learning-pipelines-advanced/tutorial-pipeline-batch-scoring-classification.ipynb*.
+* Complete los pasos que se describen en [Inicio rápido: Introducción a Azure Machine Learning](quickstart-create-resources.md) si aún no tiene un área de trabajo o una instancia de proceso de Azure Machine Learning.
+* Después de completar la guía de inicio rápido:
+    1. Seleccione **Cuadernos** en Studio.
+    1. Seleccione la pestaña **Ejemplos**.
+    1. Abra el cuaderno *tutorials/machine-learning-pipelines-advanced/tutorial-pipeline-batch-scoring-classification.ipynb*.
 
 Si desea ejecutar el tutorial de instalación en su propio [entorno local](how-to-configure-environment.md#local) puede acceder al tutorial en [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials). Ejecute `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-pipeline-steps pandas requests` para obtener los paquetes requeridos.
 

@@ -3,12 +3,12 @@ title: Instancias reservadas de Azure VMware Solution
 description: Obtenga información sobre cómo comprar una instancia reservada para Azure VMware Solution. Las instancias reservadas solo cubren la parte del uso dedicada a los procesos y tienen costos de licencias de software.
 ms.topic: how-to
 ms.date: 04/09/2021
-ms.openlocfilehash: 68f61832ab01b3d7946e3bd8dffb3ef274e74aac
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: fb30ae2fcf06abfa25770aff85f2668d7aaca770
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145350"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753738"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Ahorro de costos con Azure VMware Solution
 
@@ -139,5 +139,5 @@ Ahora que se han explicado las instancias reservadas de Azure VMware Solution, e
 
 - [Creación de una evaluación de Azure VMware Solution](../migrate/how-to-create-azure-vmware-solution-assessment.md).
 - [Administración de DHCP para Azure VMware Solution](manage-dhcp.md).
-- La [administración del ciclo de vida de las máquinas virtuales de Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md).
+- [Supervisión y administración de máquinas virtuales de Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md)
  

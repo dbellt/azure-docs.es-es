@@ -3,12 +3,12 @@ title: 'Tutorial: Ejemplo de plano técnico para un nuevo entorno'
 description: En este tutorial, usará un ejemplo de plano técnico para crear una definición de plano técnico que configura dos grupos de recursos y configura una asignación de roles para cada uno.
 ms.date: 05/01/2021
 ms.topic: tutorial
-ms.openlocfilehash: 50871c14ed8357e46e49a599065f878253c860df
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 809f29e603d82467a5188a94d4517b48fa825a37
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324444"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733920"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Creación de un entorno a partir de un ejemplo de plano técnico
 
@@ -122,7 +122,7 @@ La asignación del plano técnico crea los artefactos definidos en la definició
 
 1. Seleccione la página **Planos técnicos asignados** de la izquierda. Use los filtros para buscar la asignación del plano técnico _Assignment-two-rgs-with-role-assignments_ y, a continuación, selecciónela.
 
-   En esta página, podemos ver que la asignación se realizó correctamente y la lista de los recursos creados junto con el estado de bloqueo de plano técnico. Si se actualiza la asignación, el menú desplegable **Operación de asignación** muestra detalles sobre la implementación de cada versión de definición. Se puede seleccionar cada recurso enumerado para abrir la página de propiedades de los recursos.
+   En esta página, podemos ver que la asignación se realizó correctamente y la lista de los recursos creados junto con el estado de bloqueo de plano técnico. Si se actualiza la asignación, en el menú desplegable **Operación de asignación** aparecerán los detalles sobre la implementación de cada versión de definición. Se puede seleccionar cada recurso enumerado para abrir la página de propiedades de los recursos.
 
 1. Seleccione el grupo de recursos **ProductionRG**.
 

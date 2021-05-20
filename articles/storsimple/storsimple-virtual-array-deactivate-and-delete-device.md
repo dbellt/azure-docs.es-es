@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 04/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 84fd1a2d3d0dc4ce6960469ea3212b8ca1d4d07c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9480bc7ddb03ba537ea7f13057492aa05ed66bae
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96023030"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770234"
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Desactivación y eliminación de una matriz virtual de StorSimple
 
@@ -27,7 +27,7 @@ ms.locfileid: "96023030"
 
 Cuando se desactiva StorSimple Virtual Array, se interrumpe la conexión entre el dispositivo y el servicio StorSimple Device Manager correspondiente. Este tutorial explica cómo realizar lo siguiente:
 
-* Desactivación de un dispositivo 
+* Desactivación de un dispositivo
 * Eliminación de un dispositivo desactivado
 
 La información de este artículo solo se aplica a las instancias de StorSimple Virtual Array. Para obtener información sobre la serie 8000, consulte [Desactivación y eliminación de un dispositivo de StorSimple](./storsimple-8000-deactivate-and-delete-device.md).
@@ -42,11 +42,11 @@ La desactivación es una operación permanente y no se puede deshacer. Los dispo
 
 ## <a name="deactivate-a-device"></a>Desactivación de un dispositivo
 
-Para desactivar el dispositivo, realice los pasos siguientes.
+Para desactivar el dispositivo, realice los pasos siguientes. Un dispositivo debe estar en línea para desactivarse.
 
 #### <a name="to-deactivate-the-device"></a>Para desactivar el dispositivo
 
-1. En el servicio, vaya a **Administración > Dispositivos**. En la hoja **Dispositivos**, haga clic en el dispositivo que desea desactivar para desactivarlo.
+1. En el servicio, vaya a **Administración > Dispositivos**. En la hoja **Dispositivos**, haga clic en el dispositivo que desea desactivar para desactivarlo. El estado del dispositivo debe ser **Conectado**.
    
     ![Selección del dispositivo que desactivar](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete7.png)
 2. En la hoja **Device dashboard** (Panel del dispositivo), haga clic en **... More** (... más) y en la lista, seleccione **Deactivate** (Desactivar).
@@ -59,6 +59,7 @@ Para desactivar el dispositivo, realice los pasos siguientes.
     El proceso de desactivación se inicia y tarda pocos minutos en completarse.
    
     ![Desactivación en curso](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete2.png)
+
 4. Después de la desactivación la lista de dispositivos se actualiza.
    
     ![Desactivación completa](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete3.png)

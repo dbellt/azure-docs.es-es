@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/30/2021
+ms.date: 05/03/2021
 ms.author: b-juche
-ms.openlocfilehash: d1cc59fe2eb3a2938dc776fd62e6645aec62bb1f
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 08e46f056a63fe82c8a41afb9934963f55e13c36
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108291808"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742524"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Preguntas más frecuentes acerca de Azure NetApp Files
 
@@ -325,6 +325,10 @@ Los requisitos para la migración de datos desde un entorno local a Azure NetApp
 - Valide la conectividad de red entre el origen y la dirección IP del volumen de destino de Azure NetApp Files. La transferencia de datos entre el entorno local y el servicio Azure NetApp Files se admite a través de ExpressRoute.
 - Cree el volumen de destino de Azure NetApp Files.
 - Transfiera los datos de origen al volumen de destino mediante la herramienta de copia de archivo que prefiera.
+
+### <a name="where-does-azure-netapp-files-store-customer-data"></a>¿Dónde almacena Azure NetApp Files los datos de los clientes?   
+
+De forma predeterminada, los datos permanecen dentro de la región donde se implementan los volúmenes de Azure NetApp Files. Sin embargo, puede optar por replicar los datos por volumen en las regiones de destino disponibles mediante la [replicación entre regiones](cross-region-replication-introduction.md).
 
 ### <a name="how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region"></a>¿Cómo puedo crear una copia de Azure NetApp Files en otra región de Azure?
     

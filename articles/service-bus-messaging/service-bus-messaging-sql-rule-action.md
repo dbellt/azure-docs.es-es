@@ -3,12 +3,12 @@ title: Sintaxis de acciones de SQL de regla de suscripción de Azure Service Bus
 description: En este artículo se ofrece una referencia para la sintaxis de acciones de reglas SQL. Las acciones se escriben con una sintaxis basada en lenguaje SQL que se realiza en un mensaje.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: 75ff437bace59d7f4de07342277f0760480a5b0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7aceb1992aafbbf92718a6bf558a72060f3275df
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652843"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770090"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>Sintaxis de acciones de SQL de regla de suscripción
 
@@ -53,7 +53,10 @@ Una *acción de SQL* se usa para manipular metadatos de mensajes después de que
   
 ## <a name="arguments"></a>Argumentos  
   
--   `<scope>` es una cadena opcional que indica el ámbito de `<property_name>`. Los valores válidos son `sys` y `user`. El valor `sys` indica el ámbito del sistema, donde `<property_name>` es un nombre de propiedad pública de [Clase BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica el ámbito de usuario, donde `<property_name>` es una clave del diccionario [Clase BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). El ámbito de `user` es el predeterminado si no se especifica `<scope>`.  
+-   `<scope>` es una cadena opcional que indica el ámbito de `<property_name>`. Los valores válidos son `sys` y `user`. 
+    - El valor `sys` indica el ámbito del sistema, donde `<property_name>` es cualquiera de las propiedades del mensaje de Service Bus, como se describe en [Mensajes, cargas y serialización](service-bus-messages-payloads.md).
+    - El valor `user` indica el ámbito de usuario, donde `<property_name>` es una clave de las propiedades personalizadas que puede establecer en el mensaje al enviarlo a Service Bus.
+    - El ámbito `user` es el predeterminado si no se especifica `<scope>`.  
   
 ### <a name="remarks"></a>Comentarios  
 

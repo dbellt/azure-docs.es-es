@@ -3,12 +3,12 @@ title: Evaluación del efecto de una nueva definición de Azure Policy
 description: Comprenda el proceso que debe seguir al introducir una nueva definición de directiva en el entorno de Azure.
 ms.date: 03/31/2021
 ms.topic: conceptual
-ms.openlocfilehash: 187a64ce3581c4aaa893e2a805ce787a0bfd6c79
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 56fa5aa0467bed94625b2233ee8b582d4d61ff63
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106091725"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752928"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Evaluación del efecto de una nueva definición de Azure Policy
 

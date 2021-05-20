@@ -11,12 +11,12 @@ ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 04/22/2021
-ms.openlocfilehash: 36a8ee83d2ff4b8673042d7764e83ab14ac2f016
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: f9c52307e4d743e32f8771998e2dfaacc6643a35
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107946230"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739014"
 ---
 # <a name="deploy-a-model-locally"></a>Implementación de un modelo de forma local
 
@@ -28,9 +28,9 @@ Obtenga información sobre cómo usar Azure Machine Learning para implementar un
 > [!TIP]
 > La implementación de un modelo de Jupyter Notebook de una instancia de proceso, en un servicio web de la misma máquina virtual es una _implementación local_. En este caso, la máquina "local" es la instancia de proceso. Para más información sobre las implementaciones, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-- Un área de trabajo de Azure Machine Learning con una instancia de proceso en ejecución. Para más información, consulte [Configuración del entorno y del área de trabajo](tutorial-1st-experiment-sdk-setup.md).
+- Un área de trabajo de Azure Machine Learning con una instancia de proceso en ejecución. Para obtener más información, consulte [Guía de inicio rápido: Introducción a Azure Machine Learning](quickstart-create-resources.md).
 
 ## <a name="deploy-to-the-compute-instances"></a>Implementación en instancias de proceso
 

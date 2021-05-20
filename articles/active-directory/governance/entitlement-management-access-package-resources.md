@@ -16,12 +16,12 @@ ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65f69cf492ec3e28d7f4aa86971dc6c91b34bdf5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a275b1c43f8a7c5526209f943e48a1d943eca149
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101644187"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713691"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Modificación de los roles de recurso de un paquete de acceso en la administración de derechos de Azure AD
 
@@ -35,7 +35,7 @@ Este vídeo proporciona información general acerca de cómo cambiar un paquete 
 
 Si necesita agregar recursos a un paquete de acceso, debe comprobar si los recursos que necesita están disponibles en el catálogo. Si es un administrador de paquetes de acceso, no podrá agregar recursos a un catálogo, ni siquiera aunque sea el propietario. Está limitado a usar los recursos disponibles en el catálogo.
 
-**Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
+**Requisitos previos de rol:** Administrador global, Administrador de Identity Governance, Administrador de usuarios, Propietario del catálogo o Administrador de paquetes de acceso.
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 

@@ -10,30 +10,30 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: 0000e7690ab92f469a7417e82cb375c524e0b343
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ee22c1e68f407eb2b508cd97e611ea83b82174b2
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96014769"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684134"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Conexión de un dispositivo de puerta de enlace Rigado Cascade 500 a la aplicación de Azure IoT Central
 
-*Este artículo se aplica a los generadores de soluciones.*
-
-En este artículo se describe cómo los creadores de soluciones pueden conectar un dispositivo de puerta de enlace Rigado Cascade 500 a la aplicación de Microsoft Azure IoT Central. 
+En este artículo se describe cómo puede conectar un dispositivo de puerta de enlace Rigado Cascade 500 a la aplicación de Microsoft Azure IoT Central.
 
 ## <a name="what-is-cascade-500"></a>¿Qué es Cascade 500?
 
 La puerta de enlace IoT Cascade 500 es una oferta de hardware de Rigado que se incluye como parte de la solución EaaS (Edge-as-a-Service) de Cascade. Este dispositivo proporciona a los equipos comerciales de proyecto y producto de IoT una eficacia de computación perimetral flexible, un sólido entorno de aplicación en contenedor y una amplia variedad de opciones de conectividad de dispositivos inalámbricos, como Bluetooth 5, LTE y Wi-Fi.
 
-Cascade 500 ya está certificado para Azure IoT Plug and Play (versión preliminar), lo que permite a nuestros creadores de soluciones incorporar fácilmente el dispositivo a sus soluciones de un extremo a otro. La puerta de enlace de Cascade permite conectarse de forma inalámbrica a una variedad de sensores de supervisión de condiciones que están cerca del dispositivo de puerta de enlace. Estos sensores se pueden incorporar a IoT Central mediante el dispositivo de puerta de enlace.
+Cascade 500 está certificado para Azure IoT Plug and Play y permite incorporar fácilmente el dispositivo a sus soluciones integrales. La puerta de enlace de Cascade permite conectarse de forma inalámbrica a una variedad de sensores de supervisión de condiciones que están cerca del dispositivo de puerta de enlace. Estos sensores se pueden incorporar a IoT Central mediante el dispositivo de puerta de enlace.
 
 ## <a name="prerequisites"></a>Prerrequisitos
-Para recorrer esta guía paso a paso, necesita los siguientes recursos:
 
-* Un dispositivo Rigado Cascade 500. Para más información, visite el sitio web de [Rigado](https://www.rigado.com/).
-* Una aplicación de Azure IoT Central. Para más información, consulte [Creación de una aplicación](./quick-deploy-iot-central.md).
+Necesitará lo siguiente para completar los pasos de esta guía:
+
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
+
+- Un dispositivo Rigado Cascade 500. Para más información, visite el sitio web de [Rigado](https://www.rigado.com/).
 
 ## <a name="add-a-device-template"></a>Incorporación de una plantilla de dispositivo
 
@@ -71,7 +71,7 @@ Ya está listo para usar el dispositivo C500 en la aplicación de IoT Central.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si es un desarrollador de dispositivos, algunos de los pasos sugeridos son los siguientes:
+Algunos pasos siguientes sugeridos son:
 
 - Consultar sobre la [Conectividad de dispositivos en Azure IoT Central](./concepts-get-connected.md)
 - Obtener información sobre la [Supervisión de la conectividad de dispositivos mediante la CLI de Azure](./howto-monitor-devices-azure-cli.md)

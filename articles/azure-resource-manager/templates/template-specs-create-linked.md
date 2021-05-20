@@ -2,15 +2,15 @@
 title: Creación de una especificación de plantilla con plantillas vinculadas
 description: Aprenda a crear una especificación de plantilla con plantillas vinculadas.
 ms.topic: conceptual
-ms.date: 01/05/2021
-ms.openlocfilehash: b1c757895faee208590b638094591d246bf605d8
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 05/04/2021
+ms.openlocfilehash: 0a4d34016ce270c8921615868ef7019c33281905
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310621"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754062"
 ---
-# <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Tutorial: Creación de una especificación de plantilla con plantillas vinculadas (versión preliminar)
+# <a name="tutorial-create-a-template-spec-with-linked-templates"></a>Tutorial: Creación de una especificación de plantilla con plantillas vinculadas
 
 Aprenda a crear una [especificación de plantilla](template-specs.md) con una plantilla principal y una [plantilla vinculada](linked-templates.md#linked-template). Las especificaciones de plantilla se usan para compartir plantillas de ARM con otros usuarios de la organización. En este artículo se muestra cómo crear una especificación de plantilla para empaquetar una plantilla principal y sus plantillas vinculadas con la propiedad `relativePath` del [recurso de implementación](/azure/templates/microsoft.resources/deployments).
 
@@ -19,7 +19,7 @@ Aprenda a crear una [especificación de plantilla](template-specs.md) con una pl
 Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Las especificaciones de plantilla se encuentran actualmente en versión preliminar. Para usarlas con Azure PowerShell, debe instalar la [versión 5.0.0 o posterior](/powershell/azure/install-az-ps). Para usarlas con la CLI de Azure, utilice la [versión 2.14.2 o posterior](/cli/azure/install-azure-cli).
+> Para usar especificaciones de plantilla con Azure PowerShell, debe instalar la [versión 5.0.0 o posterior](/powershell/azure/install-az-ps). Para usarlas con la CLI de Azure, utilice la [versión 2.14.2 o posterior](/cli/azure/install-azure-cli).
 
 ## <a name="create-linked-templates"></a>Creación de plantillas vinculadas
 

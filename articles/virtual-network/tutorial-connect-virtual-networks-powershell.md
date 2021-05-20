@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5214dbe692584c8b1df2007019c8108fd56dfa38
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a1778e4398f78a116aebac0e90a5585f87509cea
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059350"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743118"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Conexión de redes virtuales con emparejamiento de redes virtuales usando PowerShell
 
@@ -54,7 +54,7 @@ $virtualNetwork1 = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-Cree una configuración de subred con [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). En el ejemplo siguiente se crea una configuración de subred con un prefijo de dirección 10.0.0.0/24:
+Cree una configuración de subred con [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). En el ejemplo siguiente se crea una configuración de subred con un prefijo de dirección 10.0.0.0/24:
 
 ```azurepowershell-interactive
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -152,6 +152,8 @@ New-AzVm `
 ```
 
 La máquina virtual tarda en crearse unos minutos. No continúe con los pasos siguientes hasta que Azure cree la máquina virtual y devuelve el resultado a PowerShell.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="communicate-between-vms"></a>Comunicarse entre máquinas virtuales
 

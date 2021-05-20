@@ -8,18 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 83d8c04765bf9aecc9029cdc8d12461231d191f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f0290241e8051a221e75e1e72789178c8bfdbb3d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97795962"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772394"
 ---
 # <a name="manage-your-personal-application-preferences"></a>Administración de sus preferencias personales de aplicaciones
 
-*Este artículo se aplica a los administradores, operadores y compiladores.*
-
-IoT Central proporciona la flexibilidad de personalizar las aplicaciones para que se ajusten a sus necesidades. También ofrecemos cierta flexibilidad por usuario para personalizar su propia vista. En este artículo se describen las diversas opciones de personalización que un usuario puede aplicar a su perfil.
+IoT Central proporciona la flexibilidad de personalizar las aplicaciones para que se ajusten a sus necesidades. IoT Central también ofrece cierta flexibilidad por usuario para personalizar su propia vista. En este artículo se describen las diversas opciones de personalización que un usuario puede aplicar a su perfil.
 
 ## <a name="changing-language"></a>Cambio de idioma
 

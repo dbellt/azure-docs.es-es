@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: larryfr
 author: BlackMist
 ms.date: 03/05/2020
-ms.openlocfilehash: 4c680be897c4c1bf2ccf20df1d34ab6f59f559f2
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: ed612ae6c021a2f2be7e07c48da2412c6d35670c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816159"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770702"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>¿Qué ha ocurrido con Azure Machine Learning Workbench?
 
@@ -97,11 +97,10 @@ Aprenda sobre la [arquitectura más reciente de Azure Machine Learning](concept-
 
 Para información general sobre el servicio, lea [¿Qué es Azure Machine Learning?](overview-what-is-azure-ml.md).
 
-Cree el primer experimento con el método que prefiera:
+Empiece por [Guía de inicio rápido: Introducción a Azure Machine Learning](quickstart-create-resources.md).  A continuación, use estos recursos para crear su primer experimento con su método preferido:
 
-  + [Uso de su propio entorno](tutorial-1st-experiment-sdk-setup-local.md)
-  + [Uso de cuadernos de Python](tutorial-1st-experiment-sdk-setup.md)
-  + [Uso de R Markdown](https://github.com/Azure/azureml-sdk-for-r) 
+  + [Ejecución del script de Python "Hola mundo" (parte 1 de 3)](tutorial-1st-experiment-hello-world.md)
+  + [Uso de un cuaderno de Jupyter para entrenar modelos de clasificación de imágenes](tutorial-train-models-with-aml.md)
   + [Uso de Aprendizaje automático automatizado](tutorial-designer-automobile-price-train-score.md) 
   + [Usar las funciones arrastrar y colocar del diseñador](tutorial-first-experiment-automated-ml.md) 
   + [Uso de la extensión ML en la CLI](tutorial-train-deploy-model-cli.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 14c5484268940a927965acf798310c3bdccf17d3
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: cb87ca44ecc7ff5c308dbf3a74390e34a0f5daea
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309720"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770018"
 ---
 # <a name="hbv3-series"></a>Serie HBv3
 
@@ -28,7 +28,7 @@ Todas las máquinas virtuales de la serie HBv3 incorporan InfiniBand HDR de 200�
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): próximamente<br>
-[Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): admitidos ([en versión preliminar](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
 <br>
 
 |Size |vCPU |Procesador |Memoria (GiB) |Ancho de banda de memoria, en GB/s |Frecuencia de CPU base (GHz) |Frecuencia de todos los núcleos (GHz, pico) |Frecuencia de cada núcleo (GHz, pico) |Rendimiento de RDMA (GB/s) |Compatibilidad con MPI |Almacenamiento temporal (GiB) |Discos de datos máx. |vNIC Ethernet máx. |

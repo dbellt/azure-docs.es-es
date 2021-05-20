@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 4b57b3fbb338774eb8d66fc4d3c0c817e19aff4c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2790ae787831fb5dfa81656d32473c98ac4bb4bd
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92458207"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739950"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-maxient-conduct-manager-software"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Maxient Conduct Manager Software
 
@@ -64,7 +64,7 @@ Configure y pruebe del inicio de sesión único de Azure AD con Maxient Conduc
 Para configurar y probar el inicio de sesión único de Azure AD con Maxient Conduct Manager Software, complete los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** : para permitir que los usuarios se autentiquen con el fin de utilizar Maxient Conduct Manager Software.
-    1. **[Asignación de todos los usuarios que van a utilizar Maxient](#assign-all-users-to-be-able-to-authenticate-for-the-maxient-conduct-manager-software)** : para permitir que todos los usuarios de su institución puedan autenticarse.
+   - **[Establezca "¿Asignación de usuarios?" en No](#set-user-assignment-required-to-no)** para permitir que todos los usuarios de su institución puedan autenticarse.
 1. **[Prueba de la configuración de Azure AD con Maxient](#test-with-maxient)** : para comprobar si la configuración funciona y se han lanzado los atributos correctos.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -90,21 +90,15 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
 
-### <a name="assign-all-users-to-be-able-to-authenticate-for-the-maxient-conduct-manager-software"></a>Asignación de todos los usuarios para que puedan autenticarse en Maxient Conduct Manager Software.
+<a name="set-user-assignment-required-to-no"></a>
+    
+### <a name="set-user-assignment-required-to-no"></a>Establecimiento de "¿Asignación de usuarios?" en No
 
-En esta sección, proporcionará acceso para que todas las cuentas se autentiquen con el sistema de Azure en Maxient Conduct Manager Software.  Es importante tener en cuenta que este paso es **OBLIGATORIO** para que Maxient funcione correctamente.  Maxient utiliza el sistema de Azure AD para *autenticar* a los usuarios. La *autorización* de usuarios se realiza en el sistema de Maxient para la función concreta que están intentando realizar. Maxient no usa atributos de su directorio para tomar esas decisiones.
+Es importante tener en cuenta que este paso es **OBLIGATORIO** para que Maxient funcione correctamente.  Maxient utiliza el sistema de Azure AD para *autenticar* a los usuarios. La *autorización* de usuarios se realiza en el sistema de Maxient para la función concreta que están intentando realizar. Maxient no usa atributos de su directorio para tomar esas decisiones.
 
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **Maxient Conduct Manager Software**.
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
-1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione todos los usuarios (o los grupos adecuados) y **asígnelos** para que puedan autenticarse con Maxient.
+1. En la página de información general de la aplicación, cambie la opción "¿Asignación de usuarios?" a No.
 
 ## <a name="test-with-maxient"></a>Prueba con Maxient 
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 4e88ad58c7baba1c66c30df3f4effdbf11371c18
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2703e5f92ad0756ece8088c4948170ea13fa0e06
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045338"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683450"
 ---
 # <a name="how-to-connect-devices-through-an-iot-edge-transparent-gateway"></a>Cómo conectar dispositivos a través de una puerta de enlace IoT Edge transparente
 
@@ -25,11 +25,11 @@ En este artículo, se usan máquinas virtuales para hospedar la puerta de enlace
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar los pasos de este tutorial, deberá tener una suscripción de Azure activa.
+Para completar los pasos de este artículo, necesitará lo siguiente:
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+- Una suscripción de Azure activa. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-Complete el inicio rápido [Creación de una aplicación de Azure IoT Central](./quick-deploy-iot-central.md) para crear una aplicación de IoT Central mediante la plantilla **Aplicación personalizada > Aplicación personalizada**.
+- Una [aplicación de IoT Central creada](howto-create-iot-central-application.md) a partir de la plantilla de **aplicación personalizada**. Para más información, consulte [Creación de una aplicación de Azure IoT Central](howto-create-iot-central-application.md).
 
 Para seguir los pasos de este artículo, descargue los archivos siguientes al equipo:
 

@@ -10,12 +10,12 @@ author: jpe316
 ms.date: 09/28/2020
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: 3337607c8e4dd9dca230456cdf268ec3fbfb2f12
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 16f436c4b81aac60075be8cb3bf34a9706f739ab
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884415"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746790"
 ---
 # <a name="train-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Entrenamiento de modelos de scikit-learn a gran escala con Azure Machine Learning
 
@@ -30,7 +30,7 @@ Tanto si va a entrenar un modelo de scikit-learn de Machine Learning desde el pr
 Ejecute este código en cualquiera de estos entornos:
  - Instancia de Proceso de Azure Machine Learning: no se necesitan descargas ni instalación
 
-    - Complete el [Tutorial: Configuración del entorno y el área de trabajo](tutorial-1st-experiment-sdk-setup.md) para crear un servidor de cuadernos dedicado en el que se habrán cargado previamente el SDK y el repositorio de ejemplos.
+    - Complete el [Inicio rápido: Introducción a Azure Machine Learning](quickstart-create-resources.md) para crear un servidor de cuadernos dedicado ya cargado con el SDK y el repositorio de ejemplo.
     - Para encontrar un cuaderno completado y expandido, en la carpeta de entrenamiento de ejemplos en el servidor de cuadernos, vaya a este directorio: carpeta **how-to-use-azureml > ml-frameworks > scikit-learn > train-hyperparameter-tune-deploy-with-sklearn**.
 
  - Su propio servidor de Jupyter Notebook

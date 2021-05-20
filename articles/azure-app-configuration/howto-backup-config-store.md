@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: b3e0bcad7beccc31e1772fbb24ffad7f502b8140
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b72de537f573d03f37a9b1de4341a14830479e7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102454250"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748446"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Copia de seguridad automática de almacenes de App Configuration
 
@@ -127,7 +127,7 @@ En este artículo, trabajará con funciones de C# que tienen las siguientes prop
 - Versión 3.x del entorno en tiempo de ejecución de Azure Functions
 - Función que desencadena un temporizador cada 10 minutos
 
-Para que le resulte más fácil empezar a realizar copias de seguridad de los datos, hemos [probado y publicado una función](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) que puede usar sin modificar el código. Descargue los archivos del proyecto y [publíquelos en su propia aplicación de funciones de Azure desde Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
+Para que le resulte más fácil empezar a realizar copias de seguridad de los datos, hemos [probado y publicado una función](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) que puede usar sin modificar el código. Descargue los archivos del proyecto y [publíquelos en su propia aplicación de funciones desde Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
 > [!IMPORTANT]
 > No realice ningún cambio en las variables de entorno del código que ha descargado. Creará las opciones de configuración de la aplicación necesarias en la sección siguiente.

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f153544d27621e4978b496d74f8d79e4e0bf2024
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: e993a4f65c2c71e36db2666dc2c7ce3c086b4d18
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108207796"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108734244"
 ---
 # <a name="write-client-app-authentication-code"></a>Escritura de código de autenticación de aplicación cliente
 
@@ -20,7 +20,7 @@ Después de [configurar una instancia y la autenticación de Azure Digital Twins
 
 Azure Digital Twins realiza la autenticación mediante [tokens de seguridad de Azure AD basados en OAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). Para autenticar el SDK, deberá obtener un token de portador con los permisos correctos para Azure Digital Twins y pasarlo junto con las llamadas de API. 
 
-En este artículo se describe cómo obtener credenciales mediante la biblioteca de cliente `Azure.Identity`. Aunque en este artículo se muestran ejemplos de código en C#, como lo que escribiría para el [SDK de .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client), puede usar una versión de `Azure.Identity` independientemente del SDK que use (para obtener más información sobre los SDKs disponibles para Azure Digital Twins, consulte [Procedimiento: uso de las API y los SDK de Azure Digital Twins](how-to-use-apis-sdks.md)).
+En este artículo se describe cómo obtener credenciales mediante la biblioteca de cliente `Azure.Identity`. Aunque en este artículo se muestran ejemplos de código en C#, como lo que escribiría para el [SDK de .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client), puede usar una versión de `Azure.Identity` independientemente del SDK que use (para obtener más información sobre los SDK disponibles para Azure Digital Twins, consulte [Conceptos: uso de las API y los SDK de Azure Digital Twins](concepts-apis-sdks.md)).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

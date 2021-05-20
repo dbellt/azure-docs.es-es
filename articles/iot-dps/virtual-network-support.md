@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: f1409a931195d236b2729e629e4603c606137593
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5b1947a8d037dbdd20a3335a79f90ebf10b2ca6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94959788"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108749904"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Compatibilidad de Azure IoT Hub Device Provisioning Service (DPS) con redes virtuales
 
@@ -28,7 +28,7 @@ De forma predeterminada, los nombres de host de DPS se asignan a un punto de con
 
 Por varios motivos, es posible que los clientes deseen restringir la conectividad a los recursos de Azure, como DPS. Estas razones incluyen las siguientes:
 
-* Impedir la exposición de la conexión a través de Internet pública. La exposición puede reducirse introduciendo capas adicionales de seguridad a través del aislamiento de nivel de red para los recursos de IoT Hub y DPS.
+* Impedir la exposición de la conexión a través de Internet pública. La exposición puede reducirse introduciendo más capas de seguridad a través del aislamiento de nivel de red para los recursos de IoT Hub y DPS
 
 * Habilitación de una experiencia de conectividad privada desde los recursos de la red local, lo que garantiza que sus datos y tráfico se transmiten directamente a la red troncal de Azure.
 
@@ -110,6 +110,38 @@ Para configurar un punto de conexión privado, siga estos pasos:
     ![Configuración de un punto de conexión privado](./media/virtual-network-support/create-private-endpoint-configuration.png)
 
 6. Haga clic en **Revisar y crear** y luego en **Crear** para crear el recurso del punto de conexión privado.
+
+
+## <a name="use-private-endpoints-with-devices"></a>Uso de puntos de conexión privados con dispositivos
+
+Para usar puntos de conexión privados con código de aprovisionamiento de dispositivos, el código de aprovisionamiento debe usar el **punto de conexión de servicio** específico para el recurso de DPS, como se muestra en la página de información general del recurso de DPS en [Azure Portal](https://portal.azure.com). El punto de conexión de servicio tiene el siguiente formulario.
+
+`<Your DPS Tenant Name>.azure-devices-provisioning.net`
+
+La mayor parte del código de ejemplo que se muestra en nuestra documentación y SDK, usa el **punto de conexión de dispositivo global** (`global.azure-devices-provisioning.net`) y el **ámbito de identificador** para resolver un recurso de DPS determinado. Use el punto de conexión de servicio en lugar del punto de conexión de dispositivo global al conectarse a un recurso de DPS mediante vínculos privados para aprovisionar los dispositivos.
+
+Por ejemplo, la muestra de cliente del dispositivo de aprovisionamiento ([pro_dev_client_sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/prov_dev_client_sample)) en [SDK de Azure IoT](https://github.com/Azure/azure-iot-sdk-c) está diseñado para usar el **punto de conexión de dispositivo global** como URI de aprovisionamiento global (`global_prov_uri`) en [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c)
+
+:::code language="c" source="~/iot-samples-c/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c" range="60-64" highlight="4":::
+
+:::code language="c" source="~/iot-samples-c/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c" range="138-144" highlight="3":::
+
+Para usar la muestra con un vínculo privado, el código resaltado anteriormente se cambiaría para usar el punto de conexión de servicio para el recurso de DPS. Por ejemplo, si el punto de conexión de servicio fuera `mydps.azure-devices-provisioning.net`, el código tendría el siguiente aspecto.
+
+```C
+static const char* global_prov_uri = "global.azure-devices-provisioning.net";
+static const char* service_uri = "mydps.azure-devices-provisioning.net";
+static const char* id_scope = "[ID Scope]";
+```
+
+```C
+    PROV_DEVICE_RESULT prov_device_result = PROV_DEVICE_RESULT_ERROR;
+    PROV_DEVICE_HANDLE prov_device_handle;
+    if ((prov_device_handle = Prov_Device_Create(service_uri, id_scope, prov_transport)) == NULL)
+    {
+        (void)printf("failed calling Prov_Device_Create\r\n");
+    }
+```
 
 
 ## <a name="request-a-private-endpoint"></a>Solicitud de un punto de conexión privado

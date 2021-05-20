@@ -4,17 +4,17 @@ description: Los ámbitos de cifrado ofrecen la posibilidad de administrar el ci
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/26/2021
+ms.date: 05/10/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 16a600d7caf65f880ffb5c2a2abfe5a9774a7795
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a583af2811facf1cf8037fa0dd3fb9982fba60c4
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640455"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685682"
 ---
 # <a name="encryption-scopes-for-blob-storage"></a>Ámbitos de cifrado para Blob Storage
 
@@ -37,6 +37,14 @@ Cuando se define un ámbito de cifrado, se especifica si el ámbito está proteg
 Si define un ámbito de cifrado con una clave administrada por el cliente, puede optar por actualizar la versión de la clave de forma automática o manual. Si elige actualizar automáticamente la versión de la clave, Azure Storage comprobará el almacén de claves o el HSM administrado diariamente para obtener una nueva versión de la clave administrada por el cliente y actualizará automáticamente la clave a la versión más reciente. Para obtener más información sobre cómo actualizar la versión de una clave administrada por el cliente, consulte [Actualización de la versión de la clave](../common/customer-managed-keys-overview.md#update-the-key-version).
 
 Una cuenta de almacenamiento puede tener hasta 10 000 ámbitos de cifrado que están protegidos con claves administradas por el cliente para las que la versión de la clave se actualiza automáticamente. Si la cuenta de almacenamiento ya tiene 10 000 ámbitos de cifrado que están protegidos con claves administradas por el cliente que actualizan automáticamente, la versión de la clave debe actualizarse manualmente para cualquier ámbito de cifrado adicional que esté protegido con claves administradas por el cliente.  
+
+### <a name="infrastructure-encryption"></a>Cifrado de infraestructura
+
+El cifrado de infraestructura Azure Storage permite el cifrado doble de datos. Cuando se habilita el cifrado de infraestructura, los datos se cifran dos veces, &mdash; una vez en el nivel de servicio y otra en el nivel de infraestructura, &mdash; con dos algoritmos de cifrado y dos claves diferentes.
+
+El cifrado de infraestructura se admite para un ámbito de cifrado, así como en el nivel de la cuenta de almacenamiento. Si el cifrado de infraestructura está habilitado para una cuenta, cualquier ámbito de cifrado creado en esa cuenta usa automáticamente el cifrado de infraestructura. Si el cifrado de infraestructura no está habilitado en el nivel de cuenta, tiene la opción de habilitarlo para un ámbito de cifrado en el momento de crear el ámbito. La configuración de cifrado de infraestructura para un ámbito de cifrado no se puede cambiar después de crear el ámbito.
+
+Para obtener más información sobre el cifrado de infraestructura, consulte [Creación de una cuenta de almacenamiento con el cifrado de infraestructura para realizar el cifrado doble de datos](../common/infrastructure-encryption-enable.md).
 
 ### <a name="encryption-scopes-for-containers-and-blobs"></a>Ámbitos de cifrado para contenedores y blobs
 

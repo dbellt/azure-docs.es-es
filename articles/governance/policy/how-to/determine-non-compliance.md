@@ -3,12 +3,12 @@ title: Determinación de las causas de incumplimiento
 description: Cuando un recurso no es compatible, hay muchos motivos posibles para ello. Descubra qué es lo que provoca que no sea compatible.
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 66b0c6d7d0575e7361d04d16e6ba6fb06e36801b
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: d36ed90990d2f8ba6677281ed865625da8cd3c17
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106094122"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752712"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinación de las causas de incumplimiento
 
@@ -34,7 +34,7 @@ Para ver los detalles de cumplimiento, siga estos pasos:
 
 1. En la página **Información general** o **Cumplimiento**, seleccione una directiva que sea con un **estado de compatibilidad** que sea _No compatible_.
 
-1. En la pestaña **Compatibilidad de recursos** de **Cumplimiento de directiva**, haga clic con el botón derecho o seleccione los puntos suspensivos de un recurso en un **estado de compatibilidad** que sea _No compatible_. A continuación, seleccione **Ver detalles de cumplimiento**.
+1. En la pestaña **Compatibilidad de recursos** de **Cumplimiento de directiva**, seleccione y mantenga (o haga clic con el botón derecho), o seleccione los puntos suspensivos de un recurso en un **estado de compatibilidad** que sea _No compatible_. A continuación, seleccione **Ver detalles de cumplimiento**.
 
    :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Captura de pantalla del vínculo &quot;Ver detalles de cumplimiento&quot; en la pestaña Cumplimiento de recursos." border="false":::
 

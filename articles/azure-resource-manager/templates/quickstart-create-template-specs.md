@@ -2,17 +2,17 @@
 title: Creación e implementación de una especificación de plantilla
 description: Obtenga información sobre cómo crear una especificación de plantilla a partir de una plantilla de Resource Manager. A continuación, implemente la especificación de plantilla en un grupo de recursos de su suscripción.
 author: tfitzmac
-ms.date: 12/14/2020
+ms.date: 05/04/2021
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 28987486726f5a88d20efe9fe8a766e536062c2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0775d58bebaf487d5a536818aec788fabdace909
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889967"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754188"
 ---
-# <a name="quickstart-create-and-deploy-template-spec-preview"></a>Inicio rápido: Creación e implementación de una especificación de plantilla (versión preliminar)
+# <a name="quickstart-create-and-deploy-template-spec"></a>Inicio rápido: Creación e implementación de una especificación de plantilla
 
 En este inicio rápido se muestra cómo empaquetar una plantilla de Azure Resource Manager como [especificación de plantilla](template-specs.md). y, posteriormente, implementarla. La especificación de plantilla contiene una plantilla de Resource Manager que implementa una cuenta de almacenamiento.
 
@@ -21,13 +21,13 @@ En este inicio rápido se muestra cómo empaquetar una plantilla de Azure Resour
 Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Las especificaciones de plantilla se encuentran actualmente en versión preliminar. Para usarlas con Azure PowerShell, debe instalar la [versión 5.0.0 o posterior](/powershell/azure/install-az-ps). Para usarlas con la CLI de Azure, use la [versión 2.14.2 o posterior](/cli/azure/install-azure-cli).
+> Para usar especificaciones de plantilla con Azure PowerShell, debe instalar la [versión 5.0.0 o posterior](/powershell/azure/install-az-ps). Para usarlas con la CLI de Azure, use la [versión 2.14.2 o posterior](/cli/azure/install-azure-cli).
 
 ## <a name="create-template"></a>Creación de una plantilla
 
 Las especificaciones de plantilla se crean a partir de una plantilla local. Copie la siguiente plantilla y guárdela en un archivo local llamado **azuredeploy.json**. En esta guía de inicio rápido se da por supuesto que se ha guardado en la ruta de acceso **c:\Templates\azuredeploy.json**, pero puede usar cualquier ruta de acceso.
 
-:::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json":::
 
 ## <a name="create-template-spec"></a>Crear una especificación de plantilla
 
@@ -126,7 +126,7 @@ La especificación de plantilla es un tipo de recurso llamado `Microsoft.Resourc
       "resources": [
         {
           "type": "Microsoft.Resources/templateSpecs",
-          "apiVersion": "2019-06-01-preview",
+          "apiVersion": "2021-05-01",
           "name": "storageSpec",
           "location": "westus2",
           "properties": {
@@ -136,12 +136,12 @@ La especificación de plantilla es un tipo de recurso llamado `Microsoft.Resourc
           "resources": [
             {
               "type": "versions",
-              "apiVersion": "2019-06-01-preview",
+              "apiVersion": "2021-05-01",
               "name": "1.0",
               "location": "westus2",
               "dependsOn": [ "storageSpec" ],
               "properties": {
-                "template": {
+                "mainTemplate": {
                   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                   "contentVersion": "1.0.0.0",
                   "parameters": {
@@ -490,7 +490,7 @@ En lugar de crear una nueva especificación de plantilla para la plantilla revis
       "resources": [
         {
           "type": "Microsoft.Resources/templateSpecs",
-          "apiVersion": "2019-06-01-preview",
+          "apiVersion": "2021-05-01",
           "name": "storageSpec",
           "location": "westus2",
           "properties": {
@@ -500,12 +500,12 @@ En lugar de crear una nueva especificación de plantilla para la plantilla revis
           "resources": [
             {
               "type": "versions",
-              "apiVersion": "2019-06-01-preview",
+              "apiVersion": "2021-05-01",
               "name": "2.0",
               "location": "westus2",
               "dependsOn": [ "storageSpec" ],
               "properties": {
-                "template": {
+                "mainTemplate": {
                   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                   "contentVersion": "1.0.0.0",
                   "parameters": {

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: a1b317b651b0e17c07eb17dbdb8a7c6657d39564
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2b305955dbfcf99bccede041cbfcd18aef065cf1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90971619"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770108"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Configuración del almacenamiento en caché para el enriquecimiento en Azure Cognitive Search
 
@@ -73,6 +73,9 @@ Modifique el objeto de caché para incluir las siguientes propiedades obligatori
     "parameters": []
 }
 ```
+
+> [!NOTE]
+> La caché del indexador requiere una cuenta de almacenamiento de uso general v2. Para más información, consulte los [diferentes tipos de cuentas de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts).
 
 ### <a name="step-3-reset-the-indexer"></a>Paso 3: Restablecimiento del indizador
 

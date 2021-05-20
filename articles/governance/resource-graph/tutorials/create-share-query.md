@@ -3,12 +3,12 @@ title: 'Tutorial: Administración de consultas en Azure Portal'
 description: En este tutorial, creará una consulta de Resource Graph y la compartirá con otras personas en Azure Portal.
 ms.date: 05/01/2021
 ms.topic: tutorial
-ms.openlocfilehash: a7c2e5917abc89aded225bc7a62746399bec050b
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 75942cf681384d2759a8cf0f32c938efa793df86
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324840"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751434"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutorial: Creación y uso compartido de una consulta de Azure Resource Graph en Azure Portal
 
@@ -44,7 +44,7 @@ Puede visualizar y tener acceso a las consultas privadas solo desde la cuenta qu
 
    Seleccione **Ejecutar consulta** para ver los resultados de la consulta en el panel inferior.
 
-   Para obtener más información acerca de esta consulta, consulte [Ejemplos: conteo de máquinas virtuales por tipo de sistema operativo](../samples/starter.md#count-os).
+   Para más información acerca de esta consulta, consulte [Ejemplos: recuento de máquinas virtuales por tipo de sistema operativo](../samples/starter.md#count-os).
 
 1. Seleccione **Guardar** o **Guardar como**, escriba **Count VMs by OS** como nombre, deje el tipo como **Consulta privada** y después seleccione **Guardar** en la parte inferior del panel **Guardar consulta**. El título de la pestaña cambia de **Consulta 1** a **Count VMs by OS**.
 
@@ -52,7 +52,7 @@ Puede visualizar y tener acceso a las consultas privadas solo desde la cuenta qu
 
 1. Seleccione **Abrir una consulta**. Asegúrese de que el tipo es **Consulta privada**. El nombre guardado **Count VMs by OS** aparece ahora en la lista de **Nombre de consulta**. Al seleccionar el vínculo de título de la consulta guardada, se carga una nueva pestaña con el nombre de esa consulta.
 
-   > [!NOTE] 
+   > [!NOTE]
    > Cuando una consulta guardada está abierta y la pestaña muestra su nombre, puede seleccionar el botón **Guardar** para actualizarla con los cambios que se hayan realizado. Para crear una nueva consulta guardada a partir de esta consulta abierta, seleccione **Guardar como** y continúe como si estuviera guardando una consulta totalmente nueva.
 
 1. Para eliminar la consulta guardada, seleccione nuevamente **Abrir una consulta** y compruebe que el campo **Tipo** está establecido en **Consulta privada**. En la fila de la consulta de `Count VMs by OS` guardada, seleccione **Eliminar** (icono de papelera de reciclaje). En el cuadro de diálogo de confirmación, seleccione **Sí** para terminar de eliminar la consulta.
@@ -71,10 +71,10 @@ A diferencia de una consulta privada, una consulta compartida es un recurso de R
    | where type =~ 'Microsoft.Compute/virtualMachines'
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
-    
+
    Seleccione **Ejecutar consulta** para ver los resultados de la consulta en el panel inferior.
 
-   Para obtener más información acerca de esta consulta, consulte [Ejemplos: conteo de máquinas virtuales por tipo de sistema operativo](../samples/starter.md#count-os).
+   Para más información acerca de esta consulta, consulte [Ejemplos: recuento de máquinas virtuales por tipo de sistema operativo](../samples/starter.md#count-os).
 
 1. Seleccione **Guardar** o **Guardar como**.
 
@@ -87,10 +87,10 @@ A diferencia de una consulta privada, una consulta compartida es un recurso de R
 1. Deje activada la casilla de verificación **Publicar en el grupo de recursos resource-graph-queries** y el campo **Ubicación del grupo de recursos** establecido en **(EE. UU.) Centro-oeste de EE. UU.** .
 
 1. Seleccione **Guardar** en la parte inferior del panel **Guardar consulta**. El título de la pestaña cambia de **Consulta 1** a **Count VMs by OS**. La primera vez que se usa el grupo de recursos **resource-graph-queries**, la operación de guardar tarda más tiempo del esperado ya que se crea el grupo de recursos.
-   
+
    :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Guardar la nueva consulta como una consulta compartida" border="false":::
 
-   > [!NOTE] 
+   > [!NOTE]
    > Puede desactivar la casilla **Publicar en el grupo de recursos resource-graph-queries** si quiere proporcionar el nombre de un grupo de recursos existente para guardar en él la consulta compartida. Si usa el grupo de recursos con nombre predeterminado para las consultas, las consultas compartidas serán más fáciles de detectar. También hace que el propósito de ese grupo de recursos sea más claro. Sin embargo, puede optar por seleccionar un grupo de recursos existente por motivos de seguridad en función de los permisos existentes.
 
 1. Salga de Azure Resource Graph Explorer en Azure Portal y vuelva a entrar. Observe que la consulta guardada ya no se muestra y que ha vuelto la pestaña **Consulta 1**.
@@ -99,7 +99,7 @@ A diferencia de una consulta privada, una consulta compartida es un recurso de R
 
    :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Mostrar la consulta compartida con el icono" border="false":::
 
-   > [!NOTE] 
+   > [!NOTE]
    > Cuando una consulta guardada está abierta y la pestaña muestra su nombre, el botón **Guardar** la actualiza con los cambios que se hayan realizado. Para crear una nueva consulta guardada, seleccione **Guardar como** y continúe como si estuviera guardando una consulta totalmente nueva.
 
 ## <a name="discover-shared-queries"></a>Detección de consultas compartidas.
@@ -122,7 +122,7 @@ Para ir a la página de consultas de Resource Graph desde el menú del portal, s
 ### <a name="list-resource-groups-resources"></a>Enumeración de los recursos de un grupo de recursos
 
 La consulta de Resource Graph se muestra junto a otros recursos que forman parte de un grupo de recursos.
-Al seleccionar la consulta de Resource Graph, se abre la página de esa consulta. Los puntos suspensivos y las opciones del menú contextual (desencadenadas al hacer clic con el botón derecho) funcionan igual que en la página de consultas de Resource Graph.
+Al seleccionar la consulta de Resource Graph, se abre la página de esa consulta. Los puntos suspensivos y las opciones del menú contextual (desencadenadas al seleccionar y mantener o al hacer clic con el botón derecho) funcionan igual que en la página de consultas de Resource Graph.
 
 ### <a name="query-resource-graph"></a>Envío de una consulta a Resource Graph
 

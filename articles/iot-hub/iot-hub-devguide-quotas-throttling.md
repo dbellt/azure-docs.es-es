@@ -1,5 +1,5 @@
 ---
-title: Rendimiento del contenido http://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-quotas-throttling
+title: Información de la limitación y las cuotas de Azure IoT Hub
 description: 'Guía del desarrollador: descripción de las cuotas que se aplican a IoT Hub y comportamiento esperado de limitación'
 author: robinsh
 ms.author: robinsh
@@ -11,13 +11,13 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-- ms.custom:contperf-fy21q4
-ms.openlocfilehash: a18ca18a6e9f7e26c6189cf66322b16f36a42ecb
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+- contperf-fy21q4
+ms.openlocfilehash: ae8d4efbf5080cbb675402f84cfb2709cc12e8cc
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108277811"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713025"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 

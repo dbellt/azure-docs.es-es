@@ -1,40 +1,38 @@
 ---
-title: Inicio de sesión en una máquina virtual Windows en Azure mediante Azure Active Directory (versión preliminar)
+title: Inicio de sesión en una máquina virtual Windows en Azure mediante Azure Active Directory
 description: Inicio de sesión de Azure AD en una VM de Azure que ejecuta Windows
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 05/10/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 418741c10dfe5f0678d7771d046781697512bafe
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e29aab4db0e568d06ab3d5f0f898b2fec9fee181
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776508"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732801"
 ---
-# <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicio de sesión en una máquina virtual Windows en Azure mediante la autenticación de Azure Active Directory (versión preliminar)
+# <a name="login-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Inicio de sesión en una máquina virtual Windows en Azure mediante la autenticación de Azure Active Directory
 
-Las organizaciones ahora pueden utilizar la autenticación de Azure Active Directory (AD) en sus máquinas virtuales (VM) de Azure que ejecutan **Windows Server 2019 Datacenter Edition** o **Windows 10 1809** y versiones posteriores. El uso de Azure AD para autenticarse en VM le proporciona una manera de controlar y aplicar directivas de forma centralizada. Herramientas como, por ejemplo, el control de acceso basado en rol de Azure (Azure RBAC) y el acceso condicional de Azure AD, permiten controlar quién puede acceder a una VM. En este artículo se muestra cómo crear y configurar una VM Windows Server 2019 para usar la autenticación de Azure AD.
+Las organizaciones ahora pueden mejorar la seguridad de las máquinas virtuales Windows en Azure mediante la integración con la autenticación de Azure Active Directory (AD). Ahora puede usar Azure AD como plataforma de autenticación básica para conectarse mediante RDP a **Windows Server 2019 Datacenter Edition** o **Windows 10 versión 1809** y posteriores. Además, podrá controlar y aplicar de forma centralizada RBAC de Azure y las directivas de acceso condicional que permiten o deniegan el acceso a las máquinas virtuales. En este artículo se muestra cómo crear y configurar una máquina virtual Windows e iniciar sesión con la autenticación basada en Azure AD.
 
-> [!NOTE]
-> El inicio de sesión de Azure AD para VM Windows de Azure es una Característica en vista previa (GB) pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Usar la autenticación basada en Azure AD para iniciar sesión en máquinas virtuales Windows en Azure implica varias ventajas de seguridad, entre las que se incluyen:
+- Usar las credenciales de AD corporativas para iniciar sesión en máquinas virtuales Windows en Azure.
+- Reducir la dependencia en las cuentas de administrador local, ya que no tiene que preocuparse de la pérdida o el robo de las credenciales ni tampoco si los usuarios configuraron credenciales poco seguras, etc.
+- Las directivas de complejidad y vigencia de las contraseñas configuradas para el directorio de Azure AD también ayudan a proteger las máquinas virtuales Windows.
+- Con el control de acceso basado en roles de Azure (RBAC de Azure), puede especificar quién puede iniciar sesión en una máquina virtual como usuario normal o con privilegios de administrador. Cuando los usuarios se unen o dejan el equipo, puede actualizar la directiva de RBAC de Azure de la máquina virtual para conceder acceso según corresponda. Cuando los empleados dejan la organización y su cuenta de usuario se deshabilita o quita de Azure AD, dejan de tener acceso a los recursos.
+- Con el acceso condicional, puede configurar directivas para requerir la autenticación multifactor y otras señales, como el bajo riesgo de usuario y de inicio de sesión, antes de poder conectarse mediante RDP a las máquinas virtuales Windows. 
+- Puede usar las directivas de implementación y auditoría de Azure para requerir el inicio de sesión de Azure AD para las máquinas virtuales Windows y para marcar el uso de cuentas locales no aprobadas en las máquinas virtuales.
+- El inicio de sesión en máquinas virtuales Windows con Azure Active Directory también funciona para los clientes que usan los Servicios de federación.
+- Automatice y escale la unión de Azure AD con la inscripción automática de MDM en Intune de las máquinas virtuales Windows de Azure que forman parte de las implementaciones de VDI. La inscripción automática de MDM requiere una licencia P1 de Azure AD. Las máquinas virtuales con Windows Server 2019 no admiten la inscripción de MDM.
 
-Usar la autenticación de Azure AD para iniciar sesión en VM Windows en Azure implica varias ventajas, entre las que se incluyen:
-
-- Usar las mismas credenciales de Azure AD administradas o federadas que utiliza normalmente.
-- Ya no hace falta administrar cuentas de administrador locales.
-- RBAC de Azure permite conceder el acceso adecuado a las VM en función de las necesidades y quitarlas cuando ya no se necesiten.
-- Antes de permitir el acceso a una VM, el acceso condicional Azure AD puede aplicar requisitos adicionales, como: 
-   - Multi-Factor Authentication
-   - Comprobación de riesgo de inicio de sesión
-- Automatice y escale la unión a Azure AD de las máquinas virtuales Windows de Azure que forman parte de las implementaciones de VDI.
 
 > [!NOTE]
 > Una vez habilitada esta funcionalidad, las máquinas virtuales de Windows en Azure se unirán a Azure AD. No se puede unir a otro dominio, como AD local o Azure AD DS. Si tiene que hacerlo, tendrá que desconectar la máquina virtual del inquilino de Azure AD desinstalando la extensión.
@@ -43,7 +41,7 @@ Usar la autenticación de Azure AD para iniciar sesión en VM Windows en Azure i
 
 ### <a name="supported-azure-regions-and-windows-distributions"></a>Regiones de Azure compatibles y distribuciones de Windows
 
-La versión preliminar de esta característica actualmente admite estas distribuciones de Windows:
+Esta característica admite actualmente las siguientes distribuciones de Windows:
 
 - Windows Server 2019 Datacenter
 - Windows 10 1809 y versiones posteriores
@@ -51,21 +49,38 @@ La versión preliminar de esta característica actualmente admite estas distribu
 > [!IMPORTANT]
 > La conexión remota a las máquinas virtuales unidas a Azure AD solo se permite de los equipos Windows 10 que estén registrados en Azure AD (a partir de Windows 10 20H1) o que estén unidos a Azure AD o a Azure AD híbrido al **mismo** directorio que la máquina virtual. 
 
-La versión preliminar de esta característica actualmente admite estas regiones de Azure:
+Esta característica ahora está disponible en las siguientes nubes de Azure:
 
-- Todas las regiones globales de Azure
+- Azure Global
+- Azure Government
+- Azure China
 
-> [!IMPORTANT]
-> Para usar esta Característica en vista previa (GB), solo debe implementar una distribución de Windows compatible en una región de Azure compatible. Actualmente, la característica no es compatible con Azure Government ni con las nubes soberanas.
+
 
 ### <a name="network-requirements"></a>Requisitos de red
 
 Para habilitar la autenticación de Azure AD para las VM Windows en Azure, debe asegurarse de que la configuración de red de las VM permita el acceso de salida a los siguientes puntos de conexión a través del puerto TCP 443:
 
-- `https://enterpriseregistration.windows.net`
-- `https://login.microsoftonline.com`
-- `https://device.login.microsoftonline.com`
-- `https://pas.windows.net`
+Para Azure global
+- `https://enterpriseregistration.windows.net`: para el registro de dispositivos.
+- `http://169.254.169.254`: punto de conexión de Azure Instance Metadata Service.
+- `https://login.microsoftonline.com`: para flujos de autenticación.
+- `https://pas.windows.net`: para flujos de RBAC de Azure.
+
+
+Para Azure Government
+- `https://enterpriseregistration.microsoftonline.us`: para el registro de dispositivos.
+- `http://169.254.169.254`: Azure Instance Metadata Service.
+- `https://login.microsoftonline.us`: para flujos de autenticación.
+- `https://pasff.usgovcloudapi.net`: para flujos de RBAC de Azure.
+
+
+Para Azure China
+- `https://enterpriseregistration.partner.microsoftonline.cn`: para el registro de dispositivos.
+- `http://169.254.169.254`: punto de conexión de Azure Instance Metadata Service.
+- `https://login.chinacloudapi.cn`: para flujos de autenticación.
+- `https://pas.chinacloudapi.cn`: para flujos de RBAC de Azure.
+
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Habilitar el inicio de sesión de Azure AD en VM Windows en Azure
 
@@ -85,9 +100,9 @@ Para crear una VM de Windows Server 2019 Datacenter en Azure con inicio de sesi�
 1. Escriba **Windows Server** en el campo de búsqueda de la barra de búsqueda de Marketplace.
    1. Haga clic en **Windows Server** y elija **Windows Server 2019 Datacenter** de la lista desplegable Seleccionar un plan de software.
    1. Haga clic en **Crear**.
-1. En la pestaña "Administración", cambie la opción **Iniciar sesión con las credenciales de AAD (versión preliminar)** de la sección Azure Active Directory de Desactivado a **Activado**.
+1. En la pestaña "Administración", cambie la opción **Iniciar sesión con las credenciales de AAD** de la sección Azure Active Directory de Desactivado a **Activado**.
 1. Asegúrese de que la opción **Identidad administrada asignada por el sistema** en la sección Identidad se haya establecido en **Activado**. Esta acción debe realizarse automáticamente una vez habilitado el inicio de sesión con credenciales de Azure AD.
-1. Pase por el resto de la experiencia de creación de una máquina virtual. Durante esta versión preliminar, tendrá que crear un nombre de usuario y contraseña de administrador para la VM.
+1. Pase por el resto de la experiencia de creación de una máquina virtual. Tendrá que crear un nombre de usuario y contraseña de administrador para la máquina virtual.
 
 ![Inicio de sesión con credenciales de Azure AD al crear una VM](./media/howto-vm-sign-in-azure-ad-windows/azure-portal-login-with-azure-ad.png)
 
@@ -227,6 +242,10 @@ Habrá iniciado sesión en la máquina virtual Windows Server 2019 de Azure con 
 > [!NOTE]
 > Puede guardar el archivo .RDP localmente en su equipo e iniciar conexiones de escritorio remoto futuras a la máquina virtual en lugar de tener que navegar a la página de información general de la máquina virtual en Azure Portal y usar la opción Conectar.
 
+## <a name="using-azure-policy-to-ensure-standards-and-assess-compliance"></a>Uso de Azure Policy para garantizar estándares y evaluar el cumplimiento
+
+Use Azure Policy para asegurarse de que el inicio de sesión de Azure AD esté habilitado para las máquinas virtuales Windows nuevas y existentes, y evaluar el cumplimiento de su entorno a gran escala en el panel de cumplimiento de Azure Policy. Con esta funcionalidad, puede usar muchos niveles de aplicación: puede marcar las máquinas virtuales Windows nuevas y existentes dentro de su entorno que no tengan habilitado el inicio de sesión de Azure AD. También puede usar Azure Policy para implementar la extensión de Azure AD en las nuevas máquinas virtuales Windows que no tengan habilitado el inicio de sesión de Azure AD, así como corregir las máquinas virtuales Windows existentes con el mismo estándar. Además de estas funcionalidades, también puede usar la directiva para detectar y marcar las máquinas virtuales Windows que tengan cuentas locales no aprobadas creadas en sus máquinas. Para más información, consulte [Azure Policy](https://www.aka.ms/AzurePolicy).
+
 ## <a name="troubleshoot"></a>Solución de problemas
 
 ### <a name="troubleshoot-deployment-issues"></a>Solución de problemas de implementación
@@ -314,7 +333,7 @@ Este código de salida se convierte en `DSREG_AUTOJOIN_DISC_FAILED` porque la ex
 
 El código de salida 51 se traduce en "esta extensión no se admite en el sistema operativo de la VM".
 
-En la versión preliminar pública, la extensión AADLoginForWindows solo está diseñada para instalarse en Windows Server 2019 o Windows 10 (compilación 1809 o posterior). Asegúrese de que se admita la versión de Windows. Si no se admite la compilación de Windows, desinstale la extensión de VM.
+La extensión AADLoginForWindows solo está diseñada para su instalación en Windows Server 2019 o Windows 10 (compilación 1809 o posterior). Asegúrese de que se admita la versión de Windows. Si no se admite la compilación de Windows, desinstale la extensión de VM.
 
 ### <a name="troubleshoot-sign-in-issues"></a>Solución de problemas con el inicio de sesión
 
@@ -369,9 +388,7 @@ Si no ha implementado Windows Hello para empresas ni se plantea hacerlo por aho
 > [!NOTE]
 > La autenticación con el PIN de Windows Hello para empresas con RDP es compatible con varias versiones de Windows 10. También se ha agregado compatibilidad con la autenticación biométrica con RDP en la versión 1809 de Windows 10. El uso de la autenticación de Windows Hello para empresas durante RDP solo está disponible para las implementaciones que usan el modelo de confianza de certificados y actualmente no están disponibles para el modelo de confianza de claves.
  
-## <a name="preview-feedback"></a>Comentarios sobre la versión preliminar
-
-Comparta sus comentarios sobre esta Característica en vista previa (GB) o notifique cualquier problema mediante el [foro de comentarios de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
+Comparta sus comentarios sobre esta característica o notifique cualquier problema mediante el [foro de comentarios de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

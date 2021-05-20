@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 3/31/2021
-ms.openlocfilehash: 230894b8e474c8d230322fb1e240f0317512d036
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: a7f8a572198dd097d412348efdc508682ace1d5b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107031322"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773744"
 ---
 # <a name="register-and-scan-azure-synapse-workspaces"></a>Registro y examen de áreas de trabajo de Azure Synapse
 
@@ -62,13 +62,13 @@ Hay tres maneras de configurar la autenticación de un origen de Azure Synapse:
 1. Vaya al **área de trabajo de Synapse**.
 1. Vaya a la sección **Datos** y a una de las bases de datos SQL sin servidor.
 1. Haga clic en el icono de puntos suspensivos e inicie un nuevo script de SQL.
-1. Agregue el MSI de la cuenta de Azure Purview (representado mediante el nombre de la cuenta) como **db_owner** en las bases de datos SQL dedicadas, ejecutando el siguiente comando en el script de SQL:
+1. Agregue el MSI de la cuenta de Azure Purview (representado mediante el nombre de la cuenta) como **db_datareader** en la base de datos SQL dedicada, ejecutando el siguiente comando en el script de SQL:
 
     ```sql
     CREATE USER [PurviewAccountName] FROM EXTERNAL PROVIDER
     GO
     
-    EXEC sp_addrolemember 'db_owner', [PurviewAccountName]
+    EXEC sp_addrolemember 'db_datareader', [PurviewAccountName]
     GO
     ```
 #### <a name="using-managed-identity-for-serverless-sql-databases"></a>Uso de una identidad administrada para bases de datos SQL sin servidor
@@ -90,13 +90,13 @@ Hay tres maneras de configurar la autenticación de un origen de Azure Synapse:
 1. Vaya al **área de trabajo de Synapse**.
 1. Vaya a la sección **Datos** y a una de las bases de datos SQL sin servidor.
 1. Haga clic en el icono de puntos suspensivos e inicie un nuevo script de SQL.
-1. Agregue el **identificador de la entidad de servicio** como **db_owner** en la base de datos SQL dedicada ejecutando el siguiente comando en el script de SQL:
+1. Agregue el **identificador de la entidad de servicio** como **db_datareader** en la base de datos SQL dedicada ejecutando el siguiente comando en el script de SQL:
 
     ```sql
     CREATE USER [ServicePrincipalID] FROM EXTERNAL PROVIDER
     GO
     
-    EXEC sp_addrolemember 'db_owner', [ServicePrincipalID]
+    EXEC sp_addrolemember 'db_datareader', [ServicePrincipalID]
     GO
     ```
 

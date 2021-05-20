@@ -1,5 +1,5 @@
 ---
-title: 'Proveedor de soluciones en la nube: Marketplace comercial de Microsoft'
+title: 'Proveedor de soluciones en la nube: Marketplace comercial de Microsoft en Azure'
 description: Obtenga información sobre cómo vender sus ofertas a través del canal de partners del programa Proveedor de soluciones en la nube (CSP) de Microsoft en el marketplace comercial.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: c906d37a01f0fca2d4114e8ba07078fc46eec88b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 64ad2c4311ade34314edde6e841e747745378e8c
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93131180"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109716265"
 ---
 # <a name="cloud-solution-provider-program"></a>Programa Proveedor de soluciones en la nube
 
@@ -34,7 +34,7 @@ Las ofertas siguientes son aptas para ser vendidas por parte de los asociados de
 
 ## <a name="how-to-configure-an-offer"></a>Cómo configurar una oferta
 
-Configure el valor de participación en el programa CSP al crear la oferta en el Centro de partners. [Más información sobre los cambios en la experiencia del publicador](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293).
+Configure el valor de participación en el programa CSP al crear la oferta en el Centro de partners.
 
 ### <a name="partner-center-opt-in"></a>Participación en el Centro de partners
 

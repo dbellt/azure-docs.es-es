@@ -3,12 +3,12 @@ title: 'Patrón: operador count en una definición de directiva'
 description: Este patrón de Azure Policy proporciona un ejemplo de cómo usar el operador count en una definición de directiva.
 ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: dc2914028887ae5a91e3379e2a94ddbc57a7cef3
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 4b4a2615491632caf1a7abddd1b6ace96ccc608d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106093459"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752532"
 ---
 # <a name="azure-policy-pattern-the-count-operator"></a>Patrón de Azure Policy: operador count
 
@@ -22,7 +22,7 @@ Esta definición de directiva [audita](../concepts/effects.md#audit) los grupos 
 
 ### <a name="explanation"></a>Explicación
 
-Los componentes principales del operador **count** son _field_, _where_ y la condición. En el fragmento de código siguiente se resalta cada uno.
+Los componentes principales del operador **count** son _field_, _where_ y la condición. Cada uno de ellos se resalta en el fragmento de código siguiente.
 
 - _field_ indica a count de qué [alias](../concepts/definition-structure.md#aliases) debe evaluar los miembros. Aquí, observamos la _matriz_ de alias **securityRules\[\*\]** del grupo de seguridad de red.
 - _where_ utiliza el lenguaje de directivas para definir qué miembros de la _matriz_ cumplen los criterios. En este ejemplo, el operador lógico **allOf** agrupa tres evaluaciones de condiciones diferentes de las propiedades de la _matriz_ de alias: _direction_, _access_ y _destinationPortRange_.

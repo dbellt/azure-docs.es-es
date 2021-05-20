@@ -14,12 +14,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 14760b4244d42e57aaed7f7d96f487a66147a554
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5dd610d473073e5976b0e7197a1c4e4e68c0f551
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359513"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769838"
 ---
 # <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Uso de Azure Portal para configurar un grupo de disponibilidad (versión preliminar) para SQL Server en máquinas virtuales de Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -31,6 +31,9 @@ Use Azure Portal para crear un nuevo clúster o incorporar un clúster existent
 Esta funcionalidad actualmente está en su versión preliminar. 
 
 Si bien en este artículo se usa Azure Portal para configurar el entorno del grupo de disponibilidad, también es posible hacerlo mediante [PowerShell o la CLI de Azure](availability-group-az-commandline-configure.md), [plantillas de inicio rápido de Azure](availability-group-quickstart-template-configure.md) o [manualmente](availability-group-manually-configure-tutorial.md). 
+
+> [!NOTE]
+> Ahora es posible migrar mediante lift and shift la solución de grupo de disponibilidad a SQL Server en máquinas virtuales de Azure mediante Azure Migrate. Para más información, consulte [Migración del grupo de disponibilidad](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md). 
 
 
 ## <a name="prerequisites"></a>Requisitos previos

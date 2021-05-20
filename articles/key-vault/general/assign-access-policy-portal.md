@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 443b269e7155fc206ee50e7907a7acded2c22f53
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 09e7d954261b5bfb680486e06ed298e11974847d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751497"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108749740"
 ---
 # <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Asignación de una directiva de acceso de Key Vault mediante Azure Portal
 
@@ -40,7 +40,7 @@ Para más información sobre cómo crear grupos en Azure Active Directory median
 
     ![Selección de la entidad de seguridad para la directiva de acceso](../media/authentication/assign-policy-portal-03.png)
 
-    Si usa una identidad administrada para la aplicación, busque y seleccione el nombre de la propia aplicación (para más información sobre la identidad administrada y las entidades de servicio, consulte [Autenticación en Key Vault:Identidad de la aplicación y entidades de servicio](authentication.md#app-identity-and-security-principals)).
+    Si usa una identidad administrada para la aplicación, busque y seleccione el nombre de la propia aplicación Para obtener más información sobre las entidades de seguridad, consulte [Autenticación de Key Vault](authentication.md).
  
 1.  En el panel **Agregar directivas de acceso**, seleccione **Agregar** para guardar la directiva de acceso.
 
@@ -53,6 +53,5 @@ Para más información sobre cómo crear grupos en Azure Active Directory median
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Seguridad en Azure Key Vault: Administración de identidades y acceso](security-overview.md#identity-management)
-- [Protección del almacén de claves](security-overview.md)
+- [Seguridad en Azure Key Vault: Administración de identidades y acceso](security-features.md#identity-management)
 - [Guía del desarrollador de Azure Key Vault](developers-guide.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: aa19cf6b59b1efa4b14501fbf64e319da3e4c0b3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9a6b2673694d7290d964302de2a91795c3d9bd3c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048648"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769604"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Creación de una FCI con Espacios de almacenamiento directo (SQL Server en Azure VM)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,6 +27,9 @@ ms.locfileid: "102048648"
 En este artículo se explica cómo crear una instancia de clúster de conmutación por error (FCI) mediante [Espacios de almacenamiento directo](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) con SQL Server en Azure Virtual Machines (VM). Espacios de almacenamiento directo actúa como una red de área de almacenamiento virtual (VSAN) basada en software que sincroniza el almacenamiento (discos de datos) entre los nodos (máquinas virtuales de Azure) en un clúster de Windows. 
 
 Para más información, consulte la información general de [FCI con SQL Server en VM de Azure](failover-cluster-instance-overview.md) y los [procedimientos recomendados de clúster](hadr-cluster-best-practices.md). 
+
+> [!NOTE]
+> Ahora es posible migrar mediante lift-and-shift la solución de instancia de clúster de conmutación por error a SQL Server en máquinas virtuales de Azure mediante Azure Migrate. Consulte [Migración de una instancia de clúster de conmutación por error](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) para más información. 
 
 
 ## <a name="overview"></a>Información general 
@@ -109,7 +112,7 @@ Para validar el clúster con la interfaz de usuario, realice los pasos siguiente
 Para validar el clúster con PowerShell, ejecute el siguiente script en una sesión de PowerShell de administrador de una de las máquinas virtuales:
 
    ```powershell
-   Test-Cluster –Node ("<node1>","<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
+   Test-Cluster –Node ("<node1>&quot;,&quot;<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
    ```
 
 Después de validar el clúster, cree el clúster de conmutación por error.

@@ -1,16 +1,16 @@
 ---
-title: Uso de Azure Application Gateway para proteger aplicaciones web en Azure VMware Solution
+title: Protección de aplicaciones web en Azure VMware Solution con Azure Application Gateway
 description: Configure Azure Application Gateway para exponer de forma segura las aplicaciones web que se ejecutan en Azure VMware Solution.
 ms.topic: how-to
 ms.date: 02/10/2021
-ms.openlocfilehash: f92027ee46fdaae275939acaea10e144b6bde101
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d31eb24f1cb4ec1e2ead789174189dc99d5310f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103601923"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108771692"
 ---
-# <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Uso de Azure Application Gateway para proteger aplicaciones web en Azure VMware Solution
+# <a name="protect-web-apps-on-azure-vmware-solution-with-azure-application-gateway"></a>Protección de aplicaciones web en Azure VMware Solution con Azure Application Gateway
 
 [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) es un equilibrador de carga de tráfico web de capa 7 que permite administrar el tráfico a las aplicaciones web. Se ofrece en las versiones 1.0 y 2.0 de Azure VMware Solution. Ambas versiones probadas con aplicaciones web en ejecución en Azure VMware Solution.
 

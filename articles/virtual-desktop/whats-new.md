@@ -3,17 +3,17 @@ title: Novedades de Windows Virtual Desktop - Azure
 description: Nuevas características y actualizaciones de productos para Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 04/08/2021
+ms.date: 05/03/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: da93da4c08a23e158d5a22c4552d5e5754ceb01a
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: b2ab740134ab41a76bd0170eabfda2167efb678c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988053"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108740292"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Novedades de Windows Virtual Desktop
 
@@ -42,7 +42,8 @@ El agente de Windows Virtual Desktop se actualiza al menos una vez al mes.
 
 Estos son los cambios que se han realizado en el agente Windows Virtual Desktop:
 
-- Versión 1.0.2990.800. Esta actualización se publicó el 13 de abril de 2021 e incorpora los cambios siguientes:
+- Versión 1.0.2944.1400 para producción y versión 1.0.2990.800 para todos los grupos host de validación: esta actualización se publicó el 27 de abril de 2021.
+- Versión 1.0.2990.800: esta actualización se publicó el 13 de abril de 2021 e incorpora los siguientes cambios:
     - Los mensajes de error del agente se han actualizado.
     - Se ha agregado una excepción que impide instalar agentes que no son de Windows 7 en máquinas virtuales Windows 7.
     - Se ha actualizado la lógica del servicio de latido.
@@ -59,6 +60,45 @@ Estos son los cambios que se han realizado en el agente Windows Virtual Desktop:
 ## <a name="fslogix-updates"></a>Actualizaciones de FSLogix
 
 ¿Desea conocer las últimas actualizaciones de FSLogix? Consulte las [novedades de FSLogix](/fslogix/whats-new).
+
+## <a name="april-2021"></a>Abril de 2021
+
+Novedades de abril:
+
+### <a name="use-the-start-vm-on-connect-feature-preview-in-the-azure-portal"></a>Use la característica Iniciar máquina virtual al conectar (versión preliminar) en Azure Portal
+
+Ya puede configurar Iniciar máquina virtual al conectar (versión preliminar) en Azure Portal. Con esta actualización, los usuarios pueden acceder a sus máquinas virtuales desde los clientes Android y macOS. Para más información, consulte la sección sobre [Iniciar máquina virtual al conectar](start-virtual-machine-connect.md#use-the-azure-portal).
+
+### <a name="required-url-check-tool"></a>Herramienta de comprobación de direcciones URL requeridas 
+
+El agente de Windows Virtual Desktop, versión 1.0.2944.400, incluye una herramienta que valida las direcciones URL y muestra si la máquina virtual puede acceder a las direcciones URL que necesita para funcionar. Si se puede acceder a las direcciones URL necesarias, la herramienta las enumerará para que pueda desbloquearlas, en caso de que sea necesario. Obtenga más información en nuestra [lista de direcciones URL seguras](safe-url-list.md#required-url-check-tool).
+
+### <a name="updates-to-the-azure-portal-ui-for-windows-virtual-desktop"></a>Cambios en la interfaz de usuario de Azure Portal para Windows Virtual Desktop
+
+Esto es lo que ha cambiado en la última actualización de la interfaz de usuario de Azure Portal para Windows Virtual Desktop:
+
+- Se ha corregido un problema que provocaba que apareciera un error al recuperar el host de sesión mientras el modo de purga está habilitado.
+- Se ha actualizado el SDK del portal a la versión 7.161.0.
+- Se ha corregido un problema que provocaba que el identificador de recurso que faltaba aparezca en la pestaña Sesiones de usuario.
+- Azure Portal ahora muestra mensajes detallados de subestado para los hosts de sesión.
+
+### <a name="april-2021-updates-for-teams-on-windows-virtual-desktop"></a>Actualizaciones de abril de 2021 para Teams en Windows Virtual Desktop
+
+Estas son las novedades de Teams en Windows Virtual Desktop:
+
+- Se ha agregado aceleración de hardware para el procesamiento de vídeo de secuencias de vídeo salientes para clientes basados en Windows 10.
+- Al unirse a una reunión con una cámara frontal y una cámara trasera o externa, la cámara frontal será la que se seleccionará de forma predeterminada.
+- Se ha resuelto un problema que hacía que Teams se bloqueara en máquinas basadas en x86.
+- Se ha resuelto un problema que provocaba estrías mientras se compartía la pantalla.
+- Se ha resuelto un problema que impedía a los miembros de la reunión ver el vídeo entrante o compartir pantalla.
+
+### <a name="msix-app-attach-is-now-generally-available"></a>La asociación de aplicaciones en formato MSIX ya está disponible de forma general.
+
+La asociación de aplicaciones en formato MSIX para Windows Virtual Desktop ha salido de la versión preliminar pública y está disponible para todos los usuarios. Obtenga más información sobre la asociación de aplicaciones en formato MSIX en [nuestro anuncio de TechCommunity](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/msix-app-attach-is-now-generally-available/m-p/2270468).
+
+### <a name="the-macos-client-now-supports-apple-silicon-and-big-sur"></a>El cliente macOS ahora admite Apple Silicon y Big Sur.
+
+El cliente macOS de Windows Virtual Desktop ahora admite Apple Silicon y Big Sur. La lista completa de actualizaciones está disponible en [Novedades del cliente de macOS](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew).
 
 ## <a name="march-2021"></a>Marzo de 2021
 

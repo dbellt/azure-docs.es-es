@@ -4,12 +4,12 @@ description: En este tutorial, configurará Event Grid para escuchar eventos de 
 ms.date: 03/29/2021
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1fe87e4fd3349df7d8f5d57b2b2d95f95ed3fba8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d2017b4e85c4d064fc206d9b908be126559032bd
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105734885"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752046"
 ---
 # <a name="tutorial-route-policy-state-change-events-to-event-grid-with-azure-cli"></a>Tutorial: Enrutamiento de eventos de cambio de estado de directivas a Event Grid con la CLI de Azure
 
@@ -39,7 +39,7 @@ En este artículo, aprenderá a configurar las suscripciones a eventos de Azure 
 
 Los temas de Event Grid son recursos de Azure y se deben colocar en un grupo de recursos de Azure. El grupo de recursos de Azure es una colección lógica en la que se implementan y administran los recursos de Azure.
 
-Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group). 
+Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group).
 
 En el ejemplo siguiente se crea un grupo de recursos llamado `<resource_group_name>` en la ubicación _eastus_. Reemplace `<resource_group_name>` por un nombre único para grupo de recursos.
 
@@ -116,7 +116,7 @@ El comando anterior usa la siguiente información:
 - **Nombre**: el nombre real de la asignación. Para este ejemplo se ha utilizado _requiredtags-events_.
 - **DisplayName**: nombre para mostrar de la asignación de directiva. En este caso, va a utilizar _Requerir una etiqueta en los grupos de recursos_.
 - **Scope**: un ámbito determina en qué recursos o agrupación de recursos se aplica la asignación de directiva. Puede abarcar desde una suscripción hasta grupos de recursos. Asegúrese de sustituir &lt;scope&gt; por el nombre del grupo de recursos. El formato de un ámbito de grupo de recursos es `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>`.
-- **Policy**: identificador de definición de la directiva, según la opción utilizada para crear la asignación. En este caso, es el identificador de la definición de directiva _Requerir una etiqueta en los grupos de recursos_. Para obtener el identificador de definición de directiva, ejecute este comando: `az policy definition list --query "[?displayName=='Require a tag on resource groups']"`
+- **Directiva**: identificador de la definición de directiva, según la opción utilizada para crear la asignación. En este caso, es el identificador de la definición de directiva _Requerir una etiqueta en los grupos de recursos_. Para obtener el identificador de definición de directiva, ejecute este comando: `az policy definition list --query "[?displayName=='Require a tag on resource groups']"`
 
 Después de crear la asignación de directiva, espere a que aparezca en la aplicación web la notificación de eventos **Microsoft.PolicyInsights.PolicyStateCreated**. El grupo de recursos creado muestra el valor _NonCompliant_ para `data.complianceState` en el inicio.
 

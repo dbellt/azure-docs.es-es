@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: IoT Plug and Play Certification Requirements
 ms.service: certification
-ms.openlocfilehash: 06c09527556c92cc3a1bd4bb2784084aeb373d97
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: eaf3ef6016388404761e913f878972df4a333061
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108131754"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109712809"
 ---
 # <a name="iot-plug-and-play-certification-requirements"></a>Requisitos de certificación de IoT Plug and Play
 
@@ -25,9 +25,9 @@ La versión preliminar de IoT Plug and Play permite a los creadores de solucione
 El compromiso de la certificación de IoT Plug and Play es:
 
 1.  Las interfaces y los modelos de dispositivos definidos son compatibles con el [lenguaje de definición de gemelos digitales](https://github.com/Azure/opendigitaltwins-dtdl)  
-2.  Aprovisionamiento seguro y transferencia sencilla de la propiedad del ámbito de identificador en los servicios de aprovisionamiento de dispositivos
-3.  Fácil integración con las soluciones basadas en Azure IoT mediante las [API gemelas digitales](../iot-pnp/concepts-digital-twin.md): Azure IoT Hub y Azure IoT Central
-4.  Veracidad del producto validada en dispositivos certificados
+1.  Fácil integración con las soluciones basadas en Azure IoT mediante las [API gemelas digitales](../iot-pnp/concepts-digital-twin.md): Azure IoT Hub y Azure IoT Central
+1.  Veracidad del producto validada en dispositivos certificados
+1.  Cumple todos los requisitos [de Azure Certified Device](./program-requirements-azure-certified-device.md)
 
 ## <a name="requirements"></a>Requisitos
 
@@ -42,16 +42,6 @@ El compromiso de la certificación de IoT Plug and Play es:
 | **Validación**          | El dispositivo debe enviar los esquemas de telemetría a IoT Hub. Microsoft proporciona el [flujo de trabajo del portal](https://certify.azure.com) para ejecutar las pruebas. Dispositivo a nube (obligatorio): **1**. Valida que el dispositivo puede enviar un mensaje a IoT Hub administrado de AICS **2**. El usuario debe especificar el número y la frecuencia de los mensajes. **3.** AICS valida la telemetría que la instancia de Hub recibe. |
 | **Recursos**           | [Pasos de certificación](./overview.md) (tiene todos los recursos adicionales) |
 
-**[Obligatorio] DPS: la finalidad de la prueba es comprobar que el dispositivo implementa y admite IoT Hub Device Provisioning Service con uno de los tres métodos de atestación**
-
-| **Nombre**                | IoTPnP.DPS                                               |
-| ----------------------- | ------------------------------------------------------------ |
-| **Disponibilidad de destino** | Ahora disponible                                                |
-| **Se aplica a**          | Cualquier dispositivo                                                   |
-| **SISTEMA OPERATIVO**                  | Independiente                                                     |
-| **Tipo de validación**     | Automatizado                                                    |
-| **Validación**          | El dispositivo debe implementar la transferencia sencilla de la propiedad de ámbito del identificador de DPS sin necesidad de volver a compilar el código incrustado. Microsoft proporciona el [flujo de trabajo del portal](https://certify.azure.com) para ejecutar las pruebas para validar que el dispositivo admite DPS **1.** El usuario debe seleccionar uno de los métodos de atestación (X.509, TPM y clave SAS) **2**. En función del método de atestación, el usuario debe realizar la acción correspondiente, por ejemplo, **a)** Cargar el certificado X.509 en el ámbito de DPS administrado de AICS **b)** Implementar la clave SAS o la clave de aprobación en el dispositivo |
-| **Recursos**           | **a)** [Información general del servicio de aprovisionamiento de dispositivos](../iot-dps/about-iot-dps.md), **b)** [Archivo de configuración de ejemplo para la transferencia de ámbito de identificador de DPS](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview-pnp/serializer/samples/devicetwin_simplesample) |
 
 **[Obligatorio] DTDL V2: la finalidad de la prueba para garantizar que los modelos de dispositivos y las interfaces definidos son compatibles con el lenguaje de definición de Digital Twins v2.**                                                              
 

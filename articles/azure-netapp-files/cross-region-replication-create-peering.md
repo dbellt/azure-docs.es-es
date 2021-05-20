@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 2a3c788ce50ccc1d537fd2903fe05acffd079b0b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 84b10fefbfae4ca42fa96cc96f357dbfe0d25800
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104591017"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108794779"
 ---
 # <a name="create-volume-replication-for-azure-netapp-files"></a>Creación de una replicación de volúmenes para Azure NetApp Files
 
 > [!IMPORTANT]
-> La característica de replicación entre regiones se encuentra actualmente en versión preliminar pública. Debe enviar una solicitud de lista de espera para acceder a la característica a través de la [página de envío de lista de espera de replicación entre regiones de Azure NetApp Files](https://aka.ms/anfcrrpreviewsignup). Antes de utilizar la característica de replicación entre regiones, debe esperar un correo electrónico de confirmación oficial del equipo de Azure NetApp Files.
+> La característica de replicación entre regiones se encuentra actualmente en versión preliminar. Debe enviar una solicitud de lista de espera para acceder a la característica a través de la [página de envío de lista de espera de replicación entre regiones de Azure NetApp Files](https://aka.ms/anfcrrpreviewsignup). Antes de utilizar la característica de replicación entre regiones, debe esperar un correo electrónico de confirmación oficial del equipo de Azure NetApp Files.
 
 En este artículo se muestra cómo configurar la replicación entre regiones mediante la creación del emparejamiento de replicación. 
 

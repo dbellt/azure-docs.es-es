@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 03/25/2021
-ms.openlocfilehash: 5e95bc50a74413389bd2583beb90128b3fd0810a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 08b2d3ec205e22c85188a718a12b13aff04f311e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105543523"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108771710"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Límites de recursos para los servidores de Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -28,7 +28,7 @@ En este artículo se proporciona información general sobre los límites de recu
 
 ## <a name="maximum-resource-limits"></a>Límites de recursos máximos
 
-| Recurso | Límite |
+| Resource | Límite |
 | :--- | :--- |
 | Bases de datos por servidor lógico | 5000 |
 | Número predeterminado de servidores lógicos por suscripción en una región | 20 |
@@ -132,7 +132,7 @@ La regulación de recursos de Azure SQL Database es jerárquica por naturaleza. 
 
 La regulación de E/S de los datos es un proceso de Azure SQL Database que se usa para limitar la E/S física de lectura y escritura en los archivos de datos de una base de datos. Para cada nivel de servicio se establecen límites de IOPS con el fin de minimizar el efecto "vecino ruidoso", para proporcionar igualdad en la asignación de recursos en el servicio multiinquilino y para permanecer dentro de las capacidades del hardware y el almacenamiento subyacentes.
 
-En el caso de bases de datos únicas, los límites del grupo de cargas de trabajo se aplican a toda la E/S de almacenamiento de la base de datos, mientras que los límites del grupo de recursos se aplican a toda la E/S de almacenamiento de todas las bases de datos del mismo grupo de SQL dedicado, incluida la base de datos `tempdb`. En el caso de grupos elásticos, los límites del grupo de cargas de trabajo se aplican a cada base de datos del grupo, mientras que el límite del grupos de recursos se aplica a todo el grupo elástico, incluida la base de datos `tempdb`, que se comparte entre todas las bases de datos del grupo. En general, es posible que la carga de trabajo no pueda lograr los límites del grupo de recursos de una base de datos (sola o agrupada), porque los límites del grupo de cargas de trabajo son inferiores a los límites del grupo de recursos y limitan antes el número de IOPS y el rendimiento. Aunque la carga de trabajo combinada puede alcanzar los límites del grupo en varias bases de datos del mismo grupo.
+En el caso de bases de datos únicas, los límites del grupo de cargas de trabajo se aplican a toda la E/S de almacenamiento de la base de datos, mientras que los límites del grupo de recursos se aplican a toda la E/S de almacenamiento de todas las bases de datos del mismo grupo de recursos, incluida la base de datos `tempdb`. En el caso de grupos elásticos, los límites del grupo de cargas de trabajo se aplican a cada base de datos del grupo, mientras que el límite del grupos de recursos se aplica a todo el grupo elástico, incluida la base de datos `tempdb`, que se comparte entre todas las bases de datos del grupo. En general, es posible que la carga de trabajo no pueda lograr los límites del grupo de recursos de una base de datos (sola o agrupada), porque los límites del grupo de cargas de trabajo son inferiores a los límites del grupo de recursos y limitan antes el número de IOPS y el rendimiento. Aunque la carga de trabajo combinada puede alcanzar los límites del grupo en varias bases de datos del mismo grupo.
 
 Por ejemplo, si una consulta genera 1000 IOPS sin gobernanza de recursos de E/S, pero el límite máximo de IOPS del grupo de cargas de trabajo se establece en 900 IOPS, la consulta no podrá generar más de 900 IOPS. No obstante, si el límite máximo de IOPS del grupo de recursos se establece en 1500 IOPS y la E/S total de todos los grupos de cargas de trabajo asociados con el grupo de recursos supera los 1500 IOPS, la E/S de la misma consulta puede reducirse por debajo del límite del grupo de trabajo de 900 IOPS.
 

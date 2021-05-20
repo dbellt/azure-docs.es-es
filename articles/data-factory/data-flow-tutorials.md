@@ -5,13 +5,13 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 12/14/2020
-ms.openlocfilehash: f1171bdd087d6ca72a09a2e3efb7f4767a575d21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/04/2021
+ms.openlocfilehash: bc1297790322202713d06c4d1f7a474c1b9dcda8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100517797"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108774086"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriales en vídeo del flujo de datos de asignación
 
@@ -93,6 +93,8 @@ Como se realizan actualizaciones constantemente en el producto, se han agregado 
 
 [Transformación Parse](https://www.youtube.com/watch?v=r7O7AJcuqoY)
 
+[Transformación de tipos de datos complejos](https://youtu.be/Wk0C76wnSDE)
+
 ## <a name="source-and-sink"></a>Origen y receptor
 
 [Lectura y escritura de archivos JSON](https://www.youtube.com/watch?v=yY5aB7Kdhjg)
@@ -130,6 +132,8 @@ Como se realizan actualizaciones constantemente en el producto, se han agregado 
 [Optimización de los tiempos de inicio del flujo de datos](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
 [Azure Integration Runtime para flujos de datos](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
+
+[Inicio rápido de clústeres con Azure IR](https://www.youtube.com/watch?v=mxzsOZX6WVY)
 
 ## <a name="mapping-data-flow-scenarios"></a>Escenarios del flujo de datos de asignación
 

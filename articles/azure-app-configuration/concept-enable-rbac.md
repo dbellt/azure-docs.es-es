@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.date: 05/26/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: f29be1807dfcc314c89d30301107670a970263ce
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5efe15ba6dafd80ca91a1d45f75ebcc85513c9dd
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102172882"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748435"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Autorización del acceso a Azure App Configuration con Azure Active Directory
 Además de usar el Código de autenticación de mensajes basado en hash (HMAC), Azure App Configuration admite el uso de Azure Active Directory (Azure AD) para autorizar solicitudes a instancias de App Configuration.  Azure AD permite usar el control de acceso basado en rol de Azure (Azure RBAC) para conceder permisos a una entidad de seguridad.  Una entidad de seguridad puede ser un usuario, una [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) o una [entidad de servicio de aplicación](../active-directory/develop/app-objects-and-service-principals.md).  Para más información sobre los roles y las asignaciones de roles, consulte [Descripción de los distintos roles](../role-based-access-control/overview.md).
@@ -37,6 +37,9 @@ Azure proporciona los siguientes roles integrados de Azure para autorizar el acc
 - **Lector de los datos de App Configuration**: use este rol para proporcionar acceso de lectura a los datos de App Configuration. Esto no concede acceso al recurso de App Configuration.
 - **Colaborador**: use este rol para administrar el recurso de App Configuration. Aunque se puede acceder a los datos de App Configuration mediante las claves de acceso, este rol no concede acceso directo a los datos mediante Azure AD.
 - **Lector**: use este rol para proporcionar acceso de lectura al recurso de App Configuration. Esto no concede acceso a las claves de acceso del recurso ni a los datos almacenados en App Configuration.
+
+> [!NOTE]
+> Después de realizar una asignación de roles para una identidad, espere hasta 15 minutos para que el permiso se propague antes de acceder a los datos almacenados en App Configuration mediante esta identidad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Más información sobre el uso de [identidades administradas](howto-integrate-azure-managed-service-identity.md) para administrar el servicio App Configuration.

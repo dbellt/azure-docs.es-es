@@ -3,12 +3,12 @@ title: 'Tutorial: Creación de directivas para aplicar el cumplimiento'
 description: En este tutorial, utilizará directivas para aplicar estándares, controlar los costos, mantener la seguridad e imponer principios de diseño para toda la empresa.
 ms.date: 05/01/2021
 ms.topic: tutorial
-ms.openlocfilehash: 68621ee5a4cdfcb3bdbdddb2baa423d443eba36a
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 8f5b68190691651855bae31bae2885f80a16111f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325218"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752244"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Creación y administración de directivas para aplicar el cumplimiento
 
@@ -393,7 +393,7 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 
 1. Seleccione **Siguiente** en la parte inferior de la página o la pestaña **parámetros de la directiva** en la parte superior del asistente.
 
-1. Las definiciones de directiva agregadas a la iniciativa que tiene parámetros se muestran en una cuadrícula. En _Tipo de valor_ puede aparecer "Valor predeterminado", "Establecer valor" o "Utilice el parámetro de iniciativa". Si se selecciona "Establecer valor", el valor relacionado se especifica en _Valores_. Si el parámetro de la definición de directiva tiene una lista de valores permitidos, el cuadro de entrada es un selector desplegable. Si se selecciona la opción "Utilice el parámetro de iniciativa", se proporciona una selección desplegable con los nombres de los parámetros de iniciativa creados en la pestaña **Parámetros de iniciativa**.
+1. Las definiciones de directiva agregadas a la iniciativa que tiene parámetros se muestran en una cuadrícula. En _Tipo de valor_ puede aparecer "Valor predeterminado", "Establecer valor" o "Utilice el parámetro de iniciativa". Si se selecciona "Establecer valor", el valor relacionado se especifica en _Valores_. Si el parámetro de la definición de directiva tiene una lista de valores permitidos, el cuadro de entrada es un selector de lista desplegable. Si se selecciona la opción "Utilice el parámetro de iniciativa", se proporciona una selección de lista desplegable con los nombres de los parámetros de iniciativa creados en la pestaña **Parámetros de iniciativa**.
 
    :::image type="content" source="../media/create-and-manage/initiative-definition-3.png" alt-text="Captura de pantalla con los valores permitidos para el parámetro Ubicaciones permitidas de la definición en la pestaña Parámetros de la directiva de la página Definición de iniciativa.":::
 
@@ -457,7 +457,7 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
    :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Captura de pantalla del botón &quot;Asignar&quot; en la página de definición de iniciativa." border="false":::
 
-   También puede hacer clic con el botón derecho en la fila seleccionada o seleccionar los puntos suspensivos al final de la fila de un menú contextual. A continuación, seleccione **Asignar**.
+   También puede seleccionar y mantener pulsada (o hacer clic con el botón derecho) la fila seleccionada o seleccionar los puntos suspensivos al final de la fila de un menú contextual. A continuación, seleccione **Asignar**.
 
    :::image type="content" source="../media/create-and-manage/select-right-click.png" alt-text="Captura de pantalla del menú contextual de una iniciativa para seleccionar la funcionalidad de asignación." border="false":::
 

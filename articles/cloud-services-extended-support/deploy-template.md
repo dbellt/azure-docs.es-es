@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 855cbb619f536354010c5bfe05c6c03f8bfc6985
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 7c013cbaf8a64d12b132e3dd4c599920bd3f6a2a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108291485"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736117"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Implementación de una instancia de Cloud Service (soporte extendido) mediante plantillas de ARM
 
@@ -27,7 +27,7 @@ En este tutorial se explica cómo crear la implementación de una instancia de C
  
 3. Cree una cuenta de almacenamiento mediante [Azure Portal](../storage/common/storage-account-create.md?tabs=azure-portal) o [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). Este paso es opcional si se usa una cuenta de almacenamiento existente.
 
-4. Cargue los archivos de definición de servicio (.csdef) y de configuración del servicio (.cscfg) en la cuenta de almacenamiento mediante [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Obtenga los URI de SAS de ambos archivos que se van a agregar a la plantilla de ARM más adelante en este tutorial.
+4. Cargue los archivos de configuración de paquete (.csfg) y servicio (.cscfg) en la cuenta de almacenamiento mediante [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) o [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Obtenga los URI de SAS de ambos archivos que se van a agregar a la plantilla de ARM más adelante en este tutorial.
 
 5. (Opcional) Cree un almacén de claves y cargue los certificados.
 

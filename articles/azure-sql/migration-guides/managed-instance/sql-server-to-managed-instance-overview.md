@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: 063ebc43e0654268b758c705ca2a92b8cf88fb35
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 96ea4eb3df07cfd02dd99a55b2c33ac8b7518849
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136308"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745728"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-managed-instance"></a>Información general sobre la migración: de SQL Server a Azure SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -35,6 +35,8 @@ Para ver otras guías de migración, consulte [Migración de bases de datos](/da
 ## <a name="overview"></a>Información general
 
 [Azure SQL Managed Instance](../../managed-instance/sql-managed-instance-paas-overview.md) es una opción de destino recomendada para cargas de trabajo de SQL Server que requieren un servicio totalmente administrado sin tener que administrar máquinas virtuales ni sus sistemas operativos. SQL Managed Instance le permite mover sus aplicaciones locales a Azure con cambios mínimos en aplicaciones o bases de datos. Ofrece un aislamiento completo de sus instancias con compatibilidad con redes virtuales nativas. 
+
+Asegúrese de revisar las características del motor de base de datos de SQL Server [disponibles en Azure SQL Managed Instance](../../database/features-comparison.md) para validar la compatibilidad del destino de migración.  
 
 ## <a name="considerations"></a>Consideraciones 
 

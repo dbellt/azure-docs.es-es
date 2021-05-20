@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 0832b54e02cabecb0b1f0e7af600b8adc621a8b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c15bac8417fdba5f87551dc13311b5272c0926ee
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99584777"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743856"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Adición de un origen de datos protegido de SharePoint a la base de conocimiento
 
@@ -52,7 +52,7 @@ Cuando se prueba el par de QnA en el panel de prueba interactiva, en el portal d
 
 ## <a name="permissions"></a>Permisos
 
-La concesión de permisos se produce cuando se agrega un archivo protegido de un servidor de SharePoint a una base de conocimiento. Según la configuración de SharePoint y los permisos de la persona que agrega el archivo, esto podría requerir lo siguiente:
+La concesión de permisos se produce cuando se agrega un archivo protegido desde un servidor que ejecuta SharePoint a una base de conocimiento. Según la configuración de SharePoint y los permisos de la persona que agrega el archivo, esto podría requerir lo siguiente:
 
 * Ningún paso adicional: la persona que agrega el archivo cuenta con todos los permisos necesarios.
 * Los pasos de [administrador de la base de conocimiento](#knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal) y [administrador de Active Directory](#active-directory-manager-grant-file-read-access-to-qna-maker).

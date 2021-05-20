@@ -2,13 +2,13 @@
 title: Implementación de recursos con Azure Portal
 description: Utilice Azure Portal y Azure Resource Manager para implementar los recursos en un grupo de recursos de su suscripción.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: d8467bb4e51fc4e6ba89a84f1260a8d2743758d2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/05/2021
+ms.openlocfilehash: 6370b628a8dc2d880168dd3c4ea8a7d10a1cd36c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98028682"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737124"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Implementación de recursos con plantillas de ARM y Azure Portal
 
@@ -95,7 +95,7 @@ Si desea ejecutar una implementación sin usar las plantillas de Marketplace, pu
 
     En este tutorial se proporcionan las instrucciones para cargar una plantilla de inicio rápido.
 
-1. En **Cargar una plantilla de inicio rápido de GitHub**, escriba o seleccione **101-storage-account-create**.
+1. En **Cargar una plantilla de inicio rápido de GitHub**, escriba o seleccione **storage-account-create**.
 
     Tiene dos opciones:
 
@@ -118,7 +118,7 @@ Si desea ejecutar una implementación sin usar las plantillas de Marketplace, pu
     - **Suscripción**: Seleccione una suscripción de Azure.
     - **Grupo de recursos**: seleccione **Crear nuevo** y asígnele un nombre.
     - **Ubicación**: Seleccione una ubicación de Azure.
-    - **Tipo de cuenta de almacenamiento**: Use el valor predeterminado.
+    - **Tipo de cuenta de almacenamiento**: Use el valor predeterminado. El nombre del parámetro con mayúsculas y minúsculas Camel, *storageAccountType*, definido en la plantilla se convierte en una cadena separada por espacios cuando se muestra en el portal.
     - **Ubicación**: Use el valor predeterminado.
     - **Acepto los términos y condiciones indicados anteriormente**: (seleccionar)
 
@@ -129,4 +129,3 @@ Si desea ejecutar una implementación sin usar las plantillas de Marketplace, pu
 - Para ver los registros de auditoría, consulte [Operaciones de auditoría con Resource Manager](../management/view-activity-logs.md).
 - Para solucionar errores de implementación, vea [View deployment operations](deployment-history.md) (Ver operaciones de implementación).
 - Para exportar una plantilla de una implementación o un grupo de recursos, consulte [Exportación de plantillas de ARM](export-template-portal.md).
-- Para la implementación segura del servicio entre varias regiones, consulte [Azure Deployment Manager](deployment-manager-overview.md).

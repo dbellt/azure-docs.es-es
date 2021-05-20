@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/08/2021
+ms.date: 04/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 0024d6b3f7e692a7caf13457b27c32d0ba9dc1e8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3f517698c1e44ccb5bdddb5a0bf78578c62b481e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134382"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108740058"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-identity-awareness"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Check Point Identity Awareness
 
@@ -85,13 +85,14 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con el identificador y las direcciones URL de inicio de sesión y de respuesta reales. Póngase en contacto con el [equipo de soporte técnico para clientes de Check Point Identity Awareness](mailto:support@checkpoint.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
-    ![Vínculo de descarga del certificado](common/certificatebase64.png)
+    ![Vínculo de descarga del certificado](common/metadataxml.png)
 
 1. En la sección **Configurar Check Point Identity Awareness**, copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
@@ -136,7 +137,7 @@ En esta sección, va a permitir que B.Simon acceda a Check Point Identity Awaren
 
     d. Copie el valor de la **dirección URL de respuesta** y péguelo en el cuadro de texto **Dirección URL de respuesta**, en la sección **Configuración básica de SAML** de Azure Portal.
 
-    e. Seleccione **Import the Metadata File** (Importar el archivo de metadatos) para cargar el **certificado (Base64)** descargado de Azure Portal.
+    e. Seleccione **Importar archivo de metadatos** para cargar el archivo **XML de metadatos de federación** descargado desde Azure Portal.
 
     > [!NOTE]
     > También puede seleccionar **Insert Manually** (Insertar manualmente) para pegar manualmente los valores de **Id. de entidad** y **Dirección URL de inicio de sesión** en los campos correspondientes y cargar el **archivo de certificado** desde Azure Portal.
