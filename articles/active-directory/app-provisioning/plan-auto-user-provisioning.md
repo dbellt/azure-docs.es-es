@@ -1,24 +1,24 @@
 ---
 title: Planeamiento de una implementación de aprovisionamiento automático de usuarios para Azure Active Directory
-description: Guía para planear y ejecutar aprovisionamiento automático de usuarios
+description: Guía para planear y ejecutar el aprovisionamiento automático de usuarios en Azure Active Directory
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/31/2020
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.reviewer: arvindha, celested
-ms.openlocfilehash: f29bf3fc347fa453dd2d7ebd1f10b3f0e07fac10
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.reviewer: arvinh
+ms.openlocfilehash: a8b2378949e0ead4d05651fc28919aceecd4c542
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059299"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785032"
 ---
-# <a name="plan-an-automatic-user-provisioning-deployment"></a>Planeamiento de una implementación del aprovisionamiento automático de usuarios
+# <a name="plan-an-automatic-user-provisioning-deployment-in-azure-active-directory"></a>Planeamiento de una implementación de aprovisionamiento automático de usuarios en Azure Active Directory
 
 Muchas organizaciones confían en aplicaciones de software como servicio (SaaS) como ServiceNow, Zscaler y Slack para la productividad del usuario final. Históricamente, el personal de TI ha confiado en métodos de aprovisionamiento manual, como la carga de archivos .csv o el uso de scripts personalizados para administrar de manera segura identidades de usuario en cada aplicación SaaS. Estos procesos son propensos a errores, inseguros y difíciles de administrar.
 

@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 5db990fe4bf54c5604eb58af677ec4891639eb1b
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 83775a48e0be1dec50e9205bb1fa9ddb8fcf0087
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165630"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743928"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Uso de Azure Private Link para conectar redes a Azure Monitor de forma segura
 
@@ -203,7 +203,7 @@ Esta zona cubre la asignación específica del área de trabajo a los puntos de 
 Esta zona configura la conectividad con la cuenta de almacenamiento de paquetes de soluciones de los agentes globales. A través de ella, los agentes pueden descargar paquetes de soluciones nuevos o actualizados (también conocidos como módulos de administración). Solo se necesita una entrada para controlar los agentes de Log Analytics, independientemente del número de áreas de trabajo que se utilicen.
 [![Captura de pantalla DNS privado zona de almacenamiento blob-core-windows-net.](./media/private-link-security/dns-zone-privatelink-blob-core-windows-net.png)](./media/private-link-security/dns-zone-privatelink-blob-core-windows-net-expanded.png#lightbox)
 > [!NOTE]
-> Esta entrada solo se agrega a las configuraciones Private Link creadas a partir del 19 de abril de 2021.
+> Esta entrada solo se agrega a las configuraciones de vínculos privados creadas a partir del 19 de abril de 2021 (o a partir de junio de 2021 en nubes soberanas de Azure).
 
 
 ### <a name="validating-you-are-communicating-over-a-private-link"></a>Validación de comunicación a través de Private Link
@@ -226,7 +226,7 @@ Vaya a Azure Portal. En el menú de recursos del área de trabajo de Log Analyti
 Todos los ámbitos conectados al área de trabajo aparecen en esta pantalla. La conexión a ámbitos (AMPLS) permite que el tráfico de red de la red virtual conectada a cada AMPLS llegue a esta área de trabajo. La creación de una conexión como aquí tiene el mismo efecto que configurarla en el ámbito, tal como hemos hecho en [Conexión de recursos de Azure Monitor](#connect-azure-monitor-resources). Para agregar una nueva conexión, seleccione **Agregar** y seleccione el ámbito de Private Link de Azure Monitor. Seleccione **Aplicar** para conectarlo. Tenga en cuenta que un área de trabajo puede conectarse a 5 objetos de AMPLS, tal como se explica en [Restricciones y limitaciones](#restrictions-and-limitations). 
 
 ### <a name="manage-access-from-outside-of-private-links-scopes"></a>Administración del acceso desde fuera de los ámbitos de vínculos privados
-La configuración de la parte inferior de esta página controla el acceso desde las redes públicas, lo que significa las redes no conectadas mediante los ámbitos enumerados (AMPLS). Si establece **Allow public network access for ingestion** (Permitir el acceso de la red pública para la ingesta) en **No**, se bloqueará la ingesta de registros de las máquinas que se encuentren fuera de los ámbitos conectados. Si establece **Allow public network access for queries** (Permitir el acceso a la red pública para las consultas) en **No**, se bloquearán las consultas que procedan de máquinas que se encuentren fuera de los ámbitos. Esto incluye la ejecución de consultas mediante libros, paneles, experiencias de cliente basadas en API, conclusiones de Azure Portal, etc. Las experiencias que se ejecutan fuera de Azure Portal y que consultan los datos de Log Analytics también deben ejecutarse dentro de la red virtual vinculada privada.
+La configuración de la parte inferior de esta página controla el acceso desde las redes públicas, es decir, las redes no conectadas a los ámbitos enumerados (AMPLS). Si establece **Allow public network access for ingestion** (Permitir el acceso de la red pública para la ingesta) en **No**, se bloqueará la ingesta de registros de las máquinas que se encuentren fuera de los ámbitos conectados. Si establece **Allow public network access for queries** (Permitir el acceso a la red pública para las consultas) en **No**, se bloquearán las consultas que procedan de máquinas que se encuentren fuera de los ámbitos. Esto incluye la ejecución de consultas mediante libros, paneles, experiencias de cliente basadas en API, conclusiones de Azure Portal, etc. Las experiencias que se ejecutan fuera de Azure Portal y que consultan los datos de Log Analytics también deben ejecutarse dentro de la red virtual vinculada privada.
 
 ### <a name="exceptions"></a>Excepciones
 Restringir el acceso tal como lo hemos explicado anteriormente no se aplica a Azure Resource Manager y, por lo tanto, tiene las siguientes limitaciones:
@@ -237,7 +237,7 @@ Restringir el acceso tal como lo hemos explicado anteriormente no se aplica a Az
 > Los registros y las métricas que se cargan en un área de trabajo a través de [Configuración de diagnóstico](../essentials/diagnostic-settings.md) pasan por un canal de Microsoft privado seguro y no se controlan mediante esta configuración.
 
 ### <a name="log-analytics-solution-packs-download"></a>Descarga de paquetes de la solución Log Analytics
-Los agentes de Log Analytics necesitan acceder a una cuenta de almacenamiento global para descargar los paquetes de soluciones. Las configuraciones de Private Link creadas a partir del 19 de abril de 2021 pueden acceder al almacenamiento de los paquetes de soluciones de los agentes a través del vínculo privado. Esto es posible a través de la nueva zona DNS creada para [blob.core.windows.net](#privatelink-blob-core-windows-net).
+Los agentes de Log Analytics necesitan acceder a una cuenta de almacenamiento global para descargar los paquetes de soluciones. Las configuraciones de Private Link creadas a partir del 19 de abril de 2021 (o a partir de junio de 2021 en nubes soberanas de Azure) pueden acceder al almacenamiento de los paquetes de soluciones de los agentes a través del vínculo privado. Esto es posible a través de la nueva zona DNS creada para [blob.core.windows.net](#privatelink-blob-core-windows-net).
 
 Si la configuración de Private Link se creó antes del 19 de abril de 2021, no llegará al almacenamiento de paquetes de solución a través de un vínculo privado. Para controlarlo, puede realizar una de las siguientes acciones:
 * Vuelva a crear el AMPLS y el punto de conexión privado conectado a él.

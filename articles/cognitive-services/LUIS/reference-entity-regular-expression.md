@@ -4,19 +4,19 @@ description: Una expresión regular es mejor para el texto de enunciado sin form
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 04/14/2020
-ms.openlocfilehash: 18e44ec43e1169aa054e6e5b4591ccd8611a7f4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/05/2021
+ms.openlocfilehash: e53d21cc4e28f6c388b4e4f980a3352021fc2bcb
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95025232"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108803411"
 ---
 # <a name="regular-expression-entity"></a>Entidad de expresión regular
 
 Una entidad de expresión regular extrae una entidad basada en un patrón de expresión regular que se proporciona.
 
-Una expresión regular es mejor para el texto de enunciado sin formato. No distingue entre mayúsculas y minúsculas e ignora la variante cultural.  La coincidencia de expresiones regulares se aplica después de las modificaciones de la ortografía en los caracteres, no en el nivel de token. Si la expresión regular es demasiado compleja (por ejemplo, uso excesivo de corchetes), no podrá agregar la expresión al modelo. Usa una parte de la biblioteca de [expresiones regulares de .NET](/dotnet/standard/base-types/regular-expressions), pero no toda ella.
+Una expresión regular es mejor para el texto de enunciado sin formato. No distingue entre mayúsculas y minúsculas e ignora la variante cultural.  La coincidencia de expresiones regulares se aplica después de las modificaciones de la ortografía en el nivel de token. Si la expresión regular es demasiado compleja (por ejemplo, uso excesivo de corchetes), no podrá agregar la expresión al modelo. Usa una parte de la biblioteca de [expresiones regulares de .NET](/dotnet/standard/base-types/regular-expressions), pero no toda ella.
 
 **La entidad es la opción ideal cuando:**
 
@@ -25,21 +25,7 @@ Una expresión regular es mejor para el texto de enunciado sin formato. No disti
 
 ![Entidad de expresión regular](./media/luis-concept-entities/regex-entity.png)
 
-## <a name="usage-considerations"></a>Consideraciones de uso
-
-Las expresiones regulares pueden generar más coincidencias de las esperables. Un ejemplo de esto es la coincidencia de números en palabras como `one` y `two`. Un ejemplo es la siguiente expresión regular, que coincide con el número `one` junto con otros números:
-
-```javascript
-(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
-```
-
-Esta expresión regular también coincide con cualquier palabra que termina con estos números, como `phone`. Para solucionar problemas como este, asegúrese de que las coincidencias de expresiones regulares tienen en cuenta los límites de palabras. La expresión regular para usar los límites de palabras en este ejemplo se utiliza en la siguiente expresión regular:
-
-```javascript
-\b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
-```
-
-### <a name="example-json"></a>Ejemplo de JSON
+## <a name="example-json"></a>Ejemplo de JSON
 
 Al usar `kb[0-9]{6}` como definición de la entidad de expresión regular, la siguiente respuesta JSON es una expresión de ejemplo con las entidades de expresión regular devueltas para la consulta:
 

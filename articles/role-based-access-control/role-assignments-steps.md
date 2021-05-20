@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 04/14/2021
 ms.author: rolyon
-ms.openlocfilehash: 40a17da6383fb1f368c74a82fefa71991cdc1b19
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: f0fc0611e48f25c8faec415b8702a420402280c5
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107517681"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483846"
 ---
 # <a name="steps-to-assign-an-azure-role"></a>Pasos para asignar un rol de Azure
 
@@ -68,7 +68,7 @@ Si asigna un rol a un ámbito primario, esos permisos se heredan en los ámbitos
 - Si asigna el rol [Lector de facturación](built-in-roles.md#billing-reader) a un grupo en el ámbito de la suscripción, los miembros de ese grupo pueden leer los datos de facturación cada grupo de recursos y cada recurso de la suscripción.
 - Si asigna el rol [Colaborador](built-in-roles.md#contributor) a una aplicación en el ámbito del grupo de recursos, puede administrar recursos de todos los tipos en ese grupo de recursos, pero no otros grupo de recursos de la suscripción.
 
- Para obtener más información, consulte [Comprender el ámbito](scope-overview.md).
+[!INCLUDE [Scope for Azure RBAC least privilege](../../includes/role-based-access-control/scope-least.md)] Para más información, consulte [Descripción del ámbito](scope-overview.md).
 
 ## <a name="step-4-check-your-prerequisites"></a>Paso 4. Comprobar los requisitos previos
 

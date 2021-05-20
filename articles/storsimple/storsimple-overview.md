@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/02/2021
 ms.author: timlt
-ms.openlocfilehash: e8fb6985da5046d0a1bad171cbc9742a15baf1af
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 439522011734a31f818494956bd51f079b1f6113
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643431"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743262"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Serie StorSimple 8000: una solución de almacenamiento en la nube híbrida
 
@@ -146,7 +146,7 @@ Si se produce un desastre o si debe restaurar datos por cualquier otro motivo, S
 Para obtener más información, vaya a [Qué es el Administrador de instantáneas de StorSimple](storsimple-what-is-snapshot-manager.md)
 
 ## <a name="storsimple-adapter-for-sharepoint"></a>Adaptador de StorSimple para SharePoint
-Microsoft Azure StorSimple incluye el adaptador de StorSimple para SharePoint, un componente opcional que extiende de manera transparente el almacenamiento de StorSimple y las características de protección de datos a las granjas de servidores de SharePoint. El adaptador funciona con un proveedor de Almacenamiento remoto de blobs (RBS) y la característica RBS de SQL Server, lo que le permite mover blobs a un servidor con copia de seguridad realizada por el sistema Microsoft Azure StorSimple. Microsoft Azure StorSimple luego almacena los datos de blob de manera local o en la nube, según el uso.
+Microsoft Azure StorSimple incluye el adaptador de StorSimple para SharePoint, un componente opcional que extiende de manera transparente el almacenamiento de StorSimple y las características de protección de datos a las granjas de servidores de SharePoint. El adaptador funciona con un proveedor de Almacenamiento remoto de blobs (RBS) y la característica RBS de SQL Server, lo que le permite mover blobs a un servidor con copia de seguridad realizada por el sistema Microsoft Azure StorSimple. Microsoft Azure StorSimple luego almacena los datos de blob de manera local o en la nube, según el uso.
 
 El adaptador de StorSimple para SharePoint se administra desde el Portal de administración central de SharePoint. Por lo que la administración de SharePoint sigue centralizada y todo el almacenamiento parece encontrarse en la granja de SharePoint.
 
@@ -304,7 +304,7 @@ Antes de implementar la solución Microsoft Azure StorSimple, se recomienda que 
 | Small Computer System Interface (SCSI) |Un conjunto de estándares para conectar físicamente equipos y pasar datos entre ellos. |
 | unidad de estado sólido (SSD) |Un disco que no contiene piezas móviles; por ejemplo, una unidad flash. |
 | Cuenta de almacenamiento |Un conjunto de credenciales de acceso vinculado a la cuenta de almacenamiento para un proveedor de servicios de nube determinado. |
-| Adaptador de StorSimple para SharePoint |Un componente de Microsoft Azure StorSimple que extiende de manera transparente el almacenamiento de StorSimple y la protección de datos a las granjas de servidores de SharePoint. |
+| Adaptador de StorSimple para SharePoint |Un componente de Microsoft Azure StorSimple que extiende de manera transparente el almacenamiento de StorSimple y la protección de datos a las granjas de servidores de SharePoint. |
 | Servicio de administrador de dispositivos de StorSimple |Una extensión de Azure Portal que le permite administrar Azure StorSimple en local y en dispositivos virtuales. |
 | Snapshot Manager de StorSimple |Un complemento de Microsoft Management Console (MMC) para administrar las operaciones de copia de seguridad y restauración en Microsoft Azure StorSimple. |
 | realizar copia de seguridad |Una característica que permite al usuario realizar una copia de seguridad interactiva de un volumen. Es una forma alternativa de realizar una copia de seguridad manual de un volumen en lugar de realizar una copia de seguridad automatizada a través de una directiva definida. |

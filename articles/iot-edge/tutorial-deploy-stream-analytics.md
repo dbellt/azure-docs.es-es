@@ -3,16 +3,16 @@ title: 'Tutorial: Stream Analytics en el área perimetral con Azure IoT Edge'
 description: En este tutorial, va a implementar Azure Stream Analytics como un módulo en un dispositivo de Iot Edge.
 author: kgremban
 ms.author: kgremban
-ms.date: 07/29/2020
+ms.date: 05/03/2021
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 323973b7646acee07a0c4dbc59834e0aceca75ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8cafb9cdbc5ca9851130ea4d9b2ef60c1616d213
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103462055"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790728"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutorial: Implementación de Azure Stream Analytics como un módulo de IoT Edge
 
@@ -66,7 +66,7 @@ Cuando se crea un trabajo de Azure Stream Analytics para ejecutarse en un dispos
 
 1. Especifique los siguientes valores para crear una cuenta de almacenamiento:
 
-   | Campo | Valor |
+   | Campo | Value |
    | ----- | ----- |
    | Suscripción | Elija la misma suscripción que IoT Hub. |
    | Resource group | Se recomienda usar el mismo grupo de recursos para todos los recursos de prueba en las guías de inicio rápido y los tutoriales de IoT Edge. Por ejemplo, **IoTEdgeResources**. |
@@ -89,7 +89,7 @@ Cuando se crea un trabajo de Azure Stream Analytics para ejecutarse en un dispos
    | Suscripción | Elija la misma suscripción que IoT Hub. |
    | Resource group | Se recomienda usar el mismo grupo de recursos para todos los recursos de prueba que se crean en las guías de inicio rápido y los tutoriales de IoT Edge. Por ejemplo, **IoTEdgeResources**. |
    | Location | Elija una ubicación cercana a usted. |
-   | Entorno de hospedaje | Seleccionar **Edge**. |
+   | Entorno de hospedaje | Seleccionar **Edge**. Esta opción indica que el trabajo se va a implementar en un dispositivo IoT Edge en lugar de hospedarse en la nube. |
 
 1. Seleccione **Crear**.
 
@@ -106,6 +106,8 @@ Mediante los tres elementos de entrada, salida y consulta, esta sección crea un
    ![Azure Stream Analytics: adición de entrada](./media/tutorial-deploy-stream-analytics/asa-input.png)
 
 1. Elija **Centro de Microsoft Edge** en la lista desplegable.
+
+   Si no ve la opción **Centro de Microsoft Edge** en la lista, es posible que haya creado el trabajo de Stream Analytics como un trabajo hospedado en la nube. Pruebe a crear un nuevo trabajo y asegúrese de seleccionar **Edge** como entorno de hospedaje.
 
 1. En el panel **Nueva entrada**, escriba **Temperatura** como alias de entrada.
 
@@ -140,15 +142,15 @@ Mediante los tres elementos de entrada, salida y consulta, esta sección crea un
 
 ### <a name="configure-iot-edge-settings"></a>Configuración de los valores de IoT Edge
 
-Para preparar el trabajo de Stream Analytics que se va a implementar en un dispositivo IoT Edge, es preciso asociar el trabajo con un contenedor en una cuenta de almacenamiento. Al importar un trabajo, la definición del mismo se exporta en el contenedor de almacenamiento.
+Para preparar el trabajo de Stream Analytics que se va a implementar en un dispositivo IoT Edge, es preciso asociar el trabajo con una cuenta de almacenamiento. Al implementar el trabajo, la definición del trabajo se exporta a la cuenta de almacenamiento en forma de contenedor.
 
 1. En **Configurar**, seleccione **Configuración de la cuenta de almacenamiento** y, después, **Agregar cuenta de almacenamiento**.
 
    ![Azure Stream Analytics: agregar cuenta de almacenamiento](./media/tutorial-deploy-stream-analytics/add-storage-account.png)
 
-1. En el menú desplegable, seleccione la **cuenta de almacenamiento** que ha creado al principio de este tutorial.
+1. Elija la opción **Select Blob storage/ADLS Gen 2 from your subscriptions** (Seleccionar Blob Storage/ADLS Gen 2 de sus suscripciones).
 
-1. Para el campo **Contenedor**, seleccione **Crear nuevo** y proporcione un nombre para el contenedor de almacenamiento.
+1. Use los menús desplegables para seleccionar la **suscripción** y la **cuenta de almacenamiento** que ha configurado al principio de este tutorial.
 
 1. Seleccione **Guardar**.
 

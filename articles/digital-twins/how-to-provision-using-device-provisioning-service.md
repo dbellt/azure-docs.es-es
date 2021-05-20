@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 295aeb47499b61556b37d87f0e3c05bc9aea3d6e
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 30419579dab90af07efcea38592d783f1a1d8e00
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208462"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786958"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Administración automática de dispositivos en Azure Digital Twins mediante Device Provisioning Service (DPS)
 
@@ -26,10 +26,10 @@ Para más información sobre las etapas de _aprovisionamiento_ y _retirada_ y pa
 
 Antes de que pueda configurar el aprovisionamiento, debe configurar lo que se indica a continuación:
 * una **instancia de Azure Digital Twins**. Siga las instrucciones que se indican en [Procedimiento de configuración de una instancia y de autenticación](how-to-set-up-instance-portal.md) para crear una instancia de gemelos digitales de Azure. Recopile el nombre de **_host_** de la instancia en el Azure portal ([instrucciones](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
-* un **centro de IoT**. Para instrucciones, consulte la sección *Creación de una instancia de IoT Hub* de [este inicio rápido de IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md).
+* un **centro de IoT**. Para obtener instrucciones, consulte la sección Creación de una instancia de IoT Hub del [inicio rápido de IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md).
 * una [función de Azure](../azure-functions/functions-overview.md) que actualiza la información de doble digital basada en datos de IOT Hub. Siga las instrucciones que [se indican en cómo: ingesta de datos de IOT Hub](how-to-ingest-iot-hub-data.md) para crear esta función de Azure. Recopile el **_nombre_** de la función para usarlo en este artículo.
 
-En este ejemplo también se usa un **simulador de dispositivos** que incluye el aprovisionamiento mediante Device Provisioning Service. El simulador de dispositivos se encuentra aquí: [Ejemplo de integración de Azure Digital Twins e IoT Hub](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Para obtener el proyecto de ejemplo en la máquina, vaya al vínculo del ejemplo y seleccione el botón **Examinar código** situado debajo del título. Esto le llevará al repositorio de GitHub de los ejemplos, que puede descargar como un archivo *.ZIP* al seleccionar el botón **Código** y **Descargar archivo ZIP**. 
+En este ejemplo también se usa un **simulador de dispositivos** que incluye el aprovisionamiento mediante Device Provisioning Service. El simulador de dispositivos se encuentra aquí: [Ejemplo de integración de Azure Digital Twins e IoT Hub](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Para obtener el proyecto de ejemplo en la máquina, vaya al vínculo del ejemplo y seleccione el botón **Examinar código** situado debajo del título. Esto le llevará al repositorio de GitHub de los ejemplos, que puede descargar como un archivo .zip al seleccionar el botón **Código** y **Descargar archivo ZIP**. 
 
 :::image type="content" source="media/how-to-provision-using-device-provisioning-service/download-repo-zip.png" alt-text="Captura de pantalla del repositorio digital-twins-iothub-integration en GitHub. El botón Código está seleccionado y se muestra un pequeño cuadro de diálogo en el que el botón Descargar archivo ZIP está resaltado." lightbox="media/how-to-provision-using-device-provisioning-service/download-repo-zip.png":::
 
@@ -181,10 +181,10 @@ Debería ver que el dispositivo se registra y se conecta a IoT Hub y, a continua
 
 ### <a name="validate"></a>Validación
 
-Como resultado del flujo que ha configurado en este artículo, el dispositivo se registrará automáticamente en Azure Digital Twins. Use el siguiente comando de la [CLI de Azure Digital Twins](how-to-use-cli.md) para buscar el gemelo del dispositivo de la instancia de Azure Digital Twins que ha creado.
+Como resultado del flujo que ha configurado en este artículo, el dispositivo se registrará automáticamente en Azure Digital Twins. Use el siguiente comando de la [CLI de Azure Digital Twins](concepts-cli.md) para buscar el gemelo del dispositivo de la instancia de Azure Digital Twins que ha creado.
 
 ```azurecli-interactive
-az dt twin show -n <Digital Twins instance name> --twin-id "<Device Registration ID>"
+az dt twin show --dt-name <Digital Twins instance name> --twin-id "<Device Registration ID>"
 ```
 
 Debería ver el gemelo del dispositivo que se encuentra en la instancia de Azure Digital Twins.
@@ -233,7 +233,7 @@ Después, configure la aplicación de funciones de Azure que configuró en la se
 2. Agregue la cadena de conexión como una variable en la configuración de la aplicación de función con el siguiente comando de CLI de Azure. El comando se puede ejecutar en [Cloud Shell](https://shell.azure.com), o localmente si tiene la [CLI de Azure instalada en la máquina](/cli/azure/install-azure-cli).
 
     ```azurecli-interactive
-    az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event Hubs SAS connection string Listen>" -g <resource group> -n <your App Service (function app) name>
+    az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event Hubs SAS connection string Listen>" --resource-group <resource group> --name <your App Service (function app) name>
     ```
 
 ### <a name="add-a-function-to-retire-with-iot-hub-lifecycle-events"></a>Agregar una función para retirar con eventos de ciclo de vida de IoT Hub
@@ -316,10 +316,10 @@ Puede hacerlo con un [comando CLI de Azure](/cli/azure/iot/hub/module-identity#a
 
 Puede tardar unos minutos en ver los cambios reflejados en Azure Digital Twins.
 
-Use el siguiente comando de la [CLI de Azure Digital Twins](how-to-use-cli.md) para comprobar el gemelo del dispositivo de la instancia de Azure Digital Twins que ha eliminado.
+Use el siguiente comando de la [CLI de Azure Digital Twins](concepts-cli.md) para comprobar el gemelo del dispositivo de la instancia de Azure Digital Twins que ha eliminado.
 
 ```azurecli-interactive
-az dt twin show -n <Digital Twins instance name> --twin-id "<Device Registration ID>"
+az dt twin show --dt-name <Digital Twins instance name> --twin-id "<Device Registration ID>"
 ```
 
 Debería ver que el gemelo del dispositivo ya no se encuentra en la instancia de Azure Digital Twins.

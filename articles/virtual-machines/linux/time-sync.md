@@ -1,24 +1,19 @@
 ---
 title: Sincronizar la hora en las máquinas virtuales de Linux en Azure
 description: Sincronice la hora de las máquinas virtuales Linux.
-services: virtual-machines
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/20/2020
+ms.date: 04/30/2021
 ms.author: cynthn
-ms.openlocfilehash: 18c8570a8066985cab5263c4779787062dc32d75
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c50e39db804a18d50f4a6fb594209cc015515a8c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552650"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754746"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronizar la hora en las máquinas virtuales de Linux en Azure
 
@@ -39,7 +34,7 @@ Los hosts de Azure se sincronizan con los servidores horarios internos de Micros
 
 En el hardware independiente, el sistema operativo Linux solo lee el reloj del hardware del host en el arranque. Después de eso, el reloj se mantiene gracias al temporizador de interrupción en el kernel de Linux. En esta configuración, el reloj dejará de ser preciso con el tiempo. En las nuevas distribuciones de Linux en Azure, las máquinas virtuales pueden usar el proveedor VMICTimeSync que está incluido en los servicios de integración de Linux (LIS), para consultar con más frecuencia actualizaciones del reloj desde el host.
 
-Las interacciones de la máquina virtual con el host también pueden afectar al reloj. Durante [el mantenimiento de conservación de la memoria](../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot) las máquinas virtuales se detienen hasta 30 segundos. Por ejemplo, antes de que comience el proceso de mantenimiento que dura 28 segundos, el reloj de la máquina virtual muestra las 10:00:00 A.M. Cuando se reanuda la máquina virtual, el reloj de la misma todavía muestra las 10:00:00 A.M., por lo que tendría 28 segundos de retraso. Para corregir esto, el servicio VMICTimeSync supervisa lo que sucede en el host y solicita que se realicen cambios en las máquinas virtuales para compensar este retraso.
+Las interacciones de la máquina virtual con el host también pueden afectar al reloj. Durante [el mantenimiento de conservación de la memoria](../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot) las máquinas virtuales se detienen hasta 30 segundos. Por ejemplo, antes de que comience el proceso de mantenimiento que dura 28 segundos, el reloj de la máquina virtual muestra las 10:00:00 A.M. Cuando se reanuda la máquina virtual, el reloj de la misma todavía muestra las 10:00:00 A.M., por lo que tendría 28 segundos de retraso. Para corregir este problema, el servicio VMICTimeSync supervisa lo que sucede en el host y actualiza el reloj de hora del día en las máquinas virtuales de Linux para compensar este retraso.
 
 Por supuesto, si la sincronización de la hora no funciona, el reloj de la máquina virtual solo acumularía errores. Cuando solo hay una máquina virtual, este efecto puede no ser significativo a menos que la carga de trabajo requiera un cronometraje altamente preciso. Aún así, en la mayoría de los casos hay varias máquinas virtuales conectadas entre sí que usan la hora para realizar el seguimiento de las transacciones, por lo que esta hora debe ser consistente en toda la implementación. Cuando la hora de las máquinas virtuales es diferente, puede ver los siguientes efectos:
 
@@ -48,38 +43,27 @@ Por supuesto, si la sincronización de la hora no funciona, el reloj de la máqu
 - Si el reloj está atrasado, es posible que la facturación no se calcule correctamente.
 
 
-
 ## <a name="configuration-options"></a>Opciones de configuración
 
-En general, existen tres formas de configurar la sincronización horaria de las máquinas virtuales de Linux hospedadas en Azure:
+La sincronización de hora requiere que se ejecute un servicio de sincronización de hora en la máquina virtual de Linux, además de una fuente de información de hora precisa con la que sincronizar.
+Normalmente, se usa ntpd o chronyd como servicio de sincronización de hora, aunque hay otros servicios de sincronización de hora de código abierto que también se pueden usar.
+El origen de información de hora precisa puede ser el host de Azure o un servicio de hora externo al que se accede a través de la red pública de Internet.
+Por sí mismo, el servicio VMICTimeSync no proporciona sincronización de hora continua entre el host de Azure y una máquina virtual de Linux, excepto después de pausas para el mantenimiento del host, como se describió anteriormente. 
 
-- La configuración predeterminada para las imágenes de Azure Marketplace usa tanto la hora del servidor NTP como la del host de VMICTimeSync. 
-- Solo con el host mediante VMICTimeSync.
-- Use otro servidor horario externo con o sin usar la hora del host de VMICTimeSync.
+Históricamente, la mayoría de imágenes de Azure Marketplace con Linux se han configurado de una de estas dos maneras:
+- No se está ejecutando ningún servicio de sincronización de hora de manera predeterminada.
+- ntpd se ejecuta como servicio de sincronización de hora y se sincroniza con un origen de hora NTP externo al que se accede a través de la red. Por ejemplo, las imágenes de Marketplace de Ubuntu 18.04 LTS usan **ntp.ubuntu.com**.
 
+Para confirmar que ntpd se está sincronizando correctamente, ejecute el comando `ntpq -p`.
 
-### <a name="use-the-default"></a>Usar el valor predeterminado
+A partir de principios de 2021, las imágenes de Azure Marketplace más actuales con Linux se cambian para usar chronyd como servicio de sincronización de hora, y chronyd está configurado para sincronizarse con el host de Azure en lugar de con un origen de hora NTP externo. La hora del host de Azure suele ser el mejor origen de hora con el que sincronizarse, ya que se mantiene de forma muy precisa y confiable, y es accesible sin los retrasos de red variables inherentes al acceso a un origen de hora NTP externo a través de la red pública de Internet.
 
-De forma predeterminada, la mayoría de las imágenes de Azure Marketplace para Linux están configuradas para sincronizarse desde dos orígenes: 
+VMICTimeSync se usa en paralelo y proporciona dos funciones:
+- Actualiza inmediatamente el reloj de la hora del día de la máquina virtual de Linux después de un evento de mantenimiento del host.
+- Crea instancias de un origen de reloj de hardware del Protocolo de tiempo de precisión (PTP) IEEE 1588 como un dispositivo /dev/ptp que proporciona la hora del día precisa del host de Azure.  Chronyd se puede configurar para sincronizarse con este origen de hora (que es la configuración predeterminada en las imágenes de Linux más nuevas). Las distribuciones de Linux con la versión de kernel 4.11 o posterior (o la versión 3.10.0-693 o posterior para RHEL/CentOS 7) admiten el dispositivo /dev/ptp.  En versiones anteriores del kernel que no admiten /dev/ptp para la hora del host de Azure, solo es posible la sincronización con un origen de hora externo.
 
-- NTP como origen principal, que obtiene la hora de un servidor NTP. Por ejemplo, las imágenes de Ubuntu 16.04 LTS Marketplace usan **ntp.ubuntu.com**.
-- El servicio VMICTimeSync como origen secundario, que se usa para comunicar la hora del host a las máquinas virtuales y hacer correcciones después de pausar la máquina virtual para el proceso de mantenimiento. Los hosts de Azure usan dispositivos Stratum 1 de Microsoft para mantener la exactitud de la hora.
+Por supuesto, se puede cambiar la configuración predeterminada. Una imagen anterior configurada para usar ntpd y un origen de hora externo se puede cambiar para usar chronyd y el dispositivo /dev/ptp para la hora del host de Azure.  De forma similar, una imagen que usa la hora del host de Azure a través de un dispositivo /dev/ptp se puede configurar para usar un origen de hora NTP externo si lo requiere la aplicación o la carga de trabajo.
 
-En las distribuciones de Linux más recientes, el servicio VMICTimeSync proporciona un origen de reloj de hardware del protocolo de tiempo de precisión (PTP), pero es posible que las distribuciones anteriores no proporcionen este origen de reloj y se reviertan a NTP para obtener la hora del host.
-
-Para confirmar que NTP se está sincronizando correctamente, ejecute el comando `ntpq -p`.
-
-### <a name="host-only"></a>Solo para el host 
-
-Debido a que los servidores NTP como time.windows.com y ntp.ubuntu.com son públicos, es necesario enviar tráfico a través de Internet para sincronizar la hora con ellos. Los retrasos varios que pueden sufrir los paquetes pueden afectar negativamente a la calidad de la sincronización horaria. Si elimina NTP y cambia a la sincronización solo para el host, puede mejorar los resultados de la sincronización de hora.
-
-Tenga en cuenta que solo merece la pena cambiar a la sincronización de hora solo para el host si tiene problemas al sincronizar la hora con la configuración predeterminada. Pruebe la sincronización solo para el host y compruebe si así mejora la sincronización de hora en la máquina virtual. 
-
-### <a name="external-time-server"></a>Servidor de hora externo
-
-Si tiene requisitos de sincronización horaria específica, también hay una opción que le permitirá usar servidores horarios externos. Los servidores horarios externos pueden proporcionar una hora específica, que puede ser útil para escenarios de prueba; gracias a ello, asegurará la uniformidad de la hora de las máquinas hospedadas en centros de datos que no sean de Microsoft, o podrá controlar los segundos intercalares de una manera especial.
-
-Puede combinar servidores horarios externos con el servicio VMICTimeSync para proporcionar resultados similares a los de la configuración predeterminada. La combinación de un servidor horario externo con VMICTimeSync es la mejor opción para tratar los problemas que se pueden originar cuando las máquinas virtuales están en pausa para el mantenimiento. 
 
 ## <a name="tools-and-resources"></a>Herramientas y recursos
 
@@ -99,23 +83,10 @@ hv_utils               24418  0
 hv_vmbus              397185  7 hv_balloon,hyperv_keyboard,hv_netvsc,hid_hyperv,hv_utils,hyperv_fb,hv_storvsc
 ```
 
-Comprobar si el demonio de servicios de integración de Hyper-V se está ejecutando.
-
-```bash
-ps -ef | grep hv
-```
-
-Verá algo parecido a esto:
-
-```
-root        229      2  0 17:52 ?        00:00:00 [hv_vmbus_con]
-root        391      2  0 17:52 ?        00:00:00 [hv_balloon]
-```
-
-
 ### <a name="check-for-ptp-clock-source"></a>Comprobación del origen del reloj de PTP
 
-Con las versiones más recientes de Linux, un origen del reloj del protocolo de tiempo de precisión (PTP) está disponible como parte del proveedor VMICTimeSync. En versiones anteriores de Red Hat Enterprise Linux o CentOS 7.x, los [servicios de integración de Linux](https://github.com/LIS/lis-next) se pueden descargar y usar para instalar el controlador actualizado. Cuando el origen del reloj de PTP esté disponible, el dispositivo Linux tendrá el formato /dev/ptp *x*. 
+Con las versiones más recientes de Linux, un origen del reloj del protocolo de tiempo de precisión (PTP) está disponible como parte del proveedor VMICTimeSync.
+En versiones anteriores de Red Hat Enterprise Linux o CentOS 7.x, los [servicios de integración de Linux](https://github.com/LIS/lis-next) se pueden descargar y usar para instalar el controlador actualizado. Cuando el origen del reloj de PTP esté disponible, el dispositivo Linux tendrá el formato /dev/ptp *x*. 
 
 Consulte los orígenes de reloj del PTP que están disponibles.
 
@@ -129,15 +100,19 @@ En este ejemplo, el valor devuelto es *ptp0*, así que lo usamos para comprobar 
 cat /sys/class/ptp/ptp0/clock_name
 ```
 
-Esto debería devolver el valor `hyperv`.
+Esto debe devolver `hyperv`, lo que significa que es el host de Azure.
+
+En máquinas virtuales de Linux con redes aceleradas habilitadas, es posible que aparezcan varios dispositivos PTP porque el controlador mlx5 de Mellanox también crea un dispositivo /dev/ptp.
+Dado que el orden de inicialización puede ser diferente cada vez que se inicia Linux, el dispositivo PTP correspondiente al host de Azure puede ser /dev/ptp0 o puede ser /dev/ptp1, lo que dificulta la configuración de chronyd con el origen de reloj correcto. Para solucionar este problema, las imágenes de Linux más recientes tienen una regla udev que crea el symlink /dev/ptp_hyperv a cualquier entrada /dev/ptp correspondiente al host de Azure. Chrony debe configurarse para usar este symlink en lugar de /dev/ptp0 o /dev/ptp1.
 
 ### <a name="chrony"></a>chrony
 
-En Ubuntu 19.10 y versiones posteriores, Red Hat Enterprise Linux y CentOS 8.x, [chrony](https://chrony.tuxfamily.org/) se ha configurado para usar un reloj de origen del PTP. En lugar de chrony, las versiones anteriores de Linux usan el demonio del Protocolo de tiempo de red (ntpd), que no admite orígenes de PTP. Para habilitar PTP en esas versiones, chrony se debe instalar y configurar manualmente (en chrony.conf) usando el siguiente código:
+En Ubuntu 19.10 y versiones posteriores, Red Hat Enterprise Linux y CentOS 8.x, [chrony](https://chrony.tuxfamily.org/) se ha configurado para usar un reloj de origen del PTP. En lugar de chrony, las versiones anteriores de Linux usan el demonio del Protocolo de tiempo de red (ntpd), que no admite orígenes de PTP. Para habilitar PTP en esas versiones, chrony se debe instalar y configurar manualmente (en chrony.conf) usando la siguiente instrucción:
 
 ```bash
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 ```
+Según lo anterior, si el symlink /dev/ptp_hyperv está disponible, úselo en lugar de /dev/ptp0 para evitar confusiones con el dispositivo /dev/ptp creado por el controlador mlx5 de Mellanox.
 
 Para más información sobre Ubuntu y NTP, vea [Sincronización de hora](https://ubuntu.com/server/docs/network-ntp).
 

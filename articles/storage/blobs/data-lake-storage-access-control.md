@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 50c6b4f309eb78acee0cfa59d1b540adba65cab2
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 142c8b1439447da4d535dd97e191a0ada503fe94
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104774820"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109632608"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Listas de control de acceso en Azure Data Lake Storage Gen2
 
@@ -36,13 +36,14 @@ Para establecer permisos en el nivel de archivo y de directorio, consulte cualqu
 
 | Entorno | Artículo |
 |--------|-----------|
-|Explorador de Azure Storage |[Uso del Explorador de Azure Storage para establecer ACL en Azure Data Lake Storage Gen2](data-lake-storage-explorer-acl.md)|
-|.NET |[Uso de .NET para establecer ACL en Azure Data Lake Storage Gen2](data-lake-storage-acl-dotnet.md)|
-|Java|[Uso de Java para establecer ACL en Azure Data Lake Storage Gen2](data-lake-storage-acl-java.md)|
-|Python|[Uso de Python para establecer ACL en Azure Data Lake Storage Gen2](data-lake-storage-acl-python.md)|
-|JavaScript (Node.js)|[Uso del SDK de JavaScript en Node.js para establecer ACL en Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-javascript.md)|
-|PowerShell|[Uso de PowerShell para establecer ACL en Azure Data Lake Storage Gen2](data-lake-storage-acl-powershell.md)|
-|Azure CLI|[Uso de la CLI de Azure para establecer ACL en Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md)|
+|Explorador de Azure Storage |[Uso del Explorador de Azure Storage para administrar listas de control de acceso en Azure Data Lake Storage Gen2](data-lake-storage-explorer-acl.md)|
+|Portal de Azure |[Uso de Azure Portal para administrar ACL en Azure Data Lake Storage Gen2](data-lake-storage-acl-azure-portal.md)|
+|.NET |[Uso de .NET para administrar listas de control de acceso (ACL) en Azure Data Lake Storage Gen2](data-lake-storage-acl-dotnet.md)|
+|Java|[Uso de Java para administrar listas de control de acceso (ACL) en Azure Data Lake Storage Gen2](data-lake-storage-acl-java.md)|
+|Python|[Uso de Python para administrar listas de control de acceso (ACL) en Azure Data Lake Storage Gen2](data-lake-storage-acl-python.md)|
+|JavaScript (Node.js)|[Uso de JavaScript SDK en Node.js para administrar ACL en Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-javascript.md)|
+|PowerShell|[Uso de PowerShell para administrar listas de control de acceso en Azure Data Lake Storage Gen2](data-lake-storage-acl-powershell.md)|
+|Azure CLI|[Uso de la CLI de Azure para administrar listas de control de acceso (ACL) en Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md)|
 |API DE REST |[Ruta de acceso: Actualización](/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]

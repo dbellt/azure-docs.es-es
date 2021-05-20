@@ -11,19 +11,19 @@ ms.tgt_pltfrm: rest-api
 ms.topic: how-to
 ms.date: 02/27/2021
 ms.author: rolyon
-ms.openlocfilehash: 9780902a1c5f4a711e1abffa6b508c28efe269ac
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d7f110ac29fa863ba07ea03cac92d0f03e444e56
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735887"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787426"
 ---
 # <a name="list-azure-role-assignments-using-the-rest-api"></a>Enumeración de asignaciones de roles de Azure mediante la API REST
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] En este artículo se describe cómo enumerar las asignaciones de roles mediante la API REST.
 
 > [!NOTE]
-> Si su organización ha externalizado funciones de administración a un proveedor de servicios que usa la [administración de recursos delegados de Azure](../lighthouse/concepts/azure-delegated-resource-management.md), las asignaciones de roles autorizadas por ese proveedor de servicios no se mostrarán aquí.
+> Si su organización ha externalizado las funciones de administración a un proveedor de servicios que usa [Azure Lighthouse](../lighthouse/overview.md), las asignaciones de roles autorizadas por ese proveedor de servicios no se mostrarán aquí.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 

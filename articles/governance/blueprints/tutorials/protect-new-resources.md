@@ -3,12 +3,12 @@ title: 'Tutorial: Protección de nuevos recursos con bloqueos'
 description: En este tutorial, usará las opciones Solo lectura y No eliminar de los bloqueos de recursos de Azure Blueprints para proteger los recursos recién implementados.
 ms.date: 03/08/2021
 ms.topic: tutorial
-ms.openlocfilehash: 87da0f5a1fff2feb103b32533c8d314fb7690f80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: abb880923da71c437507245917c8e8fddb92b2fa
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102485748"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733866"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Protección de los nuevos recursos con bloqueos de recursos de Azure Blueprints
 
@@ -161,7 +161,7 @@ Después de publicar la definición del plano técnico puede asignarla a una sus
      |-|-|-|-|-|
      |Grupo de recursos de RGtoLock|Resource group|Nombre|TestingBPLocks|Define el nombre del nuevo grupo de recursos al que se aplican los bloqueos de plano técnico.|
      |Grupo de recursos de RGtoLock|Resource group|Location|Oeste de EE. UU. 2|Define la ubicación del nuevo grupo de recursos al que se aplican los bloqueos de plano técnico.|
-     |StorageAccount|Plantilla de Resource Manager|storageAccountType (StorageAccount)|Standard_GRS|La SKU de almacenamiento. El valor predeterminado es _Standard_LRS_.|
+     |StorageAccount|Plantilla de Resource Manager|storageAccountType (StorageAccount) |Standard_GRS|La SKU de almacenamiento. El valor predeterminado es _Standard_LRS_.|
 
 1. Después de que haya especificado todos los parámetros, seleccione **Asignar** en la parte inferior de la página.
 
@@ -177,7 +177,7 @@ La asignación crea el grupo de recursos _TestingBPLocks_ y la cuenta de almacen
 
 1. Seleccione la página **Planos técnicos asignados** de la izquierda. Use los filtros para buscar la asignación de plano técnico **assignment-locked-storageaccount-TestingBPLocks** y, después, selecciónela.
 
-   En esta página, se puede ver que la asignación se realizó correctamente y que los recursos se implementaron con el nuevo estado de bloqueo de plano técnico. Si se actualiza la asignación, el menú desplegable **Operación de asignación** muestra detalles sobre la implementación de cada versión de definición. Puede seleccionar el grupo de recursos para abrir la página de propiedades.
+   En esta página, se puede ver que la asignación se realizó correctamente y que los recursos se implementaron con el nuevo estado de bloqueo de plano técnico. Si se actualiza la asignación, en el menú desplegable **Operación de asignación** aparecerán los detalles sobre la implementación de cada versión de definición. Puede seleccionar el grupo de recursos para abrir la página de propiedades.
 
 1. Seleccione el grupo de recursos **TestingBPLocks**.
 

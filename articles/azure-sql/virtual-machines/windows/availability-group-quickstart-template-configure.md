@@ -15,12 +15,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d7dfe010a3f4a1559454c49545af81eb14797bf1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: deaa7834d4aa69ccf161b58f566dbc82ea71ad78
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359921"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755736"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Uso de las plantillas de inicio rápido de Azure para configurar un grupo de disponibilidad para SQL Server en una máquina virtual de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,6 +36,9 @@ En este artículo se explica cómo usar las plantillas de inicio rápido de Azur
 Otras partes de la configuración del grupo de disponibilidad deben realizarse manualmente, como la creación del grupo de disponibilidad y del equilibrador de carga interno. En este artículo se proporciona la secuencia de pasos manuales y automatizados.
 
 Si bien en este artículo se usan las plantillas de inicio rápido de Azure para configurar el entorno del grupo de disponibilidad, también es posible hacerlo mediante [Azure Portal](availability-group-azure-portal-configure.md), [PowerShell o la CLI de Azure](availability-group-az-commandline-configure.md), o [manualmente](availability-group-manually-configure-tutorial.md). 
+
+> [!NOTE]
+> Ahora es posible migrar mediante lift and shift la solución de grupo de disponibilidad a SQL Server en máquinas virtuales de Azure mediante Azure Migrate. Para más información, consulte [Migración del grupo de disponibilidad](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md). 
  
 
 ## <a name="prerequisites"></a>Requisitos previos 

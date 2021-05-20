@@ -1,18 +1,20 @@
 ---
-title: Administración del ciclo de vida de las máquinas virtuales de Azure VMware Solution
+title: Supervisión y administración de máquinas virtuales de Azure VMware Solution
 description: Aprenda a administrar todos los aspectos del ciclo de vida de las máquinas virtuales de Azure VMware Solution con herramientas nativas de Microsoft Azure.
-ms.topic: conceptual
-ms.date: 02/08/2021
-ms.openlocfilehash: 2cb9964b68769b1e784cebf62b4d336b355c68fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: how-to
+ms.date: 05/04/2021
+ms.openlocfilehash: 3cffba1147a52a48d5005aa22e3a08a33956d66e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100572199"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769262"
 ---
-# <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Administración del ciclo de vida de las máquinas virtuales de Azure VMware Solution
+# <a name="monitor-and-manage-azure-vmware-solution-vms"></a>Supervisión y administración de máquinas virtuales de Azure VMware Solution
 
-Las herramientas nativas de Microsoft Azure le permiten supervisar y administrar las máquinas virtuales (VM) en el entorno de Azure. Sin embargo, también le permiten supervisar y administrar las máquinas virtuales en Azure VMware Solution y las máquinas virtuales locales. En esta información general, veremos la arquitectura de supervisión integrada que ofrece Azure y cómo puede usar sus herramientas nativas para administrar las máquinas virtuales de Azure VMware Solution a lo largo de su ciclo de vida.
+
+
+Las herramientas nativas de Microsoft Azure le permiten supervisar y administrar las máquinas virtuales (VM) en el entorno de Azure. Sin embargo, también le permiten supervisar y administrar las máquinas virtuales en Azure VMware Solution y las máquinas virtuales locales. En este artículo, veremos la arquitectura de supervisión integrada que ofrece Azure y cómo puede usar sus herramientas nativas para administrar las máquinas virtuales de Azure VMware Solution a lo largo de su ciclo de vida.
 
 ## <a name="benefits"></a>Ventajas
 
@@ -36,7 +38,7 @@ Las herramientas nativas de Microsoft Azure le permiten supervisar y administrar
 
 ## <a name="integrated-azure-monitoring-architecture"></a>Arquitectura de supervisión de Azure integrada
 
-En el siguiente diagrama se muestra la arquitectura de supervisión integrada de las máquinas virtuales de Azure VMware Solution.
+En el diagrama se muestra la arquitectura de supervisión integrada de las máquinas virtuales de Azure VMware Solution.
 
 ![Arquitectura de supervisión de Azure integrada](media/lifecycle-management-azure-vmware-solutions-virtual-machines/integrated-azure-monitoring-architecture.png)
 
@@ -51,7 +53,7 @@ Si no está familiarizado con Azure o con ninguno de los servicios mencionados a
 - [¿Qué son los servidores habilitados para Azure Arc?](../azure-arc/servers/overview.md) y [¿Qué es Kubernetes habilitado para Azure Arc?](../azure-arc/kubernetes/overview.md)
 - [Introducción a Update Management](../automation/update-management/overview.md)
 
-## <a name="integrating-and-deploying-azure-native-services"></a>Integración e implementación de servicios nativos de Azure
+## <a name="integrate-and-deploy-azure-native-services"></a>Integración e implementación de servicios nativos de Azure
 
 ### <a name="enable-azure-update-management"></a>Habilitación de Azure Update Management
 

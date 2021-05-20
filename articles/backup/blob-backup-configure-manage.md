@@ -1,16 +1,16 @@
 ---
 title: Configuración de la copia de seguridad operativa para blobs de Azure
-description: Aprenda a configurar y administrar la copia de seguridad operativa para blobs de Azure (en versión preliminar)
+description: Aprenda a configurar y administrar la copia de seguridad operativa para blobs de Azure.
 ms.topic: conceptual
-ms.date: 02/16/2021
-ms.openlocfilehash: 0dc490842389ba9286799aef5d37c1cf7c1ba64e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 05/05/2021
+ms.openlocfilehash: cb2bc525018b33eb3441a8ed949d3e808c5051d8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102051079"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108767508"
 ---
-# <a name="configure-operational-backup-for-azure-blobs-in-preview"></a>Configuración de la copia de seguridad operativa para blobs de Azure (en versión preliminar)
+# <a name="configure-operational-backup-for-azure-blobs"></a>Configuración de la copia de seguridad operativa para blobs de Azure
 
 Azure Backup le permite configurar fácilmente la copia de seguridad operativa para proteger los blobs en bloques en las cuentas de almacenamiento. En este artículo se explica cómo configurar la copia de seguridad operativa en una o varias cuentas de almacenamiento mediante Azure Portal. En este artículo se tratan los temas siguientes:
 
@@ -40,9 +40,16 @@ Para obtener instrucciones sobre cómo crear un almacén de Backup, consulte la 
 
 ## <a name="grant-permissions-to-the-backup-vault-on-storage-accounts"></a>Concesión de permisos al almacén de Backup en cuentas de almacenamiento
 
-La copia de seguridad operativa también protege la cuenta de almacenamiento (que contiene los blobs que se van a proteger) de cualquier eliminación accidental mediante la aplicación de un bloqueo de eliminación propiedad de Backup. Esto requiere que el almacén de Backup tenga ciertos permisos en las cuentas de almacenamiento que deben protegerse. Para mayor comodidad de uso, estos permisos se han consolidado en el rol Colaborador de Backup de la cuenta de almacenamiento. Siga las instrucciones que se indican a continuación para las cuentas de almacenamiento que deben protegerse:
+La copia de seguridad operativa también protege la cuenta de almacenamiento (que contiene los blobs que se van a proteger) de cualquier eliminación accidental mediante la aplicación de un bloqueo de eliminación propiedad de Backup. Esto requiere que el almacén de Backup tenga ciertos permisos en las cuentas de almacenamiento que deben protegerse. Para mayor comodidad de uso, estos permisos mínimos se han consolidado en el rol **Storage Account Backup Contributor** (Colaborador de copias de seguridad de la cuenta de almacenamiento). 
 
-1. En la cuenta de almacenamiento que se va a proteger, vaya a la **pestaña Control de acceso (IAM)** en el panel de navegación izquierdo.
+Se recomienda asignar este rol al almacén de Backup antes de configurar la copia de seguridad. Sin embargo, también puede realizar la asignación de roles al configurarla. [Obtenga más información](#using-backup-center) sobre cómo configurar la copia de seguridad mediante el Centro de copias de seguridad. 
+
+Para asignar el rol necesario en las cuentas de almacenamiento que necesita proteger, siga estos pasos:
+
+>[!NOTE]
+>También puede asignar los roles al almacén en los niveles Suscripción o Grupo de recursos, según le resulte más cómodo.
+
+1. En la cuenta de almacenamiento que hay que proteger, vaya a la pestaña **Control de acceso (IAM)** en el panel de navegación izquierdo.
 1. Seleccione **Agregar asignaciones de roles** para asignar el rol requerido.
 
     ![Agregar asignación de roles](./media/blob-backup-configure-manage/add-role-assignments.png)
@@ -51,13 +58,13 @@ La copia de seguridad operativa también protege la cuenta de almacenamiento (qu
 
     1. En **Rol**, elija **Storage Account Backup Contributor** (Colaborador de copia de seguridad de cuenta de almacenamiento).
     1. En **Asignar acceso a**: elija **User, group or service principal** (Usuario, grupo o entidad de servicio).
-    1. Escriba el **nombre del almacén de Backup** en el que quiere proteger los blobs de esta cuenta de almacenamiento y seleccione el mismo en los resultados de la búsqueda.
-    1. Cuando haya terminado, seleccione **Save** (Guardar).
+    1. Busque el almacén de Backup que desea usar para la copia de seguridad de blobs en esta cuenta de almacenamiento y selecciónelo en los resultados de la búsqueda.
+    1. Seleccione **Guardar**.
 
         ![Opciones de asignación de roles](./media/blob-backup-configure-manage/role-assignment-options.png)
 
         >[!NOTE]
-        >Espere hasta 10 minutos para que la asignación de roles surta efecto.
+        >La asignación de roles puede tardar hasta diez minutos en surtir efecto.
 
 ## <a name="create-a-backup-policy"></a>Crear una directiva de copia de seguridad
 
@@ -91,47 +98,107 @@ Estos son los pasos para crear una directiva de copia de seguridad para la copia
 
 La copia de seguridad de blobs se configura en el nivel de cuenta de almacenamiento. Por lo tanto, todos los blobs de la cuenta de almacenamiento están protegidos con la copia de seguridad operativa.
 
+Puede configurar la copia de seguridad de varias cuentas de almacenamiento mediante el Centro de copias de seguridad. También puede configurar la copia de seguridad de una cuenta de almacenamiento mediante las propiedades de **Protección de datos** de la cuenta de almacenamiento. En esta sección se abordan ambas formas de configurar la copia de seguridad.
+
+### <a name="using-backup-center"></a>Uso del Centro de copias de seguridad
+
 Para iniciar la configuración de la copia de seguridad:
 
 1. Busque **Centro de Backup** en la barra de búsqueda.
+
 1. Vaya a **Información general** ->  **+Copia de seguridad**.
 
     ![Información general del Centro de copias de seguridad](./media/blob-backup-configure-manage/backup-center-overview.png)
 
-1. En la pestaña **Iniciar: configurar copia de seguridad**, elija **Azure Blobs (Azure Storage)** como el tipo de origen de datos.
+1. En la pestaña **Iniciar: configurar copia de seguridad**, elija **Blobs de Azure (Azure Storage)** como tipo de origen de datos.
 
     ![Pestaña Iniciar: configurar copia de seguridad](./media/blob-backup-configure-manage/initiate-configure-backup.png)
 
-1. En la pestaña **Datos básicos**, especifique **Azure Blobs (Azure Storage)** como tipo de **Origen de datos** y seleccione el almacén de Backup al que desea asociar las cuentas de almacenamiento. Puede ver los detalles del almacén seleccionado en el panel.
+1. En la pestaña **Datos básicos**, especifique **Blobs de Azure (Azure Storage)** como tipo de origen de datos y seleccione el almacén de Backup al que desea asociar las cuentas de almacenamiento.<br></br>Puede ver los detalles del almacén seleccionado en el mismo panel.
 
-    ![Pestaña Aspectos básicos](./media/blob-backup-configure-manage/basics-tab.png)
+    ![Pestaña Datos básicos](./media/blob-backup-configure-manage/basics-tab.png)
 
-1. A continuación, seleccione la directiva de copia de seguridad que quiere usar para especificar la retención. Puede ver los detalles de la directiva seleccionada en la parte inferior de la pantalla. La columna del almacén de datos operativos muestra la retención definida en la directiva. "Operativo" significa que los datos se mantienen localmente en la propia cuenta de almacenamiento de origen.
+    >[!NOTE]
+    >Solo se habilitarán las copias de seguridad operativas para los blobs, que almacenan las copias de seguridad en la cuenta de almacenamiento de origen (y no en el almacén de Backup). Por lo tanto, el tipo de redundancia de almacenamiento de copia de seguridad seleccionado para el almacén no se aplica a la copia de seguridad de los blobs.
 
+1. Seleccione la directiva de copia de seguridad que desea usar para especificar la retención.<br></br>Puede ver los detalles de la directiva seleccionada en la parte inferior de la pantalla. La columna del almacén de datos operativos muestra la retención definida en la directiva. **Operativo** significa que los datos se mantienen localmente en la cuenta de almacenamiento de origen.
+    
     ![Elegir directiva de copia de seguridad](./media/blob-backup-configure-manage/choose-backup-policy.png)
 
     También puede crear una nueva directiva de copia de seguridad. Para ello, seleccione **Crear nueva** y siga estos pasos:
+    
+    1. Escriba un nombre para la directiva que quiere crear.<br></br>Asegúrese de que los demás cuadros muestran el tipo de origen de datos y el nombre de almacén correctos.
+    
+    1. En la pestaña **Directiva de Backup**, seleccione el icono de **edición de la regla de retención** para modificar la duración de la retención de datos.<br></br>Puede especificar una retención de hasta **360** días. 
+    
+        >[!NOTE]
+        >Si bien las copias de seguridad no se ven afectadas por el período de retención, la operación de restauración de copias de seguridad anteriores puede tardar más tiempo en completarse.
 
-    1. Escriba un nombre para la directiva que quiere crear. Asegúrese de que los demás cuadros muestran el tipo de origen de datos y el nombre de almacén correctos.
-    1. En la pestaña **Directiva de Backup**, seleccione el icono de edición de regla de retención para editar y especificar la duración de tiempo que quiere retener los datos. Puede especificar una retención de hasta 360 días. La restauración de duraciones largas puede dar lugar a que las operaciones de restauración tarden más en completarse.
+       ![Creación de una directiva de copia de seguridad](./media/blob-backup-configure-manage/new-backup-policy.png)
 
-        ![Creación de una directiva de copia de seguridad](./media/blob-backup-configure-manage/new-backup-policy.png)
+    1. Seleccione **Revisar y crear** para crear la directiva de copia de seguridad.
 
-    1. Una vez hecho esto, seleccione **Revisar y crear** para crear la directiva de copia de seguridad.
+1. Elija las cuentas de almacenamiento necesarias para configurar la protección de blobs. Puede elegir varias cuentas de almacenamiento a la vez y elegir Seleccionar.<br></br>Sin embargo, asegúrese de que el almacén que ha elegido tiene asignado el rol RBAC necesario para configurar la copia de seguridad en las cuentas de almacenamiento. Más información sobre cómo [conceder permisos al almacén de Backup en cuentas de almacenamiento](#grant-permissions-to-the-backup-vault-on-storage-accounts).<br></br>Si el rol no está asignado, puede asignarlo al configurar la copia de seguridad. Consulte el paso 7.
 
-1. A continuación, se le pedirá que elija las cuentas de almacenamiento para las que quiere configurar la protección de blobs. Puede elegir varias cuentas de almacenamiento a la vez y elegir **Seleccionar**.
+    ![Verificación de permisos en el almacén](./media/blob-backup-configure-manage/verify-vault-permissions.png)
 
-    Sin embargo, asegúrese de que el almacén que ha elegido tiene los permisos necesarios para configurar la copia de seguridad en las cuentas de almacenamiento, tal y como se ha descrito anteriormente en [Concesión de permisos al almacén de Backup en cuentas de almacenamiento](#grant-permissions-to-the-backup-vault-on-storage-accounts).
+    Backup valida si el almacén tiene permisos suficientes para permitir la configuración de la copia de seguridad en las cuentas de almacenamiento seleccionadas. Estas validaciones tardan un tiempo en completarse.
+    
+    ![Permisos para la configuración de la copia de seguridad](./media/blob-backup-configure-manage/permissions-for-configuring-backup.png)
 
-    ![Seleccionar recursos para realizar copias de seguridad](./media/blob-backup-configure-manage/select-resources.png)
+1. Una vez completadas las validaciones, la columna **Preparación para la copia de seguridad** indicará si el almacén de Backup tiene permisos suficientes como para configurar las copias de seguridad de cada cuenta de almacenamiento.
 
-    Backup comprueba si el almacén tiene permisos suficientes para permitir la configuración de la copia de seguridad en las cuentas de almacenamiento seleccionadas.
+   ![Información de los permisos del almacén de Backup](./media/blob-backup-configure-manage/information-of-backup-vault-permissions.png)
 
-    ![Backup valida los permisos](./media/blob-backup-configure-manage/validate-permissions.png)
+    Si la validación muestra errores (en dos de las cuentas de almacenamiento de la lista en la ilustración anterior), indica que no ha asignado el rol **Storage account backup contributor** (Colaborador de copias de seguridad de la cuenta de almacenamiento) para estas [cuentas de almacenamiento](#grant-permissions-to-the-backup-vault-on-storage-accounts). También puede asignar el rol necesario aquí, en función de los permisos actuales. El mensaje de error puede ayudarle a comprender si tiene los permisos necesarios y realizar la acción adecuada:
 
-    Si la validación produce errores (como con una de las cuentas de almacenamiento de la captura de pantalla), vaya a las cuentas de almacenamiento seleccionadas y asigne los roles adecuados, tal como se detalla [aquí](#grant-permissions-to-the-backup-vault-on-storage-accounts), y seleccione **Volver a validar**. La asignación de roles nuevos puede tardar hasta 10 minutos en surtir efecto.
+    - **Role assignment not done** (Asignación de roles no realizada): este error (como se muestra en el elemento _blobbackupdemo3_ de la ilustración anterior) indica que el usuario tiene permisos para asignar el rol **Storage account backup contributor** (Colaborador de copias de seguridad de la cuenta de almacenamiento) y los demás roles necesarios para la cuenta de almacenamiento al almacén. Seleccione los roles y haga clic en **Assign missing roles** (Asignar roles que faltan) en la barra de herramientas. De este modo asignará automáticamente el rol necesario al almacén de copia de seguridad y también desencadenará una revalidación automática.<br><br>En ocasiones, la propagación de roles puede tardar un tiempo (hasta 10 minutos), lo que provoca un error en la revalidación. En este caso, espere unos minutos y haga clic en el botón "Volver a validar" para volver a intentar la validación.
+    
+    - **Insufficient permissions for role assignment** (Permisos insuficientes para la asignación de roles): este error (que se muestra en el elemento _blobbackupdemo4_ de la ilustración anterior) indica que el almacén no tiene el rol que se necesita para configurar la copia de seguridad y que el usuario no tiene permisos suficientes para asignar el rol necesario. Para facilitar la asignación de roles, Backup le permite descargar la plantilla de asignación de roles, que puede compartir con los usuarios que tengan permisos para asignar roles para las cuentas de almacenamiento. Para ello, seleccione dichas cuentas de almacenamiento y haga clic en **Download role assignment template** (Descargar plantilla de asignación de roles) para descargar la plantilla.<br><br>Una vez asignados los roles, puede compartirla con los usuarios adecuados. Si la asignación de roles se realiza correctamente, haga clic en **Volver a validar** para validar de nuevo los permisos y, a continuación, configure la copia de seguridad.
+        >[!NOTE]
+        >La plantilla solo contendrá detalles de las cuentas de almacenamiento seleccionadas. Por lo tanto, si hay varios usuarios que necesitan asignar roles para diferentes cuentas de almacenamiento, puede seleccionar y descargar plantillas diferentes según corresponda.
+1. Una vez que la validación sea correcta para todas las cuentas de almacenamiento seleccionadas, continúe en **Revisión y configuración** de la copia de seguridad.<br><br>Recibirá notificaciones sobre el estado de la configuración de la protección y su finalización.
 
-1. Una vez que la validación sea correcta para todas las cuentas de almacenamiento seleccionadas, continúe en **Revisión y configuración** para configurar la copia de seguridad. Verá notificaciones que le informan sobre el estado de la configuración de la protección y su finalización.
+### <a name="using-data-protection-settings-of-the-storage-account"></a>Uso de la configuración de protección de datos de la cuenta de almacenamiento
+
+Puede configurar la copia de seguridad de blobs en una cuenta de almacenamiento directamente desde la configuración de "Protección de datos" de la cuenta de almacenamiento. 
+
+1. Vaya a la cuenta de almacenamiento para la que desea configurar la copia de seguridad de blobs y, a continuación, vaya a **Protección de datos** en el panel izquierdo (bajo **Administración de datos**).
+
+1. En las opciones de protección de datos disponibles, la primera permite habilitar la copia de seguridad operativa mediante Azure Backup.
+
+    ![Copia de seguridad operativa mediante Azure Backup](./media/blob-backup-configure-manage/operational-backup-using-azure-backup.png)
+
+1. Active la casilla correspondiente a **Habilitar la copia de seguridad operativa con Azure Backup**. A continuación, seleccione el almacén de Backup y la directiva de Backup que desea asociar.<br><br>Puede seleccionar el almacén y la directiva existentes, o crear otros nuevos, según sea necesario.
+
+    >[!IMPORTANT]
+    >Debe haber asignado el rol **Storage account backup contributor** (Colaborador de copias de seguridad de la cuenta de almacenamiento) al almacén seleccionado. Más información sobre cómo [conceder permisos al almacén de Backup en cuentas de almacenamiento](#grant-permissions-to-the-backup-vault-on-storage-accounts).
+    
+    - Si ya ha asignado el rol necesario, haga clic en **Guardar** para finalizar la configuración de la copia de seguridad. Siga las notificaciones del portal para realizar un seguimiento del progreso de la configuración de la copia de seguridad.
+    - Si aún no lo ha asignado, haga clic en **Administrar la identidad** y siga los pasos que se indican a continuación para asignar los roles. 
+
+        ![Habilitar la copia de seguridad operativa con Azure Backup](./media/blob-backup-configure-manage/enable-operational-backup-with-azure-backup.png)
+
+
+        1. Al hacer clic en **Administrar la identidad**, llega a la hoja Identidad de la cuenta de almacenamiento. 
+        
+        1. Haga clic en **Agregar asignación de roles** para iniciar la asignación de roles.
+
+            ![Agregar asignación de roles para iniciar la asignación de roles](./media/blob-backup-configure-manage/add-role-assignment-to-initiate-role-assignment.png)
+
+
+        1. Elija el ámbito, la suscripción, el grupo de recursos o la cuenta de almacenamiento que desea asignar al rol.<br><br>Si desea configurar la copia de seguridad operativa de los blobs de varias cuentas de almacenamiento, le recomendamos que asigne el rol en el nivel de grupo de recursos.
+
+        1. En la lista desplegable **Rol**, seleccione el rol **Storage account backup contributor** (Colaborador de copias de seguridad de la cuenta de almacenamiento).
+
+            ![Seleccionar el rol de colaborador de copias de seguridad de la cuenta de almacenamiento](./media/blob-backup-configure-manage/select-storage-account-backup-contributor-role.png)
+
+
+        1. Haga clic en **Guardar** para finalizar la asignación de roles.<br><br>Se le notificará a través del portal cuando se complete correctamente. También puede ver el nuevo rol agregado a la lista de roles existentes para el almacén seleccionado.
+
+            ![Finalizar la asignación de roles](./media/blob-backup-configure-manage/finish-role-assignment.png)
+
+        1. Haga clic en el icono de cancelar (**x**) en la esquina superior derecha para volver a la hoja **Protección de datos** de la cuenta de almacenamiento.<br><br>Una vez de vuelta, siga configurando la copia de seguridad.
 
 ## <a name="effects-on-backed-up-storage-accounts"></a>Efectos en las cuentas de almacenamiento de copia de seguridad
 
@@ -166,8 +233,31 @@ Puede usar el Centro de Backup como el único panel para administrar todas las c
 
     ![Centro de copia de seguridad](./media/blob-backup-configure-manage/backup-center.png)
 
-Para obtener más información, consulte [Información general sobre el Centro de copias de seguridad](backup-center-overview.md).
+Para obtener más información, consulte [Información general sobre el centro de copias de seguridad](backup-center-overview.md).
+
+## <a name="stopping-protection"></a>Detención de la protección
+
+Puede detener la copia de seguridad operativa de la cuenta de almacenamiento en función de sus necesidades.
+
+>[!NOTE]
+>Al detener la protección, solo desasocia la cuenta de almacenamiento del almacén de Backup (y las herramientas de Backup, como el Centro de copias de seguridad), pero no deshabilita la restauración a un momento dado de blobs, el control de versiones y la fuente de cambios que se configuraron.
+
+Para detener la copia de seguridad de una cuenta de almacenamiento, siga estos pasos:
+
+1. Vaya a la instancia de copia de seguridad de la cuenta de almacenamiento de la que se realiza la copia de seguridad.<br><br>Puede navegar hasta aquí desde la cuenta de almacenamiento pasando por **Cuenta de almacenamiento**  -> **Protección de datos** -> **Administrar la configuración de copia de seguridad** o bien directamente desde el Centro de copias de seguridad pasando por **Centro de copias de seguridad** -> **Instancias de Backup** -> busque el nombre de la cuenta de almacenamiento.
+
+    ![Ubicación de la cuenta de almacenamiento](./media/blob-backup-configure-manage/storage-account-location.png)
+
+    ![Ubicación de la cuenta de almacenamiento desde el Centro de copias de seguridad](./media/blob-backup-configure-manage/storage-account-location-through-backup-center.png)
+
+
+1. En la instancia de copia de seguridad, haga clic en **Eliminar** para detener la copia de seguridad operativa de la cuenta de almacenamiento concreta. 
+ 
+    ![Detener copia de seguridad operativa](./media/blob-backup-configure-manage/stop-operational-backup.png)
+
+Después de detener la copia de seguridad, puede deshabilitar otras funcionalidades de protección de datos de almacenamiento (que se habilitan para configurar la copia de seguridad) desde la hoja de protección de datos de la cuenta de almacenamiento.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Restauración de blobs de Azure](blob-restore.md)
+[Restauración de blobs de Azure](blob-restore.md)

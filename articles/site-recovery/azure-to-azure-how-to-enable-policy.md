@@ -6,12 +6,12 @@ ms.author: rishjai
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 5f55d8c4d2c361f4375c44a333c2fec6afc7ef88
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 3fe6ec7baba3e075f5c5026732b10fab81f3bd42
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108077740"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108749382"
 ---
 # <a name="using-policy-with-azure-site-recovery-public-preview"></a>Uso de Azure Policy con Azure Site Recovery (versión preliminar pública)
 
@@ -39,20 +39,18 @@ Varios discos | Compatible
 Conjuntos de disponibilidad | Compatible
 Zonas de disponibilidad | Compatible
 Máquinas virtuales habilitadas para Azure Disk Encryption (ADE) | No compatible
-Grupos con ubicación por proximidad (PPG) | No compatible
+Grupos con ubicación por proximidad (PPG) | Compatible
 Discos habilitados para claves administradas por el cliente (CMK) | No compatible
 Clústeres de espacio de almacenamiento directo (S2D) | No compatible
 Modelo de implementación de Azure Resource Manager | Compatible
 Modelo de implementación clásica | No compatible
 Recuperación ante desastres de zona a zona  | Compatible
-Azure Disk Encryption v1 | No compatible
-Azure Disk Encryption v2 | No compatible
-Interoperabilidad con Azure Backup | No compatible
-Adición o eliminación de discos en caliente | No compatible
 Interoperabilidad con otras directivas aplicadas de forma predeterminada por Azure (si las hay) | Compatible
 
 >[!NOTE]
->Si se crea una máquina virtual no compatible dentro del ámbito de la directiva, Site Recovery no se habilitará para ella. Sin embargo, se reflejará como _no conforme_ en el cumplimiento de recursos.
+>En los casos siguientes, no se habilitará Site Recovery. Sin embargo, se reflejará como _no conforme_ en el cumplimiento de recursos: 
+>1. Si se crea una máquina virtual no compatible dentro del ámbito de la directiva.
+>1. Si una máquina virtual forma parte a la vez de un conjunto de disponibilidad y de un grupo con ubicación por proximidad.
 
 ## <a name="create-a-policy-assignment"></a>Creación de una asignación de directiva
 En esta sección, creará una asignación de directiva que permita Azure Site Recovery en todos los recursos recién creados.

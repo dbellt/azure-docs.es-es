@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: c4ba48377d868404ff130ec458e50e2b42fae977
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 14a235337a1b3bf26874cffe8893f0c21f2ed9f7
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790524"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517881"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxis de las consultas de enrutamiento de mensajes de IoT Hub
 
@@ -58,6 +58,7 @@ Las propiedades del sistema ayudan a identificar el contenido y el origen de los
 | contentType | string | El usuario especifica el tipo de contenido del mensaje. Para permitir la consulta en el cuerpo del mensaje, este valor debe establecerse en application/JSON. |
 | contentEncoding | string | El usuario especifica el tipo de codificación del mensaje. Los valores permitidos son UTF-8, UTF-16, UTF-32, si contentType se establece en application/JSON. |
 | iothub-connection-device-id | string | Este valor se establece mediante IoT Hub e identifica el identificador del dispositivo. Para realizar la consulta, use `$connectionDeviceId`. |
+| iothub-connection-module-id | string | Este valor se establece mediante IoT Hub e identifica el identificador del módulo perimetral. Para realizar la consulta, use `$connectionModuleId`. |
 | iothub-enqueuedtime | string | Este valor lo establece IoT Hub y representa la hora real en UTC de espera en cola del mensaje. Para realizar la consulta, use `enqueuedTime`. |
 | dt-dataschema | string |  El centro de IoT establece este valor en mensajes de dispositivo a la nube. Contiene el id. de modelo del dispositivo establecido en la conexión del dispositivo. Para realizar la consulta, use `$dt-dataschema`. |
 | dt-subject | string | Nombre del componente que envía los mensajes del dispositivo a la nube. Para realizar la consulta, use `$dt-subject`. |

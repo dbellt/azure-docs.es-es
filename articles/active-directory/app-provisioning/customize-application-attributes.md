@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial: Personalización de las asignaciones de atributos de Azure Active Directory'
-description: Conozca cuáles son las asignaciones de atributos para aplicaciones SaaS en Azure Active Directory y cómo puede modificarlas para satisfacer sus necesidades empresariales.
+title: 'Tutorial: Personalización de las asignaciones de atributos de Azure Active Directory en el aprovisionamiento de aplicaciones'
+description: Conozca cuáles son las asignaciones de atributos para aplicaciones de software como servicio (SaaS) en el aprovisionamiento de aplicaciones de Azure Active Directory y cómo puede modificarlas para satisfacer sus necesidades empresariales.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.openlocfilehash: 8534c21bb0dad782b89c6518ea2313b4232639a6
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.reviewer: arvinh
+ms.openlocfilehash: 78e2b01da1b47a51309a9e26500514aea396190b
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128674"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783016"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial: Personalización de las asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory
 
@@ -79,7 +80,7 @@ Además de esta propiedad, las asignaciones de atributos también admiten los si
   - **Solo durante la creación**: esta asignación se aplica solo a las acciones de creación de usuarios.
 
 ## <a name="matching-users-in-the-source-and-target--systems"></a>Emparejamiento de usuarios en los sistemas de origen y destino
-El servicio de aprovisionamiento de Azure AD se puede implementar tanto en escenarios "green field" (donde los usuarios no existen en el sistema de destino) como en escenarios y "brownfield" (donde los usuarios ya existen en el sistema de destino). Para admitir ambos escenarios, el servicio de aprovisionamiento usa el concepto de atributos coincidentes. Los atributos coincidentes permiten determinar la forma de identificar de forma única a un usuario en el origen y emparejarlo en el destino. Como parte de la planeación de la implementación, identifique el atributo que se puede usar para identificar de forma única a un usuario en los sistemas de origen y destino. Cosas que hay que tener en cuenta:
+El servicio de aprovisionamiento de Azure AD se puede implementar tanto en escenarios "green field" (donde los usuarios no existen en el sistema de destino) como en escenarios "brownfield" (donde los usuarios ya existen en el sistema de destino). Para admitir ambos escenarios, el servicio de aprovisionamiento usa el concepto de atributos coincidentes. Los atributos coincidentes permiten determinar la forma de identificar de forma única a un usuario en el origen y emparejarlo en el destino. Como parte de la planeación de la implementación, identifique el atributo que se puede usar para identificar de forma única a un usuario en los sistemas de origen y destino. Cosas que hay que tener en cuenta:
 
 - **Los atributos coincidentes deben ser únicos:** los clientes a menudo usan atributos como userPrincipalName, mail u object ID como atributo coincidente.
 - **Se pueden usar varios atributos como atributos coincidentes:** puede definir varios atributos para que se evalúen al emparejar usuarios y el orden en el que se evalúan (definido como precedencia de coincidencias en la interfaz de usuario). Por ejemplo, si define tres atributos como atributos coincidentes y un usuario se empareja de forma única después de evaluar los dos primeros atributos, el servicio no evalúa el tercero. El servicio evalúa los atributos coincidentes en el orden especificado y deja de evaluar cuando se encuentra una coincidencia.  

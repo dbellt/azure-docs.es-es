@@ -3,7 +3,7 @@ title: 'Gobernanza del acceso de los usuarios externos en la administración de 
 description: Obtenga información acerca de la configuración que puede especificar para controlar el acceso de los usuarios externos en la administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,29 +13,29 @@ ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7c78dcbc34deca769739f82964df41ebfc596ea
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 4dae1695d372db94c7bd0fa12d20a7d327143b8a
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176797"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786490"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Gobernanza del acceso de los usuarios externos en la administración de derechos de Azure AD
 
-La administración de derechos de Azure AD emplea [Azure AD de negocio a negocio (B2B)](../external-identities/what-is-b2b.md) para colaborar con personas ajenas a su organización en otro directorio. Con Azure AD B2B, los usuarios externos se autentican en su directorio particular, pero están representados en el directorio. La representación en el directorio permite asignar al usuario acceso a los recursos.
+La administración de derechos de Azure AD emplea [Azure AD de negocio a negocio (B2B)](../external-identities/what-is-b2b.md) para compartir el acceso para que pueda colaborar con personas ajenas a su organización. Con Azure AD B2B, los usuarios externos se autentican en su directorio particular, pero están representados en el directorio. La representación en el directorio permite asignar al usuario acceso a los recursos.
 
 En este artículo se describen los valores que puede especificar para controlar el acceso de los usuarios externos.
 
 ## <a name="how-entitlement-management-can-help"></a>Cómo puede ayudar la administración de derechos
 
-Cuando utilice la experiencia de invitación de [Azure AD B2B](../external-identities/what-is-b2b.md), ya debe conocer las direcciones de correo electrónico de los usuarios invitados externos que desea incorporar al directorio de recursos y con los que desea trabajar. Esto funciona muy bien cuando está trabajando en un proyecto más pequeño o a corto plazo y ya conoce a todos los participantes, pero es más difícil de administrar si tiene muchos usuarios con los que quiere trabajar o si los participantes cambian con el tiempo.  Por ejemplo, puede estar trabajando con otra organización y tener un punto de contacto con ella, pero con el tiempo otros usuarios de esa organización también necesitarán acceso.
+Cuando utilice la experiencia de invitación de [Azure AD B2B](../external-identities/what-is-b2b.md), ya debe conocer las direcciones de correo electrónico de los usuarios invitados externos que desea incorporar al directorio de recursos y con los que desea trabajar. Invitar directamente a cada usuario funciona muy bien cuando está trabajando en un proyecto más pequeño o a corto plazo y ya conoce a todos los participantes, pero es más difícil de administrar si tiene muchos usuarios con los que quiere trabajar o si los participantes cambian con el tiempo.  Por ejemplo, puede estar trabajando con otra organización y tener un punto de contacto con ella, pero con el tiempo otros usuarios de esa organización también necesitarán acceso.
 
-Con la administración de derechos, puede definir una directiva que permita a los usuarios de las organizaciones que especifique poder solicitar un paquete de acceso. Puede especificar si se requiere aprobación y una fecha de expiración para el acceso. Si se requiere aprobación, también puede invitar a uno o varios usuarios de la organización externa a su directorio y designarlos como aprobadores, ya que es probable que sepan qué usuarios externos de su organización necesitan tener acceso. Una vez configurado el paquete de acceso, puede enviar el vínculo a su persona de contacto (patrocinador) en la organización externa. Ese contacto puede compartirlo con otros usuarios de la organización externa y pueden usar este vínculo para solicitar el paquete de acceso. Los usuarios de esa organización que ya han recibido la invitación a su directorio también pueden usar ese vínculo.
+Con la administración de derechos, puede definir una directiva que permita a los usuarios de las organizaciones que especifique poder solicitar un paquete de acceso. Esa directiva incluye si se requiere aprobación, si se requieren revisiones de acceso y una fecha de expiración para el acceso. Si se requiere aprobación, puede considerar la posibilidad de invitar a uno o varios usuarios de la organización externa a su directorio, designarlos como patrocinadores y configurar que los patrocinadores sean los aprobadores, ya que es probable que sepan qué usuarios externos de su organización necesitan acceso. Una vez configurado el paquete de acceso, obtenga el vínculo a la solicitud de este para que pueda enviar ese vínculo a la persona de contacto (patrocinador) de la organización externa. Ese contacto puede compartirlo con otros usuarios de la organización externa y pueden usar este vínculo para solicitar el paquete de acceso. Los usuarios de esa organización que ya han recibido la invitación a su directorio también pueden usar ese vínculo.
 
-Cuando se aprueba una solicitud, la administración de derechos proporciona al usuario el acceso necesario, que puede incluir invitar al usuario si aún no está en el directorio. Azure AD creará automáticamente una cuenta de invitado B2B para ellos. Tenga en cuenta que un administrador puede haber limitado previamente qué organizaciones están permitidas para la colaboración, mediante el establecimiento de una [lista de permitidos y denegados de B2B](../external-identities/allow-deny-list.md) para permitir o bloquear las invitaciones a otras organizaciones.  Si el usuario no está autorizado por la lista de permitidos o bloqueados, no se le invitará.
+Normalmente, cuando se aprueba una solicitud, la administración de derechos aprovisionará al usuario con el acceso necesario. Si el usuario aún no está en el directorio, la administración de derechos primero invitará al usuario. Cuando se invita al usuario, Azure AD crea automáticamente una cuenta de invitado B2B para él, pero no enviará un correo electrónico al usuario. Tenga en cuenta que un administrador puede haber limitado previamente qué organizaciones están permitidas para la colaboración, mediante el establecimiento de una [lista de permitidos y denegados de B2B](../external-identities/allow-deny-list.md) para permitir o bloquear las invitaciones a otras organizaciones.  Si la lista de permitidos o de bloqueados no da permiso a este usuario, no se le invitará y no se le podrá asignar acceso hasta que se actualicen las listas.
 
 Puesto que no desea que el acceso del usuario externo dure para siempre, especifique una fecha de expiración en la directiva, por ejemplo 180 días. Después de 180 días, si no se amplía el acceso, la administración de derechos eliminará todo el acceso asociado con ese paquete de acceso. De forma predeterminada, si el usuario invitado a través de la administración de derechos no tiene ninguna otra asignación de paquetes de acceso, cuando pierda la última asignación, la cuenta de invitado se bloqueará durante 30 días y posteriormente se eliminará. Esto evita la proliferación de cuentas innecesarias. Tal y como se describe en las secciones siguientes, estos valores se pueden configurar.
 
@@ -51,7 +51,7 @@ En el diagrama y los pasos siguientes se proporciona información general sobre 
 
 1. Envía un [vínculo al portal Mi acceso](entitlement-management-access-package-settings.md) a su contacto en la organización externa que pueden compartir con sus usuarios para solicitar el paquete de acceso.
 
-1. Un usuario externo (**Solicitante A** en este ejemplo) usa el vínculo al portal Mi acceso para [solicitar acceso](entitlement-management-request-access.md) al paquete de acceso. La forma en que el usuario inicia sesión depende del tipo de autenticación del directorio o dominio definido en la organización conectada.
+1. Un usuario externo (**Solicitante A** en este ejemplo) usa el vínculo al portal Mi acceso para [solicitar acceso](entitlement-management-request-access.md) al paquete de acceso. La forma en que el usuario inicia sesión depende del tipo de autenticación del directorio o dominio que se define en la organización conectada y en la configuración de los usuarios externos.
 
 1. Un aprobador [aprueba la solicitud](entitlement-management-request-approve.md) (o se aprueba automáticamente).
 
@@ -65,7 +65,7 @@ En el diagrama y los pasos siguientes se proporciona información general sobre 
 
 1. Para tener acceso a los recursos, el usuario externo puede hacer clic en el vínculo del correo electrónico o intentar acceder a cualquiera de los recursos del directorio directamente para completar el proceso de invitación.
 
-1. En función de la configuración de la directiva, la asignación de paquetes de acceso para el usuario externo expira con el tiempo y se quita el acceso del usuario externo.
+1. Si la configuración de directiva incluye una fecha de expiración, más adelante, cuando expire la asignación del paquete de acceso para el usuario externo, se quitarán los derechos de acceso del usuario externo de ese paquete de acceso.
 
 1. En función del ciclo de vida de la configuración de usuarios externos, cuando el usuario externo ya no tenga ninguna asignación de paquete de acceso, no podrá iniciar sesión y la cuenta de usuario invitado se quitará de su directorio.
 
@@ -82,7 +82,7 @@ Para asegurarse de que los usuarios ajenos a la organización puedan solicitar p
 ### <a name="configure-your-azure-ad-b2b-external-collaboration-settings"></a>Configurar las opciones de colaboración externa de Azure AD B2B
 
 - Permitir a los invitados invitar a otros invitados a su directorio significa que las invitaciones se pueden producir fuera de la administración de derechos. Se recomienda establecer la opción **Los invitados pueden invitar** en **No** para permitir solo invitaciones controladas correctamente.
-- Si usa la lista de elementos permitidos de B2B, debe asegurarse de que todos los dominios con los que desee asociarse mediante la administración de derechos se agreguen a la lista. Como alternativa, si usa la lista de denegación de elementos de B2B, debe asegurarse de que el dominio con el que desee asociar no se agregue a la lista.
+- Si usa la lista de elementos permitidos de B2B, debe asegurarse de que todos los dominios de todas las organizaciones con las que desea asociarse mediante la administración de derechos se agreguen a la lista. Como alternativa, si usa la lista de denegación de elementos de B2B, debe asegurarse de que ningún dominio de ninguna organización con la que desee asociarse esté presente en esa lista.
 - Si crea una directiva de administración de derechos para **Todos los usuarios** (todas las organizaciones conectadas + cualquier usuario externo nuevo) y un usuario no pertenece a una organización conectada del directorio, se creará automáticamente una organización conectada para ellos cuando soliciten el paquete. Todas las opciones de configuración de la lista de permitidos o denegados de B2B tendrán prioridad. Por lo tanto, asegúrese de incluir en la lista de elementos permitidos los dominios que desea incluir en esta directiva si usa uno y excluirlos de la lista de elementos denegados si usa este tipo de lista.
 - Si desea crear una directiva de administración de derechos que incluya **todos los usuarios** (todas las organizaciones conectadas y cualquier usuario externo nuevo), primero debe habilitar la autenticación de código de acceso de un solo uso de correo electrónico para su directorio. Para más información, consulte [Autenticación con código de acceso de un solo uso por correo electrónico](../external-identities/one-time-passcode.md).
 - Para obtener más información sobre la configuración de colaboración externa de Azure AD B2B, consulte [Habilitación de la colaboración externa B2B y administración de quién puede invitar a otros usuarios](../external-identities/delegate-invitations.md).
@@ -117,9 +117,9 @@ Para asegurarse de que los usuarios ajenos a la organización puedan solicitar p
 
 ## <a name="manage-the-lifecycle-of-external-users"></a>Administración del ciclo de vida de los usuarios externos
 
-Puede seleccionar lo que ocurre cuando un usuario externo, invitado a su directorio mediante una solicitud de paquete de acceso aprobada, ya no tiene ningún paquete de acceso asignado. Esto puede ocurrir si el usuario renuncia a todas sus asignaciones de paquetes de acceso o la asignación del último paquete de acceso expira. De forma predeterminada, cuando un usuario externo ya no tiene un paquete de acceso asignado, se le impide iniciar sesión en el directorio. Después de 30 días, la cuenta de usuario invitado se quitará del directorio.
+Puede seleccionar lo que ocurre cuando un usuario externo, invitado a su directorio mediante la realización de una solicitud de paquete de acceso, ya no tiene ningún paquete de acceso asignado. Esto puede ocurrir si el usuario renuncia a todas sus asignaciones de paquetes de acceso o la asignación del último paquete de acceso expira. De forma predeterminada, cuando un usuario externo ya no tiene un paquete de acceso asignado, se le impide iniciar sesión en el directorio. Después de 30 días, la cuenta de usuario invitado se quitará del directorio.
 
-**Rol necesario:** administrador global o administrador de usuarios.
+**Requisitos previos de rol:** administrador global, administrador de Identity Governance o administrador de usuarios
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 

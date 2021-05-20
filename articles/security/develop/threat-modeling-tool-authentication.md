@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
-ms.openlocfilehash: ee4dd70faab9ed44b1aa6ca8ca0ec517c7746f66
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 717142f5e97d68b844bc15a2f335390d1951ec0c
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94832537"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487518"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Marco de seguridad: autenticación | Mitigaciones
 
@@ -457,7 +457,7 @@ Tenga en cuenta que para probar la eficacia de esta configuración, debe iniciar
 | **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico, C#, Node.JS,  |
 | **Atributos**              | N/D, opción de puerta de enlace: Azure IoT Hub |
-| **Referencias**              | N/D, [Introducción a Azure IoT Hub (.NET)](../../iot-hub/quickstart-send-telemetry-dotnet.md), [Introducción a Azure IoT Hub (Node)](../../iot-hub/quickstart-send-telemetry-node.md), [Protección de IoT con SAS y certificados](../../iot-hub/iot-hub-devguide-security.md), [Repositorio de GIT](https://github.com/Azure/azure-iot-sdks/) |
+| **Referencias**              | N/D, [Introducción a Azure IoT Hub (.NET)](../../iot-hub/quickstart-send-telemetry-dotnet.md), [Introducción a Azure IoT Hub (Node)](../../iot-hub/quickstart-send-telemetry-node.md), [Protección de IoT con SAS y certificados](../../iot-hub/iot-hub-dev-guide-sas.md), [Repositorio de GIT](https://github.com/Azure/azure-iot-sdks/) |
 | **Pasos** | <ul><li>**Genérico:** autenticación del dispositivo mediante Seguridad de la capa de transporte (TLS) o IPSec. La infraestructura debe admitir el uso de una clave precompartida (PSK) en los dispositivos que no pueden controlar la criptografía asimétrica completa. Aprovechamiento de Azure AD, OAuth</li><li>**C#:** al crear una instancia de DeviceClient, el método Create crea de forma predeterminada una instancia de DeviceClient que usa el protocolo AMQP para comunicarse con IoT Hub. Para usar el protocolo HTTPS, utilice la invalidación del método Create que permite especificar el protocolo. Si usa el protocolo HTTPS, también debe agregar el paquete NuGet `Microsoft.AspNet.WebApi.Client` al proyecto para incluir el espacio de nombres `System.Net.Http.Formatting`.</li></ul>|
 
 ### <a name="example"></a>Ejemplo
@@ -557,7 +557,7 @@ await deviceClient.SendEventAsync(message);
 | **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | Elección de puerta de enlace: Azure IoT Hub |
-| **Referencias**              | [Tokens de seguridad de Azure IoT Hub](../../iot-hub/iot-hub-devguide-security.md) |
+| **Referencias**              | [Tokens de seguridad de Azure IoT Hub](../../iot-hub/iot-hub-dev-guide-sas.md) |
 | **Pasos** | Use credenciales de autenticación por dispositivo mediante tokens de SaS basados en la clave de dispositivo y el certificado de cliente, en lugar de directivas de acceso compartido de nivel de IoT Hub. Así evitará la reutilización de tokens de autenticación entre dispositivos o puertas de enlace de campo. |
 
 ## <a name="ensure-that-only-the-required-containers-and-blobs-are-given-anonymous-read-access"></a><a id="req-containers-anon"></a>Asegurarse de que solo los contenedores y blobs requeridos reciben acceso anónimo de lectura

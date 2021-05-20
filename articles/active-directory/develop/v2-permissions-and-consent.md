@@ -12,12 +12,12 @@ ms.date: 04/14/2021
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: 2a975a0aba06ecfd010fe328ef6c8cda75290f2b
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: f04a0ca4222ec86e793bf935247029fa78f1acf1
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515590"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109627931"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Permisos y consentimiento en la plataforma de identidad de Microsoft
 

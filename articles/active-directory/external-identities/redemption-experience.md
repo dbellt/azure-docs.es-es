@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e436427a790a3c4ebdbbedb4570c399966ab8c95
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: d5273d2aedd1382146b83197afb48c5120dcbb11
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317872"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108767750"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Experiencia de invitación de colaboración B2B de Azure Active Directory
 
@@ -24,7 +24,7 @@ En este artículo se describen las maneras en las que los usuarios invitados pue
 Al agregar un usuario invitado al directorio, la cuenta de este tiene un estado de consentimiento (visible en PowerShell) que se establece inicialmente en **PendingAcceptance**. Esta configuración permanece hasta que el invitado acepta la invitación, la política de privacidad y los términos de uso. Después de eso, el estado de consentimiento cambia a **Accepted** y las páginas de consentimiento dejan de aparecer para el invitado.
 
    > [!IMPORTANT]
-   > - **A partir del segundo semestre de 2021,** Google empezará a [retirar la compatibilidad con el inicio de sesión en vista web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si usa la federación de Google para las invitaciones de B2B o [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), o si usa el registro de autoservicio con Gmail, los usuarios de Google Gmail no podrán iniciar sesión si las aplicaciones autentican a los usuarios con una vista web insertada. [Más información](google-federation.md#deprecation-of-web-view-sign-in-support).
+   > - **A partir del segundo semestre de 2021,** Google empezará a [retirar la compatibilidad con el inicio de sesión en vista web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si usa la federación de Google para las invitaciones B2B o [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), o si usa el registro de autoservicio con Gmail, los usuarios de Gmail de Google no podrán iniciar sesión si las aplicaciones autentican a los usuarios con una vista web insertada. [Más información](google-federation.md#deprecation-of-web-view-sign-in-support).
    > - **A partir de octubre de 2021**, Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas de Azure AD no administradas e inquilinos para escenarios de colaboración B2B. Como preparación, se recomienda a los clientes que opten por la [autenticación de código de acceso de un solo uso por correo electrónico](one-time-passcode.md). Agradecemos sus comentarios sobre esta característica en vista previa pública. Nos alegra poder crear más formas de colaborar.
 
 ## <a name="redemption-and-sign-in-through-a-common-endpoint"></a>Canje e inicio de sesión mediante un punto de conexión común
@@ -69,7 +69,7 @@ Cuando un usuario hace clic en el vínculo **Aceptar invitación** de un [correo
 
 1. Azure AD realiza la detección basada en usuarios para determinar si el usuario existe en un [inquilino de Azure AD existente](./what-is-b2b.md#easily-invite-guest-users-from-the-azure-ad-portal).
 
-2. Si un administrador ha habilitado la [federación directa](./direct-federation.md), Azure AD comprueba si el sufijo de dominio del usuario coincide con el dominio de un proveedor de identidades SAML/WS-FED configurado y redirige al usuario al proveedor de identidades configurado previamente.
+2. Si un administrador ha habilitado la [federación de IdP de SAML/WS-Fed](./direct-federation.md), Azure AD comprueba si el sufijo de dominio del usuario coincide con el dominio de un proveedor de identidades SAML/WS-Fed configurado y redirige al usuario al proveedor de identidades configurado previamente.
 
 3. Si un administrador ha habilitado la [federación de Google](./google-federation.md), Azure AD comprueba si el sufijo de dominio del usuario es gmail.com o googlemail.com y redirige al usuario a Google.
 

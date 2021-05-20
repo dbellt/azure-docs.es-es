@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4f960819aa208dcc8d3e476fc45a766452b612c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6049b2b8f3562689255113efa3b2454927ffe7ef
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96168957"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108750759"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Limitaciones de colaboración B2B de Azure AD
 La colaboración B2B de Active Directory (Azure AD) de Azure está sujeta actualmente a las limitaciones descritas en este artículo.
@@ -34,7 +34,7 @@ Azure AD B2B está sujeto a los límites de directorio del servicio Azure AD. Pa
 Las [nubes nacionales](../develop/authentication-national-cloud.md) son instancias físicamente aisladas de Azure. La colaboración B2B no se admite más allá de los límites de la nube nacional. Por ejemplo, si el inquilino de Azure está en la nube global pública, no puede invitar a un usuario cuya cuenta está en una nube nacional. Para colaborar con el usuario, pídale otra dirección de correo electrónico o cree una cuenta de usuario miembro para él en el directorio.
 
 ## <a name="azure-us-government-clouds"></a>Nubes de Azure US Government
-Dentro de la nube de Azure US Government, la colaboración B2B solo se admite entre inquilinos que se encuentran dentro de la nube de Azure US Government y que admiten colaboración B2B. Los inquilinos de Azure US Government que admiten la colaboración B2B también pueden colaborar con usuarios sociales mediante cuentas de Microsoft o Google. Si invita a un usuario de fuera de estos grupos (por ejemplo, si el usuario es un inquilino que no forma parte de la nube de Azure US Government o que todavía no admite la colaboración B2B), se produce un error en la invitación o el usuario no puede canjear la invitación. Para obtener más información sobre otras limitaciones, consulte las [variaciones P1 y P2 de Azure Active Directory Premium](../../azure-government/compare-azure-government-global-azure.md#azure-active-directory-premium-p1-and-p2).
+Dentro de la nube de Azure US Government, la colaboración B2B solo se admite entre inquilinos que se encuentran dentro de la nube de Azure US Government y que admiten colaboración B2B. Los inquilinos de Azure US Government que admiten la colaboración B2B también pueden colaborar con usuarios sociales mediante Microsoft, cuentas de Google o cuentas de correo electrónico con código de acceso de un solo uso. Si invita a un usuario de fuera de estos grupos (por ejemplo, si el usuario es un inquilino que no forma parte de la nube de Azure US Government o que todavía no admite la colaboración B2B), se produce un error en la invitación o el usuario no puede canjear la invitación. Para obtener más información sobre otras limitaciones, consulte las [variaciones P1 y P2 de Azure Active Directory Premium](../../azure-government/compare-azure-government-global-azure.md#azure-active-directory-premium-p1-and-p2).
 
 ### <a name="how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant"></a>¿Cómo puedo saber si la colaboración B2B está disponible en mi inquilino de Azure US Government?
 Para averiguar si su inquilino de la nube de Azure US Government admite la colaboración B2B, haga lo siguiente:

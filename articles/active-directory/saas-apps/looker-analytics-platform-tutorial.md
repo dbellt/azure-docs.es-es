@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: jeedes
-ms.openlocfilehash: dbb6f6d278256730e77677e78f452615fe4b611e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed4cfb9362e20bb1ad8c25caa5579fddaa147e8d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96180751"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764304"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-looker-analytics-platform"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Looker Analytics Platform
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Looker Analytics Platform con Azure Acti
 * Permitir que los usuarios inicien sesión automáticamente en Looker Analytics Platform con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -78,7 +78,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `<SPN>_looker`
+    a. En el cuadro de texto **SP Entity/IdP Audience** (Entidad SP/audiencia IdP), escriba una dirección URL con el siguiente patrón: `<SPN>_looker`.
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.looker.com/samlcallback`
 

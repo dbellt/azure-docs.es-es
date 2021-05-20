@@ -8,18 +8,18 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 04/28/2021
 ms.author: alzam
-ms.openlocfilehash: ce03424288b8d0f4f7189eac9ba9d82a43aaa3d8
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: ba3733f16353ad1e921430ca7699212a60d5ff2f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108202900"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754962"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Autenticación de Azure Active Directory: Configuración de un cliente VPN para conexiones P2S de protocolo OpenVPN
 
-Este artículo le ayuda a configurar un cliente VPN para conectarse a una red virtual mediante una VPN de punto a sitio y la autenticación Azure Active Directory. Antes de poder conectarse y autenticarse con Azure AD, primero debe configurar el inquilino de Azure AD. Para más información, consulte [Configurar un inquilino de Azure AD](openvpn-azure-ad-tenant.md).
+Este artículo le ayuda a configurar un cliente VPN para conectarse a una red virtual mediante una VPN de punto a sitio y la autenticación Azure Active Directory. Antes de poder conectarse y autenticarse con Azure AD, primero debe configurar el inquilino de Azure AD. Para más información, consulte [Configurar un inquilino de Azure AD](openvpn-azure-ad-tenant.md). Para más información sobre la ubicación de punto a sitio, consulte [Acerca de las conexiones VPN de punto a sitio](point-to-site-about.md).
 
-[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
+[!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 ## <a name="working-with-client-profiles"></a><a name="profile"></a>Trabajar con perfiles de cliente
 
@@ -30,7 +30,7 @@ Por cada equipo que quiera conectarse a la red virtual a través del cliente VPN
 1. Descargue el [Cliente VPN de Azure](https://go.microsoft.com/fwlink/?linkid=2117554) en el equipo.
 1. Compruebe que el cliente VPN de Azure tenga permiso para ejecutarse en segundo plano. Para comprobar los permisos y habilitarlos, navegue a **Inicio -> Configuración -> Privacidad -> Aplicaciones en segundo plano**.
 
-   * En **Aplicaciones en segundo plano**, asegúrese de que la opción **Permitir que las aplicaciones se ejecuten en segundo plano** esté **Activada**.
+   * En **Aplicaciones en segundo plano**, asegúrese de que el valor **Permitir que las aplicaciones se ejecuten en segundo plano** sea **Activado**.
    * En **Elegir qué aplicaciones se pueden ejecutar en segundo plano**, cambie la configuración del **Cliente VPN de Azure** a **Activado**.
 
      ![Captura de pantalla de los permisos.](./media/openvpn-azure-ad-client/backgroundpermission.png)
@@ -161,7 +161,7 @@ Sí, con la revisión [KB4577063](https://support.microsoft.com/help/4577063/win
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>¿Cómo agrego sufijos DNS al cliente VPN?
 
-Puede modificar el archivo XML de perfil descargado y agregar las etiquetas **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** .
+Puede modificar el archivo XML del perfil descargado y agregar las etiquetas **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** .
 
 ```
 <azvpnprofile>
@@ -179,7 +179,7 @@ Puede modificar el archivo XML de perfil descargado y agregar las etiquetas **\
 
 ### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>¿Cómo agrego servidores DNS personalizados al cliente VPN?
 
-Puede modificar el archivo XML de perfil descargado y agregar las etiquetas **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** .
+Puede modificar el archivo XML del perfil descargado y agregar las etiquetas **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** .
 
 ```
 <azvpnprofile>
@@ -235,7 +235,7 @@ Puede configurar la tunelización forzada mediante dos métodos distintos: el an
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>¿Cómo agrego rutas personalizadas al cliente VPN?
 
-Puede modificar el archivo XML de perfil descargado y agregar las etiquetas **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** .
+Puede modificar el archivo XML del perfil descargado y agregar las etiquetas **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** .
 
 ```
 <azvpnprofile>
@@ -253,7 +253,7 @@ Puede modificar el archivo XML de perfil descargado y agregar las etiquetas **\
 
 ### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>¿Cómo bloqueo (excluyo) las rutas del cliente VPN?
 
-Puede modificar el archivo XML de perfil descargado y agregar las etiquetas **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** .
+Puede modificar el archivo XML del perfil descargado y agregar las etiquetas **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** .
 
 ```
 <azvpnprofile>
@@ -269,7 +269,7 @@ Puede modificar el archivo XML de perfil descargado y agregar las etiquetas **\
 </azvpnprofile>
 ```
 
-### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>¿Se puede importar el perfil desde un símbolo de la línea de comandos?
+### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>¿Puedo importar el perfil desde un símbolo de la línea de comandos?
 
 Para importar el perfil desde un símbolo de la línea de comandos, coloque el archivo **azurevpnconfig.xml** descargado en la carpeta **%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** y ejecute el comando siguiente:
 

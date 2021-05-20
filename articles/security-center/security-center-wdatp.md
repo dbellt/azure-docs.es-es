@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 04/19/2021
 ms.author: memildin
-ms.openlocfilehash: a9997fac66dd49af04f4ed78737118d605e27072
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 58a616953afd15bd4098eaf7ec96838137d110c5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107829897"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764790"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja los puntos de conexión con la solución EDR integrada de Security Center: Microsoft Defender para punto de conexión
 
@@ -72,7 +72,7 @@ Al usar Azure Security Center para supervisar los servidores, se crea automát
 
 ## <a name="enable-the-microsoft-defender-for-endpoint-integration"></a>Habilitación de la integración de Microsoft Defender para punto de conexión
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Requisitos previos
 
 Compruebe que el equipo cumple los requisitos necesarios para Defender para punto de conexión:
 
@@ -80,7 +80,7 @@ Compruebe que el equipo cumple los requisitos necesarios para Defender para punt
 
     - En el caso de servidores **Windows**, configure las opciones de red descritas en [Configurar el proxy de dispositivo y la configuración de conectividad a Internet](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet).
     - En el caso de máquinas **locales**, conéctela a Azure Arc como se explica en [Conexión de una máquina híbrida con servidores habilitados para Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
-    - En el caso de las máquinas con **Windows Server 2019** y [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md), confirme que las máquinas ejecutan el agente de Log Analytics y que tienen la extensión MicrosoftMonitoringAgent.
+    - En el caso de las máquinas con **Windows Server 2019** y [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md), confirme que las máquinas tienen la extensión MicrosoftMonitoringAgent.
     
 1. Habilite **Azure Defender para los servidores**. Consulte [Inicio rápido: Habilitación de Azure Defender](enable-azure-defender.md).
 1. Si ya ha obtenido una licencia e implementado Microsoft defender para punto de conexión en sus servidores, quítelo mediante el procedimiento descrito en la [Retirada de servidores de Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).

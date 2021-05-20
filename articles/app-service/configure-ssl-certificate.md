@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 03/02/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 1e05435f364cc30b351275439a04caff47c35512
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 4fd5d7bfc7a4ac8ab3b255091b4383085a87d4da
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107871802"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634534"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Incorporación de un certificado TLS/SSL en Azure App Service
 
@@ -65,7 +65,7 @@ Para proteger un dominio personalizado en un enlace TLS, el certificado debe cum
 
 El certificado administrado de App Service gratuito es una solución inmediata para proteger el nombre DNS personalizado en App Service. Se trata de un certificado TLS/SSL totalmente funcional administrado por App Service que se renueva automáticamente. El certificado gratuito presenta las siguientes limitaciones:
 
-- No admite certificados comodín.
+- No admite certificados comodín y no debe usarse como certificado de cliente.
 - No se puede exportar.
 - No puede utilizarse en App Service Environment (ASE).
 - No es compatible con los dominios raíz que se integran con Traffic Manager.
@@ -121,7 +121,7 @@ Use la tabla siguiente para obtener ayuda para configurar el certificado. Cuando
 |-|-|
 | Nombre | Nombre descriptivo para el certificado de App Service. |
 | Nombre de host de dominio desnudo | Especifique aquí el dominio raíz. El certificado emitido protege *al mismo tiempo* el dominio raíz y el subdominio `www`. En el certificado emitido, el campo Nombre común contiene el dominio raíz, mientras que el campo Nombre alternativo del firmante contiene el dominio `www`. Para proteger cualquier subdominio solamente, especifique el nombre de dominio completo del subdominio aquí (por ejemplo, `mysubdomain.contoso.com`).|
-| Subscription | La suscripción que contendrá el certificado. |
+| Suscripción | La suscripción que contendrá el certificado. |
 | Resource group | El grupo de recursos que contendrá el certificado. Puede usar un nuevo grupo de recursos o seleccionar el mismo grupo de recursos que la aplicación de App Service, por ejemplo. |
 | SKU de certificado | Determine el tipo de certificado a crear, ya sea un certificado estándar o un [certificado comodín](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Términos legales | Haga clic para confirmar que está de acuerdo con los términos legales. Los certificados se obtienen de GoDaddy. |
@@ -208,7 +208,7 @@ Use la tabla siguiente como ayuda para seleccionar el certificado.
 
 | Configuración | Descripción |
 |-|-|
-| Subscription | Suscripción a la que pertenece la instancia de Key Vault. |
+| Suscripción | Suscripción a la que pertenece la instancia de Key Vault. |
 | Key Vault | Almacén que incluye el certificado que desea importar. |
 | Certificado | Seleccione en la lista de certificados PKCS12 del almacén. Se enumeran todos los certificados PKCS12 del almacén con sus huellas digitales, pero no todos se admiten en App Service. |
 

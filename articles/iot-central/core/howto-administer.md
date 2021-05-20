@@ -1,6 +1,6 @@
 ---
 title: Cambiar la configuración de la aplicación de Azure IoT Central | Microsoft Docs
-description: Como administrador, aprenderá a administrar su aplicación de Azure IoT Central al cambiar el nombre de la aplicación o la dirección URL, cargar una imagen y eliminar una aplicación.
+description: 'Aprenda a administrar su aplicación de Azure IoT Central: cambie el nombre de la aplicación o la dirección URL, cargue una imagen y elimine una aplicación.'
 author: viv-liu
 ms.author: viviali
 ms.date: 12/19/2020
@@ -8,18 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 81cd2ca1cb47e6fdfb4858df930b73c1bd10118a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dadec45a23191763ad803560f1362c61917c95c5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101091831"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756672"
 ---
 # <a name="change-iot-central-application-settings"></a>Cambiar la configuración de la aplicación de IoT Central
 
-
-
-En este artículo se describe cómo un administrador puede administrar la aplicación al cambiar el nombre de la aplicación y la dirección URL, cargar la imagen y eliminar una aplicación en la aplicación de Azure IoT Central.
+En este artículo se describe cómo puede administrar la aplicación cambiando el nombre de la aplicación y la dirección URL, cargando una imagen y eliminando una aplicación en la aplicación de Azure IoT Central.
 
 Para tener acceso a la sección **Administración** y poder usarla, debe disponer del rol **Administrador** para la aplicación Azure IoT Central. Si crea una aplicación Azure IoT Central, se le asigna automáticamente el rol **Administrator** para esa aplicación.
 

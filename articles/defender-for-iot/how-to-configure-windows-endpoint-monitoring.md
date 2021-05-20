@@ -1,16 +1,16 @@
 ---
-title: Mejora de la resolución de nombres de puerto y VLAN
-description: Personalice los nombres de puerto y VLAN en los sensores para enriquecer la resolución del dispositivo.
-ms.date: 04/28/2021
+title: Configuración de la supervisión de puntos de conexión de Windows
+description: Enriquecimiento de los datos resueltos en dispositivos mediante el trabajo con la supervisión de puntos de conexión de Windows (WMI).
+ms.date: 05/03/2021
 ms.topic: how-to
-ms.openlocfilehash: f47011b5ecab97596783f8e51be0505774a94f88
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 4d701cfda88a2c257b001a52a19853a937661714
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108210212"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108735000"
 ---
-# <a name="configure-windows-endpoint-monitoring"></a>Configuración de la supervisión de puntos de conexión de Windows
+# <a name="configure-windows-endpoint-monitoring-wmi"></a>Configuración de la supervisión de puntos de conexión de Windows (WMI)
 
 Con la funcionalidad de supervisión de puntos de conexión de Windows, puede configurar Azure Defender para IoT para sondear de forma selectiva los sistemas Windows. Esta actividad le proporciona información más precisa y específica sobre los dispositivos, por ejemplo, los niveles de Service Pack.
 

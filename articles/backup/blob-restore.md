@@ -1,16 +1,16 @@
 ---
 title: Restauración de blobs de Azure
-description: Obtenga información sobre cómo restaurar blobs de Azure (versión preliminar).
+description: Obtenga información sobre cómo restaurar blobs de Azure.
 ms.topic: conceptual
-ms.date: 02/16/2021
-ms.openlocfilehash: 4cbd47ea654115f00095e30f7d5114aec0f2c85a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/05/2021
+ms.openlocfilehash: aaca425e2ea13948fbd52bf60ed30d64c29c27d3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101743762"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108767282"
 ---
-# <a name="restore-azure-blobs-in-preview"></a>Restauración de blobs de Azure (versión preliminar)
+# <a name="restore-azure-blobs"></a>Restauración de blobs de Azure
 
 Los blobs en bloques en cuentas de almacenamiento que tengan configurada la copia de seguridad operativa se pueden restaurar a cualquier punto en el tiempo dentro de la duración de la retención. Además, puede determinar que se restauren todos los blobs en bloques de la cuenta de almacenamiento o solo un subconjunto.
 
@@ -84,4 +84,4 @@ La operación de restauración que se muestra en la imagen realiza las acciones 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Introducción a la copia de seguridad operativa para blobs de Azure (versión preliminar)](blob-backup-overview.md)
+- [Introducción a la copia de seguridad operativa para blobs de Azure](blob-backup-overview.md)

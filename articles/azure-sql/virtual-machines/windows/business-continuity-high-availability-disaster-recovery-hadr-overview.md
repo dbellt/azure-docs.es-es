@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 31d22be5ee5480878633b9742837e3f5d6119043
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: c55e60627cd2c06c592af0475e84817d284eb6b5
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078951"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634210"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuidad empresarial y HADR para SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,6 +38,10 @@ Es posible que la instancia de SQL Server no funcione a pesar de que la máquin
 
 El almacenamiento con redundancia geográfica (GRS) de Azure se implementa con una característica denominada replicación geográfica. Es posible que GRS no sea una solución de recuperación ante desastres adecuada para sus bases de datos. Dado que la replicación geográfica envía los datos de forma asincrónica, las actualizaciones recientes se pueden perder en caso de desastre. Encontrará más información sobre las limitaciones de la replicación geográfica en la sección [Compatibilidad de la replicación geográfica](#geo-replication-support).
 
+> [!NOTE]
+> Ahora es posible migrar mediante lift and shift la solución de [instancia de clúster de conmutación por error](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) y [grupo de disponibilidad](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) a SQL Server en máquinas virtuales de Azure mediante Azure Migrate. 
+
+
 ## <a name="deployment-architectures"></a>Arquitecturas de implementación
 Azure admite estas tecnologías de SQL Server para la continuidad empresarial:
 
@@ -46,6 +50,7 @@ Azure admite estas tecnologías de SQL Server para la continuidad empresarial:
 * [Trasvase de registros](/sql/database-engine/log-shipping/about-log-shipping-sql-server)
 * [Copia de seguridad y restauración de SQL Server con Azure Blob Storage](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
 * [Creación de reflejo de la base de datos](/sql/database-engine/database-mirroring/database-mirroring-sql-server): en desuso en SQL Server 2016
+* [Azure Site Recovery](../../../site-recovery/site-recovery-sql.md)
 
 Es posible combinar las tecnologías para implementar una solución SQL Server que cuente con funcionalidades de alta disponibilidad y de recuperación ante desastres. Según la tecnología que se use, una implementación híbrida puede requerir un túnel VPN con la red virtual de Azure. En las secciones siguientes se muestran algunas arquitecturas de implementación de ejemplo.
 

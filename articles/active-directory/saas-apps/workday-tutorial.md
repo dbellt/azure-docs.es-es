@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 04/06/2021
 ms.author: jeedes
-ms.openlocfilehash: af001ddd8dc468d06706e63eaf092d1179fe3fdc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: db6df5f89a380f6a570b4aa2bbb0e317c38b57ac
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181380"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108767827"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Workday
 
@@ -26,7 +26,7 @@ En este tutorial, obtendrá información sobre cómo integrar Workday con Azure 
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Workday con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -74,7 +74,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de la aplicación **Workday**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, seleccione **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -97,9 +97,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE]
     > Aquí hemos asignado el Identificador de nombre con el UPN (user.userprincipalname) como valor predeterminado. Tiene que asignar el Identificador de nombre con el Identificador de usuario real en su cuenta de Workday (su correo electrónico, UPN etc.) para el correcto funcionamiento del inicio de sesión único.
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
-   ![Vínculo de descarga del certificado](common/certificatebase64.png)
+   ![Vínculo de descarga del certificado](common/metadataxml.png)
 
 1. Para modificar las opciones de **Firma** según sus propios requisitos, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Certificado de firma de SAML**.
 
@@ -143,55 +143,44 @@ En esta sección, va a permitir que B. Simon acceda a Workday mediante el inici
 
 1. En otra ventana del explorador web, inicie sesión en el sitio de la compañía de Workday como administrador.
 
-1. En el **cuadro de búsqueda**, escriba el nombre **Edit Tenant Setup – Security** (Editar configuración de inquilino – Seguridad) en la parte superior izquierda de la página principal.
+1. En el **cuadro de búsqueda**, busque el nombre **Edit Tenant Setup – Security** (Editar configuración de inquilino: seguridad) en la parte superior izquierda de la página principal.
 
-    ![Editar seguridad del inquilino](./media/workday-tutorial/IC782925.png "Editar seguridad del inquilino")
-
-
-1. En la sección **Configuración de SAML**, siga estos pasos:
-
-    ![Configuración de SAML](./media/workday-tutorial/IC782926.png "Configuración de SAML")
-
-    a.  Seleccione **Habilitar autenticación SAML**.
-
-    b.  Haga clic en **Add Row**(Agregar fila).
-
-1. En la sección **Proveedores de identidades SAML**, realice las siguientes acciones para la fila recién creada.
-
-    a. Realice estas acciones para los campos que se muestran a continuación.
-
-    ![Proveedores de identidades SAML 1](./media/workday-tutorial/IC7829271.png "Proveedores de identidades SAML")
-
-    * En el cuadro de texto **Identity Provider Name** (Nombre del proveedor de identidades), escriba un nombre de proveedor (por ejemplo: *SPInitiatedSSO*).
-
-    * En Azure Portal, en la sección **Set up Workday** (Configurar Workday), copie el valor de **Identificador de Azure AD** y péguelo en el cuadro de texto **Emisor**.
-
-    * Abra el archivo del **certificado** que descargó de Azure Portal en el Bloc de notas, copie el contenido y péguelo en el cuadro de texto **Certificado x.509**.
-
-    b. Realice estas acciones para los campos que se muestran a continuación.
-
-    ![Proveedores de identidades SAML 2](./media/workday-tutorial/saml-identity-provider-2.png "Proveedores de identidades SAML")
-
-    * Haga clic en la casilla **Enable IDP Initiated Logout** (Habilitar el cierre de sesión iniciado por IDP).
-
-    * En el cuadro de texto **URL de respuesta de cierre de sesión**, escriba **http://www.workday.com** .
-
-    * En el cuadro de texto **Logout Request URL** (URL de solicitud de cierre de sesión), pegue el valor de **Dirección URL de cierre de sesión** que ha copiado de Azure Portal.
-
-    * Haga clic en la casilla **Iniciado por SP**.
-
-    * En el cuadro de texto **Service Provider ID** (Id. de proveedor de servicios), escriba **http://www.workday.com**.
+    ![Editar seguridad del inquilino](./media/workday-tutorial/search-box.png "Editar seguridad del inquilino")
 
 
-    * Seleccione **Do Not Deflate SP-initiated Authentication Request** (No desinflar la solicitud de autenticación iniciada por SP).
+1. En la sección **SAML Setup** (Configuración de SAML), haga clic en **Import Identity Provider** (Importar proveedor de identidades).
 
-    c. Realice estas acciones para los campos que se muestran a continuación.
+    ![Configuración de SAML](./media/workday-tutorial/saml-setup.png "Configuración de SAML")
 
-    ![Proveedores de identidades SAML 3](./media/workday-tutorial/saml-identity-provider-3.png "Proveedores de identidades SAML")
+1. En la sección **Import Identity Provider** (Importar proveedor de identidades), realice los siguientes pasos:
 
-    * En Azure Portal, en la sección **Set up Workday** (Configurar Workday), copie el valor de **URL de inicio de sesión** y péguelo en el cuadro de texto **IdP SSO Service URL** (URL del servicio SSO de IdP).
+    ![Importación del proveedor de identidades](./media/workday-tutorial/import-identity-provider.png)
 
-    * En el cuadro de texto **Used for Environments** (Se usa para entornos), seleccione los nombres de entorno correspondientes en la lista desplegable.
+    a. En el cuadro de texto **Identity Provider Name** (Nombre del proveedor de identidad), escriba `AzureAD`.
+
+    b. En el cuadro de texto **Used for Environments** (Se usa para entornos), seleccione los nombres de entorno correspondientes en la lista desplegable.
+
+    c. Haga clic en **Select files** (Seleccionar archivos) para cargar el archivo **XML de metadatos de federación** descargado.
+
+    d. Haga clic en **OK** (Aceptar) y, a continuación, en **Done** (Listo).
+
+1. Después de hacer clic en **Done** (Listo), se agregará una nueva fila en la sección **SAML Identity Providers** (Proveedores de identidades de SAML) y, a continuación, puede agregar los pasos siguientes para la fila recién creada.
+
+    ![Proveedores de identidades de SAML.](./media/workday-tutorial/saml-identity-providers.png "Proveedores de identidades SAML")
+
+    a. Haga clic en la casilla **Enable IDP Initiated Logout** (Habilitar el cierre de sesión iniciado por IDP).
+
+    b. En el cuadro de texto **URL de respuesta de cierre de sesión**, escriba **http://www.workday.com** .
+
+    c. Haga clic en la casilla **Enable Workday Initiated Logout** (Habilitar el cierre de sesión iniciado por Workday).
+
+    d. En el cuadro de texto **Logout Request URL** (URL de solicitud de cierre de sesión), pegue el valor de **Dirección URL de cierre de sesión** que ha copiado de Azure Portal.
+
+    e. Haga clic en la casilla **Iniciado por SP**.
+
+    f. En el cuadro de texto **Service Provider ID** (Id. de proveedor de servicios), escriba **http://www.workday.com**.
+
+    Seleccione **Do Not Deflate SP-initiated Authentication Request** (No desinflar la solicitud de autenticación iniciada por SP).
 
 1. Realice los pasos descritos en la imagen siguiente.
 
@@ -233,11 +222,11 @@ En esta sección, va a permitir que B. Simon acceda a Workday mediante el inici
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-1. Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de Workday, desde donde puede iniciar el flujo de inicio de sesión. 
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de Workday, desde donde puede iniciar el flujo de inicio de sesión. 
 
-2. Vaya directamente a la dirección URL de inicio de sesión de Workday e inicie el flujo de inicio de sesión desde allí.
+* Vaya directamente a la dirección URL de inicio de sesión de Workday e inicie el flujo de inicio de sesión desde allí.
 
-3. Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de Workday en el panel de acceso, se debería iniciar sesión automáticamente en la versión de Workday para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Workday en Aplicaciones, se debería iniciar sesión automáticamente en la instancia de Workday para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

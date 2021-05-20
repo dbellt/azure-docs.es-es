@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: ruturajd
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 71ba1d6e1e45c5c2e72e2be620158b1aa4b71582
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 8750ad846b832eb4fe037568d3b99f299cfe121b
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430821"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790638"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Facturas de inscripciones de Azure Enterprise
 
@@ -231,7 +231,7 @@ Para aplicar el prepago de Azure a los usos por encima del límite, debe cumplir
 - El importe del prepago de Azure disponible cubre el número total de cargos incurridos, incluidas todas las facturas de Azure pasadas no pagadas.
 - El plazo de facturación que quiere completar debe estar cerrado por completo. La facturación se cierra por completo después del quinto día de cada mes.
 - El período de facturación que quiere compensar debe estar cerrado por completo.
-- El descuento del prepago de Azure se basa en el nuevo prepago real menos los fondos planeados para el consumo anterior. Este requisito solo se aplica a los cargos incurridos por uso por encima del límite. Esto solo es válido para los servicios que consumen el prepago de Azure, así que no se aplica a los cargos de Azure Marketplace. Los cargos de Azure Marketplace se facturan por separado.
+- El descuento del prepago de Azure (APD) se basa en el nuevo prepago real menos los fondos planeados para el consumo anterior. Este requisito solo se aplica a los cargos incurridos por uso por encima del límite. Esto solo es válido para los servicios que consumen el prepago de Azure, así que no se aplica a los cargos de Azure Marketplace. Los cargos de Azure Marketplace se facturan por separado.
 
 Para completar una compensación de uso por encima del límite, usted o el equipo de cuentas pueden abrir una solicitud de soporte técnico. Se requiere una aprobación por correo electrónico del administrador de empresa o del contacto de facturación.
 

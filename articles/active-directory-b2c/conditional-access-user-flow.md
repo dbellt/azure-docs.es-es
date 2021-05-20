@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 04/22/2021
+ms.date: 05/06/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: cc163f02873cf1827af515791e254261149fc4f9
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3214069f68233fb3cb4facc08a409f4b1e05222a
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124444"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109654875"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Adición del acceso condicional a los flujos de usuario en Azure AD B2C
 
@@ -48,9 +48,18 @@ En el ejemplo siguiente se muestra un perfil técnico de acceso condicional que 
 </TechnicalProfile>
 ```
 
+Para asegurarse de que las señales de Identity Protection se evalúan correctamente, querrá llamar al `ConditionalAccessEvaluation`perfil técnico de todos los usuarios, incluidas las cuentas [locales y sociales](technical-overview.md#consumer-accounts). De lo contrario, Identity Protection indicará un grado de riesgo incorrecto asociado a los usuarios.
+
 ::: zone-end
 
-En la fase de **corrección** que se muestra a continuación, se dirige al usuario a un desafío de MFA. Una vez completado, Azure AD B2C informa a Identity Protection de que se ha corregido la amenaza de inicio de sesión identificada y el método utilizado. En este ejemplo, Azure AD B2C indica que el usuario ha completado correctamente el desafío de la autenticación multifactor. 
+En la fase de *corrección* que se muestra a continuación, se dirige al usuario a un desafío de MFA. Una vez completado, Azure AD B2C informa a Identity Protection de que se ha corregido la amenaza de inicio de sesión identificada y el método utilizado. En este ejemplo, Azure AD B2C indica que el usuario ha completado correctamente el desafío de la autenticación multifactor.
+
+La corrección también puede producirse a través de otros canales. Por ejemplo, cuando el administrador o el usuario restablecen la contraseña de la cuenta. Puede comprobar el *estado de riesgo* del usuario en el [informe de usuarios de riesgo](identity-protection-investigate-risk.md#navigating-the-risky-users-report).
+
+> [!IMPORTANT]
+> Para corregir el riesgo dentro del recorrido correctamente, asegúrese de que se llama al perfil técnico de *corrección* después de ejecutar el perfil técnico de *evaluación*. Si la *evaluación* se invoca sin *corrección*, el estado de riesgo estará *En riesgo*.
+
+Cuando la recomendación del perfil técnico de *evaluación* devuelve `Block`, no se requiere la llamada al perfil técnico de *evaluación*. El estado de riesgo se establece en *En riesgo*.
 
 ::: zone pivot="b2c-custom-policy"
 
@@ -155,21 +164,15 @@ Para agregar una directiva de acceso condicional:
 
 1. Habilite la directiva de acceso condicional de prueba; para ello, seleccione **Crear**.
 
-## <a name="add-conditional-access-to-a-user-flow"></a>Adición del acceso condicional a un flujo de usuario
-
-Después de agregar la directiva de acceso condicional de Azure AD, habilite el acceso condicional en el flujo de usuario o en la directiva personalizada. Al habilitar el acceso condicional, no es necesario especificar un nombre de directiva.
-
-Se pueden aplicar varias directivas de acceso condicional a un usuario individual en cualquier momento. En este caso, la directiva de control de acceso más estricta tiene prioridad. Por ejemplo, si una directiva requiere la autenticación multifactor (MFA), mientras que las demás bloquean el acceso, se bloqueará al usuario.
-
 ## <a name="conditional-access-template-1-sign-in-risk-based-conditional-access"></a>Plantilla de acceso condicional 1: acceso condicional basado en el riesgo de inicio de sesión
 
 La mayoría de los usuarios tienen un comportamiento normal que puede seguirse, cuando se salen de esta norma, podría ser peligroso permitirles que simplemente inicien sesión. Es posible que sea conveniente bloquear a ese usuario o quizás simplemente puede pedirle que lleve a cabo la autenticación multifactor para demostrar que realmente es quien dice ser.
 
-Un riesgo de inicio de sesión representa la probabilidad de que el propietario de la identidad no haya autorizado una solicitud de autenticación determinada. Las organizaciones con licencias P2 pueden crear directivas de acceso condicional que incorporen [detecciones de riesgo de inicio de sesión de Azure AD Identity Protection](../active-directory/identity-protection/concept-identity-protection-risks.md#sign-in-risk). Tenga en cuenta las [limitaciones de las detecciones de Identity Protection para B2C](./identity-protection-investigate-risk.md?pivots=b2c-user-flow#service-limitations-and-considerations).
+Un riesgo de inicio de sesión representa la probabilidad de que el propietario de la identidad no haya autorizado una solicitud de autenticación determinada. Los inquilinos de Azure AD B2C con licencias P2 pueden crear directivas de acceso condicional que incorporen [detecciones de riesgo de inicio de sesión de Azure AD Identity Protection](../active-directory/identity-protection/concept-identity-protection-risks.md#sign-in-risk). Tenga en cuenta las [limitaciones de las detecciones de Identity Protection para B2C](./identity-protection-investigate-risk.md?pivots=b2c-user-flow#service-limitations-and-considerations).
 
 Si se detecta un riesgo, los usuarios pueden realizar el proceso de autenticación multifactor para solucionar automáticamente el evento de inicio de sesión peligroso y cerrarlo para evitar ruidos innecesarios para los administradores.
 
-Las organizaciones deben elegir una de las siguientes opciones para habilitar una directiva de acceso condicional basada en el riesgo de inicio de sesión que requiera autenticación multifactor (MFA) cuando el riesgo de inicio de sesión sea medio o alto.
+Configure el acceso condicional a través de las API de Azure Portal o Microsoft Graph para habilitar una directiva de acceso condicional basada en el riesgo de inicio de sesión que requiera MFA cuando el riesgo de inicio de sesión sea *medio* o *alto*.
 
 ### <a name="enable-with-conditional-access-policy"></a>Habilitar la directiva de acceso condicional
 
@@ -189,11 +192,11 @@ Las organizaciones deben elegir una de las siguientes opciones para habilitar un
 9. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
 10. Seleccione **Crear** para crear la directiva.
 
-### <a name="enable-with-conditional-access-apis"></a>Habilitación con las API de acceso condicional
+### <a name="enable-with-conditional-access-apis-optional"></a>Habilitación con las API de acceso condicional (opcional)
 
-Para crear una directiva de acceso condicional basada en el riesgo de inicio de sesión con las API de acceso condicional, consulte la documentación de las [API de acceso condicional](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api).
+Cree una directiva de acceso condicional basada en el riesgo de inicio de sesión con las API de MS Graph. Para más información, consulte [API de acceso condicional](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api).
 
-La plantilla siguiente se puede usar para crear una directiva de acceso condicional con el nombre para mostrar "CA002: Requerir MFA para el riesgo medio o alto de inicio de sesión" en modo de solo informe.
+La plantilla siguiente se puede usar para crear una directiva de acceso condicional con el nombre para mostrar "Plantilla 1: Requerir MFA para el riesgo medio o alto de inicio de sesión" en modo de solo informe.
 
 ```json
 {
@@ -226,6 +229,12 @@ La plantilla siguiente se puede usar para crear una directiva de acceso condicio
 }
 ```
 
+## <a name="add-conditional-access-to-a-user-flow"></a>Adición del acceso condicional a un flujo de usuario
+
+Después de agregar la directiva de acceso condicional de Azure AD, habilite el acceso condicional en el flujo de usuario o en la directiva personalizada. Al habilitar el acceso condicional, no es necesario especificar un nombre de directiva.
+
+Se pueden aplicar varias directivas de acceso condicional a un usuario individual en cualquier momento. En este caso, la directiva de control de acceso más estricta tiene prioridad. Por ejemplo, si una directiva requiere MFA, mientras que las demás bloquean el acceso, se bloqueará al usuario.
+
 ## <a name="enable-multi-factor-authentication-optional"></a>Habilitación de la autenticación multifactor (opcional)
 
 Al agregar acceso condicional a un flujo de usuario, tenga en cuenta el uso de la **autenticación multifactor (MFA)** . Los usuarios pueden usar un código de un solo uso mediante SMS o voz, o una contraseña de un solo uso por correo electrónico para la autenticación multifactor. La configuración de MFA es independiente de la configuración del acceso condicional. Puede elegir entre estas opciones de MFA:
@@ -233,9 +242,6 @@ Al agregar acceso condicional a un flujo de usuario, tenga en cuenta el uso de l
    - **Desactivado**: MFA nunca se aplica durante el inicio de sesión y no se pide a los usuarios que se inscriban en MFA durante el registro o el inicio de sesión.
    - **Siempre activa**: se requiere siempre MFA, independientemente de cualquier configuración de acceso condicional. Si los usuarios aún no están inscritos en MFA, se les pedirá que se inscriban durante el inicio de sesión. Durante el registro, se pide a los usuarios que se inscriban en MFA.
    - **Condicional (versión preliminar)** : MFA solo se aplica cuando una directiva de acceso condicional lo requiere. Si el resultado de la evaluación de acceso condicional es un desafío de MFA sin riesgo, se aplica MFA durante el inicio de sesión. Si el resultado es un desafío de MFA debido al riesgo *y* el usuario no está inscrito en MFA, el inicio de sesión se bloquea. Durante el registro, no se pide a los usuarios que se inscriban en MFA.
-
-> [!IMPORTANT]
-> Si la directiva de acceso condicional concede acceso con MFA, pero el usuario no ha inscrito un número de teléfono, es posible que se bloquee al usuario.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -269,6 +275,23 @@ Para habilitar el acceso condicional para un flujo de usuario, asegúrese de que
 1. Obtenga un ejemplo de una directiva de acceso condicional en [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/conditional-access).
 1. En cada archivo, reemplace la cadena `yourtenant` por el nombre del inquilino de Azure AD B2C. Por ejemplo, si el nombre del inquilino de B2C es *contosob2c*, todas las instancias de `yourtenant.onmicrosoft.com` se convierten en `contosob2c.onmicrosoft.com`.
 1. Cargue los archivos de directivas.
+ 
+### <a name="configure-claim-other-than-phone-number-to-be-used-for-mfa"></a>Configuración de otra notificación que no sea el número de teléfono que se usará como MFA
+
+En la directiva de acceso condicional anterior, el `DoesClaimExist`método de transformación de notificación comprueba si una notificación contiene un valor, por ejemplo, si la notificación `strongAuthenticationPhoneNumber` contiene un número de teléfono. 
+
+La transformación de notificaciones no se limita a la notificación `strongAuthenticationPhoneNumber`. En función del escenario, puede usar cualquier otra notificación. En el siguiente fragmento XML, la notificación `strongAuthenticationEmailAddress` se comprueba en su lugar. La notificación que elija debe tener un valor válido; de lo contrario, la notificación `IsMfaRegistered` se establecerá en `False`. Cuando se establece en `False`, la evaluación de la directiva de acceso condicional devuelve un tipo de concesión `Block`, lo que impide que el usuario complete el flujo de usuario.
+
+```XML
+ <ClaimsTransformation Id="IsMfaRegisteredCT" TransformationMethod="DoesClaimExist">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="strongAuthenticationEmailAddress" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="IsMfaRegistered" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+ </ClaimsTransformation>
+```
 
 ## <a name="test-your-custom-policy"></a>Prueba de la directiva personalizada
 

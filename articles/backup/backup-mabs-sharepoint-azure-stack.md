@@ -3,12 +3,12 @@ title: Copia de seguridad de una granja de SharePoint en Azure Stack
 description: Use Azure Backup Server para crear una copia de seguridad de los datos de SharePoint y restaurarlos en Azure Stack. En este artículo se proporciona la información sobre cómo configurar la granja de SharePoint para almacenar los datos deseados en Azure. Puede restaurar los datos protegidos de SharePoint desde disco o desde Azure.
 ms.topic: conceptual
 ms.date: 06/07/2020
-ms.openlocfilehash: 1e237e63b92468fafff4f8f8f525d1388840d162
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: efaeb1c206130778463de47ed806d9b10ea7da62
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89378328"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108767354"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Copia de seguridad de una granja de SharePoint en Azure Stack
 
@@ -82,7 +82,7 @@ Para realizar una copia de seguridad de una granja de SharePoint, configure la p
 
 1. En **Seleccionar miembros del grupo**, expanda el servidor que contiene el rol WFE. Si hay más de un servidor WFE, seleccione aquel en que instaló ConfigureSharePoint.exe.
 
-    Al expandir el servidor de SharePoint, MABS consulta a VSS para ver qué datos puede proteger MABS.  Si la base de datos de SharePoint es remota, MABS se conecta a ella. Si los orígenes de datos de SharePoint no aparecen, compruebe que VSS Writer se está ejecutando en el servidor de SharePoint y en cualquier servidor SQL Server remoto, y asegúrese de que el agente de MABS esté instalado en el servidor de SharePoint y en el servidor SQL Server remoto. Además, asegúrese de que las bases de datos de SharePoint no se están protegiendo en otro lugar como bases de datos de SQL Server.
+   Al expandir el equipo que ejecuta SharePoint, MABS consulta VSS para ver qué datos puede proteger. Si la base de datos de SharePoint es remota, MABS se conecta a ella. Si no aparecen orígenes de datos de SharePoint, compruebe que VSS Writer se ejecuta en el equipo con SharePoint y en cualquier instancia remota de SQL Server. A continuación, asegúrese de que el agente de MABS está instalado tanto en el equipo que ejecuta SharePoint como en la instancia remota de SQL Server. Además, asegúrese de que las bases de datos de SharePoint no se están protegiendo en otro lugar como bases de datos de SQL Server.
 
 1. En **Seleccionar método de protección de datos**, especifique cómo desea administrar la copia de seguridad a corto y largo plazo. La copia de seguridad a corto plazo siempre se realiza primero en disco, pero existe la opción de realizar una copia de seguridad desde el disco en la nube de Azure mediante Azure Backup \(a corto o largo plazo\).
 

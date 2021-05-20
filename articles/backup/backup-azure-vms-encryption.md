@@ -3,12 +3,12 @@ title: Copia de seguridad y restauración de VM de Azure cifradas
 description: Se describe cómo realizar una copia de seguridad de máquinas virtuales de Azure cifradas, y cómo restaurarlas, con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: db06b64fba203fb3d2ed54d34235504ac6aa4e2d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4396eb25980610e9ba22e640957b24147e875cba
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99223464"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108803267"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Copia de seguridad y restauración de máquinas virtuales de Azure cifradas
 
@@ -159,6 +159,10 @@ Las máquinas virtuales cifradas solo se pueden restaurar restaurando el disco d
 Restaure las máquinas virtuales cifradas de la manera siguiente:
 
 1. [Restaure el disco de máquina virtual](backup-azure-arm-restore-vms.md#restore-disks).
+
+   > [!NOTE]
+   > Una vez restaurado el disco de máquina virtual, intercambie el disco del sistema operativo de la máquina virtual original por el disco de la máquina virtual restaurado sin volver a crearlo. [Más información](https://azure.microsoft.com/blog/os-disk-swap-managed-disks/).
+
 2. Vuelva a crear la instancia de máquina virtual mediante una de las siguientes acciones:
     1. Use la plantilla que se generó durante la operación de restauración para personalizar la configuración de la máquina virtual y desencadene la implementación de la máquina virtual. [Más información](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
     2. Cree una máquina virtual a partir de los discos restaurados mediante PowerShell. [Más información](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).

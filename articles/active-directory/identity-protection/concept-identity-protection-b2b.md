@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 04/19/2021
+ms.date: 05/03/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 094b2ee101b10da4ec6eda9d6537656e5de28e54
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 5c00090ec6b63f41a92beb485433d4667fc85860
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891054"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108766023"
 ---
 # <a name="identity-protection-and-b2b-users"></a>Protección de identidades y usuarios de Colaboración B2B
 
 Identity Protection detecta credenciales en peligro para usuarios de Azure AD. Si la credencial se detecta como en peligro, significa que otra persona puede tener su contraseña y usarla de forma ilegítima. Para evitar más riesgos para su cuenta, es importante restablecer la contraseña de forma segura para que el actor no pueda usar la contraseña en peligro. Identity Protection marca las cuentas que se pueden estar en peligro como "en riesgo".
 
-Puede usar las credenciales de la organización para iniciar sesión en otra organización como invitado. Este proceso se conoce como autenticación B2B. Las organizaciones pueden configurar directivas para impedir que los usuarios inicien sesión si sus credenciales están en riesgo. Si su cuenta está en riesgo y se le bloquea el inicio de sesión en otra organización como invitado, es posible que pueda autocorregir su cuenta mediante los pasos siguientes. Si su organización no ha habilitado el autoservicio de restablecimiento de contraseña, el administrador deberá corregir manualmente su cuenta.
+Puede usar las credenciales de la organización para iniciar sesión en otra organización como invitado. Este proceso se conoce como [colaboración entre negocios o B2B](../external-identities/what-is-b2b.md). Las organizaciones pueden configurar directivas para impedir que los usuarios inicien sesión si se considera que sus credenciales están [en riesgo](concept-identity-protection-risks.md). Si su cuenta está en riesgo y se le bloquea el inicio de sesión en otra organización como invitado, es posible que pueda autocorregir su cuenta mediante los pasos siguientes. Si su organización no ha habilitado el autoservicio de restablecimiento de contraseña, el administrador deberá corregir manualmente su cuenta.
 
 ## <a name="how-to-unblock-your-account"></a>Desbloqueo de la cuenta 
 

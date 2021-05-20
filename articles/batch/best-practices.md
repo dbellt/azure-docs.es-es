@@ -1,18 +1,18 @@
 ---
 title: Procedimientos recomendados
 description: Obtenga información sobre los procedimientos recomendados y sugerencias útiles para desarrollar sus soluciones de Azure Batch.
-ms.date: 03/11/2020
+ms.date: 04/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1a53915f4cdbae03fd86137f3a436bb6e9a6f615
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 181f8f8ced4113521c8791fd9e1b5d651776783e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108147596"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773348"
 ---
 # <a name="azure-batch-best-practices"></a>Procedimientos recomendados de Azure Batch
 
-En este artículo se describe una colección de procedimientos recomendados y consejos útiles para usar el servicio de Azure Batch de forma eficaz, en función de la experiencia real con Batch. Estas sugerencias pueden ayudarle a mejorar el rendimiento y a evitar problemas de diseño en las soluciones de Azure Batch.
+En este artículo se describen procedimientos recomendados y consejos útiles para usar el servicio Azure Batch de forma eficaz. Estos consejos pueden ayudarle a mejorar el rendimiento y a evitar problemas de diseño en las soluciones de Batch.
 
 > [!TIP]
 > Para obtener instrucciones sobre la seguridad en Azure Batch, consulte [Seguridad de Batch y prácticas recomendadas de cumplimiento](security-best-practices.md).
@@ -23,34 +23,31 @@ Los [grupos](nodes-and-pools.md#pools) de Batch son los recursos de proceso para
 
 ### <a name="pool-configuration-and-naming"></a>Configuración y nomenclatura de grupos
 
-- **Modo de asignación de grupo**: al crear una cuenta de Batch, puede elegir entre dos modos de asignación de grupo: **Servicio de Batch** o **Suscripción de usuario**. En la mayoría de los casos, debe usar el modo predeterminado servicio Batch, en el que los grupos se asignan en segundo plano en las suscripciones administradas por Batch. En el modo de suscripción de usuario alternativo, tanto las máquinas virtuales de Batch como otros recursos se crean directamente en su suscripción cuando se crea un grupo. Las cuentas de suscripción de usuario se utilizan principalmente para habilitar un subconjunto importante, pero pequeño, de escenarios. Puede obtener más información sobre el modo de suscripción de usuario en [Configuración adicional para el modo de suscripción de usuario](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
+- **Modo de asignación de grupo**: al crear una cuenta de Batch, puede elegir entre dos modos de asignación de grupo: **Servicio de Batch** o **Suscripción de usuario**. En la mayoría de los casos, debe usar el modo predeterminado servicio Batch, en el que los grupos se asignan en segundo plano en las suscripciones administradas por Batch. En el modo de suscripción de usuario alternativo, tanto las máquinas virtuales de Batch como otros recursos se crean directamente en su suscripción cuando se crea un grupo. Las cuentas de suscripción de usuario se utilizan principalmente para habilitar un subconjunto pequeño, pero importante, de escenarios. Para más información, consulte [Configuración adicional para el modo de suscripción de usuario](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
 - **"virtualMachineConfiguration" o "cloudServiceConfiguration":** aunque actualmente puede crear grupos con cualquier configuración, los nuevos deben configurarse con "virtualMachineConfiguration" y no con "cloudServiceConfiguration". Todas las características de Batch actuales y nuevas serán compatibles con los grupos de configuración de máquina virtual. Los grupos de configuración de Cloud Services no admiten todas las características y no están previstas nuevas funcionalidades. No podrá crear nuevos grupos "cloudServiceConfiguration" ni agregar nuevos nodos a los grupos existentes después del [29 de febrero de 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Para más información, consulte [Migración de la configuración del grupo de Batch de Cloud Services a máquina virtual](batch-pool-cloud-service-to-virtual-machine-configuration.md).
 
-- **Considere el tiempo de ejecución de los trabajos y las tareas al determinar la asignación de un trabajo a un grupo:** si tiene trabajos compuestos principalmente de tareas de ejecución breve y los recuentos de tareas totales esperados son pequeños (y, por ende, el tiempo de ejecución global previsto del trabajo no es largo), no asigne un nuevo grupo a cada trabajo. El tiempo de asignación de los nodos acortará el tiempo de ejecución del trabajo.
+- **Consideraciones sobre el tiempo de ejecución de trabajos y tareas:** si tiene trabajos compuestos principalmente de tareas de ejecución breve y los recuentos de tareas totales esperados son pequeños (por lo que el tiempo de ejecución global previsto del trabajo no es largo), no asigne un nuevo grupo a cada trabajo. El tiempo de asignación de los nodos acortará el tiempo de ejecución del trabajo.
 
-- **Los grupos deben tener más de un nodo de proceso:** no se garantiza la disponibilidad permanente de los nodos individuales. Aunque no es habitual, los errores de hardware, las actualizaciones del sistema operativo y un sinfín de otros problemas pueden hacer que los nodos individuales estén sin conexión. Si la carga de trabajo de Batch requiere un progreso determinista y garantizado, debe asignar grupos con varios nodos.
+- **Varios nodos de ejecución:** no se garantiza que los nodos individuales estén siempre disponibles. Aunque no es habitual, los errores de hardware, las actualizaciones del sistema operativo y un sinfín de otros problemas pueden hacer que los nodos individuales estén sin conexión. Si la carga de trabajo de Batch requiere un progreso determinista y garantizado, debe asignar grupos con varios nodos.
 
-- **No utilice imágenes con fechas de final de ciclo de vida (EOL) inminentes.**
-    Se recomienda encarecidamente evitar las imágenes con fechas de final del ciclo de vida (EOL) inminentes para el soporte técnico de Batch. Estas fechas se pueden detectar con la [`ListSupportedImages` API](/rest/api/batchservice/account/listsupportedimages), [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage) o la [CLI de Azure](/cli/azure/batch/pool/supported-images). Es su responsabilidad actualizar periódicamente la vista de las fechas de fin del ciclo de vida correspondientes a los grupos y migrar las cargas de trabajo antes de que esta se produzca. Si usa una imagen personalizada con un agente de nodo especificado, deberá asegurarse de seguir las fechas de final del ciclo de vida del soporte técnico de Batch de la imagen de la que deriva su imagen personalizada o con la que se alinea.
+- **Imágenes con fechas de fin de ciclo de vida (EOL) inminentes:** se recomienda evitar imágenes con fechas de fin de ciclo de vida (EOL) inminentes de soporte técnico de Batch. Estas fechas se pueden detectar con la [`ListSupportedImages` API](/rest/api/batchservice/account/listsupportedimages), [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage) o la [CLI de Azure](/cli/azure/batch/pool/supported-images). Es su responsabilidad actualizar periódicamente la vista de las fechas de fin del ciclo de vida correspondientes a los grupos y migrar las cargas de trabajo antes de que esta se produzca. Si usa una imagen personalizada con un agente de nodo especificado, asegúrese de seguir las fechas de final del ciclo de vida del soporte técnico de Batch de la imagen de la que deriva su imagen personalizada o con la que se alinea.
 
-- **No reutilice los nombres de recursos.**
-    Los recursos de Batch (trabajos, grupos, etc.) suelen ser inestables a lo largo del tiempo. Por ejemplo, puede crear un grupo el lunes, eliminarlo el martes y, después, crear otro grupo el jueves. Cada recurso nuevo que cree debe recibir un nombre único que no haya usado antes. Esto puede hacerse mediante el uso de un GUID (como el nombre de recurso completo o como parte del mismo) o insertando la hora en que se creó el recurso en el nombre del mismo. Batch admite la propiedad [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), que se puede usar para dar a un recurso un nombre legible, incluso si el identificador de recurso real es algo que no es descriptivo. El uso de nombres únicos facilita la diferenciación de un recurso determinado en los registros y las métricas. También elimina la ambigüedad si alguna vez tiene que archivar un caso de soporte técnico para un recurso.
-
+- **Nombres únicos de recurso:** los recursos de Batch (trabajos, grupos, etc.) suelen ser inestables a lo largo del tiempo. Por ejemplo, puede crear un grupo el lunes, eliminarlo el martes y, después, crear otro grupo similar el jueves. Cada recurso nuevo que cree debe recibir un nombre único que no haya usado antes. Esto se puede conseguir mediante el uso de un GUID (como el nombre completo del recurso o como parte del mismo) o insertando la fecha y hora en la que se creó el recurso en el nombre del mismo. Batch admite la propiedad [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), que puede dar a un recurso un nombre más legible, incluso si el identificador de recurso real no es descriptivo. El uso de nombres únicos facilita la diferenciación de un recurso determinado en los registros y las métricas. También elimina la ambigüedad si alguna vez tiene que archivar un caso de soporte técnico para un recurso.
 
 - **Continuidad durante el mantenimiento y los errores en el grupo:** es mejor que los trabajos usen los grupos dinámicamente. Si los trabajos usan el mismo grupo para todo, existe la posibilidad de que los trabajos no se ejecuten si algo sale mal con el grupo. Esto es especialmente importante para las cargas de trabajo que dependen del tiempo. Para solucionar este error, seleccione o cree un grupo de forma dinámica cuando programe cada trabajo, o tenga una manera de invalidar el nombre del grupo para que pueda omitir un grupo incorrecto.
 
-- **Continuidad empresarial durante el mantenimiento y los errores en el grupo:** hay muchas causas posibles por las que un grupo no alcance el tamaño deseado, como errores internos, restricciones de capacidad, etc. Por esta razón, debe estar preparado para redestinar los trabajos a un grupo diferente (posiblemente con un tamaño de máquina virtual distinto: Batch admite esto mediante [UpdateJob](/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update)) si es necesario. Evite el uso de un identificador de grupo estático con la esperanza de que nunca se eliminará ni cambiará.
+- **Continuidad empresarial durante el mantenimiento y los errores del grupo:** hay muchas causas posibles por las que puede que un grupo no alcance el tamaño necesario que quiere, como errores internos o restricciones de capacidad. Asegúrese de que puede redirigir los trabajos a otro grupo (posiblemente con un tamaño de máquina virtual diferente: Batch admite esto mediante [UpdateJob](/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update)) si es necesario. Evite confiar en un identificador de grupo estático con la esperanza de que nunca se eliminará ni cambiará.
 
 ### <a name="pool-lifetime-and-billing"></a>Vigencia del grupo y facturación
 
-La vigencia del grupo puede variar en función del método de asignación y de las opciones que se apliquen a la configuración del grupo. Los grupos pueden tener una vigencia arbitraria y un número de nodos de proceso variable en el grupo en cualquier momento. Es su responsabilidad administrar los nodos de proceso del grupo, ya sea explícitamente o a través de las características proporcionadas por el servicio ([escalado automático](nodes-and-pools.md#automatic-scaling-policy) o [autogrupo](nodes-and-pools.md#autopools)).
+La vigencia del grupo puede variar en función del método de asignación y de las opciones que se apliquen a la configuración del grupo. Los grupos pueden tener una vigencia arbitraria y un número de nodos de ejecución variable en cualquier momento. Es su responsabilidad administrar los nodos de proceso del grupo, ya sea explícitamente o a través de las características proporcionadas por el servicio ([escalado automático](nodes-and-pools.md#automatic-scaling-policy) o [autogrupo](nodes-and-pools.md#autopools)).
 
-- **Mantenga los grupos al día:** debe cambiar el tamaño de los grupos a cero cada pocos meses para asegurarse de que obtiene las [actualizaciones y las correcciones de errores del agente de nodo más recientes](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). El grupo no recibirá actualizaciones de agente de nodo a menos que se vuelva a crear o se cambie el tamaño a 0 nodos de proceso. Antes de volver a crear o cambiar el tamaño del grupo, se recomienda descargar los registros del agente de nodo con fines de depuración, como se describe en la sección [Nodos](#nodes).
+- **Actualización del grupo:** cambie el tamaño de los grupos a cero cada pocos meses para asegurarse de que obtiene las [actualizaciones y las correcciones de errores del agente de nodo más recientes](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). El grupo no recibirá actualizaciones del agente de nodo a menos que se vuelva a crear o se cambie el tamaño a 0 nodos de ejecución. Antes de volver a crear o cambiar el tamaño del grupo, debe descargar los registros del agente de nodo con fines de depuración, como se describe en la sección [Nodos](#nodes).
 
-- **Volver a crear el grupo:** de forma similar, no se recomienda eliminar y volver a crear los grupos diariamente. En su lugar, cree un nuevo grupo y actualice los trabajos existentes para que apunten al nuevo grupo. Cuando se hayan pasado todas las tareas al nuevo grupo, elimine el grupo anterior.
+- **Recreación del grupo:** de forma similar, evite eliminar y volver a crear los grupos a diario. En su lugar, cree un nuevo grupo y actualice los trabajos existentes para que apunten al nuevo grupo. Cuando se hayan pasado todas las tareas al nuevo grupo, elimine el grupo anterior.
 
-- **Eficacia del grupo y facturación:** Batch en sí no incurre en cargos adicionales, pero se incurre en cargos por los recursos de proceso utilizados. Se le facturará por cada nodo de proceso del grupo, independientemente del estado en el que se encuentre. Esto incluye los cargos necesarios para que se ejecute el nodo, como los costos de almacenamiento y de red. Para obtener más información sobre los procedimientos recomendados, consulte [Análisis de costos y presupuestos para Azure Batch](budget.md).
+- **Eficacia del grupo y facturación:** Batch en sí no incurre en cargos adicionales, pero se incurre en cargos por los recursos de proceso utilizados. Se le facturará por cada nodo de proceso del grupo, independientemente del estado en el que se encuentre. Esto incluye los cargos necesarios para la ejecución del nodo, como los costos de almacenamiento y de redes. Para más información, consulte [Análisis de costos y presupuestos para Azure Batch](budget.md).
 
 ### <a name="pool-allocation-failures"></a>Errores de asignación de grupos
 
@@ -58,9 +55,7 @@ Los errores de asignación de grupos pueden producirse en cualquier momento dura
 
 ### <a name="unplanned-downtime"></a>Tiempo de inactividad no planeado
 
-Los grupos de Batch pueden experimentar eventos de tiempo de inactividad en Azure. Tenga esto en cuenta al planear y desarrollar el escenario o el flujo de trabajo para Batch.
-
-En caso de que se produzca un error en un nodo, Batch intentará recuperar automáticamente estos nodos de proceso en su nombre. De esta forma se puede desencadenar la reprogramación de cualquier tarea en ejecución en el nodo que se recupera. Consulte [Diseño de reintentos](#design-for-retries-and-re-execution) para obtener más información sobre las tareas interrumpidas.
+Los grupos de Batch pueden experimentar eventos de tiempo de inactividad en Azure. Tenga esto en cuenta al planear y desarrollar el escenario o el flujo de trabajo para Batch. En caso de que se produzca un error en los nodos, Batch intentará recuperar automáticamente estos nodos de ejecución en su nombre. De esta forma se puede desencadenar la reprogramación de cualquier tarea en ejecución en el nodo que se recupera. Consulte [Diseño de reintentos](#design-for-retries-and-re-execution) para más información sobre las tareas interrumpidas.
 
 ### <a name="custom-image-pools"></a>Grupos de imágenes personalizados
 
@@ -72,7 +67,9 @@ Pueden crearse grupos con imágenes de terceros publicadas en Azure Marketplace.
 
 ### <a name="azure-region-dependency"></a>Dependencia de la región de Azure
 
-No debería depender de una sola región de Azure si tiene una carga de trabajo que depende del tiempo o de la producción. Aunque es poco frecuente, hay problemas que pueden afectar a toda una región. Por ejemplo, si su procesamiento tiene que iniciarse en un momento determinado, considere la posibilidad de escalar verticalmente el grupo de la región principal *justo antes de la hora de inicio*. Si se produce un error en la escala del grupo, puede revertir la escala de un grupo verticalmente en una región (o regiones) de copia de seguridad. Los grupos en varias cuentas de distintas regiones proporcionan una copia de seguridad preparada y de fácil acceso si se produce algún problema con otro grupo. Para más información, consulte [Diseño de la aplicación para una alta disponibilidad](high-availability-disaster-recovery.md).
+No debería depender de una sola región de Azure si tiene una carga de trabajo que depende del tiempo o de la producción. Aunque es poco frecuente, hay problemas que pueden afectar a toda una región. Por ejemplo, si su procesamiento tiene que iniciarse en un momento determinado, considere la posibilidad de escalar verticalmente el grupo de la región principal *justo antes de la hora de inicio*. Si se produce un error en la escala del grupo, puede revertir la escala de un grupo verticalmente en una región (o regiones) de copia de seguridad.
+
+Los grupos en varias cuentas de distintas regiones proporcionan una copia de seguridad preparada y de fácil acceso si se produce algún problema con otro grupo. Para más información, consulte [Diseño de la aplicación para una alta disponibilidad](high-availability-disaster-recovery.md).
 
 ## <a name="jobs"></a>Trabajos
 
@@ -82,7 +79,7 @@ Un [trabajo](jobs-and-tasks.md#jobs) es un contenedor diseñado para contener ci
 
 El uso de un trabajo para ejecutar una única tarea es ineficaz. Por ejemplo, es más eficaz usar un único trabajo que contenga 1000 tareas en lugar de crear 100 trabajos que contengan 10 tareas cada uno. La ejecución de 1000 trabajos, cada uno con una sola tarea, sería el enfoque menos eficaz, más lento y más costoso.
 
-Por este motivo, asegúrese de no diseñar una solución de Batch que requiera miles de trabajos activos simultáneamente. No hay ninguna cuota de tareas, por lo que la ejecución de tantas tareas en el menor número de trabajos como sea posible utiliza de forma eficaz los [trabajos y las cuotas de programación de trabajos](batch-quota-limit.md#resource-quotas).
+Por este motivo, evite diseñar una solución de Batch que requiera miles de trabajos activos simultáneamente. No hay ninguna cuota de tareas, por lo que la ejecución de tantas tareas en el menor número de trabajos como sea posible utiliza de forma eficaz los [trabajos y las cuotas de programación de trabajos](batch-quota-limit.md#resource-quotas).
 
 ### <a name="job-lifetime"></a>Vigencia del trabajo
 
@@ -94,11 +91,11 @@ Hay un [trabajo activo y cuota de programación de trabajo](batch-quota-limit.md
 
 ## <a name="tasks"></a>Tareas
 
-Las [tareas](jobs-and-tasks.md#tasks) son unidades de trabajo individuales que componen un trabajo. El usuario envía las tareas y Batch las programa en nodos de proceso. Hay varias consideraciones de diseño que se deben tener en cuenta al crear y ejecutar tareas. En las siguientes secciones se explican los escenarios comunes y cómo diseñar las tareas para solventar los problemas y ejecutarlas de forma eficaz.
+Las [tareas](jobs-and-tasks.md#tasks) son unidades de trabajo individuales que componen un trabajo. El usuario envía las tareas y Batch las programa en nodos de proceso. En las secciones siguientes se proporcionan sugerencias para diseñar las tareas para controlar los problemas y tener un rendimiento eficaz.
 
 ### <a name="save-task-data"></a>Almacenamiento de datos de tareas
 
-Los nodos de proceso son efímeros por naturaleza. Hay muchas características en Batch, como el [autogrupo](nodes-and-pools.md#autopools) y el [escalado automático](nodes-and-pools.md#automatic-scaling-policy), que facilitan la desaparición de los nodos. Cuando los nodos dejan un grupo (debido a un cambio de tamaño o una eliminación del grupo), también se eliminan todos los archivos de dichos nodos. Por este motivo, una tarea debe mover su salida del nodo en el que se está ejecutando y en un almacén duradero antes de que se complete. Del mismo modo, si se produce un error en una tarea, debe trasladar los registros necesarios para diagnosticar el error en un almacén duradero.
+Los nodos de proceso son efímeros por naturaleza. Algunas características de Batch, como el [grupo automático](nodes-and-pools.md#autopools) y la [escalabilidad automática](nodes-and-pools.md#automatic-scaling-policy), pueden facilitar la desaparición de los nodos. Cuando los nodos dejan un grupo (debido a un cambio de tamaño o una eliminación del grupo), también se eliminan todos los archivos de dichos nodos. Por este motivo, una tarea debe mover su salida del nodo en el que se está ejecutando y en un almacén duradero antes de que se complete. Del mismo modo, si se produce un error en una tarea, debe trasladar los registros necesarios para diagnosticar el error en un almacén duradero.
 
 Batch tiene compatibilidad integrada con Azure Storage para cargar datos a través de [OutputFiles](batch-task-output-files.md), así como una variedad de sistemas de archivos compartidos, o bien puede realizar la carga usted mismo en sus tareas.
 
@@ -160,29 +157,19 @@ Al ejecutar estos servicios, no deben realizar bloqueos de archivos en los direc
 
 Las uniones de directorios, que a veces se denominan vínculos físicos, son difíciles de tratar durante la limpieza de tareas y trabajos. Use vínculos simbólicos (soft-links) en lugar de vínculos físicos.
 
-### <a name="collect-the-batch-agent-logs"></a>Recopilación de registros de agente de Batch
+### <a name="collect-batch-agent-logs"></a>Recopilación de registros del agente de Batch
 
 Si observa un problema relacionado con el comportamiento de un nodo o tareas en ejecución en un nodo, recopile los registros del agente de Batch antes de desasignar los nodos en cuestión. Puede recopilar los registros del agente de Batch mediante la API de registros del servicio de Batch de carga. Estos registros se pueden proporcionar como parte de una incidencia de soporte técnico a Microsoft y ayudarán a solucionar los problemas.
 
 ### <a name="manage-os-upgrades"></a>Administración de las actualizaciones del sistema operativo
 
-En el caso de las cuentas de Batch del modo de suscripción de usuario, las actualizaciones automáticas del sistema operativo pueden interrumpir el progreso de las tareas, especialmente si estas son de larga duración. La [creación de tareas idempotentes](#build-durable-tasks) puede ayudar a reducir los errores causados por estas interrupciones. También se recomienda [programar actualizaciones de imágenes de sistema operativo para las horas en las que no se espera que las tareas se ejecuten](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
+En el caso de las cuentas de Batch del modo de suscripción de usuario, las actualizaciones automáticas del sistema operativo pueden interrumpir el progreso de las tareas, especialmente si estas son de larga duración. La [creación de tareas idempotentes](#build-durable-tasks) puede ayudar a reducir los errores causados por estas interrupciones. También se recomienda [programar las actualizaciones de las imágenes del sistema operativo en horas en las que no se espera que se ejecuten las tareas](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
 
 En los grupos de Windows, `enableAutomaticUpdates` se establece en `true` de manera predeterminada. Aunque se recomienda permitir actualizaciones automáticas, si necesita asegurarse de que no se produzcan actualizaciones del sistema operativo de forma inesperada puede establecer este valor en `false`.
 
 ## <a name="isolation-security"></a>Seguridad de aislamiento
 
 Con respecto al aislamiento, si su escenario requiere aislar los trabajos entre sí, debe hacerlo colocándolos en grupos independientes. Un grupo es el límite de aislamiento de seguridad en Batch y, de forma predeterminada, dos grupos no son visibles ni pueden comunicarse entre sí. Evite el uso de cuentas de Batch independientes como medio de aislamiento.
-
-## <a name="moving-batch-accounts-across-regions"></a>Movimiento de cuentas de Batch entre regiones
-
-Hay escenarios en los que puede resultar útil trasladar una cuenta de Batch existente de una región a otra. También puede realizar el traslado a otra región como parte del planeamiento de la recuperación ante desastres.
-
-Las cuentas de Azure Batch no se pueden trasladar directamente de una región a otra. Sin embargo, puede usar una plantilla de Azure Resource Manager para exportar la configuración actual de la cuenta de Batch. Después, para preparar el recurso en otra región, puede exportar la cuenta de Batch a una plantilla, modificar los parámetros para que coincidan con la región de destino y, a continuación, implementar la plantilla en la nueva región.
-
-Después de cargar la plantilla en la nueva región, tendrá que volver a crear los certificados, las programaciones de trabajos y los paquetes de aplicación. Para confirmar los cambios y completar el traslado de la cuenta de Batch, recuerde eliminar la cuenta de Batch original o el grupo de recursos.
-
-Para más información sobre Resource Manager y las plantillas, consulte [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ## <a name="connectivity"></a>Conectividad
 
@@ -196,7 +183,7 @@ En el caso de las rutas definidas por el usuario (UDR), asegúrese de que tiene 
 
 ### <a name="honoring-dns"></a>Respetar DNS
 
-Asegúrese de que los sistemas respetan el período de vida (TTL) de DNS para la dirección URL del servicio de la cuenta de Batch. Además, asegúrese de que los clientes del servicio Batch y otros mecanismos de conectividad con el servicio Batch no se basan en direcciones IP (o bien [cree un grupo con direcciones IP públicas estáticas](create-pool-public-ip.md), como se describe a continuación).
+Asegúrese de que los sistemas respeten el período de vida (TTL) de DNS para la dirección URL del servicio de la cuenta de Batch. Además, asegúrese de que los clientes del servicio Batch y otros mecanismos de conectividad con el servicio Batch no se basan en direcciones IP (o bien [cree un grupo con direcciones IP públicas estáticas](create-pool-public-ip.md), como se describe a continuación).
 
 Si las solicitudes reciben respuestas HTTP de nivel 5xx y hay un encabezado "Conexión: cerrar" en la respuesta, el cliente del servicio Batch debe observar la recomendación cerrando la conexión existente y volviendo a resolver DNS para la dirección URL del servicio de la cuenta de Batch, e intentar realizar las siguientes solicitudes en una nueva conexión.
 

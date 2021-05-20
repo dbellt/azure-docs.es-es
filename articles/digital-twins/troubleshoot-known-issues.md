@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 363706a932932cde1e4834f16f879a7245832994
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 0b70ac8f6262b6f4e44a868269af9cfb7561783d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205582"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108763332"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemas conocidos en Azure Digital Twins
 
@@ -41,7 +41,7 @@ En este artículo se proporciona información sobre los problemas conocidos asoc
 
 | ¿Cómo me afecta esto? | Causa | Solución |
 | --- | --- | --- |
-| El&nbsp;método&nbsp;afectado&nbsp;se&nbsp;usa&nbsp;en&nbsp;los&nbsp;artículos siguientes:<br><br>[Tutorial: Programación de una aplicación cliente](tutorial-code.md)<br><br>[Procedimiento: Escritura de código de autenticación de aplicación](how-to-authenticate-client.md)<br><br>[Procedimiento: Uso de las API y los SDK de Azure Digital Twins](how-to-use-apis-sdks.md) | Algunos usuarios han tenido este problema con la versión **1.2.0** de la biblioteca de `Azure.Identity`. | Para resolverlo, actualice las aplicaciones para que usen una [versión posterior](https://www.nuget.org/packages/Azure.Identity) de `Azure.Identity`. Después de actualizar la versión de la biblioteca, el explorador se cargará y autenticará según lo previsto. |
+| El&nbsp;método&nbsp;afectado&nbsp;se&nbsp;usa&nbsp;en&nbsp;los&nbsp;artículos siguientes:<br><br>[Tutorial: Programación de una aplicación cliente](tutorial-code.md)<br><br>[Procedimiento: Escritura de código de autenticación de aplicación](how-to-authenticate-client.md)<br><br>[Conceptos: API y SDK de Azure Digital Twins](concepts-apis-sdks.md) | Algunos usuarios han tenido este problema con la versión **1.2.0** de la biblioteca de `Azure.Identity`. | Para resolverlo, actualice las aplicaciones para que usen una [versión posterior](https://www.nuget.org/packages/Azure.Identity) de `Azure.Identity`. Después de actualizar la versión de la biblioteca, el explorador se cargará y autenticará según lo previsto. |
 
 ## <a name="issue-with-default-azure-credential-authentication-on-azureidentity-130"></a>Problema con la autenticación de credenciales de Azure predeterminada en Azure.Identity 1.3.0
 

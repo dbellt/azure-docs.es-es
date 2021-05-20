@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 04/08/2021
-ms.openlocfilehash: 9873b3626b77a898b7bd682446e11a77b270b297
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.date: 05/05/2021
+ms.openlocfilehash: 2de9be37b8f5398bc6774e9b55ee96483b29b078
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897314"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108759621"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novedades de Azure Sentinel
 
@@ -29,6 +29,26 @@ Actualmente, las características indicadas están en VERSIÓN PRELIMINAR. En la
 >
 > Usted también puede contribuir. Únase a nosotros en la [comunidad de GitHub de cazadores de amenazas de Azure Sentinel](https://github.com/Azure/Azure-Sentinel/wiki).
 >
+
+## <a name="may-2021"></a>Mayo de 2021
+
+- [Libro Confianza cero (TIC3.0)](#zero-trust-tic30-workbook)
+
+### <a name="zero-trust-tic30-workbook"></a>Libro Confianza cero (TIC3.0)
+
+El nuevo libro Confianza cero (TIC3.0) de Azure Sentinel proporciona una visualización automatizada de los principios de [Confianza cero](/security/zero-trust/), que se cruzan con el marco de [conexiones a Internet de confianza](https://www.cisa.gov/trusted-internet-connections) (TIC).
+
+Sabemos que el cumplimiento no es solo un requisito anual, y las organizaciones deben supervisar las configuraciones a lo largo del tiempo como punto fuerte. El libre Confianza cero de Azure Sentinel usa toda la gama de ofertas de seguridad de Microsoft en Azure, Office 365, Teams, Intune, Windows Virtual Desktop y muchas más.
+
+[ ![Libro Confianza cero](media/zero-trust-workbook.gif) ](media/zero-trust-workbook.gif#lightbox)
+
+**Libro Confianza cero**:
+
+- Permite a los implementadores, analistas de SecOps, evaluadores, responsables de la toma de decisiones de seguridad y cumplimiento, MSSP y otros usuarios conocer la situación de la posición de seguridad de las cargas de trabajo en la nube.
+- Ofrece más de 75 tarjetas de control, alineadas con las funcionalidades de seguridad de TIC 3.0, con botones de GUI seleccionables para la navegación.
+- Está diseñado para dotar al personal de automatización, inteligencia artificial, aprendizaje automático, generación de consultas y alertas, visualizaciones, recomendaciones adaptadas y referencias a la documentación correspondiente.
+
+Para más información, vea [Tutorial: Visualización y supervisión de los datos](tutorial-monitor-your-data.md).
 
 ## <a name="april-2021"></a>Abril de 2021
 

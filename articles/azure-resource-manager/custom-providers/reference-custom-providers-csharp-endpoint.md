@@ -6,20 +6,20 @@ ms.custom: devx-track-csharp
 ms.author: jobreen
 author: jjbfour
 ms.date: 01/14/2021
-ms.openlocfilehash: 3b951cd0878bda4a3f65f9208f6997419a10d537
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4fc06d7178442c22032795bf2d6ceacdbd6199a5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98200267"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745854"
 ---
 # <a name="custom-provider-c-restful-endpoint-reference"></a>Referencia de punto de conexión RESTful de C# del proveedor personalizado
 
 Este artículo consiste en una referencia básica de un punto de conexión ReSTful de C# del proveedor personalizado. Si no está familiarizado con los proveedores personalizados de Azure, consulte [la introducción a los proveedores de recursos personalizados](overview.md).
 
-## <a name="azure-function-app-restful-endpoint"></a>Punto de conexión RESTful de aplicación de funciones de Azure
+## <a name="azure-functions-restful-endpoint"></a>Punto de conexión RESTful de Azure Functions
 
-El código siguiente funciona con una aplicación de funciones de Azure. Para información sobre cómo configurar una aplicación de funciones de Azure para que funcione con proveedores personalizados de Azure, consulte el [tutorial sobre la configuración de Azure Functions para los proveedores personalizados de Azure](./tutorial-custom-providers-function-setup.md).
+El código siguiente funciona con una aplicación de funciones de Azure. Para información sobre cómo configurar una aplicación de funciones para que funcione con proveedores personalizados de Azure, consulte el [tutorial sobre la configuración de Azure Functions para los proveedores personalizados de Azure](./tutorial-custom-providers-function-setup.md).
 
 ```csharp
 #r "Newtonsoft.Json"
