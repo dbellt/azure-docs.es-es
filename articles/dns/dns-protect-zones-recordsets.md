@@ -2,17 +2,17 @@
 title: 'Protección de registros y zonas DNS: Azure DNS'
 description: En esta ruta de aprendizaje, comience a proteger los conjuntos de registros y zonas DNS en Microsoft Azure DNS.
 services: dns
-author: asudbring
+author: duongau
 ms.service: dns
 ms.topic: how-to
-ms.date: 2/20/2020
-ms.author: allensu
-ms.openlocfilehash: 9d65e024e9efa3ad2bcb1c70d44360c8bd0de384
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/05/2021
+ms.author: duau
+ms.openlocfilehash: 66a19ae5ce4eb80b9c6fb04abeb24abc833f0353
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785882"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108771105"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Cómo proteger registros y zonas DNS
 
@@ -34,13 +34,13 @@ El grupo de recursos *myResourceGroup* contiene cinco zonas de Contoso Corporati
 
 La manera más sencilla de asignar permisos de Azure RBAC es [a través de Azure Portal](../role-based-access-control/role-assignments-portal.md).  
 
-Abra **Control de acceso (IAM)** del grupo de recursos, seleccione **Agregar** y, luego, seleccione el rol **Colaborador de zona DNS**. Seleccione los usuarios o grupos necesarios para conceder permisos.
+Abra la pestaña **Control de acceso (IAM)** del grupo de recursos, seleccione **+ Agregar** y, a continuación, seleccione el rol **Colaborador de zona DNS**. Seleccione los usuarios o grupos necesarios para conceder permisos.
 
-![Permiso de Azure RBAC de nivel de grupo de recursos a través de Azure Portal](./media/dns-protect-zones-recordsets/rbac1.png)
+:::image type="content" source="./media/dns-protect-zones-recordsets/resource-group-rbac.png" alt-text="Captura de pantalla de la página de control de acceso de un grupo de recursos.":::
 
 Los permisos también se pueden [conceder mediante Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
-```azurepowershell
+```azurepowershell-interactive
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
 
 $usr = "<user email address>"
@@ -52,7 +52,7 @@ New-AzRoleAssignment -SignInName $usr -RoleDefinitionName $rol -ResourceGroupNam
 
 El comando equivalente también está [disponible a través de la CLI de Azure](../role-based-access-control/role-assignments-cli.md):
 
-```azurecli
+```azurecli-interactive
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
 
 az role assignment create \
@@ -67,13 +67,13 @@ Las reglas de RBAC de Azure pueden aplicarse a una suscripción, a un grupo de r
 
 Por ejemplo, el grupo de recursos *myResourceGroup* contiene la zona *contoso.com* y una subzona *customers.contoso.com*. Para cada cuenta de cliente se crean registros CNAME. La cuenta de administrador que se usa para administrar los registros CNAME recibe permisos para crear registros en la zona *customers.contoso.com*. La cuenta solo puede administrar *customers.contoso.com*.
 
-Los permisos de Azure RBAC de nivel de zona se pueden conceder a través de Azure Portal.  Abra **Control de acceso (IAM)** para la zona, seleccione **Agregar** y, a continuación, seleccione el rol **Colaborador de zona DNS** y los usuarios o grupos a los que necesita conceder permisos.
+Los permisos de Azure RBAC de nivel de zona se pueden conceder a través de Azure Portal.  Abra la pestaña **Control de acceso (IAM)** de la zona, seleccione **+ Agregar** y, a continuación, seleccione el rol **Colaborador de zona DNS** y los usuarios o grupos a los que se requiere conceder permisos.
 
-![Permiso de Azure RBAC de nivel de zona DNS a través de Azure Portal](./media/dns-protect-zones-recordsets/rbac2.png)
+:::image type="content" source="./media/dns-protect-zones-recordsets/zone-rbac.png" alt-text="Captura de pantalla de la página de control de acceso de la zona DNS.":::
 
 Los permisos también se pueden [conceder mediante Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
-```azurepowershell
+```azurepowershell-interactive
 # Grant 'DNS Zone Contributor' permissions to a specific zone
 
 $usr = "<user email address>"
@@ -87,7 +87,7 @@ New-AzRoleAssignment -SignInName $usr -RoleDefinitionName $rol -ResourceGroupNam
 
 El comando equivalente también está [disponible a través de la CLI de Azure](../role-based-access-control/role-assignments-cli.md):
 
-```azurecli
+```azurecli-interactive
 # Grant 'DNS Zone Contributor' permissions to a specific zone
 
 az role assignment create \
@@ -100,13 +100,13 @@ az role assignment create \
 
 Los permisos se aplican en el nivel de conjunto de registros.  Se concede al usuario control sobre las entradas que necesita y no puede realizar ningún otro cambio.
 
-Los permisos de Azure RBAC de nivel de conjunto de registros se pueden configurar a través de Azure Portal. Para ello, use el botón **Control de acceso (IAM)** de la página del conjunto de registros:
+Los permisos de RBAC de Azure de nivel de conjunto de registros se pueden configurar mediante Azure Portal, con el botón **Usuarios** de la página del conjunto de registros:
 
-![Permiso de Azure RBAC de nivel de conjunto de registros a través de Azure Portal](./media/dns-protect-zones-recordsets/rbac3.png)
+:::image type="content" source="./media/dns-protect-zones-recordsets/record-set-rbac-1.png" alt-text="Captura de pantalla del botón de usuarios del conjunto de registros.":::
 
 Los permisos de Azure RBAC de nivel de conjunto de registros también se pueden [conceder mediante Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
-```azurepowershell
+```azurepowershell-interactive
 # Grant permissions to a specific record set
 
 $usr = "<user email address>"
@@ -119,7 +119,7 @@ New-AzRoleAssignment -SignInName $usr -RoleDefinitionName $rol -Scope $sco
 
 El comando equivalente también está [disponible a través de la CLI de Azure](../role-based-access-control/role-assignments-cli.md):
 
-```azurecli
+```azurecli-interactive
 # Grant permissions to a specific record set
 
 az role assignment create \
@@ -172,14 +172,14 @@ Las acciones restantes se copian desde el [Rol de colaborador de zona DNS integr
 
 Actualmente no pueden realizarse definiciones de roles personalizados a través de Azure Portal. Puede crearse un rol personalizado basado en esta definición de rol mediante Azure PowerShell:
 
-```azurepowershell
+```azurepowershell-interactive
 # Create new role definition based on input file
 New-AzRoleDefinition -InputFile <file path>
 ```
 
 También puede crearse a través de la CLI de Azure:
 
-```azurecli
+```azurecli-interactive
 # Create new role definition based on input file
 az role create -inputfile <file path>
 ```
@@ -198,13 +198,13 @@ Existen dos tipos de bloqueos de recursos: **CanNotDelete** y **ReadOnly**. Esto
 
 Para evitar que se realicen cambios, aplique un bloqueo ReadOnly a la zona. Este bloqueo impide que se creen otros conjuntos de registros y que se modifiquen o eliminen conjuntos de registros existentes.
 
-Pueden crearse bloqueos de recursos de nivel de zona a través de Azure Portal.  En la página de la zona DNS, seleccione **Bloqueos** y después seleccione **+ Agregar**:
+Pueden crearse bloqueos de recursos de nivel de zona a través de Azure Portal. En la página de la zona DNS, seleccione **Bloqueos** y, a continuación, seleccione **+ Agregar**:
 
-![Bloqueos de recursos de nivel de zona a través de Azure Portal](./media/dns-protect-zones-recordsets/locks1.png)
+:::image type="content" source="./media/dns-protect-zones-recordsets/zone-locks.png" alt-text="Captura de pantalla de los bloqueos de recursos de nivel de zona.":::
 
 También pueden crearse bloqueos de recursos de nivel de zona a través de [Azure PowerShell](/powershell/module/az.resources/new-azresourcelock):
 
-```azurepowershell
+```azurepowershell-interactive
 # Lock a DNS zone
 
 $lvl = "<lock level>"
@@ -218,7 +218,7 @@ New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceTy
 
 El comando equivalente también está [disponible a través de la CLI de Azure](/cli/azure/lock#az_lock_create):
 
-```azurecli
+```azurecli-interactive
 # Lock a DNS zone
 
 az lock create \
@@ -239,7 +239,7 @@ Para evitar que se modifique un conjunto de registros de DNS existente, aplique 
 
 Actualmente, los bloqueos de recursos de nivel de conjunto de recursos solo pueden configurarse mediante Azure PowerShell.  No se admiten en Azure Portal ni en la CLI de Azure.
 
-```azurepowershell
+```azurepowershell-interactive
 # Lock a DNS record set
 
 $lvl = "<lock level>"
@@ -261,7 +261,7 @@ Como alternativa, aplique un bloqueo CanNotDelete a un conjunto de registros de 
 
 El comando de PowerShell siguiente crea un bloqueo CanNotDelete contra el registro SOA de la zona especificada:
 
-```azurepowershell
+```azurepowershell-interactive
 # Protect against zone delete with CanNotDelete lock on the record set
 
 $lvl = "CanNotDelete"

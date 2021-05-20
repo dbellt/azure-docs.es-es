@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94fd488ceb7ddb3724dd576c97c9070481e95147
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ddb2a002969b031f25dae2511d679cc520928ff6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100365640"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737790"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Procedimientos recomendados de Azure Active Directory B2B
 Este artículo contiene recomendaciones y procedimientos recomendados para la colaboración de negocio a negocio (B2B) en Azure Active Directory (Azure AD).
@@ -29,7 +29,7 @@ Este artículo contiene recomendaciones y procedimientos recomendados para la co
 ## <a name="b2b-recommendations"></a>Recomendaciones de B2B
 | Recomendación | Comentarios |
 | --- | --- |
-| Para una experiencia de inicio de sesión óptima, realice la federación con proveedores de identidades. | Siempre que sea posible, realice la federación directamente con los proveedores de identidades, para permitir que los usuarios invitados inicien sesión en las aplicaciones y recursos compartidos sin tener que crear cuentas de Microsoft (MSA) o cuentas de Azure AD. Puede usar la [característica de federación de Google](google-federation.md) para permitir que los usuarios invitados de B2B inicien sesión con sus cuentas de Google. O bien, puede usar la [característica de federación directa (versión preliminar)](direct-federation.md) para configurar la federación directa con cualquier organización cuyo proveedor de identidades (IdP) admita los protocolos SAML 2.0 o WS-FED. |
+| Para una experiencia de inicio de sesión óptima, realice la federación con proveedores de identidades. | Siempre que sea posible, realice la federación directamente con los proveedores de identidades, para permitir que los usuarios invitados inicien sesión en las aplicaciones y recursos compartidos sin tener que crear cuentas de Microsoft (MSA) o cuentas de Azure AD. Puede usar la [característica de federación de Google](google-federation.md) para permitir que los usuarios invitados de B2B inicien sesión con sus cuentas de Google. O bien, puede usar la [característica de proveedor de identidades de SAML o WS-Fed (versión preliminar)](direct-federation.md) para configurar la federación con cualquier organización cuyo proveedor de identidades (IdP) admita los protocolos SAML 2.0 o WS-Fed. |
 | Uso de la característica de código de acceso de un solo uso por correo electrónico para invitados B2B que no se pueden autenticar por otros medios. | La característica de [código de acceso de un solo uso por correo electrónico](one-time-passcode.md) autentica los usuarios invitados de B2B cuando no pueden autenticarse por otros medios, como Azure AD, una cuenta de Microsoft (MSA) o la federación de Google. Cuando el usuario invitado canjea una invitación o accede a un recurso compartido, puede solicitar un código temporal, que se envía a su dirección de correo electrónico. A continuación, escribe este código para continuar con el inicio de sesión. |
 | Adición de personalización de marca a la página de inicio de sesión | Puede personalizar la página de inicio de sesión de forma que resulte más intuitiva para los usuarios invitados de B2B. Consulte cómo [agregar personalización de marca de la empresa en las páginas de inicio de sesión y del Panel de acceso](../fundamentals/customize-branding.md). |
 | Agregue la declaración de privacidad a la experiencia de canje del usuario invitado de B2B. | Puede agregar la dirección URL de la declaración de privacidad de la organización al proceso de canje de invitación por primera vez, de modo que un usuario invitado deba dar su consentimiento a los términos de privacidad para continuar. Consulte [ Incorporación de información de privacidad de su organización en Azure Active Directory](../fundamentals/active-directory-properties-area.md). |

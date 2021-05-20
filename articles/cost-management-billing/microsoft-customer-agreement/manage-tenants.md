@@ -6,15 +6,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 05/05/2021
 ms.author: banders
 ms.reviewer: baolcsva
-ms.openlocfilehash: dc34d0f12430838be29897ccc5cbeee382ecaa2b
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: a1d66e1a28717feb66bc223d10ae44e8d5457728
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107485634"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747870"
 ---
 # <a name="manage-tenants-in-your-microsoft-customer-agreement-billing-account"></a>Administración de inquilinos en una cuenta de facturación de Contrato de cliente de Microsoft
 
@@ -43,6 +43,24 @@ Los propietarios de facturación pueden crear suscripciones cuando tengan los [p
 
 - Puede vincular suscripciones de otros inquilinos a su cuenta de facturación del Contrato de cliente de Microsoft. La toma de la propiedad de facturación de una suscripción solo cambia la disposición de facturación. No afecta al inquilino del servicio ni a los roles de Azure RBAC.
 - Para cambiar el propietario de la suscripción en el inquilino del servicio, debe transferir la [suscripción a otro directorio de Azure Active Directory](../../role-based-access-control/transfer-subscription.md).
+
+Una cuenta de facturación de MCA se administra mediante un único inquilino o directorio. La cuenta de facturación solo controla la facturación de las suscripciones de su inquilino. Sin embargo, puede usar una transferencia de propiedad de facturación para vincular una suscripción a una cuenta de facturación de otro inquilino.
+
+### <a name="billing-ownership-transfer"></a>Transferencia de propiedad de facturación
+
+Una transferencia de propiedad de facturación solo cambia la organización de la factura para una sola suscripción. La administración de usuarios y recursos de la suscripción no cambia.
+
+Una transferencia de propiedad de facturación hace dos cosas:
+
+- Se quita la propiedad de facturación original de la suscripción.
+- La propiedad de facturación de la suscripción se *vincula* a la cuenta de facturación de destino, que podría estar en otro inquilino o directorio.
+
+La transferencia de propiedad de facturación no afecta a:
+
+- Usuarios
+- Recursos
+- Permisos de Azure RBAC
+
 
 ## <a name="add-guest-users-to-your-microsoft-customer-agreement-tenant"></a>Adición de usuarios invitados a un inquilino de Contrato de cliente de Microsoft
 

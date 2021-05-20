@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca4943293f9474d4089267d05460d6d8766b79e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1d146be642050c169dabf009352a34ad595fab84
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646391"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746430"
 ---
 # <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad"></a>Preguntas más frecuentes sobre la implementación híbrida de claves de seguridad FIDO2 en Azure AD 
 
@@ -65,6 +65,10 @@ Para obtener más información sobre cómo registrar y usar las llaves de seguri
 ### <a name="is-there-a-way-for-admins-to-provision-the-keys-for-the-users-directly"></a>¿Hay alguna manera de que los administradores aprovisionen directamente las claves para los usuarios?
 
 No, en este momento todavía no.
+
+### <a name="why-i-am-getting-notallowederror-in-the-browser-when-registering-fido2-keys"></a>¿Por qué me aparece el error "NotAllowedError" en el explorador al registrar claves FIDO2?
+
+Recibirá "NotAllowedError" en la página de registro de claves FIDO2. Esto suele ocurrir cuando el usuario está en una ventana privada (incógnito) o cuando usa Escritorio remoto, donde no es posible acceder a la clave privada FIDO2.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

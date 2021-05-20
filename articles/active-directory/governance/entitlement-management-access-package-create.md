@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f19425ea4a72f62689daa9dda08a22667aa50bc6
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: aa81fdb68e13f7898df060a6d85d8ff05f6d2528
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331365"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109714069"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Creación de un paquete de acceso en la administración de derechos de Azure AD
 
@@ -55,7 +55,7 @@ Estos son los pasos generales para crear un paquete de acceso.
 
 ## <a name="start-new-access-package"></a>Inicio de un nuevo paquete de acceso
 
-**Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
+**Requisitos previos de rol:** Administrador global, Administrador de Identity Governance, Administrador de usuarios, Propietario del catálogo o Administrador de paquetes de acceso.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
@@ -75,11 +75,11 @@ En la pestaña **Aspectos básicos**, asigne un nombre al paquete de acceso y es
 
 1. En la lista desplegable **Catálogo**, seleccione el catálogo en el que quiera crear el paquete de acceso. Por ejemplo, puede que tenga un propietario de catálogo que administra todos los recursos de marketing que se pueden solicitar. En este caso, puede seleccionar el catálogo de marketing.
 
-    Solo verá los catálogos en los que tenga permiso para crear paquetes de acceso. Para crear el paquete de acceso en un catálogo existente, debe ser al menos administrador global o administrador de usuarios, o debe ser propietario del catálogo o administrador del paquete de acceso en ese catálogo.
+    Solo verá los catálogos en los que tenga permiso para crear paquetes de acceso. Para crear el paquete de acceso en un catálogo existente, debe ser al menos administrador global, administrador de Identity Governance o administrador de usuarios, o debe ser propietario del catálogo o administrador del paquete de acceso en ese catálogo.
 
     ![Paquete de acceso: aspectos básicos](./media/entitlement-management-access-package-create/basics.png)
 
-    Si es administrador global, administrador de usuarios o el creador del catálogo y quiere crear el paquete de acceso en un catálogo nuevo que no aparece en la lista, haga clic en **Crear catálogo**. Escriba el nombre del catálogo y la descripción y después haga clic en **Crear**.
+    Si es administrador global, administrador de Identity Governance, administrador de usuarios o el creador del catálogo y quiere crear el paquete de acceso en un catálogo nuevo que no aparece en la lista, haga clic en **Crear catálogo**. Escriba el nombre del catálogo y la descripción y después haga clic en **Crear**.
 
     El paquete de acceso que está creando y los recursos incluidos en él se agregarán al nuevo catálogo. También puede agregar a otros propietarios del catálogo.
 

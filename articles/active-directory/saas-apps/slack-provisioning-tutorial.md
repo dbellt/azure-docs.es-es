@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 92c2ae13b840d7a73d86365ce88584bcafc878e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 673dca65726a4258e267e8dd3e403329b47f6d98
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181465"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739997"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configuración de Slack para aprovisionar usuarios automáticamente
 
@@ -39,6 +39,9 @@ En la situación descrita en este tutorial se supone que ya cuenta con los eleme
 * Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global).
 * Un inquilino de Slack con el [plan Plus](https://aadsyncfabric.slack.com/pricing) o uno superior habilitado.
 * Una cuenta de usuario de Slack con permisos de administrador de equipo.
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1. Planeación de la implementación de aprovisionamiento
 1. Obtenga información sobre [cómo funciona el servicio de aprovisionamiento](../app-provisioning/user-provisioning.md).
@@ -125,6 +128,7 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
    |profileUrl|String|
    |timezone|String|
    |userType|String|
+   |preferredLanguage|String|
    |urn:scim:schemas:extension:enterprise:1.0.department|String|
    |urn:scim:schemas:extension:enterprise:1.0.manager|Referencia|
    |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|String|
@@ -182,7 +186,7 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 
 * Slack solo permite la coincidencia con los atributos **userName** y **email**.  
   
-* Los códigos de error comunes están documentados en la documentación oficial de Slack: https://api.slack.com/scim#errors
+* Los códigos de error comunes se pueden encontrar en la documentación oficial de Slack: https://api.slack.com/scim#errors
 
 ## <a name="change-log"></a>Registro de cambios
 

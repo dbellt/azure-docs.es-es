@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/12/2021
 ms.author: apimpm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 35d813b6dfedbd7f76a88713757ce83c2644ff95
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: e901f73f3a1751e0f2af7e0788a7b4846452225e
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107813153"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783976"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servicio Azure API Management con una red virtual interna
 Con Azure Virtual Network, Azure API Management puede administrar las API que no están accesibles desde Internet. Para establecer la conexión, hay una serie de tecnologías de VPN disponibles. API Management puede implementarse de dos modos en una red virtual:
@@ -50,7 +50,7 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 
 [!INCLUDE [api-management-public-ip-for-vnet](../../includes/api-management-public-ip-for-vnet.md)]
 
-Cuando se implementa un servicio API Management en una red virtual, se usa una [lista de puertos](./api-management-using-with-vnet.md#required-ports) que deben abrirse. 
+Cuando se implementa un servicio API Management en una red virtual, se usa una [lista de puertos](./api-management-using-with-vnet.md#required-ports) que deben abrirse.
 
 ## <a name="creating-an-api-management-in-an-internal-virtual-network"></a><a name="enable-vpn"> </a>Creación de una instancia de API Management en una red virtual interna
 El servicio API Management en una red virtual interna se hospeda detrás de una SKU básica del equilibrador de carga interno si el servicio se crea con la API de cliente versión 2020-12-01. Si el servicio se crea con clientes que tienen la versión de API 2021-01-01-preview y una dirección IP pública de la suscripción del cliente, se hospeda detrás de una SKU estándar del equilibrador de carga interno. Para más información, consulte [SKU de Azure Load Balancer](../load-balancer/skus.md).
@@ -79,9 +79,9 @@ También puede habilitar la conectividad de la red virtual con los siguientes m�
 
 ### <a name="api-version-2020-12-01"></a>Versión de API 2020-12-01
 
-* [Plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-management-create-with-internal-vnet) de Resource Manager
+* [Plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-internal-vnet) de Resource Manager
 
-     [![Implementar en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-internal-vnet%2Fazuredeploy.json)
+     [![Implementar en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-internal-vnet%2Fazuredeploy.json)
 
 * Cmdlets de Azure PowerShell: [Creación](/powershell/module/az.apimanagement/new-azapimanagement) o [actualización](/powershell/module/az.apimanagement/update-azapimanagementregion) de una instancia de API Management en una red virtual
 
@@ -141,9 +141,9 @@ Para más información, vea los siguientes artículos:
 * [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](../virtual-network/virtual-networks-faq.md)
 * [Creating a record in DNS](/previous-versions/windows/it-pro/windows-2000-server/bb727018(v=technet.10)) (Creación de un registro en DNS)
 
-[api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-using-with-internal-vnet.png
-[api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png
-[api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png
+[api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/updated-api-management-using-with-internal-vnet.png
+[api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/updated-api-management-internal-vnet-dashboard.png
+[api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/updated-api-management-custom-domain-name.png
 
 [Create API Management service]: get-started-create-service-instance.md
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/29/2021
+ms.date: 05/07/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00c6fc7916355586787bb91225e71c4db280ed26
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 2b3ce98a55057b90f26cdc91d52a514fe4bb3c9e
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315921"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517701"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opciones de autenticación sin contraseña de Azure Active Directory
 
@@ -156,12 +156,20 @@ Para empezar a usar las claves de seguridad FIDO2, realice el procedimiento sigu
 
 Se aplican las siguientes consideraciones:
 
-- Los administradores pueden habilitar métodos de autenticación sin contraseña para su inquilino
-- Los administradores pueden establecer como destino a todos los usuarios o seleccionar usuarios o grupos dentro de su inquilino para cada método
-- Los usuarios finales pueden registrar y administrar estos métodos de autenticación sin contraseña en el portal de la cuenta
-- Los usuarios finales pueden iniciar sesión con estos métodos de autenticación sin contraseña:
+- Los administradores pueden habilitar métodos de autenticación sin contraseña para su inquilino.
+
+- Los administradores pueden establecer como destino a todos los usuarios o seleccionar usuarios o grupos dentro de su inquilino para cada método.
+
+- Los usuarios pueden registrar y administrar estos métodos de autenticación sin contraseña en el portal de la cuenta.
+
+- Los usuarios pueden iniciar sesión con estos métodos de autenticación sin contraseña:
    - Aplicación Microsoft Authenticator: funciona en los escenarios donde se usa la autenticación de Azure AD, lo que incluye todos los exploradores, durante la configuración de Windows 10, y con aplicaciones móviles integradas en cualquier sistema operativo.
-   - Claves de seguridad: trabaje en la configuración de Windows 10 en OOBE con o sin Windows Autopilot, en la pantalla de bloqueo de Windows 10 y la web en exploradores compatibles como Microsoft Edge (Edge nuevo y heredado).
+   - Claves de seguridad: funcionan en la pantalla de bloqueo de Windows 10 e Internet en exploradores compatibles como Microsoft Edge (tanto versiones heredadas como la nueva Edge).
+
+- Los usuarios pueden usar credenciales sin contraseña para acceder a los recursos en los inquilinos donde son invitados, pero es posible que aún deban realizar la autenticación multifactor en ese inquilino de recursos. Para más información, consulte [Posibilidad de doble autenticación multifactor](https://docs.microsoft.com/azure/active-directory/external-identities/current-limitations#possible-double-multi-factor-authentication).  
+
+- Es posible que los usuarios no registren credenciales sin contraseña dentro de un inquilino en el que sean invitados, de la misma manera que no tienen una contraseña administrada en ese inquilino.  
+
 
 ## <a name="choose-a-passwordless-method"></a>Elección de un método sin contraseña
 

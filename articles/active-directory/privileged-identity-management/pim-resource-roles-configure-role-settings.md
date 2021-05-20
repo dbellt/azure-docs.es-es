@@ -15,12 +15,12 @@ ms.date: 01/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40779e4517b610e52e41caacc46fc613b72023e5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 10242d867c5d9676b4f6833151863b820b2f11d1
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567142"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481812"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Configurar las opciones del rol de recursos de Azure en Privileged Identity Management
 
@@ -40,7 +40,7 @@ Siga estos pasos para abrir la configuración de un rol de recursos de Azure.
 
     ![Página de recursos de Azure que muestra los recursos que se pueden administrar](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
-1. Seleccione **Configuración de rol**.
+1. Seleccione **Configuración**.
 
     ![Página de configuración de roles que muestra los roles de recursos de Azure](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
@@ -48,7 +48,7 @@ Siga estos pasos para abrir la configuración de un rol de recursos de Azure.
 
     ![Página de detalles de configuración de roles que muestra varias opciones de asignación y activación](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
-1. Seleccione **Editar** para abrir el panel **Configuración de rol**. La primera pestaña le permite actualizar la configuración de la activación del rol en Privileged Identity Management.
+1. Seleccione **Editar** para abrir el panel **Edición de la configuración de roles**. La primera pestaña le permite actualizar la configuración de la activación del rol en Privileged Identity Management.
 
     ![Página Editar configuración de rol con la pestaña Activación abierta](./media/pim-resource-roles-configure-role-settings/role-settings-activation-tab.png)
 

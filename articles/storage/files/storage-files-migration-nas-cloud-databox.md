@@ -4,15 +4,15 @@ description: Obtenga información sobre cómo migrar archivos de una ubicación 
 author: fauhse
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 04/02/2021
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: a8420d23c8bda29290722975ada2acca6733f0e7
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: eb3327ad84310e5dae55103171f7677d5b2c06d1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491697"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756168"
 ---
 # <a name="use-databox-to-migrate-from-network-attached-storage-nas-to-azure-file-shares"></a>Uso de DataBox para migrar desde un almacenamiento conectado a la red (NAS) a los recursos compartidos de archivos de Azure
 
@@ -29,11 +29,11 @@ Este artículo le guía de forma detallada por el planeamiento, implementación 
 
 ## <a name="migration-goals"></a>Objetivos de la migración
 
-El objetivo es migrar los recursos compartidos que tenga en el dispositivo NAS a Azure y convertirlos en recursos compartidos de archivos de Azure nativos que podrá usar sin necesidad de una instancia de un servidor de Windows. Esta migración se debe realizar de forma que garantice la integridad de los datos de producción y la disponibilidad durante la migración. Esta última requiere que el tiempo de inactividad sea mínimo, para ajustarse o solo superar ligeramente las ventanas de mantenimiento regulares.
+El objetivo es migrar los recursos compartidos del dispositivo NAS a Azure y convertirlos en recursos compartidos de archivos de Azure nativos. Puede usar estos recursos compartidos sin necesidad de una instancia de Windows Server. Esta migración se debe realizar de forma que garantice la integridad de los datos de producción y la disponibilidad durante la migración. Esta última requiere que el tiempo de inactividad sea mínimo, para ajustarse o solo superar ligeramente las ventanas de mantenimiento regulares.
 
 ## <a name="migration-overview"></a>Información general sobre la migración
 
-El proceso de migración consta de varias fases. Deberá implementar cuentas de almacenamiento de Azure y recursos compartidos de archivos, configurar redes, migrar con Azure Data Box, ponerse al día con los cambios a través de RoboCopy y, por último, realizar una migración total de los usuarios a los recursos compartidos de archivos de Azure recién creados. En las secciones siguientes se describen detalladamente las fases del proceso de migración.
+El proceso de migración consta de varias fases. Deberá implementar cuentas de almacenamiento y recursos compartidos de archivos de Azure y configurar las redes. A continuación, migrará los archivos mediante Azure DataBox y usará RoboCopy para ponerse al día con los cambios. Por último, hará la transición de los usuarios y las aplicaciones a los recursos compartidos de archivos de Azure recién creados. En las secciones siguientes se describen detalladamente las fases del proceso de migración.
 
 > [!TIP]
 > Si vuelve a este artículo, use la navegación del lado derecho para ir a la fase de migración en la que se quedó.
@@ -110,7 +110,7 @@ Para ahorrar tiempo, debe continuar con esta fase mientras espera a que llegue e
 * [Configuración de una VPN de Windows P2S](storage-files-configure-p2s-vpn-windows.md)
 * [Configuración de una VPN P2S de Linux](storage-files-configure-p2s-vpn-linux.md)
 * [Configuración del reenvío de DNS](storage-files-networking-dns.md)
-* [Configuración de DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview)
+* [Configuración de DFS-N](files-manage-namespaces.md)
    :::column-end:::
 :::row-end:::
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/11/2020
+ms.date: 05/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 15a9a2becea9751903e99f6ef1d55bc6f7b65ca8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e19ab526df864bba7bd164a15c11185439d35d7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95998624"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742866"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-allyio"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Ally.io
 
@@ -41,7 +41,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Ally.io admite el inicio de sesión único iniciado por **SP e IDP**.
 * Ally.io admite el aprovisionamiento de usuarios **Just-In-Time**.
-* Una vez configurado Ally.io, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una vez configurado Ally.io, puede aplicar el control de sesión, que protege tanto la filtración como la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-allyio-from-the-gallery"></a>Adición de Ally.io desde la galería
 
@@ -64,7 +64,6 @@ Para configurar y probar el inicio de sesión único de Azure AD con Ally.io, e
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Ally.io](#configure-allyio-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
-    1. **[Creación de un usuario de prueba de Ally.io](#create-allyio-test-user)** , para tener un homólogo de B.Simon en Ally.io que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -92,7 +91,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. La aplicación Ally.io espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
-    ![imagen](common/default-attributes.png)
+    ![Captura de pantalla que muestra la lista de atributos predeterminados.](common/default-attributes.png)
 
 1. Además de lo anterior, la aplicación Ally.io espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
     
@@ -106,7 +105,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-1. En la sección **Configurar Ally.io**, copie las direcciones URL adecuadas según sus necesidades.
+1. En la sección **Configurar Ally.io**, copie las direcciones URL adecuadas según sus requisitos.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -142,11 +141,24 @@ En esta sección, va a permitir que B.Simon acceda a Ally.io mediante el inicio 
 
 ## <a name="configure-allyio-sso"></a>Configuración del inicio de sesión único de Ally.io
 
-Para configurar el inicio de sesión único en **Ally.io**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Ally.io](mailto:contact@ally.io). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en Ally.io, debe copiar el certificado (Base64) y las direcciones URL correspondientes de Azure Portal y agregarlas en Ally.io.
 
-### <a name="create-allyio-test-user"></a>Creación de un usuario de prueba de Ally.io
+1. Inicie sesión en Ally.io con una cuenta de administrador.
+1. Utilice la barra de navegación de la izquierda de la pantalla para seleccionar **Administrador** > **Integraciones**.
+1. Desplácese hasta la **sección Autenticación** y seleccione **Inicio de sesión único**. A continuación, Seleccione **Habilitar**.
 
-En esta sección, se crea un usuario llamado B.Simon en Ally.io. Ally.io admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario no existe en Ally.io, se crea uno nuevo cuando se intenta acceder.
+    ![Captura de pantalla que muestra el botón Habilitar en Ally.io.](./media/ally-tutorial/ally-enable.png)
+
+    Se abre la página **Configuración de SSO**, donde puede configurar el certificado y las direcciones URL copiadas de Azure Portal.
+
+    ![Captura de pantalla que muestra el panel de configuración de SSO en Ally.io.](./media/ally-tutorial/ally-single-sign-on-configuration.png)
+
+1. En **Configuración de SSO**, escriba o seleccione la siguiente configuración: 
+
+    * **Ally**: Azure AD
+    * **URL de punto de conexión de SAML 2.0**: dirección URL de inicio de sesión
+    * **URL de emisor del proveedor de identidades**: identificador de Azure AD
+    * **Certificado publico (X.509):** certificado (base 64)
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
@@ -154,11 +166,13 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 Al hacer clic en el icono de Ally.io en el panel de acceso, debería iniciar sesión automáticamente en la versión de Ally.io para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
+Se crea un usuario llamado B. Simon en Ally.io. Ally.io admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario no existe en Ally.io, se crea uno nuevo cuando se intenta acceder.
+
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
 

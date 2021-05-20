@@ -4,12 +4,12 @@ description: Aprenda a agrupar, escalonar, paginar y consultar en paralelo las s
 ms.date: 04/09/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 891d5951670dd6022b66ae2936ee855f73f8b33a
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 87d94da5ae247f80d1d7eb26e7aea3d9f582b370
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107283548"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751974"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Guía de solicitudes limitadas en Azure Resource Graph
 
@@ -31,7 +31,7 @@ En cada respuesta de consulta, Azure Resource Graph agrega dos encabezados de li
 - `x-ms-user-quota-remaining` (int): la cuota de recurso restante para el usuario. Este valor se asigna al número de consultas.
 - `x-ms-user-quota-resets-after` (hh:mm:ss): el tiempo transcurrido hasta que se restablece el consumo de la cuota de un usuario.
 
-Cuando una entidad de seguridad tiene acceso a más de 5000 suscripciones en el inquilino o el [ámbito de consulta](./query-language.md#query-scope) del grupo de administración, la respuesta se limita a las primeras 5000 suscripciones y el encabezado `x-ms-tenant-subscription-limit-hit` se devuelve como `true`.
+Cuando una entidad de seguridad tiene acceso a más de 5000 suscripciones en el [ámbito de consulta](./query-language.md#query-scope) del inquilino o del grupo de administración, la respuesta se limita a las primeras 5000 suscripciones y el encabezado `x-ms-tenant-subscription-limit-hit` se devuelve como `true`.
 
 Para ilustrar cómo funcionan los encabezados, echemos un vistazo a una respuesta de consulta que tiene el encabezado y los valores de `x-ms-user-quota-remaining: 10` y `x-ms-user-quota-resets-after: 00:00:03`.
 
@@ -174,7 +174,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
         var azureOperationResponse = await this.resourceGraphClient
             .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
             .ConfigureAwait(false);
-        
+
         var responseHeaders = azureOperationResponse.response.Headers;
         int remainingQuota = /* read and parse x-ms-user-quota-remaining from responseHeaders */
         TimeSpan resetAfter = /* read and parse x-ms-user-quota-resets-after from responseHeaders */

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: 6cf70a6cfa4b1bf0f8d065872698d16977b4cb59
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 50ae89aefda00f21d07a19051c9aaa6e85726f8a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127756"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108741390"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -171,7 +171,7 @@ Consulte [aquí](./designing-for-high-availability-with-expressroute.md) para di
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>¿Cómo garantizo la alta disponibilidad en una red virtual conectada a ExpressRoute?
 
-Se puede lograr la alta disponibilidad mediante la conexión de hasta 16 circuitos ExpressRoute en la misma ubicación de emparejamiento a la red virtual o mediante la conexión de circuitos ExpressRoute en distintas ubicaciones de emparejamiento (por ejemplo, Singapur, Singapur2) a la red virtual. Si se bloquea un circuito ExpressRoute, la conectividad conmutará por error a otro circuito ExpressRoute. De forma predeterminada, el tráfico que sale de la red virtual se enruta en función del enrutamiento multidireccional de igual costo (ECMP). Puede usar el peso de la conexión para preferir un circuito a otro. Para obtener más información, consulte [Optimización de enrutamiento de ExpressRoute](expressroute-optimize-routing.md).
+Se puede lograr la alta disponibilidad mediante la conexión de hasta 4 circuitos ExpressRoute en la misma ubicación de emparejamiento a la red virtual o mediante la conexión de hasta 16 circuitos ExpressRoute en distintas ubicaciones de emparejamiento (por ejemplo, Singapur, Singapur2) a la red virtual. Si se bloquea un circuito ExpressRoute, la conectividad conmutará por error a otro circuito ExpressRoute. De forma predeterminada, el tráfico que sale de la red virtual se enruta en función del enrutamiento multidireccional de igual costo (ECMP). Puede usar el peso de la conexión para preferir un circuito a otro. Para obtener más información, consulte [Optimización de enrutamiento de ExpressRoute](expressroute-optimize-routing.md).
 
 ### <a name="how-do-i-ensure-that-my-traffic-destined-for-azure-public-services-like-azure-storage-and-azure-sql-on-microsoft-peering-or-public-peering-is-preferred-on-the-expressroute-path"></a>¿Cómo me aseguro de que el tráfico destinado a los servicios públicos de Azure, como Azure Storage y Azure SQL, en el emparejamiento de Microsoft o público se prefiere en la ruta de ExpressRoute?
 

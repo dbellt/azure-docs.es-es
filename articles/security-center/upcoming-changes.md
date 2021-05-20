@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 04/27/2021
+ms.date: 05/09/2021
 ms.author: memildin
-ms.openlocfilehash: b8b8b15083711c868add7ac041514bcf1facc30d
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: ed9ea3abf984f537ab693ccbadb90e2ba091f52d
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076894"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683576"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Próximos cambios importantes en Azure Security Center
 
@@ -29,6 +29,7 @@ Si busca las notas de la versión más recientes, puede encontrarlas en [Novedad
 | Cambio planeado                                                                                                                                                        | Fecha estimada del cambio |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
 | [Dos recomendaciones del control de seguridad "Aplicar actualizaciones del sistema" entran en desuso](#two-recommendations-from-apply-system-updates-security-control-being-deprecated) | Abril de 2021                |
+| [El prefijo de las alertas de Kubernetes cambia de "AKS_" a "K8s_"](#prefix-for-kubernetes-alerts-changing-from-aks_-to-k8s_)                                               | Junio de 2021                 |
 | [La implementación heredada de ISO 27001 se está reemplazando por la nueva ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)          | Junio de 2021                 |
 | [Las recomendaciones de AWS se lanzarán para disponibilidad general (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)                     | **Agosto** de 2021           |
 | [Mejoras en la recomendación de clasificación de datos de SQL](#enhancements-to-sql-data-classification-recommendation)                                                     | Segundo trimestre de 2021                   |
@@ -44,6 +45,30 @@ Las dos recomendaciones siguientes están en desuso:
 - **La versión del sistema operativo debe actualizarse en los roles del servicio en la nube**: de manera predeterminada, Azure actualiza periódicamente el sistema operativo invitado a la imagen compatible más reciente dentro de la familia de sistema operativo que ha especificado en la configuración del servicio (.cscfg), como Windows Server 2016.
 - Los **servicios de Kubernetes deben actualizarse a una versión de Kubernetes no vulnerable**: las evaluaciones de esta recomendación no son tan amplias como nos gustaría. La versión actual de esta recomendación se reemplazará finalmente por una versión mejorada que se ajuste más a las necesidades de seguridad de los clientes.
 
+
+### <a name="prefix-for-kubernetes-alerts-changing-from-aks_-to-k8s_"></a>El prefijo de las alertas de Kubernetes cambia de "AKS_" a "K8s_"
+
+**Fecha estimada del cambio:** junio de 2021
+
+Azure Defender para Kubernetes se amplió recientemente para proteger los clústeres de Kubernetes hospedados en entornos locales y de varias nubes. Puede encontrar más información en [Uso de Azure Defender para Kubernetes para proteger implementaciones de Kubernetes híbridas y de varias nubes (en versión preliminar)](release-notes.md#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-in-preview).
+
+Para reflejar el hecho de que las alertas de seguridad proporcionadas por Azure Defender para Kubernetes ya no están restringidas a los clústeres de Azure Kubernetes Service, el prefijo de los tipos de alerta va a cambiar de "AKS_" a "K8s_". Cuando sea necesario, los nombres y las descripciones también se actualizarán. Por ejemplo, esta alerta:
+
+|Alerta (tipo de alerta)|Descripción|
+|----|----|
+|Se ha detectado la herramienta de pruebas de penetración de Kubernetes.<br>(**AKS** _PenTestToolsKubeHunter)|El análisis del registro de auditoría de Kubernetes ha detectado el uso de la herramienta de pruebas de penetración de Kubernetes en el clúster de **AKS**. Aunque este comportamiento puede ser legítimo, los atacantes podrían usar estas herramientas públicas con fines malintencionados.
+|||
+
+se convertirá en:
+
+|Alerta (tipo de alerta)|Descripción|
+|----|----|
+|Se ha detectado la herramienta de pruebas de penetración de Kubernetes.<br>(**K8s** _PenTestToolsKubeHunter)|El análisis del registro de auditoría de Kubernetes ha detectado el uso de la herramienta de pruebas de penetración de Kubernetes en el clúster de **Kubernetes**. Aunque este comportamiento puede ser legítimo, los atacantes podrían usar estas herramientas públicas con fines malintencionados.|
+|||
+
+Las reglas de supresión que hacen referencia a las alertas que comienzan por "AKS_" se convertirán automáticamente. Si ha configurado exportaciones de SIEM o scripts de automatización personalizados que hacen referencia a las alertas de Kubernetes por tipo de alerta, deberá actualizarlos con los nuevos tipos de alerta.
+
+Para ver una lista completa de las alertas de Kubernetes, consulte [Alertas de clústeres de Kubernetes](alerts-reference.md#alerts-akscluster).
 
 ### <a name="legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013"></a>La implementación heredada de ISO 27001 se está reemplazando por la nueva ISO 27001:2013
 

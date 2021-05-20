@@ -1,25 +1,25 @@
 ---
 title: 'Creación de un inquilino de Azure AD para las conexiones VPN de punto a sitio: Autenticación de Azure AD'
 titleSuffix: Azure VPN Gateway
-description: Aprenda a configurar un inquilino de Azure AD para la autenticación de P2S VPN abierta.
+description: Aprenda a configurar un inquilino de Azure AD para la autenticación de Azure AD de punto a sitio (protocolo OpenVPN).
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 05/10/2021
 ms.author: cherylmc
-ms.openlocfilehash: c0d3aa376f11ca6b05a8fcbd10562ff2fed83258
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: f2f20580bc8396f6d7336d50bbe7fb55c94725de
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228665"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109712899"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Creación de un inquilino de Azure Active Directory para conexiones del protocolo P2S OpenVPN
 
-Al conectarse a la red virtual, puede usar la autenticación basada en certificados o la autenticación RADIUS. Sin embargo, cuando use el protocolo de VPN abierto, también puede usar la autenticación de Azure Active Directory. Este artículo le ayuda a configurar un inquilino de Azure AD para la autenticación de P2S VPN abierta.
+Al conectarse a la red virtual mediante un protocolo de punto a sitio, tiene la opción de elegir qué protocolo usar. El protocolo que use determina las opciones de autenticación que tiene a su disposición. Si quiere usar la autenticación de Azure Active Directory, puede hacerlo cuando utilice el protocolo OpenVPN. Este artículo le ayuda a configurar un inquilino de Azure AD. Para más información sobre los protocolos y la autenticación de punto a sitio, consulte [Acerca de las conexiones VPN de punto a sitio](point-to-site-about.md).
 
-[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
+[!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 ## <a name="1-verify-azure-ad-tenant"></a><a name="tenant"></a>1. Comprobación del inquilino de Azure AD
 
@@ -97,7 +97,13 @@ Siga los pasos descritos en [Incorporación o eliminación de usuarios mediante 
 
    * **Inquilino:** valor de TenantID del inquilino de Azure AD ```https://login.microsoftonline.com/{AzureAD TenantID}/```
 
-   * **Audiencia:** valor de ApplicationID de la aplicación empresarial de Azure AD "Azure VPN"```{AppID of the "Azure VPN" AD Enterprise app}```
+   * **Audiencia:** identificador de la aplicación empresarial de Azure AD "Azure VPN".
+
+       * Escriba 41b23e61-6c1e-4545-B367-cd054e0ed4b4 para Azure público.
+       * Escriba 51bb15d4-3a4f-4ebf-9dca-40096fe32426 para Azure Government.
+       * Escriba 538ee9e6-310a-468d-afef-ea97365856a9 para Azure Alemania.
+       * Escriba 49f817b6-84ae-4cc0-928c-73f27289b3aa para Azure China 21Vianet.
+
 
    * **Emisor**: dirección URL del servicio de token seguro ```https://sts.windows.net/{AzureAD TenantID}/```
 

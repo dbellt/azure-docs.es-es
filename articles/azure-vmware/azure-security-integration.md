@@ -3,12 +3,12 @@ title: Protección de máquinas virtuales de Azure VMware Solution con la integr
 description: Aprenda a proteger las máquinas virtuales de Azure VMware Solution con las herramientas de seguridad nativas de Azure desde el panel de Azure Security Center.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: d2917fbc5d93447dcdde6385576a2a404e95d250
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 3012da2f9d5254b581a4ce53ef51503dfb048e98
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205867"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769532"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Protección de máquinas virtuales de Azure VMware Solution con la integración de Azure Security Center
 
@@ -244,4 +244,4 @@ Ahora que se ha explicado cómo proteger las máquinas virtuales de Azure VMware
 
 - Uso del [panel de Azure Defender](../security-center/azure-defender-dashboard.md)
 - [Detección avanzada de ataques de varias fases en Azure Sentinel](../azure-monitor/logs/quick-create-workspace.md)
-- [Administración del ciclo de vida de las máquinas virtuales de Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md)
+- [Supervisión y administración de máquinas virtuales de Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md)

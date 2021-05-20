@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/30/2021
+ms.date: 05/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e6261699166e0157750fc691bc0c1726d8cefd50
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 9c9d5ae5fec9b9258527606d352cef83d5b5a41c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324066"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742830"
 ---
 # <a name="developer-notes-for-azure-active-directory-b2c"></a>Notas para desarrolladores sobre Azure Active Directory B2C
 
@@ -40,6 +40,41 @@ Los [flujos de usuario y las directivas personalizadas](user-flow-overview.md) d
 | [Forzar el restablecimiento de contraseñas](force-password-reset.md) | Vista previa | N/D | |
 | [Registro e inicio de sesión por teléfono](phone-authentication-user-flows.md) | GA | GA | |
 
+## <a name="oauth-20-application-authorization-flows"></a>Flujos de autorización de aplicaciones de OAuth 2.0
+
+En la tabla siguiente se resumen los flujos de autenticación de aplicaciones de OAuth  2.0 y OpenId Connect que se pueden integrar con Azure AD B2C.
+
+|Característica  |Flujo de usuario  |Directiva personalizada  |Notas  |
+|---------|:---------:|:---------:|---------|
+[Código de autorización](authorization-code-flow.md) | GA | GA | Permite a los usuarios iniciar sesión en aplicaciones web. La aplicación web recibe un código de autorización. El código de autorización se canjea para adquirir un token para llamar a las API web.|
+[Código de autorización con PKCE](authorization-code-flow.md)| GA | GA | Permite a los usuarios iniciar sesión en aplicaciones móviles y de página única. La aplicación recibe un código de autorización mediante la clave de prueba para el intercambio de código (PKCE). El código de autorización se canjea para adquirir un token para llamar a las API web.  |
+[Concesión de las credenciales de cliente](https://tools.ietf.org/html/rfc6749#section-4.4)| GA | GA | Permite acceder a los recursos hospedados en la Web mediante la identidad de una aplicación. Se usa principalmente para las interacciones entre servidores que se deben ejecutar en segundo plano, sin la interacción inmediata con un usuario.  <br />  <br />  Para usar esta característica en un inquilino de Azure AD B2C, use el punto de conexión de Azure AD del inquilino de Azure AD B2C. Para más información, vea el [flujo de credenciales de cliente de OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Este flujo no usa la configuración de [flujo de usuario o directiva personalizada](user-flow-overview.md) de Azure AD B2C. |
+[Concesión de autorización de dispositivos](https://tools.ietf.org/html/rfc8628)| N/D | N/D | Permite a los usuarios iniciar sesión en dispositivos con limitaciones de entrada, como un televisor inteligente, dispositivo IoT o impresora.  |
+[Flujo implícito](implicit-flow-single-page-application.md) | GA | GA |  Permite a los usuarios iniciar sesión en aplicaciones de página única. La aplicación obtiene los tokens directamente sin tener que realizar un intercambio de credenciales de servidor back-end.|
+[En nombre de](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md)| N/D | N/D | Una aplicación invoca un servicio o API web, que, a su vez, debe llamar a otro servicio o API web. <br />  <br /> Para que el servicio de nivel intermedio realice solicitudes autenticadas al servicio de nivel inferior, pase un token de *credencial de cliente* en el encabezado de autorización. Opcionalmente, puede incluir un encabezado personalizado con el token del usuario de Azure AD B2C.  |
+[OpenId Connect](openid-connect.md) | GA | GA | OpenID Connect presenta el concepto de un token de identificador, que es un token de seguridad que permite al cliente comprobar la identidad del usuario. |
+[Flujo híbrido de OpenID Connect](openid-connect.md) | GA | GA | Permite que una aplicación web recupere el token de identificador en la solicitud de autorización junto con un código de autorización.  |
+[Credenciales de contraseña del propietario del recurso (ROPC)](add-ropc-policy.md) | Vista previa | Vista previa | Permite a una aplicación móvil iniciar la sesión del usuario al controlar directamente la contraseña. |
+
+### <a name="oauth-20-options"></a>Opciones de OAuth 2.0
+
+|Característica  |Flujo de usuario  |Directiva personalizada  |Notas  |
+|---------|:---------:|:---------:|---------|
+| [Redirección del inicio de sesión a un proveedor social](direct-signin.md#redirect-sign-in-to-a-social-provider) | GA | GA | Parámetro de cadena de consulta `domain_hint`. |
+| [Rellenar previamente el nombre de inicio de sesión](direct-signin.md#prepopulate-the-sign-in-name) | GA | GA | Parámetro de cadena de consulta `login_hint`. |
+| Inserción de JSON en el recorrido del usuario a través de `client_assertion`| N/D| Obsoleto |  |
+| Inserción de JSON en el recorrido del usuario como [id_token_hint](id-token-hint.md) | N/D | GA | |
+| [Paso del token del proveedor de identidades a la aplicación](idp-pass-through-user-flow.md)| Vista previa| Vista previa| Por ejemplo, de Facebook a la aplicación. |
+
+## <a name="saml2-application-authentication-flows"></a>Flujos de autenticación de aplicaciones SAML2
+
+En la tabla siguiente se resumen los flujos de autenticación de aplicaciones del Lenguaje de marcado de aserción de seguridad (SAML) que se pueden integrar con Azure AD B2C.
+
+|Característica  |Flujo de usuario  |Directiva personalizada  |Notas  |
+|---------|:---------:|:---------:|---------|
+[Iniciado por SP](saml-service-provider.md) | N/D | GA | Enlaces POST y de redirección. |
+[Iniciado por IDP](saml-service-provider-options.md#identity-provider-initiated-flow) | N/D | GA | Donde el proveedor de identidades de inicio es Azure AD B2C.  |
+
 ## <a name="user-experience-customization"></a>Personalización de la experiencia del usuario
 
 |Característica  |Flujo de usuario  |Directiva personalizada  |Notas  |
@@ -54,18 +89,6 @@ Los [flujos de usuario y las directivas personalizadas](user-flow-overview.md) d
 | [Deshabilitación de la comprobación de correo electrónico](disable-email-verification.md) | GA|  GA| No se recomienda para entornos de producción. Deshabilitar la comprobación de correos electrónicos en el proceso de registro puede provocar que se reciban correos no deseados. |
 
 
-## <a name="protocols-and-authorization-flows"></a>Protocolos y flujos de autorización
-
-|Característica  |Flujo de usuario  |Directiva personalizada  |Notas  |
-|---------|:---------:|:---------:|---------|
-|[Código de autorización OAuth2](authorization-code-flow.md) | GA | GA |
-|[Código de autorización OAuth2 con PKCE](authorization-code-flow.md)| GA | GA | Clientes públicos y aplicaciones de página única. |
-|[Flujo implícito de OAuth2](implicit-flow-single-page-application.md) | GA | GA | |
-|[Credenciales de contraseña del propietario del recurso OAuth2](add-ropc-policy.md) | Vista previa | Vista previa | |
-|OAuth1 | N/D | N/D | No compatible. |
-|[OpenId Connect](openid-connect.md) | GA | GA | |
-|[SAML2](saml-service-provider.md) | N/D | GA | Enlaces POST y de redirección. |
-| WSFED | N/D | N/D | No compatible. |
 
 ## <a name="identity-providers"></a>Proveedores de identidades
 
@@ -110,16 +133,6 @@ Los [flujos de usuario y las directivas personalizadas](user-flow-overview.md) d
 |[Protección con autenticación de certificados de cliente](secure-rest-api.md#https-client-certificate-authentication) | Vista previa | GA | |
 |[Protección con la autenticación de portador de OAuth2](secure-rest-api.md#oauth2-bearer-authentication) | N/D | GA | |
 |[Protección con autenticación de clave de API](secure-rest-api.md#api-key-authentication) | N/D | GA | |
-
-### <a name="application-and-azure-ad-b2c-integration"></a>Integración de aplicaciones y Azure AD B2C
-
-|Característica  |Flujo de usuario  |Directiva personalizada  |Notas  |
-|---------|:---------:|:---------:|---------|
-| [Redirección del inicio de sesión a un proveedor social](direct-signin.md#redirect-sign-in-to-a-social-provider) | GA | GA | Parámetro de cadena de consulta `domain_hint`. |
-| [Rellenar previamente el nombre de inicio de sesión](direct-signin.md#prepopulate-the-sign-in-name) | GA | GA | Parámetro de cadena de consulta `login_hint`. |
-| Inserción de JSON en el recorrido del usuario a través de `client_assertion`| N/D| Obsoleto |  |
-| Inserción de JSON en el recorrido del usuario como [id_token_hint](id-token-hint.md) | N/D | GA | |
-| [Paso del token del proveedor de identidades a la aplicación](idp-pass-through-user-flow.md)| Vista previa| Vista previa| Por ejemplo, de Facebook a la aplicación. |
 
 
 ## <a name="custom-policy-features"></a>Características de la directiva personalizada

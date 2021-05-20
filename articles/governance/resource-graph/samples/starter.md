@@ -3,12 +3,12 @@ title: Ejemplos de consultas de inicio
 description: Use Azure Resource Graph para ejecutar consultas de inicio, como el recuento de recursos, el pedido de recursos o las consultas por una etiqueta específica.
 ms.date: 05/01/2021
 ms.topic: sample
-ms.openlocfilehash: 52744c3d1e83874d4ac469a93eef86ae12155b5a
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: ddb4b57a9f2bae8298de8dad74e99edc19353e42
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326010"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751506"
 ---
 # <a name="starter-resource-graph-query-samples"></a>Ejemplos de consultas de inicio de Resource Graph
 
@@ -468,7 +468,7 @@ En esta consulta se enumeran las etiquetas de los grupos de administración, las
 En primer lugar, la consulta se limita a los recursos con etiquetas `isnotempty()` y restringe los campos incluidos mediante el uso de las _etiquetas_ en `project`, `mvexpand` y `extend` para obtener los datos emparejados del contenedor de propiedades. A continuación, usa `union` para combinar los resultados de _ResourceContainers_ con los mismos resultados de _Resources_, lo que proporciona una amplia cobertura para captura de etiquetas. Por último, limita los resultados a datos emparejados de `distinct` y excluye las etiquetas ocultas por el sistema.
 
 ```kusto
-ResourceContainers 
+ResourceContainers
 | where isnotempty(tags)
 | project tags
 | mvexpand tags
@@ -555,7 +555,7 @@ advisorresources
     solution = tostring(properties.shortDescription.solution),
     currency = tostring(properties.extendedProperties.savingsCurrency)
 | summarize
-    dcount(resources), 
+    dcount(resources),
     bin(sum(savings), 0.01)
     by solution, currency
 | project solution, dcount_resources, sum_savings, currency

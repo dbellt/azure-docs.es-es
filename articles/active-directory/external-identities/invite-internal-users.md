@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 802307a21873d15242c2e387ec0defe35f50bb20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa2356cf45c1b1a04fac14bff2888d031ca5a423
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99576437"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750994"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>Invitar a usuarios internos a la colaboración B2B
 
@@ -31,9 +31,12 @@ El envío de una invitación a una cuenta interna existente le permite conservar
 
 - **La invitación es unidireccional**: Puede invitar a usuarios internos a usar la colaboración B2B, pero no puede quitar las credenciales de B2B una vez agregadas. Para volver a cambiar el usuario a un usuario solo interno, deberá eliminar el objeto de usuario y crear otro.
 
-- **Teams**: Cuando el usuario accede a Teams con sus credenciales externas, su inquilino no estará disponible inicialmente en el selector de inquilinos de Teams. El usuario puede acceder a Teams mediante una dirección URL que contiene el contexto del inquilino, por ejemplo: `https://team.microsoft.com/?tenantId=<TenantId>`. Después de esto, el inquilino estará disponible en el selector de inquilinos de Teams.
+- **Teams**: Cuando el usuario accede a Teams con sus credenciales externas, su inquilino no estará disponible inicialmente en el selector de inquilinos de Teams. El usuario puede acceder a Teams mediante una dirección URL que contiene el contexto del inquilino, por ejemplo: `https://teams.microsoft.com/?tenantId=<TenantId>`. Después de esto, el inquilino estará disponible en el selector de inquilinos de Teams.
 
 - **Usuarios sincronizados locales**: para las cuentas de usuario sincronizadas entre el entorno local y la nube, el directorio local sigue siendo el origen de autoridad después de haber invitado a los usuarios a usar la colaboración B2B. Los cambios que realice en la cuenta local se sincronizarán con la cuenta en la nube, incluida la deshabilitación o eliminación de la cuenta. Por lo tanto, solo mediante la eliminación de la cuenta local, no puede evitar que el usuario inicie sesión en su cuenta local mientras conserva su cuenta en la nube. En su lugar, puede establecer la contraseña de la cuenta local en un GUID aleatorio u otro valor desconocido.
+
+> [!NOTE]
+> Si usa Azure AD Connect Cloud Sync, hay una regla de forma predeterminada que escribe OnPremUserPrincipalName en el usuario. Esta regla debe modificarse para que no escriba esta propiedad en el caso de aquellos usuarios que desee convertir de usuarios internos a externos.
 
 ## <a name="how-to-invite-internal-users-to-b2b-collaboration"></a>Invitación de usuarios internos a la colaboración B2B
 

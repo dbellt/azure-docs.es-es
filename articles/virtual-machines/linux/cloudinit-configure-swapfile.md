@@ -1,19 +1,19 @@
 ---
 title: Uso de cloud-init para configurar una partición de intercambio en una máquina virtual Linux
 description: Procedimiento para usar cloud-init con el fin de configurar una partición de intercambio en una máquina virtual Linux con la CLI de Azure
-author: rickstercdn
-manager: gwallace
+author: mimckitt
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
 ms.date: 11/29/2017
-ms.author: rclaus
-ms.openlocfilehash: b9f4adc4e1e980db2af4fcc20b3a4492309c89f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: mimckitt
+ms.subservice: cloud-init
+ms.openlocfilehash: bc55bf12b766002fff7fda45af0d802164a2b503
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102559382"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784132"
 ---
 # <a name="use-cloud-init-to-configure-a-swap-partition-on-a-linux-vm"></a>Uso de cloud-init para configurar una partición de intercambio en una máquina virtual Linux
 En este artículo se explica cómo usar [cloud-init](https://cloudinit.readthedocs.io) para configurar la partición de intercambio en diversas distribuciones de Linux. La partición de intercambio tradicionalmente se ha configurado mediante el agente Linux (WALA) en función de las distribuciones que necesitan una.  En este documento se detalla el proceso de creación de la partición de intercambio a petición durante el tiempo de aprovisionamiento mediante cloud-init.  Para obtener más información acerca del funcionamiento nativo de cloud-init en Azure y las distribuciones de Linux compatibles, consulte la [introducción a cloud-init](using-cloud-init.md).
@@ -39,8 +39,10 @@ fs_setup:
     filesystem: swap
 mounts:
   - ["ephemeral0.1", "/mnt"]
-  - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
+  - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service", "0", "0"]
 ```
+
+El montaje se crea con la opción `nofail` para asegurarse de que el arranque continuará incluso si el montaje no se completa correctamente.
 
 Antes de implementar esta imagen, debe crear un grupo de recursos con el comando [az group create](/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 05/04/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a88bb7904143f69a0eea84ea291c65e3244c70a1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c164b52682d6f4aef2db70a5724f3f74db68c53f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765870"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746457"
 ---
 # <a name="enable-passwordless-security-key-sign-in"></a>Habilitación del inicio de sesión con clave de seguridad sin contraseña 
 
@@ -32,6 +32,7 @@ Este documento se centra en la habilitación de la autenticación sin contraseñ
 - WebAuthN requiere Windows 10, versión 1903 o posterior**
 
 Para usar claves de seguridad para iniciar sesión en servicios y aplicaciones web, debe tener un explorador que admita el protocolo WebAuthN. Entre ellas se incluyen Microsoft Edge, Chrome, Firefox y Safari.
+
 
 ## <a name="prepare-devices"></a>Preparación de dispositivos
 
@@ -53,6 +54,22 @@ Las características de registro de los métodos de autenticación sin contrase�
    1. **Habilitar**: Sí o No
    1. **Destino**: Todos los usuarios o Seleccionar usuarios
 1. **Guarde** la configuración.
+
+
+### <a name="fido-security-key-optional-settings"></a>Configuración opcional de la clave de seguridad FIDO 
+
+Hay algunas opciones de configuración opcionales para administrar las claves de seguridad por inquilino.  
+
+![Captura de pantalla de las opciones de la clave de seguridad FIDO2](media/howto-authentication-passwordless-security-key/optional-settings.png) 
+
+**General**
+
+- **Permitir configuración de autoservicio** debe permanecer establecido en **Sí**. Si se establece en no, los usuarios no podrán registrar una clave FIDO en el portal MySecurityInfo, aunque la directiva de métodos de autenticación sí lo permita.  
+- La opción **Exigir la atestación** establecida en **Sí** requiere que los metadatos de la clave de seguridad FIDO se publiquen y se verifiquen con FIDO Alliance Metadata Service y que también se apruebe el conjunto adicional de pruebas de validación de Microsoft. Para más información, vea [¿Qué es una clave de seguridad compatible con Microsoft?](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)
+
+**Directiva de restricción de claves**
+
+- **Exigir las restricciones de claves** debe establecerse en **Sí** exclusivamente si su organización solo quiere permitir o no determinadas claves de seguridad FIDO, que se identifican mediante sus AAGuids. Puede colaborar con el proveedor de claves de seguridad para determinar los AAGuids de sus dispositivos. Si la clave ya está registrada, también se puede encontrar el AAGUID consultando los detalles del método de autenticación de la clave por usuario. 
 
 ## <a name="user-registration-and-management-of-fido2-security-keys"></a>Registro de usuario y administración de claves de seguridad FIDO2
 

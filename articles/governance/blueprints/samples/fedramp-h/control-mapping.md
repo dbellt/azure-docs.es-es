@@ -3,12 +3,12 @@ title: Controles del ejemplo de plano técnico con un nivel de impacto alto de F
 description: Asignación de controles del ejemplo de plano técnico con un nivel de impacto alto de FedRAMP. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 88449bfb52dfe2452e1dd6b744f67600242edf79
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 3e1cea90e7b1553fb3b8b9e93994208ecfa564da
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386753"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757464"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico con un nivel de impacto alto de FedRAMP
 
@@ -117,7 +117,7 @@ Los datos de registro que recopila Azure Monitor se almacenan en un área de tra
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) Revisión, análisis e informes de auditoría | Integración y funcionalidades de examen y supervisión
 
-Este plano técnico proporciona definiciones de directivas que auditan registros con el análisis de la evaluación de vulnerabilidades en máquinas virtuales, conjuntos de escalado de máquinas virtuales, servidores de SQL Database e instancias administradas de SQL. Estas definiciones de directiva también auditan la configuración de los registros de diagnóstico para proporcionar información detallada sobre las operaciones realizadas dentro de los recursos de Azure. Esta información proporciona detalles en tiempo real sobre el estado de seguridad de los recursos implementados y ayuda a priorizar las medidas correctivas. Para un examen y una supervisión de vulnerabilidades detallados, le recomendamos que también aproveche las ventajas de Azure Sentinel y Azure Security Center.
+Este plano técnico proporciona definiciones de directivas que auditan registros con el análisis de la evaluación de vulnerabilidades en máquinas virtuales, conjuntos de escalado de máquinas virtuales, servidores de SQL Database e instancias administradas de SQL. Estas definiciones de directiva también auditan la configuración de los registros de diagnóstico para proporcionar información detallada sobre las operaciones realizadas dentro de los recursos de Azure. Esta información proporciona detalles en tiempo real sobre el estado de seguridad de los recursos implementados y ayuda a priorizar las medidas correctivas. Para examinar y supervisar las vulnerabilidades de forma detallada, le recomendamos que use también Azure Sentinel y Azure Security Center.
 
 - \[Versión preliminar\]: La evaluación de vulnerabilidades debe estar habilitada en las máquinas virtuales.
 - \[Versión preliminar\]: Habilitar Azure Monitor para VM
@@ -160,19 +160,19 @@ Esta directiva integrada requiere que especifique una matriz de tipos de recurso
 
 ## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>Funcionalidad mínima CM-7 (2) | Evitar la ejecución de programas
 
-El control de aplicaciones adaptable en Azure Security Center es una solución de filtrado de aplicaciones de un extremo a otro, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ejecutarse en modo de aplicación que prohíbe que la aplicación no autorizada se ejecute. Este plano técnico asigna una definición de Azure Policy que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero esta aún no se ha configurado.
+El control de aplicaciones adaptable en Azure Security Center es una solución de filtrado de aplicaciones de un extremo a otro, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ejecutarse en modo de aplicación que prohíbe que la aplicación no autorizada se ejecute. Este plano técnico asigna una definición de Azure Policy que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero aún no se ha configurado.
 
 - Deben habilitarse los controles de aplicaciones adaptables en las máquinas virtuales
 
 ## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>Funcionalidad mínima CM-7 (5) | Creación de listas de software permitido o autorizado
 
-El control de aplicaciones adaptable en Azure Security Center es una solución de filtrado de aplicaciones de un extremo a otro, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones le permite crear listas de aplicaciones aprobadas para las máquinas virtuales. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero esta aún no se ha configurado.
+El control de aplicaciones adaptable en Azure Security Center es una solución de filtrado de aplicaciones de un extremo a otro, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones le permite crear listas de aplicaciones aprobadas para las máquinas virtuales. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero aún no se ha configurado.
 
 - Deben habilitarse los controles de aplicaciones adaptables en las máquinas virtuales
 
 ## <a name="cm-11-user-installed-software"></a>Software instalado por el usuario CM-11
 
-El control de aplicaciones adaptable en Azure Security Center es una solución de filtrado de aplicaciones de un extremo a otro, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ayudarle a aplicar y supervisar el cumplimiento con las directivas de restricción de software. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero esta aún no se ha configurado.
+El control de aplicaciones adaptable en Azure Security Center es una solución de filtrado de aplicaciones de un extremo a otro, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ayudarle a aplicar y supervisar el cumplimiento con las directivas de restricción de software. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero aún no se ha configurado.
 
 - Deben habilitarse los controles de aplicaciones adaptables en las máquinas virtuales
 
@@ -182,7 +182,7 @@ Azure Site Recovery replica las cargas de trabajo que se ejecutan en máquinas v
 
 - Auditoría de máquinas virtuales sin la recuperación ante desastres configurada
 
-## <a name="cp-9-05--information-system-backup--transfer-to-alternate-storage-site"></a>CP-9 (05) Copia de seguridad del sistema de información | Transferencia al sitio de almacenamiento alternativo
+## <a name="cp-9-05-information-system-backup--transfer-to-alternate-storage-site"></a>CP-9 (05) Copia de seguridad del sistema de información | Transferencia al sitio de almacenamiento alternativo
 
 Este plano técnico asigna definiciones de Azure Policy que auditan la información de copia de seguridad del sistema de la organización en el sitio de almacenamiento alternativo electrónicamente. Para el envío físico de los metadatos de almacenamiento, considere la posibilidad de usar Azure Data Box.
 
@@ -248,7 +248,7 @@ Azure Security Center proporciona funcionalidades de informes que permiten tener
 
 ## <a name="sc-5-denial-of-service-protection"></a>Protección ante la denegación de servicio SC-5
 
-El nivel estándar de denegación de servicio distribuido (DDoS) de Azure proporciona características adicionales y funcionalidades de mitigación en el nivel de servicio básico. Estas características adicionales incluyen la integración de Azure Monitor y la capacidad de revisar los informes de mitigación posteriores al ataque. Este proyecto asigna una definición de [Azure Policy](../../../policy/overview.md) que audita si está habilitado el nivel estándar de DDoS. Conocer la diferencia de capacidad entre los niveles de servicio puede ayudarle a seleccionar la mejor solución para abordar la denegación de protecciones de servicio para el entorno de Azure.
+El nivel estándar de protección ante la denegación de servicio distribuido (DDoS) de Azure proporciona características adicionales y funcionalidades de mitigación con respecto al nivel de servicio básico. Estas características adicionales incluyen la integración de Azure Monitor y la capacidad de revisar los informes de mitigación posteriores al ataque. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que audita si está habilitado el nivel estándar de DDoS. Conocer la diferencia de capacidad entre los niveles de servicio puede ayudarle a seleccionar la mejor solución para abordar la denegación de protecciones de servicio para el entorno de Azure.
 
 - Se debe habilitar DDoS Protection estándar
 
@@ -352,7 +352,7 @@ Advanced Threat Protection para Azure Storage detecta los intentos poco habitual
 - Implementar Advanced Threat Protection en las cuentas de almacenamiento
 
 > [!NOTE]
-> La disponibilidad de definiciones específicas de Azure Policy puede variar tanto en Azure Government como en otras nubes nacionales. 
+> La disponibilidad de definiciones específicas de Azure Policy puede variar tanto en Azure Government como en otras nubes nacionales.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

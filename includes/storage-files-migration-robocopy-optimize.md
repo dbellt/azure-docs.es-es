@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 4/05/2021
 ms.author: fauhse
 ms.custom: include file
-ms.openlocfilehash: 57d14ae6e6da7cfa883f1aed74cce390c0185d98
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: a3dc42ece6bbd05b61ef9a4f1a0f82e147b2a762
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491698"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108749307"
 ---
 La velocidad y la tasa de éxito de una ejecución determinada de RoboCopy dependerán de varios factores:
 
@@ -51,6 +51,8 @@ A menudo, el ancho de banda suele considerarse como el factor más restrictivo e
 La razón de esta diferencia es la potencia de procesamiento necesaria para recorrer un espacio de nombres. RoboCopy admite copias multiproceso a través del parámetro `/MT:n`, en donde "n" indica el número de subprocesos del procesador. Por lo tanto, al aprovisionar una máquina específicamente para RoboCopy, tenga en cuenta el número de núcleos de procesador y su relación con el número de subprocesos que proporcionan. Lo más habitual son dos subprocesos por núcleo. El número de núcleos y subprocesos de una máquina es un punto de datos importante para determinar qué valores multiproceso `/MT:n` se deberían especificar. Tenga en cuenta también cuántos trabajos de RoboCopy tiene previsto ejecutar al mismo tiempo en una máquina determinada.
 
 Un número mayor de subprocesos copiarán nuestro ejemplo de 1 TiB de archivos pequeños considerablemente más rápido que un número menor de subprocesos. Al mismo tiempo, la inversión adicional en recursos en 1 TiB de archivos de más grandes podría no aportar ventajas proporcionales. Un número mayor de subprocesos intentará copiar simultáneamente más archivos grandes a través de la red. Esta actividad de red adicional aumentará la probabilidad de sufrir restricciones asociadas al rendimiento o a las operaciones de IOPS de almacenamiento.
+
+Durante una primera ejecución de RoboCopy en un destino vacío o una ejecución diferencial con una gran cantidad de archivos modificados, es probable que el rendimiento de la red plantee restricciones. Comience con un número elevado de subprocesos para una ejecución inicial. Un alto número de subprocesos, incluso más allá de los subprocesos disponibles actualmente en la máquina, ayuda a saturar el ancho de banda de red disponible. Las ejecuciones /MIR posteriores se verán afectadas progresivamente por el procesamiento de elementos. Menos cambios en una ejecución diferencial significa menos transporte de datos a través de la red. La velocidad ahora depende más de la capacidad de procesar elementos de espacio de nombres que de moverlos a través del vínculo de red. Para las ejecuciones posteriores, haga coincidir el valor del número de subprocesos con el número de núcleos del procesador y el número de subprocesos por núcleo. Considere si es necesario reservar los núcleos para otras tareas que quizá tenga un servidor de producción.
 
 ### <a name="avoid-unnecessary-work"></a>Evitar el trabajo innecesario
 

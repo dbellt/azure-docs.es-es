@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: ea3f5cb896bb023a38474be71aa1570d9f5b4806
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 5b4854183e345124048e8e06456fedbc4b1b8e5e
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108176673"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715401"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servicios que admiten identidades administradas para recursos de Azure
 
@@ -236,11 +236,11 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | Asignado por el sistema | ![Disponible][check] | ![Disponible][check] | No disponible | ![Disponible][check] |
-| Asignado por el usuario | No disponible | No disponible | No disponible | No disponible |
+| Asignado por el usuario | ![Disponible][check] | ![Disponible][check] | No disponible | ![Disponible][check] |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure IoT Hub (en las regiones donde esté disponible):
 
-- [Azure Portal](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
+- Para obtener más información, consulte la [Compatibilidad de Azure IoT Hub con identidades administradas](../../iot-hub/iot-hub-managed-identity.md).
 
 ### <a name="azure-importexport"></a>Azure Import/Export
 

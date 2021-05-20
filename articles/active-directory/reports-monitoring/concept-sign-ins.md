@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/26/2021
+ms.date: 05/06/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e524430d696dab7233f4ebb3403f08b2a8030412
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 70f52e0b82b8a5a06aec322456253eb044141b75
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126712"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108794294"
 ---
 # <a name="sign-ins-logs-in-azure-active-directory"></a>Registros de inicios de sesión en Azure Active Directory
 
@@ -50,9 +50,9 @@ Puede usar el registro de inicios de sesión para encontrar respuestas a pregunt
 
 ## <a name="who-can-access-it"></a>¿Quién puede acceder a ellos?
 
-Siempre puede acceder a su propio registro de inicios de sesión. 
+Siempre puede acceder a su propio historial de inicios de sesión mediante este vínculo: [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
 
-Para acceder al registro de inicios de sesión de otro usuario, debe ser:
+Para acceder al registro de inicios de sesión, debe ser:
 
 - Un administrador global
 
@@ -267,7 +267,36 @@ En la página **Usuarios**, puede obtener una vista general completa de todos lo
 
 ![Captura de pantalla que muestra la sección Actividad, donde puede seleccionar Inicios de sesión.](./media/concept-sign-ins/08.png "Actividad de inicio de sesión")
 
-## <a name="usage-of-managed-applications"></a>Uso de las aplicaciones administradas
+## <a name="authentication-details"></a>Detalles de la autenticación
+
+La pestaña **Detalles de autenticación** que se encuentra en el informe de inicios de sesión proporciona la siguiente información para cada intento de autenticación:
+
+- Una lista de las directivas de autenticación aplicadas (por ejemplo, acceso condicional, MFA por usuario, valores predeterminados de seguridad).
+- La secuencia de los métodos de autenticación usados para iniciar sesión.
+- Si el intento de autenticación se ha realizado correctamente o no.
+- Detalles sobre por qué el intento de autenticación se ha realizado correctamente o no.
+
+Esta información permite a los administradores solucionar problemas de cada paso en el inicio de sesión de un usuario y realizar un seguimiento de los siguientes aspectos:
+
+- Volumen de inicios de sesión protegidos por la autenticación multifactor. 
+- Tasas de uso y éxito de cada método de autenticación. 
+- Uso de métodos de autenticación sin contraseña (como el inicio de sesión con teléfono sin contraseña, FIDO2 y Windows Hello para empresas). 
+- Con qué frecuencia se cumplen los requisitos de autenticación mediante notificaciones de token (donde a los usuarios no se les pide interactivamente que escriban una contraseña, escriban un SMS OTP, y así sucesivamente).
+
+Al ver el informe de inicios de sesión, seleccione la pestaña **Detalles de autenticación**: 
+
+![Captura de pantalla de la pestaña Detalles de autenticación](media/concept-sign-ins/auth-details-tab.png)
+
+>[!NOTE]
+>El **código de verificación OATH** se registra como el método de autenticación para tokens de hardware y software OATH (por ejemplo, la aplicación Microsoft Authenticator).
+
+>[!IMPORTANT]
+>La pestaña **Detalles de autenticación** puede mostrar inicialmente datos incompletos o inexactos, hasta que la información del registro se agregue por completo. Algunos ejemplos conocidos son: 
+>- Un mensaje de **notificación de cumplimiento en el token** se muestra incorrectamente cuando se registran inicialmente eventos de inicio de sesión. 
+>- La fila **autenticación principal** no se registra inicialmente. 
+
+
+## <a name="usage-of-managed-applications&quot;></a>Uso de las aplicaciones administradas
 
 Con una vista centrada en la aplicación de los datos de inicio de sesión, puede responder a preguntas tales como:
 
@@ -277,7 +306,7 @@ Con una vista centrada en la aplicación de los datos de inicio de sesión, pued
 
 El punto de entrada a estos datos son las tres aplicaciones principales de su organización. Los datos se incluyen en el informe de los últimos 30 días en la sección **Información general** en **Aplicaciones empresariales**.
 
-![Captura de pantalla que muestra dónde puede seleccionar Información general.](./media/concept-sign-ins/10.png "Actividad de inicio de sesión")
+![Captura de pantalla que muestra dónde puede seleccionar Información general.](./media/concept-sign-ins/10.png &quot;Actividad de inicio de sesión")
 
 Agregaciones semanales de los gráficos de uso de la aplicación de inicios de sesión para las tres aplicaciones principales en un período determinado. El valor predeterminado para el período es 30 días.
 

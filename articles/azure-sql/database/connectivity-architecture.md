@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 01/25/2021
-ms.openlocfilehash: 3442e3003ef8a299beb88cd212602c8713915474
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 1e0015887482023097cfb98ff244c3b53c808a85
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107499961"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685844"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -99,9 +99,9 @@ En el siguiente artículo se describen los detalles de cómo se migrará el trá
 | India central        | 104.211.96.159, 104.211.86.30 , 104.211.86.31 |
 | Sur de India          | 104.211.224.146    |
 | India occidental           | 104.211.160.80, 104.211.144.4 |
-| Japón Oriental           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 40.79.192.5 |
+| Japón Oriental           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 40.79.192.5, 13.78.104.32 |
 | Japón Occidental           | 104.214.148.156, 40.74.100.192, 40.74.97.10 |
-| Centro de Corea del Sur        | 52.231.32.42, 52.231.17.22 ,52.231.17.23 |
+| Centro de Corea del Sur        | 52.231.32.42, 52.231.17.22, 52.231.17.23, 20.44.24.32, 20.194.64.33 |
 | Corea del Sur          | 52.231.200.86, 52.231.151.96 |
 | Centro-Norte de EE. UU     | 23.96.178.199, 23.98.55.75, 52.162.104.33, 52.162.105.9 |
 | Norte de Europa         | 40.113.93.91, 52.138.224.1, 13.74.104.113 |
@@ -116,7 +116,7 @@ En el siguiente artículo se describen los detalles de cómo se migrará el trá
 | Centro de Emiratos Árabes Unidos          | 20.37.72.64        |
 | Norte de Emiratos Árabes Unidos            | 65.52.248.0        |
 | Sur de Reino Unido             | 51.140.184.11, 51.105.64.0, 51.140.144.36, 51.105.72.32 |
-| Oeste de Reino Unido              | 51.141.8.11        |
+| Oeste de Reino Unido              | 51.141.8.11, 51.140.208.96, 51.140.208.97 |
 | Centro-Oeste de EE. UU.      | 13.78.145.25, 13.78.248.43, 13.71.193.32, 13.71.193.33 |
 | Oeste de Europa          | 40.68.37.158, 104.40.168.105, 52.236.184.163  |
 | Oeste de EE. UU.              | 104.42.238.205, 13.86.216.196   |

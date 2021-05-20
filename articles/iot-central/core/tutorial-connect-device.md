@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Conexión de una aplicación cliente genérica a Azure IoT Central | Microsoft Docs'
-description: En este tutorial se muestra cómo los desarrolladores para dispositivos pueden conectar un dispositivo que ejecuta una aplicación cliente de C, C#, Java, JavaScript o Python a la aplicación de Azure IoT Central. La plantilla de dispositivo generada automáticamente se modifica mediante la adición de vistas que permiten a un operador interactuar con un dispositivo conectado.
+description: En este tutorial se muestra cómo puede conectar un dispositivo que ejecuta una aplicación cliente de C, C#, Java, JavaScript o Python a la aplicación de Azure IoT Central. La plantilla de dispositivo generada automáticamente se modifica mediante la adición de vistas que permiten a un operador interactuar con un dispositivo conectado.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/24/2020
@@ -11,18 +11,16 @@ ms.custom:
 - mqtt
 - device-developer
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 479c12ca00614b2d34bd08f41e3451826a253035
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: 0e6f4ac3cd95873c8b735a1843438499f2405bef
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001830"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108750030"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application"></a>Tutorial: Creación y conexión de un aplicación cliente a la aplicación de Azure IoT Central
 
-*Este artículo se aplica a generadores de soluciones y desarrolladores de dispositivos.*
-
-En este tutorial se muestra cómo los desarrolladores para dispositivos pueden conectar una aplicación cliente a la aplicación de Azure IoT Central. La aplicación simula el comportamiento de un dispositivo de control de la temperatura. Cuando la aplicación se conecta a IoT Central, envía el identificador del modelo de dispositivo de control de temperatura. IoT Central usa el identificador de modelo para recuperar el modelo de dispositivo y crear una plantilla de dispositivo automáticamente. Agregue personalizaciones y vistas a la plantilla de dispositivo para permitir que un operador interactúe con un dispositivo.
+En este tutorial se muestra cómo puede conectar una aplicación cliente a la aplicación de Azure IoT Central. La aplicación simula el comportamiento de un dispositivo de control de la temperatura. Cuando la aplicación se conecta a IoT Central, envía el identificador del modelo de dispositivo de control de temperatura. IoT Central usa el identificador de modelo para recuperar el modelo de dispositivo y crear una plantilla de dispositivo automáticamente. Agregue personalizaciones y vistas a la plantilla de dispositivo para permitir que un operador interactúe con un dispositivo.
 
 En este tutorial, aprenderá a:
 
@@ -66,7 +64,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="view-raw-data"></a>Visualización de datos sin procesar
 
-Como desarrollador para dispositivos, puede usar la vista **Datos sin procesar** para examinar los datos sin procesar que el dispositivo envía a IoT Central:
+Puede usar la vista **Datos sin procesar** para examinar los datos sin procesar que el dispositivo envía a IoT Central:
 
 :::image type="content" source="media/tutorial-connect-device/raw-data.png" alt-text="Vista de datos sin procesar":::
 
@@ -82,10 +80,3 @@ Si prefiere continuar con el conjunto de tutoriales de IoT Central y obtener m�
 
 > [!div class="nextstepaction"]
 > [Creación de una plantilla de dispositivo de puerta de enlace](./tutorial-define-gateway-device-type.md)
-
-Como desarrollador para dispositivos, ahora que ha aprendido los aspectos básicos de cómo crear un dispositivo, se recomiendan los siguientes pasos:
-
-* Para más información sobre el rol de las plantillas de dispositivo cuando se está implementando el código del dispositivo, consulte [¿Qué son las plantillas de dispositivo?](./concepts-device-templates.md).
-* Lea [Conexión a Azure IoT Central](./concepts-get-connected.md) para más información sobre cómo registrar dispositivos con IoT Central y cómo IoT Central protege las conexiones de dispositivos.
-* Para más información sobre los datos que un dispositivo intercambia con IoT Central, consulte [Cargas de telemetría, propiedades y comandos](concepts-telemetry-properties-commands.md).
-* Lea [Guía para desarrolladores de dispositivos IoT Plug and Play](../../iot-pnp/concepts-developer-guide-device.md).

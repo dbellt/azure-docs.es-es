@@ -1,16 +1,16 @@
 ---
-title: Escalado horizontal de un clúster administrado de Service Fabric (versión preliminar)
+title: Escalado horizontal de un clúster administrado de Service Fabric
 description: En este tutorial aprenderá a escalar horizontalmente un tipo de nodo de un clúster administrado de Service Fabric.
 ms.topic: tutorial
-ms.date: 09/28/2020
-ms.openlocfilehash: 769bcb339b2cc1419c7a3d92d0f08130029a9f95
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 5/10/2021
+ms.openlocfilehash: ebce8b0506866e52d79395a3abfcda280c460532
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98785437"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685772"
 ---
-# <a name="tutorial-scale-out-a-service-fabric-managed-cluster-preview"></a>Tutorial: Escalado horizontal de un clúster administrado de Service Fabric (versión preliminar)
+# <a name="tutorial-scale-out-a-service-fabric-managed-cluster"></a>Tutorial: Escalado horizontal de un clúster administrado de Service Fabric
 
 En esta serie de tutoriales, trataremos de lo siguiente:
 

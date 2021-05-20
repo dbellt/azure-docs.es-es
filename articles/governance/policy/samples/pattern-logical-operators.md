@@ -3,12 +3,12 @@ title: 'Patrón: operadores lógicos en una definición de directiva'
 description: Este patrón de Azure Policy proporciona un ejemplo de cómo usar los operadores lógicos en una definición de directiva.
 ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: feb9e50b0c73c19027b747cf0f95fa1cb6fbd47c
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 3daf5e5873566b1335178d50a4589ec7a6e1971c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106093357"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752280"
 ---
 # <a name="azure-policy-pattern-logical-operators"></a>Patrón de Azure Policy: operadores lógicos
 
@@ -41,7 +41,7 @@ Este bloque **policyRule.if** también incluye un único operador **allOf**, per
 
 ## <a name="sample-3-combining-logical-operators"></a>Ejemplo 3: Combinación de operadores lógicos
 
-Esta definición de directiva evalúa las cuentas de [Spring on Azure](/azure/developer/java/spring-framework) para ver si el seguimiento no está habilitado o no se encuentra en un estado correcto.
+Esta definición de directiva evalúa las cuentas de [Spring en Azure](/azure/developer/java/spring-framework) para ver si el seguimiento no está habilitado o no se encuentra en un estado correcto.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json":::
 

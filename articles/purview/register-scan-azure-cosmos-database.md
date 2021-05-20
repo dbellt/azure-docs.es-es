@@ -6,13 +6,13 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 10/9/2020
-ms.openlocfilehash: 1aaeed1973ebd15af312b722ab61938aa4271947
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/08/2021
+ms.openlocfilehash: 91005835a407cd097d7c5de3de02a48959b4cbfd
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97696243"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750778"
 ---
 # <a name="register-and-scan-azure-cosmos-database-sql-api"></a>Registro y examen de Azure Cosmos Database (SQL API)
 
@@ -42,7 +42,7 @@ Cuando el método de autenticación seleccionado es **Clave de cuenta**, debe ob
 1. Copie la *clave* y guárdela para usarla en los pasos siguientes.
 1. Vaya a almacén de claves.
 1. Seleccione **Configuración > Secretos**.
-1. Seleccione **+ Generar/Importar** y escriba el **nombre** y el **valor** como la *clave* de la cuenta de almacenamiento.
+1. Seleccione **+ Generar/Importar** y escriba el **nombre** y el **valor** como la *clave* de la cuenta de Azure Cosmos DB.
 1. Seleccione **Crear** para completar la acción.
 1. Si el almacén de claves no está conectado todavía a Purview, necesitará [crear una conexión del almacén de claves](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 1. Por último, [cree una nueva credencial](manage-credentials.md#create-a-new-credential) mediante la clave para configurar el examen.
@@ -62,10 +62,11 @@ Para registrar una nueva cuenta de Azure Cosmos Database (SQL API) en el catálo
 En la pantalla **Register sources (Azure Cosmos DB (SQL API))** (Registrar orígenes [Azure Cosmos DB (SQL API)]), haga lo siguiente:
 
 1. Escriba un **nombre** con el que se mostrará el origen de datos en el catálogo.
-1. Elija cómo quiere apuntar a la cuenta de almacenamiento elegida:
-   1. Seleccione **From Azure subscription** (Desde la suscripción de Azure), seleccione la suscripción adecuada en el cuadro desplegable **Azure subscription** (Suscripción de Azure) y la cuenta de Cosmos DB correspondiente en el cuadro desplegable **Cosmos DB account name** (Nombre de la cuenta de Cosmos DB).
-   1. O bien, puede seleccionar **Enter manually** (Escribir manualmente) y especificar un punto de conexión de servicio (dirección URL).
-1. **Finalice** el proceso para registrar el origen de datos.
+2. Elija la suscripción de Azure para filtrar las bases de datos de Azure Cosmos.
+3. Seleccione un nombre de cuenta de Cosmos DB adecuado.
+4. Seleccione una colección o cree una nueva (opcional).
+5. Seleccione **Registrar** para registrar el origen de datos.
+
 
 :::image type="content" source="media/register-scan-azure-cosmos-database/register-sources.png" alt-text="Opciones de registro de orígenes" border="true":::
 

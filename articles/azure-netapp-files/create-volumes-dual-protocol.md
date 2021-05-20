@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 05/05/2021
 ms.author: b-juche
-ms.openlocfilehash: b195b1a816576ec8a065ebe83bd02fa3aeb53c5a
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 9efa376acd29758e6bb71930b5a6382e484fd3d7
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161400"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795121"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de protocolo dual (NFSv3 y SMB) para Azure NetApp Files
 
@@ -172,5 +172,6 @@ Siga las instrucciones de [Configuración de un cliente NFS para Azure NetApp Fi
 ## <a name="next-steps"></a>Pasos siguientes  
 
 * [Configuración de un cliente NFS para Azure NetApp Files](configure-nfs-clients.md)
+* [Configuración de ADDS LDAP sobre TLS para Azure NetApp Files](configure-ldap-over-tls.md)
 * [Solución de problemas de SMB o de volúmenes de dos protocolos](troubleshoot-dual-protocol-volumes.md)
 * [Solución de problemas de volúmenes LDAP](troubleshoot-ldap-volumes.md)

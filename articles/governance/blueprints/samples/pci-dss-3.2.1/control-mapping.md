@@ -3,12 +3,12 @@ title: Controles del ejemplo de plano técnico PCI-DSS v3.2.1
 description: Asignación de controles de la muestra de plano técnico Estándar de seguridad de los datos del sector de las tarjetas de pago v3.2.1 a Azure Policy y Azure RBAC.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 7011f0b55e73f193fb85881ed18812de97876fda
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 5d45e78af9bb07d433ea5aa52581fdbda6d1efea
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166674"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756960"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Asignación a los controles de la muestra de plano técnico PCI-DSS v3.2.1
 
@@ -59,12 +59,11 @@ Este plano técnico ayuda a administrar las vulnerabilidades del sistema de info
 Tener solo un propietario de la suscripción de Azure no permite la redundancia administrativa. Por el contrario, tener demasiados propietarios de suscripción de Azure aumenta la posibilidad de infracción de seguridad mediante una cuenta de propietario en riesgo. Este plano técnico ayuda a mantener un número adecuado de propietarios de suscripción de Azure mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que auditan el número de estos. La administración de permisos de propietario de suscripción ayuda a implementar la separación adecuada de las tareas.
 
 - Debe haber más de un propietario asignado a su suscripción
-- Debe designar un máximo de tres propietarios para la suscripción 
+- Debe designar un máximo de tres propietarios para la suscripción
 
 ## <a name="32-721-831a-and-831b-management-of-privileged-access-rights"></a>Administración de derechos de acceso con privilegios de 3.2, 7.2.1, 8.3.1.a y 8.3.1.b
 
-Este plano técnico ayuda a restringir y controlar los derechos de acceso con privilegios mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas externas con permisos de propietario, de escritura y/o de lectura y cuentas de empleados con permisos de propietario y/o de escritura que no tienen habilitada la autenticación multifactor. El control de acceso basado en roles de Azure (Azure RBAC) ayuda a administrar quién tiene acceso a los recursos de Azure. Comprender dónde se implementan las reglas personalizadas de Azure RBAC puede ayudarle a determinar su necesidad y correcta implementación, ya que estas reglas suelen producir errores. Este plano técnico también asigna definiciones de [Azure Policy](../../../policy/overview.md) para auditar el uso de la autenticación de Azure Active Directory para los servidores SQL Server. El uso de la autenticación de Azure Active Directory simplifica la administración de permisos y centraliza la administración de identidades de usuarios de base de datos y otros servicios  
-de Microsoft.
+Este plano técnico ayuda a restringir y controlar los derechos de acceso con privilegios mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas externas con permisos de propietario, de escritura y/o de lectura y cuentas de empleados con permisos de propietario y/o de escritura que no tienen habilitada la autenticación multifactor. El control de acceso basado en roles de Azure (Azure RBAC) ayuda a administrar quién tiene acceso a los recursos de Azure. Comprender dónde se implementan las reglas personalizadas de Azure RBAC puede ayudarle a determinar su necesidad y correcta implementación, ya que estas reglas suelen producir errores. Este plano técnico también asigna definiciones de [Azure Policy](../../../policy/overview.md) para auditar el uso de la autenticación de Azure Active Directory para los servidores SQL Server. El uso de la autenticación de Azure Active Directory simplifica la administración de permisos y centraliza la administración de identidades de usuarios de base de datos y otros servicios de Microsoft.
 
 - Las cuentas externas con permisos de propietario deben quitarse de la suscripción
 - Las cuentas externas con permisos de escritura deben quitarse de la suscripción
@@ -87,7 +86,8 @@ El control de acceso basado en roles de Azure (Azure RBAC) ayuda a administrar q
 
 ## <a name="813-removal-or-adjustment-of-access-rights"></a>Eliminación o ajuste de derechos de acceso de 8.1.3
 
-El control de acceso basado en roles de Azure (Azure RBAC) ayuda a administrar quién tiene acceso a los recursos de Azure. Mediante Azure Active Directory y Azure RBAC, puede actualizar los roles de usuario para reflejar cambios organizativos. Cuando sea necesario, se puede bloquear el inicio de sesión de las cuentas (o eliminar estas), lo cual eliminaría inmediatamente los derechos de acceso a los recursos de Azure. Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas en desuso cuya eliminación debería considerarse.
+El control de acceso basado en roles de Azure (Azure RBAC) ayuda a administrar quién tiene acceso a los recursos de Azure.
+Mediante Azure Active Directory y Azure RBAC, puede actualizar los roles de usuario para reflejar cambios organizativos. Cuando sea necesario, se puede bloquear el inicio de sesión de las cuentas (o eliminar estas), lo cual eliminaría inmediatamente los derechos de acceso a los recursos de Azure. Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas en desuso cuya eliminación debería considerarse.
 
 - Las cuentas en desuso deben quitarse de la suscripción
 - Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción

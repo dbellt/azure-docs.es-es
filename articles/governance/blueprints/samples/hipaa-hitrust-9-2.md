@@ -3,16 +3,17 @@ title: Introducción al ejemplo de plano técnico de HIPAA HITRUST 9.2
 description: Introducción al ejemplo de plano técnico de HIPAA HITRUST 9.2. Este ejemplo de plano técnico ayuda a los clientes a evaluar los controles concretos de HIPAA HITRUST 9.2.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 168946319c11f31ee41594d82d9ff186dea232cd
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: eda98807a48a43132b9bbf6c7f9b6293aefdbacb
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386591"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757158"
 ---
 # <a name="hipaa-hitrust-92-blueprint-sample"></a>Ejemplo de plano técnico de HITRUST HIPAA 9.2
 
-En el ejemplo de plano técnico de HIPAA HITRUST 9.2 se proporcionan directivas de gobernanza mediante [Azure Policy](../../policy/overview.md) que le ayudarán a evaluar los controles específicos de HIPAA HITRUST 9.2. Este plano técnico ayuda a los clientes a implementar un conjunto esencial de directivas para cualquier arquitectura implementada en Azure que deba implantar controles de HIPAA HITRUST 9.2.
+En el ejemplo de plano técnico de HIPAA HITRUST 9.2 se proporcionan directivas de gobernanza mediante [Azure Policy](../../policy/overview.md) que le ayudarán a evaluar los controles específicos de HIPAA HITRUST 9.2.
+Este plano técnico ayuda a los clientes a implementar un conjunto esencial de directivas para cualquier arquitectura implementada en Azure que deba implantar controles de HIPAA HITRUST 9.2.
 
 ## <a name="control-mapping"></a>Asignación de controles
 

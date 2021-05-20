@@ -4,12 +4,12 @@ description: Supervisión del rendimiento de aplicaciones de Azure App Services.
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet, devx-track-azurepowershell
-ms.openlocfilehash: e8c794e056dca42a06bdf6b7deb274e7f5f5bfd4
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: e5c9e91ff6d9cc5bc8fe478853c802abcd9d6e49
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315928"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109627823"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
 
@@ -167,7 +167,7 @@ Con el fin de habilitar la recopilación de datos de telemetría con Application
 |Nombre del valor de configuración de la aplicación |  Definición | Value |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Extensión principal; controla la supervisión en el entorno en tiempo de ejecución. | `~2` |
-|XDT_MicrosoftApplicationInsights_Mode |  Solo en el modo predeterminado; se habilitan las características esenciales para garantizar un rendimiento óptimo. | `default` o `recommended`. |
+|XDT_MicrosoftApplicationInsights_Mode |  En el modo predeterminado, solo están habilitadas las características esenciales para garantizar un rendimiento óptimo. | `default` o `recommended`. |
 |InstrumentationEngine_EXTENSION_VERSION | Controla si se activa el motor `InstrumentationEngine` de reescritura binaria. Esta configuración tiene implicaciones de rendimiento y afecta a la hora de inicio o al arranque en frío. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | Controla si el texto de la tabla SQL y Azure se captura junto con las llamadas de dependencia. Advertencia de rendimiento: el tiempo de inicio en frío de la aplicación se verá afectado. Esta configuración requiere el elemento `InstrumentationEngine`. | `~1` |
 |XDT_MicrosoftApplicationInsights_PreemptSdk | Solo para aplicaciones de ASP.NET Core. Habilita la interoperabilidad con el SDK de Application Insights. Carga la extensión en paralelo con el SDK y la usa para enviar telemetría (deshabilita el SDK de Application Insights). |`1`|

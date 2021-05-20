@@ -1,17 +1,17 @@
 ---
-title: Implementación de un clúster administrado de Service Fabric (versión preliminar)
+title: Implementación de un clúster administrado de Service Fabric
 description: En este tutorial, implementará un clúster administrado de Service Fabric para pruebas.
 ms.topic: tutorial
-ms.date: 08/27/2020
+ms.date: 5/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: fd54e6f8c5272c3a8fe0e0162ca2e57968b24642
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 48332bd8115a48497157b846f02db49c96e61001
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98791717"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685790"
 ---
-# <a name="tutorial-deploy-a-service-fabric-managed-cluster-preview"></a>Tutorial: Implementación de un clúster administrado de Service Fabric (versión preliminar)
+# <a name="tutorial-deploy-a-service-fabric-managed-cluster"></a>Tutorial: Implementación de un clúster administrado de Service Fabric
 
 En esta serie de tutoriales, trataremos de lo siguiente:
 

@@ -1,22 +1,22 @@
 ---
-title: Creación de informes acerca del aprovisionamiento automático de cuentas de usuario para aplicaciones SaaS
+title: Informe del aprovisionamiento automático de cuentas de Azure Active Directory en aplicaciones de software como servicio (SaaS)
 description: Aprenda a comprobar el estado de los trabajos de aprovisionamiento automático de cuentas de usuario y a solucionar problemas del aprovisionamiento de usuarios individuales.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/09/2018
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 5d93cec201feeb43700fe849f2fddc8eaf22488a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5f252a6b9ad9e4054ce377459df5c8754c2df7ce
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579491"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109782998"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Creación de informes sobre el aprovisionamiento automático de cuentas de usuario
 

@@ -3,12 +3,12 @@ title: Implementación del ejemplo de plano técnico de la zona de aterrizaje de
 description: Pasos de implementación del ejemplo de plano técnico de la zona de aterrizaje de migración de CAF, incluidos los detalles de los parámetros del artefacto de plano técnico.
 ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: d5aed1d492fea102598a22921d04ed8681c727cb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9c953c5ec7f6c8a9a9ae7a1ff784b5c0d0f8f877
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103470122"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757824"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Implementación del ejemplo de plano técnico de la zona de aterrizaje de migración de Microsoft Cloud Adoption Framework para Azure
 
@@ -35,7 +35,7 @@ En primer lugar, implemente el ejemplo de plano técnico mediante la creación d
 1. Busque el ejemplo de plano técnico de la **zona de aterrizaje de migración de CAF** en _Otras muestras_ y seleccione **Usar esta muestra**.
 
 1. Escriba los _Aspectos básicos_ del ejemplo de plano técnico:
-   - **Nombre del plano técnico**: proporcione un nombre para su copia del ejemplo de plano técnico de la zona de aterrizaje de migración de CAF.
+   - **Blueprint name** (Nombre del plano técnico): proporcione un nombre para su copia del ejemplo de plano técnico de la zona de aterrizaje de migración de CAF.
    - **Ubicación de definición**: use los puntos suspensivos y seleccione el grupo de administración donde guardar la copia del ejemplo.
 
 1. Seleccione la pestaña _Artefactos_ en la parte superior de la página **Siguiente: Artefactos** en la parte inferior de la página.
@@ -72,7 +72,7 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
      - Azure Blueprint usa esta identidad administrada para implementar todos los artefactos del plano técnico asignado.
        Para más información, consulte [Identidades administradas para recursos de Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
      - **Versión de definición de Blueprint**: Elija una versión **publicada** de la copia del ejemplo de plano técnico.
-    
+
    - Asignación de bloqueo
 
      Seleccione el valor de bloqueo de plano técnico para el entorno. Para más información, consulte [Bloqueo de recursos en planos técnicos](../../concepts/resource-locking.md).
@@ -85,9 +85,9 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
 
      Muchos de los artefactos de la definición de plano técnico usan los parámetros definidos en esta sección para proporcionar coherencia.
 
-       - **Organización**: escriba el nombre de la organización, como Contoso o Fabrikam. El nombre debe ser único.
-       - **AzureRegion**: seleccione una región de Azure para la implementación.
-       
+     - **Organización**: escriba el nombre de la organización, como Contoso o Fabrikam. El nombre debe ser único.
+     - **AzureRegion**: seleccione una región de Azure para la implementación.
+
    - Parámetros de artefacto
 
      Los parámetros definidos en esta sección se aplican al artefacto en el que se define. Estos parámetros son [parámetros dinámicos](../../concepts/parameters.md#dynamic-parameters), ya que se definen durante la asignación del plano técnico. Para obtener una lista completa de los parámetros de los artefactos y sus descripciones, consulte la [tabla de parámetros de los artefactos](#artifact-parameters-table).

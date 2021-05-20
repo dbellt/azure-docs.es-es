@@ -2,24 +2,24 @@
 title: Etiquetado de recursos, grupos de recursos y suscripciones para una organización lógica
 description: Muestra cómo aplicar etiquetas para organizar los recursos de Azure para la facturación y administración.
 ms.topic: conceptual
-ms.date: 01/04/2021
+ms.date: 05/05/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 0ee2274dcd13af0bcbfe342039681ecc7b949a7b
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: ef9e94203987374bebb461989fd1763cf1b0bf80
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108330970"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108803285"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Uso de etiquetas para organizar los recursos de Azure y la jerarquía de administración
 
-Puede aplicar etiquetas a los recursos, grupos de recursos y suscripciones de Azure con el fin de organizarlos de manera lógica en una taxonomía. Cada etiqueta consta de un nombre y un par de valores. Por ejemplo, puede aplicar el nombre "Environment" y el valor "Production" a todos los recursos en producción.
+Puede aplicar etiquetas a los recursos, grupos de recursos y suscripciones de Azure con el fin de organizarlos de manera lógica en una taxonomía. Cada etiqueta consta de un nombre y un par de valores. Por ejemplo, puede aplicar el nombre _Entorno_ y el valor _Producción_ a todos los recursos de producción.
 
 Para recomendaciones sobre cómo implementar una estrategia de etiquetado, consulte [Guía de decisiones de nomenclatura y etiquetado de recursos](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
 > [!IMPORTANT]
 > Las nombres de etiqueta no distinguen mayúsculas de minúsculas para las operaciones. Una etiqueta con un nombre de etiqueta, independientemente del uso de mayúsculas o minúsculas, se actualiza o se recupera. Sin embargo, el proveedor de recursos podría mantener el uso de mayúsculas y minúsculas para el nombre de la etiqueta. Puede ver dicho uso de mayúsculas y minúsculas en los informes de costos.
-> 
+>
 > Los valores de etiqueta distinguen mayúsculas de minúsculas.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
@@ -28,7 +28,7 @@ Para recomendaciones sobre cómo implementar una estrategia de etiquetado, consu
 
 Hay dos maneras de obtener el acceso necesario a los recursos de etiqueta.
 
-- Puede tener acceso de escritura al tipo de recurso **Microsoft.Resources/tags**. Este acceso permite etiquetar cualquier recurso, incluso si no tiene acceso al propio recurso. El rol [Colaborador de etiquetas](../../role-based-access-control/built-in-roles.md#tag-contributor) concede este acceso. Actualmente, el rol colaborador de etiquetas no puede aplicar etiquetas a recursos o grupos de recursos a través del portal. Puede aplicar etiquetas a las suscripciones a través del portal. Este admite todas las operaciones de etiqueta a través de PowerShell y la API REST.  
+- Puede tener acceso de escritura al tipo de recurso `Microsoft.Resources/tags`. Este acceso permite etiquetar cualquier recurso, incluso si no tiene acceso al propio recurso. El rol [Colaborador de etiquetas](../../role-based-access-control/built-in-roles.md#tag-contributor) concede este acceso. Actualmente, el rol colaborador de etiquetas no puede aplicar etiquetas a recursos o grupos de recursos a través del portal. Puede aplicar etiquetas a las suscripciones a través del portal. Este admite todas las operaciones de etiqueta a través de PowerShell y la API REST.
 
 - Puede tener acceso de escritura al propio recurso. El rol [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) concede el acceso necesario para aplicar etiquetas a cualquier entidad. Para aplicar etiquetas a un solo tipo de recurso, use el rol de colaborador para ese recurso. Por ejemplo, para aplicar etiquetas a las máquinas virtuales, use [Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
@@ -36,9 +36,9 @@ Hay dos maneras de obtener el acceso necesario a los recursos de etiqueta.
 
 ### <a name="apply-tags"></a>Aplicación de etiquetas
 
-Azure PowerShell ofrece dos comandos para aplicar etiquetas: [New-AzTag](/powershell/module/az.resources/new-aztag) y [Update-AzTag](/powershell/module/az.resources/update-aztag). Debe tener el módulo Az.Resources 1.12.0 o una versión posterior. Puede consultar su versión con `Get-Module Az.Resources`. Puede instalar ese módulo o [Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 o una versión posterior.
+Azure PowerShell ofrece dos comandos para aplicar etiquetas: [New-AzTag](/powershell/module/az.resources/new-aztag) y [Update-AzTag](/powershell/module/az.resources/update-aztag). Debe tener el módulo `Az.Resources` 1.12.0 o una versión posterior. Puede consultar su versión con `Get-InstalledModule -Name Az.Resources`. Puede instalar ese módulo o [Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 o una versión posterior.
 
-**New-AzTag** reemplaza todas las etiquetas en el recurso, el grupo de recursos o la suscripción. Al llamar al comando, pase el id. de recurso de la entidad que desea etiquetar.
+`New-AzTag` reemplaza todas las etiquetas en el recurso, el grupo de recursos o la suscripción. Al llamar al comando, pase el id. de recurso de la entidad que desea etiquetar.
 
 En el ejemplo siguiente se aplica un conjunto de etiquetas a una cuenta de almacenamiento:
 
@@ -73,7 +73,7 @@ Properties :
         Team         Compliance
 ```
 
-Para agregar etiquetas a un recurso que ya tiene etiquetas, use **Update-AzTag**. Establezca el parámetro **-Operation** en **Merge**.
+Para agregar etiquetas a un recurso que ya tiene etiquetas, use `Update-AzTag`. Establezca el parámetro `-Operation` en `Merge`.
 
 ```azurepowershell-interactive
 $tags = @{"Dept"="Finance"; "Status"="Normal"}
@@ -92,7 +92,7 @@ Properties :
         Environment  Production
 ```
 
-Cada nombre de etiqueta solo puede tener un valor. Si proporciona un valor nuevo para una etiqueta, el valor anterior se reemplaza incluso si se usa la operación de combinación. En el ejemplo siguiente se cambia la etiqueta Status (Estado) de Normal a Green (Verde).
+Cada nombre de etiqueta solo puede tener un valor. Si proporciona un valor nuevo para una etiqueta, el valor anterior se reemplaza incluso si se usa la operación de combinación. En el ejemplo siguiente la etiqueta `Status` cambia de _Normal_ a _Green_ (Verde).
 
 ```azurepowershell-interactive
 $tags = @{"Status"="Green"}
@@ -109,7 +109,7 @@ Properties :
         Environment  Production
 ```
 
-Al establecer el parámetro **-Operation** en **Replace**, el nuevo conjunto de etiquetas reemplaza a las etiquetas existentes.
+Al establecer el parámetro `-Operation` en `Replace`, el nuevo conjunto de etiquetas reemplaza a las etiquetas existentes.
 
 ```azurepowershell-interactive
 $tags = @{"Project"="ECommerce"; "CostCenter"="00123"; "Team"="Web"}
@@ -215,7 +215,7 @@ Para obtener grupos de recursos que tengan un nombre y valor de etiqueta especí
 
 ### <a name="remove-tags"></a>Eliminación de etiquetas
 
-Para quitar etiquetas específicas, use **Update-AzTag** y establezca **-Operation** en **Delete**. Pase las etiquetas que quiere eliminar.
+Para quitar etiquetas específicas, use `Update-AzTag` y establezca `-Operation` en `Delete`. Pase las etiquetas que quiere eliminar.
 
 ```azurepowershell-interactive
 $removeTags = @{"Project"="ECommerce"; "Team"="Web"}
@@ -244,7 +244,7 @@ Remove-AzTag -ResourceId "/subscriptions/$subscription"
 
 La CLI de Azure ofrece dos comandos para aplicar etiquetas: [az tag create](/cli/azure/tag#az_tag_create) y [az tag update](/cli/azure/tag#az_tag_update). Debe tener la CLI de Azure 2.10.0 o una versión posterior. Puede consultar su versión con `az version`. Para actualizar o instalar, consulte [Instalación de CLI de Azure](/cli/azure/install-azure-cli).
 
-**az tag create** reemplaza todas las etiquetas en el recurso, el grupo de recursos o la suscripción. Al llamar al comando, pase el id. de recurso de la entidad que desea etiquetar.
+`az tag create` reemplaza todas las etiquetas en el recurso, el grupo de recursos o la suscripción. Al llamar al comando, pase el id. de recurso de la entidad que desea etiquetar.
 
 En el ejemplo siguiente se aplica un conjunto de etiquetas a una cuenta de almacenamiento:
 
@@ -298,7 +298,7 @@ Observe que las dos etiquetas nuevas se agregaron a las dos etiquetas existentes
 },
 ```
 
-Cada nombre de etiqueta solo puede tener un valor. Si proporciona un valor nuevo para una etiqueta, el valor anterior se reemplaza incluso si se usa la operación de combinación. En el ejemplo siguiente se cambia la etiqueta Status (Estado) de Normal a Green (Verde).
+Cada nombre de etiqueta solo puede tener un valor. Si proporciona un valor nuevo para una etiqueta, el valor anterior se reemplaza incluso si se usa la operación de combinación. En el ejemplo siguiente la etiqueta `Status` cambia de _Normal_ a _Green_ (Verde).
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Merge --tags Status=Green
@@ -443,186 +443,298 @@ az tag update --resource-id $group --operation Merge --tags "Cost Center"=Financ
 Puede etiquetar recursos, grupos de recursos y suscripciones durante la implementación con una plantilla de Azure Resource Manager (plantilla de ARM).
 
 > [!NOTE]
-> Las etiquetas que se aplican mediante la plantilla de ARM sobrescriben las existentes.
+> Las etiquetas que se aplican mediante la plantilla de ARM o el archivo de Bicep sobrescriben las existentes.
 
 ### <a name="apply-values"></a>Aplicación de valores
 
 En el ejemplo siguiente se implementa una cuenta de almacenamiento con tres etiquetas. Dos de las etiquetas (`Dept` y `Environment`) se establecen en valores literales. Una etiqueta (`LastDeployed`) se establece en un parámetro que tiene como valor predeterminado la fecha actual.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "utcShort": {
-            "type": "string",
-            "defaultValue": "[utcNow('d')]"
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "utcShort": {
+      "type": "string",
+      "defaultValue": "[utcNow('d')]"
     },
-    "resources": [
-        {
-            "apiVersion": "2019-04-01",
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
-            "location": "[parameters('location')]",
-            "tags": {
-                "Dept": "Finance",
-                "Environment": "Production",
-                "LastDeployed": "[parameters('utcShort')]"
-            },
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {}
-        }
-    ]
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-02-01",
+      "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "tags": {
+        "Dept": "Finance",
+        "Environment": "Production",
+        "LastDeployed": "[parameters('utcShort')]"
+      },
+      "properties": {}
+    }
+  ]
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```Bicep
+param location string = resourceGroup().location
+param utcShort string = utcNow('d')
+
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  name: 'storage${uniqueString(resourceGroup().id)}'
+  location: location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'Storage'
+  tags: {
+    Dept: 'Finance'
+    Environment: 'Production'
+    LastDeployed: utcShort
+  }
+}
+```
+
+---
 
 ### <a name="apply-an-object"></a>Aplicación de un objeto
 
 Puede definir un parámetro de objeto que almacene varias etiquetas y aplicar ese objeto al elemento de etiqueta. Este enfoque proporciona más flexibilidad que el ejemplo anterior, porque el objeto puede tener propiedades diferentes. Cada propiedad del objeto se convierte en una etiqueta independiente para el recurso. El siguiente ejemplo tiene un parámetro denominado `tagValues` que se aplica al elemento de etiqueta.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]"
-        },
-        "tagValues": {
-            "type": "object",
-            "defaultValue": {
-                "Dept": "Finance",
-                "Environment": "Production"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
     },
-    "resources": [
-        {
-            "apiVersion": "2019-04-01",
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
-            "location": "[parameters('location')]",
-            "tags": "[parameters('tagValues')]",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {}
-        }
-    ]
+    "tagValues": {
+      "type": "object",
+      "defaultValue": {
+        "Dept": "Finance",
+        "Environment": "Production"
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-02-01",
+      "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "tags": "[parameters('tagValues')]",
+      "properties": {}
+    }
+  ]
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```Bicep
+param location string = resourceGroup().location
+param tagValues object = {
+  Dept: 'Finance'
+  Environment: 'Production'
+}
+
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  name: 'storage${uniqueString(resourceGroup().id)}'
+  location: location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'Storage'
+  tags: tagValues
+}
+```
+
+---
 
 ### <a name="apply-a-json-string"></a>Aplicación de una cadena JSON
 
-Para almacenar muchos valores en una única etiqueta, aplique una cadena JSON que represente los valores. Toda la cadena JSON se almacena como una etiqueta que no puede superar los 256 caracteres. En el ejemplo siguiente se muestra una etiqueta denominada `CostCenter` que contiene varios valores de una cadena JSON:  
+Para almacenar muchos valores en una única etiqueta, aplique una cadena JSON que represente los valores. Toda la cadena JSON se almacena como una etiqueta que no puede superar los 256 caracteres. En el ejemplo siguiente se muestra una etiqueta denominada `CostCenter` que contiene varios valores de una cadena JSON:
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]"
-        }
-    },
-    "resources": [
-        {
-            "apiVersion": "2019-04-01",
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
-            "location": "[parameters('location')]",
-            "tags": {
-                "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
-            },
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {}
-        }
-    ]
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-02-01",
+      "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "tags": {
+        "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
+      },
+      "properties": {}
+    }
+  ]
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```Bicep
+param location string = resourceGroup().location
+
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  name: 'storage${uniqueString(resourceGroup().id)}'
+  location: location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'Storage'
+  tags: {
+    CostCenter: '{"Dept":"Finance","Environment":"Production"}'
+  }
+}
+```
+
+---
 
 ### <a name="apply-tags-from-resource-group"></a>Aplicación de etiquetas del grupo de recursos
 
 Para aplicar etiquetas desde un grupo de recursos a un recurso, use la función [resourceGroup()](../templates/template-functions-resource.md#resourcegroup). Cuando obtenga el valor de la etiqueta, use la sintaxis `tags[tag-name]` en lugar de la sintaxis `tags.tag-name`, porque algunos caracteres no se analizan correctamente en la notación de puntos.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]"
-        }
-    },
-    "resources": [
-        {
-            "apiVersion": "2019-04-01",
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
-            "location": "[parameters('location')]",
-            "tags": {
-                "Dept": "[resourceGroup().tags['Dept']]",
-                "Environment": "[resourceGroup().tags['Environment']]"
-            },
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {}
-        }
-    ]
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-02-01",
+      "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "tags": {
+        "Dept": "[resourceGroup().tags['Dept']]",
+        "Environment": "[resourceGroup().tags['Environment']]"
+      },
+      "properties": {}
+    }
+  ]
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```Bicep
+param location string = resourceGroup().location
+
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  name: 'storage${uniqueString(resourceGroup().id)}'
+  location: location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'Storage'
+  tags: {
+    Dept: resourceGroup().tags['Dept']
+    Environment: resourceGroup().tags['Environment']
+  }
+}
+```
+
+---
 
 ### <a name="apply-tags-to-resource-groups-or-subscriptions"></a>Aplicación de etiquetas a grupos de recursos o suscripciones
 
-Puede agregar etiquetas a un grupo de recursos o una suscripción mediante la implementación del tipo de recurso **Microsoft.Resources/tags**. Las etiquetas se aplican al grupo de recursos o a la suscripción de destino correspondiente a la implementación. Cada vez que implemente la plantilla, reemplace cualquier etiqueta que haya aplicado anteriormente.
+Puede agregar etiquetas a un grupo de recursos o una suscripción mediante la implementación del tipo de recurso `Microsoft.Resources/tags`. Las etiquetas se aplican al grupo de recursos o a la suscripción de destino correspondiente a la implementación. Cada vez que implemente la plantilla, reemplace cualquier etiqueta que haya aplicado anteriormente.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "tagName": {
-            "type": "string",
-            "defaultValue": "TeamName"
-        },
-        "tagValue": {
-            "type": "string",
-            "defaultValue": "AppTeam1"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "tagName": {
+      "type": "string",
+      "defaultValue": "TeamName"
     },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Resources/tags",
-            "name": "default",
-            "apiVersion": "2019-10-01",
-            "dependsOn": [],
-            "properties": {
-                "tags": {
-                    "[parameters('tagName')]": "[parameters('tagValue')]"
-                }
-            }
+    "tagValue": {
+      "type": "string",
+      "defaultValue": "AppTeam1"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/tags",
+      "name": "default",
+      "apiVersion": "2021-04-01",
+      "properties": {
+        "tags": {
+          "[parameters('tagName')]": "[parameters('tagValue')]"
         }
-    ]
+      }
+    }
+  ]
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```Bicep
+param tagName string = 'TeamName'
+param tagValue string = 'AppTeam1'
+
+resource applyTags 'Microsoft.Resources/tags@2021-04-01' = {
+  name: 'default'
+  properties: {
+    tags: {
+      '${tagName}': tagValue
+    }
+  }
+}
+```
+
+---
 
 Para aplicar las etiquetas a un grupo de recursos, use PowerShell o la CLI de Azure. Implemente en el grupo de recursos que quiere etiquetar.
 
@@ -648,33 +760,55 @@ Para más información sobre las implementaciones de suscripciones, consulte [Cr
 
 La plantilla siguiente agrega las etiquetas de un objeto a un grupo de recursos o a una suscripción.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
-"$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "tags": {
-            "type": "object",
-            "defaultValue": {
-                "TeamName": "AppTeam1",
-                "Dept": "Finance",
-                "Environment": "Production"
-            }
-        }
-    },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Resources/tags",
-            "name": "default",
-            "apiVersion": "2019-10-01",
-            "dependsOn": [],
-            "properties": {
-                "tags": "[parameters('tags')]"
-            }
-        }
-    ]
+{
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "tags": {
+      "type": "object",
+      "defaultValue": {
+        "TeamName": "AppTeam1",
+        "Dept": "Finance",
+        "Environment": "Production"
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/tags",
+      "apiVersion": "2021-04-01",
+      "name": "default",
+      "properties": {
+        "tags": "[parameters('tags')]"
+      }
+    }
+  ]
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```Bicep
+targetScope = 'subscription'
+
+param tagObject object = {
+  TeamName: 'AppTeam1'
+  Dept: 'Finance'
+  Environment: 'Production'
+}
+
+resource applyTags 'Microsoft.Resources/tags@2021-04-01' = {
+  name: 'default'
+  properties: {
+    tags: tagObject
+  }
+}
+```
+
+---
 
 ## <a name="portal"></a>Portal
 

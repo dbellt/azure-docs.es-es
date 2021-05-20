@@ -5,18 +5,18 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 05/03/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 62de5eff098c467f048ae33cd38e7c730af863bc
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 1913b6cf14aaf31d610adcf446dbe91326e02ff1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108174621"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742920"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>Adición de un conector de API a un flujo de usuario de registro
 
@@ -24,7 +24,7 @@ Como desarrollador o administrador de TI, puede usar conectores de API para inte
 
 ::: zone pivot="b2c-user-flow"
 
-En este escenario, la API REST valida si el dominio de la dirección de correo electrónico es fabrikam.com o fabricam.com. El puesto proporcionado por el usuario supera los cinco caracteres. 
+En este escenario, la API REST valida si el dominio de la dirección de correo electrónico es fabrikam.com o fabricam.com. El nombre para mostrar proporcionado por el usuario supera los cinco caracteres. A continuación, devuelve el puesto con un valor estático. 
 
 > [!IMPORTANT]
 > Los conectores de API para el registro son una característica en versión preliminar pública de Azure AD B2C. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

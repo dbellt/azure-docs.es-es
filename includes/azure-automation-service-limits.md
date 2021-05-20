@@ -5,15 +5,15 @@ services: automation
 author: mgoedtel
 ms.service: automation
 ms.topic: include
-ms.date: 02/08/2021
+ms.date: 05/04/2021
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: 3ee44509997a16fc7f06fd5a24e473d7011bde40
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1949fe7e795d7f671462f8c2a78204690dfa0595
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99974448"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108807459"
 ---
 #### <a name="process-automation"></a>Automatización de procesos
 
@@ -49,6 +49,7 @@ En la siguiente tabla se muestran los límites del elemento sometido a seguimien
 | **Recurso** | **Límite**| **Notas** |
 |---|---|---|
 |Archivo|500||
+|Tamaño de archivo|5 MB||
 |Registro|250||
 |Software de Windows|250|No se incluye el costo de las actualizaciones de software.|
 |Paquetes Linux|1250||
@@ -62,3 +63,4 @@ En la tabla siguiente se muestran los límites de la administración de actualiz
 | **Recurso** | **Límite**| **Notas** |
 |---|---|---|
 |Número de máquinas por implementación de actualizaciones|1000||
+|Número de grupos dinámicos por implementación de actualizaciones. |500 ||

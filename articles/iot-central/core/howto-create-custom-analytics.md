@@ -9,16 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 9ada9947b217944d9aec9f785f4716bfe43315b1
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 3e3ce75adde26d1392bff143ad38ff857e14f6d6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107872774"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108750120"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Ampliación de Azure IoT Central con análisis personalizados mediante Azure Databricks
 
-Esta guía paso a paso le muestra, como desarrollador de soluciones, cómo ampliar la aplicación IoT Central con análisis y visualizaciones personalizados. En el ejemplo se usa un área de trabajo de [Azure Databricks](/azure/azure-databricks/) para analizar el flujo de datos de telemetría de IoT Central y generar visualizaciones como [diagramas de cajas](https://wikipedia.org/wiki/Box_plot).  
+Esta guía paso a paso le muestra cómo ampliar la aplicación IoT Central con análisis y visualizaciones personalizados. En el ejemplo se usa un área de trabajo de [Azure Databricks](/azure/azure-databricks/) para analizar el flujo de datos de telemetría de IoT Central y generar visualizaciones como [diagramas de cajas](https://wikipedia.org/wiki/Box_plot).  
 
 Esta guía paso a paso le muestra cómo ampliar IoT Central todavía más con las [herramientas de análisis integradas](./howto-create-custom-analytics.md).
 
@@ -59,7 +59,7 @@ Use [Azure Portal para crear un grupo de recursos](https://portal.azure.com/#cre
 
 Use [Azure Portal para crear un espacio de nombres de Event Hubs](https://portal.azure.com/#create/Microsoft.EventHub) con la siguiente configuración:
 
-| Configuración | Valor |
+| Configuración | Value |
 | ------- | ----- |
 | Nombre    | Elija el nombre del espacio de nombres |
 | Plan de tarifa | Básica |

@@ -3,12 +3,12 @@ title: Obtención de datos de cumplimiento de directiva
 description: Las evaluaciones y los efectos de Azure Policy determinan el cumplimiento. Obtenga información sobre cómo obtener los detalles de cumplimiento de los recursos de Azure.
 ms.date: 04/19/2021
 ms.topic: how-to
-ms.openlocfilehash: e1a9a7fcbbcbd7f490b2f665b40c7ed922ec61ee
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: fcc82e2f86746f68000e9cfcafedf2d7b8b3105d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107864602"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733578"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtención de datos de cumplimiento de los recursos de Azure
 
@@ -55,22 +55,21 @@ Este examen es un proceso asincrónico.
 
 Use la acción de [Azure Policy de análisis de cumplimiento](https://github.com/marketplace/actions/azure-policy-compliance-scan) para desencadenar un análisis de evaluación a petición desde el flujo de trabajo de [GitHub](https://docs.github.com/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows) en uno o varios recursos, grupos de recursos o suscripciones, y para canalizar el flujo de trabajo en función del estado de cumplimiento de los recursos. También puede configurar el flujo de trabajo para que se ejecute a una hora programada, y así poder obtener el estado de cumplimiento más reciente en un momento adecuado. Opcionalmente, esta acción de GitHub puede generar un informe sobre el estado de cumplimiento de los recursos examinados para analizarlos o archivarlos más adelante.
 
-En el ejemplo siguiente se ejecuta el examen de cumplimiento de una suscripción. 
+En el ejemplo siguiente se ejecuta el examen de cumplimiento de una suscripción.
 
 ```yaml
 on:
-  schedule:    
+  schedule:
     - cron:  '0 8 * * *'  # runs every morning 8am
 jobs:
-  assess-policy-compliance:    
+  assess-policy-compliance:
     runs-on: ubuntu-latest
-    steps:         
+    steps:
     - name: Login to Azure
       uses: azure/login@v1
       with:
-        creds: ${{secrets.AZURE_CREDENTIALS}} 
+        creds: ${{secrets.AZURE_CREDENTIALS}}
 
-    
     - name: Check for resource compliance
       uses: azure/policy-compliance-scan@v0
       with:
@@ -115,9 +114,9 @@ Mientras se ejecuta el examen de cumplimiento, la comprobación del objeto `$job
 ```azurepowershell-interactive
 $job
 
-Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
---     ----            -------------   -----         -----------     --------             -------
-2      Long Running O… AzureLongRunni… Running       True            localhost            Start-AzPolicyCompliance…
+Id     Name              PSJobTypeName     State         HasMoreData     Location             Command
+--     ----              -------------     -----         -----------     --------             -------
+2      Long Running O... AzureLongRunni... Running       True            localhost            Start-AzPolicyCompliance...
 ```
 
 Una vez finalizada esta operación, la propiedad **Estado** cambia a _Completado_.
@@ -133,7 +132,7 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
 
 El examen admite la evaluación de recursos de una suscripción o de un grupo de recursos. Inicie un examen para el ámbito con un comando **POST** de API REST mediante las siguientes estructuras de URI:
 
-- Subscription
+- Suscripción
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2019-10-01
@@ -181,7 +180,7 @@ En una asignación, un recurso es **No compatible** si no cumple las reglas de l
 Por ejemplo, suponga que tiene un grupo de recursos (ContosoRG) con varias cuentas de almacenamiento (resaltadas en rojo) expuestas a redes públicas.
 
 :::image type="complex" source="../media/getting-compliance-data/resource-group01.png" alt-text="Diagrama de cuentas de almacenamiento expuestas a redes públicas en el grupo de recursos Contoso R G." border="false":::
-   Diagrama que muestra imágenes de cinco cuentas de almacenamiento en el grupo de recursos Contoso R G.  Las cuentas de almacenamiento una y tres son azules, mientras que las cuentas de almacenamiento dos, cuatro y cinco son rojas.
+   Diagrama que muestra imágenes de cinco cuentas de almacenamiento en el grupo de recursos Contoso R G. Las cuentas de almacenamiento una y tres son azules, mientras que las cuentas de almacenamiento dos, cuatro y cinco son rojas.
 :::image-end:::
 
 En este ejemplo, debe tener cuidado con los riesgos de seguridad. Ahora que ha creado una asignación de directiva, se evalúa en todas las cuentas de almacenamiento incluidas y no exentas en el grupo de recursos ContosoRG. Se auditan las tres cuentas de almacenamiento no compatibles, con lo que sus estados cambian a **No compatible**.
@@ -229,7 +228,7 @@ Los eventos (anexar, auditar, denegar, implementar, modificar) que desencadena l
 
 :::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Captura de pantalla de la pestaña Compatibilidad de componentes y detalles de cumplimiento de una asignación de modo de proveedor de recursos." border="false":::
 
-De vuelta a la página de cumplimiento de recursos, haga clic con el botón derecho en la fila del evento sobre el que quiere recopilar información más detallada y seleccione **Show activity logs** (Mostrar los registros de actividad). Se abre la página de registro de actividad y se filtra previamente para mostrar detalles de la asignación y los eventos. El registro de actividad proporciona contexto e información adicionales sobre esos eventos.
+De vuelta a la página de cumplimiento de recursos, seleccione y mantenga pulsada (o haga clic con el botón derecho) la fila del evento sobre el que quiere recopilar información más detallada y seleccione **Show activity logs** (Mostrar los registros de actividad). Se abre la página de registro de actividad y se filtra previamente para mostrar detalles de la asignación y los eventos. El registro de actividad proporciona contexto e información adicionales sobre esos eventos.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Captura de pantalla del registro de actividad para actividades y evaluaciones de Azure Policy." border="false":::
 
@@ -335,7 +334,7 @@ La respuesta del ejemplo siguiente se ha reducido a un único recurso no compati
 
 ### <a name="view-events"></a>Ver eventos
 
-Cuando se crea o actualiza un recurso, se genera un resultado de evaluación de directiva. Los resultados se denominan _eventos de directiva_. Utilice el siguiente Uri para ver eventos recientes de directiva asociados a la suscripción.
+Cuando se crea o actualiza un recurso, se genera un resultado de evaluación de directiva. Los resultados se denominan _eventos de directiva_. Utilice el siguiente URI para ver eventos recientes de directiva asociados a la suscripción.
 
 ```http
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyEvents/default/queryResults?api-version=2019-10-01

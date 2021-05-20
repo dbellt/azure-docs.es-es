@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 96c67327a8272a02e677cc40b46c3177e470b684
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 5efc74ec150dcd18181404d93dc2142552a2c792
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106125980"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108807449"
 ---
 Azure Data Factory es un servicio multiinquilino que tiene los siguientes límites predeterminados para asegurarse de que las suscripciones de cliente están protegidas frente a las cargas de trabajo de los demás. Para elevar los límites al máximo de la suscripción, póngase en contacto con el servicio de soporte técnico.
 
@@ -21,7 +21,7 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 
 | Recurso | Límite predeterminado | Límite máximo |
 | -------- | ------------- | ------------- |
-| Factorías de datos en una suscripción de Azure | 800 | 800 |
+| Factorías de datos por cada grupo de recursos | 800 | 800 |
 | Número total de entidades como canalizaciones, conjuntos de datos, desencadenadores, servicios vinculados, puntos de conexión privados y entornos de ejecución de integración de una factoría de datos | 5\.000 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Núcleos de CPU totales para Azure-SSIS Integration Runtime en una suscripción | 256 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Ejecuciones de canalizaciones simultáneas por factoría de datos compartida entre todas las canalizaciones de la factoría | 10 000  | 10 000 |

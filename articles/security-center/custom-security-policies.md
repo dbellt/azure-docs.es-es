@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/25/2021
 ms.author: memildin
 zone_pivot_groups: manage-asc-initiatives
-ms.openlocfilehash: a41696ba92757550f9cbaa08ccf78d9a5da528d2
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: ab99d4aec732d2bc6b42576d30b59b0f8c0067c3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718906"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772048"
 ---
 # <a name="create-custom-security-initiatives-and-policies"></a>Creación de directivas e iniciativas de seguridad personalizadas
 
@@ -37,9 +37,7 @@ Como se explicó en la [documentación de Azure Policy](../governance/policy/con
     [![Seleccione la suscripción para la que se creará la directiva personalizada](media/custom-security-policies/custom-policy-selecting-a-subscription.png)](media/custom-security-policies/custom-policy-selecting-a-subscription.png#lightbox)
 
     > [!NOTE]
-    > Debe agregar estándares personalizados en el nivel de suscripción (o superior) para que se evalúen y se muestren en Security Center. 
-    >
-    > Cuando se agrega un estándar personalizado, este asigna una *iniciativa* a ese ámbito. Por lo tanto, se recomienda seleccionar el ámbito más amplio necesario para esa asignación.
+    > Debe agregar iniciativas personalizadas en el nivel de suscripción (o superior) para que se evalúen y se muestren en Security Center. Se recomienda seleccionar el ámbito más amplio disponible.
 
 1. En la página Directiva de seguridad, en Sus iniciativas personalizadas, haga clic en **Agregar una iniciativa personalizada**.
 
@@ -90,7 +88,7 @@ Conceptos importantes de Azure Policy:
 
 - Una **asignación** es una aplicación de una iniciativa o una directiva para un ámbito concreto (grupo de administración o suscripción, entre otros). 
 
-Security Center tiene una iniciativa integrada, [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction), que incluye todas sus directivas de seguridad. Para evaluar las directivas de Security Center sobre los recursos de Azure, debe crear una asignación en el grupo de administración o en la suscripción que quiera evaluar.
+Security Center tiene una iniciativa integrada, [Azure Security Benchmark](/security/benchmark/azure/introduction), que incluye todas sus directivas de seguridad. Para evaluar las directivas de Security Center sobre los recursos de Azure, debe crear una asignación en el grupo de administración o en la suscripción que quiera evaluar.
 
 De forma predeterminada, lºa iniciativa integrada tiene todas las directivas de Security Center habilitadas. Puede optar por deshabilitar determinadas directivas de la iniciativa integrada. Por ejemplo, para aplicar todas las directivas de Security Center excepto el **firewall de aplicaciones web**, cambie el valor del parámetro de efecto de la directiva a **Deshabilitado**.
 

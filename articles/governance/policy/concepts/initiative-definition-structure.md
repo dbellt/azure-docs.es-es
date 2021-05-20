@@ -3,12 +3,12 @@ title: Detalles de la estructura de definición de iniciativa
 description: Describe cómo se usan las definiciones de iniciativa de directiva para agrupar definiciones de directiva para la implementación en los recursos de Azure de la organización.
 ms.date: 03/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: edd3f25dd528d1a718c9287c9f30988b87fb73e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7efe34c76df46bb4499def5b92521eedecaee22d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104587226"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108744954"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Estructura de definición de iniciativa de Azure Policy
 
@@ -123,7 +123,7 @@ Los clientes pueden definir las propiedades y los valores útiles para su organi
 
 ## <a name="parameters"></a>Parámetros
 
-Los parámetros ayudan a simplificar la administración de directivas mediante la reducción del número de definiciones de directiva. Piense en los parámetros como si fueran los campos de un formulario: `name`, `address`, `city`, `state`. Estos parámetros no cambian, pero sí sus valores en función del individuo que rellena el formulario.
+Los parámetros ayudan a simplificar la administración de directivas mediante la reducción del número de definiciones de directiva. Piense en los parámetros como si fueran los campos de un formulario: `name`, `address`, `city` y `state`. Estos parámetros no cambian, pero sí sus valores en función del individuo que rellena el formulario.
 Los parámetros funcionan del mismo modo al crear iniciativas de directiva. Si se incluyen parámetros en una definición de iniciativa de directiva, se puede volver a usar ese parámetro en las directivas incluidas.
 
 > [!NOTE]

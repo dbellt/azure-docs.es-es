@@ -3,12 +3,12 @@ title: Configuración de la red
 description: Obtenga información sobre la arquitectura de la solución, la preparación de la red, los requisitos previos y otra información necesaria para asegurarse de que ha configurado correctamente la red para que funcione con dispositivos de Azure Defender para IoT.
 ms.date: 02/18/2021
 ms.topic: how-to
-ms.openlocfilehash: ed75995b7cbc3b051d77942698a5d0d948e6eef0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bbc627cccf12491d7e6eacedf834bbc845451082
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781813"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108734982"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Acerca de la configuración de red de Azure Defender para IoT
 
@@ -617,7 +617,7 @@ Una introducción al diagrama de red industrial permitirá definir la ubicación
  
     <Add your network diagram with marked serial connection> 
 
-7. Para QoS, la configuración predeterminada del sensor es de 1.5 Mbps. Especifique si quiere cambiarlo: ________________ 
+7. Para Calidad de servicio (QoS), la configuración predeterminada del sensor es de 1.5 Mbps. Especifique si quiere cambiarlo: ________________ 
 
    Unidad de negocio (BU): ________________ 
 

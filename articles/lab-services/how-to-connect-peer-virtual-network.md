@@ -3,12 +3,12 @@ title: Conectarse a una red del mismo nivel en Azure Lab Services | Microsoft Do
 description: Aprenda a conectar la red de laboratorio a otra red como una red del mismo nivel. Por ejemplo, conecte la red local de la organización o la universidad a la red virtual de laboratorio en Azure.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 99ea72f11c8f389a15171a1fe3b376646494903a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 645e99681f5615c3082d784e4e540a6200f618b8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96434250"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755142"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Conexión de la red del laboratorio con una red virtual del mismo nivel en Azure Lab Services
 
@@ -27,6 +27,9 @@ Algunas redes locales están conectadas a Azure Virtual Network ya sea a través
 
 > [!NOTE]
 > Al crear una instancia de Azure Virtual Network que se emparejará con una cuenta de laboratorio, es importante comprender cómo impacta la región de la red virtual en el lugar donde se crean los laboratorios.  Para más información, consulte la sección de la guía del administrador sobre [regiones o ubicaciones ](./administrator-guide.md#regionslocations).
+
+> [!NOTE]
+> Si la escuela necesita realizar filtrado de contenido, por ejemplo, para el cumplimiento de la [Ley de Protección de la Infancia en Internet (Children's Internet Protection Act, CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), tiene que usar software de terceros.  Para obtener más información, lea las instrucciones sobre [filtrado de contenido con Lab Services](./administrator-guide.md#content-filtering).
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Configuración al crear la cuenta de laboratorio
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Uso de RBAC de Azure para comprobaciones de autorización en los clústeres de Kubernetes habilitados para Azure Arc
-ms.openlocfilehash: f0275e1516e8487b5a00fb08c885b09b6df1684c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 63621391da3dec966e9d0375a8671b7413a0b222
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145706"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108804732"
 ---
 # <a name="integrate-azure-active-directory-with-azure-arc-enabled-kubernetes-clusters"></a>Integración de Azure Active Directory con clústeres de Kubernetes habilitado para Azure Arc
 
@@ -398,6 +398,112 @@ Una vez que se está ejecutando el proceso de proxy, puede abrir otra pestaña e
 
     Un administrador debe crear una nueva asignación de roles para autorizar a este usuario el acceso al recurso.
 
+## <a name="use-conditional-access-with-azure-ad"></a>Uso del acceso condicional con Azure AD
+
+Al integrar Azure AD con el clúster de Kubernetes habilitado para Arc, también puede usar el [acceso condicional](../../active-directory/conditional-access/overview.md) para controlar el acceso al clúster.
+
+> [!NOTE]
+> El acceso condicional de Azure AD es una capacidad de Azure AD Premium.
+
+Para crear una directiva de acceso condicional de ejemplo para usarla con el clúster, complete los siguientes pasos:
+
+1. En la parte superior de Azure Portal, busque y seleccione Azure Active Directory.
+1. En el menú de Azure Active Directory del lado izquierdo, seleccione *Aplicaciones empresariales*.
+1. En el menú de aplicaciones empresariales del lado izquierdo, seleccione *Acceso condicional*.
+1. En el menú de acceso condicional del lado izquierdo, seleccione *Directivas* y después *Nueva directiva*.
+1. En el menú de acceso condicional del lado izquierdo, seleccione *Directivas* y después *Nueva directiva*.
+    
+    [ ![Adición de una directiva de acceso condicional](./media/azure-rbac/conditional-access-new-policy.png) ](./media/azure-rbac/conditional-access-new-policy.png#lightbox)
+
+1. Escriba un nombre para la directiva, como *arc-k8s-policy*.
+1. Haga clic en *Usuarios y grupos* y, luego, debajo de *Incluir* seleccione *Seleccionar usuarios y grupos*. Elija los usuarios y grupos en los que quiere aplicar la directiva. En este ejemplo, elija el mismo grupo de Azure AD que tiene acceso de administración al clúster.
+
+    [ ![Selección de usuarios o grupos para aplicar la directiva de acceso condicional](./media/azure-rbac/conditional-access-users-groups.png) ](./media/azure-rbac/conditional-access-users-groups.png#lightbox)
+
+1. Seleccione *Aplicaciones en la nube o acciones* y, después, debajo de *Incluir*, escoja *Seleccionar aplicaciones*. Busque y seleccione la aplicación de servidor que creó anteriormente.
+
+    [ ![Selección de la aplicación de servidor para aplicar la directiva de acceso condicional ](./media/azure-rbac/conditional-access-apps.png) ](./media/azure-rbac/conditional-access-apps.png#lightbox)
+
+1. En *Controles de acceso*, seleccione *Conceder*. Seleccione *Conceder acceso* y después *Requerir que el dispositivo esté marcado como compatible*.
+
+    [ ![Selección para permitir solo los dispositivos compatibles con la directiva de acceso condicional](./media/azure-rbac/conditional-access-grant-compliant.png) ](./media/azure-rbac/conditional-access-grant-compliant.png#lightbox)
+    
+1. En *Habilitar directiva*, seleccione *Activar* y, después, *Crear*.
+
+    [ ![Habilitación de la directiva de acceso condicional](./media/azure-rbac/conditional-access-enable-policies.png) ](./media/azure-rbac/conditional-access-enable-policies.png#lightbox)
+
+Vuelva a acceder al clúster. Por ejemplo, mediante la ejecución del comando `kubectl get nodes` para ver los nodos del clúster:
+
+```console
+kubectl get nodes
+```
+
+Siga las instrucciones para iniciar sesión de nuevo. Observe que hay un mensaje de error que indica que inició sesión correctamente, pero el administrador requiere que el dispositivo que solicita acceso esté administrado por su instancia de Azure AD para acceder al recurso.
+
+En Azure Portal, vaya a Azure Active Directory, seleccione *Aplicaciones empresariales* y, después, en *Actividad* seleccione *Inicios de sesión*. Observe que hay una entrada en la parte superior con un valor de *Estado* de *Error* y un *Acceso condicional* *Correcto*. Seleccione la entrada y, a continuación, seleccione *Acceso condicional* en *Detalles*. Observe que se muestra su directiva de acceso condicional.
+
+[ ![Error en la entrada de inicio de sesión debido a la directiva de acceso condicional](./media/azure-rbac/conditional-access-sign-in-activity.png) ](./media/azure-rbac/conditional-access-sign-in-activity.png#lightbox)
+
+## <a name="configure-just-in-time-cluster-access-with-azure-ad"></a>Configuración del acceso Just-In-Time al clúster con Azure AD
+
+Otra opción para el control de acceso al clúster es usar Privileged Identity Management (PIM) con las solicitudes Just-in-Time.
+
+>[!NOTE]
+> PIM es una funcionalidad de Azure AD Premium que requiere una SKU P2 prémium. Para más información sobre las SKU de Azure AD, consulte la [guía de precios](https://azure.microsoft.com/pricing/details/active-directory/).
+
+Para configurar solicitudes de acceso Just-In-Time para el clúster, siga estos pasos:
+
+1. En la parte superior de Azure Portal, busque y seleccione Azure Active Directory.
+1. Tome nota del identificador de inquilino, al que se hace referencia como <tenant-id> en el resto de estas instrucciones.
+
+    [ ![Detalles del inquilino de AAD](./media/azure-rbac/jit-get-tenant-id.png) ](./media/azure-rbac/jit-get-tenant-id.png#lightbox)
+
+1. En *Administrar*, en el menú de Azure Active Directory de la parte izquierda, seleccione *Grupos* y haga clic en *Nuevo grupo*.
+
+    [ ![Selección de un nuevo grupo](./media/azure-rbac/jit-create-new-group.png) ](./media/azure-rbac/jit-create-new-group.png#lightbox)
+
+1. Asegúrese de que está seleccionado un tipo de grupo de *Seguridad* y especifique un nombre de grupo, como *myJITGroup*. En *Azure AD Roles can be assigned to this group (Preview)* (Se pueden asignar roles de Azure AD a este grupo [versión preliminar]), seleccione *Sí*. Por último, seleccione *Crear*.
+
+    [ ![Creación de un nuevo grupo](./media/azure-rbac/jit-new-group-created.png) ](./media/azure-rbac/jit-new-group-created.png#lightbox)
+
+1. Se le redirigirá a la página *Grupos*. Seleccione el grupo recién creado y tome nota del identificador de objeto, al que se hace referencia en el resto de estas instrucciones como `<object-id>`.
+
+    [ ![Grupo creado](./media/azure-rbac/jit-get-object-id.png) ](./media/azure-rbac/jit-get-object-id.png#lightbox)
+
+1. De nuevo en Azure Portal, en el menú de *Actividad* situado a la izquierda seleccione *Privileged Access (Preview)* (Acceso con privilegios [versión preliminar]) y elija *Enable Privileged Access* (Habilitar acceso con privilegios).
+
+    [ ![Habilitación del acceso con privilegios](./media/azure-rbac/jit-enabling-priv-access.png) ](./media/azure-rbac/jit-enabling-priv-access.png#lightbox)
+
+1. Seleccione *Agregar asignaciones* para empezar a conceder acceso.
+
+    [ ![Adición de una asignación activa](./media/azure-rbac/jit-add-active-assignment.png) ](./media/azure-rbac/jit-add-active-assignment.png#lightbox)
+
+1. Seleccione un rol de *miembro* y elija los usuarios y grupos a los que desea conceder el acceso al clúster. Los administradores de grupos pueden modificar estas asignaciones en cualquier momento. Elija *Siguiente* cuando esté listo para continuar.
+
+    [ ![Adición de una asignación](./media/azure-rbac/jit-adding-assignment.png) ](./media/azure-rbac/jit-adding-assignment.png#lightbox)
+
+1. Elija un tipo de asignación *Activa*, la duración deseada y especifique una justificación. Cuando esté listo para continuar, seleccione *Asignar*. Para más información sobre los tipos de asignación, consulte [Asignación de la elegibilidad para un grupo de acceso con privilegios (versión preliminar) en Privileged Identity Management](../../active-directory/privileged-identity-management/groups-assign-member-owner.md#assign-an-owner-or-member-of-a-group).
+
+    [ ![Elección de propiedades para la asignación](./media/azure-rbac/jit-set-active-assignment.png) ](./media/azure-rbac/jit-set-active-assignment.png#lightbox)
+
+Una vez que se han realizado las asignaciones, compruebe que el acceso Just-in-Time funciona mediante el acceso al clúster. Por ejemplo:
+
+Use el comando `kubectl get nodes` para ver los nodos del clúster:
+
+```console
+kubectl get nodes
+```
+
+Tenga en cuenta el requisito de autenticación y siga los pasos para autenticarse. Si todo se ha hecho correctamente, debería ver un resultado similar al siguiente:
+
+```output
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code AAAAAAAAA to authenticate.
+
+NAME      STATUS   ROLES    AGE      VERSION
+node-1    Ready    agent    6m36s    v1.18.14
+node-2    Ready    agent    6m42s    v1.18.14
+node-3    Ready    agent    6m33s    v1.18.14
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

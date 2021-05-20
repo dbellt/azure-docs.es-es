@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 1/25/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ff1589eb496cbc4482aaf93dfd4f0faeeda5e9cd
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 68c76c92f37ae424bd7e8bc85557e6c204ba742e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208876"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108734208"
 ---
 # <a name="enable-private-access-with-private-link-preview-azure-portal"></a>Habilitación del acceso privado con Private Link (versión preliminar): Azure portal
 
@@ -59,11 +59,11 @@ Se abrirá una página para especificar los detalles de un nuevo punto de conexi
 
 1. Rellene las selecciones para la **Suscripción** y el **Grupo de recursos**. Establezca la **Ubicación** en la misma de la red virtual que va a usar. Elija un **Nombre** para el punto de conexión y, para **Subrecursos de destino**, seleccione *API*.
 
-1. A continuación, seleccione la **Red virtual** y la **Subred** que quiera usar para implementar el punto de conexión.
+1. A continuación, seleccione la **Red virtual** y la **Subred** que quiere usar para implementar el punto de conexión.
 
 1. Por último, seleccione si quiere **Integrar con la zona DNS privada**. Puede usar el valor predeterminado de **Sí**, o bien, para obtener ayuda con esta opción, puede seguir el vínculo del portal para [obtener más información sobre la integración de DNS privado](../private-link/private-endpoint-overview.md#dns-configuration).
 
-Después de rellenar las opciones de configuración, presione **Aceptar** para finalizar.
+Después de rellenar las opciones de configuración, seleccione **Aceptar** para finalizar.
 
 Volverá a la pestaña **Redes** de la configuración de la instancia de Azure Digital Twins, donde el nuevo punto de conexión debe estar visible en **Conexiones de punto de conexión privado.
 

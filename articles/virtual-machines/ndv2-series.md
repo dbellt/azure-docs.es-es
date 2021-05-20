@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: e335f015d784b3f3849c3646d16da9ad8999030c
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 07b76f565aa9eda4db885b6ec37a42a21b2d25bc
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309839"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108744378"
 ---
 # <a name="updated-ndv2-series"></a>Serie NDv2 actualizada
 
@@ -40,7 +40,7 @@ Fundamentalmente, NDv2 se ha creado para cargas de trabajo de escalado vertical 
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
-[Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): admitidos ([en versión preliminar](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
 InfiniBand: Compatible<br>
 Interconexión de NVIDIA NVLink: Compatible<br>
 <br>

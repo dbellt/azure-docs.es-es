@@ -1,22 +1,22 @@
 ---
 title: Captura de imágenes para una solución de visión sin código en Azure Percept Studio
-description: Aprenda a capturar imágenes con Azure Percept DK en Azure Percept Studio para una solución de visión sin código.
-author: elqu20
-ms.author: v-elqu
+description: Aprenda a capturar imágenes con Azure Percept DK en Azure Percept Studio
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: d6cece6ee3079ba9f400f40026ca26ea36668710
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c7116d7e62afe6a59ad48bbb28dabf3c05bc311
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105024649"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754404"
 ---
 # <a name="capture-images-for-a-vision-project-in-azure-percept-studio"></a>Captura de imágenes para un proyecto de visión en Azure Percept Studio
 
-Siga esta guía para capturar imágenes mediante el módulo de sistema de visión de Azure Percept DK para un proyecto de visión existente en Azure Percept Studio. Si aún no ha creado un proyecto de visión, consulte el [tutorial de visión sin código](./tutorial-nocode-vision.md).
+Siga esta guía para capturar imágenes mediante Azure Percept DK para un proyecto de visión existente. Si aún no ha creado un proyecto de visión, consulte el [tutorial de visión sin código](./tutorial-nocode-vision.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -31,7 +31,7 @@ Siga esta guía para capturar imágenes mediante el módulo de sistema de visió
 
 1. Vaya a [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819).
 
-1. En el lado izquierdo de la página de información general, haga clic en **Dispositivos**.
+1. En el lado izquierdo de la página de información general, seleccione **Dispositivos**.
 
     :::image type="content" source="./media/how-to-capture-images/overview-devices-inline.png" alt-text="Pantalla de información general de Azure Percept Studio." lightbox="./media/how-to-capture-images/overview-devices.png":::
 
@@ -39,19 +39,19 @@ Siga esta guía para capturar imágenes mediante el módulo de sistema de visió
 
     :::image type="content" source="./media/how-to-capture-images/select-device.png" alt-text="Lista de dispositivos Percept.":::
 
-1. En la página del dispositivo, haga clic en **Capture images for a project** (Capturar imágenes para un proyecto).
+1. En la página del dispositivo, seleccione **Capturar imágenes para un proyecto**.
 
     :::image type="content" source="./media/how-to-capture-images/capture-images.png" alt-text="Página de dispositivos Percept con las acciones disponibles enumeradas.":::
 
-1. En la ventana **Image capture** (Captura de imagen), haga lo siguiente:
+1. En la ventana **Captura de imágenes**, siga estos pasos:
 
     1. En el menú desplegable **Project** (Proyecto), seleccione el proyecto de visión para el que desea recopilar imágenes.
 
-    1. Haga clic en **View Device Stream** (Ver flujo de dispositivo) para asegurarse de que la cámara del módulo de sistema de visión está correctamente colocada.
+    1. Haga clic en **Ver flujo de dispositivo** para asegurarse de que la cámara del módulo de sistema de visión está correctamente colocada.
 
-    1. Haga clic en **Take Photo** (Tomar foto) para capturar una imagen.
+    1. Haga clic en **Hacer una foto** para capturar una imagen.
 
-    1. Como alternativa, active la casilla junto a **Automatic image capture** (Captura de imagen automática) para configurar un temporizador para la captura de imagen:
+    1. Como alternativa, active la casilla junto a **Captura de imágenes automática** para configurar un temporizador para la captura de imágenes:
 
         1. Seleccione la velocidad de creación de imágenes preferida en **Capture rate** (Velocidad de captura).
         1. Seleccione el número total de imágenes que quiere recopilar en **Target** (Destino).

@@ -1,27 +1,27 @@
 ---
 title: Configuración de Azure Functions
-description: En este tutorial se explica cómo crear una aplicación de funciones de Azure y cómo configurarla para que funcione con proveedores personalizados de Azure.
+description: En este tutorial se explica cómo crear una aplicación de funciones en Azure Functions y configurarla para que funcione con proveedores personalizados de Azure.
 author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: 55554678047faeedd16b78dea61a42d50fd59491
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b63dc2e47a494b50ea756728afc39e74200f8d39
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98737326"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745836"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Configuración de Azure Functions para los proveedores personalizados de Azure
 
-Un proveedor personalizado es un contrato entre Azure y un punto de conexión. Con los proveedores personalizados, puede cambiar los flujos de trabajo en Azure. En este tutorial se muestra cómo configurar una aplicación de funciones de Azure para que funcione como un punto de conexión del proveedor personalizado.
+Un proveedor personalizado es un contrato entre Azure y un punto de conexión. Con los proveedores personalizados, puede cambiar los flujos de trabajo en Azure. En este tutorial se muestra cómo configurar una aplicación de funciones en Azure Functions para que funcione como un punto de conexión de proveedor personalizado.
 
-## <a name="create-the-azure-function-app"></a>Creación de la aplicación de funciones de Azure
+## <a name="create-the-function-app"></a>Crear la aplicación de función
 
 > [!NOTE]
-> En este tutorial, va a crear un punto de conexión de servicio sencillo que usa una aplicación de funciones de Azure. Sin embargo, un proveedor personalizado puede usar cualquier punto de conexión accesible públicamente. Entre las alternativas se incluyen Azure Logic Apps, Azure API Management y la característica Web Apps de Azure App Service.
+> En este tutorial, va a crear un punto de conexión de servicio sencillo que usa una aplicación de funciones en Azure Functions. Sin embargo, un proveedor personalizado puede usar cualquier punto de conexión accesible públicamente. Entre las alternativas se incluyen Azure Logic Apps, Azure API Management y la característica Web Apps de Azure App Service.
 
-Para iniciar este tutorial, debe seguir el tutorial [Creación de su primera función en Azure Portal](../../azure-functions/functions-get-started.md). El tutorial crea una función de webhook de .NET Core que puede modificarse en Azure Portal. También es la base del tutorial actual.
+Para iniciar este tutorial, debe seguir primero el tutorial [Creación de la primera aplicación de funciones en Azure Portal](../../azure-functions/functions-get-started.md). El tutorial crea una función de webhook de .NET Core que puede modificarse en Azure Portal. También es la base del tutorial actual.
 
 ## <a name="install-azure-table-storage-bindings"></a>Instalación de enlaces de Azure Table Storage
 
@@ -77,6 +77,6 @@ El siguiente elemento XML es un archivo del proyecto de C# de ejemplo:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, va a configurar una aplicación de funciones de Azure para que funcione como un punto de conexión de proveedor personalizado de Azure.
+En este tutorial, va a configurar una aplicación de funciones en Azure Functions para que funcione como un punto de conexión de proveedor personalizado de Azure.
 
 Para aprender a crear un punto de conexión de proveedor personalizado de RESTful, consulte [Tutorial: Creación de un punto de conexión de proveedor personalizado de RESTful](./tutorial-custom-providers-function-authoring.md).

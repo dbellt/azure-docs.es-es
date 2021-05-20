@@ -3,12 +3,12 @@ title: Ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark v1
 description: Introducción a un ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark v1.1.0. Este ejemplo de plano técnico ayuda a los clientes a evaluar determinados controles concretos.
 ms.date: 03/11/2021
 ms.topic: sample
-ms.openlocfilehash: b6188d96971329a83bc82042a1f840bd893354eb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a7b6afb2647db02f50704c8718ba8562c5c6c02
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103197801"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757788"
 ---
 # <a name="cis-microsoft-azure-foundations-benchmark-v110-blueprint-sample"></a>Ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark v1.1.0
 

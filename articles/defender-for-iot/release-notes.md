@@ -2,13 +2,13 @@
 title: Novedades de Azure Defender para IoT
 description: Este artículo le permite conocer las novedades de la versión más reciente de Defender para IoT.
 ms.topic: overview
-ms.date: 04/25/2021
-ms.openlocfilehash: f7631caedcb26227abf65d6fad216fc629d41dd4
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 05/05/2021
+ms.openlocfilehash: e731d45d527a3bb2a59e532065fefc78a3237fd5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987100"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755268"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>Novedades de Azure Defender para IoT  
 
@@ -100,15 +100,10 @@ Esta característica está disponible en la consola de administración local con
 
 ### <a name="add-second-network-interface-to-on-premises-management-console-public-preview"></a>Incorporación de una segunda interfaz de red a la consola de administración local (versión preliminar pública)
 
-Ahora puede mejorar la seguridad de la implementación al agregar una segunda interfaz de red a la consola de administración local. Esta característica permite que la administración local tenga sensores conectados en una red segura, a la vez que permite a los usuarios acceder a la consola de administración local a través de una segunda interfaz de red independiente.
+Ahora puede mejorar la seguridad de la implementación al agregar una segunda interfaz de red a la consola de administración local. Esta característica permite que la administración local tenga sensores conectados en una red segura, a la vez que permite a los usuarios acceder a la consola de administración local mediante una segunda interfaz de red independiente.
 
 Esta característica está disponible en la consola de administración local con el lanzamiento de la versión 10.2.
 
-### <a name="add-second-network-interface-to-on-premises-management-console-public-preview"></a>Agregue una segunda interfaz de red a la consola de administración local (versión preliminar pública).
-
-Ahora puede mejorar la seguridad de la implementación al agregar una segunda interfaz de red a la consola de administración local. Esta característica permite que la administración local tenga sensores conectados en una red segura, a la vez que permite a los usuarios acceder a la consola de administración local a través de una segunda interfaz de red independiente.
-
-Esta característica está disponible en la consola de administración local con el lanzamiento de la versión 10.2.
 ### <a name="device-builder---new-micro-agent-public-preview"></a>Generador de dispositivos: nuevo microagente (versión preliminar pública)
 
 Hay disponible un nuevo módulo del generador de dispositivos. El módulo, denominado microagente, permite lo siguiente:

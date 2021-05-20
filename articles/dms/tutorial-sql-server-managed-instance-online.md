@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/04/2020
-ms.openlocfilehash: 5585eb210b54dfa016d25c430256508e1b0b9f61
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 9285928c94f0e1ce3de37f357aed57c32b5be01d
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076894"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713043"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Tutorial: Migración de SQL Server a una Instancia administrada de Azure SQL en línea mediante DMS
 
@@ -83,6 +83,9 @@ Para completar este tutorial, necesita:
 * Asegúrese de que la cuenta de servicio que ejecuta la instancia de SQL Server de origen tiene privilegios de escritura en el recurso compartido de red que haya creado, y que la cuenta del equipo del servidor de origen tiene acceso de lectura y escritura para el mismo recurso compartido.
 * Anote un usuario de Windows (y su contraseña) que tenga privilegios de control total sobre el recurso compartido de red que creó anteriormente. Azure Database Migration Service suplanta la credencial de usuario para cargar los archivos de copia de seguridad en el contenedor de Azure Storage para la operación de restauración.
 * Cree un identificador de aplicación de Azure Active Directory que genere la clave del identificador de aplicación que puede usar Azure Database Migration Service para conectarse a la instancia administrada de Azure Database y al contenedor de Azure Storage. Para más información, consulte el artículo [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos](../active-directory/develop/howto-create-service-principal-portal.md).
+
+  > [!NOTE]
+  > El identificador de aplicación utilizado por el Azure Database Migration Service admite la autenticación secreta (basada en contraseña) para las entidades de servicio. No admite la autenticación basada en certificados.
 
   > [!NOTE]
   > Azure Database Migration Service requiere el permiso de colaborador sobre la suscripción correspondiente al identificador de aplicación especificado. También puede crear roles personalizados que concedan los permisos específicos que Azure Database Migration Service requiere. A fin de obtener instrucciones paso a paso sobre el uso de roles personalizados, vea el artículo [Roles personalizados para las migraciones en línea de SQL Server a Instancias administradas de SQL](./resource-custom-roles-sql-db-managed-instance.md).

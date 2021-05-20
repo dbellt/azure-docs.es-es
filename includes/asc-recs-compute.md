@@ -2,17 +2,17 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 04/26/2021
+ms.date: 05/11/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: f2b7fac28d1da7f74091e78808eef7604e6c74f1
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: 7187599a269b37c1eb2b305bbcd8346a53bfb2e2
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001913"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784321"
 ---
-Hay **51** recomendaciones en esta categoría.
+Hay **50** recomendaciones en esta categoría.
 
 |Recomendación |Descripción |severity |
 |---|---|---|
@@ -48,7 +48,6 @@ Hay **51** recomendaciones en esta categoría.
 |Los puertos de administración de las máquinas virtuales deben protegerse con el control de acceso de red Just-In-Time. |Azure Security Center identificó en los puertos de administración del grupo de seguridad de red que algunas de las reglas de entrada son demasiado permisivas. Habilite el control de acceso Just-in-Time para proteger la máquina virtual frente a los ataques por fuerza bruta que se realizan a través de Internet. <a href="https://docs.microsoft.com/azure/security-center/security-center-just-in-time">Más información.</a><br />(Directiva relacionada: [los puertos de administración de las máquinas virtuales deben protegerse con el control de acceso de red Just-In-Time](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fb0f33259-77d7-4c9e-aac6-3aabcfae693c)) |Alto |
 |El agente de recopilación de datos de tráfico de red debe instalarse en máquinas virtuales Linux. |Security Center usa Microsoft Dependency Agent para recopilar datos del tráfico de red de sus máquinas virtuales de Azure y así poder habilitar características avanzadas de protección de red, como la visualización del tráfico en el mapa de red, las recomendaciones de refuerzo de la red y las amenazas de red específicas.<br />(Directiva relacionada: [el agente de recopilación de datos del tráfico de red debe estar instalado en máquinas virtuales Linux](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f04c4380f-3fae-46e8-96c9-30193528f602)) |Media |
 |El agente de recopilación de datos de tráfico de red debe instalarse en las máquinas virtuales Windows. |Security Center usa Microsoft Dependency Agent para recopilar datos del tráfico de red de sus máquinas virtuales de Azure y así poder habilitar características avanzadas de protección de red, como la visualización del tráfico en el mapa de red, las recomendaciones de refuerzo de la red y las amenazas de red específicas.<br />(Directiva relacionada: [el agente de recopilación de datos del tráfico debe estar instalado en máquinas virtuales Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2f2ee1de-44aa-4762-b6bd-0893fc3f306d)) |Media |
-|La versión del SO debe actualizarse para los roles de servicio en la nube |Actualice la versión de sistema operativo (SO) para los roles de servicio en la nube a la versión más reciente disponible para la familia de sistema operativo.<br />(Directiva relacionada: [la versión del sistema operativo debe ser la más reciente de los roles del servicio en la nube](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f5a913c68-0590-402c-a531-e57e19379da3)) |Alto |
 |Se deben definir las directivas de seguridad de pod en los servicios de Kubernetes (en desuso) |(En desuso) Defina las directivas de seguridad de pod para reducir el vector de ataque mediante la eliminación de privilegios de aplicación innecesarios. Se recomienda configurar las directivas de seguridad de pods para asegurarse de que los pods que solicitan recursos que no se permiten no se pueden ejecutar en el clúster de AKS.<br />(Ninguna directiva relacionada) |Alto |
 |En la máquina virtual debe estar habilitado el arranque seguro |La habilitación del arranque seguro en la máquina virtual ayuda a mitigar los cambios malintencionados y no autorizados en la cadena de arranque. Una vez habilitado, solo se permitirá la ejecución de código firmado en la máquina virtual o en el servidor.<br />(Ninguna directiva relacionada) |Bajo |
 |Se debe establecer la propiedad ClusterProtectionLevel en EncryptAndSign en los clústeres de Service Fabric |Service Fabric proporciona tres niveles de protección (None, Sign y EncryptAndSign) para la comunicación de nodo a nodo mediante un certificado de clúster principal. Establezca el nivel de protección para asegurarse de que todos los mensajes de nodo a nodo se cifran y se firman digitalmente.<br />(Directiva relacionada: [se debe establecer la propiedad ClusterProtectionLevel en EncryptAndSign en los clústeres de Service Fabric](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f617c02be-7f02-4efd-8836-3180d47b6c68)) |Alto |

@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 8293ed1bfb53895b9631d9730fb75a2364457180
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1ddc3d35817211d7396defa7460a2505b86c700c
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96452383"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713245"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Configuración de un laboratorio con máquinas virtuales de GPU
 
@@ -47,16 +47,19 @@ Para aprovechar las funcionalidades de GPU de las máquinas virtuales de laborat
 
 ![Captura de pantalla del panel "New lab" (Nuevo laboratorio) que muestra la opción "Install GPU drivers" (Instalar controladores de GPU)](./media/how-to-setup-gpu/lab-gpu-drivers.png)
 
-Como se muestra en la imagen anterior, está opción está habilitada de manera predeterminada, lo que garantiza que los controladores *más recientes* estén instalados para el tipo de GPU e imagen que seleccionó.
-- Al seleccionar un tipo de GPU de *proceso*, las máquinas virtuales de laboratorio cuentan con tecnología de la GPU [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf).  En este caso, se instalan los controladores más recientes de [Compute Unified Device Architecture (CUDA)](http://developer.download.nvidia.com/compute/cuda/2_0/docs/CudaReferenceManual_2.0.pdf), lo que permite una informática de alto rendimiento.
-- Al seleccionar un tamaño de GPU de *visualización*, las máquinas virtuales de laboratorio cuentan con tecnología de la GPU [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) y la [tecnología GRID](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf).  En este caso, se instalan los controladores de GRID más recientes, lo que permite el uso de aplicaciones con uso intensivo de gráficos.
+Como se muestra en la imagen anterior, está opción está habilitada de manera predeterminada, lo que garantiza que los controladores publicados recientemente estén instalados para el tipo de GPU e imagen que seleccionó:
+- Al seleccionar un tipo de GPU de *proceso*, las máquinas virtuales de laboratorio cuentan con tecnología de la GPU [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf).  En este caso, se instalan los controladores recientes de [Compute Unified Device Architecture (CUDA)](http://developer.download.nvidia.com/compute/cuda/2_0/docs/CudaReferenceManual_2.0.pdf), lo que permite una informática de alto rendimiento.
+- Al seleccionar un tamaño de GPU de *visualización*, las máquinas virtuales de laboratorio cuentan con tecnología de la GPU [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) y la [tecnología GRID](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf).  En este caso, se instalan controladores de GRID recientes, lo que permite el uso de aplicaciones con uso intensivo de gráficos.
+
+> [!IMPORTANT]
+> La opción **Instalar controladores de GPU** solo instala los controladores cuando no están presentes en la imagen del laboratorio.  Por ejemplo, los controladores de GPU ya están instalados en la [imagen de Data Science](../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm) de Azure Marketplace.  Si crea un laboratorio con la imagen de Data Science y elige **Instalar controladores de GPU**, los controladores no se actualizarán a una versión más reciente.  Para actualizar los controladores, deberá instalarlos manualmente como se explica en la sección siguiente.  
 
 ### <a name="install-the-drivers-manually"></a>Instalación manual de los controladores
-Es posible que tenga que instalar una versión de controlador distinta de la versión más reciente.  En esta sección se muestra cómo instalar manualmente los controladores adecuados, en función de si se usa una GPU de *proceso* o una GPU de *visualización*.
+Es posible que tenga que instalar una versión de los controladores diferente de la versión que Azure Lab Services instala automáticamente.  En esta sección se muestra cómo instalar manualmente los controladores adecuados, en función de si se usa una GPU de *proceso* o una GPU de *visualización*.
 
 #### <a name="install-the-compute-gpu-drivers"></a>Instalación de los controladores de GPU de proceso
 
-Para instalar manualmente los controladores para el tamaño de la GPU de proceso, haga lo siguiente:
+Para instalar manualmente los controladores para el tamaño de la GPU de *proceso*, haga lo siguiente:
 
 1. En el asistente para la creación de laboratorio, al [crear el laboratorio](./how-to-manage-classroom-labs.md), deshabilite la opción **Install GPU drivers** (Instalar controladores de GPU).
 
@@ -80,7 +83,7 @@ Para instalar manualmente los controladores para el tamaño de la GPU de proceso
 
 #### <a name="install-the-visualization-gpu-drivers"></a>Instalación de los controladores de GPU de visualización
 
-Para instalar manualmente los controladores para el tamaño de la GPU de visualización, haga lo siguiente:
+Para instalar manualmente los controladores para los tamaños de la GPU de *visualización*, haga lo siguiente:
 
 1. En el asistente para la creación de laboratorio, al [crear el laboratorio](./how-to-manage-classroom-labs.md), deshabilite la opción **Install GPU drivers** (Instalar controladores de GPU).
 1. Una vez creado el laboratorio, conéctese a la máquina virtual de plantilla para instalar los controladores adecuados.
@@ -108,6 +111,8 @@ En esta sección se describe cómo validar que los controladores de GPU están i
 
       > [!IMPORTANT]
       > Solo se puede tener acceso a la configuración del panel de control de NVIDIA para las GPU de *visualización*.  Si intenta abrir el panel de control de NVIDIA para una GPU de proceso, obtendrá el error siguiente: "NVIDIA Display settings are not available.  You are not currently using a display attached to an NVIDIA GPU&quot;. (&quot;La configuración de la pantalla de NVIDIA no está disponible. Actualmente no usa ninguna pantalla conectada a una GPU de NVIDIA").  Del mismo modo, la información de rendimiento de la GPU en el Administrador de tareas solo se proporciona para la GPU de visualización.
+
+ En función de su escenario, es posible que también tenga que realizar una validación adicional para asegurarse de que la GPU esté configurada correctamente.  Lea el tipo de clase sobre [Python y Jupyter Notebooks](./class-type-jupyter-notebook.md#template-virtual-machine) en el que se describe un ejemplo en el que se necesitan versiones específicas de controladores.
 
 #### <a name="linux-images"></a>Imágenes de Linux
 Siga las instrucciones que aparecen en la sección de comprobación de la instalación de los controladores de [Instalación de controladores de GPU de NVIDIA en VM de la serie N con Linux](../virtual-machines/linux/n-series-driver-setup.md#verify-driver-installation).

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a2d4ebee02d85d10d5db8ec2de0bb1be334770dc
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 59f2ac4021a4f3ae7d2121d9e96bac96c658485c
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717664"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109516945"
 ---
 # <a name="set-up-a-file-share-for-msix-app-attach"></a>Configuración de un recurso compartido de archivos para asociar aplicaciones en formato MSIX (versión preliminar)
 
@@ -21,7 +21,7 @@ La conexión de aplicaciones en formato MSIX no tiene dependencias en el tipo de
 
 ## <a name="performance-requirements"></a>Requisitos de rendimiento
 
-Los límites de tamaño de imágenes para la asociación de aplicaciones en formato MSIX correspondientes a su sistema dependerán del tipo de almacenamiento que se use para almacenar los archivos VHD o VHDx, así como las limitaciones de tamaño de los archivos VHD, VHSD o CIM y el sistema de archivos.
+Los límites de tamaño de imágenes para la asociación de aplicaciones en formato MSIX correspondientes a su sistema dependerán del tipo de almacenamiento que se use para almacenar los archivos VHD o VHDx, así como las limitaciones de tamaño de los archivos VHD, VHDX o CIM y el sistema de archivos.
 
 En la tabla siguiente se muestra un ejemplo de cuántos recursos necesita una sola imagen MSIX de 1 GB con una aplicación en formato MSIX dentro de ella para cada máquina virtual:
 

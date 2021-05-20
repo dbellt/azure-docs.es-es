@@ -12,12 +12,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: bonova, sstein, danil
 ms.date: 03/08/2021
-ms.openlocfilehash: 8c98ce661e7bb753d4e62d1eaf98702de91c5106
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a6b6bb8551f9d67b8ec5b1f546a6499fa913021
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102489776"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736494"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparación de características: Azure SQL Database e Instancia administrada de Azure SQL
 
@@ -181,7 +181,7 @@ Puede usar diferentes métodos de migración para trasladar los datos entre SQL 
 
 | **Origen** | **Azure SQL Database** | **Instancia administrada de Azure SQL** |
 | --- | --- | --- |
-| SQL Server (local, AzureVM, Amazon RDS) | **En línea:** [Data Migration Service (DMS)](/sql/dma/dma-overview), [replicación transaccional](../managed-instance/replication-transactional-overview.md) <br/> **Sin conexión:** [Archivo BACPAC (importar)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **En línea:** [Data Migration Service (DMS)](/sql/dma/dma-overview), [replicación transaccional](../managed-instance/replication-transactional-overview.md) <br/> **Sin conexión:** Copia de seguridad/restauración nativa, [archivo BACPAC (importar)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [replicación de instantáneas](../managed-instance/replication-transactional-overview.md) |
+| SQL Server (local, AzureVM, Amazon RDS) | **En línea**: [Replicación transaccional](../managed-instance/replication-transactional-overview.md) <br/> **Sin conexión**: [Data Migration Service (DMS)](/sql/dma/dma-overview), [archivo BACPAC (importación)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **En línea:** [Data Migration Service (DMS)](/sql/dma/dma-overview), [replicación transaccional](../managed-instance/replication-transactional-overview.md) <br/> **Sin conexión:** Copia de seguridad/restauración nativa, [archivo BACPAC (importar)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [replicación de instantáneas](../managed-instance/replication-transactional-overview.md) |
 | Base de datos única | **Sin conexión:** [Archivo BACPAC (importar)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **Sin conexión:** [Archivo BACPAC (importar)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP |
 | Instancia administrada de SQL | **En línea:** [Replicación transaccional](../managed-instance/replication-transactional-overview.md) <br/> **Sin conexión:** [Archivo BACPAC (importar)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [replicación de instantáneas](../managed-instance/replication-transactional-overview.md) | **En línea:** [Replicación transaccional](../managed-instance/replication-transactional-overview.md) <br/> **Sin conexión:** Restauración a un momento dado entre instancias ([Azure PowerShell](/powershell/module/az.sql/restore-azsqlinstancedatabase#examples) o [CLI de Azure](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Cross-instance-point-in-time-restore-in-Azure-SQL-Database/ba-p/386208)), [copia de seguridad/restauración nativa](../managed-instance/restore-sample-database-quickstart.md), [archivo BACPAC (importar)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [replicación de instantáneas](../managed-instance/replication-transactional-overview.md) |
 

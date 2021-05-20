@@ -9,18 +9,51 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 1bdc439bc281338fc3df95f7d82784a5eebf7a4a
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 55522324dc69fe0a433f012d28cbbde077b5ef04
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288551"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109754180"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
 En este artículo conocerá las versiones de Azure Machine Learning.  Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](/python/api/overview/azure/ml/intro) de Azure Machine Learning.
 
 __Fuente RSS__: reciba notificaciones cuando esta página se actualice copiando y pegando la siguiente dirección URL en su lector de fuentes: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+
+## <a name="2021-05-10"></a>2021-05-10
+
+### <a name="azure-machine-learning-sdk-for-python-v1280"></a>SDK de Azure Machine Learning para Python v1.28.0
++ **Mejoras y correcciones de errores**
+  + **azureml-automl-core**
+    + Se ha agregado compatibilidad con la versión 2 del script de puntuación de AutoML, que controla las mejoras y es coherente con la especificación del diseñador.
+  + **azureml-automl-runtime**
+    + Se ha agregado compatibilidad con la versión 2 del script de puntuación de AutoML, que controla las mejoras y es coherente con la especificación del diseñador.
+  + **azureml-contrib-automl-dnn-forecasting**
+    + Se ha agregado compatibilidad con la versión 2 del script de puntuación de AutoML, que controla las mejoras y es coherente con la especificación del diseñador.
+  + **azureml-contrib-dataset**
+    + Se ha actualizado la descripción de la documentación con la indicación de que libfuse debe instalarse mientras se usa el montaje.
+  + **azureml-core**
+    +  Imagen de CPU predeterminada actualizada a mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04: se ha actualizado la imagen de GPU predeterminada a mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.2-cudnn8-ubuntu18.04.
+    + Run.fail() ahora está en desuso; use Run.tag() para marcar la ejecución como con errores o use Run.cancel() para marcar la ejecución como cancelada.
+    + Se ha actualizado la descripción de la documentación con la indicación de que libfuse debe instalarse mientras se usa el montaje.
+    + Habilitación de la audiencia en la autenticación msi
+    +  Se ha agregado la compatibilidad experimental register_dask_dataframe() al conjunto de datos tabular.
+    + Compatibilidad de DatabricksStep con Azure Blob/ADL-S como entradas y salidas y exposición del parámetro permit_cluster_restart para permitir al cliente decidir si AML puede reiniciar el clúster cuando haya que agregar la configuración de acceso de E/S al clúster
+  + **azureml-dataprep**
+    + azureml-dataset-runtime ahora admite las versiones pyarrow < 4.0.0
+  + **azureml-dataset-runtime**
+    + azureml-dataset-runtime ahora admite las versiones pyarrow < 4.0.0
+  + **azureml-mlflow**
+    + Se ha agregado compatibilidad para la implementación en AzureML a través de nuestro complemento MLFlow.
+  + **azureml-pipeline-steps**
+    + Compatibilidad de DatabricksStep con Azure Blob/ADL-S como entradas y salidas y exposición del parámetro permit_cluster_restart para permitir al cliente decidir si AML puede reiniciar el clúster cuando haya que agregar la configuración de acceso de E/S al clúster
+  + **azureml-synapse**
+    + Habilitación de la audiencia en la autenticación msi
+  + **azureml-train-automl-client**
+    + Se ha agregado un vínculo cambiado para el documento de destino de proceso.
 
 
 ## <a name="2021-04-19"></a>19/04/2021

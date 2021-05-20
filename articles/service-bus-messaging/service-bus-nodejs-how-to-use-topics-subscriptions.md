@@ -1,6 +1,6 @@
 ---
-title: Uso de la versión preliminar de azure/service-bus de JavaScript con temas y suscripciones
-description: Aprenda a escribir un programa de JavaScript que use la versión preliminar más reciente del paquete @azure/service-bus para enviar mensajes a un tema de Service Bus y recibirlos desde una suscripción al tema.
+title: Envíe mensajes a un tema de Azure Service Bus y reciba mensajes de las suscripciones a ese tema (JavaScript)
+description: Aprenda a escribir un programa de JavaScript que use la versión más reciente del paquete @azure/service-bus para enviar mensajes a un tema de Service Bus y recibirlos desde una suscripción al tema.
 author: spelluru
 ms.author: spelluru
 ms.date: 11/09/2020
@@ -9,14 +9,14 @@ ms.devlang: nodejs
 ms.custom:
 - devx-track-js
 - mode-api
-ms.openlocfilehash: 59f1bb29099f2b921e687ca9de46365bc34f1b91
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: e9d53c312f6e61d6384afc17dce023742ab6bd98
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537257"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743298"
 ---
-# <a name="quickstart-service-bus-topics-and-subscriptions-with-nodejs-and-the-preview-azureservice-bus-package"></a>Inicio rápido: Uso de los temas y las suscripciones de Service Bus con Node.js y la versión preliminar del paquete azure/services-bus
+# <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-javascript"></a>Envíe mensajes a un tema de Azure Service Bus y reciba mensajes de las suscripciones a ese tema (JavaScript)
 En este tutorial aprenderá a usar el paquete [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) de un programa de JavaScript para enviar mensajes a un tema de Service Bus y recibirlos de una suscripción de Service Bus a ese tema.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -208,6 +208,7 @@ En esta página, si selecciona una suscripción, irá a la página **Service Bus
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte la documentación y los ejemplos siguientes: 
 
-- [Biblioteca cliente de Azure Service Bus para Python](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md).
-- [Ejemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). La carpeta **javascript** tiene ejemplos de JavaScript y **typescript**, de TypeScript. 
-- [Documentación de referencia de Azure Service Bus](/javascript/api/overview/azure/service-bus)
+- [Biblioteca cliente de Azure Service Bus para JavaScript](https://www.npmjs.com/package/@azure/service-bus)
+- [Ejemplos de JavaScript](https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Ejemplos de TypeScript](https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [Documentación de referencia de API](/javascript/api/overview/azure/service-bus)

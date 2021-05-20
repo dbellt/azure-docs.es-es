@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: b3f81b9c6855522718f69f76adfd5fe9a3c6059c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 152ea453e63164f2e784c573170c001ced63df85
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136254"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769802"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Información general sobre la migración: De SQL Server a SQL Server en VM de Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -77,6 +77,9 @@ En la tabla siguiente se detallan los métodos disponibles para la estrategia de
 | --- | --- | --- | --- | --- |
 | [Azure Migrate](../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Límite de almacenamiento de máquina virtual de Azure](../../../index.yml) |  Instancia de SQL Server existente que se va a migrar tal cual a la instancia de SQL Server en una VM de Azure. Puede escalar cargas de trabajo de migración de hasta 35 000 VM. <br /><br /> Los servidores de origen permanecen en línea y atienden las solicitudes durante la sincronización de datos del servidor, lo que minimiza el tiempo de inactividad. <br /><br /> **Automatización y scripts**: [Scripts de Azure Site Recovery](../../../migrate/how-to-migrate-at-scale.md) y [Ejemplo de migración y planeación escaladas de Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
 
+> [!NOTE]
+> Ahora es posible migrar mediante lift and shift la solución de [instancia de clúster de conmutación por error](sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) y [grupo de disponibilidad](sql-server-availability-group-to-sql-on-azure-vm.md) a SQL Server en máquinas virtuales de Azure mediante Azure Migrate. 
+
 ## <a name="migrate"></a>Migrar  
 
 Debido a la facilidad de instalación, el enfoque de migración recomendado es tomar una [copia de seguridad](/sql/t-sql/statements/backup-transact-sql) de SQL Server nativa localmente y, a continuación, copiar el archivo en Azure. Este método admite bases de datos de mayor tamaño (> 1 TB) para todas las versiones de SQL Server a partir de 2008 y copias de seguridad de bases de datos más grandes (> 1 TB). Sin embargo, en el caso de las bases de datos a partir de SQL Server 2014, con un tamaño menor que 1 TB y que tienen una buena conectividad con Azure, la [copia de seguridad de SQL Server en URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) es el mejor enfoque. 
@@ -99,8 +102,8 @@ En la tabla siguiente se detallan todos los métodos disponibles para migrar la 
 &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
  
 > [!TIP]
-> Para las transferencias de datos de gran tamaño con opciones de red limitadas o nulas, consulte [Transferencias de datos de gran tamaño con conectividad limitada](../../../storage/common/storage-solution-large-dataset-low-network.md).
-> 
+> - Para las transferencias de datos de gran tamaño con opciones de red limitadas o nulas, consulte [Transferencias de datos de gran tamaño con conectividad limitada](../../../storage/common/storage-solution-large-dataset-low-network.md).
+> - Ahora es posible migrar mediante lift and shift la solución de [instancia de clúster de conmutación por error](sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) y [grupo de disponibilidad](sql-server-availability-group-to-sql-on-azure-vm.md) a SQL Server en máquinas virtuales de Azure mediante Azure Migrate. 
 
 ### <a name="considerations"></a>Consideraciones
 

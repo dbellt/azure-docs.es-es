@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/10/2019
+ms.date: 05/10/2021
 ms.author: jeedes
-ms.openlocfilehash: b3b62e7c16106fd9d94d4a3438331dab4ce8b6e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: afad903734fded062681f18683cb74492993fe1c
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99539050"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684224"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: Configuración de ServiceNow para el aprovisionamiento automático de usuarios
 
@@ -162,6 +162,8 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
   Si el problema sigue sin resolverse, póngase en contacto con el equipo de soporte de ServiceNow y pídales que activen la depuración de SOAP. 
 
 * El servicio de aprovisionamiento de Azure AD funciona actualmente en [intervalos IP](../app-provisioning/use-scim-to-provision-users-and-groups.md#ip-ranges) concretos. Si es necesario, puede restringir otros intervalos IP y agregar estos intervalos IP concretos a la lista de permitidos de la aplicación. Esta técnica permitirá el flujo de tráfico desde el servicio de aprovisionamiento de Azure AD a la aplicación.
+
+* No se admiten las instancias de ServiceNow autohospedadas. 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

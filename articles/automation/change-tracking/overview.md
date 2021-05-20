@@ -3,14 +3,14 @@ title: Información general de Change Tracking e Inventario en Azure Automation
 description: En este artículo se describe la característica Change Tracking e Inventario, que ayuda a identificar los cambios en el software y el servicio de Microsoft que se producen en su entorno.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 01/22/2021
+ms.date: 05/06/2021
 ms.topic: conceptual
-ms.openlocfilehash: ed29def305bfa33a0a947a331775de89275e5f7f
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 062e4cdeae9560bc5be58d8245390d4a538f5722
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220873"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783916"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Información general de Change Tracking e Inventario
 
@@ -41,7 +41,7 @@ Las máquinas conectadas al área de trabajo de Log Analytics usan el [agente de
 > [!NOTE]
 > Change Tracking e Inventario requiere vincular un área de trabajo de Log Analytics a la cuenta de Automation. Para ver una lista definitiva de regiones admitidas, consulte [Asignaciones de áreas de trabajo](../how-to/region-mappings.md). Las asignaciones de regiones no afectan a la capacidad de administrar VM en una región independiente de la cuenta de Automation.
 
-Como proveedor de servicios, es posible que haya incorporado varios inquilinos de cliente para [Azure Lighthouse](../../lighthouse/overview.md). Azure Lighthouse permite realizar operaciones a gran escala en varios inquilinos de Azure Active Directory (Azure AD) a la vez, lo que hace que las tareas de administración, como Seguimiento de cambios e inventario, sean más eficaces en aquellos inquilinos de los que es responsable. Seguimiento de cambios e inventario puede administrar máquinas de varias suscripciones del mismo inquilino o en varios inquilinos mediante la [Administración de recursos delegados de Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
+Como proveedor de servicios, es posible que haya incorporado varios inquilinos de cliente para [Azure Lighthouse](../../lighthouse/overview.md). Azure Lighthouse permite realizar operaciones a gran escala en varios inquilinos de Azure Active Directory (Azure AD) a la vez, lo que hace que las tareas de administración, como Seguimiento de cambios e inventario, sean más eficaces en aquellos inquilinos de los que es responsable. Seguimiento de cambios e inventario puede administrar máquinas de varias suscripciones del mismo inquilino o en varios inquilinos mediante la [Administración de recursos delegados de Azure](../../lighthouse/concepts/architecture.md).
 
 ## <a name="current-limitations"></a>Limitaciones actuales
 
@@ -52,11 +52,16 @@ Seguimiento de cambios e inventario no admite o tiene las siguientes limitacione
 - Otros métodos de instalación
 - Archivos * **.exe** almacenados en Windows
 - Los valores y la columna **Tamaño máximo de archivos** no se usan en la implementación actual.
+- Si está haciendo un seguimiento de los cambios de archivo, se limita a un tamaño de archivo de 5 MB o menos. 
 - Si intenta recopilar más de 2500 archivos en un ciclo de recopilación de 30 minutos, el rendimiento de Seguimiento de cambios e inventario podría degradarse.
 - Cuando el tráfico de red es elevado, los registros de cambios pueden tardar hasta seis horas en aparecer.
 - Si modifica una configuración mientras una máquina o un servidor están apagados, podrían publicarse los cambios que pertenecían a la configuración anterior.
 - Recopilación de actualizaciones de revisiones en máquinas Windows Server 2016 Core RS3.
 - Los demonios de Linux pueden mostrar un estado modificado aunque no se haya producido ningún cambio. Este problema se debe a la manera en que se escriben los datos de `SvcRunLevels` en la tabla [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange) de Azure Monitor.
+
+## <a name="limits"></a>Límites
+
+Para ver los límites que se aplican a Seguimiento de cambios e inventario, consulte los [límites del servicio Azure Automation](../../azure-resource-manager/management/azure-subscription-service-limits.md#change-tracking-and-inventory).
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 

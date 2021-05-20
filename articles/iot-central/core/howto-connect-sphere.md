@@ -8,16 +8,14 @@ ms.author: sandeepu
 author: sandeeppujar
 ms.date: 04/30/2020
 ms.custom: device-developer
-ms.openlocfilehash: 770f6e56a669ab2d9b425a7a2879eeef5d37377b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0527834c71a2f2932b566608a16c2c1577ac68cf
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92123430"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756564"
 ---
 # <a name="connect-an-azure-sphere-device-to-your-azure-iot-central-application"></a>Conexión de un dispositivo de Azure Sphere a la aplicación de Azure IoT Central
-
-*Este artículo se aplica a los desarrolladores de dispositivos.*
 
 En este artículo se muestra cómo conectar un dispositivo de Azure Sphere (DevKit) a una aplicación de Azure IoT Central.
 
@@ -61,7 +59,7 @@ Antes de conectar el dispositivo de Azure Sphere DevKit a IoT Central, debe [con
 
 ## <a name="connect-the-device"></a>Conexión del dispositivo
 
-Para habilitar el ejemplo para que se conecte a IoT Central, debe [configurar una aplicación de Azure IoT Central y, a continuación, modificar el manifiesto de aplicación del ejemplo](https://aka.ms/iotcentral-sphere-git-readme).
+Para habilitar el ejemplo para que se conecte a IoT Central, debe [configurar una aplicación de Azure IoT Central y, a continuación, modificar el manifiesto de aplicación del ejemplo](https://github.com/Azure/azure-sphere-samples/blob/master/Samples/AzureIoT/READMEStartWithIoTCentral.md).
 
 ## <a name="view-the-telemetry-from-the-device"></a>Visualización de la telemetría desde el dispositivo
 
@@ -83,7 +81,7 @@ Para crear un dispositivo simulado:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si es un desarrollador de dispositivos, algunos de los pasos sugeridos son los siguientes:
+Algunos pasos siguientes sugeridos son:
 
 - Consultar sobre la [Conectividad de dispositivos en Azure IoT Central](./concepts-get-connected.md)
 - Obtener información sobre la [Supervisión de la conectividad de dispositivos mediante la CLI de Azure](./howto-monitor-devices-azure-cli.md)

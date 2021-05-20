@@ -11,17 +11,17 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 74ce36652b1a00ac6813c62a17d44e2a5486645f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cea5ed5d75bbba4e2e6cdc8793bf5ce7503a5912
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99831729"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755358"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Tutorial:  Personalización del panel del operador y administración de dispositivos en Azure IoT Central
 
 
-En este tutorial, dirigido a desarrolladores, se muestra cómo personalizar el panel del operador en una aplicación de análisis en la tienda de Azure IoT Central. Los operadores de la aplicación pueden usar el panel personalizado para ejecutar la aplicación y administrar los dispositivos conectados.
+En este tutorial obtendrá información sobre cómo personalizar el panel del operador en una aplicación de análisis en la tienda de Azure IoT Central. Los operadores de la aplicación pueden usar el panel personalizado para ejecutar la aplicación y administrar los dispositivos conectados.
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]

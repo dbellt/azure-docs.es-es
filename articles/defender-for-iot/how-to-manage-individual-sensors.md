@@ -3,12 +3,12 @@ title: Administración de sensores individuales
 description: Aprenda a administrar sensores individuales, incluida la administración de archivos de activación, la realización de copias de seguridad y la actualización de un sensor independiente.
 ms.date: 02/02/2021
 ms.topic: how-to
-ms.openlocfilehash: df1d1dd6ca2085fb3ab12c104723c63e32249403
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8dd46552216e166fcfbf4126b1854681911225fb
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781966"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108734906"
 ---
 # <a name="manage-individual-sensors"></a>Administración de sensores individuales
 
@@ -520,7 +520,7 @@ En el procedimiento siguiente se describe cómo actualizar un sensor independien
 
 5. En la barra lateral de la consola del sensor, seleccione **Configuración del sistema**.
 
-6. En el panel **Actualización de versión**, seleccione **Actualizar**.
+6. En el panel **Actualización de la versión**, seleccione **Actualizar**.
 
     :::image type="content" source="media/how-to-manage-individual-sensors/upgrade-pane-v2.png" alt-text="Captura de pantalla del panel de actualización.":::
 

@@ -3,12 +3,12 @@ title: Ejemplo de plano técnico de ISM restringido de Nueva Zelanda
 description: Introducción al ejemplo de plano técnico de ISM restringido de Nueva Zelanda. Este ejemplo de plano técnico ayuda a los clientes a evaluar determinados controles concretos.
 ms.date: 03/22/2021
 ms.topic: sample
-ms.openlocfilehash: c406ec453cf980c1e065c70e69151b692a878596
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 1a7f50853c00336df584d210330860889e3f6881
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125776"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757115"
 ---
 # <a name="new-zealand-ism-restricted-blueprint-sample"></a>Ejemplo de plano técnico de ISM restringido de Nueva Zelanda
 

@@ -1,5 +1,5 @@
 ---
-title: Uso del Explorador de Storage con Azure File Storage | Microsoft Docs
+title: Uso del Explorador de Storage con Azure Files | Microsoft Docs
 description: Aprenda a usar el Explorador de Storage para trabajar con archivos y recursos compartidos de archivos.
 services: storage
 documentationcenter: na
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 84f6473c25a5be11eeda7cd2b311d93a7226a78c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0387aaecd45a2f09acc8d9ad7af230a62da6ed1
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96488398"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109628507"
 ---
-# <a name="using-storage-explorer-with-azure-file-storage"></a>Uso del Explorador de Storage con Azure File Storage
+# <a name="using-storage-explorer-with-azure-files"></a>Uso del Explorador de Storage con Azure Files
 
-Azure File Storage es un servicio que ofrece recursos compartidos de archivos en la nube mediante el protocolo Bloque de mensajes del servidor (SMB) estándar. Se admiten SMB 2.1 y SMB 3.0. Con Almacenamiento de archivos de Azure puede migrar aplicaciones heredadas basadas en recursos compartidos de archivos a Azure con rapidez y sin necesidad de costosas reescrituras. File Storage se puede usar para exponer datos públicamente o para almacenar los datos de la aplicación de manera privada. En este artículo, aprenderá a usar el Explorador de Storage (versión preliminar) para trabajar con recursos compartidos de archivos y archivos.
+Azure Files es un servicio que ofrece recursos compartidos de archivos en la nube mediante el protocolo Bloque de mensajes del servidor (SMB) estándar. Se admiten SMB 2.1 y SMB 3.0. Con Azure Files, puede migrar aplicaciones heredadas basadas en recursos compartidos de archivos a Azure con rapidez y sin necesidad de costosas reescrituras. File Storage se puede usar para exponer datos públicamente o para almacenar los datos de la aplicación de manera privada. En este artículo, aprenderá a usar el Explorador de Storage (versión preliminar) para trabajar con recursos compartidos de archivos y archivos.
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -45,7 +45,7 @@ Los siguientes pasos muestran cómo crear un recurso compartido de archivos en e
 
 1. Haga clic con el botón derecho en **Recursos compartidos de archivos** y (en el menú contextual) seleccione **Create File Share** (Crear recurso compartido de archivos).
 
-    ![Creación un recurso compartido de archivos](media/vs-azure-tools-storage-explorer-files/image1.png)
+    ![Creación de un recurso compartido de archivos](media/vs-azure-tools-storage-explorer-files/image1.png)
 
 1. Aparecerá un cuadro de texto debajo de la carpeta **Recursos compartidos de archivos**. Escriba el nombre del recurso compartido de archivos. Para ver una lista de reglas y restricciones en la nomenclatura de recursos compartidos de archivos, consulte la sección [Reglas de nomenclatura de recursos compartidos](./storage/blobs/storage-quickstart-blobs-dotnet.md).
 
@@ -145,7 +145,7 @@ Los siguientes pasos muestran cómo crear una SAS para un recurso compartido de 
 
 ## <a name="manage-access-policies-for-a-file-share"></a>Administración de directivas de acceso para un recurso compartido de archivos
 
-Los siguientes pasos muestran cómo administrar (agregar y quitar) las directivas de acceso de un recurso compartido de archivos:+. Las directivas de acceso se utilizan para crear las direcciones URL de SAS que los usuarios pueden utilizar para acceder al recurso de archivo de almacenamiento durante un período definido.
+Los siguientes pasos muestran cómo administrar (agregar y quitar) las directivas de acceso de un recurso compartido de archivos:+. Las directivas de acceso se utilizan para crear las direcciones URL de SAS que los usuarios pueden utilizar para acceder al recurso de Azure Files durante un período definido.
 
 1. Abra el Explorador de Storage.
 

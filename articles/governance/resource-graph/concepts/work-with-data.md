@@ -4,12 +4,12 @@ description: Aprenda a obtener, paginar, omitir y aplicar formato a registros de
 ms.date: 05/01/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 822539b595e5a2d5e19b08a8131c25b45810de4d
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 44fb92287eada08a573d6ff70cea5d33612cfa23
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324300"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751902"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabajo con grandes conjuntos de datos de recursos de Azure
 
