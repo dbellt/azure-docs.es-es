@@ -6,13 +6,13 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 10/22/2020
-ms.openlocfilehash: 7d6a0b04306c2ed6ae4887c79962cbb5528643fc
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.date: 05/08/2021
+ms.openlocfilehash: f2797af01dad10c04c8a56cf52a584ea0f04af31
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106979"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656762"
 ---
 # <a name="register-and-scan-dedicated-sql-pools-formerly-sql-dw"></a>Registro y examen de grupos de SQL dedicados (antes SQL DW)
 
@@ -125,16 +125,16 @@ Para registrar un nuevo servidor de Azure Synapse Analytics en el catálogo de d
 1. Vaya a la cuenta de Purview.
 1. Seleccione **Sources** (Orígenes) en el panel de navegación izquierdo.
 1. Seleccione **Registrar**.
-1. En **Registro de orígenes**, seleccione **Grupo dedicado de SQL (antes SQL DW)**
-1. Seleccione **Continuar**
+1. En **Registro de orígenes**, seleccione **Grupo dedicado de SQL (antes SQL DW)** .
+1. Seleccione **Continuar**.
 
 En la pantalla **Registrar orígenes (Azure Synapse Analytics)** , haga lo siguiente:
 
 1. Escriba un **nombre** con el que se mostrará el origen de datos en el catálogo.
-1. Elija cómo desea apuntar a su servidor SQL Server lógico deseado:
-   1. Seleccione **From Azure subscription** (Desde una suscripción de Azure), seleccione la suscripción adecuada en el cuadro desplegable **Suscripción de Azure** y el servidor correspondiente en el cuadro desplegable **Nombre del servidor**.
-   1. O bien, puede seleccionar **Escribir manualmente** y especificar un valor para **Nombre del servidor**.
-1. Haga clic en **Finalizar** para registrar el origen de datos.
+2. Elija la suscripción a Azure para filtrar las áreas de trabajo de Azure Synapse.
+3. Seleccione un área de trabajo de Azure Synapse.
+4. Seleccione una colección o cree una nueva (opcional).
+5. Seleccione **Registrar** para registrar el origen de datos.
 
 :::image type="content" source="media/register-scan-azure-synapse-analytics/register-sources.png" alt-text="Opciones de registro de orígenes" border="true":::
 

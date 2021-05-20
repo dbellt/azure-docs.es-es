@@ -112,6 +112,8 @@ items:
                 displayName: Register and scan Azure SQL DB Managed Instance
               - name: "Grupo de SQL dedicado de Azure (antes denominado SQL\_DW)"
                 href: register-scan-azure-synapse-analytics.md
+              - name: Base de datos de tienda de metadatos de Hive
+                href: register-scan-hive-metastore-source.md
               - name: SQL Server local
                 href: register-scan-on-premises-sql-server.md
               - name: Oracle
@@ -184,6 +186,8 @@ items:
         items:
           - name: Administración de puntos de conexión privados
             href: catalog-private-link.md
+          - name: Preguntas frecuentes sobre los puntos de conexión privados de Azure Purview
+            href: catalog-private-link-faqs.md
       - name: Recuperación ante desastres
         items:
           - name: Recuperación ante desastres

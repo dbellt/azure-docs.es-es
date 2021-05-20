@@ -209,8 +209,6 @@
               href: azure-disk-csi.md
             - name: Controladores CSI de Azure Files (versión preliminar)
               href: azure-files-csi.md
-            - name: Controlador del almacén de secretos de CSI (versión preliminar)
-              href: csi-secrets-store-driver.md
     - name: Configuración de las redes
       items:
         - name: Creación o uso de una red virtual existente
@@ -295,6 +293,8 @@
           href: azure-disk-customer-managed-keys.md
         - name: Habilitación del cifrado basado en host
           href: enable-host-encryption.md
+        - name: Controlador del almacén de secretos de CSI (versión preliminar)
+          href: csi-secrets-store-driver.md
     - name: Supervisión y registro
       items:
         - name: Visualización de métricas de clúster

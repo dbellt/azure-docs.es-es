@@ -1,21 +1,20 @@
 ---
-title: Cambio de tamaño de una máquina virtual Windows en Azure
+title: Cambio de tamaño de una máquina virtual mediante Azure Portal o PowerShell
 description: Cambie el tamaño que se usa para una máquina virtual de Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.collection: windows
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: f7f41c0fb2bf949dd47491761fde8025a2d35155
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3bd921d8c17f89d4f9adbc7d0409d48c00cba7a1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560657"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768128"
 ---
-# <a name="resize-a-windows-vm"></a>Cambio de tamaño de una máquina virtual Windows
+# <a name="resize-a-virtual-machine-using-the-azure-portal-or-powershell"></a>Cambio de tamaño de una máquina virtual mediante Azure Portal o PowerShell
 
 En este artículo se muestra cómo mover una máquina virtual a otro [tamaño de máquina virtual](../sizes.md).
 
@@ -119,4 +118,4 @@ $virtualMachines | Start-AzVM
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener una mayor escalabilidad, ejecute varias instancias de VM y escálelas horizontalmente. Para obtener más información, consulte el artículo sobre [escalado automático de máquinas Linux en un conjunto de escalado de máquinas virtuales](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).
+Para obtener una mayor escalabilidad, ejecute varias instancias de VM y escálelas horizontalmente. Para más información, vea [Escalado automático de máquinas en un conjunto de escalado de máquinas virtuales](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).

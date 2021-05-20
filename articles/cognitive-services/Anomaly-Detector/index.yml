@@ -1,31 +1,33 @@
 ### YamlMime:Landing
 title: Documentación de Anomaly Detector API
-summary: Aprenda a usar Anomaly Detector API para supervisar datos con el paso del tiempo y detectar anomalías en el aprendizaje automático. Obtenga información acerca de sus datos, independientemente del volumen, el sector o el escenario.
+summary: Aprenda a usar las API de Anomaly Detector univariante y multivariante para supervisar datos a lo largo del tiempo y detectar anomalías en el aprendizaje automático. Obtenga información acerca de sus datos, independientemente del volumen, el sector o el escenario.
 metadata:
   title: 'Anomaly Detector API: Tutoriales, inicios rápidos, referencia de API'
   titleSuffix: Azure Cognitive Services
-  description: Anomaly Detector API se usa para supervisar datos con el paso del tiempo y detectar anomalías en el aprendizaje automático. Obtenga información acerca de sus datos, independientemente del volumen, el sector o el escenario.
+  description: Use las API de Anomaly Detector univariante y multivariante para supervisar datos a lo largo del tiempo y detectar anomalías en el aprendizaje automático. Obtenga información acerca de sus datos, independientemente del volumen, el sector o el escenario.
   services: cognitive-services
-  author: aahill
+  author: mrbullwinkle
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: anomaly-detector
   ms.topic: landing-page
-  ms.date: 09/10/2019
-  ms.author: aahi
-  ms.openlocfilehash: 24f6ec0afc0760b2f57f7ac9409f0b84f2e630da
-  ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+  ms.date: 05/12/2021
+  ms.author: mbullwin
+  ms.openlocfilehash: 5737b7c44231053a3de0665bd4fd147729b53a3a
+  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/20/2021
-  ms.locfileid: "107789112"
+  ms.lasthandoff: 05/19/2021
+  ms.locfileid: "110082313"
 landingContent:
-- title: Acerca de Anomaly Detector API
+- title: Acerca de las API de Anomaly Detector
   linkLists:
   - linkListType: overview
     links:
-    - text: ¿Qué es Anomaly Detector API?
+    - text: ¿Qué es Anomaly Detector univariante?
       url: overview.md
+    - text: ¿Qué es Anomaly Detector multivariante?
+      url: overview-multivariate.md
   - linkListType: get-started
     links:
     - text: Demostración de Anomaly Detector
@@ -48,12 +50,20 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Con C#
+    - text: Uso de C# (univariante)
       url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-csharp
-    - text: Uso de JavaScript
+    - text: Uso de JavaScript (univariante)
       url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-javascript
-    - text: Usar Python
+    - text: Uso de Python (univariante)
       url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-python
+    - text: Uso de C# (multivariante)
+      url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-csharp
+    - text: Uso de JavaScript (multivariante)
+      url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-javascript
+    - text: Uso de Python (multivariante)
+      url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-python
+    - text: Uso de Java (multivariante)
+      url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-java
   - linkListType: tutorial
     links:
     - text: Visualización de anomalías con detección por lotes y Power BI

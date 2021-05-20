@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo solucionar problemas y resolver pr
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 1d3dff19bd75bfa4e7564eb4b188ffe68d605025
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0892f11a79c62669d77cceb2dbc4f9a9f86c623a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952038"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108765942"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -439,7 +439,7 @@ En las versiones de Kubernetes **anteriores a 1.15.0**, puede recibir un error s
 
 ### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>¿Por qué se produce un error en las actualizaciones a Kubernetes 1.16 al usar etiquetas de nodo con un prefijo kubernetes.io?
 
-A partir de Kubernetes [1.16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) [, el kubelet solo puede aplicar un subconjunto definido de etiquetas con el prefijo kubernetes.io](https://v1-18.docs.kubernetes.io/docs/concepts/overview/working-with-objects/labels/) a los nodos. AKS no puede quitar etiquetas activas en su nombre sin consentimiento, ya que puede provocar tiempo de inactividad en las cargas de trabajo afectadas.
+A partir de Kubernetes 1.16, el kubelet [solo puede aplicar un subconjunto definido de etiquetas con el prefijo kubernetes.io](https://v1-18.docs.kubernetes.io/docs/concepts/overview/working-with-objects/labels/) a los nodos. AKS no puede quitar etiquetas activas en su nombre sin consentimiento, ya que puede provocar tiempo de inactividad en las cargas de trabajo afectadas.
 
 Como resultado, para mitigar este problema, puede:
 

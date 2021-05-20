@@ -2,15 +2,15 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/14/2021
+ms.date: 05/05/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 4817a68ad74ed9a51f8b9ea67f3d271bbaa3423b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8be9c97e23b579acf138a2861a77a5b8f219b886
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466218"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108766487"
 ---
 Hay **31** recomendaciones en esta categoría.
 
@@ -40,7 +40,7 @@ Hay **31** recomendaciones en esta categoría.
 |Python debe actualizarse a la versión más reciente en la aplicación de funciones |A causa de errores de seguridad o para incluir funcionalidades, se publican de forma periódica versiones más recientes del software de Python.<br>Para las aplicaciones de funciones, se recomienda usar la versión más reciente de Python con el fin de aprovechar las correcciones de seguridad, de haberlas, o las nuevas funcionalidades de la versión más reciente.<br />(Directiva relacionada: [asegúrese de que la "versión de Python" es la más reciente, si se usa como parte de la aplicación de funciones](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7238174a-fd10-4ef0-817e-fc820a951d73)) |Media |
 |Python debe actualizarse a la versión más reciente en la aplicación web |A causa de errores de seguridad o para incluir funcionalidades, se publican de forma periódica versiones más recientes del software de Python.<br>Para las aplicaciones web, se recomienda usar la versión más reciente de Python con el fin de aprovechar las correcciones de seguridad, de haberlas, o las nuevas funcionalidades de la versión más reciente.<br />(Directiva relacionada: [Asegúrese de que la "versión de Python" es la más reciente, en caso de que se use como parte de la aplicación web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7008174a-fd10-4ef0-817e-fc820a951d73)) |Media |
 |Se debe desactivar la depuración remota para aplicaciones de API |La depuración remota requiere que se abran puertos de entrada en una aplicación de API. Se debe desactivar la depuración remota.<br />(Directiva relacionada: [se debe desactivar la depuración remota en API Apps](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicydefinitions%2fe9c8d085-d9cc-4b17-9cdc-059f1f01f19e)) |Bajo |
-|Recomendación de desactivación de la depuración remota para Function App |La depuración remota requiere puertos de entrada que se abran en una aplicación de funciones. Se debe desactivar la depuración remota.<br />(Directiva relacionada: [se debe desactivar la depuración remota en las instancias de Function App](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicydefinitions%2f0e60b895-3786-45da-8377-9c6b4b6ac5f9)) |Bajo |
+|Recomendación de desactivación de la depuración remota para Function App |La depuración remota requiere que los puertos de entrada se abran en una aplicación de funciones de Azure. Se debe desactivar la depuración remota.<br />(Directiva relacionada: [se debe desactivar la depuración remota en las instancias de Function App](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicydefinitions%2f0e60b895-3786-45da-8377-9c6b4b6ac5f9)) |Bajo |
 |Se debe desactivar la depuración remota para las aplicaciones web |La depuración remota requiere puertos de entrada que se abran en una aplicación web. La depuración remota se encuentra actualmente habilitada. Si no necesita usar la depuración remota, se debe desactivar.<br />(Directiva relacionada: [se debe desactivar la depuración remota para las aplicaciones web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicydefinitions%2fcb510bfd-1cba-4d9f-a230-cb0976f4bb71)) |Bajo |
 |TLS debe actualizarse a la versión más reciente en la aplicación de API |Actualiza a la versión más reciente de TLS.<br />(Directiva relacionada: [en la aplicación de API se debe usar la versión de TLS más reciente](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f8cb6aa8b-9e41-4f4e-aa25-089a7ac2581e)) |Alto |
 |TLS debe actualizarse a la versión más reciente en la aplicación de funciones |Actualiza a la versión más reciente de TLS.<br />(Directiva relacionada: [en la aplicación de funciones se debe usar la versión de TLS más reciente](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff9d614c5-c173-4d56-95a7-b4437057d193)) |Alto |

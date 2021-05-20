@@ -1,16 +1,16 @@
 ---
 title: Introducción a la copia de seguridad operativa para blobs de Azure
-description: Obtenga más información sobre la copia de seguridad operativa para blobs de Azure (versión preliminar).
+description: Obtenga más información sobre la copia de seguridad operativa para blobs de Azure.
 ms.topic: conceptual
-ms.date: 02/16/2021
-ms.openlocfilehash: 1f6bc98b92a2af4b05cae766a2186f2970b7133c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 05/05/2021
+ms.openlocfilehash: 5d6113108a41430e9d864ff05095be4d440989ee
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558761"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108767246"
 ---
-# <a name="overview-of-operational-backup-for-azure-blobs-in-preview"></a>Introducción a la copia de seguridad operativa para blobs de Azure (versión preliminar)
+# <a name="overview-of-operational-backup-for-azure-blobs"></a>Introducción a la copia de seguridad operativa para blobs de Azure
 
 La copia de seguridad operativa de blobs es una solución de protección de datos local administrada que le permite proteger los blobs en bloques de diversos escenarios en los que se hayan perdido datos; por ejemplo, si se producen daños, si se realizan eliminaciones de blobs y la eliminación accidental de cuentas de almacenamiento. Los datos se almacenan localmente dentro de la propia cuenta de almacenamiento de origen y se pueden recuperar a un momento determinado en el tiempo cuando sea necesario. Por tanto, proporciona un medio sencillo, seguro y rentable para proteger sus blobs.
 

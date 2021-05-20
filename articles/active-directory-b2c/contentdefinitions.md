@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/15/2021
+ms.date: 05/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 62bae22b6a4bb06b1e97c18e52ad614fd2439902
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2f983027c142eb9e1325f7673b8d888f15dcdf18
+ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103489328"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109664589"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -75,6 +75,26 @@ El elemento **ContentDefinition** contiene los elementos siguientes:
 | Metadatos | 0:1 | Colección de pares de clave y valor que contiene los metadatos usados por la definición de contenido. |
 | LocalizedResourcesReferences | 0:1 | Colección de referencias de recursos localizados. Use este elemento para personalizar la localización de la interfaz de usuario y el atributo de notificaciones. |
 
+### <a name="loaduri"></a>LoadUri
+
+El elemento **LoadUri** se usa para especificar la dirección URL de la página HTML5 para la definición de contenido. Los [paquetes de inicio de directivas personalizadas](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) de Azure AD B2C incluyen definiciones de contenido que usan páginas HTML de Azure AD B2C. El elemento **LoadUri** comienza por `~`, que es una ruta de acceso relativa al inquilino de Azure AD B2C.
+
+```XML
+<ContentDefinition Id="api.signuporsignin">
+  <LoadUri>~/tenant/templates/AzureBlue/unified.cshtml</LoadUri>
+  ...
+</ContentDefinition>
+```
+
+Puede [personalizar la interfaz de usuario con plantillas HTML](customize-ui-with-html.md). Cuando use plantillas HTML, proporcione una dirección URL absoluta. En el ejemplo siguiente se muestra una definición de contenido con una plantilla HTML:
+
+```XML
+<ContentDefinition Id="api.signuporsignin">
+  <LoadUri>https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html</LoadUri>
+  ...
+</ContentDefinition>
+``` 
+
 ### <a name="datauri"></a>DataUri
 
 El elemento **DataUri** se usa para especificar el identificador de página. Azure AD B2C usa el identificador de página para cargar e iniciar elementos de la interfaz de usuario y código JavaScript del lado cliente. El formato del valor es `urn:com:microsoft:aad:b2c:elements:page-name:version`. En la tabla siguiente, se muestra una lista de los identificadores de página que puede usar.
@@ -99,30 +119,36 @@ La parte de la [versión](page-layout.md) de `DataUri` especifica el paquete del
 En el siguiente ejemplo se muestra **DataUri** de `selfasserted` versión `1.2.0`:
 
 ```xml
-<ContentDefinition Id="api.localaccountpasswordreset">
-<LoadUri>~/tenant/templates/AzureBlue/selfAsserted.cshtml</LoadUri>
-<RecoveryUri>~/common/default_page_error.html</RecoveryUri>
-<DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
-<Metadata>
-    <Item Key="DisplayName">Local account change password page</Item>
-</Metadata>
-</ContentDefinition>
+<!-- 
+<BuildingBlocks> 
+  <ContentDefinitions>-->
+    <ContentDefinition Id="api.localaccountpasswordreset">
+      <LoadUri>~/tenant/templates/AzureBlue/selfAsserted.cshtml</LoadUri>
+      <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+      <Metadata>
+        <Item Key="DisplayName">Local account change password page</Item>
+      </Metadata>
+    </ContentDefinition>
+  <!-- 
+  </ContentDefinitions> 
+</BuildingBlocks> -->
 ```
 
 #### <a name="migrating-to-page-layout"></a>Migración al diseño de página
 
-El formato del valor debe contener la palabra `contract`: _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. Para especificar un diseño de página en las directivas personalizadas que utilizan un valor de **DataUri** anterior, use la tabla siguiente para migrar al nuevo formato.
+Para migrar desde el valor de **DataUri** anterior (sin contrato de página) a la versión de diseño de página, agregue la palabra `contract` seguida de una versión de página. Use la tabla siguiente para migrar desde el valor **DataUri** anterior a la versión de diseño de página.
 
 | Valor antiguo de DataUri | Nuevo valor DataUri |
 | ----------------- | ----------------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.1` |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.1` |
 | `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.1` |
-| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2` |
-| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2` |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssd:2.1.2` |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.2` |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.2` |
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.4` |
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.4` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssd:2.1.4` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.4` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.4` |
 | `urn:com:microsoft:aad:b2c:elements:multifactor:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0` |
 | `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0` |
 
@@ -142,19 +168,19 @@ En el ejemplo siguiente se muestran los identificadores de definición de conten
       <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.1</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.signuporsignin">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.2</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.4</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.selfasserted">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.4</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.selfasserted.profileupdate">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.4</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.localaccountsignup">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.4</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.localaccountpasswordreset">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.4</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.phonefactor">
       <DataUri>urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.2</DataUri>
