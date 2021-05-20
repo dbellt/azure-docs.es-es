@@ -6,13 +6,13 @@ ms.author: sandeepshah
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/17/2020
-ms.openlocfilehash: 4b7f71b5405708cc1988fafa5ca9c4628fe0d80b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/08/2021
+ms.openlocfilehash: 137b77c09cc1ae4f18555568287324a373ca8786
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98882406"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109655431"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen2"></a>Registro y examen de Azure Data Lake Storage Gen2
 
@@ -101,7 +101,7 @@ Es necesario obtener el id. de aplicación y el secreto de la entidad de servici
 > [!NOTE]
 > Si tiene el firewall habilitado para la cuenta de almacenamiento, debe usar el método de autenticación de **Identidad administrada** al configurar un examen.
 
-1. Vaya a la cuenta de almacenamiento de ADSL Gen2 en [Azure Portal](https://portal.azure.com).
+1. Vaya a la cuenta de almacenamiento de ADLS Gen2 en [Azure Portal](https://portal.azure.com).
 1. Vaya a **Configuración > Redes**.
 1. Seleccione **Redes seleccionadas** en **Permitir acceso desde**.
 1. En la sección **Excepciones**, seleccione **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** y haga clic en **Guardar**.
@@ -122,9 +122,9 @@ En la pantalla **Registrar orígenes (Azure Data Lake Storage Gen2)** , haga lo 
 
 1. Escriba un **nombre** con el que se mostrará el origen de datos en el catálogo.
 2. Elija la suscripción para filtrar las cuentas de almacenamiento.
-3. Seleccione una cuenta de almacenamiento
+3. Seleccione una cuenta de almacenamiento.
 4. Seleccione una colección o cree una nueva (opcional).
-5. **Finalice** el proceso para registrar el origen de datos.
+5. Seleccione **Registrar** para registrar el origen de datos.
 
 :::image type="content" source="media/register-scan-adls-gen2/register-sources.png" alt-text="Opciones de registro de orígenes" border="true":::
 

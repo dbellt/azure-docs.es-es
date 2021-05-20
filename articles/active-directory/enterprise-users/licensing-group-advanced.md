@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/02/2020
+ms.date: 04/05/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cec0f2be9dc86b156bc76f0de5afb1cc19fda99b
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: d55412ebc8d5b0d8d52b9f010937200838166f98
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108016498"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108794203"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Escenarios, limitaciones y problemas conocidos del uso de grupos para administrar las licencias en Azure Active Directory
 
@@ -63,18 +63,14 @@ En este ejemplo, modifique un usuario y establezca el valor de extensionAttribut
 
 > [!WARNING]
 > Tenga cuidado al modificar la regla de pertenencia de un grupo existente. Cuando se cambia una regla, se vuelve a evaluar la pertenencia del grupo y los usuarios que ya no coinciden con la nueva regla serán eliminados (los usuarios que todavía coincidan con la nueva regla no se verán afectados durante este proceso). Durante el proceso se quitarán las licencias de esos usuarios, lo que puede dar lugar a la pérdida de servicio, o bien, en algunos casos, a la pérdida de datos.
-> 
+>
 > Si tiene un grupo dinámico grande del que depende para la asignación de licencias, considere la posibilidad de validar los cambios importantes en un grupo de prueba más pequeño antes de aplicarlos al grupo principal.
 
 ## <a name="multiple-groups-and-multiple-licenses"></a>Varios grupos y varias licencias
 
 Un usuario puede ser miembro de varios grupos con licencias. Estos son algunos aspectos que hay que tener en cuenta:
 
-- Se pueden superponer varias licencias para el mismo producto y, como resultado, todos los servicios habilitados se aplican al usuario. En el ejemplo siguiente se muestran dos grupos de licencias: *E3: servicios de base* contiene los servicios fundamentales que debe implementar primero en todos los usuarios. Y, además, *E3: servicios extendidos*, que contiene los servicios adicionales (Sway y Planner) que se van a implementar solo en algunos usuarios. En este ejemplo, el usuario se agregó a los dos grupos:
-
-  ![Captura de pantalla de los servicios habilitados](./media/licensing-group-advanced/view-enabled-services.png)
-
-  Como resultado, el usuario tiene habilitados 7 de los 12 servicios del producto, mientras que solo usa una licencia para este producto.
+- Se pueden superponer varias licencias para el mismo producto y, como resultado, todos los servicios habilitados se aplican al usuario. Un ejemplo podría ser que los *servicios básicos E3* contienen los servicios básicos que se implementarán en primer lugar, para todos los usuarios, y los *servicios extendidos E3* contienen servicios adicionales (Sway y Planner) para implementar solo en algunos usuarios. Puede agregar el usuario a ambos grupos. Como resultado, el usuario tiene habilitados 7 de los 12 servicios del producto, mientras que solo usa una licencia para este producto.
 
 - Al seleccionar la licencia *E3* se muestran más detalles, incluida la información sobre qué servicios se habilitaron para el usuario con la asignación de licencias de grupo.
 

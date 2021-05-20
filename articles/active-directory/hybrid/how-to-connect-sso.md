@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14519a1e46c3fd3414f9a09521fd6bcb5cb8b851
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 42c73e2fa0439b247267f8d1021c0a779b6ca2ba
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285599"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109627913"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -71,7 +71,6 @@ El inicio de sesión único mediante PRT funciona una vez que los dispositivos s
 |Windows 10|Sí\*|Sí|Sí|Sí\*\*\*|N/D
 |Windows 8.1|Sí\*|Sí*\*\*\*|Sí|Sí\*\*\*|N/D
 |Windows 8|Sí\*|N/D|Sí|Sí\*\*\*|N/D
-|Windows 7|Sí\*|N/D|Sí|Sí\*\*\*|N/D
 |Windows Server 2012 R2 o versiones posteriores|Sí\*\*|N/D|Sí|Sí\*\*\*|N/D
 |Mac OS X|N/D|N/D|Sí\*\*\*|Sí\*\*\*|Sí\*\*\*
 
@@ -79,7 +78,7 @@ El inicio de sesión único mediante PRT funciona una vez que los dispositivos s
  >Microsoft Edge (heredado) ya no se admite.
 
 
-\*Requiere Internet Explorer, versión 11 o posterior.
+\*Requiere Internet Explorer, versión 11 o posterior. ([A partir del 17 de agosto de 2021, las aplicaciones y servicios de Microsoft 365 no admitirán IE 11](https://techcommunity.microsoft.com/t5/microsoft-365-blog/microsoft-365-apps-say-farewell-to-internet-explorer-11-and/ba-p/1591666)).
 
 \*\*Requiere Internet Explorer, versión 11 o posterior. Deshabilite el modo de protección mejorada.
 

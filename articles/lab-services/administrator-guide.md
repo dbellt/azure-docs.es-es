@@ -3,12 +3,12 @@ title: 'Azure Lab Services: guía del administrador | Microsoft Docs'
 description: Esta guía sirve de ayuda para los administradores que crean y administran cuentas de laboratorio mediante Azure Lab Services.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 3ad3ee38a6c08a6af85822d76012cc6dfc34ff4e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5dff57eb663324679941a043ebaa97f39c6aa20
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96462467"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770720"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services: guía del administrador
 Los administradores de tecnología de la información (TI) que administran los recursos en la nube de una universidad suelen ser también responsables de configurar la cuenta de laboratorio en su institución. Una vez configurada una cuenta de laboratorio, los administradores o educadores crean los laboratorios que están incluidos en la cuenta. En este artículo se proporciona información general de alto nivel sobre los recursos de Azure relacionados e instrucciones para crearlos.
@@ -216,12 +216,27 @@ Al asignar roles, estas sugerencias le serán de utilidad:
    - Para proporcionar a los educadores la posibilidad de crear nuevos laboratorios y administrar los laboratorios creados, solo necesita asignarles el rol de creador del laboratorio.
    - Para proporcionar a los educadores la posibilidad de administrar laboratorios específicos, pero *no* la de crear laboratorios, asígneles el rol de propietario o colaborador para cada laboratorio que vayan a administrar. Por ejemplo, puede que quiera permitir que un profesor titular y un profesor ayudante sean propietarios conjuntamente de un laboratorio. Para más información, consulte [Adición de propietarios a un laboratorio](./how-to-add-user-lab-owner.md).
 
+## <a name="content-filtering"></a>Filtrado de contenido
+
+Puede que la escuela tenga que filtrar contenido para evitar que los alumnos accedan a sitios web inadecuados.  Por ejemplo, para cumplir con la [Ley de Protección de la Infancia en Internet (Children's Internet Protection Act, CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act).  Lab Services no ofrece compatibilidad integrada con el filtrado de contenido.
+
+Hay dos enfoques que las escuelas suelen tener en cuenta para filtrar contenido:
+- Configurar un firewall para filtrar el contenido en el nivel de red.
+- Instalar software de terceros directamente en cada equipo que realiza el filtrado de contenido.
+
+Lab Services no admite actualmente el primer enfoque.  Lab Services hospeda la red virtual de cada laboratorio dentro de una suscripción de Azure administrada por Microsoft.  Como resultado, no se puede acceder a la red virtual subyacente para realizar el filtrado de contenido en el nivel de red.  Para más información sobre la arquitectura de Lab Services, lea el artículo [Aspectos básicos de la arquitectura en Azure Lab Services](./classroom-labs-fundamentals.md).
+
+En su lugar, se recomienda el segundo enfoque, que consiste en instalar software de terceros en la máquina virtual de plantilla de cada laboratorio.  Es necesario resaltar algunos puntos clave como parte de esta solución:
+- Si tiene previsto usar la [configuración de apagado automático](./cost-management-guide.md#automatic-shutdown-settings-for-cost-control), deberá desbloquear varios nombres de host de Azure con el software de terceros.  La configuración de apagado automático usa una extensión de diagnóstico que debe ser capaz de comunicarse con Lab Services.  De lo contrario, la configuración de apagado automático no se habilitará para el laboratorio.
+- Es posible que también quiera que cada alumno use una cuenta que no sea de administrador en su máquina virtual para que no pueda desinstalar el software de filtrado de contenido.  De forma predeterminada, Lab Services crea una cuenta de administrador que cada alumno usa para iniciar sesión en su máquina virtual.  Es posible agregar una cuenta que no sea de administrador mediante una imagen especializada, pero hay algunas limitaciones conocidas.
+
+Si su escuela necesita realizar el filtrado de contenido, póngase en contacto con nosotros en los [foros de Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices) para obtener más información.
+
 ## <a name="pricing"></a>Precios
 
 ### <a name="azure-lab-services"></a>Azure Lab Services
 
 Para información sobre los precios, consulte [Precios de Azure Lab Services](https://azure.microsoft.com/pricing/details/lab-services/).
-
 
 ### <a name="shared-image-gallery"></a>Galería de imágenes compartidas
 

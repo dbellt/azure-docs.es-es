@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 012eefe9140703a62d7bb1074ab763191a0976cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bf34223e44ddfb59a72f98d31f0df5d9a882e0eb
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87798518"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713601"
 ---
 # <a name="create-an-access-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Creación de una revisión de acceso de un paquete de acceso de administración de derechos de Azure AD
 
@@ -31,7 +31,7 @@ Para reducir el riesgo de acceso obsoleto, debe habilitar revisiones periódicas
 
 Para habilitar las revisiones de los paquetes de acceso, debe cumplir los requisitos previos para crear un paquete de acceso:
 - Azure AD Premium P2
-- Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
+- Administrador global, Administrador de Identity Governance, Administrador de usuarios, Propietario del catálogo o Administrador de paquetes de acceso.
 
 Para obtener más información, consulte [Requisitos de licencia](entitlement-management-overview.md#license-requirements).
 

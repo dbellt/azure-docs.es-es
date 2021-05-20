@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentación de Azure Percept
-summary: Azure Percept es una solución integral para compilar e implementar inteligencia artificial basada en la percepción en el perímetro.
+summary: Azure Percept es una solución de un extremo a otro para compilar e implementar inteligencia artificial basada en la percepción en el borde.
 metadata:
   title: Documentación de Azure Percept
   description: Azure Percept es una plataforma integral de inteligencia artificial en el perímetro y un kit de desarrollo.
@@ -10,12 +10,12 @@ metadata:
   author: mimcco
   ms.author: mimcco
   ms.date: 03/25/2021
-  ms.openlocfilehash: 0cf9e95897554cb51ff6837dec72700124471025
-  ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+  ms.openlocfilehash: 1a18b819a96f8f84fb7d8e96b61f0b2d9f33709a
+  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/01/2021
-  ms.locfileid: "106107734"
+  ms.lasthandoff: 05/19/2021
+  ms.locfileid: "110098873"
 landingContent:
 - title: ¿Qué es Azure Percept?
   linkLists:
@@ -109,7 +109,7 @@ landingContent:
     links:
     - text: Instalador del paquete de herramientas de desarrollo
       url: dev-tools-installer.md
-- title: Actualización del dispositivo Azure Percept DK
+- title: Actualización de Azure Percept DK
   linkLists:
   - linkListType: overview
     links:
@@ -121,5 +121,5 @@ landingContent:
       url: how-to-set-up-over-the-air-updates.md
     - text: Actualización del dispositivo por vía inalámbrica
       url: how-to-update-over-the-air.md
-    - text: Actualización del dispositivo mediante USB
+    - text: Actualización de un dispositivo mediante una conexión por cable USB-C
       url: how-to-update-via-usb.md

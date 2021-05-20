@@ -1,9 +1,9 @@
 ---
 title: Introducción a Azure IoT Hub | Microsoft Docs
-description: Obtenga más información acerca de Azure IoT Hub. Este servicio de IoT está pensado para la ingesta de datos escalables, la administración de dispositivos y la seguridad.
-author: nberdy
-ms.author: nberdy
-ms.date: 08/08/2019
+description: En este artículo se explican los usos de Azure IoT Hub. Le permite leer datos de forma escalable y administrar dispositivos de forma segura.
+author: robinsh
+ms.author: robinsh
+ms.date: 05/03/2021
 ms.topic: overview
 ms.custom:
 - mvc
@@ -11,30 +11,31 @@ ms.custom:
 - mqtt
 - 'role: Direction'
 - 'role: System Architecture'
+- contentperf:fy21q3
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 86a373844b370cc9f9ce31dc65b2039a81279803
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95247a1485bac7282ffe95ddcc2ddd37883738dd
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102454777"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783827"
 ---
 # <a name="what-is-azure-iot-hub"></a>¿Qué es Azure IoT Hub?
 
-IoT Hub es un servicio administrado, hospedado en la nube, que actúa como centro de mensajes para comunicaciones bidireccionales entre la aplicación de IoT y los dispositivos que administra. Puede usar Azure IoT Hub para compilar soluciones de IoT con comunicaciones confiables y seguras entre millones de dispositivos de IoT y un back-end de solución hospedado en la nube. Puede conectar virtualmente cualquier dispositivo a IoT Hub.
+IoT Hub es un servicio administrado, hospedado en la nube, que actúa como centro de mensajes para comunicaciones bidireccionales entre una aplicación de IoT y los dispositivos conectados. Puede conectar millones de dispositivos y sus soluciones de back-end con confianza y de forma segura. La mayoría de dispositivos se pueden conectar a un centro de IoT. 
 
-IoT Hub es compatible con comunicaciones del dispositivo a la nube y viceversa. IoT Hub es compatible con varios patrones de mensajes, como telemetría de dispositivo a la nube, carga de archivos desde dispositivos y métodos de respuesta a solicitudes para controlar los dispositivos desde la nube. La supervisión de IoT Hub le ayuda a conservar el estado de la solución, ya que realiza el seguimiento de eventos, como la creación, los errores y las conexiones de dispositivos.
+Se admiten varios patrones de mensajería, como telemetría del dispositivo a la nube, carga de archivos desde dispositivos y métodos de solicitud-respuesta para controlar los dispositivos desde la nube. IoT Hub también admite la supervisión para ayudarle a realizar un seguimiento de la creación de dispositivos, la conexión de dispositivos y los errores de los dispositivos.
 
-Las funcionalidades de IoT Hub le ayudan a compilar soluciones de IoT escalables y completas, como la administración de equipos industriales que se usan en fabricación, el seguimiento de activos valiosos en el sector sanitario y la supervisión del uso de compilaciones en oficina.
+Las funcionalidades de IoT Hub le ayudan a compilar soluciones de IoT escalables y completas, como la administración de equipos industriales que se usan en fabricación, el seguimiento de activos valiosos en el sector sanitario y la supervisión de edificios de oficinas.
 
 ## <a name="scale-your-solution"></a>Escalado de la solución
 
-IoT Hub escala a millones de dispositivos conectados de manera simultánea y a millones de eventos por segundo para admitir las cargas de trabajo de IoT. Para obtener más información sobre cómo escalar el IoT Hub, vea [Escalado de IOT Hub](iot-hub-scaling.md). Para obtener más información sobre los distintos niveles de servicio ofrecidos por IoT Hub y cómo ajustarse mejor a sus necesidades de escalabilidad, vea la [página de precios](https://azure.microsoft.com/pricing/details/iot-hub/).
+IoT Hub escala a millones de dispositivos conectados de manera simultánea y a millones de eventos por segundo para admitir las cargas de trabajo de IoT. Para obtener más información sobre cómo escalar el IoT Hub, vea [Escalado de IOT Hub](iot-hub-scaling.md). Para más información sobre los distintos niveles de servicio ofrecidos por IoT Hub y cómo ajustarlos mejor a sus necesidades de escalabilidad, consulte la [página de precios](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## <a name="secure-your-communications"></a>Proteger las comunicaciones
 
-IoT Hub ofrece un canal de comunicación seguro para que los dispositivos envíen datos.
+Puede enviar datos de forma segura mediante IoT Hub.
 
 * La autenticación por dispositivo permite que cada dispositivo se conecte a IoT Hub y se administre de manera segura.
 
@@ -44,21 +45,21 @@ IoT Hub ofrece un canal de comunicación seguro para que los dispositivos envíe
 
 * Varios tipos de autenticación son compatibles con varias funcionalidades de dispositivos:
 
-  * Autenticación basada en token de SAS para empezar rápidamente con la solución de IoT.
+  * La autenticación basada en token de SAS permite empezar rápidamente con la solución de IoT.
 
-  * Autenticación de certificado X.509 individual para una autenticación segura basada en estándares.
+  * La autenticación de certificado X.509 individual está disponible para una autenticación segura basada en estándares.
 
-  * Autenticación X.509 CA para una inscripción básica basada en estándares.
+  * La autenticación CA X.509 se puede utilizar para una inscripción básica basada en estándares.
 
 ## <a name="route-device-data"></a>Enrutar datos del dispositivo
 
 La funcionalidad integrada de redirección de mensajes le ofrece flexibilidad para configurar distribuciones ramificadas de mensajes basadas en reglas de manera automática:
 
-* Use el [enrutamiento de mensajes](iot-hub-devguide-messages-d2c.md) para controlar dónde envía el centro los datos de telemetría del dispositivo.
+* El [enrutamiento de mensajes](iot-hub-devguide-messages-d2c.md) se utiliza para controlar dónde envía el centro los datos de telemetría del dispositivo.
 
 * Enrutar mensajes a varios puntos de conexión no tiene ningún costo adicional.
 
-* Las reglas de enrutamiento sin código sustituyen los códigos de distribuidor de mensajes personalizados.
+* Las reglas de enrutamiento se pueden configurar para dirigir automáticamente los mensajes en función de su contenido sin tener que escribir código.
 
 ## <a name="integrate-with-other-services"></a>Integración con otros servicios
 
@@ -84,7 +85,7 @@ Puede administrar los dispositivos conectados a IoT Hub con una matriz de funcio
 
 ## <a name="make-your-solution-highly-available"></a>Hacer que la solución tenga alta disponibilidad
 
-Hay un [Acuerdo de Nivel de Servicio para IoT Hub](https://azure.microsoft.com/support/legal/sla/iot-hub/) al 99,9 %. En el [SLA de Azure](https://azure.microsoft.com/support/legal/sla/) completo se explica la disponibilidad garantizada de Azure como un conjunto.
+El [Acuerdo de Nivel de Servicio de IoT Hub](https://azure.microsoft.com/support/legal/sla/iot-hub/) es del 99,9 %. En el [SLA de Azure](https://azure.microsoft.com/support/legal/sla/) completo se explica la disponibilidad garantizada de Azure como un conjunto.
 
 ## <a name="connect-your-devices"></a>Conectar dispositivos
 
@@ -117,7 +118,7 @@ Si la solución no puede usar ninguno de los protocolos compatibles, puede ampli
 
 ## <a name="quotas-and-limits"></a>Cuotas y límites
 
-Cada suscripción de Azure tiene límites de cuota predeterminados para impedir el abuso del servicio y pueden afectar al ámbito de la solución de IoT. El límite actual es de 50 de centros de IoT Hub por suscripción. Puede solicitar un aumento de la cuota si se pone en contacto con el soporte técnico. Para obtener más información, consulte las [cuotas y limitaciones de IoT Hub](iot-hub-devguide-quotas-throttling.md). Para obtener más información sobre los límites de cuota, vea alguno de los siguientes artículos:
+Las suscripciones de Azure disponen de límites de cuota predeterminados para evitar el uso abusivo del servicio. Estos límites podrían afectar el ámbito de su solución IoT. El límite actual es de 50 de centros de IoT Hub por suscripción. Puede solicitar un aumento de la cuota si se pone en contacto con el soporte técnico. Para obtener más información, consulte las [cuotas y limitaciones de IoT Hub](iot-hub-devguide-quotas-throttling.md). Para obtener más información sobre los límites de cuota, vea alguno de los siguientes artículos:
 
 * [Límites de servicio de suscripción de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md)
 

@@ -1,17 +1,17 @@
 ---
 title: Matriz de compatibilidad para la copia de seguridad de blobs de Azure
-description: Proporciona un resumen de opciones y limitaciones de compatibilidad a la hora de realizar copias de seguridad en blobs de Azure (en versión preliminar).
+description: Proporciona un resumen de opciones y limitaciones de compatibilidad a la hora de realizar copias de seguridad en blobs de Azure.
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 05/05/2021
 ms.custom: references_regions
-ms.openlocfilehash: 12d289fdc3f84e7cbb3489a3ece283179e51772c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: eb923cb38a76e56c1ba60b3863b111aac83eeb7e
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561906"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517683"
 ---
-# <a name="support-matrix-for-azure-blobs-backup-in-preview"></a>Matriz de compatibilidad para la copia de seguridad de blobs de Azure (en versión preliminar)
+# <a name="support-matrix-for-azure-blobs-backup"></a>Matriz de compatibilidad para la copia de seguridad de blobs de Azure
 
 En este artículo se resume la disponibilidad regional, los escenarios admitidos y las limitaciones de la copia de seguridad operativa de blobs.
 
@@ -35,4 +35,4 @@ La copia de seguridad operativa de blobs usa la restauración a un momento dado 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Introducción a la copia de seguridad operativa para blobs de Azure (versión preliminar)](blob-backup-overview.md)
+[Introducción a la copia de seguridad operativa para blobs de Azure](blob-backup-overview.md)

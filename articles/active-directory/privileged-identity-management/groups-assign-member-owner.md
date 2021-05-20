@@ -15,12 +15,12 @@ ms.date: 08/18/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48c4473cfafce1215219251c47bce1d5730645fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84b2d75c03644e346dfad84ae01be31d8589f4ec
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91534427"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481938"
 ---
 # <a name="assign-eligibility-for-a-privileged-access-group-preview-in-privileged-identity-management"></a>Asignación de la elegibilidad para un grupo de acceso con privilegios (versión preliminar) en Privileged Identity Management
 
@@ -56,7 +56,10 @@ Siga estos pasos para hacer que un usuario sea elegible para ser miembro o propi
 
 1. En la lista **Tipo de asignación**, seleccione **Apto** o **Activo**. Los grupos de acceso con privilegios proporcionan dos tipos de asignación diferentes:
 
-    - Las asignaciones tipo **Apto** requieren que el miembro del rol realice una acción para usar el rol. Entre las acciones se puede incluir realizar una comprobación de autenticación multifactor (MFA), proporcionar una justificación de negocios o solicitar la aprobación de los aprobadores designados.
+    - Las asignaciones tipo **Apto** requieren que el miembro del rol realice una acción para usar el rol. Entre las acciones se puede incluir realizar una comprobación de autenticación multifactor (MFA), proporcionar una justificación de negocios o solicitar la aprobación de los aprobadores designados. 
+
+      > [!Important]
+      > En el caso de los grupos de acceso con privilegios que se usan para elevar a roles de Azure AD, Microsoft recomienda requerir un proceso de aprobación para las asignaciones de miembros elegibles. Las asignaciones que se pueden activar sin aprobación pueden plantearle un riesgo de seguridad por parte de otro administrador con permiso para restablecer las contraseñas de un usuario apto.
 
     - Las asignaciones tipo **Activo** no requieren que el miembro realice ninguna acción para usar el rol. Los miembros asignados como activos tienen siempre los privilegios asignados al rol.
 

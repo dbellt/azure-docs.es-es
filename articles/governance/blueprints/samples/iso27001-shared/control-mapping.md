@@ -1,14 +1,14 @@
 ---
 title: Controles del ejemplo de plano técnico de servicios compartidos ISO 27001
 description: Asignación de controles del ejemplo de plano técnico de servicios compartidos ISO 27001. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 02/05/2021
+ms.date: 04/30/2021
 ms.topic: sample
-ms.openlocfilehash: 64266e72bf2aa24ac7fbf70f87f27739709fa0be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c84a1bca5089e2287dac80758092f7377689340b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99626348"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739248"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Asignación de control del ejemplo de plano técnico de servicios compartidos según la norma ISO 27001
 
@@ -178,7 +178,7 @@ Este plano técnico ayuda a administrar y controlar las redes; para ello, asigna
 
 ## <a name="a1321-information-transfer-policies-and-procedures"></a>A.13.2.1 Directivas y procedimientos de transferencia de información
 
-El plano técnico ayuda a garantizar que la transferencia de información con los servicios de Azure es segura; para ello, asigna dos definiciones de [Azure Policy](../../../policy/overview.md) para auditar las conexiones no seguras a las cuentas de almacenamiento y a Redis Cache.
+El plano técnico ayuda a garantizar que la transferencia de información con los servicios de Azure es segura; para ello, asigna dos definiciones de [Azure Policy](../../../policy/overview.md) para auditar las conexiones no seguras a las cuentas de almacenamiento y a Azure Cache for Redis.
 
 - Solo se deben habilitar las conexiones seguras a su instancia de Azure Cache for Redis.
 - Se debe habilitar la transferencia segura a las cuentas de almacenamiento

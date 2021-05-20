@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f45b84360c941e879461500a033ada3642fd5cbb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7af21d294021f7641da6878eeb9a61652bceb7c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101671620"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768110"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Arquitectura de SAP HANA en Azure (instancias grandes)
 
@@ -44,7 +44,7 @@ La arquitectura que se muestra se divide en tres secciones:
   -  [Uso de SAP en máquinas virtuales Windows](./get-started.md?toc=/azure/virtual-machines/linux/toc.json)
   -  [Uso de soluciones de SAP en Azure Virtual Machines](get-started.md)
 
-- **Izquierda**: muestra el hardware con certificación SAP HANA TDI en la demarcación de instancias grandes de Azure. Las unidades de HANA (Instancias grandes) se conectan a las redes virtuales de su suscripción de Azure con la misma tecnología que la empleada para la conectividad entre la infraestructura local y la de Azure. A partir de mayo de 2019, se introdujo una optimización que permite la comunicación entre las unidades de HANA (Instancias grandes) y las máquinas virtuales de Azure sin la participación de la puerta de enlace de ExpressRoute. Esta optimización llamada ExpressRoute Fast Path se muestra en esta arquitectura (líneas rojas). 
+- **Izquierda**: muestra el hardware con certificación SAP HANA TDI en la demarcación de instancias grandes de Azure. Las unidades de HANA (Instancias grandes) se conectan a las redes virtuales de su suscripción de Azure con la misma tecnología que la empleada para la conectividad entre la infraestructura local y la de Azure. A partir de mayo de 2019, se introdujo una optimización que permite la comunicación entre las unidades de HANA (Instancias grandes) y las máquinas virtuales de Azure sin la participación de la puerta de enlace de ExpressRoute. Esta optimización llamada ExpressRoute FastPath se muestra en esta arquitectura (líneas rojas). 
 
 El sello de instancias grandes de Azure en sí combina los componentes siguientes:
 

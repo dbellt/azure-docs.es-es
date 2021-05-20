@@ -3,16 +3,16 @@ title: Ejemplo de plano técnico de CMMC de nivel 3
 description: Introducción al ejemplo de plano técnico de CMMC de nivel 3 Este ejemplo de plano técnico ayuda a los clientes a evaluar determinados controles concretos.
 ms.date: 03/24/2021
 ms.topic: sample
-ms.openlocfilehash: 100e404567f0241e814280650944e620435dc60c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: df3dac17ce91757640f5b437f5915d41c901afc4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145094"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757644"
 ---
 # <a name="cmmc-level-3-blueprint-sample"></a>Ejemplo de plano técnico de CMMC de nivel 3
 
-El ejemplo de plano técnico de nivel 3 de CMMC proporciona mecanismos de protección de la gobernanza mediante [Azure Policy](../../policy/overview.md) que le ayudan a evaluar controles específicos del [marco de certificación del modelo de madurez de ciberseguridad (CMMC)](https://www.acq.osd.mil/cmmc/index.html). Este plano técnico permite a los clientes aplicar un conjunto básico de directivas para cualquier arquitectura implementada en Azure que deba aplicar controles para el marco CMMC de nivel 3.
+En el ejemplo de plano técnico de nivel 3 de CMMC, se proporcionan mecanismos de protección de la gobernanza mediante [Azure Policy](../../policy/overview.md) que le ayudarán a evaluar controles específicos del [marco de certificación del modelo de madurez de ciberseguridad (CMMC)](https://www.acq.osd.mil/cmmc/index.html). Este plano técnico permite a los clientes aplicar un conjunto básico de directivas para cualquier arquitectura implementada en Azure que deba aplicar controles para el marco CMMC de nivel 3.
 
 ## <a name="control-mapping"></a>Asignación de controles
 
@@ -101,7 +101,7 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 
 |Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Descripción|
 |-|-|-|-|
-|CMMC nivel 3|Asignación de directiva|Incluir servidores conectados a Arc al evaluar directivas de configuración de invitado|Al seleccionar "verdadero", acepta que se le cobre mensualmente por máquina conectada a Arc. Para obtener más información, visite https://aka.ms/policy-pricing.|
+|CMMC nivel 3|Asignación de directiva|Incluir servidores conectados a Arc al evaluar directivas de configuración de invitado|Al seleccionar el valor "true", acepta que se le cobre mensualmente por cada máquina conectada a Arc. Para más información, visite https://aka.ms/policy-pricing.|
 |CMMC nivel 3|Asignación de directiva|Lista de usuarios que se deben excluir del grupo de administradores de VM Windows|Lista separada por punto y coma de los usuarios que se deben excluir en el grupo Administradores local; P. ej.: Administrador; miUsuario1; miUsuario2|
 |CMMC nivel 3|Asignación de directiva|Lista de usuarios que deben incluirse en el grupo de administradores de VM de Windows|Lista separada por punto y coma de los usuarios que se deben incluir en el grupo Administradores local. P. ej.: Administrador; miUsuario1; miUsuario2|
 |CMMC nivel 3|Asignación de directiva|Id. del área de trabajo de Log Analytics para la creación de informes del agente de VM.|Id. (GUID) del área de trabajo de Log Analytics en que los agentes de VM deben realizar sus notificaciones.|

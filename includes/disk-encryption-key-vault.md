@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 98922829e83f84078c3d8cadae15844dba194c93
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a8df14dc5fbd3f69f9c4e1b29ddb04c1a04073d9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107800137"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108793479"
 ---
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -37,7 +37,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 
 *Si ya tiene un almacén de claves, puede pasar a la sección [Establecimiento de directivas de acceso avanzadas del almacén de claves](#set-key-vault-advanced-access-policies).*
 
-Cree un almacén de claves mediante el comando [az keyvault create](/cli/azure/keyvault#az_keyvault_create) de la CLI de Azure, el comando [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) de Azure Powershell, [Azure Portal](https://portal.azure.com) o una [plantilla de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
+Cree un almacén de claves mediante el comando [az keyvault create](/cli/azure/keyvault#az_keyvault_create) de la CLI de Azure, el comando [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) de Azure PowerShell, [Azure Portal](https://portal.azure.com) o una [plantilla de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
 
 >[!WARNING]
 > El almacén de claves y las máquinas virtuales deben estar en la misma suscripción. Además, para asegurarse de que los secretos de cifrado no traspasan los límites regionales, Azure Disk Encryption requiere que Key Vault y las máquinas virtuales se encuentren en la misma región. Cree y use un almacén de claves que se encuentre en la misma suscripción y región que las máquinas virtuales que se van a cifrar. 
@@ -126,6 +126,9 @@ Use [az keyvault update](/cli/azure/keyvault#az_keyvault_update) para habilitar 
 
 
 ## <a name="set-up-a-key-encryption-key-kek"></a>Configuración de una clave de cifrado de claves (KEK)
+
+> [!IMPORTANT]
+> La cuenta que se ejecuta para habilitar el cifrado de disco en el almacén de claves debe tener permisos de "lector".
 
 Si desea usar una clave de cifrado de claves (KEK) para una brindar una capa adicional de seguridad para las claves de cifrado, agregue una KEK a su almacén de claves. Cuando se especifica una clave de cifrado de claves, Azure Disk Encryption usa esa clave para encapsular los secretos de cifrado antes de escribirlos en Key Vault.
 

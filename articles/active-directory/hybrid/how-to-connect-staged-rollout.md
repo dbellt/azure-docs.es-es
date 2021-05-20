@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8534d4dd8df1e60e1b341088cbfaaa944ec1221b
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 8460e428239a652d2accb3d1818b0a709dc16c3e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108073402"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758727"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout"></a>Migración a la autenticación en la nube mediante un lanzamiento almacenado preconfigurado
 
@@ -106,11 +106,11 @@ Para información sobre qué cmdlets de PowerShell usar, consulte la [versión p
 
 1. Habilite *Sincronización de hash de contraseña* en la página [Características opcionales](how-to-connect-install-custom.md#optional-features) de Azure AD Connect. 
 
-   ![Captura de pantalla de la página "Características opcionales" de Azure Active Directory Connect](media/how-to-connect-staged-rollout/sr1.png)
+   ![Captura de pantalla de la página "Características opcionales" de Azure Active Directory Connect](media/how-to-connect-staged-rollout/staged-1.png)
 
 1. Asegúrese de que se ha ejecutado un ciclo completo de *sincronización de hash de contraseña* de modo que todos los hash de contraseña de los usuarios se hayan sincronizado con Azure AD. Para comprobar el estado de la *sincronización de hash de contraseña*, puede usar el diagnóstico de PowerShell que se describe en [Solución de problemas de sincronización de hash de contraseñas con la sincronización de Azure AD Connect](tshoot-connect-password-hash-synchronization.md).
 
-   ![Captura de pantalla del registro de solución de problemas de AAD Connect](./media/how-to-connect-staged-rollout/sr2.png)
+   ![Captura de pantalla del registro de solución de problemas de AAD Connect](./media/how-to-connect-staged-rollout/staged-2.png)
 
 Si quiere probar el inicio de sesión de *autenticación de paso a través* con el lanzamiento preconfigurado, siga las instrucciones del trabajo previo de la sección siguiente para habilitarlo.
 
@@ -146,7 +146,7 @@ Para habilitar el *inicio de sesión único de conexión directa*, haga lo sigui
 
 5. Llame a `Get-AzureADSSOStatus | ConvertFrom-Json`. Este comando muestra una lista de bosques de Active Directory (consulte la lista "Dominios") en los que se ha habilitado esta característica. De forma predeterminada, se establece en False en el nivel de inquilino.
 
-   ![Ejemplo de la salida de Windows PowerShell](./media/how-to-connect-staged-rollout/sr3.png)
+   ![Ejemplo de la salida de Windows PowerShell](./media/how-to-connect-staged-rollout/staged-3.png)
 
 6. Llame a `$creds = Get-Credential`. Cuando se le pida, escriba las credenciales del administrador de dominio correspondientes al bosque de Active Directory deseado.
 
@@ -198,24 +198,24 @@ Se han habilitado eventos de auditoría para las diferentes acciones que se real
   >[!NOTE]
   >Se registra un evento de auditoría cuando se activa el *inicio de sesión único de conexión directa* mediante el lanzamiento preconfigurado.
 
-  ![Panel "Create rollout policy for feature" (Crear directiva de implementación de características): pestaña Activity (Actividad)](./media/how-to-connect-staged-rollout/sr7.png)
+  ![Panel "Create rollout policy for feature" (Crear directiva de implementación de características): pestaña Activity (Actividad)](./media/how-to-connect-staged-rollout/staged-7.png)
 
-  ![Panel "Create rollout policy for feature" (Crear directiva de implementación de características): pestaña Modified Properties (Propiedades modificadas)](./media/how-to-connect-staged-rollout/sr8.png)
+  ![Panel "Create rollout policy for feature" (Crear directiva de implementación de características): pestaña Modified Properties (Propiedades modificadas)](./media/how-to-connect-staged-rollout/staged-8.png)
 
 - Evento de auditoría cuando se agrega un grupo a *sincronización de hash de contraseñas*, *autenticación de paso a través* o *inicio de sesión único de conexión directa*.
 
   >[!NOTE]
   >Se registra un evento de auditoría cuando se agrega un grupo a *sincronización de hash de contraseña* en el lanzamiento preconfigurado.
 
-  ![Panel "Add a group to feature rollout" (Agregar un grupo a la implementación de características): pestaña Activity (Actividad)](./media/how-to-connect-staged-rollout/sr9.png)
+  ![Panel "Add a group to feature rollout" (Agregar un grupo a la implementación de características): pestaña Activity (Actividad)](./media/how-to-connect-staged-rollout/staged-9.png)
 
-  ![Panel "Add a group to feature rollout" (Agregar un grupo a la implementación de características): pestaña Modified Properties (Propiedades modificadas)](./media/how-to-connect-staged-rollout/sr10.png)
+  ![Panel "Add a group to feature rollout" (Agregar un grupo a la implementación de características): pestaña Modified Properties (Propiedades modificadas)](./media/how-to-connect-staged-rollout/staged-10.png)
 
 - Evento de auditoría cuando un usuario que se agregó al grupo está habilitado para el lanzamiento preconfigurado.
 
-  ![Panel "Add user to feature rollout" (Agregar un usuario a la implementación de características): pestaña Activity (Actividad)](media/how-to-connect-staged-rollout/sr11.png)
+  ![Panel "Add user to feature rollout" (Agregar un usuario a la implementación de características): pestaña Activity (Actividad)](media/how-to-connect-staged-rollout/staged-11.png)
 
-  ![Panel "Add user to feature rollout" (Agregar un usuario a la implementación de características): pestaña Taget(s) (Destinos)](./media/how-to-connect-staged-rollout/sr12.png)
+  ![Panel "Add user to feature rollout" (Agregar un usuario a la implementación de características): pestaña Taget(s) (Destinos)](./media/how-to-connect-staged-rollout/staged-12.png)
 
 ## <a name="validation"></a>Validación
 
@@ -236,6 +236,11 @@ Para probar el inicio de sesión con *inicio de sesión único de conexión dire
 1. Asegúrese de que el inicio de sesión se muestra correctamente en el [informe de actividad de inicio de sesión de Azure AD](../reports-monitoring/concept-sign-ins.md) mediante el filtrado por el nombre principal de usuario.
 
    Para realizar un seguimiento de los inicios de sesión de los usuarios seleccionados para el lanzamiento preconfigurado que se siguen produciendo en los Servicios de federación de Active Directory (AD FS), siga las instrucciones que se indican en [Solución de problemas de AD FS: eventos y registro](/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Consulte la documentación del proveedor para saber cómo comprobar esto en los proveedores de federación de terceros.
+
+## <a name="monitoring"></a>Supervisión
+Puede supervisar los usuarios y grupos agregados o quitados de los lanzamientos preconfigurados y los inicios de sesión de los usuarios durante el lanzamiento preconfigurado mediante los nuevos libros de autenticación híbrida de Azure Portal.
+
+ ![Libros de autenticación híbrida](./media/how-to-connect-staged-rollout/staged-13.png)
 
 ## <a name="remove-a-user-from-staged-rollout"></a>Eliminación de un usuario del lanzamiento preconfigurado
 
@@ -259,3 +264,5 @@ A. Sí. Para información sobre cómo usar PowerShell para realizar el lanzamien
 - [Versión preliminar de Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout )
 - [Cambio del método de inicio de sesión a la sincronización de hash de contraseña](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
 - [Cambio del método de inicio de sesión a la autenticación de paso a través](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+- [Guía interactiva de lanzamiento preconfigurado](https://mslearn.cloudguides.com/en-us/guides/Test%20migration%20to%20cloud%20authentication%20using%20staged%20rollout%20in%20Azure%20AD)
+

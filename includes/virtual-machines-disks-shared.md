@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/14/2020
+ms.date: 05/10/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 74c77356df4f35461a8b9f1459712cdcf7f77cbf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77075388b28878f7256639489ef1f83a961f5a6e
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95562576"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738359"
 ---
 Los discos compartidos de Azure son una nueva característica de Azure Managed Disks que permite adjuntar un disco administrado en varias máquinas virtuales (VM) al mismo tiempo. Si adjunta un disco administrado en varias VM, podrá implementar nuevas aplicaciones en clúster o migrar las existentes a Azure.
 
@@ -46,6 +46,7 @@ Los discos compartidos de Azure se admiten en Windows Server 2008 y versiones m�
 Entre las aplicaciones populares que se ejecutan en WSFC se incluyen:
 
 - [Creación de una FCI con discos compartidos de Azure (SQL Server en VM de Azure)](../articles/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
+    - [Migración de la instancia del clúster de conmutación por error a SQL Server en máquinas virtuales de Azure con discos compartidos](../articles/azure-sql/migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md)
 - Servidor de archivos de escalabilidad horizontal (SoFS) [plantilla] (https://aka.ms/azure-shared-disk-sofs-template)
 - ASCS/SCS de SAP [plantilla] (https://aka.ms/azure-shared-disk-sapacs-template)
 - Servidor de archivos para uso general (carga de trabajo IW)

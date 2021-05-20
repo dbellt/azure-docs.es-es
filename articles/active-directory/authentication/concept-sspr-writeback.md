@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b8a84da331568d36b6f6910054fdb2aea76f490
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: a5b8f1404e95ed2ccceb8400fdabeff2d60b6706
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530338"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108766122"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>¿Cómo funciona la escritura diferida del autoservicio de restablecimiento de contraseña en Azure Active Directory?
 
@@ -149,7 +149,7 @@ Las contraseñas no se vuelven a escribir en ninguna de las situaciones siguient
 * **Operaciones de usuario final no admitidas**
    * Cualquier usuario final que restablezca su propia contraseña mediante PowerShell versión 1, versión 2 o Microsoft Graph API.
 * **Operaciones de administrador no admitidas**
-   * Cualquier operación de restablecimiento de contraseña del usuario final que inicie el administrador desde PowerShell versión 1, versión 2 o API de Microsoft Graph (se admite [API de Microsoft Graph](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http)).
+   * Cualquier restablecimiento de contraseña del usuario final que inicie el administrador desde PowerShell, versión 1 o versión 2.
    * Cualquier operación de restablecimiento de contraseña del usuario final que inicie el administrador desde el [Centro de administración de Microsoft 365](https://admin.microsoft.com).
    * Ningún administrador puede usar la herramienta de restablecimiento de contraseña para restablecer su propia contraseña para la escritura diferida de contraseñas.
 

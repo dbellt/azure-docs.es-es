@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 02/02/2021
+ms.date: 05/08/2021
 ms.author: alkohli
-ms.openlocfilehash: f512b4415f4a83e779a8f9bf790ba2806e3b05c5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6323a077596a7ed13384bfbaace929b270c2d3f5
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99526337"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109754486"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Uso del envío autoadministrado para Azure Data Box Disk en Azure Portal
 
 En este artículo se describen las tareas de envío autoadministradas para pedir, recoger y entregar un dispositivo Azure Data Box Disk. Puede administrar Data Box Disk mediante Azure Portal.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 El envío autoadministrado está disponible como opción cuando [realiza un pedido de Azure Data Box Disk](data-box-disk-deploy-ordered.md). Solo está disponible en las siguientes regiones:
 
@@ -32,6 +32,7 @@ El envío autoadministrado está disponible como opción cuando [realiza un pedi
 * Corea del Sur
 * Sudáfrica
 * India (versión preliminar)
+* Brasil
 
 ## <a name="use-self-managed-shipping"></a>Uso del envío autoadministrado
 
@@ -55,34 +56,68 @@ Al realizar un pedido de Data Box Disk, puede elegir la opción de envío autoad
 
    ![Programación de la recogida](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-02c.png)
 
+   **Instrucciones para Brasil:** si va a programar una recogida de dispositivos en Brasil, incluya la siguiente información en el correo electrónico. El centro de datos programará la recogida después de recibir una `Nota Fiscal` de entrada, que puede tardar hasta 4 días laborables.
+
+   ```
+   Subject: Request Azure Data Box Disk pickup for order: <ordername>
+
+   - Order name
+   - Company name
+   - Company legal name (if different) 
+   - Tax ID 
+   - Address 
+   - Country 
+   - Phone number 
+   - Contact name of the person who will pick up the Data Box Disk (A government-issued photo ID will be required to validate the contact’s identity upon arrival.)   
+   ```
+
 6. Una vez que haya programado la recogida del dispositivo, puede ver el código de autorización en **Programar recogida para Azure**.
 
    ![Captura de pantalla del cuadro de diálogo Programar recogida para Azure con el código de autorización del cuadro de texto Recogida seleccionado.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
 
-   Tome nota de este código de autorización.
+   Tome nota de este código de autorización. La persona que recoja el dispositivo deberá tenerlo.
 
-   Según los requisitos de seguridad, en el momento de programar la recogida es necesario presentar el nombre de la persona que se encargará de hacerlo.
+   Según los requisitos de seguridad, en el momento de programar la recogida es necesario proporcionar el nombre y los detalles de la persona que se encargará de la recogida. Usted o la persona de contacto deben llevar un documento de identidad con fotografía aprobado por el Gobierno, que se validará en el centro de datos.
 
-   También debe proporcionar detalles de quién acudirá al centro de datos a recoger el dispositivo. Usted o el punto de contacto deben llevar un identificador con una foto aprobado por el gobierno, que se validará en el centro de datos.
+7. Recoja el dispositivo Data Box Disk en el centro de datos a la hora programada.
 
-   La persona que recoge el dispositivo también debe tener el código de autorización. El código de autorización es exclusivo de una recogida o una entrega y se valida en el centro de datos.
+   La persona que recoja el dispositivo debe proporcionar lo siguiente:
 
-7. El pedido cambia automáticamente al estado **Recogido** una vez que el dispositivo se ha recogido en el centro de datos.
+   * Una copia de la confirmación por correo electrónico para visitar el centro de datos remitida por Operaciones de Microsoft.
+
+   * El código de autorización. El número de referencia es exclusivo de una recogida o una entrega y se valida en el centro de datos.
+
+   * Documento de identidad con fotografía aprobado por el Gobierno. Este documento se validará en el centro de datos y se deben proporcionar el nombre y los detalles de la persona que recogerá el dispositivo cuando se programe la recogida.
+
+   > [!NOTE]
+   > Si no se acude a una cita programada, deberá programar una nueva cita.
+
+8. El pedido cambia automáticamente al estado **Recogido** una vez que el dispositivo se ha recogido en el centro de datos.
 
    ![Picked up (Recogido)](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-ready-disk-01b.png)
 
-8. Después de recogerlo, podrá copiar los datos en Data Box Disk en su sitio. Una vez completada la copia, prepare para enviar el dispositivo Data Box Disk.
+9. Después de recogerlo, podrá copiar los datos en Data Box Disk en su sitio. Una vez completada la copia, prepare para enviar el dispositivo Data Box Disk.
 
    Una vez finalizada la copia de los datos, póngase en contacto con el departamento de operaciones para programar una cita para la entrega. Tendrá que compartir los detalles de la persona que acudirá al centro de datos para entregar el disco. El centro de recursos también tendrá que verificar el código de autorización en el momento de la entrega. Encontrará el código de autorización para la entrega en Azure Portal en la sección **Schedule drop off** (Programar entrega).
 
    > [!NOTE]
    > No comparta el código de autorización por correo electrónico. Este solo debe verificarse en el centro de datos durante la entrega.
 
-9. Una vez recibida la cita para una entrega, el pedido debe encontrarse en el estado **Listo para recibir el paquete en el centro de datos de Azure** en Azure Portal.
+   **Instrucciones para Brasil:** para programar la devolución de un dispositivo en Brasil, envíe un correo electrónico a [adbops@microsoft.com](mailto:adbops@microsoft.com) con la siguiente información:
 
-   ![Captura de pantalla del cuadro de diálogo Agregar dirección de envío, con las opciones Enviar con y la opción Agregar dirección de envío seleccionadas.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
+   ```
+   Subject: Request Azure Data Box Disk drop-off for order: <ordername>
 
-10. Después de verificar el identificador y el código de autorización y de entregar el dispositivo en el centro de datos, el estado del pedido debe ser **Recibido**.
+   - Order name
+   - Contact name of the person who will drop off the Data Box Disk (A government-issued photo ID will be required to validate the contact’s identity upon arrival.) 
+   - Inbound Nota Fiscal (A copy of the inbound Nota Fiscal will be required at drop-off.)   
+   ```
+
+10. Una vez recibida la cita para una entrega, el pedido debe encontrarse en el estado **Listo para recibir el paquete en el centro de datos de Azure** en Azure Portal.
+
+    ![Captura de pantalla del cuadro de diálogo Agregar dirección de envío, con las opciones Enviar con y la opción Agregar dirección de envío seleccionadas.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
+
+11. Después de verificar el identificador y el código de autorización y de entregar el dispositivo en el centro de datos, el estado del pedido debe ser **Recibido**.
 
     ![Recepción completada](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-received-01a.png)
 

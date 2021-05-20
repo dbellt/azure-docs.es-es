@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 68d1e9744d937cf80327c3f41cc69f4af97d3400
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a8abb31b2442a8823437bb155b5b9970db1d181
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98600191"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742272"
 ---
 # <a name="face-detection-and-attributes"></a>Atributos y detección de caras
 
@@ -39,6 +39,7 @@ Las coordenadas de los puntos se devuelven en unidades de píxeles.
 
 Los atributos son un conjunto de características que la API [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) puede, opcionalmente, detectar. Se pueden detectar los siguientes atributos:
 
+* **Accesorios**. Si la cara determinada tiene accesorios. Este atributo devuelve posibles accesorios, incluidos artículos para la cabeza, gafas y mascarilla, con una puntuación de confianza entre cero y uno para cada accesorio.
 * **Edad**. Edad estimada en años de una cara determinada.
 * **Desenfoque**. Desenfoque de la cara de la imagen. Este atributo devuelve un valor entre cero y uno, así como una clasificación informal de bajo, medio o alto.
 * **Emoción**. Lista de emociones con una confianza de detección para la cara determinada. Las puntuaciones de confianza están normalizadas y las puntuaciones de todas las emociones suman uno. Las emociones detectadas son felicidad, tristeza, neutralidad, ira, desprecio, asco, sorpresa y temor.
@@ -51,6 +52,7 @@ Los atributos son un conjunto de características que la API [Face - Detect](htt
 
     ![Cabeza con ejes de rotación alrededor del eje x (pitch), de rotación y de rotación alrededor del eje y (yaw) etiquetados](../Images/headpose.1.jpg)
 * **Maquillaje**. Si la cara está maquillada. Este atributo devuelve un valor booleano para eyeMakeup y lipMakeup.
+* **Mascarilla**.  Si la cara lleva una mascarilla. Este atributo devuelve un posible tipo de mascarilla y un valor booleano para indicar si la nariz y la boca están cubiertas.
 * **Ruido**. Ruido visual detectado en la cara de la imagen. Este atributo devuelve un valor entre cero y uno, así como una clasificación informal de bajo, medio o alto.
 * **Oclusión**. Si hay objetos que bloquean partes de la cara. Este atributo devuelve un valor booleano para eyeOccluded, foreheadOccluded y mouthOccluded.
 * **Sonrisa**. Expresión sonriente de la cara determinada. Este valor se encuentra entre cero para no sonriente y uno para muy sonriente.

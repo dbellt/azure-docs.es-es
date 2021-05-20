@@ -4,17 +4,17 @@ description: Aprenda a crear un ámbito de cifrado para aislar los datos de blob
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/26/2021
+ms.date: 05/10/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 656443b0bc9d0e45f43634b1b4c21145de7a5bb5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 1fc2f47c2cd95722bc7659a1bfb2354d00f3b9c2
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107792550"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684454"
 ---
 # <a name="create-and-manage-encryption-scopes"></a>Creación y administración de ámbitos de cifrado
 
@@ -41,7 +41,8 @@ Para crear un ámbito de cifrado en Azure Portal, siga estos pasos:
 1. En el panel **Crear un ámbito de cifrado**, escriba un nombre para el ámbito nuevo.
 1. Seleccione el tipo de compatibilidad de clave de cifrado deseado, ya sea **Claves administradas por Microsoft** o **Claves administradas por el cliente**.
     - Si ha seleccionado **Microsoft-managed keys** (Claves administradas por Microsoft), haga clic en **Crear** para crear el ámbito de cifrado.
-    - Si ha seleccionado **Claves administradas por el cliente**, seleccione una suscripción y especifique un almacén de claves o un HSM administrado y una clave para usar en este ámbito de cifrado, tal como se muestra en la imagen siguiente.
+    - Si ha seleccionado **Claves administradas por el cliente**, seleccione una suscripción y especifique un almacén de claves o un HSM administrado y una clave para usar en este ámbito de cifrado.
+1. Si el cifrado de infraestructura está habilitado para la cuenta de almacenamiento, se habilitará automáticamente para el ámbito de cifrado nuevo. De lo contrario, puede elegir si desea habilitar el cifrado de infraestructura para el ámbito de cifrado.
 
     :::image type="content" source="media/encryption-scope-manage/create-encryption-scope-customer-managed-key-portal.png" alt-text="Captura de pantalla en la que se muestra cómo crear un ámbito de cifrado en Azure Portal":::
 
@@ -51,7 +52,9 @@ Para crear un ámbito de cifrado con PowerShell, instale la versión 3.4.0 del 
 
 ### <a name="create-an-encryption-scope-protected-by-microsoft-managed-keys"></a>Creación de un ámbito de cifrado protegido mediante claves administradas por Microsoft
 
-Para crear un nuevo ámbito de cifrado protegido mediante claves administradas por Microsoft, llame al comando **New-AzStorageEncryptionScope** con el parámetro `-StorageEncryption`.
+Para crear un nuevo ámbito de cifrado protegido mediante claves administradas por Microsoft, llame al comando [New-AzStorageEncryptionScope](/powershell/module/az.storage/new-azstorageencryptionscope) con el parámetro `-StorageEncryption`.
+
+Si el cifrado de infraestructura está habilitado para la cuenta de almacenamiento, se habilitará automáticamente para el ámbito de cifrado nuevo. De lo contrario, puede elegir si desea habilitar el cifrado de infraestructura para el ámbito de cifrado. Para crear el ámbito nuevo con el cifrado de infraestructura habilitado, incluya el parámetro `-RequireInfrastructureEncryption`.
 
 No olvide reemplazar los valores del marcador de posición en el ejemplo por los propios:
 
@@ -93,7 +96,9 @@ Set-AzKeyVaultAccessPolicy `
     -PermissionsToKeys wrapkey,unwrapkey,get
 ```
 
-Después, llame al comando **New-AzStorageEncryptionScope** con el parámetro `-KeyvaultEncryption` y especifique el URI de la clave. La inclusión de la versión de la clave en el URI de clave es opcional. Si omite la versión de la clave, el ámbito de cifrado usará automáticamente la versión más reciente de la clave. Si incluye la versión de la clave, debe actualizarla manualmente para usar otra versión.
+Después, llame al comando [New-AzStorageEncryptionScope](/powershell/module/az.storage/new-azstorageencryptionscope) con el parámetro `-KeyvaultEncryption` y especifique el URI de la clave. La inclusión de la versión de la clave en el URI de clave es opcional. Si omite la versión de la clave, el ámbito de cifrado usará automáticamente la versión más reciente de la clave. Si incluye la versión de la clave, debe actualizarla manualmente para usar otra versión.
+
+Si el cifrado de infraestructura está habilitado para la cuenta de almacenamiento, se habilitará automáticamente para el ámbito de cifrado nuevo. De lo contrario, puede elegir si desea habilitar el cifrado de infraestructura para el ámbito de cifrado. Para crear el ámbito nuevo con el cifrado de infraestructura habilitado, incluya el parámetro `-RequireInfrastructureEncryption`.
 
 No olvide reemplazar los valores del marcador de posición en el ejemplo por los propios:
 
@@ -111,7 +116,11 @@ Para crear un ámbito de cifrado con la CLI de Azure, instale primero la versió
 
 ### <a name="create-an-encryption-scope-protected-by-microsoft-managed-keys"></a>Creación de un ámbito de cifrado protegido mediante claves administradas por Microsoft
 
-Para crear un nuevo ámbito de cifrado protegido mediante claves administradas por Microsoft, llame al comando [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_create) y especifique el parámetro `--key-source` como `Microsoft.Storage`. Recuerde reemplazar los valores de marcador de posición por los propios:
+Para crear un nuevo ámbito de cifrado protegido mediante claves administradas por Microsoft, llame al comando [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_create) y especifique el parámetro `--key-source` como `Microsoft.Storage`.
+
+Si el cifrado de infraestructura está habilitado para la cuenta de almacenamiento, se habilitará automáticamente para el ámbito de cifrado nuevo. De lo contrario, puede elegir si desea habilitar el cifrado de infraestructura para el ámbito de cifrado. Para crear el ámbito nuevo con el cifrado de infraestructura habilitado, incluya el parámetro `--require-infrastructure-encryption` y establezca el valor en `true`.
+
+Recuerde reemplazar los valores de marcador de posición por los propios:
 
 ```azurecli-interactive
 az storage account encryption-scope create \
@@ -122,8 +131,6 @@ az storage account encryption-scope create \
 ```
 
 ### <a name="create-an-encryption-scope-protected-by-customer-managed-keys"></a>Creación de un ámbito de cifrado protegido mediante claves administradas por el cliente
-
-Para crear un nuevo ámbito de cifrado protegido mediante claves administradas por Microsoft, llame al comando [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_create) y especifique el parámetro `--key-source` como `Microsoft.Storage`. Recuerde reemplazar los valores de marcador de posición por los propios:
 
 Para crear un ámbito de cifrado protegido mediante claves administradas por el cliente en un almacén de claves o un HSM administrado, configure en primer lugar las claves administradas por el cliente para la cuenta de almacenamiento. Debe asignar una identidad administrada a la cuenta de almacenamiento y, después, usar esta identidad a fin de configurar la directiva de acceso para el almacén de claves, de forma que la cuenta de almacenamiento tenga permisos de acceso. Para más información, consulte [Claves administradas por el cliente para el cifrado de Azure Storage](../common/customer-managed-keys-overview.md).
 
@@ -153,7 +160,9 @@ az keyvault set-policy \
     --key-permissions get unwrapKey wrapKey
 ```
 
-Después, llame al comando **az storage account encryption-scope create** con el parámetro `--key-uri` y especifique el URI de la clave. La inclusión de la versión de la clave en el URI de clave es opcional. Si omite la versión de la clave, el ámbito de cifrado usará automáticamente la versión más reciente de la clave. Si incluye la versión de la clave, debe actualizarla manualmente para usar otra versión.
+Después, llame al comando [az storage account encryption-scope](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_create) con el parámetro `--key-uri` y especifique el URI de la clave. La inclusión de la versión de la clave en el URI de clave es opcional. Si omite la versión de la clave, el ámbito de cifrado usará automáticamente la versión más reciente de la clave. Si incluye la versión de la clave, debe actualizarla manualmente para usar otra versión.
+
+Si el cifrado de infraestructura está habilitado para la cuenta de almacenamiento, se habilitará automáticamente para el ámbito de cifrado nuevo. De lo contrario, puede elegir si desea habilitar el cifrado de infraestructura para el ámbito de cifrado. Para crear el ámbito nuevo con el cifrado de infraestructura habilitado, incluya el parámetro `--require-infrastructure-encryption` y establezca el valor en `true`.
 
 No olvide reemplazar los valores del marcador de posición en el ejemplo por los propios:
 
@@ -172,6 +181,8 @@ Para obtener información sobre cómo configurar el cifrado de Azure Storage con
 
 - [Configuración del cifrado con claves administradas por el cliente almacenadas en Azure Key Vault](../common/customer-managed-keys-configure-key-vault.md)
 - [Configuración del cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault (versión preliminar)](../common/customer-managed-keys-configure-key-vault-hsm.md).
+
+Para más información sobre el cifrado de infraestructura, consulte [Creación de una cuenta de almacenamiento con el cifrado de infraestructura para realizar el cifrado doble de datos](../common/infrastructure-encryption-enable.md).
 
 ## <a name="list-encryption-scopes-for-storage-account"></a>Enumeración de los ámbitos de cifrado para la cuenta de almacenamiento
 
@@ -418,3 +429,4 @@ az storage account encryption-scope update \
 - [Cifrado de Azure Storage para datos en reposo](../common/storage-service-encryption.md)
 - [Ámbitos de cifrado para Blob Storage](encryption-scope-overview.md)
 - [Claves administradas por el cliente para el cifrado de Azure Storage](../common/customer-managed-keys-overview.md)
+- [Habilitación del cifrado de infraestructura para el cifrado doble de datos](../common/infrastructure-encryption-enable.md)

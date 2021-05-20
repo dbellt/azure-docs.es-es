@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 03/31/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 5700447e170bebf40224366970b00814b1be3052
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 7dc6827f7ebd7b034ffc00906629bafe04036fbd
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108296502"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789576"
 ---
 # <a name="azure-digital-twins-query-language-reference-join-clause"></a>Referencia del lenguaje de consulta de Azure Digital Twins: cláusula JOIN
 
@@ -80,7 +80,7 @@ Considere la posibilidad de utilizar la siguiente consulta, que ilustra un recor
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="NoOuterJoinExample":::
 
-Si el objeto `Building1` no contiene ningún suelo, esta consulta devolverá un conjunto de resultados vacío (en lugar de devolver una fila con un valor para Building y `undefined` para Floor).
+Si Building1 no contiene ninguna planta, esta consulta devolverá un conjunto de resultados vacío (en lugar de devolver una fila con un valor para Building y `undefined` para Floor).
 
 ### <a name="twins-required"></a>Gemelos necesarios
 

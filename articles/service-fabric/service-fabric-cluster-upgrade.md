@@ -3,12 +3,12 @@ title: Actualización de clústeres de Azure Service Fabric
 description: Más información sobre las opciones para actualizar el clúster de Azure Service Fabric
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.openlocfilehash: 636d4cb11f7cc6780d560d3d0043a89c69840a4f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9af6a9b4d515fcede5bc0444a93ae8118077e7dd
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731124"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738759"
 ---
 # <a name="upgrading-and-updating-azure-service-fabric-clusters"></a>Actualización de clústeres de Azure Service Fabric
 
@@ -116,7 +116,7 @@ Pueden personalizarse muchas opciones de configuración diferentes en un clúste
 
 ### <a name="upgrading-os-images-for-cluster-nodes"></a>Actualización de imágenes del sistema operativo para nodos de clúster
 
-Se recomienda habilitar las actualizaciones automáticas de imágenes del sistema operativo para los nodos de clúster de Service Fabric. Para ello, hay que seguir varios pasos y cumplir con los requisitos del clúster. Otra opción es utilizar la aplicación de orquestación de revisiones (POA), una aplicación de Service Fabric que automatiza la aplicación de revisiones del sistema operativo en un clúster de Service Fabric sin tiempo de inactividad. Para más información sobre estas opciones, consulte [Revisión del sistema operativo Windows en el clúster de Service Fabric](service-fabric-patch-orchestration-application.md).
+Se recomienda habilitar las actualizaciones automáticas de imágenes del sistema operativo para los nodos de clúster de Service Fabric. Para ello, hay que seguir varios pasos y cumplir con los requisitos del clúster. Otra opción es utilizar la aplicación de orquestación de revisiones (POA), una aplicación de Service Fabric que automatiza la aplicación de revisiones del sistema operativo en un clúster de Service Fabric sin tiempo de inactividad. Para más información sobre estas opciones, consulte [Revisión del sistema operativo Windows en el clúster de Service Fabric](how-to-patch-cluster-nodes-windows.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 02/05/2021
-ms.openlocfilehash: 7879db0e059358a2df550a8c82f3b692597de8f6
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: e1868794f7e47ccce3efa36b7954a1a2a704e8d6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889005"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739032"
 ---
 # <a name="how-to-create-and-manage-files-in-your-workspace"></a>Cómo crear y administrar archivos en el área de trabajo
 
@@ -58,7 +58,7 @@ Para crear un archivo en una carpeta diferente:
 
 El área de trabajo contiene una carpeta **Sample notebooks** con cuadernos diseñados para ayudarle a explorar el SDK y que sirven de ejemplo para sus propios proyectos de aprendizaje automático.   Clone estos cuadernos en su propia carpeta para ejecutarlos y editarlos.  
 
-Para obtener un ejemplo, vea [Tutorial: Creación del primer experimento de Machine Learning](tutorial-1st-experiment-sdk-setup.md#azure).
+Para obtener un ejemplo, vea [Tutorial: Creación del primer experimento de Machine Learning](tutorial-train-models-with-aml.md#azure).
 
 ## <a name="share-files"></a>Uso compartido de archivos
 

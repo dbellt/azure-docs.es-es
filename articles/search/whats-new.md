@@ -6,18 +6,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 04/07/2021
+ms.date: 05/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8db1a671904233098610a9ba55ce260e6214c38c
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: f636089ff37bd87802ac0335b65d20dc446290d3
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028509"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517935"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novedades de Azure Cognitive Search
 
 Conozca las novedades del servicio. Marque esta página para mantenerse actualizado con el servicio. Consulte la [lista de características en versión preliminar](search-api-preview.md) para ver todas las características que aún no están disponibles con carácter general.
+
+## <a name="april-2021"></a>Abril de 2021
+
+|Característica&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Descripción | Disponibilidad  |
+|------------------------------|---------------|---------------|
+| [Compatibilidad con Gremlin API](search-howto-index-cosmosdb-gremlin.md) | Para la indexación basada en indexador, ahora puede crear un origen de datos que recupere el contenido de Cosmos DB al que se accede mediante Gremlin API. | Versión preliminar pública ([bajo solicitud](https://aka.ms/azure-cognitive-search/indexer-preview)) mediante api-version=2020-06-30-Preview. |
 
 ## <a name="march-2021"></a>Marzo de 2021
 

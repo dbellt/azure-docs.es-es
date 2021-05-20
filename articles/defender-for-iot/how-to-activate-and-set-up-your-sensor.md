@@ -1,14 +1,14 @@
 ---
 title: Activación y configuración del sensor
 description: En este artículo se describe cómo iniciar sesión en una consola de sensor y cómo activarla.
-ms.date: 1/12/2021
+ms.date: 04/29/2021
 ms.topic: how-to
-ms.openlocfilehash: b040a87c2eae36e6049b4e1d0cf51ecb2cfde108
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 5e1e710f4f4eae844bbe18887bd3c3a1ab9f1da3
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385125"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656963"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Activación y configuración del sensor
 
@@ -42,7 +42,7 @@ El sensor se incorporó a Azure Defender para IoT en un modo de administración 
 
 | Tipo de modo | Descripción |
 |--|--|
-| **Modo conectado a la nube** | La información que detecta el sensor se muestra en la consola del sensor. Además, se proporciona información de alertas mediante el centro de IoT, que puede compartirse con otros servicios de Azure, como Azure Sentinel. |
+| **Modo conectado a la nube** | La información que detecta el sensor se muestra en la consola del sensor. Además, se proporciona información de alertas mediante el centro de IoT, que puede compartirse con otros servicios de Azure, como Azure Sentinel. También puede habilitar las actualizaciones automáticas de inteligencia sobre amenazas. |
 | **Modo conectado de manera local** | La información que detecta el sensor se muestra en la consola del sensor. La información de detección también se comparte con la consola de administración local si el sensor está conectado a ella. |
 
 Se generó y descargó un archivo de activación conectado de manera local o conectado a la nube para este sensor durante la incorporación. El archivo de activación contiene instrucciones para el modo de administración del sensor. *Se debe cargar un archivo de activación único para cada sensor que implemente.*  La primera vez que inicie sesión, deberá cargar el archivo de activación correspondiente a este sensor.
@@ -71,7 +71,7 @@ La consola admite los siguientes tipos de certificado:
 
 ### <a name="sign-in-and-activate-the-sensor"></a>Inicio de sesión y activación del sensor
 
-Para iniciar sesión y realizar la activación, haga lo siguiente:
+**Para iniciar sesión y realizar la activación, haga lo siguiente:**
 
 1. Vaya a la consola del sensor desde el explorador web mediante la dirección IP definida durante la instalación. Se abre el cuadro de diálogo de inicio de sesión.
 
@@ -112,13 +112,35 @@ Los parámetros de configuración de red del sensor se definieron durante la ins
 
 Puede que quiere actualizar esta información antes de activar el sensor. Por ejemplo, quizá deba cambiar los parámetros preconfigurados que ha definido Arrow. También puede definir la configuración del proxy antes de activar el sensor.
 
-Para actualizar los parámetros de configuración de la red del sensor, haga lo siguiente:
+**Para actualizar los parámetros de configuración de la red del sensor, haga lo siguiente:**
 
 1. Seleccione el vínculo **Sensor Network Configuration** (Configuración de red del sensor) en el cuadro de diálogo **Activación**.
 
    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/editable-network-configuration-screen-v2.png" alt-text="Configuración de red del sensor.":::
 
 2. Se muestran los parámetros definidos durante la instalación. También está disponible la opción para definir el proxy. Actualice todos los valores necesarios y seleccione **Guardar**.
+
+### <a name="activate-an-expired-license-versions-under-100"></a>Activación de una licencia expirada (versiones inferiores a la 10.0)
+
+Para los usuarios con versiones anteriores a la 10.0, la licencia puede expirar y se mostrará la siguiente alerta. 
+
+:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/activation-popup.png" alt-text="Cuando expire la licencia, deberá actualizarla a través del archivo de activación.":::
+
+**Para activar la licencia:**
+
+1. Abra un caso para el equipo de [soporte técnico](https://ms.portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support).
+
+1. Proporcione al equipo de soporte técnico el número del identificador de activación.
+
+1. El equipo de soporte técnico le suministrará una nueva información de licencia en forma de una cadena de letras.
+
+1. Lea los términos y condiciones, y seleccione la casilla de aprobación.
+
+1. Pegue la cadena en el espacio proporcionado.
+
+    :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/add-license.png" alt-text="Pegue la cadena en el campo proporcionado.":::
+
+1. Seleccione **Activar**.
 
 ### <a name="subsequent-sign-ins"></a>Inicios de sesión posteriores
 
@@ -156,7 +178,7 @@ Después de ajustar la configuración del sistema, puede permitir que el sensor 
 
 El modo de aprendizaje debe ejecutarse durante aproximadamente dos a seis semanas, según el tamaño de la red y su complejidad. Después de deshabilitar el modo de aprendizaje, toda la actividad que difiera de la actividad de base de referencia desencadenará una alerta.
 
-Para deshabilitar el modo de aprendizaje, haga lo siguiente:
+**Para deshabilitar el modo de aprendizaje, haga lo siguiente:**
 
 - Seleccione **Configuración del sistema** y desactive la opción **Aprendizaje**.
 
@@ -211,6 +233,8 @@ Se accede a las herramientas de la consola desde el menú lateral.
 | Soporte técnico | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Póngase en contacto con el [servicio de soporte técnico de Microsoft](https://support.microsoft.com/) para obtener ayuda. |
 
 ## <a name="see-also"></a>Consulte también
+
+[Investigación y paquetes de inteligencia sobre amenazas](how-to-work-with-threat-intelligence-packages.md)
 
 [Incorporación de sensores](getting-started.md#onboard-a-sensor)
 

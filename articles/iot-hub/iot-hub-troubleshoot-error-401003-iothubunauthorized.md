@@ -11,12 +11,12 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 0e59fa2bcbc2d357857ddef39d990ddee9bc9c90
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 23bd1ce63e3d697a40125c79e802ad3e01915f49
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129466"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487500"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 
@@ -37,6 +37,7 @@ Las solicitudes a IoT Hub producen un error con uno de los siguientes mensajes d
 * Authorization rule '\*' does not allow access for '\*' (La regla de autorización "*" no permite el acceso a "*")
 * Authentication failed for this device, renew token or certificate and reconnect (Error de autenticación para este dispositivo, renueve el token o el certificado y vuelva a realizar la conexión)
 * Thumbprint does not match configuration: Thumbprint: SHA1Hash=\*, SHA2Hash=\*; Configuration: PrimaryThumbprint=\*, SecondaryThumbprint=\* (La huella digital no coincide con la configuración: Thumbprint: SHA1Hash=<1>, SHA2Hash=<2>; Configuration: PrimaryThumbprint=<3>, SecondaryThumbprint=<4>)
+* La entidad de seguridad user@example.com no está autorizada para la operación GET en /exampleOperation debido a que no tiene permisos asignados
 
 ## <a name="cause"></a>Causa
 
@@ -73,6 +74,7 @@ En general, el mensaje de error presentado debe explicar cómo corregir el error
 - Para realizar la autenticación de la huella digital del certificado X.509, la huella digital del certificado del dispositivo se registra con IoT Hub.
 - Que la credencial de autorización tiene el formato correcto para el protocolo utilizado. Para obtener más información, consulte [Control del acceso a IoT Hub](iot-hub-devguide-security.md).
 - La regla de autorización empleada tiene permiso para la operación solicitada.
+- Para los últimos mensajes de error que comienzan por "entidad de seguridad...", este error se puede resolver asignando el nivel correcto de permiso de RBAC de Azure al usuario. Por ejemplo, un propietario de IoT Hub puede asignar el rol "Propietario de datos de IoT Hub", que proporciona todos los permisos. Pruebe este rol para resolver el problema de falta de permisos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

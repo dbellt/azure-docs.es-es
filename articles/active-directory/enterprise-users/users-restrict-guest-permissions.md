@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df4cb32720d80dd23289be7e760c9934e9a8db8a
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 6b93da489d1d2cbaa96ea8ed99b096ea8b7af45e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107501508"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746160"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restricción de los permisos de acceso de invitados (versión preliminar) en Azure Active Directory
 
@@ -34,7 +34,7 @@ Cuando el acceso de invitado está restringido, los invitados solo pueden ver su
 
 ## <a name="permissions-and-licenses"></a>Permisos y licencias
 
-Debe tener en el rol de administrador global para configurar las opciones de colaboración externa. No existen requisitos de licencia adicionales para restringir el acceso de invitado.
+Debe tener el rol Administrador global o Administrador de roles con privilegios para configurar el acceso de usuario invitado. No existen requisitos de licencia adicionales para restringir el acceso de invitado.
 
 ## <a name="update-in-the-azure-portal"></a>Actualización en Azure Portal
 

@@ -3,12 +3,12 @@ title: Información general de Azure Resource Graph
 description: Conozca la forma en que el servicio Azure Resource Graph permite realizar consultas complejas de recursos a escala en suscripciones e inquilinos.
 ms.date: 05/01/2021
 ms.topic: overview
-ms.openlocfilehash: dfbd0aad0ddc7a6b5aa0ccb78429c82f6aa33b3d
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 783f6040191996c1ba8d572be2666e5aeabc76e5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326064"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751596"
 ---
 # <a name="what-is-azure-resource-graph"></a>¿Qué es Azure Resource Graph?
 
@@ -88,7 +88,7 @@ Azure Resource Graph Explorer, que forma parte de Azure Portal, permite ejecutar
 
 Resource Graph admite la CLI de Azure, Azure PowerShell, y el SDK de Azure para Python, entre otros muchos. La consulta se estructura igual para cada lenguaje. Aprenda a habilitar Resource Graph con:
 
-- [Azure Portal y Resource Graph Explorer](./first-query-portal.md) 
+- [Azure Portal y Resource Graph Explorer](./first-query-portal.md)
 - [CLI de Azure](./first-query-azurecli.md#add-the-resource-graph-extension)
 - [Azure PowerShell](./first-query-powershell.md#add-the-resource-graph-module)
 - [Python](./first-query-python.md#add-the-resource-graph-library)

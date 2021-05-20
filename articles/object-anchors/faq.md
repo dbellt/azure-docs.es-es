@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 04/01/2020
 ms.topic: overview
 ms.service: azure-object-anchors
-ms.openlocfilehash: aebc1013dcead6c32dab55512ce915e25f60f94a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1430095861b4e8232127fe6d22b87afe5babcf67
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047582"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750742"
 ---
 # <a name="frequently-asked-questions-about-azure-object-anchors"></a>Preguntas más frecuentes sobre Azure Object Anchors
 
@@ -33,11 +33,11 @@ Para obtener más información, consulte [Introducción a Azure Object Anchors](
 * Fondos claros con un desorden mínimo o nulo.
 * El objeto analizado debe tener una coincidencia 1:1 con el modelo con que se entrenó.
 
-**P: ¿Cuáles son las dimensiones de objeto máximas que se pueden procesar para la ingesta del modelo?**
+**P: ¿Cuáles son las dimensiones de objeto máximas que se pueden procesar para la conversión del modelo?**
 
 **R:** Cada dimensión de un modelo CAD debe tener menos de 10 metros.
 
-**P: ¿Cuál es el tamaño máximo del modelo CAD que se puede procesar para la ingesta?**
+**P: ¿Cuál es el tamaño máximo del modelo CAD que se puede procesar para la conversión?**
 
 **R:** El tamaño de archivo del modelo debe ser inferior a 150 MB.
 
@@ -45,17 +45,21 @@ Para obtener más información, consulte [Introducción a Azure Object Anchors](
 
 **R:** Actualmente se admiten los tipos de archivo `fbx`, `ply`, `obj`, `glb` y `gltf`.
 
-**P: ¿Cuál es la dirección de la gravedad y la unidad que requiere el servicio de ingesta del modelo? ¿Cómo se pueden averiguar?**
+**P: ¿Cuál es la dirección de la gravedad y la unidad que requiere el servicio de conversión del modelo? ¿Cómo se pueden averiguar?**
 
 **R:** La dirección de la gravedad es el vector descendente que apunta hacia la tierra. En el caso de los modelos CAD, la dirección de la gravedad suele ser la opuesta a una dirección ascendente. Por ejemplo, en muchos casos +Z representa arriba, en cuyo caso, -Z o `Vector3(0.0, 0.0, -1.0)` representarían la dirección de la gravedad. Al determinar la gravedad, no solo debe considerar el modelo, sino también la orientación en la que se verá el modelo durante el tiempo de ejecución. Si está intentando detectar una silla en el mundo real, en una superficie plana, la gravedad podría ser `Vector3(0.0, 0.0, -1.0)`. Sin embargo, si la silla está en una pendiente de 45 grados, la gravedad podría ser `Vector3(0.0, -Sqrt(2)/2, -Sqrt(2)/2)`.
 
 La dirección de la gravedad se puede calcular con una herramienta de representación 3D, como [MeshLab](http://www.meshlab.net/).
 
-La unidad representa la unidad de medida del modelo. Las unidades admitidas se pueden encontrar mediante la enumeración **Microsoft.Azure.ObjectAnchors.Ingestion.Unit**.
+La unidad representa la unidad de medida del modelo. Las unidades admitidas se pueden encontrar mediante la enumeración **Microsoft.Azure.ObjectAnchors.Conversion.AssetLengthUnit**.
 
-**P: ¿Cuánto tiempo se tarda en ingerir un modelo CAD?**
+**P: ¿Cuánto tiempo se tarda en convertir un modelo CAD?**
 
 **R:** Para un modelo `ply`, normalmente entre 3 y 15 minutos. Si envía modelos en otros formatos, espere de 15 a 60 minutos según el tamaño de archivo.
+
+**P: ¿Cómo me recupero de un error de conversión de modelos?**
+
+**R:** Para más información sobre los distintos códigos de error que pueden ser el resultado de un trabajo de conversión de modelos con errores y cómo controlar cada uno de ellos, consulte la [página de códigos de error de conversión](.\model-conversion-error-codes.md).
 
 **P: ¿Qué dispositivos admite Object Anchors?**
 
@@ -144,7 +148,7 @@ La unidad representa la unidad de medida del modelo. Las unidades admitidas se p
 **P: ¿Puedo usar Object Anchors sin conectividad a Internet?**
 
 **R:** 
-* Para la ingesta y el entrenamiento del modelo, se requiere conectividad, ya que esto sucede en la nube.
+* Para la conversión y el entrenamiento de modelos, se requiere conectividad, ya que esto sucede en la nube.
 * Las sesiones en tiempo de ejecución se producen totalmente en el dispositivo y no requieren conectividad, ya que todos los cálculos tienen lugar en HoloLens 2.
 
 ## <a name="privacy-faq"></a>Preguntas más frecuentes sobre privacidad
