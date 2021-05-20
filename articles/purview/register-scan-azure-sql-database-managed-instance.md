@@ -6,13 +6,13 @@ ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 12/01/2020
-ms.openlocfilehash: aaca73d71731ee18eb8f12468ec26ece746f1b8f
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.date: 05/08/2021
+ms.openlocfilehash: 3ead96a49e2bacca526cd9ee3b8c8e00abbba426
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288371"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656297"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Registro y examen de una Instancia administrada de Azure SQL Database
 
@@ -119,7 +119,7 @@ Es necesario obtener el id. de aplicación y el secreto de la entidad de servici
 
 1. Seleccione **From Azure subscription** (Desde la suscripción de Azure) y la suscripción adecuada en el cuadro desplegable **Suscripción de Azure** y el servidor correspondiente en el cuadro desplegable **Nombre del servidor**.
 
-1. Proporcione el **nombre de dominio completo del punto de conexión público** y el **número de puerto**. Después, seleccione **Finalizar** para registrar el origen de datos.
+1. Proporcione el **nombre de dominio completo del punto de conexión público** y el **número de puerto**. Después, seleccione **Registrar** para registrar el origen de datos.
 
     :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/add-azure-sql-database-managed-instance.png" alt-text="Incorporación de Instancia administrada de Azure SQL Database.":::
 

@@ -10,16 +10,14 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: ebd2759d4dfb8ee79130f9b4876eba8d45226d04
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 7cb52dba88d94ed52baa8272c7f20fed4bcde0fd
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718798"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787552"
 ---
 # <a name="iot-central-device-development-guide"></a>Guía de desarrollo de dispositivos IoT Central
-
-*Este artículo se aplica a los desarrolladores de dispositivos.*
 
 Una aplicación IoT Central le permite supervisar y administrar millones de dispositivos a lo largo de su ciclo de vida. Esta guía está dirigida a los desarrolladores de dispositivos que implementan código para ejecutarlo en dispositivos que se conectan a IoT Central.
 
@@ -35,27 +33,25 @@ Un generador de soluciones es responsable de configurar paneles y vistas en la i
 
 En las secciones siguientes se describen los principales tipos de dispositivos que se pueden conectar a una aplicación IoT Central:
 
-### <a name="standalone-device"></a>Dispositivo independiente
+### <a name="iot-device"></a>Dispositivo IoT
 
-Un dispositivo independiente se conecta directamente a IoT Central. Normalmente, un dispositivo independiente envía telemetría desde sus sensores incorporados o conectados a la aplicación IoT Central. Los dispositivos independientes también pueden notificar valores de propiedad, recibir valores de propiedad de escritura y responder a los comandos.
+Un dispositivo IoT es un dispositivo independiente que se conecta directamente a IoT Central. Un dispositivo IoT envía telemetría desde sus sensores incorporados o conectados a la aplicación IoT Central. Los dispositivos independientes también pueden notificar valores de propiedad, recibir valores de propiedad de escritura y responder a los comandos.
 
-### <a name="gateway-device"></a>Dispositivo de puerta de enlace
+### <a name="iot-edge-device"></a>Dispositivo de IoT Edge
 
-Un dispositivo de puerta de enlace administra uno o varios dispositivos de nivel inferior que se conectan a la aplicación IoT Central. IoT Central se usa para configurar las relaciones entre los dispositivos de nivel inferior y el dispositivo de puerta de enlace. Para más información, consulte [Definición de un nuevo tipo de dispositivo de puerta de enlace de IoT en la aplicación de Azure IoT Central](./tutorial-define-gateway-device-type.md).
+Un dispositivo de IoT Edge se conecta directamente a IoT Central. Un dispositivo de IoT Edge también puede enviar su propia telemetría, notificar sus propiedades y responder a los comandos y las actualizaciones de propiedades de escritura. Los módulos de IoT Edge pueden procesar datos localmente en el dispositivo de IoT Edge. Un dispositivo de IoT Edge también puede actuar como intermediario para otros dispositivos conocidos como dispositivos hoja. Algunos de los escenarios en los que se usan dispositivos de IoT Edge son:
 
-### <a name="edge-device"></a>Dispositivo perimetral
-
-Un dispositivo perimetral se conecta directamente a IoT Central, pero actúa como intermediario para otros dispositivos conocidos como _dispositivos hoja_. Un dispositivo perimetral normalmente se encuentra cerca de los dispositivos hoja para los que actúa como intermediario. Algunos de los escenarios en los que se usan dispositivos perimetrales son:
-
-- Habilitación de dispositivos que no se pueden conectar directamente a IoT Central y lo hacen a través del dispositivo perimetral. Por ejemplo, un dispositivo hoja podría usar Bluetooth para conectarse al dispositivo perimetral, que luego se conecta a IoT Central a través de Internet.
-- Adición de telemetría antes de que se envíe a IoT Central. Este enfoque puede ayudar a reducir los costos de enviar datos a IoT Central.
+- Adición o filtrado de los datos de telemetría antes de que se envíen a IoT Central. Este enfoque puede ayudar a reducir los costos de enviar datos a IoT Central.
+- Habilitación de dispositivos que no se pueden conectar directamente a IoT Central y lo hacen a través del dispositivo de IoT Edge. Por ejemplo, un dispositivo hoja podría usar Bluetooth para conectarse al dispositivo de IoT Edge y este usar Internet para conectarse a IoT Central.
 - Control local de los dispositivos hoja para evitar la latencia asociada con la conexión a IoT Central a través de Internet.
 
-Un dispositivo perimetral también puede enviar su propia telemetría, notificar sus propiedades y responder a los comandos y las actualizaciones de propiedades de escritura.
-
-IoT Central solo ve el dispositivo perimetral, no los dispositivos hoja conectados a él.
+IoT Central solo ve el dispositivo de IoT Edge, no los dispositivos hoja conectados a él.
 
 Para más información, consulte [Incorporación de un dispositivo Azure IoT Edge a la aplicación Azure IoT Central](./tutorial-add-edge-as-leaf-device.md).
+
+### <a name="gateways"></a>Puertas de enlace
+
+Un dispositivo de puerta de enlace administra uno o varios dispositivos de nivel inferior que se conectan a la aplicación IoT Central. IoT Central se usa para configurar las relaciones entre los dispositivos de nivel inferior y el dispositivo de puerta de enlace. Tanto los dispositivos IoT como los de IoT Edge pueden actuar como puertas de enlace. Para más información, consulte [Definición de un nuevo tipo de dispositivo de puerta de enlace de IoT en la aplicación de Azure IoT Central](./tutorial-define-gateway-device-type.md).
 
 ## <a name="connect-a-device"></a>Conexión de un dispositivo
 

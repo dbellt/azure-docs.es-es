@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: sihhu
-author: MayMSFT
+ms.author: yogipandey
+author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: 35a60291017668755f3b98e63d6a15bda59f2b8e
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: f0fb8ee681bfb3056547eed712d0197100b8ec08
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143654"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785248"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Conexión a los servicios de almacenamiento en Azure
 
@@ -150,7 +150,8 @@ En esta sección encontrará ejemplos de cómo crear y registrar un almacén de 
 
 Si prefiere una experiencia de código bajo, consulte la sección sobre cómo [conectar almacenes de datos en Azure Machine Learning Studio](how-to-connect-data-ui.md).
 >[!IMPORTANT]
-> Si anula el registro y vuelve a registrar un almacén de datos con el mismo nombre y se produce un error, es posible que la instancia de Azure Key Vault del área de trabajo no tenga habilitada la eliminación temporal. De manera predeterminada, la eliminación temporal está habilitada para la instancia del almacén de claves que creó el área de trabajo, pero podría no estar habilitada si usó un almacén de claves existente, o si creó el área de trabajo antes de octubre de 2020. Para obtener información sobre cómo habilitar la eliminación temporal, consulte [Activación de la eliminación temporal de un almacén de claves existente]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault).
+> Si anula el registro y vuelve a registrar un almacén de datos con el mismo nombre y se produce un error, es posible que la instancia de Azure Key Vault del área de trabajo no tenga habilitada la eliminación temporal. De manera predeterminada, la eliminación temporal está habilitada para la instancia del almacén de claves que creó el área de trabajo, pero podría no estar habilitada si usó un almacén de claves existente, o si creó el área de trabajo antes de octubre de 2020. Para obtener información sobre cómo habilitar la eliminación temporal, consulte [Activación de la eliminación temporal de un almacén de claves existente](../key-vault/general/soft-delete-change.md#turn-on-soft-delete-for-an-existing-key-vault).
+
 
 > [!NOTE]
 > El nombre del almacén de datos solo puede contener letras minúsculas, dígitos y caracteres de subrayado. 

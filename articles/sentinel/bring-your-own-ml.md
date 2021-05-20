@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
-ms.openlocfilehash: 2164b8ac6e62b8826d5879da07384769c503bfb5
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: e912cabd27bac52792ffb2d71027170f4e53f310
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107598608"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784528"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>Traiga su propio aprendizaje automático a Azure Sentinel
 
 El aprendizaje automático es uno de los principales fundamentos de Azure Sentinel y uno de los principales atributos que lo diferencian. Azure Sentinel ofrece el aprendizaje automático en varias experiencias: integrado en el motor de correlación de [Fusion](fusion.md) y en los cuadernos de Jupyter Notebook, así como en la nueva plataforma Traiga su propio aprendizaje automático (BYO ML). 
 
-Los modelos de detección de aprendizaje automático se pueden adaptar a entornos individuales y a cambios en el comportamiento del usuario para reducir falsos positivos e identificar amenazas que no se podrían encontrar con un enfoque tradicional. Muchas organizaciones de seguridad son conscientes del valor del aprendizaje automático para la seguridad, aunque solo algunas tienen la suerte de contar con profesionales con experiencia en ambas materias: seguridad y aprendizaje automático. Hemos diseñado la plataforma que se presenta aquí para poder acompañar a los profesionales y organizaciones de seguridad en su recorrido hacia la adopción del aprendizaje automático. Las organizaciones no familiarizadas con el aprendizaje automático, o que no cuentan con la necesaria experiencia, pueden obtener un valor de protección significativo de las funcionalidades de aprendizaje automático integradas de Azure Sentinel.
+Los modelos de detección de aprendizaje automático se pueden adaptar a entornos individuales y a cambios en el comportamiento del usuario para reducir [falsos positivos](false-positives.md) e identificar amenazas que no se podrían encontrar con un enfoque tradicional. Muchas organizaciones de seguridad son conscientes del valor del aprendizaje automático para la seguridad, aunque solo algunas tienen la suerte de contar con profesionales con experiencia en ambas materias: seguridad y aprendizaje automático. Hemos diseñado la plataforma que se presenta aquí para poder acompañar a los profesionales y organizaciones de seguridad en su recorrido hacia la adopción del aprendizaje automático. Las organizaciones no familiarizadas con el aprendizaje automático, o que no cuentan con la necesaria experiencia, pueden obtener un valor de protección significativo de las funcionalidades de aprendizaje automático integradas de Azure Sentinel.
 
 :::image type="content" source="./media/bring-your-own-ml/machine-learning-framework.png" alt-text="plataforma de aprendizaje automático":::
 

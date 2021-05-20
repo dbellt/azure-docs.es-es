@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 367dd261e9147c2dc14f1085af553222b621d91e
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: a72d27584441e853c6eeeb732df2691fd347857e
+ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279791"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109664535"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registro en Azure Monitor
 
@@ -26,7 +26,7 @@ Las alertas de registro son uno de los tipos de alerta que se admiten en [Alerta
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Las alertas de registro ejecutan consultas sobre los datos de Log Analytics. En primer lugar, debe comenzar a [recopilar datos de registro](../essentials/resource-logs.md) y consultar estos datos de registro para detectar problemas. Puede usar el [tema de ejemplos de consultas de alertas](../logs/example-queries.md) en Log Analytics para comprender qué puede detectar, o bien puede [empezar a escribir su propia consulta](../logs/log-analytics-tutorial.md).
+Las alertas de registro ejecutan consultas sobre los datos de Log Analytics. En primer lugar, debe comenzar a [recopilar datos de registro](../essentials/resource-logs.md) y consultar estos datos de registro para detectar problemas. Puede usar el [artículo de ejemplos de consultas de alertas](../logs/example-queries.md) en Log Analytics para comprender qué puede detectar, o bien puede [empezar a escribir su propia consulta](../logs/log-analytics-tutorial.md).
 
 El [colaborador de supervisión de Azure](../roles-permissions-security.md) es un rol común necesario para crear, modificar y actualizar las alertas de registro. También se necesitan derechos de acceso y de ejecución de consulta para los registros de recursos. El acceso parcial a los registros de recursos puede producir errores en las consultas o devolver resultados parciales. [Más información sobre la configuración de alertas de registro en Azure](./alerts-log.md).
 
@@ -120,7 +120,7 @@ En las áreas de trabajo y Application Insights, solo se admite en el tipo de me
 
 Puede dividir las alertas por columnas de número o de cadena en alertas independientes mediante la agrupación en combinaciones únicas. Al crear alertas orientadas a recursos a gran escala (con un ámbito de suscripción o grupo de recursos), puede dividirlas por columna de identificador de recurso de Azure. La división según la columna de identificador de recurso de Azure cambiará el destino de la alerta al recurso especificado.
 
-Se recomienda dividir por la columna de identificador de recursos de Azure cuando quiera supervisar la misma condición en varios recursos de Azure. Por ejemplo, supervisar un uso de la CPU superior al 80 % en todas las máquinas virtuales. También puede decidir no dividir cuando quiera supervisar una condición en varios recursos del ámbito, por ejemplo, supervisar que al menos cinco máquinas del ámbito del grupo de recursos tengan un uso de CPU superior al 80 %.
+Se recomienda dividir por la columna de identificador de recursos de Azure cuando quiera supervisar la misma condición en varios recursos de Azure. Por ejemplo, supervisar un uso de la CPU superior al 80 % en todas las máquinas virtuales. También puede decidir no dividirlas cuando desea una condición en varios recursos del ámbito. Como, por ejemplo, supervisar que al menos cinco máquinas del ámbito del grupo de recursos tengan un uso de la CPU superior al 80 %.
 
 En las áreas de trabajo y Application Insights, solo se admite en el tipo de medida **Unidades métricas**. El campo se denomina **Agregado en**. Se limita a tres columnas. Si hay más de tres columnas de agrupación en la consulta, pueden producirse resultados inesperados. En los demás tipos de recursos, se configura en la sección **Split by dimensions** (Dividir por dimensiones) de la condición (se limita a seis divisiones).
 
@@ -166,13 +166,11 @@ Los resultados de la consulta se transforman en un número que se compara con el
 ### <a name="frequency"></a>Frecuencia
 
 > [!NOTE]
-> Actualmente no se cobran cargos adicionales por las alertas de registro con una frecuencia de 1 minuto. Los precios de las características en versión preliminar se anunciarán en el futuro y se avisará antes del inicio de la facturación. Si decide seguir usando las alertas de registro con una frecuencia de 1 minuto después del período de aviso, se le facturará según la tarifa aplicable.
+> Actualmente no se cobran cargos adicionales por las alertas de registro con una frecuencia de 1 minuto (versión preliminar). Los precios de las características en versión preliminar se anunciarán en el futuro y se avisará antes del inicio de la facturación. Si decide seguir usando las alertas de registro con una frecuencia de 1 minuto después del período de aviso, se le facturará según la tarifa aplicable.
 
-El intervalo en el que se ejecuta la consulta. Se puede establecer entre 1 minuto y un día. Debe ser igual o menor que el [intervalo de tiempo de consulta ](#query-time-range) para no omitir entradas del registro.
+El intervalo en el que se ejecuta la consulta. Se puede establecer entre un minuto y un día. Debe ser igual o menor que el [intervalo de tiempo de consulta ](#query-time-range) para no omitir entradas del registro.
 
 Por ejemplo, supongamos que establece el período de tiempo en 30 minutos y la frecuencia en 1 hora.  Si la consulta se ejecuta a las 00:00, devuelve registros entre las 23:30 y las 00:00. La próxima vez que se ejecute la consulta será a la 01:00 y devolverá los registros comprendidos entre las 00:30 y la 01:00. Por tanto, nunca se evaluarán los registros creados entre las 00:00 y las 00:30.
-
-Para usar alertas con una frecuencia de 1 minuto, tiene que establecer una propiedad a través de la API. Al crear o actualizar reglas de alertas de registro existentes en la versión de API: `2020-05-01-preview` en la sección `properties`, agregue `evaluationFrequency` con el valor `PT1M` de tipo `String`. Al crear o actualizar reglas de alertas de registro existentes en la versión de API: `2018-04-16` en la sección `schedule`, agregue `frequencyInMinutes` con el valor `1` de tipo `Int`. 
 
 ### <a name="number-of-violations-to-trigger-alert"></a>Número de infracciones que desencadenarán la alerta
 
@@ -182,7 +180,7 @@ Por ejemplo, si el valor de [**Granularidad de agregación**](#aggregation-granu
 
 ## <a name="state-and-resolving-alerts"></a>Estado y resolución de alertas
 
-Las alertas de registro pueden ser sin estado o con estado (actualmente en versión preliminar cuando se usa la API). 
+Las alertas de registro pueden ser sin estado o con estado (actualmente en versión preliminar cuando se usa la API).
 
 Las alertas sin estado se activan cada vez que se cumple la condición, incluso si se han activado anteriormente. Puede [marcar la alerta como cerrada](../alerts/alerts-managing-alert-states.md) una vez que se resuelva la instancia de alerta. También puede silenciar acciones para evitar que se desencadenen durante un período después de que se active una regla de alertas. En áreas de trabajo de Log Analytics y Application Insights, esta opción se llama **Suprimir alertas**. En los demás tipos de recursos, se denomina **Silenciar acciones**. 
 
@@ -196,6 +194,12 @@ Consulte este ejemplo de evaluación de alertas:
 | 00:20 | false | La alerta no se activa. No se llamó a ninguna acción. El estado de las alertas anteriores sigue como ACTIVA.
 
 Las alertas con estado se activa una vez por incidente y se resuelven. Al crear o actualizar reglas de alertas de registro existentes, agregue la marca `autoMitigate` con el valor `true` de tipo `Boolean`, en la sección `properties`. Puede usar esta característica en estas versiones de API: `2018-04-16` y `2020-05-01-preview`.
+
+## <a name="location-selection-in-log-alerts"></a>Selección de ubicación en alertas de registro
+
+Las alertas de registro le permiten establecer una ubicación para las reglas de alertas. En Áreas de trabajo de Log Analytics, la ubicación de la regla debe coincidir con la ubicación del área de trabajo. En todos los demás recursos, puede seleccionar cualquiera de las ubicaciones admitidas, las cuales coinciden con la [lista de regiones admitidas de Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor).
+
+La ubicación afecta a la región en la que se evalúa la regla de alertas. Las consultas se ejecutan en los datos de registro de la región seleccionada, es decir, el servicio de alertas completo es global. Lo que significa que la definición de la regla de alertas, las alertas desencadenadas, las notificaciones y las acciones no están ligadas a la ubicación de la regla de alertas. Los datos se transfieren desde la región establecida ya que el servicio de alertas de Azure Monitor es un [servicio no regional](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=non-regional).
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Precios y facturación de las alertas de registro
 

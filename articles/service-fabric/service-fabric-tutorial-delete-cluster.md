@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a eliminar un clúster de Service Fabr
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 083c6047a8b5279b9f03db5ba5196c9a109f2d25
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: c6187d2bd5b8f2101c21b3eb35362e443854e8a4
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108075958"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734771"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>Tutorial: Eliminación de un clúster de Service Fabric que se ejecuta en Azure
 
@@ -108,5 +108,5 @@ En este tutorial, ha aprendido a:
 
 Ahora que ha completado este tutorial, pruebe lo siguiente:
 * Aprenda a inspeccionar y administrar un clúster de Service Fabric con [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-* Aprenda a [revisar el sistema operativo Windows](service-fabric-patch-orchestration-application.md) de los nodos de clúster.
+* Aprenda a [aplicar revisiones a los nodos de clúster que se ejecutan en Windows.](how-to-patch-cluster-nodes-windows.md)
 * Aprenda a agregar y recopilar eventos para [clústeres de Windows](service-fabric-diagnostics-event-aggregation-wad.md) y a [configurar Log Analytics](service-fabric-diagnostics-oms-setup.md) para supervisar los eventos de clúster.

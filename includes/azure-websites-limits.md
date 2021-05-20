@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/17/2020
 ms.author: msangapu
-ms.openlocfilehash: dad7799cb5a7579b28847e3968b6b38f1f98298a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: e2f75c6305fb3a9879f1e801ad59cd8581dd2fd4
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107327741"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109645115"
 ---
 | Resource | Gratuito | Compartido | Básico | Estándar | Premium (v1-v3) | Aislado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -29,7 +29,7 @@ ms.locfileid: "107327741"
 | Instancias de App Service Certificate por suscripción<sup>9</sup>| No compatible | No compatible |10 |10 |10 |10 |
 | Dominios personalizados por aplicación</a> |0 (solo subdominio de azurewebsites.net)|500 |500 |500 |500 |500 |
 | Compatibilidad con dominio [Compatibilidad con SSL](../articles/app-service/configure-ssl-certificate.md) |No admitido, certificado comodín para \*.azurewebsites.net disponible de forma predeterminada.|No admitido, certificado comodín para \*.azurewebsites.net disponible de forma predeterminada.|Conexiones SSL SNI ilimitadas |Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP |Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP | Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP|
-| Conexiones híbridas | | | 5 por plan | 25 por plan | 200 por aplicación | 200 por aplicación |
+| [Conexiones híbridas](../articles/app-service/app-service-hybrid-connections.md) | | | 5 por plan | 25 por plan | 220 por aplicación | 220 por aplicación |
 | [Integración de Virtual Network](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
 | [Puntos de conexión privados](../articles/app-service/networking/private-endpoint.md) | | |   |   |  100 por aplicación  |    |
 | Equilibrador de carga integrado | |X |X |X |X |X<sup>10</sup> |

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 8e928944a7508cc2a0ed35e89189fa2dd8c50665
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eaf541f1b95880e4d055af8cbd4ccbee06b41428
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550389"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108803051"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-powershell"></a>Intercambio del disco del sistema operativo que se usa en una máquina virtual de Azure mediante PowerShell
 
@@ -24,7 +24,7 @@ Si ya tiene una máquina virtual, pero quiere intercambiar el disco por uno de c
 Es necesario que la máquina virtual esté detenida o sin asignar; a continuación, el identificador de recurso del disco administrado se puede reemplazar con el identificador de recurso de otro disco administrado.
 
 Asegúrese de que el tipo de almacenamiento y el tamaño de la máquina virtual son compatibles con el disco que quiere adjuntar. Por ejemplo, si el disco que quiere usar está en Premium Storage, la máquina virtual debe ser compatible con Premium Storage (por ejemplo, debe tener un tamaño de la serie DS). Ambos discos también deben tener el mismo tamaño.
-Y asegúrese de que no está combinando una máquina virtual sin cifrar con un disco de sistema operativo cifrado, ya que esto no se admite. Si la máquina virtual no usa Azure Disk Encryption, el disco del sistema operativo que se intercambia no debe usar tampoco Azure Disk Encryption.
+Y asegúrese de que no está combinando una máquina virtual sin cifrar con un disco de sistema operativo cifrado, ya que esto no se admite. Si la máquina virtual no usa Azure Disk Encryption, el disco del sistema operativo que se intercambia no debe usar tampoco Azure Disk Encryption. Si los discos usan conjuntos de cifrado de disco, ambos discos deben pertenecer al mismo conjunto de cifrado de disco.
 
 Obtenga una lista de discos de un grupo de recursos mediante [Get-AzDisk](/powershell/module/az.compute/get-azdisk).
 

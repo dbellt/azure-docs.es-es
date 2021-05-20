@@ -9,12 +9,12 @@ ms.date: 02/23/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 16c2927aef83dfa1a3a69298e865c5684f40b7b9
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 86031eb10dc96be8caac721ba4d9f66595b94aef
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144590"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633130"
 ---
 # <a name="network-file-system-nfs-30-performance-considerations-in-azure-blob-storage-preview"></a>Consideraciones de rendimiento de Network File System (NFS) 3.0 en Azure Blob Storage (versión preliminar)
 
@@ -49,6 +49,10 @@ Cada barra del gráfico siguiente muestra la diferencia en el ancho de banda log
 ## <a name="avoid-frequent-overwrites-on-data"></a>Evitación de sobrescrituras frecuentes en los datos
 
 Se tarda más tiempo en completar una operación de sobrescritura que una nueva operación de escritura. Esto se debe a que una operación de sobrescritura de NFS, especialmente una edición parcial de archivos en contexto, es una combinación de varias operaciones de blobs subyacentes: una operación de lectura, una modificación y una operación de escritura. Por lo tanto, una aplicación que requiere ediciones en contexto frecuentes no es adecuada para las cuentas de almacenamiento de blobs habilitadas para NFS. 
+
+## <a name="deploy-azure-hpc-cache-for-latency-senstive-applications"></a>Implementación Azure HPC Cache para aplicaciones sensibles a la latencia
+
+Algunas aplicaciones pueden requerir baja latencia, además de alto rendimiento. Puede implementar [Azure HPC Cache](../../hpc-cache/nfs-blob-considerations.md) para mejorar significativamente la latencia. Obtenga más información sobre la [Latencia en Blob Storage](storage-blobs-latency.md). 
 
 ## <a name="other-best-practice-recommendations"></a>Otros procedimientos recomendados 
 

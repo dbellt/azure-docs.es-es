@@ -11,20 +11,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 4/27/2021
+ms.date: 5/6/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd283e5ef0d7a3692e819311a749c8c12b1b38b1
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: abd0ff2b7330bdc459bf3775e92b376686ebfc83
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137909"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517194"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Creación de una revisión de acceso de los grupos y las aplicaciones en las revisiones de acceso de Azure AD
 
-El acceso a los grupos y las aplicaciones para empleados e invitados cambia a lo largo del tiempo. Para reducir el riesgo derivado de las asignaciones de acceso obsoletas, los administradores pueden usar Azure Active Directory (Azure AD) para crear revisiones de acceso para los miembros de grupo o el acceso de aplicación. Si necesita revisar el acceso de manera rutinaria, también puede crear revisiones de acceso periódicas. Para más información sobre estos escenarios, vea [Administración del acceso de los usuarios con las revisiones de acceso de Azure AD](manage-user-access-with-access-reviews.md) y [Administración del acceso de los invitados con las revisiones de acceso de Azure AD](manage-guest-access-with-access-reviews.md).
+El acceso a los grupos y las aplicaciones para empleados e invitados cambia a lo largo del tiempo. Para reducir el riesgo derivado de las asignaciones de acceso obsoletas, los administradores pueden usar Azure Active Directory (Azure AD) para crear revisiones de acceso para los miembros de grupo o el acceso de aplicación. Microsoft 365 y los propietarios de grupos de seguridad también pueden usar Azure AD para crear revisiones de acceso para los miembros del grupo (versión preliminar) siempre y cuando el administrador global o de usuarios permita la configuración a través de la hoja Configuración de revisiones de acceso. Si necesita revisar el acceso de manera rutinaria, también puede crear revisiones de acceso periódicas. Para más información sobre estos escenarios, vea [Administración del acceso de los usuarios con las revisiones de acceso de Azure AD](manage-user-access-with-access-reviews.md) y [Administración del acceso de los invitados con las revisiones de acceso de Azure AD](manage-guest-access-with-access-reviews.md).
 
 Puede ver un vídeo rápido en el que se habla sobre la habilitación de revisiones de acceso:
 
@@ -36,6 +36,7 @@ En este artículo se describe cómo crear una o varias revisiones de acceso para
 
 - Azure AD Premium P2
 - administrador global o administrador de usuarios.
+- Microsoft 365 y el propietario del grupo de seguridad (versión preliminar)
 
 Para obtener más información, consulte [Requisitos de licencia](access-reviews-overview.md#license-requirements).
 
@@ -75,7 +76,8 @@ Para obtener más información, consulte [Requisitos de licencia](access-reviews
     >[!NOTE]
     > Si seleccionó todos los grupos de Microsoft 365 con usuarios invitados en el paso 2, su única opción es revisar los usuarios invitados en el paso 3
 
-8. Haga clic en Siguiente: Revisiones
+8. Haga clic en **Siguiente: Revisiones**.
+
 9. En la sección **Selección de los revisores**, seleccione uno o más usuarios para realizar las revisiones de acceso. Puede elegir entre:
     - **Propietarios del grupo** (solo disponibles al realizar una revisión en un equipo o grupo)
     - **Grupos o usuarios seleccionados**
@@ -89,7 +91,8 @@ Para obtener más información, consulte [Requisitos de licencia](access-reviews
 
     ![Elija la frecuencia con la que debe producirse la revisión](./media/create-access-review/frequency.png)
 
-11. Haga clic en el botón **Siguiente: Configuración** en la parte inferior dela página
+11. Haga clic en el botón **Siguiente: Configuración** en la parte inferior de la página.
+
 12. En la **Configuración de finalización** puede especificar lo que sucede una vez finalizada la revisión
 
     ![Creación de una revisión de acceso: configuración de finalización](./media/create-access-review/upon-completion-settings-new.png)
@@ -111,12 +114,11 @@ Para obtener más información, consulte [Requisitos de licencia](access-reviews
 
     Para más información sobre los procedimientos recomendados para eliminar los usuarios invitados que ya no tienen acceso a los recursos de su organización, consulte el artículo titulado [Uso de Azure AD Identity Governance para revisar y eliminar usuarios externos que ya no tienen acceso a los recursos.](access-reviews-external-users.md)
 
-   > [!NOTE]
-   > La acción que se aplicará a los usuarios invitados denegados no se puede configurar en las revisiones cuyo ámbito es superior al de los usuarios invitados. Tampoco se puede configurar en las revisiones de **todos los grupos de M365 con usuarios invitados.** Cuando no se puede configurar, se usa la opción predeterminada de eliminación de la pertenencia del usuario del recurso en los usuarios denegados.
+
+    > [!NOTE]
+    > La acción que se aplicará a los usuarios invitados denegados no se puede configurar en las revisiones cuyo ámbito es superior al de los usuarios invitados. Tampoco se puede configurar en las revisiones de **todos los grupos de Microsoft 365 con usuarios invitados.** Cuando no se puede configurar, se usa la opción predeterminada de eliminación de la pertenencia del usuario del recurso en los usuarios denegados.
 
 13. Puede enviar notificaciones a usuarios o grupos adicionales (versión preliminar) para recibir actualizaciones de finalización de las revisiones. Esta característica permite que partes interesadas que no sean el creador de la revisión reciban actualizaciones sobre el progreso de la revisión. Para usar esta característica, seleccione **Seleccionar usuarios o grupos** y agregue un usuario o grupo adicional cuando quiera recibir el estado de finalización.
-
-    ![Configuración de finalización: Agregue usuarios adicionales para que reciban notificaciones.](./media/create-access-review/upon-completion-settings-additional-receivers.png) 
 
 14. En **Habilitar asistentes para la toma de decisiones de revisión**, elija si desea que el revisor reciba recomendaciones durante el proceso de revisión.
 
@@ -131,10 +133,27 @@ Para obtener más información, consulte [Requisitos de licencia](access-reviews
       ![contenido adicional para el revisor](./media/create-access-review/additional-content-reviewer.png)
 
 16. Haga clic en **Siguiente: Revisar y crear** para ir a la página siguiente
+
 17. Ponga un nombre a la revisión de acceso. Opcionalmente, asigne a la revisión una descripción. El nombre y la descripción se muestran a los revisores.
-18. Revise la información y seleccione **Crear**
+
+18. Revise la información y seleccione **Crear**.
 
        ![pantalla revisar y crear](./media/create-access-review/create-review.png)
+
+## <a name="allow--group-owners-to-create-and-manage-access-reviews-preview"></a>Permiso para que los propietarios de grupos creen y administren revisiones de acceso (versión preliminar)
+
+Rol necesario: administrador global o administrador de usuarios.
+
+1. Inicie sesión en Azure Portal y abra la [página de Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+
+1. En el menú de la izquierda, en **Revisiones de acceso**, **Configuración**.
+
+1. En la página Delegado que puede crear y administrar revisiones de acceso, establezca la opción **(Versión preliminar) Los propietarios del grupo pueden crear y administrar las revisiones de acceso de los grupos que poseen** en **Sí**.
+
+    ![Crear revisiones: permitir que los propietarios de grupos revisen](./media/create-access-review/group-owners-review-access.png)
+
+    > [!NOTE]
+    > De manera predeterminada, el valor se establece en **No**, por lo que debe actualizarse para permitir que los propietarios del grupo creen y administren las revisiones de acceso.
 
 ## <a name="start-the-access-review"></a>Inicio de la revisión de acceso
 

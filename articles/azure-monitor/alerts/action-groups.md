@@ -5,12 +5,12 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.author: dukek
-ms.openlocfilehash: 1486415c5d225163dd2b2c7e79cd008ad0a76588
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: ae170fc500f8682a6c090b654fdfd0325b8eb49e
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107514876"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795409"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario. 
@@ -154,6 +154,8 @@ Al configurar el *Rol de ARM de correo electrónico*, debe asegurarse de que se 
 2. La asignación debe realizarse en el nivel de **suscripción**.
 3. El usuario debe tener un correo electrónico configurado en su **perfil de AAD**. 
 
+> [!NOTE]
+> El cliente puede tardar hasta **24 horas** en empezar a recibir notificaciones después de agregar un nuevo rol de ARM a su suscripción.
 
 ### <a name="function"></a>Función
 Llama a un punto de conexión del desencadenador HTTP existente en [Azure Functions](../../azure-functions/functions-get-started.md). Para controlar una solicitud, el punto de conexión debe controlar el verbo HTTP POST.

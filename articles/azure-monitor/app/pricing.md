@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 3/30/2021
+ms.date: 5/05/2021
 ms.reviewer: lagayhar
-ms.openlocfilehash: e048e788e674e90a62b15784c590c07e5d36b816
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 1ed9fc345b1c8afe416b4b98c621fc1c9b48a557
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078407"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795265"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Administración del uso y los costos de Application Insights
 
@@ -197,8 +197,11 @@ El volumen de datos que envíe se puede administrar con las técnicas siguientes
  
 * **Límite diario**: al crear un recurso de Application Insights en Azure Portal, el límite diario se establece en 100 GB/día. Al crear un recurso de Application Insights en Visual Studio, la capacidad predeterminada es pequeña (solo 32,3 MB/día). El límite diario predeterminado se establece para facilitar las pruebas. El objetivo es que el usuario aumente el límite diario antes de implementar la aplicación en producción. 
 
-    El límite máximo es de 1,000 GB/día, a menos que solicite un máximo superior para una aplicación con mucho tráfico.
+    El límite máximo de Application Insights es de 1000 GB/día, a menos que solicite un máximo superior para una aplicación con mucho tráfico.
     
+    > [!TIP]
+    > Si tiene un recurso de Application Insights basado en el área de trabajo, se recomienda usar el [límite diario del área de trabajo](../logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume) para limitar la ingesta y los costos, en lugar del límite de Application Insights.
+
     Los correos electrónicos de advertencia sobre el límite diario se envían a cuentas que son miembros de estos roles en el recurso de Application Insights: "ServiceAdmin", "AccountAdmin", "coadmin", "Owner".
 
     Tenga cuidado al establecer el límite diario. Su objetivo debe ser *no alcanzar nunca el límite diario*. Si lo alcanza, perderá datos durante el resto del día y no podrá supervisar su aplicación. Para cambiar el límite diario, use la opción **Límite de volumen diario**. Puede tener acceso a esta opción en el panel **Uso y costos estimados** (se describe con más detalle más adelante en el artículo).
@@ -210,6 +213,9 @@ El volumen de datos que envíe se puede administrar con las técnicas siguientes
 ## <a name="manage-your-maximum-daily-data-volume"></a>Administración del volumen de datos diario máximo
 
 Puede usar el límite de volumen diario para restringir los datos recopilados. Sin embargo, si se alcanza el límite, se producirá una pérdida de todas las telemetrías enviadas desde su aplicación durante el resto del día. No *es aconsejable* hacer que su aplicación alcance el límite diario. No puede realizar un seguimiento del estado y rendimiento de su aplicación una vez que alcance el límite diario.
+
+> [!WARNING]
+> Si tiene un recurso de Application Insights basado en el área de trabajo, se recomienda usar el [límite diario del área de trabajo](../logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume) para limitar la ingesta y los costos. El límite diario de Application Insights puede no limitar la ingesta en todos los casos al nivel seleccionado. (Si el recurso de Application Insights ingiere muchos datos, puede que sea necesario aumentar el límite diario de Application Insights).
 
 En lugar de usar el límite de volumen diario, use el [muestreo](./sampling.md) para ajustar el volumen de datos al nivel que desee. A continuación, use el límite diario solo como "último recurso" en caso de que su aplicación empiece a enviar de forma inesperada volúmenes de telemetría mucho más altos.
 

@@ -6,12 +6,12 @@ ms.author: bagol
 ms.service: security
 ms.topic: reference
 ms.date: 04/29/2021
-ms.openlocfilehash: 6cead1e9dfb8cf1d12ef09079e97779c08523e36
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: d545d406bc914eaf634ff2c47698df7c1206a5cb
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108290585"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109655523"
 ---
 # <a name="cloud-feature-availability-for-us-government-customers"></a>Disponibilidad de las características en la nube para clientes de la Administración Pública de Estados Unidos
 
@@ -62,7 +62,8 @@ En las siguientes tablas se muestra la disponibilidad de características de Azu
 |- [Traiga su propio aprendizaje automático (BYO-ML)](/azure/sentinel/bring-your-own-ml) | Vista previa pública | Vista previa pública |
 | - [Vista de incidentes entre inquilinos o áreas de trabajo](/azure/sentinel/multiple-workspace-view) |Vista previa pública | Vista previa pública |
 | - [Conclusiones sobre la entidad](/azure/sentinel/enable-entity-behavior-analytics) | Vista previa pública | No disponible |
-| - [Fusion](/azure/sentinel/fusion)<br>Detección avanzada de ataques de varias fases <sup>[1](#footnote1)</sup> | GA | No disponible |
+| - [Fusion](/azure/sentinel/fusion)<br>Detección avanzada de ataques de varias fases <sup>[1](#footnote1)</sup> | GA | GA |
+| - [Búsqueda](/azure/sentinel/hunting) | GA | GA |
 |- [Cuadernos](/azure/sentinel/notebooks) | GA | GA |
 |- [Métricas de auditoría de incidentes de centro de operaciones de seguridad](/azure/sentinel/manage-soc-with-incident-metrics) | GA | GA |
 |- [Listas de reproducción](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-watchlist-is-now-in-public-preview/ba-p/1765887) | Vista previa pública | No disponible |
@@ -223,7 +224,7 @@ Office 365 GCC trabaja con Azure Active Directory (Azure AD) en Azure. Office�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Información sobre el [modelo de responsabilidad compartida](https://docs.microsoft.com/azure/security/fundamentals/shared-responsibility), las tareas de seguridad que administra el proveedor de nube y las tareas que administra el usuario.
-- Información sobre las capacidades de la [nube de Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) y de la seguridad y el diseño de confianza que se usa para apoyar el cumplimiento aplicable a organizaciones locales, estatales, federales y sus asociados.
-- Información sobre el [plan de Office 365 Administración Pública](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/office-365-us-government#about-office-365-government-environments).
+- Información sobre el [modelo de responsabilidad compartida](shared-responsibility.md), las tareas de seguridad que administra el proveedor de nube y las tareas que administra el usuario.
+- Información sobre las capacidades de la [nube de Azure Government](/azure/azure-government/documentation-government-welcome) y de la seguridad y el diseño de confianza que se usa para apoyar el cumplimiento aplicable a organizaciones locales, estatales, federales y sus asociados.
+- Información sobre el [plan de Office 365 Administración Pública](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/office-365-us-government#about-office-365-government-environments).
 - Información sobre el [cumplimiento en Azure](/azure/compliance/) de los estándares legales y normativos.

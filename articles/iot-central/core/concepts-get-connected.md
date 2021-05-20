@@ -12,16 +12,14 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: c365f367a090f1697b71c51f24679b9ea09561d0
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 54bee74fcab02a487b9e950d0ea8f8a45a38601a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490019"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760917"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conexión a Azure IoT Central
-
-*Este artículo se aplica a los operadores y desarrolladores de dispositivos.*
 
 En este artículo se describe cómo se conectan los dispositivos a una aplicación de Azure IoT Central. Para que un dispositivo pueda intercambiar datos con IoT Central, debe hacer lo siguiente:
 
@@ -213,7 +211,16 @@ Cuando un dispositivo real se conecta a la aplicación de IoT Central, su estado
     - Se agrega un conjunto de dispositivos mediante la opción **Import** (Importar) de la página **Devices** (Dispositivos) sin especificar la plantilla de dispositivo.
     - Se registró un dispositivo manualmente en la página **Devices** (Dispositivos) sin especificar la plantilla de dispositivo. Después, el dispositivo se conecta con credenciales válidas.  
 
-    El operador puede asociar un dispositivo a una plantilla de dispositivo desde la página **Devices** (Dispositivos) mediante el botón **Migrate** (Migrar).
+    Un operador puede asociar un dispositivo a una plantilla de dispositivo desde la página **Dispositivos** mediante el botón **Migrar**.
+
+## <a name="device-connection-status"></a>Estado de conexión del dispositivo
+Cuando un dispositivo o dispositivo perimetral se conecta mediante el protocolo MQTT, se muestran eventos _conectados_ y _desconectados_ para el dispositivo. Estos eventos no se envían mediante los envíos del dispositivo; IoT Central los genera internamente.
+
+En el diagrama siguiente se muestra cómo, cuando se conecta un dispositivo, la conexión se registra al final de una ventana de tiempo. Si se producen varios eventos de conexión y desconexión, IoT Central registra el más cercano al final de la ventana de tiempo. Por ejemplo, si un dispositivo se desconecta y se vuelve a conectar dentro de la ventana de tiempo, IoT Central registra el evento de conexión. Actualmente, la ventana de tiempo es de aproximadamente un minuto.
+
+:::image type="content" source="media/concepts-get-connected/device-connectivity-diagram.png" alt-text="Diagrama que muestra la ventana de eventos para eventos conectados y desconectados" border="false":::.
+
+Puede incluir eventos de conexión y desconexión en las [exportaciones desde IoT Central](howto-export-data.md#set-up-data-export). Para más información, vea [Reacción a eventos de IoT Hub > Limitaciones de los eventos de dispositivo conectado y dispositivo desconectado](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events).
 
 ## <a name="sdk-support"></a>Compatibilidad con SDK
 
@@ -261,7 +268,7 @@ Todos los datos intercambiados entre los dispositivos y la instancia de Azure Io
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si es desarrollador de dispositivos, algunos de los pasos sugeridos son los siguientes:
+Algunos pasos siguientes sugeridos son:
 
 - Revise los [procedimientos recomendados](concepts-best-practices.md) para el desarrollo de dispositivos.
 - Revisar algún código de ejemplo que muestre cómo usar los tokens de SAS en [Tutorial: Creación y conexión de una aplicación cliente a una aplicación de Azure IoT Central](tutorial-connect-device.md)

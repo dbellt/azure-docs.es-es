@@ -3,12 +3,12 @@ title: Actualización de una asignación existente desde el portal
 description: Obtenga información acerca del mecanismo para actualizar una asignación de plano técnico existente desde el portal en Azure Blueprints.
 ms.date: 05/01/2021
 ms.topic: how-to
-ms.openlocfilehash: 67ce41d6d7b4497d84d960e96813f20db940c965
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: b08862ba32dbdd52faff85115553e59ae856b453
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323742"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108761370"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Procedimiento para actualizar una asignación de plano técnico
 
@@ -24,7 +24,7 @@ Cuando se asigna un plano técnico, se puede actualizar la asignación. Hay vari
 
 1. Seleccione **Planos técnicos asignados** en la página de la izquierda.
 
-1. En la lista de planos técnicos, seleccione el botón izquierdo en la asignación del plano técnico. Después, use el botón **Actualizar asignación** o haga clic con el botón derecho en la asignación del plano técnico y seleccione **Actualizar asignación**.
+1. En la lista de planos técnicos, seleccione el botón izquierdo en la asignación del plano técnico. Después, use el botón **Actualizar asignación** O BIEN seleccione y mantenga pulsada (o haga clic con el botón derecho) la asignación del plano técnico y seleccione **Actualizar asignación**.
 
    :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Captura de pantalla de la página Asignación de plano técnico con el botón &quot;Actualizar asignación&quot; resaltado." border="false":::
 
@@ -56,7 +56,7 @@ La implementación de las asignaciones actualizadas sigue unas reglas importante
 
 Al actualizar las asignaciones, es posible realizar cambios que se interrumpan cuando se ejecutan. Un ejemplo se da al cambiar la ubicación de un grupo de recursos una vez que se haya implementado. Se puede realizar cualquier cambio que admita [Resource Manager](../../../azure-resource-manager/management/overview.md), pero si este produjera un error en Resource Manager, también lo generaría en la asignación.
 
-No hay ningún límite en el número de veces que una asignación se puede actualizar. Si se produce un error, determínelo y realice otra actualización en la asignación.  Escenarios de error de ejemplo:
+No hay ningún límite en el número de veces que una asignación se puede actualizar. Si se produce un error, determínelo y realice otra actualización en la asignación. Escenarios de error de ejemplo:
 
 - Un parámetro incorrecto
 - Un objeto ya existente

@@ -8,18 +8,20 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/30/2021
 ms.author: rishjai
-ms.openlocfilehash: 569687a6efca34e631b096b448d988c18b21a6c9
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 5c952f496a52da70f10e1de4d8a9e9164c8a9706
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326929"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108759012"
 ---
 # <a name="deprecation-of-ip-config-parameters-for-the-cmdlet-new-azrecoveryservicesasrvmnicconfig"></a>Desuso de parámetros IPConfig para el cmdlet New-AzRecoveryServicesAsrVMNicConfig
 
 En este artículo se describe el desuso, las implicaciones correspondientes y las opciones alternativas disponibles para los clientes en los escenarios siguientes:
 
-Configuración de los valores de IPConfig para la conmutación por error o la conmutación por error de prueba. Este cmdlet afecta a todos los clientes del escenario de recuperación ante desastres de Azure a Azure mediante el cmdlet New-AzRecoveryServicesAsrVMNicConfig.
+Configuración de los valores de IPConfig para la conmutación por error o la conmutación por error de prueba. 
+
+Este cmdlet afecta a todos los clientes del escenario de recuperación ante desastres de Azure a Azure mediante el cmdlet New-AzRecoveryServicesAsrVMNicConfig en la versión _Az Powershell 5.9.0 y posteriores_.
 
 > [!IMPORTANT]
 > Se recomienda que los clientes tomen las medidas de corrección cuanto antes para evitar cualquier interrupción del entorno. 

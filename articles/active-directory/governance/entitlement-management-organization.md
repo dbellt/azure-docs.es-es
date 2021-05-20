@@ -3,7 +3,7 @@ title: 'Agregar una organización conectada en la administración de derechos de
 description: Obtenga información acerca de cómo permitir que los usuarios ajenos a la organización soliciten los paquetes de acceso para que puedan colaborar en proyectos.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 12/11/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44b4e4bccde07d078c9749ee76c1653e6d431e63
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 7371bd090581d2295e3e0e53ae27136e37c89191
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532086"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786382"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Agregar una organización conectada en la administración de derechos de Azure AD
 
@@ -60,7 +60,7 @@ Para ver una demostración de cómo agregar una organización conectada, vea el 
 
 Para agregar un directorio o dominio externo de Azure AD como organización conectada, siga las instrucciones de esta sección.
 
-**Rol necesario**: *administrador global* o *administrador de usuarios*.
+**Rol necesario:** *administrador global*, *administrador de Identity Governance* o *administrador de usuarios*
 
 1. En Azure Portal, seleccione **Azure Active Directory** y, a continuación, **Gobernanza de identidades**.
 

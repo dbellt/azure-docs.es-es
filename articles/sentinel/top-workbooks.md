@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 03/07/2021
 ms.author: bagol
-ms.openlocfilehash: a37501498a9222025860702a7f29dccc9abfc8f7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b096bcc59465bae0a37013c148880b6beb9eecb0
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102450052"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795661"
 ---
 # <a name="commonly-used-azure-sentinel-workbooks"></a>Libros de Azure Sentinel que se usan comúnmente
 
@@ -48,6 +48,6 @@ Acceda a los libros de Azure Sentinel en **Administración de amenazas** > **Li
 |**alertas de seguridad**     |  Proporciona un panel de alertas de seguridad para las alertas del entorno de Azure Sentinel. <br><br>Para más información, consulte [Creación automática de incidentes a partir de alertas de seguridad de Microsoft](create-incidents-from-alerts.md).      |
 |**Eficiencia de las operaciones de seguridad**     |  Diseñado para los administradores del centro de operaciones de seguridad (SOC) para ver las métricas de eficacia general y las medidas relacionadas con el rendimiento de su equipo. <br><br>Para obtener más información, consulte [Mejora en la administración de SOC con métricas de incidentes](manage-soc-with-incident-metrics.md).  |
 |**Inteligencia sobre amenazas**     | Proporciona conclusiones sobre los indicadores de amenazas, como el tipo y la gravedad de las amenazas, la actividad de amenazas a lo largo del tiempo y la correlación con otros orígenes de datos, incluidos los firewalls y Office 365.  <br><br>Para obtener más información, consulte [Importación de inteligencia sobre amenazas en Azure Sentinel](import-threat-intelligence.md).      |
-|**Auditoría de áreas de trabajo**     |  Proporciona un informe de auditoría del área de trabajo que le permite comprender las ejecuciones de consultas en el área de trabajo.   <br><br>Para más información, consulte [Auditoría de consultas y actividades de Azure Sentinel](audit-sentinel-data.md).  |
-|     |         |
+|**Confianza cero (TIC3.0)**     |  Proporciona una visualización automatizada de los principios básicos de Confianza cero, que se cruzan con el [marco de conexiones a Internet de confianza](https://www.cisa.gov/trusted-internet-connections).   <br><br>Para obtener más información, consulte el blog de introducción del libro [Confianza cero (TIC 3.0)](https://techcommunity.microsoft.com/t5/public-sector-blog/announcing-the-azure-sentinel-zero-trust-tic3-0-workbook/ba-p/2313761).  |
+
 

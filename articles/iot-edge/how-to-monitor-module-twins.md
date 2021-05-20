@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a5a31e15c88cef588c93f44c8fe5303d930b5b2c
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 6a0d8bcce8e036cf7fc0efc1fe3956006f276f9e
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479379"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633904"
 ---
 # <a name="monitor-module-twins"></a>Supervisión de módulos gemelos
 
@@ -220,6 +220,19 @@ La estructura [az iot hub module-twin](/cli/azure/iot/hub/module-twin) proporcio
 * **az iot hub module-twin show**: muestra una definición del módulo gemelo.
 * **az iot hub module-twin update**: actualiza la definición de un módulo gemelo.
 * **az iot hub module-twin replace**: reemplaza la definición de un módulo gemelo con un JSON de destino.
+
+>[!TIP]
+>Para dirigirse a los módulos en tiempo de ejecución con comandos de la CLI, es posible que tenga que escapar el carácter `$` en el identificador del módulo. Por ejemplo:
+>
+>```azurecli
+>az iot hub module-twin show -m '$edgeAgent' -n <hub name> -d <device name>
+>```
+>
+>O:
+>
+>```azurecli
+>az iot hub module-twin show -m \$edgeAgent -n <hub name> -d <device name>
+>```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,14 +3,14 @@ title: Introducción a Update Management en Azure Automation
 description: En este artículo se ofrece información general de la característica Update Management que implementa las actualizaciones de las máquinas Windows y Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 04/01/2021
+ms.date: 05/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: 62ae2eab33063416fdd6265b14dd8c30da55e174
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: f04334b4b9704d1048d03ed82aaef400806b219f
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166707"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787037"
 ---
 # <a name="update-management-overview"></a>Introducción a Update Management
 
@@ -42,7 +42,7 @@ El siguiente diagrama muestra cómo Update Management evalúa y aplica las actua
 
 ![Flujo de trabajo de Update Management](./media/overview/update-mgmt-updateworkflow.png)
 
-Update Management puede usarse para implementar de forma nativa máquinas en varias suscripciones del mismo inquilino o en varios inquilinos mediante la [administración delegada de recursos de Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
+Update Management puede usarse para implementar de forma nativa máquinas en varias suscripciones del mismo inquilino o en varios inquilinos mediante [Azure Lighthouse](../../lighthouse/overview.md).
 
 Después de publicarse un paquete, la revisión tarda de 2 a 3 horas en aparecer en las máquinas Linux para su evaluación. Para las máquinas Windows, la revisión tarda de 12 a 15 horas en aparecer para su evaluación tras su publicación. Después de que una máquina finalice un examen de cumplimiento de actualizaciones, el agente reenvía la información de forma masiva a los registros de Azure Monitor. En una máquina Windows, el examen de cumplimiento se ejecuta cada 12 horas de forma predeterminada. En una máquina Linux, el examen de cumplimiento se realiza cada hora de manera predeterminada. Si se reinicia el agente de Log Analytics, se inicia un examen de cumplimiento al cabo de 15 minutos.
 
@@ -64,6 +64,10 @@ Los Runbooks instalan las actualizaciones en Azure Automation. No puede ver esto
 En la fecha y hora especificadas en la implementación de actualizaciones, las máquinas de destino ejecutan la implementación en paralelo. Antes de la instalación, se ejecuta un examen para comprobar que las actualizaciones siguen siendo necesarias. En las máquinas cliente de WSUS, si no se aprueban las actualizaciones en WSUS, se produce un error en la implementación de actualizaciones.
 
 No se permite tener registrada una máquina para Update Management en más de un área de trabajo de Log Analytics (también conocido como hospedaje múltiple).
+
+## <a name="limits"></a>Límites
+
+Para ver los límites que se aplican a Update Management, consulte los [límites del servicio Azure Automation](../../azure-resource-manager/management/azure-subscription-service-limits.md#update-management).
 
 ## <a name="clients"></a>Clientes
 

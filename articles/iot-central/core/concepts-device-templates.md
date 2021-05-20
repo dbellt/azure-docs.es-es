@@ -8,16 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 2396768d87b93c4df16b6de78d03faf1d8d1cc2b
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: ecd99a21c4d92eeddaa84661424980f6d40d1ae2
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106492008"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760884"
 ---
 # <a name="what-are-device-templates"></a>¿Qué son las plantillas de dispositivo?
-
-_Este artículo se aplica a desarrolladores de dispositivos y generadores de soluciones._
 
 Una plantilla de dispositivo en Azure IoT Central es un plano técnico que define las características y los comportamientos de un tipo de dispositivo que se conecta a la aplicación. Por ejemplo, la plantilla de dispositivo define la telemetría que un dispositivo envía para que IoT Central pueda crear visualizaciones que usen las unidades y los tipos de datos correctos.
 
@@ -341,6 +339,4 @@ La telemetría, las propiedades y los comandos que puede agregar a una vista vie
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Como desarrollador de dispositivos, ahora que conoce las plantillas de dispositivo, los siguientes pasos sugeridos consisten en leer [Cargas de telemetría, propiedades y comandos](./concepts-telemetry-properties-commands.md) para obtener más información sobre los datos que un dispositivo intercambia con IoT Central.
-
-Como desarrollador de soluciones, el siguiente paso sugerido es leer [Definición de un nuevo tipo de dispositivo IoT en la aplicación de Azure IoT Central](./howto-set-up-template.md) para obtener más información sobre cómo crear una plantilla de dispositivo.
+Ahora que ya conoce las plantillas de dispositivo, los siguientes pasos sugeridos consisten en leer [Cargas de telemetría, propiedades y comandos](./concepts-telemetry-properties-commands.md) para obtener más información sobre los datos que un dispositivo intercambia con IoT Central.

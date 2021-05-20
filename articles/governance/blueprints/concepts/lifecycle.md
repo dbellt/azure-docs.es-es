@@ -3,12 +3,12 @@ title: Ciclo de vida de un plano técnico
 description: Aprenda sobre el ciclo de vida de la definición de un plano técnico y detalles sobre cada fase, incluida la actualización y eliminación de asignaciones de planos técnicos.
 ms.date: 05/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: ac495c7d04c0aafdbc6f1851e52d04405a7a3e8f
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 38deda756a718200334a5e79350ee3b5309ed850
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323436"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108761542"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Ciclo de vida de una instancia de Azure Blueprint
 

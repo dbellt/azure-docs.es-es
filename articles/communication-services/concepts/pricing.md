@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5f7b1e6d600f5d3652ce6a66a72cbfbf33b336c4
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 0615d95c922ef3f04618d9f2339e82b53bd359df
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106091878"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108763692"
 ---
 # <a name="pricing-scenarios"></a>Escenarios de precios
 
@@ -85,13 +85,15 @@ Nota: las tarifas mixtas de Estados Unidos a `+1-425` es 0,013 USD. Consulte el
 Alice es médico y tiene una cita con uno de sus pacientes, Bob. Alice se conectará a la visita desde la aplicación de escritorio Teams. Bob recibirá un vínculo para conectarse mediante el sitio web del proveedor de atención sanitaria, que usa el SDK para JavaScript de Communication Services para conectarse a la cita. Bob usará su teléfono móvil para entrar en la reunión mediante un explorador web (iPhone con Safari). El chat estará disponible durante la visita virtual.
 
 - La llamada dura un total de 30 minutos.
-- Alice y Bob participan durante toda la llamada. Alice activa su vídeo 5 minutos después de que se inicie la llamada y comparte la pantalla durante 13 minutos. Bob tiene su vídeo activado durante toda la llamada.
+- Cuando Bob se une a la reunión, accede a la sala de reuniones de Teams según la directiva de Teams. Al cabo de un minuto, Alice lo admite en la reunión.
+- Cuando Bob es admitido a la reunión, Alice y Bob participan en toda la llamada. Alice activa su vídeo 5 minutos después de que se inicie la llamada y comparte la pantalla durante 13 minutos. Bob tiene su vídeo activado durante toda la llamada.
 - Alice envía cinco mensajes y Bob responde con tres mensajes.
 
 
 **Cálculos de costos**
 
-- 1 participante (Bob) x 30 minutos x 0,004 USD por participante y minuto = 0,12 USD [el vídeo y el audio se cobran a la misma tarifa]
+- 1 participante (Bob) conectado a la sala de reuniones de Teams x 1 minuto x 0,004 USD por participante por minuto (cargos por tarifa regular de la sala de reuniones) = 0,004 USD
+- 1 participante (Bob) x 29 minutos x 0,004 USD por participante y minuto = 0,116 USD [el vídeo y el audio se cobran a la misma tarifa]
 - 1 participante (Alice) x 30 minutos x 0,000 USD por participante y minuto = 0,0 USD*.
 - 1 participante (Bob) x 3 mensajes de chat x 0,0008 USD = 0,0024 USD.
 - 1 participante (Alice) x 5 mensajes de chat x 0,000 USD = 0,0* USD.
@@ -99,7 +101,7 @@ Alice es médico y tiene una cita con uno de sus pacientes, Bob. Alice se conect
 \* La participación de Alice está incluida en su licencia de Teams. Para su comodidad, en la factura de Azure se mostrarán los minutos y mensajes de chat que los usuarios de Teams tenían con los usuarios de Communication Services, pero los minutos y mensajes que se originan en el cliente de Teams no costarán nada.
 
 **Costo total de la visita**:
-- Conexión del usuario mediante el SDK para JavaScript de Communication Services: 0,12 USD + 0,0024 USD = 0,1224 USD
+- Conexión del usuario mediante el SDK para JavaScript de Communication Services: 0,004 USD + 0,116 USD = 0,0024 USD
 - Conexión del usuario en la aplicación de escritorio Teams: 0 USD (incluido en la licencia de Teams)
 
 

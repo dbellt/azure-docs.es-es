@@ -3,27 +3,27 @@ title: Configuración de alta disponibilidad con STONITH para SAP HANA en Azure 
 description: Establecimiento de alta disponibilidad para SAP HANA en Azure (instancias grandes) en SUSE mediante STONITH
 services: virtual-machines-linux
 documentationcenter: ''
-author: saghorpa
+author: Ajayan1008
 manager: juergent
 editor: ''
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/21/2017
-ms.author: saghorpa
+ms.date: 05/10/2021
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3dd2a618f22036fd0826a99207d83a3add390c7d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 79998a0980d5bbc21c9207d2f9f1d6a71d77d3b2
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645331"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109735321"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configuración de alta disponibilidad en SUSE mediante STONITH
 Este documento proporciona instrucciones paso a paso para configurar la alta disponibilidad en el sistema operativo SUSE mediante el dispositivo STONITH.
 
-**Declinación de responsabilidades:** *esta guía se obtiene como resultado de probar la configuración en el entorno de instancias grandes de Microsoft HANA, que funciona correctamente. Puesto que el equipo de Microsoft Service Management para instancias grandes de HANA no admite el sistema operativo, deberá ponerse en contacto con SUSE para cualquier solución de problemas o aclaración adicionales sobre el nivel de sistema operativo. El equipo de Microsoft Service Management configura el dispositivo STONITH y le presta soporte técnico completo, además de que puede intervenir en la solución de problemas de dicho dispositivo.*
+**Declinación de responsabilidades:** *esta guía se obtiene como resultado de probar correctamente la configuración en el entorno de instancias grandes de Microsoft HANA. Puesto que el equipo de Microsoft Service Management para instancias grandes de HANA no admite el sistema operativo, deberá ponerse en contacto con SUSE para cualquier solución de problemas o aclaración adicionales sobre el nivel de sistema operativo. El equipo de Microsoft Service Management configura el dispositivo STONITH y le presta soporte técnico completo, además de que puede intervenir en la solución de problemas de dicho dispositivo.*
 ## <a name="overview"></a>Información general
 Para configurar la alta disponibilidad con la agrupación en clústeres de SUSE, se deben cumplir los siguientes requisitos previos.
 ### <a name="pre-requisites"></a>Requisitos previos
@@ -37,7 +37,7 @@ Para configurar la alta disponibilidad con la agrupación en clústeres de SUSE,
 ### <a name="setup-details"></a>Detalles de la configuración
 Esta guía utiliza la siguiente configuración:
 - Sistema operativo: SLES 12 SP1 para SAP
-- Instancias grandes de HANA: 2xS192 (cuatro zócalos, 2 TB)
+- Instancias grandes de HANA: 2xS192 (cuatro sockets, 2 TB)
 - Versión de HANA: HANA 2.0 SP1
 - Nombres de servidor: sapprdhdb95 (nodo 1) y sapprdhdb96 (nodo 2)
 - Dispositivo STONITH: dispositivo STONITH basado en iSCSI
@@ -50,18 +50,18 @@ Cuando configura instancias grandes de HANA con HSR, puede solicitar al equipo d
 - Nombre del cliente (por ejemplo, Microsoft)
 - SID: identificador del sistema HANA (por ejemplo, H11)
 
-Una vez configurado el dispositivo STONITH, el equipo de Microsoft Service Management le proporciona el nombre de dispositivo SBD y la dirección IP del almacenamiento iSCSI, que puede usar para establecer la configuración de STONITH. 
+Una vez configurado el dispositivo STONITH, el equipo de Microsoft Service Management le proporcionará el nombre de dispositivo SBD y la dirección IP del almacenamiento iSCSI, que puede usar para establecer la configuración de STONITH. 
 
 Para configurar la alta disponibilidad de un extremo a otro mediante STONITH, debe seguir los pasos siguientes:
 
-1.  Identificación del dispositivo SBD
-2.  Inicialización del dispositivo SBD
-3.  Configuración del clúster
-4.  Configuración del guardián Softdog
-5.  Unión del nodo al clúster
-6.  Validación del clúster
-7.  Configuración de los recursos al clúster
-8.  Prueba del proceso de conmutación por error
+1.  Identificación del dispositivo SBD.
+2.  Inicialización del dispositivo SBD.
+3.  Configuración del clúster.
+4.  Configuración del guardián Softdog.
+5.  Unión del nodo al clúster.
+6.  Validación del clúster.
+7.  Configuración de los recursos en el clúster.
+8.  Prueba del proceso de conmutación por error.
 
 ## <a name="1---identify-the-sbd-device"></a>1.   Identificación del dispositivo SBD
 Esta sección describe cómo determinar el dispositivo SBD para la configuración después de que el equipo de Microsoft Service Management haya configurado STONITH. **Esta sección solo se aplica al cliente existente**. Si es un cliente nuevo, el equipo de Microsoft Service Management le proporciona el nombre de dispositivo SBD y puede omitir esta sección.
@@ -92,7 +92,7 @@ iscsiadm -m node -l
 ```
 ![Captura de pantalla que muestra una ventana de consola con los resultados del comando isciadm con la opción node.](media/HowToHLI/HASetupWithStonith/iSCSIadmLogin.png)
 
-1.5 Ejecute el script de volver a examinar: *rescan-scsi-bus.sh*.  Este script muestra los nuevos discos creados para usted.  Ejecútelo en ambos nodos. Debería ver un número LUN superior a cero (por ejemplo: 1, 2 etc.)
+1.5 Ejecute el script de volver a examinar: *rescan-scsi-bus.sh*.  Este script muestra los nuevos discos creados para usted.  Ejecútelo en ambos nodos. Debería ver un número LUN superior a cero (por ejemplo: 1, 2, etc.)
 
 ```
 rescan-scsi-bus.sh
@@ -125,7 +125,7 @@ sbd -d <SBD Device Name> dump
 ## <a name="3---configuring-the-cluster"></a>3.   Configuración del clúster
 En esta sección se describen los pasos para configurar el clúster de alta disponibilidad de SUSE.
 ### <a name="31-package-installation"></a>3.1 Instalación del paquete
-3.1.1   Compruebe que los patrones ha_sles y SAPHanaSR-doc estén instalados. Si no están instalado, instálelos. Hágalo en **ambos** nodos.
+3.1.1 Compruebe si los patrones ha_sles y SAPHanaSR-doc están instalados. En caso negativo, instálelos. Hágalo en **ambos** nodos.
 ```
 zypper in -t pattern ha_sles
 zypper in SAPHanaSR SAPHanaSR-doc
@@ -139,34 +139,39 @@ zypper in SAPHanaSR SAPHanaSR-doc
 Vaya a yast2> High Availability > Cluster (yast2> Alta disponibilidad > Clúster)![Captura de pantalla que muestra el Centro de control de YaST con las opciones de alta disponibilidad y clúster seleccionadas.](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
 ![Captura de pantalla que muestra un cuadro de diálogo con las opciones Install (Instalar) y Cancel (Cancelar).](media/HowToHLI/HASetupWithStonith/yast-hawk-install.png)
 
-Haga clic en **Cancel** (Cancelar) porque el paquete halk2 ya está instalado.
+Seleccione **Cancel** (Cancelar) porque el paquete halk2 ya está instalado.
 
 ![Captura de pantalla que muestra un mensaje sobre la opción de cancelación.](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)
 
-Haga clic en **Continue** (Continuar).
+Seleccione **Continuar**.
 
-Valor esperado = número de nodos implementados (en este caso 2) ![Captura de pantalla que muestra la ventana Cluster Security (Seguridad del clúster) con la casilla Enable Security Auth (Habilitar autenticación de seguridad).](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png)
-Haga clic en **Next** (Siguiente)
+Valor esperado=Número de nodos implementados (en este caso, 2)
+
+![La captura de pantalla muestra la opción Cluster Security (Seguridad del clúster) con la casilla de verificación Enable Security Auth (Habilitar autenticación de seguridad) activada.](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png)
+
+Seleccione **Next** (Siguiente).
+
 ![Captura de pantalla que muestra la ventana Cluster Configure (Configuración del clúster) con las listas Sync Host (Host de sincronización) y Sync File (Archivo de sincronización).](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png)
-Agregue los nombres de nodo y, a continuación, haga clic en "Add suggested files" (Agregar archivos sugeridos).
 
-Haga clic en "Turn csync2 ON" (Activar csync2).
+Agregue los nombres de nodo y, a continuación, seleccione Add suggested files (Agregar archivos sugeridos).
 
-Si hace clic en "Generate Pre-Shared-Keys" (Generar claves compartidas previamente), se muestra el siguiente mensaje emergente.
+Seleccione **Turn csync2 ON** (Activar csync2).
+
+Si selecciona **Generate Pre-Shared-Keys** (Generar claves compartidas previamente), se muestra el siguiente mensaje emergente.
 
 ![Captura de pantalla que muestra un mensaje que indica que se ha generado la clave.](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
 
-Haga clic en **Aceptar**
+Seleccione **Aceptar**.
 
 La autenticación se realiza con las direcciones IP y las claves compartidas previamente en csync 2. El archivo de clave se genera con csync2 -k /etc/csync2/key_hagroup. El archivo key_hagroup debe copiarse en todos los miembros del clúster manualmente después de su creación. **Asegúrese de copiar el archivo del nodo 1 al nodo 2**.
 
 ![Captura de pantalla que muestra un cuadro de diálogo de configuración del clúster con las opciones necesarias para copiar la clave a todos los miembros del clúster.](media/HowToHLI/HASetupWithStonith/yast-cluster-conntrackd.png)
 
-Haga clic en **Next** (Siguiente)
+Seleccione **Next** (Siguiente)
 ![Captura de pantalla se muestra la ventana del servicio del clúster.](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
 
 En la opción predeterminada, el arranque estaba desactivado. Actívelo para arrancar Pacemarker. Puede elegir según los requisitos de configuración.
-Haga clic en **Next** (Siguiente) y se completará la configuración del clúster.
+Seleccione **Next** (Siguiente) y se completará la configuración del clúster.
 
 ## <a name="4---setting-up-the-softdog-watchdog"></a>4.   Configuración del guardián Softdog
 En esta sección se describe la configuración del guardián (Softdog).
@@ -400,11 +405,11 @@ Revise los cambios y seleccione OK (Aceptar).
 
 La instalación del paquete continúa ![Captura de pantalla que muestra una ventana de consola que muestra el progreso de la instalación.](media/HowToHLI/HASetupWithStonith/yast-performing-installation.png)
 
-Haga clic en Next (Siguiente).
+Seleccione Siguiente.
 
 ![Captura de pantalla que muestra una ventana de consola con un mensaje de operación correcta.](media/HowToHLI/HASetupWithStonith/yast-installation-report.png)
 
-Haga clic en Finish (Finalizar).
+Seleccione Finish (Finalizar)
 
 También tiene que instalar los paquetes libqt4 y libyui-qt.
 ```
@@ -420,7 +425,7 @@ Yast2 debe poder abrir la vista gráfica ahora como se muestra aquí.
 ![Captura de pantalla que muestra el centro de control de YaST con las opciones de software y la actualización en línea seleccionadas.](media/HowToHLI/HASetupWithStonith/yast2-control-center.png)
 
 ### <a name="scenario-3-yast2-does-not-high-availability-option"></a>Escenario 3: yast2 no dispone de la opción de alta disponibilidad
-Para que la opción de alta disponibilidad sea visible en el centro de control de yast2, tiene que instalar los paquetes adicionales.
+Para que la opción de alta disponibilidad sea visible en el centro de control de yast2, tiene que instalar otros paquetes.
 
 Utilice Yast2>Software>Software management (Administración de software)>Select the following patterns (Seleccionar los siguientes patrones).
 
@@ -440,15 +445,15 @@ Seleccione los patrones.
 ![Captura de pantalla que muestra la selección del primer patrón en el elemento del compilador de C y C++ y las herramientas.](media/HowToHLI/HASetupWithStonith/yast-pattern1.png)
 ![Captura de pantalla que muestra la selección del segundo patrón en el elemento del compilador de C y C++ y las herramientas.](media/HowToHLI/HASetupWithStonith/yast-pattern2.png)
 
-Haga clic en **Accept** (Aceptar).
+Seleccione **Accept** (Aceptar)
 
 ![Captura de pantalla que muestra el cuadro de diálogo Changed Packages (Paquetes modificados) con los paquetes modificados para resolver las dependencias.](media/HowToHLI/HASetupWithStonith/yast-changed-packages.png)
 
-Haga clic en **Continue** (Continuar).
+Seleccione **Continuar**
 
 ![Captura de pantalla que muestra la página estado de la instalación en ejecución.](media/HowToHLI/HASetupWithStonith/yast2-performing-installation.png)
 
-Haga clic en **Next** (Siguiente) cuando la instalación se haya completado.
+Seleccione **Next** (Siguiente) cuando la instalación se haya completado.
 
 ![Captura de pantalla que muestra el informe de instalación.](media/HowToHLI/HASetupWithStonith/yast2-installation-report.png)
 

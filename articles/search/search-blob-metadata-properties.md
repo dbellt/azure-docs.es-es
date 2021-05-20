@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/22/2021
-ms.openlocfilehash: cbb35f596a1d32816d1a73b462bf590d9dde0d52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb43796c1d7ce689fb15baedcc363ccb7a41384c
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668425"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483628"
 ---
 # <a name="content-metadata-properties-used-in-azure-cognitive-search"></a>Propiedades de metadatos de contenido usadas en Azure Cognitive Search
 
@@ -31,8 +31,8 @@ En la siguiente tabla se resume el procesamiento que se realiza para cada format
 
 | Formato de documento/Tipo de contenido | Metadatos extraídos | Detalles de procesamiento |
 | --- | --- | --- |
-| HTML (text/html) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |Seccionar el marcado HTML y extraer texto |
-| PDF (application/pdf) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title` |Extraer texto, incluyendo los documentos insertados (excepto las imágenes) |
+| HTML (text/html o application/xhtml+xml) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |Seccionar el marcado HTML y extraer texto |
+| PDF (application/pdf) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title`<br/>`metadata_creation_date` |Extraer texto, incluyendo los documentos insertados (excepto las imágenes) |
 | DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Extraer texto, incluyendo los documentos insertados |
 | DOC (application/msword) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Extraer texto, incluyendo los documentos insertados |
 | DOCM (application/vnd.ms-word.document.macroenabled.12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Extraer texto, incluyendo los documentos insertados |
@@ -47,17 +47,19 @@ En la siguiente tabla se resume el procesamiento que se realiza para cada format
 | MSG (application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_from_email`<br/>`metadata_message_to`<br/>`metadata_message_to_email`<br/>`metadata_message_cc`<br/>`metadata_message_cc_email`<br/>`metadata_message_bcc`<br/>`metadata_message_bcc_email`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Extraer texto, incluyendo el texto extraído de los datos adjuntos. `metadata_message_to_email`, `metadata_message_cc_email` y `metadata_message_bcc_email` son colecciones de cadenas, el resto de los campos son cadenas.|
 | ODT (application/vnd.oasis.opendocument.text) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Extraer texto, incluyendo los documentos insertados |
 | ODS (application/vnd.oasis.opendocument.spreadsheet) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Extraer texto, incluyendo los documentos insertados |
-| ODP (application/vnd.oasis.opendocument.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`title` |Extraer texto, incluyendo los documentos insertados |
+| ODP (application/vnd.oasis.opendocument.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_title` |Extraer texto, incluyendo los documentos insertados |
 | ZIP (application/zip) |`metadata_content_type` |Extraer el texto de todos los documentos en el archivo |
 | GZ (application/gzip) |`metadata_content_type` |Extraer el texto de todos los documentos en el archivo |
 | EPUB (application/epub+zip) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_title`<br/>`metadata_description`<br/>`metadata_language`<br/>`metadata_keywords`<br/>`metadata_identifier`<br/>`metadata_publisher` |Extraer el texto de todos los documentos en el archivo |
-| XML (application/xml) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> |Seccionar el marcado XML y extraer texto |
+| XML (application/xml) |`metadata_content_type`<br/>`metadata_content_encoding`<br/>`metadata_language`<br/> |Seccionar el marcado XML y extraer texto |
+| KML (application/vnd.google-earth.kml+xml) |`metadata_content_type`<br/>`metadata_content_encoding`<br/>`metadata_language`<br/> |Seccionar el marcado XML y extraer texto |
 | JSON (application/json) |`metadata_content_type`<br/>`metadata_content_encoding` |Extraer texto<br/>NOTA:  Si necesita extraer varios campos de documentos de un blob JSON, consulte [Indexación de blobs JSON](search-howto-index-json-blobs.md) para detalles. |
 | EML (message/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Extraer texto, incluidos los datos adjuntos |
-| RTF (aplicación/rtf) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_page_count`<br/>`metadata_word_count`<br/> | Extraer texto|
-| Plain text (text/plain) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> | Extraer texto|
+| RTF (aplicación/rtf) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count`<br/> | Extraer texto|
+| Plain text (text/plain) |`metadata_content_type`<br/>`metadata_content_encoding`<br/>`metadata_language`<br/> | Extraer texto|
+| CSV (text/csv) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> | Extraer texto<br/>NOTA: Si necesita extraer varios campos de documentos de un blob CSV, consulte [Indexación de blobs CSV](search-howto-index-csv-blobs.md) para detalles |
 
-## <a name="see-also"></a>Consulta también
+## <a name="see-also"></a>Consulte también
 
 * [Indexadores de Azure Cognitive Search](search-indexer-overview.md)
 * [Uso de la inteligencia artificial para comprender los datos de Blob Storage](search-blob-ai-integration.md)

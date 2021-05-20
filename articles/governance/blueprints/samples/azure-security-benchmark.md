@@ -3,16 +3,16 @@ title: Introducción al ejemplo de plano técnico de Azure Security Benchmark
 description: Introducción al ejemplo de plano técnico de Azure Security Benchmark. Este ejemplo de plano técnico ayuda a los clientes a evaluar determinados controles concretos.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 58e8c3972b0f05e5b0a3f15da0dfd3eae301ad31
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 0e4a8eab295690770745362480251a4a8c2c3959
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386999"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757860"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Ejemplo de plano técnico de Azure Security Benchmark
 
-El ejemplo de plano técnico de Azure Security Benchmark proporciona directivas de protección de la gobernanza mediante [Azure Policy](../../policy/overview.md), que le ayudan a evaluar controles específicos de [Azure Security Benchmark v1](../../../security/benchmarks/overview.md). Este plano técnico ayuda a los clientes a implementar un conjunto básico de directivas para cualquier arquitectura implementada de Azure en la que tengan intención de implementar controles de Azure Security Benchmark.
+En el ejemplo de plano técnico de Azure Security Benchmark, se proporcionan directivas de protección de la gobernanza mediante [Azure Policy](../../policy/overview.md) que le ayudarán a evaluar controles específicos de [Azure Security Benchmark v1](../../../security/benchmarks/overview.md). Este plano técnico ayuda a los clientes a implementar un conjunto básico de directivas para cualquier arquitectura implementada de Azure en la que tengan intención de implementar controles de Azure Security Benchmark.
 
 ## <a name="control-mapping"></a>Asignación de controles
 

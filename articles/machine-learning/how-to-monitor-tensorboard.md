@@ -9,12 +9,12 @@ author: minxia
 ms.author: minxia
 ms.date: 02/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 4d440742e9cfe9aadb63ed31c113879c4478dc82
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: a8e1c85bf2284eb2dd5a2bc87c2a60b89478e928
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888771"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760614"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualización de las ejecuciones y las métricas de los experimentos con TensorBoard y Azure Machine Learning
 
@@ -36,7 +36,7 @@ La forma de iniciar TensorBoard con experimentos de Azure Machine Learning depen
 * Para iniciar TensorBoard y ver los historiales de ejecución de los experimentos, los experimentos deben tener habilitado previamente el registro para realizar el seguimiento de sus métricas y de su rendimiento.  
 * El código de este documento se puede ejecutar en cualquiera de los siguientes entornos: 
     * Instancia de Proceso de Azure Machine Learning: no se necesitan descargas ni instalación
-        * Complete el [Tutorial: Configuración del entorno y el área de trabajo](tutorial-1st-experiment-sdk-setup.md) para crear un servidor de cuadernos dedicado en el que se habrán cargado previamente el SDK y el repositorio de ejemplos.
+        * Complete la [Guía de inicio rápido: Introducción a Azure Machine Learning](quickstart-create-resources.md) para crear un servidor de cuadernos dedicado previamente cargado con el SDK y el repositorio de ejemplo.
         * En la carpeta de muestras del servidor de cuadernos, vaya a estos directorios para encontrar dos cuadernos completados y expandidos:
             * **how-to-use-azureml > track-and-monitor-experiments > tensorboard > export-run-history-to-tensorboard > export-run-history-to-tensorboard.ipynb**
             * **how-to-use-azureml > track-and-monitor-experiments > tensorboard > tensorboard > tensorboard.ipynb**

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
 ms.custom: devx-track-java, devx-track-azurecli, subject-rbac-steps
-ms.openlocfilehash: 2ff56857eca112ebd808a96f3aaa097ab4be5c18
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: ebf8070a6f5fae97d1cee3720ffee2ee2399735c
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108291539"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634426"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Implementación de Azure Spring Cloud en una red virtual
 
@@ -88,7 +88,7 @@ Seleccione la red virtual **azure-spring-cloud-vnet** que creó anteriormente.
 
     ![Captura de pantalla que muestra la pantalla Access control (Control de acceso).](./media/spring-cloud-v-net-injection/access-control.png)
 
-1. Asigne el rol [azure-spring-cloud-data-reader](../role-based-access-control/built-in-roles.md#azure-spring-cloud-data-reader) a [usuario | grupo | entidad de servicio | identidad administrada] en el ámbito [grupo de administración | suscripción | grupo de recursos | recurso].
+1. Asigne el rol [Propietario](../role-based-access-control/built-in-roles.md#owner) al [usuario | grupo | entidad de servicio | identidad administrada] en el ámbito de [grupo de administración | suscripción | grupo de recursos | recurso].
 
     Para acceder a los pasos detallados, vea [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
 

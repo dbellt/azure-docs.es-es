@@ -3,16 +3,17 @@ title: Controles del ejemplo de plano técnico de nivel 4 de impacto del DoD
 description: Asignación de controles del ejemplo de plano técnico de nivel 4 de impacto del DoD. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 5e022f4cea10be628d7d58c85ac10eb960d8ffa0
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 401c0be0f30ade1dd35c8597dcb60f15e1a86b23
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386982"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757608"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico de nivel 4 de impacto del DoD
 
-En el artículo siguiente se detalla cómo asigna el ejemplo de plano técnico de nivel 4 de impacto del Departamento de Defensa (DoD IL4) de Azure Blueprints los controles de nivel 4 de impacto del DoD. Para más información sobre los controles, consulte [Guía de requisitos de seguridad (SRG) de informática en la nube del DoD](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf). La Agencia de sistemas de información de Defensa (DISA) es una agencia del Departamento de Defensa (DoD) de EE. UU. responsable del desarrollo y mantenimiento de la Guía de requisitos de seguridad (SRG) de informática en la nube del DoD. La SRG define los requisitos de seguridad de línea de base para los proveedores de servicios en la nube (CSP) que hospedan información, sistemas y aplicaciones del DoD y para el uso de los servicios en la nube del DoD.  
+En el artículo siguiente se detalla cómo asigna el ejemplo de plano técnico de nivel 4 de impacto del Departamento de Defensa (DoD IL4) de Azure Blueprints los controles de nivel 4 de impacto del DoD. Para más información sobre los controles, consulte [Guía de requisitos de seguridad (SRG) de informática en la nube del DoD](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf).
+La Agencia de sistemas de información de Defensa (DISA) es una agencia del Departamento de Defensa (DoD) de EE. UU. responsable del desarrollo y mantenimiento de la Guía de requisitos de seguridad (SRG) de informática en la nube del DoD. La SRG define los requisitos de seguridad de línea de base para los proveedores de servicios en la nube (CSP) que hospedan información, sistemas y aplicaciones del DoD y para el uso de los servicios en la nube del DoD.
 
 Las siguientes asignaciones son para los controles del **nivel 4 de impacto del DoD**. Use el panel de navegación de la derecha para ir directamente a una asignación de control específica. Muchos de los controles asignados se implementan con una iniciativa de [Azure Policy](../../../policy/overview.md). Para revisar la iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones**. Después, busque y seleccione la **\[versión preliminar\]: iniciativa de directiva integrada del nivel 4 de impacto del DoD**.
 
@@ -131,7 +132,7 @@ Los datos de registro que recopila Azure Monitor se almacenan en un área de tra
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) Revisión, análisis e informes de auditoría | Integración y funcionalidades de examen y supervisión
 
-Este plano técnico proporciona definiciones de directivas que auditan registros con el análisis de la evaluación de vulnerabilidades en máquinas virtuales, conjuntos de escalado de máquinas virtuales, servidores de SQL Database e instancias administradas de SQL. Estas definiciones de directiva también auditan la configuración de los registros de diagnóstico para proporcionar información detallada sobre las operaciones realizadas dentro de los recursos de Azure. Esta información proporciona detalles en tiempo real sobre el estado de seguridad de los recursos implementados y ayuda a priorizar las medidas correctivas. Para un examen y una supervisión de vulnerabilidades detallados, le recomendamos que también aproveche las ventajas de Azure Sentinel y Azure Security Center.
+Este plano técnico proporciona definiciones de directivas que auditan registros con el análisis de la evaluación de vulnerabilidades en máquinas virtuales, conjuntos de escalado de máquinas virtuales, servidores de SQL Database e instancias administradas de SQL. Estas definiciones de directiva también auditan la configuración de los registros de diagnóstico para proporcionar información detallada sobre las operaciones realizadas dentro de los recursos de Azure. Esta información proporciona detalles en tiempo real sobre el estado de seguridad de los recursos implementados y ayuda a priorizar las medidas correctivas. Para examinar y supervisar las vulnerabilidades de forma detallada, le recomendamos que use también Azure Sentinel y Azure Security Center.
 
 - \[Versión preliminar\]: La evaluación de vulnerabilidades debe estar habilitada en las máquinas virtuales.
 - La evaluación de vulnerabilidades debe estar activada en sus servidores de SQL Server.
@@ -174,19 +175,19 @@ Esta directiva integrada requiere que especifique una matriz de tipos de recurso
 
 ## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>Funcionalidad mínima CM-7 (2) | Evitar la ejecución de programas
 
-El control de aplicaciones adaptable en Azure Security Center es una solución de lista de aplicaciones permitidas que es inteligente, automatizada, de un extremo a otro y que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ejecutarse en modo de aplicación que prohíbe que la aplicación no autorizada se ejecute. Este plano técnico asigna una definición de Azure Policy que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero esta aún no se ha configurado.
+El control de aplicaciones adaptable de Azure Security Center es una solución completa de lista de aplicaciones permitidas inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ejecutarse en modo de aplicación que prohíbe que la aplicación no autorizada se ejecute. Este plano técnico asigna una definición de Azure Policy que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero aún no se ha configurado.
 
 - Los controles de aplicaciones adaptables para definir aplicaciones seguras deben estar habilitados en las máquinas.
 
 ## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>Funcionalidad mínima CM-7 (5) | Creación de listas de software permitido o autorizado
 
-El control de aplicaciones adaptable en Azure Security Center es una solución de creación de listas de aplicaciones permitidas integral, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones le permite crear listas de aplicaciones aprobadas para las máquinas virtuales. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero esta aún no se ha configurado.
+El control de aplicaciones adaptable de Azure Security Center es una solución completa de lista de aplicaciones permitidas inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones le permite crear listas de aplicaciones aprobadas para las máquinas virtuales. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero aún no se ha configurado.
 
 - Los controles de aplicaciones adaptables para definir aplicaciones seguras deben estar habilitados en las máquinas.
 
 ## <a name="cm-11-user-installed-software"></a>Software instalado por el usuario CM-11
 
-El control de aplicaciones adaptable en Azure Security Center es una solución de creación de listas de aplicaciones permitidas integral, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ayudarle a aplicar y supervisar el cumplimiento con las directivas de restricción de software. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero esta aún no se ha configurado.
+El control de aplicaciones adaptable de Azure Security Center es una solución completa de lista de aplicaciones permitidas inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ayudarle a aplicar y supervisar el cumplimiento con las directivas de restricción de software. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero aún no se ha configurado.
 
 - Los controles de aplicaciones adaptables para definir aplicaciones seguras deben estar habilitados en las máquinas.
 
@@ -196,7 +197,7 @@ Azure Site Recovery replica las cargas de trabajo que se ejecutan en máquinas v
 
 - Auditoría de máquinas virtuales sin la recuperación ante desastres configurada
 
-## <a name="cp-9-05--information-system-backup--transfer-to-alternate-storage-site"></a>CP-9 (05) Copia de seguridad del sistema de información | Transferencia al sitio de almacenamiento alternativo
+## <a name="cp-9-05-information-system-backup--transfer-to-alternate-storage-site"></a>CP-9 (05) Copia de seguridad del sistema de información | Transferencia al sitio de almacenamiento alternativo
 
 Este plano técnico asigna definiciones de Azure Policy que auditan la información de copia de seguridad del sistema de la organización en el sitio de almacenamiento alternativo electrónicamente. Para el envío físico de los metadatos de almacenamiento, considere la posibilidad de usar Azure Data Box.
 
@@ -259,7 +260,8 @@ Este plano técnico proporciona definiciones de directivas que auditan registros
 
 ## <a name="ra-5-vulnerability-scanning"></a>Examen de vulnerabilidades RA-5
 
-Este proyecto ayuda a administrar las vulnerabilidades del sistema de información mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que supervisan las vulnerabilidades del sistema operativo, las de SQL o las de las máquinas virtuales en Azure Security Center. Azure Security Center proporciona funcionalidades de informes que permiten tener información en tiempo real sobre el estado de seguridad de los recursos de Azure implementados. Este proyecto asigna también definiciones de directiva que auditan y exigen Advanced Data Security en servidores SQL. Advanced Data Security incluía la evaluación de vulnerabilidades y funcionalidades de protección contra amenazas avanzada para ayudarle a entender las vulnerabilidades en los recursos implementados.
+Este proyecto ayuda a administrar las vulnerabilidades del sistema de información mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que supervisan las vulnerabilidades del sistema operativo, las de SQL o las de las máquinas virtuales en Azure Security Center.
+Azure Security Center proporciona funcionalidades de informes que permiten tener información en tiempo real sobre el estado de seguridad de los recursos de Azure implementados. Este proyecto asigna también definiciones de directiva que auditan y exigen Advanced Data Security en servidores SQL. Advanced Data Security incluía la evaluación de vulnerabilidades y funcionalidades de protección contra amenazas avanzada para ayudarle a entender las vulnerabilidades en los recursos implementados.
 
 - La seguridad avanzada de datos debe estar habilitada en las instancias administradas
 - La seguridad avanzada de datos debe estar habilitada en los servidores SQL Server
@@ -271,14 +273,13 @@ Este proyecto ayuda a administrar las vulnerabilidades del sistema de informaci�
 
 ## <a name="sc-5-denial-of-service-protection"></a>Protección ante la denegación de servicio SC-5
 
-El nivel estándar de denegación de servicio distribuido (DDoS) de Azure proporciona características adicionales y funcionalidades de mitigación en el nivel de servicio básico. Estas características adicionales incluyen la integración de Azure Monitor y la capacidad de revisar los informes de mitigación posteriores al ataque. Este proyecto asigna una definición de [Azure Policy](../../../policy/overview.md) que audita si está habilitado el nivel estándar de DDoS. Conocer la diferencia de capacidad entre los niveles de servicio puede ayudarle a seleccionar la mejor solución para abordar la denegación de protecciones de servicio para el entorno de Azure.
+El nivel estándar de protección ante la denegación de servicio distribuido (DDoS) de Azure proporciona características adicionales y funcionalidades de mitigación con respecto al nivel de servicio básico. Estas características adicionales incluyen la integración de Azure Monitor y la capacidad de revisar los informes de mitigación posteriores al ataque. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que audita si está habilitado el nivel estándar de DDoS. Conocer la diferencia de capacidad entre los niveles de servicio puede ayudarle a seleccionar la mejor solución para abordar la denegación de protecciones de servicio para el entorno de Azure.
 
 - Se debe habilitar DDoS Protection estándar
 
 ## <a name="sc-7-boundary-protection"></a>Protección de límites SC-7
 
-Este proyecto le ayuda a administrar y controlar el límite del sistema mediante la asignación de una definición de [Azure Policy](../../../policy/overview.md) que supervisa las recomendaciones de protección del grupo de seguridad de red en Azure Security Center. Azure Security Center analiza los patrones de tráfico de las máquinas virtuales de Internet y proporciona recomendaciones de reglas de grupo de seguridad de red para reducir la superficie potencial de ataque.
-Además, este proyecto también asigna definiciones de directiva que supervisan las cuentas de almacenamiento, las aplicaciones y los puntos de conexión desprotegidos. Los puntos de conexión y las aplicaciones que no están protegidos por firewall y las cuentas de almacenamiento con acceso sin restricciones pueden permitir el acceso no deseado a la información contenida en el sistema de información.
+Este proyecto le ayuda a administrar y controlar el límite del sistema mediante la asignación de una definición de [Azure Policy](../../../policy/overview.md) que supervisa las recomendaciones de protección del grupo de seguridad de red en Azure Security Center. Azure Security Center analiza los patrones de tráfico de las máquinas virtuales de Internet y proporciona recomendaciones de reglas de grupo de seguridad de red para reducir la superficie potencial de ataque. Además, este proyecto también asigna definiciones de directiva que supervisan las cuentas de almacenamiento, las aplicaciones y los puntos de conexión desprotegidos. Los puntos de conexión y las aplicaciones que no están protegidos por firewall y las cuentas de almacenamiento con acceso sin restricciones pueden permitir el acceso no deseado a la información contenida en el sistema de información.
 
 - Se deben proteger las reglas del grupo de seguridad de red para máquinas virtuales accesibles desde Internet
 - Debe restringirse el acceso a través de un punto de conexión accesible desde Internet
@@ -337,15 +338,15 @@ Este proyecto ayuda a administrar los errores del sistema de información median
 
 Este plano técnico asigna definiciones de directivas que le ayudan a garantizar que las aplicaciones usan la versión más reciente de HTTP, Java, PHP, Python y TLS. Este plano técnico también asigna una definición de directiva que garantiza que Kubernetes Services se actualiza a su versión no vulnerable.
 
-- Asegúrese de que la versión de HTTP es la más reciente si se usa para ejecutar la aplicación de API.
+- Asegúrese de que la "versión de HTTP" sea la más reciente, si se usa para ejecutar la aplicación de API.
 - Asegúrese de que la versión de HTTP es la más reciente si se usa para ejecutar la aplicación de funciones.
 - Asegúrese de que la versión de HTTP es la más reciente si se usa para ejecutar la aplicación web.
-- Asegúrese de que la versión de Java es la más reciente si se usa como parte de la aplicación de API.
+- Asegúrese de que la "versión de Java" sea la más reciente, si se usa como parte de la aplicación de API.
 - Asegúrese de que la versión de Java es la más reciente si se usa como parte de la aplicación de funciones.
 - Asegúrese de que la versión de Java es la más reciente si se usa como parte de la aplicación web.
-- Asegúrese de que la versión de PHP es la más reciente si se usa como parte de la aplicación de API.
+- Asegúrese de que la "versión de PHP" sea la más reciente, si se usa como parte de la aplicación de API.
 - Asegúrese de que la versión de PHP es la más reciente si se usa como parte de la aplicación web.
-- Asegúrese de que la versión de Python es la más reciente si se usa como parte de la aplicación de API.
+- Asegúrese de que la "versión de Python" sea la más reciente, si se usa como parte de la aplicación de API.
 - Asegúrese de que la versión de Python" es la más reciente si se usa como parte de la aplicación de funciones.
 - Asegúrese de que la versión de Python es la más reciente si se usa como parte de la aplicación web.
 - La versión más reciente de TLS debe usarse en la aplicación de API.
@@ -391,12 +392,12 @@ Este proyecto le ayuda a supervisar el sistema de auditoría y cumplimiento de s
 
 ## <a name="si-4-12-information-system-monitoring--automated-alerts"></a>4 SI-12 Supervisión del sistema de información | Alertas automatizadas
 
-Este plano técnico proporciona definiciones de directivas que contribuirán a garantizar que las notificaciones de seguridad de los datos se hayan habilitado correctamente. Además, garantiza que esté habilitado el plan de tarifa estándar de Azure Security Center. Tenga en cuenta que el plan de tarifa estándar permite detectar amenazas en redes y máquinas virtuales, lo que proporciona inteligencia sobre amenazas, detección de anomalías y análisis de comportamiento en Azure Security Center.
+Este plano técnico proporciona definiciones de directivas que contribuirán a garantizar que las notificaciones de seguridad de los datos se hayan habilitado correctamente. Además, garantiza que esté habilitado el plan de tarifa Estándar de Azure Security Center. Tenga en cuenta que el plan de tarifa Estándar permite detectar amenazas en redes y máquinas virtuales, lo que proporciona inteligencia sobre amenazas, detección de anomalías y análisis de comportamiento en Azure Security Center.
 
 - La opción para enviar notificaciones por correo electrónico al propietario de la suscripción en relación a alertas de gravedad alta debe estar habilitada
-- Es necesario proporcionar una dirección de correo electrónico de contacto de seguridad para la suscripción 
-- Las notificaciones a los administradores y a los propietarios de la suscripción deben estar habilitadas en la configuración de seguridad avanzada de datos de la instancia administrada de SQL 
-- Las notificaciones por correo electrónico para administradores y propietarios de suscripciones deben estar habilitadas en la configuración de seguridad avanzada de datos de SQL Server 
+- Es necesario proporcionar una dirección de correo electrónico de contacto de seguridad para la suscripción
+- Las notificaciones a los administradores y a los propietarios de la suscripción deben estar habilitadas en la configuración de seguridad avanzada de datos de la instancia administrada de SQL
+- Las notificaciones por correo electrónico para administradores y propietarios de suscripciones deben estar habilitadas en la configuración de seguridad avanzada de datos de SQL Server
 - Es necesario proporcionar un número de teléfono de contacto de seguridad para la suscripción
 - La configuración de seguridad de datos avanzada para SQL Server debe contener una dirección de correo electrónico para recibir alertas de seguridad
 - Es necesario seleccionar el plan de tarifa estándar de Security Center.
@@ -408,7 +409,7 @@ Advanced Threat Protection para Azure Storage detecta los intentos poco habitual
 - Implementar Advanced Threat Protection en las cuentas de almacenamiento
 
 > [!NOTE]
-> La disponibilidad de definiciones específicas de Azure Policy puede variar tanto en Azure Government como en otras nubes nacionales. 
+> La disponibilidad de definiciones específicas de Azure Policy puede variar tanto en Azure Government como en otras nubes nacionales.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

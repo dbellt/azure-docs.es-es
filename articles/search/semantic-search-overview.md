@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/01/2021
+ms.date: 05/06/2021
 ms.custom: references_regions
-ms.openlocfilehash: 4871f23577213430e530270d23b070e35d831bc4
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 4e6b30e6b6df02bac366e2907f33fd2bda13716f
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165360"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789810"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Búsqueda semántica en Azure Cognitive Search
 
@@ -23,18 +23,19 @@ ms.locfileid: "108165360"
 
 La búsqueda semántica es una colección de funcionalidades relacionadas con las consultas que agrega relevancia semántica y comprensión del lenguaje a los resultados de la búsqueda. Este artículo es una introducción general a la búsqueda semántica, con descripciones de cada característica y su funcionamiento colectivo. La tecnología se describe en el vídeo insertado y la disponibilidad y los precios aparece en la sección del final.
 
-Si necesita información general, le recomendamos revisar este artículo, pero si prefiere empezar de inmediato, siga estos pasos:
+La búsqueda semántica es una característica Prémium. Si necesita información general, le recomendamos este artículo, pero si prefiere empezar a trabajar, siga estos pasos:
 
-1. [Regístrese para obtener la versión preliminar](https://aka.ms/SemanticSearchPreviewSignup), suponiendo que se trata de un servicio que cumple con los [requisitos regionales y de nivel](#availability-and-pricing).
-1. Cree consultas nuevas o modifique las existentes para devolver [leyendas y resaltados semánticos](semantic-how-to-query-request.md).
-1. Agregue algunas otras propiedades para devolver también [respuestas semánticas](semantic-answers.md).
-1. También puede incluir una propiedad de [corrección ortográfica](speller-how-to-add.md) para maximizar la precisión y coincidencia.
+1. [Compruebe los requisitos regionales y de nivel de servicio](#availability-and-pricing).
+1. [Regístrese para el programa de versión preliminar](https://aka.ms/SemanticSearchPreviewSignup).
+1. Tras la aceptación, cree o modifique las consultas para devolver [títulos y resaltados semánticos](semantic-how-to-query-request.md).
+1. Agregue algunas propiedades más para devolver también [respuestas semánticas](semantic-answers.md).
+1. También puede incluir una propiedad de [corrección ortográfica](speller-how-to-add.md) para maximizar la precisión y la coincidencia.
 
 ## <a name="what-is-semantic-search"></a>¿Qué es la búsqueda semántica?
 
-La búsqueda semántica es una capa opcional de inteligencia artificial relacionada con la búsqueda que extiende la canalización de ejecución de consultas tradicional con un modelo de clasificación semántica y devuelve propiedades adicionales que mejoran la experiencia del usuario.
+La búsqueda semántica es una capa opcional de inteligencia artificial relacionada con las consultas. Cuando se habilita en el servicio de búsqueda, extiende la canalización de ejecución de consultas tradicional de dos maneras. En primer lugar, agrega un modelo de clasificación semántica opcional; y, en segundo lugar, devuelve títulos y respuestas en la respuesta.
 
-La *clasificación semántica* busca el contexto y la relación entre los términos, elevando las coincidencias que tienen más sentido en función de la consulta. Language Understanding busca *descripciones* y *respuestas* en el contenido que resuman el documento coincidente o respondan a una pregunta, que luego se puede representar en una página de resultados de búsqueda para una experiencia de búsqueda más productiva.
+La *clasificación semántica* busca el contexto y la relación entre los términos, elevando las coincidencias que tienen más sentido en función de la consulta. Language Understanding busca resúmenes o *títulos* y *respuestas* en el contenido, y los incluye en la respuesta, que luego se puede representar en una página de resultados de búsqueda para una experiencia de búsqueda más productiva.
 
 Los modelos previamente entrenados de última generación se usan para el resumen y la clasificación. Para mantener el rápido rendimiento que los usuarios esperan de la búsqueda, el resumen semántico y la clasificación se aplican solo a los 50 resultados principales, en función de la puntuación del [algoritmo de puntuación de similitud predeterminada](index-similarity-and-scoring.md#similarity-ranking-algorithms). Al usar los resultados como un corpus de documento, la clasificación semántica vuelve a puntuar los resultados en función de la intensidad semántica de la coincidencia.
 
@@ -44,7 +45,7 @@ En el vídeo siguiente se proporciona información general de las funcionalidade
 
 > [!VIDEO https://www.youtube.com/embed/yOf0WfVd_V0]
 
-## <a name="components-and-workflow"></a>Componentes y flujo de trabajo
+## <a name="feature-description-and-workflow"></a>Descripción y flujo de trabajo de características
 
 La búsqueda semántica mejora la precisión y la coincidencia gracias a la adición de las siguientes funcionalidades:
 
@@ -73,11 +74,18 @@ Para usar las funcionalidades semánticas en las consultas, deberá realizar peq
 
 ## <a name="availability-and-pricing"></a>Disponibilidad y precios
 
-Puede obtener las funcionalidades semánticas mediante el [registro de inicio de sesión](https://aka.ms/SemanticSearchPreviewSignup), en los servicios de búsqueda que se crean en un nivel Estándar (S1, S2, S3) y que estén ubicados en una de estas regiones: Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU. 2, Norte de Europa y Oeste de Europa. 
+La búsqueda semántica está disponible a través del [registro de suscripción](https://aka.ms/SemanticSearchPreviewSignup). Desde el lanzamiento de la versión preliminar del 2 de marzo hasta primeros de junio, las características semánticas se ofrecen de forma gratuita.
 
-La corrección ortográfica está disponible en las mismas regiones, pero no tiene restricciones de nivel. Si tiene un servicio existente que cumpla los criterios de nivel y región, solo es necesario que se registre.
+| Característica | Nivel | Region (Región) | Suscripción | Precios proyectados |
+|---------|------|--------|---------------------|-------------------|
+| Búsqueda semántica (títulos, resaltados, respuestas) | Nivel estándar (S1, S2, S3) | Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU. 2, Norte de Europa, Oeste de Europa | Obligatorio | A partir del 1 de junio, el precio esperado de las primeras 250 000 consultas son 500 USD al mes y 2 USD para cada 1000 consultas adicionales.  |
+| Corrector ortográfico | Any | Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU. 2, Norte de Europa, Oeste de Europa | Obligatorio | Ninguno (gratis) |
 
-Entre el lanzamiento de la versión preliminar del 2 de marzo hasta finales de abril, la corrección ortográfica y la clasificación semántica se ofrecen de forma gratuita. Después de abril, los costos computacionales de ejecutar esta funcionalidad pasarán a ser un evento facturable. El costo esperado es de aproximadamente 500 USD/mes por 250 000 consultas. Puede encontrar información detallada de los costos documentada en la [página de precios de Cognitive Search](https://azure.microsoft.com/pricing/details/search/) y en [Estimación y administración de los costos](search-sku-manage-costs.md).
+Hay un [registro de suscripción](https://aka.ms/SemanticSearchPreviewSignup) para las características semánticas y la revisión ortográfica. 
+
+Puede usar la revisión ortográfica sin búsqueda semántica, de forma gratuita. Los cargos por la búsqueda semántica se aplican cuando las solicitudes de consulta incluyen `queryType=semantic` y la cadena de búsqueda no está vacía (por ejemplo, `search=pet friendly hotels in new york`. Las búsquedas vacías (consultas donde `search=*`) no se cobran.
+
+La información de los precios finales se documentará en la [página de precios de Cognitive Search](https://azure.microsoft.com/pricing/details/search/) y en [Estimación y administración de los costos](search-sku-manage-costs.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,15 +6,15 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 02/25/2021
+ms.date: 05/11/2021
 ms.author: alkohli
 ms.custom: references_regions
-ms.openlocfilehash: a692aeba312b6fcad580eac901f4b7bc65f059fc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 819a67cd049f5aed9eb66e65613d7e86be5db0c4
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730582"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786724"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Preguntas más frecuentes
 
@@ -26,7 +26,7 @@ Las preguntas y respuestas se organizan en las categorías siguientes:
 - Pedir el dispositivo
 - Configuración y conexión 
 - Seguimiento del estado
-- Copia de datos 
+- Migración de los datos 
 - Enviar el dispositivo
 - Comprobación y carga de datos 
 - Cadena de soporte técnico de custodia
@@ -259,16 +259,16 @@ A.  Durante el tránsito, las siguientes características de Data Box se encarga
  - El dispositivo está bloqueado y necesita una contraseña de desbloqueo para introducir y obtener acceso a los datos.
 Para obtener más información, vaya a [Data Box security features](data-box-security.md) (Características de seguridad de Data Box).  
 
-### <a name="q-i-have-finished-prepare-to-ship-for-my-import-order-and-shut-down-the-device-can-i-still-add-more-data-to-the-data-box"></a>Q. He terminado de preparar el envío para el pedido de importación y he apagado el dispositivo. ¿Todavía puedo agregar más datos en Data Box?
+### <a name="q-i-finished-prepare-to-ship-for-my-import-order-and-shut-down-the-device-can-i-still-add-more-data-to-the-data-box"></a>Q. He terminado de preparar el envío para el pedido de importación y he apagado el dispositivo. ¿Todavía puedo agregar más datos en Data Box?
 A. Sí. Puede encender el dispositivo y agregar más datos. Recuerde que deberá ejecutar de nuevo la opción **Preparar para enviar** una vez que haya terminado de copiar los datos.
 
-### <a name="q-i-received-my-device-and-it-is-not-booting-up-how-do-i-ship-the-device-back"></a>Q. He recibido mi dispositivo y no arranca. ¿Cómo devuelvo el dispositivo?
+### <a name="q-i-received-my-device-and-its-not-booting-up-how-do-i-ship-the-device-back"></a>Q. He recibido mi dispositivo y no arranca. ¿Cómo devuelvo el dispositivo?
 A. Si el dispositivo no arranca, vaya a su pedido en Azure Portal. Descargue la etiqueta de envío y colóquela en el dispositivo. Para obtener más información, vaya a [Download shipping label](data-box-portal-admin.md#download-shipping-label) (Descargar la etiqueta de envío).
 
 ## <a name="verify-and-upload"></a>Comprobación y carga
 
 ### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-data-box-back"></a>Q. ¿Cuándo puedo acceder a los datos en Azure una vez que se ha devuelto el dispositivo Data Box? 
-A.  Una vez que el estado del pedido de **Copia de datos** indica que se **ha completado**, debería obtener acceso a los datos de inmediato.
+A.  Una vez que el estado del pedido de **Copia de datos** indique que se **ha completado**, podrá acceder a los datos de inmediato.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>Q. ¿Dónde se encuentran los datos en Azure después de la carga?
 A.  Cuando copia datos en Data Box, y según si se trata de blobs en bloques, blobs en páginas o archivos de Azure, los datos se cargarán en una de las rutas de acceso siguientes de su cuenta de Azure Storage:
@@ -281,6 +281,13 @@ A.  Cuando copia datos en Data Box, y según si se trata de blobs en bloques, bl
 A.  Si los nombres de los contenedores incluyen mayúsculas, estas se convierten automáticamente en minúsculas. Si los nombres no son compatibles por algún otro motivo (caracteres especiales, otros idiomas, etc.), se producirá un error en la carga. Para más información sobre cómo asignar nombres a recursos compartidos, contenedores y archivos, vaya a:
 - [Nomenclatura y referencia de recursos compartidos](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
 - [Convenciones de blobs en bloques y blobs en páginas](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
+
+
+### <a name="q-i-was-notified-of-copy-errors-during-a-data-upload-from-my-data-box-what-should-i-do"></a>Q. Me notificaron errores de copia durante una carga de datos desde mi Data Box. ¿Cuál debo hacer?
+A.  Cuando los errores de copia de datos que no se pueden volver a intentar impiden que los archivos del pedido de importación se carguen en Azure, estos errores se registran en el registro de copia de datos y se recibe una notificación. No puede corregir estos errores. La carga se ha completado con errores. La notificación se envía para asegurarse de que sabe que los archivos no se cargaron para que pueda corregir los errores de configuración antes de intentarlo de nuevo. Cuando confirme que está listo para continuar, los datos se borrarán del dispositivo de forma segura. Si no responde, la orden se completa automáticamente después de 14 días.
+
+Para obtener información sobre errores y los pasos para continuar con el pedido, consulte [Revisión de los errores de copia en las cargas desde dispositivos Azure Data Box y Azure Data Box Heavy](data-box-troubleshoot-data-upload.md).  
+
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-data-box"></a>Q. ¿Cómo se comprueban los datos que se han copiado en Data Box?
 A.  Una vez completada la copia de datos, al ejecutar **Preparar para enviar**, los datos se validan. Data Box crea una lista de archivos y sumas de comprobación para los datos, durante el proceso de validación. Puede descargar la lista de archivos y comprobarla con los archivos de los datos de origen. Para obtener más información, vaya a [Preparar para enviar](data-box-deploy-picked-up.md#prepare-to-ship).

@@ -4,15 +4,15 @@ description: Aprenda a crear y usar conexiones híbridas en Azure App Service pa
 author: ccompy
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
-ms.date: 02/05/2020
+ms.date: 05/05/2021
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 1b3fc4a254c1157f2c2336e6360ba7621f31364d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8425ef0e8d2bdf5caf64bfb2e0c977c63b5a6e1
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99594238"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109628482"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Hybrid Connections de Azure App Service
 
@@ -21,9 +21,9 @@ Conexiones híbridas es tanto un servicio de Azure como una característica de A
 En App Service, las Conexiones híbridas se pueden usar para acceder a recursos de aplicaciones en cualquier red que pueda realizar llamadas salientes a Azure a través del puerto 443. Las Conexiones híbridas proporcionan acceso desde la aplicación a un punto de conexión TCP y no habilitan una nueva forma de acceder a la aplicación. Dado que se utiliza en App Service, cada conexión híbrida se correlaciona con una combinación única de host y puerto TCP. Esto permite a las aplicaciones acceder a los recursos de cualquier sistema operativo, siempre que se trate de un punto de conexión TCP. La característica Conexiones híbridas no sabe lo que es el protocolo de aplicaciones ni sabe a qué se accede. Simplemente ofrece acceso a la red.  
 
 ## <a name="how-it-works"></a>Funcionamiento ##
-Las Conexiones híbridas requieren la implementación de un agente de retransmisión desde donde se pueda acceder al punto de conexión deseado y a Azure. El agente de retransmisión, el Administrador de conexiones híbridas (HCM), llama a Azure Relay a través del puerto 443. Desde el sitio de la aplicación web, la infraestructura de App Service también se conecta a Azure Relay en nombre de la aplicación. Mediante las conexiones unidas, la aplicación puede acceder al punto de conexión deseado. La conexión usa TLS 1.2 para la seguridad y las claves de firma de acceso compartido (SAS) para la autenticación y la autorización.    
+Las Conexiones híbridas requieren la implementación de un agente de retransmisión desde donde se pueda acceder al punto de conexión deseado y a Azure. El agente de retransmisión, el Administrador de conexiones híbridas (HCM), llama a Azure Relay a través del puerto 443. Desde el sitio de la aplicación web, la infraestructura de App Service también se conecta a Azure Relay en nombre de la aplicación. Mediante las conexiones unidas, la aplicación puede acceder al punto de conexión deseado. La conexión usa TLS 1.2 para la seguridad y las claves de firma de acceso compartido (SAS) para la autenticación y la autorización.
 
-![Diagrama del flujo de alto nivel de conexión híbrida][1]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-connectiondiagram.png" alt-text="Diagrama del flujo de alto nivel de conexión híbrida":::
 
 Cuando la aplicación realiza una solicitud DNS que coincide con un punto de conexión híbrida configurado, el tráfico TCP saliente se redirige por la conexión híbrida,  
 
@@ -58,11 +58,11 @@ Las cosas que no se pueden hacer con las conexiones híbridas incluyen:
 
 Para crear una conexión híbrida, vaya a [Azure Portal][portal] y seleccione su aplicación. Seleccione **Redes** > **Configure los puntos de conexión de la conexión híbrida**. Aquí se pueden ver las conexiones híbridas que están configuradas para su aplicación.  
 
-![Captura de pantalla de la lista de conexiones híbridas][2]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-portal.png" alt-text="Captura de pantalla de la lista de conexiones híbridas":::
 
-Para agregar una conexión híbrida nueva, seleccione **[+] Agregar conexión híbrida**.  Verá una lista de las conexiones híbridas que ya haya creado. Para agregar una o varias de ellas en la aplicación, seleccione las que desee y, luego, seleccione **Agregar conexión híbrida seleccionada**.  
+Para agregar una conexión híbrida nueva, seleccione **[+] Agregar conexión híbrida**.  Verá una lista de las conexiones híbridas que ya haya creado. Para agregar una o varias de ellas en la aplicación, seleccione las que desee y, luego, seleccione **Agregar conexión híbrida seleccionada**.
 
-![Captura de pantalla del portal de conexiones híbridas][3]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-addhc.png" alt-text="Captura de pantalla del portal de conexiones híbridas":::
 
 Si quiere crear una conexión híbrida, seleccione **Crear conexión híbrida nueva**. Especifique: 
 
@@ -71,7 +71,7 @@ Si quiere crear una conexión híbrida, seleccione **Crear conexión híbrida nu
 - El puerto del punto de conexión.
 - El espacio de nombres de Service Bus que desea usar.
 
-![Captura de pantalla del cuadro de diálogo Crear conexión híbrida nueva][4]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-createhc.png" alt-text="Captura de pantalla del cuadro de diálogo Crear conexión híbrida nueva":::
 
 Cada conexión híbrida está asociada a un espacio de nombres de Service Bus y cada uno de estos espacios se encuentra en una región de Azure. Es importante intentar usar un espacio de nombres de Service Bus que se encuentre en la misma región que la aplicación, para evitar una latencia de red excesiva.
 
@@ -79,7 +79,7 @@ Si desea quitar una conexión híbrida de una aplicación, haga clic con el bot�
 
 Cuando se agrega una conexión híbrida a la aplicación, puede seleccionarla para ver su información detallada. 
 
-![Captura de pantalla de los detalles de las conexiones híbridas][5]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-properties.png" alt-text="Captura de pantalla de los detalles de las conexiones híbridas":::
 
 ### <a name="create-a-hybrid-connection-in-the-azure-relay-portal"></a>Creación de una conexión híbrida en el portal de Azure Relay ###
 
@@ -96,12 +96,12 @@ Las conexiones híbridas de App Service solo están disponibles en las SKU de pr
 |----|----|
 | Básico | 5 por plan |
 | Estándar | 25 por plan |
-| PremiumV2 | 200 por aplicación |
-| Aislado | 200 por aplicación |
+| Premium (v1-v3) | 220 por aplicación |
+| Aislado (v1-v2) | 220 por aplicación |
 
-La interfaz de usuario del plan de App Service muestra cuántas conexiones híbridas se usan y qué aplicaciones las usan.  
+La interfaz de usuario del plan de App Service muestra cuántas conexiones híbridas se usan y qué aplicaciones las usan.
 
-![Captura de pantalla de las propiedades del plan de App Service][6]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-aspproperties.png" alt-text="Captura de pantalla de las propiedades del plan de App Service":::
 
 Seleccione la conexión híbrida para ver detalles. Puede consultar toda la información que vio en la vista de la aplicación. También puede ver cuántas otras aplicaciones en el mismo plan usan esa conexión híbrida.
 
@@ -117,28 +117,28 @@ La característica Conexiones híbridas requiere un agente de retransmisión en 
 
 Esta herramienta se ejecuta en Windows Server 2012 y versiones posteriores. El Administrador de conexiones híbridas se ejecuta como un servicio y se conecta para la salida a Azure Relay en el puerto 443.  
 
-Después de instalar HCM, puede ejecutar HybridConnectionManagerUi.exe para usar la interfaz de usuario de la herramienta. Este archivo se encuentra en el directorio de instalación del Administrador de conexiones híbridas. En Windows 10, también puede simplemente buscar la *interfaz de usuario del Administrador de conexiones híbridas* en el cuadro de búsqueda.  
+Después de instalar HCM, puede ejecutar HybridConnectionManagerUi.exe para usar la interfaz de usuario de la herramienta. Este archivo se encuentra en el directorio de instalación del Administrador de conexiones híbridas. En Windows 10, también puede simplemente buscar la *interfaz de usuario del Administrador de conexiones híbridas* en el cuadro de búsqueda.
 
-![Captura de pantalla de Administrador de conexiones híbridas][7]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-hcm.png" alt-text="Captura de pantalla de Administrador de conexiones híbridas":::
 
 Cuando inicia la interfaz de usuario de HCM, lo primero que se ve es una tabla donde se muestran todas las conexiones híbridas configuradas con esta instancia de HCM. Si desea hacer algún cambio, primero debe autenticarse con Azure. 
 
 Para agregar una o varias conexiones híbridas a HCM:
 
 1. Inicie la interfaz de usuario de HCM.
-2. Seleccione **Configure another Hybrid Connection** (Configurar otra conexión híbrida).
-![Captura de pantalla de configuración de conexiones híbridas nuevas][8]
+2. Seleccione **Add a new Hybrid Connection** (Agregar conexión híbrida).
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-hcmadd.png" alt-text="Captura de pantalla de configuración de conexiones híbridas nuevas":::
 
 1. Inicie sesión con su cuenta de Azure para obtener las conexiones híbridas disponibles con sus suscripciones. El HCM no usará su cuenta de Azure aparte de para esto. 
 1. Elija una suscripción.
 1. Seleccione las conexiones híbridas que desea que retransmita el HCM.
-![Captura de pantalla de las conexiones híbridas][9]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-hcmadded.png" alt-text="Captura de pantalla de las conexiones híbridas":::
 
 1. Seleccione **Guardar**.
 
 Ahora puede ver las conexiones híbridas que agregó. También puede seleccionar la conexión híbrida configurada para ver detalles.
 
-![Captura de pantalla de los detalles de la conexión híbrida][10]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-hcmdetails.png" alt-text="Captura de pantalla de los detalles de la conexión híbrida":::
 
 Para que HCM pueda admitir las conexiones híbridas con las que se configuró, necesita:
 
@@ -158,7 +158,7 @@ Cada HCM puede admitir varias conexiones híbridas. Además, varios HCM pueden a
 
 Para permitir que alguien de fuera de su suscripción hospede una instancia de HCM para una conexión híbrida determinada, comparta con dicho usuario la cadena de conexión de puerta de enlace de la conexión híbrida. Puede ver la cadena de conexión de la puerta de enlace en las propiedades de la conexión híbrida en [Azure Portal][portal]. Para usar dicha cadena, seleccione **Enter Manually** (Especificar manualmente) en el HCM y pegue la cadena de conexión de puerta de enlace.
 
-![Incorporación manual de una conexión híbrida][11]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-manual.png" alt-text="Incorporación manual de una conexión híbrida":::
 
 ### <a name="upgrade"></a>Actualizar ###
 
@@ -216,20 +216,6 @@ En App Service, es posible invocar la herramienta de la línea de comandos **tcp
 
 Si tiene un cliente de línea de comandos para el punto de conexión, puede probar la conectividad desde la consola de la aplicación. Por ejemplo, puede probar el acceso a los puntos de conexión de servidor web mediante cURL.
 
-
-<!--Image references-->
-[1]: ./media/app-service-hybrid-connections/hybridconn-connectiondiagram.png
-[2]: ./media/app-service-hybrid-connections/hybridconn-portal.png
-[3]: ./media/app-service-hybrid-connections/hybridconn-addhc.png
-[4]: ./media/app-service-hybrid-connections/hybridconn-createhc.png
-[5]: ./media/app-service-hybrid-connections/hybridconn-properties.png
-[6]: ./media/app-service-hybrid-connections/hybridconn-aspproperties.png
-[7]: ./media/app-service-hybrid-connections/hybridconn-hcm.png
-[8]: ./media/app-service-hybrid-connections/hybridconn-hcmadd.png
-[9]: ./media/app-service-hybrid-connections/hybridconn-hcmadded.png
-[10]: ./media/app-service-hybrid-connections/hybridconn-hcmdetails.png
-[11]: ./media/app-service-hybrid-connections/hybridconn-manual.png
-[12]: ./media/app-service-hybrid-connections/hybridconn-bt.png
 
 <!--Links-->
 [HCService]: /azure/service-bus-relay/relay-hybrid-connections-protocol/

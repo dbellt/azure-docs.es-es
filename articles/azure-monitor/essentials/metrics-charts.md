@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
-ms.openlocfilehash: 444185dc41532bfa55c271e2f0027eb8b71de42f
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 8564f96ad311a07ccf4582f274e44e6ebd1e0c85
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105959926"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758538"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Características avanzadas del Explorador de métricas de Azure
 
@@ -71,13 +71,17 @@ Para ver varias métricas en el mismo gráfico, [cree un nuevo gráfico](./metri
 > [!NOTE]
 > Normalmente, los gráficos no deben mezclar métricas que utilicen unidades de medida diferentes. Por ejemplo, evite mezclar una métrica que use milisegundos con otra que utilice kilobytes. Además, evite mezclar métricas cuyas escalas difieran significativamente. 
 >
-> En estos casos, considere la posibilidad de usar varios gráficos en su lugar. En el Explorador de métricas, seleccione **Agregar gráfico** para crear un nuevo gráfico.
+> En estos casos, considere la posibilidad de usar varios gráficos en su lugar. En el Explorador de métricas, seleccione **Nuevo gráfico** para crear un nuevo gráfico.
+
+![Captura de pantalla que muestra varias métricas.](./media/metrics-charts/multiple-metrics-chart.png)
 
 ### <a name="multiple-charts"></a>Varios gráficos
 
-Para crear otro gráfico que use una métrica diferente, seleccione **Agregar gráfico**.
+Para crear otro gráfico que use una métrica diferente, seleccione **Nuevo gráfico**.
 
 Para reordenar o eliminar varios gráficos, seleccione el botón de puntos suspensivos ( **...** ) para abrir el menú del gráfico. A continuación, elija **Subir**, **Bajar** o **Eliminar**.
+
+![Captura de pantalla que muestra varios gráficos.](./media/metrics-charts/multiple-charts.png)
 
 ## <a name="time-range-controls"></a>Controles del intervalo de tiempo
 

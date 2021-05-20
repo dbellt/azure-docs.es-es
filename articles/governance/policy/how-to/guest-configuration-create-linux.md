@@ -4,12 +4,12 @@ description: Aprenda a crear una directiva de Configuración de invitado de Azur
 ms.date: 03/31/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 926c6d472b3e4e3b6837a4d4136ee591a3d7e6c5
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: b28d7f0ccd2f4b8cca7bdb5015dce6e8ee8f2f17
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165378"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108762990"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Creación de directivas de Configuración de invitado para Linux
 
@@ -24,10 +24,10 @@ Solo se puede usar la [configuración de invitados de Azure Policy](../concepts/
 Use las siguientes acciones para crear su propia configuración para validar el estado de una máquina de Azure o que no sea de Azure.
 
 > [!IMPORTANT]
-> Las definiciones de directivas personalizadas con configuración de invitado en los entornos de Azure Government y Azure China es una característica en versión preliminar.
+> Las definiciones de directivas personalizadas con configuración de invitado en los entornos de Azure Government y Azure China 21Vianet es una característica en versión preliminar.
 >
 > La extensión de configuración de invitado es necesaria para realizar auditorías en las máquinas virtuales de Azure. Para implementar la extensión a gran escala en todas las máquinas Linux, asigne las siguientes definiciones de directiva: `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
-> 
+>
 > No use secretos ni información confidencial en paquetes de contenido personalizado.
 
 ## <a name="install-the-powershell-module"></a>Instalación del módulo de PowerShell
@@ -94,11 +94,11 @@ Los cmdlets de PowerShell ayudan en la creación del paquete. No se requiere nin
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Opciones personalizadas de la configuración de invitados en Linux
 
-Configuración de invitado en Linux usa el recurso `ChefInSpecResource` para proporcionar al motor el nombre del [perfil de InSpec](https://www.inspec.io/docs/reference/profiles/). **Name** es la única propiedad de recurso requerida. Cree un archivo YaML y un archivo de script de Ruby, tal como se detalla a continuación.
+Configuración de invitado en Linux usa el recurso `ChefInSpecResource` para proporcionar al motor el nombre del [perfil de InSpec](https://www.inspec.io/docs/reference/profiles/). **Name** es la única propiedad de recurso requerida. Cree un archivo YAML y un archivo de script de Ruby, tal como se detalla a continuación.
 
-En primer lugar, cree el archivo YaML que usa InSpec. El archivo ofrece información básica sobre el entorno. A continuación encontrará un ejemplo:
+En primer lugar, cree el archivo YAML que usa InSpec. El archivo ofrece información básica sobre el entorno. A continuación encontrará un ejemplo:
 
-```YaML
+```yaml
 name: linux-path
 title: Linux path
 maintainer: Test
@@ -113,7 +113,7 @@ Guarde este archivo con el nombre `inspec.yml` en una carpeta denominada `linux-
 
 A continuación, cree el archivo de Ruby con la abstracción de lenguaje de InSpec usada para auditar la máquina.
 
-```Ruby
+```ruby
 describe file('/tmp') do
     it { should exist }
 end
@@ -145,9 +145,9 @@ Configuration AuditFilePathExists
 AuditFilePathExists -out ./Config
 ```
 
-Guarde este archivo con el nombre `config.ps1` en la carpeta del proyecto. Ejecútelo en PowerShell mediante la ejecución de `./config.ps1` en el terminal. Se creará un nuevo archivo MOF.
+Guarde este archivo con el nombre `config.ps1` en la carpeta del proyecto. Ejecútelo en PowerShell mediante la ejecución de `./config.ps1` en el terminal. Se crea un archivo MOF nuevo.
 
-El comando `Node AuditFilePathExists` no es técnicamente necesario, pero genera un archivo denominado `AuditFilePathExists.mof`, en lugar del valor predeterminado, `localhost.mof`. El hecho de que el nombre de archivo. mof siga la configuración facilita la organización de muchos archivos cuando se trabaja a escala.
+El comando `Node AuditFilePathExists` no es técnicamente necesario, pero genera un archivo denominado `AuditFilePathExists.mof`, en lugar del valor predeterminado, `localhost.mof`. El hecho de que el nombre de archivo MOF siga la configuración facilita la organización de muchos archivos cuando se trabaja a gran escala.
 
 Ahora debería tener una estructura de proyecto como la siguiente:
 
@@ -158,7 +158,7 @@ Ahora debería tener una estructura de proyecto como la siguiente:
     / linux-path
         inspec.yml
         / controls
-            linux-path.rb 
+            linux-path.rb
 ```
 
 Los archivos auxiliares deben empaquetarse juntos. La configuración de invitados usa el paquete completado para crear las definiciones de Azure Policy.
@@ -222,7 +222,7 @@ Una vez que se ha creado y cargado un paquete de directivas personalizadas de Co
 
 Parámetros del cmdlet `New-GuestConfigurationPolicy`:
 
-- **ContentUri**: Uri de http(s) público del paquete de contenido de configuración de invitados.
+- **ContentUri**: URI de HTTP(S) público del paquete de contenido de configuración de invitados.
 - **DisplayName**: Nombre para mostrar de la directiva.
 - **Descripción**: Descripción de la directiva.
 - **Parámetro**: Parámetros de directiva proporcionados en formato de tabla hash.
@@ -281,7 +281,7 @@ Con InSpec, los parámetros se suelen administrar como entrada en tiempo de ejec
 
 Defina la entrada en el archivo de Ruby donde cree el script de lo que se va a auditar en la máquina. A continuación encontrará un ejemplo.
 
-```Ruby
+```ruby
 attr_path = attribute('path', description: 'The file path to validate.')
 
 describe file(attr_path) do
@@ -289,8 +289,8 @@ describe file(attr_path) do
 end
 ```
 
-Agregue la propiedad **AttributesYmlContent** a la configuración con cualquier cadena como valor.
-El agente de configuración de invitados crea automáticamente el archivo YAML que usa InSpec para almacenar los atributos. Observe el ejemplo siguiente.
+Agregue la propiedad **AttributesYmlContent** a la configuración con cualquier cadena como valor. El agente de configuración de invitados crea automáticamente el archivo YAML que usa InSpec para almacenar los atributos.
+Consulte el ejemplo siguiente.
 
 ```powershell
 Configuration AuditFilePathExists
@@ -339,7 +339,6 @@ New-GuestConfigurationPolicy -ContentUri $uri `
     -Platform 'Linux' `
     -Version 1.0.0
 ```
-
 
 ## <a name="policy-lifecycle"></a>Ciclo de vida de la directiva
 

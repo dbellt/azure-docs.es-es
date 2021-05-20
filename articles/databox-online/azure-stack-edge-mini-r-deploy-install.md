@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/20/2020
+ms.date: 03/18/2021
 ms.author: alkohli
-ms.openlocfilehash: 8b154dabd6f672c6fdaf77c5f8d48f80fb40d5d8
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 8bf73374545fa10c1b26ccbc9b932962fcabb6b3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060115"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108759876"
 ---
 # <a name="tutorial-install-azure-stack-edge-mini-r"></a>Tutorial: Instalación de Azure Stack Edge Mini R
 
@@ -27,7 +27,7 @@ En este tutorial, aprenderá a:
 > * Inspección del dispositivo
 > * Cableado del dispositivo
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Los requisitos previos para instalar un dispositivo físico son los siguientes:
 
@@ -82,7 +82,10 @@ Antes de empezar el cableado del dispositivo, necesita lo siguiente:
 - El dispositivo físico Azure Stack Edge Mini R en el sitio de instalación.
 - Un cable de alimentación.
 - Al menos un cable de red RJ-45 de 1-GbE cable para conectarse a la interfaz de administración de red. Hay dos interfaces de red de 1-GbE, uno de administración y otro de datos, en el dispositivo.
-- Un cable de cobre SFP+ de 10 GbE para cada interfaz de red de datos que se va a configurar. Al menos una interfaz de red de datos desde el puerto 3 o el puerto 4 debe estar conectada a Internet (con conectividad con Azure).  
+- Un cable SFP+ de 10 GbE para cada interfaz de red de datos que se va a configurar. Al menos una interfaz de red de datos desde el puerto 3 o el puerto 4 debe estar conectada a Internet (con conectividad con Azure).
+
+  Se recomienda el uso del transceptor SFP+ de cobre de mayor rendimiento (10 Gbps). Se pueden usar transceptores de fibra óptica compatibles, pero no se han probado. Para más información, consulte [Especificaciones de transceptor y cable](azure-stack-edge-mini-r-technical-specifications-compliance.md#transceivers-cables) para Azure Stack Edge Mini R.
+   
 - Acceso a una unidad de distribución de energía (recomendado).
 
 > [!NOTE]
@@ -97,10 +100,10 @@ En el dispositivo de Azure Stack Edge:
     - El dispositivo tiene 1 disco SSD en la ranura. 
     - El dispositivo también tiene una tarjeta CFx que sirve de almacenamiento para el disco del sistema operativo.
     
-- El panel frontal tiene interfaces de red y acceso a Wi-Fi.
+- El panel frontal tiene interfaces de red y acceso a Wi-Fi. 
 
-    - 2 interfaces de red RJ 45 de 1 GbE. Son el puerto 1 y el puerto 2 en la interfaz de usuario local del dispositivo.
-    - 2 interfaces de red SFP+ de 10 GbE. Son el puerto 3 y el puerto 4 en la interfaz de usuario local del dispositivo. 
+    - 2 interfaces de red RJ 45 de 1 GbE (PUERTO 1 y PUERTO 2 en la interfaz de usuario local del dispositivo)
+    - 2 interfaces de red SFP+ de 10 GbE (PUERTO 3 y PUERTO 4 en la interfaz de usuario local del dispositivo) 
     - Un puerto Wi-Fi con un transceptor Wi-Fi conectado a él.
 
 - El panel frontal también tiene un botón de encendido. 
