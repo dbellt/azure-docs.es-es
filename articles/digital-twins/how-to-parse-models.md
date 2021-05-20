@@ -8,12 +8,12 @@ ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: dc6c6e4d97bb90cdf88c50b1d3fbc4e27b5a9a0a
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 12916b06dd965d7eed717df2fe71f935b8319bc4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208408"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772718"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>Análisis y validación de modelos con la biblioteca del analizador de DTDL
 
@@ -37,7 +37,7 @@ Una vez que haya creado un paquete independiente y agregado el archivo ejecutabl
 DTDLValidator
 ```
 
-Con las opciones predeterminadas, el ejemplo buscará los archivos `*.json` en el directorio actual y en todos los subdirectorios. También puede agregar la opción siguiente para que el ejemplo busque, en el directorio indicado y en todos los subdirectorios, los archivos con la extensión *.dtdl*:
+Con las opciones predeterminadas, el ejemplo buscará los archivos .json en el directorio actual y en todos los subdirectorios. También puede agregar la opción siguiente para que el ejemplo busque, en el directorio indicado y en todos los subdirectorios, los archivos con la extensión .dtdl:
 
 ```cmd/sh
 DTDLValidator -d C:\Work\DTDL -e dtdl 
@@ -53,7 +53,7 @@ Para obtener más información sobre este ejemplo, vea el código fuente o ejecu
 
 ## <a name="use-the-net-parser-library"></a>Uso de la biblioteca del analizador de .NET 
 
-La biblioteca [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) proporciona al modelo el acceso a las definiciones en DTDL, actuando esencialmente como el equivalente de reflexión en C# para DTDL. Esta biblioteca se puede usar independientemente de cualquier [SDK de Azure Digital Twins](how-to-use-apis-sdks.md), en especial para la validación de DTDL en un editor de texto o visual. Es útil para asegurarse de que los archivos de definición del modelo sean válidos antes de intentar cargarlos en el servicio.
+La biblioteca [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) proporciona al modelo el acceso a las definiciones en DTDL, actuando esencialmente como el equivalente de reflexión en C# para DTDL. Esta biblioteca se puede usar independientemente de cualquier [SDK de Azure Digital Twins](concepts-apis-sdks.md), en especial para la validación de DTDL en un editor de texto o visual. Es útil para asegurarse de que los archivos de definición del modelo sean válidos antes de intentar cargarlos en el servicio.
 
 Para usar la biblioteca del analizador, se le proporciona un conjunto de documentos DTDL. Normalmente, estos documentos de modelo se recuperan del servicio, pero también pueden estar disponibles localmente, si el cliente fue responsable de cargarlos en el servicio en primer lugar. 
 

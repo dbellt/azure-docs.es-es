@@ -8,16 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 11bfe1fbb9b0ba7c38eb946918b04d1568d2d1da
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: d60c4ba78169bb137b8c63682b770c7148fe3f12
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001005"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756744"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Cargas de telemetría, propiedades y comandos
-
-_Este artículo se aplica a los desarrolladores de dispositivos._
 
 Una plantilla de dispositivo de Azure IoT Central es un plano técnico que define:
 
@@ -25,7 +23,7 @@ Una plantilla de dispositivo de Azure IoT Central es un plano técnico que defin
 * Las propiedades que un dispositivo sincroniza con IoT Central.
 * Los comandos a los que IoT Central llama en un dispositivo.
 
-En este artículo, destinado a los desarrolladores de dispositivos, se describen las cargas JSON que los dispositivos envían y reciben en relación con la telemetría, las propiedades y los comandos definidos en una plantilla de dispositivo.
+En este artículo, se describen las cargas JSON que los dispositivos envían y reciben en relación con la telemetría, las propiedades y los comandos definidos en una plantilla de dispositivo.
 
 En el artículo no se describen todos los tipos posibles de cargas de telemetría, propiedades y comandos, pero los ejemplos muestran todos los tipos clave.
 
@@ -1136,4 +1134,4 @@ Si habilita la opción **Poner en cola si no hay conexión** en la interfaz de u
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Como desarrollador de dispositivos, ahora conoce las plantillas de dispositivos, el siguiente paso que se sugiere es leer [Conexión a Azure IoT Central](./concepts-get-connected.md) para más información sobre cómo registrar dispositivos con IoT Central y cómo IoT Central protege las conexiones de dispositivos.
+Ahora que conoce las plantillas de dispositivo, el siguiente paso que se sugiere es leer [Conexión a Azure IoT Central](./concepts-get-connected.md) para saber cómo registrar dispositivos con IoT Central y cómo IoT Central protege las conexiones de dispositivos.

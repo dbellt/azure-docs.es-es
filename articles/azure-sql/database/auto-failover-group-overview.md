@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 04/29/2021
-ms.openlocfilehash: 8c07026681f5381d9c4e54438c9503d170022658
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.date: 05/10/2021
+ms.openlocfilehash: 39f684f2eb6f0c8d4c9089ae4d34c38cc51922be
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108226793"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685196"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -389,7 +389,7 @@ Al configurar un grupo de conmutación por error entre instancias administradas 
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Actualización o degradación de una base de datos principal
 
-Puede actualizar o degradar una base de datos principal a un tamaño de proceso diferente (en el mismo nivel de servicio, no entre De uso general y Crítico para la empresa) sin desconectar las bases de datos secundarias. Al actualizar, se recomienda que actualice primero todas las bases de datos secundarias y, después, la principal. Al degradar, invierta el orden: degrade primero la base de datos principal y, luego, todas las secundarias. Cuando actualiza la base de datos a un nivel de servicio diferente, o la cambia a una versión anterior, se aplica esta recomendación.
+Puede actualizar o degradar una base de datos principal a un tamaño de proceso diferente sin desconectar las bases de datos secundarias. Al actualizar, se recomienda que actualice primero todas las bases de datos secundarias y, después, la principal. Al degradar, invierta el orden: degrade primero la base de datos principal y, luego, todas las secundarias. Cuando actualiza la base de datos a un nivel de servicio diferente, o la cambia a una versión anterior, se aplica esta recomendación.
 
 Esta secuencia se recomienda específicamente para evitar que la base de datos secundaria de una SKU inferior se sobrecargue y deba propagarse durante un proceso de actualización o degradación. También puede evitar este problema si hace que la base de datos principal sea de solo lectura, a costa de afectar a todas las cargas de trabajo de lectura y escritura en la réplica principal.
 

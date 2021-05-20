@@ -3,12 +3,12 @@ title: Configuración del sondeo de ejecución en la instancia de contenedor
 description: Información sobre cómo configurar los sondeos de ejecución para reiniciar contenedores incorrectos en Azure Container Instances
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: befe9693be1413abf455d915814c53aab20db53c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d88133692fbfad4c5e81eefa57c69a843448222
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86169704"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108771566"
 ---
 # <a name="configure-liveness-probes"></a>Configuración de sondeos de ejecución
 

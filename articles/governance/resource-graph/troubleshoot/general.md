@@ -3,12 +3,12 @@ title: Solución de errores comunes
 description: Obtenga información sobre cómo solucionar problemas con los diversos SDK mientras consulta recursos de Azure con Azure Resource Graph.
 ms.date: 05/01/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 54b680169c38cd4517c225e6452c02de8ecd4dd2
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 86d60f888dfd702e8895f560258b8ddb02d35827
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325812"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751488"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Solución de problemas relativos a errores con Azure Resource Graph
 
@@ -109,5 +109,5 @@ Incluya al menos una suscripción de la lista de suscripciones a la que el clien
 Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener ayuda adicional:
 
 - Obtenga respuestas de expertos de Azure en los [foros de Azure](https://azure.microsoft.com/support/forums/).
-- Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport): la cuenta de Microsoft Azure oficial para mejorar la experiencia del cliente, que pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
+- Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente, que pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 - Si necesita más ayuda, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de Soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte**.

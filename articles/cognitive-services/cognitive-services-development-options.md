@@ -8,12 +8,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 975f7eec31839aefcb1782f573d0210df29a4d00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 243c17bee08e2aad878eb78406c9ed8091abe8ab
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98873576"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758166"
 ---
 # <a name="cognitive-services-development-options"></a>Opciones de desarrollo de Cognitive Services
 

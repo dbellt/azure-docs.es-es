@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo Azure Policy usa Rego y Open Polic
 ms.date: 03/22/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9ca33c3a937b0a155928f20469830388a95a08e3
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 2610d788c18883d7aaffc3f7cae3ab7774eed1fa
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107506030"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752604"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Descripción de Azure Policy para clústeres de Kubernetes (versión preliminar)
 
@@ -358,7 +358,7 @@ Una vez que se han completado los pasos anteriores de requisitos previos, instal
      Para obtener más información sobre lo que instala el gráfico de Helm de complemento, consulte la [definición del gráfico de Helm de complemento de Azure Policy](https://github.com/Azure/azure-policy/tree/master/extensions/policy-addon-kubernetes/helm-charts/azure-policy-addon-aks-engine) en GitHub.
 
      > [!NOTE]
-     > Debido a la relación entre Azure Policy complemento y el identificador del grupo de recursos, Azure Policy solo admite un clúster de AKS Engine para cada grupo de recursos.
+     > Debido a la relación entre el complemento de Azure Policy y el identificador del grupo de recursos, Azure Policy solo admite un clúster de AKS Engine para cada grupo de recursos.
 
 Para comprobar que la instalación del complemento se ha realizado correctamente y que los pods _azure-policy_ y _gatekeeper_ están en ejecución, ejecute el comando siguiente:
 
@@ -501,7 +501,6 @@ Para quitar el complemento de Azure Policy y Gatekeeper del clúster de AKS Engi
 - Si se ha instalado definiendo la propiedad **addons** en la definición del clúster para AKS Engine:
 
   Vuelva a implementar la definición del clúster en AKS Engine después de cambiar la propiedad **addons** de _azure-policy_ a false:
-
 
   ```json
   "addons": [{

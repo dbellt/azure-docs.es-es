@@ -7,16 +7,16 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 39bab52a564439d34b8702de11edabe7f0d6dfbc
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: a605046c8cf76a425f7df5b1cdf637f7dc4bfc90
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106492263"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747258"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Uso de las propiedades en una solución de Azure IoT Central
 
-En esta guía paso a paso se muestra qué debe hacer un desarrollador de dispositivos para usar las propiedades del dispositivo que se definen en una plantilla de dispositivo en la aplicación de Azure IoT Central.
+En esta guía paso a paso se muestra cómo usar las propiedades del dispositivo que se definen en una plantilla de dispositivo en la aplicación de Azure IoT Central.
 
 Las propiedades representan valores de un momento dado. Por ejemplo, un dispositivo puede usar una propiedad para notificar la temperatura objetivo que está intentando alcanzar. De manera predeterminada, las propiedades del dispositivo son de solo lectura en IoT Central. Las propiedades editables permiten sincronizar el estado entre el dispositivo y la aplicación de Azure IoT Central.
 

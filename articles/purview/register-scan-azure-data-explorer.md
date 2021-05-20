@@ -6,13 +6,13 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 10/9/2020
-ms.openlocfilehash: 7adc7f568fb82692f2c96f610575076e397bd99c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/08/2021
+ms.openlocfilehash: f218d87fe1f91e206c3b8873c9af0dddddd45b42
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98896119"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656510"
 ---
 # <a name="register-and-scan-azure-data-explorer"></a>Registro y examen de Azure Data Explorer
 
@@ -82,10 +82,10 @@ Para registrar una nueva cuenta de Azure Data Explorer (Kusto) en el catálogo d
 En la pantalla **Registrar orígenes (Azure Data Explorer [Kusto])** , haga lo siguiente:
 
 1. Escriba un **nombre** con el que se mostrará el origen de datos en el catálogo.
-1. Elija cómo quiere apuntar a la cuenta de almacenamiento que seleccione:
-   1. Seleccione **From Azure subscription** (Desde una suscripción de Azure), seleccione la suscripción adecuada en el cuadro desplegable **Suscripción de Azure** y el clúster correspondiente en el cuadro desplegable **Clúster**.
-   1. O bien, puede seleccionar **Escribir manualmente** y especificar un punto de conexión de servicio (URL).
-1. **Finalice** el proceso para registrar el origen de datos.
+2. Elija la suscripción a Azure para filtrar Azure Data Explorer.
+3. Seleccione un clúster adecuado.
+4. Seleccione una colección o cree una nueva (opcional).
+5. Seleccione **Registrar** para registrar el origen de datos.
 
 :::image type="content" source="media/register-scan-azure-data-explorer/register-sources.png" alt-text="Opciones de registro de orígenes" border="true":::
 

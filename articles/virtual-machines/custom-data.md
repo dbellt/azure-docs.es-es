@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 03/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: 2924caaac5fb8c512100d9e897f7f153af9a3b3e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b0bc143ca92961d7c358248b73ee5524e6835c3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87284921"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768200"
 ---
 # <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Datos personalizados y Cloud-Init en Azure Virtual Machines
 
@@ -92,4 +92,4 @@ Se recomienda **no** almacenar los datos confidenciales en los datos personaliza
 
 
 ### <a name="is-custom-data-made-available-in-imds"></a>¿Están disponibles los datos personalizados en IMDS?
-No, esta característica no está disponible actualmente.
+Los datos personalizados no están disponibles en IMDS. En su lugar, se recomienda usar datos de usuario a través de IMDS. Para más información, consulte [Datos de usuario a través de Azure Instance Metadata Service](./linux/instance-metadata-service.md?tabs=linux#get-user-data).

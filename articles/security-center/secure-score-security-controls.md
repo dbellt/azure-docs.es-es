@@ -1,24 +1,18 @@
 ---
 title: Puntuación de seguridad de Azure Security Center
 description: Descripción de Puntuación de seguridad de Azure Security Center y sus controles de seguridad
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetd: c42d02e4-201d-4a95-8527-253af903a5c6
 ms.service: security-center
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/03/2021
+ms.date: 05/05/2021
 ms.author: memildin
-ms.openlocfilehash: 889c79357037afb0d9c83c645e86d05edc0df6f1
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 9879b5154866436e3216243b123b3575e6cd3df4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903765"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754926"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Puntuación de seguridad de Azure Security Center
 
@@ -47,19 +41,26 @@ Para más información, consulte [Cálculo de la puntuación de seguridad](secur
 
 La contribución de cada control de seguridad en la puntuación de seguridad total aparece con claridad en la página de recomendaciones.
 
-[![La puntuación de seguridad mejorada presenta controles de seguridad](media/secure-score-security-controls/security-controls.png)](media/secure-score-security-controls/security-controls.png#lightbox)
+:::image type="content" source="./media/secure-score-security-controls/security-controls.png" alt-text="Controles de Azure Security Center y su impacto en la puntuación segura" lightbox="./media/secure-score-security-controls/security-controls.png":::
 
 Para obtener todos los puntos posibles de un control de seguridad, todos sus recursos deben cumplir todas las recomendaciones de seguridad de dicho control. Por ejemplo, Security Center tiene varias recomendaciones sobre cómo proteger los puertos de administración. Deberá corregirlas todas para que la puntuación de seguridad mejore.
 
-Por ejemplo, el control de seguridad denominado "Aplicar actualizaciones del sistema" tiene una puntuación máxima de seis puntos, como puede ver en la información sobre herramientas sobre el potencial valor de mejora del control:
+### <a name="example-scores-for-a-control"></a>Puntuaciones de ejemplo para un control
 
-[![Control de seguridad "Aplicar actualizaciones del sistema"](media/secure-score-security-controls/apply-system-updates-control.png)](media/secure-score-security-controls/apply-system-updates-control.png#lightbox)
+:::image type="content" source="./media/secure-score-security-controls/remediate-vulnerabilities-control.png" alt-text="Control de seguridad Aplicar actualizaciones del sistema" lightbox="./media/secure-score-security-controls/remediate-vulnerabilities-control.png":::
 
-La puntuación máxima para este control, "Aplicar actualizaciones del sistema", es siempre 6. En este ejemplo, hay 50 recursos. Por tanto, dividimos la puntuación máxima entre 50 y el resultado es que cada recurso aporta 0,12 puntos. 
 
-* **Mejora potencial** (0,12 x 8 recursos con estado incorrecto = 0,96): los puntos restantes disponibles para el usuario en el control. Esto significa que si corrige todas las recomendaciones de este control, la puntuación aumentará en un 2 % (en este caso, 0,96 puntos, que se redondean en 1 punto). 
-* **Puntuación actual** (0,12 x 42 recursos con estado correcto = 5,04): puntuación actual para este control. Cada control contribuye a la puntuación total. En este ejemplo, el control contribuye con 5,04 puntos a la puntuación total de seguridad actual.
-* **Puntuación máxima**: el número máximo de puntos que puede obtener al completar todas las recomendaciones de un control. La puntuación máxima de un control indica la importancia relativa de ese control. Use los valores de puntuación máxima para evaluar la prioridad de los problemas. 
+En este ejemplo:
+
+| #  | Nombre                                           | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|:-:|------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1 | **Control de seguridad Corregir vulnerabilidades** | Este control agrupa varias recomendaciones relacionadas con el descubrimiento y la resolución de vulnerabilidades conocidas.                                                                                                                                                                                                                                                                                                                                   |
+| 2 | **Puntuación máxima**                                  | El número máximo de puntos que puede obtener al completar todas las recomendaciones de un control. La puntuación máxima de un control indica la importancia relativa de ese control y es fija para cada entorno. Use los valores de puntuación máxima para evaluar la prioridad de los problemas.<br>Para obtener una lista de todos los controles y sus puntuaciones máximas, consulte [Controles de seguridad y sus recomendaciones](#security-controls-and-their-recommendations). |
+| 3 | **Número de recursos**                        | Este control afecta a 35 recursos.<br>Para comprender la posible contribución de cada recurso, divida la puntuación máxima entre el número de recursos.<br>En este ejemplo, 6/35=0,1714<br>**Cada recurso aporta 0,1714 puntos**.                                                                                                                                                                                          |
+| 4 | **Puntuación actual**                              | La puntuación actual de este control.<br>Puntuación actual=[Puntuación por recurso]*[Número de recursos en buen estado]<br> 0,1714 x 5 recursos con estado correcto = 0,86<br>Cada control contribuye a la puntuación total. En este ejemplo, el control contribuye con 0,86 puntos a la puntuación total de seguridad actual.                                                                                                                                               |
+| 5 | **Mejora potencial de puntuación**                   | Los puntos restantes disponibles para el usuario en el control. Si corrige todas las recomendaciones de este control, la puntuación aumentará en un 9 %.<br>Mejora potencial de puntuación=[Puntuación por recurso]*[Número de recursos incorrectos]<br> 0,1714 x 30 recursos con estado incorrecto = 5,14<br>                                                                                                                                                        |
+|   |                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+
 
 
 ### <a name="calculations---understanding-your-score"></a>Cálculos: Descripción de la puntuación

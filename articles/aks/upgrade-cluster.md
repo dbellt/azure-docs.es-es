@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo actualizar un clúster de Azure Ku
 services: container-service
 ms.topic: article
 ms.date: 12/17/2020
-ms.openlocfilehash: d6a5ed468541090d433dba732707a59841e6ff41
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 925edc3d83b9acc0a2c91001ada39921d3653824
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779622"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737664"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Actualización de un clúster de Azure Kubernetes Service (AKS)
 
@@ -126,6 +126,7 @@ Además de actualizar manualmente un clúster, puede establecer un canal de actu
 | `patch`| Actualiza automáticamente el clúster a la última versión de revisión compatible cuando esté disponible, mientras se mantiene la misma versión secundaria.| Por ejemplo, si un clúster ejecuta la versión *1.17.7* y las versiones *1.17.9*, *1.18.4*, *1.17.9* y *1.19.1* están disponibles, se actualizará a la *1.18.6*.|
 | `stable`| Actualiza automáticamente el clúster a la última versión de revisión compatible en la versión secundaria *N-1*, donde *N* es la última versión secundaria compatible.| Por ejemplo, si un clúster ejecuta la versión *1.17.7* y las versiones *1.17.9*, *1.18.4*, *1.18.6* y *1.19.1* están disponibles, el clúster se actualiza a *1.18.6*.
 | `rapid`| Actualiza automáticamente el clúster a la última versión de revisión compatible en la última versión secundaria compatible.| En los casos en los que el clúster está en una versión de Kubernetes que se encuentra en una versión secundaria *N-2* donde *N* es la última versión secundaria, el clúster se actualiza primero a la última versión de revisión compatible en la versión secundaria *N-1*. Por ejemplo, si un clúster ejecuta la versión *1.17.7* y las versiones *1.17.9*, *1.18.4*, *1.18.6* y *1.19.1* están disponibles, el clúster se actualiza primero a *1.18.6* y, a continuación, se actualiza a *1.19.1*.
+| `node-image`| Actualiza automáticamente la imagen de nodo a la última versión disponible.| Microsoft proporciona revisiones e imágenes nuevas para los nodos de imagen con frecuencia (normalmente, semanalmente), pero los nodos en ejecución no obtienen las nuevas imágenes, a menos que realice una actualización de la imagen de nodo. Al activar el canal node-image, se actualizarán automáticamente las imágenes de nodo cada vez que haya disponible una nueva versión. |
 
 > [!NOTE]
 > La actualización automática del clúster solo se actualiza a las versiones de disponibilidad general de Kubernetes y no se actualizará a las versiones preliminares.

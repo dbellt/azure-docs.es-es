@@ -2,13 +2,13 @@
 title: Sintaxis de filtros de SQL de regla de suscripción de Azure Service Bus | Microsoft Docs
 description: En este artículo se ofrece información sobre la gramática de filtros de SQL. Un filtro de SQL admite un subconjunto del estándar SQL-92.
 ms.topic: article
-ms.date: 11/24/2020
-ms.openlocfilehash: 022f6cb1d698a10dc216db8d41c172691f7535ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/30/2021
+ms.openlocfilehash: 6b8190cf2a57b47fdce416fbe087fa8fa0485bda
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652948"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743244"
 ---
 # <a name="subscription-rule-sql-filter-syntax"></a>Sintaxis de filtros de SQL de regla de suscripción
 
@@ -50,7 +50,10 @@ Service Bus Premium también es compatible con la [sintaxis de selector de mensa
   
 ## <a name="arguments"></a>Argumentos  
   
--   `<scope>` es una cadena opcional que indica el ámbito de `<property_name>`. Los valores válidos son `sys` y `user`. El valor `sys` indica el ámbito del sistema, donde `<property_name>` es un nombre de propiedad pública de la [clase BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica el ámbito de usuario, donde `<property_name>` es una clave del diccionario de la [clase BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). El ámbito de `user` es el predeterminado si no se especifica `<scope>`.  
+-   `<scope>` es una cadena opcional que indica el ámbito de `<property_name>`. Los valores válidos son `sys` y `user`. 
+    - El valor `sys` indica el ámbito del sistema, donde `<property_name>` es cualquiera de las propiedades del mensaje de Service Bus, como se describe en [Mensajes, cargas y serialización](service-bus-messages-payloads.md).
+    - El valor `user` indica el ámbito de usuario, donde `<property_name>` es una clave de las propiedades personalizadas que puede establecer en el mensaje al enviarlo a Service Bus.
+    - El ámbito `user` es el predeterminado si no se especifica `<scope>`.  
   
 ## <a name="remarks"></a>Comentarios
 
@@ -199,13 +202,13 @@ La función `property(name)` devuelve el valor de la propiedad a la que hace ref
   
 ## <a name="considerations"></a>Consideraciones
   
-Tenga en cuenta la siguiente semántica de [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter):  
+Tenga en cuenta la siguiente semántica de Sql Filter:  
   
 -   Los nombres de propiedad distinguen entre mayúsculas y minúsculas.  
   
 -   Los operadores siguen la semántica de conversión implícita de C# siempre que sea posible.  
   
--   Las propiedades del sistema son propiedades públicas expuestas en instancias de [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).  
+-   Las propiedades del sistema son cualquiera de las propiedades del mensaje de Service Bus, como se describe en [Mensajes, cargas y serialización](service-bus-messages-payloads.md).
   
     Tenga en cuenta la siguiente semántica de `IS [NOT] NULL`:  
   
@@ -213,7 +216,7 @@ Tenga en cuenta la siguiente semántica de [SqlFilter](/dotnet/api/microsoft.ser
   
 ### <a name="property-evaluation-semantics"></a>Semántica de evaluación de propiedades  
   
-- Un intento de evaluar una propiedad no existente del sistema genera una excepción [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception).  
+- Un intento de evaluar una propiedad no existente del sistema genera una excepción `FilterException`.  
   
 - Una propiedad que no existe se evalúa internamente como **valor desconocido**.  
   

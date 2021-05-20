@@ -3,12 +3,12 @@ title: Creación de informes de evaluación de riesgos
 description: Conozca los riesgos de red detectados por sensores individuales o una vista agregada de los riesgos detectados por todos los sensores.
 ms.date: 12/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 853157ef1b97fefdd15785b2a71c7ccc5d06a9a9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 567660d1e1e55ee3dde0cbf5e5c09748cbb2cf0c
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104784261"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109655343"
 ---
 # <a name="risk-assessment-reporting"></a>Informes de evaluación de riesgos
 
@@ -58,6 +58,16 @@ Las puntuaciones de evaluación de riesgos se basan en la información obtenida 
 
 **Dispositivos vulnerables** son aquellos con una puntuación de seguridad inferior al 70 %.
 
+### <a name="about-backup-and-anti-virus-servers"></a>Acerca de las copias de seguridad y los servidores de antivirus
+
+La puntuación de evaluación de riesgos puede verse afectada si no define direcciones de copia de seguridad y servidor de antivirus en el sensor. Agregar estas direcciones mejora la puntuación. De manera predeterminada, estas direcciones no están definidas.
+La portada del informe Evaluación de riesgos indicará si no están definidos los servidores de copia de seguridad y los servidores de antivirus.
+
+**Para agregar los servidores:**
+
+1. Seleccione **Configuración del sistema** y, luego, elija **Propiedades del sistema**.
+1. Seleccione **Evaluación de vulnerabilidad** y agregue las direcciones a los campos **backup_servers** y **AV_addresses**. Si agregará varias direcciones,  escríbalas separadas por comas.  
+1. Seleccione **Guardar**.
 ## <a name="create-risk-assessment-reports"></a>Creación de informes de evaluación de riesgos
 
 Cree un informe de evaluación de riesgos en PDF. El nombre del informe se genera automáticamente como risk-assessment-report-1.pdf. El número se actualizará con cada nuevo informe que cree.  Se muestran la hora y el día de la creación.

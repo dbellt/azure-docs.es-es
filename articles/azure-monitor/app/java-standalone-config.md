@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 8457d64b541bd012dc85cf9964f09e69b10e962c
-ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
+ms.openlocfilehash: 1f28ee0cb174c02ba05d93ac0c8eba309bfc3872
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108006699"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739824"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opciones de configuración: Application Insights de Azure Monitor para Java
 
@@ -219,7 +219,7 @@ También puede establecer el nivel mediante la variable de entorno `APPLICATIONI
 
 A continuación se muestran los valores `level` válidos que puede especificar en el archivo `applicationinsights.json` y cómo se corresponden con los niveles de registro en diferentes plataformas de registro:
 
-| Nivel             | Log4j  | Logback | JUL     |
+| level             | Log4j  | Logback | JUL     |
 |-------------------|--------|---------|---------|
 | Apagado               | Apagado    | Apagado     | Apagado     |
 | FATAL             | FATAL  | ERROR   | SEVERE  |
@@ -326,7 +326,8 @@ También puede suprimir estas instrumentaciones estableciendo estas variables de
 
 (que tendrá prioridad sobre el valor habilitado especificado en la configuración JSON).
 
-> Nota: Si busca un control más pormenorizado; por ejemplo, para suprimir algunas llamadas de Redis, pero no todas, consulte [invalidaciones de muestreos](./java-standalone-sampling-overrides.md).
+> [!NOTE]
+> Si busca un control más pormenorizado; por ejemplo, para suprimir algunas llamadas de Redis, pero no todas, consulte [invalidaciones de muestreos](./java-standalone-sampling-overrides.md).
 
 ## <a name="heartbeat"></a>Latido
 

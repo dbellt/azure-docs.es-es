@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 04/28/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 0bfc09a372584a25c23060cef33d1f698e6d5ff3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0997c74b8b99638771152620743f23e0816e178e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101712613"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756762"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos del sistema de Azure Import/Export
 
@@ -63,7 +63,7 @@ La siguiente lista muestra los tipos de almacenamiento que se admiten con el ser
 |Trabajo  |Servicio de almacenamiento |Compatible  |No compatible  |
 |---------|---------|---------|---------|
 |Importar     |  Azure Blob Storage <br><br> Almacenamiento de archivos de Azure       | Blobs en bloques y blobs en páginas admitidos <br><br> Archivos admitidos          |
-|Exportación     |   Azure Blob Storage       | Blobs en bloques, blobs en páginas y blobs en anexos admitidos         | No se admite Azure Files
+|Exportación     |   Azure Blob Storage       | Blobs en bloques, blobs en páginas y blobs en anexos admitidos         | No se admite Azure Files<br>No se admite la exportación desde el nivel de acceso de archivo|
 
 
 ## <a name="supported-hardware"></a>Hardware admitido

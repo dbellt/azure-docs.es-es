@@ -3,12 +3,12 @@ title: Creación de directivas de Configuración de invitado para Windows
 description: Aprenda a crear una directiva de Configuración de invitado de Azure Policy para Windows.
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: e1c71acd8544073c861a8ad62fb06d78e9d139c5
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 8fbe3528f998a70ad489174274bda0a54b5e2455
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165342"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733524"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Creación de directivas de Configuración de invitado para Windows
 
@@ -23,10 +23,10 @@ Solo se puede usar la [configuración de invitados de Azure Policy](../concepts/
 Use las siguientes acciones para crear su propia configuración para validar el estado de una máquina de Azure o que no sea de Azure.
 
 > [!IMPORTANT]
-> Las definiciones de directivas personalizadas con configuración de invitado en los entornos de Azure Government y Azure China es una característica en versión preliminar.
+> Las definiciones de directivas personalizadas con configuración de invitado en los entornos de Azure Government y Azure China 21Vianet es una característica en versión preliminar.
 >
 > La extensión de configuración de invitado es necesaria para realizar auditorías en las máquinas virtuales de Azure. Para implementar la extensión a gran escala en todas las máquinas Windows, asigne las siguientes definiciones de directiva: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
-> 
+>
 > No use secretos ni información confidencial en paquetes de contenido personalizado.
 
 ## <a name="install-the-powershell-module"></a>Instalación del módulo de PowerShell
@@ -85,7 +85,7 @@ Para obtener información general sobre los conceptos y la terminología consult
 
 Cuando la configuración de invitado audita una máquina, la secuencia de eventos es diferente de la de DSC de Windows PowerShell.
 
-1. el agente primero ejecuta `Test-TargetResource` para determinar si la configuración se encuentra en el estado correcto.
+1. El agente primero ejecuta `Test-TargetResource` para determinar si la configuración se encuentra en el estado correcto.
 1. El valor booleano devuelto por la función determina si el estado de Azure Resource Manager para Asignación de invitado debe ser Compatible o No compatible.
 1. El proveedor ejecuta `Get-TargetResource` para devolver el estado actual de cada configuración, de modo que haya detalles disponibles tanto sobre el motivo por el que una máquina no es compatible como para confirmar que el estado actual es compatible.
 
@@ -122,7 +122,7 @@ return @{
 La propiedad Reasons debe agregarse al archivo MOF del esquema del recurso como una clase insertada.
 
 ```mof
-[ClassVersion("1.0.0.0")] 
+[ClassVersion("1.0.0.0")]
 class Reason
 {
     [Read] String Phrase;
@@ -214,9 +214,9 @@ Configuration AuditBitLocker
 AuditBitLocker
 ```
 
-Ejecute este script en un terminal de PowerShell o guarde el archivo con `config.ps1` el nombre en la carpeta del proyecto. Ejecútelo en PowerShell mediante la ejecución de `./config.ps1` en el terminal. Se crea un archivo mof nuevo.
+Ejecute este script en un terminal de PowerShell o guarde el archivo con `config.ps1` el nombre en la carpeta del proyecto. Ejecútelo en PowerShell mediante la ejecución de `./config.ps1` en el terminal. Se crea un archivo MOF.
 
-El comando `Node AuditBitlocker` no es técnicamente necesario, pero genera un archivo denominado `AuditBitlocker.mof`, en lugar del valor predeterminado, `localhost.mof`. El hecho de que el nombre de archivo. mof siga la configuración facilita la organización de muchos archivos cuando se trabaja a escala.
+El comando `Node AuditBitlocker` no es técnicamente necesario, pero genera un archivo denominado `AuditBitlocker.mof`, en lugar del valor predeterminado, `localhost.mof`. El hecho de que el nombre del archivo .mof siga la configuración facilita la organización de muchos archivos cuando se trabaja a gran escala.
 
 Una vez compilado el MOF, los archivos auxiliares deben empaquetarse juntos. La configuración de invitados usa el paquete completado para crear las definiciones de Azure Policy.
 
@@ -283,7 +283,7 @@ Una vez que se ha creado y cargado un paquete de directivas personalizadas de Co
 
 Parámetros del cmdlet `New-GuestConfigurationPolicy`:
 
-- **ContentUri**: Uri de http(s) público del paquete de contenido de configuración de invitados.
+- **ContentUri**: URI de HTTP(S) público del paquete de contenido de configuración de invitados.
 - **DisplayName**: Nombre para mostrar de la directiva.
 - **Descripción**: Descripción de la directiva.
 - **Parámetro**: Parámetros de directiva proporcionados en formato de tabla hash.
@@ -415,7 +415,7 @@ La ampliación de Configuración de invitados requiere el desarrollo de dos comp
 El recurso de DSC requiere un desarrollo personalizado si aún no existe una solución de la comunidad.
 Las soluciones de la comunidad se pueden descubrir buscando en Galería de PowerShell por la etiqueta [GuestConfiguration](https://www.powershellgallery.com/packages?q=Tags%3A%22GuestConfiguration%22).
 
-> [!Note]
+> [!NOTE]
 > La extensibilidad de Configuración de invitado es un escenario de "traiga su propia licencia". Asegúrese de que ha cumplido los términos y condiciones de las herramientas de terceros antes de usarlas.
 
 Una vez instalado el recurso de DSC en el entorno de desarrollo, use el parámetro **FilesToInclude** para que `New-GuestConfigurationPackage` incluya el contenido de la plataforma de terceros en el artefacto de contenido.

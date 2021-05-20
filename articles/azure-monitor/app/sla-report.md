@@ -2,13 +2,13 @@
 title: 'Libro sobre tiempo de inactividad, Acuerdo de Nivel de Servicio e interrupciones: Application Insights'
 description: Calcule e informe sobre el Acuerdo de Nivel de Servicio para la prueba web a través de un panel único para todos los recursos de Application Insights y las suscripciones a Azure.
 ms.topic: conceptual
-ms.date: 02/8/2021
-ms.openlocfilehash: d225627a27bffd9088956e5aee37ca543e528d4a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/4/2021
+ms.openlocfilehash: 4063cd28111dd0ea3c3d0cabe44f884f6605c063
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101714058"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108750549"
 ---
 # <a name="downtime-sla-and-outages-workbook"></a>Libro sobre tiempo de inactividad, Acuerdo de Nivel de Servicio e interrupciones
 
@@ -23,15 +23,15 @@ Puede acceder a la plantilla del libro de Acuerdo de Nivel de Servicio a través
 
 Los parámetros establecidos en el libro influyen en el resto del informe.
 
-:::image type="content" source="./media/sla-report/outages.png" alt-text=" Captura de pantalla de la pestaña Outage/Maintenance parameters (parámetros de interrupción/mantenimiento) del libro Tiempo de inactividad e interrupciones." lightbox ="./media/sla-report/outages.png":::
+:::image type="content" source="./media/sla-report/parameters.png" alt-text=" Captura de pantalla de parámetros." lightbox= "./media/sla-report/parameters.png":::
 
-Los parámetros `Subscriptions`, `App Insights Resources` y `Web Test` determinan las opciones de recursos generales disponibles. Estos parámetros se basan en consultas de Log Analytics y se usan en todas las consulta de informe.
+Los parámetros `Subscriptions`,  `App Insights Resources` y  `Web Test`  determinan las opciones de recursos generales disponibles. Estos parámetros se basan en consultas de Log Analytics y se usan en todas las consultas de informe.
 
-`Failure Threshold` y `Outage Window` permiten definir criterios propios para una interrupción del servicio; por ejemplo, los criterios de una alerta de disponibilidad de App Insights según el contador de ubicación con errores en un período seleccionado. El umbral típico es de tres ubicaciones en un período de cinco minutos.
+`Failure Threshold` y `Outage Window`  permiten definir criterios propios para una interrupción del servicio; por ejemplo, los criterios de una alerta de disponibilidad de App Insights según el contador de ubicación con errores en un período seleccionado. El umbral típico es de tres ubicaciones en un período de cinco minutos.
 
-`Maintenance Period` permite seleccionar la frecuencia de mantenimiento normal y `Maintenance Window` es un selector de fecha y hora para un período de mantenimiento de ejemplo. Todos los datos que se produzcan durante el período identificado se omitirán en los resultados.
+`Maintenance Period`  permite seleccionar la frecuencia de mantenimiento normal y  `Maintenance Window`  es un selector de fecha y hora para un período de mantenimiento de ejemplo. Todos los datos que se produzcan durante el período identificado se omitirán en los resultados.
 
-`Availability Target 9s` especifica el número de nueves objetivo, de dos nueves a cinco nueves.
+`Availability Target %`  especifica el objetivo de destino y los valores personalizados.
 
 ## <a name="overview-page"></a>Página de información general
 

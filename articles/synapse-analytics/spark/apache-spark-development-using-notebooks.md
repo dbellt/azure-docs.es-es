@@ -1,34 +1,34 @@
 ---
-title: Cuadernos de Synapse Studio
-description: En este artículo, aprenderá a crear y desarrollar cuadernos de Azure Synapse Studio para la preparación y visualización de datos.
+title: Uso de cuadernos de Synapse
+description: En este artículo aprenderá a crear y desarrollar cuadernos de Synapse para la preparación y visualización de datos.
 services: synapse analytics
 author: ruixinxu
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 10/19/2020
+ms.date: 05/08/2021
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 203ac7252f06b342e7f553bb1900cdf9ac959e0a
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: a66b036bde5f25873e9d4a371faf249deadd69dc
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891397"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736905"
 ---
-# <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Creación, desarrollo y mantenimiento de cuadernos de Synapse Studio en Azure Synapse Analytics
+# <a name="create-develop-and-maintain-synapse-notebooks-in-azure-synapse-analytics"></a>Creación, desarrollo y mantenimiento de cuadernos de Synapse en Azure Synapse Analytics
 
-Un cuaderno de Synapse Studio es una interfaz web para crear archivos que contengan código activo, visualizaciones y texto narrativo. Los cuadernos son un buen lugar para validar ideas y aplicar experimentos rápidos para sacar conclusiones a partir de los datos. Los cuadernos también se usan ampliamente en la preparación de datos, la visualización de datos, el aprendizaje automático y otros escenarios de macrodatos.
+Un cuaderno de Synapse es una interfaz web para crear archivos que contengan código activo, visualizaciones y texto narrativo. Los cuadernos son un buen lugar para validar ideas y aplicar experimentos rápidos para sacar conclusiones a partir de los datos. Los cuadernos también se usan ampliamente en la preparación de datos, la visualización de datos, el aprendizaje automático y otros escenarios de macrodatos.
 
-Con un cuaderno de Azure Synapse Studio, puede hacer lo siguiente:
+Con un cuaderno de Synapse, puede hacer lo siguiente:
 
 * Empezar a trabajar sin esfuerzo alguno de configuración.
 * Mantener los datos protegidos con las características de seguridad empresarial integradas.
 * Analizar datos en formatos sin procesar (CSV, TXT, JSON, etc.), formatos de archivos procesados (parquet, Delta Lake, ORC, etc.) y archivos de datos tabulares de SQL en Spark y SQL.
 * Ser productivo con funcionalidades de creación mejoradas y visualización de datos integrada.
 
-En este artículo se describe cómo usar los cuadernos en Azure Synapse Studio.
+En este artículo se describe cómo usar cuadernos en Synapse Studio.
 
 ## <a name="preview-of-the-new-notebook-experience"></a>Versión preliminar de la nueva experiencia de cuaderno
 El equipo de Synapse proporciona el nuevo componente de cuaderno en Synapse Studio para ofrecer una experiencia de cuaderno coherente a los clientes de Microsoft y maximizar la capacidad de detección, la productividad, el uso compartido y la colaboración entre usuarios. La versión preliminar de la nueva experiencia de cuaderno ya está lista. En la barra de herramientas del cuaderno, pulse el botón **Características de versión preliminar** para activar la experiencia. En la tabla siguiente se captura la comparación de características entre el cuaderno existente (denominado "cuaderno clásico") y la nueva versión preliminar.  
@@ -48,13 +48,13 @@ El equipo de Synapse proporciona el nuevo componente de cuaderno en Synapse Stud
 
 ## <a name="create-a-notebook"></a>Creación de un cuaderno
 
-Hay dos formas de crear un cuaderno. Puede crear un cuaderno o importar uno existente en un área de trabajo de Azure Synapse desde el **Explorador de objetos**. Los cuadernos de Azure Synapse Studio pueden reconocer archivos IPYNB estándar de Jupyter Notebook.
+Hay dos formas de crear un cuaderno. Puede crear un nuevo cuaderno o importar uno existente en un área de trabajo de Synapse desde el **Explorador de objetos**. Los cuadernos de Synapse reconocen los archivos IPYNB estándar de Jupyter Notebook.
 
 ![creación de un cuaderno de notas de importación](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook-2.png)
 
 ## <a name="develop-notebooks"></a>Desarrollo de cuadernos
 
-Los cuadernos se componen de celdas, que son bloques de código individuales o texto que se pueden ejecutar de manera independiente o como grupo.
+Los cuadernos se componen de celdas, que son bloques individuales de código o texto que se pueden ejecutar de manera independiente o en grupo.
 
 ### <a name="add-a-cell"></a>Adición de una celda
 
@@ -87,7 +87,7 @@ Hay varias maneras de agregar una nueva celda a un cuaderno.
 
 ### <a name="set-a-primary-language"></a>Definición del lenguaje principal
 
-Los cuadernos de Azure Synapse Studio admiten cuatro lenguajes de Apache Spark:
+Los cuadernos de Synapse admiten cuatro lenguajes de Apache Spark:
 
 * pySpark (Python)
 * Spark (Scala)
@@ -115,7 +115,7 @@ La imagen siguiente es un ejemplo de cómo se puede escribir una consulta de PyS
 
 ### <a name="use-temp-tables-to-reference-data-across-languages&quot;></a>Uso de tablas temporales para hacer referencia a datos entre lenguajes
 
-No puede hacer referencia a datos o variables directamente en distintos lenguajes en un cuaderno de Synapse Studio. En Spark, se puede hacer referencia a una tabla temporal entre lenguajes. Este es un ejemplo de cómo leer un DataFrame de `Scala` en `PySpark` y `SparkSQL` mediante una tabla temporal de Spark como solución alternativa.
+No puede hacer referencia a datos o variables directamente entre distintos lenguajes en un cuaderno de Synapse. En Spark, se puede hacer referencia a una tabla temporal entre lenguajes. Este es un ejemplo de cómo leer un DataFrame de `Scala` en `PySpark` y `SparkSQL` mediante una tabla temporal de Spark como solución alternativa.
 
 1. En la celda 1, lea un DataFrame de un conector de grupo de SQL mediante Scala y cree una tabla temporal.
 
@@ -141,7 +141,7 @@ No puede hacer referencia a datos o variables directamente en distintos lenguaje
 
 ### <a name="ide-style-intellisense"></a>IntelliSense de estilo IDE
 
-Los cuadernos de Azure Synapse Studio se integran en el editor Monaco para incluir IntelliSense de estilo IDE en el editor de celdas. El resaltado de la sintaxis, el marcador de errores y la finalización automática de código le ayudan a escribir código y a identificar problemas más rápido.
+Los cuadernos de Synapse se integran en el editor Monaco para incluir la funcionalidad IntelliSense de estilo IDE en el editor de celdas. El resaltado de la sintaxis, el marcador de errores y la finalización automática de código le ayudan a escribir código y a identificar problemas más rápido.
 
 Las características de IntelliSense tienen distintos niveles de madurez para distintos lenguajes. Use la siguiente tabla para ver lo que se admite.
 
@@ -156,7 +156,7 @@ Las características de IntelliSense tienen distintos niveles de madurez para di
 
 ### <a name="code-snippets"></a>Fragmentos de código
 
-Los cuadernos de Azure Synapse Studio proporcionan fragmentos de código que facilitan la introducción de patrones de código utilizados habitualmente, como la configuración de la sesión de Spark, la lectura de datos como dataframes de Spark o la creación de gráficos con matplotlib.
+Los cuadernos de Synapse proporcionan fragmentos de código que facilitan la introducción de patrones de código utilizados habitualmente, como la configuración de la sesión de Spark, la lectura de datos como dataframes de Spark o la creación de gráficos con matplotlib.
 
 Los fragmentos de código aparecen en [IntelliSense](#ide-style-intellisense) combinados con otras sugerencias. El contenido de los fragmentos de código se alinea con el lenguaje de las celdas de código. Para ver los fragmentos de código disponibles, escriba **snippet** o cualquier palabra clave que aparezca en el título del fragmento de código en el editor de celdas de código. Por ejemplo, si escribe **read**, puede ver la lista de fragmentos de código para leer datos de varios orígenes de datos.
 
@@ -271,7 +271,8 @@ No compatible.
 
 En Esquema (tabla de contenido) se presenta el primer encabezado de cualquier celda de Markdown en una ventana de la barra lateral para permitir la navegación rápida. La barra lateral Esquemas es redimensionable y contraíble para ajustarse a la pantalla de la mejor manera posible. Puede seleccionar el botón **Esquema** de la barra de comandos del cuaderno para abrir u ocultar la barra lateral.
 
-<a name="azure-notebook-outline"></a>![azure-notebook-outline](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-outline.png)
+![azure-notebook-outline](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-outline.png)
+
 ---
 
 
@@ -372,7 +373,7 @@ Debajo de la celda se muestra un estado de ejecución detallado de la celda para
 
 ### <a name="spark-progress-indicator"></a>Indicador de progreso de Spark
 
-Un cuaderno de Azure Synapse Studio se basa únicamente en Spark. Las celdas de código se ejecutan en el grupo de Apache Spark sin servidor de manera remota. Aparece un indicador de progreso del trabajo de Spark con una barra de progreso en tiempo real que le ayudará a entender el estado de ejecución del trabajo.
+Un cuaderno de Synapse se basa únicamente en Spark. Las celdas de código se ejecutan en el grupo de Apache Spark sin servidor de manera remota. Aparece un indicador de progreso del trabajo de Spark con una barra de progreso en tiempo real que le ayudará a entender el estado de ejecución del trabajo.
 El número de tareas por cada trabajo o etapa ayuda a identificar el nivel paralelo del trabajo de Spark. También puede profundizar en la interfaz de usuario de Spark de un trabajo o fase específicos a través de la selección del vínculo del nombre del trabajo o de la fase.
 
 
@@ -476,7 +477,7 @@ En las propiedades del cuaderno, puede configurar si incluir la salida de la cel
    ![notebook-properties](./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png)
 
 ## <a name="magic-commands"></a>Comandos magic
-Puede usar los comandos magic de Jupyter que ya conoce en los cuadernos de Azure Synapse Studio. Revise la lista siguiente para ver los comandos magic disponibles actualmente. Indíquenos [sus casos de uso en GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) para que podamos seguir generando más comandos magic para satisfacer sus necesidades.
+Puede usar los comandos magic de Jupyter que ya conoce en los cuadernos de Synapse. Revise la lista siguiente para ver los comandos magic disponibles actualmente. Indíquenos [sus casos de uso en GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) para que podamos seguir generando más comandos magic para satisfacer sus necesidades.
 
 > [!NOTE]
 > Solo se admiten los comandos magic siguientes en una canalización de Synapse: %%pyspark, %%spark, %%csharp, %%sql. 
@@ -528,7 +529,7 @@ Azure Data Factory busca la celda de parámetros y la trata como valores predete
 
 ### <a name="assign-parameters-values-from-a-pipeline"></a>Asignación de valores de parámetros de una canalización
 
-Una vez que haya creado un cuaderno con parámetros, podrá ejecutarlo desde una canalización con la actividad de cuadernos de Azure Synapse. Después de agregar la actividad al lienzo de la canalización, podrá establecer los valores de los parámetros en la sección **Parámetros base** de la pestaña **Configuración**. 
+Una vez que haya creado un cuaderno con parámetros, podrá ejecutarlo desde una canalización con la actividad de cuadernos de Synapse. Después de agregar la actividad al lienzo de la canalización, podrá establecer los valores de los parámetros en la sección **Parámetros base** de la pestaña **Configuración**. 
 
 ![Asignación de un parámetro](./media/apache-spark-development-using-notebooks/assign-parameter.png)
 
@@ -538,7 +539,7 @@ Al asignar valores de parámetros, puede usar el [lenguaje de expresiones de can
 
 ## <a name="shortcut-keys"></a>Teclas de método abreviado
 
-De forma similar a los cuadernos de Jupyter Notebook, los cuadernos de Azure Synapse Studio tienen una interfaz de usuario modal. El teclado realiza diferentes acciones en función del modo en que se encuentre la celda del cuaderno. Los cuadernos de Synapse Studio admiten los siguientes dos modos para una celda de código determinada: modo de comando y modo de edición.
+De forma similar a los cuadernos de Jupyter Notebook, los cuadernos de Synapse tienen una interfaz de usuario modal. El teclado realiza diferentes acciones en función del modo en que se encuentre la celda del cuaderno. Los cuadernos de Synapse admiten los dos modos siguientes para una celda de código determinada: modo de comando y modo de edición.
 
 1. Una celda se encuentra en modo de comando cuando no hay ningún cursor de texto que le pida que escriba. Cuando una celda está en modo de comando, puede editar el cuaderno en su conjunto, pero no escribir en celdas individuales. Para ingresar al modo de comando, presione `ESC` o use el mouse para seleccionar fuera del área del editor de una celda.
 
@@ -552,9 +553,9 @@ De forma similar a los cuadernos de Jupyter Notebook, los cuadernos de Azure Syn
 
 # <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
 
-Con los siguientes métodos abreviados de teclado, puede navegar y ejecutar código más fácilmente en cuadernos de Azure Synapse.
+Con los siguientes métodos abreviados de teclado, puede desplazarse y ejecutar código más fácilmente en los cuadernos de Synapse.
 
-| Acción |Accesos directos de cuadernos de Synapse Studio  |
+| Acción |Métodos abreviados de teclado de los cuadernos de Synapse  |
 |--|--|
 |Ejecutar la celda actual y seleccionar la que está a continuación | Mayús+Entrar |
 |Ejecutar la celda actual e insertar una a continuación | Alt+Entrar |
@@ -571,7 +572,7 @@ Con los siguientes métodos abreviados de teclado, puede navegar y ejecutar cód
 
 # <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
 
-| Acción |Accesos directos de cuadernos de Synapse Studio  |
+| Acción |Métodos abreviados de teclado de los cuadernos de Synapse  |
 |--|--|
 |Ejecutar la celda actual y seleccionar la que está a continuación | Mayús+Entrar |
 |Ejecutar la celda actual e insertar una a continuación | Alt+Entrar |
@@ -590,9 +591,9 @@ Con los siguientes métodos abreviados de teclado, puede navegar y ejecutar cód
 ### <a name="shortcut-keys-under-edit-mode"></a>Teclas de método abreviado en el modo de edición
 
 
-Con los siguientes métodos abreviados de teclado, puede navegar y ejecutar código más fácilmente en cuadernos de Azure Synapse en el modo de edición.
+Con los siguientes métodos abreviados de teclado, puede desplazarse y ejecutar código más fácilmente en los cuadernos de Synapse cuando esté en modo de edición.
 
-| Acción |Accesos directos de cuadernos de Synapse Studio  |
+| Acción |Métodos abreviados de teclado de los cuadernos de Synapse  |
 |--|--|
 |Subir el cursor | Arriba |
 |Bajar el cursor|Bajar|

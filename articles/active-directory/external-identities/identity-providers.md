@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 184ef66a0175c301497fa536c86eddc169995698
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 4fd158c5d19c805fe7b7592904fc42ed3117bef6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315370"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764358"
 ---
 # <a name="identity-providers-for-external-identities"></a>Proveedores de identidades para External Identities
 
@@ -36,9 +36,9 @@ Además de cuentas de Azure AD, External Identities ofrece una variedad de prov
 
 - **Facebook**: al compilar una aplicación, puede configurar el registro de autoservicio y habilitar la federación de Facebook para que los usuarios puedan suscribirse a la aplicación con sus propias cuentas de Facebook. Facebook solo se puede usar para flujos de usuario de registro de autoservicio y no está disponible como una opción de inicio de sesión cuando los usuarios canjean las invitaciones que les envíe. Consulte cómo [agregar Facebook como proveedor de identidades](facebook-federation.md).
 
-- **Federación directa**: también puede configurar la federación directa con cualquier proveedor de identidades externo que admita los protocolos SAML o WS-Fed. La federación directa permite a los usuarios externos canjear invitaciones que les haya enviado si inician sesión en sus aplicaciones con sus cuentas empresariales o de redes sociales existentes. Consulte cómo [configurar la federación directa](direct-federation.md).
+- **Federación con un proveedor de identidades de SAML/WS-Fed**: también puede configurar la federación con cualquier IdP externo que admita los protocolos SAML o WS-Fed. La federación con un IdP de SAML/WS-Fed permite a los usuarios externos canjear invitaciones que les haya enviado si inician sesión en sus aplicaciones con sus cuentas empresariales o de redes sociales existentes. Consulte el artículo sobre la [Configuración de la federación con un IdP de SAML o WS-Fed](direct-federation.md).
    > [!NOTE]
-   > Los proveedores de identidades de federación directa no se pueden usar en los flujos de usuario de inicio de registro de autoservicio.
+   > Los IdP de SAML o WS-Fed federados no se pueden usar en los flujos de usuario de registro de autoservicio.
 
 ## <a name="adding-social-identity-providers"></a>Adición de proveedores de identidades sociales
 
@@ -60,4 +60,4 @@ Para obtener información sobre cómo agregar proveedores de identidades para in
 - [Adición de la autenticación con código de acceso de un solo uso por correo electrónico](one-time-passcode.md)
 - [Adición de Google](google-federation.md) como proveedor de identidades social permitido
 - [Adición de Facebook](facebook-federation.md) como proveedor de identidades social permitido
-- [Configuración de federación directa](direct-federation.md) con cualquier organización cuyo proveedor de identidades (IdP) admita el protocolo SAML 2.0 o WS-Fed. Tenga en cuenta que la federación directa no es una opción para los flujos de usuario de registro de autoservicio.
+- [Configuración de la federación con un IdP de SAML o WS-Fed](direct-federation.md) con cualquier organización cuyo proveedor de identidades admita el protocolo SAML 2.0 o WS-Fed. Tenga en cuenta que la federación con un IdP de SAML o WS-Fed no es una opción para los flujos de usuario de registro de autoservicio.

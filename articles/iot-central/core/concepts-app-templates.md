@@ -7,16 +7,16 @@ ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 8309a567436d1526c1341f3d7db774acf4879dc2
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 885c9d5a14eed7bdd518865344a9a41820fd7db7
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600626"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683963"
 ---
 # <a name="what-are-application-templates"></a>¿Qué son las plantillas de aplicación?
 
-Las plantillas de aplicación de Azure IoT Central son una herramienta que ayuda a los creadores de soluciones a poner en marcha su desarrollo de soluciones de IoT. Puede usar las plantillas de aplicación para todo; para tener una idea de lo que es posible, o para realizar la personalización completa de la aplicación para su reventa a los clientes.
+Las plantillas de aplicación de Azure IoT Central son una herramienta que ayuda a poner en marcha el desarrollo de las soluciones de IoT. Puede usar las plantillas de aplicación para todo; para tener una idea de lo que es posible, o para realizar la personalización completa de la aplicación para su reventa a los clientes.
 
 Las plantillas de aplicación constan de:
 
@@ -30,28 +30,13 @@ Seleccione la plantilla de aplicación al crear la aplicación. No puede cambiar
 
 ## <a name="custom-templates"></a>Plantillas personalizadas
 
-Si quiere crear la aplicación desde el principio, elija una de las plantillas de **aplicación personalizadas**.
+Si quiere crear la aplicación desde cero, elija la plantilla **Aplicación personalizada**. El identificador de la plantilla de aplicación personalizada es `iotc-pnp-preview`.
 
 ## <a name="industry-focused-templates"></a>Plantillas centradas en el sector
 
-Azure IoT Central es una plataforma de aplicaciones independiente del sector. Las plantillas de aplicación son ejemplos centrados en el sector disponibles para estos sectores hoy en día, con más información en el futuro:
+Azure IoT Central es una plataforma de aplicaciones independiente del sector. Las plantillas de aplicación son ejemplos centrados en el sector disponibles para estos sectores actualmente:
 
-- [Minoristas](../retail/overview-iot-central-retail.md)
-  - Logística conectada
-  - Centro de distribución digital
-  - Análisis en el almacén: supervisión de condiciones
-  - Análisis en el almacén: finalización de la compra
-  - Administración inteligente del inventario
-  - Análisis de vídeo: detección de objetos y movimiento
-- [Sector energético](../energy/overview-iot-central-energy.md)
-  - Supervisión de medidores inteligentes
-  - Supervisión de paneles solares
-- [Gobierno](../government/overview-iot-central-government.md)
-  - Administración de residuos conectada
-  - Supervisión del consumo de agua
-  - Supervisión de la calidad del agua
-- [Atención sanitaria](../healthcare/overview-iot-central-healthcare.md).
-  - Supervisión continua de pacientes
+[!INCLUDE [iot-central-template-list](../../../includes/iot-central-template-list.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

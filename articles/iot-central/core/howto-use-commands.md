@@ -1,22 +1,22 @@
 ---
 title: Uso de los comandos de dispositivo en una solución de Azure IoT Central
-description: Uso de los comandos de dispositivo en una solución de Azure IoT Central. En este tutorial se muestra cómo los desarrolladores de dispositivos pueden usar los comandos de dispositivo en la aplicación cliente a la aplicación de Azure IoT Central.
+description: Uso de los comandos de dispositivo en una solución de Azure IoT Central. En este tutorial se muestra cómo usar los comandos de dispositivo en la aplicación cliente para la aplicación de Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
 ms.date: 01/07/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: e53bf377a7ef8f2293debd288ba25ef8f04ff4fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a0a7b24c2d28e27c44a130383e852838950abe49
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98611005"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733200"
 ---
 # <a name="how-to-use-commands-in-an-azure-iot-central-solution"></a>Uso de los comandos en una solución de Azure IoT Central
 
-En esta guía de procedimientos se muestra cómo los desarrolladores de dispositivos pueden usar los comandos que se definen en una plantilla de dispositivo.
+En esta guía paso a paso se muestra cómo usar los comandos que se definen en una plantilla de dispositivo.
 
 Un operador puede usar la interfaz de usuario de IoT Central para llamar a un comando para un dispositivo. Los comandos controlan el comportamiento de un dispositivo. Por ejemplo, un operador puede llamar a un comando para reiniciar un dispositivo o recopilar datos de diagnóstico.
 

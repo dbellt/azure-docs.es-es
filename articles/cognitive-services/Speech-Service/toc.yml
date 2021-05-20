@@ -120,12 +120,12 @@
               items:
                 - name: ¿Qué es la voz neuronal personalizada?
                   href: custom-neural-voice.md
-                - name: Introducción a voz personalizada
+                - name: Introducción a Voz neuronal personalizada
                   displayName: 'custom voice, neural voice'
                   href: how-to-custom-voice.md
-                - name: Preparación de los datos
+                - name: Preparación de los datos para el entrenamiento
                   href: how-to-custom-voice-prepare-data.md
-                - name: Creación y uso de modelos de voz personalizados
+                - name: Creación y uso de un modelo de voz
                   href: how-to-custom-voice-create-voice.md
                 - name: Grabación de ejemplos de voz
                   href: record-custom-voice-samples.md
@@ -295,12 +295,16 @@
       items:
         - name: API REST de Speaker Recognition
           href: /rest/api/speakerrecognition/
-- name: Palabra clave personalizada
+- name: Reconocimiento de palabras clave
   items:
-    - name: Introducción a las palabras clave personalizadas
-      href: custom-keyword-overview.md
-    - name: Conceptos básicos de las palabras clave personalizadas
+    - name: Introducción al reconocimiento de palabras clave
+      href: keyword-recognition-overview.md
+    - name: Inicio rápido de Palabra clave personalizada
       href: custom-keyword-basics.md
+    - name: Recomendaciones e instrucciones
+      href: keyword-recognition-guidelines.md
+    - name: Regiones admitidas
+      href: keyword-recognition-region-support.md
 - name: Profundización en el escenario
   items:
     - name: Escenarios de conversación

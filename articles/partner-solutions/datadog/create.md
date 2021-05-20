@@ -3,22 +3,22 @@ title: 'Creación de Datadog: soluciones para asociados de Azure'
 description: En este artículo se describe cómo usar Azure Portal para crear una instancia de Datadog.
 ms.service: partner-services
 ms.topic: quickstart
-ms.date: 02/19/2021
+ms.date: 05/05/2021
 author: tfitzmac
 ms.author: tomfitz
 ms.custom: references_regions
-ms.openlocfilehash: 7af8b82c5da6c60527b45b6e8e292b9f067016ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3d9c364c1367986f4ebe47cc00b4cb8b2434b90c
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101747811"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517467"
 ---
 # <a name="quickstart-get-started-with-datadog"></a>Inicio rápido: Introducción a Datadog
 
-En este inicio rápido, creará una instancia de Datadog. Puede crear una organización de Datadog o un vínculo a una organización de Datadog existente.
+En este inicio rápido, creará una instancia de Datadog. Puede crear una organización de Datadog o un vínculo a una organización de Datadog existente. Azure solo vincula a organizaciones de Datadog existentes en **US3**.
 
-## <a name="pre-requisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure Datadog, debe tener acceso de **propietario** en la suscripción de Azure. Asegúrese de que tiene el acceso adecuado antes de iniciar el programa de instalación.
 
@@ -85,7 +85,7 @@ Si va a crear una vinculación con una organización de Datadog existente, consu
 
 ## <a name="link-to-existing-datadog-organization"></a>Vínculo a un organización de Datadog existente
 
-Puede vincular un nuevo recurso Datadog en Azure a una organización de Datadog existente.
+Puede vincular el nuevo recurso de Datadog en Azure a una organización de Datadog existente en **US3**.
 
 Seleccione **Existente** en Organización de datos y, después, seleccione **Link to Datadog org** (Vincular a organización de Datadog).
 
@@ -127,7 +127,7 @@ Hay dos tipos de registros que se pueden emitir desde Azure a Datadog.
 
 Para enviar registros de nivel de suscripción a Datadog, seleccione **Send subscription activity logs** (Enviar registros de actividad de suscripción). Si esta opción se deja desactivada, ninguno de los registros de nivel de suscripción se envía a Datadog.
 
-Para enviar registros de recursos de Azure a Datadog, seleccione **Send Azure resource logs for all defined resources** (Enviar registros de recursos para todos los recursos definidos). Los tipos de registros de recursos de Azure se enumeran en [Categorías admitidas en los registros de recursos de Azure](../../azure-monitor/essentials/resource-logs-categories.md).  Para filtrar el conjunto de recursos de Azure que envían registros a Datadog, use etiquetas de recursos de Azure.  
+Para enviar registros de recursos de Azure a Datadog, seleccione **Send Azure resource logs for all defined resources** (Enviar registros de recursos para todos los recursos definidos). Los tipos de registros de recursos de Azure se enumeran en [Categorías admitidas en los registros de recursos de Azure](../../azure-monitor/essentials/resource-logs-categories.md).  Para filtrar el conjunto de recursos de Azure que envían registros a Datadog, use etiquetas de recursos de Azure.
 
 Azure cobrará los registros enviados a Datadog. Para más información, consulte los [precios de los registros de la plataforma](https://azure.microsoft.com/pricing/details/monitor/) que se envían a los asociados de Azure Marketplace.
 

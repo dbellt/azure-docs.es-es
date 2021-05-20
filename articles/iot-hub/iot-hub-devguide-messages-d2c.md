@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: 545272b15862ebab81d839cb8a885560f8920b76
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: c9c0b2807962aaddc2f3b6cef6a261084b21714c
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286319"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715779"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión
 
@@ -38,7 +38,7 @@ Un centro de IoT tiene un punto de conexión integrado predeterminado (**mensaje
 
 Cada mensaje se enruta a todos los puntos de conexión cuyas consultas se correspondan con el mensaje. En otras palabras, un mensaje se puede enrutar a varios puntos de conexión.
 
-Si el punto de conexión personalizado tiene configuraciones de firewall, considere la posibilidad de usar excepciones propias de confianza de Microsoft, para conceder a su IoT Hub acceso al punto de conexión específico: [Azure Storage](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing), [Azure Event Hubs](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) y [Azure Service Bus](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing). Esto está disponible en disponibles en las regiones seleccionadas para centros de IoT con [identidad de servicio administrada](./virtual-network-support.md).
+Si el punto de conexión personalizado tiene configuraciones de firewall, considere la posibilidad de usar [excepciones propias de confianza de Microsoft](./virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources).
 
 IoT Hub admite actualmente los siguientes puntos de conexión:
 

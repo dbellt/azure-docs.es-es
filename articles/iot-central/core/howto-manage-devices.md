@@ -1,6 +1,6 @@
 ---
 title: Administración de dispositivos en una aplicación de Azure IoT Central | Microsoft Docs
-description: Como operador, aprenda a administrar dispositivos en la aplicación de Azure IoT Central. Obtenga información acerca de cómo administrar dispositivos y realizar importaciones y exportaciones en bloque de los dispositivos a la aplicación.
+description: Aprenda a administrar dispositivos en la aplicación de Azure IoT Central. Obtenga información acerca de cómo administrar dispositivos y realizar importaciones y exportaciones en bloque de los dispositivos a la aplicación.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/08/2020
@@ -9,16 +9,16 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 2ea75adfb7c2d990cfa543270f245113e15e4ee2
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: e1b4ca90cf7b4d8c5bdc23ea311a5a1feaada89c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389849"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108741102"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Administración de dispositivos en la aplicación de Azure IoT Central
 
-En este artículo se describe cómo puede administrar dispositivos en la aplicación de Azure IoT Central como operador. Como operador, puede hacer lo siguiente:
+En este artículo se describe cómo puede administrar dispositivos en la aplicación de Azure IoT Central. Puede hacer lo siguiente:
 
 - Usar la página **Devices** (Dispositivos) para ver, agregar y eliminar los dispositivos conectados a una aplicación de Azure IoT Central.
 - Importar y exportar dispositivos en bloque.

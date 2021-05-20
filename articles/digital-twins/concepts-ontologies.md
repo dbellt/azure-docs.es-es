@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b7bed0f3b10dd057073203bb9c2e336299c50662
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: ba261609772e380e85de084096a3242f2f92fd49
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108207994"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108734316"
 ---
 # <a name="what-is-an-ontology"></a>¿Qué es una ontología? 
 
@@ -20,7 +20,7 @@ El vocabulario de una solución de Azure Digital Twins se define mediante [model
 
 A veces, cuando la solución está asociada a un sector determinado, puede ser más fácil y eficaz comenzar con un conjunto de modelos para ese sector que ya exista en lugar de crear su propio modelo desde cero. Estos conjuntos de modelos ya existentes se denominan **ontologías**. 
 
-En general, una ontología es un conjunto de modelos para un dominio determinado, como una estructura de edificio, un sistema de IoT, una ciudad inteligente, la red eléctrica, el contenido web, etc. Las ontologías se usan a menudo como esquemas para grafos de conocimientos, ya que permiten:
+En general, una ontología es un conjunto de modelos para un dominio determinado, como la estructura de un edificio, un sistema de IoT, una ciudad inteligente, la red eléctrica, el contenido web, etc. Las ontologías se usan a menudo como esquemas para grafos de gemelos, ya que permiten:
 * La armonización de componentes de software, documentación, bibliotecas de consulta, etc.
 * Una inversión reducida en el modelado conceptual y el desarrollo del sistema
 * Una interoperabilidad de datos más sencilla en un nivel semántico

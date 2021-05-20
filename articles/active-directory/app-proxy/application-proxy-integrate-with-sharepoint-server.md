@@ -1,6 +1,6 @@
 ---
 title: 'Habilitación del acceso remoto a SharePoint: Azure Active Directory Application Proxy'
-description: En este documento se explican los conceptos básicos sobre cómo integrar un servidor de SharePoint en el entorno local con Azure Active Directory Application Proxy.
+description: En este documento se explican los conceptos básicos sobre cómo integrar un servidor de SharePoint en el entorno local con Azure Active Directory Application Proxy.
 services: active-directory
 author: kenwith
 manager: mtillman
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 3bbe0480fcf6e4e1cf828cc61c5778fdd096ed8b
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 45433268a61772f499b5d2672a8b81044c1e3414
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108186886"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764466"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-active-directory-application-proxy"></a>Habilitación del acceso remoto a SharePoint con Azure Active Directory Application Proxy
 
@@ -180,7 +180,7 @@ Configure KCD para que el servicio de proxy de aplicación de Azure AD pueda del
 Para configurar KCD, siga estos pasos para cada equipo de conexión:
 
 1. Inicie sesión como administrador de dominio en un controlador de dominio y, después, abra Usuarios y equipos de Active Directory.
-1. Busque el equipo que ejecuta el conector del proxy de Azure AD. En este ejemplo, se trata del propio servidor de SharePoint.
+1. Busque el equipo que ejecuta el conector del proxy de Azure AD. En este ejemplo, es el equipo que ejecuta SharePoint Server.
 1. Haga doble clic en el equipo y, después, seleccione la pestaña **Delegación**.
 1. Asegúrese de que las opciones de delegación estén establecidas en **Confiar en este equipo para la delegación solo a los servicios especificados**. Después, seleccione **Usar cualquier protocolo de autenticación**.
 1. Seleccione el botón **Agregar**, seleccione **Usuarios o equipos** y busque la cuenta del grupo de aplicaciones de SharePoint. Por ejemplo: `Contoso\spapppool`.

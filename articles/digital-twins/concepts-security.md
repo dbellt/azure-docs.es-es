@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: aea55b77330972877fd5e2d87758ab110071c072
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 5224804b1e0d306bfca8e9e42511ad908a3bb5c1
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108207778"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787750"
 ---
 # <a name="secure-azure-digital-twins"></a>Protección de Azure Digital Twins
 
@@ -47,7 +47,7 @@ Con las identidades administradas, la plataforma Azure administra esta identidad
 
 #### <a name="authorization-azure-roles-for-azure-digital-twins"></a>Autorización: Roles de Azure para Azure Digital Twins
 
-Azure proporciona **dos roles integrados de Azure** para autorizar el acceso a las [API del plano de datos](how-to-use-apis-sdks.md#overview-data-plane-apis) de Azure Digital Twins. Puede hacer referencia a los roles por nombre o por identificador:
+Azure proporciona **dos roles integrados de Azure** para autorizar el acceso a las [API del plano de datos](concepts-apis-sdks.md#overview-data-plane-apis) de Azure Digital Twins. Puede hacer referencia a los roles por nombre o por identificador:
 
 | Rol integrado | Descripción | ID | 
 | --- | --- | --- |

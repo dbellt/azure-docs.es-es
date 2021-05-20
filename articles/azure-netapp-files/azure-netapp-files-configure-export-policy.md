@@ -7,13 +7,13 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 07/27/2020
-ms.openlocfilehash: b71d3cc0636e5edeb78e1d88be1df2d2d61f239b
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 05/07/2021
+ms.openlocfilehash: 35bcff2615ab9b31f077a13c1cae7fbe38518575
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988467"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109628255"
 ---
 # <a name="configure-export-policy-for-nfs-or-dual-protocol-volumes"></a>Configuración de la directiva de exportación para volúmenes NFS o de protocolo dual
 
@@ -33,7 +33,7 @@ Puede crear hasta cinco reglas en la directiva de exportación.
     * **Clientes permitidos**: Especifique el valor en uno de los siguientes formatos:  
       * Dirección IPv4. Ejemplo: `10.1.12.24`
       * Dirección IPv4 con una máscara de subred expresada como un número de bits. Ejemplo: `10.1.12.10/4`
-      * Direcciones IP separadas por comas. Puede especificar varias direcciones IP de host en una sola regla separándolas con comas. Ejemplo: `10.1.12.25,10.1.12.28,10.1.12.29`
+      * Direcciones IP separadas por comas. Puede especificar varias direcciones IP de host en una sola regla separándolas con comas. El límite de longitud es de 4096 caracteres. Ejemplo: `10.1.12.25,10.1.12.28,10.1.12.29`
 
     * **Acceso**: Seleccione uno de los tipos de accesos siguientes:  
       * Sin acceso 

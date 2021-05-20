@@ -1,5 +1,5 @@
 ---
-title: 'Administración de licencias de aplicaciones de terceros a través de Microsoft: Azure'
+title: 'Administración de licencias de aplicaciones de terceros a través de Microsoft: Azure y Microsoft AppSource'
 description: Obtenga información sobre cómo administrar licencias de aplicaciones de terceros a través de Microsoft.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,12 +8,12 @@ author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
 ms.date: 04/30/2021
-ms.openlocfilehash: de39afe0b88c78b75948fc7c702f0ae06916e2ff
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 8535d124596b2ce5bd80df0d95f0fb5af5bb68f9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331509"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108759498"
 ---
 # <a name="third-party-app-license-management-through-microsoft"></a>Administración de licencias de aplicaciones de terceros a través de Microsoft: Azure
 
@@ -49,11 +49,11 @@ En esta tabla se muestra el proceso de alto nivel para administrar aplicaciones 
 
 | Paso | Detalles |
 | ------------ | ------------- |
-| Paso 1: crear oferta | El ISV crea una oferta en el Centro de partners y decide administrar las licencias de esta oferta a través de Microsoft. Esto incluye la definición de uno o varios planes de licencia para la oferta. |
-| Paso 2: actualizar paquete | El ISV crea un paquete de solución para la oferta que incluye información del plan de licencia como metadatos y la carga en el Centro de partners para su publicación en Microsoft AppSource. Para más información, consulte [Incorporación de metadatos de licencia a la solución](https://go.microsoft.com/fwlink/?linkid=2162161&clcid=0x409). |
+| Paso 1: crear oferta | El ISV crea una oferta en el Centro de partners y decide administrar las licencias de esta oferta a través de Microsoft. Esto incluye la definición de uno o varios planes de licencia para la oferta. Para más información, vea [Creación de una oferta de Dynamics 365 for Customer Engagement & Power Apps en Microsoft AppSource](dynamics-365-customer-engage-offer-setup.md). |
+| Paso 2: actualizar paquete | El ISV crea un paquete de solución para la oferta que incluye información del plan de licencia como metadatos y la carga en el Centro de partners para su publicación en Microsoft AppSource. Para más información, consulte [Incorporación de metadatos de licencia a la solución](/powerapps/developer/data-platform/appendix-add-license-information-to-your-solution). |
 | Paso 3: comprar licencias | Los clientes detectan la oferta del ISV en AppSource o directamente en el sitio web del ISV. Los clientes compran licencias para los planes que desean directamente desde el ISV (estas ofertas no se pueden comprar a través de AppSource en este momento). |
-| Paso 4: registrar oferta | El ISV registra la compra con Microsoft en el Centro de partners. Como parte del [registro de la oferta](/partner-center/csp-commercial-marketplace-licensing), el ISV especificará el tipo y la cantidad de cada plan de licencias adquirido por el cliente. |
-| Paso 5: administrar licencias | Los planes de licencia aparecerán en el Centro de administración de Microsoft 365 para que el cliente los asigne a los usuarios o grupos de su organización. El cliente también puede instalar la aplicación en su inquilino a través del Centro de administración de Power Platform. |
+| Paso 4: registrar oferta | El ISV registra la compra con Microsoft en el Centro de partners. Como parte del [registro de la oferta](/partner-center/csp-commercial-marketplace-licensing#register-isv-connect-deal-in-deal-registration), el ISV especificará el tipo y la cantidad de cada plan de licencias adquirido por el cliente. |
+| Paso 5: administrar licencias | Los planes de licencia aparecerán en el Centro de administración de Microsoft 365 para que el cliente los [asigne a los usuarios o grupos](/microsoft-365/commerce/licenses/manage-third-party-app-licenses) de su organización. El cliente también puede instalar la aplicación en su inquilino a través del Centro de administración de Power Platform. |
 | Paso 6: realizar la comprobación de la licencia | Cuando un usuario de la organización del cliente intenta ejecutar una aplicación, Microsoft comprueba que el usuario tiene una licencia antes de permitir que la ejecute. Si no tiene una licencia, el usuario ve un mensaje que explica que necesita ponerse en contacto con un administrador para obtener una licencia. |
 | Paso 7: ver informes | Los ISV pueden ver información sobre las licencias aprovisionadas y asignadas durante un período de tiempo y por geografía. |
 |||

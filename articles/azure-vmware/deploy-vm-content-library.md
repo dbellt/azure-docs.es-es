@@ -3,12 +3,12 @@ title: Creación de una biblioteca de contenido para implementar máquinas virtu
 description: Cree una biblioteca de contenido para implementar una máquina virtual en una nube privada de Azure VMware Solution.
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.openlocfilehash: b27d2682d8799bec6b09a08e5063359113b20a88
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: bfac0e0353d1338d38d56b2fbf611ac3f0fb7e9b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107873890"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753756"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Creación de una biblioteca de contenido para implementar máquinas virtuales en Azure VMware Solution
 
@@ -95,7 +95,7 @@ Ahora que se ha creado la biblioteca de contenido, puede agregar una imagen ISO 
 Ahora que se ha explicado la creación de una biblioteca de contenido para implementar máquinas virtuales en Azure VMware Solution, puede que desee obtener información sobre:
 
 - [Procedimiento de migración de las cargas de trabajo de VM a la nube privada](tutorial-deploy-vmware-hcx.md)
-- [Administración del ciclo de vida de las máquinas virtuales de Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md)
+- [Supervisión y administración de máquinas virtuales de Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md)
 
 <!-- LINKS - external-->
 
