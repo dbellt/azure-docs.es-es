@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 77bfab51cf7ccc9ec6ffe3b0018c0a488b601a0a
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 7381d7f233bc813118f310b08352d1642904a907
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070216"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753802"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-ubuntu-1804-x64-simulator-reference-agent"></a>Tutorial sobre la actualización de dispositivos para Azure IoT Hub mediante el agente de referencia del simulador de Ubuntu 18.04 (x64)
 
@@ -75,9 +75,9 @@ PS> wsl --list
 
 ## <a name="download-device-update-ubuntu-1804-x64-simulator-reference-agent"></a>Descarga del agente de referencia del simulador de Ubuntu 18.04 (x64) de Device Update
 
-La imagen de actualización de Ubuntu se puede descargar de la sección *Assets* (Recursos) de las notas de la versión [aquí](https://github.com/Azure/iot-hub-device-update/releases).
+El agente de referencia de Ubuntu se puede descargar de la sección *Assets* (Recursos) de las notas de la versión [aquí](https://github.com/Azure/iot-hub-device-update/releases).
 
-Hay dos versiones del agente. Si va a ejercitar un escenario basado en imágenes, use AducIotAgentSim-microsoft-swupdate, mientras que si va a ejercitar un escenario basado en paquetes, use AducIotAgentSim-microsoft-apt.
+Hay dos versiones del agente. En este tutorial, dado que está trabajando en el escenario basado en imágenes, use AducIotAgentSim-microsoft-swupdate. Si en su lugar trabajara en el escenario basado en paquetes, usaría AducIotAgentSim-microsoft-apt.
 
 ## <a name="install-device-update-agent-simulator"></a>Instalación del simulador de Device Update Agent
 
@@ -161,14 +161,14 @@ Agent running. [main]
 
 ## <a name="import-update"></a>Importación de actualización
 
-1. Cree un manifiesto de importación siguiendo estas [instrucciones](import-update.md).
-2. Seleccione la opción Actualizaciones del dispositivo en Administración de dispositivos automática en la barra de navegación izquierda.
+1. Descargue el [manifiesto de importación de ejemplo](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/TutorialImportManifest.json) y la [actualización de imagen de ejemplo](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu).
+2. Inicie sesión en [Azure Portal](https://portal.azure.com/) y vaya a su instancia de IoT Hub con Device Update. A continuación, seleccione la opción Actualizaciones de dispositivos en Administración de dispositivos automática en la barra de navegación izquierda.
 
 3. Seleccione la pestaña Actualizaciones.
 
 4. Seleccione "+ Import New Update" (Importar nueva actualización).
 
-5. Seleccione el icono de la carpeta o el cuadro de texto en "Select an Import Manifest File" (Seleccionar un archivo de manifiesto de importación). Verá un cuadro de diálogo para seleccionar archivos. Seleccione el manifiesto de importación que creó anteriormente.  Seleccione el icono de la carpeta o el cuadro de texto en "Select one or more update files" (Seleccionar uno o varios archivos de importación). Verá un cuadro de diálogo para seleccionar archivos. Seleccione la imagen de actualización de Ubuntu que descargó anteriormente. 
+5. Seleccione el icono de la carpeta o el cuadro de texto en "Select an Import Manifest File" (Seleccionar un archivo de manifiesto de importación). Verá un cuadro de diálogo para seleccionar archivos. Seleccione el _manifiesto de importación de ejemplo_ que ha descargado en el paso 1 anterior.  Seleccione el icono de la carpeta o el cuadro de texto en "Select one or more update files" (Seleccionar uno o varios archivos de importación). Verá un cuadro de diálogo para seleccionar archivos. Seleccione la _actualización de imagen de ejemplo_ que ha descargado en el paso 1 anterior. 
 
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Captura de pantalla que muestra la selección del archivo de actualización." lightbox="media/import-update/select-update-files.png":::
 

@@ -3,12 +3,12 @@ title: 'Inicio rápido: Asignación de nuevas directivas con la API REST'
 description: En este inicio rápido, se usa la API REST para crear una asignación de Azure Policy para identificar recursos no compatibles.
 ms.date: 05/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: e6353c24b6c1e641a236837036a0105d6c5e02d2
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 7c7657143673e773e1c4108ecb8d86ddc8d1c559
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326280"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108763134"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante la API REST
 
@@ -69,7 +69,7 @@ URI de la API REST:
 Cuerpo de la solicitud:
 - **DisplayName**: nombre para mostrar de la asignación de directiva. En este caso, usará _Auditoría de máquinas virtuales sin discos administrados_.
 - **Description**: una explicación más detallada de lo que hace la directiva o de por qué se asigna a este ámbito.
-- **policyDefinitionId**: identificador de definición de directiva, según la opción utilizada para crear la asignación. En este caso, es el identificador de la definición de directiva _Auditoría de máquinas virtuales que no usan discos administrados_.
+- **policyDefinitionId**: identificador de la definición de directiva, según la opción utilizada para crear la asignación. En este caso, es el identificador de la definición de directiva _Auditoría de máquinas virtuales que no usan discos administrados_.
 - **nonComplianceMessages**: establece el mensaje que se ve cuando se deniega un recurso por incumplimiento o porque la evaluación determina que no es compatible. Para obtener más información, consulte la [estructura de asignación de mensajes de no cumplimiento](./concepts/assignment-structure.md#non-compliance-messages).
 
 ## <a name="identify-non-compliant-resources"></a>Identificación de recursos sin compatibilidad

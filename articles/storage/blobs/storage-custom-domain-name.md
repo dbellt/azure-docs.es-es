@@ -9,12 +9,12 @@ ms.date: 02/12/2021
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 286e230a501b8730dd3c33e33639d89aa319d047
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 6050cb576de40eefd975154a591178df59a4633b
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286985"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109632788"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage
 
@@ -56,7 +56,7 @@ El nombre de host es la dirección URL del punto de conexión del almacenamiento
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
 
-2. En el panel de menús, en **Configuración**, seleccione **Propiedades**.  
+2. En el panel de menús, en **Configuración**, seleccione **Puntos de conexión**.  
 
 3. Copie el valor del punto de conexión **Blob service** o del punto de conexión **Sitio web estático** en un archivo de texto. 
   
@@ -100,14 +100,14 @@ Cree un registro CNAME que apunte al nombre de host. Un registro CNAME es un tip
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
 
-2. En el panel de menús, en **Configuración**, seleccione **Redes**.
+2. En el panel de menús, en **Seguridad y redes**, seleccione **Redes**.
 
 3. En la página **Redes**, elija la pestaña **Dominio personalizado**.
 
    > [!NOTE]
    > Esta opción no aparece en las cuentas que tienen habilitada la característica de espacio de nombres jerárquico. Para esas cuentas, use PowerShell o la CLI de Azure para completar este paso.
 
-3. En el cuadro de texto **Nombre de dominio**, escriba el nombre de su dominio personalizado, incluido el subdominio  
+3. En el cuadro de texto **Nombre de dominio**, escriba el nombre del dominio personalizado, incluido el subdominio.  
    
    Por ejemplo, si su dominio es *contoso.com* y su alias de subdominio es *www*, escriba `www.contoso.com`. Si su subdominio es *photos*, escriba `photos.contoso.com`.
 
@@ -190,7 +190,7 @@ El nombre de host es la dirección URL del punto de conexión del almacenamiento
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
 
-2. En el panel de menús, en **Configuración**, seleccione **Propiedades**.  
+2. En el panel de menús, en **Configuración**, seleccione **Puntos de conexión**.  
 
 3. Copie el valor del punto de conexión **Blob service** o del punto de conexión **Sitio web estático** en un archivo de texto.  
 
@@ -236,14 +236,14 @@ Al realizar un registro previo de su dominio personalizado en Azure, permite que
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
 
-2. En el panel de menús, en **Configuración**, seleccione **Redes**.
+2. En el panel de menús, en **Seguridad y redes**, seleccione **Redes**.
 
 3. En la página **Redes**, elija la pestaña **Dominio personalizado**.
 
    > [!NOTE]
    > Esta opción no aparece en las cuentas que tienen habilitada la característica de espacio de nombres jerárquico. Para esas cuentas, use PowerShell o la CLI de Azure para completar este paso.
 
-3. En el cuadro de texto **Nombre de dominio**, escriba el nombre de su dominio personalizado, incluido el subdominio  
+3. En el cuadro de texto **Nombre de dominio**, escriba el nombre del dominio personalizado, incluido el subdominio.  
    
    Por ejemplo, si su dominio es *contoso.com* y su alias de subdominio es *www*, escriba `www.contoso.com`. Si su subdominio es *photos*, escriba `photos.contoso.com`.
 
@@ -327,7 +327,7 @@ Para quitar una asignación de dominio personalizado, anule el registro del domi
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
 
-2. En el panel de menús, en **Configuración**, seleccione **Redes**.
+2. En el panel de menús, en **Seguridad y redes**, seleccione **Redes**.
 
 3. En la página **Redes**, elija la pestaña **Dominio personalizado**.
 

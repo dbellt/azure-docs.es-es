@@ -1,24 +1,24 @@
 ---
-title: 'Habilitar el aprovisionamiento automático de usuarios para aplicaciones multiinquilino: Azure AD'
-description: Esta es una guía para proveedores de software independientes para habilitar el aprovisionamiento automatizado
+title: Habilitación del aprovisionamiento automático de usuarios para aplicaciones multiinquilino de Azure Active Directory
+description: Esta es una guía para proveedores de software independientes para habilitar el aprovisionamiento automatizado de Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 07/23/2019
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.reviewer: zhchia
-ms.openlocfilehash: 7bd0fc634109beb6cc674d89f56666e7035d33ef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: zhchia, arvinh
+ms.openlocfilehash: 03f2f06e29f3641d44be9c4f5bd6e8c58671653f
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99255702"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109782854"
 ---
-# <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Habilitar el aprovisionamiento automático de usuarios para aplicaciones multiinquilino
+# <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application-in-azure-active-directory"></a>Habilitación del aprovisionamiento automático de usuarios para aplicaciones multiinquilino de Azure Active Directory
 
 El aprovisionamiento automático de usuarios es el proceso de automatizar la creación, el mantenimiento y la eliminación de identidades de usuario en sistemas de destino, como las aplicaciones de software como servicio.
 

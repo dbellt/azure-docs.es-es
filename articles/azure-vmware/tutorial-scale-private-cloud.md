@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Escalado de una nube privada'
+title: 'Tutorial: Expansión o reducción de clústeres en una nube privada'
 description: En este tutorial, usará Azure Portal para escalar una nube privada de la versión preliminar de Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: 2129a3f5d04311883369b7b708689a13f07ec118
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 23fa38f41a1effab212896e59118978202ef17a7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463636"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769298"
 ---
-# <a name="tutorial-scale-an-azure-vmware-solution-private-cloud"></a>Tutorial: Escalado de una nube privada de Azure VMware Solution
+# <a name="tutorial-expand-or-shrink-clusters-in-a-private-cloud"></a>Tutorial: Expansión o reducción de clústeres en una nube privada
 
 Para sacar el máximo partido de la experiencia de la nube privada de Azure VMware Solution, escale los clústeres y los hosts para que reflejen lo que necesita para las cargas de trabajo planeadas. Puede escalar los clústeres y los hosts en una nube privada, según sea necesario, para la carga de trabajo de la aplicación. Las limitaciones de rendimiento y disponibilidad de los servicios específicos deberán abordarse cada por caso. Los límites de hosts y clústeres se proporcionan en el artículo de [concepto de nube privada](concepts-private-clouds-clusters.md).
 

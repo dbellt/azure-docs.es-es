@@ -5,25 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 06/28/2019
+ms.date: 04/30/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16edc850382ba9023b54eb34cebb7ebafb539161
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 392176dca67bcf12cf8e5125deba43740b28d087
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286679"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108802151"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Instrucciones: Administración de dispositivos obsoletos en Azure AD
 
 Lo ideal es que, para completar el ciclo de vida, se anule el registro de los dispositivos registrados cuando ya no se necesiten. Sin embargo, debido, por ejemplo, a dispositivos perdidos, robados o rotos, o a reinstalaciones de sistemas operativos, normalmente tiene dispositivos obsoletos en su entorno. Como administrador de TI, es probable que desee un método para quitar los dispositivos obsoletos, de modo que pueda centrar sus recursos en la administración de los dispositivos que realmente requieren administración.
 
 En este artículo, aprenderá a administrar eficazmente los dispositivos obsoletos en su entorno.
-  
 
 ## <a name="what-is-a-stale-device"></a>¿Qué es un dispositivo obsoleto?
 
@@ -59,7 +58,7 @@ Tiene dos opciones para recuperar el valor de la marca de tiempo de actividad:
 
 - El cmdlet [Get-AzureADDevice](/powershell/module/azuread/Get-AzureADDevice)
 
-    :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="Captura de pantalla en la que se muestra la salida de la línea de comandos. Una línea aparece resaltada, y se muestra una marca de tiempo para el valor ApproximateLastLogonTimeStamp" border="false":::.
+    :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="Captura de pantalla en la que se muestra la salida de la línea de comandos. Una línea aparece resaltada, y se muestra una marca de tiempo para el valor ApproximateLastLogonTimeStamp." border="false":::
 
 ## <a name="plan-the-cleanup-of-your-stale-devices"></a>Planeamiento de la limpieza de los dispositivos obsoletos
 
@@ -81,7 +80,7 @@ Defina un período que sea el indicador de un dispositivo obsoleto. Cuando defin
 
 ### <a name="disable-devices"></a>Deshabilitar dispositivos
 
-No es aconsejable eliminar inmediatamente un dispositivo que parezca obsoleto porque no se puede deshacer una eliminación en el caso de falsos positivos. Como procedimiento recomendado, deshabilite un dispositivo durante un período de gracia antes de eliminarlo. En la directiva, defina un período para deshabilitar una directiva antes de eliminarla.
+No es aconsejable eliminar inmediatamente un dispositivo que parezca obsoleto porque no se puede deshacer una eliminación si hay falsos positivos. Como procedimiento recomendado, deshabilite un dispositivo durante un período de gracia antes de eliminarlo. En la directiva, defina un período para deshabilitar una directiva antes de eliminarla.
 
 ### <a name="mdm-controlled-devices"></a>Dispositivos controlados por MDM
 
@@ -95,7 +94,7 @@ No elimine los dispositivos administrados por el sistema. Por lo general, se tra
 
 Los dispositivos unidos a Azure AD híbrido deben seguir las directivas para la administración de dispositivos obsoletos de un entorno local. 
 
-Para realizar la limpieza de Azure AD:
+Para limpiar Azure AD:
 
 - **Dispositivos de Windows 10**: deshabilite o elimine dispositivos de Windows 10 en la instancia de Azure AD local y deje que Azure AD Connect sincronice el estado del dispositivo modificado con Azure AD.
 - **Windows 7/8**: deshabilite o elimine primero los dispositivos Windows 7/8 en Azure AD en el entorno local. No se puede usar Azure AD Connect para deshabilitar o eliminar dispositivos Windows 7/8 en Azure AD. En su lugar, cuando realice el cambio en su entorno local, debe deshabilitarlos o eliminarlos en Azure AD.
@@ -105,7 +104,6 @@ Para realizar la limpieza de Azure AD:
 >* La eliminación de un dispositivo Windows 10 solo en Azure AD volverá a sincronizar el dispositivo desde el entorno local mediante Azure AD Connect, pero como un nuevo objeto en el estado "Pendiente". Se requiere un nuevo registro en el dispositivo.
 >* Al quitar el dispositivo del ámbito de sincronización para dispositivos con Windows 10 o Server 2016, se eliminará el dispositivo Azure AD. Al volver a agregarlo al ámbito de sincronización, se colocará un nuevo objeto en el estado "Pendiente". Se requiere un nuevo registro del dispositivo.
 >* Si no usa Azure AD Connect para que los dispositivos Windows 10 se sincronicen (por ejemplo, usando solo AD FS para el registro), debe administrar el ciclo de vida similar para los dispositivos Windows 7 o Windows 8.
-
 
 ### <a name="azure-ad-joined-devices"></a>Dispositivos unidos a Azure AD
 
@@ -125,7 +123,7 @@ Deshabilite o elimine los dispositivos registrados de Azure AD en Azure AD.
 
 ## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Limpieza de dispositivos obsoletos en Azure Portal  
 
-Aunque puede limpiar los dispositivos obsoletos en Azure Portal, es más eficiente tratar este proceso mediante un script de PowerShell. Use el módulo de PowerShell V2 más reciente para usar el filtro de marca de tiempo y para filtrar los dispositivos administrados por el sistema, como Autopilot.
+Aunque puede limpiar los dispositivos obsoletos en Azure Portal, es más eficiente realizar este proceso mediante un script de PowerShell. Use el módulo de PowerShell V2 más reciente para usar el filtro de marca de tiempo y para filtrar los dispositivos administrados por el sistema, como Autopilot.
 
 Una rutina típica consta de los pasos siguientes:
 
@@ -140,31 +138,40 @@ Una rutina típica consta de los pasos siguientes:
 Para obtener todos los dispositivos y almacenar los datos devueltos en un archivo CSV:
 
 ```PowerShell
-Get-AzureADDevice -All:$true | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-summary.csv
+Get-AzureADDevice -All:$true | select-object -Property AccountEnabled, DeviceId, DeviceOSType, DeviceOSVersion, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-summary.csv -NoTypeInformation
 ```
 
-Si tiene un gran número de dispositivos en el directorio, utilice el filtro de marca de tiempo para reducir el número de dispositivos devueltos. Para obtener todos los dispositivos con una marca de tiempo anterior a una fecha específica y almacenar los datos devueltos en un archivo CSV: 
+Si tiene un gran número de dispositivos en el directorio, utilice el filtro de marca de tiempo para reducir el número de dispositivos devueltos. Para obtener todos los dispositivos que no han iniciado sesión en 90 días y almacenar los datos devueltos en un archivo CSV: 
 
 ```PowerShell
+$dt = (Get-Date).AddDays(-90)
+Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property AccountEnabled, DeviceId, DeviceOSType, DeviceOSVersion, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-90days-summary.csv -NoTypeInformation
+```
+
+#### <a name="set-devices-to-disabled"></a>Establecimiento de los dispositivos como deshabilitados
+
+Con los mismos comandos, podemos canalizar la salida al comando set para deshabilitar los dispositivos con una antigüedad determinada.
+
+```powershell
 $dt = [datetime]’2017/01/01’
-Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
+Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | Set-AzureADDevice
 ```
 
 ## <a name="what-you-should-know"></a>Qué debería saber
 
 ### <a name="why-is-the-timestamp-not-updated-more-frequently"></a>¿Por qué la marca de tiempo no se actualiza con más frecuencia?
 
-La marca de tiempo se actualiza para admitir escenarios de ciclo de vida del dispositivo. Esto no es una auditoría. Use los registros de auditoría de inicio de sesión para actualizaciones más frecuentes en el dispositivo.
+La marca de tiempo se actualiza para admitir escenarios de ciclo de vida del dispositivo. Este atributo no es una auditoría. Use los registros de auditoría de inicio de sesión para actualizaciones más frecuentes en el dispositivo.
 
 ### <a name="why-should-i-worry-about-my-bitlocker-keys"></a>¿Por qué debería preocuparme por mis claves de BitLocker?
 
-Una vez configuradas, las claves de BitLocker para dispositivos Windows 10 se almacenan en el objeto de dispositivo en Azure AD. Si se elimina un dispositivo obsoleto, también se eliminan las claves de BitLocker almacenadas en el dispositivo. Debe determinar si su directiva de limpieza se alinea con el ciclo de vida real del dispositivo antes de eliminar un dispositivo obsoleto. 
+Una vez configuradas, las claves de BitLocker para dispositivos Windows 10 se almacenan en el objeto de dispositivo en Azure AD. Si se elimina un dispositivo obsoleto, también se eliminan las claves de BitLocker almacenadas en el dispositivo. Confirme que su directiva de limpieza se alinea con el ciclo de vida real del dispositivo antes de eliminar un dispositivo obsoleto. 
 
 ### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>¿Por qué debería preocuparme por los dispositivos Windows AutoPilot?
 
 Cuando se elimina un dispositivo Azure AD que estaba asociado a un objeto de Windows AutoPilot, pueden producirse los tres escenarios siguientes si dicho dispositivo se va a volver a usar en el futuro:
 - Con implementaciones controladas por el usuario de Windows AutoPilot sin aprovisionamiento previo, se creará un nuevo dispositivo de Azure AD, pero no se etiquetará con ZTDID.
-- Con implementaciones en modo de autoimplementación de Windows AutoPilot, se producirá un error porque no se encuentra un dispositivo de Azure AD asociado.  (Se trata de un mecanismo de seguridad para asegurarse de que ningún dispositivo “impostor” intenta unirse a Azure AD sin credenciales). El error indicará una falta de coincidencia de ZTDID.
+- Con implementaciones en modo de autoimplementación de Windows AutoPilot, se producirá un error porque no se encuentra un dispositivo de Azure AD asociado.  (Se trata de un mecanismo de seguridad para asegurarse de que ningún dispositivo “impostor” intenta unirse a Azure AD sin credenciales). El error indicará una falta de coincidencia de ZTDID.
 - Con implementaciones con aprovisionamiento previo de Windows AutoPilot, se producirá un error al no poder encontrar un dispositivo de Azure AD asociado. (En segundo plano, las implementaciones con aprovisionamiento previo usan el mismo proceso del modo de autoimplementación, por lo que aplican los mismos mecanismos de seguridad).
 
 ### <a name="how-do-i-know-all-the-type-of-devices-joined"></a>¿Cómo puedo conocer todos los tipos de dispositivos unidos?

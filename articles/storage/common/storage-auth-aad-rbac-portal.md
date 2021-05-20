@@ -10,12 +10,12 @@ ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d63a31eae57d09f1658f5f19c1518cb0648fa4e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3beba41dbd5b28d2c03d45652f6cf2eff85ba5d5
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100373763"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633307"
 ---
 # <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Uso de Azure Portal para asignar un rol de Azure para el acceso a datos de blobs y colas
 
@@ -56,14 +56,13 @@ Antes de asignar un rol a una entidad de seguridad, asegúrese de haber tenido e
 
 El procedimiento mostrado aquí asigna un rol limitado a un contenedor, pero puede seguir los mismos pasos para asignar un rol limitado a una cola:
 
-1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento y muestre la **Introducción** para la cuenta.
-1. En Servicios, seleccione **Blobs**.
+1. En [Azure Portal](https://portal.azure.com), en **Almacenamiento de datos**, seleccione **Contenedores de blobs**.
 1. Busque el contenedor para el que desea asignar un rol y visualice la configuración del contenedor.
 1. Seleccione **Control de acceso (IAM)** para mostrar la configuración del control de acceso del contenedor. Seleccione la pestaña **Asignaciones de roles** para ver la lista de asignaciones de roles.
 
     :::image type="content" source="media/storage-auth-aad-rbac-portal/portal-access-control-container.png" alt-text="Captura de pantalla que muestra la configuración de control de acceso del contenedor":::
 
-1. Haga clic en el botón **Agregar asignación de roles** para agregar un rol nuevo.
+1. Haga clic en **Agregar** y, a continuación, en **Agregar asignación de roles** para agregar un nuevo rol.
 1. En la ventana **Agregar asignación de roles**, seleccione el rol de Azure Storage que quiera asignar. Después, realice una búsqueda para localizar la entidad de seguridad a la que quiere asignar ese rol.
 
     :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Captura de pantalla que muestra cómo asignar un rol de Azure":::
@@ -86,11 +85,12 @@ Si los usuarios necesitan poder acceder a blobs de Azure Portal, asígneles un r
 Siga estos pasos para asignar el rol **Lector** para que un usuario pueda acceder a los blobs de Azure Portal. En este ejemplo, la asignación se limita al ámbito de la cuenta de almacenamiento:
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
-1. Seleccione **Control de acceso (IAM)** para mostrar la configuración del control de acceso de la cuenta de almacenamiento. Seleccione la pestaña **Asignaciones de roles** para ver la lista de asignaciones de roles.
-1. En la ventana **Agregar asignación de roles**, seleccione el rol **Lector**. 
-1. En el campo **Asignar acceso a**, seleccione **Usuario, grupo o entidad de servicio de Azure AD**.
-1. Realice una búsqueda para localizar la entidad de seguridad a la que quiere asignar el rol.
-1. Guarde la asignación de roles.
+2. Seleccione **Control de acceso (IAM)** para mostrar la configuración del control de acceso de la cuenta de almacenamiento. Seleccione la pestaña **Asignaciones de roles** para ver la lista de asignaciones de roles.
+3. Haga clic en **Agregar** y, a continuación, en **Agregar asignación de roles** para agregar un nuevo rol.
+4. En la ventana **Agregar asignación de roles**, seleccione el rol **Lector**. 
+5. En el campo **Asignar acceso a**, seleccione **Usuario, grupo o entidad de servicio de Azure AD**.
+6. Realice una búsqueda para localizar la entidad de seguridad a la que quiere asignar el rol.
+7. Guarde la asignación de roles.
 
 Asignar el rol **Lector** solo es necesario con aquellos usuarios que necesiten tener acceso a blobs o colas mediante Azure Portal.
 

@@ -3,12 +3,12 @@ title: Matriz de soporte para la recuperación ante desastres de máquinas virtu
 description: Resume la compatibilidad con la recuperación ante desastres de máquinas virtuales de Azure en una región secundaria con Azure Site Recovery.
 ms.topic: article
 ms.date: 11/29/2020
-ms.openlocfilehash: 92def8f964ec15033816cddfaa41f7e0d82ac595
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: fe3424b8905569076a1fe6e4d29352581db3bec8
+ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108174567"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109665039"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de soporte para la recuperación ante desastres de máquinas virtuales de Azure entre regiones de Azure
 
@@ -52,7 +52,7 @@ Azure Government    | Virginia Gob. EE. UU., Iowa Gob. EE. UU., US Gov de Arizon
 Alemania    | Centro de Alemania y Nordeste de Alemania
 China | Este de China, Norte de China, Norte de China 2 y Este de China 2
 Brasil | Sur de Brasil
-Regiones restringidas reservadas para la recuperación ante desastres dentro de un país |Oeste de Suiza reservado para el Norte de Suiza; Sur de Francia reservado para el Centro de Francia; Centro de Emiratos Árabes Unidos restringido para los clientes del Norte de Emiratos Árabes Unidos; Oeste de Noruega para clientes del Este de Noruega; JIO del Centro de la India para clientes de JIO del Oeste de la India; Sudeste de Brasil para el Sur de Brasil.
+Regiones restringidas reservadas para la recuperación ante desastres dentro de un país |Oeste de Suiza reservado para el Norte de Suiza; Sur de Francia reservado para el Centro de Francia; Centro de Emiratos Árabes Unidos restringido para los clientes del Norte de Emiratos Árabes Unidos; Oeste de Noruega para clientes del Este de Noruega; JIO del Centro de la India para clientes de JIO del Oeste de la India; Sudeste de Brasil para clientes del Sur de Brasil; Oeste de Sudáfrica para clientes del Norte de Sudáfrica; Norte de Alemania para clientes de Centro-oeste de Alemania.
 
 La replicación y recuperación de VM entre dos regiones de continentes diferentes se limita a los siguientes pares de regiones:
 

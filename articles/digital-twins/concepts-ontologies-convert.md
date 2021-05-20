@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 6d15df406399e49bff3d95cb90f5d8b908d09631
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: bd761ba9785d491e9577dab828f84580d7a08bba
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208030"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787786"
 ---
 # <a name="convert-industry-standard-ontologies-to-dtdl-for-azure-digital-twins"></a>Conversión de ontologías estándar del sector a DTDL para Azure Digital Twins
 
@@ -45,11 +45,9 @@ En el siguiente fragmento de código en C# se muestra cómo se carga un archivo 
 
 Hay una aplicación de ejemplo disponible que convierte un archivo de modelo basado en RDF a [DTDL (versión 2)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) para su uso por parte del servicio Azure Digital Twins. Se ha validado para el esquema de [Brick](https://brickschema.org/ontology/) y se puede extender a otros esquemas del sector de la construcción (como [Building Topology Ontology (BOT)](https://w3c-lbd-cg.github.io/bot/), [Semantic Sensor Network](https://www.w3.org/TR/vocab-ssn/) o [buildingSmart Industry Foundation Classes (IFC)](https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/)).
 
-El ejemplo es una aplicación de línea de comandos de .NET Core denominada **RdfToDtdlConverter**.
+El ejemplo es una [aplicación de línea de comandos de .NET Core denominada RdfToDtdlConverter](/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/).
 
-Aquí puede obtener el ejemplo: [RdfToDtdlConverter](/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). 
-
-Para descargar el código en la máquina, seleccione el botón **Examinar código** debajo del título de la página de ejemplo, que le llevará al repositorio de GitHub para el ejemplo. Seleccione el botón **Code** (Código) y **Download ZIP** (Descargar ZIP) para descargar el ejemplo como un archivo *.ZIP* denominado *RdfToDtdlConverter-main.zip*. A continuación, puede descomprimir el archivo y explorar el código.
+Para descargar el código en la máquina, seleccione el botón **Examinar código** debajo del título de la página de ejemplo, que le llevará al repositorio de GitHub para el ejemplo. Seleccione el botón **Code** (Código) y **Download ZIP** (Descargar ZIP) para descargar el ejemplo como un archivo ZIP denominado *RdfToDtdlConverter-main.zip*. A continuación, puede descomprimir el archivo y explorar el código.
 
 :::image type="content" source="media/concepts-ontologies-convert/download-repo-zip.png" alt-text="Captura de pantalla del repositorio RdfToDtdlConverter en GitHub. El botón Code (Código) está seleccionado y se muestra un pequeño cuadro de diálogo en el que el botón Download ZIP (Descargar ZIP) está resaltado" lightbox="media/concepts-ontologies-convert/download-repo-zip.png":::
 

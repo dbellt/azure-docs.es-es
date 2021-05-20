@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: e427d51068115db27a36243d738c0e93a10d3cb1
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: e44dc221ccb8dd614372e53dd626f513c9490e78
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375923"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109754415"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Redes para conjuntos de escalado de máquinas virtuales de Azure
 
@@ -130,7 +130,7 @@ En general, las máquinas virtuales del conjunto de escalado de Azure no requier
 Sin embargo, algunos escenarios requieren que las máquinas virtuales del conjunto de escalado tengan sus propias direcciones IP públicas. Un ejemplo son los juegos, en los que se necesita una consola para tener una conexión directa a una máquina virtual en la nube, que esté realizando el procesamiento físico de los juegos. Otro ejemplo es cuando las máquinas virtuales necesitan realizar conexiones externas entre sí a través de regiones en una base de datos distribuida.
 
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>Creación de un conjunto de escalado con una dirección IP pública por máquina virtual
-Para crear un conjunto de escalado que asigne una dirección IP pública a cada máquina virtual con la CLI, agregue el parámetro **--public-ip-per-vm** al comando **vmss create**. 
+Para crear un conjunto de escalado que asigne una dirección IP pública a cada máquina virtual con la CLI, agregue el parámetro **--public-ip-per-vm** al comando **vmss create**.
 
 Para crear un conjunto de escalado mediante una plantilla de Azure, asegúrese de que la versión de API del recurso Microsoft.Compute/virtualMachineScaleSets sea al menos **2017-03-30** y agregue una propiedad JSON **publicIpAddressConfiguration** a la sección ipConfigurations del conjunto de escalado. Por ejemplo:
 
@@ -143,7 +143,7 @@ Para crear un conjunto de escalado mediante una plantilla de Azure, asegúrese d
 }
 ```
 
-Ejemplo de plantilla: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
+Ejemplo de plantilla: [vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Consulta de las direcciones IP públicas de las máquinas virtuales en un conjunto de escalado
 Para enumerar las direcciones IP públicas asignadas para escalar máquinas virtuales del conjunto mediante la CLI, use el comando **az vmss list-instance-public-ips**.
@@ -384,7 +384,7 @@ az vmss show \
 
 ## <a name="make-networking-updates-to-specific-instances"></a>Realización de actualizaciones de red en instancias específicas
 
-Puede realizar actualizaciones de red en instancias específicas del conjunto de escalado de máquinas virtuales. 
+Puede realizar actualizaciones de red en instancias específicas del conjunto de escalado de máquinas virtuales.
 
 Puede `PUT` en la instancia para actualizar la configuración de red. Se puede usar para realizar acciones como agregar o quitar tarjetas de interfaz de red (NIC) o quitar una instancia de un grupo de back-end.
 
@@ -395,8 +395,8 @@ PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/provid
 En el ejemplo siguiente se muestra cómo agregar una segunda configuración de IP a la NIC.
 
 1. `GET`: detalles de una instancia específica del conjunto de escalado de máquinas virtuales.
-    
-    ``` 
+
+    ```
     GET https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
     ```
 
@@ -449,10 +449,10 @@ En el ejemplo siguiente se muestra cómo agregar una segunda configuración de I
       }
     }
     ```
- 
+
 2. `PUT` en la instancia de, actualizando para agregar la configuración de IP adicional. Esto es similar para agregar `networkInterfaceConfiguration` adicionales.
 
-    
+
     ```
     PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
     ```

@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: f3e0a14ee917bf9b1396eef9d1ec36709e5e706a
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 5dd61207d3155c1279b8e8609b8aa8abf65e7ee2
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331402"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109518169"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creación y administración de una instancia de proceso de Azure Machine Learning
 
@@ -111,7 +111,7 @@ También puede crear una instancia de proceso con una [plantilla de Azure Resour
 
 
 
-## <a name="create-on-behalf-of-preview"></a>Creación en nombre de alguien (versión preliminar)
+## <a name="create-on-behalf-of-preview"></a><a name="on-behalf"></a> Creación en nombre de alguien (versión preliminar)
 
 Como administrador, puede crear una instancia de proceso en nombre de un científico de datos y asignarle la instancia con:
 
@@ -140,32 +140,43 @@ Use un script de configuración para una manera automatizada de personalizar y c
 
 A continuación se muestran algunos ejemplos de lo que puede hacer en un script de configuración:
 
-* Instalar paquetes y herramientas
+* Instalar paquetes, herramientas y software
 * Montar datos
 * Crear un entorno de Conda personalizado y kernels de Jupyter
-* Clonar repositorios Git
+* Clonar repositorios de Git y configurar opciones de Git
+* Establecer servidores proxy de red
+* Establecimiento de variables de entorno
+* Instalar extensiones de JupyterLab
 
 ### <a name="create-the-setup-script"></a>Creación del script de configuración
 
-El script de configuración es un script de shell que se ejecuta como *azureuser*.  Cree o cargue el script en los archivos de **Notebooks**:
+El script de configuración es un script de shell que se ejecuta como *rootuser*.  Cree o cargue el script en los archivos de **Notebooks**:
 
 1. Inicie sesión en [Studio](https://ml.azure.com) y vaya al área de trabajo.
-1. Seleccione **Notebooks** en la parte izquierda.
-1. Use la herramienta **Agregar archivos** para crear o cargar el script del shell de configuración.  Asegúrese de que el nombre de archivo del script finaliza en ".sh".  Al crear un nuevo archivo, cambie también el **tipo de archivo** a *bash(.sh)* .
+2. Seleccione **Notebooks** en la parte izquierda.
+3. Use la herramienta **Agregar archivos** para crear o cargar el script del shell de configuración.  Asegúrese de que el nombre de archivo del script finaliza en ".sh".  Al crear un nuevo archivo, cambie también el **tipo de archivo** a *bash(.sh)* .
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/create-or-upload-file.png" alt-text="Creación o carga del script de configuración en el archivo de Notebooks en Studio":::
 
-Cuando se ejecuta el script, el directorio de trabajo actual es el directorio donde se cargó.  Si carga el script en **Usuarios>administrador**, la ubicación del archivo es */mnt/batch/tasks/shared/LS_root/mounts/clusters/**ciname**/code/Users/admin* al aprovisionar la instancia de proceso denominada **ciname**.
+Cuando se ejecuta el script, el directorio de trabajo actual del script es el directorio donde se cargó. Por ejemplo, si carga el script en **Users>admin**, la ubicación del script en la instancia de proceso y el directorio de trabajo actual cuando se ejecuta el script es */home/azureuser/cloudfiles/code/Users/admin*. Esto le permitiría usar rutas de acceso relativas en el script.
 
-Los argumentos de script se pueden denominar en el script como $1, $2, etc. Por ejemplo, si ejecuta `scriptname ciname`, en el script puede navegar al directorio `cd /mnt/batch/tasks/shared/LS_root/mounts/clusters/$1/code/admin` donde se almacena el script.
+En el script se pueden hacer referencia a los argumentos del script como $1, $2, etc. 
 
-También puede recuperar la ruta de acceso dentro del script:
+Si el script estaba haciendo algo específico de azureuser, como instalar el entorno de Conda o el kernel de Jupyter, tendrá que colocarlo en el bloque *sudo -u azureuser* de este modo.
 
 ```shell
-#!/bin/bash 
-SCRIPT=$(readlink -f "$0") 
-SCRIPT_PATH=$(dirname "$SCRIPT") 
+sudo -u azureuser -i <<'EOF'
+
+EOF
 ```
+Tenga en cuenta que *sudo -u azureuser* sí cambia el directorio de trabajo actual a */home/azureuser*. Tampoco puede acceder a los argumentos del script de este bloque.
+
+También puede usar las siguientes variables de entorno en el script:
+
+1. CI_RESOURCE_GROUP
+2. CI_WORKSPACE
+3. CI_NAME
+4. CI_LOCAL_UBUNTU_USER. Esta apunta a azureuser.
 
 ### <a name="use-the-script-in-the-studio"></a>Uso del script en Studio
 
@@ -220,7 +231,7 @@ Los registros de la ejecución del script de configuración aparecen en la carpe
 
 ## <a name="manage"></a>Administrar
 
-Inicie, detenga, reinicie y elimine una instancia de proceso. Una instancia de proceso no se reduce verticalmente de forma automática, por lo que debe asegurarse de detener el recurso para evitar cargos continuos.
+Inicie, detenga, reinicie y elimine una instancia de proceso. Una instancia de proceso no se reduce verticalmente de forma automática, por lo que debe asegurarse de detener el recurso para evitar cargos continuos. Al detener una instancia de proceso, se cancela su asignación. A continuación, inícielo de nuevo cuando lo necesite. Si bien detener la instancia de proceso detiene la facturación de las horas de proceso, se le seguirá facturando por el disco, la dirección IP pública y el equilibrador de carga estándar.
 
 > [!TIP]
 > La instancia de proceso tiene un disco de SO de 120 GB. Si se queda sin espacio en disco, [use el terminal](how-to-access-terminal.md) para borrar al menos entre 1 y 2 GB antes de detener o reiniciar la instancia de proceso.
@@ -324,7 +335,6 @@ Para cada instancia de proceso del área de trabajo que creó, o que se creó au
 
 ---
 
-
 [RBAC de Azure](../role-based-access-control/overview.md) permite controlar qué usuarios del área de trabajo pueden crear, eliminar, iniciar, detener y reiniciar una instancia de proceso. Todos los usuarios del rol colaborador y propietario del área de trabajo pueden crear, eliminar, iniciar, detener y reiniciar las instancias de proceso en el área de trabajo. Sin embargo, solo el creador de una instancia de proceso específica o el usuario asignado, si se creó en su nombre, tienen permiso para acceder a Jupyter, JupyterLab y RStudio en esa instancia de proceso. Una instancia de proceso está dedicada a un solo usuario que tiene acceso raíz y puede pasar por el terminal a través de Jupyter, JupyterLab o RStudio. La instancia de proceso incluirá el usuario que ha iniciado sesión y todas las acciones usarán la identidad de ese usuario para RBAC de Azure y la atribución de ejecuciones de experimentos. El acceso SSH se controla mediante un mecanismo de clave pública-privada.
 
 RBAC de Azure puede controlar estas acciones:
@@ -334,6 +344,11 @@ RBAC de Azure puede controlar estas acciones:
 * *Microsoft.MachineLearningServices/workspaces/computes/start/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
+
+Para crear una instancia de proceso, debe tener permisos para realizar las siguientes acciones:
+* *Microsoft.MachineLearningServices/workspaces/computes/write*
+* *Microsoft.MachineLearningServices/workspaces/checkComputeNameAvailability/action*
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

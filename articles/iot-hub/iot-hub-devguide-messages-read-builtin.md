@@ -11,16 +11,16 @@ ms.date: 06/01/2020
 ms.custom:
 - amqp
 - 'Role: Cloud Development'
-ms.openlocfilehash: 4bb33721625f4fc752745ce2b43051c90b3aaa74
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f98bf2cc4fb4946f6e4609db7a1428dd153cbc84
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92147674"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787336"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Leer mensajes del dispositivo a la nube desde el punto de conexión integrado
 
-De forma predeterminada, los mensajes se enrutan al punto de conexión orientado al servicio integrado ( **/messages/events**), que es compatible con [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Actualmente, este punto de conexión solo se expone mediante el protocolo [AMQP](https://www.amqp.org/) en el puerto 5671. IoT Hub muestra las propiedades siguientes para permitirle controlar el punto de conexión de mensajería integrado compatible con Event Hubs **messages/events**.
+De forma predeterminada, los mensajes se enrutan al punto de conexión orientado al servicio integrado ( **/messages/events**), que es compatible con [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Actualmente, este punto de conexión solo se expone mediante el protocolo [AMQP](https://www.amqp.org/) en el puerto 5671 y AMQP a través de [WebSockets](http://docs.oasis-open.org/amqp-bindmap/amqp-wsb/v1.0/cs01/amqp-wsb-v1.0-cs01.html) en el puerto 443. IoT Hub muestra las propiedades siguientes para permitirle controlar el punto de conexión de mensajería integrado compatible con Event Hubs **messages/events**.
 
 | Propiedad            | Descripción |
 | ------------------- | ----------- |

@@ -3,12 +3,12 @@ title: 'Inicio rápido: Creación de un plano técnico con la API de REST'
 description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante la API REST.
 ms.date: 05/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: 37f67e6db753969344b8c442de78b867dd41ecd6
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 5b65350f47e470fc9f4797d768a32acded241266
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323832"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108761550"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con API REST
 
@@ -435,4 +435,4 @@ Para quitar el mismo plano técnico, utilice la siguiente operación de la API R
 En este inicio rápido, ha creado, asignado y eliminado un plano técnico con la API REST. Para más información sobre Azure Blueprints, vaya el artículo sobre el ciclo de vida de los planos técnicos.
 
 > [!div class="nextstepaction"]
-> [Más información acerca del ciclo de vida del plano técnico](./concepts/lifecycle.md)
+> [Más información acerca del ciclo de vida del plano técnico](./concepts/lifecycle.md) 

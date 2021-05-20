@@ -6,13 +6,13 @@ ms.author: navits
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/22/2020
-ms.openlocfilehash: d5eb253fb24f463106866f8b0fe17f634e805cbb
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.date: 04/14/2021
+ms.openlocfilehash: 346824a9a64fa9c6b01ae29c74dca693e31f67ac
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107484"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109635272"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Creación de una oferta de aplicación de Power BI
 
@@ -56,7 +56,7 @@ Esta página se muestra una representación visual de los pasos necesarios para 
 Se incluyen vínculos para realizar operaciones en esta oferta en función de la selección que realice. Por ejemplo:
 
 - Si la oferta es un borrador: Eliminación de una oferta borrador
-- Si la oferta está activa: [Detención de la venta de una oferta](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Si la oferta está activa: [desuse (antiguamente, detenga la venta de) la oferta](update-existing-offer.md#deprecate-an-offer-or-plan)
 - Si la oferta está en versión preliminar: [Publicación](../review-publish-offer.md#previewing-and-approving-your-offer)
 - Si no ha completado el cierre de sesión del anunciante: [Cancelación de la publicación.](../review-publish-offer.md#cancel-publishing)
 

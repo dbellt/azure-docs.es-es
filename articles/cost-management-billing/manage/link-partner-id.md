@@ -8,12 +8,12 @@ ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: a214e91307308e191ce92b6461c1454d2cc7dd2b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 416bb5f477396a17d1003c537149b4c90378e652
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370485"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784564"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Vinculación de un Id. de partner a cuentas de Azure
 
@@ -31,7 +31,7 @@ Antes de vincular su Id. de partner, el cliente debe concederle acceso a sus rec
 
 - **Entidad de servicio**: el cliente puede agregar una aplicación o un script de su organización en el directorio del cliente y asignarle cualquier rol de Azure. La identidad de la aplicación o el script se conoce como entidad de servicio.
 
-- **Azure Lighthouse**: el cliente puede delegar una suscripción (o un grupo de recursos) para que los usuarios puedan trabajar en ella desde su inquilino. Para más información, consulte la [administración de recursos delegados de Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
+- **Azure Lighthouse**: el cliente puede delegar una suscripción (o un grupo de recursos) para que los usuarios puedan trabajar en ella desde su inquilino. Para más información, consulte [Azure Lighthouse](../../lighthouse/overview.md).
 
 ## <a name="link-to-a-partner-id"></a>Vinculación a un Id. de partner
 
