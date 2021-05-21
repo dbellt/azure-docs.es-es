@@ -329,7 +329,7 @@
   items:
     - name: Principales libros de Azure Sentinel
       href: top-workbooks.md
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/sentinel
     - name: Roles RBAC de Azure
       items:
@@ -387,3 +387,5 @@
       href: 'https://azure.microsoft.com/pricing/details/azure-sentinel/'
     - name: Disponibilidad de las características para nubes de la Administración Pública de Estados Unidos
       href: /azure/security/fundamentals/feature-availability
+    - name: Novedades (con una antigüedad superior a seis meses) archivadas
+      href: whats-new-archive.md

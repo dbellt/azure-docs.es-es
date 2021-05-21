@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/15/2021
+ms.date: 05/06/2021
 ms.author: jeedes
-ms.openlocfilehash: 390ccfa828ebaa0d3dec15990ffeb60cbb24360e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f94c19f52ab5b49f63d02296f30108f643f5c66d
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101648601"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734530"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>Tutorial: Integración de Azure Active Directory con Overdrive
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Overdrive con Azure Active Directory (Az
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Overdrive con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
  
@@ -82,9 +82,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE]
     > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de atención al cliente de Overdrive](https://help.overdrive.com/) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar la **dirección URL de metadatos de federación de aplicación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
-    ![Vínculo de descarga del certificado](common/metadataxml.png)
+    ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
 
 6. En la sección **Set up Overdrive** (Configurar Overdrive), copie las direcciones URL adecuadas según sus necesidades.
 
@@ -123,7 +123,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ## <a name="configure-overdrive-sso"></a>Configuración del inicio de sesión único de Overdrive
 
-Para configurar el inicio de sesión único en **Overdrive**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Overdrive](https://help.overdrive.com/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Overdrive**, debe enviar la **dirección URL de metadatos de federación de aplicación** al [equipo de soporte técnico de Overdrive](https://help.overdrive.com/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-overdrive-test-user"></a>Creación de un usuario de prueba en Overdrive
 

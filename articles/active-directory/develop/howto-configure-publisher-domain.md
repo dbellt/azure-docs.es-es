@@ -13,12 +13,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.openlocfilehash: 9b3840ffb39a204cfa24dcb0430f20ac16587582
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d17bd46d8036ff2535b0dede9ab95121ad3bf7a8
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100104185"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713439"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Procedimientos: Configuración del dominio de editor de una aplicación
 
@@ -86,14 +86,16 @@ Si la aplicación no está registrada en un inquilino, solo verá la opción par
 
 1. Haga clic en el botón **Verificar y guardar dominio**.
 
+No es necesario mantener los recursos que se han usado para la comprobación una vez comprobado un dominio. Una vez finalizada la comprobación, puede eliminar el archivo hospedado.
+
 ### <a name="to-select-a-verified-domain"></a>Para seleccionar un dominio verificado
 
-- Si el inquilino ha verificado los dominios, seleccione uno de los dominios en la lista desplegable **Seleccionar un dominio verificado**.
+Si el inquilino ha verificado los dominios, seleccione uno de los dominios en la lista desplegable **Seleccionar un dominio verificado**.
 
->[!Note]
-> El encabezado "Content-Type" esperado que se debe devolver es `application/json`. Es posible que reciba el error que se indica a continuación si usa cualquier otro elemento, como `application/json; charset=utf-8`. 
+> [!NOTE]
+> El encabezado `Content-Type` esperado que se debe devolver es `application/json`. Es posible que reciba el error que se indica a continuación si usa cualquier otro elemento, como `application/json; charset=utf-8`:
 > 
->``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
+> `Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value.`
 >
 
 ## <a name="implications-on-the-app-consent-prompt"></a>Implicaciones en la petición de consentimiento de la aplicación

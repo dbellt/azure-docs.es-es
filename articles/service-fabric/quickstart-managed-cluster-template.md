@@ -1,17 +1,16 @@
 ---
-title: Implementación de un clúster administrado de Service Fabric (versión preliminar) mediante Azure Resource Manager
+title: Implementación de un clúster administrado de Service Fabric con Azure Resource Manager
 description: Aprenda a crear un clúster administrado Service Fabric con una plantilla de Azure Resource Manager.
 ms.topic: quickstart
-ms.date: 09/28/2020
-ms.custom: references_regions
-ms.openlocfilehash: 079e8e3e39bd306332abb43fa2ae1f8cc04e305b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 5/10/2021
+ms.openlocfilehash: 0775d5f6874de8fafb1d9a32cf19071f4a7a99b4
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91410431"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685214"
 ---
-# <a name="quickstart-deploy-a-service-fabric-managed-cluster-preview-with-an-azure-resource-manager-template"></a>Inicio rápido: Implementación de un clúster administrado de Service Fabric (versión preliminar) con una plantilla de Azure Resource Manager
+# <a name="quickstart-deploy-a-service-fabric-managed-cluster-with-an-azure-resource-manager-template"></a>Inicio rápido: Implementación de un clúster administrado de Service Fabric con una plantilla de Azure Resource Manager
 
 Los clústeres administrados de Service Fabric son una evolución del modelo de recursos de clúster de Azure Service Fabric que agiliza la experiencia de implementación y administración de clústeres. Los clústeres administrados de Service Fabric son un recurso totalmente encapsulado que le permite implementar un único recurso de clúster de Service Fabric en lugar de tener que implementar todos los recursos subyacentes que componen un clúster de Service Fabric. En este artículo se describe cómo implementar un clúster administrado de Service Fabric para probar en Azure mediante una plantilla de Azure Resource Manager (plantilla de ARM).
 
@@ -47,7 +46,7 @@ Tome nota de la huella digital del certificado, ya que será necesaria para impl
 
     * **Suscripción**: Seleccione una suscripción de Azure.
     * **Grupo de recursos**: Seleccione **Crear nuevo**. Escriba un nombre único para el grupo de recursos, como *myResourceGroup*, y elija **Aceptar**.
-    * **Ubicación**: Seleccione una ubicación, como **eastus2**. Entre las regiones admitidas para la versión preliminar de clústeres administrados de Service Fabric se incluyen `centraluseuap`, `eastus2euap`, `eastasia`, `northeurope`, `westcentralus` y `eastus2`.
+    * **Ubicación**: Seleccione una ubicación.
     * **Nombre del clúster**: escriba un nombre único para el clúster, como *mysfcluster*.
     * **Nombre de usuario administrador**: escriba un nombre para el administrador que se va a usar para RDP en las máquinas virtuales subyacentes del clúster.
     * **Contraseña de administrador**: escriba una contraseña para el administrador que se va a usar para RDP en las máquinas virtuales subyacentes del clúster.

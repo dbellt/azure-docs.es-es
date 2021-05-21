@@ -9,12 +9,12 @@ ms.date: 04/28/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 033893ac0f939929eda597a1eb978e0dde4c57d9
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: f50255510d5f4716f181a8e2b51cb5fa3998062d
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108181497"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715089"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Compatibilidad del protocolo Network File System (NFS) 3.0 en Azure Blob Storage (versión preliminar)
 
@@ -121,13 +121,14 @@ El estado de los elementos que aparecen en esta tabla va a cambiar con el tiempo
 | [Blobs en anexos](storage-blobs-introduction.md#blobs) | ✔️   |  ⛔ | [Blobs en páginas](storage-blobs-introduction.md#blobs) | ⛔ | ⛔ |
 | [Seguridad de Azure Active Directory (AD).](../common/storage-auth-aad.md?toc=/azure/storage/blobs/toc.json) | ⛔ | ⛔ | [Ámbitos de cifrado](encryption-scope-overview.md)  |    ⛔ | ⛔ |
 | [Replicación de objetos para blobs en bloques](object-replication-overview.md) | ⛔  |   ⛔ | [Conmutación por error de cuenta administrada por el cliente](../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json) | ⛔ |    ⛔ |
+| [Eventos de Blob Storage](storage-blob-event-overview.md)| ⛔ |    ⛔ 
 
   
 ## <a name="known-issues"></a>Problemas conocidos
 
 - La compatibilidad con NFS 3.0 no se puede habilitar en las cuentas de almacenamiento existentes.
 
-- La compatibilidad con NFS 3.0 no se puede deshabilitar en una cuenta de almacenamiento después de habilitarla.
+- La compatibilidad con NFS 3.0 no se puede deshabilitar en una cuenta de almacenamiento después de haberla habilitado.
 
 -  Los archivos no se pueden ver en Azure Portal o en el Explorador de Azure Storage. Para enumerar archivos y directorios, [monte un contenedor de Blob Storage mediante el protoloco NFS 3.0](network-file-system-protocol-support-how-to.md) o use la [API REST de Blob service](/rest/api/storageservices/blob-service-rest-api).
 

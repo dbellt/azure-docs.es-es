@@ -32,8 +32,6 @@
       href: quickstart-custom-container.md
     - name: Aplicación de varios contenedores
       href: quickstart-multi-container.md
-    - name: Aplicación en Azure Arc (versión preliminar)
-      href: quickstart-arc.md
 - name: Tutoriales
   items:
     - name: Protección de la aplicación accede al almacenamiento y a Microsoft Graph
@@ -88,6 +86,10 @@
       href: tutorial-send-email.md
     - name: Solución de errores
       href: tutorial-troubleshoot-monitor.md
+    - name: Acciones de GitHub
+      items:
+        - name: ASP.NET Core con un contenedor
+          href: app-service-sql-github-actions.md
 - name: Ejemplos
   items:
     - name: Azure CLI
@@ -108,8 +110,6 @@
       href: operating-system-functionality.md
     - name: Procedimientos recomendados de implementación
       href: deploy-best-practices.md
-    - name: Hospedaje de Azure Arc (versión preliminar)
-      href: overview-arc-integration.md
     - name: Seguridad
       items:
         - name: Recomendaciones
@@ -279,8 +279,6 @@
           href: app-service-undelete.md
         - name: Restauración desde una región inactiva
           href: manage-disaster-recovery.md
-        - name: Habilitación en Azure Arc
-          href: manage-create-arc-environment.md
     - name: Movimiento de una aplicación
       items:
         - name: Movimiento entre regiones

@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48b5260e883d85899953240f6ee4f83127681c9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c857de5c9182d49e2527c9cbf416d7012c46370
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97591313"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713961"
 ---
 # <a name="change-approval-and-requestor-information-preview-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Cambio de la configuración de información de aprobación y del solicitante (versión preliminar) para un paquete de acceso de administración de derechos de Azure AD
 
@@ -52,7 +52,7 @@ Para ver una demostración de cómo agregar una aprobación de varias fases a un
 
 Siga estos pasos para especificar la configuración de aprobación de las solicitudes para el paquete de acceso:
 
-**Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
+**Requisitos previos de rol:** administrador global, administrador de Identity Governance, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
