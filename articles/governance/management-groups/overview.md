@@ -4,12 +4,12 @@ description: Más información sobre los grupos de administración, el funcionam
 ms.date: 04/28/2021
 ms.topic: overview
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 777f052cfb726a1370a84b76a643fdaf539ce7b3
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: b3624500632d0f02d4b255aef6b836ee0491ff83
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108176295"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733627"
 ---
 # <a name="what-are-azure-management-groups"></a>¿Qué son los grupos de administración de Azure?
 
@@ -47,19 +47,17 @@ Cada directorio tiene un grupo de administración de nivel superior único denom
 
 - De forma predeterminada, el nombre para mostrar del grupo de administración raíz es **Grupo raíz de inquilino**. El identificador es el de Azure Active Directory.
 - Para cambiar el nombre para mostrar, se debe asignar a su cuenta el rol de Propietario o Colaborador en el grupo de administración raíz. Para actualizar el nombre de un grupo de administración, consulte [Cambio del nombre de un grupo de administración](manage.md#change-the-name-of-a-management-group).
-- El grupo de administración raíz no se puede mover ni eliminar, a diferencia de los demás.  
+- El grupo de administración raíz no se puede mover ni eliminar, a diferencia de los demás.
 - Todas las suscripciones y los grupos de administración se incluyen en el grupo de administración raíz único del directorio.
   - Todos los recursos del directorio pertenecen al grupo de administración raíz para la administración global.
   - Las suscripciones nuevas pertenecen de manera predeterminada y automática al grupo de administración raíz cuando se crean.
 - Todos los clientes de Azure pueden ver el grupo de administración raíz, pero no todos los clientes tienen acceso para administrar ese grupo de administración raíz.
-  - Todos los usuarios con acceso a una suscripción pueden ver el contexto de dónde está esa suscripción en la jerarquía.  
-  - A ninguno se le concede acceso de forma predeterminada al grupo de administración raíz. Los administradores globales de Azure AD son los únicos usuarios que pueden elevar sus propios privilegios para obtener acceso. Una vez que tienen acceso al grupo de administración raíz, los administradores globales pueden asignar cualquier rol de Azure a otros usuarios para administrarlo  
-    .
+  - Todos los usuarios con acceso a una suscripción pueden ver el contexto de dónde está esa suscripción en la jerarquía.
+  - A ninguno se le concede acceso de forma predeterminada al grupo de administración raíz. Los administradores globales de Azure AD son los únicos usuarios que pueden elevar sus propios privilegios para obtener acceso. Una vez que tienen acceso al grupo de administración raíz, los administradores globales pueden asignar cualquier rol de Azure a otros usuarios para administrarlo.
 - En SDK, el grupo de administración raíz o la "raíz de inquilino" funciona como un grupo de administración.
 
 > [!IMPORTANT]
-> Todas las asignaciones de acceso de los usuarios o de directivas en el grupo de administración raíz **se aplican a todos los recursos dentro del directorio**. Por este motivo, todos los clientes deben evaluar la necesidad de tener los elementos definidos en este ámbito. Las asignaciones de directivas y de acceso de usuario deberían ser obligatorias solo en este  
-> ámbito.
+> Todas las asignaciones de acceso de los usuarios o de directivas en el grupo de administración raíz **se aplican a todos los recursos dentro del directorio**. Por este motivo, todos los clientes deben evaluar la necesidad de tener los elementos definidos en este ámbito. Las asignaciones de directivas y de acceso de usuario deberían ser obligatorias solo en este ámbito.
 
 ## <a name="initial-setup-of-management-groups"></a>Instalación inicial de los grupos de administración
 
@@ -82,7 +80,7 @@ Hay dos opciones para resolver este problema.
     Este proceso se puede realizar sin cambiar ninguna asignación en el nivel raíz. Mediante una llamada a la API, acepta que todas las asignaciones de directivas o de acceso en la raíz se pueden aplicar a todas las suscripciones.
 
 Si tiene preguntas acerca de este proceso de reposición, póngase en contacto con: `managementgroups@microsoft.com`
-  
+
 ## <a name="management-group-access"></a>Acceso al grupo de administración
 
 Los grupos de administración de Azure admiten el [control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/overview.md) en los accesos a todos los recursos y definiciones de roles. Estos permisos se heredan en los recursos secundarios que existen en la jerarquía. Cualquier rol de Azure puede asignarse a un grupo de administración que heredará la jerarquía para los recursos. Por ejemplo, el rol de Azure Colaborador de máquina virtual se puede asignar a un grupo de administración. Este rol no tiene ninguna acción en el grupo de administración, pero se heredará en todas las máquinas virtuales de ese grupo de administración.
@@ -99,12 +97,12 @@ El gráfico siguiente muestra la lista de roles y las acciones admitidas en los 
 |Colaborador de directivas de recursos |        |        |          |        |               | X             |       |
 |Administrador de acceso de usuario   |        |        |          |        | X             | X             |       |
 
-\*: Colaborador MG y Lector MG solo permiten a los usuarios realizar esas acciones en el ámbito del grupo de administración.  
+\*: Colaborador MG y Lector MG solo permiten a los usuarios realizar esas acciones en el ámbito del grupo de administración.
 \*\*: Las asignaciones de roles en el grupo de administración raíz no son necesarias para mover una suscripción o grupo de administración a este grupo y desde este. Consulte [Administración de los recursos con grupos de administración](manage.md) para más información acerca de cómo mover elementos dentro de la jerarquía.
 
 ## <a name="azure-custom-role-definition-and-assignment"></a>Asignación y definición de roles personalizados de Azure
 
-La compatibilidad de los roles personalizados de Azure con los grupos de administración está actualmente en versión preliminar con algunas [limitaciones](#limitations). El ámbito de los grupos de administración se puede definir en el ámbito asignable de Definición de roles. Ese rol personalizado de Azure estará disponible para su asignación no solo en ese grupo de administración, sino también en todos los grupos de administración, suscripciones, grupos de recursos o recursos que haya debajo de él. Este rol personalizado heredará la jerarquía, como cualquier rol integrado.  
+La compatibilidad de los roles personalizados de Azure con los grupos de administración está actualmente en versión preliminar con algunas [limitaciones](#limitations). El ámbito de los grupos de administración se puede definir en el ámbito asignable de Definición de roles. Ese rol personalizado de Azure estará disponible para su asignación no solo en ese grupo de administración, sino también en todos los grupos de administración, suscripciones, grupos de recursos o recursos que haya debajo de él. Este rol personalizado heredará la jerarquía, como cualquier rol integrado.
 
 ### <a name="example-definition"></a>Definición de ejemplo
 
@@ -116,7 +114,7 @@ Use el identificador del grupo de administración, no su nombre para mostrar. Es
 ...
 {
   "Name": "MG Test Custom Role",
-  "Id": "id", 
+  "Id": "id",
   "IsCustom": true,
   "Description": "This role provides members understand custom roles.",
   "Actions": [
@@ -153,21 +151,21 @@ Por ejemplo, examinemos una pequeña sección de una jerarquía en un objeto vis
    El diagrama se centra en el grupo de administración raíz con los grupos de administración secundarios Marketing e IT. El grupo de administración IT tiene un único grupo de administración secundario denominado Production, mientras que el grupo de administración Marketing tiene dos suscripciones secundarias de evaluación gratuita.
 :::image-end:::
 
-Supongamos que hay un rol personalizado definido en el grupo de administración Marketing. Dicho rol personalizado se asigna en las dos suscripciones de prueba gratuitas.  
+Supongamos que hay un rol personalizado definido en el grupo de administración Marketing. Dicho rol personalizado se asigna en las dos suscripciones de prueba gratuitas.
 
-Si intentamos mover una de esas suscripciones para que sea un elemento secundario del grupo de administración Producción, se desasociaría la ruta de asignación de roles de la suscripción de la definición del rol del grupo de administración Marketing. En este escenario, recibirá un error que indica que no se permite el movimiento porque interrumpirá esta relación.  
+Si intentamos mover una de esas suscripciones para que sea un elemento secundario del grupo de administración Producción, se desasociaría la ruta de asignación de roles de la suscripción de la definición del rol del grupo de administración Marketing. En este escenario, recibirá un error que indica que no se permite el movimiento porque interrumpirá esta relación.
 
 Para corregir este escenario hay varias opciones:
 - Quitar la asignación de roles de la suscripción antes de mover esta al nuevo grupo de administración primario.
 - Agregar la suscripción al ámbito asignable de la definición de roles.
-- Cambiar el ámbito asignable en la definición de roles. En el ejemplo anterior, se pueden actualizar los ámbitos asignables de Marketing a Grupo de administración raíz para que las dos ramas de la jerarquía puedan acceder a la definición.  
-- Cree otro rol personalizado que se defina en la otra rama. Este nuevo rol requiere que la asignación de roles se cambie también en la suscripción.  
+- Cambiar el ámbito asignable en la definición de roles. En el ejemplo anterior, se pueden actualizar los ámbitos asignables de Marketing a Grupo de administración raíz para que las dos ramas de la jerarquía puedan acceder a la definición.
+- Cree otro rol personalizado que se defina en la otra rama. Este nuevo rol requiere que la asignación de roles se cambie también en la suscripción.
 
-### <a name="limitations"></a>Limitaciones  
+### <a name="limitations"></a>Limitaciones
 
 Existen limitaciones al usar roles personalizados en grupos de administración.
 
-- En los ámbitos asignables de un nuevo rol no se puede definir más de un grupo de administración. Esta limitación se ha establecido para reducir el número de situaciones en las que las definiciones de roles y las asignaciones de roles están desconectadas. Esta situación se produce cuando una suscripción o un grupo de administración con una asignación de roles se mueven a un elemento primario diferente que no tiene la definición de roles.  
+- En los ámbitos asignables de un nuevo rol no se puede definir más de un grupo de administración. Esta limitación se ha establecido para reducir el número de situaciones en las que las definiciones de roles y las asignaciones de roles están desconectadas. Esta situación se produce cuando una suscripción o un grupo de administración con una asignación de roles se mueven a un elemento primario diferente que no tiene la definición de roles.
 - Las acciones del plano de datos del proveedor de recursos no se pueden definir acciones en los roles personalizados del grupo de administración. Esta restricción se ha establecido porque hay un problema de latencia al actualizar los proveedores de recursos del plano de datos. Se está trabajando en dicho problema y estas acciones se deshabilitarán de la definición de roles para reducir los riesgos.
 - Azure Resource Manager no valida la existencia del grupo de administración en el ámbito asignable de la definición de roles. La definición de roles se crea aunque haya algún error de escritura o un identificador de grupo de administración incorrecto en la lista.
 - No se admite la asignación de roles de un rol con _dataActions_. En su lugar, cree la asignación de roles en el ámbito de la suscripción.
@@ -176,11 +174,11 @@ Existen limitaciones al usar roles personalizados en grupos de administración.
 > La adición de un grupo de administración a `AssignableScopes` está actualmente en versión preliminar. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción.
 > Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="moving-management-groups-and-subscriptions"></a>Movimiento de grupos de administración y suscripciones 
+## <a name="moving-management-groups-and-subscriptions"></a>Movimiento de grupos de administración y suscripciones
 
 Para que un grupo de administración o una suscripción sean un elemento secundario de otro grupo de administración, es preciso evaluar tres reglas como verdaderas.
 
-Si va a realizar la acción de movimiento, necesitará lo siguiente: 
+Si va a realizar la acción de movimiento, necesitará lo siguiente:
 
 - Permisos de escritura de grupos de administración y de escritura de la asignación de roles en la suscripción o en el grupo de administración secundarios.
   - Ejemplo del rol integrado **Propietario**

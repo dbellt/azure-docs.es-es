@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/13/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b22552147bec789c4b1d796cad2c52165d266334
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: c238f847994b6317085fbbc7d132168c88797e03
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108207724"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108734262"
 ---
 # <a name="create-an-app-registration-to-use-with-azure-digital-twins"></a>Creación de un registro de aplicaciones para usar con Azure Digital Twins
 
@@ -24,7 +24,7 @@ Esto no es necesario en todos los escenarios de autenticación. Sin embargo, si 
 
 [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) es un servicio de administración de identidades y acceso basado en la nube de Microsoft. La configuración de un **registro de aplicaciones** en Azure AD es una manera de conceder acceso a una aplicación cliente a Azure Digital Twins.
 
-Este registro de la aplicación es donde se configuran los permisos de acceso a las [API de Azure Digital Twins](how-to-use-apis-sdks.md). Más tarde, las aplicaciones cliente se pueden autenticar en el registro de aplicaciones con los **valores de identificador de cliente y de inquilino** y, como resultado, que se le concedan permisos de acceso a las API.
+Este registro de la aplicación es donde se configuran los permisos de acceso a las [API de Azure Digital Twins](concepts-apis-sdks.md). Más tarde, las aplicaciones cliente se pueden autenticar en el registro de aplicaciones con los **valores de identificador de cliente y de inquilino** y, como resultado, que se le concedan permisos de acceso a las API.
 
 >[!TIP]
 > Es posible que prefiera configurar un nuevo registro de aplicaciones cada vez que lo necesite, *o*, hacer esto solo una vez, y establecer un solo registro de aplicaciones que se compartirá entre todos los escenarios que lo requieran.
@@ -40,7 +40,7 @@ En la página *Registrar una aplicación* que sigue, rellene los valores solicit
 * **Tipos de cuenta admitidos**: seleccione *Cuentas de este directorio organizativo solo (Solo directorio predeterminado: inquilino único)*
 * **URI de redirección**: *URL de respuesta de aplicación de Azure AD* para la aplicación de Azure AD. Agregue un URI *Cliente público o nativo (móvil o escritorio)* para `http://localhost`.
 
-Cuando termine, pulse el botón *Registrarse*.
+Cuando termine, pulse el botón *Registrar*.
 
 :::image type="content" source="media/how-to-create-app-registration/register-an-application.png" alt-text="Vista de la página Registrar una aplicación con los valores descritos rellenados":::
 
@@ -58,7 +58,7 @@ Anote el _**identificador de aplicación (cliente)**_ y el _**identificador de d
 
 A continuación, configure el registro de la aplicación que ha creado con permisos de línea base para las API de Azure Digital Twins.
 
-En la página del portal de registro de aplicación, seleccione *Permisos de API* en el menú. En la siguiente página de permisos, pulse el botón *+ Agregar un permiso*.
+En la página del portal de registro de aplicación, seleccione *Permisos de API* en el menú. En la siguiente página de permisos, seleccione el botón *+ Agregar un permiso*.
 
 :::image type="content" source="media/how-to-create-app-registration/add-permission.png" alt-text="Vista del registro de aplicación en Azure Portal que resalta la opción del menú Permisos de API y el botón + Agregar un permiso":::
 
@@ -74,7 +74,7 @@ A continuación, seleccione los permisos que quiere conceder para estas API. Exp
 
 :::image type="content" source="media/how-to-create-app-registration/request-api-permissions-2.png" alt-text="Vista de la página &quot;Solicitud de permisos de API&quot; con la selección de permisos Read.Write para las API de Azure Digital Twins":::
 
-Cuando termine, pulse *Agregar permisos*.
+Cuando termine, seleccione *Agregar permisos*.
 
 ### <a name="verify-success"></a>Comprobación de que la operación se ha completado correctamente
 

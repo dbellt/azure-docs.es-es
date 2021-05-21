@@ -1,14 +1,14 @@
 ---
 title: Solución de problemas del sensor y de la consola de administración local
 description: Solucione los problemas de su sensor y la consola de administración local para eliminar los problemas que pueda tener.
-ms.date: 03/14/2021
+ms.date: 04/22/2021
 ms.topic: article
-ms.openlocfilehash: e20c11e869ebeea0b4fc7f917dd8cebba7a69c5c
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: aac8fb9d3b6c102d72cf427cae46b8530b94cc0f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209056"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108734640"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Solución de problemas del sensor y de la consola de administración local
 
@@ -165,7 +165,7 @@ Para corregir la configuración:
 
 1. En el informe de minería de datos, seleccione :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: para entrar en el modo de administrador y eliminar las direcciones IP de los dispositivos ICS.
 
-### <a name="tweak-the-sensors-quality-of-service"></a>Ajustar la calidad de servicio del sensor
+### <a name="tweak-the-sensors-quality-of-service-qos"></a>Ajustar la Calidad de servicio (QoS) del sensor
 
 Para guardar los recursos de red, puede limitar el ancho de banda de la interfaz que usa el sensor para los procedimientos cotidianos.
 
@@ -198,7 +198,7 @@ Si no se muestra una alerta esperada en la ventana **Alertas**, compruebe lo sig
 
 - Asegúrese de que no ha excluido esta alerta mediante el uso de las reglas de **Exclusión de alertas** en la consola de administración local.  
 
-### <a name="tweak-the-quality-of-service"></a>Ajustar la calidad del servicio
+### <a name="tweak-the-quality-of-service-qos"></a>Ajustar la Calidad del servicio (QoS)
 
 Para ahorrar recursos de red, puede limitar el número de alertas enviadas a sistemas externos (como correos electrónicos o SIEM) en una operación de sincronización entre un dispositivo y la consola de administración local.
 

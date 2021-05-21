@@ -71,6 +71,8 @@
           href: enable-rdp.md
         - name: Aplicación de extensión WAD
           href: enable-wad.md
+        - name: Aplicación de la extensión de Key Vault
+          href: enable-key-vault-virtual-machine.md
     - name: Habilitación de alertas
       href: enable-alerts.md
     - name: Configuración del escalado

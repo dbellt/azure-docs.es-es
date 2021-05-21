@@ -19,8 +19,6 @@
     - name: Notificaciones por correo electrónico
       href: pim-email-notifications.md
     - name: Conceptos de API de PIM
-      href: pim-apis-concept.md
-    - name: Microsoft Graph API y PIM
       href: pim-apis.md
 - name: Guías paso a paso
   expanded: true

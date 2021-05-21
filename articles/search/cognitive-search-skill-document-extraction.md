@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: chalton
-ms.openlocfilehash: 144e8058e640f98dc6b0ef60534405525532b00e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 681900e2d2175e3e52a906072ae0b31a835cd1c8
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102547873"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483666"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Aptitud cognitiva de extracción de documentos
 
@@ -26,6 +26,12 @@ La aptitud de **extracción de documentos** extrae el contenido de un archivo de
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.DocumentExtractionSkill
+
+## <a name="supported-document-formats"></a>Formatos de documento admitidos
+
+DocumentExtractionSkill puede extraer texto de los siguientes formatos de documento:
+
+[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
 ## <a name="skill-parameters"></a>Parámetros de la aptitud
 
@@ -60,13 +66,23 @@ La entrada "file_data" debe ser un objeto definido de la siguiente manera:
 }
 ```
 
+o bien
+
+```json
+{
+  "$type": "file",
+  "url": "URL to download file",
+  "sasToken": "OPTIONAL: SAS token for authentication if the URL provided is for a file in blob storage"
+}
+```
+
 Este objeto de referencia de archivo se puede generar mediante una de estas tres acciones:
 
  - Establecer el parámetro `allowSkillsetToReadFileData` en la definición del indexador en "true".  Así se creará la ruta de acceso `/document/file_data` que es un objeto que representa los datos del archivo original descargados del origen de datos del blob. Este parámetro solo se aplica a los datos de Blob Storage.
 
  - Establecer el parámetro `imageAction` en la definición del indexador en un valor distinto de `none`.  Así se crea una matriz de imágenes que sigue la convención necesaria para la entrada en esta aptitud si se pasa individualmente (es decir, `/document/normalized_images/*`).
 
- - En caso de tener una aptitud personalizada se devuelve un objeto JSON definido exactamente como se ha indicado anteriormente.  El parámetro `$type` debe establecerse en `file` exactamente y el parámetro `data` debe contener los datos de la matriz de bytes codificada en base 64 del contenido del archivo.
+ - En caso de tener una aptitud personalizada se devuelve un objeto JSON definido exactamente como se ha indicado anteriormente.  El parámetro `$type` debe establecerse exactamente en `file` y el parámetro `data` debe ser los datos de la matriz de bytes codificados en base 64 del contenido del archivo o bien el parámetro `url` debe ser una dirección URL con formato correcto con acceso para descargar el archivo en esa ubicación.
 
 ## <a name="skill-outputs"></a>Salidas de la aptitud
 

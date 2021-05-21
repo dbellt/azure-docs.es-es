@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 547081122b1bc6611200e2abc2042a111e4284e1
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 48a5ddcdb3d66e54b2405a67f0f66d17b8080882
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208084"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108734406"
 ---
 # <a name="extending-ontologies"></a>Extensión de las ontologías 
 
@@ -63,7 +63,7 @@ En esta sección, encontrará dos ejemplos:
 
 Ambos ejemplos se pueden implementar con nuevas propiedades: una propiedad `drawingId` que asocia el dibujo en 3D con el gemelo digital y una propiedad "online" que indica si la sala de conferencias está en línea o no. 
 
-Normalmente, no desea modificar la ontología del sector directamente porque le gustaría poder incorporar actualizaciones a su solución en el futuro (lo cual sobrescribiría estas adiciones). En su lugar, estos tipos de adiciones se pueden realizar en su propia jerarquía de la interfaz que se extiende desde la ontología RealEstateCore basada en DTDL. Cada interfaz que se crea utiliza la herencia de varias interfaces para extender su interfaz de RealEstateCore primaria y su interfaz primaria desde la jerarquía de interfaz extendida. Este enfoque le permite hacer uso de la ontología del sector y de las adiciones de forma conjunta. 
+Normalmente, no desea modificar la ontología del sector directamente porque quiere poder incorporar actualizaciones a su solución en el futuro (lo cual sobrescribiría estas adiciones). En su lugar, estos tipos de adiciones se pueden realizar en su propia jerarquía de la interfaz que se extiende desde la ontología RealEstateCore basada en DTDL. Cada interfaz que se crea utiliza la herencia de varias interfaces para extender su interfaz de RealEstateCore primaria y su interfaz primaria desde la jerarquía de interfaz extendida. Este enfoque le permite hacer uso de la ontología del sector y de las adiciones de forma conjunta. 
 
 Para extender la ontología del sector, crea sus propias interfaces que se extienden desde las interfaces de la ontología del sector y agrega las nuevas funcionalidades a las interfaces extendidas. Para cada interfaz que desee extender, cree una nueva interfaz. Las interfaces extendidas están escritas en DTDL (consulte la sección DTDL para interfaces extendidas más adelante en este documento). 
 

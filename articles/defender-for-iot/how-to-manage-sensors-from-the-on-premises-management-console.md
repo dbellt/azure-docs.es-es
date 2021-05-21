@@ -1,14 +1,14 @@
 ---
 title: Administración de sensores desde la consola de administración local
 description: Obtenga información sobre cómo administrar los sensores desde la consola de administración, incluida la actualización de las versiones de los sensores, la inserción de la configuración del sistema en sensores y también la habilitación y deshabilitación de motores en sensores.
-ms.date: 12/07/2020
+ms.date: 04/22/2021
 ms.topic: how-to
-ms.openlocfilehash: 4706fbcf58b8e5f5eed6532f9a08f65c7716e07e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2a1f1dbd69013db63365b64e255225c465b67238
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781932"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108734865"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>Administración de sensores desde la consola de administración
 
@@ -42,25 +42,25 @@ Para aplicar la configuración del sistema:
 
 1. En el panel izquierdo de la consola, seleccione **Configuración del sistema**.
 
-2. En el panel **Configure Sensors** (Configurar sensores), seleccione una de las opciones.
+1. En el panel **Configure Sensors** (Configurar sensores), seleccione una de las opciones.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/sensor-system-setting-options.png" alt-text="Opciones de configuración del sistema para un sensor.":::
 
    En el ejemplo siguiente se describe cómo definir los parámetros del servidor de correo para los sensores de la empresa.
 
-3. Seleccione **Servidor de correo**.
+1. Seleccione **Servidor de correo**.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/edit-system-settings-screen.png" alt-text="Seleccione el servidor de correo en la pantalla Configuración del sistema.":::
 
-4. Seleccione un sensor de la izquierda.
+1. Seleccione un sensor de la izquierda.
 
-5. Establezca los parámetros del servidor de correo y seleccione **Duplicar**. Cada elemento del árbol del sensor aparece con una casilla junto a él.
+1. Establezca los parámetros del servidor de correo y seleccione **Duplicar**. Cada elemento del árbol del sensor aparece con una casilla junto a él.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/check-off-each-sensor.png" alt-text="Asegúrese de que las casillas de los sensores están seleccionadas.":::
 
-6. En el árbol del sensor, seleccione los elementos a los que desea aplicar la configuración.
+1. En el árbol del sensor, seleccione los elementos a los que desea aplicar la configuración.
 
-7. Seleccione **Guardar**.
+1. Seleccione **Guardar**.
 
 ## <a name="update-versions"></a>Actualización de versiones
 
@@ -70,35 +70,53 @@ Para actualizar varios sensores:
 
 1. Vaya a [Azure Portal](https://portal.azure.com/).
 
-2. Vaya a Azure Defender para IoT.
+1. Vaya a Azure Defender para IoT.
 
-3. Vaya a la página **Actualizaciones**.
+1. Vaya a la página **Actualizaciones**.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/update-screen.png" alt-text="Captura de pantalla de la vista del panel Actualizaciones.":::
 
-4. Seleccione **Descargar** en la sección **Sensores** y guarde el archivo.
+1. Seleccione **Descargar** en la sección **Sensores** y guarde el archivo.
 
-5. Inicie sesión en la consola de administración y seleccione **Configuración del sistema**.
+1. Inicie sesión en la consola de administración y seleccione **Configuración del sistema**.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/admin-system-settings.png" alt-text="Captura de pantalla del menú Administración para seleccionar Configuración del sistema.":::
 
-6. Marque los sensores que quiere actualizar en la sección **Sensor Engine Configuration** (Configuración del motor de sensores) y, a continuación, seleccione **Actualizaciones automáticas**.
+1. Seleccione los sensores que se van a actualizar en la sección **Sensor Engine Configuration** (Configuración del motor de sensores) y, a continuación, seleccione **Automatic Updates** (Actualizaciones automáticas).
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/sensors-select.png" alt-text="Dos sensores que muestran el modo de aprendizaje y las actualizaciones automáticas.":::
 
-7. Seleccione **Save changes** (Guardar los cambios).
+1. Seleccione **Save changes** (Guardar los cambios).
 
-8. En el panel **Sensors Version upgrade** (Actualización de la versión de los sensores), seleccione :::image type="icon" source="media/how-to-manage-sensors-from-the-on-premises-management-console/plus-icon.png" border="false":::.
+1. En el sensor, seleccione **System Settings** (Configuración del sistema) y, a continuación, seleccione **Update** (Actualizar).
 
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/display-files.png" alt-text="Pantalla de actualización de las versiones de los sensores para mostrar archivos.":::
+    :::image type="content" source="media/how-to-manage-individual-sensors/upgrade-pane-v2.png" alt-text="Captura de pantalla del panel de actualización.":::
 
 9. Se abre un cuadro de diálogo **Cargar archivo**. Cargue el archivo que descargó de la página **Actualizaciones**.
 
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/upload-file.png" alt-text="Seleccione el botón Examinar para cargar el archivo.":::
+    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/upload-file.png" alt-text="Seleccione el botón Examinar para cargar el archivo.":::
 
-10. Durante el proceso de actualización, el estado de actualización de cada sensor aparece en la ventana **Administración del sitio**.
+Puede supervisar el estado de actualización de cada sensor en la ventana **Site Management** (Administración del sitio).
 
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/progress.png" alt-text="Observe el progreso de la actualización.":::
+:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/progress.png" alt-text="Observe el progreso de la actualización.":::
+
+### <a name="update-sensors-from-the-on-premises-management-console"></a>Actualización de sensores desde la consola de administración local
+
+Puede ver el estado de actualización de los sensores desde la consola de administración. Si la actualización no se ha podido realizar, puede volver a intentar actualizar el sensor desde la consola de administración local (versiones 2.3.5 y posteriores).
+
+Para actualizar el sensor desde la consola de administración local:
+
+1. Inicie sesión en la consola de administración local y vaya a la página **Sites Management** (Administración de sitios).
+
+1. Busque los sensores que muestren **Failed** (Error) en la columna Update Progress (Progreso de la actualización) y seleccione el botón Download (Descargar). 
+
+    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/download-update-button.png" alt-text="Seleccione el icono de descarga para intentar descargar e instalar la actualización del sensor.":::
+
+Puede supervisar el estado de actualización de cada sensor en la ventana **Site Management** (Administración del sitio).
+
+:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/progress.png" alt-text="Observe el progreso de la actualización.":::
+
+Si no puede actualizar el sensor, póngase en contacto con el equipo de soporte técnico al cliente para obtener ayuda.
 
 ## <a name="update-threat-intelligence-packages"></a>Actualización de paquetes de inteligencia sobre amenazas 
 
@@ -110,17 +128,17 @@ Para actualizar los datos de inteligencia sobre amenazas:
 
 1. Vaya a la página **Actualizaciones** de Defender para IoT. 
 
-2. Descargue y guarde el archivo.
+1. Descargue y guarde el archivo.
 
-3. Inicie sesión en la consola de administración. 
+1. Inicie sesión en la consola de administración. 
 
-4. En el menú lateral, seleccione **Configuración del sistema**. 
+1. En el menú lateral, seleccione **Configuración del sistema**. 
 
-5. Seleccione los sensores que deben recibir la actualización en la sección **Sensor Engine Configuration** (Configuración del motor de sensores).  
+1. Seleccione los sensores que deben recibir la actualización en la sección **Sensor Engine Configuration** (Configuración del motor de sensores).  
 
-6. En la sección **Select Threat Intelligence Data** (Seleccionar datos de inteligencia sobre amenazas), seleccione el signo más ( **+** ). 
+1. En la sección **Select Threat Intelligence Data** (Seleccionar datos de inteligencia sobre amenazas), seleccione el signo más ( **+** ). 
 
-7. Cargue el paquete que descargó de la página **Actualizaciones** de Defender para IoT.
+1. Cargue el paquete que descargó de la página **Actualizaciones** de Defender para IoT.
 
 ## <a name="understand-sensor-disconnection-events"></a>Descripción de los eventos de desconexión de sensores
 
@@ -153,9 +171,9 @@ Para habilitar o deshabilitar los motores para los sensores conectados:
 
 1. En el panel izquierdo de la consola, seleccione **Configuración del sistema**.
 
-2. En la sección **Sensor Engine Configuration** (Configuración del motor de sensores), seleccione **Habilitar** o **Deshabilitar** para los motores.
+1. En la sección **Sensor Engine Configuration** (Configuración del motor de sensores), seleccione **Habilitar** o **Deshabilitar** para los motores.
          
-3. Seleccione **GUARDAR CAMBIOS**.
+1. Seleccione **GUARDAR CAMBIOS**.
 
    Aparece un signo de exclamación rojo si no coinciden los motores habilitados en uno de los sensores de la empresa. Es posible que el motor se haya deshabilitado directamente desde el sensor.
 
@@ -217,21 +235,21 @@ Para realizar una copia de seguridad de sensores:
 
 1. Seleccione **Schedule Sensor Backup** (Programar copia de seguridad de sensores) en la ventana **Configuración del sistema**. Los sensores que la consola de administración local administra aparecen en el cuadro de diálogo **Sensor Backup Schedule** (Programación de copia de seguridad de sensores).  
 
-2. Habilite la opción **Collect Backups** (Recopilar copias de seguridad).  
+1. Habilite la opción **Collect Backups** (Recopilar copias de seguridad).  
 
-3. Seleccione un intervalo de calendario, una fecha y una zona horaria. El formato de hora se basa en un reloj de 24 horas. Por ejemplo, especifique las 6:00 PM como **18:00**. 
+1. Seleccione un intervalo de calendario, una fecha y una zona horaria. El formato de hora se basa en un reloj de 24 horas. Por ejemplo, especifique las 6:00 PM como **18:00**. 
 
-4. En el campo **Backup Storage Allocation** (Asignación de almacenamiento de copia de seguridad), especifique el almacenamiento que desea asignar a las copias de seguridad. Se le notificará si supera el espacio máximo.
+1. En el campo **Backup Storage Allocation** (Asignación de almacenamiento de copia de seguridad), especifique el almacenamiento que desea asignar a las copias de seguridad. Se le notificará si supera el espacio máximo.
 
-5. En el campo **Retain Last** (Conservar las últimas), indique el número de copias de seguridad por sensor que desea conservar. Cuando se supera el límite, se elimina la copia de seguridad más antigua.  
+1. En el campo **Retain Last** (Conservar las últimas), indique el número de copias de seguridad por sensor que desea conservar. Cuando se supera el límite, se elimina la copia de seguridad más antigua.  
 
-6. Elija una ubicación de copia de seguridad:  
+1. Elija una ubicación de copia de seguridad:  
 
    - Para realizar una copia de seguridad en la consola de administración local, deshabilite la opción **Ruta de acceso personalizada**. La ubicación predeterminada es `/var/cyberx/sensor-backups`.  
 
    - Para realizar una copia de seguridad en un servidor externo, habilite la opción **Ruta de acceso personalizada** y especifique una ubicación. Se admiten los siguientes números y caracteres: `/, a-z, A-Z, 0-9, and, _`. 
 
-7. Seleccione **Guardar**. 
+1. Seleccione **Guardar**. 
 
 Para realizar la copia de seguridad inmediatamente: 
 
@@ -277,39 +295,39 @@ Si quiere configurar un servidor SMB para que pueda guardar una copia de segurid
 
 1. Cree una carpeta compartida en el servidor SMB externo. 
 
-2. Obtenga la ruta de acceso de la carpeta, el nombre de usuario y la contraseña necesarios para acceder al servidor SMB. 
+1. Obtenga la ruta de acceso de la carpeta, el nombre de usuario y la contraseña necesarios para acceder al servidor SMB. 
 
-3. En Defender para IoT, cree un directorio para las copias de seguridad: 
+1. En Defender para IoT, cree un directorio para las copias de seguridad: 
 
    `sudo mkdir /<backup_folder_name_on_server>` 
 
    `sudo chmod 777 /<backup_folder_name_on_server>/` 
 
-4. Edite fstab:  
+1. Edite fstab:  
 
    `sudo nano /etc/fstab` 
 
    `add - //<server_IP>/<folder_path> /<backup_folder_name_on_cyberx_server> cifs rw,credentials=/etc/samba/user,vers=3.0,uid=cyberx,gid=cyberx,file_mode=0777,dir_mode=0777 0 0` 
 
-5. Edite o cree credenciales para uso compartido. Estas son las credenciales para el servidor SMB: 
+1. Edite o cree credenciales para uso compartido. Estas son las credenciales para el servidor SMB: 
 
    `sudo nano /etc/samba/user` 
 
-6. Agregue:  
+1. Agregue:  
 
    `username=<user name>` 
 
    `password=<password>` 
 
-7. Monte el directorio: 
+1. Monte el directorio: 
 
    `sudo mount -a` 
 
-8. Configure un directorio de copia de seguridad en la carpeta compartida en Defender para IoT:  
+1. Configure un directorio de copia de seguridad en la carpeta compartida en Defender para IoT:  
 
    `sudo nano /var/cyberx/properties/backup.properties` 
 
-9. Establezca `Backup.shared_location` en `<backup_folder_name_on_cyberx_server>`.
+1. Establezca `Backup.shared_location` en `<backup_folder_name_on_cyberx_server>`.
 
 ## <a name="see-also"></a>Consulte también
 

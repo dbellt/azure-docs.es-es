@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: 51df72e31acaadc83f4c094b99fa938377e5f023
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b332b1871c92d36821e8f797ceac5b6697e5dc1
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102500009"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109632194"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Mantenimiento de máquinas virtuales en Azure
 
@@ -48,6 +48,9 @@ Para un mayor control sobre todas las actividades de mantenimiento, incluidas la
 
 La migración en vivo es una operación que no requiere un reinicio y que conserva la memoria para la máquina virtual. Provoca una pausa o inmovilización, y normalmente no dura más de 5 segundos. Excepto para las series G, M, N y H, todas las máquinas virtuales de infraestructura como servicio (IaaS) son aptas para la migración en vivo. Las máquinas virtuales aptas representan más del 90 por ciento de las máquinas virtuales IaaS que se implementan en la flota de Azure. 
 
+> [!NOTE]
+> No recibirá una notificación en Azure Portal para las operaciones de migración en vivo que no requieren un reinicio. Para ver una lista de migraciones en vivo que no requieren un reinicio, [consulte los eventos programados](./windows/scheduled-events.md#query-for-events).
+
 La plataforma Azure inicia la migración en vivo en los escenarios siguientes:
 - Mantenimiento planeado
 - Error de hardware
@@ -56,6 +59,8 @@ La plataforma Azure inicia la migración en vivo en los escenarios siguientes:
 Algunos escenarios de mantenimiento planeado usan la migración en vivo, y se puede usar Scheduled Events para saber de antemano cuando se iniciarán las operaciones de migración en vivo.
 
 La migración en vivo también se puede usar para mover máquinas virtuales cuando los algoritmos de Azure Machine Learning predicen un error inminente de hardware o cuando se quieran optimizar las asignaciones de máquina virtual. Para obtener más información sobre el modelado predictivo que detecta las instancias de hardware degradado, vea [Improving Azure VM resiliency with predictive machine learning and live migration](https://azure.microsoft.com/blog/improving-azure-virtual-machine-resiliency-with-predictive-ml-and-live-migration/?WT.mc_id=thomasmaurer-blog-thmaure) (Mejora de la resistencia de las máquinas virtuales de Azure con la migración en vivo y el aprendizaje automático predictivo). Las notificaciones de migración en vivo aparecen en los registros de Monitor y Service Health de Azure Portal, así como en Scheduled Events si utiliza estos servicios.
+
+
 
 ## <a name="maintenance-that-requires-a-reboot"></a>Mantenimiento que requiere un reinicio
 

@@ -3,18 +3,18 @@ title: 'Tutorial: Creación y administración de datos exportados desde Azure Co
 description: En este artículo se muestra cómo crear y administrar datos de Azure Cost Management para utilizarlos en sistemas externos.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2021
+ms.date: 05/06/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 100f4252768f6a141253d4df03a73da9f4f6b4bc
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 9f9afe0b7c27fb2199f9bdcd1fa5edbe4da01602
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108290241"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517647"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Creación y administración de datos exportados
 
@@ -262,6 +262,8 @@ No se admiten las exportaciones de grupos de administración de otros tipos de s
 Si tiene un Contrato de cliente de Microsoft o un contrato Microsoft Partner Agreement, puede habilitar Exportaciones para fragmentar el archivo en varias particiones de archivo más pequeñas a fin de ayudar con la ingesta de datos. Al configurar inicialmente la exportación, establezca la opción **File Partitioning** (Creación de particiones de archivos) en **Activado**. El valor es **Desactivado** de forma predeterminada.
 
 :::image type="content" source="./media/tutorial-export-acm-data/file-partition.png" alt-text="Captura de pantalla que muestra la opción File Partitioning (Creación de particiones de archivos)." lightbox="./media/tutorial-export-acm-data/file-partition.png" :::
+
+Si no tiene un Contrato de cliente de Microsoft o un contrato de Microsoft Partner Agreement, no verá la opción **File Partitioning** (Creación de particiones de archivos).
 
 #### <a name="update-existing-exports-to-use-file-partitioning"></a>Actualización de las exportaciones existentes para usar la creación de particiones de archivos
 

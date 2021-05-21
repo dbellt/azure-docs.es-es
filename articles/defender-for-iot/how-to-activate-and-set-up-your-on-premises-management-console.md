@@ -1,14 +1,14 @@
 ---
 title: Activación y configuración de la consola de administración local
 description: La activación de la consola de administración garantiza que los sensores se registren en Azure y envían información a la consola de administración local, y que la consola de administración local lleva a cabo tareas de administración en sensores conectados.
-ms.date: 4/6/2021
+ms.date: 05/05/2021
 ms.topic: how-to
-ms.openlocfilehash: db0d2a84feeb5bf52932842badda8c126994c05d
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: c491ebfe68c85b222818c9a9cf2e8e66abe8d959
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106492161"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108735174"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Activación y configuración de la consola de administración local 
 
@@ -24,7 +24,7 @@ La activación y configuración de la consola de administración local garantiza
 
 ## <a name="sign-in-for-the-first-time"></a>Iniciar sesión por primera vez
 
-Para iniciar sesión en la consola de administración:
+**Para iniciar sesión en la consola de administración:**
 
 1. Vaya a la dirección IP y la contraseña que ha recibido para la consola de administración local durante la instalación del sistema.
  
@@ -37,7 +37,7 @@ Si olvidó la contraseña, seleccione la opción **Recuperar contraseña** y con
 
 Una vez iniciada la sesión por primera vez, tendrá que activar la consola de administración local obteniendo y cargando un archivo de activación. 
 
-Para activar la consola de administración local, haga lo siguiente:
+**Para activar la consola de administración local, haga lo siguiente:**
 
 1. Inicie sesión en la consola de administración local.
 
@@ -51,15 +51,46 @@ Para activar la consola de administración local, haga lo siguiente:
  
 1. Seleccione una suscripción para asociar a ella la consola de administración local y, a continuación, seleccione el botón **Download on-premises management console activation file** (Descargar el archivo de activación de la consola de administración local). Se descarga el archivo de activación.
 
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Descargue el archivo de activación.":::
+   La consola de administración local se puede asociar a una o varias suscripciones. El archivo de activación se asociará a todas las suscripciones seleccionadas y al número de dispositivos confirmados en el momento de la descarga.
+
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/multiple-subscriptions.png" alt-text="Puede seleccionar varias suscripciones a las que incorporar la consola de administración local.":::
 
    Si aún no ha incorporado una suscripción, [incorpore una](how-to-manage-subscriptions.md#onboard-a-subscription).
+
+   > [!Note]
+   > Si elimina una suscripción, deberá cargar un nuevo archivo de activación en toda la consola de administración local que estaba afiliada a la suscripción eliminada.
 
 1. Vuelva a la pantalla emergente de **Activación** y seleccione **Elegir archivo**.
 
 1. Seleccione el archivo que ha descargado.
 
-Después de la activación inicial, el número de dispositivos supervisados puede superar el número de dispositivos confirmados definidos durante la incorporación. Esto ocurre si conecta más sensores a la consola de administración. Si hay una discrepancia entre el número de dispositivos supervisados y el número de dispositivos confirmados, aparecerá una advertencia en la consola de administración. Si esto ocurre, cargue un nuevo archivo de activación.
+Después de la activación inicial, el número de dispositivos supervisados puede superar el número de dispositivos confirmados definidos durante la incorporación. Este problema ocurre si conecta más sensores a la consola de administración. Si hay una discrepancia entre el número de dispositivos supervisados y el número de dispositivos confirmados, aparecerá una advertencia en la consola de administración. 
+
+:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/device-commitment-update.png" alt-text="Si ve la advertencia de compromiso del dispositivo, deberá cargar un nuevo archivo de activación.":::
+
+Si aparece esta advertencia, debe cargar un [nuevo archivo de activación](#activate-the-on-premises-management-console).
+
+### <a name="activate-an-expired-license-versions-under-100"></a>Activación de una licencia expirada (versiones anteriores a la 10.0)
+
+Para los usuarios con versiones anteriores a la 10.0, la licencia puede expirar y se mostrará la siguiente alerta. 
+
+:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/activation-popup.png" alt-text="Cuando expire la licencia, deberá actualizarla a través del archivo de activación.":::
+
+**Para activar la licencia:**
+
+1. Abra un caso para el equipo de [soporte técnico](https://ms.portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support).
+
+1. Proporcione al equipo de soporte técnico el número del identificador de activación.
+
+1. El equipo de soporte técnico le suministrará una nueva información de licencia en forma de una cadena de letras.
+
+1. Lea los términos y condiciones y seleccione la casilla de aprobación.
+
+1. Pegue la cadena en el espacio proporcionado.
+
+    :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/add-license.png" alt-text="Pegue la cadena en el campo proporcionado.":::
+
+1. Seleccione **Activar**.
 
 ## <a name="set-up-a-certificate"></a>Configurar un certificado
 
@@ -68,6 +99,7 @@ Después de instalar la consola de administración, se genera un certificado aut
 Hay dos niveles de seguridad disponibles:
 
 - Cumple con los requisitos de cifrado y certificado específicos solicitados de la organización, cargando el certificado firmado por la entidad de certificación.
+
 - Permite la validación entre la consola de administración y los sensores conectados. La validación se evalúa con una lista de revocación de certificados y la fecha de expiración del certificado. *Si se produce un error en la validación, la comunicación entre la consola de administración y el sensor se detiene y aparece un error de validación en la consola.* Esta opción está habilitada de forma predeterminada después de la instalación.  
 
 La consola admite los siguientes tipos de certificados:
@@ -81,7 +113,7 @@ La consola admite los siguientes tipos de certificados:
   > [!IMPORTANT]
   > No se recomienda usar certificados autofirmados. Este certificado no es seguro y debe usarse solo para entornos de prueba. No se puede validar el propietario del certificado y no se puede mantener la seguridad del sistema. Esta opción nunca debe usarse para redes de producción.
 
-Para cargar un certificado:
+**Para cargar un certificado:**
 
 1. Defina un nombre de certificado cuando se le pida después de iniciar sesión.
 
@@ -91,7 +123,7 @@ Para cargar un certificado:
 
 Es posible que deba actualizar la pantalla después de cargar el certificado firmado por la entidad de certificación.
 
-Para desactivar la validación entre la consola de administración y los sensores conectados:
+**Para desactivar la validación entre la consola de administración y los sensores conectados:**
 
 1. Seleccione **Next** (Siguiente).
 
@@ -101,7 +133,7 @@ Para obtener información sobre cómo cargar un certificado nuevo, archivos de c
 
 ## <a name="connect-sensors-to-the-on-premises-management-console"></a>Conectar los sensores a una consola de administración local
 
-Debe asegurarse de que los sensores envían información a la consola de administración local y de que la consola de administración local puede realizar copias de seguridad, administrar alertas y realizar otras actividades en los sensores. Para ello, use los procedimientos siguientes para comprobar que realiza una conexión inicial entre los sensores y la consola de administración local.
+Asegúrese de que los sensores envían información a la consola de administración local y de que la consola de administración local puede realizar copias de seguridad, administrar alertas y realizar otras actividades en los sensores. Para ello, use los procedimientos siguientes para comprobar que realiza una conexión inicial entre los sensores y la consola de administración local.
 
 Hay dos opciones disponibles para conectar sensores de Azure Defender para IoT a la consola de administración local:
 
@@ -113,7 +145,7 @@ Después de conectarse, debe configurar un sitio con estos sensores.
 
 ### <a name="connect-sensors-to-the-on-premises-management-console-from-the-sensor-console"></a>Conexión de sensores a la consola de administración local desde la consola del sensor
 
-Puede conectar sensores a la consola de administración local desde la consola del sensor:
+**Para conectar los sensores a la consola de administración local desde la consola del sensor:**
 
 1. En la consola de administración local, seleccione **Configuración del sistema**.
 
@@ -135,7 +167,7 @@ Habilitar una conexión de túnel segura entre los sensores de la organización 
 
 El uso de la tunelización le permite conectarse a la consola de administración local desde su dirección IP y un puerto único (es decir, 9000) a cualquier sensor.
 
-Para configurar la tunelización en la consola de administración local:
+**Para configurar la tunelización en la consola de administración local:**
 
 - Abra la consola de administración local y ejecute los siguientes comandos:
 
@@ -146,7 +178,7 @@ Para configurar la tunelización en la consola de administración local:
   service apache2 reload
   ```
 
-Para configurar la tunelización en el sensor:
+**Para configurar la tunelización en el sensor:**
 
 1. Abra el puerto TCP 9000 en el sensor (network.properties) manualmente. Si el puerto no está abierto, el sensor rechazará la conexión de la consola de administración local.
 
@@ -176,7 +208,7 @@ Los grupos de acceso permiten un mejor control sobre el lugar en el que los usua
 
 Puede definir una unidad de negocio y una región para cada sitio de la organización. Después, puede agregar zonas, que son entidades lógicas que existen en la red. 
 
-Debe asignar al menos un sensor para cada zona. El modelo de cinco niveles proporciona la flexibilidad y la granularidad necesarias para ofrecer el sistema de protección que refleja la estructura de la organización.
+Asigne al menos un sensor para cada zona. El modelo de cinco niveles proporciona la flexibilidad y la granularidad necesarias para ofrecer el sistema de protección que refleja la estructura de la organización.
 
 :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/diagram-of-sensor-showing-relationships.png" alt-text="Diagrama que muestra los sensores y la relación regional.":::
 
@@ -184,7 +216,7 @@ Con la vista empresarial, puede editar los sitios directamente. Cuando seleccion
 
 :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/console-map-with-data-overlay-v2.png" alt-text="Captura de pantalla de un mapa de la consola de administración local con la superposición de datos de Berlín.":::
 
-Para configurar un sitio:
+**Para configurar un sitio:**
 
 1. Agregue nuevas unidades de negocio para reflejar la estructura lógica de su organización.
 
@@ -222,7 +254,7 @@ Para configurar un sitio:
 
 Si ya no necesita un sitio, puede eliminarlo de la consola de administración local.
 
-Para eliminar un sitio:
+**Para eliminar un sitio:**
 
 1. En la ventana **Administración de sitio**, seleccione :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: en la barra que contiene el nombre del sitio y, luego, seleccione **Eliminar sitio**. Aparecerá el cuadro de confirmación, en el que se comprobará que desea eliminar el sitio.
 
@@ -255,7 +287,7 @@ En la siguiente tabla se describen los parámetros en la ventana **Administraci�
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/number-of-alerts-icon.png" border="false"::: | Indica el número de alertas enviadas por los sensores asignados a la zona. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/unassign-sensor-icon.png" border="false"::: | Anula la asignación de sensores de las zonas. |
 
-Para agregar una zona a un sitio:
+**Para agregar una zona a un sitio:**
 
 1. En la ventana **Administración de sitio**, seleccione :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: en la barra que contiene el nombre del sitio y, luego, seleccione **Añadir zona**. Aparecerá el cuadro de diálogo **Crear nueva zona**.
 
@@ -267,7 +299,7 @@ Para agregar una zona a un sitio:
 
 1. Seleccione **SAVE** (GUARDAR). La nueva zona aparece en la ventana **Administración de sitio** en el sitio al que pertenece esta zona.
 
-Para editar una zona:
+**Para editar una zona:**
 
 1. En la ventana **Administración de sitio**, seleccione :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: en la barra que contiene el nombre de la zona y, luego, seleccione **Editar zona**. Aparece el cuadro de diálogo **Editar zona**.
 
@@ -275,13 +307,13 @@ Para editar una zona:
 
 1. Edite los parámetros de la zona y seleccione **GUARDAR**.
 
-Para eliminar una zona:
+**Para eliminar una zona:**
 
 1. En la ventana **Administración de sitio**, seleccione :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: en la barra que contiene el nombre de la zona y, luego, seleccione **Eliminar zona**.
 
 1. En la ventana de confirmación, seleccione **SÍ**.
 
-Para filtrar según el estado de conectividad:
+**Para filtrar según el estado de conectividad:**
 
 - En la esquina superior izquierda, seleccione :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/down-pointing-icon.png" border="false"::: junto a **Conectividad** y, luego, seleccione una de las siguientes opciones:
 
@@ -291,7 +323,7 @@ Para filtrar según el estado de conectividad:
 
   - **Desconectado**: Solo muestra los sensores desconectados.
 
-Para filtrar según el estado de actualización:
+**Para filtrar según el estado de actualización:**
 
 - En la esquina superior izquierda, seleccione :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/down-pointing-icon.png" border="false"::: junto a **Estado de actualización** y, luego, seleccione una de las siguientes opciones:
 
@@ -307,7 +339,7 @@ Para filtrar según el estado de actualización:
 
 Para cada zona, debe asignar sensores que realicen análisis y alertas de tráfico local. Solo puede asignar los sensores que están conectados a la consola de administración local.
 
-Para asignar un sensor:
+**Para asignar un sensor:**
 
 1. Seleccione **Administración de sitios**. Los sensores sin asignar aparecen en la esquina superior izquierda del cuadro de diálogo.
 
@@ -323,7 +355,7 @@ Para asignar un sensor:
 
 1. Seleccione **ASIGNAR**.
 
-Para anular la asignación y eliminar un sensor:
+**Para anular la asignación y eliminar un sensor:**
 
 1. Desconecte el sensor de la consola de administración local. Consulte [Conectar los sensores a una consola de administración local](#connect-sensors-to-the-on-premises-management-console) para obtener más información.
 
