@@ -147,8 +147,8 @@
         - name: Supervisión
           expanded: false
           items:
-            - name: Registros de diagnóstico y auditoría
-              href: container-registry-diagnostics-audit-logs.md
+            - name: Supervisión de Container Registry
+              href: monitor-service.md
             - name: Auditoría de cumplimiento mediante Azure Policy
               href: container-registry-azure-policy.md
         - name: Solución de problemas
@@ -257,6 +257,8 @@
     - name: Elementos integrados de Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
+    - name: Supervisión de datos
+      href: monitor-service-reference.md
 - name: Recursos
   expanded: false
   items:

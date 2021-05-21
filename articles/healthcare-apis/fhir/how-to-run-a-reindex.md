@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 4/23/2021
 ms.author: cavoeg
-ms.openlocfilehash: ea679023b2b5bb620bb9684a0e841f6cc4fa310d
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 5285de1a8481f37238ce3e3f3038d0d4f4c3d54a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109847011"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078544"
 ---
 # <a name="running-a-reindex-job"></a>Ejecución de un trabajo de reindexación
 
@@ -91,7 +91,7 @@ Content-Location: https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b8
 ```
 
 > [!NOTE]
-> Para comprobar el estado de o para cancelar un trabajo de reindexación, necesitará el identificador de reindexación. Este es el identificador del recurso Parameters resultante (mostrado anteriormente). El identificador de reindexación también se puede encontrar al final de la cadena Content-Location. En el ejemplo anterior, sería `560c7c61-2c70-4c54-b86d-c53a9d29495e`.
+> Para comprobar el estado de o para cancelar un trabajo de reindexación, necesitará el identificador de reindexación. Este es el identificador del recurso Parameters resultante. En el ejemplo anterior, el identificador del trabajo de reindexación sería `560c7c61-2c70-4c54-b86d-c53a9d29495e` .
 
  ## <a name="how-to-check-the-status-of-a-reindex-job"></a>Comprobación del estado de un trabajo de reindexación
 

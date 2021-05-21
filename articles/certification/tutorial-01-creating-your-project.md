@@ -7,12 +7,12 @@ ms.service: certification
 ms.topic: tutorial
 ms.date: 03/01/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 44c053eac2215354fbd43e4c0068f02419010a85
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: ab7f552602fa4eacc249d01ca2e255d8a0297a1a
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108131862"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738687"
 ---
 # <a name="tutorial-create-your-project"></a>Tutorial: Creación de un proyecto
 
@@ -27,8 +27,13 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Necesitará una [cuenta de Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) profesional o educativa que sea válida.
-- Necesitará una cuenta comprobada de Microsoft Partner Network (MPN). Si no tiene una cuenta de MPN, [únase a la red de asociados](https://partner.microsoft.com/) antes de empezar.
+
+- Una [cuenta de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) profesional o educativa que sea válida.
+- Una cuenta comprobada de Microsoft Partner Network (MPN). Si no tiene una cuenta de MPN, [únase a la red de asociados](https://partner.microsoft.com/) antes de empezar. 
+
+> [!NOTE] 
+> Si tiene problemas para configurar o validar la cuenta de MPN, consulte la documentación del [soporte técnico del Centro de partners](https://docs.microsoft.com/partner-center).
+
 
 ## <a name="signing-into-the-azure-certified-device-portal"></a>Inicio de sesión en el portal de Azure Certified Device
 

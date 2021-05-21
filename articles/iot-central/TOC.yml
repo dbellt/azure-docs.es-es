@@ -203,8 +203,8 @@
           href: core/howto-create-iot-central-application.md
         - name: Configuración de una plantilla de dispositivo
           href: core/howto-set-up-template.md
-        - name: Versión de la plantilla del dispositivo
-          href: core/howto-version-device-template.md
+        - name: Edición de una plantilla de dispositivo
+          href: core/howto-edit-device-template.md
         - name: Uso de las propiedades
           href: core/howto-use-properties.md
         - name: Uso de comandos

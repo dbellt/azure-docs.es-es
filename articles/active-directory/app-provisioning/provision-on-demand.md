@@ -1,24 +1,24 @@
 ---
 title: Aprovisionamiento de un usuario a petición mediante Azure Active Directory
-description: Sincronización forzada
+description: Obtenga información sobre cómo aprovisionar usuarios a petición en Azure Active Directory.
 services: active-directory
-author: msmimart
-manager: daveba
+author: kenwith
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/01/2020
-ms.author: mimart
+ms.date: 05/11/2021
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: be03a149f34c16621905081a2f9bb663d85bc53c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 56c86e5d0f06d66eea1841e5c1157432fd92f0ac
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99255668"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785014"
 ---
-# <a name="on-demand-provisioning"></a>Aprovisionamiento a petición
+# <a name="on-demand-provisioning-in-azure-active-directory"></a>Aprovisionamiento a petición en Azure Active Directory
 Use el aprovisionamiento a petición para aprovisionar un usuario en una aplicación en cuestión de segundos. Entre otras cosas, puede usar esta capacidad para:
 
 * Soluciar problemas de configuración rápidamente.

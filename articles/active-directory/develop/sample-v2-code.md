@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 111d3d48680523f334c67d9a1a02043f1ed35233
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: bbc068db59bb0a5cd4ef334d3e8ce0a63f74079d
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286571"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752668"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Ejemplos de código de la Plataforma de identidad de Microsoft (punto de conexión v2.0)
 
@@ -87,6 +87,8 @@ Los siguientes ejemplos muestran aplicaciones cliente público (aplicaciones de 
 | Tutorial de escritorio (.NET Core), opcionalmente con:</p>- la memoria caché de tokens multiplataforma</p>- la interfaz de usuario web personalizada | ![Esta imagen muestra el logotipo de .NET/C#](media/sample-v2-code/logo_NETcore.png) | [Código de autorización](msal-authentication-flows.md#authorization-code)| [ms-identity-dotnet-desktop-tutorial](https://github.com/azure-samples/ms-identity-dotnet-desktop-tutorial) | |
 | Escritorio (WPF)      | ![Esta imagen muestra el logotipo del escritorio de .NET y C#.](media/sample-v2-code/logo_NET.png) | [Código de autorización](msal-authentication-flows.md#authorization-code)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
 | Escritorio (consola)   | ![Imagen que muestra el logotipo de .NET y C# (escritorio)](media/sample-v2-code/logo_NET.png) | [Autenticación integrada de Windows](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
+| Escritorio (consola) | ![Imagen que muestra el logotipo de .NET y C# (escritorio)](media/sample-v2-code/logo_NET.png) |  [Código de autorización](msal-authentication-flows.md#authorization-code) | [active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph) |[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/2-Call-OwnApi/README.md)  |
+| Escritorio (consola) <br> Uso de certificados en lugar de secretos | ![Imagen que muestra el logotipo de .NET y C# (escritorio)](media/sample-v2-code/logo_NET.png) |  [Código de autorización](msal-authentication-flows.md#authorization-code) | [active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#variation-daemon-application-using-client-credentials-with-certificates) |[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi#variation-daemon-application-using-client-credentials-with-certificates)  |
 | Escritorio (consola)   | ![Esta imagen muestra el logotipo de Java](media/sample-v2-code/logo_java.png) | [Autenticación integrada de Windows](msal-authentication-flows.md#integrated-windows-authentication) |[ms-identity-java-desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/) |  |
 | Escritorio (consola)   | ![Este es el logotipo de .NET y C# (escritorio).](media/sample-v2-code/logo_NETcore.png) | [Nombre de usuario/contraseña](msal-authentication-flows.md#usernamepassword) |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
 | Escritorio (consola) con WAM  | ![Este es el logotipo de .NET y C# (escritorio).](media/sample-v2-code/logo_NETcore.png) | Interactivo con el [Administrador de cuentas web](/windows/uwp/security/web-account-manager) (WAM) |[dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) |  |

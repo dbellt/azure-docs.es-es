@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 953d43f93635e25da008515afd9baf9a9e9b7afa
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 7340b137ddc2eb1e51c3734c85e860636ef9797b
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107817078"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752650"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>Entrenamiento de un modelo con una imagen de Docker personalizada
 
@@ -28,7 +28,7 @@ Azure Machine Learning proporciona una imagen base de Docker predeterminada. Tam
 Ejecute el código en cualquiera de los siguientes entornos.
 
 * Instancia de Proceso de Azure Machine Learning (no se necesitan descargas ni instalación):
-  * Complete el tutorial [Configuración del entorno y el área de trabajo](tutorial-1st-experiment-sdk-setup.md) para crear un servidor de cuadernos dedicado en el que se habrán cargado previamente el SDK y el repositorio de ejemplos.
+  * Complete el tutorial [Inicio rápido: Introducción a Azure Machine Learning](quickstart-create-resources.md) para crear un servidor de cuadernos dedicado ya cargado con el SDK y el repositorio de ejemplos.
   * En el [repositorio de ejemplos](https://github.com/Azure/azureml-examples) de Azure Machine Learning, navegue al directorio **notebooks** > **fastai** > **train-pets-resnet34.ipynb** para buscar un cuaderno completado. 
 * Su propio servidor de Jupyter Notebook:
   * Cree un [archivo de configuración del área de trabajo](how-to-configure-environment.md#workspace).
@@ -107,6 +107,7 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 > * Ubuntu 16.04 o posterior.
 > * Conda 4.5.# o posterior.
 > * Python 3.6+.
+> * Se requiere un shell compatible con POSIX disponible en /bin/sh en cualquier imagen de contenedor usada para el entrenamiento. 
 
 Para obtener más información sobre la creación y la administración de los entornos de Azure Machine Learning, consulte [Creación y uso de entornos de software en Azure Machine Learning](how-to-use-environments.md). 
 

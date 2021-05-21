@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 04/15/2021
-ms.openlocfilehash: acae55ca82b82de8459068bb1ac4363d6a9faafe
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 8a8e8fae151b0d9be318d4dfad832ead34ef04da
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108206644"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738093"
 ---
 # <a name="analyze-data-with-a-serverless-sql-pool"></a>Análisis de datos con un grupo de SQL sin servidor
 
@@ -28,6 +28,9 @@ Los grupos de SQL sin servidor permiten usar SQL sin necesidad de reservar capac
 Todas las áreas de trabajo incluyen un grupo de SQL sin servidor preconfigurado llamado **Built-in**. 
 
 ## <a name="analyze-nyc-taxi-data-with-a-serverless-sql-pool"></a>Análisis de datos de taxis de Nueva York con un grupo de SQL sin servidor
+ 
+> [!NOTE]
+> Asegúrese de que ha [colocado los datos de ejemplo en la cuenta de almacenamiento principal](get-started-create-workspace.md#place-sample-data-into-the-primary-storage-account).
 
 1. En Synapse Studio, vaya al menú central **Develop** (Desarrollo).
 1. Se creará un nuevo script de SQL.
@@ -97,7 +100,7 @@ Sin embargo, a medida que continúa la exploración de datos, puede ser convenie
     FROM
         OPENROWSET(
                 BULK '/users/NYCTripSmall.parquet',
-                DATA_SOURCE = 'ContosoLake'
+                DATA_SOURCE = 'ContosoLake',
                 FORMAT='PARQUET'
         ) AS [result]
     ```
