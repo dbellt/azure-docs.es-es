@@ -8,12 +8,12 @@ ms.date: 12/16/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 024b238ef9a6330831ae6cf4dcd6bb72d72dcc74
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc7d1ca00f77ca5056c1ffd263c7bc810cd564bc
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98044278"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783772"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-powershell"></a>Configuración de una instancia de Azure Digital Twins y autenticación (PowerShell)
 
@@ -23,11 +23,10 @@ En este artículo se describen los pasos para **configurar una nueva instancia d
 
 En esta versión de este artículo se realizan los pasos manualmente, uno por uno, mediante [Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
-* Para seguir estos pasos manualmente con Azure Portal, consulte la versión del portal de este artículo: [*Procedimiento: Configuración de una instancia y autenticación (Azure Portal)*](how-to-set-up-instance-portal.md).
-* Para ejecutar una configuración automatizada mediante un script de implementación de ejemplo, consulte la versión con scripts de este artículo: [*Procedimiento: Configuración de una instancia y autenticación (con scripts)*](how-to-set-up-instance-scripted.md).
+* Para seguir estos pasos manualmente con Azure Portal, consulte la versión del portal de este artículo: [Procedimiento: Configuración de una instancia y autenticación (Azure Portal)](how-to-set-up-instance-portal.md) .
+* Para ejecutar una configuración automatizada mediante un script de implementación de ejemplo, consulte la versión con scripts de este artículo: [Procedimiento: Configuración de una instancia y autenticación (con scripts)](how-to-set-up-instance-scripted.md) .
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
-[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
 
 ## <a name="prepare-your-environment"></a>Preparación del entorno
 
@@ -74,7 +73,7 @@ Tendrá que proporcionar:
   New-AzResourceGroup -Name <name-for-your-resource-group> -Location <region>
   ```
 
-* Una región para la implementación. Para ver qué regiones admiten Azure Digital Twins, visite [*Productos de Azure disponibles por región*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+* Una región para la implementación. Para ver qué regiones admiten Azure Digital Twins, visite [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 * Un nombre para la instancia. El nombre de la nueva instancia debe ser único dentro de la región de la suscripción. Si su suscripción tiene otra instancia de Azure Digital Twins en la región que ya usa el nombre especificado, se le pedirá que elija un nombre diferente.
 
 Use los valores en el comando siguiente para crear la instancia:
@@ -103,13 +102,20 @@ Get-AzDigitalTwinsInstance -ResourceGroupName <your-resource-group> -ResourceNam
 > [!TIP]
 > Puede usar este comando para ver todas las propiedades de la instancia en cualquier momento.
 
-Anote los valores de **HostName**, **Name** y **ResourceGroup** de la instancia de Azure Digital Twins. Estos son valores importantes que puede necesitar a medida que sigue trabajando con la instancia de Azure Digital Twins para configurar la autenticación y los recursos de Azure relacionados. Si otros usuarios van a programar en la instancia, debe compartirlos con ellos.
+Anote los valores de **nombre de host**, **nombre** y **grupo de recursos** de la instancia de Azure Digital Twins. Estos son valores importantes que puede necesitar a medida que sigue trabajando con la instancia de Azure Digital Twins para configurar la autenticación y los recursos de Azure relacionados. Si otros usuarios van a programar en la instancia, debe compartirlos con ellos.
 
 Ahora tiene lista una instancia de Azure Digital Twins. A continuación, debe proporcionar los permisos de usuario de Azure adecuados para administrarla.
 
 ## <a name="set-up-user-access-permissions"></a>Configuración de permisos de acceso de usuarios
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
+
+### <a name="prerequisites-permission-requirements"></a>Requisitos previos: Requisitos de permisos
+[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
+
+### <a name="assign-the-role"></a>Asignación del rol
+
+Para conceder a un usuario permisos para administrar una instancia de Azure Digital Twins, debe asignarle al rol _**Propietario de datos de Azure Digital Twins**_ dentro de la instancia.
 
 En primer lugar, determine el valor **ObjectId** para la cuenta de Azure AD del usuario al que se debe asignar el rol. Puede encontrar este valor mediante el cmdlet [Get-AzAdUser](/powershell/module/az.resources/get-azaduser) pasando el nombre principal de usuario en la cuenta de Azure AD para recuperar su ObjectId (y otra información de usuario). En la mayoría de los casos, el nombre principal de usuario coincidirá con el correo electrónico del usuario en la cuenta de Azure AD.
 
@@ -139,4 +145,4 @@ Ahora tiene lista una instancia de Azure Digital Twins y los permisos asignados 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Consulte cómo conectar una aplicación cliente a la instancia mediante el código de autenticación:
-* [*Procedimiento: Escritura de código de autenticación de aplicación*](how-to-authenticate-client.md)
+* [Procedimiento: Escritura de código de autenticación de aplicación](how-to-authenticate-client.md)

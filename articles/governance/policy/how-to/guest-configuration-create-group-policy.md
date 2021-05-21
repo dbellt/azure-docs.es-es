@@ -3,12 +3,12 @@ title: Cómo crear definiciones de directivas de configuración de invitado a pa
 description: Obtenga información sobre cómo convertir una directiva de grupo de la línea base de seguridad de Windows Server 2019 en una definición de directiva.
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: a49c8044914c8c23b4f99cad7838652eb94c4b92
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: fa6012702bf00ee062b4d9d46f47bb673bb460ef
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106096587"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108763008"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Cómo crear definiciones de directivas de configuración de invitado a partir de la directiva de grupo línea de base para Windows
 
@@ -20,12 +20,12 @@ La [configuración de invitado de Azure Policy](../concepts/guest-configuration.
 > [!IMPORTANT]
 > La extensión de configuración de invitado es necesaria para realizar auditorías en las máquinas virtuales de Azure. Para implementar la extensión a gran escala en todas las máquinas Windows, asigne las siguientes definiciones de directiva:
 > - [Implemente los requisitos previos para habilitar la directiva de configuración de invitado en VM de Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
-> 
+>
 > No use secretos ni información confidencial en paquetes de contenido personalizado.
 
 La comunidad de DSC ha publicado el [módulo BaselineManagement](https://github.com/microsoft/BaselineManagement) para convertir las plantillas exportadas de la directiva de grupo al formato DSC. Junto con el cmdlet GuestConfiguration, el módulo BaselineManagement crea el paquete de configuración de invitado de Azure Policy para Windows a partir del contenido de directiva de grupo. Para obtener más información sobre el uso del módulo BaselineManagement, consulte el artículo [Inicio rápido: Conversión de directiva de grupo en DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
 
-En esta guía, recorremos el proceso de creación de un paquete de configuración de invitado de Azure Policy a partir de un objeto de directiva de grupo (GPO). Aunque en el tutorial se describe la conversión de la línea base de seguridad de Windows Server 2019, se puede aplicar el mismo proceso a otros GPO.  
+En esta guía, recorremos el proceso de creación de un paquete de configuración de invitado de Azure Policy a partir de un objeto de directiva de grupo (GPO). Aunque en el tutorial se describe la conversión de la línea base de seguridad de Windows Server 2019, se puede aplicar el mismo proceso a otros GPO.
 
 ## <a name="download-windows-server-2019-security-baseline-and-install-related-powershell-modules"></a>Descargue la línea de base de seguridad de Windows Server 2019 e instale los módulos de PowerShell relacionados
 
@@ -97,15 +97,15 @@ Después, convierta la línea de base de la instancia de Server 2019 descargada
 
    ```azurepowershell-interactive
    $NewGuestConfigurationPolicySplat = @{
-        ContentUri = $Uri 
-        DisplayName = 'Server 2019 Configuration Baseline' 
-        Description 'Validation of using a completely custom baseline configuration for Windows VMs' 
+        ContentUri = $Uri
+        DisplayName = 'Server 2019 Configuration Baseline'
+        Description 'Validation of using a completely custom baseline configuration for Windows VMs'
         Path = 'C:\git\policyfiles\policy'  
-        Platform = Windows 
+        Platform = Windows
    }
    New-GuestConfigurationPolicy @NewGuestConfigurationPolicySplat
    ```
-    
+
 1. Publique las definiciones de directivas con el cmdlet `Publish-GuestConfigurationPolicy`. El cmdlet solo tiene el parámetro **Path** que apunta a la ubicación de los archivos JSON que creó `New-GuestConfigurationPolicy`. Para ejecutar el comando Publish, necesita acceso para crear definiciones de directivas en Azure. Los requisitos de autorización específicos se documentan en la página [Información general de Azure Policy](../overview.md#getting-started). El mejor rol integrado es **Colaborador de la directiva de recursos**.
 
    ```azurepowershell-interactive

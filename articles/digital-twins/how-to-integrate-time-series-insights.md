@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 4/7/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5aa74920919e7af98368d08bfea892494273f946
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 18089da198d842f19eb6c42e82188dc615888993
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208642"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789937"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integración de Azure Digital Twins con Azure Time Series Insights
 
@@ -24,13 +24,11 @@ La solución que se describe en este artículo le permitirá recopilar y analiza
 
 Para poder configurar una relación con Time Series Insights, deberá configurar los siguientes recursos:
 * Un **centro de IoT**. Para instrucciones, consulte la sección [Creación de un IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md#create-an-iot-hub) de la guía de inicio rápido *Enviar telemetría desde un dispositivo a IoT Hub y supervisarlo con la CLI de Azure*.
-* Una **instancia de Azure Digital Twins**.
-Para instrucciones, consulte [Procedimiento: Configuración de una instancia de Azure Digital Twins y autenticación](./how-to-set-up-instance-portal.md).
-* Un **modelo y un gemelo en la instancia de Azure Digital Twins**.
-Deberá actualizar la información del gemelo varias veces para ver que se realiza un seguimiento de los datos en Time Series Insights. Para obtener instrucciones, consulte la sección [Adición de un modelo y un gemelo](how-to-ingest-iot-hub-data.md#add-a-model-and-twin) del artículo *Ingesta de telemetría de IoT Hub en Azure Digital Twins*.
+* Una **instancia de Azure Digital Twins**. Para instrucciones, consulte [Procedimiento: Configuración de una instancia de Azure Digital Twins y autenticación](./how-to-set-up-instance-portal.md).
+* Un **modelo y un gemelo en la instancia de Azure Digital Twins**. Deberá actualizar la información del gemelo varias veces para ver que se realiza un seguimiento de los datos en Time Series Insights. Para obtener instrucciones, consulte la sección [Adición de un modelo y un gemelo](how-to-ingest-iot-hub-data.md#add-a-model-and-twin) del artículo *Ingesta de telemetría de IoT Hub en Azure Digital Twins*.
 
 > [!TIP]
-> En este artículo, los valores de los gemelos digitales variables que se ven en Time Series Insights se actualizan manualmente por motivos de simplicidad. Sin embargo, si desea completar este artículo con datos simulados en directo, puede configurar una función de Azure que actualice los gemelos digitales en función de los eventos de telemetría de IoT desde un dispositivo simulado. Para obtener instrucciones, consulte [Ingesta de telemetría de IoT Hub en Azure Digital Twins](how-to-ingest-iot-hub-data.md), incluidos los pasos finales para ejecutar el simulador de dispositivos y validar que el flujo de datos funciona.
+> En este artículo, los valores de los gemelos digitales variables que se ven en Time Series Insights se actualizan manualmente por motivos de simplicidad. Sin embargo, si quiere completar este artículo con datos simulados en directo, puede configurar una función de Azure que actualice los gemelos digitales en función de los eventos de telemetría de IoT desde un dispositivo simulado. Para obtener instrucciones, consulte [Ingesta de telemetría de IoT Hub en Azure Digital Twins](how-to-ingest-iot-hub-data.md), incluidos los pasos finales para ejecutar el simulador de dispositivos y validar que el flujo de datos funciona.
 >
 > Más adelante, busque otra SUGERENCIA para mostrar dónde empezar a ejecutar el simulador de dispositivos y hacer que las funciones de Azure actualicen los gemelos automáticamente, en lugar de enviar comandos de actualización manual de gemelos digitales.
 
@@ -52,7 +50,7 @@ Va a adjuntar Time Series Insights a Azure Digital Twins a través de la ruta de
 Antes de empezar a crear los centros de eventos, cree un espacio de nombres del centro de eventos que recibirá eventos de la instancia de Azure Digital Twins. Puede usar las instrucciones de la CLI de Azure que aparecen a continuación o usar Azure Portal: [Guía de inicio rápido: Creación de un centro de eventos mediante Azure Portal](../event-hubs/event-hubs-create.md). Para ver qué regiones admiten Event Hubs, visite [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=event-hubs).
 
 ```azurecli-interactive
-az eventhubs namespace create --name <name-for-your-event-hubs-namespace> --resource-group <your-resource-group> -l <region>
+az eventhubs namespace create --name <name-for-your-event-hubs-namespace> --resource-group <your-resource-group> --location <region>
 ```
 
 > [!TIP]
@@ -95,7 +93,7 @@ az eventhubs eventhub authorization-rule create --rights Listen Send --name <nam
 Cree un [punto de conexión](concepts-route-events.md#create-an-endpoint) de Azure Digital Twins que vincule el centro de eventos con la instancia de Azure Digital Twins. Especifique un nombre para el punto de conexión del centro de gemelos.
 
 ```azurecli-interactive
-az dt endpoint create eventhub -n <your-Azure-Digital-Twins-instance-name> --eventhub-resource-group <your-resource-group> --eventhub-namespace <your-event-hubs-namespace-from-earlier> --eventhub <your-twins-hub-name-from-above> --eventhub-policy <your-twins-hub-auth-rule-from-earlier> --endpoint-name <name-for-your-twins-hub-endpoint>
+az dt endpoint create eventhub --dt-name <your-Azure-Digital-Twins-instance-name> --eventhub-resource-group <your-resource-group> --eventhub-namespace <your-event-hubs-namespace-from-earlier> --eventhub <your-twins-hub-name-from-above> --eventhub-policy <your-twins-hub-auth-rule-from-earlier> --endpoint-name <name-for-your-twins-hub-endpoint>
 ```
 
 ### <a name="create-twins-hub-event-route"></a>Creación de la ruta de eventos del centro de gemelos
@@ -105,7 +103,7 @@ Las instancias de Azure Digital Twins pueden emitir [eventos de actualización d
 Cree una [ruta](concepts-route-events.md#create-an-event-route) en Azure Digital Twins para enviar eventos de actualización de gemelos al punto de conexión anterior. El filtro de esta ruta permitirá que solo los mensajes de actualización de gemelos pasen al punto de conexión. Especifique un nombre para la ruta de eventos del centro de gemelos.
 
 ```azurecli-interactive
-az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <your-twins-hub-endpoint-from-above> --route-name <name-for-your-twins-hub-event-route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
+az dt route create --dt-name <your-Azure-Digital-Twins-instance-name> --endpoint-name <your-twins-hub-endpoint-from-above> --route-name <name-for-your-twins-hub-event-route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
 ```
 
 ### <a name="get-twins-hub-connection-string"></a>Obtención de la cadena de conexión del centro de gemelos
@@ -202,13 +200,13 @@ A continuación, agregará variables de entorno en la configuración de la aplic
 Use el valor **primaryConnectionString** del centro de gemelos que guardó anteriormente para configurar la aplicación de funciones que contiene la cadena de conexión del centro de gemelos:
 
 ```azurecli-interactive
-az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<your-twins-hub-primaryConnectionString>" -g <your-resource-group> -n <your-App-Service-(function-app)-name>
+az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<your-twins-hub-primaryConnectionString>" --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name>
 ```
 
 Use el valor **primaryConnectionString** del centro de serie temporal que guardó anteriormente para configurar la aplicación de funciones que contiene la cadena de conexión del centro de serie temporal:
 
 ```azurecli-interactive
-az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<your-time-series-hub-primaryConnectionString>" -g <your-resource-group> -n <your-App-Service-(function-app)-name>
+az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<your-time-series-hub-primaryConnectionString>" --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name>
 ```
 
 ## <a name="create-and-connect-a-time-series-insights-instance"></a>Creación y conexión de una instancia de Time Series Insights
@@ -252,16 +250,16 @@ En esta sección, configurará la instancia de Time Series Insights para recibir
 
 Para empezar a enviar datos a Time Series Insights, deberá iniciar la actualización de las propiedades de gemelos digitales en Azure Digital Twins con valores de datos variables.
 
-Use el siguiente comando de la CLI para actualizar la propiedad *Temperature* del gemelo *thermostat67* que agregó a la instancia en la sección [Requisitos previos](#prerequisites).
+Use el siguiente comando de la CLI para actualizar la propiedad *Temperature* del gemelo thermostat67 que agregó a la instancia en la sección [Requisitos previos](#prerequisites).
 
 ```azurecli-interactive
-az dt twin update -n <your-azure-digital-twins-instance-name> --twin-id thermostat67 --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'
+az dt twin update --dt-name <your-azure-digital-twins-instance-name> --twin-id thermostat67 --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'
 ```
 
 **Repita el comando al menos cuatro veces más con valores de temperatura diferentes** para crear varios puntos de datos que se puedan observar más adelante en el entorno de Time Series Insights.
 
 > [!TIP]
-> Si desea completar este artículo con datos simulados en directo en lugar de actualizar manualmente los valores de los gemelos digitales, primero asegúrese de que ha aplicado la SUGERENCIA de la sección [Requisitos previos](#prerequisites) para configurar una función de Azure que actualice los gemelos desde un dispositivo simulado.
+> Si quiere completar este artículo con datos simulados en directo en lugar de actualizar manualmente los valores de los gemelos digitales, primero asegúrese de que ha aplicado la SUGERENCIA de la sección [Requisitos previos](#prerequisites) para configurar una función de Azure que actualice los gemelos desde un dispositivo simulado.
 Después, puede ejecutar el dispositivo ahora para empezar a enviar datos simulados y actualizar el gemelo digital con ese flujo de datos.
 
 ## <a name="visualize-your-data-in-time-series-insights"></a>Visualización de los datos en Time Series Insights
@@ -272,9 +270,9 @@ Ahora, los datos deben fluir a la instancia de Time Series Insights, listos para
 
     :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Captura de pantalla de Azure Portal para seleccionar la dirección URL del Explorador de Time Series Insights en la pestaña de información general del entorno de Time Series Insights" lightbox="media/how-to-integrate-time-series-insights/view-environment.png":::
 
-2. En el explorador, verá los gemelos de la instancia de Azure Digital Twins que se muestra a la izquierda. Seleccione el gemelo *thermostat67*, elija la propiedad *Temperature* y presione **Agregar**.
+2. En el explorador, verá los gemelos de la instancia de Azure Digital Twins que se muestra a la izquierda. Seleccione el gemelo thermostat67, elija la propiedad *Temperature* (Temperatura) y seleccione **Add** (Agregar).
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Captura de pantalla del Explorador de Time Series Insights para seleccionar thermostat67, seleccionar la propiedad Temperature y presionar Agregar" lightbox="media/how-to-integrate-time-series-insights/add-data.png":::.
+    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Captura de pantalla del Explorador de Time Series Insights para seleccionar thermostat67, seleccionar la propiedad de la temperatura y seleccionar Agregar." lightbox="media/how-to-integrate-time-series-insights/add-data.png":::
 
 3. Ahora debería ver las lecturas de temperatura iniciales del termostato, como se muestra a continuación. 
 

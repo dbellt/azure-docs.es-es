@@ -3,12 +3,12 @@ title: Corrección de recursos no compatibles
 description: En esta guía se explica la corrección de los recursos que no son conformes con las directivas de Azure Policy.
 ms.date: 05/01/2021
 ms.topic: how-to
-ms.openlocfilehash: 677e203b724f2046dfd7ba8d7a509965a36a8172
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 886087a22712e316f4ecd50674f48594d6953dab
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326172"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747474"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corregir los recursos no conformes con Azure Policy
 
@@ -151,7 +151,7 @@ Para crear un **tarea de corrección**, siga estos pasos:
 
 1. Seleccione la **tarea de corrección** en la página de cumplimiento de directivas para obtener detalles sobre el progreso. El filtro usado en la tarea se muestra junto con una lista de los recursos que se van a corregir.
 
-1. En la página **Tarea de corrección**, haga clic con el botón derecho en un recurso para ver el recurso o la implementación de la tarea de corrección. Al final de la fila, seleccione **Eventos relacionados** para ver detalles, como un mensaje de error.
+1. En la página **Tarea de corrección**, seleccione y mantenga pulsado (o haga clic con el botón derecho) un recurso para ver el recurso o la implementación de la tarea de corrección. Al final de la fila, seleccione **Eventos relacionados** para ver detalles, como un mensaje de error.
 
    :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Captura de pantalla del menú contextual de un recurso en la pestaña Corregir tarea." border="false":::
 

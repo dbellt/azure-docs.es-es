@@ -1,14 +1,30 @@
 ---
-ms.openlocfilehash: 69f0da2f1528ad1f45762a8f754cc2020b4cb880
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1beac7a75bc8ddfbdec046d381ee95b23b1575ca
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98901183"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108792331"
 ---
 En este artículo se enumeran las versiones y las características del agente de aprovisionamiento de Azure Active Directory Connect que se han publicado. El equipo de Azure AD actualiza periódicamente el agente de aprovisionamiento con nuevas características y funciones. El agente de aprovisionamiento se actualiza de forma automática cuando se publica una nueva versión. 
 
 Microsoft proporciona soporte técnico directo para la versión más reciente del agente y una versión anterior.
+
+## <a name="113590"></a>1.1.359.0
+
+### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
+- Cmdlets de GMSA para establecer o restablecer el permiso
+
+### <a name="fixed-issues"></a>Problemas corregidos
+- Corrección de errores de permisos de carpeta de GMSA (originalmente, el problema provocó problemas de arranque)
+- Corrección de errores para controlar varios cambios en un atributo de referencia de valor único (por ejemplo, administrador)
+- Corrección de errores en la enumeración inicial, además del seguimiento mejorado del error
+- Optimización de las actualizaciones de pertenencia a grupos a un grupo de ámbito. Con esto, los clientes ahora pueden sincronizar un grupo de hasta 50 000 miembros mediante el filtro de ámbito de grupo. 
+- Compatibilidad con la recuperación de un solo objeto por DN con ámbito usado por el aprovisionamiento a petición para cumplir la lógica de ámbito
+
+
+
+
 
 ## <a name="113540"></a>1.1.354.0
 

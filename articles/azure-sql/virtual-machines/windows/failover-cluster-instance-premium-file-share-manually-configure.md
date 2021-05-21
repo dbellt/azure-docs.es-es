@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: ddd25c605ef159bddfb8a9c7cb4d02ac7094c511
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 19d2ea7b042cb6b28936bbfe92764b497ad4487c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482218"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769589"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Creación de una FCI con un recurso compartido de archivos Premium (SQL Server en VM de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,6 +29,9 @@ En este artículo se explica cómo crear una instancia de clúster de conmutaci�
 Los recursos compartidos de archivos Premium son recursos compartidos de archivos de baja latencia constante con respaldo de Espacios de almacenamiento directo (SSD) que son totalmente compatibles para utilizarlos con instancias del clúster de conmutación por error en SQL Server 2012 o versiones posteriores en Windows Server 2012 o versiones posteriores. Los recursos compartidos de archivos Premium ofrecen mayor flexibilidad, lo que le permite cambiar el tamaño y escalar el recurso compartido de archivos sin tiempo de inactividad.
 
 Para obtener más información, consulte información general de [FCI con SQL Server en VM de Azure](failover-cluster-instance-overview.md) y [procedimientos recomendados del clúster](hadr-cluster-best-practices.md). 
+
+> [!NOTE]
+> Ahora es posible migrar mediante lift-and-shift la solución de instancia de clúster de conmutación por error a SQL Server en máquinas virtuales de Azure mediante Azure Migrate. Consulte [Migración de una instancia de clúster de conmutación por error](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) para más información. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 

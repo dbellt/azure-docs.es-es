@@ -9,16 +9,14 @@ ms.service: iot-central
 ms.custom: devx-track-azurecli, device-developer
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 3a592d00e4e3bc45bbb156b19f374c2fdef23005
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 9193e908f00a601774a9f06b6c94f4369da68fc5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324768"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768794"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Supervisión de la conectividad de dispositivos mediante la CLI de Azure
-
-*Este tema se aplica a desarrolladores de dispositivos y generadores de soluciones.*
 
 Use la extensión de IoT de la CLI de Azure para ver los mensajes que sus dispositivos envían a IoT Central y observe los cambios en el dispositivo gemelo. Puede usar esta herramienta para depurar y observar la conectividad del dispositivo y diagnosticar los problemas de los mensajes del dispositivo que no llegan a la nube o los dispositivos que no responden a cambios gemelos.
 
@@ -81,4 +79,4 @@ az iot central device twin show --app-id <app-id> --device-id <device-id>
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si es desarrollador de dispositivos, el siguiente paso sugerido es leer información sobre la [conectividad de dispositivos en Azure IoT Central](./concepts-get-connected.md).
+El siguiente paso sugerido es leer información sobre la [conectividad de dispositivos en Azure IoT Central](./concepts-get-connected.md).

@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: 0fa6777dc5b587150f630ed8ccc110d16448cc21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cb0cf3d84db507d3200f0285e95c2142e3288fbd
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104602254"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784078"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Copia de seguridad y restauración en el grupo de SQL dedicado de Azure Synapse
 
@@ -57,7 +57,7 @@ A continuación se indican los detalles sobre los períodos de retención de pun
 1. El grupo de SQL dedicado elimina un punto de restauración cuando alcanza el período de retención de 7 días **y** cuando hay al menos 42 puntos de restauración totales (incluidos los definidos por el usuario y los automáticos).
 2. Las instantáneas no se toman cuando un grupo de SQL dedicado está en pausa.
 3. La antigüedad de un punto de restauración se mide por los días naturales absolutos a partir del momento en que se toma el punto de restauración, incluso cuando el grupo de SQL está en pausa.
-4. En cualquier momento, se garantiza que un grupo de SQL dedicado podrá almacenar hasta 42 puntos de restauración definidos por el usuario y 42 puntos de restauración automáticos siempre y cuando estos puntos de restauración no hayan alcanzado el período de retención de 7 días.
+4. En cualquier momento, se garantiza que un grupo de SQL dedicado podrá almacenar hasta 42 puntos de restauración definidos por el usuario o 42 puntos de restauración automáticos siempre y cuando estos puntos de restauración no hayan alcanzado el período de retención de 7 días.
 5. Si se toma una instantánea, el grupo de SQL dedicado se pausa durante más de 7 días y luego se reanuda, el punto de restauración persistirá hasta que haya un total de 42 puntos de restauración (incluidos los definidos por el usuario y los automáticos).
 
 ### <a name="snapshot-retention-when-a-sql-pool-is-dropped"></a>Retención de instantáneas cuando se quita un grupo de SQL

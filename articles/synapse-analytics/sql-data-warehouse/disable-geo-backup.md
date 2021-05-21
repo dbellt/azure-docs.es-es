@@ -11,14 +11,14 @@ ms.date: 01/06/2021
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 395d5f0697138155b0bb0c629461aada9e9c18c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2cebee3ad9b515c6f40529fe5d25da687fd53687
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98739068"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786292"
 ---
-# <a name="disable-geo-backups-for-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Deshabilitación de copias de seguridad geográficas para un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics
+# <a name="disable-geo-backups-for-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Deshabilitación de copias de seguridad geográficas para un [grupo de SQL dedicado (anteriormente SQL DW)](sql-data-warehouse-overview-what-is.md) en Azure Synapse Analytics
 
 En este artículo, aprenderá a deshabilitar copias de seguridad geográficas para un grupo de SQL dedicado (anteriormente SQL DW) mediante Azure Portal.
 
@@ -28,7 +28,7 @@ Siga estos pasos para deshabilitar copias de seguridad geográficas de un grupo 
 
 > [!NOTE]
 > Si deshabilita las copias de seguridad geográficas, ya no podrá recuperar el grupo de SQL dedicado (anteriormente SQL DW) en otra región de Azure. 
->
+> 
 
 1. Inicie sesión en su cuenta de [Azure Portal](https://portal.azure.com/).
 1. Seleccione el recurso de grupo de SQL dedicado (anteriormente SQL DW) para el que desea deshabilitar las copias de seguridad geográficas. 

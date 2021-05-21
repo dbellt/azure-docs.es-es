@@ -3,12 +3,12 @@ title: Uso de Azure Backup Server para realizar copias de seguridad de cargas de
 description: En este artículo, aprenderá a preparar su entorno para proteger las cargas de trabajo y hacer copias de seguridad de ellas mediante Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 04/14/2021
-ms.openlocfilehash: 144a5e26f5ad10d120a49f6a0385c3a310448dbc
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: adc87847900167299c9a2473079237e069782b48
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107713685"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769514"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalación y actualización de Azure Backup Server
 
@@ -376,5 +376,5 @@ Puede obtener información detallada sobre la [preparación del entorno para DPM
 Puede usar estos artículos para mejorar la comprensión sobre la protección de cargas de trabajo mediante el servidor Microsoft Azure Backup Server.
 
 * [Copia de seguridad de SQL Server](backup-azure-backup-sql.md)
-* [Copia de seguridad de una granja de SharePoint](backup-azure-backup-sharepoint.md)
+* [Copia de seguridad de SharePoint Server](backup-azure-backup-sharepoint.md)
 * [Copia de seguridad de otro servidor](backup-azure-alternate-dpm-server.md)

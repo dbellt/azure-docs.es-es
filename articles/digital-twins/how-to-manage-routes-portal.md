@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4aef4f3a0da17abc497225bcd0a27b98e4eaea95
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: a7159b6528c07a2cb2734c06d644a4db3753d48a
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208516"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790890"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (portal)
 
@@ -22,11 +22,11 @@ En Azure Digital Twins, se pueden enrutar [notificaciones de eventos](concepts-e
 
 Este artículo le guía por el proceso de creación de puntos de conexión y rutas mediante [Azure Portal](https://portal.azure.com).
 
-También puede administrar los puntos de conexión y las rutas con las [API de Event Routes](/rest/api/digital-twins/dataplane/eventroutes), los [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) o la [CLI de Azure Digital Twins](how-to-use-cli.md). Se puede encontrar una versión de este artículo donde se usan estos mecanismos en lugar del portal en [Procedimiento: Administración de puntos de conexión y rutas (API y CLI)](how-to-manage-routes-apis-cli.md) .
+También puede administrar los puntos de conexión y las rutas con las [API de Event Routes](/rest/api/digital-twins/dataplane/eventroutes), los [SDK](concepts-apis-sdks.md#overview-data-plane-apis) o la [CLI de Azure Digital Twins](concepts-cli.md). Se puede encontrar una versión de este artículo donde se usan estos mecanismos en lugar del portal en [Procedimiento: Administración de puntos de conexión y rutas (API y CLI)](how-to-manage-routes-apis-cli.md) .
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Necesitará una **cuenta de Azure** (puede configurar una de forma gratuita [aquí](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
+* Necesitará una **cuenta de Azure**, que [se puede configurar de forma gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Necesitará una **instancia de Azure Digital Twins** en su suscripción de Azure. Si no dispone de una instancia, puede crear una con los pasos de [Procedimiento: Configuración de una instancia y autenticación](how-to-set-up-instance-portal.md). Tenga a mano los siguientes valores de configuración para usarlos más adelante en este artículo:
     - Nombre de instancia
     - Grupo de recursos
@@ -98,7 +98,7 @@ Ahora, Event Grid, el centro de eventos o el tema de Service Bus está disponibl
 
 Cuando un punto de conexión no puede entregar un evento en un período de tiempo determinado o después de haber intentado entregarlo un número determinado de veces, podrá enviar el evento sin entregar a una cuenta de almacenamiento. Este proceso se conoce como **colas de mensajes fallidos**.
 
-Para crear un punto de conexión con las colas de mensajes fallidos habilitadas, debe usar los [comandos de la CLI](how-to-use-cli.md) o las [API del plano de control](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) en lugar de Azure Portal para crear el punto de conexión.
+Para crear un punto de conexión con las colas de mensajes fallidos habilitadas, debe usar los [comandos de la CLI](concepts-cli.md) o las [API del plano de control](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) en lugar de Azure Portal para crear el punto de conexión.
 
 Para obtener instrucciones sobre cómo hacerlo con estas herramientas, vea la versión para [API y CLI](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) de este artículo.
 
@@ -129,13 +129,13 @@ En el menú de la instancia, seleccione _Event routes_ (Rutas de eventos). Luego
 
 En la página *Create an event route* (Crear una ruta de evento) que se abre, elija como mínimo:
 * Un nombre para la ruta en el campo _Name_ (Nombre).
-* El _punto de conexión_ que le gustaría usar para crear la ruta. 
+* El valor de _Endpoint_ (Punto de conexión) que quiere usar para crear la ruta. 
 
 Para que la ruta esté habilitada, también se debe **agregar un filtro de ruta de evento** de al menos `true`. (Si se deja el valor predeterminado de `false`, se creará la ruta, pero no se le enviarán eventos). Para ello, cambie el botón de conmutación de _Advanced editor_ (Editor avanzado) para habilitarlo y escriba `true` en el cuadro *Filter* (Filtro).
 
 :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Captura de pantalla de la creación de una ruta de evento para la instancia." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
-Cuando termine, pulse el botón _Save_ (Guardar) para crear la ruta de evento.
+Cuando termine, seleccione el botón _Save_ (Guardar) para crear la ruta de eventos.
 
 ## <a name="filter-events"></a>Filtrado de eventos
 
@@ -148,7 +148,7 @@ Después de habilitar el filtro mínimo de `true`, los puntos de conexión recib
 
 Se pueden restringir los tipos de eventos que se envían mediante la definición de un filtro más específico.
 
-Para agregar un filtro de evento mientras se crea una ruta de evento, use la sección _Add an event route filter_ (Agregar un filtro de ruta de evento) de la página *Create an event route* (Crear una ruta de evento). 
+Para agregar un filtro de eventos mientras se crea una ruta de eventos, use la sección "Agregar un filtro de ruta de eventos" de la página *Creación de una ruta de eventos*. 
 
 Puede seleccionar entre algunas opciones básicas de filtros comunes o usar las opciones avanzadas de filtro para escribir sus propios filtros personalizados.
 
@@ -159,7 +159,7 @@ Puede seleccionar entre algunas opciones básicas de filtros comunes o usar las 
 
 #### <a name="use-the-basic-filters"></a>Uso de los filtros básicos
 
-Para usar los filtros básicos, expanda la opción _Event types_ (Tipos de evento) y active las casillas correspondientes a los eventos que quiere enviar a su punto de conexión. 
+Para usar los filtros básicos, expanda la opción _Event types_ (Tipos de evento) y seleccione las casillas correspondientes a los eventos que quiere enviar al punto de conexión. 
 
 :::row:::
     :::column:::

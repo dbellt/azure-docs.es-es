@@ -1,20 +1,20 @@
 ---
 title: Creación de una máquina virtual con zona con Azure Portal
-description: Creación de una máquina virtual Windows en una zona de disponibilidad con Azure Portal
+description: Creación de una máquina virtual en una zona de disponibilidad con Azure Portal
 documentationcenter: virtual-machines
 author: mimckitt
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 3/8/2021
+ms.date: 5/10/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 7c7f135d4033a31f855342c172d73f51478931ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3abbe547b8788d468c2273f037d52c9d61e3f9ce
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501692"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752957"
 ---
 # <a name="create-a-virtual-machine-in-an-availability-zone-using-the-azure-portal"></a>Creación de una máquina virtual en una zona de disponibilidad con Azure Portal
 
@@ -24,29 +24,25 @@ Para usar una zona de disponibilidad, cree la máquina virtual [en una región d
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure 
 
-Inicie sesión en Azure Portal en https://portal.azure.com.
+1. Inicie sesión en Azure Portal en https://portal.azure.com.
 
-## <a name="create-virtual-machine"></a>Crear máquina virtual
+1. Haga clic en **Crear un recurso** > **Proceso** > **Máquina virtual**. 
 
-1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
+3. Escriba la información de la máquina virtual. El nombre de usuario y la contraseña se usarán para iniciar sesión en la máquina virtual. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm). 
 
-2. Seleccione **Compute** y, después, seleccione **Windows Server 2016 Datacenter**. 
+4. Elija una ubicación que admita zonas de disponibilidad, como Este de EE. UU. 2. 
 
-3. Escriba la información de la máquina virtual. El nombre de usuario y la contraseña que especifique aquí se usarán para iniciar sesión en la máquina virtual. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm). Elija una ubicación como Este de EE. UU. 2 que admita las zonas de disponibilidad. Cuando haya terminado, haga clic en **Aceptar**.
+5. En **Opciones de disponibilidad**, seleccione la lista desplegable **Zona de disponibilidad**. 
 
-    ![Especificación de la información básica de la máquina virtual en la hoja del Portal](./media/create-portal-availability-zone/create-windows-vm-portal-basic-blade.png)
-
+1. En **Zona de disponibilidad**, seleccione una zona en la lista desplegable.
+        
 4. Elija un tamaño para la máquina virtual. Seleccione un tamaño recomendado o filtre en función de las características. Confirme que el tamaño esté disponible en la zona que desea usar.
 
-    ![Selección de un tamaño de máquina virtual](./media/create-portal-availability-zone/create-windows-vm-portal-sizes.png)  
+6. Termine de rellenar la información de la máquina virtual. Cuando haya terminado, seleccione **Revisar y crear**.
 
-5. En **Configuración** > **Alta disponibilidad**, seleccione una de las zonas numeradas en la lista desplegable **Zona de disponibilidad**, mantenga el resto de valores predeterminados y haga clic en **Aceptar**.
+7. Una vez comprobada la información, seleccione **Crear**.
 
-    ![Seleccione una zona de disponibilidad.](./media/create-portal-availability-zone/create-windows-vm-portal-availability-zone.png)
-
-6. En la página de resumen, haga clic en **Crear** para iniciar la implementación de la máquina virtual.
-
-7. La máquina virtual se anclará al panel de Azure Portal. Una vez completada la implementación, se abrirá automáticamente el resumen de la máquina virtual.
+1. Una vez creada la máquina virtual, puede ver la zona de disponibilidad en la **sección Essentials** de la página de la máquina virtual.
 
 ## <a name="confirm-zone-for-managed-disk-and-ip-address"></a>Confirmación de zona para disco administrado y dirección IP
 
@@ -54,18 +50,11 @@ Cuando la máquina virtual se implementa en una zona de disponibilidad, se crea 
 
 Puede confirmar la configuración de zona para estos recursos en el portal.  
 
-1. Haga clic en **Grupos de recursos** y en el nombre del grupo de recursos para la máquina virtual, como *myResourceGroup*.
+1. Seleccione **Discos** en el menú de la izquierda y, a continuación, seleccione el disco del sistema operativo. La página del disco incluye detalles sobre la ubicación y la zona de disponibilidad del disco.
 
-2. Haga clic en el nombre del recurso de disco. La página **Información general** incluye detalles sobre la ubicación y la zona de disponibilidad del recurso.
+1. De nuevo en la página de la máquina virtual, seleccione la dirección IP pública. En el menú de la izquierda, seleccione **Propiedades**. La página de propiedades incluye los detalles sobre la ubicación y la zona de disponibilidad de la dirección IP pública.
 
-    ![Zona de disponibilidad para disco administrado](./media/create-portal-availability-zone/create-windows-vm-portal-disk.png)
-
-3. Haga clic en el nombre del recurso de la dirección IP pública. La página **Información general** incluye detalles sobre la ubicación y la zona de disponibilidad del recurso.
-
-    ![Zona de disponibilidad para la dirección IP](./media/create-portal-availability-zone/create-windows-vm-portal-ip.png)
-
-
-
+    
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo, ha aprendido a crear una máquina virtual en una zona de disponibilidad. Aprenda más sobre la [disponibilidad](../availability.md) de las máquinas virtuales de Azure.

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 04/11/2019
+ms.date: 05/04/2021
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27896bac6f5436fb6717e4bc1ab0a1f9381904ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 173bd167a0814ddf735d90b257089a685d99cc58
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92370923"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108762612"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Adición o actualización de la información de perfil de un usuario mediante Azure Active Directory
 Agregue información de perfil de usuario, como la imagen de perfil, información específica del trabajo y algunos valores de configuración mediante Azure Active Directory (Azure AD). Para obtener más información acerca de la adición de nuevos usuarios, consulte [cómo agregar o eliminar usuarios en Azure Active Directory](add-users-azure-active-directory.md).
@@ -26,6 +26,10 @@ Agregue información de perfil de usuario, como la imagen de perfil, informació
 Como verá, hay más información disponible en un perfil de usuario que la que puede agregarse durante la creación del usuario. Toda esta información adicional es opcional y se puede agregar según sea necesario para su organización.
 
 ## <a name="to-add-or-change-profile-information"></a>Para agregar o cambiar la información del perfil
+
+>[!Note]
+>Las propiedades de nombre de usuario y dirección de correo electrónico no pueden contener caracteres de acento.
+
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de usuarios para la organización.
 
 2. Seleccione **Azure Active Directory**, **Usuarios** y, a continuación, seleccione un usuario. Por ejemplo, _Alain Charon_.

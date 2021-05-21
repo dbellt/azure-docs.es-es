@@ -11,12 +11,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8919285f31e04a51ce10afe3313b28cf86b64ee0
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: f15fd789264922865acb792bdb766b9624665d91
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102055209"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109654767"
 ---
 # <a name="investigate-risk-with-identity-protection-in-azure-ad-b2c"></a>Investigación del riesgo con Identity Protection en Azure AD B2C
 
@@ -70,7 +70,7 @@ Azure AD B2C Premium P2 es necesario para algunas características de Identity 
 
 Con la información que proporciona el informe de usuarios de riesgo, los administradores pueden buscar lo siguiente:
 
-- ¿Qué usuarios están en riesgo, lo han corregido o lo han descartado?
+- El **estado de riesgo**, que muestra qué usuarios están **en riesgo**, si lo han **corregido** o lo han **descartado**.
 - Detalles sobre las detecciones
 - Historial de todos los inicios de sesión de riesgo
 - Historial de riesgos
@@ -82,6 +82,8 @@ A continuación, los administradores pueden elegir tomar medidas en estos evento
 - Descartar el riesgo del usuario
 - Bloquear el inicio de sesión del usuario
 - Investigar con más detalle con Azure ATP
+
+Un administrador puede optar por descartar el riesgo de un usuario en Azure Portal o mediante programación a través de [descartar el riesgo de un usuario](https://docs.microsoft.com/graph/api/riskyusers-dismiss?view=graph-rest-beta&preserve-view=true) de Microsoft Graph API. Se requieren privilegios de administrador para descartar el riesgo de un usuario. La corrección de un riesgo la puede realizar el usuario de riesgo o un administrador en nombre del usuario, por ejemplo, a través de un restablecimiento de contraseña.
 
 ### <a name="navigating-the-risky-users-report"></a>Desplazarse por el informe de usuarios de riesgo
 

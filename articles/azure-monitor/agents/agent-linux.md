@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 36b54cc9b4440f883b4335fc6ad2ca069a5b19db
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 45489d25256d049467dd946922d30606c53f9bed
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137588"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750958"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instalación del agente de Log Analytics en equipos Linux
 En este artículo, se proporcionan detalles sobre la instalación del agente de Log Analytics en equipos Linux con los métodos siguientes:
@@ -56,7 +56,7 @@ Si usa una versión anterior del agente, debe hacer que la máquina virtual use 
  - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
-El ejecutable python2 debe tener un alias para *python*. A continuación se ofrece un método que puede usar para establecer este alias:
+De nuevo, solo si usa una versión anterior del agente, el ejecutable de python2 debe tener un alias para *python*. A continuación se ofrece un método que puede usar para establecer este alias:
 
 1. Ejecute el siguiente comando para quitar los alias existentes.
  

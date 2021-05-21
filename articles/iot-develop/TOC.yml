@@ -9,17 +9,17 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Introducción al desarrollo de aplicaciones para dispositivos
+    - name: Desarrollo de aplicaciones para dispositivos
       items:
         - name: Envío de datos de telemetría a IoT Central
           href: quickstart-send-telemetry-central.md
         - name: Envío de datos de telemetría a IoT Hub
           href: quickstart-send-telemetry-iot-hub.md
-    - name: Introducción al desarrollo insertado
+    - name: Desarrollo de dispositivos insertados
       items:
         - name: Inicios rápidos de desarrollo de dispositivos insertados
           href: quickstart-device-development.md
-        - name: Conexión de un dispositivo MXCHIP AZ3166 a IoT Central
+        - name: MXCHIP AZ3166
           href: quickstart-devkit-mxchip-az3166.md
 - name: Tutoriales
   items:

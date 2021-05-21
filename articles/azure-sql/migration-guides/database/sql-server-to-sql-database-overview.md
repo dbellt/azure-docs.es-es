@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 72e27e79bc1eea7633d7594f1f72e31abbfd7744
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 89cfbe95b6c4900ea6512d79ece4625e75ea5cc4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136524"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773456"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-database"></a>Información general sobre la migración: de SQL Server a Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -41,6 +41,8 @@ SQL Database proporciona flexibilidad con varios [modelos de implementación](..
 Una de las ventajas clave de migrar a SQL Database es que puede modernizar la aplicación mediante las funcionalidades de PaaS. Después, puede eliminar cualquier dependencia en los componentes técnicos cuyo ámbito se encuentre en el nivel de instancia, como los trabajos del Agente SQL.
 
 También puede ahorrar costos mediante la [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) para SQL Server para migrar las licencias locales de SQL Server a Azure SQL Database. Esta opción está disponible si elige el [modelo de compra basado en núcleo virtual](../../database/service-tiers-vcore.md).
+
+Asegúrese de revisar las características del motor de base de datos de SQL Server [disponibles en Azure SQL Database](../../database/features-comparison.md) para validar la compatibilidad del destino de migración.  
 
 ## <a name="considerations"></a>Consideraciones 
 
@@ -153,17 +155,12 @@ La configuración manual de la alta disponibilidad de SQL Server incluye instanc
 
 Además de la arquitectura de alta disponibilidad que se incluye en Azure SQL Database, la característica de [grupos de conmutación por error automática](../../database/auto-failover-group-overview.md) le permite administrar la replicación y la conmutación por error de las bases de datos de una instancia administrada en otra región. 
 
+### <a name="logins-and-groups"></a>Inicios de sesión y grupos
+
+Puesto que Azure SQL Database no admite los inicios de sesión de Windows, cree un inicio de sesión de Azure Active Directory. Vuelva a crear manualmente los inicios de sesión de SQL. 
+
 ### <a name="sql-agent-jobs"></a>Trabajos del Agente SQL
 Los trabajos del Agente SQL no se admiten directamente en Azure SQL Database y deben implementarse en [trabajos de base de datos elástica (versión preliminar)](../../database/job-automation-overview.md).
-
-### <a name="logins-and-groups"></a>Inicios de sesión y grupos
-Mueva los inicios de sesión de SQL desde la instancia de SQL Server de origen a Azure SQL Database mediante Database Migration Service en el modo sin conexión. Use el panel **Inicios de sesión seleccionados** del Asistente para migración para migrar inicios de sesión a la instancia de la base de datos SQL de destino. 
-
-También puede migrar usuarios y grupos de Windows a través de Database Migration Service habilitando la alternancia correspondiente en la página **Configuración** de Database Migration Service. 
-
-Como alternativa, puede usar la [utilidad de PowerShell](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins), especialmente diseñada por los arquitectos de migración de datos de Microsoft. La utilidad usa PowerShell para crear un script de Transact-SQL (T-SQL) para volver a crear inicios de sesión y seleccionar usuarios de base de datos del origen para el destino. 
-
-La utilidad de PowerShell asigna automáticamente cuentas de Windows Server Active Directory a cuentas de Azure Active Directory (Azure AD), y puede realizar una búsqueda de UPN para cada inicio de sesión en la instancia de Active Directory de origen. La utilidad incluye en scripts los roles de servidor y de base de datos personalizados, junto con la pertenencia a roles y los permisos de usuario. Todavía no se admiten bases de datos independientes y solo un subconjunto de los permisos de SQL Server posibles se incluye en scripts. 
 
 ### <a name="system-databases"></a>Bases de datos del sistema
 Para Azure SQL Database, las únicas bases de datos del sistema aplicables son [maestras](/sql/relational-databases/databases/master-database) y tempdb. Para más información, consulte [Tempdb en Azure SQL Database](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).

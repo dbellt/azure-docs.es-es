@@ -7,12 +7,12 @@ ms.date: 04/01/2021
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 49205025e26f7c0eb609638e70a58c9c0c14748e
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: d9827eab8c9d6187c78a979591f2c7ee0cad99e7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385418"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108741894"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Solución de problemas relacionados con orquestaciones y desencadenadores de canalizaciones en Azure Data Factory
 
@@ -26,7 +26,7 @@ Normalmente las instancias de ejecuciones de canalización se crean al pasar arg
 
 ### <a name="an-azure-functions-app-pipeline-throws-an-error-with-private-endpoint-connectivity"></a>La canalización de una aplicación de Azure Functions produce un error con la conectividad de puntos de conexión privados
  
-Data Factory y una aplicación de Azure Functions se ejecutan en un punto de conexión privado. Está intentando ejecutar una canalización que interactúa con la aplicación de funciones. Ha probado tres métodos diferentes, pero uno devuelve el error "solicitud incorrecta" y los otros dos métodos devuelven "error 103 prohibido".
+Data Factory y una aplicación de funciones se ejecutan en un punto de conexión privado en Azure. Está intentando ejecutar una canalización que interactúa con la aplicación de funciones. Ha probado tres métodos diferentes, pero uno devuelve el error "solicitud incorrecta" y los otros dos métodos devuelven "error 103 prohibido".
 
 **Causa**
 

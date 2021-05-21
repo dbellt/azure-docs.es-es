@@ -5,14 +5,14 @@ author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 05/04/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 220a6c2107063734201064115898611c20cab650
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 0041299031934bd76e4ef0700d2e75e2d61516cd
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304467"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745477"
 ---
 # <a name="add-components-on-the-portal"></a>Incorporación de componentes en el portal
 
@@ -26,9 +26,9 @@ Al completar el [tutorial para agregar detalles del dispositivo](tutorial-02-add
 
 Todos los proyectos enviados para la certificación incluirán un componente **Producto preparado para el cliente** (que, en muchos casos, representará el producto holístico en sí). Para comprender mejor la distinción de un tipo de componente [Producto preparado para el cliente](./resources-glossary.md), consulte nuestro glosario de certificación. Todos los componentes adicionales quedan a su discreción para incluirlos para capturar su dispositivo con precisión.
 
-1. Seleccione `Add a component` en la pestaña Detalles del producto.
+1. Seleccione `Add a component` en la pestaña Hardware.
 
-    ![Incorporación de un vínculo de componente](./media/images/add-a-component-link.png)
+    ![Incorporación de un vínculo de componente](./media/images/add-component-new.png)
 
 1. Complete los campos de formulario pertinentes para el componente.
 
@@ -112,4 +112,3 @@ Ahora que está listo para usar nuestra característica de componentes, ya está
 
 - [Tutorial: Incorporación de detalles del dispositivo](tutorial-02-adding-device-details.md)
 - [Edición del dispositivo publicado](how-to-edit-published-device.md)
-

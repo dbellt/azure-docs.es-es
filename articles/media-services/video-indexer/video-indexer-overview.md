@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/05/2021
 ms.author: juliako
-ms.openlocfilehash: 12d23ec471329bd4e0ecb502750198e946e58872
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7508b8123bbcd4188537fefd053394888e507c86
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100530236"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795856"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>¿Qué es Video Indexer de Azure Media Services?
 
@@ -71,6 +71,7 @@ En la siguiente lista se muestra la información que se puede recuperar de los v
 * **Créditos de rodaje**: identifica el principio y el final de los créditos al final de las series de televisión y las películas.
 * **Detección de personajes animados** (versión preliminar): detección, agrupación y reconocimiento de personajes en contenido animado a través de la integración con la [visión personalizada de Cognitive Services](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). Para más información, consulte [Detección de personajes animados](animated-characters-recognition.md).
 * **Detección del tipo de toma editorial**: etiquetado de capturas basado en su tipo (como plano general, plano medio, primer plano, primerísimo primer plano, dos capturas, varias personas, exterior e interior, etc.). Para más información, consulte [Detección del tipo de toma editorial](scenes-shots-keyframes.md#editorial-shot-type-detection).
+* **Seguimiento de personas observadas**: detecta personas observadas en vídeos y proporciona información, como la ubicación de la persona en el fotograma de vídeo (mediante rectángulos delimitadores), la marca de tiempo exacta (inicio y fin) y la confianza cuando aparece una persona. Para más información, vea [Seguimiento de las personas observadas en un vídeo](observed-people-tracing.md).
 
 ### <a name="audio-insights"></a>Información de audio
 

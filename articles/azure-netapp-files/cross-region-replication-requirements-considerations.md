@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: b-juche
-ms.openlocfilehash: ed03e20f7a1a24d1a38e023b958959fdc6fdc326
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5509b9fc63b97338ebc87a1cbef20a176c06f4dd
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579343"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795049"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Requisitos y consideraciones del uso de la replicación entre regiones 
 
@@ -27,7 +27,7 @@ Tenga en cuenta los siguientes requisitos y consideraciones [sobre el uso de la 
 
 ## <a name="requirements-and-considerations"></a>Requisitos y consideraciones 
 
-* La característica de replicación entre regiones se encuentra actualmente en versión preliminar pública. Debe enviar una solicitud de lista de espera para acceder a la característica a través de la [página de envío de lista de espera de replicación entre regiones de Azure NetApp Files](https://aka.ms/anfcrrpreviewsignup). Antes de utilizar la característica de replicación entre regiones, debe esperar un correo electrónico de confirmación oficial del equipo de Azure NetApp Files.
+* La característica de replicación entre regiones se encuentra actualmente en versión preliminar. Debe enviar una solicitud de lista de espera para acceder a la característica a través de la [página de envío de lista de espera de replicación entre regiones de Azure NetApp Files](https://aka.ms/anfcrrpreviewsignup). Antes de utilizar la característica de replicación entre regiones, debe esperar un correo electrónico de confirmación oficial del equipo de Azure NetApp Files.
 * La replicación de Azure NetApp Files solo está disponible en determinados pares de regiones fijas. Vea [Pares de regiones admitidas](cross-region-replication-introduction.md#supported-region-pairs). 
 * Los volúmenes SMB se admiten junto con los volúmenes NFS. La replicación de volúmenes SMB requiere una conexión de Active Directory en las cuentas de NetApp de origen y de destino. La conexión de AD de destino debe tener acceso a los servidores DNS o controladores de dominio de ADDS que sean accesibles desde la subred delegada en la región de destino. Para obtener más información, consulte [Requisitos para las conexiones de Active Directory](create-active-directory-connections.md#requirements-for-active-directory-connections). 
 * La cuenta de destino debe estar en una región distinta de la región del volumen de origen. También puede seleccionar una cuenta de NetApp existente en otra región.  

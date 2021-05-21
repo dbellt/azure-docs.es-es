@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2021
 ms.author: yelevin
-ms.openlocfilehash: 365ba9df39b4b3bd7397e86e6a51b285bf049242
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b2a98e92630fcdc46228cc36579cfe9787b92daf
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600627"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786652"
 ---
 # <a name="tutorial-use-playbooks-with-automation-rules-in-azure-sentinel"></a>Tutorial: Uso de cuadernos de estrategias con reglas de automatización en Azure Sentinel
 
@@ -36,7 +36,7 @@ En este tutorial se muestra cómo usar los cuadernos de estrategias junto con la
 
 ## <a name="what-are-automation-rules-and-playbooks"></a>¿Qué son las reglas de automatización y los cuadernos de estrategias?
 
-Las reglas de automatización ayudan a evaluar incidentes en Azure Sentinel. Puede usarlas para asignar automáticamente incidentes al personal adecuado, cerrar incidentes ruidosos o falsos positivos conocidos, cambiar su gravedad y agregar etiquetas. También son el mecanismo por el que puede ejecutar cuadernos de estrategias en respuesta a los incidentes.
+Las reglas de automatización ayudan a evaluar incidentes en Azure Sentinel. Puede usarlas para asignar automáticamente incidentes al personal adecuado, cerrar incidentes ruidosos o [falsos positivos](false-positives.md) conocidos, cambiar su gravedad y agregar etiquetas. También son el mecanismo por el que puede ejecutar cuadernos de estrategias en respuesta a los incidentes.
 
 Los cuadernos de estrategias son colecciones de procedimientos que se pueden ejecutar desde Azure Sentinel en respuesta a una alerta o un incidente. Un cuaderno de estrategias puede ayudarle a automatizar y organizar su respuesta y se puede configurar para que se ejecute automáticamente cuando se generen alertas o incidentes específicos; para ello, se adjuntan a una regla de análisis o una regla de automatización, respectivamente. También se puede ejecutar manualmente a petición.
 

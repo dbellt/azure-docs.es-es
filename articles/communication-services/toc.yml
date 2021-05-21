@@ -50,12 +50,12 @@
           href: quickstarts/voice-video-calling/get-started-teams-interop.md
     - name: Marco de interfaz de usuario
       items:
-        - name: Introducción a los componentes compuestos
-          href: 'https://azure.github.io/communication-ui-sdk/?path=/docs/quickstarts-get-started-with-composites--page'
-        - name: Introducción a los clientes con estado
-          href: 'https://azure.github.io/communication-ui-sdk/?path=/docs/quickstarts-get-started-with-stateful-client--page'
-        - name: Primeros pasos con los componentes de la interfaz de usuario
-          href: 'https://azure.github.io/communication-ui-sdk/?path=/docs/quickstarts-get-started-with-ui-components--page'
+        - name: Introducción a composición
+          href: 'https://azure.github.io/communication-ui-sdk/?path=/story/quickstarts-get-started-with-composites--page'
+        - name: Introducción al clientes con estado
+          href: 'https://azure.github.io/communication-ui-sdk/?path=/story/quickstarts-get-started-with-stateful-client--page'
+        - name: Introducción a los componentes de la interfaz de usuario
+          href: 'https://azure.github.io/communication-ui-sdk/?path=/story/quickstarts-get-started-with-ui-components--page'
 - name: Tutoriales
   expanded: false
   items:
@@ -106,12 +106,12 @@
           href: concepts/call-flows.md
         - name: Topologías de flujos de llamadas
           href: concepts/detailed-call-flows.md
-    - name: Marco de interfaz de usuario
+    - name: Biblioteca de interfaz de usuario
       items:
-        - name: Introducción al marco de la interfaz de usuario
-          href: concepts/ui-framework/ui-sdk-overview.md
-        - name: Funcionalidades del marco de la interfaz de usuario
-          href: concepts/ui-framework/ui-sdk-features.md
+        - name: Introducción a la biblioteca de interfaz de usuario
+          href: concepts/ui-library/ui-library-overview.md
+        - name: Casos de uso de la biblioteca de interfaz de usuario
+          href: concepts/ui-library/ui-library-use-cases.md
     - name: SDK y API REST
       href: concepts/sdk-options.md
     - name: Arquitectura de cliente y servidor
@@ -151,7 +151,7 @@
   items:
     - name: Introducción a la documentación de referencia
       href: concepts/reference.md
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/communication
     - name: Documentación de la API REST
       href: /rest/api/communication/
@@ -173,6 +173,8 @@
           href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-chat'
         - name: Chat (Python)
           href: 'https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-chat'
+        - name: Chat (iOS)
+          href: 'https://azure.github.io/azure-sdk-for-ios/AzureCommunicationChat/index.html'
     - name: Bibliotecas de SMS
       items:
         - name: SMS (JavaScript)

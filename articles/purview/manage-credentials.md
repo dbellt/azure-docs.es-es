@@ -6,13 +6,13 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 02/11/2021
-ms.openlocfilehash: 3802d25ebd8f21ab5b8991a66ceb6650f2f276a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/08/2021
+ms.openlocfilehash: 22923742e5389ac2bd6e5268e6dcd9055c23a703
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103461715"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656093"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Credenciales para la autenticación de origen en Azure Purview
 
@@ -57,6 +57,19 @@ Para crear una credencial, primero debe asociar una o varias de las instancias d
 
 ## <a name="grant-the-purview-managed-identity-access-to-your-azure-key-vault"></a>Concesión de acceso a la identidad administrada de Purview a la instancia de Azure Key Vault
 
+Actualmente Azure Key Vault admite dos modelos de permisos:
+
+- Opción 1: Directivas de acceso 
+- Opción 2: Control de acceso basado en roles 
+
+Antes de asignar acceso a la identidad administrada de Purview, identifique el modelo de permisos de Azure Key Vault en las **directivas de acceso** del recurso de Key Vault en el menú. Siga los pasos que se indican a continuación en función del modelo de permisos pertinente.  
+
+:::image type="content" source="media/manage-credentials/akv-permission-model.png" alt-text="Modelo de permisos de Azure Key Vault"::: 
+
+### <a name="option-1---assign-access-using-using-key-vault-access-policy"></a>Opción 1: Asignación de acceso mediante la directiva de acceso de Key Vault  
+
+Siga estos pasos solo si el modelo de permisos del recurso de Azure Key Vault está establecido en **Directiva de acceso de Vault**:
+
 1. Vaya a Azure Key Vault.
 
 2. Seleccione la página **Directivas de acceso**.
@@ -76,6 +89,21 @@ Para crear una credencial, primero debe asociar una o varias de las instancias d
 7. Seleccione **Guardar** para guardar la directiva de acceso.
 
    :::image type="content" source="media/manage-credentials/save-access-policy.png" alt-text="Guardado de la directiva de acceso.":::
+
+### <a name="option-2---assign-access-using-key-vault-azure-role-based-access-control"></a>Opción 2: Asignación de acceso mediante control de acceso basado en roles de Azure Key Vault 
+
+Siga estos pasos solo si el modelo de permisos del recurso de Azure Key Vault está establecido en **Control de acceso basado en roles de Azure**:
+
+1. Vaya a Azure Key Vault.
+
+2. Seleccione **Access Control (IAM)** (Control de acceso [IAM]) en el menú de navegación izquierdo.
+
+3. Seleccione **+Agregar**.
+
+4. Establezca **Role** (Rol) en **Key Vault Secrets User** (Usuario de secretos de Key Vault) y escriba el nombre de la cuenta de Azure Purview en el cuadro de entrada **Select** (Seleccionar). A continuación, seleccione Save (Guardar) para dar esta asignación de rol a su cuenta de Purview.
+
+   :::image type="content" source="media/manage-credentials/akv-add-rbac.png" alt-text="Azure Key Vault RBAC":::
+
 
 ## <a name="create-a-new-credential"></a>Creación de una credencial
 

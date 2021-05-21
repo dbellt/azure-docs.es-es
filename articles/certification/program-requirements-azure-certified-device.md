@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: Azure Certified Device Certification Requirements
 ms.service: certification
-ms.openlocfilehash: 497ffa4b3026491d6aa95df87708b3b1f2f1619e
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 5acbd4a9cc48841999716cfd9c52d72ccad733b4
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308292"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109712827"
 ---
 # <a name="azure-certified-device-requirements"></a>Requisitos de Azure Certified Device 
 (conocido anteriormente como IoT Hub)
@@ -51,7 +51,7 @@ Las garantías de la certificación de Azure Certified Device son las siguientes
 | **Se aplica a**          | Cualquier dispositivo                                                   |
 | **SISTEMA OPERATIVO**                  | Independiente                                                     |
 | **Tipo de validación**     | Automatizado                                                    |
-| **Validación**          | El dispositivo admite la entrada sencilla de la propiedad del ámbito de identificador de DPS de destino sin necesidad de volver a compilar el código insertado. Microsoft proporciona el [flujo de trabajo del portal](https://certify.azure.com) para ejecutar las pruebas para validar que el dispositivo admite DPS **1**. El usuario debe seleccionar uno de los métodos de atestación (X.509, TPM y clave SAS) **2**. En función del método de atestación, el usuario debe realizar la acción correspondiente, por ejemplo, **a)** Cargar el certificado X.509 en el ámbito de DPS administrado de AICS **b)** Implementar la clave SAS o la clave de aprobación en el dispositivo |
+| **Validación**          | El dispositivo admite la entrada sencilla de la propiedad del ámbito del identificador de DPS de destino. Microsoft proporciona el [flujo de trabajo del portal](https://certify.azure.com) para ejecutar las pruebas para validar que el dispositivo admite DPS **1.** El usuario debe seleccionar uno de los métodos de atestación (X.509, TPM y clave SAS) **2**. En función del método de atestación, el usuario debe realizar la acción correspondiente, por ejemplo, **a)** Cargar el certificado X.509 en el ámbito de DPS administrado de AICS **b)** Implementar la clave SAS o la clave de aprobación en el dispositivo |
 | **Recursos**           | [Información general sobre Device Provisioning Service](../iot-dps/about-iot-dps.md) |
 
 **[Si se implementa] De la nube al dispositivo: el propósito de la prueba es asegurarse de que los mensajes se pueden enviar desde la nube a los dispositivos**                                                              
@@ -86,3 +86,14 @@ Las garantías de la certificación de Azure Certified Device son las siguientes
 | **Tipo de validación**                       | Automatizado                                                       |
 | **Validación**                            | El dispositivo debe enviar los esquemas de telemetría a IoT Hub. Microsoft proporciona el [flujo de trabajo del portal](https://certify.azure.com) para ejecutar las pruebas. Propiedad del dispositivo gemelo (si se implementa) **1**. AICS valida la propiedad de lectura y escritura en JSON del dispositivo gemelo **2**. El usuario tiene que especificar la carga de JSON que se va a cambiar **3**. AICS valida las propiedades deseadas especificadas enviadas desde IoT Hub y el mensaje de confirmación recibido por el dispositivo |
 | **Recursos**                             | **a)** [Pasos de certificación](./overview.md) (tiene todos los recursos adicionales) **b)** [Uso de dispositivos gemelos con IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md) |
+
+**[Obligatorio] Limitar recompilación: el propósito de esta directiva garantiza que los dispositivos no deben necesitar de forma predeterminada que los usuarios vuelvan a compilar el código para implementar el dispositivo.**
+
+| **Nombre**                                  | AzureCertified.Policy.LimitRecompile                                      |
+| ----------------------------------------- | ------------------------------------------------------------ |
+| **Disponibilidad de destino**                   | Directiva                                            |
+| **Se aplica a**                            | Cualquier dispositivo                                                   |
+| **SISTEMA OPERATIVO**                                    | Independiente                                                     |
+| **Tipo de validación**                       | Directiva                                                       |
+| **Validación**                            | Para simplificar la configuración de dispositivos para los usuarios, es necesario que todos los dispositivos se puedan configurar para conectarse a Azure sin necesidad de volver a compilar e implementar el código fuente del dispositivo. Esto incluye la información de DPS, como el identificador de ámbito, que debe establecerse como valor de configuración y no compilarse. Sin embargo, si el dispositivo contiene cierto hardware seguro o si hay circunstancias atenuantes en las que el usuario espera compilar e implementar código, póngase en contacto con el equipo de certificación para solicitar una revisión de excepciones. |
+| **Recursos**                             | **a)** [Información general del servicio de aprovisionamiento de dispositivos](../iot-dps/about-iot-dps.md), **b)** [Archivo de configuración de ejemplo para la transferencia del ámbito de identificador de DPS](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview-pnp/serializer/samples/devicetwin_simplesample) |

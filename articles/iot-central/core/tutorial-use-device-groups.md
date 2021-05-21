@@ -1,22 +1,22 @@
 ---
 title: 'Tutorial: Uso de grupos de dispositivos en una aplicación de Azure IoT Central | Microsoft Docs'
-description: 'Tutorial: Como operador, aprenda a usar grupos de dispositivos para analizar la telemetría de los dispositivos de la aplicación de Azure IoT Central.'
+description: 'Tutorial: aprenda a usar grupos de dispositivos para analizar los datos de telemetría de los dispositivos en la aplicación de Azure IoT Central.'
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/16/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 0cc9c0825761099f7f5f665cd3a7f27c88f9cdbc
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: ce02c86fff5ccece1528e0d08413acb5c0a7f9c6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325326"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743388"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Tutorial: Uso de grupos de dispositivos para analizar la telemetría de dispositivo
 
-En este artículo se describe cómo usar grupos de dispositivos para analizar la telemetría de dispositivo en la aplicación de Azure IoT Central como operador.
+En este artículo se describe cómo usar grupos de dispositivos para analizar los datos de telemetría del dispositivo en la aplicación de Azure IoT Central.
 
 Un grupo de dispositivos es una lista de dispositivos que se agrupan entre sí porque cumplen algunos criterios especificados. Los grupos de dispositivos ayudan a administrar, visualizar y analizar los dispositivos a escala, agrupando dichos dispositivos en grupos lógicos más pequeños. Por ejemplo, puede crear un grupo de dispositivos para enumerar todos los dispositivos de aire acondicionado de Seattle para que, así, un técnico de Seattle pueda encontrar los dispositivos de los que es responsable.
 

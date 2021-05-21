@@ -4,12 +4,12 @@ description: Describe cómo realizar la partición de los temas y las colas de S
 ms.topic: article
 ms.date: 04/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 36b3437d3f5e8b27f38ca414fc8a4b954226e608
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 4eba3a911eb5522a1d6ae46f597e99c34d56ef0d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136812"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743226"
 ---
 # <a name="partitioned-queues-and-topics"></a>Temas y colas con particiones
 
@@ -79,7 +79,7 @@ committableTransaction.Commit();
 
 Si se establece alguna de las propiedades que sirven de clave de partición, Service Bus ancla el mensaje a una partición. Este comportamiento se produce independientemente de si se usa una transacción o no. Se recomienda que no especifique una clave de partición si no es necesario.
 
-### <a name="use-sessions-with-partitioned-entities"></a>Uso de sesiones con entidades con particiones
+### <a name="use-transactions-in-sessions-with-partitioned-entities"></a>Uso de transacciones en sesiones con entidades con particiones
 
 Para enviar un mensaje transaccional a un tema o cola que tiene en cuenta la sesión, el mensaje debe tener establecida la propiedad del id. de sesión. Si también se especifica la propiedad de la clave de partición, esta debe ser idéntica a la propiedad del id. de sesión. Si difieren, Service Bus devuelve una excepción de operación no válida.
 
@@ -113,12 +113,6 @@ En su implementación actual, Service Bus impone las siguientes limitaciones en 
 * Los temas y las colas con particiones no se admiten en el nivel de mensajería prémium. Se admiten las sesiones en el nivel premier mediante el uso de SessionId. 
 * Las colas y los temas con particiones no admiten el envío de mensajes que pertenecen a sesiones diferentes en una sola transacción.
 * Actualmente Service Bus permite hasta 100 colas o temas particionados por espacio de nombres. Cada cola o tema con particiones se tiene en cuenta para la cuota de 10 000 entidades por espacio de nombres (no se aplica al nivel prémium).
-
-## <a name="other-features"></a>Otras características
-- La adición o eliminación de una regla se admite con entidades con particiones, pero no en transacciones. 
-- Asimismo, se admite AMQP para enviar mensajes a una entidad con particiones o recibirlos de ella.
-- También se admite AMQP para las siguientes operaciones: Batch Send, Batch Receive, Receive by Sequence Number, Peek, Renew Lock, Schedule Message, Cancel Scheduled Message, Add Rule, Remove Rule, Session Renew Lock, Set Session State, Get Session State y Enumerate Sessions.
-
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -55,7 +55,7 @@
 - name: Guías paso a paso
   items:
     - name: Solicitud de la cuota del host para Azure VMware Solution
-      href: enable-azure-vmware-solution.md
+      href: request-host-quota-azure-vmware-solution.md
     - name: Traslado de recursos
       items:
         - name: Traslado de las suscripciones de Azure VMware Solution
@@ -64,8 +64,10 @@
       href: reserved-instance.md
     - name: Creación de una evaluación de Azure VMware Solution
       href: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
-    - name: Administración de DHCP
-      href: manage-dhcp.md
+    - name: Configuración y administración de DHCP
+      href: configure-dhcp-azure-vmware-solution.md
+    - name: "Configuración de DHCP en redes de VMware HCX extendido\_L2"
+      href: configure-l2-stretched-vmware-hcx-networks.md
     - name: Configuración de componentes de red de NSX
       href: configure-nsx-network-components-azure-portal.md
     - name: Configuración del servidor de GitHub Enterprise
@@ -147,7 +149,7 @@
     - name: Preguntas más frecuentes
       items:
         - name: General
-          href: /azure/azure-vmware/faq#general
+          href: faq.yml
         - name: Comunicación al cliente
           href: /azure/azure-vmware/faq#customer-communication
         - name: Instalación y configuración

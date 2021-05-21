@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8cea26bcb0926cd3af360a6489377767d681079
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 394565c857320c8fd94d72a0ca15358c83b0d09d
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532551"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109714393"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Creación y administración de un catálogo de recursos en la administración de derechos de Azure AD
 
@@ -29,7 +29,7 @@ ms.locfileid: "107532551"
 
 Un catálogo es un contenedor de recursos y paquetes de acceso. Creará un catálogo cuando quiera agrupar recursos relacionados y paquetes de acceso. Quien cree el catálogo se convertirá en su primer propietario. El propietario de un catálogo puede agregar otros propietarios.
 
-**Rol necesario:** administrador global, administrador de usuarios o creador de catálogos.
+**Requisitos previos de rol:** administrador global, administrador de Identity Governance, administrador de usuarios o creador de catálogos
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
@@ -116,7 +116,7 @@ El usuario que crea un catálogo se convierte en su primer propietario. Para del
 
 Siga estos pasos para asignar un usuario al rol de propietario del catálogo:
 
-**Rol necesario:** administrador global, administrador de usuarios o propietario del catálogo.
+**Requisitos previos de rol:** administrador global, administrador de Identity Governance, administrador de usuarios o administrador de catálogos
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
@@ -134,7 +134,7 @@ Siga estos pasos para asignar un usuario al rol de propietario del catálogo:
 
 Puede editar el nombre y la descripción de un catálogo. Los usuarios ven esta información en los detalles de un paquete de acceso.
 
-**Rol necesario:** administrador global, administrador de usuarios o propietario del catálogo.
+**Requisitos previos de rol:** administrador global, administrador de Identity Governance, administrador de usuarios o administrador de catálogos
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
@@ -152,7 +152,7 @@ Puede editar el nombre y la descripción de un catálogo. Los usuarios ven esta 
 
 Puede eliminar un catálogo, pero solo si no tiene ningún paquete de acceso.
 
-**Rol necesario:** administrador global, administrador de usuarios o propietario del catálogo.
+**Requisitos previos de rol:** administrador global, administrador de Identity Governance, administrador de usuarios o administrador de catálogos
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 

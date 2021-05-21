@@ -16,12 +16,12 @@ ms.date: 09/30/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1adbc653c8b698cb7b439b54b0a77d2b8cd4042a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 607a68870d3124eadba63b7a04b73ec7705a97a0
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100547407"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713979"
 ---
 # <a name="tutorial-manage-access-to-resources-in-azure-ad-entitlement-management"></a>Tutorial: Administración del acceso a los recursos en la administración de derechos de Azure AD
 
@@ -78,7 +78,7 @@ Un directorio de recurso tiene uno o más recursos para compartir. En este paso,
 
 Un *paquete de acceso* es un conjunto de recursos que un equipo o proyecto necesita y se rige por directivas. Los paquetes de acceso se definen en contenedores llamados *catálogos*. En este paso, creará un paquete de acceso **Campaña de marketing** en el catálogo **General**.
 
-**Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
+**Rol necesario:** administrador global, administrador de Identity Governance, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
 ![Creación de un paquete de acceso](./media/entitlement-management-access-package-first/elm-access-package.png)
 

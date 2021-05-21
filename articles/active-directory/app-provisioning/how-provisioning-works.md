@@ -1,6 +1,6 @@
 ---
-title: Descripción del funcionamiento del aprovisionamiento de Azure AD | Microsoft Docs
-description: Descripción del funcionamiento del aprovisionamiento de Azure AD
+title: Descripción del aprovisionamiento de aplicaciones en Azure Active Directory
+description: Descripción del funcionamiento del aprovisionamiento de aplicaciones en Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -8,18 +8,17 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.custom: contperf-fy21q2
-ms.openlocfilehash: 19ec3ec95fbbccbaa5c646c8de16999b86349626
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f2f2f121ba6dde7bc516f40d5e50d53acb80b18a
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579457"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109782872"
 ---
-# <a name="how-provisioning-works"></a>Funcionamiento del aprovisionamiento
+# <a name="how-application-provisioning-works-in-azure-active-directory"></a>Funcionamiento del aprovisionamiento de aplicaciones en Azure Active Directory
 
 El aprovisionamiento automático hace referencia a la creación de identidades y roles de usuario en las aplicaciones en la nube a las que los usuarios necesitan acceder. Además de crear identidades de usuario, el aprovisionamiento automático incluye el mantenimiento y la eliminación de identidades de usuario a medida que el estado o los roles cambian. Antes de iniciar una implementación, puede revisar este artículo para obtener información sobre cómo funciona el aprovisionamiento de Azure AD y cómo obtener recomendaciones de configuración. 
 
