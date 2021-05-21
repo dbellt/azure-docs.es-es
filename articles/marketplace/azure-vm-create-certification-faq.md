@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: mathapli
 ms.author: mathapli
-ms.date: 01/18/2021
-ms.openlocfilehash: 7a9fa4a6f44e88caa6f98d5e1c56adaa065fa29a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/13/2021
+ms.openlocfilehash: 20f69edac6338c07132e004acc6c0ce1cd58ab29
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558716"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634336"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Solución de problemas de certificación de máquina virtual
 
@@ -540,13 +540,13 @@ Póngase en contacto con el [soporte técnico del Centro de partners](https://ak
 En esta sección se describe cómo proporcionar una nueva imagen de máquina virtual cuando se detecta una vulnerabilidad de seguridad con una de las imágenes de máquina virtual. Solo se aplica a las ofertas de máquina virtual de Azure publicadas en Azure Marketplace.
 
 > [!NOTE]
-> No se puede quitar la última imagen de la máquina virtual de un plan y no se puede detener la venta del último plan para una oferta.
+> No se puede quitar la última imagen de la máquina virtual de un plan y no se puede dejar de usar el último plan (anteriormente detener su venta) para una oferta.
 
 Realice alguna de las siguientes acciones:
 
 - Si tiene una nueva imagen de máquina virtual para reemplazar la imagen de máquina virtual vulnerable, consulte [Cómo proporcionar una imagen de máquina virtual fija](#provide-a-fixed-vm-image) a continuación.
-- Si no tiene una nueva imagen de máquina virtual para reemplazar la única imagen de máquina virtual en un plan y si ha terminado con el plan, puede [detener la venta del plan](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
-- Si no tiene previsto reemplazar la única imagen de máquina virtual en la oferta, le recomendamos que [detenga la venta de la oferta](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
+- Si no tiene una nueva imagen de máquina virtual para reemplazar la única imagen de máquina virtual en un plan y si ha terminado con el plan, puede [dejar de usar el plan (anteriormente detener su venta)](partner-center-portal/update-existing-offer.md#deprecate-an-offer-or-plan).
+- Si no tiene previsto reemplazar la única imagen de máquina virtual en la oferta, le recomendamos que [deje de usar la oferta (anteriormente detener su venta)](partner-center-portal/update-existing-offer.md#deprecate-an-offer-or-plan).
 
 ### <a name="provide-a-fixed-vm-image"></a>Cómo proporcionar una imagen de máquina virtual fija
 

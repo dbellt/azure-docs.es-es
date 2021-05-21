@@ -9,16 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom:
 - device-developer
-ms.openlocfilehash: e8ae8b0173e53c0a46ded1a2690175e367997c9f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 683ec2b75cad36e4f4745b74ec3207bde9af9ac3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102054209"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760956"
 ---
 # <a name="best-practices-for-device-development"></a>Procedimientos recomendados para el desarrollo de dispositivos
-
-*Este artículo se aplica a los desarrolladores de dispositivos.*
 
 Estas recomendaciones muestran cómo implementar dispositivos para aprovechar las ventajas de la recuperación ante desastres integrada y el escalado automático en IoT Central.
 
@@ -61,7 +59,7 @@ Para obtener más información sobre los códigos de error de los dispositivos, 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si es desarrollador de dispositivos, algunos de los pasos sugeridos son los siguientes:
+Algunos pasos siguientes sugeridos son:
 
 - Revisar algún código de ejemplo que muestre cómo usar los tokens de SAS en [Tutorial: Creación y conexión de una aplicación cliente a una aplicación de Azure IoT Central](tutorial-connect-device.md)
 - Aprender el [procedimiento para conectar dispositivos con certificados X.509 mediante el SDK de dispositivo de Node.js para la aplicación de IoT Central](how-to-connect-devices-x509.md)

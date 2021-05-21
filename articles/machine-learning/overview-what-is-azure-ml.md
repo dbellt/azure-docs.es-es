@@ -10,12 +10,12 @@ author: BlackMist
 ms.date: 04/08/2021
 ms.custom: devx-track-python
 adobe-target: true
-ms.openlocfilehash: cd395f0ff29eed1e09f5bdac882482b201052c90
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 086c1f6ebd1b9e448a8f5e229bc6706493729422
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107814842"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108762900"
 ---
 # <a name="what-is-azure-machine-learning"></a>¿Qué es Azure Machine Learning?
 
@@ -126,9 +126,10 @@ La cuenta de Azure Storage, los destinos de proceso y otros recursos se pueden u
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Cree el primer experimento con el método que prefiera:
-- + [Primeros pasos en su propio entorno de desarrollo](tutorial-1st-experiment-sdk-setup-local.md)
-  + [Uso de cuadernos de Jupyter Notebook en una instancia de proceso para entrenar e implementar modelos de Machine Learning](tutorial-1st-experiment-sdk-setup.md)
+Empiece con el artículo de [inicio rápido: introducción a Azure Machine Learning](quickstart-create-resources.md).  Después use estos recursos para crear su primer experimento con el método que prefiera:
+
+  + [Ejecución de un script de Python "Hola mundo" (parte 1 de 3)](tutorial-1st-experiment-hello-world.md)
+  + [Uso de un cuaderno de Jupyter para entrenar modelos de clasificación de imágenes](tutorial-train-models-with-aml.md)
   + [Uso del aprendizaje automático automatizado para entrenar e implementar modelos de aprendizaje automático](tutorial-first-experiment-automated-ml.md) 
   + [Administración de recursos en Visual Studio Code](how-to-manage-resources-vscode.md)
   + [Uso de Visual Studio Code para entrenar e implementar un modelo de clasificación de imágenes](tutorial-train-deploy-image-classification-model-vscode.md)

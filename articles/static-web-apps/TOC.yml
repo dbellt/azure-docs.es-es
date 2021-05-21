@@ -4,6 +4,8 @@
   items:
     - name: Acerca de Azure Static Web Apps
       href: overview.md
+    - name: Planes de hospedaje
+      href: plans.md
 - name: Guías de inicio rápido
   expanded: true
   items:
@@ -14,7 +16,7 @@
           href: getting-started.md
         - name: Azure portal
           href: get-started-portal.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: get-started-cli.md
 - name: Conceptos
   items:

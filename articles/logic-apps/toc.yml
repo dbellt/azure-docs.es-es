@@ -66,11 +66,19 @@
     - name: Azure Logic Apps (versión preliminar) de un solo inquilino
       items:
         - name: Introducción a un solo inquilino (versión preliminar)
-          href: logic-apps-overview-preview.md
-        - name: 'Creación de aplicaciones lógicas en versión preliminar: Azure Portal'
-          href: create-stateful-stateless-workflows-azure-portal.md
-        - name: "Creación de aplicaciones lógicas en versión preliminar: Visual\_Studio Code"
-          href: create-stateful-stateless-workflows-visual-studio-code.md
+          href: single-tenant-overview-compare.md
+        - name: 'Creación de flujos de trabajo de un solo inquilino: Azure Portal'
+          href: create-single-tenant-workflows-azure-portal.md
+        - name: 'Creación de flujos de trabajo de un solo inquilino: Visual Studio Code'
+          href: create-single-tenant-workflows-visual-studio-code.md
+        - name: Implementación de DevOps para un solo inquilino
+          href: devops-deployment-single-tenant-azure-logic-apps.md
+        - name: Configuración de la implementación de DevOps para un solo inquilino
+          href: set-up-devops-deployment-single-tenant-azure-logic-apps.md
+        - name: Protección del tráfico entre flujos de trabajo de un solo inquilino y redes virtuales
+          href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
+        - name: Cálculo de los costos de almacenamiento de los flujos de trabajo de un solo inquilino
+          href: estimate-storage-costs.md
     - name: Desarrollar
       items:
         - name: Creación a partir de plantillas precompiladas
@@ -232,7 +240,7 @@
           href: logic-apps-http-endpoint.md
         - name: Azure Service Bus
           href: ../connectors/connectors-create-api-servicebus.md
-        - name: "Azure\_SQL\_Database"
+        - name: Azure SQL Database
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: Bing Search
           href: ../connectors/connectors-create-api-bingsearch.md
@@ -350,7 +358,7 @@
           href: test-logic-apps-mock-data-static-results.md
     - name: Implementación
       items:
-        - name: 'Introducción: Automatización de la implementación de aplicaciones lógicas'
+        - name: Acerca de la implementación automatizada (multiinquilino)
           href: logic-apps-azure-resource-manager-templates-overview.md
         - name: Creación de plantillas de aplicaciones lógicas
           href: logic-apps-create-azure-resource-manager-templates.md

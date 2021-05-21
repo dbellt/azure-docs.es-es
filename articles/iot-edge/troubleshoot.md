@@ -4,16 +4,16 @@ description: Use este artículo para obtener información sobre las aptitudes de
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/01/2021
+ms.date: 05/04/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6fa49af946a1e5fc631eeb1ee9b9c7c99d3adff8
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 78dff59e1cd902b6f503d9dc75213d0bd4822baa
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308275"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634732"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Solución de problemas del dispositivo IoT Edge
 
@@ -113,7 +113,15 @@ sudo iotedge support-bundle --since 6h
 :::moniker-end
 <!-- end 1.2 -->
 
-También puede usar una llamada de [método directo](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) al dispositivo para cargar la salida del comando de conjunto de soporte técnico en Azure Blob Storage.
+De manera predeterminada, el comando `support-bundle` crea un archivo ZIP denominado **support_bundle.zip** en el directorio donde se llama al comando. Use la marca `--output` para especificar una ruta de acceso o un nombre de archivo diferentes para la salida.
+
+Para obtener más información sobre el comando, vea la información de ayuda.
+
+```bash/cmd
+iotedge support-bundle --help
+```
+
+También puede usar la llamada de método directo integrada [UploadSupportBundle](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) para cargar la salida del comando de conjunto de soporte técnico en Azure Blob Storage.
 
 > [!WARNING]
 > La salida del comando `support-bundle` puede contener nombres de hosts, de dispositivos y de módulos, información registrada por los módulos, etc. Tenga esto en cuenta si comparte la salida en un foro público.
@@ -131,7 +139,7 @@ Puede comprobar la instalación de IoT Edge en los dispositivos mediante la [su
 Para obtener el módulo gemelo edgeAgent más reciente, ejecute el siguiente comando desde [Azure Cloud Shell](https://shell.azure.com/):
 
    ```azurecli-interactive
-   az iot hub module-twin show --device-id <edge_device_id> --module-id $edgeAgent --hub-name <iot_hub_name>
+   az iot hub module-twin show --device-id <edge_device_id> --module-id '$edgeAgent' --hub-name <iot_hub_name>
    ```
 
 Este comando generará todas las [propiedades notificadas](./module-edgeagent-edgehub.md) de edgeAgent. Aquí hay algunos elementos útiles para supervisar el estado del dispositivo:
@@ -264,6 +272,21 @@ iotedge logs <container name>
 ```
 
 También puede usar una llamada de [método directo](how-to-retrieve-iot-edge-logs.md#upload-module-logs) a un módulo en el dispositivo para cargar los registros de ese módulo en Azure Blob Storage.
+
+## <a name="clean-up-container-logs"></a>Limpieza de registros de contenedor
+
+De forma predeterminada el motor del contenedor Moby no establece límites de tamaño de registro de contenedor. Con el tiempo, puede que el dispositivo se llene con registros y se quede sin espacio en disco. Si los registros de contenedor grandes afectan al rendimiento de un dispositivo IoT Edge, use el siguiente comando para forzar la eliminación del contenedor junto con sus registros relacionados.
+
+Si sigue en la solución de problemas, espere hasta que hayan inspeccionado los registros de contenedor para completar este paso.
+
+>[!WARNING]
+>Si fuerza la eliminación del contenedor edgeHub mientras este tiene un trabajo pendiente de mensajes no entregados y no tiene configurado ningún [almacenamiento de host](how-to-access-host-storage-from-module.md), se perderán los mensajes sin entregar.
+
+```cmd
+docker rm --force <container name>
+```
+
+Para escenarios de producción y mantenimiento de registros continuos, [aplique límites al tamaño del registro](production-checklist.md#place-limits-on-log-size).
 
 ## <a name="view-the-messages-going-through-the-iot-edge-hub"></a>Visualización de mensajes que se envían a través del centro de IoT Edge
 

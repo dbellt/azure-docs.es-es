@@ -10,12 +10,12 @@ metadata:
   author: mingshen-ms
   ms.author: mingshen
   ms.date: 09/02/2020
-  ms.openlocfilehash: 2610013e7f5c2ee856a6fb1cd10fe4aebcbeb4c5
-  ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+  ms.openlocfilehash: 28ef4a1b2531de4462a1ae313732b1dae17e09f1
+  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/30/2021
-  ms.locfileid: "108318988"
+  ms.lasthandoff: 05/19/2021
+  ms.locfileid: "110071837"
 landingContent:
 - title: Trabajo en Marketplace comercial
   linkLists:
@@ -85,7 +85,7 @@ landingContent:
       url: ./marketplace-virtual-machines.md
     - text: Aplicaciones de Azure
       url: ./create-new-azure-apps-offer.md
-    - text: Dynamics 365 for Customer Engagement y Power Apps
+    - text: Dynamics 365 for Customer Engagement & Power Apps
       url: dynamics-365-customer-engage-offer-setup.md
     - text: Dynamics 365 Business Central
       url: ./partner-center-portal/create-new-business-central-offer.md
@@ -111,22 +111,16 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
+    - text: Guía de las API de Marketplace
+      url: marketplace-apis-guide.md
+    - text: Requisitos previos de la API
+      url: ./cloud-partner-portal-api-prerequisites.md
     - text: API de suministro de SaaS
       url: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
     - text: API del servicio de medición de Marketplace
       url: ./partner-center-portal/marketplace-metering-service-apis-faq.md
-    - text: Referencia de API del Cloud Partner Portal
-      url: ./cloud-partner-portal-api-overview.md
-    - text: Requisitos previos de la API
-      url: ./cloud-partner-portal-api-prerequisites.md
-    - text: Recuperación de ofertas
-      url: ./cloud-partner-portal-api-retrieve-offers.md
-    - text: Creación o modificación de una oferta
-      url: ./cloud-partner-portal-api-creating-offer.md
-    - text: Precios de ofertas de máquinas virtuales
-      url: ./cloud-partner-portal-api-setting-price.md
-    - text: Go Live
-      url: ./cloud-partner-portal-api-go-live.md
+    - text: Reporting API (PDF)
+      url: https://partneranalytics-api.azureedge.net/partneranalytics-api/Programmatic%20Access%20to%20Commercial%20Marketplace%20Analytics%20Data_v1.pdf
 - title: Obtención de soporte técnico
   linkLists:
   - linkListType: get-started

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f101c8a3d3af9658414e816afff9050402d71ce
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: d8a4b97ef095f5860ddf99751186ca04926e1698
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064078"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108761748"
 ---
 # <a name="securing-service-principals"></a>Protección de entidades de servicio
 
@@ -37,7 +37,7 @@ Una instancia de aplicación determinada tiene dos propiedades distintas: Applic
 > Es posible que los términos aplicación y entidad de servicio se utilicen indistintamente cuando se refieran de manera general a una aplicación en el contexto de las tareas relacionadas con la autenticación. Sin embargo, son dos representaciones diferentes de aplicaciones en Azure AD.
  
 
-El valor ApplicationID representa la aplicación global y es igual para todas las instancias de la aplicación en todos los inquilinos. El valor ObjectID es único para un objeto de aplicación y representa la entidad de servicio. Al igual que con usuarios, grupos y otros recursos, el valor ObjectID ayuda a identificar de forma exclusiva una instancia de aplicación en Azure AD.
+El valor ApplicationID representa la aplicación global y es igual para todas las instancias de la aplicación en todos los inquilinos. El valor ObjectID es único para un objeto de aplicación. Al igual que con usuarios, grupos y otros recursos, el valor ObjectID ayuda a identificar de forma exclusiva una instancia de aplicación en Azure AD.
 
 Para obtener información más detallada sobre este tema, consulte [Relación entre los objetos de aplicación y las entidades de servicio](../develop/app-objects-and-service-principals.md).
 

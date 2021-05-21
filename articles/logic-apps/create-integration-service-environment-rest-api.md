@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: d4500229800fa5d1743779b29927637777647e47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa0b37c46fd39a1764c356aa910347cafaa7d448
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99550664"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787264"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Creación de un entorno del servicio de integración (ISE) mediante la API REST de Logic Apps
 
@@ -195,6 +195,8 @@ A menudo se usa un ISE para conectarse a servicios personalizados en la red virt
 Antes de actualizar el ISE con un certificado raíz de confianza personalizado, vea estas consideraciones:
 
 * Asegúrese de cargar el certificado raíz *y* todos los certificados intermedios. El número máximo de certificados es 20.
+
+* El nombre del asunto del certificado debe coincidir con el nombre del host del punto de conexión de destino al que desea llamar desde Azure Logic Apps. 
 
 * La carga de certificados raíz es una operación de reemplazo en la que la carga más reciente sobrescribe las cargas anteriores. Por ejemplo, si envía una solicitud que carga un certificado y, luego, envía otra solicitud para cargar otro certificado, el ISE usa solo el segundo certificado. Si necesita usar ambos certificados, agréguelos juntos en la misma solicitud.  
 

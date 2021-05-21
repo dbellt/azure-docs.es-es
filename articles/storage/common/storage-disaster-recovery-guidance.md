@@ -6,16 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 05/07/2021
 ms.author: tamram
-ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 11d9b38d71d428a3c6c829b508318389338f5a15
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: c091d1b25b8c8e166fa759dfc31421bc7b778232
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800356"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109635236"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento
 
@@ -89,7 +88,7 @@ El acceso de escritura se restaura para las cuentas con redundancia geográfica 
 > [!IMPORTANT]
 > Una vez que se completa la conmutación por error, la cuenta de almacenamiento se configura para que use la redundancia local en el nuevo punto de conexión principal. Para reanudar la replicación en el nuevo punto de conexión secundario, vuelva a configurar la cuenta para la redundancia geográfica.
 >
-> Tenga en cuenta que convertir una cuenta LRS en una cuenta con redundancia geográfica supone un costo. Este costo se aplica a la actualización de la cuenta de almacenamiento de la nueva región principal después de una conmutación por error.  
+> Tenga en cuenta que la conversión de una cuenta de almacenamiento con redundancia local para usar redundancia geográfica conlleva un costo y un tiempo. Para más información, consulte [Implicaciones importantes de la conmutación por error de la cuenta](storage-initiate-account-failover.md#important-implications-of-account-failover).
 
 ### <a name="anticipate-data-loss"></a>Previsión de la pérdida de datos
 
@@ -158,7 +157,7 @@ Recuerde que los datos almacenados en un disco temporal se pierden cuando se apa
 Las siguientes características y servicios no son compatibles con la conmutación por error de una cuenta:
 
 - Azure File Sync no admite la conmutación por error de una cuenta de almacenamiento. No se debe realizar la conmutación por error de las cuentas de almacenamiento que contienen recursos compartidos de archivos de Azure y que se usan como puntos de conexión de nube en Azure File Sync. Si lo hace, la sincronización dejará de funcionar y también podría provocar una pérdida inesperada de datos en el caso de archivos recién organizados en capas.
-- Actualmente, no se admiten cuentas de almacenamiento ADLS Gen2 (cuantas que tienen el espacio de nombres jerárquico habilitado).
+- Actualmente, no se admiten cuentas de almacenamiento que tengan habilitado el espacio de nombres jerárquico (como Data Lake Storage Gen2).
 - No se puede conmutar por error una cuenta de almacenamiento que contiene blobs en bloques Premium. Las cuentas de almacenamiento que admiten los blobs en bloques Premium actualmente no admiten la redundancia geográfica.
 - No se puede conmutar por error una cuenta de almacenamiento que contenga contenedores habilitados por la [Directiva de inmutabilidad de gusanos](../blobs/storage-blob-immutable-storage.md). Las directivas de retención legal o retención basada en tiempo desbloqueada o bloqueada impiden la conmutación por error para mantener el cumplimiento.
 
