@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: metang
-ms.openlocfilehash: 80da6776412e0df7b5b9ae5759ac770c04673992
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: c36933a13bf3373930acf5dbb36513aa171748f9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631077"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768902"
 ---
 # <a name="language-support-for-immersive-reader"></a>Compatibilidad de idiomas con el Lector inmersivo
 
@@ -53,6 +53,7 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Danés | da |
 | Danés (Dinamarca) | da-DK |
 | Neerlandés | nl |
+| Neerlandés (Bélgica) | nl-BE |
 | Neerlandés (Países Bajos) | nl-NL |
 | Inglés | en |
 | Inglés (Australia) | en-AU |
@@ -61,11 +62,14 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Inglés (India) | en-IN |
 | Inglés (Irlanda) | en-IE |
 | Inglés (Nueva Zelanda) | en-NZ |
+| Inglés (Filipinas) | en-PH |
 | Inglés (Reino Unido) | en-GB |
 | Spanish (Traditional Sort) - Spain | es-ES |
+| Estonio | et-EE |
 | Finés | fi |
 | Finés (Finlandia) | fi-FI |
 | Francés | fr |
+| Francés (Bélgica) | fr-BE |
 | Francés (Canadá) | fr-CA |
 | Francés (Francia) | fr-FR |
 | Francés (Suiza) | fr-CH |
@@ -83,14 +87,18 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Húngaro (Hungría) | hu-HU |
 | Indonesio | id |
 | Indonesio (Indonesia) | id-ID |
+| Irlandés | ga-IE |
 | Italiano | it |
 | Italiano (Italia) | it-IT |
 | Japonés | ja |
 | Japonés (Japón) | ja-JP |
 | Coreano | ko |
 | Coreano (Corea) | ko-KR |
+| Letón | Lv-LV |
+| Lituano | lt-LT |
 | Malayo | ms |
 | Malayo (Malasia) | ms-MY |
+| Maltés | Mt-MT |
 | Noruego Bokmal| nb |
 | Noruego Bokmal (Noruega) | nb-NO |
 | Polaco | pl |
@@ -120,21 +128,29 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Tailandés (Tailandia) | th-TH |
 | Turco | tr |
 | Turco (Turquía) | tr-TR |
+| Ucraniano | ur-PK |
 | Vietnamita | vi |
 | Vietnamita (Vietnam) | vi-VN |
+| Galés | Cy-GB |
 
 ## <a name="translation"></a>Traducción
 
 | Idioma | Etiqueta |
 |----------|-----|
 | Afrikáans | af |
+| Albanés | sq |
+| Amárico | am |
 | Árabe | ar |
 | Árabe (Egipto) | ar-EG |
 | Árabe (Arabia Saudí) | ar-SA |
+| Armenio | hy |
+| Azerbaiyano | az |
+| Afrikáans | af |
 | Bengalí | bn |
 | Bosnio | bs |
 | Búlgaro | bg |
 | Búlgaro (Bulgaria) | bg-BG |
+| Birmano | my |
 | Catalán | ca |
 | Catalán (España) | ca-ES |
 | Chino | zh |
@@ -202,11 +218,14 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Japonés | ja |
 | Japonés (Japón) | ja-JP |
 | Canarés | kn |
+| Kazajo | kk |
+| Jemer | km |
 | Kiswahili | sw |
 | Coreano | ko |
 | Coreano (Corea) | ko-KR |
 | Kurdo (central) | ku |
 | Kurdo (norte) | kmr |
+| Lao | lo |
 | Letón | lv |
 | Lituano | lt |
 | Malgache | mg |
@@ -216,6 +235,7 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Maltés | mt |
 | Maori | mi |
 | Maratí | mr |
+| Nepalí | ne |
 | Noruego Bokmal| nb |
 | Noruego Bokmal (Noruega) | nb-NO |
 | Odia | or |
@@ -253,6 +273,7 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Telugu (India) | te-IN |
 | Tailandés | th |
 | Tailandés (Tailandia) | th-TH |
+| Tigriña | ti |
 | Tongano | to |
 | Turco | tr |
 | Turco (Turquía) | tr-TR |
@@ -548,31 +569,3 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Español (España) | es-ES |
 | Sueco | sv |
 | Sueco (Suecia) | sv-SE |
-
-## <a name="dictionary"></a>Diccionario
-
-| Idioma | Etiqueta |
-|----------|-----|
-| Inglés | en |
-| Inglés (Australia) | en-AU |
-| Inglés (Canadá) | en-CA |
-| Inglés (RAE de Hong Kong) | en-HK |
-| Inglés (India) | en-IN |
-| Inglés (Irlanda) | en-IE |
-| Inglés (Nueva Zelanda) | en-NZ |
-| Inglés (Reino Unido) | en-GB |
-| Spanish (Traditional Sort) - Spain | es-ES |
-| Francés | fr |
-| Francés (Canadá) | fr-CA |
-| Francés (Francia) | fr-FR |
-| Francés (Suiza) | fr-CH |
-| Alemán | de |
-| Alemán (Austria) | de-AT |
-| Alemán (Alemania) | de-DE |
-| Alemán (Suiza)| de-CH |
-| Italiano | it |
-| Italiano (Italia) | it-IT |
-| Español | es |
-| Español (Latinoamérica) | es-419 |
-| Español (México) | es-MX |
-| Español (España) | es-ES |

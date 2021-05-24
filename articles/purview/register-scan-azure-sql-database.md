@@ -6,15 +6,15 @@ ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 10/02/2020
-ms.openlocfilehash: 9873ec2113c0c5704ccca4fa10daf6ac8d572989
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.date: 05/08/2021
+ms.openlocfilehash: 47cc0eeb052d980e5c33061dc4721e2f819b3b34
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107438"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109654929"
 ---
-# <a name="register-and-scan-an-azure-sql-database"></a>Registro y examen de una instancia de Azure SQL Database
+# <a name="register-and-scan-an-azure-sql-database"></a>Registro y análisis de una instancia de Azure SQL Database
 
 En este artículo se describe cómo registrar un origen de datos de Azure SQL Database en Purview y cómo configurar un examen en él.
 
@@ -151,7 +151,7 @@ En la pantalla **Register sources (Azure SQL Database)** (Registrar orígenes [A
 
 1. Escriba un **nombre** con el que se mostrará el origen de datos en el catálogo.
 1. Seleccione **From Azure subscription** (Desde la suscripción de Azure) y la suscripción adecuada en el cuadro desplegable **Suscripción de Azure** y el servidor correspondiente en el cuadro desplegable **Nombre del servidor**.
-1. Haga clic en **Finalizar** para registrar el origen de datos.
+1. Seleccione **Registrar** para registrar el origen de datos.
 
 :::image type="content" source="media/register-scan-azure-sql-database/add-azure-sql-database.png" alt-text="Opciones de registro de orígenes." border="true":::
 

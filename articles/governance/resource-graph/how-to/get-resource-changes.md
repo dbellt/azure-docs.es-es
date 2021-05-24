@@ -3,12 +3,12 @@ title: Obtención de los cambios del recurso
 description: Aprenda los métodos para identificar cuándo un recurso se cambió, obtener una lista de las propiedades que cambiaron y evaluar las diferencias.
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 500a2d58c5fc9e1b63a544978c4b583eba60a63e
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 103ebf0303ee2b8613ccafd13d9c8916ed7e1fbc
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219083"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751614"
 ---
 # <a name="get-resource-changes"></a>Obtención de los cambios del recurso
 

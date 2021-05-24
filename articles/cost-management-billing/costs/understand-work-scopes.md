@@ -3,18 +3,18 @@ title: Descripción y uso de ámbitos de Azure Cost Management
 description: Este artículo le ayudará a comprender los ámbitos de administración de facturación y recursos disponibles en Azure y cómo usarlos en Cost Management y las API.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/19/2021
+ms.date: 05/05/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: f1b98cdf662f6f518e0bc1c3e869de3774c1bf7e
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: afa2811fe6e0dab3bc5c114febeec8aae25bd891
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204160"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108765582"
 ---
 # <a name="understand-and-work-with-scopes"></a>Descripción y uso de ámbitos
 
@@ -186,7 +186,7 @@ Las cuentas de facturación de los contratos de cliente de Microsoft tienen los 
 
 - **Cliente**: representa un grupo de suscripciones asociadas a un cliente específico que un asociado incorpora a un contrato de cliente de Microsoft. Este ámbito es específico para proveedores de soluciones en la nube (CSP).
 
-A diferencia de los ámbitos de facturación de EA, las cuentas de facturación de los contratos de cliente _están_ enlazadas a un único directorio y no pueden tener suscripciones en varios directorios de Azure AD.
+A diferencia de los ámbitos de facturación de EA, las cuentas de facturación de los contratos de cliente _se administran_ mediante un único directorio. Las cuentas de facturación del Contrato de cliente de Microsoft pueden tener suscripciones *vinculadas* que podrían estar en directorios de Azure AD distintos.
 
 Los ámbitos de facturación de los contratos de cliente no se aplican a los asociados. Los roles y permisos de asociado están documentados en [Asignar roles y permisos de usuarios](/partner-center/permissions-overview).
 

@@ -3,12 +3,12 @@ title: Instalación de Azure Backup Server en Azure Stack
 description: En este artículo, aprenderá a usar Azure Backup Server para proteger cargas de trabajo o realizar una copia de seguridad de ellas en Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: d7c685a16db50e51a54387dde49ffb137fcfd626
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: c133645f1d813380ba4bd6095afb6af5bdc94379
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107519483"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108767768"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalación de Azure Backup Server en Azure Stack
 
@@ -370,5 +370,5 @@ El artículo sobre la [preparación del entorno para DPM](/system-center/dpm/pre
 Puede usar los artículos siguientes para mejorar la comprensión sobre la protección de cargas de trabajo mediante Microsoft Azure Backup Server.
 
 - [Copia de seguridad de SQL Server](./backup-mabs-sql-azure-stack.md)
-- [Copia de seguridad de una granja de SharePoint](./backup-mabs-sharepoint-azure-stack.md)
+- [Copia de seguridad de SharePoint Server](./backup-mabs-sharepoint-azure-stack.md)
 - [Copia de seguridad de otro servidor](backup-azure-alternate-dpm-server.md)

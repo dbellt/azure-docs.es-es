@@ -5,12 +5,12 @@ author: rboucher
 ms.author: robb
 ms.topic: conceptual
 ms.date: 04/14/2021
-ms.openlocfilehash: d449f660fa97af8b5c24542258029834a964b3f2
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: d69935c663106e9377fe78b77bcad063b0e528b4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751623"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746178"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integraciones de asociados de Azure Monitor
 
@@ -101,8 +101,6 @@ Con la nueva integración entre Azure y Datadog, las organizaciones ahora pueden
 -   Optimizar el inicio de sesión único (SSO) en Datadog: ya no se necesita un inicio de sesión independiente desde el portal de Datadog. 
 -   Obtener una facturación unificada para el servicio Datadog mediante la facturación de suscripciones de Azure.
 
-Suscríbase a la [versión preliminar pública](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4z3T2aGXUZPslUNJ3YpcapURFBHSUJIMVJTWDM5VUFPMVkyTVhMVlYzMS4u) de la nueva integración de Datadog con Azure.  La versión preliminar pública estará disponible en Azure Marketplace a partir de octubre de 2020.
-
 Suscríbase a la versión preliminar de "Integración de Datadog con Azure" disponible en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview).
 
 Si todavía usa la anterior integración configurada manualmente, consulte la [documentación del sitio web de DataDog](https://docs.datadoghq.com/integrations/azure/).
@@ -111,7 +109,16 @@ Si todavía usa la anterior integración configurada manualmente, consulte la [d
 
 ![Logotipo de Dynatrace](./media/partners/dynatrace.png)
 
-Dynatrace OneAgent se integra con máquinas virtuales Azure y App Services a través del mecanismo de extensión de Azure. De esta forma, Dynatrace OneAgent puede recopilar métricas de rendimiento sobre los hosts, la red y los servicios. Además de simplemente mostrar las métricas, Dynatrace permite visualizar entornos de un extremo a otro. Muestra las transacciones desde el lado cliente a la capa de base de datos. Dynatrace proporciona una correlación de problemas basada en inteligencia artificial y un análisis de las causas principales totalmente integrado para proporcionar información en el nivel de método sobre el código y la base de datos. Esto facilita bastante la solución de problemas y las optimizaciones de rendimiento.
+Dynatrace simplifica la complejidad de la nube y es una fuente de confianza única para las plataformas en la nube, lo que le permite supervisar el estado de todas las aplicaciones y la infraestructura de Azure.  Dynatrace se integra con Azure Monitor/App Insights para enriquecer los datos y ampliar la observabilidad en la plataforma con métricas adicionales para la infraestructura en la nube, equilibradores de carga, Servicios API Management, etc. Dynatrace admite más de 80 servicios de Azure Monitor, que abarcan cargas de trabajo de aplicaciones y microservicios, así como servicios relacionados con la infraestructura. 
+
+Obtenga una observabilidad automatizada asistida por inteligencia artificial en los entornos de Azure:
+
+- Observabilidad de la pila completa en cuestión de minutos, todo en contexto, incluidas las métricas, los registros y los seguimientos.
+- Detección automática, asignación continua de dependencias y respuestas instantáneas para automatizar la supervisión de los servicios en la nube de Azure, incluidos App Service, rendimiento de base de datos, AKS, HDInsight y muchos más.
+- Davis, asistente de inteligencia artificial en Dynatrace, analiza continuamente miles de millones de dependencias para proporcionar una causa principal precisa.
+- Fuente de confianza única para que los equipos colaboren e innoven, dondequiera que residan.
+- Acelere las migraciones a la nube de Azure.
+
 
 [Documentación de Dynatrace](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/microsoft-azure-services/)
 

@@ -3,17 +3,17 @@ title: Controles del ejemplo de plano técnico de nivel de impacto 5 del DoD
 description: Asignación de controles del ejemplo de plano técnico de nivel de impacto 5 del DoD. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: af68ee959c50102b8344f91f8c3aa2fe11a0e2c2
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: fdfa0cb3824234b68710600bd70ebf074cf3d157
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386699"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757518"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-5-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico de nivel de impacto 5 del DoD
 
 En el artículo siguiente se detalla cómo asigna el ejemplo de plano técnico de nivel de impacto 5 del Departamento de Defensa (DoD IL5) de Azure Blueprints los controles de nivel de impacto 5 del DoD. Para más información sobre los controles, consulte [Guía de requisitos de seguridad (SRG) de informática en la nube del DoD](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf).
-La Agencia de sistemas de información de Defensa (DISA) es una agencia del Departamento de Defensa (DoD) de EE. UU. responsable del desarrollo y mantenimiento de la Guía de requisitos de seguridad (SRG) de informática en la nube del DoD. La SRG define los requisitos de seguridad de línea de base para los proveedores de servicios en la nube (CSP) que hospedan información, sistemas y aplicaciones del DoD y para el uso de los servicios en la nube del DoD.  
+La Agencia de sistemas de información de Defensa (DISA) es una agencia del Departamento de Defensa (DoD) de EE. UU. responsable del desarrollo y mantenimiento de la Guía de requisitos de seguridad (SRG) de informática en la nube del DoD. La SRG define los requisitos de seguridad de línea de base para los proveedores de servicios en la nube (CSP) que hospedan información, sistemas y aplicaciones del DoD y para el uso de los servicios en la nube del DoD.
 
 Las siguientes asignaciones son para los controles del **nivel de impacto 5 del DoD**. Use el panel de navegación de la derecha para ir directamente a una asignación de control específica. Muchos de los controles asignados se implementan con una iniciativa de [Azure Policy](../../../policy/overview.md). Para revisar la iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones**. Después, busque y seleccione la **\[versión preliminar\]: nivel de impacto 5 del DoD**, que se trata de una iniciativa de directiva integrada.
 
@@ -120,7 +120,7 @@ Los datos de registro que recopila Azure Monitor se almacenan en un área de tra
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) Revisión, análisis e informes de auditoría | Integración y funcionalidades de examen y supervisión
 
-Este plano técnico proporciona definiciones de directivas que auditan registros con el análisis de la evaluación de vulnerabilidades en máquinas virtuales, conjuntos de escalado de máquinas virtuales, servidores de SQL Database e instancias administradas de SQL. Estas definiciones de directiva también auditan la configuración de los registros de diagnóstico para proporcionar información detallada sobre las operaciones realizadas dentro de los recursos de Azure. Esta información proporciona detalles en tiempo real sobre el estado de seguridad de los recursos implementados y ayuda a priorizar las medidas correctivas. Para un examen y una supervisión de vulnerabilidades detallados, le recomendamos que también aproveche las ventajas de Azure Sentinel y Azure Security Center.
+Este plano técnico proporciona definiciones de directivas que auditan registros con el análisis de la evaluación de vulnerabilidades en máquinas virtuales, conjuntos de escalado de máquinas virtuales, servidores de SQL Database e instancias administradas de SQL. Estas definiciones de directiva también auditan la configuración de los registros de diagnóstico para proporcionar información detallada sobre las operaciones realizadas dentro de los recursos de Azure. Esta información proporciona detalles en tiempo real sobre el estado de seguridad de los recursos implementados y ayuda a priorizar las medidas correctivas. Para examinar y supervisar las vulnerabilidades de forma detallada, le recomendamos que use también Azure Sentinel y Azure Security Center.
 
 - Auditar la configuración de diagnóstico
 - Evaluación de vulnerabilidad debe estar habilitado en Instancia administrada de SQL
@@ -154,19 +154,19 @@ Esta directiva integrada requiere que especifique una matriz de tipos de recurso
 
 ## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>Funcionalidad mínima CM-7 (2) | Evitar la ejecución de programas
 
-El control de aplicaciones adaptable en Azure Security Center es una solución de lista de aplicaciones permitidas que es inteligente, automatizada, de un extremo a otro y que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ejecutarse en modo de aplicación que prohíbe que la aplicación no autorizada se ejecute. Este plano técnico asigna una definición de Azure Policy que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero esta aún no se ha configurado.
+El control de aplicaciones adaptable de Azure Security Center es una solución completa de lista de aplicaciones permitidas inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ejecutarse en modo de aplicación que prohíbe que la aplicación no autorizada se ejecute. Este plano técnico asigna una definición de Azure Policy que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero aún no se ha configurado.
 
 - Los controles de aplicaciones adaptables para definir aplicaciones seguras deben estar habilitados en las máquinas.
 
 ## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>Funcionalidad mínima CM-7 (5) | Creación de listas de software permitido o autorizado
 
-El control de aplicaciones adaptable en Azure Security Center es una solución de creación de listas de aplicaciones permitidas integral, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones le permite crear listas de aplicaciones aprobadas para las máquinas virtuales. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero esta aún no se ha configurado.
+El control de aplicaciones adaptable de Azure Security Center es una solución completa de lista de aplicaciones permitidas inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones le permite crear listas de aplicaciones aprobadas para las máquinas virtuales. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero aún no se ha configurado.
 
 - Los controles de aplicaciones adaptables para definir aplicaciones seguras deben estar habilitados en las máquinas.
 
 ## <a name="cm-11-user-installed-software"></a>Software instalado por el usuario CM-11
 
-El control de aplicaciones adaptable en Azure Security Center es una solución de creación de listas de aplicaciones permitidas integral, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ayudarle a aplicar y supervisar el cumplimiento con las directivas de restricción de software. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero esta aún no se ha configurado.
+El control de aplicaciones adaptable de Azure Security Center es una solución completa de lista de aplicaciones permitidas inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ayudarle a aplicar y supervisar el cumplimiento con las directivas de restricción de software. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero aún no se ha configurado.
 
 - Los controles de aplicaciones adaptables para definir aplicaciones seguras deben estar habilitados en las máquinas.
 
@@ -176,7 +176,7 @@ Azure Site Recovery replica las cargas de trabajo que se ejecutan en máquinas v
 
 - Auditoría de máquinas virtuales sin la recuperación ante desastres configurada
 
-## <a name="cp-9-05--information-system-backup--transfer-to-alternate-storage-site"></a>CP-9 (05) Copia de seguridad del sistema de información | Transferencia al sitio de almacenamiento alternativo
+## <a name="cp-9-05-information-system-backup--transfer-to-alternate-storage-site"></a>CP-9 (05) Copia de seguridad del sistema de información | Transferencia al sitio de almacenamiento alternativo
 
 Este plano técnico asigna definiciones de Azure Policy que auditan la información de copia de seguridad del sistema de la organización en el sitio de almacenamiento alternativo electrónicamente. Para el envío físico de los metadatos de almacenamiento, considere la posibilidad de usar Azure Data Box.
 
@@ -309,15 +309,15 @@ Este proyecto ayuda a administrar los errores del sistema de información median
 
 Este plano técnico asigna definiciones de directivas que le ayudan a garantizar que las aplicaciones usan la versión más reciente de HTTP, Java, PHP, Python y TLS. Este plano técnico también asigna una definición de directiva que garantiza que Kubernetes Services se actualiza a su versión no vulnerable.
 
-- Asegúrese de que la versión de HTTP es la más reciente si se usa para ejecutar la aplicación de API.
+- Asegúrese de que la versión de HTTP sea la más reciente, si se usa para ejecutar la aplicación de API.
 - Asegúrese de que la versión de HTTP es la más reciente si se usa para ejecutar la aplicación de funciones.
 - Asegúrese de que la versión de HTTP es la más reciente si se usa para ejecutar la aplicación web.
-- Asegúrese de que la versión de Java es la más reciente si se usa como parte de la aplicación de API.
+- Asegúrese de que la "versión de Java" sea la más reciente, si se usa como parte de la aplicación de API.
 - Asegúrese de que la versión de Java es la más reciente si se usa como parte de la aplicación de funciones.
 - Asegúrese de que la versión de Java es la más reciente si se usa como parte de la aplicación web.
-- Asegúrese de que la versión de PHP es la más reciente si se usa como parte de la aplicación de API.
+- Asegúrese de que la "versión de PHP" sea la más reciente, si se usa como parte de la aplicación de API.
 - Asegúrese de que la versión de PHP es la más reciente si se usa como parte de la aplicación web.
-- Asegúrese de que la versión de Python es la más reciente si se usa como parte de la aplicación de API.
+- Asegúrese de que la "versión de Python" sea la más reciente, si se usa como parte de la aplicación de API.
 - Asegúrese de que la versión de Python" es la más reciente si se usa como parte de la aplicación de funciones.
 - Asegúrese de que la versión de Python es la más reciente si se usa como parte de la aplicación web.
 - La versión más reciente de TLS debe usarse en la aplicación de API.
@@ -360,7 +360,7 @@ Este plano técnico proporciona definiciones de directivas que contribuirán a g
 - Es necesario proporcionar un número de teléfono de contacto de seguridad para la suscripción
 
 > [!NOTE]
-> La disponibilidad de definiciones específicas de Azure Policy puede variar tanto en Azure Government como en otras nubes nacionales. 
+> La disponibilidad de definiciones específicas de Azure Policy puede variar tanto en Azure Government como en otras nubes nacionales.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

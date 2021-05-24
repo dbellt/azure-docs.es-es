@@ -10,17 +10,17 @@ ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
 ms.date: 04/28/2021
-ms.openlocfilehash: a02735c20b7286df4aafef998066b9edfc519ef4
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: ab3da3ba8764ced53f3dcd936d56a24e73cfd8a2
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228287"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736458"
 ---
 # <a name="maintenance-window-preview"></a>Ventana de mantenimiento (versión preliminar)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-La característica de ventana de mantenimiento le permite configurar la programación de mantenimiento para los recursos de [Azure SQL Database](sql-database-paas-overview.md) y [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) que hacen que los eventos de mantenimiento impactantes sean predecibles y menos disruptivos para la carga de trabajo. 
+La característica de ventana de mantenimiento le permite configurar la programación de mantenimiento para los recursos de [Azure SQL Database](sql-database-paas-overview.md) y [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) que hacen que los eventos de mantenimiento impactantes sean predecibles y menos disruptivos para la carga de trabajo. 
 
 > [!Note]
 > La característica de ventana de mantenimiento solo protege contra el impacto planeado de las actualizaciones o el mantenimiento programado. No protege frente a todas las causas de conmutación por error; las excepciones que pueden provocar interrupciones breves de conexión fuera de una ventana de mantenimiento incluyen errores de hardware, equilibrio de carga de clústeres y reconfiguraciones de bases de datos debido a eventos como un cambio en el objetivo de nivel de servicio de una base de datos. 
@@ -104,7 +104,7 @@ Para aprovechar al máximo la ventaja de las ventanas de mantenimiento, asegúre
 
 Para obtener más información sobre la directiva de conexión de cliente en Azure SQL Database consulte la [directiva de conexión de Azure SQL Database](../database/connectivity-architecture.md#connection-policy). 
 
-Para obtener más información sobre la directiva de conexión de cliente en Azure SQL Managed Instance, consulte los [tipos de conexión de Azure SQL Managed Instance](../../azure-sql/managed-instance/connection-types-overview.md).
+Para obtener más información sobre la directiva de conexión de cliente en Azure SQL Managed Instance, consulte los [tipos de conexión de Azure SQL Managed Instance](../../azure-sql/managed-instance/connection-types-overview.md).
 
 ## <a name="considerations-for-azure-sql-managed-instance"></a>Consideraciones sobre Azure SQL Managed Instance
 
@@ -136,4 +136,4 @@ La configuración y el cambio de la ventana de mantenimiento provoca un cambio d
 * [P+F sobre la ventana de mantenimiento](maintenance-window-faq.yml)
 * [Azure SQL Database](sql-database-paas-overview.md) 
 * [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md)
-* [Planeación de eventos de mantenimiento de Azure en Azure SQL Database y Azure SQL Managed Instance](planned-maintenance.md)
+* [Planeación de eventos de mantenimiento de Azure en Azure SQL Database e Instancia administrada de Azure SQL](planned-maintenance.md)

@@ -1,18 +1,18 @@
 ---
 title: Visualización de la actividad del proveedor de servicios
-description: Los clientes pueden visualizar la actividad registrada con el fin de ver las acciones realizadas por los proveedores de servicios mediante la administración de recursos delegados de Azure.
-ms.date: 12/11/2020
+description: Los clientes pueden consultar la actividad registrada con el fin de ver las acciones realizadas por los proveedores de servicios mediante Azure Lighthouse.
+ms.date: 05/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 40deca310eea2fc9618cfc83d34caadcf2b2b14d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef9f8e76c9b6c2ab23c4075b81874816ff784f67
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100571749"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785967"
 ---
 # <a name="view-service-provider-activity"></a>Visualización de la actividad del proveedor de servicios
 
-Los clientes que tengan suscripciones delegadas para [Azure Lighthouse](../overview.md) pueden [visualizar los datos del registro de actividad de Azure](../../azure-monitor/essentials/platform-logs-overview.md) para ver todas las acciones realizadas. Esto proporciona a los clientes una visibilidad completa de las operaciones que los proveedores de servicios realizan mediante la [administración de recursos delegados de Azure](../concepts/azure-delegated-resource-management.md), junto con las operaciones realizadas por los usuarios en el propio inquilino de Azure Active Directory (Azure AD) del cliente.
+Los clientes que tengan suscripciones delegadas para [Azure Lighthouse](../overview.md) pueden [visualizar los datos del registro de actividad de Azure](../../azure-monitor/essentials/platform-logs-overview.md) para ver todas las acciones realizadas. Esto proporciona a los clientes una visibilidad completa de las operaciones que los proveedores de servicios realizan mediante la [administración de recursos delegados de Azure](../concepts/architecture.md), junto con las operaciones realizadas por los usuarios en el propio inquilino de Azure Active Directory (Azure AD) del cliente.
 
 > [!TIP]
 > Además se proporcionan definiciones de directivas integradas de Azure Policy para [restringir la delegación a inquilinos de administración específicos](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/AllowCertainManagingTenantIds_Deny.json) y [auditar la delegación de ámbitos en un inquilino de administración](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json). Para obtener más información, vea [Auditoría de delegaciones en el entorno](view-manage-service-providers.md#audit-delegations-in-your-environment).

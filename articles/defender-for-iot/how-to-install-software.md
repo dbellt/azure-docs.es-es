@@ -1,14 +1,14 @@
 ---
 title: Instalación de Defender para IoT
 description: Obtenga información sobre cómo instalar un sensor y la consola de administración local para Azure Defender para IoT.
-ms.date: 04/27/2021
+ms.date: 05/04/2021
 ms.topic: how-to
-ms.openlocfilehash: 77ff5a6d29544599a74bd6176e8b8e99a5c41968
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 2bbf9440dbae8c50569e18cccef7a2a0a2a7782a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076547"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108735393"
 ---
 # <a name="defender-for-iot-installation"></a>Instalación de Defender para IoT
 
@@ -906,8 +906,8 @@ La máquina virtual de la consola de administración local es compatible con las
 | Architecture | Especificaciones | Uso | 
 |--|--|--|
 | Enterprise <br/>(valor predeterminado y más común) | CPU: 8 <br/>Memoria: 32 GB DE RAM<br/> HDD: 1,8 TB | Entornos de producción de gran tamaño | 
-| Enterprise | CPU: 4 <br/> Memoria: 8 GB RAM<br/> HDD: 500 GB | Entornos de producción de gran tamaño |
-| Enterprise | CPU: 4 <br/>Memoria: 8 GB RAM <br/> HDD: 100 GB | Entornos de prueba pequeños | 
+| Pequeña | CPU: 4 <br/> Memoria: 8 GB RAM<br/> HDD: 500 GB | Entornos de producción de gran tamaño |
+| Office | CPU: 4 <br/>Memoria: 8 GB RAM <br/> HDD: 100 GB | Entornos de prueba pequeños | 
    
 ### <a name="prerequisites"></a>Requisitos previos
 
@@ -1036,6 +1036,191 @@ Para instalar el software, haga lo siguiente:
 1. Acceda a la consola de administración mediante la dirección IP configurada previamente: `<https://ip_address>`.
 
     :::image type="content" source="media/tutorial-install-components/defender-for-iot-management-console-sign-in-screen.png" alt-text="Captura de pantalla que muestra la pantalla de inicio de sesión de la consola de administración.":::
+
+## <a name="legacy-devices"></a>Dispositivos heredados
+
+En esta sección se describen los dispositivos que ya no están disponibles para la compra, pero que siguen siendo compatibles con Azure Defender para IoT.
+
+### <a name="nuvo-5006lp-installation"></a>Instalación de Nuvo 5006LP
+
+En esta sección se proporciona el procedimiento de instalación de Nuvo 5006LP. Antes de instalar el software en el dispositivo Nuvo 5006LP, debe cambiar la configuración del BIOS del dispositivo. 
+
+#### <a name="nuvo-5006lp-front-panel"></a>Panel frontal del Nuvo 5006LP
+
+:::image type="content" source="media/tutorial-install-components/nuvo5006lp_frontpanel.png" alt-text="Vista del panel frontal del dispositivo Nuvo 5006LP.":::
+
+1. Botón de encendido, indicador de alimentación
+1. Conectores de vídeo DVI
+1. Conectores de vídeo HDMI
+1. Conectores de vídeo VGA
+1. Control de encendido y apagado remoto y salida del indicador LED de estado
+1. Botón Restablecer
+1. Adaptador de red de administración
+1. Puertos para recibir datos reflejados
+
+#### <a name="nuvo-back-panel"></a>Panel posterior de Nuvo
+
+:::image type="content" source="media/tutorial-install-components/nuvo5006lp_backpanel.png" alt-text="Vista del panel posterior de Nuvo 5006LP.":::
+
+1. Ranura de tarjeta SIM
+1. Micrófono y altavoces
+1. Puertos COM
+1. Conectores USB
+1. Puerto de alimentación de corriente continua (DC IN)
+
+#### <a name="configure-the-nuvo-5006lp-bios"></a>Configuración del BIOS de Nuvo 5006LP
+
+El procedimiento siguiente describe cómo configurar el BIOS de Nuvo 5006LP. Asegúrese de que el sistema operativo se haya instalado previamente en el dispositivo.
+
+Para configurar el BIOS:
+
+1. Encienda el dispositivo.
+
+1. Presione **F2** para entrar en la configuración del BIOS.
+
+1. Vaya a **Power** (Encendido) y cambie Power On after Power Failure (Encender después de un error de encendido) a S0-Power On (S0-Encendido).
+
+    :::image type="content" source="media/tutorial-install-components/nuvo-power-on.png" alt-text="Cambie el dispositivo Nuvo 5006 para que se encienda después de un error de alimentación.":::
+
+1. Vaya a **Boot** (Arranque) y asegúrese de que **PXE Boot to LAN** (Arranque PXE a LAN) esté establecido en **Disabled** (Deshabilitado).
+
+1. Presione **F10** para guardar y, a continuación, seleccione **Exit** (Salir). 
+
+#### <a name="software-installation-nuvo-5006lp"></a>Instalación de software (Nuvo 5006LP)
+
+Este proceso de instalación tarda aproximadamente 20 minutos. Después de la instalación, el sistema se reinicia varias veces.
+
+1. Conecte el CD externo o el disco en memoria USB con la imagen ISO.
+
+1. Arranque el dispositivo.
+
+1. Seleccione **English** (inglés).
+
+1. Seleccione **XSENSE-RELEASE-<version> Office...** .
+
+    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Seleccione la versión del sensor que se va a instalar.":::
+
+1. Defina la arquitectura de la aplicación y las propiedades de la red:
+
+    :::image type="content" source="media/tutorial-install-components/nuvo-profile-appliance.png" alt-text="Defina la arquitectura y las propiedades de red de Nuvo.":::
+
+    | Parámetro | Configuración |
+    | ----------| ------------- |
+    | **Perfil de hardware** | Seleccione **Office**. |
+    | **Interfaz de administración** | **eth0** |
+    | **Management Network IP address** | **dirección IP proporcionada por el cliente** | 
+    | **Management subnet mask** | **dirección IP proporcionada por el cliente** | 
+    | **DNS** | **dirección IP proporcionada por el cliente** |
+    | **Default gateway IP Address** | **0.0.0.0** | 
+    | **Input interface** | El sistema genera automáticamente la lista de interfaces de entrada. <br />Para reflejar las interfaces de entrada, copie todos los elementos que se muestran en la lista separados con comas. |
+    | **Bridge interface** | - |
+
+1. Acepte la configuración y, para continuar, escriba `Y`.
+
+Después de aproximadamente 10 minutos, las credenciales de inicio de sesión se generan automáticamente. Guarde el nombre de usuarios y la contraseña, necesitará estas credenciales para acceder a la plataforma la primera vez que la use.
+
+### <a name="fitlet2-mini-sensor-installation"></a>Instalación del mini sensor Fitlet2
+
+En esta sección se proporciona el procedimiento de instalación de Fitlet2. Antes de instalar el software en el dispositivo Fitlet, debe cambiar la configuración del BIOS del dispositivo.
+
+#### <a name="fitlet2-front-panel"></a>Panel frontal de Fitlet2 
+
+:::image type="content" source="media/tutorial-install-components/fitlet-front-panel.png" alt-text="Vista del panel frontal de Fitlet2.":::
+
+#### <a name="fitlet2-back-panel"></a>Panel posterior de Fitlet2
+
+:::image type="content" source="media/tutorial-install-components/fitlet2-back-panel.png" alt-text="Vista del panel posterior de Fitlet2.":::
+
+#### <a name="configure-the-fitlet2-bios"></a>Configuración del BIOS de Fitlet2
+
+1. Encienda el dispositivo.
+
+1. Vaya a **Main** > **OS Selection** (Principal > Selección del sistema operativo).
+
+1. Presione **+/-** para seleccionar **Linux**.
+
+    :::image type="content" source="media/tutorial-install-components/fitlet-linux.png" alt-text="Establezca el sistema operativo en Linux para el dispositivo Fitlet2.":::
+
+1. Compruebe que la fecha y hora del sistema se actualizan con la fecha y hora de instalación.
+
+1. Vaya a **Advanced** (Avanzado) y seleccione **ACPI Settings** (Configuración de ACPI).
+
+1. Seleccione **Enable Hibernation** (Habilitar hibernación) y presione **+/-** para seleccionar **Disabled** (Deshabilitado).
+
+    :::image type="content" source="media/tutorial-install-components/disable-hibernation.png" alt-text="Deshabilitar el modo de hibernación en el dispositivo Fitlet2.":::
+
+1. Presione **Esc**.
+
+1. Vaya a **Advanced** > **TPM Configuration** (Avanzado > Configuración de TPM).
+
+1. Seleccione **fTPM** y presione **+/-** para seleccionar **Disabled** (Deshabilitado).
+
+1. Presione **Esc**.
+
+1. Vaya a **CPU Configuration (Configuración de CPU)**  > **VT-d**.
+
+1. Presione **+/-** para seleccionar **Enabled** (Habilitado).
+
+1. Vaya a **CSM Configuration** > **CSM Support** (Configuración de CSM > Compatibilidad con CSM).
+
+1. Presione **+/-** para seleccionar **Enabled** (Habilitado).
+1. Vaya a **Advanced** > **Boot option filter [Legacy only]** (Avanzado > Filtro de opciones de arranque [Solo heredadas] y cambie el valor de los siguientes campos a **Legacy** (Heredado):
+    - Red
+    - Storage
+    - Vídeo
+    - Otros dispositivos PCI
+
+    :::image type="content" source="media/tutorial-install-components/legacy-only.png" alt-text="Establecer todos los campos en Heredado.":::
+
+1. Presione **Esc**.
+
+1. Vaya a **Security** > **Secure Boot Customization** (Seguridad > Personalización del arranque seguro).
+
+1. Presione **+/-** para seleccionar **Disabled** (Deshabilitado).
+
+1. Presione **Esc**.
+
+1. Vaya a **Boot** > **Boot mode** (Arranque > Modo de arranque) y seleccione **Legacy** (Heredado).
+
+1. Seleccione **Boot Option #1 – [USB CD/DVD]** (Opción de arranque nº 1: [USB CD/DVD]).
+ 
+1. Seleccione **Save & Exit** (Guardar y salir).
+
+#### <a name="software-installation-fitlet2"></a>Instalación del software (Fitlet2)
+
+Este proceso de instalación tarda aproximadamente 20 minutos. Después de la instalación, el sistema se reinicia varias veces.
+
+1. Conecte el CD externo o el disco en memoria USB con la imagen ISO.
+
+1. Arranque el dispositivo.
+
+1. Seleccione **English** (inglés).
+
+1. Seleccione **XSENSE-RELEASE-<version> Office...** .
+
+    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Seleccione la versión del sensor que se va a instalar.":::
+
+    > [!Note]
+    > No seleccione Ruggedized (Resistente).
+
+1. Defina la arquitectura de la aplicación y las propiedades de la red:
+
+    :::image type="content" source="media/tutorial-install-components/nuvo-profile-appliance.png" alt-text="Defina la arquitectura y las propiedades de red de Nuvo.":::
+
+    | Parámetro | Configuración |
+    | ----------| ------------- |
+    | **Perfil de hardware** | Seleccione **Office**. |
+    | **Interfaz de administración** | **em1** |
+    | **Management Network IP address** | **dirección IP proporcionada por el cliente** | 
+    | **Management subnet mask** | **dirección IP proporcionada por el cliente** | 
+    | **DNS** | **dirección IP proporcionada por el cliente** |
+    | **Default gateway IP Address** | **0.0.0.0** | 
+    | **Input interface** | El sistema genera automáticamente la lista de interfaces de entrada. <br />Para reflejar las interfaces de entrada, copie todos los elementos que se muestran en la lista separados con comas. |
+    | **Bridge interface** | - |
+
+1. Acepte la configuración y, para continuar, escriba `Y`.
+
+Después de aproximadamente 10 minutos, las credenciales de inicio de sesión se generan automáticamente. Guarde el nombre de usuarios y la contraseña, necesitará estas credenciales para acceder a la plataforma la primera vez que la use.
 
 ## <a name="post-installation-validation"></a>Validación después de la instalación
 
@@ -1251,7 +1436,7 @@ Puede mejorar la seguridad del sistema al impedir el acceso de usuario directo a
 
 Para habilitar la tunelización, haga lo siguiente:
 
-1. Inicie sesión en la CLI del dispositivo de la consola de administración local con las credenciales de usuario **CyberX** o **Support**.
+1. Inicie sesión en la CLI de la consola de administración local con las credenciales de usuario **CyberX** o **Support**.
 
 1. Escriba `sudo cyberx-management-tunnel-enable`.
 

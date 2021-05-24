@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: aahi
-ms.openlocfilehash: 9c3908c81e7d89efe3da90f9707023cb7c184795
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 74e01ffe3ed846ebc56a82d352894e8424bb3f7a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94365015"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748014"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Contenido externo y de la comunidad para Text Analytics en Cognitive Services
 
@@ -27,7 +27,7 @@ ms.locfileid: "94365015"
 
 + [Using Text Analytics Key Phrase Cognitive Services API from PowerShell (blog de AutomationNext)](https://automationnext.wordpress.com/tag/text-analytics/)
 
-+ [Sugerencia rápida de R: Text Analytics API de Microsoft Cognitive Services (blogueros de R)](https://www.r-bloggers.com/r-quick-tip-microsoft-cognitive-services-text-analytics-api/)
++ [Sugerencia rápida de R: Text Analytics API de Azure Cognitive Services (blogueros de R)](https://www.r-bloggers.com/r-quick-tip-microsoft-cognitive-services-text-analytics-api/)
 
 + [Análisis de opiniones de aplicación lógica mediante los datos de SQL Server (blog de TechNet)](https://social.technet.microsoft.com/wiki/contents/articles/36074.logic-apps-with-azure-cognitive-service.aspx)
 
@@ -43,13 +43,13 @@ ms.locfileid: "94365015"
 
 + [Aplicación lógica para detectar opiniones y extraer frases clave del texto](https://www.youtube.com/watch?v=jVN9NObAzgk)
 
-+ [Análisis de opiniones con Power BI y Microsoft Cognitive Services](https://www.youtube.com/watch?v=gJ1j3N7Y75k)
++ [Análisis de sentimiento con Power BI y Azure Cognitive Services](https://www.youtube.com/watch?v=gJ1j3N7Y75k)
 
-+ [Frases clave de extracción de análisis de texto con Power BI y Microsoft Cognitive Services](https://www.youtube.com/watch?v=R_-1TB2BF14)
++ [Frases clave de extracción de análisis de texto con Power BI y Azure Cognitive Services](https://www.youtube.com/watch?v=R_-1TB2BF14)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-¿Quiere obtener información acerca de una característica o un caso de uso que no tratamos? Considere la posibilidad de solicitar o votar por esta opción en [UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
+¿Quiere obtener información acerca de una característica o un caso de uso que no tratamos? Considere la posibilidad de solicitarla o votarla mediante la [herramienta de comentarios](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749). 
 
 ## <a name="see-also"></a>Consulte también
 

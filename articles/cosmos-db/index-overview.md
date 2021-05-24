@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 05/04/2021
 ms.author: tisande
-ms.openlocfilehash: fec7ed32b236dd0a5f9c0663209b5c2f44e05b29
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 00b119d993b549340467bf3892f3ffc5cf7b76dd
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166746"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755449"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexación en Azure Cosmos DB: introducción
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -202,7 +202,7 @@ En esta tabla se resumen las distintas formas en que se usan los índices en Azu
 | Examen preciso del índice | Búsqueda binaria de los valores indexados necesarios y carga solo de los elementos coincidentes desde el almacén de datos transaccionales | Comparaciones de rangos (>, <, <= o >=), StartsWith | Comparable a la búsqueda de índice, aumenta ligeramente en función de la cardinalidad de las propiedades indexadas | Aumenta en función de la cantidad de elementos en los resultados de la consulta |
 | Examen expandido del índice | Búsqueda optimizada (pero menos eficaz que una búsqueda binaria) de valores indexados y carga solo de los elementos coincidentes desde el almacén de datos transaccionales | StartsWith (sin distinguir mayúsculas de minúsculas), StringEquals (sin distinguir mayúsculas de minúsculas) | Aumenta ligeramente en función de la cardinalidad de las propiedades indexadas | Aumenta en función de la cantidad de elementos en los resultados de la consulta |
 | Examen completo del índice    | Lectura de un conjunto distinto de valores indexados y carga solo de los elementos coincidentes desde el almacén de datos transaccionales                                              | Contains, EndsWith, RegexMatch, LIKE                                    | Aumenta de manera lineal en función de la cardinalidad de las propiedades indexadas | Aumenta en función de la cantidad de elementos en los resultados de la consulta |
-| Examen completo          | Carga de todos los elementos                                               | Upper, Lower                                    | N/D                                                          | Aumenta en función de la cantidad de elementos del contenedor |
+| Examen completo          | Carga de todos los elementos del almacén de datos transaccionales                                          | Upper, Lower                                    | N/D                                                          | Aumenta en función de la cantidad de elementos del contenedor |
 
 Al escribir consultas, debe usar el predicado de filtro que use el índice de la manera más eficaz posible. Por ejemplo, si en su caso de uso funcionaría `StartsWith` o `Contains`, debería optar por `StartsWith`, porque realizará un examen preciso del índice en lugar de un examen completo del índice.
 
@@ -249,10 +249,10 @@ Azure Cosmos DB usa un índice invertido. El índice funciona asignando cada r
 | /locations/0/country    | Alemania | 1          |
 | /locations/0/country    | Irlanda | 2          |
 | /locations/0/city       | Berlín  | 1          |
-| /locations/0/city       | Dublín  | 1          |
+| /locations/0/city       | Dublín  | 2          |
 | /locations/1/country    | Francia  | 1          |
 | /locations/1/city       | Paris   | 1          |
-| /headquarters/country   | Bélgica | 2          |
+| /headquarters/country   | Bélgica | 1,2        |
 | /headquarters/employees | 200     | 2          |
 | /headquarters/employees | 250     | 1          |
 
@@ -299,10 +299,10 @@ Considere la consulta siguiente:
 ```sql
 SELECT *
 FROM company
-WHERE StartsWith(company.headquarters.country, "United", true)
+WHERE STARTSWITH(company.headquarters.country, "United", true)
 ```
 
-El predicado de consulta (filtrado por elementos que tienen oficinas centrales en un país que comienza con "United" y que distingue mayúsculas de minúsculas) se puede evaluar con un examen expandido del índice de la ruta de acceso `headquarters/country`. Las operaciones que realizan un examen expandido del índice cuentan con optimizaciones que pueden ayudar a evitar la necesidad de examinar cada página de índice, pero son ligeramente más costosas que la búsqueda binaria de un examen preciso del índice.
+El predicado de consulta (filtrado por elementos que tienen oficinas centrales en un país que comienza con "United" y que no distingue mayúsculas de minúsculas) se puede evaluar con un examen expandido del índice de la ruta de acceso `headquarters/country`. Las operaciones que realizan un examen expandido del índice cuentan con optimizaciones que pueden ayudar a evitar la necesidad de examinar cada página de índice, pero son ligeramente más costosas que la búsqueda binaria de un examen preciso del índice.
 
 Por ejemplo, al evaluar `StartsWith` que no distingue mayúsculas de minúsculas, el motor de consultas comprobará las distintas combinaciones posibles de valores en mayúsculas y minúsculas del índice. Esta optimización permite al motor de consultas evitar leer la mayoría de las páginas de índice. Las distintas funciones del sistema tienen optimizaciones diferentes que pueden usar para evitar leer cada página de índice, por lo que las clasificaremos ampliamente como un examen expandido del índice. 
 
@@ -313,12 +313,12 @@ Considere la consulta siguiente:
 ```sql
 SELECT *
 FROM company
-WHERE Contains(company.headquarters.country, "United")
+WHERE CONTAINS(company.headquarters.country, "United")
 ```
 
 El predicado de consulta (filtrado por elementos que tienen oficinas centrales en un país que incluye "United") se puede evaluar con un examen del índice de la ruta de acceso `headquarters/country`. A diferencia de un examen preciso del índice, un examen completo del índice siempre examinará el conjunto distinto de valores posibles para identificar las páginas de índice donde hay resultados. En este caso, `Contains` se ejecuta en el índice. El tiempo de búsqueda de índice y el cargo por RU para los exámenes del índice aumentan a medida que aumenta la cardinalidad de la ruta de acceso. En otras palabras, cuanto más valores distintos necesite examinar el motor de consultas, mayores serán la latencia y el cargo por RU implicados en realizar un examen completo del índice.  
 
-Por ejemplo, considere dos propiedades: ciudad y país. La cardinalidad de ciudad es 5000 y la de país es 200. A continuación, se muestras dos consultas de ejemplo que tienen una función del sistema [Contains](sql-query-contains.md) que realiza un examen del índice en la propiedad `town`. La primera consulta usará más RU que la segunda, porque la cardinalidad de ciudad es mayor que la de país.
+Por ejemplo, considere dos propiedades: ciudad y país. La cardinalidad de ciudad es 5000 y la de país es 200. A continuación, se muestran dos consultas de ejemplo que tienen una función del sistema [Contains](sql-query-contains.md) que realiza un examen completo del índice en la propiedad `town`. La primera consulta usará más RU que la segunda, porque la cardinalidad de ciudad es mayor que la de país.
 
 ```sql
     SELECT *
@@ -348,7 +348,7 @@ FROM company
 WHERE company.headquarters.employees = 200 AND CONTAINS(company.headquarters.country, "United")
 ```
 
-Para ejecutar esta consulta, el motor de consultas debe realizar una búsqueda de índice precisa en `headquarters/employees` y un examen completo del índice en `headquarters/country`. El motor de consultas cuenta con heurística interna que usa para evaluar la expresión de filtro de consulta de la manera más eficaz posible. En este caso, el motor de consultas evitaría tener que leer páginas de índice innecesarias al realizar primero la búsqueda de índice. Por ejemplo, si solo 50 elementos coincidían con el filtro de igualdad, el motor de consultas solo necesitaría evaluar `Contains` en las páginas de índice que contenían esos 50 elementos. No sería necesario realizar un examen completo del índice de todo el contenedor.
+Para ejecutar esta consulta, el motor de consultas debe realizar una búsqueda de índice en `headquarters/employees` y un examen completo del índice en `headquarters/country`. El motor de consultas cuenta con heurística interna que usa para evaluar la expresión de filtro de consulta de la manera más eficaz posible. En este caso, el motor de consultas evitaría tener que leer páginas de índice innecesarias al realizar primero la búsqueda de índice. Por ejemplo, si solo 50 elementos coincidían con el filtro de igualdad, el motor de consultas solo necesitaría evaluar `Contains` en las páginas de índice que contenían esos 50 elementos. No sería necesario realizar un examen completo del índice de todo el contenedor.
 
 ## <a name="index-utilization-for-scalar-aggregate-functions"></a>Uso del índice para funciones de agregado escalares
 
@@ -363,7 +363,7 @@ Por ejemplo, considere la siguiente consulta:
 ```sql
 SELECT *
 FROM company
-WHERE Contains(company.headquarters.country, "United")
+WHERE CONTAINS(company.headquarters.country, "United")
 ```
 
 La función del sistema `Contains` puede devolver algunas coincidencias de falsos positivos, por lo que el motor de consultas deberá comprobar si cada elemento cargado coincide con la expresión de filtro. En este ejemplo, es posible que el motor de consultas solo necesite cargar algunos elementos adicionales, por lo que el impacto en el uso del índice y el cargo por RU es mínimo.
@@ -373,7 +373,7 @@ Sin embargo, las consultas con funciones de agregado deben basarse exclusivament
 ```sql
 SELECT COUNT(1)
 FROM company
-WHERE Contains(company.headquarters.country, "United")
+WHERE CONTAINS(company.headquarters.country, "United")
 ```
 
 Al igual que en el primer ejemplo, la función del sistema `Contains` puede devolver algunas coincidencias de falsos positivos. Sin embargo, a diferencia de la consulta `SELECT *`, la consulta `Count` no puede evaluar la expresión de filtro en los elementos cargados para comprobar todas las coincidencias del índice. La consulta `Count` debe basarse exclusivamente en el índice, por lo que si hay alguna posibilidad de que una expresión de filtro devuelva coincidencias de falsos positivos, el motor de consultas recurrirá a un examen completo.

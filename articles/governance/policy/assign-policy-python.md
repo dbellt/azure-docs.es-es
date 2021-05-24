@@ -4,12 +4,12 @@ description: En este inicio rápido, se usa Python para crear una asignación de
 ms.date: 03/02/2021
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 2c9a0d6bb00d82748505304264aeaefa409c4b06
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: f68e114571ea241f2051125862f89a7dc77dfce3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379408"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747618"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-python"></a>Inicio rápido: Creación de una asignación de directiva para identificar los recursos no compatibles mediante Python
 

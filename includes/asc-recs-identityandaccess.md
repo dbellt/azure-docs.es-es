@@ -2,17 +2,17 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/14/2021
+ms.date: 05/11/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: d35fbc6f16b018f55e4ec7bcd6257884c3f10186
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1ab9e1895c29222b252c54e6bb8356fd6cabb14
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466204"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784326"
 ---
-Hay **21** recomendaciones en esta categoría.
+Hay **22** recomendaciones en esta categoría.
 
 |Recomendación |Descripción |severity |
 |---|---|---|
@@ -29,6 +29,7 @@ Hay **21** recomendaciones en esta categoría.
 |Los secretos de Key Vault deben tener una fecha de expiración |Los secretos deben tener una fecha de expiración definida y no ser permanentes. Los secretos que no expiran proporcionan a un posible atacante más tiempo para ponerlos en peligro. Por ello, se recomienda como práctica de seguridad establecer fechas de expiración en los secretos.<br />(Directiva relacionada: [los secretos de Key Vault deben tener una fecha de expiración](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f98728c90-32c7-4049-8429-847dc0f4fe37)) |Alto |
 |Los almacenes de claves deben tener habilitada la protección contra operaciones de purga |La eliminación malintencionada de un almacén de claves puede provocar una pérdida de datos permanente. Un usuario malintencionado de la organización puede eliminar y purgar los almacenes de claves. La protección contra purgas le protege frente a ataques internos mediante la aplicación de un período de retención obligatorio para almacenes de claves eliminados temporalmente. Ningún usuario de su organización o Microsoft podrá purgar los almacenes de claves durante el período de retención de eliminación temporal.<br />(Directiva relacionada: [los almacenes de claves deben tener habilitada la protección contra operaciones de purga](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0b60c0b2-2dc2-4e1c-b5c9-abbed971de53)) |Media |
 |Los almacenes de claves deben tener habilitada la eliminación temporal |Si se elimina un almacén de claves que no tenga habilitada la eliminación temporal, se eliminarán permanentemente todos los secretos, claves y certificados almacenados en ese almacén de claves. La eliminación accidental de un almacén de claves puede provocar una pérdida de datos permanente. La eliminación temporal permite recuperar un almacén de claves eliminado accidentalmente durante un período de retención configurable.<br />(Directiva relacionada: [los almacenes de claves deben tener habilitada la eliminación temporal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1e66c121-a66a-4b1f-9b83-0fd99bf0fc2d)) |Alto |
+|MFA debe estar habilitada en las cuentas con permisos de propietario en la suscripción |Multi-Factor Authentication (MFA) debe estar habilitada para todas las cuentas de la suscripción que tengan permisos de propietario, a fin de evitar una brecha de seguridad en las cuentas o los recursos.<br />(Directiva relacionada: [debe habilitarse la autenticación multifactor en las cuentas con permisos de propietario de la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2faa633080-8b72-40c4-a2d7-d00c03e80bed)) |Alto |
 |MFA debe estar habilitada en las cuentas con permisos de propietario en la suscripción |Multi-Factor Authentication (MFA) debe estar habilitada para todas las cuentas de la suscripción que tengan permisos de propietario, a fin de evitar una brecha de seguridad en las cuentas o los recursos.<br />(Directiva relacionada: [debe habilitarse la autenticación multifactor en las cuentas con permisos de propietario de la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2faa633080-8b72-40c4-a2d7-d00c03e80bed)) |Alto |
 |MFA debe estar habilitada en las cuentas con permisos de lectura en la suscripción |Multi-Factor Authentication (MFA) debe estar habilitada para todas las cuentas de la suscripción que tengan permisos de lectura, a fin de evitar una brecha de seguridad en las cuentas o los recursos.<br />(Directiva relacionada: [debe habilitarse la autenticación multifactor en las cuentas con permisos de lectura de la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fe3576e28-8b17-4677-84c3-db2990658d64)) |Alto |
 |MFA debe estar habilitada en las cuentas con permisos de escritura en la suscripción |Multi-Factor Authentication (MFA) debe estar habilitada para todas las cuentas de la suscripción que tengan permisos de escritura, a fin de evitar una brecha de seguridad en las cuentas o los recursos.<br />(Directiva relacionada: [debe habilitarse la autenticación multifactor en las cuentas con permisos de escritura de la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f9297c21d-2ed6-4474-b48f-163f75654ce3)) |Alto |

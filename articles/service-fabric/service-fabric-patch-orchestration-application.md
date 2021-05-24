@@ -1,89 +1,16 @@
 ---
-title: Revisión del sistema operativo Windows en el clúster de Service Fabric
-description: En este artículo se explica cómo automatizar la aplicación de revisiones de sistema operativo en un clúster de Service Fabric mediante la aplicación de orquestación de revisiones.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
+title: Uso de la aplicación de orquestación de revisiones
+description: Automatice la aplicación de revisiones del sistema operativo en clústeres de Service Fabric hospedados que no son de Azure mediante la aplicación de orquestación de revisiones.
+ms.topic: how-to
 ms.date: 2/01/2019
-ms.author: atsenthi
-ms.openlocfilehash: e94b809513bda8edc7a51baf79ec05a2c9c77489
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 9c3f1eb767f0dac0e5be3d9fd2b344d538b95ee0
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448561"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738705"
 ---
-# <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
-
-## <a name="automatic-os-image-upgrades"></a>Actualizaciones automáticas de las imágenes del sistema operativo
-
-Las obtención de [actualizaciones de imágenes de sistema operativo automáticas en el conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) es el procedimiento recomendado para mantener el sistema operativo revisado en Azure. Las actualizaciones automáticas de imágenes del sistema operativo basadas en un conjunto de escalado de máquinas virtuales requieren una durabilidad Silver o superior en un conjunto de escalado.
-
-Requisitos para las actualizaciones automáticas de imágenes del sistema operativo por Virtual Machine Scale Sets
--   El [nivel de durabilidad](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) de Service Fabric es Plata u Oro, no Bronce.
--   La extensión de Service Fabric en la definición del modelo de conjunto de escalado debe tener la versión 1.1 o posterior de TypeHandlerVersion.
--   El nivel de durabilidad debe ser el mismo en el clúster de Service Fabric y la extensión Service Fabric de la definición del modelo de conjunto de escalado.
-- No es necesario realizar un sondeo de estado adicional o el uso de la extensión de estado de aplicación para Virtual Machine Scale Sets.
-
-Asegúrese de que la configuración de durabilidad coincida con la del clúster y la extensión de Service Fabric, ya que la falta de coincidencia produce errores de actualización. Los niveles de durabilidad se pueden modificar según las directrices que se describen en [esta página](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
-
-La actualización automática de la imagen del sistema operativo no está disponible con durabilidad Bronce. Si bien la [Aplicación de orquestación de parches](#patch-orchestration-application ) (pensada solo para clústeres alojados que no sean de Azure) *no se recomienda* para niveles de durabilidad Plata o mayores, es su única opción para automatizar las actualizaciones de Windows con respecto a la actualización de dominios de Service Fabric.
-
-> [!IMPORTANT]
-> Las actualizaciones de VM, donde "Windows Update" aplica las revisiones del sistema operativo sin reemplazar el disco de este, no se admiten en Azure Service Fabric.
-
-Hay dos pasos necesarios para habilitar correctamente la característica con Windows Update deshabilitado en el sistema operativo.
-
-1. Habilitar la actualización automática de la imagen del sistema operativo y deshabilitar la ARM de Windows Update 
-    ```json
-    "virtualMachineProfile": { 
-        "properties": {
-          "upgradePolicy": {
-            "automaticOSUpgradePolicy": {
-              "enableAutomaticOSUpgrade":  true
-            }
-          }
-        }
-      }
-    ```
-    
-    ```json
-    "virtualMachineProfile": { 
-        "osProfile": { 
-            "windowsConfiguration": { 
-                "enableAutomaticUpdates": false 
-            }
-        }
-    }
-    ```
-
-    Azure PowerShell
-    ```azurepowershell-interactive
-    Update-AzVmss -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -AutomaticOSUpgrade $true -EnableAutomaticUpdate $false
-    ``` 
-    
-1. Actualizar el modelo del conjunto de escalado: después de cambiar esta configuración, se necesita restablecer la imagen inicial para actualizar el modelo del conjunto de escalado para que el cambio surta efecto.
-    
-    Azure PowerShell
-    ```azurepowershell-interactive
-    $scaleSet = Get-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName
-    $instances = foreach($vm in $scaleSet)
-    {
-        Set-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -InstanceId $vm.InstanceID -Reimage
-    }
-    ``` 
-    
-Eche un vistazo a las [actualizaciones automáticas de la imagen del sistema operativo de Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) para obtener más instrucciones.
-
-## <a name="patch-orchestration-application"></a>Aplicación de la orquestación de revisiones
+# <a name="use-patch-orchestration-application"></a>Uso de la aplicación de orquestación de revisiones
 
 > [!IMPORTANT]
 > A partir del 30 de abril de 2019, ya no se admite la versión 1.2.* de la aplicación de orquestación de revisiones. Asegúrese de haber actualizado a la última versión.

@@ -10,16 +10,14 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: e0f3464420c5cb429f780999bf5983b2ab142567
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: feb84e408c5f5339c6195b87a3ecc38791eaa90a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102608638"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760938"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Conexión de dispositivos de Azure IoT Edge a una aplicación de Azure IoT Central
-
-*Este artículo se aplica a generadores de soluciones y desarrolladores de dispositivos.*
 
 Azure IoT Edge mueve el análisis en la nube y la lógica de negocios personalizada a los dispositivos para que la organización pueda centrarse en las conclusiones empresariales, en lugar de en la administración de datos. Escale horizontalmente la solución de IoT mediante el empaquetado de la lógica de negocios en contenedores estándar, implemente esos contenedores en los dispositivos y supervíselos desde la nube.
 
@@ -288,4 +286,4 @@ Para obtener más información, consulte [Conexión de dispositivos a través de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si es un desarrollador de dispositivos, el siguiente paso recomendado es aprender a [Desarrollar sus propios módulos de IoT Edge](../../iot-edge/module-development.md).
+El siguiente paso recomendado es aprender a [desarrollar sus propios módulos de IoT Edge](../../iot-edge/module-development.md).

@@ -1,6 +1,6 @@
 ---
 title: Administración entre inquilinos en Azure Security Center | Microsoft Docs
-description: La administración entre inquilinos le permite ver y administrar la posición de seguridad de varios inquilinos en Security Center con Administración de recursos delegados de Azure.
+description: Aprenda a configurar la administración entre inquilinos, con el fin de administrar la posición de seguridad de varios inquilinos en Security Center mediante Azure Lighthouse.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 493a06e85ad6c8260c342cf8167386394835b1c6
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 65ab3d1e6229d3d6fad752b1bc336d0ad749b597
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099495"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788002"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Administración entre inquilinos en Security Center
 
-La administración entre inquilinos le permite ver y administrar la posición de seguridad de varios inquilinos en Security Center con [Administración de recursos delegados de Azure](../lighthouse/concepts/azure-delegated-resource-management.md). Administre varios inquilinos de manera eficaz, desde una sola vista, sin que sea necesario que inicie sesión en el directorio de cada inquilino.
+La administración entre inquilinos permite ver y administrar la posición de seguridad de varios inquilinos en Security Center mediante [Azure Lighthouse](../lighthouse/overview.md). Administre varios inquilinos de manera eficaz, desde una sola vista, sin que sea necesario que inicie sesión en el directorio de cada inquilino.
 
 - Los proveedores de servicios pueden administrar la posición de seguridad de los recursos, para varios clientes, desde su propio inquilino.
 
@@ -30,7 +30,7 @@ La administración entre inquilinos le permite ver y administrar la posición de
 
 ## <a name="set-up-cross-tenant-management"></a>Configuración de la administración entre inquilinos
 
-La administración de recursos delegados de Azure es uno de los componentes clave de Azure Lighthouse. Para configurar la administración entre inquilinos, delegue el acceso a los recursos de los inquilinos administrados a su propio inquilino mediante estas instrucciones de la documentación de Azure Lighthouse: [Administración de recursos delegados de Azure](../lighthouse/concepts/azure-delegated-resource-management.md).
+La [administración de recursos delegados de Azure](../lighthouse/concepts/architecture.md) es uno de los componentes clave de Azure Lighthouse. Para configurar la administración entre inquilinos, delegue el acceso a los recursos de los inquilinos administrados a su propio inquilino mediante estas instrucciones de la documentación de Azure Lighthouse: [Incorporación de un cliente a Azure Lighthouse](../lighthouse/how-to/onboard-customer.md).
 
 
 ## <a name="how-does-cross-tenant-management-work-in-security-center"></a>Funcionamiento de la administración entre inquilinos en Security Center

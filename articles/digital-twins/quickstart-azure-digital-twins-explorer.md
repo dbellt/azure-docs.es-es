@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/27/2021
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: ca50c0221843b4e24a6287177f36608b86a0a1a9
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: d56c4b8fc17dc29578366e3d84e9ba20ca95a9dd
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108075777"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789720"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-azure-digital-twins-explorer"></a>Inicio rápido: Exploración de un escenario de Azure Digital Twins de ejemplo mediante Azure Digital Twins Explorer
 
@@ -41,7 +41,7 @@ Necesitará una suscripción de Azure para completar esta guía de inicio rápid
 
 También necesitará **Node.js** en su equipo. Para obtener la versión más reciente, consulte [Node.js](https://nodejs.org/).
 
-Por último, también deberá descargar el ejemplo que se usará durante el inicio rápido. La aplicación de ejemplo es **Azure Digital Twins Explorer**. Este ejemplo contiene la aplicación que se usa en el inicio rápido para cargar y explorar un escenario de Azure Digital Twins. También contiene los archivos del escenario de ejemplo. Para obtener el ejemplo, vaya a [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Seleccione el botón **Browse code** (Examinar código) debajo del título, que le llevará al repositorio de GitHub del ejemplo. Seleccione el botón **Código** y **Descargar archivo ZIP** para descargar el ejemplo como un archivo *.ZIP*. 
+Por último, también deberá descargar el ejemplo que se usará durante el inicio rápido. La aplicación de ejemplo es **Azure Digital Twins Explorer**. Este ejemplo contiene la aplicación que se usa en el inicio rápido para cargar y explorar un escenario de Azure Digital Twins. También contiene los archivos del escenario de ejemplo. Para obtener el ejemplo, vaya a [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Seleccione el botón **Browse code** (Examinar código) debajo del título, que le llevará al repositorio de GitHub del ejemplo. Seleccione el botón **Código** y **Descargar archivo ZIP** para descargar el ejemplo en forma de archivo .zip. 
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/download-repo-zip.png" alt-text="Captura de pantalla del repositorio digital-twins-explorer en GitHub. El botón Código está seleccionado y se muestra un pequeño cuadro de diálogo en el que el botón Descargar archivo ZIP está resaltado." lightbox="media/quickstart-azure-digital-twins-explorer/download-repo-zip.png":::
 
@@ -155,7 +155,7 @@ Ahora, Azure Digital Twins Explorer carga estos archivos del modelo en la instan
 
 Ahora que se han cargado algunos modelos en la instancia de Azure Digital Twins, puede crear [gemelos digitales](concepts-twins-graph.md) basados en las definiciones de modelo.
 
-Los gemelos digitales representan las entidades reales dentro del entorno empresarial. Pueden ser cosas como sensores de una granja, luces de un coche o, en este inicio rápido, salas de la planta de un edificio. Puede crear muchos gemelos de un tipo de modelo determinado, como varias salas que usen todas el modelo *Room*. Estos gemelos se conectan mediante relaciones en un **grafo de gemelos** que representa todo el entorno.
+Los gemelos digitales representan las entidades reales dentro del entorno empresarial. Pueden ser cosas como sensores de una granja, luces de un coche o, en este inicio rápido, salas de la planta de un edificio. Puede crear muchos gemelos de un tipo de modelo determinado, como varias salas que usen todas el modelo Room. Estos gemelos se conectan mediante relaciones en un **grafo de gemelos** que representa todo el entorno.
 
 En esta sección, cargará los gemelos creados previamente que están conectados en un grafo ya creado. El grafo contiene dos plantas y dos salas, conectadas en el siguiente diseño:
 
@@ -212,7 +212,7 @@ Ahora puede ver el grafo cargado del escenario de ejemplo.
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="Vista del panel Graph View (Vista de grafo) con un grafo de gemelos dentro. Un círculo &quot;floor1&quot; está conectado mediante una flecha &quot;contains&quot; a un círculo &quot;room1&quot;. Un círculo &quot;floor0&quot; está conectado mediante una flecha &quot;contains&quot; a un círculo &quot;room0&quot;.":::
 
-Los círculos ("nodos" del grafo) representan los gemelos digitales. Las líneas representan las relaciones. El gemelo **Floor0** contiene **Room0**, y el gemelo **Floor1** contiene **Room1**.
+Los círculos ("nodos" del grafo) representan los gemelos digitales. Las líneas representan las relaciones. El gemelo Floor0 contiene Room0, y el gemelo Floor1 contiene Room1.
 
 Si usa un mouse, puede arrastrar trozos del grafo para moverlos.
 
@@ -283,7 +283,7 @@ Las propiedades de esta lista son editables. Seleccione el valor de temperatura 
     :::column-end:::
 :::row-end:::
 
-Ahora verá la ventana **Patch Information** (Información de revisión) que muestra el código de revisión que se usó en segundo plano con las [API](how-to-use-apis-sdks.md) de Azure Digital Twins para realizar la actualización. Seleccione **Close** (Cerrar).
+Ahora verá la ventana **Patch Information** (Información de revisión) que muestra el código de revisión que se usó en segundo plano con las [API](concepts-apis-sdks.md) de Azure Digital Twins para realizar la actualización. Seleccione **Close** (Cerrar).
 
 ### <a name="query-to-see-the-result"></a>Ejecución de la consulta para ver el resultado
 

@@ -2,17 +2,17 @@
 title: Creación e implementación de especificaciones de plantillas
 description: Describe cómo crear especificaciones de plantilla y compartirlas con otros usuarios de la organización.
 ms.topic: conceptual
-ms.date: 03/26/2021
+ms.date: 05/04/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 2f4aec6d9fa07edf36dea68a23ba12eb5f72d308
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fa93342fa1f0a2358ca05da5c5510b8510034210
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626091"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736803"
 ---
-# <a name="azure-resource-manager-template-specs-preview"></a>Especificaciones de plantilla de Azure Resource Manager (versión preliminar)
+# <a name="azure-resource-manager-template-specs"></a>Especificaciones de plantilla de Azure Resource Manager
 
 Una especificación de plantilla es un tipo de recurso para almacenar una plantilla de Azure Resource Manager en Azure para su posterior implementación. Este tipo de recurso permite compartir plantillas de ARM con otros usuarios de la organización. Al igual que cualquier otro recurso de Azure, puede usar el control de acceso basado en rol (RBAC) de Azure para compartir la especificación de plantilla.
 
@@ -21,7 +21,7 @@ Una especificación de plantilla es un tipo de recurso para almacenar una planti
 Para implementar la especificación de plantilla, use herramientas estándar de Azure como PowerShell, la CLI de Azure, Azure Portal, REST, y otros SDK y clientes compatibles. Utilice los mismos comandos que utilizaría para la plantilla.
 
 > [!NOTE]
-> Las especificaciones de plantilla se encuentran actualmente en versión preliminar. Para usarlas con Azure PowerShell, debe instalar la [versión 5.0.0 o posterior](/powershell/azure/install-az-ps). Para usarlas con la CLI de Azure, utilice la [versión 2.14.2 o posterior](/cli/azure/install-azure-cli).
+> Para usar especificaciones de plantilla con Azure PowerShell, debe instalar la [versión 5.0.0 o posterior](/powershell/azure/install-az-ps). Para usarlas con la CLI de Azure, utilice la [versión 2.14.2 o posterior](/cli/azure/install-azure-cli).
 
 ## <a name="why-use-template-specs"></a>¿Por qué usar especificaciones de plantilla?
 
