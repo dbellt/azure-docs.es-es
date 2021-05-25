@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 05/06/2021
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: fce963bd9ffdc6f768d7b3de4a9e4870add06136
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf1ca72d7afaace847fb1b8321723f57fbe133f6
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100104253"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108802184"
 ---
 # <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>Procedimiento: Incorporación de roles de aplicación a una aplicación y su recepción en el token
 
@@ -37,15 +37,12 @@ Los roles de aplicación se definen en [Azure Portal](https://portal.azure.com).
 
 Hay dos maneras de declarar los roles de aplicación mediante Azure Portal:
 
-* [Interfaz de usuario de roles de aplicación](#app-roles-ui--preview) | Versión preliminar
-* [Editor de manifiestos de la aplicación](#app-manifest-editor)
+- [Interfaz de usuario de roles de aplicación](#app-roles-ui)
+- [Editor de manifiestos de la aplicación](#app-manifest-editor)
 
 La cantidad de roles que agrega está restringida por los límites de los manifiestos de la aplicación que impone Azure Active Directory. Para obtener información sobre estos límites, consulte la sección [Límites de manifiesto](./reference-app-manifest.md#manifest-limits) de la referencia del [manifiesto de aplicación de Azure Active Directory](reference-app-manifest.md).
 
-### <a name="app-roles-ui--preview"></a>Interfaz de usuario de roles de aplicación | Versión preliminar
-
-> [!IMPORTANT]
-> La característica de interfaz de usuario del portal de roles de aplicación [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
+### <a name="app-roles-ui"></a>Interfaz de usuario de roles de aplicación
 
 Para crear un rol de aplicación con la interfaz de usuario de Azure Portal:
 
@@ -53,20 +50,21 @@ Para crear un rol de aplicación con la interfaz de usuario de Azure Portal:
 1. En el menú superior, seleccione el filtro **Directorio + suscripción** y, a continuación, elija el inquilino de Azure Active Directory que contiene el registro de la aplicación al que desea agregar un rol de aplicación.
 1. Busque y seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Registros de aplicaciones** y, a continuación, seleccione la aplicación en la que desea definir los roles de aplicación.
-1. Seleccione **Roles de aplicación | Versión preliminar** y, a continuación, seleccione **Crear rol de aplicación**.
+1. Seleccione **Roles de aplicación** y, a continuación, seleccione **Crear rol de aplicación**.
 
    :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/app-roles-overview-pane.png" alt-text="Panel de roles de aplicación durante el registro de una aplicación en Azure Portal":::
+
 1. En el panel **Crear rol de aplicación**, escriba la configuración del rol. La tabla que sigue a la imagen describe cada configuración y sus parámetros.
 
-    :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/app-roles-create-context-pane.png" alt-text="Panel contextual de creación de roles de aplicación durante el registro de una aplicación en Azure Portal":::
+   :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/app-roles-create-context-pane.png" alt-text="Panel contextual de creación de roles de aplicación durante el registro de una aplicación en Azure Portal":::
 
-    | Campo | Descripción | Ejemplo |
-    |-------|-------------|---------|
-    | **Nombre para mostrar** | Nombre para mostrar para el rol de aplicación que aparece en las experiencias de asignación de la aplicación y de consentimiento del administrador. Este valor puede incluir espacios. | `Survey Writer` |
-    | **Tipos de miembros permitido** | Especifica si este rol de aplicación puede asignarse a usuarios, aplicaciones o ambos.<br/><br/>Cuando está disponible para `applications`, los roles de aplicación aparecen como permisos de aplicación en la sección **Administrar** > **Permisos de API > Agregar un permiso > Mis API > Elegir una API > Permisos de la aplicación** de un registro de aplicación. | `Users/Groups` |
-    | **Valor** | Especifica el valor de la notificación de roles que debería esperar la aplicación en los tokens de acceso y autenticación. El valor debe coincidir exactamente con la cadena a la que se hace referencia en el código de la aplicación. El valor no puede contener espacios. | `Survey.Create` |
-    | **Descripción** | Una descripción más detallada del rol de aplicación que se muestra durante la asignación de aplicaciones de administración y las experiencias de consentimiento. | `Writers can create surveys.` |
-    | **¿Quiere habilitar este rol de aplicación?** | Especifica si está habilitado el rol de aplicación. Para eliminar un rol de aplicación, desactive esta casilla y aplique el cambio antes de intentar la operación de eliminación. | *Activada* |
+   | Campo                                    | Descripción                                                                                                                                                                                                                                                                                                       | Ejemplo                       |
+   | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+   | **Nombre para mostrar**                         | Nombre para mostrar para el rol de aplicación que aparece en las experiencias de asignación de la aplicación y de consentimiento del administrador. Este valor puede incluir espacios.                                                                                                                                                                                    | `Survey Writer`               |
+   | **Tipos de miembros permitido**                 | Especifica si este rol de aplicación puede asignarse a usuarios, aplicaciones o ambos.<br/><br/>Cuando está disponible para `applications`, los roles de aplicación aparecen como permisos de aplicación en la sección **Administrar** > **Permisos de API > Agregar un permiso > Mis API > Elegir una API > Permisos de la aplicación** de un registro de aplicación. | `Users/Groups`                |
+   | **Valor**                                | Especifica el valor de la notificación de roles que debería esperar la aplicación en los tokens de acceso y autenticación. El valor debe coincidir exactamente con la cadena a la que se hace referencia en el código de la aplicación. El valor no puede contener espacios.                                                                                                          | `Survey.Create`               |
+   | **Descripción**                          | Una descripción más detallada del rol de aplicación que se muestra durante la asignación de aplicaciones de administración y las experiencias de consentimiento.                                                                                                                                                                                                        | `Writers can create surveys.` |
+   | **¿Quiere habilitar este rol de aplicación?** | Especifica si está habilitado el rol de aplicación. Para eliminar un rol de aplicación, desactive esta casilla y aplique el cambio antes de intentar la operación de eliminación.                                                                                                                                                             | _Activada_                     |
 
 1. Seleccione **Aplicar** para guardar los cambios.
 
@@ -154,7 +152,7 @@ Confirme que los usuarios y grupos que agregó aparecen en la lista **Usuarios y
 
 Una vez que haya agregado roles de aplicación en la aplicación, puede asignar un rol de aplicación a una aplicación cliente a través de Azure Portal o mediante programación con [Microsoft Graph](/graph/api/user-post-approleassignments).
 
-Cuando asigna roles de aplicación a una aplicación, crea *permisos de aplicación*. Los permisos de aplicación se suelen usar en aplicaciones de demonio o servicios de back-end que necesitan autenticarse y hacer llamadas API autorizadas como ellos mismos, sin la interacción de un usuario.
+Cuando asigna roles de aplicación a una aplicación, crea _permisos de aplicación_. Los permisos de aplicación se suelen usar en aplicaciones de demonio o servicios de back-end que necesitan autenticarse y hacer llamadas API autorizadas como ellos mismos, sin la interacción de un usuario.
 
 Para asignar roles de aplicación a una aplicación mediante Azure Portal:
 
@@ -172,7 +170,7 @@ Los roles que acaba de agregar debe aparecer en el panel **Permisos de API** del
 
 #### <a name="grant-admin-consent"></a>Concesión de consentimiento del administrador
 
-Dado que se trata de *permisos de aplicación* y no de permisos delegados, un administrador debe dar su consentimiento para usar los roles de aplicación asignados a la aplicación.
+Dado que se trata de _permisos de aplicación_ y no de permisos delegados, un administrador debe dar su consentimiento para usar los roles de aplicación asignados a la aplicación.
 
 1. En el panel **Permisos de API** del registro de la aplicación, seleccione **Conceder consentimiento del administrador para \<tenant name\>** .
 1. Seleccione **Sí** cuando se le pida conceder consentimiento para los permisos solicitados.
@@ -189,11 +187,11 @@ Para obtener información sobre cómo agregar autorización a la API web, consul
 
 Si bien puede usar roles de aplicación o grupos para la autorización, las diferencias clave entre ambos pueden influir en la opción que decida usar para el escenario en cuestión.
 
-| Roles de aplicación                                                                          | Grupos                                                      |
-|------------------------------------------------------------------------------------|-------------------------------------------------------------|
+| Roles de aplicación                                                                                                    | Grupos                                                      |
+| ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------- |
 | Son específicos de una aplicación y se definen en el registro de la aplicación. Se mueven con la aplicación. | No son específicos de una aplicación, sino de un inquilino de Azure AD. |
-| Los roles de aplicación se quitan cuando se quita el registro de la aplicación.                      | Los grupos permanecen intactos incluso si se quita la aplicación.            |
-| Se proporcionan en la notificación `roles`.                                                     | Se proporcionan en la notificación `groups`.                                 |
+| Los roles de aplicación se quitan cuando se quita el registro de la aplicación.                                                | Los grupos permanecen intactos incluso si se quita la aplicación.            |
+| Se proporcionan en la notificación `roles`.                                                                               | Se proporcionan en la notificación `groups`.                                 |
 
 Los desarrolladores pueden usar los roles de aplicación para controlar si un usuario puede iniciar sesión en una aplicación o si una aplicación puede obtener un token de acceso para una API web. Para extender este control de seguridad a los grupos, los desarrolladores y administradores también pueden asignar grupos de seguridad a los roles de aplicación.
 
@@ -203,12 +201,12 @@ Los desarrolladores prefieren los roles de aplicación cuando quieren describir 
 
 Obtenga más información sobre los roles de aplicación en los recursos siguientes.
 
-* Ejemplos de código en GitHub
-  * [Incorporación de autorización mediante grupos y notificaciones de grupos a una aplicación web de ASP.NET Core](https://aka.ms/groupssample)
-  * [Artículo sobre Llamada a una API web de .NET Core desde una aplicación de página única (SPA) de Angular y uso de roles de aplicación y grupos de seguridad](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups/blob/master/README.md)
-* Documentación de referencia
-  * [Manifiesto de la aplicación de Azure AD](./reference-app-manifest.md)
-  * [Tokens de acceso de Azure AD](access-tokens.md)
-  * [Tokens de identificador de Azure AD](id-tokens.md)
-  * [Proporcionar notificaciones opcionales a la aplicación](active-directory-optional-claims.md)
-* Vídeo: [Implementación de la autorización en las aplicaciones con la plataforma de identidad de Microsoft](https://www.youtube.com/watch?v=LRoc-na27l0) (1:01:15)
+- Ejemplos de código en GitHub
+  - [Incorporación de autorización mediante grupos y notificaciones de grupos a una aplicación web de ASP.NET Core](https://aka.ms/groupssample)
+  - [Artículo sobre Llamada a una API web de .NET Core desde una aplicación de página única (SPA) de Angular y uso de roles de aplicación y grupos de seguridad](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups/blob/master/README.md)
+- Documentación de referencia
+  - [Manifiesto de la aplicación de Azure AD](./reference-app-manifest.md)
+  - [Tokens de acceso de Azure AD](access-tokens.md)
+  - [Tokens de identificador de Azure AD](id-tokens.md)
+  - [Proporcionar notificaciones opcionales a la aplicación](active-directory-optional-claims.md)
+- Vídeo: [Implementación de la autorización en las aplicaciones con la plataforma de identidad de Microsoft](https://www.youtube.com/watch?v=LRoc-na27l0) (1:01:15)

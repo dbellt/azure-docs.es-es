@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 500833d1bb4fc492942c08239bd488c2d2c16d30
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: d0fdc9e322d2aec76b04c96a75e727b84f95cb10
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107484326"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770738"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo IoT Edge de nivel inferior a una puerta de enlace Azure IoT Edge
 
@@ -87,6 +87,11 @@ El comando `create` incluye parámetros para agregar dispositivos secundarios y 
 Los comandos adicionales de identidades de dispositivos, incluidos `add-children`, `list-children` y `remove-children`, o `get-parent` y `set-parent`, permiten administrar las relaciones de elementos primarios y secundarios para los dispositivos existentes.
 
 ---
+
+>[!NOTE]
+>Si desea establecer relaciones entre elementos primarios y secundarios mediante programación, puede usar el [SDK de servicios de IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) de C#, Java o Node.js.
+>
+>Este es un [ejemplo de asignación de dispositivos secundarios](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs) mediante el SDK de C#. La tarea `RegistryManager_AddAndRemoveDeviceWithScope()` muestra cómo crear mediante programación una jerarquía de tres capas. Un dispositivo IoT Edge está en la capa uno, como elemento primario. Otro dispositivo IoT Edge está en la capa dos, que sirve como elemento secundario y primario. Por último, un dispositivo IoT está en la capa tres, como el dispositivo secundario de la capa más baja.
 
 ## <a name="prepare-certificates"></a>Preparar certificados
 

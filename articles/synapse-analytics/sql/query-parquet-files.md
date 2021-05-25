@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 72bf8e76217e8a3bcecd381d8d61815c539dd196
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: d9025038727c6f71022f30f80ee67db6ccc5289b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107209594"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108740328"
 ---
 # <a name="query-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Consulta de archivos de Parquet mediante un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -41,6 +41,8 @@ Asegúrese de que puede tener acceso a este archivo. Si el archivo está protegi
 > Asegúrese de usar alguna intercalación de base de datos UTF-8 (por ejemplo, `Latin1_General_100_BIN2_UTF8`) porque los valores de cadena de los archivos de Parquet se codifican como UTF-8.
 > Una falta de coincidencia entre la codificación de texto del archivo de Parquet y la intercalación puede producir errores de conversión inesperados.
 > Puede cambiar fácilmente la intercalación predeterminada de la base de datos actual mediante la siguiente instrucción T-SQL: `alter database current collate Latin1_General_100_BIN2_UTF8`.
+
+Si usa una intercalación _BIN2, se obtiene un aumento del rendimiento adicional. La intercalación BIN2 es compatible con las reglas de ordenación de cadenas de Parquet, por lo que se pueden eliminar algunas partes de los archivos Parquet que no contengan los datos necesarios en las consultas (eliminación de segmentos de archivos o columnas). Si usa una intercalación que no es BIN2, todos los datos del relleno de Parquet se cargarán en Synapse SQL con el filtrado que se está produciendo dentro del proceso de SQL, lo que podría ser mucho más lento que con la eliminación de archivos de los datos innecesarios. La intercalación BIN2 tiene optimización de rendimiento adicional que solo funciona para Parquet y CosmosDB. La desventaja es que se pierden reglas de comparación específicas, como la no distinción entre mayúsculas y minúsculas.
 
 ### <a name="data-source-usage"></a>Uso del origen de datos
 

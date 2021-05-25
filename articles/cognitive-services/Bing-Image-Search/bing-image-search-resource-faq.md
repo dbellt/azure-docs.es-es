@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: e8502b1d01e0f3fbf5d42e924511cc978690bce4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e62aa434efade2cb1fa3d82265eb44d523dd869
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96342199"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773366"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Preguntas más frecuentes (P+F) sobre Bing Image Search API
 
@@ -24,7 +24,7 @@ ms.locfileid: "96342199"
 > El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
 > Puede encontrar instrucciones sobre la migración en [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-Encuentre respuestas a preguntas habituales sobre conceptos, código y escenarios relacionados con Bing Image Search API para Microsoft Cognitive Services en Azure.
+Encuentre respuestas a preguntas habituales sobre conceptos, código y escenarios relacionados con Bing Image Search API para Azure Cognitive Services en Azure.
 
 ## <a name="response-headers-in-javascript"></a>Encabezados de respuesta en JavaScript
 
@@ -69,7 +69,7 @@ Este enfoque también protege la clave de API de una exposición pública, ya qu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-¿Es su pregunta acerca de una característica o funcionalidad que falta? Considere la posibilidad de solicitarla o votarla en nuestro [sitio web de User Voice](https://cognitive.uservoice.com/forums/555907-bing-search).
+¿Es su pregunta acerca de una característica o funcionalidad que falta? Considere la posibilidad de solicitarla o votarla mediante la [herramienta de comentarios](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749).
 
 ## <a name="see-also"></a>Consulte también
 

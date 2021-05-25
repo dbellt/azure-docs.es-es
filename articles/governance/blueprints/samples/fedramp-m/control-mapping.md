@@ -3,12 +3,12 @@ title: 'Ejemplo de plano técnico de FedRAMP moderado: controles'
 description: Ejemplo de asignación de control del plano técnico de FedRAMP moderado. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 7c8b2524958be1a4b5e49ff870c7c01a8f89f305
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 27db1fdc8fc6f1c51f2cf708fe2e5cfc8a2c4026
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386676"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757302"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>Ejemplo de asignación de control del plano técnico de FedRAMP moderado
 
@@ -102,19 +102,19 @@ Estas definiciones de directiva auditan y aplican la implementación del agente 
 
 ## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>Funcionalidad mínima CM-7 (2) | Evitar la ejecución de programas
 
-El control de aplicaciones adaptable en Azure Security Center es una solución de filtrado de aplicaciones de un extremo a otro, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ejecutarse en modo de aplicación que prohíbe que la aplicación no autorizada se ejecute. Este plano técnico asigna una definición de Azure Policy que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero esta aún no se ha configurado.
+El control de aplicaciones adaptable en Azure Security Center es una solución de filtrado de aplicaciones de un extremo a otro, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ejecutarse en modo de aplicación que prohíbe que la aplicación no autorizada se ejecute. Este plano técnico asigna una definición de Azure Policy que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero aún no se ha configurado.
 
 - Deben habilitarse los controles de aplicaciones adaptables en las máquinas virtuales
 
 ## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>Funcionalidad mínima CM-7 (5) | Creación de listas de software permitido o autorizado
 
-El control de aplicaciones adaptable en Azure Security Center es una solución de filtrado de aplicaciones de un extremo a otro, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones le permite crear listas de aplicaciones aprobadas para las máquinas virtuales. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero esta aún no se ha configurado.
+El control de aplicaciones adaptable en Azure Security Center es una solución de filtrado de aplicaciones de un extremo a otro, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones le permite crear listas de aplicaciones aprobadas para las máquinas virtuales. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero aún no se ha configurado.
 
 - Deben habilitarse los controles de aplicaciones adaptables en las máquinas virtuales
 
 ## <a name="cm-11-user-installed-software"></a>Software instalado por el usuario CM-11
 
-El control de aplicaciones adaptable en Azure Security Center es una solución de filtrado de aplicaciones de un extremo a otro, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ayudarle a aplicar y supervisar el cumplimiento con las directivas de restricción de software. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero esta aún no se ha configurado.
+El control de aplicaciones adaptable en Azure Security Center es una solución de filtrado de aplicaciones de un extremo a otro, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ayudarle a aplicar y supervisar el cumplimiento con las directivas de restricción de software. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero aún no se ha configurado.
 
 - Deben habilitarse los controles de aplicaciones adaptables en las máquinas virtuales
 
@@ -180,7 +180,7 @@ Azure Security Center proporciona funcionalidades de informes que permiten tener
 
 ## <a name="sc-5-denial-of-service-protection"></a>Protección ante la denegación de servicio SC-5
 
-El nivel estándar de denegación de servicio distribuido (DDoS) de Azure proporciona características adicionales y funcionalidades de mitigación en el nivel de servicio básico. Estas características adicionales incluyen la integración de Azure Monitor y la capacidad de revisar los informes de mitigación posteriores al ataque. Este proyecto asigna una definición de [Azure Policy](../../../policy/overview.md) que audita si está habilitado el nivel estándar de DDoS. Conocer la diferencia de capacidad entre los niveles de servicio puede ayudarle a seleccionar la mejor solución para abordar la denegación de protecciones de servicio para el entorno de Azure.
+El nivel estándar de protección ante la denegación de servicio distribuido (DDoS) de Azure proporciona características adicionales y funcionalidades de mitigación con respecto al nivel de servicio básico. Estas características adicionales incluyen la integración de Azure Monitor y la capacidad de revisar los informes de mitigación posteriores al ataque. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que audita si está habilitado el nivel estándar de DDoS. Conocer la diferencia de capacidad entre los niveles de servicio puede ayudarle a seleccionar la mejor solución para abordar la denegación de protecciones de servicio para el entorno de Azure.
 
 - Se debe habilitar DDoS Protection estándar
 
@@ -276,7 +276,7 @@ Este proyecto le ayuda a supervisar el sistema de auditoría y cumplimiento de s
 - Implementación de la detección de amenazas en servidores SQL Server.
 
 > [!NOTE]
-> La disponibilidad de definiciones específicas de Azure Policy puede variar tanto en Azure Government como en otras nubes nacionales. 
+> La disponibilidad de definiciones específicas de Azure Policy puede variar tanto en Azure Government como en otras nubes nacionales.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

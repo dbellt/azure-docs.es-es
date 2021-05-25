@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8bbd56499c9b62248662fc5e8df0d5b3e1b672d4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4b6f991c9620703d83906a44965434d3ccffb07c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102504174"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769730"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Grupos de disponibilidad Always On para SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,6 +35,8 @@ En el diagrama siguiente se muestra un grupo de disponibilidad para SQL Server 
 
 ![Grupo de disponibilidad](./media/availability-group-overview/00-EndstateSampleNoELB.png)
 
+> [!NOTE]
+> Ahora es posible migrar mediante lift and shift la solución de grupo de disponibilidad a SQL Server en máquinas virtuales de Azure mediante Azure Migrate. Para más información, consulte [Migración del grupo de disponibilidad](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md). 
 
 ## <a name="vm-redundancy"></a>Redundancia de máquina virtual 
 

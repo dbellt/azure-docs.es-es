@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 03/02/2021
+ms.date: 05/05/2021
 ms.topic: how-to
-ms.openlocfilehash: 329df78bb5829695b95fcca5b7ed7e1439ced821
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 85a5c9f08304c98b544fef2ccb7818d96613b3d4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688372"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748140"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Creación del controlador de datos de Azure Arc
 
@@ -57,7 +57,7 @@ Independientemente de la opción que elija, durante el proceso de creación tend
 - **Modo de conectividad**: el modo de conectividad determina el grado de conectividad desde el entorno de los Servicios de datos habilitados para Azure Arc a Azure. La versión preliminar solo admite actualmente los modos de conexión directa e indirecta.  Para más información, consulte[Modo de conectividad](./connectivity.md). 
 - **Identificador de suscripción de Azure**: GUID de la suscripción de Azure en el que desea que se cree el recurso del controlador de datos en Azure.
 - **Nombre del grupo de recursos de Azure**: nombre del grupo de recursos en el que desea que se cree el recurso del controlador de datos en Azure.
-- **Ubicación de Azure**: ubicación de Azure en la que se almacenarán los metadatos del recurso del controlador de datos en Azure. Para obtener una lista de las regiones disponibles, consulte [Infraestructura global de Azure/Productos por región](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
+- **Ubicación de Azure**: ubicación de Azure en la que se almacenarán los metadatos del recurso del controlador de datos en Azure. Para obtener una lista de las regiones disponibles, consulte [Infraestructura global de Azure/Productos por región](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc). Los metadatos y la información de facturación sobre los recursos de Azure administrados por el controlador de datos que va a implementar solo se almacenarán en la ubicación de Azure que especifique como parámetro de ubicación. Si va a implementar en el modo conectado directamente, el parámetro de ubicación para el controlador de datos será el mismo que la ubicación del recurso de ubicación personalizado de destino.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

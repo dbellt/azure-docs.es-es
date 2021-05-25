@@ -41,7 +41,7 @@
             - name: Introducción a la escalabilidad automática
               href: provision-throughput-autoscale.md
             - name: Preguntas frecuentes sobre la escalabilidad automática
-              href: autoscale-faq.md
+              href: autoscale-faq.yml
         - name: Sin servidor
           href: serverless.md
         - name: Elección entre la capacidad de proceso estándar y de escalabilidad automática (manual)
@@ -116,6 +116,8 @@
           href: optimize-dev-test.md
         - name: Optimización del costo con capacidad reservada
           href: cosmos-db-reserved-capacity.md
+        - name: Optimización mediante la limitación de velocidad
+          href: rate-limiting-requests.md
     - name: Introducción a la fuente de cambios
       href: change-feed.md
     - name: Cuadernos de Jupyter Notebook integrados
@@ -139,7 +141,7 @@
         - name: Recursos de Cosmos DB
           expanded: true
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: create-cosmosdb-resources-portal.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -637,21 +639,6 @@
           href: sql-sdk-connection-modes.md
     - name: Guías paso a paso
       items:
-        - name: Administración de recursos de Azure Cosmos DB
-          items:
-            - name: Administración de una cuenta de Azure Cosmos
-              href: how-to-manage-database-account.md
-            - name: Usar PowerShell
-              href: manage-with-powershell.md
-            - name: Uso de la CLI de Azure
-              href: manage-with-cli.md
-            - name: Uso de plantillas de Resource Manager
-              href: manage-with-templates.md
-              displayName: ARM
-            - name: Movimiento entre regiones
-              href: how-to-move-regions.md
-            - name: Prevención de cambios o eliminaciones
-              href: resource-locks.md
         - name: Distribución global
           items:
             - name: Configuración de escrituras en varias regiones
@@ -924,7 +911,7 @@
             - name: "Biblioteca Bulk Executor para Java, versión\_2"
               href: sql-api-sdk-bulk-executor-java.md
         - name: Azure CLI
-          href: /cli/azure/cosmosdb
+          href: /cli/azure/azure-cli-reference-for-cosmos-db
         - name: Node.js
           href: sql-api-sdk-node.md
         - name: Python
@@ -1055,6 +1042,8 @@
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Plantilla de Resource Manager
           href: /azure/templates/microsoft.documentdb/allversions
+        - name: Azure CLI
+          href: /cli/azure/azure-cli-reference-for-cosmos-db
 - name: MongoDB API
   items:
     - name: Información general
@@ -1110,7 +1099,7 @@
         - name: "Versión de API\_3.2"
           href: mongodb-feature-support.md
         - name: Preguntas más frecuentes
-          href: mongodb-api-faq.md
+          href: mongodb-api-faq.yml
         - name: Asignación de niveles de coherencia
           href: mongodb-consistency.md
     - name: Guías paso a paso
@@ -1187,6 +1176,8 @@
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Plantilla de Resource Manager
           href: /azure/templates/microsoft.documentdb/allversions
+        - name: Azure CLI
+          href: /cli/azure/azure-cli-reference-for-cosmos-db
 - name: API de Gremlin
   displayName: 'graph, graph database'
   items:
@@ -1217,7 +1208,7 @@
     - name: Conceptos
       items:
         - name: Preguntas más frecuentes
-          href: gremlin-api-faq.md
+          href: gremlin-api-faq.yml
         - name: Encabezados de respuesta
           href: gremlin-headers.md
         - name: Límites
@@ -1267,6 +1258,8 @@
           href: /rest/api/cosmos-db-resource-provider/2021-03-15/gremlinresources
         - name: Plantilla de Resource Manager
           href: /azure/templates/microsoft.documentdb/allversions
+        - name: Azure CLI
+          href: /cli/azure/azure-cli-reference-for-cosmos-db
 - name: Table API
   items:
     - name: Información general
@@ -1316,7 +1309,7 @@
     - name: Conceptos
       items:
         - name: Preguntas más frecuentes
-          href: table-api-faq.md
+          href: table-api-faq.yml
     - name: Guías paso a paso
       items:
         - name: Compilación de aplicaciones con Table API
@@ -1351,8 +1344,25 @@
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: API de REST de Table Storage
           href: /rest/api/storageservices/table-service-rest-api
+        - name: Azure CLI
+          href: /cli/azure/azure-cli-reference-for-cosmos-db
 - name: Guías paso a paso
   items:
+    - name: Administración de recursos de Azure Cosmos DB
+      items:
+        - name: Administración de una cuenta de Azure Cosmos
+          href: how-to-manage-database-account.md
+        - name: Usar PowerShell
+          href: manage-with-powershell.md
+        - name: Uso de la CLI de Azure
+          href: manage-with-cli.md
+        - name: Uso de plantillas de Resource Manager
+          href: manage-with-templates.md
+          displayName: ARM
+        - name: Movimiento entre regiones
+          href: how-to-move-regions.md
+        - name: Prevención de cambios o eliminaciones
+          href: resource-locks.md
     - name: Uso de herramientas de desarrollo
       items:
         - name: Desarrollo local con un emulador
@@ -1471,7 +1481,7 @@
     - name: Área de juegos de SQL
       href: 'https://www.documentdb.com/sql/demo'
     - name: Preguntas más frecuentes
-      href: faq.md
+      href: faq.yml
     - name: Notas del producto
       href: whitepapers.md
     - name: Asociados

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 10f01fd5943928eda1f1e4518f30c8e3ccf56b46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 608f9bb63082be132769964a14142996eb9b3564
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98737802"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755574"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparación de máquinas virtuales para una FCI (SQL Server en máquinas virtuales de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -26,6 +26,9 @@ ms.locfileid: "98737802"
 En este artículo se describe cómo preparar máquinas virtuales (VM) de Azure para utilizarlas con una instancia de clúster de conmutación por error (FCI) de SQL Server. La configuración varía en función de la solución de almacenamiento de una FCI, por lo que debe asegurarse de que elige la configuración correcta para su entorno y su empresa. 
 
 Para más información, consulte la información general de [FCI con SQL Server en VM de Azure](failover-cluster-instance-overview.md) y [Procedimientos recomendados de clúster](hadr-cluster-best-practices.md). 
+
+> [!NOTE]
+> Ahora es posible migrar mediante lift and shift la solución de instancia de clúster de conmutación por error a SQL Server en máquinas virtuales de Azure mediante Azure Migrate. Consulte [Migración de una instancia de clúster de conmutación por error](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) para más información. 
 
 ## <a name="prerequisites"></a>Requisitos previos 
 

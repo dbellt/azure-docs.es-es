@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo detectar y administrar cuentas de 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
@@ -13,22 +13,25 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/21/2021
+ms.date: 05/06/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ea62a8d602cc472269b52c230529aa3f9b86ed4
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 1c15bc161874d9c09423fe4070958538ec2148ca
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107535107"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795103"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>Instrucciones: Administración de cuentas de usuario inactivas en Azure AD
 
 En entornos de gran tamaño, las cuentas de usuario no siempre se eliminan cuando los empleados salen de la organización. Como administrador de TI, quiere detectar y administrar estas cuentas de usuario obsoletas porque representan un riesgo para la seguridad.
 
 En este artículo se explica un método para administrar las cuentas de usuario obsoletas en Azure AD. 
+
+> [!IMPORTANT]
+> Las API de la versión `/beta` de Microsoft Graph están sujetas a cambios. No se admite su uso en aplicaciones de producción. Para determinar si una API está disponible en v1.0, use el selector **Versión**.
 
 ## <a name="what-are-inactive-user-accounts"></a>¿Qué son las cuentas de usuario inactivas?
 
@@ -65,7 +68,7 @@ No.
 
 ### <a name="what-edition-of-azure-ad-do-i-need-to-access-the-property"></a>¿Qué edición de Azure AD debo tener para acceder a la propiedad?
 
-Puede acceder a esta propiedad en todas las ediciones de Azure AD.
+Para acceder a esta propiedad, necesita una edición de Azure Active Directory Prémium.
 
 ### <a name="what-permission-do-i-need-to-read-the-property"></a>¿Qué permisos necesito para leer la propiedad?
 

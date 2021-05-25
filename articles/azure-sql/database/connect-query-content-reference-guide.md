@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/17/2021
-ms.openlocfilehash: 96b52c80fa06be8c157ad39fd65be4e491e0cbe3
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 548d7ee7495d579557cfff89f415298326807338
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107874862"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108803735"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Artículos acerca de la consulta y la conexión a Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -78,6 +78,20 @@ También se recomienda deshabilitar TLS 1.1 y 1.0 en el cliente si debe cumplir 
 
 Puede que los controladores que no son de Microsoft no usen TLS de forma predeterminada. Esto puede influir al conectarse a Azure SQL Database o a Instancia administrada de Azure SQL. Las aplicaciones con controladores insertados quizás no le permitan controlar estas configuraciones de conexión. Se recomienda que examine la seguridad de estos controladores y aplicaciones antes de usarlos en sistemas que interactúan con datos confidenciales.
 
+## <a name="drivers"></a>Controladores
+
+Si desea conectarse a una base de datos de Azure SQL, se recomiendan las siguientes versiones mínimas de las herramientas y los controladores:
+
+| Controlador/Herramienta | Versión |
+| --- | --- |
+|.NET Framework | 4.6.1 o .NET Core |
+|Controlador ODBC| v17 |
+|Controlador PHP| 5.2.0 |
+|Controlador JDBC| 6.4.0 |
+|Controlador de Node.js| 2.1.1 |
+|Controlador de OLEDB| 18.0.2.0 |
+|[SMO](/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) o superior |
+
 ## <a name="libraries"></a>Bibliotecas
 
 Puede usar varias bibliotecas y marcos para conectarse a Azure SQL Database o Instancia administrada de Azure SQL. Vea nuestros [tutoriales de introducción](https://aka.ms/sqldev) para iniciarse rápidamente en los lenguajes de programación como C#, Java, Node.js, PHP y Python. A continuación, compile una aplicación mediante el uso de SQL Server en Linux o Windows o Docker en macOS.
@@ -93,6 +107,8 @@ En la siguiente tabla se enumeran las bibliotecas de conectividad o *controlador
 | Python | Windows, Linux, macOS | [Controlador de Python para SQL Server](/sql/connect/python/python-driver-for-sql-server/) | Opciones de instalación: <br/> \* [pymssql](/sql/connect/python/pymssql/step-1-configure-development-environment-for-pymssql-python-development/) <br/> \* [pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development/) |  [Introducción](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
 | Ruby | Windows, Linux, macOS | [Controlador de Ruby para SQL Server](/sql/connect/ruby/ruby-driver-for-sql-server/) | [Instalación](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development/) | [Introducción](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
 | C++ | Windows, Linux, macOS | [Microsoft ODBC driver for SQL Server](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server/) | [Descargar](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server/) |  
+
+### <a name="data-access-frameworks"></a>Marcos de acceso a datos
 
 En la tabla siguiente se muestran ejemplos de marcos de asignación relacional de objetos (ORM) y marcos web que las aplicaciones cliente pueden utilizar con SQL Server, Azure SQL Database, Instancia administrada de Azure SQL o Azure Synapse Analytics. Los marcos se pueden usar en Linux, Windows o Docker.
 

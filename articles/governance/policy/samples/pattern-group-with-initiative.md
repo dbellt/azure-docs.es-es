@@ -3,12 +3,12 @@ title: 'Patrón: agrupación de definiciones de directiva con iniciativas'
 description: Este patrón de Azure Policy proporciona un ejemplo de cómo agrupar definiciones de directiva en una iniciativa.
 ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 7bbb2efdd27ead942fa0ef48f7785eec8bce9378
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: a2cc89954c34f22d5dba0ecce710a7db152ec665
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106092864"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752352"
 ---
 # <a name="azure-policy-pattern-group-policy-definitions"></a>Patrón de Azure Policy: agrupación de definiciones de directiva
 
@@ -32,7 +32,7 @@ En este ejemplo, **costCenterValue** y **productNameValue** se definen como par�
 
 #### <a name="includes-policy-definitions"></a>Definiciones de directiva incluidas
 
-Cada definición de directiva incluida debe proporcionar el valor de **policyDefinitionId** y una matriz **parameters** si la definición de directiva acepta parámetros. En el siguiente fragmento de código, la definición de directiva incluida toma dos parámetros: **tagName** y **tagValue**. **tagName** se define con un literal, pero **tagValue** usa el parámetro **costCenterValue** definido por la iniciativa. Este paso de los valores mejora la reutilización.
+Cada definición de directiva incluida debe proporcionar el valor de **policyDefinitionId** y una matriz **parameters** si la definición de directiva acepta parámetros. En el siguiente fragmento de código, la definición de directiva incluida usa dos parámetros: **tagName** y **tagValue**. **tagName** se define con un literal, pero **tagValue** usa el parámetro **costCenterValue** definido por la iniciativa. Este paso de los valores mejora la reutilización.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-group-with-initiative.json" range="30-40":::
 

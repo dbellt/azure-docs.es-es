@@ -7,12 +7,12 @@ author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: 2e10177de1a40bf7ece7acde43a91686bd4c98e5
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: e023eacd173ce23e3f88fa97f8c0127132c953ea
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107306456"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108744540"
 ---
 # <a name="ncast4_v3-series"></a>Serie NCasT4_v3 
 
@@ -28,7 +28,7 @@ Las máquinas virtuales de la serie NCas T4_v3 usan la tecnología de las GPU [N
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
-[Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): admitidos ([en versión preliminar](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
 Interconexión de NVIDIA NVLink: No compatible<br>
 <br>
 
