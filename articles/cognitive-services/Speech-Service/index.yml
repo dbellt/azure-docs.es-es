@@ -89,7 +89,7 @@ conceptualContent:
       links:
         - itemType: overview
           text: Acerca de Palabra clave personalizada
-          url: custom-keyword-overview.md
+          url: keyword-recognition-overview.md
         - itemType: quickstart
           text: Introducción a Palabra clave personalizada
           url: custom-keyword-basics.md

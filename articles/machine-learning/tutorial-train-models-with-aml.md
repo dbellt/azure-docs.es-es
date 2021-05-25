@@ -8,17 +8,16 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 09/28/2020
+ms.date: 04/26/2021
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 6c5691759983d8ec40598834e5dbcd507ccf00cf
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 41f7870bdab36de69251bb1274472ec16d05d0a5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816879"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773870"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutorial: Entrenamiento de modelos de clasificación de imágenes con los datos MNIST y scikit-learn 
-
 
 En este tutorial, entrenará un modelo de aprendizaje automático en los recursos de proceso remotos. Usará el flujo de trabajo de entrenamiento e implementación de Azure Machine Learning en un cuaderno de Jupyter Notebook en Python.  A continuación, puede utilizar el cuaderno como plantilla para entrenar su propio modelo de Machine Learning con sus propios datos. Este tutorial es la **primera de dos partes**.  
 
@@ -41,15 +40,56 @@ Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Complete el [Tutorial: Comience a crear su primer experimento de Azure ML ](tutorial-1st-experiment-sdk-setup.md) para:
-    * Crear un área de trabajo
-    * Clone el cuaderno de tutoriales en su carpeta en el área de trabajo.
-    * Cree una instancia de proceso basada en la nube.
+* Complete el artículo de [inicio rápido: introducción al servicio Azure Machine Learning](quickstart-create-resources.md) para:
+    * Cree un área de trabajo.
+    * Crear una instancia de proceso basada en la nube para utilizarla en el entorno de desarrollo.
+    * Crear un clúster de proceso basado en la nube y utilizarlo para entrenar el modelo.
 
-* En la carpeta *tutorials/image-classification-mnist-data* clonada, abra el cuaderno *img-classification-part1-training.ipynb*. 
+## <a name="run-a-notebook-from-your-workspace"></a><a name="azure"></a>Ejecución de un cuaderno desde el área de trabajo
+
+Azure Machine Learning incluye un servidor de cuadernos en la nube del área de trabajo para obtener una experiencia sin instalación y configurada previamente. Si prefiere tener control sobre su entorno, los paquetes y las dependencias, use [su propio entorno](how-to-configure-environment.md#local).
+
+ Siga este vídeo o use los pasos detallados para clonar y ejecutar el cuaderno del tutorial desde el área de trabajo.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
+
+### <a name="clone-a-notebook-folder"></a><a name="clone"></a> Clonación de una carpeta de cuaderno
+
+Complete la configuración del experimento siguiente y ejecute los pasos de Azure Machine Learning Studio. Esta interfaz consolidada incluye herramientas de aprendizaje automático para realizar escenarios de ciencia de datos para los profesionales de ciencia de datos con conocimientos de todos los niveles.
+
+1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com/).
+
+1. Seleccione la suscripción y el área de trabajo que ha creado.
+
+1. Seleccione **Notebooks** en la parte izquierda.
+
+1. Seleccione la pestaña **Ejemplos** en la parte superior.
+
+1. Abra la carpeta **Python**.
+
+1. Abra la carpeta con un número de versión. Este número representa la versión actual del SDK de Python.
+
+1. Seleccione el botón **"..."** a la derecha de la carpeta **tutorials** (tutoriales) y **Clone** (Clonar).
+
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Captura de pantalla que muestra la carpeta tutorials > Clone.":::
+
+1. En una lista de carpetas se muestran los usuarios que acceden al área de trabajo. Seleccione la carpeta donde se va a clonar la carpeta **tutorials**.
+
+### <a name="open-the-cloned-notebook"></a><a name="open"></a> Apertura del cuaderno clonado
+
+1. Abra la carpeta **tutorials** que se acaba de cerrar en la sección **User files** (Archivos de usuario).
+
+    > [!IMPORTANT]
+    > Verá los cuadernos en la carpeta **samples**, pero no puede ejecutar cuadernos desde aquí. Para ejecutar un cuaderno, asegúrese de que abre la versión clonada de este en la sección **User Files** (Archivos de usuario).
+    
+1. Seleccione el archivo **img-classification-part1-training.ipynb** en la carpeta **tutorials/image-classification-mnist-data**.
+
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Captura de pantalla que muestra la carpeta tutorials abierta.":::
+
+1. En la barra superior, seleccione la instancia de proceso que desee usar para ejecutar el cuaderno.
 
 
-El tutorial y el archivo **utils.py** que lo acompaña también está disponible en [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) si desea usarlo en su propio [entorno local](how-to-configure-environment.md#local). Ejecute `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` para instalar las dependencias para este tutorial.
+El tutorial y el archivo **utils.py** que lo acompaña también está disponible en [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) si desea usarlo en su propio [entorno local](how-to-configure-environment.md#local). Si no va a utilizar la instancia de proceso, ejecute `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` para instalar las dependencias de este tutorial. 
 
 > [!Important]
 > El resto de este artículo contiene el mismo contenido que se ve en el cuaderno.  
@@ -110,9 +150,12 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 Al usar Proceso de Azure Machine Learning, un servicio administrado, los científicos de datos pueden entrenar modelos de aprendizaje automático en clústeres de máquinas virtuales de Azure, entre las que se incluyen las que tienen compatibilidad con GPU. En este tutorial, va a crear una instancia de Proceso de Azure Machine Learning como entorno de aprendizaje. Posteriormente en el tutorial enviará el código de Python que se ejecutará en esta máquina virtual. 
 
-El código siguiente crea los clústeres de proceso automáticamente si no existen aún en el área de trabajo. Configura un clúster que se reducirá verticalmente a 0 cuando no esté en uso y se puede escalar verticalmente hasta un máximo de 4 nodos. 
+El código siguiente crea los clústeres de proceso automáticamente si no existen aún en el área de trabajo. Configura un clúster que se reducirá verticalmente a 0 cuando no esté en uso y se puede escalar verticalmente hasta un máximo de 4 nodos.
 
- **La creación del destino de proceso tarda aproximadamente 5 minutos.** Si el recurso de proceso ya está en el área de trabajo, el código lo usa y omite el proceso de creación.
+ **La creación del destino de proceso tarda aproximadamente 5 minutos.** Si el recurso de proceso ya está en el área de trabajo, el código lo usa y omite el proceso de creación.  
+
+> [!TIP]
+> Si creó un clúster de proceso en el artículo de inicio rápido, asegúrese de que el objeto `compute_name` del código siguiente utiliza el mismo nombre.
 
 ```python
 from azureml.core.compute import AmlCompute
