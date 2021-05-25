@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 05/05/2021
 ms.author: duau
-ms.openlocfilehash: b133f1cce4af07d8d5e50e04670741fcf7c936a4
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: b659fee979fd936a85c0cd5a711390594bbe79b1
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097081"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795781"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Creación de un recurso de ExpressRoute Direct mediante Azure Portal
 
@@ -81,7 +81,13 @@ Una vez inscrito, compruebe que el proveedor de recursos **Microsoft.Network** e
 
 ## <a name="generate-the-letter-of-authorization-loa"></a><a name="authorization"></a>Generación de la Carta de autorización (LOA)
 
-En este momento, la generación de la carta de autorización no está disponible en el portal. Use **[Azure PowerShell](expressroute-howto-erdirect.md#authorization)** para obtener la carta de autorización.
+1. Vaya a la página de información general del recurso ExpressRoute Direct y seleccione **Generar Carta de autorización**.
+
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/overview.png" alt-text="Captura de pantalla del botón Generar Carta de autorización en la página de información general":::
+
+1. Escriba el nombre de la empresa y seleccione **Descargar** para generar la carta.
+
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/letter-of-authorization-page.png" alt-text="Captura de pantalla de la página de la carta de autorización":::
 
 ## <a name="change-admin-state-of-links"></a><a name="state"></a>Cambiar el estado de administración de los vínculos
 

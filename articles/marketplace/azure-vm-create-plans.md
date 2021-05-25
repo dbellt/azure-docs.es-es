@@ -6,15 +6,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 04/01/2021
-ms.openlocfilehash: b1111caf2eaab1114371cbfed1e929afcff20898
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.date: 05/06/2021
+ms.openlocfilehash: b6efd4fbb96c519508d621983eee7619d18efc38
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219372"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656135"
 ---
-# <a name="how-to-create-plans-for-a-virtual-machine-offer"></a>Procedimientos para crear planes para una oferta de máquina virtual
+# <a name="create-plans-for-a-virtual-machine-offer"></a>Creación de planes para una oferta de máquina virtual
 
 En la página **Información general del plan** (selecciónela en el menú de navegación de la izquierda en el Centro de partners), puede proporcionar diversas opciones de plan dentro de la misma oferta. Una oferta requiere al menos un plan (anteriormente denominada una SKU), que puede variar en términos de audiencia de monetización, regiones de Azure, características o imágenes de máquina virtual.
 
@@ -28,7 +28,7 @@ Después de crear los planes, la pestaña **Plan overview** (Información genera
 - Estado de publicación actual
 - Acciones disponibles
 
-Las acciones disponibles en el panel **Información general del plan** varían en función del estado actual del plan.
+Las acciones disponibles en este panel varían en función del estado actual del plan.
 
 - Si el estado del plan es un borrador, seleccione **Eliminar borrador**.
 - Si el estado del plan se publica en directo, seleccione **Stop sell plan** (Detener el plan de venta) o **Sync private audience** (Sincronizar audiencia privada).
@@ -49,13 +49,6 @@ Seleccione **Crear**. Se abrirá la página **Configuración del plan**.
 ## <a name="plan-setup"></a>Configuración del plan
 
 Establezca la configuración de alto nivel para el tipo de plan, especifique si reutiliza la configuración técnica de otro plan e identifique las regiones de Azure en las que debe estar disponible el plan. Las selecciones que se realicen aquí afectarán a los campos mostrados en otros paneles para el mismo plan.
-
-### <a name="reuse-technical-configuration"></a>Reutilización de la configuración técnica
-
-Si tiene más de un plan del mismo tipo y los paquetes son idénticos entre ellos, puede seleccionar **This plan reuses technical configuration from another plan** (Este plan reutiliza la configuración técnica de otro plan). Esta opción le permite seleccionar uno de los otros planes del mismo tipo para esta oferta y reutilizar su configuración técnica.
-
-> [!NOTE]
-> Cuando reutilice la configuración técnica de otro plan, toda la pestaña **Configuración técnica** desaparecerá de este plan. Los detalles de configuración técnica del otro plan, incluidas las actualizaciones que realice en el futuro, se usarán también para este plan. Esta configuración no se puede modificar una vez publicado el plan.
 
 ### <a name="azure-regions"></a>Regiones de Azure
 
@@ -166,6 +159,10 @@ Proporcione las imágenes y otras propiedades técnicas asociadas al plan.
 
 > [!NOTE]
 > Esta pestaña no aparece si configuró este plan para reutilizar paquetes de otro plan en la pestaña **Configuración del plan**.
+
+### <a name="reuse-technical-configuration"></a>Reutilización de la configuración técnica
+
+Si tiene más de un plan del mismo tipo y los paquetes son idénticos entre ellos, seleccione **This plan reuses technical configuration from another plan** (Este plan reutiliza la configuración técnica de otro plan). Esta opción le permite seleccionar uno de los otros planes del mismo tipo para esta oferta y reutilizar su configuración técnica.
 
 ### <a name="operating-system"></a>Sistema operativo
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 423e08511003c8ba1f810bd024d0e253df612473
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 514a6f9d4d72eeffaa4a8592b57c3fdd6592d958
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293285"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109627535"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Mejora de la síntesis con el Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -506,7 +506,7 @@ Los alfabetos fonéticos se componen de segmentos acústicos, que se componen de
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-JennyNeural">
-        <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
+        <phoneme alphabet="ipa" ph="təˈmeɪtoʊ"> tomato </phoneme>
     </voice>
 </speak>
 ```
@@ -529,7 +529,7 @@ Los alfabetos fonéticos se componen de segmentos acústicos, que se componen de
 
 ## <a name="use-custom-lexicon-to-improve-pronunciation"></a>Uso de léxico personalizado para mejorar la pronunciación
 
-A veces, el servicio de conversión de texto a voz no puede pronunciar correctamente una palabra. Por ejemplo, el nombre de una empresa o un término médico. Los desarrolladores pueden definir cómo se leen las entidades únicas en SSML mediante las etiquetas `phoneme` y `sub`. Sin embargo, si tiene que definir cómo se leen varias entidades, puede crear un lexicón personalizado mediante la etiqueta `lexicon`.
+A veces, el servicio de conversión de texto a voz no puede pronunciar correctamente una palabra. Por ejemplo, el nombre de una empresa o un término médico o un emoji. Los desarrolladores pueden definir cómo se leen las entidades únicas en SSML mediante las etiquetas `phoneme` y `sub`. Sin embargo, si tiene que definir cómo se leen varias entidades, puede crear un lexicón personalizado mediante la etiqueta `lexicon`.
 
 > [!NOTE]
 > El lexicón personalizado actualmente admite la codificación UTF-8.
@@ -570,10 +570,16 @@ Para definir el modo en que se leen varias entidades, puede crear un lexicón pe
     <grapheme> Benigni </grapheme>
     <phoneme> bɛˈniːnji</phoneme>
   </lexeme>
+  <lexeme>
+    <grapheme>😀</grapheme> 
+    <alias>test emoji</alias> 
+  </lexeme>
 </lexicon>
 ```
 
-El elemento `lexicon` contiene al menos un elemento `lexeme`. Cada elemento `lexeme` contiene al menos un elemento `grapheme` y uno o varios elementos `grapheme`, `alias` y `phoneme`. El elemento `grapheme` contiene texto que describe la <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">ortografía de </a>. Los elementos `alias` se usan para indicar la pronunciación de un acrónimo o un término abreviado. El elemento `phoneme` proporciona texto que describe cómo se pronuncia `lexeme`.
+El elemento `lexicon` contiene al menos un elemento `lexeme`. Cada elemento `lexeme` contiene al menos un elemento `grapheme` y uno o varios elementos `grapheme`, `alias` y `phoneme`. El elemento `grapheme` contiene texto que describe la <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">ortografía de </a>. Los elementos `alias` se usan para indicar la pronunciación de un acrónimo o un término abreviado. El elemento `phoneme` proporciona texto que describe cómo se pronuncia `lexeme`. Cuando el elemento `alias` y el elemento `phoneme` se proporcionan junto con el elemento `grapheme`, `alias` tiene prioridad.
+
+El lexicón contiene el atributo `xml:lang` necesario para indicar a qué configuración regional se debe aplicar. Un lexicón personalizado está limitado a una configuración regional por diseño, por lo que aplicarlo para una configuración regional diferente no funcionará.
 
 Es importante destacar que no se puede establecer directamente la pronunciación de una frase mediante el lexicón personalizado. Si tiene que configurar la pronunciación de un acrónimo o un término abreviado, primero indique un `alias` y, a continuación, asocie el `phoneme` con dicho `alias`. Por ejemplo:
 
@@ -632,7 +638,7 @@ En el ejemplo anterior, usamos el alfabeto fonético internacional, conocido tam
 
 Dado que este alfabeto no es fácil de recordar, el servicio de voz define un conjunto fonético para siete idiomas (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN` y `zh-TW`).
 
-`sapi` se puede usar como valor para el atributo `alphabet` con léxicos personalizados, como se muestra a continuación:
+`x-microsoft-sapi` se puede usar como valor para el atributo `alphabet` con léxicos personalizados, como se muestra a continuación:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -641,7 +647,7 @@ Dado que este alfabeto no es fácil de recordar, el servicio de voz define un co
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon
         http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
-      alphabet="sapi" xml:lang="en-US">
+      alphabet="x-microsoft-sapi" xml:lang="en-US">
   <lexeme>
     <grapheme>BTW</grapheme>
     <alias> By the way </alias>

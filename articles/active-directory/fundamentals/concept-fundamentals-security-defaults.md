@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/20/2021
+ms.date: 05/03/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: efa88e1be5c5df5dd09cb5a97c8ece352496ccdb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c663282865e19df0e103e75a7e32d86651232a93
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769704"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108762558"
 ---
 # <a name="what-are-security-defaults"></a>¿Cuáles son los valores de seguridad predeterminados?
 
@@ -135,6 +135,9 @@ Estos valores predeterminados de seguridad gratis permiten el registro y el uso 
 
 - ** Los usuarios pueden usar códigos de verificación de la aplicación Microsoft Authenticator, pero solo pueden registrarse mediante la opción de notificación.
 - *** Las contraseñas de aplicación solo están disponibles en MFA por usuario con escenarios de autenticación heredados si las habilitan los administradores.
+
+> [!WARNING]
+> No deshabilite los métodos de la organización si está usando Valores predeterminados de seguridad. La deshabilitación de los métodos puede dar lugar a su propia expulsión del inquilino. Deje todos los **Métodos disponibles para los usuarios** habilitados en el [portal de configuración del servicio MFA](../authentication/howto-mfa-getstarted.md#choose-verification-options).
 
 ### <a name="disabled-mfa-status"></a>Estado de MFA deshabilitado
 

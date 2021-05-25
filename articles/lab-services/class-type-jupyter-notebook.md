@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: enewman
-ms.openlocfilehash: d4034f889334bcf1e4eaa3710a32db60b6a9936b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f84edf29e6c4e3bd111deb5ea4bd479ea2d6140
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94648028"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109716283"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Configurar un laboratorio para enseñar ciencia de datos con Python y Jupyter Notebooks
 En este artículo se describe cómo configurar una máquina virtual (VM) de plantilla en servicios de laboratorio con las herramientas necesarias para enseñar a los alumnos a usar [Cuadernos de Jupyter Notebook](http://jupyter-notebook.readthedocs.io/) y cómo los alumnos pueden conectarse a sus cuadernos en sus máquinas virtuales (VM).
@@ -42,6 +42,7 @@ Configure los valores de **Tamaño de máquina virtual** e **Imagen de máquina 
 | Tamaño de la máquina virtual | <p>El tamaño que elija aquí dependerá de la carga de trabajo que quiera ejecutar:</p><ul><li>Pequeño o medio: adecuado para una configuración básica del acceso a cuadernos de Jupyter Notebook</li><li>GPU pequeña (proceso): este tamaño es más adecuado para aplicaciones de proceso intensivo y uso intensivo de la red como, por ejemplo, la inteligencia artificial y el aprendizaje profundo.</li></ul> | 
 | Imagen de máquina virtual | <p>Elija una de las imágenes siguientes en función de las necesidades del sistema operativo:</p><ul><li>[Data Science Virtual Machine: Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019)</li><li>[Data Science Virtual Machine: Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview)</li></ul> |
 
+Al crear un laboratorio con el tamaño **GPU pequeña (proceso)** , tiene la opción de [instalar controladores de GPU](./how-to-setup-lab-gpu.md#ensure-that-the-appropriate-gpu-drivers-are-installed).  Esta opción instala los controladores de NVIDIA recientes y el kit de herramientas de arquitectura unificada de dispositivos de cómputo (CUDA), que son necesarios para habilitar la computación de alto rendimiento con la GPU.  Para obtener más información, consulte el artículo [Configurar un laboratorio con máquinas virtuales de GPU](./how-to-setup-lab-gpu.md).
 
 ### <a name="template-virtual-machine"></a>Máquina virtual de plantilla
 Una vez creado un laboratorio, se creará una máquina virtual de plantilla en función del tamaño de la máquina virtual y la imagen que elija. Configure la máquina virtual de plantilla con todo lo que quiere proporcionar a los alumnos para esta clase. Para obtener más información, vea [Cómo administrar la máquina virtual de plantilla](how-to-create-manage-template.md). 
@@ -50,6 +51,53 @@ De forma predeterminada, las imágenes de Data Science VM incluyen muchos de los
 
 - [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io/): aplicación web que permite a los científicos de datos tomar datos sin procesar, ejecutar cálculos y ver los resultados en el mismo entorno. Se ejecutará localmente en la máquina virtual de plantilla.  
 - [Visual Studio Code](https://code.visualstudio.com/): entorno de desarrollo integrado (IDE) que proporciona una experiencia interactiva enriquecida al escribir y probar un cuaderno. Para obtener más información, consulte [Trabajar con cuadernos de Jupyter Notebook en Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support).
+
+Si usa el tamaño **GPU pequeña (proceso)** , se recomienda comprobar que las bibliotecas y los marcos de ciencia de datos estén configurados correctamente con la GPU.  Para configurar correctamente los marcos y las bibliotecas, es posible que deba instalar una versión diferente de los controladores de NVIDIA y el kit de herramientas de CUDA.  Por ejemplo, para validar que la GPU está configurada para TensorFlow, puede conectarse a la máquina virtual de la plantilla y ejecutar el siguiente código Python-TensorFlow en Jupyter Notebooks:
+
+```python
+import tensorflow as tf
+from tensorflow.python.client import device_lib
+
+print(device_lib.list_local_devices())
+```
+
+Si la salida del código anterior es similar a la siguiente, significa que la GPU no está configurada para TensorFlow:
+
+```python
+[name: "/device:CPU:0"
+device_type: "CPU"
+memory_limit: 268435456
+locality {
+}
+incarnation: 15833696144144374634
+]
+```
+Para configurar correctamente la GPU, debe consultar la documentación del marco o la biblioteca.  Siguiendo con el ejemplo anterior, TensorFlow proporciona las siguientes instrucciones:
+- [Compatibilidad con GPU de TensorFlow](https://www.tensorflow.org/install/gpu)
+
+Estas instrucciones cubren la versión necesaria de los [controladores de NVIDIA](https://www.nvidia.com/drivers) y el [kit de herramientas de CUDA](https://developer.nvidia.com/cuda-toolkit-archive).  Las instrucciones también incluyen la instalación de la [biblioteca de redes neuronales profundas de CUDA (cudDNN) de NVIDIA](https://developer.nvidia.com/cudnn).
+
+Después de seguir los pasos de TensorFlow para configurar la GPU, al volver a ejecutar el código anterior, debería ver una salida similar a la siguiente:
+
+```python
+[name: "/device:CPU:0"
+device_type: "CPU"
+memory_limit: 268435456
+locality {
+}
+incarnation: 15833696144144374634
+, name: "/device:GPU:0"
+device_type: "GPU"
+memory_limit: 11154792128
+locality {
+  bus_id: 1
+  links {
+  }
+}
+incarnation: 2659412736190423786
+physical_device_desc: "device: 0, name: NVIDIA Tesla K80, pci bus id: 0001:00:00.0, compute capability: 3.7"
+]
+```
 
 ### <a name="provide-notebooks-for-the-class"></a>Suministro de cuadernos para la clase
 La tarea siguiente consiste en proporcionar a los alumnos los cuadernos que quiera que usen. Para proporcionar sus propios cuadernos, los puede guardar localmente en la máquina virtual de plantilla. 
@@ -128,7 +176,6 @@ Ahora, para conectarse a la máquina virtual, siga estos pasos:
     ![Cliente de X2Go](./media/class-type-jupyter-notebook/x2go-client.png)
 2. Escriba la contraseña para conectarse a la máquina virtual. Para finalizar la conexión, es posible que tenga que conceder a X2Go permiso para omitir el firewall.
 3.  Ahora debería ver la interfaz gráfica de la instancia de Data Science Virtual Machine para Ubuntu.
-
 
 #### <a name="ssh-tunnel-to-jupyter-server-on-the-vm"></a>Tunelización SSH al servidor de Jupyter en la máquina virtual
 Es posible que algunos alumnos quieran conectarse directamente desde su equipo local al servidor de Jupyter dentro de sus máquinas virtuales. El protocolo SSH permite el reenvío de puertos entre el equipo local y un servidor remoto (en nuestro caso, la máquina virtual de laboratorio del alumno), de modo que una aplicación que se ejecuta en un determinado puerto del servidor se **tuneliza** al puerto de asignación en el equipo local. Los alumnos deben seguir estos pasos para realizar la tunelización SSH al servidor de Jupyter en sus máquinas virtuales de laboratorio:

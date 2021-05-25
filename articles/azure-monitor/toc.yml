@@ -47,8 +47,6 @@
       href: logs/get-started-queries.md
     - name: Creación de un panel a partir de una consulta de registro
       href: visualize/tutorial-logs-dashboards.md
-    - name: Creación de una alerta a partir de una consulta de registro
-      href: alerts/tutorial-response.md
     - name: Escalado automático del rendimiento y programación
       href: autoscale/tutorial-autoscale-performance-schedule.md
     - name: Application Insights
@@ -372,6 +370,9 @@
             - name: Recopilación de datos
               displayname: 'data collection rule,Azure Monitor agent'
               href: agents/data-collection-rule-azure-monitor-agent.md
+            - name: Preguntas más frecuentes
+              displayname: Azure Monitor agent FAQ
+              href: faq.md#azure-monitor-agent-preview
         - name: Agente de Log Analytics
           items:
             - name: Información general
@@ -649,15 +650,15 @@
               items:
                 - name: Aplicaciones web
                   displayname: java
-                  href: app/java-get-started.md
+                  href: app/java-2x-get-started.md
                 - name: Seguimientos de registro
-                  href: app/java-trace-logs.md
+                  href: app/java-2x-trace-logs.md
                 - name: Dependencias
-                  href: app/java-agent.md
+                  href: app/java-2x-agent.md
                 - name: Telemetría de filtro
-                  href: app/java-filter-telemetry.md
+                  href: app/java-2x-filter-telemetry.md
                 - name: Solución de problemas
-                  href: app/java-troubleshoot.md
+                  href: app/java-2x-troubleshoot.md
             - name: Node.js
               href: app/nodejs.md
             - name: Python
@@ -787,6 +788,8 @@
             - name: Pruebas de varios pasos
               displayname: 'availability, GSM, visual studio web test, web test'
               href: app/availability-multistep.md
+            - name: Pruebas privadas
+              href: app/availability-private-test.md
             - name: Disponibilidad + Azure Functions
               href: app/availability-azure-functions.md
               displayname: 'availability,azure functions,TrackAvailability(), timer function, azure gov, azure china, custom test, customized tests, contentmatch'
@@ -1442,10 +1445,10 @@
         - name: Key Vault Analytics (en desuso)
           href: insights/azure-key-vault-deprecated.md
         - name: Métricas de Unix
-          href: app/java-collectd.md
+          href: app/java-2x-collectd.md
         - name: Micrometer Metrics
           displayname: java
-          href: app/micrometer-java.md
+          href: app/java-2x-micrometer.md
         - name: Vistas
           items:
             - name: Diseñador de vistas

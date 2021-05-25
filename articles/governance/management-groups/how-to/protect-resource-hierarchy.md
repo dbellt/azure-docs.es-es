@@ -3,12 +3,12 @@ title: 'Procedimiento para proteger la jerarquía de recursos: Gobernanza en Azu
 description: Obtenga información sobre cómo proteger la jerarquía de recursos con configuraciones de jerarquía que incluyen la configuración del grupo de administración predeterminado.
 ms.date: 04/09/2021
 ms.topic: conceptual
-ms.openlocfilehash: 11c20ccf5aff74d810533cd56e0a7b116f2dc64b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: c87603510d036efded1331a5c08a7aae17326d09
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303651"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108765168"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Procedimiento para proteger la jerarquía de recursos
 
@@ -113,7 +113,7 @@ Para volver a desactivar la configuración, use el mismo punto de conexión y es
 
 ## <a name="powershell-sample"></a>Ejemplo de PowerShell
 
-PowerShell no tiene un comando "Az" para establecer el grupo de administración predeterminado o definir la autorización necesaria, pero como solución alternativa puede utilizar la API de REST con el ejemplo de PowerShell siguiente:
+PowerShell no tiene un comando "Az" para establecer el grupo de administración predeterminado o definir la autorización necesaria, pero como solución alternativa puede utilizar la API REST con el ejemplo de PowerShell siguiente:
 
 ```powershell
 $root_management_group_id = "Enter the ID of root management group"

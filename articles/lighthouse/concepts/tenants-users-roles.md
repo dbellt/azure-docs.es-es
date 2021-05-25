@@ -1,20 +1,20 @@
 ---
 title: Inquilinos, usuarios y roles en escenarios de Azure Lighthouse
 description: Comprenda los conceptos de los inquilinos, los usuarios y los roles de Azure Active Directory, así como la forma en que se pueden usar en escenarios de Azure Lighthouse.
-ms.date: 01/14/2021
+ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: d78828cc739030f8e456c64885d77ddf59dd13fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 40b446063e828c694925ecfe5f530f570b162f32
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98233923"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786940"
 ---
 # <a name="tenants-users-and-roles-in-azure-lighthouse-scenarios"></a>Inquilinos, usuarios y roles en escenarios de Azure Lighthouse
 
 Antes de incorporar clientes para [Azure Lighthouse](../overview.md), es importante comprender cómo funcionan los inquilinos, los usuarios y los roles de Azure Active Directory (Azure AD), así como la forma en que se pueden usar en escenarios de Azure Lighthouse.
 
-Un *inquilino* es una instancia dedicada y de confianza de Azure AD. Normalmente, cada inquilino representa una organización individual. La [administración de recursos delegados de Azure](azure-delegated-resource-management.md) permite la proyección lógica de recursos de un inquilino a otro. Esto permite a los usuarios del inquilino de administración (por ejemplo, uno perteneciente a un proveedor de servicios) acceder a los recursos delegados en el inquilino de un cliente, o bien permite que las [empresas con varios inquilinos centralicen sus operaciones de administración](enterprise.md).
+Un *inquilino* es una instancia dedicada y de confianza de Azure AD. Normalmente, cada inquilino representa una organización individual. Azure Lighthouse permite una [proyección lógica](architecture.md#logical-projection) de recursos de un inquilino en otro. Esto permite a los usuarios del inquilino de administración (por ejemplo, uno perteneciente a un proveedor de servicios) acceder a los recursos delegados en el inquilino de un cliente, o bien permite que las [empresas con varios inquilinos centralicen sus operaciones de administración](enterprise.md).
 
 Para lograr esta proyección lógica, una suscripción (o uno o varios grupos de recursos dentro de una suscripción) en el inquilino del cliente tiene que estar *incorporado* a Azure Lighthouse. Este proceso de incorporación puede realizarse [a través de plantillas de Azure Resource Manager](../how-to/onboard-customer.md) o [mediante la publicación de una oferta pública o privada en Azure Marketplace](../how-to/publish-managed-services-offers.md).
 

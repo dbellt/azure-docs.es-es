@@ -10,70 +10,49 @@ ms.service: virtual-machines-sql
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/15/2020
-ms.openlocfilehash: a42457848c2a21889e15ebe5bc5b6ceaba8d6999
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 04/25/2021
+ms.openlocfilehash: ba33373cb89e5d1faba0a9dc66233fc363e9e47d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129754"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755664"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Cambios en la documentación de SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Azure permite implementar una máquina virtual (VM) con una imagen de SQL Server integrada. En este artículo se resumen los cambios en la documentación asociados a las nuevas características y mejoras de las versiones recientes de [SQL Server en Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
 
-## <a name="october-2020"></a>Octubre de 2020
+
+## <a name="april-2021"></a>Abril de 2021
 
 | Cambios | Detalles |
 | --- | --- |
-| **DNN para AG** | Ahora puede configurar un [cliente de escucha de nombre de red distribuida (DNN)](availability-group-distributed-network-name-dnn-listener-configure.md) para SQL Server 2019 CU8 y versiones posteriores para reemplazar el [cliente de escucha de VNN](availability-group-overview.md#connectivity) tradicional, lo que evita la necesidad de una instancia de Azure Load Balancer.   | 
-
-## <a name="september-2020"></a>Septiembre de 2020
-
-| Cambios | Detalles |
-| --- | --- |
-| **Registro de extensión automático** | Ahora puede habilitar la característica de [Registro automático](sql-agent-extension-automatic-registration-all-vms.md) para registrar automáticamente todas las VM con SQL Server ya implementadas en la suscripción con la [extensión Agente de IaaS de SQL](sql-server-iaas-agent-extension-automate-management.md). Esto se aplica a todas las máquinas virtuales existentes, y también se registrarán automáticamente todas las VM con SQL Server agregadas en el futuro.   | 
+| **Migración de alta disponibilidad a una máquina virtual** | Azure Migrate ofrece compatibilidad para elevar y trasladar toda la solución de alta disponibilidad a SQL Server en máquinas virtuales de Azure. Traiga el [grupo de disponibilidad](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) o la [instancia de clúster de conmutación por error](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) a máquinas virtuales de SQL Server Azure Migrate hoy mismo. | 
 
 
-## <a name="august-2020"></a>Agosto de 2020
+## <a name="march-2021"></a>Marzo de 2021
 
 | Cambios | Detalles |
 | --- | --- |
-| **Configuración AG en el portal** | Ahora es posible [configurar el grupo de disponibilidad a través de Azure Portal](availability-group-azure-portal-configure.md). Esta característica se encuentra actualmente en versión preliminar y en implementación, de modo que si la región deseada no está disponible, vuelva a comprobarlo pronto. | 
+| **Actualización de procedimientos recomendados de rendimiento** | Hemos reescrito, actualizado y puesto al día la documentación de procedimientos recomendados de rendimiento, dividiendo un artículo en una serie que contiene: [una lista de comprobación](performance-guidelines-best-practices-checklist.md), la [guía de tamaño de máquinas virtuales](performance-guidelines-best-practices-vm-size.md), la [guía de almacenamiento](performance-guidelines-best-practices-storage.md) y [una recopilación de instrucciones base de referencia](performance-guidelines-best-practices-collect-baseline.md).   | 
 
 
-## <a name="july-2020"></a>Julio de 2020
 
-
-| Cambios | Detalles |
-| --- | --- |
-| **Migración del registro a un disco Ultra** | Obtenga información acerca de cómo puede [migrar el archivo de registro a un disco Ultra](storage-migrate-to-ultradisk.md) para aprovechar el alto rendimiento y la baja latencia. | 
-| **Creación de un grupo de disponibilidad con Azure PowerShell** | Ahora es posible simplificar la creación de un grupo de disponibilidad mediante [Azure PowerShell](availability-group-az-commandline-configure.md), así como la CLI de Azure. | 
-
-
-## <a name="june-2020"></a>Junio de 2020
-
-| Cambios | Detalles |
-| --- | --- |
-| **Nombre de red distribuida (DNN)** | Ahora, SQL Server 2019 en Windows Server 2016+ ofrece en versión preliminar compatibilidad con el enrutamiento del tráfico a la instancia de clúster de conmutación por error (FCI) mediante el uso de un [nombre de red distribuida](./failover-cluster-instance-distributed-network-name-dnn-configure.md) en lugar de con Azure Load Balancer. Esta compatibilidad simplifica y agiliza la conexión a la solución de alta disponibilidad en Azure. | 
-| **FCI con discos compartidos de Azure** | Ahora es posible implementar la [instancia de clúster de conmutación por error (FCI)](failover-cluster-instance-overview.md) mediante [discos compartidos de Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md). |
-| **Documentos de FCI reorganizados** | La documentación sobre las [instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines](failover-cluster-instance-overview.md) se ha vuelto a redactar y reorganizar para mayor claridad. Hemos separado parte del contenido de configuración, como los [procedimientos recomendados de configuración de clústeres](hadr-cluster-best-practices.md), cómo preparar una [máquina virtual para una FCI de SQL Server](failover-cluster-instance-prepare-vm.md) y cómo configurar [Azure Load Balancer](./availability-group-vnn-azure-load-balancer-configure.md). | 
-| &nbsp; | &nbsp; |
-
-
-## <a name="may-2020"></a>Mayo de 2020 
-
-| Cambios | Detalles |
-| --- | --- |
-| **Familia Azure SQL** | SQL Server en Azure Virtual Machines ahora forma parte de la [familia de productos de Azure SQL](../../azure-sql-iaas-vs-paas-what-is-overview.md). Eche un vistazo a nuestro [nuevo aspecto](../index.yml). No ha cambiado nada en el producto, pero la documentación pretende facilitar la decisión sobre los productos de Azure SQL. | 
-
-
-## <a name="january-2020"></a>Enero de 2020
+## <a name="2020"></a>2020
 
 | Cambios | Detalles |
 | --- | --- |
 | **Soporte de Azure Government** | Ahora es posible registrar máquinas virtuales con SQL Server con la extensión Agente de IaaS de SQL para máquinas virtuales hospedadas en la nube de [Azure Government](https://azure.microsoft.com/global-infrastructure/government/). | 
+| **Familia Azure SQL** | SQL Server en Azure Virtual Machines ahora forma parte de la [familia de productos de Azure SQL](../../azure-sql-iaas-vs-paas-what-is-overview.md). Eche un vistazo a nuestro [nuevo aspecto](../index.yml). No ha cambiado nada en el producto, pero la documentación pretende facilitar la decisión sobre los productos de Azure SQL. | 
+| **Nombre de red distribuida (DNN)** | Ahora, SQL Server 2019 en Windows Server 2016+ ofrece en versión preliminar compatibilidad con el enrutamiento del tráfico a la instancia de clúster de conmutación por error (FCI) mediante el uso de un [nombre de red distribuida](./failover-cluster-instance-distributed-network-name-dnn-configure.md) en lugar de con Azure Load Balancer. Esta compatibilidad simplifica y agiliza la conexión a la solución de alta disponibilidad en Azure. | 
+| **FCI con discos compartidos de Azure** | Ahora es posible implementar la [instancia de clúster de conmutación por error (FCI)](failover-cluster-instance-overview.md) mediante [discos compartidos de Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md). |
+| **Documentos de FCI reorganizados** | La documentación sobre las [instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines](failover-cluster-instance-overview.md) se ha vuelto a redactar y reorganizar para mayor claridad. Hemos separado parte del contenido de configuración, como los [procedimientos recomendados de configuración de clústeres](hadr-cluster-best-practices.md), cómo preparar una [máquina virtual para una FCI de SQL Server](failover-cluster-instance-prepare-vm.md) y cómo configurar [Azure Load Balancer](./availability-group-vnn-azure-load-balancer-configure.md). | 
+| **Migración del registro a un disco Ultra** | Obtenga información acerca de cómo puede [migrar el archivo de registro a un disco Ultra](storage-migrate-to-ultradisk.md) para aprovechar el alto rendimiento y la baja latencia. | 
+| **Creación de un grupo de disponibilidad con Azure PowerShell** | Ahora es posible simplificar la creación de un grupo de disponibilidad mediante [Azure PowerShell](availability-group-az-commandline-configure.md), así como la CLI de Azure. | 
+| **Configuración AG en el portal** | Ahora es posible [configurar el grupo de disponibilidad a través de Azure Portal](availability-group-azure-portal-configure.md). Esta característica se encuentra actualmente en versión preliminar y en implementación, de modo que si la región deseada no está disponible, vuelva a comprobarlo pronto. | 
+| **Registro de extensión automático** | Ahora puede habilitar la característica de [Registro automático](sql-agent-extension-automatic-registration-all-vms.md) para registrar automáticamente todas las VM con SQL Server ya implementadas en la suscripción con la [extensión Agente de IaaS de SQL](sql-server-iaas-agent-extension-automate-management.md). Esto se aplica a todas las máquinas virtuales existentes, y también se registrarán automáticamente todas las VM con SQL Server agregadas en el futuro.   | 
+| **DNN para AG** | Ahora puede configurar un [cliente de escucha de nombre de red distribuida (DNN)](availability-group-distributed-network-name-dnn-listener-configure.md) para SQL Server 2019 CU8 y versiones posteriores para reemplazar el [cliente de escucha de VNN](availability-group-overview.md#connectivity) tradicional, lo que evita la necesidad de una instancia de Azure Load Balancer.   | 
 | &nbsp; | &nbsp; |
 
 ## <a name="2019"></a>2019

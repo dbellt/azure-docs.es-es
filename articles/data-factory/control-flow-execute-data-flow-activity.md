@@ -5,13 +5,13 @@ author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 04/16/2021
-ms.openlocfilehash: da8d193d140d96d9742666429ebc85672c71ad4e
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.date: 05/06/2021
+ms.openlocfilehash: 78a40b3a84b0d3df19b1fabc6c3485f12d8c3dbb
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567271"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481758"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Actividad de Data Flow en Azure Data Factory
 
@@ -69,6 +69,9 @@ traceLevel | Establecimiento del nivel de registro de la ejecución de actividad
 ### <a name="dynamically-size-data-flow-compute-at-runtime"></a>Ajuste dinámico del tamaño del proceso de flujo de datos en tiempo de ejecución
 
 Las propiedades Recuento de núcleos y Tipo de proceso se pueden configurar dinámicamente para ajustarse al tamaño de los datos de origen entrantes en tiempo de ejecución. Use actividades de canalización como Búsqueda u Obtener metadatos para averiguar el tamaño de los datos del conjunto de datos de origen. Tras ello, use Agregar contenido dinámico en las propiedades de la actividad del flujo de datos.
+
+> [!NOTE]
+> Al elegir núcleos de nodo de trabajo y controlador en flujos de datos de Synapse, siempre se utilizará un mínimo de 3 nodos.
 
 ![Flujo de datos dinámicos](media/data-flow/dyna1.png "Flujo de datos dinámicos")
 

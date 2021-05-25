@@ -4,12 +4,12 @@ description: Registre y analice los eventos de registro de diagnóstico de los r
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.custom: seodec18
-ms.openlocfilehash: 61aaca84b609aaf7513c6de6f0f7e73aef5a5efe
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 3bbaf01b71a2256416112f5e365f70d563a9f36d
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389322"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753951"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas y registros de Batch para evaluación de diagnóstico y supervisión
 
@@ -67,7 +67,7 @@ Para configurar una alerta de métrica en Azure Portal:
 
 Para más información sobre la creación de alertas de métricas, consulte [Comprender cómo funcionan las alertas de métricas en Azure Monitor](../azure-monitor/alerts/alerts-metric-overview.md) y [Creación, visualización y administración de alertas de métricas mediante Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
 
-También puede configurar una alerta casi en tiempo real mediante la [API REST de Azure Monitor](/rest/api/monitor/). Para obtener más información sobre las alertas, consulte [Información general sobre las alertas en Microsoft Azure](../azure-monitor/alerts/alerts-overview.md). Para incluir información específica de trabajos, tareas o grupos en las alertas, consulte [Respuesta a eventos con las alertas de Azure Monitor](../azure-monitor/alerts/tutorial-response.md).
+También puede configurar una alerta casi en tiempo real mediante la [API REST de Azure Monitor](/rest/api/monitor/). Para obtener más información sobre las alertas, consulte [Información general sobre las alertas en Microsoft Azure](../azure-monitor/alerts/alerts-overview.md). Para incluir información específica de trabajos, tareas o grupos en las alertas, consulte [Alertas de registro de Azure Monitor](../azure-monitor/alerts/alerts-log.md).
 
 ## <a name="batch-diagnostics"></a>Diagnóstico de Batch
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0948c7c82d7577bae07057bff9d1be4d7e09f978
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3de7a322d90f3a6a45a0965da72a1f53d5edc3a2
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96462290"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751858"
 ---
 # <a name="create-and-use-views-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Creación y uso de vistas mediante un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -55,7 +55,11 @@ WITH (
 ) AS [r];
 ```
 
-En la vista de este ejemplo se usa la función `OPENROWSET`, que utiliza la ruta de acceso absoluta a los archivos subyacentes. Si tiene `EXTERNAL DATA SOURCE` con una dirección URL raíz del almacenamiento, puede usar `OPENROWSET` con `DATA_SOURCE` y una ruta de acceso relativa al archivo:
+La vista usa un elemento `EXTERNAL DATA SOURCE` con una dirección URL raíz del almacenamiento, como `DATA_SOURCE` y agrega una ruta de acceso relativa a los archivos.
+
+## <a name="create-a-partitioned-view"></a>Creación de una vista con particiones
+
+Si tiene un conjunto de archivos con particiones en la estructura jerárquica de carpetas, puede describir el patrón de partición mediante los caracteres comodín en la ruta de acceso del archivo. Use la función `FILEPATH` para exponer partes de la ruta de acceso de carpeta como columnas de partición.
 
 ```sql
 CREATE VIEW TaxiView
@@ -67,6 +71,8 @@ FROM
         FORMAT='PARQUET'
     ) AS nyc
 ```
+
+Las vistas con particiones realizarán la eliminación de la partición de carpeta si se consulta esta vista con los filtros de las columnas de partición. Esta solución podría mejorar el rendimiento de las consultas.
 
 ## <a name="use-a-view"></a>Uso de una vista
 

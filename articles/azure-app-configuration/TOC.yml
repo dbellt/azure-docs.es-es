@@ -90,6 +90,12 @@
           href: howto-feature-filters-aspnet-core.md
         - name: Habilitación de una característica para usuarios o grupos especificados
           href: howto-targetingfilter-aspnet-core.md
+    - name: Habilitación de la supervisión de Azure
+      items:
+        - name: Supervisión de App Configuration
+          href: monitor-app-configuration.md
+        - name: Supervisión de referencia de datos
+          href: monitor-app-configuration-reference.md
 - name: Ejemplos
   items:
     - name: Azure CLI

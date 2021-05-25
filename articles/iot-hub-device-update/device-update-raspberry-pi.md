@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: c330cc4e5721fab9d7336fd5b111d8cef67e170c
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 05b42a3dd6d5df7bf4484e23b2780732d55ab731
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070234"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789162"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-raspberry-pi-3-b-reference-image"></a>Tutorial de Device Update para Azure IoT Hub con la imagen de referencia para Raspberry Pi 3 B+
 
@@ -35,7 +35,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="download-image"></a>Descarga de la imagen
 
-Se proporcionan imágenes de ejemplo en "Recursos" en la [página de versiones de GitHub de Device Update](https://github.com/Azure/iot-hub-device-update/releases). El archivo swUpdate es la imagen base que puede grabar en memoria flash en una placa Raspberry Pi B3+ y el archivo .gz es la actualización que se importaría mediante Device Update for IoT Hub. 
+Se proporcionan imágenes de ejemplo en "Recursos" en la [página de versiones de GitHub de Device Update](https://github.com/Azure/iot-hub-device-update/releases). El archivo .gz es la imagen base que puede grabar en memoria flash en una placa Raspberry Pi B3+ y el archivo swUpdate es la actualización que se importaría mediante Device Update for IoT Hub. 
 
 ## <a name="flash-sd-card-with-image"></a>Escritura de la memoria flash de la tarjeta SD con la imagen
 
@@ -143,11 +143,11 @@ Use ese número de versión en el paso Importación de la actualización que apa
 
 ## <a name="import-update"></a>Importación de actualización
 
-1. Cree un manifiesto de importación siguiendo estas [instrucciones](import-update.md).
-2. Seleccione la opción Actualizaciones del dispositivo en Administración de dispositivos automática en la barra de navegación izquierda.
+1. Descargue el [manifiesto de importación de ejemplo](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/TutorialImportManifest.json) y la [actualización de imagen de ejemplo](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu).
+2. Inicie sesión en [Azure Portal](https://portal.azure.com/) y vaya a su instancia de IoT Hub con Device Update. A continuación, seleccione la opción Actualizaciones de dispositivos en Administración de dispositivos automática en la barra de navegación izquierda.
 3. Seleccione la pestaña Actualizaciones.
 4. Seleccione "+ Import New Update" (Importar nueva actualización).
-5. Seleccione el icono de la carpeta o el cuadro de texto en "Select an Import Manifest File" (Seleccionar un archivo de manifiesto de importación). Verá un cuadro de diálogo para seleccionar archivos. Seleccione el manifiesto de importación que creó anteriormente.  Seleccione el icono de la carpeta o el cuadro de texto en "Select one or more update files" (Seleccionar uno o varios archivos de importación). Verá un cuadro de diálogo para seleccionar archivos. Seleccione el archivo de actualización que quiere implementar en los dispositivos IoT.
+5. Seleccione el icono de la carpeta o el cuadro de texto en "Select an Import Manifest File" (Seleccionar un archivo de manifiesto de importación). Verá un cuadro de diálogo para seleccionar archivos. Seleccione el _manifiesto de importación de ejemplo_ que ha descargado en el paso 1 anterior.  Seleccione el icono de la carpeta o el cuadro de texto en "Select one or more update files" (Seleccionar uno o varios archivos de importación). Verá un cuadro de diálogo para seleccionar archivos. Seleccione el _archivo de actualización de ejemplo_ que ha descargado en el paso 1 anterior.
    
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Captura de pantalla que muestra la selección del archivo de actualización." lightbox="media/import-update/select-update-files.png":::
 

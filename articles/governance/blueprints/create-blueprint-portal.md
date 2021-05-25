@@ -5,12 +5,12 @@ ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 42982ec488fcbd354f110c4778ecbd8c42cd3055
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 9371ebfbb89e30b53183ad364514b5bba904c56b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323796"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108761568"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Definición y asignación de un plano técnico en el portal:
 
@@ -141,7 +141,7 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
       }
       ```
 
-   1. Anule la selección de la casilla **storageAccountType** y observe que la lista desplegable solo contiene los valores incluidos en la plantilla de Resource Manager en **allowedValues**. Seleccione la casilla para volver a establecer un parámetro dinámico.
+   1. Anule la selección de la casilla **storageAccountType** y observe que la lista desplegable solo contiene los valores incluidos en la plantilla de ARM en **allowedValues**. Seleccione la casilla para volver a establecer un parámetro dinámico.
 
    1. Seleccione **Agregar** para agregar este artefacto al plano técnico.
 
@@ -159,7 +159,7 @@ En [Crear un plano técnico](#create-a-blueprint), no proporcionó una descripci
 
 1. Seleccione **Definiciones del plano técnico** en la página de la izquierda.
 
-1. En la lista de planos técnicos, haga clic con el botón derecho en el que creó anteriormente y seleccione **Editar plano técnico**.
+1. En la lista de planos técnicos, seleccione y mantenga (o haga clic con el botón derecho) el que creó anteriormente y seleccione **Editar plano técnico**.
 
 1. En **Descripción del plano técnico**, proporcione información sobre el plano técnico y los artefactos que lo componen. En este caso, introduzca algo como: "Este plano técnico establece la política de etiquetas y la asignación de roles en la suscripción, crea un grupo de recursos e implementa una plantilla de recursos y una asignación de roles a ese grupo de recursos".
 
@@ -192,7 +192,7 @@ La publicación hace que el plano técnico esté disponible para asignarse a una
 
 1. Seleccione **Definiciones del plano técnico** en la página de la izquierda.
 
-1. En la lista de planos técnicos, haga clic con el botón derecho en el que creó anteriormente y seleccione **Publicar plano técnico**.
+1. En la lista de planos técnicos, seleccione y mantenga (o haga clic con el botón derecho) el que creó anteriormente y seleccione **Publicar plano técnico**.
 
 1. En el panel que se abre, proporcione una **versión** (letras, números y guiones con una longitud máxima de 20 caracteres) como **v1**. De forma opcional, puede añadir texto en **Notas de cambios** como **Primera publicación**.
 
@@ -204,7 +204,7 @@ Una vez que se publica un plano técnico, se puede asignar a una suscripción. A
 
 1. Seleccione **Definiciones del plano técnico** en la página de la izquierda.
 
-1. En la lista de planos técnicos, haga clic con el botón derecho en el que creó anteriormente (o seleccione los puntos suspensivos) y seleccione **Asignar plano técnico**.
+1. En la lista de planos técnicos, seleccione y mantenga (o haga clic con el botón derecho) el que creó anteriormente (o seleccione los puntos suspensivos) y seleccione **Asignar plano técnico**.
 
 1. En la página **Asignar plano técnico**, en la lista desplegable **Suscripción**, seleccione las suscripciones en las que desee implementar este plano técnico.
 
@@ -244,7 +244,7 @@ Una vez que se publica un plano técnico, se puede asignar a una suscripción. A
 
 1. Para la asignación de directivas de nivel de suscripción, establezca el **Nombre de etiqueta** en **CostCenter** y el **Valor de etiqueta** en **ContosoIT**.
 
-1. Para **ResourceGroup**, proporcione un **Nombre** de **StorageAccount** y una **Ubicación****Este de EE. UU. 2** en la lista desplegable.
+1. Para **ResourceGroup**, proporcione el **Nombre** **StorageAccount** y la **Ubicación** **Este de EE. UU. 2** en la lista desplegable.
 
    > [!NOTE]
    > Por cada artefacto que ha agregado en el grupo de recursos durante la definición del plano técnico, se aplica una sangría a ese artefacto para alinearlo con el grupo de recursos o con el objeto con el que lo implementará.
@@ -265,7 +265,7 @@ Ahora que el plano técnico se ha asignado a una suscripción, compruebe el prog
 
 1. Seleccione **Planos técnicos asignados** en la página de la izquierda.
 
-1. En la lista de planos técnicos, haga clic con el botón derecho en el que asignó anteriormente y seleccione **Ver los detalles de la asignación**.
+1. En la lista de planos técnicos, seleccione y mantenga (o haga clic con el botón derecho) el que asignó anteriormente y seleccione **Ver los detalles de la asignación**.
 
    :::image type="content" source="./media/create-blueprint-portal/view-assignment-details.png" alt-text="Captura de pantalla del menú contextual de asignación del plano técnico con la opción &quot;Ver los detalles de la asignación&quot; seleccionada." border="false":::
 

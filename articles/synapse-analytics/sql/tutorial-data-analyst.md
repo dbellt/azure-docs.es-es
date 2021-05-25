@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 11/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: d37597f8667c461e8d61f8214483f57eb702c2a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91f9bab7ca85275f914b8421cb4eb7517396ff8a
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97007558"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685016"
 ---
 # <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool"></a>Tutorial: Exploración y análisis de lagos de datos con un grupo de SQL sin servidor
 
@@ -25,6 +25,13 @@ La función OPENROWSET (BULK...) permite acceder a archivos en Azure Storage. La
 ## <a name="automatic-schema-inference"></a>Inferencia automática del esquema
 
 Puesto que los datos se almacenan en el formato de archivo parquet, está disponible la inferencia de esquemas automática. Puede consultar fácilmente los datos sin enumerar los tipos de datos de todas las columnas de los archivos. También puede utilizar el mecanismo de la columna virtual y la función FilePath para filtrar un determinado subconjunto de archivos.
+
+> [!NOTE]
+> Si usa una base de datos con una intercalación que no sea la predeterminada (la intercalación predeterminada es SQL_Latin1_General_CP1_CI_AS), debe tener en cuenta la distinción entre mayúsculas y minúsculas. 
+> 
+> Si crea una base de datos con intercalación que distingue mayúsculas de minúsculas, al especificar columnas, asegúrese de usar el nombre correcto de la columna.
+> 
+> Un nombre de columna de ejemplo, como "tpepPickupDateTime", sería correcto, mientras que "tpeppickupdatetime" no funcionaría en la intercalación no predeterminada.
 
 En primer lugar, vamos a familiarizarnos con los datos de los taxis de Nueva York mediante la ejecución de la siguiente consulta:
 

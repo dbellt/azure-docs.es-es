@@ -1,14 +1,14 @@
 ---
 title: Consideraciones del programa de proveedor de soluciones en la nube
 description: En el caso de los asociados de CSP, la administración de recursos delegados de Azure ayuda a mejorar la seguridad y el control mediante la habilitación de permisos más específicos.
-ms.date: 03/12/2021
+ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8736cf913739f2bd16fb519aed98fd336f6876a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 338c2086826a6b23810f5b2dc13c9a34d9c65f8b
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419395"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788758"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse y el programa Proveedor de soluciones en la nube
 
@@ -25,13 +25,13 @@ Con AOBO, cualquier usuario con el rol [Agente de administración](/partner-cent
 
 ![Diagrama que muestra la administración de inquilinos mediante AOBO.](../media/csp-1.jpg)
 
-## <a name="azure-delegated-resource-management"></a>Administración de recursos delegados de Azure
+## <a name="azure-lighthouse"></a>Azure Lighthouse
 
-Con Azure Lighthouse, puede asignar grupos diferentes a distintos clientes o roles, tal y como se muestra en el diagrama siguiente. Dado que los usuarios tendrán el nivel de acceso adecuado a través de la administración de recursos delegados de Azure, puede reducir el número de usuarios que tienen el rol de agente de administración (y, por tanto, tienen acceso AOBO completo). Esto ayuda a mejorar la seguridad al limitar el acceso innecesario a los recursos de los clientes. También le ofrece más flexibilidad para administrar varios clientes a escala.
+Con Azure Lighthouse, puede asignar grupos diferentes a distintos clientes o roles, tal y como se muestra en el diagrama siguiente. Dado que los usuarios tendrán el nivel de acceso adecuado a través de la [administración de recursos delegados de Azure](architecture.md), puede reducir el número de usuarios que tienen el rol de agente de administración (y, por tanto, tienen acceso AOBO completo). Esto ayuda a mejorar la seguridad al limitar el acceso innecesario a los recursos de los clientes. También proporciona más flexibilidad para administrar varios clientes a escala, con el rol integrado de [Azure](tenants-users-roles.md) más adecuado para las tareas de cada usuario.
 
 Para incorporar una suscripción creada desde el programa CSP, siga los pasos descritos en [Onboard a subscription to Azure Lighthouse](../how-to/onboard-customer.md) (Incorporación de una suscripción a Azure Lighthouse). Cualquier usuario que tenga el rol de agente de administración en el inquilino puede realizar esta incorporación.
 
-![Diagrama que muestra la administración de inquilinos mediante AOBO y la administración de recursos delegados de Azure.](../media/csp-2.jpg)
+![Diagrama que muestra la administración de inquilinos mediante AOBO y Azure Lighthouse.](../media/csp-2.jpg)
 
 > [!TIP]
 > Las [ofertas de servicio administrado](managed-services-offers.md) no son compatibles con las suscripciones que se establecen a través de un revendedor del programa Proveedor de soluciones en la nube (CSP). Puede incorporar estas suscripciones a Azure Lighthouse [mediante el uso de plantillas de Azure Resource Manager](../how-to/onboard-customer.md).

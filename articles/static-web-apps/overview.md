@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 04/01/2021
 ms.author: cshoe
-ms.openlocfilehash: c0a4156fb0015c6d319700c82f6285dbf0ed1443
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 0111e0a37f1684ab764160d64231ea5dde2547a6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107947886"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758994"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>¿Qué es la versión preliminar de Azure Static Web Apps?
 
@@ -37,7 +37,7 @@ Con Static Web Apps, los recursos estáticos se separan de un servidor web tradi
 - **Certificados SSL gratuitos**, que se renuevan automáticamente.
 - **Dominios personalizados** para proporcionar personalizaciones de marca a la aplicación.
 - **Modelo de seguridad ágil** con un proxy inverso al llamar a las API, lo que no requiere ninguna configuración de CORS.
-- **Integraciones del proveedor de autenticación** con Azure Active Directory, Facebook, Google, GitHub y Twitter.
+- **Integraciones del proveedor de autenticación** con Azure Active Directory, GitHub y Twitter.
 - **Definición de roles de autorización personalizables** y asignaciones.
 - **Reglas de enrutamiento de back-end** que permiten tener control total sobre el contenido y las rutas que atiende.
 - **Versiones de almacenamiento provisional generadas** que se basan en las solicitudes de incorporación de cambios y permiten obtener versiones preliminares del sitio antes de su publicación.

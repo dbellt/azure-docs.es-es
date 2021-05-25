@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 04/02/2021
 ms.author: aahi
-ms.openlocfilehash: d7f62082d860d8ec39a5937af5c1bae81b372caa
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: b1af48aa2aad3daa37a3ca4073d44574b5b05e6c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906591"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742128"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Ejemplo: Detectar idioma con Text Analytics
 
@@ -91,9 +91,9 @@ Todas las solicitudes POST devolverán una respuesta con formato JSON con los id
 
 La salida se devuelve inmediatamente. Puede transmitir los resultados a una aplicación que acepte JSON o guardar la salida en un archivo en el sistema local. Después, importe el resultado en una aplicación que pueda usar para ordenar los datos, realizar búsquedas en ellos y manipularlos.
 
-Los resultados de la solicitud de ejemplo deben parecerse al siguiente JSON. Tenga en cuenta que es un documento con varios elementos. La salida está disponible en inglés. Los identificadores de idioma incluyen un nombre descriptivo y un código de idioma en formato [ISO 639-1](https://www.iso.org/standard/22109.html).
+Los resultados de la solicitud de ejemplo deben parecerse al siguiente documento JSON. Tenga en cuenta que se trata de un documento JSON con varios elementos, y cada uno de ellos representa el resultado de la detección de cada documento que se envía. La salida está disponible en inglés. 
 
-Una puntuación positiva de 1,0 expresa el nivel más alto de confianza posible del análisis.
+La detección de idioma devolverá un idioma predominante para un documento, junto con su nombre [ISO 639-1](https://www.iso.org/standard/22109.html), su nombre descriptivo y la puntuación de confianza. Una puntuación positiva de 1,0 expresa el nivel más alto de confianza posible del análisis.
 
 ```json
 {

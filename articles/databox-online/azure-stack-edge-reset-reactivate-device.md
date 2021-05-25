@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/03/2020
+ms.date: 05/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 95fbe5dc4a934fee10c558f640bc24f261203a33
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8f744e85c97d3c7e79028ae95b4d90626af41787
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443558"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773097"
 ---
 # <a name="reset-and-reactivate-your-azure-stack-edge-pro-device"></a>Restablecimiento y reactivación de un dispositivo Azure Stack Edge Pro
 
@@ -23,14 +23,12 @@ En este artículo se describe cómo restablecer, volver a configurar y reactivar
 
 Después de restablecer el dispositivo para quitar los datos, debe reactivarlo como un nuevo recurso. Al restablecer un dispositivo, se quita la configuración del dispositivo, por lo que tendrá que volver a configurarlo a través de la interfaz de usuario web local.
 
-En este artículo aprenderá a:
+Por ejemplo, es posible que tenga que mover un recurso de Azure Stack Edge existente a una nueva suscripción. Para ello, debe hacer lo siguiente:
 
-> [!div class="checklist"]
->
-> * Borrar los datos de los discos de datos del dispositivo
-> * Reactivar el dispositivo mediante la creación de un nuevo pedido, la reconfiguración del dispositivo y su activación
+1. Restablecer los datos en el dispositivo siguiendo los pasos descritos en [Restablecimiento del dispositivo](#reset-device).
+2. Crear un nuevo recurso que use la nueva suscripción con el dispositivo existente y, a continuación, activar el dispositivo. Siga los pasos descritos en [Reactivación del dispositivo](#reactivate-device).
 
-## <a name="reset-data-from-the-device"></a>Restablecimiento de los datos del dispositivo
+## <a name="reset-device"></a>Restablecer dispositivo
 
 Para borrar los datos de los discos de datos del dispositivo, debe restablecer el dispositivo.
 

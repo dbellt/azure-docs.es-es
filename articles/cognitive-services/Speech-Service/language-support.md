@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 52dd642c661aa60157876a89d41c771cabfe2f1d
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: c7bd85a3cf02196216b63c3ad29eba7f425fb0c5
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256164"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795013"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Compatibilidad con idiomas y voces en el servicio de voz
 
@@ -414,25 +414,30 @@ Hay más de 75 voces estándar disponibles en más de 45 idiomas y configuracion
 
 ### <a name="customization"></a>Personalización
 
-Voz personalizada está disponible en el nivel estándar y neuronal. Los idiomas admitidos son diferentes para estos dos niveles. 
+Voz personalizada está disponible en el nivel neuronal (conocido también como Voz neuronal personalizada). Compruebe a continuación los idiomas admitidos. 
 
-| Idioma | Configuración regional | Estándar | Neuronal |
-|--|--|--|--|
-| Chino (mandarín, simplificado) | `zh-CN` | Sí | Sí |
-| Chino (mandarín, simplificado), inglés bilingüe | `zh-CN` bilingüe | Sí | Sí |
-| Inglés (Australia) | `en-AU` | No | Sí |
-| Inglés (India) | `en-IN` | Sí | Sí |
-| Inglés (Reino Unido) | `en-GB` | Sí | Sí |
-| Spanish (Traditional Sort) - Spain | `en-US` | Sí | Sí |
-| Francés (Canadá) | `fr-CA` | No | Sí |
-| Francés (Francia) | `fr-FR` | Sí | Sí |
-| Alemán (Alemania) | `de-DE` | Sí | Sí |
-| Italiano (Italia) | `it-IT` | Sí | Sí |
-| Japonés (Japón) | `ja-JP` | No | Sí |
-| Coreano (Corea) | `ko-KR` | No | Sí |
-| Portugués (Brasil) | `pt-BR` | Sí | Sí |
-| Español (México) | `es-MX` | Sí | Sí |
-| Español (España) | `es-ES` | No | Sí |
+> [!IMPORTANT]
+> El nivel estándar, incluidos los métodos de entrenamiento concatenativo y paramétrico estadístico de la voz personalizada, quedará en desuso y se retirará el 29/2/2024. Si usa Voz personalizada estándar o no neuronal, migre a Voz neuronal personalizada inmediatamente para disfrutar de la mejor calidad e implementar las voces de forma responsable. 
+
+| Idioma | Configuración regional | Neuronal |
+|--|--|--|
+| Búlgaro (Bulgaria)| `bg-BG` | Sí |
+| Chino (mandarín, simplificado) | `zh-CN` | Sí |
+| Chino (mandarín, simplificado), inglés bilingüe | `zh-CN` bilingüe | Sí |
+| Neerlandés (Países Bajos)   | `nl-NL` | Sí |
+| Inglés (Australia) | `en-AU` | Sí |
+| Inglés (India) | `en-IN` | Sí |
+| Inglés (Reino Unido) | `en-GB` | Sí |
+| Spanish (Traditional Sort) - Spain | `en-US` | Sí |
+| Francés (Canadá) | `fr-CA` | Sí |
+| Francés (Francia) | `fr-FR` | Sí |
+| Alemán (Alemania) | `de-DE` | Sí |
+| Italiano (Italia) | `it-IT` | Sí |
+| Japonés (Japón) | `ja-JP` | Sí |
+| Coreano (Corea) | `ko-KR` | Sí |
+| Portugués (Brasil) | `pt-BR` | Sí |
+| Español (México) | `es-MX` | Sí |
+| Español (España) | `es-ES` | Sí |
 
 Seleccione la configuración regional adecuada que coincida con los datos de entrenamiento que tiene para entrenar un modelo de voz personalizado. Por ejemplo, si los datos de grabación que tienen que hablar en inglés con acento británico, seleccione `en-GB`.
 

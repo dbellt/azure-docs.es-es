@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.custom: template-how-to
-ms.openlocfilehash: e5d431d4594a89d4bfcd3b4f09c57b5cdd61b547
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: fc8e3e42e75eacd1c5bc3312b7adf6c8a8150f3c
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107929496"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684350"
 ---
 # <a name="update-your-azure-percept-dk-over-the-air-ota"></a>Actualización de Azure Percept DK de forma inalámbrica (OTA)
 
@@ -30,7 +30,7 @@ Siga esta guía para obtener información sobre cómo actualizar la placa base d
 > [!NOTE]
 > Si ya ha importado la actualización, puede ir directamente a **Creación de un grupo actualizado de dispositivos**.
 
-1. [Descargue el archivo de manifiesto (.json) más reciente](https://go.microsoft.com/fwlink/?linkid=2155625) y el [archivo de actualización (.swu)](https://go.microsoft.com/fwlink/?linkid=2161538) para el dispositivo de Azure Percept.
+1. Determine qué [manifiesto y paquete de actualización](./how-to-select-update-package.md) es adecuado para el kit de desarrollo.
 
 1. Vaya a la instancia de Azure IoT Hub que está utilizando para el dispositivo de Azure Percept. En el panel de menú izquierdo, seleccione **Actualizaciones de dispositivos** en **Administración de dispositivos automática**.
 
@@ -38,16 +38,16 @@ Siga esta guía para obtener información sobre cómo actualizar la placa base d
 
 1. Seleccione **+ Importar nueva actualización** bajo el encabezado **Listo para la implementación**.
 
-1. Haga clic en los cuadros bajo **Seleccionar el archivo manifiesto de importación** y **Seleccionar actualización de archivos** para seleccionar el archivo manifiesto (.json) adecuado y un archivo de actualización (.swu).
+1. Seleccione los cuadros bajo **Seleccionar el archivo manifiesto de importación** y **Seleccionar actualización de archivos** para seleccionar el archivo manifiesto (.json) adecuado y un archivo de actualización (.swu).
 
-1. Seleccione el icono de carpeta o el cuadro de texto bajo **Seleccionar un contenedor de almacenamiento** y, a continuación, elija la cuenta de almacenamiento adecuada. Si ya ha creado un contenedor de almacenamiento, puede volver a utilizarlo. En caso contrario, seleccione **+ Contenedor** a fin de crear un nuevo contenedor de almacenamiento para las actualizaciones de forma inalámbrica. Seleccione el contenedor que desee usar y haga clic en **Seleccionar**.
+1. Seleccione el icono de carpeta o el cuadro de texto bajo **Seleccionar un contenedor de almacenamiento** y, a continuación, elija la cuenta de almacenamiento adecuada. Si ya creó un contenedor de almacenamiento, puede volver a utilizarlo. En caso contrario, seleccione **+ Contenedor** a fin de crear un nuevo contenedor de almacenamiento para las actualizaciones de forma inalámbrica. Seleccione el contenedor que desee usar y haga clic en **Seleccionar**.
 
 1. Seleccione **Enviar** para iniciar el proceso de importación. Debido al tamaño de la imagen, el proceso de envío puede tardar hasta 5 minutos.
 
     > [!NOTE]
     > Es posible que se le pida que agregue una regla de solicitud de origen cruzado (CORS) para acceder al contenedor de almacenamiento seleccionado. Seleccione **Add rule and retry** (Agregar regla e intentarlo de nuevo) para continuar.
 
-1. Cuando inicie el proceso de importación, se le redirigirá a la pestaña **Historial de importación** de la página **Actualizaciones de dispositivos**. Haga clic en **Actualizar** para supervisar el progreso mientras se completa el proceso de importación. En función del tamaño de la actualización, esta operación puede tardar unos minutos o más (es posible que durante las horas punta, el servicio de importación tarde hasta 1 hora).
+1. Cuando inicie el proceso de importación, se le redirigirá a la pestaña **Historial de importación** de la página **Actualizaciones de dispositivos**. Haga clic en **Actualizar** para supervisar el progreso mientras se completa el proceso de importación. En función del tamaño de la actualización, esta operación puede tardar unos minutos o más (es posible que durante las horas punta, el servicio de importación tarde hasta 1 hora).
 
 1. Cuando la columna **Estado** indique que la importación se ha realizado correctamente, seleccione la pestaña **Listo para la implementación** y haga clic en **Actualizar**. Ahora debería ver la actualización importada en la lista.
 
@@ -71,7 +71,7 @@ Requisitos de la etiqueta de grupo:
 
     1. En **IoT Edge** en el panel de navegación izquierdo, busque Azure Percept DK y vaya a su **Dispositivo gemelo**.
 
-    1. Agregue una nueva etiqueta **Device Update para IoT Hub** tal como se muestra a continuación (```<CustomTagValue>``` consulta el nombre o valor de su etiqueta, por ejemplo, AzurePerceptGroup1). Más información sobre [etiquetas de documento JSON](../iot-hub/iot-hub-devguide-device-twins.md#device-twins) de dispositivos gemelos.
+    1. Agregue una etiqueta **Device Update for IoT Hub** nueva tal como se muestra a continuación (```<CustomTagValue>``` consulta el nombre o valor de su etiqueta, por ejemplo, AzurePerceptGroup1). Más información sobre [etiquetas de documento JSON](../iot-hub/iot-hub-devguide-device-twins.md#device-twins) de dispositivos gemelos.
 
         ```
         "tags": {

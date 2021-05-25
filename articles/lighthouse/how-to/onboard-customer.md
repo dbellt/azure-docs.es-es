@@ -1,18 +1,18 @@
 ---
 title: Incorporación de un cliente a Azure Lighthouse
 description: Obtenga información sobre cómo incorporar un cliente a Azure Lighthouse, lo que permite administrar sus recursos y acceder a ellos desde su propio inquilino mediante la administración de recursos delegados de Azure.
-ms.date: 03/29/2021
+ms.date: 05/11/2021
 ms.topic: how-to
-ms.openlocfilehash: d8ad448ac022b07ecdea6b68c4544b8c955814b1
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: fc67146b6fb1fb5767678838af0c7cbf30c5815a
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107497972"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786137"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Incorporación de un cliente a Azure Lighthouse
 
-En este artículo se explica cómo, como proveedor de servicios, puede incorporar un cliente a Azure Lighthouse. Al hacerlo, los recursos delegados (suscripciones o grupos de recursos) del inquilino de Azure Active Directory del cliente se pueden administrar con su propio inquilino mediante la [Administración de recursos delegados de Azure](../concepts/azure-delegated-resource-management.md).
+En este artículo se explica cómo, como proveedor de servicios, puede incorporar un cliente a Azure Lighthouse. Cuando lo haga, los recursos delegados (suscripciones o grupos de recursos) del inquilino de Azure Active Directory del cliente se pueden administrar por los usuarios de su inquilino mediante la [Administración de recursos delegados de Azure](../concepts/architecture.md).
 
 > [!TIP]
 > Aunque en este tema nos referiremos a los proveedores de servicios y clientes, las [empresas que administren varios inquilinos](../concepts/enterprise.md) pueden usar el mismo proceso para configurar Azure Lighthouse y consolidar su experiencia de administración.
@@ -205,7 +205,7 @@ La última autorización del ejemplo anterior agrega un valor de **principalId**
 Una vez actualizado el archivo de parámetros, un usuario del inquilino del cliente debe implementar la plantilla de Azure Resource Manager en su inquilino. Se necesita una implementación independiente para cada suscripción que quiera incorporar (o para cada suscripción que contenga grupos de recursos que quiera incorporar).
 
 > [!IMPORTANT]
-> Esta implementación debe realizarse desde una cuenta que no sea de invitado en el inquilino del cliente, que tenga el rol con el permiso `Microsoft.Authorization/roleAssignments/write`, como [Propietario](../../role-based-access-control/built-in-roles.md#owner), para la suscripción que se va a incorporar (o que contenga los grupos de recursos que se están incorporando). Para buscar usuarios que puedan delegar la suscripción, un usuario del inquilino del cliente puede seleccionar la suscripción en Azure Portal, abrir **Control de acceso (IAM)** y [ver todos los usuarios con el rol Propietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription). 
+> Esta implementación debe realizarse desde una cuenta que no sea de invitado en el inquilino del cliente, que tenga el rol con el permiso `Microsoft.Authorization/roleAssignments/write`, como [Propietario](../../role-based-access-control/built-in-roles.md#owner), para la suscripción que se va a incorporar (o que contenga los grupos de recursos que se están incorporando). Para buscar usuarios que puedan delegar la suscripción, un usuario del inquilino del cliente puede seleccionar la suscripción en Azure Portal, abrir **Control de acceso (IAM)** y [ver todos los usuarios con el rol Propietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 >
 > Si la suscripción se creó con el [programa Proveedor de soluciones en la nube (CSP)](../concepts/cloud-solution-provider.md), cualquier usuario que tenga el rol de [agente de administración](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) en el inquilino del proveedor de servicios puede realizar la implementación.
 
