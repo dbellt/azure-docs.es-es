@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 08/07/2020
-ms.openlocfilehash: 12600cadaa84ae116818eec06459d5db0c05304a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 04/14/2021
+ms.openlocfilehash: dd8d72d9ea223650fa4a641834e98e3837abb46d
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773427"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634174"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Creación de una oferta de módulo de IoT Edge
 
@@ -51,7 +51,7 @@ La página **Información general de la oferta** muestra una representación vis
 En esta página se incluyen vínculos para realizar operaciones en esta oferta en función de la selección que realice. Por ejemplo:
 
 - Si la oferta es un borrador: Eliminación de una oferta borrador
-- Si la oferta está activa: [Detención de la venta de una oferta](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Si la oferta está activa: [desuse (antiguamente, detenga la venta de) la oferta](update-existing-offer.md#deprecate-an-offer-or-plan)
 - Si la oferta está en versión preliminar: [Publicación](../review-publish-offer.md#previewing-and-approving-your-offer)
 - Si no ha completado el cierre de sesión del anunciante: [Cancelación de la publicación.](../review-publish-offer.md#cancel-publishing)
 
@@ -306,7 +306,7 @@ Después de crear sus planes, la pestaña **Información general del plan** mues
 Las acciones disponibles en Información general del plan varían en función del estado actual del plan del plan. Incluyen:
 
 - **Eliminar borrador**: si el estado del plan es un borrador.
-- **Detener el plan de venta**: si el estado el plan es publicado.
+- **Desusar el plan** (antiguamente, detener el plan de venta): si el estado del plan es publicado. 
 
 ### <a name="create-new-plan"></a>Creación de un nuevo plan
 

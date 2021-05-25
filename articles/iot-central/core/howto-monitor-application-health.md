@@ -1,25 +1,23 @@
 ---
 title: Supervisión del estado de una aplicación de Azure IoT Central | Microsoft Docs
-description: Como operador o administrador, supervise el estado general de los dispositivos conectados a su aplicación de IoT Central.
+description: Supervise el estado general de los dispositivos conectados a la aplicación de IoT Central.
 author: dominicbetts
 ms.author: dobett
 ms.date: 01/27/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: df89d53e6b5043c1ef3caa1c92f2abaae542d6ec
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 6a9751ba40f39a1a6f6166f6c6bce2149ed06984
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599016"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685070"
 ---
 # <a name="monitor-the-overall-health-of-an-iot-central-application"></a>Supervisión del estado general de una aplicación de IoT Central
 
 > [!NOTE]
 > Las métricas solo están disponibles para las aplicaciones de IoT Central, versión 3. Para obtener información sobre cómo comprobar la versión de la aplicación, vea [Acerca de la aplicación](./howto-get-app-info.md).
-
-*Este artículo se aplica a operadores y administradores.*
 
 En este artículo, se explica cómo usar el conjunto de métricas que proporciona IoT Central para evaluar el estado de los dispositivos conectados a su aplicación de IoT Central y el estado de las exportaciones de datos en ejecución.
 
@@ -31,7 +29,7 @@ Las aplicaciones que usan el plan de evaluación gratuita no tienen una suscripc
 
 ## <a name="view-metrics-in-the-azure-portal"></a>Visualización de métricas en Azure Portal
 
-En los pasos siguientes se supone que tiene una [aplicación de IoT Central](./quick-deploy-iot-central.md) con algunos [dispositivos conectados](./tutorial-connect-device.md) o una [exportación de datos](howto-export-data.md) en ejecución.
+En los pasos siguientes se supone que tiene una [aplicación de IoT Central](./howto-create-iot-central-application.md) con algunos [dispositivos conectados](./tutorial-connect-device.md) o una [exportación de datos](howto-export-data.md) en ejecución.
 
 Para ver las métricas de IoT Central en el portal:
 
@@ -54,7 +52,7 @@ Las métricas pueden diferir de los números que se muestran en la factura de Az
 
 - Los [planes de precios estándar](https://azure.microsoft.com/pricing/details/iot-central/) de IoT Central incluyen dos dispositivos y distintas cuotas de mensajes de forma gratuita. Aunque los elementos gratuitos se excluyen de la facturación, todavía se cuentan en las métricas.
 
-- IoT Central genera automáticamente un identificador de dispositivo de prueba para cada plantilla de dispositivo en la aplicación. Este identificador de dispositivo es visible en la página **Administrar el dispositivo de prueba** para una plantilla de dispositivo. Los generadores de soluciones pueden optar por validar sus plantillas de dispositivo antes de publicarlas mediante la generación del código que usa estos identificadores de dispositivo de prueba. Aunque estos dispositivos se excluyen de la facturación, todavía se cuentan en las métricas.
+- IoT Central genera automáticamente un identificador de dispositivo de prueba para cada plantilla de dispositivo en la aplicación. Este identificador de dispositivo es visible en la página **Administrar el dispositivo de prueba** para una plantilla de dispositivo. Puede optar por validar las plantillas de dispositivo antes de publicarlas mediante la generación del código que usa estos identificadores de dispositivo de prueba. Aunque estos dispositivos se excluyen de la facturación, todavía se cuentan en las métricas.
 
 - Aunque las métricas pueden mostrar un subconjunto de las comunicaciones del dispositivo a la nube, todas las comunicaciones entre el dispositivo y la nube [cuentan como un mensaje para la facturación](https://azure.microsoft.com/pricing/details/iot-central/).
 

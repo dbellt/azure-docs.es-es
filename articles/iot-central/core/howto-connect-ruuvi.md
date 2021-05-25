@@ -10,18 +10,16 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: 7cf0d31895eaeaa41c23f9f07664b27bed1d3126
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 13b1e22f1e1e5f51d524e80d0bf102b744fbec3d
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96006394"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684602"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Conexión de un sensor RuuviTag a la aplicación de Azure IoT Central
 
-*Este artículo se aplica a los generadores de soluciones.*
-
-En este artículo se describe cómo los creadores de soluciones pueden conectar un sensor RuuviTag a la aplicación de Microsoft Azure IoT Central.
+En este artículo se describe cómo puede conectar un sensor RuuviTag a la aplicación de Microsoft Azure IoT Central.
 
 ¿Qué es RuuviTag?
 
@@ -35,9 +33,12 @@ Si quiere instalar un dispositivo de puerta de enlace Rigado Cascade 500, siga [
 
 Para conectar sensores RuuviTag, necesita los siguientes recursos:
 
-* Un sensor RuuviTag. Para más información, visite el sitio web de [RuuviTag](https://ruuvi.com/).
-* Un dispositivo Rigado Cascade 500 u otra puerta de enlace BLE. Para más información, visite el sitio web de [Rigado](https://www.rigado.com/).
-* Una aplicación de Azure IoT Central. Para más información, consulte [Creación de una aplicación](./quick-deploy-iot-central.md).
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
+
+- Un sensor RuuviTag. Para más información, visite el sitio web de [RuuviTag](https://ruuvi.com/).
+
+- Un dispositivo Rigado Cascade 500 u otra puerta de enlace BLE. Para más información, visite el sitio web de [Rigado](https://www.rigado.com/).
+
 
 ## <a name="add-a-ruuvitag-device-template"></a>Adición de una plantilla de dispositivo RuuviTag
 
@@ -76,7 +77,7 @@ Para crear un sensor RuuviTag simulado, siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si es un desarrollador de dispositivos, algunos de los pasos sugeridos son los siguientes:
+Algunos pasos siguientes sugeridos son:
 
 - Consultar sobre la [Conectividad de dispositivos en Azure IoT Central](./concepts-get-connected.md)
 - Obtener información sobre la [Supervisión de la conectividad de dispositivos mediante la CLI de Azure](./howto-monitor-devices-azure-cli.md)

@@ -13,12 +13,12 @@ ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08660ae2d9f3b3561665489e10b29b51a9c2d512
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 34cf1b096963c5b83c359c6583573c709655bc1c
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108294171"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517733"
 ---
 # <a name="about-authenticator-assurance-levels"></a>Acerca de los niveles de garantía del autenticador
 
@@ -55,7 +55,7 @@ El estándar incluye los requisitos de AAL para 11 categorías de requisitos:
 
 En general, no se recomienda el nivel AAL 1 porque acepta soluciones de solo contraseña, y las contraseñas son la forma de autenticación más fácil de poner en peligro. Consulte [Su contra$eña no importa](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984). 
 
-Aunque NIST no requiere de resistencia a la suplantación del comprobador (también conocida como suplantación de las credenciales) hasta el nivel AAL 3, se recomienda encargarse de esta amenaza en todos los niveles. Puede seleccionar autenticadores que proporcionen resistencia a la suplantación del comprobador, por ejemplo al requerir dispositivos unidos a Azure AD o unidos a Azure AD híbrido. Si usa Office 365, puede usar la Protección contra amenazas avanzada de Office 365 y, en concreto, las [directivas de protección contra suplantación de identidad (anti-phishing)](https://docs.microsoft.com/microsoft-365/security/office-365-security/set-up-anti-phishing-policies?view=o365-worldwide).
+Aunque NIST no requiere de resistencia a la suplantación del comprobador (también conocida como suplantación de las credenciales) hasta el nivel AAL 3, se recomienda encargarse de esta amenaza en todos los niveles. Puede seleccionar autenticadores que proporcionen resistencia a la suplantación del comprobador, por ejemplo al requerir dispositivos unidos a Azure AD o unidos a Azure AD híbrido. Si usa Office 365, puede usar la Protección contra amenazas avanzada de Office 365 y, en concreto, las [directivas de protección contra suplantación de identidad (anti-phishing)](/microsoft-365/security/office-365-security/set-up-anti-phishing-policies).
 
 A medida que evalúa el nivel AAL de NIST adecuado para su organización, puede plantearse si toda la organización debe cumplir los estándares de NIST, o si hay grupos específicos de usuarios y recursos que se pueden separar, y cuáles configuraciones de AAL de NIST se aplican solo a un grupo específico de usuarios y recursos. 
 

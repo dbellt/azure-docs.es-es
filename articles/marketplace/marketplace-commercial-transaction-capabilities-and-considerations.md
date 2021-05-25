@@ -4,15 +4,15 @@ description: En este artículo se describen las consideraciones de precios, fact
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 04/14/2021
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: b17041f25fdd26bd0f8328a206267ef1c4984672
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: da0a216842ddbd10728f3ff4c3b0eee2df200ee7
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144752"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633436"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transacción de marketplace comercial
 
@@ -73,7 +73,7 @@ En función de la opción de transacción usada, los cargos de suscripción son 
 > [!NOTE]
 > Las ofertas que se facturan según el uso nos on aptas para reembolsos una vez que se ha usado la solución.
 
-Los editores que quieran cambiar las tarifas de uso asociadas a una oferta deben quitar primero la oferta (o el plan específico dentro de esta) del marketplace comercial. La eliminación debe realizarse de acuerdo con los requisitos del [contrato para editores de Microsoft](/legal/marketplace/msft-publisher-agreement). Luego, el editor puede publicar una nueva oferta (o plan dentro de una oferta) que incluya las nuevas cuotas de uso. Para información sobre cómo quitar una oferta o plan, consulte [Detención de la venta de una oferta o un plan](./partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
+Los editores que quieran cambiar las tarifas de uso asociadas a una oferta deben quitar primero la oferta (o el plan específico dentro de esta) del marketplace comercial. La eliminación debe realizarse de acuerdo con los requisitos del [contrato para editores de Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560). Luego, el editor puede publicar una nueva oferta (o plan dentro de una oferta) que incluya las nuevas cuotas de uso. Para obtener información sobre cómo quitar una oferta o un plan, consulte [Desuso de una oferta o plan](./partner-center-portal/update-existing-offer.md#deprecate-an-offer-or-plan) ("desuso" antiguamente era "detención de la venta").
 
 ### <a name="free-contact-me-and-bring-your-own-license-byol-pricing"></a>Precios de Gratis, Ponerse en contacto conmigo y traiga su propia licencia (BYOL)
 

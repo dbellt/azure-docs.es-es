@@ -1,24 +1,24 @@
 ---
-title: Omisión de la eliminación de los usuarios fuera de ámbito
-description: Aprenda a reemplazar el comportamiento predeterminado de desaprovisionamiento de los usuarios que estén fuera de ámbito.
+title: Omisión de la eliminación de usuarios fuera del ámbito en el aprovisionamiento de aplicaciones de Azure Active Directory
+description: Aprenda a reemplazar el comportamiento predeterminado de desaprovisionamiento de los usuarios que estén fuera de ámbito en Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/10/2019
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.reviewer: celested
-ms.openlocfilehash: a6cbabe35b223020528d1cf48aa9e0ef9b9f7c05
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.reviewer: arvinh
+ms.openlocfilehash: 37196dafd094f997bc5fe2ea165cefb9099562a0
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99256126"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784888"
 ---
-# <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Omisión de la eliminación de cuentas de usuario que están fuera de ámbito
+# <a name="skip-deletion-of-user-accounts-that-go-out-of-scope-in-azure-active-directory"></a>Omisión de la eliminación de cuentas de usuario que están fuera de ámbito en Azure Active Directory
 
 De forma predeterminada, el motor de aprovisionamiento de Azure AD elimina o deshabilita los usuarios que están fuera del ámbito. Sin embargo, en determinados escenarios, como el aprovisionamiento entrante de usuarios de Workday a AD, es posible que este comportamiento no sea el esperado y puede que desee reemplazarlo.  
 

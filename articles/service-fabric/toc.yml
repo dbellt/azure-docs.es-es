@@ -398,14 +398,20 @@
   items:
     - name: Uso de clústeres administrados de Service Fabric
       items:
+        - name: Configuración de un clúster administrado
+          href: how-to-managed-cluster-configuration.md
         - name: Adición de una extensión del conjunto de escalado de máquina virtual a un tipo de nodo de clúster administrado
           href: how-to-managed-cluster-vmss-extension.md
         - name: Incorporación de las reglas de grupo de seguridad de red y otras opciones de red de clúster administrado
           href: how-to-managed-cluster-networking.md
         - name: Configuración de la expansión de la zona de disponibilidad de un clúster administrado
           href: how-to-managed-cluster-availability-zones.md
-        - name: Configuración de un clúster administrado
-          href: how-to-managed-cluster-configuration.md
+        - name: Habilitación del cifrado de disco para nodos de clústeres administrados
+          href: how-to-enable-managed-cluster-disk-encryption.md
+        - name: Selección de tipos de disco administrado para nodos de clúster administrados
+          href: how-to-managed-cluster-managed-disk.md
+        - name: Configuración de opciones de actualización de clústeres administrados
+          href: how-to-managed-cluster-upgrades.md
         - name: Implementación de secretos de aplicación de un clúster administrado
           href: how-to-managed-cluster-application-secrets.md
         - name: Implementación de aplicaciones de clúster administrados mediante la plantilla ARM
@@ -414,10 +420,6 @@
           href: how-to-managed-cluster-application-managed-identity.md
         - name: Implementación de tipos de nodo sin estado en un clúster administrado
           href: how-to-managed-cluster-stateless-node-type.md
-        - name: Habilitación del cifrado de disco para nodos de clústeres administrados
-          href: how-to-enable-managed-cluster-disk-encryption.md
-        - name: Selección de tipos de disco administrado para nodos de clúster administrados
-          href: how-to-managed-cluster-managed-disk.md
         - name: Uso de la identidad administrada para nodos de clúster administrados
           href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: Configurado su entorno de desarrollo
@@ -954,13 +956,11 @@
       href: release-notes.md
     - name: Código de ejemplo
       href: /samples/browse/?products=azure
-    - name: Opciones de soporte técnico
-      href: service-fabric-support.md
     - name: Versiones de Service Fabric
       href: service-fabric-versions.md
     - name: Actualizaciones del servicio
       href: 'https://azure.microsoft.com/updates/?product=service-fabric'
-    - name: Guías de solución de problemas
-      href: 'https://github.com/Azure/Service-Fabric-Troubleshooting-Guides'
     - name: Vídeos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric'
+- name: Soporte técnico y solución de problemas
+  href: service-fabric-support.md

@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: trkeya
 ms.author: trkeya
-ms.date: 10/27/2020
+ms.date: 04/14/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: c28ab557f6aac94fa9acde78c7433b850ecba0be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4ffb01b6fcd9fe3e487abcf306470dd9529eec0
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100097271"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109635218"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>Actualización de ofertas existentes en el Marketplace comercial
 
@@ -23,7 +23,7 @@ En este artículo se explica cómo hacer actualizaciones de ofertas y planes exi
 
 Use estos pasos para actualizar una oferta que se ha publicado correctamente en estado Versión preliminar o En directo.
 
-1. Seleccione el nombre de la oferta que desea actualizar. El estado de la oferta puede aparecer como **Preview** (Versión preliminar), **Live** (Activa), **Publish in progress** (Publicación en curso), **Draft** (Borrador), **Attention needed** (Requiere atención) o **Not available** (No disponible) (si anteriormente ha elegido dejar de vender la oferta). Una vez seleccionado, se abrirá la página **Información general de la oferta** para dicha oferta.
+1. Seleccione el nombre de la oferta que desea actualizar. El estado de la oferta puede aparecer como **Versión preliminar**, **Activa**, **Publicación en curso**, **Borrador**, **Atención necesaria** o **No disponible** (si anteriormente ha elegido desusar, antiguamente dejar de vender, la oferta). Una vez seleccionado, se abrirá la página **Información general de la oferta** para dicha oferta.
 1. Seleccione la página de la oferta que quiere actualizar, como **Propiedades**, **Descripción de la oferta** o **Versión preliminar** (o seleccione **Actualizar** en la tarjeta correspondiente de la página **Información general de la oferta**).
 1. Realice los cambios y, después seleccione **Save draft** (Guardar borrador). Repita este proceso hasta que completar todos los cambios.
 1. Revise los cambios en la página **[Comparar](#compare-changes-to-your-offer)** .
@@ -71,7 +71,7 @@ Ahora que ha ocultado el plan con el precio anterior, cree una copia de ese plan
 2. Seleccione **Crear nuevo plan**. Rellene los campos **Id. de plan** y **Nombre del plan** y, luego, seleccione **Crear**.
 1. Para volver a usar la configuración técnica del plan que ha ocultado, active la casilla **Reuse technical configuration** (Reutilizar la configuración técnica). Lea [Creación de planes para una oferta de máquina virtual](../azure-vm-create-plans.md) para obtener más información.
     > [!IMPORTANT]
-    > Si selecciona **This plan reuses technical configuration from another plan** (Este plan reutiliza la configuración técnica de otro plan), no podrá dejar de vender el plan principal más adelante. No use esta opción si quiere dejar de vender el plan principal.
+    > Si selecciona **This plan reuses technical configuration from another plan** (Este plan reutiliza la configuración técnica de otro plan), no podrá desusar (antiguamente, dejar de vender) el plan principal más adelante. No use esta opción si quiere desusar (antiguamente, dejar de vender) el plan principal.
 3. Complete todas las secciones necesarias del nuevo plan, incluido el nuevo precio.
 1. Seleccione **Guardar borrador**.
 1. Cuando haya completado todas las secciones necesarias del nuevo plan, seleccione **Review and publish** (Revisar y publicar). Esta acción envía la oferta para su revisión y publicación. Lea [Revisión y publicación de una oferta en el marketplace comercial](../review-publish-offer.md) para más información.
@@ -125,17 +125,20 @@ Si tiene cambios en versión preliminar que no están activos, puede comparar lo
 
 Recuerde volver a publicar la oferta después de realizar actualizaciones para que los cambios surtan efecto.
 
-## <a name="stop-selling-an-offer-or-plan"></a>Detención de la venta de una oferta o un plan
+## <a name="deprecate-an-offer-or-plan"></a>Desuso de una oferta o plan
+
+> [!IMPORTANT]
+> El nombre de la opción para detener la venta ha cambiado a desuso.
 
 Puede quitar planes y descripciones de las ofertas del Marketplace comercial de Microsoft, lo que impedirá que los clientes nuevos los encuentren y los compren. Los clientes que hayan adquirido anteriormente la oferta o el plan todavía podrán usarlo y pueden descargarlo de nuevo si es necesario. Sin embargo, no recibirán actualizaciones si decide volver a publicar la oferta o el plan más adelante.
 
-- Para dejar de vender una oferta publicada, seleccione **Stop selling** (Dejar de vender) desde la página **Overview** (Información general) de la oferta. Pocas horas después de la confirmación, la oferta dejará de estar visible en el Marketplace comercial.
+- Para desusar (antiguamente, dejar de vender) una oferta tras su publicación, seleccione **Desusar** desde la página **Información general de la oferta**. Pocas horas después de la confirmación, la oferta dejará de estar visible en el Marketplace comercial.
 
-- Para detener la venta de un plan, seleccione **Dejar de vender** desde la página **Información general del plan**. La opción de dejar de vender un plan solo está disponible si tiene más de un plan en la oferta. Puede elegir dejar de vender un plan sin que otros planes dentro de la oferta se vean afectados.
+- Para desusar (antiguamente, detener la venta) de un plan, seleccione **Desusar** en la página **Información general del plan**. La opción para desusar (antiguamente, dejar de vender) un plan solo está disponible si tiene más de un plan en la oferta. Puede elegir desusar (antiguamente, dejar de vender) un plan sin que otros planes dentro de la oferta se vean afectados.
      >[!NOTE]
-     > Una vez que confirme que quiere dejar de vender el plan, debe volver a publicar la oferta para que se aplique el cambio.
+     > Una vez que confirme que quiere desusar (antiguamente, dejar de vender) el plan, debe volver a publicar la oferta para que el cambio surta efecto.
 
-Cuando deje de vender una oferta o un plan, seguirá viéndolo en el Centro de partners con el estado **No disponible**. Si decide volver a mostrar o vender esta oferta o este plan, siga las instrucciones para [actualizar una oferta publicada](#update-a-published-offer). No olvide que después de realizar cualquier cambio tiene que volver a **publicar** la oferta o el plan.
+Cuando desuse (antiguamente, deje de vender) una oferta o un plan, seguirá viéndolos en el Centro de partners con el estado **No disponible**. Si decide volver a mostrar o vender esta oferta o este plan, siga las instrucciones para [actualizar una oferta publicada](#update-a-published-offer). No olvide que después de realizar cualquier cambio tiene que volver a **publicar** la oferta o el plan.
 
 ## <a name="remove-offers-from-existing-customers"></a>Eliminación de ofertas de clientes existentes
 

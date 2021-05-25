@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: 0b7f0427708eece75b5d418b68dd1c7a2e90853f
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 5ee6d89d19e0981c0a0ae705536b2f6f3b767730
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108700"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790746"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Preguntas más frecuentes sobre Video Indexer
 
@@ -133,10 +133,12 @@ De conformidad con los [Términos de los servicios en línea de Azure](https://w
 ### <a name="are-the-custom-models-that-i-build-in-my-video-indexer-account-available-to-other-accounts"></a>¿Los modelos personalizados que creo en mi cuenta de Video Indexer están disponibles para otras cuentas?
 
  No, los modelos personalizados que cree en su cuenta no están disponibles para ninguna otra cuenta. Video Indexer actualmente le permite crear modelos personalizados de [marcas](customize-brands-model-overview.md), [idioma](customize-language-model-overview.md) y [persona](customize-person-model-overview.md) en su cuenta. Estos modelos solo están disponibles en la cuenta en la que los ha creado.
-  
+    
 ### <a name="is-the-content-indexed-by-video-indexer-kept-within-the-azure-region-where-i-am-using-video-indexer"></a>¿Se mantiene el contenido indexado por Video Indexer dentro de la región de Azure donde estoy usando Video Indexer?
 
-Sí, el contenido y su información se mantienen dentro de la región de Azure a menos que tenga una configuración manual en su suscripción de Azure que use varias regiones de Azure. 
+Sí, el contenido y su información se mantienen dentro de la región de Azure (excepto las regiones de Singapur y Sur de Brasil) a menos que tenga una configuración manual en la suscripción de Azure que use varias regiones de Azure.
+
+Los datos del cliente de una región se replican por motivos de BCDR en la [región emparejada](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs).
 
 ### <a name="what-is-the-privacy-policy-for-video-indexer"></a>¿Qué es la directiva de privacidad de Video Indexer?
 

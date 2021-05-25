@@ -4,18 +4,18 @@ description: Preguntas frecuentes sobre los clústeres administrados de Service 
 ms.topic: troubleshooting
 ms.author: pepogors
 author: peterpogorski
-ms.date: 02/15/2021
+ms.date: 5/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: aa77896ba88d0ffd0a6f94a84603b5f4a1803357
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 377e71c7fdf1f6750ae9529db2cf62fa329d18be
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100633094"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684674"
 ---
 # <a name="service-fabric-managed-clusters-frequently-asked-questions"></a>Preguntas más frecuentes sobre los clústeres administrados de Service Fabric
 
-Estas son algunas de las preguntas más frecuentes y sus respuestas sobre los clústeres administrados de Service Fabric (versión preliminar).
+Aquí encontrará algunas preguntas frecuentes y sus respuestas sobre los clústeres administrados de Service Fabric.
 
 ## <a name="general"></a>General
 
@@ -23,13 +23,13 @@ Estas son algunas de las preguntas más frecuentes y sus respuestas sobre los cl
 
 Los clústeres administrados de Service Fabric son una evolución del modelo de recursos de clúster de Service Fabric diseñado para facilitar la implementación y administración de los clústeres. Un clúster administrado de Service Fabric usa el modelo de encapsulación de Azure Resource Manager para que un usuario solo necesite definir e implementar un único recurso de clúster en comparación con los muchos recursos independientes que deben implementar hoy (conjunto de escalado de máquinas virtuales, Load Balancer, IP, etc.).
 
-### <a name="what-regions-are-supported-in-the-preview"></a>¿Qué regiones se admiten en la versión preliminar?
+### <a name="what-regions-are-supported"></a>¿Qué regiones se admiten?
 
-Entre las regiones admitidas para la versión preliminar de clústeres administrados de Service Fabric se incluyen `centraluseuap`, `eastus2euap`, `eastasia`, `northeurope`, `westcentralus` y `eastus2`.
+Los clústeres administrados de Service Fabric se admiten en todas las regiones de la nube pública.
 
 ### <a name="can-i-do-an-in-place-migration-of-my-existing-service-fabric-cluster-to-a-managed-cluster-resource"></a>¿Puedo realizar una migración en contexto del clúster de Service Fabric existente a un recurso de clúster administrado?
 
-No. En este momento, necesitaría crear un recurso de clúster de Service Fabric para usar el nuevo tipo de recurso de clúster administrado de Service Fabric.
+No. Necesitará crear un recurso de clúster de Service Fabric para usar el nuevo tipo de recurso de clúster administrado de Service Fabric.
 
 ### <a name="is-there-an-additional-cost-for-service-fabric-managed-clusters"></a>¿Hay un costo adicional para los clústeres administrados de Service Fabric?
 
@@ -55,15 +55,19 @@ No. Actualmente no es posible tener un equilibrador de carga solo interno. Se re
 
 ### <a name="can-i-autoscale-my-cluster"></a>¿Puedo escalar mi clúster automáticamente?
 
-La escalabilidad automática no está disponible actualmente en la versión preliminar.
+Actualmente no se admite la escalabilidad automática.
 
 ### <a name="can-i-deploy-my-cluster-across-availability-zones"></a>¿Puedo implementar mi clúster en zonas de disponibilidad?
 
-Los clústeres de zonas de disponibilidad cruzadas no están disponibles actualmente en la versión preliminar.
+Sí, los clústeres administrados de Service Fabric que abarcan zonas de disponibilidad se admiten en aquellas regiones de Azure que admiten zonas de disponibilidad. Para más información, consulte el artículo sobre [clústeres administrados de Service Fabric entre zonas de disponibilidad](.\service-fabric-cross-availability-zones.md).
+
+### <a name="can-i-deploy-stateless-node-types-on-a-service-fabric-managed-cluster"></a>¿Se pueden implementar tipos de nodos sin estado en un clúster administrado de Service Fabric? 
+
+Sí, los clústeres administrados de Service Fabric admiten tipos de nodo sin estado para todos los tipos de nodo secundario. Para más información, consulte el artículo sobre [tipos de nodos sin estado de un clúster administrado de Service Fabric](./how-to-managed-cluster-stateless-node-type.md).
 
 ### <a name="can-i-select-between-automatic-and-manual-upgrades-for-my-cluster-runtime"></a>¿Puedo seleccionar entre actualizaciones automáticas y manuales del clúster en tiempo de ejecución?
 
-En la versión preliminar, todas las actualizaciones en tiempo de ejecución se completarán automáticamente.
+Sí, puede seleccionar entre actualizaciones automáticas y manuales. Para más información, consulte el artículo sobre las [actualizaciones de clústeres](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade).
 
 ## <a name="applications"></a>Aplicaciones
 
@@ -74,3 +78,7 @@ La experiencia de desarrollo local no cambia respecto a los clústeres de Servic
 ### <a name="can-i-deploy-my-applications-as-an-azure-resource-manager-resource"></a>¿Puedo implementar mis aplicaciones como un recurso de Azure Resource Manager?
 
 Sí. Se ha agregado compatibilidad para implementar aplicaciones como un recurso de Azure Resource Manager (además de la implementación mediante PowerShell y la CLI). Para empezar, consulte [Implementación de una aplicación de clúster administrado de Service Fabric mediante una plantilla de ARM](how-to-managed-cluster-app-deployment-template.md).
+
+### <a name="can-i-deploy-applications-with-managed-identities"></a>¿Puedo implementar aplicaciones con identidades administradas?
+
+ Sí, las aplicaciones con identidades administradas se pueden implementar en los clústeres administrados de Service Fabric. Para más información, consulte el artículo sobre la [protección de identidades administradas](.\concepts-managed-identity.md).

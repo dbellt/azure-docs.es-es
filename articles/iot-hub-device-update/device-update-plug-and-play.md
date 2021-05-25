@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/14/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: d1817db4615d321db3d5f098d449410ee5b0606c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 819e3574a2341d2a9f946e7fa7e008c798bd099f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108141856"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756438"
 ---
 # <a name="device-update-for-iot-hub-and-iot-plug-and-play"></a>Device Update para IoT Hub e IoT Plug and Play
 
@@ -36,14 +36,14 @@ Los metadatos del agente contienen campos que se utilizan en el dispositivo o en
 |resultCode|integer|entre el dispositivo y la nube|Código que contiene información sobre el resultado de la última acción de actualización. Se puede especificar para indicar si se ha realizado correcta o incorrectamente y debe seguir la [especificación de códigos de estado HTTP](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).|500|
 |extendedResultCode|integer|entre el dispositivo y la nube|Código que contiene información adicional sobre el resultado. Se puede especificar para indicar si la operación se ha realizado correcta o incorrectamente.|0x80004005|
 |state|integer|entre el dispositivo y la nube|Entero que indica el estado actual de Device Update Agent. Vea más abajo para obtener más información. |Inactivo|
-|installedUpdateId|string|entre el dispositivo y la nube|Identificador de la actualización que está instalada actualmente (mediante Device Update). Este valor será null en los dispositivo que nunca han realizado una actualización mediante Device Update.|Null|
+|installedUpdateId|string|entre el dispositivo y la nube|Identificador de la actualización que está instalada actualmente (mediante Device Update). Este valor será una cadena que captura el valor de la instrucción JSON Update Id o un valor NULL en el caso de un dispositivo que nunca ha aplicado una actualización a través de la actualización de dispositivo.|"{\"provider\":\"contoso\",\"name\":\"image-update\",\"version\":\"1.0.0\"}"|
 |`deviceProperties`|Asignación|entre el dispositivo y la nube|Conjunto de propiedades que contienen el fabricante y el modelo.|Vea más abajo para obtener más información.
 
 #### <a name="state"></a>State
 
 Es el estado que notifica Device Update Agent después de recibir una acción del servicio Device Update. `State` es la respuesta a una `Action` ([Acción], consulte `Actions` a continuación) que se notifica y se envía a Device Update Agent desde el servicio Device Update. Consulte el [flujo de trabajo general](understand-device-update.md#device-update-agent) de las solicitudes que se transmiten entre el servicio Device Update y Device Update Agent.
 
-|Nombre|Valor|Descripción|
+|Nombre|Value|Descripción|
 |---------|-----|-----------|
 |Inactivo|0|El dispositivo está listo para recibir una acción del servicio Device Update. Cuando una actualización se realiza correctamente, el estado vuelve a ser `Idle`.|
 |DownloadSucceeded|2|Descarga correcta.|
@@ -97,7 +97,7 @@ Los metadatos del servicio contienen campos que los servicios de Device Update u
 
 El objeto `Actions` siguiente representa las acciones realizadas por Device Update Agent conforme a las instrucciones del servicio Device Update. Device Update Agent notificará un objeto `State` (consulte `State` en la sección anterior) sobre el procesamiento del valor de `Action` recibido. Consulte el [flujo de trabajo general](understand-device-update.md#device-update-agent) de las solicitudes que se transmiten entre el servicio Device Update y Device Update Agent.
 
-|Nombre|Valor|Descripción|
+|Nombre|Value|Descripción|
 |---------|-----|-----------|
 |Descargar|0|Descarga la actualización o el contenido que están publicados y cualquier otro contenido necesario|
 |Instalar|1|Instala el contenido o la actualización. Normalmente, esto significa que es necesario llamar al instalador del contenido o la actualización.|

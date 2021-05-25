@@ -3,12 +3,12 @@ title: Controles del ejemplo de plano técnico de la norma SWIFT CSP-CSCF v2020
 description: Asignación de controles del ejemplo de plano técnico SWIFT CSP-CSCF v2020. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 9d385cfddae11b026cd93f49c1bc41ca48265a87
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 5f534853fb34be75f5bafcf0eb5dc90cf5afcc1a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386183"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733974"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico SWIFT CSP-CSCF v2020
 
@@ -37,7 +37,7 @@ El [control de acceso basado en roles de Azure](../../../../role-based-access-co
 - Auditar las máquinas virtuales que no utilizan discos administrados
 - Los clústeres de Service Fabric solo deben usar Azure Active Directory para la autenticación de cliente
 
-## <a name="29a--account-management--account-monitoring--atypical-usage"></a>2.9A Administración de cuentas | Supervisión o uso inusual de cuentas
+## <a name="29a-account-management--account-monitoring--atypical-usage"></a>2.9A Administración de cuentas | Supervisión o uso inusual de cuentas
 
 El acceso a máquinas virtuales Just-In-Time (JIT) bloquea el tráfico entrante a las máquinas virtuales de Azure, lo que reduce la exposición a ataques y, al mismo tiempo, se proporciona acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario. Todas las solicitudes JIT para tener acceso a las máquinas virtuales se registran en el registro de actividad que le permiten supervisar el uso inusual. Esta instancia de proyecto asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales que pueden admitir el acceso just-in-time pero aún no se han configurado.
 
@@ -122,19 +122,19 @@ Estas definiciones de directiva auditan y aplican la implementación del agente 
 
 ## <a name="11-least-functionality--prevent-program-execution"></a>1.1 Funcionalidad mínima | Evitación de la ejecución de programas
 
-El control de aplicaciones adaptable en Azure Security Center es una solución de filtrado de aplicaciones de un extremo a otro, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ejecutarse en modo de aplicación que prohíbe que la aplicación no autorizada se ejecute. Este plano técnico asigna una definición de Azure Policy que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero esta aún no se ha configurado.
+El control de aplicaciones adaptable en Azure Security Center es una solución de filtrado de aplicaciones de un extremo a otro, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ejecutarse en modo de aplicación que prohíbe que la aplicación no autorizada se ejecute. Este plano técnico asigna una definición de Azure Policy que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero aún no se ha configurado.
 
 - Los controles de aplicaciones adaptables para definir aplicaciones seguras deben estar habilitados en las máquinas.
 
 ## <a name="11-least-functionality--authorized-software--whitelisting"></a>1.1 Funcionalidad mínima | Inclusión en listas blancas de software autorizado
 
-El control de aplicaciones adaptable en Azure Security Center es una solución de filtrado de aplicaciones de un extremo a otro, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones le permite crear listas de aplicaciones aprobadas para las máquinas virtuales. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero esta aún no se ha configurado.
+El control de aplicaciones adaptable en Azure Security Center es una solución de filtrado de aplicaciones de un extremo a otro, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones le permite crear listas de aplicaciones aprobadas para las máquinas virtuales. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero aún no se ha configurado.
 
 - Los controles de aplicaciones adaptables para definir aplicaciones seguras deben estar habilitados en las máquinas.
 
 ## <a name="11-user-installed-software"></a>1.1 Software instalado por el usuario
 
-El control de aplicaciones adaptable en Azure Security Center es una solución de filtrado de aplicaciones de un extremo a otro, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ayudarle a aplicar y supervisar el cumplimiento con las directivas de restricción de software. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero esta aún no se ha configurado.
+El control de aplicaciones adaptable en Azure Security Center es una solución de filtrado de aplicaciones de un extremo a otro, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ayudarle a aplicar y supervisar el cumplimiento con las directivas de restricción de software. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero aún no se ha configurado.
 
 - Los controles de aplicaciones adaptables para definir aplicaciones seguras deben estar habilitados en las máquinas.
 - Se deben migrar las máquinas virtuales a nuevos recursos de Azure Resource Manager
@@ -188,7 +188,7 @@ Azure Security Center proporciona funcionalidades de informes que permiten tener
 - La seguridad avanzada de datos debe estar habilitada en los servidores SQL Server
 - La auditoría de SQL Server debe estar habilitada
 - Se deben corregir las vulnerabilidades en la configuración de seguridad de los conjuntos de escalado de máquinas virtuales
-- Se deben corregir las vulnerabilidades de las bases de datos SQL 
+- Se deben corregir las vulnerabilidades de las bases de datos SQL
 - Se deben corregir las vulnerabilidades en la configuración de seguridad en las máquinas
 
 ## <a name="13-denial-of-service-protection"></a>1.3 Protección ante la denegación de servicio

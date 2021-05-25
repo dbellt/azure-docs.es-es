@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/14/2020
-ms.openlocfilehash: 7c1e908b5b113c5a2eff81105b1f0cd622c57b5e
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 04/14/2021
+ms.openlocfilehash: af648b24d1fb5006a6dbfae33030e4c064646aeb
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127522"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634264"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Preguntas más frecuentes sobre la transición de Cloud Partner Portal al Centro de partners
 
@@ -170,11 +170,14 @@ El identificador de la oferta ahora se muestra en la barra de navegación izquie
 
 ![Se muestra la ubicación del id. de la oferta en el Centro de partners](media/cpp-pc-faq/offer-id.png)
 
-### <a name="stop-selling-an-offer"></a>Detención de la venta de una oferta
+### <a name="deprecate-an-offer"></a>Desuso de una oferta
 
-Puede solicitar [dejar de vender una oferta](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan) en Marketplace directamente desde el portal del Centro de partners. La opción está disponible en la página **Información general de la oferta** de la oferta.
+> [!IMPORTANT]
+> Detener la ha cambiado a desusar.
 
-[![Captura de pantalla que muestra la página para dejar de vender una oferta del Centro de partners](media/cpp-pc-faq/stop-sell.png "Se muestra la página del Centro de partners para dejar de vender una oferta")](media/cpp-pc-faq/stop-sell.png#lightbox)
+Puede solicitar [desusar (antiguamente, detener la venta de una oferta)](partner-center-portal/update-existing-offer.md#deprecate-an-offer-or-plan) en el marketplace directamente desde el portal del Centro de partners. La opción está disponible en la página **Información general de la oferta** de la oferta.
+
+[![Captura de pantalla que muestra la página de desusar (antiguamente, de dejar de vender) una oferta del Centro de partners.](media/cpp-pc-faq/stop-sell.png "Se muestra la página del Centro de partners para desusar una oferta")](media/cpp-pc-faq/stop-sell.png#lightbox)
 <br><br>
 
 ## <a name="are-the-cloud-partner-portal-rest-apis-still-supported"></a>¿Se siguen admitiendo las API REST de Cloud Partner Portal?

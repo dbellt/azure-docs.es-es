@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 61993df77b0831926f16339a741a2553e80c2a0d
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: b9b8c97f7b87fc96bb0ea9e60958e5579a27d89c
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107713847"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484674"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Preguntas más frecuentes acerca de los aceleradores de soluciones de IoT
 
@@ -24,19 +24,18 @@ Consulte también la sección [Preguntas frecuentes específicas de la factoría
 El código fuente se almacena en los siguientes repositorios de GitHub:
 
 * [Acelerador de la solución de factoría conectada](https://github.com/Azure/azure-iot-connected-factory)
-* [Acelerador de soluciones de simulación de dispositivos](https://github.com/Azure/azure-iot-pcs-device-simulation)
 
 ### <a name="where-can-i-find-the-remote-monitoring-and-predictive-maintenance-solution-accelerators"></a>¿Dónde puedo encontrar los aceleradores de soluciones de supervisión remota y mantenimiento predictivo?
 
 A partir del 10 de diciembre de 2020, los aceleradores de supervisión remota y mantenimiento predictivo se han quitado del sitio de [aceleradores de soluciones de Azure IoT](https://www.azureiotsolutions.com/Accelerators) y ya no están disponibles para nuevas implementaciones. Los repositorios de GitHub de ambos aceleradores se han archivado. El código sigue estando disponible para todo aquel que quiera acceder a él, pero ya no se aceptan nuevas contribuciones a los repositorios.
 
+### <a name="where-can-i-find-the-device-simulation-solution-accelerator"></a>¿Dónde puedo encontrar el acelerador de soluciones de simulación de dispositivos?
+
+Se ha archivado el repositorio de GitHub para el acelerador. El código sigue estando disponible para todo aquel que quiera acceder a él, pero ya no se aceptan nuevas contribuciones a los repositorios.
+
 ### <a name="what-happens-to-my-existing-remote-monitoring-and-predictive-maintenance-deployments"></a>¿Qué ocurre con mis implementaciones existentes de supervisión remota y mantenimiento predictivo?
 
 Las implementaciones existentes no se verán afectadas por la eliminación de los aceleradores de soluciones de supervisión remota y mantenimiento predictivo y seguirán funcionando. Los repositorios bifurcados tampoco se verán afectados. Los repositorios maestros de GitHub se han archivado.
-
-### <a name="how-do-i-deploy-device-simulation-solution-accelerator"></a>¿Cómo implemento el acelerador de soluciones de simulación de dispositivos?
-
-Para implementar el acelerador de soluciones de simulación de dispositivos, consulte el repositorio de [simulación de dispositivos](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) de GitHub.
 
 ### <a name="where-can-i-find-information-about-the-removed-solution-accelerators"></a>¿Dónde puedo encontrar información sobre los aceleradores de soluciones quitados?
 
@@ -44,6 +43,7 @@ Consulte las siguientes páginas en el sitio de versiones anterior:
 
 * [Supervisión remota](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
 * [Mantenimiento predictivo](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
+* [Simulación de dispositivo](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
 
 ### <a name="what-sdks-can-i-use-to-develop-device-clients-for-the-solution-accelerators"></a>¿Qué SDK puedo usar para desarrollar clientes de dispositivo para los aceleradores de soluciones?
 
