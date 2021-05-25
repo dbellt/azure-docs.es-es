@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 7da35f77dd232e5f523e2bdc3f125c68015ab871
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 69edeb73be969c1f065ff99ee80153305ec70a60
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448192"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753712"
 ---
 # <a name="use-azure-monitor-for-windows-virtual-desktop-to-monitor-your-deployment"></a>Uso de Azure Monitor para Windows Virtual Desktop para supervisar implementaciones
 
@@ -175,7 +175,7 @@ Para configurar los registros de eventos de Windows utilizando el libro de confi
 
 ## <a name="optional-configure-alerts"></a>Opcional: configuración de MPIO
 
-Azure Monitor para Windows Virtual Desktop permite supervisar las alertas de Azure Monitor que se generan en la suscripción seleccionada en relación con los datos de Windows Virtual Desktop. Las alertas de Azure Monitor son una característica opcional de las suscripciones de Azure y deben configurarse en otro proceso distinto al de Azure Monitor para Windows Virtual Desktop. Puede usar el marco de alertas de Azure Monitor para configurar alertas personalizadas sobre los eventos, diagnósticos y recursos de Windows Virtual Desktop. Para más información sobre las alertas, consulte este artículo sobre la [respuesta a eventos con alertas de Azure Monitor](../azure-monitor/alerts/tutorial-response.md).
+Azure Monitor para Windows Virtual Desktop permite supervisar las alertas de Azure Monitor que se generan en la suscripción seleccionada en relación con los datos de Windows Virtual Desktop. Las alertas de Azure Monitor son una característica opcional de las suscripciones de Azure y deben configurarse en otro proceso distinto al de Azure Monitor para Windows Virtual Desktop. Puede usar el marco de alertas de Azure Monitor para configurar alertas personalizadas sobre los eventos, diagnósticos y recursos de Windows Virtual Desktop. Para más información sobre las alertas de Azure Monitor, consulte [Alertas de registro a Azure Monitor](../azure-monitor/alerts/alerts-log.md).
 
 ## <a name="diagnostic-and-usage-data"></a>Datos de diagnóstico y uso
 

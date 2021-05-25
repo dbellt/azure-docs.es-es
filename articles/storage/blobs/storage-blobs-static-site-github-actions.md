@@ -6,15 +6,15 @@ ms.service: storage
 ms.topic: how-to
 ms.author: jukullam
 ms.reviewer: dineshm
-ms.date: 01/11/2021
+ms.date: 05/05/2021
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 3ae0904eda2608026ad09ba8b8993008380725f4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 5ab81f442aaf45328892de42cbf9aef651d3fe8d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788536"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108762810"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Configuración de un flujo de trabajo de acciones de GitHub para implementar el sitio web estático en Azure Storage
 
@@ -117,7 +117,7 @@ En el ejemplo anterior, reemplace los marcadores de posición por el identificad
               creds: ${{ secrets.AZURE_CREDENTIALS }}
     ```
 
-1. Use la acción de la CLI de Azure para cargar el código en la instancia de Blob Storage y purgar el punto de conexión de la red CDN. En cuanto a `az storage blob upload-batch`, reemplace el marcador de posición por el nombre de la cuenta de almacenamiento. El script se cargará en el contenedor `$web`. Para `az cdn endpoint purge`, reemplace los marcadores de posición por el nombre del perfil de CDN, el nombre del punto de conexión de CDN y el grupo de recursos.
+1. Use la acción de la CLI de Azure para cargar el código en la instancia de Blob Storage y purgar el punto de conexión de la red CDN. En cuanto a `az storage blob upload-batch`, reemplace el marcador de posición por el nombre de la cuenta de almacenamiento. El script se cargará en el contenedor `$web`. Para `az cdn endpoint purge`, reemplace los marcadores de posición por el nombre del perfil de CDN, el nombre del punto de conexión de CDN y el grupo de recursos. Para acelerar la purga de la red CDN, puede agregar la opción `--no-wait` a `az cdn endpoint purge`.
 
     ```yaml
         - name: Upload to blob storage

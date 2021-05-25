@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 660297beacb6594058a3d83fb622ddeb579c223b
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 7746e05583057b3ed313a55699cae711c560f061
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107951727"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108803951"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>¿Qué es SQL Data Sync para Azure?
 
@@ -152,6 +152,7 @@ El aprovisionamiento y desaprovisionamiento durante la creación, actualización
 - No se admiten columnas con tipos de datos definidos por el usuario
 - No se admite el traslado de servidores entre diferentes suscripciones. 
 - Si dos claves principales solo son diferentes en el uso de mayúsculas (por ejemplo, Foo y foo), Data Sync no admitirá este escenario.
+- El truncamiento de tablas no es una operación admitida por Data Sync (no se realiza un seguimiento de los cambios).
 
 #### <a name="unsupported-data-types"></a>Tipos de datos no admitidos
 

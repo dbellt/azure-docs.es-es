@@ -5,14 +5,14 @@ author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: tutorial
-ms.date: 03/02/2021
+ms.date: 05/04/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: f4f3d045a2530fa54d22bec789918454cba80097
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: be6bcf84ebb9c979cd60e6ca6803b7a24a0944a1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310434"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736326"
 ---
 # <a name="tutorial-add-device-details"></a>Tutorial: Incorporación de detalles del dispositivo
 
@@ -29,24 +29,32 @@ En este tutorial aprenderá a:
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Debe haber iniciado sesión y tener un proyecto creado para su dispositivo en el [portal de Azure Certified Device](https://certify.azure.com). Para más información, consulte el [tutorial](tutorial-01-creating-your-project.md).
-* Debe disponer de una guía de introducción para el dispositivo en formato PDF. Se le proporcionarán plantillas de introducción para que las utilice en función del programa de certificación y el idioma que prefiera. Las plantillas están disponibles en nuestra ubicación de GitHub de [introducción a las plantillas](https://aka.ms/GSTemplate "Introducción a las plantillas").
+* Debe disponer de una guía de introducción para el dispositivo en formato PDF. Se le proporcionarán varias plantillas de introducción para que las utilice en función del programa de certificación y el idioma que prefiera. Las plantillas están disponibles en nuestra ubicación de GitHub de [introducción a las plantillas](https://aka.ms/GSTemplate "Introducción a las plantillas").
 
 ## <a name="adding-technical-device-details"></a>Incorporación de detalles técnicos del dispositivo
 
 La primera sección de la página del proyecto, denominada "Input device details" (Introducción de detalles del dispositivo), le permite proporcionar información sobre las principales funciones de hardware del dispositivo, como el nombre del dispositivo, la descripción, el procesador, el sistema operativo, las opciones de conectividad, las interfaces de hardware, los protocolos del sector, las dimensiones físicas, etc. Aunque muchos de los campos son opcionales, la mayor parte de esta información estará disponible para los posibles clientes en el catálogo de Azure Certified Device si decide publicar el dispositivo una vez que se haya certificado.
 
-1. Haga clic en `Add`, en la sección "Input device details" (Introducción de detalles del dispositivo) de la página de resumen del proyecto para abrir la sección de detalles del dispositivo. Verá cinco secciones para completar.
+1. Haga clic en `Add`, en la sección "Input device details" (Introducción de detalles del dispositivo) de la página de resumen del proyecto para abrir la sección de detalles del dispositivo. Verá seis secciones para completar.
 
 ![Imagen de la página de detalles del proyecto](./media/images/device-details-menu.png)
 
 2. Revise la información que proporcionó anteriormente al crear el proyecto en la pestaña `Basics`.
 1. Revise las certificaciones que solicita para el dispositivo en la pestaña `Certifications`.
-1. Abra la pestaña `Product details` y seleccione al menos un sistema operativo.
-1. Agregue **al menos** un componente específico que describa el dispositivo. Puede obtener directrices adicionales sobre el uso de componentes [aquí](how-to-using-the-components-feature.md).
+1. Abra la pestaña `Hardware` y agregue **al menos** un componente específico que describa el dispositivo. También puede ver nuestra guía en el [uso del componente](how-to-using-the-components-feature.md).
 1. Haga clic en `Save`. Después, podrá editar el dispositivo componente y agregar detalles más avanzados.
-1. Muestre detalles adicionales del dispositivo no capturados en los detalles del componente en `Additional product details`.
+1. Agregue cualquier información pertinente sobre las condiciones de funcionamiento (como la clasificación IP, la temperatura de funcionamiento o la certificación de seguridad).
+
+![Imagen de la sección de hardware](./media/images/hardware-section.png)
+
+7. Muestre detalles adicionales del dispositivo no capturados en los detalles del componente en `Additional product details`.
 1. Si ha marcado `Other` en cualquiera de los campos del componente o se da alguna circunstancia especial sobre la que desea llamar la atención del equipo de certificación de Azure, incluya un comentario aclaratorio en la sección `Comments for reviewer`.
-1. Use la pestaña `Dependencies` para mostrar las dependencias si el dispositivo requiere hardware o servicios adicionales para enviar datos a Azure. Puede obtener directrices adicionales sobre cómo mostrar las dependencias [aquí](how-to-indirectly-connected-devices.md).
+1. Abra la pestaña `Software` y seleccione **al menos** un sistema operativo.
+1. (**Obligatorio para dispositivos de Dev Kit** y muy recomendado para todos los demás) Seleccione un nivel para indicar el proceso de configuración esperado para conectar el dispositivo a Azure. Si selecciona el nivel 2, tendrá que proporcionar un vínculo a la imagen de software disponible.
+
+![Imagen de la sección de software](./media/images/software-section.png)
+
+11. Use la pestaña `Dependencies` para mostrar las dependencias si el dispositivo requiere hardware o servicios adicionales para enviar datos a Azure. También puede ver nuestras instrucciones adicionales para [enumerar las dependencias](how-to-indirectly-connected-devices.md).
 1. Una vez que esté satisfecho con la información que ha proporcionado, puede usar la pestaña `Review` para obtener información general de solo lectura del conjunto completo de detalles del dispositivo que se ha especificado.
 1. Haga clic en `Project summary`, en la parte superior de la página, para volver a la página de resumen.
 
@@ -81,8 +89,8 @@ En esta sección, proporcionará la información comercial de su dispositivo par
     > [!Note]
     > Asegúrese de que todas las direcciones URL proporcionadas sean válidas o que estarán activas en el momento de aprobar la publicación.*)
 
-1. Indique un máximo de 3 sectores objetivo para los que el dispositivo se ha optimizado.
-1. Proporcione información para un máximo de 5 distribuidores del dispositivo. Se puede incluir el propio sitio del fabricante.
+1. Indique un máximo de tres sectores objetivo para los que el dispositivo se ha optimizado.
+1. Proporcione información para un máximo de cinco distribuidores del dispositivo. Se puede incluir el propio sitio del fabricante.
 
     > [!Note]
     > Si no se proporciona una URL de la página del producto del distribuidor, el botón `Shop` del catálogo se establecerá de forma predeterminada en el vínculo proporcionado para `Distributor page`, que puede no ser específico del dispositivo. La URL del distribuidor debería dirigir idealmente a una página específica en la que un cliente puede comprar un dispositivo, pero no es obligatorio. Si el distribuidor es también el fabricante del dispositivo, esta URL puede coincidir con la página del fabricante del dispositivo.*)

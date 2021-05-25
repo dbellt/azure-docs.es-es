@@ -1,30 +1,30 @@
 ---
 title: Inicio de sesión en una máquina virtual Linux con credenciales de Azure Active Directory
 description: Aprenda a crear y configurar una máquina virtual Linux para iniciar sesión con la autenticación de Azure Active Directory.
-author: SanDeo-MSFT
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 11/17/2020
-ms.author: sandeo
-ms.openlocfilehash: 654d47102685c04d6440d7c155e4d6eb931abcae
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/11/2021
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: sandeo
+ms.custom: references_regions
+ms.openlocfilehash: fd1d3afdd8ab6836971fbda88baac93f3abdbbb2
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788122"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785608"
 ---
-# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Vista previa: Inicio de sesión en una máquina virtual Linux en Azure mediante la autenticación de Azure Active Directory
+# <a name="deprecated-login-to-a-linux-virtual-machine-in-azure-with-azure-active-directory-using-device-code-flow-authentication"></a>En desuso: Inicio de sesión en una máquina virtual Linux en Azure con Azure Active Directory mediante la autenticación del flujo de código del dispositivo
+
+> [!CAUTION]
+> **La característica en versión preliminar pública descrita en este artículo está en desuso a partir del 15 de agosto de 2021.**
+> 
+> La posibilidad de usar Azure AD y SSH mediante la autenticación basada en certificados reemplazará a esta característica. Para más información, consulte el artículo [Versión preliminar: Inicio de sesión en una máquina virtual con Linux en Azure con Azure Active Directory mediante la autenticación basada en certificados SSH](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md). Para migrar de la versión anterior a esta versión, consulte [Migración desde la versión preliminar anterior](https://docs.microsoft.com/azure/active-directory/devices/howto-vm-sign-in-azure-ad-linux#migration-from-previous-preview).
 
 Para mejorar la seguridad de las máquinas virtuales Linux en Azure, puede integrarla con la autenticación de Azure Active Directory (AD). Cuando usa la autenticación de Azure AD para las máquinas virtuales Linux, administra y aplica de manera centralizada las directivas que permiten o deniegan el acceso a las máquinas virtuales. En este artículo se muestra cómo crear y configurar una máquina virtual Linux para usar la autenticación de Azure AD.
-
-
-> [!IMPORTANT]
-> La autenticación de Azure Active Directory se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Use esta característica en una máquina virtual de prueba que espere descartar después de realizar pruebas.
->
-
 
 Usar la autenticación de Azure AD para iniciar sesión en máquinas virtuales Linux en Azure implica varias ventajas, entre las que se incluyen:
 
@@ -50,16 +50,10 @@ La versión preliminar de esta característica actualmente admite estas distribu
 | SUSE Linux Enterprise Server | SLES 12 |
 | Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04 y Ubuntu Server 18.04 |
 
-
-La versión preliminar de esta característica actualmente admite estas regiones de Azure:
-
-- Todas las regiones de Azure global
-
->[!IMPORTANT]
-> Para usar esta característica en versión preliminar, solo debe implementar una distribución de Linux compatible en una región de Azure compatible. La característica no es compatible con Azure Government ni con las nubes soberanas.
+> [!IMPORTANT]
+> La versión preliminar no es compatible con Azure Government ni con las nubes soberanas.
 >
 > No se admite el uso de esta extensión en clústeres de Azure Kubernetes Service (AKS). Para obtener más información, consulte [Directivas de soporte técnico para AKS](../../aks/support-policies.md).
-
 
 Si elige instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.31 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
@@ -182,7 +176,6 @@ por esta otra:
 ```bash
 %aad_admins ALL=(ALL) NOPASSWD:ALL
 ```
-
 
 ## <a name="troubleshoot-sign-in-issues"></a>Solución de problemas con el inicio de sesión
 

@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 0e4585e801b356bd1c0e4bc1fb0f2ab9ee7ab7bf
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c5e8a9eafc2bee0631ead77cde5855651c3f81ed
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136344"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745788"
 ---
 # <a name="migration-guide-sql-server-to-azure-sql-managed-instance"></a>Guía de migración: de SQL Server a Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -36,12 +36,13 @@ Para más información acerca de la migración, consulte [Introducción a la mig
 
 ## <a name="prerequisites"></a>Requisitos previos 
 
-Para migrar su instancia de SQL Server a Azure SQL Managed Instance, asegúrese de cumplir los siguientes requisitos previos: 
+Para migrar la instancia de SQL Server a Azure SQL Managed Instance, asegúrese de que: 
 
-- Elija un [método de migración](sql-server-to-managed-instance-overview.md#compare-migration-options) y las herramientas correspondientes que sean necesarias para el método elegido.
-- Instale [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) en un equipo que pueda conectarse a la instancia de SQL Server de origen.
-- Conectividad y permisos adecuados para acceder tanto al origen como al destino. 
-
+- Ha seleccionado un [método de migración](sql-server-to-managed-instance-overview.md#compare-migration-options) y las herramientas correspondientes para dicho método.
+- Ha instalado [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) en un equipo que pueda conectarse a la instancia de SQL Server de origen.
+- Ha creado una instancia de [Azure SQL Managed Instance](../../managed-instance/instance-create-quickstart.md) de destino.
+- Ha configurado la conectividad y los permisos adecuados para acceder tanto al origen como al destino. 
+- Ha revisado las características del motor de base de datos de SQL Server [disponibles en Azure SQL Managed Instance](../../database/features-comparison.md). 
 
 
 ## <a name="pre-migration"></a>Antes de la migración

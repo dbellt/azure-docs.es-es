@@ -11,16 +11,16 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: caa61170504c3ee4b7162cc06db4df16d1232395
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 183693963d66a5df13cbb4dd1e561b26f5495f08
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103014373"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685700"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Tutorial: Creación de una aplicación de análisis en tienda en Azure IoT Central
 
-En el tutorial se muestran generadores de soluciones para crear una aplicación de análisis en tienda de Azure IoT Central. La aplicación de ejemplo es para una tienda de venta al por menor. Es una solución para la necesidad empresarial común de supervisar y adaptarse a la ocupación y las condiciones ambientales.
+En el tutorial se muestra cómo crear una aplicación de análisis en tienda de Azure IoT Central. La aplicación de ejemplo es para una tienda de venta al por menor. Es una solución para la necesidad empresarial común de supervisar y adaptarse a la ocupación y las condiciones ambientales.
 
 La aplicación de ejemplo que se crea incluye tres dispositivos reales: una puerta de enlace Rigado Cascade 500 y dos sensores RuuviTag. En el tutorial también se muestra cómo usar el sensor de ocupación simulado incluido en la plantilla de aplicación con fines de prueba. La puerta de enlace Rigado C500 sirve como centro de comunicación de la aplicación. Se comunica con los sensores de la tienda y administra sus conexiones a la nube. El RuuviTag es un sensor ambiental que proporciona datos de telemetría, como la temperatura, la humedad y la presión. El sensor de ocupación simulado proporciona una forma de realizar un seguimiento del movimiento y la presencia en las zonas de cajas de una tienda. 
 
@@ -72,8 +72,6 @@ Para crear una nueva aplicación de análisis en tienda de finalización de la c
     > Aunque use un **nombre de aplicación** descriptivo, debe usar un valor único para la dirección **URL** de la aplicación.
 
 1. Si tiene una suscripción de Azure, escriba el *directorio, la suscripción de Azure y la región*. Si no tiene una suscripción, puede activar **7-day free trial** (Evaluación gratuita de 7 días) y completar la información de contacto necesaria.  
-
-    Para más información acerca de los directorios y las suscripciones, consulte la [guía de inicio rápido para crear una aplicación](../core/quick-deploy-iot-central.md).
 
 1. Seleccione **Crear**.
 

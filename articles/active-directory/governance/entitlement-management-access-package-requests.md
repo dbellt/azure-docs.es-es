@@ -3,7 +3,7 @@ title: 'Consulta de solicitudes para un paquete de acceso en la administración 
 description: Aprenda a consultar solicitudes para un paquete de acceso en la administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b484b19282c8ad42890f6e04f03563c29baa49dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 76b732ef3ff8689e9c9d161ba4329361b955111f
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97746004"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786562"
 ---
 # <a name="view-requests-for-an-access-package-in-azure-ad-entitlement-management"></a>Consulta de solicitudes para un paquete de acceso en la administración de derechos de Azure AD
 
@@ -29,7 +29,7 @@ En la administración de derechos de Azure AD, puede ver quién ha solicitado l
 
 ## <a name="view-requests"></a>Ver solicitudes
 
-**Rol necesario:** Administrador global, Administrador de usuarios, Propietario del catálogo, Administrador de paquetes de acceso o Administrador de asignaciones de paquetes de acceso
+**Requisitos previos de rol:** Administrador global, Administrador de Identity Governance, Administrador de usuarios, Propietario del catálogo, Administrador de paquetes de acceso o Administrador de asignaciones de paquetes de acceso.
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 

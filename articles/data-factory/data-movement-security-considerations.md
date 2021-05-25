@@ -6,13 +6,13 @@ author: nabhishek
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/26/2020
-ms.openlocfilehash: 1a99fbd3d3163808a364e8b26e770563a901dc18
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/03/2021
+ms.openlocfilehash: 54c96aced03853b8a3f78ff0f348eeb6459afccc
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100371335"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760331"
 ---
 # <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Consideraciones de seguridad para el movimiento de datos en Azure Data Factory
 
@@ -130,10 +130,11 @@ Las credenciales se pueden almacenar en Data Factory o [Data Factory puede hacer
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>Puertos utilizados durante el cifrado del servicio vinculado en Integration Runtime autohospedado
 
-De forma predeterminada, PowerShell usa el puerto 8060 en la máquina con el entorno de ejecución de integración autohospedado para una comunicación segura. Si es necesario, se puede cambiar este puerto.  
+De manera predeterminada, cuando el acceso remoto desde la intranet está habilitado, PowerShell usa el puerto 8060 en la máquina con el entorno de ejecución de integración autohospedado para una comunicación segura. Si es necesario, este puerto se puede cambiar desde el administrador de configuración de Integration Runtime en la pestaña Configuración:
 
-![Puerto HTTPS para la puerta de enlace](media/data-movement-security-considerations/https-port-for-gateway.png)
+:::image type="content" source="media/data-movement-security-considerations/integration-runtime-configuration-manager-settings.png" alt-text="Pestaña de configuración del administrador de configuración de Integration Runtime":::
 
+:::image type="content" source="media/data-movement-security-considerations/https-port-for-gateway.png" alt-text="Puerto HTTPS para la puerta de enlace":::
 
 ### <a name="encryption-in-transit"></a>Cifrado en tránsito
 
@@ -175,7 +176,7 @@ En una empresa, se ejecuta un firewall corporativo en el enrutador central de la
 
 En la tabla siguiente se proporcionan el puerto de salida y los requisitos de dominio para el firewall corporativo:
 
-[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
+[!INCLUDE [domain-and-outbound-port-requirements](includes/domain-and-outbound-port-requirements.md)]
 
 > [!NOTE]
 > Puede que tenga que administrar puertos o configurar la lista de admitidos en los dominios a nivel del firewall corporativo, en función de lo que requiera cada origen de datos. En esta tabla, Azure SQL Database, Azure Synapse Analytics y Azure Data Lake Store solo se usan a modo de ejemplo.   

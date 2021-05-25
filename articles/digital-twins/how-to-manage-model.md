@@ -7,30 +7,26 @@ ms.author: baanders
 ms.date: 4/07/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ac794fda92e2ad005b30fc1aa153cc0546430fbe
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 3947267959bd5cc90cc5d74512417df97eadae9e
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208570"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789853"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Administración de modelos de Azure Digital Twins
 
-Puede administrar los [modelos](concepts-models.md) de la instancia de Azure Digital Twins mediante las [API DigitalTwinModels](/rest/api/digital-twins/dataplane/models), el [SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) o la [CLI de Azure Digital Twins](how-to-use-cli.md). 
-
-Las operaciones de administración incluyen la carga, validación, recuperación y eliminación de modelos. 
+En este artículo se describe cómo administrar los [modelos](concepts-models.md) de la instancia de Azure Digital Twins. Las operaciones de administración incluyen la carga, validación, recuperación y eliminación de modelos. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-## <a name="ways-to-manage-models"></a>Formas de administrar los modelos
-
-[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+[!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
 
 ## <a name="create-models"></a>Crear modelos
 
-Los modelos de Azure Digital Twins se escriben en DTDL y se guardan como archivos *.json*. También hay una [extensión de DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponible para [Visual Studio Code](https://code.visualstudio.com/), que proporciona validación de sintaxis y otras características para facilitar la escritura de documentos DTDL.
+Los modelos de Azure Digital Twins se escriben en DTDL y se guardan como archivos .json. También hay una [extensión de DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponible para [Visual Studio Code](https://code.visualstudio.com/), que proporciona validación de sintaxis y otras características para facilitar la escritura de documentos DTDL.
 
 Considere un ejemplo en el que un hospital quiere representar digitalmente sus habitaciones. Cada habitación contiene un dispensador de jabón inteligente para supervisar el lavado de manos y sensores para controlar el tráfico en la habitación.
 
@@ -41,7 +37,7 @@ El primer paso para la solución consiste en crear modelos para representar aspe
 > [!NOTE]
 > Se trata de un cuerpo de ejemplo de un archivo .json en el que se define y se guarda un modelo, que se va a cargar como parte de un proyecto de cliente. La llamada a la API de REST, por otro lado, adopta una matriz de definiciones de modelo como la anterior (que se asigna a un atributo `IEnumerable<string>` en el SDK de .NET). Por lo tanto, para usar este modelo en la API de REST directamente, inclúyalo entre corchetes.
 
-Este modelo define un nombre y un identificador único para la habitación del paciente, y las propiedades para representar el número de visitantes y el estado del lavado de mano (estos contadores se actualizarán a partir de sensores de movimiento y dispensadores de jabón inteligentes, y se usarán juntos para calcular una propiedad de *porcentaje de lavado de manos*). El modelo también define una relación *hasDevices*, que se usará para conectar cualquier instancia de [Digital Twins](concepts-twins-graph.md) basada este modelo de *Habitación* con los dispositivos reales.
+Este modelo define un nombre y un identificador único para la habitación del paciente, y las propiedades para representar el número de visitantes y el estado del lavado de mano (estos contadores se actualizarán a partir de sensores de movimiento y dispensadores de jabón inteligentes, y se usarán juntos para calcular una propiedad de *porcentaje de lavado de manos*). El modelo también define una relación *hasDevices*, que se usará para conectar cualquier instancia de [Digital Twins](concepts-twins-graph.md) basada este modelo de Habitación con los dispositivos reales.
 
 Siguiendo este método, puede continuar con la definición de modelos para las salas y las zonas del hospital, o bien para todo el hospital.
 
@@ -150,7 +146,7 @@ En el resto de esta sección se desglosa la eliminación del modelo para obtener
 
 Por lo general, los modelos se pueden eliminar en cualquier momento.
 
-La excepción son los modelos de los que dependen otros modelos, ya sea con una relación `extends` o como componente. Por ejemplo, si un modelo *ConferenceRoom* extiende un modelo *Room* y tiene un modelo *ACUnit* como componente, no puede eliminar *Room* ni *ACUnit* hasta que *ConferenceRoom* elimina dichas referencias correspondientes. 
+La excepción son los modelos de los que dependen otros modelos, ya sea con una relación `extends` o como componente. Por ejemplo, si un modelo ConferenceRoom extiende un modelo Room y tiene un modelo ACUnit como componente, no puede eliminar Room ni ACUnit hasta que ConferenceRoom elimina dichas referencias correspondientes. 
 
 Para ello, puede actualizar el modelo dependiente para quitar las dependencias o eliminarlo por completo.
 

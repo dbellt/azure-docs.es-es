@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: a9c832d9a5e90cb2c9ffcbe8a26cdb08ebcddfcc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1fd639d1050490c03d269422d2d6eabad972ce10
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553126"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108738186"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 en Azure
 
@@ -65,10 +65,10 @@ Las VM de generación 2 admiten las siguientes imágenes de Marketplace:
 * Windows 10 Pro, Windows 10 Enterprise
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
-* Ubuntu Server 16.04, 18.04, 19.04, 19.10 
-* RHEL 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 7.0
-* Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4
-* Oracle Linux 7.7, 7.7-CI
+* Ubuntu Server 16.04, 18.04, 19.04, 19.10, 20.04 
+* RHEL 8.2, 8.1, 8.0, 7.9, 7.7, 7.6, 7.5, 7.4, 7.0, 8.3
+* Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 8.2, 8.3
+* Oracle Linux 7.7, 7.7-CI, 7.8
 
 > [!NOTE]
 > Los tamaños de máquina virtual específicos, como la serie MV2, solo pueden admitir un subconjunto de estas imágenes. Consulte la documentación sobre el tamaño de máquina virtual correspondiente para obtener información completa.
@@ -116,7 +116,7 @@ Para más información, consulte [Inicio seguro (versión preliminar)](trusted-l
 
 En Azure Portal o la CLI de Azure, puede crear VM de generación 2 a partir de una imagen de Marketplace que admita el arranque UEFI.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Portal de Azure
 
 A continuación se indican los pasos para crear una máquina virtual de segunda generación (Gen2) en Azure Portal.
 

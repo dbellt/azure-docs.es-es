@@ -9,18 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 7d2321189e32c77d9360ff6d772fcebf9c6abb1d
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: d1a730a20ef2ab0fe5e455ef86a428aa1d83fc19
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324570"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683936"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definición de un nuevo tipo de dispositivo de puerta de enlace de IoT en la aplicación de Azure IoT Central
 
-*Este artículo se aplica a los generadores de soluciones y a los desarrolladores de dispositivos.*
-
-Como generador de soluciones, este tutorial le muestra cómo usar una plantilla de dispositivo de puerta de enlace para definir un dispositivo de puerta de enlace en la aplicación de IoT Central. A continuación, puede configurar varios dispositivos de nivel inferior que se conecten a la aplicación de IoT Central mediante el dispositivo de puerta de enlace. 
+Este tutorial le muestra cómo usar una plantilla de dispositivo de puerta de enlace para definir un dispositivo de puerta de enlace en la aplicación de IoT Central. A continuación, puede configurar varios dispositivos de nivel inferior que se conecten a la aplicación de IoT Central mediante el dispositivo de puerta de enlace. 
 
 En este tutorial va a crear una plantilla de dispositivo de puerta de enlace **Smart Building**. Un dispositivo de puerta de enlace **Smart Building** tiene relaciones con otros dispositivos de nivel inferior.
 
@@ -35,9 +33,11 @@ Además de permitir que los dispositivos de nivel inferior se comuniquen con la 
 > [!div class="checklist"]
 > Crear plantillas de dispositivo de bajada Crear una plantilla de dispositivo de puerta de enlace Publicar la plantilla de dispositivo Crear los dispositivos simulados
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-Para completar este tutorial, necesitará [crear una aplicación de Azure IoT Central](./quick-deploy-iot-central.md).
+Para completar los pasos de este tutorial, necesitará lo siguiente:
+
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
 
 ## <a name="create-downstream-device-templates"></a>Creación de plantillas de dispositivo de nivel inferior
 
@@ -221,7 +221,7 @@ En este tutorial, ha aprendido a:
 * Agregar relaciones.
 * Publicar la plantilla de dispositivo
 
-A continuación, como desarrollador de dispositivos, puede obtener información sobre:
+A continuación, puede aprender a:
 
 > [!div class="nextstepaction"]
 > [Incorporación de un dispositivo Azure IoT Edge a la aplicación Azure IoT Central](tutorial-add-edge-as-leaf-device.md)

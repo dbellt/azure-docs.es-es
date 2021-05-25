@@ -6,13 +6,13 @@ ms.author: suvirdi
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 10/01/2020
-ms.openlocfilehash: a0bd7a4cd8afafc16f05b4a37cd5723304ad931e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/08/2021
+ms.openlocfilehash: c88134e978615d53bdfbde26492096212c3f582f
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96551261"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656421"
 ---
 # <a name="register-and-scan-azure-files"></a>Registro y examen de Azure Files
 
@@ -40,10 +40,10 @@ Para registrar una nueva cuenta Azure Files en el catálogo de datos, haga lo si
 En la pantalla **Registrar orígenes (Azure Files)** , haga lo siguiente:
 
 1. Escriba un **nombre** con el que se mostrará el origen de datos en el catálogo.
-1. Elija cómo quiere apuntar a la cuenta de almacenamiento que seleccione:
-   1. Seleccione **From Azure subscription** (Desde una suscripción de Azure), seleccione la suscripción adecuada en el cuadro desplegable **Suscripción de Azure** y la cuenta de almacenamiento correspondiente en el cuadro desplegable **Storage account name** (Nombre de la cuenta de almacenamiento).
-   1. O bien, puede seleccionar **Escribir manualmente** y especificar un punto de conexión de servicio (URL).
-1. **Finalice** el proceso para registrar el origen de datos.
+2. Elija la suscripción a Azure para filtrar las cuentas de Azure Storage.
+3. Seleccione una cuenta de Azure Storage.
+4. Seleccione una colección o cree una nueva (opcional).
+5. Seleccione **Registrar** para registrar el origen de datos.
 
 :::image type="content" source="media/register-scan-azure-files/register-sources.png" alt-text="opciones de registro de orígenes" border="true":::
 

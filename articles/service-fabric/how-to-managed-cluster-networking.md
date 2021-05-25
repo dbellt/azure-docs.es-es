@@ -1,18 +1,18 @@
 ---
-title: Configuración de la red para clústeres administrados de Service Fabric (versión preliminar)
+title: Configuración de la red para clústeres administrados de Service Fabric
 description: Aprenda a configurar el clúster administrado de Service Fabric para las reglas de grupos de seguridad de red, el acceso a puertos RDP, las reglas de equilibrio de carga, etc.
 ms.topic: how-to
-ms.date: 03/02/2021
-ms.openlocfilehash: e17251523c0720665c4c6f5b7811304eebc9923e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 5/10/2021
+ms.openlocfilehash: 2b31e62bdd7f18ea866c69566ffea80e77df145f
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101743959"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685286"
 ---
-# <a name="configure-network-settings-for-service-fabric-managed-clusters-preview"></a>Configuración de la red para clústeres administrados de Service Fabric (versión preliminar)
+# <a name="configure-network-settings-for-service-fabric-managed-clusters"></a>Configuración de la red para clústeres administrados de Service Fabric
 
-Los clústeres administrados de Service Fabric se crean con una configuración de red predeterminada. Esta configuración consta de reglas obligatorias para la funcionalidad esencial del clúster y algunas reglas opcionales que están diseñadas para facilitar la configuración del cliente.
+Los clústeres administrados de Service Fabric se crean con una configuración de red predeterminada. Esta configuración consta de reglas obligatorias para la funcionalidad esencial del clúster y algunas reglas opcionales, como permitir de manera predeterminada todo el tráfico de salida, que están diseñadas para facilitar la configuración del cliente.
 
 Además de la configuración de red predeterminada, puede modificar las reglas de red para que se adapten a las necesidades de su escenario.
 
@@ -28,10 +28,10 @@ Tenga en cuenta estas consideraciones al crear nuevas reglas del grupo de seguri
 
 Con los clústeres clásicos (no administrados) de Service Fabric, debe declarar y administrar un recurso *Microsoft.Network/networkSecurityGroups* independiente para [aplicar las reglas del grupo de seguridad de red al clúster](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-nsg-cluster-65-node-3-nodetype). Los clústeres administrados de Service Fabric le permiten asignar reglas de grupo de seguridad de red directamente en el recurso de clúster de la plantilla de implementación.
 
-Use la propiedad [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedclusters#managedclusterproperties-object) del recurso *Microsoft.ServiceFabric/managedclusters* (versión `2021-01-01-preview` o posterior) para asignar reglas de grupo de seguridad de red. Por ejemplo:
+Use la propiedad [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedclusters#managedclusterproperties-object) del recurso *Microsoft.ServiceFabric/managedclusters* (versión `2021-05-01` o posterior) para asignar reglas de grupo de seguridad de red. Por ejemplo:
 
 ```json
-            "apiVersion": "2021-01-01-preview",
+            "apiVersion": "2021-05-01",
             "type": "Microsoft.ServiceFabric/managedclusters",
             ...
             "properties": {

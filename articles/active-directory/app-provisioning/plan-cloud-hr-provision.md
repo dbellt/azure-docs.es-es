@@ -3,20 +3,20 @@ title: Planeamiento de la aplicación de RR. HH. en la nube para el aprovisiona
 description: En este artículo se describe el proceso de implementación de la integración de sistemas de RR. HH. en la nube, como Workday y SuccessFactors, con Azure Active Directory. La integración de Azure AD con el sistema de RR. HH. en la nube tiene como resultado un sistema completo de administración del ciclo de vida de la identidad.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/22/2019
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.reviewer: arvindha, celested
-ms.openlocfilehash: d9171226de7c975e75139af92798ea78419428f0
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.reviewer: arvinh
+ms.openlocfilehash: 4f8803dc3cf8234bfbdf3cf9281ec8388727749b
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108175431"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785050"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planeamiento de la aplicación de RR. HH. en la nube para el aprovisionamiento de usuarios de Azure Active Directory
 
@@ -85,7 +85,7 @@ También necesita una licencia válida de suscripción a Azure AD Premium P1 o 
 - Rol de [administrador de aplicaciones](../roles/permissions-reference.md#application-administrator) de Azure AD para configurar la aplicación de aprovisionamiento en Azure Portal.
 - Una instancia de prueba y producción de la aplicación de RR. HH. en la nube.
 - Permisos de administrador en la aplicación de RR. HH. en la nube para crear un usuario de integración del sistema y efectuar cambios para probar los datos de los empleados con fines de pruebas.
-- Para el aprovisionamiento de usuarios en Active Directory, se necesita un servidor que ejecute Windows Server 2012 (o una versión posterior) con el entorno de ejecución .NET 4.7.1 (o posterior) a fin de hospedar el agente de aprovisionamiento de Azure AD Connect.
+- Para el aprovisionamiento de usuarios en Active Directory, se necesita un servidor que ejecute Windows Server 2016 (o una versión posterior) a fin de hospedar el agente de aprovisionamiento de Azure AD Connect. Este servidor debe ser un servidor de nivel 0 basado en el modelo de nivel administrativo de Active Directory.
 - [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) para sincronizar usuarios entre Active Directory y Azure AD.
 
 ### <a name="training-resources"></a>Recursos de aprendizaje

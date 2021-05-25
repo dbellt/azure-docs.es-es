@@ -3,20 +3,20 @@ title: Obtenga información sobre la integración entre el aprovisionamiento y l
 description: Obtenga información sobre la integración entre el aprovisionamiento y los registros de Azure Monitor en Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/12/2020
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.reviewer: arvinh,luleon
-ms.openlocfilehash: f656f55b0c74103053f110b8c66645d353db9fbf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: arvinh
+ms.openlocfilehash: 8ad80b7fb8c148ae42d52b15719ddadf4b5302e2
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561575"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783286"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Entienda cómo se integra el aprovisionamiento con los registros de Azure Monitor
 
@@ -96,7 +96,7 @@ AADProvisioningLogs
 
 Azure Monitor le permite configurar alertas personalizadas para que pueda recibir notificaciones sobre eventos clave relacionados con el aprovisionamiento. Por ejemplo, es posible que quiera recibir una alerta en caso de picos de errores. O quizás en caso de picos de deshabilitaciones o eliminaciones. Otro ejemplo de cuándo puede querer recibir alertas es la falta de aprovisionamiento, lo que indica que algo no va bien.
 
-Para obtener más información sobre las alertas, consulte [Respuesta a eventos con las alertas de Azure Monitor](../../azure-monitor/alerts/tutorial-response.md).
+Para más información sobre las alertas, consulte [Alertas de registro de Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
 
 Alerta cuando hay un pico de errores. Reemplace jobID por el valor jobID de la aplicación.
 

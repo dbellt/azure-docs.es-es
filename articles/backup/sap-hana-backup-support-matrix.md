@@ -4,12 +4,12 @@ description: En este artículo se proporciona información sobre los escenarios 
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: cbf910a0291e90965c9698a8b2a43c587cbfe0b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a3a05ad41affa52a62456e7d0ad41c55b69cf5b
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101707241"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684944"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matriz de compatibilidad de la copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -24,8 +24,8 @@ Azure Backup admite la realización de copias de seguridad de bases de datos de 
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Topología**               | SAP HANA que solo se ejecuta en máquinas virtuales Linux de Azure                    | Instancias grandes de HANA (HLI)                                   |
 | **Regiones**                   | **DISPONIBILIDAD GENERAL:**<br> **Américas**: Centro de EE. UU., Este de EE. UU. 2, Este de EE. UU., Centro-norte de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU., Oeste de EE. UU., Centro de Canadá, Este de Canadá, Sur de Brasil <br> **Asia Pacífico**: Centro de Australia, Centro de Australia 2, Este de Australia, Sudeste de Australia, Este de Japón, Oeste de Japón, Centro de Corea, Sur de Corea del Sur, Asia Oriental, Sudeste Asiático, Centro de la India, India del Sur, Oeste de la India, Este de China, Norte de China, Este de China 2, Norte de China 2 <br> **Europa**: Oeste de Europa, Norte de Europa, Centro de Francia, Sur de Reino Unido, Oeste de Reino Unido, Norte de Alemania, Centro-oeste de Alemania, Norte de Suiza, Oeste de Suiza, Centro-norte de Suiza, Este de Noruega, Oeste de Noruega <br> **África/ME**: Norte de Sudáfrica, Oeste de Sudáfrica, Norte de Emiratos Árabes Unidos, Centro de Emiratos Árabes Unidos  <BR>  **Regiones de Azure Government** | Sur de Francia, Centro de Alemania, Nordeste de Alemania, US Gov IOWA |
-| **Versiones del SO**            | SLES 12 con SP2, SP3, SP4 y SP5; SLES 15 con SP0, SP1 y SP2 <br><br>  RHEL 7.4, 7.6, 7.7, 8.1 y 8.2                |                                             |
-| **Versiones de HANA**          | SDC en HANA 1.x, MDC en HANA 2.x, SPS04, SPS05 Rev <= 53 (aún pendiente de validación para los escenarios habilitados para el cifrado)      |                                                            |
+| **Versiones del SO**            | SLES 12 con SP2, SP3, SP4 y SP5; SLES 15 con SP0, SP1 y SP2 <br><br>  RHEL 7.4, 7.6, 7.7, 7.9, 8.1 y 8.2                |                                             |
+| **Versiones de HANA**          | SDC en HANA 1.x, MDC en HANA 2.x, SPS04, SPS05 Rev <= 55 (aún pendiente de validación para los escenarios habilitados para el cifrado)      |                                                            |
 | **Implementaciones de HANA**       | SAP HANA en una sola máquina virtual de Azure: solo escalado vertical. <br><br> En el caso de las implementaciones de alta disponibilidad, ambos nodos de las dos máquinas diferentes se tratan como individuales con cadenas de datos independientes.               | Escalado horizontal <br><br> En las implementaciones de alta disponibilidad, la copia de seguridad no conmutará por error automáticamente al nodo secundario. La configuración de la copia de seguridad debe realizarse por separado para cada nodo.                                           |
 | **Instancias de HANA**         | Una sola instancia de SAP HANA en una sola máquina virtual de Azure: solo escalado vertical | Varias instancias de SAP HANA en una sola VM. Solo puede proteger una de estas instancias múltiples a la vez.                  |
 | **Tipos de base de datos HANA**    | Contenedor de base de datos única (SDC) en la versión 1.x, contenedor de varias bases de datos (MDC) en la versión 2.x | MDC en HANA 1.x                                              |

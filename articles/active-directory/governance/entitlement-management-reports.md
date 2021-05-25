@@ -3,7 +3,7 @@ title: 'Visualización de informes y registros en la administración de derechos
 description: Obtenga información sobre cómo ver el informe de asignaciones de usuario y los registros de auditoría en la administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: jocastel-MSFT
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb44c1efd683b6febe9a355ef72c80cc6f2e40d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab1cd0da0e44f9b0dd496b72c3dff7630eb9d641
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97746633"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786274"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Consulta de informes y registros en la administración de derechos de Azure AD
 
@@ -35,7 +35,7 @@ Vea el siguiente vídeo para obtener información sobre cómo ver los recursos a
 
 Este informe le permite mostrar todos los paquetes de acceso que puede solicitar un usuario y los paquetes de acceso asignados actualmente al usuario.
 
-**Rol necesario:** administrador global o administrador de usuarios.
+**Rol necesario:** administrador global, administrador de Identity Governance o administrador de usuarios
 
 1. Haga clic en **Azure Active Directory** y, luego, haga clic en **Gobernanza de identidades**.
 
@@ -59,7 +59,7 @@ Este informe le permite mostrar todos los paquetes de acceso que puede solicitar
 
 Este informe le permite mostrar los recursos asignados actualmente a un usuario en la administración de derechos. Tenga en cuenta que este informe es para recursos administrados con la administración de derechos. El usuario podría tener acceso a otros recursos de su directorio fuera de la administración de derechos.
 
-**Rol necesario:** administrador global o administrador de usuarios.
+**Rol necesario:** administrador global, administrador de Identity Governance o administrador de usuarios
 
 1. Haga clic en **Azure Active Directory** y, luego, haga clic en **Gobernanza de identidades**.
 

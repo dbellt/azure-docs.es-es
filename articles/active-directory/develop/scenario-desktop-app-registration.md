@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 263397aa2cd09ba24fa750131b76047801869a65
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: b0295c994a736e26d7b581bd13b6167819833360
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104798942"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748716"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplicación de escritorio que llama a las API web: Registro de aplicación
 
@@ -43,9 +43,10 @@ Los URI de redirección que se utilizan en una aplicación de escritorio depende
 Especifique el URI de redirección de la aplicación mediante la [configuración de la plataforma](quickstart-register-app.md#add-a-redirect-uri) de la aplicación en **Registros de aplicaciones** en Azure Portal.
 
 - Para las aplicaciones que usan la autenticación interactiva:
-  - Aplicaciones que usan exploradores insertados: `https://login.microsoftonline.com/common/oauth2/nativeclient`
-  - Aplicaciones que usan exploradores del sistema: `http://localhost`
 
+  - Aplicaciones que usan exploradores incrustados: `https://login.microsoftonline.com/common/oauth2/nativeclient` (Nota: Si la aplicación abriría una ventana que normalmente no contiene ninguna barra de direcciones, se está usando el "explorador incrustado").
+  - Aplicaciones que usan exploradores del sistema: `http://localhost` (Nota: Si la aplicación abriría el explorador predeterminado del sistema (como Edge, Chrome, Firefox, etc.) para visitar el portal de inicio de sesión de Microsoft, se está usando el "explorador del sistema").
+  
   > [!IMPORTANT]
   > Como procedimiento recomendado de seguridad, se aconseja establecer explícitamente `https://login.microsoftonline.com/common/oauth2/nativeclient` o `http://localhost` como URI de redirección. Algunas bibliotecas de autenticación como MSAL.NET usan un valor predeterminado de `urn:ietf:wg:oauth:2.0:oob` cuando no se especifica ningún otro URI de redirección, lo que no se recomienda. Este valor predeterminado se actualizará como un cambio importante en la próxima versión principal.
 

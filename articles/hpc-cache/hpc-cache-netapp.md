@@ -4,14 +4,14 @@ description: Cómo usar Azure HPC Cache para mejorar el acceso a los datos almac
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/26/2021
+ms.date: 05/05/2021
 ms.author: v-erkel
-ms.openlocfilehash: 1358f3cfebcd5cdc6d9e402e9c487f80f1aa8bcd
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 8dca61a9debad2c743c66b15d6f721edc7538178
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322031"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737301"
 ---
 # <a name="use-azure-hpc-cache-with-azure-netapp-files"></a>Uso de Azure HPC Cache con Azure NetApp Files
 
@@ -50,7 +50,7 @@ Use el tamaño mínimo para la subred delegada al crear un sistema Azure NetApp 
 
 El tamaño mínimo, que se especifica con la máscara de red /28, proporciona 16 direcciones IP. En la práctica, Azure NetApp Files usa solo tres de las direcciones IP disponibles para el acceso al volumen. Esto significa que solo tiene que crear tres destinos de almacenamiento en Azure HPC Cache para cubrir todos los volúmenes.
 
-Si la subred delegada es demasiado grande, es posible que los volúmenes de Azure NetApp Files usen más direcciones IP de las que una única instancia de Azure HPC Cache puede controlar. Una sola caché tiene un límite de 10 destinos de almacenamiento para la mayoría de los tamaños de rendimiento de caché, o 20 destinos de almacenamiento para las configuraciones más grandes.
+Si la subred delegada es demasiado grande, es posible que los volúmenes de Azure NetApp Files usen más direcciones IP de las que una única instancia de Azure HPC Cache puede controlar. Una sola caché tiene un [límite de 10 destinos de almacenamiento](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets) para la mayoría de las combinaciones de tamaños de rendimiento y almacenamiento de caché, o de 20 destinos de almacenamiento para las configuraciones más grandes.
 
 En el ejemplo de inicio rápido de la documentación de Azure NetApp Files se usa 10.7.0.0/16 para la subred delegada, que proporciona una subred que es demasiado grande.
 

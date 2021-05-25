@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 537378ef11333bd8942a61ab2bbb4e8a251c2b59
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 721c13ea31f812dd5f5b5c335373884766764c80
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103196873"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108750786"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-ae"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con GitHub AE
 
@@ -95,7 +95,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. Edite **Atributos y notificaciones de usuario**.
 
-1. Haga clic en **Agregar nueva notificación** y escriba el nombre como **administrador** en el cuadro de texto.
+1. Haga clic en **Agregar nueva notificación** y escriba el nombre como **administrador** en el cuadro de texto (el valor de **administrador** distingue mayúsculas de minúsculas).
 
 1. Expanda **Condiciones de la notificación** y seleccione **Miembros** en **Tipo de usuario**.
 

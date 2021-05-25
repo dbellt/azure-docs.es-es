@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2021
 ms.author: yelevin
-ms.openlocfilehash: 1ff9fbbb6cd4b8827555a6cb1b222ed4eb0a5299
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5ef5f465cbb8dfd044482bfad1eb72f1aa78df39
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104608838"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783736"
 ---
 # <a name="automate-incident-handling-in-azure-sentinel-with-automation-rules"></a>Automatización del control de incidentes en Azure Sentinel con las reglas de automatización
 
@@ -32,7 +32,7 @@ En este artículo se explica qué son las reglas de automatización de Azure Sen
 
 ## <a name="what-are-automation-rules"></a>¿Qué son las reglas de automatización?
 
-Las reglas de automatización son un nuevo concepto en Azure Sentinel. Esta característica permite a los usuarios administrar de forma centralizada la automatización del control de incidentes. Además de permitirle asignar cuadernos de estrategias a incidentes (no solo a las alertas, como hasta ahora), las reglas de automatización también permiten automatizar las respuestas de varias reglas de análisis a la vez, así como etiquetar, asignar o cerrar incidentes automáticamente sin necesidad de cuadernos de estrategias y controlar el orden de las acciones que se ejecutan. Las reglas de automatización agilizarán el uso de la automatización en Azure Sentinel y le permitirán simplificar flujos de trabajo complejos de los procesos de orquestación de incidentes.
+Las reglas de automatización son un nuevo concepto en Azure Sentinel. Esta característica permite a los usuarios administrar de forma centralizada la automatización del control de incidentes. Además de permitirle asignar cuadernos de estrategias a incidentes (no solo a las alertas, como hasta ahora), las reglas de automatización también permiten automatizar las respuestas de varias reglas de análisis a la vez, etiquetar, asignar o cerrar incidentes automáticamente sin necesidad de cuadernos de estrategias y controlar el orden de las acciones que se ejecutan. Las reglas de automatización agilizarán el uso de la automatización en Azure Sentinel y le permitirán simplificar flujos de trabajo complejos de los procesos de orquestación de incidentes.
 
 ## <a name="components"></a>Componentes
 
@@ -54,7 +54,7 @@ Se pueden definir acciones para que se ejecuten cuando se cumplan las condicione
 
 - Cambiar el estado de un incidente para mantener el flujo de trabajo actualizado.
 
-  - Al cambiar a "closed", especifique el [motivo de cierre](tutorial-investigate-cases.md#closing-an-incident) y agregue un comentario. Esto le ayudará a realizar un seguimiento del rendimiento y la eficacia, y a realizar ajustes para reducir los falsos positivos.
+  - Al cambiar a "closed", especifique el [motivo de cierre](tutorial-investigate-cases.md#closing-an-incident) y agregue un comentario. Esto le ayudará a realizar un seguimiento del rendimiento y la eficacia, y a realizar ajustes para reducir los [falsos positivos](false-positives.md).
 
 - Cambiar la gravedad de un incidente: puede volver a evaluar y cambiar la prioridad en función de la presencia, la ausencia, los valores o los atributos de las entidades implicadas en el incidente.
 

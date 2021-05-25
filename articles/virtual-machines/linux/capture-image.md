@@ -9,12 +9,12 @@ ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
 ms.collection: linux
-ms.openlocfilehash: dddbad2403734bc749497a7acca16b2a5b6076f4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: dff0425c119015d69ef994540e03e56dfc2decb6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107792262"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108744594"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Creación de una imagen administrada de una máquina virtual o un disco duro virtual
 
@@ -82,12 +82,14 @@ Use la CLI de Azure para marcar la máquina virtual como generalizada y capture 
     ```azurecli
     az image create \
         --resource-group myResourceGroup \
-        --name myImage --source myVM
+    --name myImage --source myVM
     ```
    
    > [!NOTE]
    > La imagen se crea en el mismo grupo de recursos que la VM de origen. Puede crear VM en cualquier grupo de recursos dentro de la suscripción a partir de esta imagen. Desde una perspectiva de administración, puede que desee crear un grupo de recursos específico para las imágenes y los recursos de VM.
    >
+   > Si va a capturar una imagen de una máquina virtual de generación 2, use también el parámetro `--hyper-v-generation V2`. Para más información, vea [Máquinas virtuales de generación 2](../generation-2.md).
+   > 
    > Si desea almacenar la imagen en un almacenamiento resistente a zonas, debe crearla en una región que admita [zonas de disponibilidad ](../../availability-zones/az-overview.md) e incluir el parámetro `--zone-resilient true`.
    
 Este comando devuelve JSON que describe la imagen de la máquina virtual. Guarde esta salida para su posterior referencia.

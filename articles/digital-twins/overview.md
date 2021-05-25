@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: a64564887fa2738fd3c0586d1040be3c95193927
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 050512da539e08d029786983fbda46da0fea27ce
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205798"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789630"
 ---
 # <a name="what-is-azure-digital-twins"></a>¿Qué es Azure Digital Twins?
 
-**Azure Digital Twins** es una oferta de plataforma como servicio (PaaS) que permite la creación de grafos de conocimientos basados en modelos digitales de entornos completos. Estos entornos podrían ser edificios, fábricas, granjas, redes energéticas, ferrocarriles, estadios, etc., e incluso ciudades enteras. Estos modelos digitales se pueden usar para obtener información que impulse mejores productos, operaciones optimizadas, costos reducidos y experiencias de cliente innovadoras.
+**Azure Digital Twins** es una oferta de plataforma como servicio (PaaS) que permite la creación de gráficos gemelos basados en modelos digitales de entornos completos. Estos entornos podrían ser edificios, fábricas, granjas, redes energéticas, ferrocarriles, estadios, etc., e incluso ciudades enteras. Estos modelos digitales se pueden usar para obtener información que impulse mejores productos, operaciones optimizadas, costos reducidos y experiencias de cliente innovadoras.
 
 Aproveche su experiencia en este campo además de Azure Digital Twins para crear soluciones personalizadas y conectadas capaces de:
 * Modelar cualquier entorno y hacer que las gemelos digitales cobren vida de una manera escalable y segura.
@@ -32,12 +32,12 @@ Este es un resumen de las características proporcionadas por Azure Digital Twin
 
 En Azure Digital Twins, se definen las entidades digitales que representan las personas, los lugares y las cosas del entorno físico mediante tipos de gemelos personalizados denominados [modelos](concepts-models.md). 
 
-Puede pensar en estas definiciones de modelo como un vocabulario especializado para describir su negocio. Para una solución de administración de edificios, por ejemplo, puede definir modelos como "edificio", "planta" y "ascensor". Después, puede crear **gemelos digitales** basados en estos modelos para representar su entorno específico.
+Puede pensar en estas definiciones de modelo como un vocabulario especializado para describir su negocio. Para una solución de administración de edificios, por ejemplo, puede definir modelos como Edificio, Planta y Ascensor. Después, puede crear **gemelos digitales** basados en estos modelos para representar su entorno específico.
 
 [!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
 
 Los modelos se definen en un lenguaje similar a JSON denominado [lenguaje de definición de gemelos digitales (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md), y describen gemelos en términos de sus propiedades de estado, eventos de telemetría, comandos, componentes y relaciones.
-* Los modelos definen **relaciones semánticas** entre las entidades para que pueda conectar su gemelos a un gráfico de información que refleje sus interacciones. Puede considerar los modelos como nombres en una descripción de su mundo y las relaciones como verbos.
+* Los modelos definen **relaciones** semánticas entre las entidades para que pueda conectar su gemelos a un gráfico de información que refleje sus interacciones. Puede considerar los modelos como nombres en una descripción de su mundo y las relaciones como verbos.
 * También puede especializar gemelos mediante la herencia de modelos. Un modelo puede heredar de otro.
 
 DTDL se utiliza para los modelos de datos en otros servicios de Azure IoT, como [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) y [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md). Esto le ayuda a mantener la solución Azure Digital Twins conectada y compatible con otras partes del ecosistema de Azure.
@@ -94,11 +94,11 @@ En el diagrama siguiente se muestra dónde se encuentra Azure Digital Twins en e
 
 ## <a name="service-limits"></a>Límites de servicio
 
-Puede leer sobre los **límites de servicio** de Azure Digital Twins aquí: [Límites del servicio Azure Digital Twins](reference-service-limits.md). Esta información puede ser útil al trabajar con el servicio a fin de comprender sus limitaciones funcionales y de velocidad, así como los límites que se pueden ajustar en caso necesario.
+Puede leer sobre los **límites de servicio** de Azure Digital Twins en el artículo [Límites del servicio Azure Digital Twins](reference-service-limits.md). Esta información puede ser útil al trabajar con el servicio a fin de comprender sus limitaciones funcionales y de velocidad, así como los límites que se pueden ajustar en caso necesario.
 
 ## <a name="terminology"></a>Terminología
 
-Puede ver una lista de **términos de IoT comunes** y sus usos en los servicios de Azure IoT, incluido Azure Digital Twins, aquí: [Glosario de Azure IoT](../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json). Este recurso puede ser una referencia útil cuando empiece a trabajar con Azure Digital Twins y a crear una solución de IoT.
+Puede ver una lista de **términos de IoT comunes** y sus usos en los servicios de Azure IoT, incluido Azure Digital Twins, en el [glosario de Azure IoT](../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json). Este recurso puede ser una referencia útil cuando empiece a trabajar con Azure Digital Twins y a crear una solución de IoT.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

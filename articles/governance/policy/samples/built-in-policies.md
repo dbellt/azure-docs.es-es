@@ -1,15 +1,15 @@
 ---
 title: Lista de definiciones de directiva integradas
 description: Se enumeran las definiciones de directiva integradas para Azure Policy. Las categorías incluyen Etiquetas, Cumplimiento de normativas, Key Vault, Kubernetes, Configuración de invitados, etc.
-ms.date: 04/28/2021
+ms.date: 05/04/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 62a0b86b03cb60010848d87feba425bcbe28938a
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: ce3b40f51fcf0b9dc79eac5c69553b394d3a349a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108183252"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108762151"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definiciones de directiva integradas de Azure Policy
 
@@ -160,6 +160,10 @@ El nombre de cada uno de los vínculos integrados a la definición de directiva 
 ## <a name="managed-application"></a>Aplicación administrada
 
 [!INCLUDE [azure-policy-reference-policies-managed-application](../../../../includes/policy/reference/bycat/policies-managed-application.md)]
+
+## <a name="media-services"></a>Media Services
+
+[!INCLUDE [azure-policy-reference-policies-media-services](../../../../includes/policy/reference/bycat/policies-media-services.md)]
 
 ## <a name="migrate"></a>Migrate
 

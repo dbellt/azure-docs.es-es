@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: marayerm
-ms.openlocfilehash: 8899d9c8b7cddf25fc7171d6add7705ad86d9632
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 1a4e3495702a536ca03274dc81df64722ae165f5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950521"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108738474"
 ---
 # <a name="azure-storage-explorer-support-lifecycle-and-policy"></a>Ciclo de vida y directiva de soporte técnico del Explorador de Azure Storage
 
@@ -35,12 +35,13 @@ A partir de la versión 1.14.1, todas las versiones del Explorador de Storage qu
 
 A partir de la versión 1.13.0, se mostrará una alerta en la aplicación cuando una versión esté aproximadamente a un mes de quedarse sin soporte técnico. La alerta anima a los usuarios a actualizar a la versión más reciente del Explorador de Storage. Una vez que una versión ya no es compatible, la alerta en aplicación se mostrará en cada inicio.
 
-## <a name="releases"></a>Versiones
+## <a name="releases"></a>Lanzamientos
 
 En esta tabla se describe la fecha de lanzamiento y la fecha de finalización del soporte técnico de todas las versiones del Explorador de Azure Storage.
 
 | Versión del Explorador de Storage  | Fecha de la versión       | Fecha de finalización de soporte técnico |
 |:-------------------------:|:------------------:|:-------------------:|
+| v1.19.1                   | 29 de abril de 2021     | 29 de abril de 2022      |
 | v1.19.0                   | 15 de abril de 2021     | 15 de abril de 2022      |
 | v1.18.1                   | 4 de marzo de 2021      | 4 de marzo de 2022       |
 | v1.18.0                   | 1 de marzo de 2021      | 1 de marzo de 2022       |

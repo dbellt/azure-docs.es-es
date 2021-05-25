@@ -1,21 +1,22 @@
 ---
-title: Aprovisionamiento de aplicaciones con filtros de ámbito | Microsoft Docs
-description: Obtenga información sobre cómo usar los filtros de ámbito para evitar el aprovisionamiento de los objetos de las aplicaciones que admiten el aprovisionamiento automático de usuarios, en caso de que un objeto no satisfaga los requisitos empresariales.
+title: Uso de filtros de ámbito en el aprovisionamiento de aplicaciones de Azure Active Directory
+description: Obtenga información sobre cómo usar los filtros de ámbito para evitar el aprovisionamiento de los objetos de las aplicaciones que admiten el aprovisionamiento automático de usuarios, en caso de que un objeto no satisfaga los requisitos empresariales en el aprovisionamiento de aplicaciones de Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.openlocfilehash: 7fff456b7ad6e980fc3c9bda36cfcab02e2ed863
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: arvinh
+ms.openlocfilehash: 640541bd001cbe2f0118bc5b82d9c9f26f01b9dc
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99255838"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109782926"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito
 El objetivo de este artículo es explicar cómo usar filtros de ámbito para definir reglas basadas en atributos que determinarán qué usuarios se aprovisionarán en una aplicación.

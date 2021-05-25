@@ -3,12 +3,12 @@ title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
 ms.date: 05/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 594dbfe3dda919e4d8dcbf3047fac78bad600127
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 926ee1d44d0f0ce523e883c36203fb278023e6c4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326208"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753072"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -131,7 +131,7 @@ La propiedad `metadata` opcional almacena información acerca de la definición 
 
 ## <a name="parameters"></a>Parámetros
 
-Los parámetros ayudan a simplificar la administración de directivas mediante la reducción del número de definiciones de directiva. Piense en los parámetros como si fueran los campos de un formulario: `name`, `address`, `city`, `state`. Estos parámetros no cambian, pero sí sus valores en función del individuo que rellena el formulario.
+Los parámetros ayudan a simplificar la administración de directivas mediante la reducción del número de definiciones de directiva. Piense en los parámetros como si fueran los campos de un formulario: `name`, `address`, `city` y `state`. Estos parámetros no cambian, pero sí sus valores en función del individuo que rellena el formulario.
 Los parámetros funcionan del mismo modo al crear las directivas. Con la inclusión de parámetros en una definición de directiva, puede volver a usar esa directiva en distintos escenarios con valores diferentes.
 
 > [!NOTE]
@@ -150,7 +150,7 @@ Un parámetro tiene las siguientes propiedades que se usan en la definición de 
   - `assignPermissions`: (Opcional) Establecer como _true_ para que Azure Portal cree asignaciones de roles durante la asignación de directivas. Esta propiedad es útil en caso de que desee asignar permisos fuera del ámbito de asignación. Hay una asignación de roles por cada definición de roles de la directiva (o por cada definición de roles de todas las directivas de la iniciativa). El valor del parámetro debe ser un recurso o un ámbito válidos.
 - `defaultValue`: (Opcional) Establece el valor del parámetro en una asignación, si no se especifica ningún valor.
   Requerido cuando se actualiza una definición de directiva existente que está asignada.
-- `allowedValues`: (Opcional) Proporciona una matriz de los valores que acepta el parámetro durante la asignación. Las comparaciones de valores permitidas distinguen mayúsculas de minúsculas. 
+- `allowedValues`: (Opcional) Proporciona una matriz de los valores que acepta el parámetro durante la asignación. Las comparaciones de valores permitidas distinguen mayúsculas de minúsculas.
 
 Por ejemplo, podría definir una definición de directiva para limitar las ubicaciones en las que se pueden implementar los recursos. Un parámetro para esa definición de directiva podría ser **allowedLocations**. Este parámetro podría utilizarse por cada asignación de la definición de directiva para limitar los valores aceptados. El uso de **strongType** proporciona una experiencia mejorada al completar la asignación mediante el portal:
 
@@ -720,6 +720,7 @@ Valor del parámetro:
 ```
 
 Directiva:
+
 ```json
 {
     "count": {
@@ -811,7 +812,7 @@ Las siguientes funciones solo están disponibles en las reglas de directiva:
 
 - `policy()`
   - Devuelve la siguiente información acerca de la directiva que se está evaluando. Es posible acceder a las propiedades desde el objeto devuelto (ejemplo: `[policy().assignmentId]`).
-  
+
     ```json
     {
       "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",

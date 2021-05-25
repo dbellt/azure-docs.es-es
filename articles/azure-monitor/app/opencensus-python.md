@@ -7,24 +7,34 @@ ms.reviewer: mbullwin
 ms.custom: devx-track-python
 author: lzchen
 ms.author: lechen
-ms.openlocfilehash: 548cfd9d593e9adaeaaf984f756e58d242ca9f45
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: 4f3ef03e3561cf054102b5f5c15ff571c3d4d28d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107576557"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742632"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configuración de Azure Monitor para la aplicación de Python
 
-Azure Monitor admite seguimiento distribuido, recopilación de métricas y registro de aplicaciones de Python gracias a la integración con [OpenCensus](https://opencensus.io). En este artículo, encontrará instrucciones para configurar OpenCensus para Python y enviar los datos de supervisión a Azure Monitor.
+Azure Monitor admite seguimiento distribuido, recopilación de métricas y registro de aplicaciones de Python.
+
+La solución admitida por Microsoft para el seguimiento y la exportación de datos de las aplicaciones de Python es con el [SDK de Python para Opencensus](#introducing-opencensus-python-sdk) mediante los [exportadores de Azure Monitor](#instrument-with-opencensus-python-sdk-with-azure-monitor-exporters).
+
+NO SE ADMITE ningún otro SDK de telemetría para Python y NO se recomienda que Microsoft lo use como solución de telemetría.
+
+Es posible que haya observado que OpenCensus se converge en [OpenTelemetry](https://opentelemetry.io/). Sin embargo, se recomienda OpenCensus mientras OpenTelemetry madura gradualmente.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-- Instalación de Python. En este artículo se usa [Python 3.7.0](https://www.python.org/downloads/release/python-370/), aunque es probable que las versiones anteriores funcionen con cambios menores. El SDK solo admite Python v2.7 y v3.4-v3.7.
+- Instalación de Python. En este artículo se usa [Python 3.7.0](https://www.python.org/downloads/release/python-370/), aunque es probable que las versiones anteriores funcionen con cambios menores. El SDK de Python para OpenCensus solo admite Python v2.7 y v3.4-v3.7.
 - Cree un [recurso](./create-new-resource.md) de Application Insights. Se le asignará su propia clave de instrumentación (iKey) para el recurso.
 
-## <a name="instrument-with-opencensus-python-sdk-for-azure-monitor"></a>Instrumentación con el SDK de Python para OpenCensus en Azure Monitor
+## <a name="introducing-opencensus-python-sdk"></a>Introducción al SDK de Python para OpenCensus
+
+[OpenCensus](https://opencensus.io) es un conjunto de bibliotecas de código abierto que permite la recopilación de seguimiento distribuido, métricas y telemetría de registro. Con los [exportadores de Azure Monitor](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure), podrá enviar esta telemetría recopilada a Application Insights. En este artículo, encontrará instrucciones para configurar OpenCensus y los exportadores de Azure Monitor para Python, para enviar los datos de supervisión a Azure Monitor.
+
+## <a name="instrument-with-opencensus-python-sdk-with-azure-monitor-exporters"></a>Instrumentación con el SDK de Python para OpenCensus mediante los exportadores de Azure Monitor
 
 Instale los exportadores de Azure Monitor de OpenCensus:
 
@@ -539,4 +549,3 @@ Para obtener información más detallada sobre cómo usar las consultas y los re
 * [Pruebas de disponibilidad](./monitor-web-app-availability.md): cree pruebas para asegurarse de que el sitio sea visible en la Web.
 * [Diagnósticos inteligentes](./proactive-diagnostics.md): estas pruebas se realizan automáticamente, por lo que no es preciso hacer nada para configurarlas. Le indican si la aplicación tiene una tasa de solicitudes con error inusual.
 * [Alertas de métricas](../alerts/alerts-log.md): Establezca alertas que le adviertan si una métrica supera un umbral. Puede establecerlas en las métricas personalizadas que codifique en la aplicación.
-

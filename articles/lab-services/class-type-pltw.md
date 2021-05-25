@@ -3,12 +3,12 @@ title: Configuración de laboratorios de Project Lead the Way con Azure Lab Serv
 description: Obtenga información sobre cómo configurar laboratorios para impartir clases de Project Lead the Way.
 ms.topic: article
 ms.date: 10/28/2020
-ms.openlocfilehash: 12efa11d2062b5a4d919dbdcdb4a824dec33f5fb
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: aaaddcb2c2111ccfbf0edfc79bbefafb711b19dc
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278729"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768542"
 ---
 # <a name="set-up-labs-for-project-lead-the-way-classes"></a>Configuración de laboratorios para las clases de Project Lead the Way
 
@@ -48,7 +48,7 @@ ms.locfileid: "108278729"
 
 - **Informática A**
 
-    En esta clase, los alumnos desarrollan sus competencias en programación mediante el aprendizaje de desarrollo de aplicaciones móviles.  En esta clase, aprenden a usar [Java](https://www.java.com/) con el [entorno de desarrollo de Microsoft Visual Studio Code](https://code.visualstudio.com/).  Los alumnos también usan un emulador que les permite ejecutar y probar el código de su aplicación móvil.  Para obtener información sobre cómo configurar un emulador en Azure Lab Services, [póngase en contacto con el equipo de Azure Lab Services](mailto:AzLabsCOVIDSupport@microsoft.com).
+    En esta clase, los alumnos desarrollan sus competencias en programación mediante el aprendizaje de desarrollo de aplicaciones móviles.  En esta clase, aprenden a usar [Java](https://www.java.com/) con el [entorno de desarrollo de Microsoft Visual Studio Code](https://code.visualstudio.com/).  Los alumnos también usan un emulador que les permite ejecutar y probar el código de su aplicación móvil.  Para obtener información sobre cómo configurar un emulador en Azure Lab Services, póngase en contacto con nosotros a través de los [foros de Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices) para obtener más información.
 
 Para ver una lista completa de software de clases, vaya al [sitio de PLTW](https://www.pltw.org/pltw-software) de cada clase.
 
@@ -122,6 +122,9 @@ Siguiendo esta recomendación, las siguientes son las tareas principales para co
 1.  Una vez creado el laboratorio, inicie la máquina de plantilla y conéctese a esta para asegurarse de que la imagen funciona según lo previsto.
 
 1.  Por último, publique la máquina de plantilla para crear las VM de los alumnos.
+
+> [!NOTE]
+> Si la escuela necesita realizar filtrado de contenido, por ejemplo, para el cumplimiento de la [Ley de Protección de la Infancia en Internet (Children's Internet Protection Act, CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), tiene que usar software de terceros.  Para obtener más información, lea las instrucciones sobre [filtrado de contenido con Lab Services](./administrator-guide.md#content-filtering).
 
 ## <a name="student-devices"></a>Dispositivos de los alumnos
 Los alumnos pueden conectarse a sus VM de laboratorio desde equipos Windows, Mac y Chromebook. Para obtener instrucciones, consulte:

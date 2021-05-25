@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8f376fb383e50a39f0f12d45cf9b5ae47ad6fcbb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8fc5210ad64d534f8be015d324a454b513b7fccc
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86186510"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758346"
 ---
 # <a name="create-configurations-from-existing-servers"></a>Creación de configuraciones desde servidores existentes
 
@@ -33,7 +33,7 @@ Incluso entonces, necesita saber en qué orden se debe aplicar la configuración
 
 Se ha creado una solución mantenida por la comunidad llamada [ReverseDSC](https://github.com/microsoft/reversedsc) para que funcione en este área a partir de SharePoint.
 
-La solución se basa en el [recurso SharePointDSC](https://github.com/powershell/sharepointdsc) y la amplía para coordinar la [recopilación de información](https://github.com/Microsoft/sharepointDSC.reverse#how-to-use) de los servidores de SharePoint existentes.
+La solución se basa en el [recurso SharePointDSC](https://github.com/powershell/sharepointdsc) y la amplía para coordinar la [recopilación de información](https://github.com/Microsoft/sharepointDSC.reverse#how-to-use) de los servidores existentes que ejecutan SharePoint.
 La versión más reciente tiene varios [modos de extracción](https://github.com/Microsoft/SharePointDSC.Reverse/wiki/Extraction-Modes) para determinar el nivel de información que se va a incluir.
 
 El resultado de usar la solución es la generación de [datos de configuración](https://github.com/Microsoft/sharepointDSC.reverse#configuration-data) que se usarán con los scripts de configuración de SharePointDSC.

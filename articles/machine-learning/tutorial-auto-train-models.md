@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: 85129cf282e39b4f4932cc5e9f7cfd72d1e445b0
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 7dc42c305ff8cd7320d711574e4095141041d8b4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210642"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773888"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Uso del aprendizaje automático para crear predecir tarifas de taxi
 
@@ -40,8 +40,11 @@ Pruebe también el aprendizaje automático automatizado para estos otros tipos d
 
 Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago](https://aka.ms/AMLFree) de Azure Machine Learning.
 
-* Complete el [tutorial de instalación](tutorial-1st-experiment-sdk-setup.md) si aún no tiene un área de trabajo de Azure Machine Learning o una máquina virtual de cuadernos.
-* Después de completar el tutorial de instalación, abra el cuaderno *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* con el mismo servidor de cuadernos.
+* Complete los pasos que se describen en [Inicio rápido: Introducción a Azure Machine Learning](quickstart-create-resources.md) si aún no tiene un área de trabajo o una instancia de proceso de Azure Machine Learning.
+* Después de completar la guía de inicio rápido:
+    1. Seleccione **Cuadernos** en Studio.
+    1. Seleccione la pestaña **Muestras**.
+    1. Abra el cuaderno *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb*
 
 Este tutorial también está disponible en [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) si quiere ejecutarlo en su propio [entorno local](how-to-configure-environment.md#local). Para obtener los paquetes obligatorios, 
 * [instale el cliente `automl` completo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment).

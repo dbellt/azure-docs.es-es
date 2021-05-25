@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e9c7d246c1cfb10c43979365c090a3a70775767
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: fbe90455142da55289c053c64390f354668b52bc
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315550"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108766086"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Incorporación de Google como proveedor de identidades para los usuarios invitados de B2B
 
@@ -28,10 +28,10 @@ Cuando haya agregado Google como una de las opciones de inicio de sesión en la 
 ![Opciones de inicio de sesión para los usuarios de Google](media/google-federation/sign-in-with-google-overview.png)
 
 > [!NOTE]
-> La federación de Google está diseñada específicamente para los usuarios de Gmail. Para realizar la federación con los dominios de G Suite, use la [federación directa](direct-federation.md).
+> La federación de Google está diseñada específicamente para los usuarios de Gmail. Para la federación con dominios de G Suite, use la [federación del proveedor de identidades de SAML/WS-Fed](direct-federation.md).
 
 > [!IMPORTANT]
-> **A partir del segundo semestre de 2021,** Google empezará a [retirar la compatibilidad con el inicio de sesión en vista web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si usa la federación de Google para las invitaciones de B2B o [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), o si usa el registro de autoservicio con Gmail, los usuarios de Google Gmail no podrán iniciar sesión si las aplicaciones autentican a los usuarios con una vista web insertada. [Más información](#deprecation-of-web-view-sign-in-support).
+> **A partir de la segunda mitad de 2021**, Google va a [suspender la compatibilidad con el inicio de sesión de vista web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si usa la federación de Google para las invitaciones B2B o [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), o si usa el registro de autoservicio con Gmail, los usuarios de Gmail de Google no podrán iniciar sesión si las aplicaciones autentican a los usuarios con una vista web insertada. [Más información](#deprecation-of-web-view-sign-in-support).
 
 ## <a name="what-is-the-experience-for-the-google-user"></a>¿Cuál es la experiencia del usuario de Google?
 
@@ -71,7 +71,7 @@ Este cambio no afecta a:
 - Aplicaciones de Microsoft en Windows
 - Aplicaciones web
 - Aplicaciones móviles que usan vistas web del sistema para la autenticación ([SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) en iOS, [Pestañas personalizadas](https://developer.chrome.com/docs/android/custom-tabs/overview/) en Android).  
-- Identidades de G Suite; por ejemplo, cuando se usa la [federación directa](direct-federation.md) basada en SAML con G Suite
+- Identidades de G Suite; por ejemplo, cuando se usa la [federación basada en SAML](direct-federation.md) con G Suite
 
 Estamos confirmando con Google si este cambio afecta a lo siguiente:
 - Aplicaciones de Windows que usan el Administrador de cuentas web (WAM) o el Agente de autenticación web (WAB).  

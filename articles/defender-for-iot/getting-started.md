@@ -2,13 +2,13 @@
 title: 'Inicio rápido: Introducción'
 description: En este inicio rápido, aprenderá a usar el flujo de trabajo básico para la implementación de Defender para IoT.
 ms.topic: quickstart
-ms.date: 04/17/2021
-ms.openlocfilehash: b1e7686e1d68d5a3f239320930d69f22c78e13cb
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.date: 05/10/2021
+ms.openlocfilehash: 97d08d1911634db0a2d1ce4583f7b61090d01bfc
+ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750453"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109664769"
 ---
 # <a name="quickstart-get-started-with-defender-for-iot"></a>Inicio rápido: Introducción a Defender para IoT
 
@@ -20,9 +20,12 @@ En este artículo se proporciona información general de los pasos para configur
 
 ## <a name="permission-requirements"></a>Requisitos de permisos
 
+### <a name="for-sensors-and-on-premises-management-consoles"></a>Sensores y consolas de administración locales
+
 Algunos de los pasos de configuración requieren permisos de usuario específicos.
 
 Los permisos de usuario administrativo son necesarios para activar el sensor y la consola de administración, cargar certificados SSL/TLS y generar nuevas contraseñas.
+### <a name="for-the-defender-for-iot-portal"></a>Portal de Defender para IoT
 
 En la tabla siguiente se describen los permisos de acceso de usuarios para las herramientas del portal de Azure Defender para IoT:
 
