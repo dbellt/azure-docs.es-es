@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.openlocfilehash: 49c69a79b4841f13623c9e6ab3daea72dd7fde26
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aabb4806dd709236af9e5b25a14cf3e1e8799dee
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99583661"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713457"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Inicio rápido: Inicie sesión de los usuarios y llame a Microsoft Graph API desde una aplicación de Android
 
@@ -112,12 +112,6 @@ Ahora vamos a examinar estos archivos con más detalle y a llamar al código esp
 
 MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) es la biblioteca que se usa para iniciar la sesión de los usuarios y solicitar tokens de acceso a una API protegida por la Plataforma de identidad de Microsoft. Gradle 3.0 + instala la biblioteca cuando agrega lo siguiente a **Scripts de Gradle** > **build.gradle (Module: app)** en **Dependencias**:
 
-```gradle
-implementation 'com.microsoft.identity.client:msal:2.+'
-```
-
-Puede verlo en el proyecto de ejemplo de build.gradle (Module: app):
-
 ```java
 dependencies {
     ...
@@ -127,6 +121,30 @@ dependencies {
 ```
 
 Esto indica a Gradle que descargue y compile MSAL desde Maven Central.
+
+También debe agregar referencias a maven a la **parte de**  > **repositorios** allprojects de **build.gradle (Módulo: aplicación)** de la siguiente manera:
+
+```java
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+        mavenLocal()
+        maven {
+            url 'https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1'
+        }
+        maven {
+            name "vsts-maven-adal-android"
+            url "https://identitydivision.pkgs.visualstudio.com/_packaging/AndroidADAL/maven/v1"
+            credentials {
+                username System.getenv("ENV_VSTS_MVN_ANDROIDADAL_USERNAME") != null ? System.getenv("ENV_VSTS_MVN_ANDROIDADAL_USERNAME") : project.findProperty("vstsUsername")
+                password System.getenv("ENV_VSTS_MVN_ANDROIDADAL_ACCESSTOKEN") != null ? System.getenv("ENV_VSTS_MVN_ANDROIDADAL_ACCESSTOKEN") : project.findProperty("vstsMavenAccessToken")
+            }
+        }
+        jcenter()
+    }
+}
+```
 
 ### <a name="msal-imports"></a>Importaciones de MSAL
 

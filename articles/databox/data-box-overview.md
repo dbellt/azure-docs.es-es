@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 12/18/2020
+ms.date: 04/19/2021
 ms.author: alkohli
-ms.openlocfilehash: 13c07da7393c70bb1fc61930dd1179994c68ed75
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6da5dfcded067420fd6d43f4a5b2841da060898a
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100389814"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738129"
 ---
 # <a name="what-is-azure-data-box"></a>¿Qué es Azure Data Box?
 
@@ -99,6 +99,17 @@ Data Box incluye los siguientes componentes:
 * **Interfaz de usuario web local**: es una interfaz de usuario basada en web que se usa para configurar el dispositivo; de esta manera, se podrá conectar a la red local y registrar el dispositivo con el servicio Data Box. Use también la interfaz de usuario web local para apagar y reiniciar el dispositivo Data Box, ver registros de copia y ponerse en contacto con el Soporte técnico de Microsoft para realizar una solicitud de servicio.
 
     ![Interfaz de usuario web local de Data Box](media/data-box-overview/data-box-local-web-ui.png)
+
+    Actualmente, la interfaz de usuario web local del dispositivo admite los siguientes idiomas con sus códigos de idioma correspondientes:
+
+    | Idioma             | Código | Idioma                | Código   | Idioma                | Código         |
+    |----------------------|------|-------------------------|--------|-------------------------|--------------|
+    | Inglés {predeterminado}    | en   |  Checo                  | cs     | Alemán                  | de           |
+    | Español              | es   | Francés                  | fr     | Húngaro               | hu           |
+    | Italiano              | it   | Japonés                | ja     | Coreano                  | ko           |
+    | Neerlandés                | nl   | Polaco                  | pl     | Portugués (Brasil)     | pt-br        |
+    | Portugués (Portugal)| pt-pt| Ruso                 | ru     | Sueco                 | sv           |
+    | Turco              | tr   | Chino (simplificado)    | zh-hans|    |       |    
 
     Para más información acerca de cómo usar la interfaz de usuario basada en web, consulte [Use the web-based UI to administer your Data Box](data-box-portal-ui-admin.md) (Uso de la interfaz de usuario web para administrar Data Box).
 

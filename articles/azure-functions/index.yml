@@ -1,20 +1,21 @@
 ### YamlMime:Landing
 title: Documentación de Azure Functions
-summary: Azure Functions es un servicio en la nube disponible a petición que proporciona toda la infraestructura y los recursos continuamente actualizados necesarios para ejecutar las aplicaciones. Usted se centra en los fragmentos de código que más le importan y Functions se ocupa del resto. Functions proporciona proceso sin servidor para Azure. Functions también se puede usar para crear API web, responder a los cambios en las bases de datos, procesar secuencias de IoT, administrar colas de mensajes, etc.
+summary: Azure Functions es un servicio en la nube disponible a petición que proporciona toda la infraestructura y los recursos, que se actualizan continuamente, necesarios para ejecutar las aplicaciones. Usted se centra en los fragmentos de código que más le importan y Functions se ocupa del resto. Functions proporciona proceso sin servidor para Azure. Functions también se puede usar para crear API web, responder a los cambios en las bases de datos, procesar secuencias de IoT, administrar colas de mensajes, etc.
 metadata:
   title: Documentación de Azure Functions
-  description: Azure Functions es un servicio en la nube disponible a petición que proporciona toda la infraestructura y los recursos continuamente actualizados necesarios para ejecutar las aplicaciones. Usted se centra en los fragmentos de código que más le importan y Azure Functions se ocupa del resto. Functions proporciona proceso sin servidor para Azure. Azure Functions también se puede usar para crear API web, responder a cambios en las bases de datos, procesar flujos de datos de IoT, administrar colas de mensajes, etc.
+  description: Azure Functions es un servicio en la nube disponible a petición que proporciona toda la infraestructura y los recursos, que se actualizan continuamente, necesarios para ejecutar las aplicaciones. Usted se centra en los fragmentos de código que más le importan y Azure Functions se ocupa del resto. Functions proporciona proceso sin servidor para Azure. Azure Functions también se puede usar para crear API web, responder a cambios en las bases de datos, procesar flujos de datos de IoT, administrar colas de mensajes, etc.
   ms.service: azure-functions
   ms.topic: landing-page
   author: ggailey777
   ms.author: azfundocs
-  ms.date: 09/17/2019
-  ms.openlocfilehash: de93d836731f9f8e21170d896d8c7dd2c4b90ffa
-  ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+  ms.date: 05/18/2021
+  ms.custom: contperf-fy21q4
+  ms.openlocfilehash: 4d8ffa41ede2f675ee838ecc4f4d98784d3fe128
+  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/14/2021
-  ms.locfileid: "103463896"
+  ms.lasthandoff: 05/19/2021
+  ms.locfileid: "110069353"
 landingContent:
 - title: Acerca de Azure Functions
   linkLists:
@@ -22,48 +23,42 @@ landingContent:
     links:
     - text: ¿Qué es Azure Functions?
       url: functions-overview.md
-  - linkListType: get-started
-    links:
-    - text: Introducción
-      url: functions-get-started.md
   - linkListType: concept
     links:
     - text: Opciones de hospedaje
       url: functions-scale.md
     - text: Comparación de opciones sin servidor
       url: functions-compare-logic-apps-ms-flow-webjobs.md
-  - linkListType: learn
-    links:
-    - text: Elección de una opción de proceso sin servidor
-      url: /learn/modules/choose-azure-service-to-integrate-and-automate-business-processes/index
+    - text: Funciones duraderas
+      url: durable/durable-functions-overview.md
   - linkListType: video
     links:
     - text: ¿Dónde debo hospedar mi código?
       url: https://azure.microsoft.com/resources/videos/build-2019-where-should-i-host-my-code-choosing-between-kubernetes-containers-and-serverless/
-- title: Introducción
+- title: Crear su primera función
   linkLists:
+  - linkListType: get-started
+    links:
+    - text: Introducción
+      url: functions-get-started.md
   - linkListType: quickstart
     links:
-    - text: Creación de la primera función (C#)
+    - text: C# (.NET Core 3.1)
       url: create-first-function-vs-code-csharp.md
-    - text: Creación de la primera función (Go)
-      url: create-first-function-vs-code-other.md?tabs=go
-    - text: Creación de la primera función (Java)
-      url: create-first-function-cli-java.md?tabs=bash%2Cazure-cli%2Cbrowser
-    - text: Creación de la primera función (JavaScript)
+    - text: C# (.NET 5.0)
+      url: dotnet-isolated-process-developer-howtos.md
+    - text: Java (Maven)
+      url: create-first-function-cli-java.md
+    - text: JavaScript
       url: create-first-function-vs-code-node.md
-    - text: Creación de la primera función (PowerShell)
+    - text: PowerShell
       url: create-first-function-vs-code-powershell.md
-    - text: Creación de la primera función (Python)
+    - text: Python
       url: create-first-function-vs-code-python.md
-    - text: Creación de la primera función (Rust)
-      url: create-first-function-vs-code-other.md?tabs=rust
-    - text: Creación de la primera función (TypeScript)
+    - text: Rust/Go
+      url: create-first-function-vs-code-other.md
+    - text: TypeScript
       url: create-first-function-vs-code-typescript.md
-  - linkListType: learn
-    links:
-    - text: Creación de una lógica sin servidor
-      url: /learn/modules/create-serverless-logic-with-azure-functions/
   - linkListType: video
     links:
     - text: Vea cómo empezar
@@ -76,99 +71,11 @@ landingContent:
       url: functions-reference.md
     - text: Idiomas compatibles
       url: supported-languages.md
-  - linkListType: how-to-guide
-    links:
+    - text: Conexión a los servicios
+      url: functions-triggers-bindings.md
     - text: Desarrollo local
       url: functions-develop-local.md
-    - text: Funciones de prueba
-      url: functions-test-a-function.md
-    - text: Control de errores
-      url: functions-bindings-error-pages.md
-  - linkListType: learn
-    links:
-    - text: Desarrollo de funciones mediante Visual Studio
-      url: /learn/modules/develop-test-deploy-azure-functions-with-visual-studio/index
-    - text: Desarrollo de funciones desde la línea de comandos
-      url: /learn/modules/develop-test-deploy-azure-functions-with-core-tools/index
-  - linkListType: video
-    links:
-    - text: Desarrollo con Visual Studio Code
-      url: https://azure.microsoft.com/resources/videos/build-nodejs-apis-using-serverless/
-- title: Conexión a los servicios
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Desencadenadores impulsados por eventos
-      url: functions-triggers-bindings.md
-    - text: Opciones de redes
-      url: functions-networking-options.md
-  - linkListType: tutorial
-    links:
-    - text: Integración con Logic Apps
-      url: functions-twitter-email.md
-    - text: Consumo de eventos de Event Grid
-      url: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
-  - linkListType: learn
-    links:
-    - text: Encadenamiento de funciones con enlaces
-      url: /learn/modules/chain-azure-functions-data-using-bindings/index
-    - text: Conexión a webhook GitHub
-      url: /learn/modules/monitor-github-events-with-a-function-triggered-by-a-webhook/index
-- title: Implementación de funciones
-  linkLists:
-  - linkListType: deploy
-    links:
-    - text: Opciones de implementación
-      url: functions-deployment-technologies.md
-    - text: Ranuras de implementación
-      url: functions-deployment-slots.md
-    - text: Automatización de la implementación de recursos
-      url: functions-infrastructure-as-code.md
-  - linkListType: how-to-guide
-    links:
-    - text: Configurar la implementación continua
-      url: functions-continuous-deployment.md
-    - text: Creación e implementación mediante Azure Pipelines
-      url: functions-how-to-azure-devops.md
-    - text: Implementación mediante el complemento de Jenkins
-      url: /azure/developer/jenkins/deploy-to-azure-functions
-- title: Procedimientos recomendados para mejorar el rendimiento y la supervisión
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Rendimiento y confiabilidad
-      url: functions-best-practices.md
-    - text: Administración de conexiones
-      url: manage-connections.md
-    - text: Consideraciones sobre el almacenamiento
-      url: storage-considerations.md
-    - text: Control de errores y reintentos de función
-      url: functions-bindings-error-pages.md
-    - text: Seguridad
-      url: security-concepts.md
-    - text: Supervisión de funciones
-      url: functions-monitoring.md
-    - text: Consideraciones sobre redes
-      url: functions-networking-options.md
-  - linkListType: how-to-guide
-    links:
-    - text: Solución de problemas
-      url: functions-recover-storage-account.md
-- title: Funciones de ejecución prolongada
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Plan de hospedaje Premium
-      url: functions-premium-plan.md
-    - text: Funciones duraderas
-      url: durable/durable-functions-overview.md
-  - linkListType: learn
-    links:
-    - text: Creación de un flujo de trabajo sin servidor de ejecución prolongada
-      url: /learn/modules/create-long-running-serverless-workflow-with-durable-functions/index
-- title: Ejemplos
-  linkLists:
-  - linkListType: download
+  - linkListType: sample
     links:
     - text: Ejemplos de Azure Functions
       url: /samples/browse/?products=azure-functions
@@ -176,7 +83,7 @@ landingContent:
       url: https://www.serverlesslibrary.net/
     - text: Plantillas del Administrador de recursos de Azure
       url: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Web&term=functions
-  - linkListType: how-to-guide
+  - linkListType: video
     links:
-    - text: Ejemplos de la CLI de Azure
-      url: functions-cli-samples.md
+    - text: Desarrollo con Visual Studio Code
+      url: https://azure.microsoft.com/resources/videos/build-nodejs-apis-using-serverless/

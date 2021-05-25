@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b947d9169347c00b693f27a3683a76173188070
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 24c93d189dd4c11ff5c8c08ad75bd62085dc225a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108175071"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108766104"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planeación e implementación de la protección con contraseña de Azure Active Directory local
 
@@ -338,7 +338,7 @@ El servicio de proxy no admite el uso de credenciales específicas para conectar
 
 ### <a name="configure-the-proxy-service-to-listen-on-a-specific-port"></a>Configuración del servicio de proxy para la escucha en un puerto específico
 
-El software de agente de controlador de dominio de protección con contraseña de Azure AD usa RPC a través de TCP para comunicarse con el servicio de proxy. De forma predeterminada, el servicio de proxy de protección con contraseña de Azure AD escucha en cualquier punto de conexión RPC dinámico disponible. Puede configurar el servicio de modo que escuche en un puerto TCP específico, si fuera necesario debido a la topología de red o los requisitos de firewall del entorno.
+El software de agente de controlador de dominio de protección con contraseña de Azure AD usa RPC a través de TCP para comunicarse con el servicio de proxy. De forma predeterminada, el servicio de proxy de protección con contraseña de Azure AD escucha en cualquier punto de conexión RPC dinámico disponible. Puede configurar el servicio de modo que escuche en un puerto TCP específico, si fuera necesario debido a la topología de red o los requisitos de firewall del entorno. Al configurar un puerto estático, debe abrir el puerto 135 y el puerto estático de su elección.
 
 <a id="static" /></a>Para configurar el servicio de modo que se ejecute en un puerto estático, use el cmdlet `Set-AzureADPasswordProtectionProxyConfiguration` del modo siguiente:
 

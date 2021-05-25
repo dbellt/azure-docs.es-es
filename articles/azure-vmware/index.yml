@@ -9,12 +9,12 @@ metadata:
   author: shortpatti
   ms.author: v-patsho
   ms.date: 05/11/2021
-  ms.openlocfilehash: ae12f4ed9d356eb7a196164574766868ea469f1a
-  ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+  ms.openlocfilehash: 43baa8884bb7ab649ddba0e0516d828837a529ec
+  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/11/2021
-  ms.locfileid: "109754342"
+  ms.lasthandoff: 05/19/2021
+  ms.locfileid: "110086849"
 landingContent:
 - title: Acerca de Azure VMware Solution
   linkLists:
@@ -64,7 +64,7 @@ landingContent:
       url: /azure/azure-vmware/faq#identity-management
     - text: Facturación y soporte técnico
       url: /azure/azure-vmware/faq#billing-and-support
-- title: Primeros pasos
+- title: Introducción
   linkLists:
   - linkListType: deploy
     links:
@@ -107,15 +107,17 @@ landingContent:
   - linkListType: reference
     links:
     - text: Solicitud de la cuota del host para Azure VMware Solution
-      url: enable-azure-vmware-solution.md
+      url: request-host-quota-azure-vmware-solution.md
     - text: Ahorro de costos con una instancia reservada
       url: reserved-instance.md
     - text: Creación de una evaluación de Azure VMware Solution
       url: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
   - linkListType: how-to-guide
     links:
-    - text: Administración de DHCP
-      url: manage-dhcp.md
+    - text: Configuración y administración de DHCP
+      url: configure-dhcp-azure-vmware-solution.md
+    - text: Configuración de DHCP en redes de VMware HCX extendido L2
+      url: configure-l2-stretched-vmware-hcx-networks.md
     - text: Configuración de componentes de red de NSX
       url: configure-nsx-network-components-azure-portal.md
     - text: Configuración del servidor de GitHub Enterprise

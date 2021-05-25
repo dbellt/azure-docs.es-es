@@ -4,16 +4,16 @@ titleSuffix: Azure Storage
 description: Asociados de Microsoft que crean soluciones de cliente de almacenamiento principal y secundario con Azure Storage
 author: beber-msft
 ms.author: beber
-ms.date: 03/15/2021
+ms.date: 04/12/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 5fa17083be01a702ebac888eecc17a4969b754ef
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8efcc6b9837596175a8bcf9a0a7b159f0560cff0
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103561602"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486096"
 ---
 # <a name="azure-storage-partners-for-primary-and-secondary-storage"></a>Asociados de Azure Storage para el almacenamiento principal y secundario
 
@@ -29,6 +29,7 @@ En este artículo se destacan las empresas asociadas de Microsoft que ofrecen un
 | ![Scality](./media/scality-logo.png) |**Scality**<br>La escalabilidad crea una plataforma de objetos y archivos definida por software diseñada para entornos locales, híbridos y de varias nubes. La integración de Scality con Azure Blob Storage permite a las empresas administrar y proteger sus datos entre los entornos locales y Azure, así como satisfacer la demanda de cargas de trabajo de archivos de alto rendimiento basadas en la nube. |[Página de asociado](https://www.scality.com/partners/azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/scality.scalityconnecthourly?tab=Overview)|
 | ![Logotipo de la empresa Tiger Technology](./media/tiger-logo.png) |**Tiger Technology**<br>Tiger Technology ofrece soluciones de software de administración de datos seguras y de alto rendimiento. Además, permite que organizaciones de cualquier tamaño administren sus recursos digitales en un entorno local, en cualquier nube pública o a través de un modelo híbrido. <br><br> Tiger Bridge es un sistema de administración de datos y almacenamiento no patentado y basado en software. Combina el almacenamiento en el entorno local y en la nube de varios niveles en un único espacio y permite flujos de trabajo híbridos. Esta extensión del servidor de archivos transparente le permite beneficiarse de la escala y los servicios de Azure, a la vez que conserva las aplicaciones y los flujos de trabajo heredados. Tiger Bridge aborda una serie de retos de administración de datos, como la extensión del servidor de archivos, la recuperación ante desastres, la migración a la nube, la copia de seguridad y el archivado, la colaboración remota y la sincronización de varios sitios, así como la protección continua de datos. |[Página de asociado](https://www.tiger-technology.com/partners/microsoft-azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tiger-technology.tigerbridge_vm)|
 
+¿Es asociado de almacenamiento pero su solución aún no aparece en la lista? Envíenos su información [aquí](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUQjY4QlJYUzFHQ0ZBVDNYWERaUlNRVU5IMyQlQCN0PWcu).
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre algunos de los demás asociados, consulte los siguientes recursos:

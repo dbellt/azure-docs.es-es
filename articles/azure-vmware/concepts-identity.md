@@ -2,13 +2,13 @@
 title: Conceptos sobre identidad y acceso
 description: Obtenga información sobre los conceptos de identidad y acceso de Azure VMware Solution
 ms.topic: conceptual
-ms.date: 03/22/2021
-ms.openlocfilehash: 352daaec87c2df7a0bc062abd38a96ad0285180a
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.date: 05/11/2021
+ms.openlocfilehash: cd04cc6265faf480d80903ea65ba9886a413e356
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108069838"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788278"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Conceptos de identidad en Azure VMware Solution
 
@@ -31,8 +31,10 @@ El usuario de la nube privada no tiene acceso a componentes de administración e
 
 Puede ver los privilegios concedidos al rol CloudAdmin de Azure VMware Solution en su instancia de vCenter de la nube privada de Azure VMware Solution.
 
-1. Inicie sesión en el cliente de SDDC vSphere y vaya a **Menú** > **Administración**.
+1. Inicie sesión en el cliente de vSphere y vaya a **Menú** > **Administración**.
+
 1. Mire en **Control de acceso**, seleccione **Roles**.
+
 1. En la lista de roles, seleccione **CloudAdmin** y luego, seleccione **Privilegios**. 
 
    :::image type="content" source="media/role-based-access-control-cloudadmin-privileges.png" alt-text="Cómo ver los privilegios de rol de CloudAdmin en el cliente de vSphere":::
@@ -64,31 +66,38 @@ El rol CloudAdmin de Azure VMware Solution tiene los siguientes privilegios en v
 
 Azure VMware Solution admite el uso de roles personalizados con privilegios iguales o menores que el rol CloudAdmin. 
 
-El rol CloudAdmin puede crear, modificar o eliminar roles personalizados que tengan privilegios iguales o menores que su rol actual. Es posible que pueda crear roles con privilegios mayores que CloudAdmin, pero no podrá asignar el rol a ningún usuario o grupo ni eliminar el rol.
+Se utilizará el rol CloudAdmin para crear, modificar o eliminar roles personalizados que tengan privilegios iguales o menores que su rol actual. Puede crear roles con privilegios mayores que CloudAdmin, pero no podrá asignar el rol a ningún usuario o grupo ni eliminar el rol.
 
-Para evitar la creación de roles que no se pueden asignar o eliminar, Azure VMware Solution recomienda clonar el rol CloudAdmin como base para crear nuevos roles personalizados.
+Para evitar la creación de roles que no se pueden asignar o eliminar, clone el rol CloudAdmin como base para crear nuevos roles personalizados.
 
 #### <a name="create-a-custom-role"></a>Crear un rol personalizado
 1. Inicie sesión en vCenter con cloudadmin\@vsphere.local o un usuario con el rol CloudAdmin.
-2. Navegue a la sección configuración **Roles** y seleccione **Menú** > **Administración** > **Access Control** > **Roles**.
-3. Seleccione el rol **CloudAdmin** y seleccione el icono de la acción **Clonación de roles**.
 
-   > [!NOTE] 
-   > No clone el rol **Administrador**. Este rol no se puede usar y cloudadmin\@vsphere.local no puede eliminar el rol personalizado creado.
+1. Navegue a la sección configuración **Roles** y seleccione **Menú** > **Administración** > **Access Control** > **Roles**.
 
-4. Proporcione el nombre que desee para el rol clonado.
-5. Agregue o quite privilegios para el rol y seleccione **Aceptar**. El rol clonado debe estar ahora visible en la lista de **Roles**.
+1. Seleccione el rol **CloudAdmin** y seleccione el icono de la acción **Clonación de roles**.
+
+   >[!NOTE] 
+   >No clone el rol **Administrador** porque no se puede usar. Además, cloudadmin\@vsphere.local no puede eliminar el rol personalizado creado.
+
+1. Proporcione el nombre que desee para el rol clonado.
+
+1. Agregue o quite privilegios para el rol y seleccione **Aceptar**. El rol clonado está visible en la lista de **roles**.
 
 
-#### <a name="use-a-custom-role"></a>Uso de un rol personalizado
+#### <a name="apply-a-custom-role"></a>Aplicación de un rol personalizado
 
 1. Navegue hasta el objeto que requiere el permiso agregado. Por ejemplo, para aplicar el permiso a una carpeta, vaya a **Menú** > **VM y plantillas** > **Nombre de carpeta**.
+
 1. Haga clic con el botón derecho en el objeto y seleccione **Agregar permiso**.
+
 1. En la ventana **Agregar permiso**, seleccione el origen de identidad en el menú desplegable **Usuario**, donde se puede encontrar el grupo o el usuario.
+
 1. Busque el usuario o el grupo después de seleccionar el origen de identidad en la sección **Usuario**. 
+
 1. Seleccione el rol que se aplicará al usuario o grupo.
-1. Marque la casilla **Propagate to children** (Propagar a elementos secundarios) si es necesario y seleccione **Aceptar**.
-   El permiso agregado se muestra en la sección **Permisos** del objeto.
+
+1. Marque la casilla **Propagate to children** (Propagar a elementos secundarios) si es necesario y seleccione **Aceptar**. El permiso agregado se muestra en la sección **Permisos**.
 
 ## <a name="nsx-t-manager-access-and-identity"></a>Acceso e identidad de NSX-T Manager
 
@@ -96,9 +105,6 @@ Para evitar la creación de roles que no se pueden asignar o eliminar, Azure VMw
 >NSX-T 2.5 se admite actualmente en todas las nuevas nubes privadas.
 
 Use la cuenta de *administrador* para acceder a NSX-T Manager. Tiene privilegios completos y le permite crear y administrar puertas de enlace, segmentos (conmutadores lógicos) y todos los servicios de nivel 1 (T1). Los privilegios proporcionan acceso a la puerta de enlace de nivel 0 (T0) de NSX-T. Un cambio en la puerta de enlace T0 podría provocar una disminución en el rendimiento de la red o una pérdida de acceso a la nube privada. Abra una solicitud de soporte técnico en Azure Portal para solicitar cambios en la puerta de enlace NSX-T T0.
-
->[!TIP]
->Como alternativa al uso de NSX-T Manager, puede usar la [característica NSX simplificada de Azure Portal](configure-nsx-network-components-azure-portal.md).
 
  
 ## <a name="next-steps"></a>Pasos siguientes
@@ -108,7 +114,7 @@ Ahora que ha visto los conceptos de identidad y acceso de Azure VMware Solution,
 - [Habilitación del recurso de Azure VMware Solution](enable-azure-vmware-solution.md)
 - [Detalles de cada privilegio](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)
 - [Supervisión y reparación de nubes privadas de Azure VMware Solution](/azure/azure-vmware/concepts-private-clouds-clusters#host-monitoring-and-remediation)
-- [Habilitación del recurso de Azure VMware Solution](enable-azure-vmware-solution.md)
+
 
 
 <!-- LINKS - external-->
