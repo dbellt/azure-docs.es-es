@@ -3,12 +3,12 @@ title: Descripción del lenguaje de consultas
 description: Describe las tablas de Resource Graph y los tipos de datos, los operadores y las funciones de Kusto disponibles que se pueden usar con Azure Resource Graph.
 ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5e600439d54a89dd9bd2510b2e47b71b60ee93a7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a980e285061e986e55920fc4558b44daf552f102
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557690"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790764"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Información del lenguaje de consulta de Azure Resource Graph
 
@@ -38,7 +38,7 @@ Resource Graph proporciona varias tablas para los datos que almacena sobre los t
 |MaintenanceResources |Parcial, solo conectar _con_. (versión preliminar) |Incluye recursos _relacionados_ con `Microsoft.Maintenance`. |
 |PatchAssessmentResources|No |Incluye los recursos _relacionados_ con la evaluación de revisiones de Azure Virtual Machines. |
 |PatchInstallationResources|No |Incluye los recursos _relacionados_ con la instalación de revisiones de Azure Virtual Machines. |
-|PolicyResources |No |Incluye recursos _relacionados_ con `Microsoft.PolicyInsights`. (**Versión preliminar**)|
+|PolicyResources |No |Incluye recursos _relacionados_ con `Microsoft.PolicyInsights`. (**Versión preliminar**) |
 |RecoveryServicesResources |Parcial, solo unirse _con_. (versión preliminar) |Incluye recursos _relacionados_ con `Microsoft.DataProtection` y `Microsoft.RecoveryServices`. |
 |SecurityResources |Parcial, solo unirse _con_. (versión preliminar) |Incluye recursos _relacionados_ con `Microsoft.Security`. |
 |ServiceHealthResources |No |Incluye recursos _relacionados_ con `Microsoft.ResourceHealth`. |
@@ -155,7 +155,7 @@ Para admitir la experiencia del portal "Abrir consulta", el explorador de Azure 
 El ámbito de las suscripciones desde las que una consulta devuelve los recursos depende del método de acceso a Resource Graph. La CLI de Azure y Azure PowerShell rellenan la lista de suscripciones que se van a incluir en la solicitud, en función del contexto del usuario autorizado. Cada lista de suscripciones se puede definir manualmente con las **suscripciones** y los parámetros de **suscripción**, respectivamente.
 En la API de REST y en todos los demás SDK, la lista de suscripciones en las que se incluyen los recursos debe definirse explícitamente como parte de la solicitud.
 
-Como **versión preliminar**, la versión de API de REST `2020-04-01-preview` agrega una propiedad para limitar el ámbito de la consulta a un [grupo de administración](../../management-groups/overview.md). Esta API de versión preliminar también hace que la propiedad de suscripción sea opcional. Si no se define un grupo de administración o una lista de suscripciones, el ámbito de la consulta comprenderá todos los recursos, incluidos los recursos delegados de [Azure Lighthouse](../../../lighthouse/concepts/azure-delegated-resource-management.md), a los que puede acceder el usuario autenticado. La nueva propiedad `managementGroupId` toma el id. del grupo de administración, que es diferente del nombre del grupo de administración. Cuando se especifica `managementGroupId`, se incluyen los recursos de las primeras 5000 suscripciones de la jerarquía de grupos de administración especificada. `managementGroupId` no se puede usar al mismo tiempo que `subscriptions`.
+Como **versión preliminar**, la versión de API de REST `2020-04-01-preview` agrega una propiedad para limitar el ámbito de la consulta a un [grupo de administración](../../management-groups/overview.md). Esta API de versión preliminar también hace que la propiedad de suscripción sea opcional. Si no se define un grupo de administración o una lista de suscripciones, el ámbito de la consulta comprenderá todos los recursos, incluidos los recursos delegados de [Azure Lighthouse](../../../lighthouse/overview.md), a los que puede acceder el usuario autenticado. La nueva propiedad `managementGroupId` toma el id. del grupo de administración, que es diferente del nombre del grupo de administración. Cuando se especifica `managementGroupId`, se incluyen los recursos de las primeras 5000 suscripciones de la jerarquía de grupos de administración especificada. `managementGroupId` no se puede usar al mismo tiempo que `subscriptions`.
 
 Ejemplo: Consulte todos los recursos de la jerarquía del grupo de administración denominado "Mi grupo de administración" que cuenta con el id. "myMG".
 
@@ -179,7 +179,7 @@ Ejemplo: Consulte todos los recursos de la jerarquía del grupo de administraci�
 Algunos nombres de propiedad, como los que incluyen `.` o `$`, debe encapsularse o escapar en la consulta para que se interprete correctamente; de lo contrario, no proporcionan los resultados previstos.
 
 - `.` -Encapsule el nombre de propiedad como en: `['propertyname.withaperiod']`
-  
+
   Consulta de ejemplo que encapsula la propiedad _odata.type_:
 
   ```kusto
@@ -190,7 +190,7 @@ Algunos nombres de propiedad, como los que incluyen `.` o `$`, debe encapsularse
 
   - **bash** - `\`
 
-    Consulta de ejemplo con escape de la propiedad _\$type_ en bash:
+    Consulta de ejemplo con escape de la propiedad _\$type_ en Bash:
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type

@@ -15,19 +15,19 @@ ms.topic: conceptual
 ms.date: 04/22/2021
 ms.author: b-juche
 ms.custom: references_regions
-ms.openlocfilehash: 68672ccc93871a3baa26da81a25a31d1850ef599
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 298a94f20b12ae6e965441a3a7492e99e7c71e22
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897080"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795067"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replicación entre regiones de volúmenes de Azure NetApp Files
 
 La funcionalidad de replicación de Azure NetApp Files proporciona protección de datos a través de la replicación de volúmenes entre regiones. Puede replicar datos de forma asincrónica desde un volumen de Azure NetApp Files (origen) de una región a otro volumen Azure NetApp Files (destino) de otra región.  Esta funcionalidad le permite realizar la conmutación por error de la aplicación crítica en caso de un desastre o una interrupción en toda la región.
 
 > [!IMPORTANT]
-> La característica de replicación entre regiones se encuentra actualmente en versión preliminar pública. Debe enviar una solicitud de lista de espera para acceder a la característica a través de la [página de envío de lista de espera de replicación entre regiones de Azure NetApp Files](https://aka.ms/anfcrrpreviewsignup). Antes de utilizar la característica de replicación entre regiones, debe esperar un correo electrónico de confirmación oficial del equipo de Azure NetApp Files.
+> La característica de replicación entre regiones se encuentra actualmente en versión preliminar. Debe enviar una solicitud de lista de espera para acceder a la característica a través de la [página de envío de lista de espera de replicación entre regiones de Azure NetApp Files](https://aka.ms/anfcrrpreviewsignup). Antes de utilizar la característica de replicación entre regiones, debe esperar un correo electrónico de confirmación oficial del equipo de Azure NetApp Files.
 
 ## <a name="supported-cross-region-replication-pairs"></a><a name="supported-region-pairs"></a>Pares de replicación entre regiones compatibles
 

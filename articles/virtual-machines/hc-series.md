@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 52a915a8d64be1c78fcafe2b910f162f725a1e16
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 362e12814457cfcc1e5e5dfa395756c0e5f8c83f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309669"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108771872"
 ---
 # <a name="hc-series"></a>Serie HC
 
@@ -29,7 +29,7 @@ Las máquinas virtuales de la serie HC incluyen la característica MeliBox EDR I
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): compatible ([obtenga más información](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-hbv2-and-ndv2/ba-p/2067965) sobre el rendimiento y los posibles problemas)<br>
-[Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): admitidos ([en versión preliminar](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
 <br>
 
 | Size | vCPU | Procesador | Memoria (GiB) | Ancho de banda de memoria, en GB/s | Frecuencia de CPU base (GHz) | Frecuencia de todos los núcleos (GHz, pico) | Frecuencia de cada núcleo (GHz, pico) | Rendimiento de RDMA (GB/s) | Compatibilidad con MPI | Almacenamiento temporal (GiB) | Discos de datos máx. | vNIC Ethernet máx. |

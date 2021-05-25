@@ -1,18 +1,18 @@
 ---
 title: Conexión de Azure Percept DK a través de SSH
 description: Aprenda a configurar una conexión SSH en Azure Percept DK con PuTTY
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 39ee1c1cc5b52dc62e3199536234c1f7d9381436
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 4ee194e6d501d967d37453763c9cd4b25d1bedbe
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721484"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754206"
 ---
 # <a name="connect-to-your-azure-percept-dk-over-ssh"></a>Conexión de Azure Percept DK a través de SSH
 
@@ -23,7 +23,7 @@ Siga los pasos que se indican a continuación para configurar una conexión SSH 
 - Un equipo host basado en Windows, Linux u OS X con funcionalidad Wi-Fi
 - Un cliente SSH (consulte la siguiente sección para obtener la guía de instalación)
 - Un Azure Percept DK (kit de desarrollo)
-- Un inicio de sesión de SSH, creado durante la [experiencia de instalación de Azure Percept DK](./quickstart-percept-dk-set-up.md)
+- Una cuenta de SSH, creada durante la [experiencia de instalación de Azure Percept DK](./quickstart-percept-dk-set-up.md)
 
 ## <a name="install-your-preferred-ssh-client"></a>Instalación del cliente SSH preferido
 
@@ -33,7 +33,7 @@ Si el equipo host ejecuta Windows, es posible que tenga dos opciones de cliente 
 
 ### <a name="openssh"></a>OpenSSH
 
-Windows 10 incluye un cliente SSH integrado llamado OpenSSH que se puede ejecutar con un comando simple dentro de un símbolo del sistema. Si está disponible, se recomienda usar OpenSSH con Azure Percept. Para comprobar si el equipo Windows tiene instalado OpenSSH, siga estos pasos:
+Windows 10 incluye un cliente SSH integrado llamado OpenSSH que se puede ejecutar con un comando simple en un símbolo del sistema. Si está disponible, se recomienda usar OpenSSH con Azure Percept. Para comprobar si el equipo Windows tiene instalado OpenSSH, siga estos pasos:
 
 1. Vaya a **Configuración** -> **de inicio**.
 
@@ -41,11 +41,11 @@ Windows 10 incluye un cliente SSH integrado llamado OpenSSH que se puede ejecuta
 
 1. En **Aplicaciones y Características**, seleccione **Características opcionales**.
 
-1. Escriba **Cliente OpenSSH** en la barra de búsqueda de **Características instaladas**. Si no aparece OpenSSH, el cliente ya está instalado y puede pasar a la sección siguiente. Si no ve OpenSSH, haga clic en **Agregar una característica**.
+1. Escriba **Cliente OpenSSH** en la barra de búsqueda de **Características instaladas**. Si no aparece OpenSSH, el cliente ya está instalado y puede pasar a la sección siguiente. Si no ve OpenSSH, seleccione **Agregar una característica**.
 
     :::image type="content" source="./media/how-to-ssh-into-percept-dk/open-ssh-install.png" alt-text="Captura de pantalla de la configuración que muestra el estado de instalación OpenSSH.":::
 
-1. Seleccione **Cliente OpenSSH** y haga clic en **Instalar**. Ahora puede pasar a la sección siguiente. Si OpenSSH no está disponible para instalarse en el equipo, siga los pasos que se indican a continuación para instalar PuTTY, un cliente SSH de terceros.
+1. Seleccione **Cliente OpenSSH** y, luego, **Instalar**. Ahora puede pasar a la sección siguiente. Si OpenSSH no está disponible para instalarse en el equipo, siga los pasos que se indican a continuación para instalar PuTTY, un cliente SSH de terceros.
 
 ### <a name="putty"></a>PuTTY
 
@@ -53,9 +53,9 @@ Si el equipo Windows no incluye OpenSSH, se recomienda usar [PuTTY](https://www.
 
 1. Vaya a la [Página de descarga de PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
-1. En **Archivos de paquete**, haga clic en el archivo .msi de 32 bits o 64 bits para descargar el instalador. Si no está seguro de qué versión elegir, consulte las [Preguntas más frecuentes](https://www.chiark.greenend.org.uk/~sgtatham/putty/faq.html#faq-32bit-64bit).
+1. En **Archivos de paquete**, seleccione el archivo .msi de 32 bits o 64 bits para descargar el instalador. Si no está seguro de qué versión elegir, consulte las [Preguntas más frecuentes](https://www.chiark.greenend.org.uk/~sgtatham/putty/faq.html#faq-32bit-64bit).
 
-1. Haga clic en el instalador para iniciar el proceso de instalación. Siga las indicaciones según sea necesario.
+1. Seleccione el instalador para iniciar el proceso de instalación. Siga las indicaciones según sea necesario.
 
 1. Felicidades. Ha instalado correctamente el cliente SSH de PuTTY.
 
@@ -63,7 +63,7 @@ Si el equipo Windows no incluye OpenSSH, se recomienda usar [PuTTY](https://www.
 
 1. Encendido de Azure Percept DK.
 
-1. Si el kit de desarrollo ya está conectado a una red a través de Ethernet o Wi-Fi, vaya al paso siguiente. De lo contrario, conecte el equipo host directamente al punto de acceso Wi-Fi del kit de desarrollo. Como la conexión a cualquier otra red Wi-Fi, abra la configuración de red e Internet en el equipo, haga clic en la siguiente red y escriba la contraseña de red cuando se le solicite:
+1. Si el kit de desarrollo ya está conectado a una red a través de Ethernet o Wi-Fi, vaya al paso siguiente. De lo contrario, conecte el equipo host directamente al punto de acceso Wi-Fi del kit de desarrollo. Como la conexión a cualquier otra red Wi-Fi, abra la configuración de red e Internet en el equipo, seleccione la red que se indica y escriba la contraseña de red cuando se le solicite:
 
     - **Nombre de red**: en función de la versión del sistema operativo del kit de desarrollo, el nombre del punto de acceso Wi-Fi es **scz-xxxx** o **apd-xxxx** (donde "xxxx" son los cuatro últimos dígitos de la dirección MAC del kit de desarrollo)
     - **Contraseña**: puede encontrarla en la Tarjeta de bienvenida que se incluye en el kit de desarrollo
@@ -98,7 +98,7 @@ Si el equipo Windows no incluye OpenSSH, se recomienda usar [PuTTY](https://www.
 
 ### <a name="using-putty"></a>Usar PuTTY
 
-1. Abra PuTTY. Escriba lo siguiente en la ventana de **Configuración de PuTTY** y haga clic en **Abrir** para SSH en el kit de desarrollo:
+1. Abra PuTTY. Escriba lo siguiente en la ventana de **Configuración de PuTTY** y seleccione **Abrir** para SSH en el kit de desarrollo:
 
     1. Nombre de host: [dirección IP]
     1. Puerto: 22

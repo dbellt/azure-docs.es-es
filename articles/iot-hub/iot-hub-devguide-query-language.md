@@ -5,15 +5,15 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 05/07/2021
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cae2bcb1a3302814a426fa0cb2dfb36ba1b013fa
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e473e7305f7e2dd9609edf0f2d18a12a950b9d40
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218373"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656927"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Lenguaje de consulta de IoT Hub para dispositivos y módulos gemelos, trabajos y enrutamiento de mensajes
 
@@ -152,11 +152,23 @@ Esta consulta de agrupación devolverá un resultado similar al ejemplo siguient
 
 En este ejemplo, puede ver que tres dispositivos notificaron una configuración correcta, dos de ellos todavía están aplicándola y uno de ellos ha notificado un error.
 
-Las consultas de proyección permiten a los desarrolladores devolver solo las propiedades que les interesen. Por ejemplo, para recuperar la hora de la última actividad de todos los dispositivos desconectados, use la consulta siguiente:
+Las consultas de proyección permiten a los desarrolladores devolver solo las propiedades que les interesen. Por ejemplo, para recuperar la hora de la última actividad junto con el id. de dispositivo de todos los dispositivos habilitados que están desconectados, use la consulta siguiente:
 
 ```sql
-SELECT LastActivityTime FROM devices WHERE status = 'enabled'
+SELECT DeviceId, LastActivityTime FROM devices WHERE status = 'enabled' AND connectionState = 'Disconnected'
 ```
+
+Este es un ejemplo de resultado de esa consulta en el **Explorador de consultas** para una instancia de IoT Hub:
+
+```json
+[
+  {
+    "deviceId": "AZ3166Device",
+    "lastActivityTime": "2021-05-07T00:50:38.0543092Z"
+  }
+]
+```
+
 
 ### <a name="module-twin-queries"></a>Consultas de módulo gemelo
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 64f18d3217d7f5b7c2feb28190475ef885d4e72b
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: bacf9682e8ac9587a664eb7f363f505faa73b383
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108203512"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787714"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Programación con las API de Azure Digital Twins
 
@@ -120,7 +120,7 @@ Azure Digital Twins carece de vocabulario de dominio intrínseco. Los tipos de e
 
 El primer paso para crear una solución de Azure Digital Twins es definir al menos un modelo en un archivo DTDL.
 
-En el directorio en el que creó el proyecto, cree un archivo *.json* llamado *SampleModel.json*. Pegue el siguiente cuerpo de archivo: 
+En el directorio en el que creó el proyecto, cree un archivo .json llamado *SampleModel.json*. Pegue el siguiente cuerpo de archivo: 
 
 :::code language="json" source="~/digital-twins-docs-samples/models/SampleModel.json":::
 
@@ -192,7 +192,7 @@ Agregue el código siguiente al final del método `Main` para crear e inicializa
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Initialize_twins":::
 
-En la ventana de comandos, ejecute el programa con `dotnet run`. En la salida, busque los mensajes de impresión de que se han creado *sampleTwin-0*, *sampleTwin-1* y *sampleTwin-2*. 
+En la ventana de comandos, ejecute el programa con `dotnet run`. En la salida, busque los mensajes de impresión de que se han creado sampleTwin-0, sampleTwin-1y sampleTwin-2. 
 
 Luego, Vuelva a ejecutar el programa. 
 
@@ -254,7 +254,7 @@ En este punto del tutorial, tiene una aplicación cliente completa, capaz de lle
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Después de completar este tutorial, puede elegir los recursos que desea quitar en función de lo que desee hacer a continuación.
+Después de completar este tutorial, puede elegir los recursos que quiere quitar en función de lo que quiera hacer a continuación.
 
 * **Si tiene pensado continuar con el siguiente tutorial**, la instancia usada en este tutorial se puede reutilizar en el siguiente. Puede conservar los recursos de Azure Digital Twins que configure aquí y omitir el resto de esta sección.
 

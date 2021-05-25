@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b79b2d9767112d95f6ea0388bfc7ef577ef8d7ba
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 6435fbffc6a78d82129443f15a9ebcc41ab52ce8
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108073546"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109635200"
 ---
 # <a name="manage-storage-account-access-keys"></a>Administración de las claves de acceso de la cuenta de almacenamiento
 
@@ -33,7 +33,7 @@ Puede ver y copiar las claves de acceso a la cuenta con Azure Portal, PowerShell
 Para ver y copiar la cadena de conexión o las claves de acceso de la cuenta de almacenamiento desde Azure Portal:
 
 1. Vaya a la cuenta de almacenamiento en [Azure Portal](https://portal.azure.com).
-1. En **Configuración**, seleccione **Claves de acceso**. Aparecen las claves de acceso de la cuenta, así como la cadena de conexión completa de cada clave.
+1. En **Seguridad y redes**, seleccione **Claves de acceso**. Aparecen las claves de acceso de la cuenta, así como la cadena de conexión completa de cada clave.
 1. Busque el valor de **Clave** en **key1** y haga clic en el botón **Copiar** para copiar la clave de cuenta.
 1. Como alternativa, puede copiar la cadena de conexión completa. Busque el valor de **Cadena de conexión** en **key1** y haga clic en el botón **Copiar** para copiar la cadena de conexión.
 
@@ -90,7 +90,7 @@ Para rotar las claves de acceso a la cuenta de almacenamiento en Azure Portal:
 
 1. Actualice las cadenas de conexión en el código de su aplicación para hacer referencia a la clave de acceso secundaria de la cuenta de almacenamiento.
 1. Vaya a la cuenta de almacenamiento en [Azure Portal](https://portal.azure.com).
-1. En **Configuración**, seleccione **Claves de acceso**.
+1. En **Seguridad y redes**, seleccione **Claves de acceso**.
 1. Para regenerar la clave de acceso principal de la cuenta de almacenamiento, seleccione el botón **Regenerar** que se encuentra junto a la clave de acceso principal.
 1. Actualice las cadenas de conexión en su código para hacer referencia a la nueva clave de acceso primaria.
 1. Vuelva a generar la clave de acceso secundaria de la misma forma.

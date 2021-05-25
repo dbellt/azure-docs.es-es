@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 04/19/2021
 ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: f286e2bcded99ad59b706bd7e6d8b2b29f4b4c0a
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 265f7376ea919b1dff13a1ed5dd3b5f0c48fa9a6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108292369"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758220"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Emparejamiento y alineación de oraciones en documentos paralelos
 
@@ -46,7 +46,8 @@ Para que un entrenamiento se realice correctamente, en la tabla siguiente se mue
 > - El entrenamiento no se iniciará y se producirá un error si no se cumple el número mínimo de 10 000 frases para el entrenamiento.
 > - La optimización y las pruebas son opcionales. Si no las proporciona, el sistema quitará un porcentaje adecuado del entrenamiento que se usará para la validación y las pruebas.
 > - Puede entrenar un modelo usando solo los datos de un diccionario. Consulte [Qué es el diccionario](./what-is-dictionary.md).
-> - Si el diccionario contiene más de 250 000 oraciones, es probable que la **[traducción de documentos](../document-translation/overview.md)** sea una mejor opción.
+> -  Si el diccionario contiene más de 250 000 oraciones, la traducción de documentos es una mejor opción. Consulte [Traductor de documentos](https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/overview).
+> - El entrenamiento de la suscripción gratuita (F0) tiene un límite máximo de 2 000 000 caracteres. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

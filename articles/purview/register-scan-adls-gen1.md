@@ -6,13 +6,13 @@ ms.author: sandeepshah
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 11/30/2020
-ms.openlocfilehash: a831681f892de9f6aae50fa9a2fcf71e883fe6ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/08/2021
+ms.openlocfilehash: 98de0156eca9269b2a274aa3ca2027112b7b4043
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97693721"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109655502"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen1"></a>Registro y examen de Azure Data Lake Storage Gen1
 
@@ -129,9 +129,11 @@ En la pantalla Register sources (Registrar orígenes) (Azure Data Lake Storage G
 
 1. Escriba un **nombre** con el que se mostrará el origen de datos en el catálogo.
 2. Elija la suscripción para filtrar las cuentas de almacenamiento.
-3. Seleccione una cuenta de almacenamiento
+3. Seleccione una cuenta de almacenamiento.
 4. Seleccione una colección o cree una nueva (opcional).
-5. Seleccione Finish (Finalizar) para registrar el origen de datos.
+5. Seleccione **Registrar** para registrar el origen de datos.
+
+:::image type="content" source="media/register-scan-adls-gen1/register-sources.png" alt-text="Opciones de registro de orígenes" border="true":::
 
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 

@@ -7,12 +7,12 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 6cadadfb3623d05dd3ae3851acd5eaca13860023
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ded1007cd5d0268d68bcdbff87a3b703da247876
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96929850"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764052"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Uso de puntos de conexión privados en Azure App Configuration
 
@@ -33,11 +33,11 @@ Aunque App Configuration no admite puntos de conexión de servicio, se pueden cr
 
 Cuando se crea un punto de conexión privado para un servicio de la red virtual, se envía una solicitud de consentimiento para su aprobación al propietario de la cuenta de servicio. Si el usuario que solicita la creación del punto de conexión privado también es propietario de la cuenta, esta solicitud de consentimiento se aprueba automáticamente.
 
-Los propietarios de cuentas de servicio pueden administrar las solicitudes de consentimiento y los puntos de conexión privados desde la pestaña `Private Endpoints` del almacén de configuración en [Azure Portal](https://portal.azure.com).
+Los propietarios de cuentas de servicio pueden administrar las solicitudes de consentimiento y los puntos de conexión privados desde la pestaña `Private Endpoints` del almacén de App Configuration en [Azure Portal](https://portal.azure.com).
 
 ### <a name="private-endpoints-for-app-configuration"></a>Puntos de conexión privados en Azure App Configuration 
 
-Al crear un punto de conexión privado, debe especificar el almacén de App Configuration al que se conecta. Si tiene varias instancias de App Configuration en una cuenta, necesita un punto de conexión privado independiente para cada almacén.
+Al crear un punto de conexión privado, debe especificar el almacén de App Configuration al que se conecta. Si tiene varios almacenes de App Configuration, necesita un punto de conexión privado independiente para cada almacén.
 
 ### <a name="connecting-to-private-endpoints"></a>Conexión a puntos de conexión privados
 
@@ -46,13 +46,20 @@ Azure se basa en la resolución de DNS para enrutar las conexiones desde la red 
 > [!IMPORTANT]
 > Use la misma cadena de conexión para conectarse al almacén de App Configuration con puntos de conexión privados que usaría con un punto de conexión público. No se conecte al almacén mediante la dirección URL de su subdominio `privatelink`.
 
+> [!NOTE]
+> De manera predeterminada, cuando se agrega un punto de conexión privado al almacén de App Configuration, se deniegan todas las solicitudes de datos de App Configuration a través de la red pública. Puede habilitar el acceso a la red pública mediante el siguiente comando de la CLI de Azure. Es importante tener en cuenta las implicaciones de seguridad que supone habilitar el acceso a la red pública en este escenario.
+>
+> ```azurecli-interactive
+> az appconfig update -g MyResourceGroup -n MyAppConfiguration --enable-public-network true
+> ```
+
 ## <a name="dns-changes-for-private-endpoints"></a>Cambios de DNS en puntos de conexión privados
 
 Al crear un punto de conexión privado, el registro del recurso CNAME de DNS del almacén de configuración se actualiza a un alias de un subdominio con el prefijo `privatelink`. Azure también crea una [zona DNS privada](../dns/private-dns-overview.md), que se corresponde con el subdominio `privatelink`, con los registros de recursos A de DNS para los puntos de conexión privados.
 
 Cuando se resuelve la dirección URL del punto de conexión en la red virtual que hospeda el punto de conexión privado, lo hace en el punto de conexión privado del almacén. Cuando se resuelve desde fuera de la red virtual, lo hace en el punto de conexión público. Cuando se crea un punto de conexión privado, el punto de conexión público se deshabilita.
 
-Si va a usar un servidor DNS personalizado en la red, los clientes deben ser capaces de resolver el nombre de dominio completo (FQDN) del punto de conexión de servicio en la dirección IP del punto de conexión privado. Configure el servidor DNS para delegar el subdominio del vínculo privado en la zona DNS privada de la red virtual o configure los registros A para `AppConfigInstanceA.privatelink.azconfig.io` con la dirección IP del punto de conexión privado.
+Si va a usar un servidor DNS personalizado en la red, los clientes deben ser capaces de resolver el nombre de dominio completo (FQDN) del punto de conexión de servicio en la dirección IP del punto de conexión privado. Configure el servidor DNS para delegar el subdominio del vínculo privado en la zona DNS privada de la red virtual o configure los registros A para `[Your-store-name].privatelink.azconfig.io` con la dirección IP del punto de conexión privado.
 
 > [!TIP]
 > Cuando use un servidor DNS personalizado o local, debe configurarlo para resolver el nombre del almacén del subdominio `privatelink` en la dirección IP del punto de conexión privado. Para ello, puede delegar el subdominio `privatelink` en la zona DNS privada de la red virtual, o bien configurar la zona DNS en el servidor DNS y agregar los registros A de DNS.

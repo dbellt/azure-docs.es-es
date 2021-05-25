@@ -5,6 +5,8 @@
   items:
     - name: ¿Qué es Custom Vision?
       href: overview.md
+    - name: Precios y límites
+      href: limits-and-quotas.md
     - name: Novedades
       href: whats-new.md
 - name: Guías de inicio rápido
@@ -97,8 +99,6 @@
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/custom-vision-service/context/context
     - name: Ejemplos
       href: /samples/browse/?products=azure&term=vision
-    - name: Límites y cuotas
-      href: limits-and-quotas.md
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Notas de la versión

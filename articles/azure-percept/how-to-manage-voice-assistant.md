@@ -1,24 +1,24 @@
 ---
-title: Configuración de la aplicación de asistente para voz en Azure Percept Studio
-description: Configuración de la aplicación de asistente para voz en Azure Percept Studio
-author: elqu20
-ms.author: v-elqu
+title: Configuración de una aplicación de asistente para voz en Azure Percept Studio
+description: Configuración de una aplicación de asistente para voz en Azure Percept Studio
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 8f22379049b74428787b738af832802081be7bf8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 764ca28ec6e66d63ffeb98399f654b14eb9b6715
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105022898"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754296"
 ---
 # <a name="managing-your-voice-assistant"></a>Administración del asistente para voz
 
-En este artículo se describe cómo configurar la palabra clave y los comandos de la aplicación del asistente para voz en [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819). Para obtener instrucciones sobre la configuración de la palabra clave en IoT Hub en lugar del portal, consulte este [artículo de procedimientos](./how-to-configure-voice-assistant.md).
+En este artículo se describe cómo configurar la palabra clave y los comandos de la aplicación del asistente para voz en [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819). Para obtener instrucciones sobre la configuración de la palabra clave en IoT Hub en lugar del portal, consulte [Configuración de la aplicación de asistente para voz mediante Azure IoT Hub](./how-to-configure-voice-assistant.md).
 
-Si aún no ha creado una aplicación de asistente para voz, consulte [Creación de un asistente para voz sin código con Azure Percept Studio y Azure Percept Audio](./tutorial-no-code-speech.md).
+Si aún no ha creado una aplicación de asistente para voz, consulte [Creación de un asistente para voz con Azure Percept DK y Azure Percept Audio](./tutorial-no-code-speech.md).
 
 ## <a name="keyword-configuration"></a>Configuración de palabras clave
 
@@ -26,19 +26,19 @@ Una palabra clave es una palabra o frase corta utilizada para activar un asisten
 
 ### <a name="configuration-within-the-voice-assistant-demo-window"></a>Configuración en la ventana de demostración del asistente para voz
 
-1. Haga clic en **Change** (Cambiar) junto a **Custom Keyword** (Palabra clave personalizada) en la página de demostración.
+1. Seleccione **Change** (Cambiar) junto a **Custom Keyword** (Palabra clave personalizada) en la página de demostración.
 
     :::image type="content" source="./media/manage-voice-assistant/hospitality-demo.png" alt-text="Captura de pantalla de la ventana de demostración para hostelería.":::
 
-    Si no tiene abierta la página de demostración, vaya a la página del dispositivo (véase a continuación) y haga clic en **Test your voice assistant** (Probar el asistente para voz) en **Actions** (Acciones) para acceder a la demostración.
+    Si no tiene abierta la página de demostración, vaya a la página del dispositivo (véase a continuación) y seleccione **Test your voice assistant** (Probar el asistente para voz) en **Actions** (Acciones) para acceder a la demostración.
 
-1. Seleccione una de las palabras clave disponibles y haga clic en **Save** (Guardar) para aplicar los cambios.
+1. Seleccione una de las palabras clave disponibles y seleccione **Save** (Guardar) para aplicar los cambios.
 
 1. Las tres luces LED del dispositivo Azure Percept Audio cambiarán a azul brillante (sin parpadeo) cuando se complete la configuración y el asistente para voz esté listo para usarse.
 
 ### <a name="configuration-within-the-device-page"></a>Configuración dentro de la página del dispositivo
 
-1. En la página de información general de [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819), haga clic en **Devices** (Dispositivos) en el panel del menú de la izquierda.
+1. En la página de información general de [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819), seleccione **Devices** (Dispositivos) en el panel del menú de la izquierda.
 
     :::image type="content" source="./media/manage-voice-assistant/portal-overview-devices.png" alt-text="Captura de pantalla de la página de información general de Azure Percept Studio con la opción Dispositivos resaltada.":::
 
@@ -48,11 +48,11 @@ Una palabra clave es una palabra o frase corta utilizada para activar un asisten
 
     :::image type="content" source="./media/manage-voice-assistant/device-page.png" alt-text="Captura de pantalla de la página de dispositivo perimetral con la pestaña Voz resaltada.":::
 
-1. Haga clic en **Change** (Cambiar) junto a **Keyword** (Palabra clave).
+1. Seleccione **Change** (Cambiar) junto a **Keyword** (Palabra clave).
 
     :::image type="content" source="./media/manage-voice-assistant/change-keyword-device.png" alt-text="Captura de pantalla de las acciones de la solución de voz disponibles.":::
 
-1. Seleccione una de las palabras clave disponibles y haga clic en **Save** (Guardar) para aplicar los cambios.
+1. Seleccione una de las palabras clave disponibles y seleccione **Save** (Guardar) para aplicar los cambios.
 
 1. Las tres luces LED del dispositivo Azure Percept Audio cambiarán a azul brillante (sin parpadeo) cuando se complete la configuración y el asistente para voz esté listo para usarse.
 
@@ -68,21 +68,21 @@ Los comandos personalizados facilitan la creación de aplicaciones de comandos d
 
 ### <a name="configuration-within-the-voice-assistant-demo-window"></a>Configuración en la ventana de demostración del asistente para voz
 
-1. Haga clic en **Change** (cambiar) junto a **Custom Command** (Comando personalizado) en la página de demostración. Si no tiene abierta la página de demostración, vaya a la página del dispositivo (véase a continuación) y haga clic en **Test your voice assistant** (Probar el asistente para voz) en **Actions** (Acciones) para acceder a la demostración.
+1. Seleccione **Change** (cambiar) junto a **Custom Command** (Comando personalizado) en la página de demostración. Si no tiene abierta la página de demostración, vaya a la página del dispositivo (véase a continuación) y seleccione **Test your voice assistant** (Probar el asistente para voz) en **Actions** (Acciones) para acceder a la demostración.
 
-1. Seleccione uno de los comandos personalizados disponibles y haga clic en **Save** (Guardar) para aplicar los cambios.
+1. Seleccione uno de los comandos personalizados disponibles y seleccione **Save** (Guardar) para aplicar los cambios.
 
 ### <a name="configuration-within-the-device-page"></a>Configuración dentro de la página del dispositivo
 
-1. En la página de información general de [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819), haga clic en **Devices** (Dispositivos) en el panel del menú de la izquierda.
+1. En la página de información general de [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819), seleccione **Devices** (Dispositivos) en el panel del menú de la izquierda.
 
 1. Seleccione el dispositivo en el que se implementó la aplicación de asistente para voz.
 
 1. Abra la pestaña **Speech** (Voz).
 
-1. Haga clic en **Change** (Cambiar) junto a **Command** (Comando).
+1. Seleccione **Change** (Cambiar) junto a **Command** (Comando).
 
-1. Seleccione uno de los comandos personalizados disponibles y haga clic en **Save** (Guardar) para aplicar los cambios.
+1. Seleccione uno de los comandos personalizados disponibles y seleccione **Save** (Guardar) para aplicar los cambios.
 
 ## <a name="create-custom-commands"></a>Creación de comandos personalizados
 

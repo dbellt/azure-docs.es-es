@@ -3,13 +3,13 @@ title: Administración y supervisión de copias de seguridad del agente de MARS
 description: Aprenda a administrar y supervisar las copias de seguridad del agente de Microsoft Azure Recovery Services (MARS) con el servicio Azure Backup.
 ms.reviewer: srinathv
 ms.topic: conceptual
-ms.date: 10/07/2019
-ms.openlocfilehash: 4306f01d608542f7453b32b32a1a6894c2379159
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 04/29/2021
+ms.openlocfilehash: 5e495a5a5750ce2a2375000d208d9856ce68d803
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515029"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109516693"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Administración de copias de seguridad del agente de Microsoft Azure Recovery Services (MARS) con el servicio Azure Backup
 
@@ -94,9 +94,8 @@ Hay dos formas de detener la protección de una copia de seguridad de archivos y
   - Podrá restaurar los datos de copia de seguridad de los puntos de recuperación que no hayan expirado.
   - Si decide reanudar la protección, podrá usar la opción *Vuelva a habilitar la programación de copia de seguridad*. Después de la operación, los datos se conservarán de acuerdo con la nueva directiva de retención.
 - **Detener la protección y eliminar los datos de copia de seguridad**.
-  - Esta opción hará que todos los trabajos de copia de seguridad futuros dejen de proteger los datos y eliminará todos los puntos de recuperación.
-  - Recibirá un correo electrónico de alerta de eliminación de datos de copia de seguridad con el mensaje *Your data for this Backup item has been deleted. This data will be temporarily available for 14 days, after which it will be permanently deleted* (Los datos de este elemento de copia de seguridad se han eliminado. Estos datos estarán disponibles temporalmente durante un período de 14 días, tras el cual se eliminarán de forma permanente) y la acción recomendada *Reprotect the Backup item within 14 days to recover your data* (Vuelva a proteger el elemento de copia de seguridad en el plazo de 14 días para recuperar los datos).
-  - Para reanudar la protección, vuelva a proteger el elemento en el plazo de 14 días a partir de la operación de eliminación.
+  - Esta opción detendrá la protección de los datos para todos los trabajos de copia de seguridad futuros. Si las características de seguridad del almacén no están habilitadas, todos los puntos de recuperación se eliminan inmediatamente.<br>Si las características de seguridad están habilitadas, la eliminación se retrasa 14 días y recibirá un correo electrónico de alerta de con el mensaje *Los datos de este elemento de copia de seguridad se han eliminado. Estos datos estarán disponibles temporalmente durante un período de 14 días, tras el cual se eliminarán de forma permanente* y la acción recomendada *Vuelva a proteger el elemento de copia de seguridad en el plazo de 14 días para recuperar los datos*.<br>En este estado, la directiva de retención se sigue aplicando y los datos de copia de seguridad siguen siendo facturables. [Más información](backup-azure-security-feature.md#enable-security-features) sobre cómo habilitar las características de seguridad del almacén.
+  - Para reanudar la protección, vuelva a proteger el servidor en el plazo de 14 días a partir de la operación de eliminación. En esta duración, también puede restaurar los datos en un servidor alternativo.
 
 ### <a name="stop-protection-and-retain-backup-data"></a>Detener la protección y conservar los datos de copia de seguridad
 

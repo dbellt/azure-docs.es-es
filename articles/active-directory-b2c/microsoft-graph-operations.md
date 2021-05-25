@@ -8,20 +8,23 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 04/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cf62330fd677dc978c8f25a81c6a1e5bfbb612ac
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: afb3b3d6a2828e17abbca54ab8bd716f06cb01f8
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717610"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109632752"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Administración de Azure AD B2C con Microsoft Graph
 
 Microsoft Graph permite administrar recursos en el directorio de Azure AD B2C. Se admiten las siguientes operaciones de Microsoft Graph API para la administración de recursos de Azure AD B2C, incluidos usuarios, proveedores de identidades, flujos de usuarios, directivas personalizadas y claves de directivas. Cada vínculo de las secciones siguientes se dirige a la página correspondiente dentro de la referencia de Microsoft Graph API para esa operación. 
+
+> [!NOTE]
+> También puede crear mediante programación un directorio de Azure AD B2C, junto con el recurso de Azure correspondiente vinculado a una suscripción de Azure. Esta funcionalidad no se expone a través de Microsoft Graph API, sino a través de la API REST de Azure. Para obtener más información, consulte [Inquilinos B2C: Creación](https://docs.microsoft.com/rest/api/activedirectory/b2ctenants/create).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -37,7 +40,7 @@ Para usar MS Graph API e interactuar con los recursos de su inquilino de Azure 
 
 ## <a name="user-phone-number-management-beta"></a>Administración de números de teléfono de usuarios (versión beta)
 
-Número de teléfono que un usuario puede emplear para iniciar sesión mediante [llamadas de voz o SMS](identity-provider-local.md#phone-sign-in-preview) o [autenticación multifactor](multi-factor-authentication.md). Para obtener más información, vea [API de métodos de autenticación de Azure AD](/graph/api/resources/phoneauthenticationmethod).
+Número de teléfono que un usuario puede emplear para iniciar sesión mediante [llamadas de voz o SMS](identity-provider-local.md#phone-sign-in) o [autenticación multifactor](multi-factor-authentication.md). Para obtener más información, vea [API de métodos de autenticación de Azure AD](/graph/api/resources/phoneauthenticationmethod).
 
 - [Add (Agregar)](/graph/api/authentication-post-phonemethods)
 - [Lista](/graph/api/authentication-list-phonemethods)

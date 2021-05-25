@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 742b9fc79489feba8192b6e62a6431bb37f55ad4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d83b617f08c143ee09251667c4f9bee89577a23
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98612796"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758868"
 ---
 # <a name="install-the-azure-ad-connect-provisioning-agent"></a>Instalación del agente de aprovisionamiento de Azure AD Connect
 Este documento le guiará en el proceso de instalación del agente de aprovisionamiento de Azure Active Directory (Azure AD) Connect y en el modo de configurarlo inicialmente en Azure Portal.
@@ -30,6 +30,8 @@ La instalación y configuración de la sincronización en la nube de Azure AD C
 - [Instalación del agente](#install-the-agent)
 - [Comprobación de la instalación del agente](#verify-agent-installation)
 
+>[!NOTE]
+>En este documento se habla de la instalación del agente de aprovisionamiento mediante el asistente.  Para obtener información sobre cómo instalar el agente de Azure AD Connect mediante una interfaz de línea de comandos (CLI), consulte [Instalación del agente de aprovisionamiento de Azure AD Connect mediante una interfaz de línea de comandos (CLI) y PowerShell](how-to-install-pshell.md).
 
 ## <a name="group-managed-service-accounts"></a>Cuentas de servicio administradas de grupo
 Una cuenta de servicio administradas de grupo es una cuenta de dominio administrado que proporciona administración automática de contraseñas, administración simplificada del nombre de entidad de seguridad de servicio (SPN), la posibilidad de delegar la administración a otros administradores y, además, amplía esta funcionalidad a varios servidores.  La sincronización en la nube de Azure AD Connect admite y recomienda el uso de una cuenta de servicio administrada de grupo para ejecutar el agente.  Para obtener más información sobre gMSA, consulte [Cuentas de servicio administradas de grupo](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview). 
@@ -37,6 +39,8 @@ Una cuenta de servicio administradas de grupo es una cuenta de dominio administr
 
 ### <a name="upgrading-an-existing-agent-to-use-the-gmsa-account"></a>Actualización de un agente existente para usar la cuenta gMSA
 Para actualizar un agente existente para que use la cuenta gMSA creada durante la instalación, simplemente actualice el servicio del agente a la versión más reciente mediante la ejecución de AADConnectProvisioningAgent.msi.  Esto actualizará el servicio a la versión más reciente.  Ahora vuelva a ejecutar el asistente para la instalación y escriba las credenciales para crear la cuenta cuando se lo solicite.
+
+
 
 
 

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: b4d69157f4544daad962cca15e53802e7b912399
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: b6071370d510881d06c5b81f8660781169596a72
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530434"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764428"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>¿Qué métodos de autenticación y verificación hay disponibles en Azure Active Directory?
 
@@ -89,6 +89,9 @@ Para obtener más información sobre cómo funciona cada método de autenticaci�
 
 > [!NOTE]
 > En Azure AD, la contraseña suele ser uno de los métodos de autenticación principales. El método de autenticación de contraseña no se puede deshabilitar. Si usa una contraseña como factor de autenticación principal, aumente la seguridad de los eventos de inicio de sesión con Multi-Factor Authentication de Azure AD.
+
+> [!IMPORTANT]
+> Aunque FIDO2 cumple los requisitos necesarios para actuar como forma de MFA, FIDO2 solo se puede usar como una forma de autenticación sin contraseña.
 
 En algunos escenarios se pueden usar los siguientes métodos de verificación adicional:
 

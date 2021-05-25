@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: bf5445f6ca04e56aab466e97967a58c3e4b735a4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac1c623f3ac136f1e16a92d47995c1067818e926
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100556941"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787480"
 ---
 # <a name="list-azure-role-assignments-using-azure-powershell"></a>Enumeración de asignaciones de roles de Azure mediante Azure PowerShell
 
@@ -28,7 +28,7 @@ ms.locfileid: "100556941"
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Si su organización ha externalizado funciones de administración a un proveedor de servicios que usa la [administración de recursos delegados de Azure](../lighthouse/concepts/azure-delegated-resource-management.md), las asignaciones de roles autorizadas por ese proveedor de servicios no se mostrarán aquí.
+> Si su organización ha externalizado las funciones de administración a un proveedor de servicios que usa [Azure Lighthouse](../lighthouse/overview.md), las asignaciones de roles autorizadas por ese proveedor de servicios no se mostrarán aquí.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

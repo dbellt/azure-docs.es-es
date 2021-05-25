@@ -3,12 +3,12 @@ title: Descripción del funcionamiento de los efectos
 description: Las definiciones de Azure Policy tienen diversos efectos que determinan cómo se administra y notifica el cumplimiento.
 ms.date: 04/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5d819c20c27a2c2f4a316e60da1c0fdb7c8bb859
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: a1f7d8584aada19e565aa4eff40c44f94b1bbaba
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107896899"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752982"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprender los efectos de Azure Policy
 
@@ -181,7 +181,7 @@ La propiedad **details** de los efectos de AuditIfNotExists tiene todas las subp
 
 ### <a name="auditifnotexists-example"></a>Ejemplo de AuditIfNotExists
 
-Ejemplo: evalúa Virtual Machines para determinar si existe la extensión Antimalware y luego audita cuando faltan.
+Ejemplo: evalúa las máquinas virtuales para determinar si existe la extensión Antimalware y luego audita cuando faltan.
 
 ```json
 {
@@ -314,7 +314,8 @@ La propiedad **details** del efecto DeployIfNotExists tiene todas las subpropied
 
 ### <a name="deployifnotexists-example"></a>Ejemplo de DeployIfNotExists
 
-Ejemplo: evalúa las bases de datos de SQL Server para determinar si está habilitado transparentDataEncryption. De lo contrario, se ejecuta una implementación para habilitarlo.
+Ejemplo: evalúa las bases de datos de SQL Server para determinar si está habilitado transparentDataEncryption.
+De lo contrario, se ejecuta una implementación para habilitarlo.
 
 ```json
 "if": {
@@ -540,7 +541,7 @@ La propiedad **details** del efecto Modify tiene todas las subpropiedades que de
 
 ### <a name="modify-operations"></a>Operaciones de Modify
 
-La matriz de propiedades **operations** permite modificar varias etiquetas de maneras diferentes a partir de una única definición de directiva. Cada operación se compone de las propiedades **operation**, **field** y **value**. Operation determina qué hace la tarea de corrección en las etiquetas, field determina qué etiqueta se modifica y value define el nuevo valor de la etiqueta. En el ejemplo siguiente se realizan los siguientes cambios en la etiqueta:
+La matriz de propiedades **operations** permite modificar varias etiquetas de maneras diferentes a partir de una única definición de directiva. Cada operación se compone de las propiedades **operation**, **field** y **value**. Operation determina qué hace la tarea de corrección en las etiquetas, field determina qué etiqueta se modifica y value define el nuevo valor de la etiqueta. En el ejemplo siguiente se realizan los siguientes cambios en las etiquetas:
 
 - Se establece la etiqueta `environment` en "Test", incluso si ya existe con un valor diferente.
 - Se quita la etiqueta `TempResource`.
@@ -657,7 +658,7 @@ Un recurso puede verse afectado por varias asignaciones. Estas asignaciones pued
   - Restringe la ubicación de recursos a "eastus".
   - Se asigna al grupo de recursos B de la suscripción A.
   - Efecto audit.
-  
+
 Esta configuración produciría el resultado siguiente:
 
 - Cualquier recurso que ya esté en el grupo de recursos B en "eastus" es compatible con la directiva 2 y no compatible con la directiva 1.

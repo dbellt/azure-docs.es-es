@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
-ms.openlocfilehash: 8f38ed175241bdb9235795d7a999a82d0799d46d
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 8f35e0fcf369616e5e95ce41554370e2bb7b604d
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107876587"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109632644"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios de .NET: descarga y notas de la versión
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -52,6 +52,10 @@ ms.locfileid: "107876587"
 ## <a name="release-notes"></a>Notas de la versión
 
 ### <a name="v2-builds"></a>compilaciones v2
+
+### <a name="240"></a><a id="2.4.0"></a>2.4.0
+* Se ha agregado compatibilidad con colecciones de concesión que se pueden particionar con la clave de partición definida como /partitionKey. Antes de este cambio, la clave de partición de la colección de concesiones tenía que definirse como /id.
+* Esta versión permite usar colecciones de concesión con Gremlin API, ya que las colecciones de Gremlin no pueden tener la clave de partición definida como /id.
 
 ### <a name="232"></a><a id="2.3.2"></a>2.3.2
 * Se ha agregado compatibilidad del almacén de concesión con el SDK V3 que permite rutas de migración activas. Una aplicación puede migrar al SDK V3 y volver a migrar a la biblioteca de procesadores de fuente de cambios sin perder ningún estado.
@@ -199,6 +203,7 @@ Microsoft notificará la retirada de un SDK con al menos **12 meses** de antelac
 
 | Versión | Fecha de la versión | Fecha de retirada |
 | --- | --- | --- |
+| [2.4.0](#2.4.0) |6 de mayo de 2021 |--- |
 | [2.3.2](#2.3.2) |11 de agosto de 2020 |--- |
 | [2.3.1](#2.3.1) |30 de julio de 2020 |--- |
 | [2.3.0](#2.3.0) |2 de abril de 2020 |--- |

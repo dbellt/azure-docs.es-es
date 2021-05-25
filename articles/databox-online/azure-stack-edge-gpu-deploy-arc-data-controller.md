@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: alkohli
-ms.openlocfilehash: d56e03cd650032a775c30b02d939cf934f384fae
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: ebccfdad883242411b4f45b717553ebd25ee69a9
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568614"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633526"
 ---
 # <a name="deploy-azure-data-services-on-your-azure-stack-edge-pro-gpu-device"></a>Implementación de Azure Data Services en el dispositivo Azure Stack Edge Pro con GPU
 
@@ -21,7 +21,7 @@ ms.locfileid: "107568614"
 
 En este artículo se describe el proceso de creación de un controlador de datos de Azure Arc y, después, la implementación de Azure Data Services en el dispositivo Azure Stack Edge Pro con GPU. 
 
-El controlador de datos de Azure Arc es el plano de control local que habilita Azure Data Services en los entornos administrados por el cliente. Una vez que haya creado el controlador de datos de Azure Arc en el clúster de Kubernetes que se ejecuta en el dispositivo Azure Stack Edge Pro GPU, puede implementar Azure Data Services como SQL Managed Instance (versión preliminar) en ese controlador de datos.
+El controlador de datos de Azure Arc es el plano de control local que habilita Azure Data Services en los entornos administrados por el cliente. Una vez que haya creado el controlador de datos de Azure Arc en el clúster de Kubernetes que se ejecuta en el dispositivo Azure Stack Edge Pro GPU, puede implementar Azure Data Services como SQL Managed Instance en ese controlador de datos.
 
 El procedimiento para crear un controlador de datos y, a continuación, implementar un SQL Managed Instance implica el uso de PowerShell y `kubectl`: una herramienta nativa que proporciona acceso de línea de comandos al clúster de Kubernetes en el dispositivo.
 

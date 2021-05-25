@@ -1,5 +1,5 @@
 ---
-title: Uso de JavaScript (Node.js) para establecer ACL en Azure Data Lake Storage Gen2
+title: Uso de JavaScript (Node.js) para administrar ACL en Azure Data Lake Storage Gen2
 description: Use la biblioteca cliente de Azure Storage Data Lake para JavaScript con el fin de administrar listas de control de acceso en cuentas de almacenamiento que tengan habilitado el espacio de nombres jerárquico (HNS).
 author: normesta
 ms.service: storage
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-js
-ms.openlocfilehash: 21b4977102a484d8a3a680450a9cb6f77c7e3fbd
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 98656f6751ec7ed8d18c4cd4c25715df5d59d011
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722759"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633634"
 ---
 # <a name="use-javascript-sdk-in-nodejs-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Uso de JavaScript SDK en Node.js para administrar ACL en Azure Data Lake Storage Gen2
 

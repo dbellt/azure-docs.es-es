@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: b21915b6cf0cd018ccbf7b79fc9a5ab8dc222925
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 301e4d4fe3efa9821c2f63948bc3d3c528de4254
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076132"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772811"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Migración de una instancia de Azure Digital Twins a otra región de Azure
 
@@ -52,7 +52,7 @@ Estas son algunas preguntas que debe tener en cuenta:
     - Azure IoT Hub Device Provisioning Service
 * ¿Qué otras *aplicaciones personales o empresariales* tengo que conectar a mi instancia?
 
-Para recopilar esta información se pueden usar [Azure Portal](https://portal.azure.com), las [API y los SDK de Azure Digital Twins](how-to-use-apis-sdks.md), los [ comandos de la CLI de Azure Digital Twins](how-to-use-cli.md) o el ejemplo de [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
+Para recopilar esta información se pueden usar [Azure Portal](https://portal.azure.com), las [API y los SDK de Azure Digital Twins](concepts-apis-sdks.md), los [ comandos de la CLI de Azure Digital Twins](concepts-cli.md) o el ejemplo de [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
 
 ## <a name="prepare"></a>Preparación
 
@@ -74,14 +74,14 @@ Este ejemplo no es una herramienta completa. No se ha realizado una prueba de es
 
 Si el ejemplo no puede controlar el tamaño del grafo, se pueden usar otras herramientas de desarrollo de Azure Digital Twins para exportarlo e importarlo:
 
-* [Comandos de la CLI de Azure Digital Twins](how-to-use-cli.md)
-* [las API y los SDK de Azure Digital Twins](how-to-use-apis-sdks.md)
+* [Comandos de la CLI de Azure Digital Twins](concepts-cli.md)
+* [las API y los SDK de Azure Digital Twins](concepts-apis-sdks.md)
 
 ### <a name="set-up-the-azure-digital-twins-explorer-application"></a>Configuración de la aplicación Azure Digital Twins Explorer
 
 Para continuar con Azure Digital Twins Explorer, descargue el código de la aplicación de ejemplo y prepárelo para ejecutarlo en su máquina.
 
-Para obtener el ejemplo, vaya a [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Seleccione el botón **Browse code** (Examinar código) debajo del título, que le llevará al repositorio de GitHub del ejemplo. Seleccione el botón **Código** y **Descargar archivo ZIP** para descargar el ejemplo como un archivo *.ZIP* en la máquina.
+Para obtener el ejemplo, vaya a [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Seleccione el botón **Browse code** (Examinar código) debajo del título, que le llevará al repositorio de GitHub del ejemplo. Seleccione el botón **Código** y **Descargar archivo ZIP** para descargar el ejemplo como un archivo .ZIP en la máquina.
 
 :::image type="content" source="media/how-to-move-regions/download-repo-zip.png" alt-text="Captura de pantalla del repositorio digital-twins-explorer en GitHub. El botón Código está seleccionado y se muestra un pequeño cuadro de diálogo en el que el botón Descargar archivo ZIP está resaltado." lightbox="media/how-to-move-regions/download-repo-zip.png":::
 
@@ -229,9 +229,9 @@ Una vez que finalice este paso, la nueva instancia de la región de destino debe
 Para comprobar que la nueva instancia se ha configurado correctamente, use las siguientes herramientas:
 
 * [Azure Portal](https://portal.azure.com). El portal es adecuado para comprobar que la nueva instancia existe y se encuentra en la región de destino correcta. También lo es para comprobar los puntos de conexión y las rutas y conexiones con otros servicios de Azure.
-* [Comandos de la CLI de Azure Digital Twins](how-to-use-cli.md). Estos comandos son adecuados para comprobar que la nueva instancia existe y se encuentra en la región de destino correcta. También se pueden usar para comprobar los datos de la instancia.
+* [Comandos de la CLI de Azure Digital Twins](concepts-cli.md). Estos comandos son adecuados para comprobar que la nueva instancia existe y se encuentra en la región de destino correcta. También se pueden usar para comprobar los datos de la instancia.
 * [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Azure Digital Twins Explorer es adecuado para comprobar los datos de la instancia, como modelos, gemelos y grafos.
-* [API y SDK de Azure Digital Twins](how-to-use-apis-sdks.md). Estos recursos son adecuados para comprobar los datos de la instancia, como modelos, gemelos y grafos. También lo son para comprobar los puntos de conexión y las rutas.
+* [API y SDK de Azure Digital Twins](concepts-apis-sdks.md). Estos recursos son adecuados para comprobar los datos de la instancia, como modelos, gemelos y grafos. También lo son para comprobar los puntos de conexión y las rutas.
 
 También puede intentar ejecutar cualquier aplicación personalizada o flujo de un extremo a otro que haya ejecutado con la instancia original, con el fin de ayudarle a comprobar que funcionan correctamente con la nueva instancia.
 
@@ -239,7 +239,7 @@ También puede intentar ejecutar cualquier aplicación personalizada o flujo de 
 
 Ahora que la nueva instancia está configurada en la región de destino con una copia de los datos y las conexiones de la instancia original, puede eliminar la instancia original.
 
-Puede usar [Azure Portal](https://portal.azure.com), la [CLI de Azure](how-to-use-cli.md) o las [API del plano de control](how-to-use-apis-sdks.md#overview-control-plane-apis).
+Puede usar [Azure Portal](https://portal.azure.com), la [CLI de Azure](concepts-cli.md) o las [API del plano de control](concepts-apis-sdks.md#overview-control-plane-apis).
 
 Para eliminar la instancia mediante Azure Portal, [abra el portal](https://portal.azure.com) en una ventana del explorador y vaya a la instancia original de Azure Digital Twins; para ello, busque el nombre en la barra de búsqueda del portal.
 

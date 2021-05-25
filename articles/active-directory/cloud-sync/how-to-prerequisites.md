@@ -11,12 +11,12 @@ ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0277d4ce263610576178e3844a0665ab6506fbfa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: cd2d660a0591506b59aaa1b11526175582d2785b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579168"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758778"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-sync"></a>Requisitos previos de la sincronizar en la nube de Azure AD Connect
 En este artículo se proporciona una guía sobre cómo elegir y usar la sincronización en la nube de Azure Active Directory (Azure AD Connect) como solución de identidad.
@@ -116,7 +116,7 @@ Estas son las limitaciones conocidas:
 
 ### <a name="delta-synchronization"></a>Sincronización delta
 
-- El filtro de ámbito de grupos para la sincronización diferencial no admite más de 1500 miembros.
+- El filtro de ámbito de grupos para la sincronización diferencial no admite más de 50 000 miembros.
 - Cuando se elimina un grupo que se usa como parte de un filtro de ámbito de grupo, los usuarios que pertenecen a dicho grupo no se eliminan. 
 - Al cambiar el nombre de la unidad organizativa o del grupo que se encuentra en el ámbito, la sincronización diferencial no eliminará los usuarios.
 
@@ -125,6 +125,11 @@ Estas son las limitaciones conocidas:
 
 ### <a name="group-re-naming-or-ou-re-naming"></a>Cambio del nombre de grupo o de la unidad organizativa
 - Si cambia el nombre de un grupo o de una unidad organizativa de AD que se encuentra en el ámbito de una configuración determinada, el trabajo de sincronización en la nube no podrá reconocer el cambio de nombre en AD. El trabajo no entrará en cuarentena y permanecerá en buen estado.
+
+### <a name="scoping-filter"></a>Filtro de ámbito
+Al usar el filtro de ámbito de unidad organizativa
+- Solo puede sincronizar hasta 59 unidades organizativas para una configuración determinada. 
+- Se admiten unidades organizativas anidadas (es decir, **puede** sincronizar una unidad organizativa que tenga 130 unidades organizativas anidadas, pero **no puede** sincronizar 60 unidades organizativas independientes en la misma configuración). 
 
 
 ## <a name="next-steps"></a>Pasos siguientes 

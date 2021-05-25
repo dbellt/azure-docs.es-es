@@ -6,17 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/29/2020
+ms.date: 05/07/2021
 ms.author: tamram
-ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 93bcbab9445d83bf17b37b6affc1d2bc70703bbf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28f46ec6354f98c11ce68beeb2e3de375c7a0249
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97814336"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109632338"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Inicio de una conmutación por error de la cuenta de almacenamiento
 
@@ -29,7 +28,7 @@ En este artículo se muestra cómo iniciar una conmutación por error de la cuen
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para poder realizar una conmutación por error de su cuenta de almacenamiento, asegúrese de que la cuenta de almacenamiento está configurada para la replicación geográfica. La cuenta de almacenamiento puede usar cualquiera de las siguientes opciones de redundancia:
 
@@ -41,7 +40,7 @@ Para más información sobre la redundancia de Azure Storage, consulte [Redundan
 Tenga en cuenta que las siguientes características y servicios no son compatibles con la conmutación por error de una cuenta:
 
 - Azure File Sync no admite la conmutación por error de una cuenta de almacenamiento. No se debe realizar la conmutación por error de las cuentas de almacenamiento que contienen recursos compartidos de archivos de Azure y que se usan como puntos de conexión de nube en Azure File Sync. Si lo hace, la sincronización dejará de funcionar y también podría provocar una pérdida inesperada de datos en el caso de archivos recién organizados en capas.
-- Actualmente, no se admiten cuentas de almacenamiento ADLS Gen2 (cuantas que tienen el espacio de nombres jerárquico habilitado).
+- Actualmente, no se admiten cuentas de almacenamiento que tienen habilitado el espacio de nombres jerárquico (como Data Lake Storage Gen2).
 - No se puede conmutar por error una cuenta de almacenamiento que contiene blobs en bloques Premium. Las cuentas de almacenamiento que admiten los blobs en bloques Premium actualmente no admiten la redundancia geográfica.
 - No se puede conmutar por error una cuenta de almacenamiento que contenga contenedores habilitados por la [Directiva de inmutabilidad de gusanos](../blobs/storage-blob-immutable-storage.md). Las directivas de retención legal o retención basada en tiempo desbloqueada o bloqueada impiden la conmutación por error para mantener el cumplimiento.
 
@@ -117,10 +116,15 @@ Para calcular el alcance de la posible pérdida de datos antes de iniciar una co
 
 El tiempo que se tarda en realizar la conmutación por error después del inicio puede variar, aunque por lo general tarda menos de una hora.
 
-Después de la conmutación por error, el tipo de cuenta de almacenamiento se convierte automáticamente en almacenamiento con redundancia local (LRS) en la nueva región primaria. Puede volver a habilitar el almacenamiento con redundancia geográfica (GRS) o el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) para la cuenta. Tenga en cuenta que la conversión de LRS a GRS o a RA-GRS supone un costo adicional. Para más información, consulte [Detalles de precios de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
+Después de la conmutación por error, el tipo de cuenta de almacenamiento se convierte automáticamente en almacenamiento con redundancia local (LRS) en la nueva región primaria. Puede volver a habilitar el almacenamiento con redundancia geográfica (GRS) o el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) para la cuenta. Tenga en cuenta que la conversión de LRS a GRS o a RA-GRS supone un costo adicional. El costo se debe a los cargos de salida de red para volver a replicar los datos en la nueva región secundaria. Para más información, consulte [Detalles de precios de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-Después de volver a habilitar GRS para la cuenta de almacenamiento, Microsoft comienza a replicar los datos de la cuenta en la nueva región secundaria. La hora de la replicación depende de la cantidad de datos que se replican.  
+Después de volver a habilitar GRS para la cuenta de almacenamiento, Microsoft comienza a replicar los datos de la cuenta en la nueva región secundaria. El tiempo de replicación depende de muchos factores, entre otros:
 
+- El número y el tamaño de los objetos en la cuenta de almacenamiento. Muchos objetos pequeños pueden tardar más de menos objetos más grandes.
+- Los recursos disponibles para la replicación en segundo plano, como CPU, memoria, disco y capacidad WAN. El tráfico en directo tiene prioridad sobre la replicación geográfica.
+- Si usa Blob Storage, el número de instantáneas por blob.
+- Si usa Table Storage, la [estrategia de creación de particiones de datos](/rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage). El proceso de replicación no se puede escalar más allá del número de claves de partición que se usan.
+  
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento](storage-disaster-recovery-guidance.md)
