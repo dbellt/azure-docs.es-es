@@ -1,14 +1,14 @@
 ---
 title: Supervisión de los recursos delegados a escala
 description: Aprenda a usar los registros de Azure Monitor de forma eficaz y escalable en los inquilinos del cliente que está administrando.
-ms.date: 02/11/2021
+ms.date: 05/10/2021
 ms.topic: how-to
-ms.openlocfilehash: 98fd984492276dbdfbc2f8001bca19560764a2a7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9490d439b0614c0191843c0a25322f6c0183aa3f
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742592"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751318"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Supervisión de los recursos delegados a escala
 
@@ -31,7 +31,19 @@ Se recomienda crear estas áreas de trabajo directamente en los inquilinos del c
 Puede crear un área de trabajo de Log Analytics mediante [Azure Portal](../../azure-monitor/logs/quick-create-workspace.md), la [CLI de Azure](../../azure-monitor/logs/quick-create-workspace-cli.md) o [Azure PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md).
 
 > [!IMPORTANT]
-> Incluso si todas las áreas de trabajo se crean en el inquilino del cliente, el proveedor de recursos Microsoft.Insights también debe registrarse en una suscripción del inquilino de administración.
+> Incluso si todas las áreas de trabajo se crean en el inquilino del cliente, el proveedor de recursos Microsoft.Insights también debe registrarse en una suscripción del inquilino de administración. Si el inquilino de administración no tiene una suscripción a Azure existente, puede registrar el proveedor de recursos de manera manual con los comandos de PowerShell siguientes:
+>
+> ```powershell
+> $ManagingTenantId = "your-managing-Azure-AD-tenant-id"
+> 
+> # Authenticate as a user with admin rights on the managing tenant
+> Connect-AzAccount -Tenant $ManagingTenantId
+> 
+> # Register the Microsoft.Insights resource providers Application Ids
+> New-AzADServicePrincipal -ApplicationId 1215fb39-1d15-4c05-b2e3-d519ac3feab4
+> New-AzADServicePrincipal -ApplicationId 6da94f3c-0d67-4092-a408-bb5d1cb08d2d 
+> ```
+>
 
 ## <a name="deploy-policies-that-log-data"></a>Implementación de directivas que registran datos
 

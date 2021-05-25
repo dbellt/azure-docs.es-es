@@ -3,26 +3,26 @@ title: Principios de recuperación ante desastres y preparación de SAP HANA en 
 description: Principios de recuperación ante desastres y preparación de SAP HANA en Azure (instancias grandes)
 services: virtual-machines-linux
 documentationcenter: ''
-author: saghorpa
+author: Ajayan1008
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
-ms.author: saghorpa
+ms.date: 05/10/2021
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: babd7c1dcae9d83af1f6c41e756b663d92d6d486
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c8c52235a96a7f83d0bcecc2a9f9ba64c1e164a2
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101677129"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109733089"
 ---
 # <a name="disaster-recovery-principles"></a>Principios de la recuperación ante desastres
 
-HANA (instancias grandes) ofrece una funcionalidad de recuperación ante desastres entre las marcas de HANA (instancias grandes) de diferentes regiones de Azure. Por ejemplo, si implementa unidades HANA (instancias grandes) en la región Oeste de EE. UU. de Azure, puede usar unidades de HANA (instancias grandes) de la región Este de EE. UU. como unidades de recuperación ante desastres. Como se mencionó anteriormente, la recuperación ante desastres no se configura automáticamente porque es necesario que se pague por otra unidad de instancia grande de HANA en la región de la recuperación ante desastres. El programa de instalación de la recuperación ante desastres funciona tanto en configuraciones de escalado vertical como de escalado horizontal. 
+HANA (instancias grandes) ofrece una funcionalidad de recuperación ante desastres entre las marcas de HANA (instancias grandes) de diferentes regiones de Azure. Por ejemplo, si implementa unidades HANA (instancias grandes) en la región Oeste de EE. UU. de Azure, puede usar unidades de HANA (instancias grandes) de la región Este de EE. UU. como unidades de recuperación ante desastres. Como se mencionó anteriormente, la recuperación ante desastres no se configura automáticamente porque es necesario que se pague por otra unidad de HANA (instancias grandes) en la región de la recuperación ante desastres. El programa de instalación de la recuperación ante desastres funciona tanto en configuraciones de escalado vertical como de escalado horizontal. 
 
 En los escenarios implementados hasta ahora, los clientes usan la unidad de la región de recuperación ante desastres para ejecutar sistemas que no son de producción que usan una instancia instalada de HANA. La unidad de instancia grande de HANA debe tener la misma SKU que la que se usa con fines de producción. La siguiente imagen muestra cómo es la configuración de discos entre la unidad del servidor de la región de producción de Azure y la región de recuperación ante desastres:
 
@@ -34,13 +34,13 @@ Como se muestra en este gráfico de información general, necesita solicitar un 
 - /hana/logbackups 
 - /hana/shared (incluye /usr/sap)
 
-El volumen /hana/log no se replica porque el registro de transacciones de SAP HANA no es necesario en la forma en que se realiza la restauración a partir de esos volúmenes. 
+El volumen /hana/log no se replica porque no se necesita el registro de transacciones de SAP HANA al restaurar desde esos volúmenes. 
 
-La base de la funcionalidad de recuperación ante desastres que se ofrece es la funcionalidad de replicación de almacenamiento que brinda la infraestructura de HANA (instancias grandes). La funcionalidad que se usa en el almacenamiento no es un flujo constante de los cambios que se replican de manera asincrónica a medida que se realizan los cambios en el volumen de almacenamiento. En su lugar, se trata de un mecanismo que se basa en el hecho de que las instantáneas de estos volúmenes se crean de manera habitual. La diferencia entre una instantánea ya replicada y una instantánea nueva que aún no se ha replicado se transfiere al sitio de recuperación ante desastres, a los volúmenes de disco de destino.  Estas instantáneas se almacenan en los volúmenes y, si hay una conmutación por error de recuperación ante desastres, se debe restaurar en esos volúmenes.  
+La base de la funcionalidad de recuperación ante desastres que se ofrece es la replicación de almacenamiento que brinda la infraestructura de HANA (instancias grandes). La funcionalidad que se usa en el almacenamiento no es un flujo constante de los cambios que se replican de manera asincrónica a medida que se realizan los cambios en el volumen de almacenamiento. En su lugar, se trata de un mecanismo que se basa en instantáneas de estos volúmenes que se crean de manera habitual. La diferencia entre una instantánea ya replicada y una instantánea nueva que aún no se ha replicado se transfiere al sitio de recuperación ante desastres, a los volúmenes de disco de destino.  Estas instantáneas se almacenan en los volúmenes y, si hay una conmutación por error de recuperación ante desastres, se debe restaurar en esos volúmenes.  
 
 La primera transmisión de los datos completos del volumen debe ser antes de que la cantidad de datos sea menor que las diferencias entre las instantáneas. Como resultado, los volúmenes que se encuentran en el sitio de recuperación ante desastres contienen cada una de las instantáneas de volumen realizadas en el sitio de producción. Eventualmente, puede usar ese sistema de recuperación ante desastres para ir a un estado anterior con el fin de recuperar los datos perdidos sin tener que revertir el sistema de producción.
 
-Si hay una implementación MCOD con varias instancias de SAP HANA independientes en una unidad de instancia grande de HANA, se espera que todas las instancias de SAP HANA obtengan almacenamiento replicado en el lado de recuperación ante desastres.
+Si hay una implementación MCOD con varias instancias de SAP HANA independientes en una unidad de HANA (instancias grandes), se espera que todas las instancias de SAP HANA obtengan almacenamiento replicado en el lado de recuperación ante desastres.
 
 En casos donde se use la replicación del sistema de HANA como característica de alta disponibilidad en el sitio de producción, y se use la replicación basada en almacenamiento para el sitio de recuperación ante desastres, se replican los volúmenes de ambos nodos desde el sitio principal a la instancia de la recuperación ante desastres. Debe adquirir almacenamiento adicional (el mismo tamaño que el nodo principal) en el sitio de recuperación ante desastres para dar cabida a la replicación de principal y secundario en el sitio de recuperación ante desastres. 
 
@@ -56,7 +56,7 @@ En este escenario, tiene un sistema de producción que se ejecuta en HANA (insta
 
 ![Inicio de la configuración de recuperación ante desastres](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start1.PNG)
 
-Si la instancia del servidor no se ha solicitado aún con el conjunto de volúmenes de almacenamiento adicional, SAP HANA en Azure Service Management asocia el conjunto adicional de volúmenes como un destino para la réplica de producción a la unidad de HANA (instancias grandes) en la que se ejecuta la instancia de TST HANA. Para ello, debe proporcionar el SID de la instancia de HANA de producción. Después de que SAP HANA en Azure Service Management confirme la asociación de esos volúmenes, debe montar dichos volúmenes en la unidad de instancia grande de HANA.
+Si la instancia del servidor no se ha solicitado aún con el conjunto de volúmenes de almacenamiento adicional, SAP HANA en Azure Service Management asocia el conjunto adicional de volúmenes como un destino para la réplica de producción a la unidad de HANA (instancias grandes) en la que se ejecuta la instancia de TST HANA. Para ello, debe proporcionar el SID de la instancia de HANA de producción. Después de que SAP HANA en Azure Service Management confirme la asociación de esos volúmenes, debe montar dichos volúmenes en la unidad de instancia grande de HANA.
 
 ![Paso siguiente en la configuración de recuperación ante desastres](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start2.PNG)
 
@@ -73,7 +73,7 @@ El paso siguiente es instalar la segunda instancia de SAP HANA en la unidad de H
 El equipo de operaciones establece la relación de replicación entre los volúmenes PRD de la región de Azure de producción y los volúmenes PRD de la región de Azure de recuperación ante desastres.
 
 >[!IMPORTANT]
->El volumen /hana/log no se replica porque no es necesario para restaurar la base de datos de SAP HANA replicada a un estado coherente en el sitio de recuperación ante desastres.
+>El volumen /hana/log no se replica porque no es necesario para restaurar la base de datos de SAP HANA replicada a un estado coherente en el sitio de recuperación ante desastres.
 
 A continuación, configure o ajuste la programación de copia de seguridad de instantánea de almacenamiento para acceder a su RTO y RPO en caso de desastre. Para minimizar el objetivo de punto de recuperación, establezca los siguientes intervalos de replicación en el servicio de instancias grandes de HANA:
 - En el caso de los volúmenes que cubre la instantánea combinada (tipo de instantánea **hana**), establezca que se repliquen cada 15 minutos en los destinos de volúmenes de almacenamiento equivalentes del sitio de recuperación ante desastres.
