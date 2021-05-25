@@ -8,16 +8,16 @@ ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
-ms.openlocfilehash: 494608f9dd8fbf986dcda6eeb782a64f6a2ca008
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: fb9b2a13f277c326cdda722398a915941b8c52b3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378574"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108740976"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Solucione los problemas por los que no se muestran los datos de los dispositivos en Azure IoT Central.
 
-Este documento ayuda a los desarrolladores de dispositivos a averiguar por qué los datos que envían los dispositivos a IoT Central pueden no aparecer en la aplicación.
+Este documento ayuda a averiguar por qué los datos que envían los dispositivos a IoT Central pueden no aparecer en la aplicación.
 
 Hay dos áreas principales para investigar:
 

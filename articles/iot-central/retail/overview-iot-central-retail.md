@@ -8,18 +8,18 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 56198cf661001bcfcec45d483d0f691234851894
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2d11051bee2a1e5960ba0756c0b067efcd26f9d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99832290"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108749940"
 ---
 # <a name="what-are-the-iot-central-retail-solutions"></a>¿Cuáles son las soluciones para el comercio minorista de IoT Central?
 
 Azure IoT Central es una plataforma de aplicaciones de IoT que reduce la carga y el costo asociado con el desarrollo, la administración y el mantenimiento de soluciones de IoT de nivel empresarial. La elección de compilar con Azure IoT Central ofrece la oportunidad de centrar su tiempo, dinero y energía en transformar su negocio con datos de IoT, en lugar de simplemente mantener y actualizar una infraestructura de IoT compleja y continuamente en constante evolución.
 
-En este artículo, se describen varias plantillas de aplicación de IoT Central específicas para el comercio minorista. Como creador de soluciones, puede usar estas plantillas para crear soluciones de IoT que optimizan la cadena de suministro, mejoran la experiencia de los clientes en el almacén y realizan un seguimiento del inventario de forma más eficaz.
+En este artículo, se describen varias plantillas de aplicación de IoT Central específicas para el comercio minorista. Puede usar estas plantillas para crear soluciones de IoT que optimizan la cadena de suministro, mejoran la experiencia de los clientes en el almacén y realizan un seguimiento del inventario de forma más eficaz.
 
 :::image type="content" source="media/overview-iot-central-retail/retail-app-templates.png" alt-text="Introducción a Azure IoT para el comercio minorista":::
 
@@ -72,7 +72,7 @@ Para más información, consulte el tutorial para [implementar y recorrer la pla
 
 Para muchos minoristas, las condiciones ambientales dentro de sus almacenes son un diferenciador clave de sus competidores. Los minoristas quieren mantener condiciones agradables en sus almacenes para el beneficio de sus clientes.  
 
-Como creador de soluciones, puede usar la plantilla de aplicación de supervisión de la condición del análisis en el almacén de IoT Central para crear una solución integral. La plantilla de aplicación le permite conectarse digitalmente al entorno de un comercio minorista, y a supervisarlo, mediante diferentes tipos de dispositivos sensores. Estos dispositivos sensores generan telemetría que se puede convertir en información empresarial, lo que ayuda al minorista a reducir los costos operativos y crear una gran experiencia para sus clientes.
+Puede usar la plantilla de aplicación de supervisión de la condición del análisis en el almacén de IoT Central para crear una solución integral. La plantilla de aplicación le permite conectarse digitalmente al entorno de un comercio minorista, y a supervisarlo, mediante diferentes tipos de dispositivos sensores. Estos dispositivos sensores generan telemetría que se puede convertir en información empresarial, lo que ayuda al minorista a reducir los costos operativos y crear una gran experiencia para sus clientes.
 
 Utilice la plantilla de aplicación para:
 
@@ -94,7 +94,7 @@ Para más información, consulte el tutorial para [crear una aplicación de aná
 
 Para algunos minoristas, la experiencia de la finalización de la compra dentro de sus almacenes es un elemento diferenciador clave frente a la competencia. Los minoristas desean ofrecer una experiencia de finalización de la compra fluida en sus almacenes para animar a los clientes a volver.  
 
-Como creador de soluciones, puede usar la plantilla de aplicación de finalización de la compra de análisis en el almacén de IoT Central para crear una solución que proporcione información de la zona de finalización de la compra de un almacén al personal minorista. Por ejemplo, los sensores pueden proporcionar información sobre las longitudes de cola y el promedio de tiempo de espera para cada carril de finalización de la compra.
+Puede usar la plantilla de aplicación de finalización de la compra de análisis en el almacén de IoT Central para crear una solución que proporcione información de la zona de finalización de la compra de un almacén al personal minorista. Por ejemplo, los sensores pueden proporcionar información sobre las longitudes de cola y el promedio de tiempo de espera para cada carril de finalización de la compra.
 
 Utilice la plantilla de aplicación para:
 
@@ -136,7 +136,7 @@ Para más información, consulte el tutorial para [implementar y recorrer la pla
 
 En el panorama cada vez más competitivo del comercio minorista, los minoristas se enfrentan constantemente a la presión de cerrar la brecha entre la demanda y la satisfacción. Una nueva tendencia que ha surgido para satisfacer la creciente demanda de consumidores es alojar el inventario cerca de los clientes finales y de los almacenes que visitan.
 
-La plantilla de aplicación del centro de micrologística de IoT Central permite a los creadores de soluciones supervisar y administrar todos los aspectos de sus centros logísticos totalmente automatizados. La plantilla incluye un conjunto de sensores de supervisión de condiciones simuladas y operadores robóticos para acelerar el proceso de desarrollo de la solución. Dichos dispositivos capturan señales significativas que se pueden convertir en información empresarial que permita al comercio minorista reducir sus costos de explotación y crear experiencias para sus clientes.
+La plantilla de aplicación del centro de micrologística de IoT Central le permite supervisar y administrar todos los aspectos de sus centros logísticos totalmente automatizados. La plantilla incluye un conjunto de sensores de supervisión de condiciones simuladas y operadores robóticos para acelerar el proceso de desarrollo de la solución. Dichos dispositivos capturan señales significativas que se pueden convertir en información empresarial que permita al comercio minorista reducir sus costos de explotación y crear experiencias para sus clientes.
 
 La plantilla de aplicación le permite: 
 

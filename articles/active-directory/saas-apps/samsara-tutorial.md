@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 05/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 9512287f656c6c64399cb8749b7451a5a780bba8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 49c1430eb0ccf6529b0fbc24b795182113d008f6
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92677643"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734781"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-samsara"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Samsara
 
@@ -40,29 +40,16 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * Samsara admite el inicio de sesión único iniciado por **SP** e **IDP**.
 * Samsara admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-## <a name="adding-samsara-from-the-gallery"></a>Adición de Samsara desde la galería
+## <a name="add-samsara-from-the-gallery"></a>Adición de Samsara desde la galería
 
 Para configurar la integración de Samsara en Azure AD, será preciso que agregue Samsara desde la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
-
-    ![Botón Azure Active Directory](common/select-azuread.png)
-    
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
-
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
-
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-
-    ![Botón Nueva aplicación](common/add-new-app.png)
-
 1. En la sección **Agregar desde la galería**, escriba **Samsara** en el cuadro de búsqueda.
-
-     ![OneTrust Privacy Management Software en la lista de resultados](common/search-new-app.png)
-
 1. Seleccione **Samsara** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-samsara"></a>Configuración y prueba del inicio de sesión único de Azure AD para Samsara
 
@@ -82,20 +69,14 @@ Para configurar y probar el inicio de sesión único de Azure AD con Samsara, l
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
 1. En Azure Portal, en la página de integración de la aplicación **Samsara**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
-
-    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
-
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-
-    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
-
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz para **Configuración básica de SAML** y edite la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://cloud.samsara.com/signin/<ORGID>` para clientes de la nube de EE. UU. y `https://cloud.eu.samsara.com/signin/<ORGID>` para clientes de la nube de la UE
+    a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con uno de los siguientes patrones: `https://cloud.samsara.com/signin/<ORGID>` para los clientes de la nube de EE. UU. y `https://cloud.eu.samsara.com/signin/<ORGID>` para los clientes de la nube de la UE.
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `urn:auth0:samsara-dev:samlp-orgid-<ORGID>`
 
@@ -148,13 +129,18 @@ En esta sección, se crea una usuaria llamada B.Simon en Samsara. Samsara admite
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-1. Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de Samsara, donde puede iniciar el flujo de inicio de sesión. 
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-2. Vaya directamente a la dirección URL de inicio de sesión de Samsara e inicie el flujo de inicio de sesión desde allí.
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de Samsara, donde puede iniciar el flujo de inicio de sesión.  
 
-3. Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de Samsara en el Panel de acceso, se le redirigirá a la dirección URL de inicio de sesión de Samsara. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Vaya directamente a la dirección URL de inicio de sesión de Samsara e inicie el flujo de inicio de sesión desde allí.
 
+#### <a name="idp-initiated"></a>Iniciado por IDP:
+
+* Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Samsara para la que ha configurado el inicio de sesión único. 
+
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Samsara en Aplicaciones, si está configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión y, si está configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de Samsara para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Samsara, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Samsara, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

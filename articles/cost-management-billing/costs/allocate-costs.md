@@ -3,17 +3,17 @@ title: Asignación de costos de Azure
 description: En este artículo se explica cómo crear reglas de asignación de costos para distribuir los costos de las suscripciones, grupos de recursos o etiquetas a otros usuarios.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/23/2021
+ms.date: 05/10/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: e7afef7e0a10bb4be3c30112fc207467167e4a17
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: b837e5819318707b44932f5915746479e27646ec
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726527"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734907"
 ---
 # <a name="create-and-manage-azure-cost-allocation-rules-preview"></a>Creación y administración de reglas de asignación de costos de Azure (versión preliminar)
 
@@ -76,6 +76,10 @@ La regla de asignación empieza a procesarse. Cuando la regla está activa, todo
 > [!NOTE] 
 > El procesamiento de la regla nueva puede tardar hasta dos horas en completarse y en que la regla esté activa.
 
+Este es un vídeo que muestra cómo crear una regla de asignación de costos.
+
+>[!VIDEO https://www.youtube.com/embed/nYzIIs2mx9Q]
+
 ## <a name="verify-the-cost-allocation-rule"></a>Verificación de la regla de asignación de costos
 
 Cuando la regla de asignación de costos está activa, los costos de los orígenes seleccionados se distribuyen a los destinos de asignación especificados. Use la siguiente información para verificar que el costo se ha asignado correctamente a los destinos.
@@ -96,10 +100,17 @@ En Azure Portal, vaya a **Administración de costos + facturación** > **Adminis
 
 :::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Ejemplo que muestra los costos de los elementos con etiqueta" lightbox="./media/allocate-costs/tagged-costs.png" :::
 
-Este es un vídeo que muestra cómo crear una regla de asignación de costos.
+### <a name="view-cost-allocation-in-the-downloaded-usage-details-and-in-exports-csv-files"></a>Visualización de la asignación de costos en los detalles de uso descargados y en los archivos CSV de exportaciones
 
->[!VIDEO https://www.youtube.com/embed/nYzIIs2mx9Q]
+Las reglas de asignación de costos también están disponibles en el archivo de detalles de uso descargado y en los datos exportados. Los archivos de datos tienen el nombre de columna `costAllocationRuleName`. Si una regla de asignación de costos es aplicable a una entrada en el archivo de detalles de uso o de exportaciones, la fila se rellena con el nombre de la regla de asignación de costos. En la imagen de ejemplo siguiente se muestra un cargo negativo con una entrada para la suscripción de origen. Ese es el cargo por el que se le asigna el costo. También hay un cargo positivo para el destino de la regla de asignación de costos.
 
+:::image type="content" source="./media/allocate-costs/rule-costs-allocated.png" alt-text="Captura de pantalla que muestra los costos asignados en el archivo de detalles de uso" lightbox="./media/allocate-costs/rule-costs-allocated.png" :::
+
+#### <a name="azure-invoice-reconciliation"></a>Conciliación de facturas de Azure 
+
+El archivo de detalles de uso también se utiliza para la conciliación de facturas de Azure. Mostrar los costos internos asignados durante la conciliación puede resultar confuso. Para reducir cualquier posible confusión y alinearse con los datos mostrados en la factura, puede filtrar las reglas de asignación de costos. Después de quitar las reglas de asignación de costos, el archivo de detalles de uso debe coincidir con el costo que muestra la factura de suscripción facturada.
+
+:::image type="content" source="./media/allocate-costs/rule-name-filtered.png" alt-text="Captura de pantalla que muestra los costos asignados con el nombre de regla filtrado" lightbox="./media/allocate-costs/rule-name-filtered.png" :::
 
 ## <a name="edit-an-existing-cost-allocation-rule"></a>Edición de una regla de asignación existente
 
@@ -111,7 +122,6 @@ Actualmente, la asignación de costos se admite en Cost Management por análisis
 
 Los elementos siguientes no son compatibles actualmente con la versión preliminar pública de asignación de costos:
 
-- [Exportaciones](tutorial-export-acm-data.md) programadas
 - Datos que expone [Usage Details](/rest/api/consumption/usagedetails/list) API
 - Área de suscripciones de facturación
 - [Aplicación Azure Cost Management para Power BI](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)

@@ -1,17 +1,17 @@
 ---
 title: Copia y transformación de datos en Azure Synapse Analytics
 description: Descubra cómo copiar datos en Azure Synapse Analytics y cómo transformarlos en Azure Synapse Analytics mediante Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/17/2021
-ms.openlocfilehash: 9c843ededd1fa863cc5eb4dc0db3a6da3478466d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/10/2021
+ms.openlocfilehash: b4c90f8fa7efb002e9bcc243a55ba903002855c8
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104597528"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736977"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Synapse Analytics mediante Azure Data Factory
 
@@ -48,7 +48,7 @@ Para la actividad de copia, este conector de Azure Synapse Analytics admite esta
 > [!TIP]
 > Para obtener el mejor rendimiento posible, use PolyBase o la instrucción COPY para cargar datos en Azure Synapse Analytics. Las secciones [Uso de PolyBase para cargar datos en Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) y [Uso de la instrucción COPY para cargar datos en Azure Synapse Analytics](#use-copy-statement) contienen detalles. Para un tutorial con un caso de uso, vea [Carga de datos en Azure SQL Data Warehouse mediante Azure Data Factory](load-azure-sql-data-warehouse.md).
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que definen las entidades de Data Factory específicas de un conector de Azure Synapse Analytics.
 
@@ -832,6 +832,24 @@ La configuración específica de Azure Synapse Analytics está disponible en la 
 **Scripts SQL anteriores y posteriores**: escriba scripts de SQL de varias líneas que se ejecutarán antes (preprocesamiento) y después (procesamiento posterior) de que los datos se escriban en la base de datos del receptor.
 
 ![Scripts previos y posteriores al procesamiento de SQL](media/data-flow/prepost1.png "Scripts de procesamiento SQL")
+
+### <a name="error-row-handling"></a>Control de filas de errores
+
+Al escribir en la base de datos de Azure Synapse Analytics, es posible que se produzcan errores en determinadas filas de datos debido a las restricciones establecidas por el destino. Estos son algunos de los errores comunes:
+
+*    Los datos binarios o de tipo cadena se truncarían en una tabla.
+*    No se puede insertar el valor NULL en la columna.
+*    Error de conversión al convertir el valor al tipo de datos.
+
+De forma predeterminada, la ejecución de un flujo de datos no funcionará al recibir el primer error. Puede optar por **Continuar en caso de error**, que permite que el flujo de datos se complete, aunque haya filas individuales con errores. Azure Data Factory proporciona diferentes opciones para controlar estas filas de error.
+
+**Transaction Commit** (Confirmación de transacción): elija si los datos se escriben en una única transacción o en lotes. Una sola transacción proporcionará mejor rendimiento y ningún dato escrito será visible para otros usuarios hasta que finalice la transacción. Las transacciones por lotes tienen un rendimiento peor, pero pueden funcionar con grandes conjuntos de datos.
+
+**Output rejected data** (Datos rechazados de salida): si está habilitada, puede generar las filas de error en un archivo CSV en Azure Blob Storage o en una cuenta de Azure Data Lake Storage Gen2 de su elección. Las filas de error se escribirán con tres columnas adicionales: la operación SQL, como INSERT o UPDATE, el código de error de flujo de datos y el mensaje de error de la fila.
+
+**Report success on error** (Notificar éxito cuando hay error): si está habilitada, el flujo de datos se marcará como correcto, aunque se encuentren filas de error. 
+
+:::image type="content" source="media/data-flow/sql-error-row-handling.png" alt-text="Captura de pantalla que muestra el control de las filas de error" border="false":::
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 

@@ -2,13 +2,13 @@
 title: Novedades de Azure Backup
 description: Obtenga información acerca de las nuevas características de Azure Backup.
 ms.topic: conceptual
-ms.date: 04/22/2021
-ms.openlocfilehash: 09a1008871df61cdf38097b692b99237f97057b9
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.date: 05/05/2021
+ms.openlocfilehash: 23ef0a063eac051e40f01361e526fca96be3e3ef
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326513"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745584"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novedades de Azure Backup
 
@@ -18,6 +18,8 @@ Para obtener más información acerca de las nuevas versiones, puede marcar esta
 
 ## <a name="updates-summary"></a>Resumen de actualizaciones
 
+- Mayo de 2021
+  - [La copia de seguridad de blobs de Azure ya está disponible con carácter general](#backup-for-azure-blobs-is-now-generally-available)
 - Abril de 2021
   - [Mejoras en el cifrado mediante claves administradas por el cliente para Azure Backup (en versión preliminar)](#enhancements-to-encryption-using-customer-managed-keys-for-azure-backup-in-preview)
 - Marzo de 2021
@@ -42,6 +44,16 @@ Para obtener más información acerca de las nuevas versiones, puede marcar esta
   - [Copia de seguridad de SAP HANA en Azure Virtual Machines de RHEL (en versión preliminar)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [Almacenamiento con redundancia de zona para datos de copia de seguridad (en versión preliminar)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Eliminación temporal de las cargas de trabajo de SQL Server y SAP HANA en máquinas virtuales de Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="backup-for-azure-blobs-is-now-generally-available"></a>La copia de seguridad de blobs de Azure ya está disponible con carácter general
+
+La copia de seguridad operativa de blobs de Azure es una solución de protección de datos local administrada que permite proteger los datos de blobs en bloques contra la pérdida de datos en diversos escenarios, como daños, eliminación de blobs o eliminación accidental de cuentas de almacenamiento.
+
+Al ser una solución de copia de seguridad operativa, los datos de copia de seguridad se almacenan localmente en la cuenta de almacenamiento de origen y se pueden recuperar a partir de un momento dado seleccionado, lo que proporciona un medio sencillo y rentable de proteger los datos de blobs. Para conseguir esto, la solución usa la funcionalidad de restauración a un momento dado de blobs disponible en Blob Storage.
+
+La copia de seguridad operativa de blobs se integra con las herramientas de administración de Azure Backup, incluido el Centro de copia de seguridad, para ayudarle a administrar la protección de los datos de blob de forma eficaz y a gran escala. Además de las funcionalidades disponibles anteriormente, ahora puede configurar y administrar la copia de seguridad operativa de blobs mediante la vista **Protección de datos** de las cuentas de almacenamiento, también [mediante PowerShell](backup-blobs-storage-account-ps.md). Además, el servicio Backup ahora ofrece una experiencia mejorada para administrar las asignaciones de roles necesarias para configurar la copia de seguridad operativa.
+
+Para más información, consulte [Introducción a la copia de seguridad operativa de blobs de Azure](blob-backup-overview.md).
 
 ## <a name="azure-disk-backup-is-now-generally-available"></a>Azure Disk Backup ya está disponible con carácter general.
 

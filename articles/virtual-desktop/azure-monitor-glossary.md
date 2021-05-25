@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 8ed4c2cffffca79ea545358b8ad639118e87e013
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 13dfc7d7015ff293a1d6c05d94232412c8ec4fac
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448209"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753730"
 ---
 # <a name="azure-monitor-for-windows-virtual-desktop-glossary"></a>Glosario de Azure Monitor para Windows Virtual Desktop
 
@@ -21,7 +21,7 @@ En este artículo se enumeran y describen brevemente los términos y conceptos c
 
 ## <a name="alerts"></a>Alertas
 
-Las alertas de Azure Monitor activas que haya configurado en la suscripción y que estén clasificadas como [gravedad 0](#severity-0-alerts) aparecerán en la página de información general. Para obtener más información sobre cómo configurar alertas, consulte [Respuesta a eventos con las alertas de Azure Monitor](../azure-monitor/alerts/tutorial-response.md).
+Las alertas de Azure Monitor activas que haya configurado en la suscripción y que estén clasificadas como [gravedad 0](#severity-0-alerts) aparecerán en la página de información general. Para aprender a configurar alertas, consulte [Alertas de registro de Azure Monitor](../azure-monitor/alerts/alerts-log.md).
 
 ## <a name="available-sessions"></a>Sesiones disponibles
 

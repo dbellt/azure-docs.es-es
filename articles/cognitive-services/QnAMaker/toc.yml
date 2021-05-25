@@ -16,10 +16,14 @@
           href: Quickstarts/quickstart-sdk.md
 - name: Tutoriales
   items:
-    - name: Integración con Power Virtual Agent
-      href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
     - name: Creación de un bot de preguntas frecuentes con Azure Bot Service
       href: Tutorials/create-faq-bot-with-azure-bot-service.md
+    - name: Personalización del bot
+      items:
+        - name: Incorporación de varios dominios al bot de preguntas frecuentes
+          href: Tutorials/create-faq-bot-for-multiple-domains.md
+    - name: Integración con Power Virtual Agent
+      href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
 - name: Conceptos
   items:
     - name: Planificación de una base de conocimiento

@@ -3,12 +3,12 @@ title: Solución de errores comunes
 description: Aprenda a solucionar problemas relacionados con la creación de definiciones de directivas, los diversos SDK y el complemento para Kubernetes.
 ms.date: 04/19/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: c4feae11c6d8d78a43bae9882405e292a18e90bd
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 6f369b16755c09468dbdae2076cc7828a53c8a17
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725069"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752172"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Solución de errores mediante Azure Policy
 
@@ -67,7 +67,7 @@ El recurso no está en el ámbito correcto de la asignación de directiva o la d
 
 Para solucionar los problemas de la definición de directiva, haga lo siguiente:
 
-1. En primer lugar, espere la cantidad de tiempo que haga falta a que finalice una evaluación y a que los resultados de cumplimiento estén disponibles en Azure Portal o el SDK. 
+1. En primer lugar, espere la cantidad de tiempo que haga falta a que finalice una evaluación y a que los resultados de cumplimiento estén disponibles en Azure Portal o SDK.
 
 1. Para iniciar un nuevo examen de evaluación con Azure PowerShell o la API REST, consulte [Examen de evaluación a petición](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 1. Compruebe que los parámetros de asignación y el ámbito de asignación estén configurados correctamente.
@@ -98,7 +98,7 @@ Aunque **enforcementMode** esté deshabilitado, el efecto de la directiva no se 
 
 Para solucionar los problemas de cumplimiento de la asignación de directivas, haga lo siguiente:
 
-1. En primer lugar, espere la cantidad de tiempo que haga falta a que finalice una evaluación y a que los resultados de cumplimiento estén disponibles en Azure Portal o el SDK. 
+1. En primer lugar, espere la cantidad de tiempo que haga falta a que finalice una evaluación y a que los resultados de cumplimiento estén disponibles en Azure Portal o el SDK.
 
 1. Para iniciar un nuevo examen de evaluación con Azure PowerShell o la API REST, consulte [Examen de evaluación a petición](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 1. Compruebe que los parámetros de asignación y el ámbito de asignación estén configurados correctamente y que **enforcementMode** esté _Habilitado_.
@@ -238,7 +238,7 @@ Asegúrese de que los dominios y puertos que se mencionan en los siguientes art�
 
 El complemento no puede tener acceso al punto de conexión de servicio de Azure Policy y devuelve uno de los siguientes errores:
 
-- `azure.BearerAuthorizer#WithAuthorization: Failed to refresh the Token for request to https://gov-prod-policy-data.trafficmanager.net/checkDataPolicyCompliance?api-version=2019-01-01-preview: StatusCode=404`
+- `azure.BearerAuthorizer#WithAuthorization: Failed to refresh the Token for request to https://gov-prod-policy-data.trafficmanager.net/checkDataPolicyCompliance?api-version=2019-01-01-preview: StatusCode=404`
 - `adal: Refresh request failed. Status Code = '404'. Response body: getting assigned identities for pod kube-system/azure-policy-8c785548f-r882p in CREATED state failed after 16 attempts, retry duration [5]s, error: <nil>`
 
 #### <a name="cause"></a>Causa

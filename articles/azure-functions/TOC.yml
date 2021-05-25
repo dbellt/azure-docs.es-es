@@ -273,7 +273,7 @@
           items:
             - name: Desencadenador HTTP
               items:
-                - name: Azure Portal
+                - name: Portal de Azure
                   href: functions-create-function-app-portal.md
                 - name: Línea de comandos
                   href: ./create-first-function-cli-csharp.md
@@ -568,7 +568,7 @@
               displayName: HTTP
             - name: Desencadenador
               href: functions-bindings-http-webhook-trigger.md
-              displayName: HTTP
+              displayName: 'HTTP, keys, authorization keys, function keys, access keys'
             - name: Output
               href: functions-bindings-http-webhook-output.md
               displayName: HTTP

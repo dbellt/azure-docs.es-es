@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: longl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d22f2fb0bb550d966cbc5e181882552514513b2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e51cb6faf51484944fc3f8fa739b76d50411feac
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936587"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745350"
 ---
 # <a name="specify-a-face-recognition-model"></a>Especificación de un modelo de reconocimiento facial
 
@@ -74,12 +74,12 @@ Un objeto **PersonGroup** debe tener un único modelo de reconocimiento para tod
 Consulte el siguiente ejemplo de código de la biblioteca cliente .NET.
 
 ```csharp
-// Create an empty PersonGroup with "recognition_02" model
+// Create an empty PersonGroup with "recognition_04" model
 string personGroupId = "mypersongroupid";
-await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_04");
 ```
 
-En este código, se crea un objeto **PersonGroup** con el identificador `mypersongroupid`, y se configura para usar el modelo _recognition_02_ para extraer las características faciales.
+En este código, se crea un objeto **PersonGroup** con el identificador `mypersongroupid`, y se configura para usar el modelo _recognition_04_ para extraer las características faciales.
 
 En consecuencia, deberá especificar qué modelo usar al detectar caras para comparar con este objeto **PersonGroup** (mediante la API [Face - Detect]). El modelo que use siempre debe ser coherente con la configuración de **PersonGroup**, o la operación generará un error debido a la incompatibilidad de los modelos.
 

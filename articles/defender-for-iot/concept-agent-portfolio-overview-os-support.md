@@ -1,14 +1,14 @@
 ---
 title: Compatibilidad del sistema operativo e información general de la cartera de agentes (versión preliminar)
 description: Azure Defender para IoT proporciona una amplia cartera de agentes en función del tipo de dispositivo.
-ms.date: 1/20/2021
+ms.date: 05/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: d2e463051d0897afe52981ea2d50ddd1f06bb54d
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 5449f0ac3f3c2e37a79ba156f11042b640786959
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383429"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108735018"
 ---
 # <a name="agent-portfolio-overview-and-os-support-preview"></a>Compatibilidad del sistema operativo e información general de la cartera de agentes (versión preliminar)
 
@@ -16,7 +16,7 @@ Azure Defender para IoT proporciona una amplia cartera de agentes en función de
 
 ## <a name="standalone-agent"></a>Agente independiente
 
-El agente independiente cubre la mayoría de los sistemas operativos Linux; se puede implementar como paquete binario o como código fuente que se puede incorporar como parte del firmware y permitir la modificación y personalización en función de las necesidades del cliente. Ejemplo de compatibilidad con el sistema operativo: 
+El agente independiente cubre la mayoría de los sistemas operativos Linux; se puede implementar como paquete binario o como código fuente que se puede incorporar como parte del firmware y permitir la modificación y personalización en función de las necesidades del cliente. Estos son algunos ejemplos de sistemas operativos admitidos: 
 
 | Sistema operativo | AMD64 | ARM32v7 |
 |--|--|--|
@@ -24,7 +24,7 @@ El agente independiente cubre la mayoría de los sistemas operativos Linux; se p
 | Ubuntu 18.04 | ✓ |  |
 | Ubuntu 20.04 | ✓ |  |
 
-Para más detalles, compatibilidad con el sistema operativo o solicitar acceso al código fuente para poder incorporarlo como parte del firmware del dispositivo, póngase en contacto con el administrador de cuentas o envíe un correo electrónico a <defender_micro_agent@microsoft.com>. 
+Para más información, sistemas operativos admitidos o solicitar acceso al código fuente para poder incorporarlo como parte del firmware del dispositivo, póngase en contacto con el administrador de cuentas o envíe un correo electrónico a <defender_micro_agent@microsoft.com>. 
 
 ## <a name="azure-rtos-micro-agent"></a>Microagente de Azure RTOS
 

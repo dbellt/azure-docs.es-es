@@ -2,17 +2,17 @@
 title: 'Protección de zonas y registros DNS privados: Azure DNS'
 description: En esta ruta de aprendizaje, comenzará a proteger las zonas y los conjuntos de registros DNS privados en Microsoft Azure DNS.
 services: dns
-author: asudbring
 ms.service: dns
+author: twooley
+ms.author: twooley
 ms.topic: how-to
-ms.date: 02/18/2020
-ms.author: allensu
-ms.openlocfilehash: a68b40852750e124749ac838c50acae2212c4732
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/07/2021
+ms.openlocfilehash: 076b4cbbb511102c9814403a387d83267aa03752
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785890"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732405"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Protección de zonas y registros DNS privados
 
@@ -36,7 +36,7 @@ La manera más sencilla de asignar permisos de Azure RBAC es [a través de Azure
 
 Abra **Control de acceso (IAM)** del grupo de recursos, seleccione **Agregar** y, luego, seleccione el rol **Colaborador de zona DNS privada**. Seleccione los usuarios o grupos necesarios para conceder permisos.
 
-![Permiso de Azure RBAC de nivel de grupo de recursos a través de Azure Portal](./media/dns-protect-private-zones-recordsets/rbac1.png)
+:::image type="content" source="./media/dns-protect-private-zones-recordsets/resource-group-rbac.png" alt-text="Captura de pantalla de RBAC para el grupo de recursos DNS privado.":::
 
 Los permisos también se pueden [conceder mediante Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
@@ -69,7 +69,7 @@ Por ejemplo, el grupo de recursos *myPrivateDNS* contiene la zona *private.conto
 
 Los permisos de Azure RBAC de nivel de zona se pueden conceder a través de Azure Portal.  Abra **Control de acceso (IAM)** de la zona, seleccione **Agregar** y, luego, seleccione el rol **Colaborador de zona DNS privada**. Seleccione los usuarios o grupos necesarios para conceder permisos.
 
-![Permiso de Azure RBAC de nivel de zona DNS a través de Azure Portal](./media/dns-protect-private-zones-recordsets/rbac2.png)
+:::image type="content" source="./media/dns-protect-private-zones-recordsets/zone-rbac.png" alt-text="Captura de pantalla de RBAC para la zona DNS privada.":::
 
 Los permisos también se pueden [conceder mediante Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
@@ -102,9 +102,9 @@ Los permisos se aplican en el nivel de conjunto de registros.  Se concede al usu
 
 Los permisos de Azure RBAC de nivel de conjunto de registros se pueden configurar a través de Azure Portal. Para ello, utilice el botón **Control de acceso (IAM)** de la página del conjunto de registros:
 
-![Captura de pantalla que muestra el botón Control de acceso (I A M).](./media/dns-protect-private-zones-recordsets/rbac3.png)
+:::image type="content" source="./media/dns-protect-private-zones-recordsets/record-set-rbac-1.png" alt-text="Captura de pantalla de RBAC para el grupo de recursos DNS privado.":::
 
-![Captura de pantalla que muestra Control de acceso con Agregar asignación de roles seleccionado.](./media/dns-protect-private-zones-recordsets/rbac4.png)
+:::image type="content" source="./media/dns-protect-private-zones-recordsets/record-set-rbac-2.png" alt-text="Captura de pantalla de asignación de roles para el grupo de recursos DNS privado.":::
 
 Los permisos de Azure RBAC de nivel de conjunto de registros también se pueden [conceder mediante Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
@@ -202,7 +202,7 @@ Para evitar que se realicen cambios, aplique un bloqueo ReadOnly a la zona. Este
 
 Pueden crearse bloqueos de recursos de nivel de zona a través de Azure Portal.  En la página de la zona DNS, seleccione **Bloqueos** y después seleccione **+ Agregar**:
 
-![Bloqueos de recursos de nivel de zona a través de Azure Portal](./media/dns-protect-private-zones-recordsets/locks1.png)
+:::image type="content" source="./media/dns-protect-private-zones-recordsets/zone-locks.png" alt-text="Captura de pantalla de bloqueos para la zona DNS privada.":::
 
 También pueden crearse bloqueos de recursos de nivel de zona a través de [Azure PowerShell](/powershell/module/az.resources/new-azresourcelock):
 

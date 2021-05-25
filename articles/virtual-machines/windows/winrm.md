@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/16/2016
 ms.author: mimckitt
-ms.openlocfilehash: eb2bf1badb699060a0c1576956db395d612433c2
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: ffd531cb7eaa54b8b65bc564455eb17c193bd397
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325757"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753136"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Configuración de acceso a WinRM para máquinas virtuales en Azure Resource Manager
 
@@ -25,7 +25,7 @@ Estos son los pasos que debe seguir para configurar una máquina virtual con con
 4. Obtención de la dirección URL para el certificado autofirmado en el almacén de claves.
 5. Referencia a la dirección URL de los certificados autofirmados durante la creación de una máquina virtual
 
- 
+
 
 ## <a name="step-1-create-a-key-vault"></a>Paso 1: Creación de un almacén de claves
 Puede utilizar el siguiente comando para crear el almacén de claves:
@@ -127,9 +127,9 @@ Al crear una máquina virtual mediante plantillas, se hace referencia al certifi
     },
 ```
 
-Una plantilla de ejemplo para el caso mencionado se puede encontrar aquí en [201-vm-winrm-keyvault-windows](https://azure.microsoft.com/documentation/templates/201-vm-winrm-keyvault-windows)
+Una plantilla de ejemplo para el caso mencionado se puede encontrar aquí en [vm-winrm-keyvault-windows](https://azure.microsoft.com/documentation/templates/demos/vm-winrm-keyvault-windows)
 
-El código fuente de esta plantilla está disponible en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
+El código fuente de esta plantilla está disponible en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows)
 
 #### <a name="powershell"></a>PowerShell
 ```azurepowershell
@@ -151,8 +151,8 @@ Enable-PSRemoting -Force
 
 > [!NOTE]
 > Si la solución anterior no funciona, debe asegurarse de que el servicio WinRM esté en ejecución. Para ello, utilice `Get-Service WinRM`
-> 
-> 
+>
+>
 
 Cuando haya finalizado la instalación, puede conectarse a la máquina virtual mediante el comando siguiente:
 

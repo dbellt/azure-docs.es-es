@@ -3,16 +3,16 @@ title: Creación de directivas mediante programación
 description: Este artículo le guiará a través de la creación y administración de directivas para Azure Policy mediante programación con la CLI de Azure, Azure PowerShell y API REST.
 ms.date: 03/16/2021
 ms.topic: how-to
-ms.openlocfilehash: fb20509fe6d699050e0c98e82873ccdb6a0137b2
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 04b2e1a2c84320c61d1c1aba7404af47bc03150e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313698"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747492"
 ---
 # <a name="programmatically-create-policies"></a>Creación de directivas mediante programación
 
-Este artículo le guiará a través de la creación y administración de directivas mediante programación. Las definiciones de Azure Policy aplican reglas y efectos diferentes sobre los recursos. Su aplicación garantiza que los recursos cumplan los estándares corporativos y los acuerdos de nivel de servicio.
+Este artículo le guiará a través de la creación y administración de directivas mediante programación. Las definiciones de Azure Policy aplican reglas y efectos diferentes sobre los recursos. Su aplicación garantiza que los recursos cumplan los estándares corporativos y los contratos de nivel de servicio.
 
 Para información sobre el cumplimiento, consulte cómo [obtener datos de cumplimiento](get-compliance-data.md).
 
@@ -141,7 +141,7 @@ Use el procedimiento siguiente para crear una definición de directiva.
 
    Sustituya el valor de {subscriptionId} anterior por el identificador de su suscripción o {managementGroupId} por el identificador de su [grupo de administración](../../management-groups/overview.md).
 
-   Para más información acerca de la estructura de la consulta, consulte [Azure Policy Definitions – Create or Update](/rest/api/policy/policydefinitions/createorupdate) (Definiciones de Azure Policy: creación o actualización) y [Policy Definitions – Create or Update At Management Group](/rest/api/policy/policydefinitions/createorupdateatmanagementgroup) (Definiciones de directiva: creación o actualización en el grupo de administración).
+   Para obtener más información acerca de la estructura de la consulta, consulte [Azure Policy Definitions - Create or Update](/rest/api/policy/policydefinitions/createorupdate) (Definiciones de Azure Policy: creación o actualización) y [Policy Definitions - Create or Update At Management Group](/rest/api/policy/policydefinitions/createorupdateatmanagementgroup) (Definiciones de directiva: creación o actualización en el grupo de administración).
 
 Utilice el procedimiento siguiente para crear una asignación de directiva y asignar la definición de directiva en el nivel de grupo de recursos.
 

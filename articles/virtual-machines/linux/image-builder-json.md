@@ -3,18 +3,18 @@ title: Creación de una plantilla de Azure Image Builder, versión preliminar
 description: Obtenga información sobre cómo crear una plantilla para usarla con Azure Image Builder.
 author: danielsollondon
 ms.author: danis
-ms.date: 03/02/2021
+ms.date: 05/04/2021
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: 77460d1675b806e04c72e5f46da0ec4274d99d41
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 94083c8811d92d05a68295f9ac75f38123b3f771
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762540"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732603"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Vista previa: Creación de una plantilla de Azure Image Builder 
 
@@ -38,6 +38,7 @@ Este es el formato de plantilla básico:
         "vmProfile": 
             {
             "vmSize": "<vmSize>",
+        "proxyVmSize": "<vmSize>",
             "osDiskSizeGB": <sizeInGB>,
             "vnetConfig": {
                 "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
@@ -72,19 +73,43 @@ La ubicación es la región donde se creará la imagen personalizada. Para la ve
 - Oeste de EE. UU. 2
 - Norte de Europa
 - Oeste de Europa
+- Centro-sur de EE. UU.
 
+Próximamente (mediados de 2021):
+- Sudeste de Asia
+- Sudeste de Australia
+- Este de Australia
+- Sur de Reino Unido
+- Oeste de Reino Unido
 
 ```json
     "location": "<region>",
 ```
-## <a name="vmprofile"></a>vmProfile
-De forma predeterminada, el generador de imágenes usará una máquina virtual de compilación "Standard_D1_v2", que puede reemplazar. Por ejemplo, si desea personalizar una imagen para una máquina virtual de GPU, necesita un tamaño de máquina virtual de GPU. Esto es opcional.
 
+### <a name="data-residency"></a>Residencia de datos
+El servicio Azure VM Image Builder no almacena ni procesa los datos de los clientes fuera de las regiones que tienen requisitos estrictos de residencia de datos de una sola región cuando un cliente solicita una compilación en esa región. En caso de una interrupción del servicio para las regiones que tienen requisitos de residencia de datos, deberá crear plantillas en una región y una ubicación geográfica diferentes.
+
+ 
+## <a name="vmprofile"></a>vmProfile
+## <a name="buildvm"></a>buildVM
+De manera predeterminada, Image Builder usará una máquina virtual "Standard_D1_v2", que se compila a partir de la imagen especificada en `source`. Podría querer invalidar esto por los siguientes motivos:
+1. Realizar personalizaciones que requieran mayor memoria, CPU y control de archivos grandes (GB).
+2. Al ejecutar compilaciones de Windows, debe usar "Standard_D2_v2" o un tamaño de máquina virtual equivalente.
+3. Requerir [aislamiento de máquina virtual](https://docs.microsoft.com/azure/virtual-machines/isolation).
+4. Personalizar una imagen que requiera hardware específico, por ejemplo, para una máquina virtual con GPU, necesita un tamaño de máquina virtual de GPU. 
+5. Requerir cifrado de un extremo a otro en el resto de la máquina virtual de compilación; debe especificar el [tamaño de máquina virtual](https://docs.microsoft.com/azure/virtual-machines/azure-vms-no-temp-disk) de compilación compatible que no usa discos temporales locales.
+ 
+Esto es opcional.
+
+
+## <a name="proxy-vm-size"></a>Tamaño de máquina virtual de proxy
+La máquina virtual de proxy se usa para enviar comandos entre Azure Image Builder Service y la máquina virtual de compilación; esto solo se implementa al especificar una red virtual existente. Para obtener más información, consulte la [documentación](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking#why-deploy-a-proxy-vm) de las opciones de red.
 ```json
  {
-    "vmSize": "Standard_D1_v2"
+    "proxyVmSize": "Standard A1_v2"
  },
 ```
+Esto es opcional.
 
 ## <a name="osdisksizegb"></a>osDiskSizeGB
 

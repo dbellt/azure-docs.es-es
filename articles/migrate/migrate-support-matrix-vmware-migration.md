@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4fb2ea534954ae6c64d0da2d992ce8b1c8a62c0c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 37e6777f206e980e7ea37c00559ad6988c38cc7b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557571"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108738996"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de compatibilidad para la migración de VMware
 
@@ -68,7 +68,18 @@ En la tabla se resumen los requisitos de migración sin agente para las VM de VM
 **IPv6** | No compatible.
 **Disco de destino** | Las VM solo se pueden migrar a discos administrados (HDD Estándar, SSD estándar, SSD Premium) en Azure.
 **Replicación simultánea** | Hasta 300 replicaciones simultáneas de máquinas virtuales por cada instancia de vCenter Server con 1 dispositivo. Hasta 500 replicaciones simultáneas de máquinas virtuales por cada instancia de vCenter Server cuando se implementa un [dispositivo de escalado horizontal](./how-to-scale-out-for-migration.md) adicional. 
-**Instalación automática del agente de máquina virtual de Azure (agente de Windows y Linux)** | Compatible con Windows Server 2008 R2 en adelante <br/> Compatible con RHEL6, RHEL7, CentOS7, Ubuntu 14.04, Ubuntu 16.04 y Ubuntu 18.04. Revise la lista de [paquetes necesarios](../virtual-machines/extensions/agent-linux.md#requirements) para estos sistemas operativos Linux.
+**Instalación automática del agente de máquina virtual de Azure (agente de Windows y Linux)** | Compatible con Windows Server 2008 R2 en adelante <br/> Compatible con RHEL6, RHEL7, CentOS7, Ubuntu 14.04, Ubuntu 16.04 y Ubuntu 18.04. 
+
+> [!Note]
+> En el caso de las máquinas virtuales Linux, asegúrese de que los siguientes paquetes están instalados para una instalación correcta del agente de Linux de Microsoft Azure (waagent):
+>- Python 2.6
+>- OpenSSL 1.0+
+>- OpenSSH 5.3+
+>- Utilidades del sistema de archivos: sfdisk, fdisk, mkfs, parted
+>- Herramientas de contraseña: chpasswd, sudo
+>- Herramientas de procesamiento de texto: sed, grep
+>- Herramientas de red: ip-route 
+>- Habilitación del servicio rc.local en la máquina virtual de origen
 
 > [!TIP]
 >  Con Azure Portal, podrá seleccionar hasta 10 máquinas virtuales a la vez para configurar la replicación. Para replicar más máquinas virtuales, puede usar el portal y agregar las máquinas virtuales que se van a replicar en varios lotes de 10 máquinas virtuales, o bien usar la interfaz de PowerShell de Azure Migrate para configurar la replicación. Asegúrese de no configurar la replicación simultánea en más del número máximo de máquinas virtuales admitidas para replicaciones simultáneas.

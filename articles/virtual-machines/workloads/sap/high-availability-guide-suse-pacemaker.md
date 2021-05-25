@@ -12,14 +12,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 04/30/2021
 ms.author: radeltch
-ms.openlocfilehash: aa2006ecfad91e21ac13a1e63be23302b2a70399
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: e0ebc527f1eb0aa3ed014957633b89c407952364
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551040"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743208"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure
 
@@ -442,8 +442,8 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    >Para comprobar la extensión, ejecute SUSEConnect ---list-extensions.  
    >Para lograr los tiempos de conmutación por error rápida con el agente de barrera de Azure:
    > - en SLES 12 SP4 o SLES 12 SP5, instale la versión **4.6.2** o posterior del paquete python-azure-mgmt-compute  
-   > - en SLES 15, instale la versión **4.6.2** o posterior del paquete python **3**-azure-mgmt-compute 
-
+   > - en SLES 15.X, instale la versión **4.6.2** del paquete python **3**-azure-mgmt-compute, pero no una versión más reciente. Evite la versión 17.0.0-6.7.1 del paquete python **3**-azure-mgmt-compute, ya que contiene cambios incompatibles con el agente de barrera de Azure.    
+     
 1. **[A]** Configure la resolución nombres de host
 
    Puede usar un servidor DNS o modificar /etc/hosts en todos los nodos. En este ejemplo se muestra cómo utilizar el archivo /etc/hosts.

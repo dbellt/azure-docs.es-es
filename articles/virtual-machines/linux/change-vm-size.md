@@ -1,22 +1,21 @@
 ---
-title: Cambio de tamaño de una máquina virtual Linux con la CLI de Azure
-description: Escalado o reducción en vertical de una máquina virtual de Linux cambiando el tamaño de la VM.
-author: DavidCBerry13
+title: Cambio de tamaño de una máquina virtual con la CLI de Azure
+description: Escalado o reducción vertical de una máquina virtual cambiando el tamaño de la VM
+author: mimckitt
 ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 02/10/2017
-ms.author: daberry
-ms.collection: linux
-ms.openlocfilehash: 290c42cadd840e5a292201247b1555059b5b4381
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: mimckitt
+ms.openlocfilehash: 9361814a12e2f3c0d8c57852c89299e477f43dcb
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556645"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108738150"
 ---
-# <a name="resize-a-linux-virtual-machine-using-azure-cli"></a>Cambiar el tamaño de una máquina virtual Linux que usa la CLI de Azure 
+# <a name="resize-a-virtual-machine-using-azure-cli"></a>Cambio de tamaño de una máquina virtual con la CLI de Azure 
 
-Después de aprovisionar una máquina virtual (VM), puede escalarla o reducirla verticalmente cambiando su [tamaño][vm-sizes]. En algunos casos, hay que desasignarla antes. Necesita desasignar la VM si el tamaño deseado no se encuentra disponible en el clúster de hardware que hospeda la VM. En este artículo se detalla cómo cambiar el tamaño de una máquina virtual Linux con la CLI de Azure. 
+Después de aprovisionar una máquina virtual (VM), puede escalarla o reducirla verticalmente cambiando su [tamaño][vm-sizes]. En algunos casos, hay que desasignarla antes. Necesita desasignar la VM si el tamaño deseado no se encuentra disponible en el clúster de hardware que hospeda la VM. En este artículo se detalla cómo cambiar el tamaño de una máquina virtual con la CLI de Azure. 
 
 ## <a name="resize-a-vm"></a>Cambiar el tamaño de una máquina virtual
 Para cambiar el tamaño de una máquina virtual, necesita tener instalada la última versión de la [CLI de Azure](/cli/azure/install-az-cli2) e iniciar sesión en una cuenta de Azure con [az login](/cli/azure/reference-index).
@@ -47,7 +46,7 @@ Para cambiar el tamaño de una máquina virtual, necesita tener instalada la úl
    > Al desasignar la máquina virtual, también se liberan todas las direcciones IP dinámicas asignadas a ella. Esto no afecta a los discos del SO y de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener una mayor escalabilidad, ejecute varias instancias de VM y escálelas horizontalmente. Para más información, consulte [Escalado automático de máquinas de Linux en un conjunto de escalado de máquinas virtuales][scale-set]. 
+Para obtener una mayor escalabilidad, ejecute varias instancias de VM y escálelas horizontalmente. Para más información, vea [Escalado automático de máquinas en un conjunto de escalado de máquinas virtuales][scale-set]. 
 
 <!-- links -->
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/

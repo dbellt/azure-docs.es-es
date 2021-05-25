@@ -5,13 +5,13 @@ author: rahulg1190
 ms.author: rahugup
 manager: bsiva
 ms.topic: tutorial
-ms.date: 03/02/2021
-ms.openlocfilehash: 24dd33495915a9f4d47a00fbbfe9e894df839d4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/11/2021
+ms.openlocfilehash: f78aec2d220b0ee322523fcc16e1356c0d33d40b
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101715078"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738489"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>Migración de máquinas virtuales de VMware a Azure (sin agente): PowerShell
 
@@ -70,10 +70,12 @@ Como parte de los requisitos previos, ya había creado un proyecto de Azure Migr
 ```azurepowershell-interactive
 # Get resource group of the Azure Migrate project
 $ResourceGroup = Get-AzResourceGroup -Name MyResourceGroup
-
+```
+```azurepowershell-interactive
 # Get details of the Azure Migrate project
 $MigrateProject = Get-AzMigrateProject -Name MyMigrateProject -ResourceGroupName $ResourceGroup.ResourceGroupName
-
+```
+```azurepowershell-interactive
 # View Azure Migrate project details
 Write-Output $MigrateProject
 ```
@@ -139,22 +141,20 @@ Una vez terminadas la detección y la inicialización de la infraestructura de r
 
 Puede especificar las propiedades de replicación como se indica a continuación.
 
-- **Suscripción y grupo de recursos de destino**: especifique la suscripción y el grupo de recursos donde se debe migrar la máquina virtual; para ello, proporcione el identificador del grupo de recursos con el parámetro (`TargetResourceGroupId`).
-- **Red y subred virtuales de destino**: especifique el identificador de la red virtual de Azure y el nombre de la subred donde se debe migrar la máquina virtual mediante los parámetros (`TargetNetworkId`) y (`TargetSubnetName`) respectivamente.
-- **Nombre de máquina virtual de destino**: especifique el nombre de la máquina virtual de Azure que se va a crear mediante el parámetro (`TargetVMName`).
-- **Tamaño de máquina virtual de destino**: especifique el tamaño de máquina virtual de Azure que se usará para la replicación con el parámetro (`TargetVMSize`). Por ejemplo, para realizar la migración de una máquina virtual a una máquina virtual D2_v2 de Azure, especifique el valor de (`TargetVMSize`) como "Standard_D2_v2".
-- **Licencia**: para usar Ventaja híbrida de Azure en las máquinas con Windows Server que se incluyen en las suscripciones activas de Software Assurance o Windows Server, especifique el valor del parámetro (`LicenseType`) como **WindowsServer**. En otros casos, especifique el valor del parámetro (`LicenseType`) como "NoLicenseType".
-- **Disco de sistema operativo**: especifique el identificador único del disco que tiene el cargador de arranque y el instalador del sistema operativo. El identificador de disco que se va a usar es la propiedad de identificador único (UUID) del disco recuperado mediante el cmdlet [Get-AzMigrateDiscoveredServer](/powershell/module/az.migrate/get-azmigratediscoveredserver).
-- **Tipo de disco**: especifique el valor para el parámetro (`DiskType`) como se indica a continuación.
-    - Para usar discos administrados Premium, especifique "Premium_LRS" como valor del parámetro (`DiskType`).
-    - Para usar discos SSD estándar, especifique "StandardSSD_LRS" como valor del parámetro (`DiskType`).
-    - Para usar discos HDD estándar, especifique "Standard_LRS" como valor del parámetro (`DiskType`).
-- **Redundancia de la infraestructura**: especifique la opción de redundancia de la infraestructura como se indica a continuación.
-    - La zona de disponibilidad para anclar la máquina migrada a una zona de disponibilidad específica de la región. Use esta opción para distribuir los servidores que forman una capa de aplicación de varios nodos en Availability Zones. Esta opción solo está disponible si la región de destino seleccionada para la migración admite Availability Zones. Para usar zonas de disponibilidad, especifique el valor de zona de disponibilidad para el parámetro (`TargetAvailabilityZone`).
-    - El conjunto de disponibilidad para colocar la máquina migrada en un conjunto de disponibilidad. Para usar esta opción, el grupo de recursos de destino seleccionado debe tener uno o varios conjuntos de disponibilidad. Para usar el conjunto de disponibilidad, especifique el identificador del conjunto de disponibilidad para el parámetro (`TargetAvailabilitySet`).
- - **Cuenta de almacenamiento de diagnóstico de arranque**: para usar una cuenta de almacenamiento de diagnóstico de arranque, especifique el identificador para el parámetro (`TargetBootDiagnosticStorageAccount`).
-    -  La cuenta de almacenamiento que se usa para el diagnóstico de arranque debe estar en la misma suscripción a la que se van a migrar las máquinas virtuales.  
-    - De forma predeterminada, para este parámetro no se establece ningún valor. 
+**Parámetro** | **Tipo** | **Descripción**
+--- | --- | ---
+ Suscripción y grupo de recursos de destino |  Mandatory | Especifique la suscripción y el grupo de recursos a los que se debe migrar la máquina virtual; para ello, proporcione el identificador del grupo de recursos mediante el parámetro (`TargetResourceGroupId`).
+ Red virtual y subred de destino | Mandatory | Especifique el identificador de la red virtual de Azure y el nombre de la subred donde se debe migrar la máquina virtual mediante los parámetros (`TargetNetworkId`) y (`TargetSubnetName`) respectivamente.
+ Identificador de la máquina | Mandatory | Especifique el identificador de la máquina detectada que debe replicarse y migrarse. Use (`InputObject`) para especificar el objeto de máquina virtual detectada para la replicación.  
+ Nombre de máquina virtual de destino | Mandatory | Especifique el nombre de la máquina virtual de Azure que se va a crear mediante el parámetro (`TargetVMName`). 
+ Tamaño de la máquina virtual de destino | Mandatory | Especifique el tamaño de máquina virtual de Azure que se usará en la máquina virtual de replicación con el parámetro (`TargetVMSize`). Por ejemplo, para realizar la migración de una máquina virtual a una máquina virtual D2_v2 de Azure, especifique el valor de (`TargetVMSize`) como "Standard_D2_v2". 
+ Licencia | Mandatory | Para usar la Ventaja híbrida de Azure en las máquinas con Windows Server que se incluyen en las suscripciones activas de Software Assurance o Windows Server, especifique el valor del parámetro (`LicenseType`) como **WindowsServer**. En otros casos, especifique el valor **NoLicenseType**. 
+ Disco de SO | Mandatory | Especifique el identificador único del disco que tiene el cargador de arranque y el instalador del sistema operativo. El identificador de disco que se va a usar es la propiedad de identificador único (UUID) del disco recuperado mediante el cmdlet [Get-AzMigrateDiscoveredServer](/powershell/module/az.migrate/get-azmigratediscoveredserver).
+ Tipo de disco | Mandatory | Especifique el nombre del equilibrador de carga que se va a crear. 
+ Redundancia de la infraestructura | Opcional | Especifique la opción de redundancia de la infraestructura como se indica a continuación. <br/><br/> La - **zona de disponibilidad** para anclar la máquina migrada a una zona de disponibilidad específica de la región. Use esta opción para distribuir los servidores que forman una capa de aplicación de varios nodos en Availability Zones. Esta opción solo está disponible si la región de destino seleccionada para la migración admite Availability Zones. Para usar zonas de disponibilidad, especifique el valor de zona de disponibilidad para el parámetro (`TargetAvailabilityZone`). <br/> El - **conjunto de disponibilidad** para colocar la máquina migrada en un conjunto de disponibilidad. Para usar esta opción, el grupo de recursos de destino seleccionado debe tener uno o varios conjuntos de disponibilidad. Para usar el conjunto de disponibilidad, especifique el identificador del conjunto de disponibilidad para el parámetro (`TargetAvailabilitySet`). 
+ Cuenta de almacenamiento de diagnóstico de arranque | Opcional | Para usar una cuenta de almacenamiento de diagnóstico de arranque, especifique el identificador del parámetro (`TargetBootDiagnosticStorageAccount`). <br/> - La cuenta de almacenamiento que se usa para el diagnóstico de arranque debe estar en la misma suscripción que aquella a la que se van a migrar las máquinas virtuales. <br/> - De forma predeterminada, no se establece ningún valor para este parámetro. 
+
+
 
 ### <a name="replicate-vms-with-all-disks"></a>Replicación de máquinas virtuales con todos los discos
 
@@ -163,13 +163,17 @@ En este tutorial se replicarán todos los discos de la máquina virtual detectad
 ```azurepowershell-interactive
 # Retrieve the resource group that you want to migrate to
 $TargetResourceGroup = Get-AzResourceGroup -Name MyTargetResourceGroup
+```
 
+```azurepowershell-interactive
 # Retrieve the Azure virtual network and subnet that you want to migrate to
 $TargetVirtualNetwork = Get-AzVirtualNetwork -Name MyVirtualNetwork
-
+```
+```azurepowershell-interactive
 # Start replication for a discovered VM in an Azure Migrate project
 $MigrateJob =  New-AzMigrateServerReplication -InputObject $DiscoveredServer -TargetResourceGroupId $TargetResourceGroup.ResourceId -TargetNetworkId $TargetVirtualNetwork.Id -LicenseType NoLicenseType -OSDiskID $DiscoveredServer.Disk[0].Uuid -TargetSubnetName $TargetVirtualNetwork.Subnets[0].Name -DiskType Standard_LRS -TargetVMName MyMigratedTestVM -TargetVMSize Standard_DS2_v2
-
+```
+```azurepowershell-interactive
 # Track job status to check for completion
 while (($MigrateJob.State -eq 'InProgress') -or ($MigrateJob.State -eq 'NotStarted')){
         #If the job hasn't completed, sleep for 10 seconds before checking the job status again
@@ -195,7 +199,9 @@ En el ejemplo siguiente replicaremos solo dos discos de la máquina virtual dete
 ```azurepowershell-interactive
 # View disk details of the discovered server
 Write-Output $DiscoveredServer.Disk
+```
 
+```azurepowershell-interactive
 # Create a new disk mapping for the disks to be replicated
 $DisksToReplicate = @()
 $OSDisk = New-AzMigrateDiskMapping -DiskID $DiscoveredServer.Disk[0].Uuid -DiskType StandardSSD_LRS -IsOSDisk true
@@ -203,16 +209,24 @@ $DataDisk = New-AzMigrateDiskMapping -DiskID $DiscoveredServer.Disk[1].Uuid -Dis
 
 $DisksToReplicate += $OSDisk
 $DisksToReplicate += $DataDisk
+```
 
+```azurepowershell-interactive
 # Retrieve the resource group that you want to migrate to
 $TargetResourceGroup = Get-AzResourceGroup -Name MyTargetResourceGroup
+```
 
+```azurepowershell-interactive
 # Retrieve the Azure virtual network and subnet that you want to migrate to
 $TargetVirtualNetwork = Get-AzVirtualNetwork -Name MyVirtualNetwork
+```
 
+```azurepowershell-interactive
 # Start replication for the VM
 $MigrateJob =  New-AzMigrateServerReplication -InputObject $DiscoveredServer -TargetResourceGroupId $TargetResourceGroup.ResourceId -TargetNetworkId $TargetVirtualNetwork.Id -LicenseType NoLicenseType -DiskToInclude $DisksToReplicate -TargetSubnetName $TargetVirtualNetwork.Subnets[0].Name -TargetVMName MyMigratedTestVM -TargetVMSize Standard_DS2_v2
+```
 
+```azurepowershell-interactive
 # Track job status to check for completion
 while (($MigrateJob.State -eq 'InProgress') -or ($MigrateJob.State -eq 'NotStarted')){
         #If the job hasn't completed, sleep for 10 seconds before checking the job status again
@@ -238,7 +252,8 @@ Realice el seguimiento de la replicación mediante el cmdlet [Get-AzMigrateServe
 ```azurepowershell-interactive
 # List replicating VMs and filter the result for selecting a replicating VM. This cmdlet will not return all properties of the replicating VM.
 $ReplicatingServer = Get-AzMigrateServerReplication -ProjectName $MigrateProject.Name -ResourceGroupName $ResourceGroup.ResourceGroupName -MachineName MyTestVM
-
+```
+```azurepowershell-interactive
 # Retrieve all properties of a replicating VM 
 $ReplicatingServer = Get-AzMigrateServerReplication -TargetObjectID $ReplicatingServer.Id
 ```
@@ -320,26 +335,26 @@ $job = Get-AzMigrateJob -InputObject $job
 
 Para una máquina virtual se pueden actualizar las propiedades siguientes.
 
-- **Nombre de máquina virtual**: especifique el nombre de la máquina virtual de Azure que se va a crear mediante el parámetro [`TargetVMName`].
-- **Tamaño de máquina virtual**: especifique el tamaño de máquina virtual de Azure que se usará para la replicación con el parámetro [`TargetVMSize`]. Por ejemplo, para realizar la migración de una máquina virtual a una máquina virtual D2_v2 de Azure, especifique el valor de [`TargetVMSize`] como `Standard_D2_v2`.
-- **Red virtual**: especifique el identificador de la red virtual de Azure a la que se debe migrar la máquina virtual mediante el parámetro [`TargetNetworkId`].
-- **Grupo de recursos**: especifique el identificador del grupo de recursos al que se debe migrar la máquina virtual mediante el parámetro [`TargetResourceGroupId`].
-- **Network Interface**: la configuración de NIC se puede especificar mediante el cmdlet [New-AzMigrateNicMapping](/powershell/module/az.migrate/new-azmigratenicmapping). Después, el objeto se pasa como entrada al parámetro [`NicToUpdate`] del cmdlet [Set-AzMigrateServerReplication](/powershell/module/az.migrate/set-azmigrateserverreplication).
 
-    - **Change IP allocation** (Cambiar asignación de IP): para especificar una dirección IP estática para una NIC, proporcione la dirección IPv4 que se usará como IP estática para la máquina virtual mediante el parámetro [`TargetNicIP`]. Para asignar dinámicamente una dirección IP para una NIC, proporcione `auto` como valor del parámetro **TargetNicIP**.
-    - Use los valores `Primary`, `Secondary` o `DoNotCreate` para el parámetro [`TargetNicSelectionType`] con el fin de especificar si la NIC debe ser principal, secundaria o no se debe crear en la máquina virtual migrada. Solo se puede especificar una NIC como principal de la máquina virtual.
-    - Para que una NIC sea principal, también tendrá que especificar las otras NIC que se deben convertir en secundarias o que no se crearán en la máquina virtual migrada.
-    - Para cambiar la subred de la NIC, especifique el nombre de la subred mediante el parámetro [`TargetNicSubnet`].
+**Parámetro** | **Tipo** | **Descripción**
+--- | --- | ---
+Nombre de la máquina virtual | Opcional | Especifique el nombre de la máquina virtual de Azure que se va a crear mediante el parámetro [`TargetVMName`]. 
+Tamaño de VM | Opcional | Especifique el tamaño de máquina virtual de Azure que se usará en la máquina virtual de replicación mediante el parámetro [`TargetVMSize`]. Por ejemplo, para realizar la migración de una máquina virtual a una máquina virtual D2_v2 de Azure, especifique el valor de [`TargetVMSize`] como `Standard_D2_v2`.
+Virtual Network | Opcional | Especifique el identificador de la red virtual de Azure a la que se debe migrar la máquina virtual mediante el parámetro [`TargetNetworkId`]. 
+Grupo de recursos | Opcional | La configuración de la NIC se puede especificar mediante el cmdlet [New-AzMigrateNicMapping](/powershell/module/az.migrate/new-azmigratenicmapping). Después, el objeto se pasa como entrada al parámetro [`NicToUpdate`] del cmdlet [Set-AzMigrateServerReplication](/powershell/module/az.migrate/set-azmigrateserverreplication). <br/><br/> - **Change IP allocation** (Cambiar asignación de IP): para especificar una dirección IP estática para una NIC, proporcione la dirección IPv4 que se usará como IP estática para la máquina virtual mediante el parámetro [`TargetNicIP`]. Para asignar dinámicamente una dirección IP para una NIC, proporcione `auto` como valor del parámetro **TargetNicIP**. <br/> -Use los valores `Primary`, `Secondary` o `DoNotCreate` para el parámetro [`TargetNicSelectionType`] con el fin de especificar si la NIC debe ser principal, secundaria o no se debe crear en la máquina virtual migrada. Solo se puede especificar una NIC como principal de la máquina virtual. <br/> -Para que una NIC sea principal, también tendrá que especificar las otras NIC que se deben convertir en secundarias o que no se crearán en la máquina virtual migrada. <br/> -Para cambiar la subred de la NIC, especifique el nombre de la subred mediante el parámetro [`TargetNicSubnet`].
+Interfaz de red | Opcional | Especifique el nombre de la máquina virtual de Azure que se va a crear mediante el parámetro [`TargetVMName`]. 
+Zona de disponibilidad | Opcional | Para usar zonas de disponibilidad, especifique el valor de la zona de disponibilidad en el parámetro [`TargetAvailabilityZone`]. 
+Conjunto de disponibilidad | Opcional | Para usar conjuntos de disponibilidad, especifique el identificador del conjunto de disponibilidad en el parámetro [`TargetAvailabilitySet`]. 
 
- - **Zona de disponibilidad**: para usar zonas de disponibilidad, especifique el valor de zona de disponibilidad para el parámetro [`TargetAvailabilityZone`].
- - **Conjunto de disponibilidad**: para usar el conjunto de disponibilidad, especifique su identificador para el parámetro [`TargetAvailabilitySet`].
 
 El cmdlet [Get-AzMigrateServerReplication](/powershell/module/az.migrate/get-azmigrateserverreplication) devuelve un trabajo cuyo seguimiento se puede realizar para supervisar el estado de la operación.
 
 ```azurepowershell-interactive
 # List replicating VMs and filter the result for selecting a replicating VM. This cmdlet will not return all properties of the replicating VM.
 $ReplicatingServer = Get-AzMigrateServerReplication -ProjectName $MigrateProject.Name -ResourceGroupName $ResourceGroup.ResourceGroupName -MachineName MyTestVM
+```
 
+```azurepowershell-interactive
 # Retrieve all properties of a replicating VM 
 $ReplicatingServer = Get-AzMigrateServerReplication -TargetObjectID $ReplicatingServer.Id
 
@@ -357,10 +372,12 @@ $NicMapping2 = New-AzMigrateNicMapping -NicId $ReplicatingServer.ProviderSpecifi
 
 $NicMapping += $NicMapping1
 $NicMapping += $NicMapping2
-
+```
+```azurepowershell-interactive
 # Update the name, size and NIC configuration of a replicating server
 $UpdateJob = Set-AzMigrateServerReplication -InputObject $ReplicatingServer -TargetVMSize Standard_DS13_v2 -TargetVMName MyMigratedVM -NicToUpdate $NicMapping
-
+```
+```azurepowershell-interactive
 # Track job status to check for completion
 while (($UpdateJob.State -eq 'InProgress') -or ($UpdateJob.State -eq 'NotStarted')){
         #If the job hasn't completed, sleep for 10 seconds before checking the job status again
@@ -386,10 +403,12 @@ Seleccione la red virtual de Azure que se va a usar para las pruebas; para ello,
 ```azurepowershell-interactive
 # Retrieve the Azure virtual network created for testing
 $TestVirtualNetwork = Get-AzVirtualNetwork -Name MyTestVirtualNetwork
-
+```
+```azurepowershell-interactive
 # Start test migration for a replicating server
 $TestMigrationJob = Start-AzMigrateTestMigration -InputObject $ReplicatingServer -TestNetworkID $TestVirtualNetwork.Id
-
+```
+```azurepowershell-interactive
 # Track job status to check for completion
 while (($TestMigrationJob.State -eq 'InProgress') -or ($TestMigrationJob.State -eq 'NotStarted')){
         #If the job hasn't completed, sleep for 10 seconds before checking the job status again
@@ -405,7 +424,8 @@ Una vez completadas las pruebas, limpie la migración de prueba con el cmdlet [S
 ```azurepowershell-interactive
 # Clean-up test migration for a replicating server
 $CleanupTestMigrationJob = Start-AzMigrateTestMigrationCleanup -InputObject $ReplicatingServer
-
+```
+```azurepowershell-interactive
 # Track job status to check for completion
 while (($CleanupTestMigrationJob.State -eq "InProgress") -or ($CleanupTestMigrationJob.State -eq "NotStarted")){
         #If the job hasn't completed, sleep for 10 seconds before checking the job status again
@@ -425,7 +445,8 @@ Si no quiere apagar el servidor de origen, no utilice el parámetro [`TurnOffSou
 ```azurepowershell-interactive
 # Start migration for a replicating server and turn off source server as part of migration
 $MigrateJob = Start-AzMigrateServerMigration -InputObject $ReplicatingServer -TurnOffSourceServer
-
+```
+```azurepowershell-interactive
 # Track job status to check for completion
 while (($MigrateJob.State -eq 'InProgress') -or ($MigrateJob.State -eq 'NotStarted')){
         #If the job hasn't completed, sleep for 10 seconds before checking the job status again
@@ -443,7 +464,8 @@ Write-Output $MigrateJob.State
    ```azurepowershell-interactive
    # Stop replication for a migrated server
    $StopReplicationJob = Remove-AzMigrateServerReplication -InputObject $ReplicatingServer
-
+   ```
+   ```azurepowershell-interactive
    # Track job status to check for completion
    while (($StopReplicationJob.State -eq 'InProgress') -or ($StopReplicationJob.State -eq 'NotStarted')){
            #If the job hasn't completed, sleep for 10 seconds before checking the job status again

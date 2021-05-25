@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 05/11/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f451d08dfbde643d91705f54296e9757a51c9d88
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 2865138aeca012d30692e708a61e459492f03ccc
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104798400"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750706"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configuración de un flujo de restablecimiento de contraseña en Azure Active Directory B2C
 
@@ -61,17 +61,17 @@ Para habilitar el autoservicio de restablecimiento de contraseña para el flujo 
 1. Seleccione **Flujos de usuario**.
 1. Seleccione un flujo de usuario de registro o inicio de sesión (de tipo **recomendado**) que quiera personalizar.
 1. En el menú de la izquierda, en **Configuración**, seleccione **Propiedades**.
-1. En **Complejidad de la contraseña**, seleccione **Autoservicio de restablecimiento de contraseña**.
+1. En **Configuración de la contraseña**, seleccione **Autoservicio de restablecimiento de contraseña**.
 1. Seleccione **Guardar**.
 1. En el menú de la izquierda, en **Personalizar**, seleccione **Diseños de página**.
-1. En **Versión de diseño de página**, elija **2.1.2 - Current** (2.1.2: actual) o superior.
+1. En **Versión de diseño de página**, elija **2.1.3** o superior.
 1. Seleccione **Guardar**.
 
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
 
-En las secciones siguientes se describe cómo agregar una experiencia de autoservicio de contraseña a una directiva personalizada. El ejemplo se basa en los archivos de directivas incluidos en el [paquete de inicio de directivas personalizadas](./custom-policy-get-started.md). 
+En las secciones siguientes se describe cómo agregar una experiencia de autoservicio de contraseña a una directiva personalizada. El ejemplo se basa en los archivos de directivas incluidos en el [paquete de inicio de directivas personalizadas](./tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack). 
 
 > [!TIP]
 > Puede encontrar un ejemplo completo de la directiva de registro o inicio de sesión con contrzseña en [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/embedded-password-reset).
@@ -80,7 +80,7 @@ En las secciones siguientes se describe cómo agregar una experiencia de autoser
 
 Para indicar a la directiva que el usuario ha seleccionado el vínculo **¿Olvidó la contraseña?** , defina una notificación booleana. Esta notificación se usará para dirigir el recorrido del usuario al perfil técnico de contraseña olvidada. Esta notificación también se puede emitir al token, de modo que la aplicación sabe que el usuario ha iniciado sesión mediante el flujo de contraseña olvidada.
 
-Las notificaciones se declaran en el [esquema de notificaciones](claimsschema.md). Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`**</em>.
+Las notificaciones se declaran en el [esquema de notificaciones](claimsschema.md). Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 
 1. Busque el elemento [BuildingBlocks](buildingblocks.md). Si el elemento no existe, agréguelo.
 1. Busque el elemento [ClaimsSchema](claimsschema.md). Si el elemento no existe, agréguelo.
@@ -316,7 +316,7 @@ Para permitir que los usuarios de la aplicación restablezcan la contraseña, se
 
 ### <a name="create-a-password-reset-policy"></a>Crear una directiva de restablecimiento de contraseña
 
-Las directivas personalizadas son un conjunto de archivos XML que se cargan en el inquilino de Azure AD B2C para definir recorridos de usuario. Proporcionamos paquetes de inicio con varias directivas predefinidas, entre las que se incluyen: registro e inicio de sesión, restablecimiento de contraseña y directiva de edición de perfiles. Para obtener información, consulte [Introducción a las directivas personalizadas en Azure AD B2C](custom-policy-get-started.md).
+Las directivas personalizadas son un conjunto de archivos XML que se cargan en el inquilino de Azure AD B2C para definir recorridos de usuario. Proporcionamos paquetes de inicio con varias directivas predefinidas, entre las que se incluyen: registro e inicio de sesión, restablecimiento de contraseña y directiva de edición de perfiles. Para obtener información, consulte [Introducción a las directivas personalizadas en Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ::: zone-end
 

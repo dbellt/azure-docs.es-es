@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 04/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: e410e5de529bde122fe42d21b593a6fc483dcbc0
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: c190af2532f28bd183a92b37b814210cb794501d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726690"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748500"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Implementación de actualizaciones y revisión de los resultados
 
@@ -61,6 +61,9 @@ Para programar una implementación de actualizaciones nueva, siga estos pasos. E
 
     > [!NOTE]
     > Esta opción no está disponible si seleccionó una VM de Azure o un servidor habilitado para Arc. La máquina se establece automáticamente como el destino de la implementación programada.
+
+   > [!IMPORTANT]
+   > Al crear un grupo dinámico de máquinas virtuales de Azure, Update Management solo admite un máximo de 500 consultas que combinen suscripciones o grupos de recursos en el ámbito del grupo.
 
 6. En el área **Máquinas para actualizar**, seleccione una búsqueda guardada, un grupo importado, o bien la opción **Máquinas** del menú desplegable, y elija máquinas específicas. Mediante esta opción, puede ver el grado de preparación del agente de Log Analytics para cada máquina. Para más información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [grupos de equipos en los registros de Azure Monitor](../../azure-monitor/logs/computer-groups.md). Es posible incluir hasta un máximo de 1000 máquinas en una implementación de actualizaciones programada.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/06/2021
 ms.author: jeedes
-ms.openlocfilehash: 2eb6bcb2fcaeb3afddfb8605b9065766fa0af5ee
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 677ce4e66a3d9f870e21785327f382b9974b2cdf
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130579"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748662"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-holmes"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Holmes
 
@@ -36,8 +36,6 @@ Para empezar, necesita los siguientes elementos:
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
-
-* Holmes admite el inicio de sesión único iniciado por **SP e IDP**.
 
 ## <a name="adding-holmes-from-the-gallery"></a>Incorporación de Holmes desde la galería
 
@@ -74,18 +72,20 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
+2. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<WorkspaceID>.holmescloud.com`.
+   1. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente:
 
-1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
-
-    En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://www.holmescloud.com/login`
+      `https://<WorkspaceID>.holmescloud.com`
+      
+   1. En el cuadro de texto **URL de respuesta (URL del Servicio de consumidor de aserciones)** , escriba `https://holmescloud.com/sso/acs`.
+   
+   1. En el cuadro de texto **URL de cierre de sesión**, escriba `https://holmescloud.com/sso/logout`.
 
     > [!NOTE]
-    > Este valor no es real. Actualícelo con el identificador real. Póngase en contacto con el equipo de [soporte técnico para clientes de Holmes](mailto:team-dev@holmescloud.com) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Actualice el valor con el identificador real, que hace referencia a la página de administrador de Holmes. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
+3. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
@@ -103,7 +103,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
    1. En el campo **Nombre**, escriba `B.Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Crear**.
+   1. Seleccione **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -115,15 +115,15 @@ En esta sección va a conceder a B.Simon acceso a Holmes mediante el inicio de s
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
-1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+1. En el cuadro de diálogo **Agregar asignación**, seleccione el botón **Asignar**.
 
 ## <a name="configure-holmes-sso"></a>Configuración del inicio de sesión único en Holmes
 
-Para configurar el inicio de sesión único en **Holmes**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Holmes](mailto:team-dev@holmescloud.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Holmes**, es preciso registrar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal en la página de administrador de Holmes. 
 
 ### <a name="create-holmes-test-user"></a>Creación de un usuario de prueba en Holmes
 
-En esta sección se crea un usuario llamado B.Simon en Holmes. Trabaje con el [equipo de soporte técnico de Holmes](mailto:team-dev@holmescloud.com) para agregar los usuarios a la plataforma de Holmes. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado B.Simon en Holmes. Puede crear o invitar a un usuario en la página de gestión de miembros de Holmes. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

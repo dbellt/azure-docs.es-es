@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: a3677e50d9dab99eaedc88cdd61e8e2ed9a3761b
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 9cb46ef11ab7cc86efa0842fe5952b92170aa648
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321760"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737409"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>¿Qué es una instancia de proceso de Azure Machine Learning?
 
@@ -39,7 +39,9 @@ Una instancia de proceso es una estación de trabajo totalmente administrada bas
 |Preconfigurado &nbsp;para&nbsp;ML|Ahorre tiempo en las tareas de configuración con paquetes de ML preconfigurados y actualizados, marcos de aprendizaje profundo y controladores de GPU.|
 |Totalmente personalizable|La amplia compatibilidad con los tipos de máquina virtual de Azure, incluidas las GPU y la personalización de bajo nivel persistente, como la instalación de paquetes y controladores, hace que los escenarios avanzados sean muy sencillos. |
 
-Puede [crear una instancia de proceso](how-to-create-manage-compute-instance.md?tabs=python#create), o bien puede [crearla un administrador por usted](how-to-create-manage-compute-instance.md?tabs=python#create-on-behalf-of-preview).
+Puede [crear una instancia de proceso](how-to-create-manage-compute-instance.md?tabs=python#create) o bien un administrador puede **[crear una instancia de proceso en su nombre](how-to-create-manage-compute-instance.md?tabs=python#on-behalf)** .
+
+También puede **[usar un script de configuración (versión preliminar)](how-to-create-manage-compute-instance.md#setup-script)** para disponer de una manera automatizada de personalizar y configurar la instancia de proceso según sus necesidades.
 
 ## <a name="tools-and-environments"></a><a name="contents"></a>Herramientas y entornos
 
@@ -84,7 +86,7 @@ Las herramientas y los entornos siguientes ya están instalados en la instancia 
 |Paquetes de ONNX|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
 |Ejemplos del SDK de Python y R para Azure Machine Learning||
 
-Todos los paquetes de Python se instalan en el entorno de **Python 3.6: AzureML**.  
+Todos los paquetes de Python se instalan en el entorno **Python 3.8 - AzureML**. La instancia de proceso tiene Ubuntu 18.04 como sistema operativo base.
 
 ## <a name="accessing-files"></a>Acceso a archivos
 
@@ -98,7 +100,7 @@ También puede clonar los ejemplos de Azure Machine Learning más recientes en l
 
 La escritura de archivos pequeños puede ser más lenta en las unidades de red que la escritura en el propio disco local de la instancia de proceso.  Si escribe muchos archivos pequeños, pruebe usar un directorio directamente en la instancia de proceso, como un directorio`/tmp`. Tenga en cuenta que estos archivos no serán accesibles desde otras instancias de proceso. 
 
-Puede usar el directorio `/tmp` en la instancia de proceso para los datos temporales.  Pero no escriba archivos de datos muy grandes en el disco del sistema operativo de la instancia de proceso. El disco del sistema operativo de la instancia de proceso tiene una capacidad de 128 GB. Además, no almacene un conjunto grande de datos de entrenamiento en el recurso compartido de archivos de los cuadernos. Use [almacenes y conjuntos de datos](concept-azure-machine-learning-architecture.md#datasets-and-datastores) en su lugar. 
+No almacene los datos de entrenamiento en el recurso compartido de archivos de los cuadernos. Puede usar el directorio `/tmp` en la instancia de proceso para los datos temporales.  Pero no escriba archivos de datos muy grandes en el disco del sistema operativo de la instancia de proceso. El disco del sistema operativo de la instancia de proceso tiene una capacidad de 128 GB. También puede almacenar los datos de entrenamiento temporales en un disco temporal montado en /mnt. El tamaño del disco temporal se puede configurar en función del tamaño de máquina virtual elegido y puede almacenar grandes cantidades de datos si se elige una máquina virtual de mayor tamaño. También puede montar [almacenes de datos y conjuntos de datos](concept-azure-machine-learning-architecture.md#datasets-and-datastores). 
 
 ## <a name="managing-a-compute-instance"></a>Administración de una instancia de proceso
 
@@ -106,41 +108,18 @@ En el área de trabajo de Azure Machine Learning Studio, seleccione **Compute** 
 
 ![Administración de una instancia de proceso](./media/concept-compute-instance/manage-compute-instance.png)
 
-Puede realizar las siguientes acciones:
-
-* [Crear una instancia de proceso](#create). 
-* Actualizar la pestaña instancias de proceso.
-* Iniciar, detener y reiniciar una instancia de proceso.  Se paga por la instancia cada vez que se ejecuta. Detenga la instancia de proceso cuando no la use para reducir el costo. Al detener una instancia de proceso, se cancela su asignación. A continuación, inícielo de nuevo cuando lo necesite. Tenga en cuenta que, al detenerse la instancia de proceso, se detiene la facturación de las horas de proceso, pero se le seguirá facturando por el disco, la dirección IP pública y el equilibrador de carga estándar.
-* Elimine una instancia de proceso.
-* Filtre la lista de instancias de proceso para mostrar solo las que haya creado.
-
-Con cada instancia de proceso del área de trabajo a la que tenga acceso, puede:
-
-* Acceder a Jupyter, JupyterLab y RStudio en la instancia de proceso.
-* SSH en la instancia de proceso. El acceso SSH está deshabilitado de forma predeterminada, pero se puede habilitar en el momento de la creación de la instancia de proceso. El acceso SSH se realiza a través del mecanismo de claves pública y privada. La pestaña le proporcionará detalles sobre la conexión SSH, como la dirección IP, el nombre de usuario y el número de puerto.
-* Más detalles sobre una instancia de proceso específica, como la dirección IP y la región.
-
-[RBAC de Azure](../role-based-access-control/overview.md) permite controlar qué usuarios del área de trabajo pueden crear, eliminar, iniciar, detener y reiniciar una instancia de proceso. Todos los usuarios del rol colaborador y propietario del área de trabajo pueden crear, eliminar, iniciar, detener y reiniciar las instancias de proceso en el área de trabajo. Sin embargo, solo el creador de una instancia de proceso específica o el usuario asignado, si se creó en su nombre, tienen permiso para acceder a Jupyter, JupyterLab y RStudio en esa instancia de proceso. Una instancia de proceso está dedicada a un solo usuario que tiene acceso raíz y puede pasar por el terminal a través de Jupyter, JupyterLab o RStudio. La instancia de proceso incluirá el usuario que ha iniciado sesión y todas las acciones usarán la identidad de ese usuario para RBAC de Azure y la atribución de ejecuciones de experimentos. El acceso SSH se controla mediante un mecanismo de clave pública-privada.
-
-RBAC de Azure puede controlar estas acciones:
-* *Microsoft.MachineLearningServices/workspaces/computes/read*
-* *Microsoft.MachineLearningServices/workspaces/computes/write*
-* *Microsoft.MachineLearningServices/workspaces/computes/delete*
-* *Microsoft.MachineLearningServices/workspaces/computes/start/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
-
-Para crear una instancia de proceso, debe tener permisos para realizar las siguientes acciones:
-* *Microsoft.MachineLearningServices/workspaces/computes/write*
-* *Microsoft.MachineLearningServices/workspaces/checkComputeNameAvailability/action*
-
+Consulte [Creación y administración de una instancia de proceso de Azure Machine Learning](how-to-create-manage-compute-instance.md) para más información sobre la administración de la instancia de proceso.
 
 ### <a name="create-a-compute-instance"></a><a name="create"></a>Crear de una instancia de proceso
 
-En el área de trabajo de Azure Machine Learning Studio, [cree una nueva instancia de proceso](how-to-create-attach-compute-studio.md#compute-instance) desde la sección **Proceso** o en la sección **Notebooks** cuando esté listo para ejecutar uno de sus cuadernos. 
+Como administrador, puede **[crear una instancia de proceso para otros usuarios en el área de trabajo (versión preliminar)](how-to-create-manage-compute-instance.md#on-behalf)** .  
+
+También puede **[usar un script de configuración (versión preliminar)](how-to-create-manage-compute-instance.md#setup-script)** para disponer de una manera automatizada de personalizar y configurar la instancia de proceso.
+
+Para crear por sí mismo una instancia de proceso, utilice el área de trabajo de Estudio de Azure Machine Learning y [cree una nueva instancia de proceso](how-to-create-attach-compute-studio.md#compute-instance) desde la sección **Proceso** o en la sección **Cuadernos** cuando esté listo para ejecutar uno de sus cuadernos. 
 
 Usted también puede crear una instancia
-* Directamente de la [experiencia de cuadernos integrados](tutorial-1st-experiment-sdk-setup.md#azure)
+* Directamente de la [experiencia de cuadernos integrados](tutorial-train-models-with-aml.md#azure)
 * En Azure Portal
 * A partir de una plantilla de Azure Resource Manager. Para ver una plantilla de ejemplo, consulte [Creación una plantilla de instancia de proceso de Azure Machine Learning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
 * Con [SDK de Azure Machine Learning](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/concept-compute-instance.md)
@@ -150,24 +129,6 @@ Los núcleos dedicados por región por cuota de familia de máquinas virtuales y
 
 La instancia de proceso viene con el disco del sistema operativo P10. El tipo de disco temporal depende del tamaño de VM elegido. Actualmente, no es posible cambiar el tipo de disco del sistema operativo.
 
-
-### <a name="create-on-behalf-of-preview"></a>Creación en nombre de alguien (versión preliminar)
-
-Como administrador, puede crear una instancia de proceso en nombre de un científico de datos y asignarle la instancia con:
-* [Plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance)  Para más información sobre cómo buscar los valores de TenantID y ObjectID necesarios en esta plantilla, consulte [Encontrar identificadores de objeto de identidad para la configuración de autenticación](../healthcare-apis/fhir/find-identity-object-ids.md).  También puede encontrar estos valores en el portal de Azure Active Directory.
-* API DE REST
-
-El científico de datos para el que se crea la instancia de proceso necesita los siguientes permisos de RBAC de Azure: 
-* *Microsoft.MachineLearningServices/workspaces/computes/start/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action*
-
-El científico de datos puede iniciar, detener y reiniciar la instancia de proceso. Puede utilizar la instancia de proceso para:
-* Jupyter
-* JupyterLab
-* RStudio
-* Cuadernos integrados
 
 ## <a name="compute-target"></a>Destino de proceso
 
@@ -182,7 +143,7 @@ Una instancia de proceso:
 Puede usar la instancia de proceso como destino de implementación de inferencia local para escenarios de prueba o depuración.
 
 > [!TIP]
-> La instancia de proceso tiene un disco de SO de 120 GB. Si se queda sin espacio en el disco y entra en un estado inutilizable, borre al menos 5 GB de espacio en el disco del sistema operativo (/dev/sda1/ sistema de archivo en el que está montado /) a través del terminal de JupyterLab eliminando archivos o carpetas; a continuación, reinicie sudo. Para acceder al terminal de JupyterLab, vaya a https://ComputeInstanceName.AzureRegion.instances.azureml.ms/lab y reemplace el nombre de la instancia de proceso y la región de Azure y, a continuación, haga clic en Archivo->Nuevo->Terminal. Borre al menos 5 GB antes de [detener o reiniciar](how-to-create-manage-compute-instance.md#manage) la instancia de proceso. Para comprobar el espacio en disco disponible, ejecute df -h en el terminal.
+> La instancia de proceso tiene un disco de SO de 120 GB. Si se queda sin espacio en el disco y entra en un estado inutilizable, borre al menos 5 GB de espacio en el disco del sistema operativo (que está montado en /) mediante el terminal de la instancia de proceso, elimine archivos o carpetas y, a continuación, ejecute `sudo reboot`. Para acceder al terminal, vaya a la página de la lista de instancias de proceso o a la página de detalles de la instancia de proceso y haga clic en el vínculo **Terminal**. Para comprobar el espacio disponible en disco, ejecute `df -h` en el terminal. Borre al menos 5 GB de espacio antes de ejecutar `sudo reboot`. No detenga ni reinicie la instancia de proceso mediante Studio hasta que se haya borrado un espacio en disco de 5 GB.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

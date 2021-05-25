@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentación sobre Virtual WAN
-summary: Aprenda a configurar, crear y administrar una instancia de Azure Virtual WAN. Compile de forma segura la conectividad de rama a escala global.
+summary: Aprenda a configurar, crear y administrar una instancia de Azure Virtual WAN. Azure Virtual WAN es un servicio de red que aporta muchas funciones de red, seguridad y enrutamiento para proporcionar una única interfaz operativa.
 metadata:
   title: Documentación sobre Virtual WAN
   description: Más información acerca de Virtual WAN
@@ -11,12 +11,12 @@ metadata:
   ms.author: cherylmc
   ms.date: 01/15/2020
   ms.custom: e2e-hybrid
-  ms.openlocfilehash: a6a0660d960ad04145288475986f1bd40143b0aa
-  ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+  ms.openlocfilehash: 8a5db17d58a96f3669d824d78ba11061cf758e75
+  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/27/2021
-  ms.locfileid: "108071847"
+  ms.lasthandoff: 05/19/2021
+  ms.locfileid: "110080603"
 landingContent:
 - title: Acerca de Virtual WAN
   linkLists:

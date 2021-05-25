@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: aahi
-ms.openlocfilehash: af957758918b99dcb44732eb536c0ca031231a7a
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: de855e53f6d54c9175963b34d8cd3da572e02790
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868229"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736545"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>Inicio rápido: Creación de un recurso de Cognitive Services con Azure Portal
 
@@ -42,7 +42,7 @@ En este momento, el recurso multiservicio permite el acceso a los siguientes ser
 * **Visión**: Computer Vision, Custom Vision, Form Recognizer, Face
 * **Voz**: Voz
 * **Idioma**: Language Understanding (LUIS), Text Analytics, Translator
-* **Decisión**: Personalizer, Content Moderator
+* **Decisión**: Content Moderator
 
 ### <a name="single-service-resource"></a>[Recurso de servicio único](#tab/singleservice)
 

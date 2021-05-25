@@ -8,12 +8,12 @@ ms.date: 4/22/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 13bf3b8b8756fcc83211b02379980972629d9438
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: e311a39a68a5fb03c68a1685996a8e0fbde206e8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108290549"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108734352"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Acerca del lenguaje de consulta para Azure Digital Twins
 
@@ -31,7 +31,7 @@ Puede usar el lenguaje de consulta de Azure Digital Twins para recuperar gemelos
 * relationships
   - propiedades de las relaciones
 
-Para enviar una consulta al servicio desde una aplicación cliente, usará la [API Query](/rest/api/digital-twins/dataplane/query) de Azure Digital Twins. Una manera de usar la API es a mediante uno de los [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) de Azure Digital Twins.
+Para enviar una consulta al servicio desde una aplicación cliente, usará la [API Query](/rest/api/digital-twins/dataplane/query) de Azure Digital Twins. Una manera de usar la API es a mediante uno de los [SDK](concepts-apis-sdks.md#overview-data-plane-apis) de Azure Digital Twins.
 
 [!INCLUDE [digital-twins-query-reference.md](../../includes/digital-twins-query-reference.md)]
 
@@ -42,6 +42,8 @@ Al escribir consultas para Azure Digital Twins, tenga en cuenta las consideracio
 * **Comillas simples de escape**: si el texto de la consulta incluye un carácter de comilla simple en los datos, la comilla deberá utilizar el carácter `\` como escape. Este es un ejemplo que trata sobre el valor de una propiedad de *D'Souza*:
 
   :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="EscapedSingleQuote":::
+
+* **Considere la posible latencia**: después de realizar un cambio en los datos del gráfico, puede haber una latencia de hasta 10 segundos antes de que los cambios se reflejen en las consultas. La [API GetDigitalTwin](how-to-manage-twin.md#get-data-for-a-digital-twin) no experimenta este retraso, por lo que debe usar la llamada a la API en lugar de realizar una consulta para ver los cambios reflejados inmediatamente si necesita una respuesta instantánea.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,15 +3,15 @@ title: Realización de operaciones en datos
 description: Conversión, administración y manipulación de salidas y formatos de datos en Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 09/20/2019
-ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/11/2021
+ms.openlocfilehash: cc4952acd8d5949485b9bd1fe5fac91296839493
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84710378"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753658"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Realización de operaciones de datos en Azure Logic Apps
 
@@ -23,9 +23,23 @@ En este artículo se muestra, entre otras cosas, cómo puede trabajar con datos 
 
 Si aquí no encuentra la acción que desea, pruebe a examinar las diversas [funciones de manipulación de datos](../logic-apps/workflow-definition-language-functions-reference.md) que proporciona Azure Logic Apps.
 
+## <a name="prerequisites"></a>Requisitos previos
+
+* Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
+
+* La aplicación lógica donde necesita la operación para trabajar con los datos.
+
+  Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+* Un [desencadenador](../logic-apps/logic-apps-overview.md#logic-app-concepts) que será el primer paso de la aplicación lógica. 
+
+  Las operaciones de datos están disponibles solo como acciones, así que antes de usar estas acciones, inicie la aplicación lógica con un desencadenador e incluya otras acciones necesarias para crear las salidas deseadas.
+
+## <a name="data-operation-actions"></a>Acciones de operación de datos
+
 En estas tablas se resumen las operaciones de datos que puede usar, organizadas según los tipos de datos de origen sobre los que trabajan las operaciones, pero cada descripción aparece en orden alfabético.
 
-**Acciones de matriz** 
+### <a name="array-actions"></a>Acciones de matriz
 
 Estas acciones permiten trabajar con datos de matrices.
 
@@ -38,7 +52,7 @@ Estas acciones permiten trabajar con datos de matrices.
 | [**Seleccionar**](#select-action) | Crea una matriz a partir de las propiedades especificadas para todos los elementos de una matriz distinta. |
 ||| 
 
-**Acciones JSON**
+### <a name="json-actions"></a>Acciones JSON
 
 Estas acciones le ayudan a trabajar con datos en formato de notación de objetos JavaScript (JSON).
 
@@ -49,18 +63,6 @@ Estas acciones le ayudan a trabajar con datos en formato de notación de objetos
 |||
 
 Para crear transformaciones JSON más complejas, consulte [Perform advanced JSON transformations with Liquid templates](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md) (Realización de transformaciones JSON avanzadas con plantillas de Liquid).
-
-## <a name="prerequisites"></a>Prerrequisitos
-
-* Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
-
-* La aplicación lógica donde necesita la operación para trabajar con los datos.
-
-  Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-
-* Un [desencadenador](../logic-apps/logic-apps-overview.md#logic-app-concepts) que será el primer paso de la aplicación lógica. 
-
-  Las operaciones de datos están disponibles solo como acciones, así que antes de usar estas acciones, inicie la aplicación lógica con un desencadenador e incluya otras acciones necesarias para crear las salidas deseadas.
 
 <a name="compose-action"></a>
 
@@ -273,6 +275,9 @@ Para confirmar si la acción **Crear tabla CSV** crea los resultados esperados, 
 
    ![Campos "Salida" para la acción "Crear tabla CSV"](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png)
 
+   > [!NOTE]
+    > Si la tabla se devuelve con formato incorrecto, consulte [cómo comprobar el formato de los datos de la tabla](#format-table-data).
+
 1. Ahora, ejecute la aplicación lógica manualmente. En la barra de herramientas del diseñador, seleccione **Run** (Ejecutar).
 
    Según el conector de correo electrónico que ha usado, estos son los resultados que obtiene:
@@ -426,6 +431,9 @@ Para confirmar si la acción **Crear tabla HTML** crea los resultados esperados,
 
    > [!NOTE]
    > Al incluir la salida de la tabla HTML en una acción de correo electrónico, asegúrese de establecer la propiedad **Es HTML** en **Sí** en las opciones avanzadas de la acción de correo electrónico. De este modo, la acción de correo electrónico aplica el formato correcto a la tabla HTML.
+
+   > [!NOTE]
+   > Si la tabla se devuelve con formato incorrecto, consulte [cómo comprobar el formato de los datos de la tabla](#format-table-data).
 
 1. Ahora, ejecute la aplicación lógica manualmente. En la barra de herramientas del diseñador, seleccione **Run** (Ejecutar).
 
@@ -707,6 +715,51 @@ Para confirmar si la acción **Seleccionar** crea los resultados esperados, env�
 
    ![Resultados de enviar correo electrónico con la acción "Seleccionar"](./media/logic-apps-perform-data-operations/select-email-results.png)
 
+## <a name="troubleshooting"></a>Solución de problemas
+
+### <a name="format-table-data"></a>Datos de la tabla de formato
+
+Si la [tabla CSV](#create-csv-table-action) o la [tabla HTML](#create-html-table-action) se devuelven con un formato incorrecto, asegúrese de que los datos de entrada tengan saltos de línea entre las filas. 
+
+Formato incorrecto:
+
+```text
+Fruit,Number Apples,1 Oranges,2
+```
+
+Formato correcto:
+
+```text
+Fruit,Number
+Apples,1
+Oranges,2
+```
+
+Para agregar saltos de línea entre las filas, agregue una de las siguientes expresiones a la tabla:
+
+```text
+replace(body('Create_CSV_table'),'','<br/>')
+```
+
+```text
+replace(body('Create_HTML_table'),'','<br/>')
+```
+
+Por ejemplo: 
+
+```json
+{
+    "Send_an_email_": {
+        "inputs": {
+            "body": {
+                "Body": "<p>Results from Create CSV table action:<br/>\n<br/>\n<br/>\n@{replace(body('Create_CSV_table'),'\r\n','<br/>')}</p>",
+                "Subject": "Create CSV table results",
+                "To": "sophia.owen@fabrikam.com"
+            }
+        }
+    }
+}
+```
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información sobre los [conectores de Logic Apps](../connectors/apis-list.md)
