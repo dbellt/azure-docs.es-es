@@ -3,14 +3,14 @@ title: 'Diagnóstico con Durable Functions: Azure'
 description: Aprenda a diagnosticar problemas con la extensión Durable Functions para Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 05/12/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 62cc5e1762a2a54b26cbebae5aa7cfbf64204ba5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d1125c2de0f548f1a6086819573acf1a2ac9c3c9
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100584623"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110370898"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnóstico con Durable Functions en Azure
 
@@ -154,10 +154,12 @@ El resultado es una lista de identificadores de instancia y su estado actual en 
 
 Los registros de extensión de Durable son útiles para comprender el comportamiento de la lógica de la orquestación. Sin embargo, estos registros no siempre contienen suficiente información para depurar problemas de confiabilidad y rendimiento a nivel del marco. A partir de la versión **2.3.0** de la extensión de Durable, los registros emitidos por el marco Durable Task Framework (DTFx) subyacente también están disponibles para la recopilación.
 
-Cuando se examinan los registros emitidos por DTFx, es importante comprender que el motor de DTFx consta de dos componentes: el motor de distribución principal (`DurableTask.Core`) y uno de los muchos proveedores de almacenamiento admitidos (Durable Functions usa `DurableTask.AzureStorage` de forma predeterminada).
+Cuando se examinan los registros emitidos por DTFx, es importante comprender que el motor de DTFx consta de dos componentes: el motor de distribución principal (`DurableTask.Core`) y uno de los muchos proveedores de almacenamiento admitidos (Durable Functions usa `DurableTask.AzureStorage` de manera predeterminada, pero [hay otras opciones disponibles](durable-functions-storage-providers.md)).
 
-* **DurableTask.Core**: contiene información sobre la ejecución de la orquestación y la programación de bajo nivel.
-* **DurableTask.AzureStorage**: contiene información relativa a las interacciones con los artefactos de Azure Storage, incluidas las colas internas, los blobs y las tablas de almacenamiento que se usan para almacenar y capturar el estado interno de la orquestación.
+* **DurableTask.Core**: ejecución de orquestaciones principales y registros de programación y telemetría de bajo nivel.
+* **DurableTask.AzureStorage**: registros de back-end específicos del proveedor de estado de Azure Storage. Estos registros incluyen interacciones detalladas con las colas internas, los blobs y las tablas de almacenamiento que se usan para almacenar y capturar el estado interno de la orquestación.
+* **DurableTask.Netherite**: registros de back-end específicos del [proveedor de almacenamiento de Netherite](https://microsoft.github.io/durabletask-netherite), si está habilitado.
+* **DurableTask.SqlServer**: registros de back-end específicos del [proveedor de almacenamiento de Microsoft SQL (MSSQL)](https://microsoft.github.io/durabletask-mssql), si está habilitado.
 
 Puede habilitar estos registros actualizando la sección `logging/logLevel` del archivo **host.json** de la aplicación de funciones. En el ejemplo siguiente, se muestra cómo habilitar los registros de advertencia y de error de `DurableTask.Core` y `DurableTask.AzureStorage`:
 
@@ -176,7 +178,7 @@ Puede habilitar estos registros actualizando la sección `logging/logLevel` del 
 Si ha habilitado Application Insights, estos registros se agregarán automáticamente a la colección `trace`. Puede buscarlos de la misma manera que busca otros registros `trace` mediante consultas de Kusto.
 
 > [!NOTE]
-> En el caso de las aplicaciones de producción, se recomienda habilitar los registros `DurableTask.Core` y `DurableTask.AzureStorage` mediante el filtro `"Warning"`. Los filtros con mayor nivel de detalle, como `"Information"`, son muy útiles para depurar problemas de rendimiento. Sin embargo, estos eventos de registro son de gran volumen y pueden aumentar significativamente los costos de almacenamiento de datos de Application Insights.
+> En el caso de las aplicaciones de producción, se recomienda habilitar `DurableTask.Core` y los registros de proveedor de almacenamiento adecuados (por ejemplo, `DurableTask.AzureStorage`) mediante el filtro `"Warning"`. Los filtros con mayor nivel de detalle, como `"Information"`, son muy útiles para depurar problemas de rendimiento. Sin embargo, estos eventos de registro pueden ser de gran volumen y aumentar significativamente los costos de almacenamiento de datos de Application Insights.
 
 La siguiente consulta de Kusto muestra cómo consultar los registros de DTFx. La parte más importante de la consulta es `where customerDimensions.Category startswith "DurableTask"`, ya que filtra los resultados por registros en las categorías `DurableTask.Core` y `DurableTask.AzureStorage`.
 
@@ -471,6 +473,13 @@ Esto es útil para la depuración, porque verá el estado concreto de las orques
 
 > [!WARNING]
 > Aunque es conveniente ver el historial de ejecución en Table Storage, no se fie de esta tabla. Puede cambiar con el progreso de la extensión Durable Functions.
+
+> [!NOTE]
+> Se pueden configurar otros proveedores de almacenamiento en lugar del proveedor de Azure Storage predeterminado. Dependiendo del proveedor de almacenamiento configurado para la aplicación, es posible que tenga que usar diferentes herramientas para inspeccionar el estado subyacente. Para más información, consulte la documentación de [Proveedores de almacenamiento de Durable Functions](durable-functions-storage-providers.md).
+
+## <a name="3rd-party-tools"></a>Herramientas de terceros
+
+La comunidad de Durable Functions publica una variedad de herramientas que pueden ser útiles para la depuración, el diagnóstico o la supervisión. Una de estas herramientas es el [monitor de Durable Functions](https://github.com/scale-tone/DurableFunctionsMonitor#durable-functions-monitor) de código abierto, una herramienta gráfica para supervisar, administrar y depurar las instancias de orquestación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

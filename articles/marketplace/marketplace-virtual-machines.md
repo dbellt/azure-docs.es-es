@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 6e391ca79c9dcf9ab533a7e67961c654b5f8630b
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 25cfca98857d33a90b2c1f11692d83ae30911bb7
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103375"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110480879"
 ---
 # <a name="plan-a-virtual-machine-offer"></a>Planificación de una oferta de máquina virtual
 
@@ -59,12 +59,7 @@ Para obtener instrucciones detalladas sobre la preparación de los activos técn
 
 ## <a name="preview-audience"></a>Público preliminar
 
-Una audiencia preliminar puede tener acceso a la oferta de la VM antes de publicarla en Azure Marketplace a fin de probar la funcionalidad completa. En la página **Audiencia preliminar**, puede definir una audiencia preliminar limitada. 
-
-> [!NOTE]
-> Una audiencia preliminar no es lo mismo que un plan privado. Un plan privado es el que solo está disponible para una audiencia determinada de su elección. Esto le permite negociar un plan personalizado con clientes específicos. Para obtener más información, vea la próxima sección: Planes
-
-Puede enviar invitaciones a direcciones de correo electrónico de cuentas de Microsoft (MSA) o de Azure Active Directory (Azure AD). Agregue hasta 10 direcciones de correo electrónico manualmente o importe hasta 20 con un archivo .csv. Aunque la oferta ya esté publicada, puede definir una audiencia preliminar para probar los cambios o las actualizaciones que realice en ella.
+[!INCLUDE [Test drives section](includes/preview-audience.md)]
 
 ## <a name="plans-and-pricing"></a>Planes y precios
 
@@ -77,7 +72,7 @@ Las VM se pueden comercializar íntegramente con los modelos de licencia de pago
 
 ### <a name="licensing-options"></a>Opciones de licencia
 
-Cuando prepare la publicación de una nueva oferta de VM, debe decidir la opción de licencia. Esta opción determina la información adicional que deberá proporcionar más adelante cuando cree la oferta en el Centro de partners.
+Cuando prepare la publicación de una nueva oferta, debe decidir la opción de licencia. Esta opción determina la información adicional que deberá proporcionar más adelante cuando cree la oferta en el Centro de partners.
 
 Estas son las opciones de licencia disponibles para las ofertas de máquina virtual:
 
@@ -106,23 +101,16 @@ Para obtener más información, vea [Planes y precios de las ofertas del marketp
 
 Se puede elegir habilitar una versión de prueba para la VM. Las versiones de prueba proporcionan a los clientes acceso a un entorno preconfigurado durante un número fijo de horas. Aunque puede habilitar las opciones de publicación en cualquier versión de prueba, esta característica conlleva requisitos adicionales. Para más información sobre las versiones de prueba, consulte [¿Qué es una versión de prueba?](what-is-test-drive.md). Para información sobre la configuración de diferentes tipos de versiones de prueba, consulte [Configuración técnica de la versión de prueba](test-drive-technical-configuration.md).
 
-> [!TIP]
-> Una versión de prueba es diferente de una [evaluación gratuita](plans-pricing.md#free-trials). Puede ofrecer una versión de prueba, una evaluación gratuita o ambas. Las dos proporcionan a los clientes la solución durante un período fijo. Sin embargo, una versión de prueba también incluye un práctico recorrido autoguiado por las principales características y ventajas del producto demostradas en un escenario de implementación real.
+[!INCLUDE [Test drives section](includes/test-drives.md)]
 
 ## <a name="customer-leads"></a>Clientes potenciales
 
-Debe conectar su oferta al sistema de administración de relaciones con clientes (CRM) para recopilar información del cliente. El cliente le pedirá permiso para compartir su información. Estos datos del cliente, junto con el nombre y el identificador de la oferta, además de la tienda en línea donde la encontró, se envían al sistema CRM que haya configurado. El marketplace comercial admite una gran variedad de sistemas CRM, junto con la opción de usar una tabla de Azure o de configurar un punto de conexión HTTPS con Power Automate.
-
-Puede agregar o modificar una conexión CRM en cualquier momento durante o después de la creación de la oferta. Para obtener instrucciones detalladas, vea [Clientes potenciales a partir de la oferta en el marketplace comercial](partner-center-portal/commercial-marketplace-get-customer-leads.md).
+[!INCLUDE [Customer leads section](includes/customer-leads.md)]
 
 ## <a name="legal-contracts"></a>Contratos legales
 
-Para simplificar el proceso de adquisición para los clientes y reducir la complejidad legal para los proveedores de software, Microsoft ofrece un contrato estándar que se puede usar con las ofertas del marketplace comercial. Al ofrecer el software bajo el contrato estándar, los clientes solo tienen que leerlo y aceptarlo, sin necesidad de crear términos y condiciones personalizados.
-
-Si decide usar el contrato estándar, tiene la opción de agregarle términos de modificación universales y hasta 10 modificaciones personalizadas. También puede usar sus propios términos y condiciones en lugar del contrato estándar. Estos detalles se administrarán en la página **Propiedades**. Para más información, consulte [Contrato estándar para el marketplace comercial de Microsoft](standard-contract.md).
-
-> [!NOTE]
-> Después de publicar una oferta con el contrato estándar en el marketplace comercial, no puede usar sus propios términos y condiciones personalizados. Solo puede elegir una de las dos opciones. O bien ofrecer su solución bajo el contrato estándar o según sus propios términos y condiciones. Si quiere modificar los términos del contrato estándar, puede hacerlo a través de las modificaciones al contrato estándar.
+[!INCLUDE [Legal contracts section](includes/legal-contracts-intro.md)]
+[!INCLUDE [Legal section for Standard contracts](includes/legal-contracts-standard.md)]
 
 ## <a name="cloud-solution-providers"></a>Proveedores de soluciones en la nube
 

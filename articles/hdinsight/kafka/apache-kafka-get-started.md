@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/29/2020
-ms.openlocfilehash: acb497b2f0111d36650ec415c8f1f580d116b55e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 67b8881b71166233d6a692feb897f738a36781b7
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104863299"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190268"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Inicio rápido: Creación de un clúster de Apache Kafka en Azure HDInsight mediante Azure Portal
 
@@ -44,7 +44,7 @@ Para crear un clúster de Apache Kafka en HDInsight, siga estos pasos:
 
     |Propiedad  |Descripción  |
     |---------|---------|
-    |Subscription    |  En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster. |
+    |Suscripción    |  En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster. |
     |Resource group     | Cree un grupo de recursos o seleccione uno existente.  Un grupo de recursos es un contenedor de componentes de Azure.  En este caso, el grupo de recursos contiene el clúster de HDInsight y la cuenta de Azure Storage dependiente. |
     |Nombre del clúster   | Escriba un nombre único global. El nombre puede tener un máximo de 59 caracteres, letras, números y guiones incluidos. El primer y el último carácter del nombre no pueden ser guiones. |
     |Region    | En la lista desplegable, seleccione una región donde crear el clúster.  Elija la región más cercana para mejorar el rendimiento. |
@@ -174,7 +174,7 @@ En esta sección, obtendrá la información de host de la API de REST de Apache 
 
     Este comando devuelve información similar al texto siguiente:
 
-    `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
+    `<zookeepername1>.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,<zookeepername2>.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
 
 1. Para establecer una variable de entorno con la información de host del agente de Apache Kafka, use el comando siguiente:
 
@@ -193,7 +193,7 @@ En esta sección, obtendrá la información de host de la API de REST de Apache 
 
     Este comando devuelve información similar al texto siguiente:
 
-    `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
+    `<brokername1>.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,<brokername2>.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
 ## <a name="manage-apache-kafka-topics"></a>Administración de temas de Apache Kafka
 

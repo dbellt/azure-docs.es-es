@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 04/30/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d6fd782020957222fbf56f197abc40b45eaa47be
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: d3e081d4a60b5e4f26e5163d55f2df682b042bca
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788789"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110066528"
 ---
 # <a name="azure-digital-twins-cli-command-set"></a>Conjunto de comandos de la CLI de Azure Digital Twins
 
@@ -25,7 +25,7 @@ Además de administrar la instancia de Azure Digital Twins en Azure Portal, Azur
 * Administración de [rutas](concepts-route-events.md)
 * Configuración de la [seguridad](concepts-security.md) mediante el control de acceso basado en rol de Azure (RBAC de Azure)
 
-El conjunto de comandos se llama **az dt** y forma parte de la [extensión de Azure IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension). Puede ver la lista completa de comandos y su uso como parte de la documentación de referencia del conjunto de comandos `az iot`: referencia del comando [az dt](/cli/azure/dt).
+El conjunto de comandos se llama **az dt** y forma parte de la [extensión de Azure IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension). Puede ver la lista completa de comandos y su uso como parte de la documentación de referencia del conjunto de comandos `az iot`: referencia del comando [az dt](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="uses-deploy-and-validate"></a>Usos (implementación y validación)
 
@@ -61,4 +61,4 @@ az extension add --upgrade --name azure-iot
 ## <a name="next-steps"></a>Pasos siguientes
 
 Explore la CLI y su conjunto completo de comandos a través de los documentos de referencia:
-* [Referencia del comando az dt](/cli/azure/dt)
+* [Referencia del comando az dt](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)

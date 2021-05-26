@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/04/2021
+ms.date: 05/14/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 8096a8275151cd247544f3c357793deb28a81b7a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a8d5e715eb90a272c77196d1d5f6afb535f82e37
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760539"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110066038"
 ---
 ## <a name="azure-security-benchmark"></a>Prueba comparativa de la seguridad de Azure
 
@@ -45,8 +45,8 @@ Para revisar el modo en que las integraciones de Azure Policy disponibles para t
 
 ## <a name="canada-federal-pbmm"></a>Canada Federal PBMM
 
-Si desea consultar cómo las integraciones de Azure Policy disponibles para todos los servicios de Azure se asignan a este estándar de cumplimiento, consulte este artículo sobre el [cumplimiento normativo de Azure Policy: PBMM federal de Canadá](../../../../articles/governance/policy/samples/canada-federal-pbmm.md).
-Para más información sobre este estándar de cumplimiento, consulte este artículo acerca del estándar [PBMM federal de Canadá](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html).
+Para revisar cómo las integraciones de Azure Policy disponibles de todos los servicios de Azure se asignan a este estándar de cumplimiento, consulte [Cumplimiento normativo de Azure Policy: Canada Federal PBMM](../../../../articles/governance/policy/samples/canada-federal-pbmm.md).
+Para más información sobre este estándar de cumplimiento, consulte [Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html).
 
 |Domain |Id. de control |Título de control |Directiva<br /><sub>(Azure Portal)</sub> |Versión de la directiva<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
@@ -140,8 +140,8 @@ Para más información acerca de este estándar de cumplimiento, consulte [HIPAA
 
 ## <a name="irs-1075-september-2016"></a>IRS 1075, septiembre de 2016
 
-Si desea ver cómo las integraciones de Azure Policy disponibles para todos los servicios de Azure se asignan a este estándar de cumplimiento, consulte este artículo sobre el [cumplimiento normativo de Azure Policy: IRS 1075, septiembre de 2016](../../../../articles/governance/policy/samples/irs-1075-sept2016.md).
-Para más información sobre este estándar de cumplimiento, consulte este artículo acerca de [IRS 1075, septiembre de 2016](https://www.irs.gov/pub/irs-pdf/p1075.pdf).
+Para revisar cómo las integraciones de Azure Policy disponibles para todos los servicios de Azure se asignan a este estándar de cumplimiento, consulte [Cumplimiento normativo de Azure Policy: IRS 1075, septiembre de 2016](../../../../articles/governance/policy/samples/irs-1075-sept2016.md).
+Para más información sobre este estándar de cumplimiento, consulte [IRS 1075, septiembre de 2016](https://www.irs.gov/pub/irs-pdf/p1075.pdf).
 
 |Domain |Id. de control |Título de control |Directiva<br /><sub>(Azure Portal)</sub> |Versión de la directiva<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
@@ -199,8 +199,8 @@ Para más información acerca de este estándar normativo, consulte [NIST SP 800
 
 ## <a name="uk-official-and-uk-nhs"></a>UK OFFICIAL y UK NHS
 
-Si desea ver cómo las integraciones de Azure Policy disponibles para todos los servicios de Azure se asignan a este estándar de cumplimiento, consulte este artículo sobre el [cumplimiento normativo de Azure Policy: UK OFFICIAL y UK NHS](../../../../articles/governance/policy/samples/ukofficial-uknhs.md).
-Para más información sobre este estándar de cumplimiento, consulte este artículo acerca de [UK OFFICIAL](https://www.gov.uk/government/publications/government-security-classifications).
+Para revisar cómo las integraciones de Azure Policy disponibles para todos los servicios de Azure se asignan a este estándar de cumplimiento, consulte [Cumplimiento normativo de Azure Policy: UK OFFICIAL y UK NHS](../../../../articles/governance/policy/samples/ukofficial-uknhs.md).
+Para más información sobre este estándar de cumplimiento, consulte [UK OFFICIAL](https://www.gov.uk/government/publications/government-security-classifications).
 
 |Domain |Id. de control |Título de control |Directiva<br /><sub>(Azure Portal)</sub> |Versión de la directiva<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|

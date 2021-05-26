@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 04/20/2021
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: d6a2b6c30d4ff6212a905e454ff56e844e423d22
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e6841afabe36667070ca595810c423c61db03837
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124642"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377045"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores para Azure Logic Apps
 
@@ -44,7 +44,7 @@ Una *acción* es una operación que sigue al desencadenador y realiza algún tip
 
 ## <a name="connector-categories"></a>Categorías del conector
 
-En Logic Apps, la mayoría de los desencadenadores y acciones están disponibles en una versión *integrada* o de *conector administrado*. Existe un pequeño número de desencadenadores y acciones disponibles en ambas versiones. Las versiones disponibles dependen de si va a crear una aplicación lógica multiinquilino o de un solo inquilino, que actualmente solo está disponible en la [versión preliminar de Logic Apps](../logic-apps/logic-apps-overview-preview.md).
+En Logic Apps, la mayoría de los desencadenadores y acciones están disponibles en una versión *integrada* o de *conector administrado*. Existe un pequeño número de desencadenadores y acciones disponibles en ambas versiones. Las versiones disponibles dependen de si va a crear una aplicación lógica multiinquilino o de inquilino único, que actualmente solo está disponible en [Azure Logic Apps de inquilino único](../logic-apps/single-tenant-overview-compare.md).
 
 Los [desencadenadores y las acciones integrados](built-in.md) se ejecutan de forma nativa en el entorno de ejecución de Logic Apps, y no requieren la creación de conexiones; asimismo, realizan estos tipos de tareas:
 

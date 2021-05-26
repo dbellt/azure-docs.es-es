@@ -4,12 +4,12 @@ description: Recomendaciones para proteger las imágenes y los secretos de Azure
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: 40284c6e42cf1060906c6248495d08e133bda5bb
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 721e3f27af768bd3a31d069100d1f3b84fb5e624
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812667"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110091457"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Consideraciones de seguridad para Azure Container Instances
 
@@ -140,7 +140,7 @@ Mantenga un registro de auditoría preciso del acceso administrativo a su ecosis
 
 * [Integración de Azure Kubernetes Service con Azure Security Center](../security-center/defender-for-kubernetes-introduction.md) para supervisar la configuración de seguridad del entorno del clúster y generar recomendaciones de seguridad
 * [Solución de supervisión de contenedores de Azure](../azure-monitor/containers/containers.md)
-* Registros de recurso para [Azure Container Instances](container-instances-log-analytics.md) y [Azure Container Registry](../container-registry/container-registry-diagnostics-audit-logs.md)
+* Registros de recurso para [Azure Container Instances](container-instances-log-analytics.md) y [Azure Container Registry](../container-registry/monitor-service.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

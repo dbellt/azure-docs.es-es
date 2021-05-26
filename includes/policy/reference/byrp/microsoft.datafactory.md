@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/04/2021
+ms.date: 05/14/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: ca197d3b33998808775740a32b6ede8f5310eae5
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6b0f61632d54821e00a58944057d5be46df1eaf4
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108741921"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110091413"
 ---
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -24,4 +24,4 @@ ms.locfileid: "108741921"
 |[Configurar factorías de datos para deshabilitar el acceso a la red pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08b1442b-7789-4130-8506-4f99a97226a7) |Deshabilite el acceso a la red pública para la instancia de Data Factory de modo que no sea accesible desde la red pública de Internet. Esto puede reducir los riesgos de pérdida de datos. Más información en: [https://docs.microsoft.com/azure/data-factory/data-factory-private-link](https://docs.microsoft.com/azure/data-factory/data-factory-private-link). |Modificar, Deshabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Factory/DataFactory_PublicNetworkAccess_Modify.json) |
 |[Configurar los puntos de conexión privados para factorías de datos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F496ca26b-f669-4322-a1ad-06b7b5e41882) |Los puntos de conexión privados conectan la red virtual a los servicios de Azure sin una dirección IP pública en el origen o el destino.  Al asignar puntos de conexión privados a la instancia de Azure Data Factory, se reduce el riesgo de pérdida de datos.  Más información en: [https://docs.microsoft.com/azure/data-factory/data-factory-private-link](https://docs.microsoft.com/azure/data-factory/data-factory-private-link). |DeployIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Factory/DataFactory_PrivateEndpoints_DeployIfNotExists.json) |
 |[Debe deshabilitarse el acceso a redes públicas en Azure Data Factory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1cf164be-6819-4a50-b8fa-4bcaa4f98fb6). |Al deshabilitar la propiedad de acceso a la red pública, se mejora la seguridad al garantizar que solo se pueda acceder a la instancia de Azure Data Factory desde un punto de conexión privado. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Factory/DataFactory_PublicNetworkAccess_Audit.json) |
-|[Los entornos de ejecución de integración de SQL Server Integration Services en Azure Data Factory deben unirse a una red virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0088bc63-6dee-4a9c-9d29-91cfdc848952) |La implementación de Azure Virtual Network proporciona seguridad y aislamiento mejorados para los entornos de ejecución de integración de SQL Server Integration Services en Azure Data Factory, así como subredes, directivas de control de acceso y otras características para restringir aún más el acceso. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Factory/SSISIR_JoinVirtualNetwork_Audit.json) |
+|[Los entornos de ejecución de integración de SQL Server Integration Services en Azure Data Factory deben unirse a una red virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0088bc63-6dee-4a9c-9d29-91cfdc848952) |La implementación de Azure Virtual Network proporciona seguridad y aislamiento mejorados para los entornos de ejecución de integración de SQL Server Integration Services en Azure Data Factory, así como subredes, directivas de control de acceso y otras características para restringir aún más el acceso. |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Factory/SSISIR_JoinVirtualNetwork_Audit.json) |

@@ -4,12 +4,12 @@ description: No se puede acceder a la vista de Apache Hive debido a problemas de
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/30/2019
-ms.openlocfilehash: 42fb9f5389cbc31e772dc9cf36b6a975c5e18d3c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 475f717413252b69e3861ca3a7210ec72b6ac581
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98939304"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110191401"
 ---
 # <a name="scenario-apache-hive-fails-to-establish-a-connection-to-apache-zookeeper-in-azure-hdinsight"></a>Escenario: Apache Hive no puede establecer una conexión con Apache Zookeeper en Azure HDInsight.
 
@@ -20,7 +20,7 @@ En este artículo se describen los pasos para la solución de problemas y las po
 No se puede tener acceso a la vista de Hive y los registros de `/var/log/hive` muestran un error similar al siguiente:
 
 ```
-ERROR [Curator-Framework-0]: curator.ConnectionState (ConnectionState.java:checkTimeouts(200)) - Connection timed out for connection string (zk0-cluster.cloud.wbmi.com:2181,zk1-cluster.cloud.wbmi.com:2181,zk2-cluster.cloud.wbmi.com:2181) and timeout (15000) / elapsed (21852)
+ERROR [Curator-Framework-0]: curator.ConnectionState (ConnectionState.java:checkTimeouts(200)) - Connection timed out for connection string (<zookeepername1>.cloud.wbmi.com:2181,<zookeepername2>.cloud.wbmi.com:2181,<zookeepername3>.cloud.wbmi.com:2181) and timeout (15000) / elapsed (21852)
 ```
 
 ## <a name="cause"></a>Causa
@@ -34,8 +34,8 @@ Es posible que Hive no pueda establecer una conexión con Zookeeper, lo que impi
 1. Compruebe si el servicio Zookeeper tiene una entrada ZNode para Hive Server2. Falta el valor o no es correcto.
 
     ```
-    /usr/hdp/2.6.2.25-1/zookeeper/bin/zkCli.sh -server zk1-wbwdhs
-    [zk: zk0-cluster(CONNECTED) 0] ls /hiveserver2-hive2
+    /usr/hdp/2.6.2.25-1/zookeeper/bin/zkCli.sh -server <zookeepername1>
+    [zk: <zookeepername1>(CONNECTED) 0] ls /hiveserver2-hive2
     ```
 
 1. Para volver a establecer la conectividad, reinicie los nodos de Zookeeper y reinicie HiveServer2.

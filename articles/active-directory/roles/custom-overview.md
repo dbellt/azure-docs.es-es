@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bddb03094b73dbd6d3b8d44c76ab242caa515dc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: efd71944d0c29b9e796c4e5508f6b5116df99ec2
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727865"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110092825"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Introducción al control de acceso basado en rol en Azure Active Directory
 
@@ -79,9 +79,9 @@ Una definición de roles, o rol, es una colección de permisos. En una definici�
 
 Un ámbito es la restricción de las acciones permitidas a un recurso de Azure AD determinado como parte de una asignación de roles. Cuando asigna un rol, puede especificar un ámbito que limita el acceso del administrador a un recurso específico. Por ejemplo, si quiere conceder un rol personalizado a un desarrollador, pero solo para administrar un registro de aplicación específico, puede incluir el registro de aplicación específico como ámbito en la asignación de roles.
 
-## <a name="required-license-plan"></a>Plan de licencia necesario
+## <a name="license-requirements"></a>Requisitos de licencia
 
-El uso de roles integrados en Azure AD es gratis, mientras que los roles personalizados requieren una licencia de Azure AD Premium P1. Para obtener la licencia correcta para sus requisitos, consulte [Comparación de las características con disponibilidad general de las ediciones Gratis, Básico y Premium](https://azure.microsoft.com/pricing/details/active-directory).
+El uso de roles integrados en Azure AD es gratis, mientras que los roles personalizados requieren una licencia de Azure AD Premium P1. Para obtener la licencia correcta para sus requisitos, consulte [Comparación de las características con disponibilidad general de las ediciones Gratis y Prémium](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

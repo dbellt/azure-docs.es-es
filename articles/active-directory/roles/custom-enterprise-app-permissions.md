@@ -12,20 +12,20 @@ ms.date: 11/04/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: d2159540c688a63082efb792fd4d261062ef65d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc3db3de91c9fbf059c56fb1f2770381265d82de
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466800"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110090648"
 ---
 # <a name="enterprise-application-permissions-for-custom-roles-in-azure-active-directory"></a>Permisos de aplicaciones empresariales para roles personalizados de Azure Active Directory
 
 Este artículo contiene los permisos de aplicaciones empresariales disponibles actualmente para las definiciones de roles personalizados de Azure Active Directory. En este artículo, encontrará listas de permisos para algunos escenarios habituales y la lista completa de permisos de aplicaciones empresariales. Los permisos de Application Proxy no se han publicado en esta versión.
 
-## <a name="required-license-plan"></a>Plan de licencia necesario
+## <a name="license-requirements"></a>Requisitos de licencia
 
-El uso de esta característica requiere tener una licencia de Azure AD Premium P1 para la organización de Azure AD. Para obtener la licencia correcta para sus requisitos, consulte [Comparación de las características con disponibilidad general de las ediciones Gratis, Básico y Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+[!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="enterprise-application-permissions"></a>Permisos de aplicaciones empresariales
 

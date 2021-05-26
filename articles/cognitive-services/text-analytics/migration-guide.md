@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 04/14/2021
+ms.date: 05/21/2021
 ms.author: aahi
-ms.openlocfilehash: d0fb220e86723a5ae75fe808a995333df9ffd1a8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 4edd78b89ed30d6458eee94e328b8c05f141bfd6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084665"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457705"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Migración a la versión 3.x de la API Text Analytics
 

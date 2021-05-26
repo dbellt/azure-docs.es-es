@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
-ms.openlocfilehash: fd65177fb6202b0396545043c2e63a87c7f01bbb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9ac4e44a3bb21c746865b4aa3d86a75501f9cde0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104864608"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064907"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Información general acerca de Apache Spark Structured Streaming
 
@@ -73,7 +73,7 @@ Estos archivos JSON se almacenan en la subcarpeta `temps` debajo del contenedor 
 
 En primer lugar, configure una instancia de DataFrame que describa el origen de los datos y todos los valores que requiera dicho origen. En este ejemplo se extraen los archivos JSON de Azure Storage y se les aplica un esquema en el momento en que se leen.
 
-```sql
+```scala
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.functions._
 
@@ -91,7 +91,7 @@ val streamingInputDF = spark.readStream.schema(jsonSchema).json(inputPath)
 
 A continuación, aplique una consulta que contenga las operaciones deseadas a la instancia de DataFrame de Streaming. En este caso, una agregación agrupa todas las filas en periodos de 1 hora y, a continuación, calcula las temperaturas mínima, máxima y media en el periodo de 1 hora.
 
-```sql
+```scala
 val streamingAggDF = streamingInputDF.groupBy(window($"time", "1 hour")).agg(min($"temp"), avg($"temp"), max($"temp"))
 ```
 
@@ -99,7 +99,7 @@ val streamingAggDF = streamingInputDF.groupBy(window($"time", "1 hour")).agg(min
 
 A continuación, defina el destino de las filas que se agregan a la tabla de resultados en cada intervalo del desencadenador. En este ejemplo solo se generan todas las filas en una tabla en memoria `temps` que posteriormente se puede consultar con SparkSQL. El modo de salida completa garantiza que siempre se generan todas las filas de todos los periodos.
 
-```sql
+```scala
 val streamingOutDF = streamingAggDF.writeStream.format("memory").queryName("temps").outputMode("complete")
 ``` 
 
@@ -107,7 +107,7 @@ val streamingOutDF = streamingAggDF.writeStream.format("memory").queryName("temp
 
 Inicie la consulta de streaming y ejecútela hasta que reciba una señal de finalización.
 
-```sql
+```scala
 val query = streamingOutDF.start() 
 ``` 
 
