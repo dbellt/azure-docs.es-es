@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 273548ec095ce04772438a2d732b914d80d976cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c27ce8087020a43076ee3c4c8a99454a554554c
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96353160"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377489"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Prueba de una base de conocimiento en QnA Maker
 
@@ -66,7 +66,7 @@ Seleccione **Guardar y entrenar** para persistir esta respuesta. Se ha agregado 
 > [!NOTE]
 > Todas las modificaciones realizadas en la base de conocimiento solo se guardan si presiona el botón **Guardar y entrenar**.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
 1. Acceda a la base de conocimiento; para ello, seleccione su nombre en la página **Mis bases de conocimiento**.
 1. Para acceder al panel deslizante Prueba, seleccione **Prueba** en el panel superior de la aplicación. 
@@ -94,6 +94,7 @@ Puede inspeccionar los detalles del resultado de las pruebas en el panel Inspecc
 
 2.  Aparece el panel Inspección. El panel incluye la intención de mayor puntuación, así como cualquier entidad identificada. El panel muestra el resultado de la expresión seleccionada.
 3. El panel muestra la puntuación de confianza del pasaje de la respuesta, junto con la puntuación del intervalo de respuestas detectado.
+4. El panel también muestra el origen de la knowledge base del fragmento de respuesta.
 
 ### <a name="correct-the-top-scoring-answer"></a>Corrección de la respuesta con mayor puntuación
 
@@ -290,11 +291,11 @@ En el procedimiento siguiente se supone que el escenario es procesar los registr
     > [!div class="mx-imgBorder"]
     > ![Salida de la segunda versión del archivo .tsv desde la prueba por lotes](../media/batch-test/batch-test-2-output.png)
 
-### <a name="test-results-and-an-automated-test-system"></a>Resultados de la prueba y un sistema de pruebas automatizadas
+### <a name="test-results-and-an-automated-test-system&quot;></a>Resultados de la prueba y un sistema de pruebas automatizadas
 
 Este archivo de salida de prueba se puede analizar como parte de una canalización de prueba continua automatizada.
 
-Esta salida de prueba específica debe leerse de la siguiente forma: todas las filas se han filtrado con metadatos y como no todas las filas coincidían con los metadatos de la base de conocimiento, se ha devuelto la respuesta predeterminada para las filas no coincidentes ("no se encontró ninguna coincidencia exacta en la base de conocimiento"). De las filas que coincidían, se devolvieron tanto el identificador de QnA como la puntuación.
+Esta salida de prueba específica debe leerse de la siguiente forma: todas las filas se han filtrado con metadatos y como no todas las filas coincidían con los metadatos de la base de conocimiento, se ha devuelto la respuesta predeterminada para las filas no coincidentes (&quot;no se encontró ninguna coincidencia exacta en la base de conocimiento"). De las filas que coincidían, se devolvieron tanto el identificador de QnA como la puntuación.
 
 Todas las filas devolvieron la etiqueta de incorrecta, ya que ninguna de ellas que coincidía con el identificador de respuesta esperado.
 

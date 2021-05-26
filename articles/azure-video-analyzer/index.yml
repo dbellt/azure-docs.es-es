@@ -1,0 +1,34 @@
+### YamlMime:Hub
+title: Documentación de Azure Video Analyzer
+summary: 'Con Azure Video Analyzer, los desarrolladores pueden crear rápidamente una solución de análisis de vídeo con tecnología de inteligencia artificial para extraer información accionable de vídeos, ya sean almacenados o de streaming. Las organizaciones pueden mejorar la seguridad del área de trabajo, las experiencias en la tienda, la administración de recursos digitales, los archivos multimedia y mucho más mediante la comprensión del contenido de audio y vídeo visual sin experiencia en vídeo ni aprendizaje automático. Azure Video Analyzer ofrece la plataforma para desarrolladores de análisis de vídeo y Azure Video Analyzer for Media ofrece soluciones de inteligencia artificial destinadas a escenarios multimedia.'
+brand: azure
+metadata:
+  title: Documentación de Azure Video Analyzer
+  description: 'Con Azure Video Analyzer, los desarrolladores pueden crear rápidamente una solución de análisis de vídeo con tecnología de inteligencia artificial para extraer información accionable de vídeos, ya sean almacenados o de streaming. Las organizaciones pueden mejorar la seguridad del área de trabajo, las experiencias en la tienda, la administración de recursos digitales, los archivos multimedia y mucho más mediante la comprensión del contenido de audio y vídeo visual sin experiencia en vídeo ni aprendizaje automático. Azure Video Analyzer ofrece la plataforma para desarrolladores de análisis de vídeo y Azure Video Analyzer for Media ofrece soluciones de inteligencia artificial destinadas a escenarios multimedia.'
+  services: azure-video-analyzer
+  ms.service: azure-video-analyzer
+  ms.topic: hub-page
+  ms.collection: collection
+  author: Juliako
+  ms.author: juliako
+  ms.date: 03/21/2021
+highlightedContent:
+  items:
+    - title: Documentación de Azure Video Analyzer
+      itemType: overview
+      url: ./video-analyzer-docs/overview.md
+    - title: Documentación de Azure Video Analyzer for Media
+      itemType: overview
+      url: ./video-analyzer-for-media-docs/video-indexer-overview.md
+additionalContent:
+  sections:
+    - items:
+        - title: "Azure\_AI"
+          summary: Haga que la inteligencia artificial (IA) sea real para sus requisitos empresariales.
+          url: 'https://azure.microsoft.com/overview/ai-platform/'
+        - title: Servicios de IoT de Azure
+          summary: Use la potencia de Azure IoT para satisfacer sus necesidades según los requisitos del sector en servidores perimetrales o la nube.
+          url: 'https://azure.microsoft.com/overview/iot/'
+        - title: Azure Machine Learning
+          summary: Aceleración del ciclo de vida de aprendizaje automático de un extremo a otro con Azure Machine Learning
+          url: 'https://azure.microsoft.com/services/machine-learning/'

@@ -3,12 +3,12 @@ title: Escalabilidad - Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporciona información sobre cómo escalar Azure Event Hubs mediante el uso de particiones y unidades de procesamiento.
 ms.topic: article
 ms.date: 03/16/2021
-ms.openlocfilehash: f258ee2a3b4162dabf7a8e615db82b9b889d628b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: acfc300ff7e6bd77c570c68bda50a731df10409c
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103601293"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367098"
 ---
 # <a name="scaling-with-event-hubs"></a>Escalado con Event Hubs
 
@@ -35,6 +35,14 @@ La característica de **inflado automático** de Event Hubs escala verticalmente
 El servicio Event Hubs aumenta el rendimiento cuando la carga aumenta más allá del umbral mínimo, sin que se produzca ningún problema de las solicitudes con errores de ServerBusy. 
 
 Para más información sobre la característica de inflado automático, consulte [Escalado automático de las unidades de rendimiento](event-hubs-auto-inflate.md).
+
+## <a name="processing-units"></a>Unidades de procesamiento
+
+ [Event Hubs Premium](./event-hubs-premium-overview.md) proporciona un rendimiento superior y un mejor aislamiento en un entorno PaaS multiinquilino administrado. Los recursos de un nivel Premium están aislados en el nivel de CPU y memoria para que cada carga de trabajo de inquilino se ejecute en aislamiento. Este contenedor de recursos recibe el nombre de *unidad de procesamiento* (PU). Puede comprar 1, 2, 4, 8 o 16 unidades de procesamiento para cada espacio de nombres de Event Hubs Premium. 
+
+Lo que se pueda ingerir y transmitir con una unidad de procesamiento depende de varios factores, como los productores, los consumidores, la velocidad a la que se ingiere y procesa, etc. Una unidad de procesamiento puede ofrecer aproximadamente una capacidad principal de entrada de ~5-10 MB/s y de salida de 10-20 MB/s, dado que hay suficientes particiones para que el almacenamiento no sea un factor de limitación.  
+
+
 
 ## <a name="partitions"></a>Particiones
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]

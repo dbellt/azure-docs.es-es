@@ -6,12 +6,12 @@ ms.subservice: ''
 ms.date: 04/16/2019
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 91c4780981851b62027fecf18da2c3b78625f272
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 5fe977851011bdfa4f7bbf2bde24e5e4b6fd480d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831211"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457863"
 ---
 # <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Solución de problemas de State Configuration de Azure Automation
 
@@ -49,7 +49,7 @@ DSC depende de módulos que hay instalados en el nodo. Al usar State Configurati
 
 ## <a name="scenario-a-configuration-with-special-characters-cant-be-deleted-from-the-portal"></a><a name="unsupported-characters"></a>Escenario: no se puede eliminar una configuración con caracteres especiales del portal
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Al intentar eliminar una configuración de DSC del portal, verá el siguiente error:
 
@@ -67,7 +67,7 @@ Use el cmdlet [Remove-AzAutomationDscConfiguration](/powershell/module/Az.Automa
 
 ## <a name="scenario-failed-to-register-the-dsc-agent"></a><a name="failed-to-register-agent"></a>Escenario: no se pudo registrar el agente de DSC
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Si usa [Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager) u otro cmdlet de DSC, recibirá el siguiente error:
 
@@ -90,9 +90,9 @@ Este error se debe normalmente a un firewall, a la máquina que está detrás de
 
 Compruebe que la máquina tenga acceso a los puntos de conexión adecuados para DSC y vuelva a intentarlo. Para ver una lista de puertos y direcciones necesarios, consulte el artículo sobre [planeamiento de red](../automation-dsc-overview.md#network-planning).
 
-## <a name="a-nameunauthorizedscenario-status-reports-return-the-response-code-unauthorized"></a><a name="unauthorized"><a/>Escenario: los informes de estado devuelven el código de respuesta No autorizado
+## <a name="scenario-status-reports-return-the-response-code-unauthorized"></a><a name="unauthorized"></a>Escenario: los informes de estado devuelven el código de respuesta No autorizado
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Al registrar un nodo con State Configuration de Azure Automation, recibirá uno de los mensajes de error siguientes:
 
@@ -156,7 +156,7 @@ If (($certs.Count) -gt 0)
 
 ## <a name="scenario-node-is-in-failed-status-with-a-not-found-error"></a><a name="failed-not-found"></a>Escenario: el nodo se encuentra en estado de error con el error "No encontrado"
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 El nodo tiene un informe con el estado Con errores y contiene el error:
 
@@ -178,7 +178,7 @@ Este error suele ocurrir cuando se asigna al nodo un nombre de configuración, c
 
 ## <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-was-compiled"></a><a name="no-mof-files"></a>Escenario: no se produjeron configuraciones de nodo (archivos MOF) al compilar una configuración
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Su trabajo de compilación de DSC suspende con el error:
 
@@ -199,7 +199,7 @@ Use cualquiera de las siguientes soluciones para corregir el problema.
 
 ## <a name="scenario-the-dsc-node-report-becomes-stuck-in-the-in-progress-state"></a><a name="dsc-in-progress"></a>Escenario: el informe de nodo de DSC se queda bloqueado en el estado En curso
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 El agente DSC genera la salida:
 
@@ -217,7 +217,7 @@ Siga las instrucciones de [Problemas y limitaciones conocidos en DSC](/powershel
 
 ## <a name="scenario-unable-to-use-a-credential-in-a-dsc-configuration"></a><a name="issue-using-credential"></a>Escenario: no se puede usar una credencial en una configuración de DSC
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 El trabajo de compilación de DSC se ha suspendido con el error:
 
@@ -235,7 +235,7 @@ Asegúrese de pasar el valor adecuado de `ConfigurationData` para establecer `PS
 
 ## <a name="scenario-failure-processing-extension-error-when-enabling-a-machine-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>Escenario: error de procesamiento de la extensión al habilitar una máquina desde una extensión DSC
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Al habilitar una máquina mediante una extensión DSC, se produce un error que contiene lo siguiente:
 
@@ -254,7 +254,7 @@ Este error suele producirse cuando se asigna al nodo un nombre de configuración
 
 ## <a name="scenario-one-or-more-errors-occurred-error-when-registering-a-node-by-using-powershell"></a><a name="cross-subscription"></a>Escenario: error "Se produjeron uno o más errores" al registrar un nodo con PowerShell
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Al registrar un nodo mediante [Register-AzAutomationDSCNode](/powershell/module/az.automation/register-azautomationdscnode) o [Register-AzureRMAutomationDSCNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode), se recibirá el siguiente error:
 
@@ -275,7 +275,7 @@ Trate el nodo entre suscripciones como si se hubiera definido para una nube inde
 
 ## <a name="scenario-provisioning-has-failed-error-message"></a><a name="agent-has-a-problem"></a>Escenario: mensaje de error: "Error en el aprovisionamiento"
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Al registrar un nodo, se muestra el error:
 
@@ -293,7 +293,7 @@ Determine si el nodo está en una red virtual privada (VPN) o si tiene otros pro
 
 ## <a name="scenario-failure-with-a-general-error-when-applying-a-configuration-in-linux"></a><a name="failure-linux-temp-noexec"></a>Escenario: error general al aplicar una configuración en Linux
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Al aplicar una configuración en Linux, se produce un error que contiene lo siguiente:
 
@@ -311,7 +311,7 @@ Quite la opción `noexec` de la ubicación **/tmp**.
 
 ## <a name="scenario-node-configuration-names-that-overlap-can-result-in-a-bad-release"></a><a name="compilation-node-name-overlap"></a>Escenario: los nombres de configuración de nodos que se superponen pueden provocar una versión incorrecta
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Si usa un único script de configuración para generar varias configuraciones de nodo y algunos nombres de configuración de nodos son subconjuntos de otros nombres, el servicio de compilación puede acabar asignando la configuración incorrecta. Este problema solo se produce al utilizar un único script para generar configuraciones con datos de configuración por nodo y solo cuando la superposición de los nombres tiene lugar al principio de la cadena. Un ejemplo es un script de configuración único para generar configuraciones basadas en los datos de nodo pasados como una tabla hash mediante cmdlets, y los datos del nodo incluyen servidores denominados **server** y **1server**.
 
@@ -325,7 +325,7 @@ La mejor solución sería realizar la compilación localmente o en una canalizac
 
 ## <a name="scenario-gateway-timeout-error-on-dsc-configuration-upload"></a><a name="gateway-timeout"></a>Escenario: Error de tiempo de espera de puerta de enlace en la carga de la configuración de DSC
 
-#### <a name="issue"></a>Problema
+#### <a name="issue"></a>Incidencia
 
 Recibe un error `GatewayTimeout` al cargar una configuración de DSC. 
 

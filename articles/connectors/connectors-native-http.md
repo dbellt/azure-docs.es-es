@@ -4,15 +4,15 @@ description: Envío de solicitudes HTTP o HTTPS salientes a puntos de conexión 
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
-ms.topic: conceptual
-ms.date: 02/18/2021
+ms.topic: how-to
+ms.date: 05/25/2021
 tags: connectors
-ms.openlocfilehash: dab5b755347e46d8d509e8014bba8f496ca9c900
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45c6945818016618252e69554c62391691d2fb6a
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719447"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368862"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Llamada a puntos de conexión de servicio mediante HTTP o HTTPS desde Azure Logic Apps
 
@@ -194,6 +194,41 @@ De forma predeterminada, todas las acciones basadas en HTTP de Azure Logic Apps 
 
 * La definición de la notación de objetos JavaScript (JSON) subyacente de la acción HTTP sigue implícitamente el modelo asincrónico de operación.
 
+<a name="tsl-ssl-certificate-authentication"></a>
+
+## <a name="tslssl-certificate-authentication"></a>Autenticación con certificados TLS/SSL
+
+Si tiene un recurso de **aplicación lógica (Estándar)** en un inquilino único de Azure Logic Apps e intenta llamar a un punto de conexión HTTPS desde el flujo de trabajo mediante la operación HTTP y un certificado TLS/SSL para la autenticación, se produce un error en la llamada a menos que complete también estos pasos:
+
+1. En la configuración de la aplicación del recurso de aplicación lógica, [agregue o actualice la configuración de la aplicación](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings) `WEBSITE_LOAD_ROOT_CERTIFICATES`.
+
+1. Para el valor de configuración, proporcione la huella digital del certificado TLS/SSL como certificado raíz de confianza.
+
+   `"WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>"`
+
+Por ejemplo, si trabaja en Visual Studio Code, siga estos pasos:
+
+1. Abra el archivo **local.settings.json** del proyecto de aplicación lógica.
+
+1. En el objeto JSON `Values`, agregue o actualice la configuración `WEBSITE_LOAD_ROOT_CERTIFICATES`:
+
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         <...>
+         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+         "WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>",
+         <...>
+      }
+   }
+   ```
+
+Para más información, revise la siguiente documentación:
+
+* [Edición de la configuración de host y aplicación para aplicaciones lógicas en Azure Logic Apps de inquilino único](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)
+* [Certificados y App Service aislado](../app-service/environment/certificates.md#private-client-certificate)
+
 <a name="disable-asynchronous-operations"></a>
 
 ## <a name="disable-asynchronous-operations"></a>Deshabilitación de las operaciones asincrónicas
@@ -233,7 +268,7 @@ Las solicitudes HTTP tienen un [límite de tiempo de espera](../logic-apps/logic
 
 ## <a name="disable-checking-location-headers"></a>Deshabilitación de la comprobación de encabezados de ubicación
 
-Algunos puntos de conexión, servicios, sistemas o API devuelven una respuesta "202 ACCEPTED" que no tiene un encabezado `location`. Para evitar que una acción HTTP compruebe continuamente el estado de la solicitud cuando no existe el encabezado `location`, puede tener estas opciones:
+Algunos puntos de conexión, servicios, sistemas o API devuelven una respuesta `202 ACCEPTED` que no tiene el encabezado `location`. Para evitar que una acción HTTP compruebe continuamente el estado de la solicitud cuando no existe el encabezado `location`, puede tener estas opciones:
 
 * [Deshabilite el modelo asincrónico de operación de la acción HTTP](#disable-asynchronous-operations) para que la acción no sondee continuamente ni compruebe el estado de la solicitud. En su lugar, la acción espera a que el receptor responda con el estado y los resultados una vez finalizado el procesamiento de la solicitud.
 
@@ -262,7 +297,7 @@ Aunque Logic Apps no le impedirá guardar aplicaciones lógicas que usen una acc
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener más información acerca de los parámetros de desencadenador y acción, consulte las siguientes secciones:
+Para obtener información técnica acerca de los parámetros de desencadenador y de acción, consulte las siguientes secciones:
 
 * [Parámetros de desencadenador HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
 * [Parámetros de acción HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)

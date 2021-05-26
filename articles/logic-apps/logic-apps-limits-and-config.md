@@ -1,35 +1,30 @@
 ---
-title: Límites y configuración
+title: Guía de referencia de límites y configuración
 description: Guía de referencia sobre información de límites y configuración para Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: rohithah, logicappspm
-ms.topic: conceptual
-ms.date: 05/05/2021
-ms.openlocfilehash: a074009b29c5414b356022f08afe81210fc0f60c
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.reviewer: rohithah, rarayudu, azla
+ms.topic: reference
+ms.date: 05/25/2021
+ms.openlocfilehash: 49f9a04351d243f4011b35370b99e30327446f5d
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634696"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378187"
 ---
-# <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
+# <a name="limits-and-configuration-reference-for-azure-logic-apps"></a>Referencia de límites y configuración para Azure Logic Apps
 
 > Para Power Automate, consulte [Límites y configuración en Power Automate](/flow/limits-and-config).
 
-En este artículo se describe la información de límites y configuración para Azure Logic Apps y recursos relacionados. Muchos límites son los mismos para el servicio Logic Apps tanto multiinquilino como de inquilino único (versión preliminar), y las diferencias se indican cuando existen.
+En este artículo se describe la información de límites y configuración para Azure Logic Apps y recursos relacionados. Para crear flujos de trabajo de aplicación lógica, elija el tipo de recurso **Logic Apps** en función del escenario, los requisitos de la solución, las funcionalidades que desea y el entorno donde quiere ejecutar los flujos de trabajo.
 
-En la tabla siguiente se brinda más información sobre los términos, *multiinquilino*, *inquilino único* y *entorno del servicio de integración*, que aparecen en este artículo:
+> [!NOTE]
+> Muchos límites son los mismos en estos entornos de host, pero se observan diferencias en los casos que ya existen. Si los escenarios que requieren límites diferentes, [póngase en contacto con el equipo de Logic Apps](mailto://logicappspm@microsoft.com) para analizar sus requisitos.
 
-| Entorno | Intercambio y uso de recursos | [Modelo de precios](logic-apps-pricing.md) | Notas |
-|-------------|----------------------------|----------------------------------------|-------|
-| Azure Logic Apps <br>(Multiinquilino) | Los flujos de trabajo en las aplicaciones lógicas de *varios inquilinos* comparten el mismo procesamiento (proceso), almacenamiento, red, etc. | Consumo | Azure Logic Apps administra los valores predeterminados para estos límites, pero usted puede cambiar algunos de estos valores, si existe esa opción para un límite específico. |
-| Azure Logic Apps <br>(Inquilino único [versión preliminar]) | Los flujos de trabajo *de la misma aplicación lógica y un inquilino único* comparten el mismo procesamiento (proceso), almacenamiento, red, etc. | Versión preliminar, que es el [plan de hospedaje Premium](../azure-functions/functions-scale.md)o el [plan de hospedaje de App Service](../azure-functions/functions-scale.md) con un [plan de tarifa](../app-service/overview-hosting-plans.md) específico. <p><p>Si tiene flujos de trabajo *con estado*, que usan [almacenamiento externo](../azure-functions/storage-considerations.md#storage-account-requirements), el entorno en tiempo de ejecución de Azure Logic Apps realiza transacciones de almacenamiento que siguen los [precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/). | Puede cambiar los valores predeterminados para muchos límites, en función de las necesidades de su escenario. <p><p>**Importante**: Algunos límites tienen máximos fijos. En Visual Studio Code, los cambios que haga en los valores de límite predeterminados en los archivos de configuración de un proyecto de aplicación lógica no aparecerán en la experiencia del diseñador. <p><p>Para obtener más información, consulte [Creación de flujos de trabajo para Azure Logic Apps de inquilino único mediante Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md). |
-| entorno de servicio de integración | Los flujos de trabajo del *mismo entorno* comparten el mismo procesamiento (proceso), almacenamiento, red, etc. | Fijo | Azure Logic Apps administra los valores predeterminados para estos límites, pero usted puede cambiar algunos de estos valores, si existe esa opción para un límite específico. |
-|||||
+En la tabla siguiente se resumen brevemente las diferencias entre el tipo de recurso original **Logic Apps (consumo)** y el tipo de recurso **Logic Apps (estándar)** . También aprenderá en qué se diferencia el entorno de *inquilino único* del entorno *multiinquilino* y el *Entorno del servicio de integración (ISE)* para implementar, hospedar y ejecutar los flujos de trabajo de la aplicación lógica.
 
-> [!TIP]
-> Para escenarios que requieren límites diferentes, [póngase en contacto con el equipo de Logic Apps](mailto://logicappspm@microsoft.com) para analizar sus requisitos.
+[!INCLUDE [Logic app resource type and environment differences](../../includes/logic-apps-resource-environment-differences-table.md)]
 
 <a name="definition-limits"></a>
 
@@ -39,18 +34,18 @@ En las tablas siguientes se muestran los valores para una definición única de 
 
 | Nombre | Límite | Notas |
 | ---- | ----- | ----- |
-| Flujos de trabajo por región y suscripción | 1000 flujos de trabajo | |
+| Flujos de trabajo por región y suscripción | 1000 flujos de trabajo ||
 | Desencadenadores por flujo de trabajo | 10 desencadenadores | Este límite solo se aplica cuando se trabaja en la definición de flujos de trabajo JSON, ya sea en la vista de código o en una plantilla de Azure Resource Manager (ARM), no en el diseñador. |
 | Acciones por flujo de trabajo | 500 acciones | Para ampliar este límite, puede usar flujos de trabajo anidados según sea necesario. |
 | Profundidad de anidamiento de acciones | 8 acciones | Para ampliar este límite, puede usar flujos de trabajo anidados según sea necesario. |
-| Desencadenador o acción: longitud máxima del nombre | 80 caracteres | |
-| Desencadenador o acción: tamaño máximo de entrada o salida | 104 857 600 bytes <br>(105 MB) |
-| Acción: tamaño máximo de entradas y salidas combinadas | 209 715 200 bytes <br>(210 MB) |
-| Límite de caracteres de expresión | 8192 caracteres | |
-| `description`: longitud máxima | 256 caracteres | |
-| `parameters`: número máximo de elementos | 50 parámetros | |
-| `outputs`: número máximo de elementos | 10 salidas | |
-| `trackedProperties`: tamaño máximo | 16 000 caracteres |
+| Desencadenador o acción: longitud máxima del nombre | 80 caracteres ||
+| Desencadenador o acción: tamaño máximo de entrada o salida | 104 857 600 bytes <br>(105 MB) | Para obtener más información sobre cómo editar el límite predeterminado en el modelo de inquilino único, consulte [Edición de la configuración de host y aplicación para aplicaciones lógicas en Azure Logic Apps de inquilino único](edit-app-settings-host-settings.md). |
+| Acción: tamaño máximo de entradas y salidas combinadas | 209 715 200 bytes <br>(210 MB) ||
+| Límite de caracteres de expresión | 8192 caracteres ||
+| `description`: longitud máxima | 256 caracteres ||
+| `parameters`: número máximo de elementos | 50 parámetros ||
+| `outputs`: número máximo de elementos | 10 salidas ||
+| `trackedProperties`: tamaño máximo | 16 000 caracteres ||
 ||||
 
 <a name="run-duration-retention-limits"></a>
@@ -59,8 +54,8 @@ En las tablas siguientes se muestran los valores para una definición única de 
 
 En la tabla siguiente se enumeran los valores de una única ejecución de flujos de trabajo:
 
-| Nombre | Multiinquilino | Inquilino único (versión preliminar) | entorno de servicio de integración | Notas |
-|------|--------------|-------------------------|---------------------------------|-------|
+| Nombre | Multiinquilino | Inquilino único | entorno de servicio de integración | Notas |
+|------|--------------|---------------|---------------------------------|-------|
 | Retención del historial de ejecución en el almacenamiento | 90 días | 90 días | 366 días | Cantidad de tiempo para mantener el historial de ejecución de los flujos de trabajo en el almacenamiento después de que se inicie una ejecución. Cuando la duración de la ejecución supera el límite de retención del historial de ejecución actual, la ejecución se quita del historial de ejecución en el almacenamiento. <p>Tanto si se completa la ejecución como si se agota el tiempo de espera, la retención del historial de ejecución siempre se calcula mediante la hora de inicio de la ejecución y el límite actual especificado en la configuración del flujo de trabajo [**Retención del historial de ejecución en días**](#change-retention). Con independencia del límite anterior, el actual siempre se usa para calcular la retención. <p><p>Para obtener más información, consulte [Cambio de la duración de ejecución y de la retención del historial en el almacenamiento](#change-retention). <p><p>**Sugerencia**: Para escenarios que requieren límites diferentes, [póngase en contacto con el equipo de Logic Apps](mailto://logicappspm@microsoft.com) para analizar sus requisitos. |
 | Duración de la ejecución | 90 días | - Flujo de trabajo con estado: 90 días <p><p>- Flujo de trabajo sin estado: 5 minutos | 366 días | Cantidad de tiempo que un flujo de trabajo puede seguir ejecutándose antes de forzar un tiempo de espera. <p>La duración de la ejecución se calcula con la hora de inicio de una ejecución y el límite especificado en la configuración del flujo de trabajo, [**Retención del historial de ejecución en días**](#change-duration) en esa hora de inicio. <p>**Importante**: Asegúrese de que el valor de duración de la ejecución sea siempre menor o igual que la retención del historial de ejecución en el valor de almacenamiento. De lo contrario, los historiales de ejecución podrían eliminarse antes de que se completen los trabajos asociados. <p><p>Para obtener más información, consulte [Cambio de la duración de ejecución y de la retención del historial en el almacenamiento](#change-duration). <p><p>**Sugerencia**: Para escenarios que requieren límites diferentes, [póngase en contacto con el equipo de Logic Apps](mailto://logicappspm@microsoft.com) para analizar sus requisitos. |
 | Intervalo de periodicidad | - Mín.: 1 segundo <p><p>- Máx.: 500 días | - Mín.: 1 segundo <p><p>- Máx.: 500 días  | - Mín.: 1 segundo <p><p>- Máx.: 500 días ||
@@ -75,7 +70,7 @@ En el diseñador, el mismo valor controla el número máximo de días que un flu
 
 * En el caso del servicio multiinquilino, el límite predeterminado de 90 días es el mismo que el límite máximo. Solo puede disminuir este valor.
 
-* Para el servicio de un inquilino único (versión preliminar), puede reducir o aumentar el límite predeterminado de 90 días. Para obtener más información, consulte [Creación de flujos de trabajo para Azure Logic Apps de inquilino único mediante Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md).
+* Para el servicio de inquilino único, puede reducir o aumentar el límite predeterminado de 90 días. Para obtener más información, consulte [Creación de flujos de trabajo para Azure Logic Apps de inquilino único mediante Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
 * En el caso de un entorno de servicio de integración, puede disminuir o aumentar el límite predeterminado de 90 días.
 
@@ -136,22 +131,26 @@ En la tabla siguiente se enumeran los valores de una única ejecución de flujos
 
 ### <a name="loop-actions"></a>Acciones de bucle
 
+<a name="for-each-loop"></a>
+
 #### <a name="for-each-loop"></a>Bucle For each
 
 En la tabla siguiente se muestran los valores disponibles para un bucle **For each**:
 
-| Nombre | Multiinquilino | Inquilino único (versión preliminar) | entorno de servicio de integración | Notas |
-|------|--------------|-------------------------|---------------------------------|-------|
+| Nombre | Multiinquilino | Inquilino único | entorno de servicio de integración | Notas |
+|------|--------------|---------------|---------------------------------|-------|
 | Elementos de matriz | 100 000 elementos | - Flujo de trabajo con estado: 100 000 elementos <p><p>- Flujo de trabajo sin estado: 100 elementos | 100 000 elementos | Número de elementos de matriz que un bucle **For each** puede procesar. <p><p>Para filtrar matrices más grandes, puede usar la [acción de consulta](logic-apps-perform-data-operations.md#filter-array-action). |
 | Iteraciones simultáneas | Simultaneidad desactivada: 20 <p><p>Simultaneidad activada: <p>- Predeterminadas: 20 <br>- Mín.: 1 <br>- Máx.: 50 | Simultaneidad desactivada: 20 <p><p>Simultaneidad activada: <p><p>- Predeterminadas: 20 <br>- Mín.: 1 <br>- Máx.: 50 | Simultaneidad desactivada: 20 <p><p>Simultaneidad activada: <p>- Predeterminadas: 20 <br>- Mín.: 1 <br>- Máx.: 50 | Número máximo de iteraciones de bucles **For each** que se pueden ejecutar al mismo tiempo o en paralelo. <p><p>Para cambiar este valor en el servicio multiinquilino, consulte [Cambio de la simultaneidad de los bucles **for each**](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) o [Ejecución secuencial de bucles **for each**](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
 ||||||
+
+<a name="until-loop"></a>
 
 #### <a name="until-loop"></a>Bucle Until
 
 En la tabla siguiente se muestran los valores para un bucle **Until**:
 
-| Nombre | Multiinquilino | Inquilino único (versión preliminar) | entorno de servicio de integración | Notas |
-|------|--------------|-------------------------|---------------------------------|-------|
+| Nombre | Multiinquilino | Inquilino único | entorno de servicio de integración | Notas |
+|------|--------------|---------------|---------------------------------|-------|
 | Iteraciones | - Predeterminadas: 60 <br>- Mín.: 1 <br>- Máx.: 5.000 | Flujo de trabajo con estado: <p><p>- Predeterminadas: 60 <br>- Mín.: 1 <br>- Máx.: 5.000 <p><p>Flujo de trabajo sin estado: <p><p>- Predeterminadas: 60 <br>- Mín.: 1 <br>- Máx.: 100 | - Predeterminadas: 60 <br>- Mín.: 1 <br>- Máx.: 5.000 | Número de ciclos que un bucle **Until** puede tener durante la ejecución de un flujo de trabajo. <p><p>Para cambiar este valor, en la forma de bucle **Until**, seleccione **Cambiar límites** y especifique el valor de la propiedad **Recuento**. |
 | Tiempo de espera | Predeterminado: PT1H (1 hora) | Flujo de trabajo con estado: PT1H (1 hora) <p><p>Flujo de trabajo sin estado: PT5M (5 minutos) | Predeterminado: PT1H (1 hora) | Cantidad de tiempo que se puede ejecutar el bucle **Until** antes de que se cierre, y se especifica en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). El valor de tiempo de espera se evalúa para cada ciclo del bucle. Si cualquier acción en el bucle tarda más que el límite de tiempo de expiración, el ciclo actual no se detiene. Pero el siguiente ciclo no se inicia porque no se cumple la condición del límite. <p><p>Para cambiar este valor, en la forma de bucle **Until**, seleccione **Cambiar límites** y especifique el valor de la propiedad **Tiempo de espera**. |
 ||||||
@@ -160,8 +159,8 @@ En la tabla siguiente se muestran los valores para un bucle **Until**:
 
 ### <a name="concurrency-and-debatching"></a>Simultaneidad y separación de lotes
 
-| Nombre | Multiinquilino | Inquilino único (versión preliminar) | entorno de servicio de integración | Notas |
-|------|--------------|-------------------------|---------------------------------|-------|
+| Nombre | Multiinquilino | Inquilino único | entorno de servicio de integración | Notas |
+|------|--------------|---------------|---------------------------------|-------|
 | Desencadenador: ejecuciones simultáneas | Simultaneidad desactivada: ilimitado <p><p>Simultaneidad activada (irreversible): <p><p>- Predeterminadas: 25 <br>- Mín.: 1 <br>- Máx.: 100 | Simultaneidad desactivada: ilimitado <p><p>Simultaneidad activada (irreversible): <p><p>- Predeterminadas: 25 <br>- Mín.: 1 <br>- Máx.: 100 | Simultaneidad desactivada: ilimitado <p><p>Simultaneidad activada (irreversible): <p><p>- Predeterminadas: 25 <br>- Mín.: 1 <br>- Máx.: 100 | Número de ejecuciones simultáneas que un desencadenador puede iniciar al mismo tiempo o en paralelo. <p><p>**Nota**: Cuando la simultaneidad está activada, el límite **SplitOn** se reduce a 100 elementos para [desagrupación de matrices](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Para cambiar este valor en el servicio multiinquilino, consulte [Cambio en la simultaneidad de desencadenadores](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Desencadenamiento secuencial de instancias](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Número máximo de ejecuciones en espera | Simultaneidad desactivada: <p><p>- Mín.: 1 ejecución <p>- Máx.: 50 ejecuciones <p><p>Simultaneidad activada: <p><p>- Mín.: 10 ejecuciones más el número de ejecuciones simultáneas <p>- Máx.: 100 ejecuciones | Simultaneidad desactivada: <p><p>- Mín.: 1 ejecución <p>- Máx.: 50 ejecuciones <p><p>Simultaneidad activada: <p><p>- Mín.: 10 ejecuciones más el número de ejecuciones simultáneas <p>- Máx.: 100 ejecuciones | Simultaneidad desactivada: <p><p>- Mín.: 1 ejecución <p>- Máx.: 50 ejecuciones <p><p>Simultaneidad activada: <p><p>- Mín.: 10 ejecuciones más el número de ejecuciones simultáneas <p>- Máx.: 100 ejecuciones | Número de instancias de flujo de trabajo que se pueden poner en espera de ejecución cuando la instancia de flujo de trabajo actual ya ejecuta el número máximo de instancias simultáneas. <p><p>Para cambiar este valor en el servicio multiinquilino, consulte [Cambio del límite de ejecuciones en espera](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Elementos **SplitOn** | Simultaneidad desactivada: 100 000 elementos <p><p>Simultaneidad activada: 100 elementos | Simultaneidad desactivada: 100 000 elementos <p><p>Simultaneidad activada: 100 elementos | Simultaneidad desactivada: 100 000 elementos <p><p>Simultaneidad activada: 100 elementos | Para los desencadenadores que devuelven una matriz, puede especificar una expresión que use la propiedad **SplitOn**, la cual [divide o desagrupa los elementos de matriz en varias instancias de flujo de trabajo](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) para su procesamiento, en lugar de usar un bucle **For each**. Esta expresión hace referencia a la matriz que se usará para crear y ejecutar una instancia de flujo de trabajo para cada elemento de la matriz. <p><p>**Nota**: Cuando la simultaneidad está activada, el límite **SplitOn** se reduce a 100 elementos. |
@@ -173,7 +172,7 @@ En la tabla siguiente se muestran los valores para un bucle **Until**:
 
 En la tabla siguiente se enumeran los valores de una única definición de flujos de trabajo:
 
-### <a name="multi-tenant--single-tenant-preview"></a>Multiinquilino e inquilino único (versión preliminar)
+### <a name="multi-tenant--single-tenant"></a>Multiinquilino e inquilino único
 
 | Nombre | Límite | Notas |
 | ---- | ----- | ----- |
@@ -265,8 +264,8 @@ Azure Logic Apps admite operaciones de escritura, inserciones y actualizacione
 
 En la tabla siguiente se enumeran los valores de una única definición de flujos de trabajo:
 
-| Nombre | Multiinquilino | Inquilino único (versión preliminar) | entorno de servicio de integración | Notas |
-|------|--------------|-------------------------|---------------------------------|-------|
+| Nombre | Multiinquilino | Inquilino único | entorno de servicio de integración | Notas |
+|------|--------------|---------------|---------------------------------|-------|
 | Variables por flujo de trabajo | 250 variables | 250 variables | 250 variables ||
 | Variable: tamaño máximo de contenido | 104 857 600 caracteres | Flujo de trabajo con estado: 104 857 600 caracteres <p><p>Flujo de trabajo sin estado: 1024 caracteres | 104 857 600 caracteres ||
 | Variable (tipo de matriz): número máximo de elementos de matriz | 100 000 elementos | 100 000 elementos | SKU Premium: 100 000 elementos <p><p>SKU Desarrollador: 5000 elementos ||
@@ -282,10 +281,13 @@ En las tablas siguientes se muestran los valores para una única llamada entrant
 
 ### <a name="timeout-duration"></a>Duración del tiempo de espera
 
-De manera predeterminada, la acción HTTP y las acciones APIConnection siguen el [modelo de operación asincrónica estándar](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply), mientras que la acción Response sigue el *modelo de operación sincrónica*. Algunas operaciones de conectores administrados hacen llamadas asincrónicas o escuchan las solicitudes de webhook, por lo que el tiempo de expiración de estas operaciones puede ser superior a los límites siguientes. Para obtener más información, revise la [página de referencia técnica de cada conector](/connectors/connector-reference/connector-reference-logicapps-connectors) y también la documentación sobre [desencadenadores y acciones de flujos de trabajo](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
+De manera predeterminada, la acción HTTP y las acciones APIConnection siguen el [modelo de operación asincrónica estándar](/architecture/patterns/async-request-reply), mientras que la acción Response sigue el *modelo de operación sincrónica*. Algunas operaciones de conectores administrados hacen llamadas asincrónicas o escuchan las solicitudes de webhook, por lo que el tiempo de expiración de estas operaciones puede ser superior a los límites siguientes. Para obtener más información, revise la [página de referencia técnica de cada conector](/connectors/connector-reference/connector-reference-logicapps-connectors) y también la documentación sobre [desencadenadores y acciones de flujos de trabajo](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Nombre | Multiinquilino | Inquilino único (versión preliminar) | entorno de servicio de integración | Notas |
-|------|--------------|-------------------------|---------------------------------|-------|
+> [!NOTE]
+> Para el tipo de recurso **Logic Apps (estándar)** en el modelo de inquilino único, los flujos de trabajo sin estado solo pueden ejecutarse *de forma sincrónica*.
+
+| Nombre | Multiinquilino | Inquilino único | entorno de servicio de integración | Notas |
+|------|--------------|---------------|---------------------------------|-------|
 | Solicitud saliente | 120 segundos <br>(2 minutos) | 230 segundos <br>(3,9 minutos) | 240 segundos <br>(4 minutos) | Entre los ejemplos de solicitudes salientes se incluyen las llamadas realizadas por desencadenadores o acciones HTTP. <p><p>**Sugerencia**: Para las operaciones de ejecución más largas, use un [patrón de sondeo asincrónico](../logic-apps/logic-apps-create-api-app.md#async-pattern) o un [bucle "Until"](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Para solucionar de forma alternativa los límites de tiempo de espera cuando se llama a otro flujo de trabajo que tiene un [punto de conexión al que se puede llamar](logic-apps-http-endpoint.md), puede usar la acción integrada Azure Logic Apps en su lugar, que puede encontrar en el selector de operaciones del diseñador en **Integrado**. |
 | Solicitud entrante | 120 segundos <br>(2 minutos) | 230 segundos <br>(3,9 minutos) | 240 segundos <br>(4 minutos) | Entre los ejemplos de solicitudes entrantes se incluyen las llamadas recibidas por los desencadenadores de solicitud, desencadenadores de webhook HTTP y acciones de webhook HTTP. <p><p>**Nota**: Para que el autor de llamada original obtenga la respuesta, todos los pasos de la respuesta deben terminar dentro del límite, a menos que llame a otro flujo de trabajo anidado. Para obtener más información, consulte [Llamada, desencadenamiento o anidación de aplicaciones lógicas](../logic-apps/logic-apps-http-endpoint.md). |
 ||||||
@@ -294,7 +296,7 @@ De manera predeterminada, la acción HTTP y las acciones APIConnection siguen el
 
 ### <a name="messages"></a>error de Hadoop
 
-| Nombre | Fragmentación habilitada | Multiinquilino | Inquilino único (versión preliminar) | entorno de servicio de integración | Notas |
+| Nombre | Fragmentación habilitada | Multiinquilino | Inquilino único | entorno de servicio de integración | Notas |
 |------|------------------|--------------|-------------------------|---------------------------------|-------|
 | Descarga de contenido: número máximo de solicitudes | Sí | 1000 solicitudes | 1000 solicitudes | 1000 solicitudes ||
 | Tamaño del mensaje | No | 100 MB | 100 MB | 200 MB | Para evitar este límite, consulte [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md) (Controlar mensajes grandes con fragmentación). En cambio, algunos conectores y API no admiten la fragmentación ni el límite predeterminado. <p><p>- Los conectores como AS2, X12 y EDIFACT tienen sus propios [límites de mensajes B2B](#b2b-protocol-limits). <p>- Los conectores ISE usan el límite de ISE, no los límites de conectores que no son ISE. |
@@ -351,22 +353,22 @@ En la tabla siguiente se enumeran los valores de una única definición de flujo
 
 En la tabla siguiente se enumeran los valores de una única definición de flujos de trabajo:
 
-| Nombre | Multiinquilino | Inquilino único (versión preliminar) | entorno de servicio de integración | Notas |
-|------|--------------|-------------------------|---------------------------------|-------|
-| Número máximo de caracteres de código | 1024 caracteres | 100 000 caracteres | 1024 caracteres | Para usar el límite superior, cree un recurso de **Logic Apps (versión preliminar)** , que se ejecuta en Logic Apps de inquilino único (versión preliminar), ya sea [mediante Azure Portal](create-stateful-stateless-workflows-azure-portal.md) o [mediante Visual Studio Code y la extensión **Azure Logic Apps (versión preliminar)** ](create-stateful-stateless-workflows-visual-studio-code.md). |
-| Duración máxima para la ejecución de código | 5 segundos | 15 segundos | 1024 caracteres | Para usar el límite superior, cree un recurso de **Logic Apps (versión preliminar)** , que se ejecuta en Logic Apps de inquilino único (versión preliminar), ya sea [mediante Azure Portal](create-stateful-stateless-workflows-azure-portal.md) o [mediante Visual Studio Code y la extensión **Azure Logic Apps (versión preliminar)** ](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Nombre | Multiinquilino | Inquilino único | entorno de servicio de integración | Notas |
+|------|--------------|---------------|---------------------------------|-------|
+| Número máximo de caracteres de código | 1024 caracteres | 100 000 caracteres | 1024 caracteres | Para usar el límite superior, cree un recurso de **Logic Apps (estándar)** , que se ejecuta en Logic Apps de inquilino único, ya sea [mediante Azure Portal](create-single-tenant-workflows-azure-portal.md) o [mediante Visual Studio Code y la extensión de **Azure Logic Apps (estándar)**](create-single-tenant-workflows-visual-studio-code.md). |
+| Duración máxima para la ejecución de código | 5 segundos | 15 segundos | 1024 caracteres | Para usar el límite superior, cree un recurso de **Logic Apps (estándar)** , que se ejecuta en Logic Apps de inquilino único, ya sea [mediante Azure Portal](create-single-tenant-workflows-azure-portal.md) o [mediante Visual Studio Code y la extensión de **Azure Logic Apps (estándar)**](create-single-tenant-workflows-visual-studio-code.md). |
 ||||||
 
 <a name="custom-connector-limits"></a>
 
 ## <a name="custom-connector-limits"></a>Límites de conector personalizado
 
-Solo para entornos de servicios de integración y multiinquilino, puede crear y usar conectores [administrados personalizados](/connectors/custom-connectors), que son contenedores en torno a una API REST o una API SOAP existentes. Solo para un inquilino único (versión preliminar), puede crear y usar [conectores integrados personalizados](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
+Solo para entornos de servicios de integración y multiinquilino, puede crear y usar conectores [administrados personalizados](/connectors/custom-connectors), que son contenedores en torno a una API REST o una API SOAP existentes. Solo para un inquilino único, puede crear y usar [conectores integrados personalizados](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
 En la tabla siguiente se muestran los valores disponibles para los conectores personalizados:
 
-| Nombre | Multiinquilino | Inquilino único (versión preliminar) | entorno de servicio de integración | Notas |
-|------|--------------|-------------------------|---------------------------------|-------|
+| Nombre | Multiinquilino | Inquilino único | entorno de servicio de integración | Notas |
+|------|--------------|---------------|---------------------------------|-------|
 | Conectores personalizados | 1000 por cada suscripción de Azure | Sin límite | 1000 por cada suscripción de Azure ||
 | Solicitudes por minuto para un conector personalizado | 500 solicitudes por minuto por conexión | Según la implementación | 2000 solicitudes por minuto por *conector personalizado* ||
 | Tiempo de espera de la conexión | 2 min | Conexión inactiva: <br>4 minutos <p><p>Conexión activa: <br>10 min | 2 min ||
@@ -375,7 +377,7 @@ En la tabla siguiente se muestran los valores disponibles para los conectores pe
 Para más información, revise la siguiente documentación:
 
 * [Información general de conectores administrados personalizados](/connectors/custom-connectors)
-* [Habilitación de la creación de conectores integrados: Visual Studio Code con Azure Logic Apps (versión preliminar)](create-stateful-stateless-workflows-visual-studio-code.md#enable-built-in-connector-authoring)
+* [Habilitación de la creación de conectores integrados: Visual Studio Code con la extensión de Azure Logic Apps (estándar)](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring)
 
 <a name="managed-identity"></a>
 
@@ -388,7 +390,7 @@ Para más información, revise la siguiente documentación:
 |||
 
 > [!NOTE] 
-> De manera predeterminada, un recurso de Logic Apps (versión preliminar) tiene su identidad administrada asignada por el sistema habilitada automáticamente para autenticar conexiones en runtime. Esta identidad se diferencia de las credenciales de autenticación o de la cadena de conexión que se usan al crear una conexión. Si deshabilita esta identidad, las conexiones no funcionarán en runtime. Para ver este valor, en el menú de la aplicación lógica, en **Configuración**, seleccione **Identidad**.
+> De manera predeterminada, un recurso de Logic Apps (estándar) tiene su identidad administrada asignada por el sistema habilitada automáticamente para autenticar conexiones en el entorno de ejecución. Esta identidad se diferencia de las credenciales de autenticación o de la cadena de conexión que se usan al crear una conexión. Si deshabilita esta identidad, las conexiones no funcionarán en runtime. Para ver este valor, en el menú de la aplicación lógica, en **Configuración**, seleccione **Identidad**.
 
 <a name="integration-account-limits"></a>
 
@@ -471,11 +473,13 @@ En la tabla siguiente se enumeran los límites de tamaño de mensaje que se apli
 
 ## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>Configuración del firewall: Direcciones IP y etiquetas de servicio
 
-Cuando el flujo de trabajo necesita comunicarse a través de un firewall que limite el tráfico a direcciones IP específicas, ese firewall deberá permitir el acceso para *ambas* direcciones IP, la de [entrada](#inbound) y la de [salida](#outbound), que usa el servicio Logic Apps o el entorno de ejecución en la región de Azure donde se encuentra el recurso de aplicación lógica. *Todas* las aplicaciones lógicas de una misma región usan los mismos intervalos de direcciones IP.
+Si el entorno tiene requisitos de red estrictos o firewalls que limitan el tráfico a direcciones IP específicas, el entorno o el firewall deberán permitir el acceso para *ambas* direcciones IP, la de [entrada](#inbound) y la de [salida](#outbound), que usa el servicio Azure Logic Apps o el entorno de ejecución en la región de Azure donde se encuentra el recurso de aplicación lógica. *Todas* las aplicaciones lógicas de una misma región usan los mismos intervalos de direcciones IP.
 
-Por ejemplo, para admitir llamadas que las aplicaciones lógicas de la región Oeste de EE. UU. envían o reciben a través de desencadenadores y acciones integrados, como el [desencadenador o acción HTTP](../connectors/connectors-native-http.md), el firewall debe permitir el acceso para *todas*  las direcciones IP de entrada del servicio Logic Apps *y* las direcciones IP de salida que existen en la región Oeste de EE. UU.
+Por ejemplo, suponga que las aplicaciones lógicas se implementan en la región Oeste de EE. UU. Para admitir llamadas que las aplicaciones lógicas envían o reciben a través de desencadenadores y acciones integrados, como el [desencadenador o acción HTTP](../connectors/connectors-native-http.md), el firewall debe permitir el acceso para *todas*  las direcciones IP de entrada del servicio Azure Logic Apps *y* las direcciones IP de salida que existen en la región Oeste de EE. UU.
 
-Si el flujo de trabajo también usa [conectores administrados](../connectors/managed.md), como el conector de Outlook de Office 365 o el conector de SQL, o emplea [conectores personalizados](/connectors/custom-connectors/), el firewall también debe permitir el acceso a *todas* las [direcciones IP de salida del conector administrado](#outbound) en la región de Azure de la aplicación lógica. Además, si usa conectores personalizados que acceden a recursos locales a través del [recurso de puerta de enlace de datos local en Azure](logic-apps-gateway-connection.md), debe configurar la instalación de la puerta de enlace para permitir el acceso a las *[direcciones IP de salida](#outbound) de conectores administrados* correspondientes.
+Si el flujo de trabajo también usa [conectores administrados](../connectors/managed.md), como el conector de Outlook de Office 365 o el conector de SQL, o emplea [conectores personalizados](/connectors/custom-connectors/), el firewall también debe permitir el acceso a *todas* las [direcciones IP de salida del conector administrado](#outbound) en la región de Azure de la aplicación lógica.
+
+Si usa conectores personalizados que acceden a recursos locales a través del [recurso de puerta de enlace de datos local en Azure](logic-apps-gateway-connection.md), debe configurar la instalación de la puerta de enlace para permitir el acceso a las *[direcciones IP de salida](#outbound) de conectores administrados* correspondientes.
 
 Para obtener más información sobre cómo configurar las opciones de comunicación en la puerta de enlace, consulte los siguientes temas:
 
@@ -492,7 +496,12 @@ Antes de configurar el firewall con direcciones IP, revise estas consideraciones
 
 * En el caso de [Azure China 21Vianet](/azure/china/), las direcciones IP fijas o reservadas no están disponibles para [conectores personalizados](../logic-apps/custom-connector-overview.md) y [conectores administrados](../connectors/managed.md), como Azure Storage, SQL Server, Office 365 Outlook, etc.
 
-* Si sus aplicaciones lógicas se ejecutan en un [entorno de servicio de integración (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), asegúrese de [abrir estos puertos también](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
+* Si los flujos de trabajo de la aplicación lógica se ejecutan en Azure Logic Apps de inquilino único, debe buscar los nombres de dominio completos (FQDN) de las conexiones. Para obtener más información, revise las secciones correspondientes de estos temas:
+
+  * [Permisos de firewall para aplicaciones lógicas de inquilino único: Azure Portal](create-single-tenant-workflows-azure-portal.md#firewall-setup)
+  * [Permisos de firewall para aplicaciones lógicas de inquilino único: Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#firewall-setup)
+
+* Si los flujos de trabajo de la aplicación lógica se ejecutan en un [Entorno del servicio de integración (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), asegúrese de [abrir estos puertos también](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
 
 * Para ayudarle a simplificar las reglas de seguridad que quiere crear, también puede usar [etiquetas de servicio](../virtual-network/service-tags-overview.md), en lugar de especificar prefijos de dirección IP para cada región. Estas etiquetas funcionan en las regiones en las que está disponible el servicio Logic Apps:
 
@@ -523,10 +532,10 @@ En esta sección se enumeran las direcciones IP entrantes solo para el servicio 
 
 <a name="multi-tenant-inbound"></a>
 
-#### <a name="multi-tenant-azure---inbound-ip-addresses"></a>Azure de varios inquilinos: direcciones IP entrantes
+#### <a name="multi-tenant--single-tenant---inbound-ip-addresses"></a>Multiinquilino e inquino único: direcciones IP entrantes
 
-| Región de varios inquilinos | IP |
-|---------------------|----|
+| Region | IP |
+|--------|----|
 | Este de Australia | 13.75.153.66, 104.210.89.222, 104.210.89.244, 52.187.231.161 |
 | Sudeste de Australia | 13.73.115.153, 40.115.78.70, 40.115.78.237, 52.189.216.28 |
 | Sur de Brasil | 191.235.86.199, 191.235.95.229, 191.235.94.220, 191.234.166.198 |

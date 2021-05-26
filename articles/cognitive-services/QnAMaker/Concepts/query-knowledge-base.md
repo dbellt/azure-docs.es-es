@@ -3,12 +3,12 @@ title: 'Consulta a una base de conocimiento: QnA Maker'
 description: Se debe publicar una base de conocimiento. Una vez publicada, se consulta la base de conocimiento a través del punto de conexión de predicción del tiempo de ejecución mediante generateAnswer API.
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: c723d1446c90290929bc8cad066b4744e284f3f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d36e1feb0279eec638a3602c5188e8af1cb7c17
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103008678"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369309"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Consulta a una base de conocimiento para obtener respuestas
 
@@ -39,7 +39,7 @@ El proceso se explica en la tabla siguiente.
 
 Las características que se usan incluyen, entre otros, la semántica en el nivel de palabra, la importancia en el nivel de término en un conjunto y los modelos de semántica de aprendizaje profundo para determinar la similitud e importancia entre dos cadenas de texto.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
 La base de conocimiento entrenada y [publicada](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) de QnA Maker recibe una consulta de usuario, ya sea desde un bot o de otra aplicación cliente, en [GenerateAnswer API](../how-to/metadata-generateanswer-usage.md). En el diagrama siguiente se muestra el proceso de recepción de la consulta de usuario.
 

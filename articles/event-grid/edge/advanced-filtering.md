@@ -5,14 +5,15 @@ author: HiteshMadan
 manager: rajarv
 ms.author: himad
 ms.reviewer: spelluru
-ms.date: 07/08/2020
+ms.subservice: iot-edge
+ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: 64b8956c47cbdbf31bb8253dac0c1e1f12833bf7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e42bb29a00486a16d697b68d7bcf337017da7998
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96001055"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368931"
 ---
 # <a name="advanced-filtering"></a>Filtrado avanzado
 Event Grid permite especificar filtros por cualquier propiedad de la carga JSON. Estos filtros se modelan como un conjunto de condiciones `AND`, donde cada condición externa tiene condiciones `OR` internas opcionales. Para cada condición `AND`, se especifican los siguientes valores:

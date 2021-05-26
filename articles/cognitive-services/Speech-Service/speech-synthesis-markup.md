@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: beb77517a953163c9d1dd34b59fa429b5d58cdd2
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 3e0bcef30d13403d8067c41568b7ee321fb46995
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110478042"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377198"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Mejora de la síntesis con el Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -396,20 +396,20 @@ Utilice esta tabla para determinar qué idiomas de habla son compatibles para ca
 
 | Voz                            | Idioma de la configuración regional           | Descripción                                                 |
 |----------------------------------|---------------------------|-------------------------------------------------------------|
-| `en-US-JennyMultilingualNeural`  | `lang="en-US"`            | Configuración regional de habla en-US, que es la configuración regional principal de esta voz |
-|                                  | `lang="en-CA"`            | Idioma de la configuración regional de habla en-CA                                  |
-|                                  | `lang="en-AU"`            | Idioma de la configuración regional de habla en-AU                                  |
-|                                  | `lang="en-GB"`            | Idioma de la configuración regional de habla en-GB                                  |
-|                                  | `lang="de-DE"`            | Idioma de la configuración regional de habla de-DE                                  |
-|                                  | `lang="fr-FR"`            | Idioma de la configuración regional de habla fr-FR                                  |
-|                                  | `lang="fr-CA"`            | Idioma de la configuración regional de habla fr-CA                                  |
-|                                  | `lang="es-ES"`            | Idioma de la configuración regional de habla es-ES                                  |
-|                                  | `lang="es-MX"`            | Idioma de la configuración regional de habla es-MX                                  |
-|                                  | `lang="zh-CN"`            | Idioma de la configuración regional de habla zh-CN                                  |
-|                                  | `lang="ko-KR"`            | Idioma de la configuración regional de habla ko-KR                                  |
-|                                  | `lang="ja-JP"`            | Idioma de la configuración regional de habla ja-JP                                  |
-|                                  | `lang="it-IT"`            | Idioma de la configuración regional de habla it-IT                                  |
-|                                  | `lang="pt-BR"`            | Idioma de la configuración regional de habla pt-BR                                  |
+| `en-US-JennyMultilingualNeural`  | `lang="en-us"`            | Configuración regional de habla en-US, que es la configuración regional principal de esta voz |
+|                                  | `lang="en-ca"`            | Idioma de la configuración regional de habla en-CA                                  |
+|                                  | `lang="en-au"`            | Idioma de la configuración regional de habla en-AU                                  |
+|                                  | `lang="en-gb"`            | Idioma de la configuración regional de habla en-GB                                  |
+|                                  | `lang="de-de"`            | Idioma de la configuración regional de habla de-DE                                  |
+|                                  | `lang="fr-fr"`            | Idioma de la configuración regional de habla fr-FR                                  |
+|                                  | `lang="fr-ca"`            | Idioma de la configuración regional de habla fr-CA                                  |
+|                                  | `lang="es-es"`            | Idioma de la configuración regional de habla es-ES                                  |
+|                                  | `lang="es-mx"`            | Idioma de la configuración regional de habla es-MX                                  |
+|                                  | `lang="zh-cn"`            | Idioma de la configuración regional de habla zh-CN                                  |
+|                                  | `lang="ko-kr"`            | Idioma de la configuración regional de habla ko-KR                                  |
+|                                  | `lang="ja-jp"`            | Idioma de la configuración regional de habla ja-JP                                  |
+|                                  | `lang="it-it"`            | Idioma de la configuración regional de habla it-IT                                  |
+|                                  | `lang="pt-br"`            | Idioma de la configuración regional de habla pt-BR                                  |
 
 **Ejemplo**
 
@@ -420,10 +420,10 @@ Este fragmento de código SSML muestra cómo usar `<lang xml:lang>` para cambiar
        xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
     <voice name="en-US-JennyMultilingualNeural">
         I am looking forward to the exciting things.
-        <lang xml:lang="es-MX">
+        <lang xml:lang="es-mx">
             Estoy deseando que lleguen las cosas emocionantes.
         </lang>
-        <lang xml:lang="de-DE">
+        <lang xml:lang="de-de">
             Ich freue mich auf die spannenden Dinge.
         </lang>
     </voice>
