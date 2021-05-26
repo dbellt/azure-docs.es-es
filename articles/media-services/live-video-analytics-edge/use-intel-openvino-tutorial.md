@@ -1,17 +1,19 @@
 ---
-title: Análisis de vídeo en directo mediante la extensión OpenVINO™ Model Server – AI de Intel
+title: 'Análisis de vídeo en directo mediante Live Video Analytics con el servidor de modelos de OpenVINO™: extensión de IA de Intel'
 description: En este tutorial, se usará un servidor de modelos de IA proporcionado por Intel para analizar la fuente de vídeo en directo desde una cámara IP (simulada).
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: 5751184493fffeeaf647507e9e9b00834f63ab5e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f6445a5bfffe6d359de66e8eda8b9ec82ea56dc0
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557265"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368429"
 ---
-# <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Tutorial: Análisis de vídeo en directo mediante la extensión OpenVINO™ Model Server – AI de Intel 
+# <a name="tutorial-analyze-live-video-by-using-live-video-analytics-with-openvino-model-server--ai-extension-from-intel"></a>Tutorial: Análisis de vídeo en directo mediante Live Video Analytics con el servidor de modelos de OpenVINO™: extensión de IA de Intel 
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 En este tutorial se muestra cómo usar la extensión OpenVINO™ Model Server – AI de Intel para analizar una fuente de vídeo en directo desde una cámara IP (simulada). Verá cómo este servidor de inferencia le proporciona acceso a modelos para detectar objetos (una persona, un vehículo o una bicicleta), y a un modelo para clasificar vehículos. Un subconjunto de los fotogramas de la fuente de vídeo en directo se envía a este servidor de inferencia y los resultados se envían al centro de IoT Edge.
 

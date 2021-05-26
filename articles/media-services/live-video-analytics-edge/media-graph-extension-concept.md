@@ -1,16 +1,18 @@
 ---
-title: 'Qué es la extensión de grafos multimedia: Azure'
-description: Live Video Analytics en IoT Edge permite ampliar las funcionalidades de procesamiento de grafos multimedia mediante un nodo de extensión de grafo.
+title: 'Definición de la extensión de grafos de elementos multimedia de Live Video Analytics: Azure'
+description: Azure Live Video Analytics en IoT Edge permite ampliar las funcionalidades de procesamiento de grafos multimedia mediante un nodo de extensión de grafos.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 4a7aea7cc60a67603d8a0376cf84228072659d6c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8f3165d948e636bda49128f080af00df7f30c977
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557622"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372419"
 ---
-# <a name="media-graph-extension"></a>Extensión de grafos multimedia
+# <a name="live-video-analytics-media-graph-extension"></a>Extensión de grafos de elementos multimedia de Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Live Video Analytics en IoT Edge permite ampliar las funcionalidades de procesamiento de grafos multimedia mediante un nodo de extensión de grafo. El complemento de extensión de análisis puede usar técnicas tradicionales de procesamiento de imágenes o modelos de inteligencia artificial de Computer Vision. Las extensiones de grafos se habilitan al incluir un nodo de procesador de extensiones en un grafo multimedia. El nodo de procesador de extensiones retransmite fotogramas de vídeo al punto de conexión configurado y actúa como la interfaz de la extensión. La conexión se puede realizar con un punto de conexión local o remoto y se puede proteger mediante autenticación y cifrado TLS, si fuera necesario. Además, el nodo procesador de extensiones de grafos permite el escalado y la codificación opcionales de los fotogramas de vídeo antes de enviarlos a la extensión personalizada. 
 

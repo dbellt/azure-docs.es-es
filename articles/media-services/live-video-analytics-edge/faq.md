@@ -1,16 +1,18 @@
 ---
-title: Preguntas más frecuentes sobre Live Video Analytics en IoT Edge en Azure
-description: En este artículo se responden las preguntas más frecuentes sobre Live Video Analytics en IoT Edge.
+title: Preguntas frecuentes sobre Azure Live Video Analytics on IoT Edge
+description: En este artículo se responden las preguntas más frecuentes sobre Azure Live Video Analytics on IoT Edge.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 2e5ec6e3a303bb8d655e666a820cfe67943b4eb6
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: ed27b120ff28704aeb3595815544262bab78e95d
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275964"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371458"
 ---
-# <a name="live-video-analytics-on-iot-edge-faq"></a>Preguntas más frecuentes sobre Live Video Analytics en IoT Edge
+# <a name="azure-live-video-analytics-on-iot-edge-faq"></a>Preguntas frecuentes sobre Azure Live Video Analytics on IoT Edge
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 En este artículo se responden las preguntas más frecuentes sobre Live Video Analytics en Azure IoT Edge.
 

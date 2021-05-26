@@ -1,16 +1,18 @@
 ---
-title: Creación de un rol personalizado de Azure Resource Manager y asignación a una entidad de servicio en Azure
-description: En este artículo se proporcionan instrucciones sobre cómo crear un rol personalizado de Azure Resource Manager y asignarlo a una entidad de servicio para Análisis de vídeos en vivo en IoT Edge mediante la CLI de Azure.
+title: Creación de un rol personalizado de Azure Resource Manager y asignación a una entidad de servicio con Azure Live Video Analytics
+description: En este artículo se proporcionan instrucciones sobre cómo crear un rol personalizado de Azure Resource Manager y asignarlo a una entidad de servicio para Azure Live Video Analytics en IoT Edge mediante la CLI de Azure.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: 6c33f6703522fc0b28237e22c16c96587467df40
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4cf819fdcdb0c046070e90dd9c2aa1a42a1d8a1b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788518"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373760"
 ---
-# <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Creación de un rol personalizado de Azure Resource Manager y asignación a una entidad de servicio
+# <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal-with-live-video-analytics"></a>Creación de un rol personalizado de Azure Resource Manager y asignación a una entidad de servicio con Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 La instancia del módulo Análisis de vídeos en vivo en IoT Edge necesita una cuenta activa de Azure Media Services para que funcione correctamente. La relación entre el módulo Análisis de vídeos en vivo en IoT Edge y la cuenta de Azure Media Services se establece mediante un conjunto de propiedades del módulo gemelo. Una de esas propiedades gemelas es una [entidad de servicio](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) que permite que la instancia del módulo se comunique con las operaciones necesarias y las desencadene en la cuenta de Media Services. Para minimizar los posibles usos indebidos o la exposición accidental de datos del dispositivo perimetral, esta entidad de servicio debe tener la cantidad mínima de privilegios.
 

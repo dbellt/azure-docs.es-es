@@ -1,16 +1,18 @@
 ---
-title: 'Cuotas y limitaciones de Live Video Analytics on IoT Edge: Azure'
+title: Cuotas y limitaciones de Azure Live Video Analytics on IoT Edge - Azure
 description: En este artículo se describen las cuotas y limitaciones de Live Video Analytics en IoT Edge.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 68c7b91bb1051348b5a8e52f841d443894f0a632
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 02347b5ae963008b3f8dd256afe2d8c264245650
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97400531"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378427"
 ---
-# <a name="quotas-and-limitations"></a>Cuotas y limitaciones
+# <a name="quotas-and-limitations-in-live-video-analytics"></a>Cuotas y limitaciones en Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 En este artículo se enumeran las cuotas y limitaciones del módulo Live Video Analytics en IoT Edge.
 

@@ -3,14 +3,16 @@ title: Implementación de Live Video Analytics en Azure Stack Edge
 description: En este artículo se indican los pasos que ayudan a implementar Live Video Analytics en Azure Stack Edge.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 3f751a69bf4d5efca80047479917b5f40e14fe3f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 186b6d95572c6d3772d7271cde1fedccb7d47528
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144734"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378965"
 ---
-# <a name="deploy-live-video-analytics-on-azure-stack-edge"></a>Implementación de Live Video Analytics en Azure Stack Edge
+# <a name="deploy-azure-live-video-analytics-on-azure-stack-edge"></a>Implementación de Live Video Analytics en Azure Stack Edge
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 En este artículo se indican los pasos que ayudan a implementar Live Video Analytics en Azure Stack Edge. Una vez configurado y activado el dispositivo, está listo para la implementación de Live Video Analytics. 
 

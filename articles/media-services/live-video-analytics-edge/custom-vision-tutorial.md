@@ -1,17 +1,19 @@
 ---
-title: Análisis de vídeo en vivo con Live Video Analytics en IoT Edge y Azure Custom Vision
-description: Aprenda a usar Azure Custom Vision para crear un modelo en contenedor que pueda detectar un camión de juguete y usar la funcionalidad de extensibilidad de IA de Azure Live Video Analytics en Azure IoT Edge para implementar el modelo en el perímetro y detectar camiones de juguete a partir de una secuencia de vídeo en directo.
+title: Análisis de vídeo en directo con Live Video Analytics en IoT Edge y Azure Custom Vision
+description: Aprenda a usar Azure Custom Vision para crear un modelo en contenedor que pueda detectar un camión de juguete y usar la funcionalidad de extensibilidad de IA de Live Video Analytics en Azure IoT Edge para implementar el modelo en el perímetro y detectar camiones de juguete a partir de una secuencia de vídeo en directo.
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 1abf123883a89bb41909e8aa67aedfadffc3d37e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3d9718a8c7cf6f93af32a3bd33bcf1e8c75c6aa8
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561226"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378273"
 ---
-# <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutorial: Análisis de vídeo en vivo con Live Video Analytics en IoT Edge y Azure Custom Vision
+# <a name="tutorial-analyze-live-video-with-azure-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutorial: Análisis de vídeo en directo con Live Video Analytics en IoT Edge y Azure Custom Vision
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 En este tutorial, aprenderá a usar Azure [Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) para crear un modelo en contenedor que pueda detectar un camión de juguete y usar la [funcionalidad de extensibilidad de IA](analyze-live-video-concept.md#analyzing-video-using-a-custom-vision-model) de Azure Live Video Analytics en Azure IoT Edge para implementar el modelo en el perímetro y detectar camiones de juguete a partir de una secuencia de vídeo en directo.
 

@@ -1,16 +1,18 @@
 ---
-title: 'Reproducción de las grabaciones de varios días: Azure'
-description: En este tutorial, obtendrá información sobre cómo usar las API de Azure Media Services para reproducir una grabación continua de vídeo de varios días.
+title: 'Reproducción de grabaciones de varios días con Live Video Analytics: Azure'
+description: En este tutorial, aprenderá a usar las API de Azure Media Services para reproducir grabaciones continuas de vídeo de varios días.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 81a778b40649c1318b3738a289f0db37fd35376a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c7c224b6267dd7eac4df669a7ccbd6f59abeb8ef
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99492795"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372156"
 ---
-# <a name="tutorial-playback-of-multi-day-recordings"></a>Tutorial: Reproducción de las grabaciones de varios días  
+# <a name="tutorial-playback-of-multi-day-recordings-with-live-video-analytics"></a>Tutorial: Reproducción de grabaciones de varios días con Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Este tutorial se basa en el tutorial [Grabación continua de vídeo](continuous-video-recording-concept.md) (CVR). En este tutorial, obtendrá información sobre cómo usar las API de Azure Media Services para reproducir una grabación continua de vídeo de varios días desde la nube. 
 

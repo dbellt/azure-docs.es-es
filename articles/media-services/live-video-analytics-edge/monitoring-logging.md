@@ -1,16 +1,18 @@
 ---
-title: 'Supervisión y registro: Azure'
-description: En este artículo se proporciona información general sobre la supervisión y el registro de Live Video Analytics on IoT Edge.
+title: 'Supervisión y registro en Live Video Analytics: Azure'
+description: En este artículo se proporciona información general sobre la supervisión y el registro en Azure Live Video Analytics en IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 08b2f5cce80581d71ce73e97ab30900aa8957c77
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4bc69192d0d36d01755d625ee46cd77cd9eec1b9
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564490"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372147"
 ---
-# <a name="monitoring-and-logging"></a>Supervisión y registro
+# <a name="monitoring-and-logging-in-live-video-analytics-on-iot-edge"></a>Supervisión y registro en Live Video Analytics en Azure IoT Edge
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 En este artículo, aprenderá a recibir eventos para la supervisión remota desde el módulo Live Video Analytics on IoT Edge. 
 

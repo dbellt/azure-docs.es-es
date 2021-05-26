@@ -1,16 +1,18 @@
 ---
-title: Detección de movimiento y grabación de vídeo en Azure Media Services
-description: En este inicio rápido se muestra cómo usar Live Video Analytics en IoT Edge para detectar movimiento en una secuencia de vídeo en directo y grabar clips de vídeo en Azure Media Services.
+title: Detección de movimiento y grabación de vídeo en Azure Media Services con Live Video Analytics
+description: En este inicio rápido se muestra cómo usar Azure Live Video Analytics en IoT Edge para detectar movimiento en una secuencia de vídeo en directo y grabar clips de vídeo en Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 135e68e2630d74dace6c3a6b70bb3666f77aad89
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 890d527eea0486bf42c1e5319d65e67dbeb05c06
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99575541"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378983"
 ---
-# <a name="quickstart-detect-motion-record-video-to-media-services"></a>Inicio rápido: Detección de movimiento y grabación de vídeo en Media Services
+# <a name="quickstart-detect-motion-record-video-to-azure-media-services"></a>Inicio rápido: Detección de movimiento y grabación de vídeo en Azure Media Services
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Este artículo le guía por los pasos necesarios para usar Live Video Analytics en IoT Edge para la [grabación basada en eventos](event-based-video-recording-concept.md). Usa una máquina virtual Linux en Azure como dispositivo IoT Edge y una secuencia de vídeo en directo simulada. Esta secuencia de vídeo se analiza para detectar la presencia de objetos en movimiento. Cuando se detecta movimiento, los eventos se envían a Azure IoT Hub y la parte correspondiente de la secuencia de vídeo se graba como un recurso de Azure Media Services.
 

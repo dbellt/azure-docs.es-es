@@ -1,16 +1,18 @@
 ---
-title: 'Protocolo de la extensión gRPC: Azure'
-description: En este artículo, aprenderá a usar el protocolo de la extensión gRPC para enviar mensajes entre un módulo de Live Video Analytics y la extensión personalizada de inteligencia artificial o CV.
+title: Protocolo de extensión gRPC en Live Video Analytics - Azure
+description: En este artículo, aprenderá a usar el protocolo de la extensión gRPC para enviar mensajes entre un módulo de Azure Live Video Analytics y la extensión personalizada de inteligencia artificial o CV.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 8d153b472e54b221b60a2b584043ffaf68e8ff82
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1bbcee9a964e95b8a32d7229ae7045e012a5a6e5
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565816"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379930"
 ---
-# <a name="grpc-extension-protocol"></a>Protocolo de la extensión gRPC
+# <a name="grpc-extension-protocol-in-live-video-analytics"></a>Protocolo de extensión gRPC en Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Live Video Analytics en IoT Edge permite ampliar las funcionalidades de procesamiento de grafos multimedia mediante un [nodo de extensión de grafos](./media-graph-extension-concept.md). Si usa el procesador de extensiones gRPC como nodo de extensión, la comunicación entre el módulo de Live Video Analytics y su módulo de IA o CV se realiza a través de un protocolo estructurado de alto rendimiento basado en gRPC.
 

@@ -1,16 +1,18 @@
 ---
-title: 'Reproducción de vídeo: Azure'
-description: Marcador de posición
+title: 'Reproducción de vídeo con Live Video Analytics: Azure'
+description: En este documento, conocerá los pasos que debe seguir para reproducir un recurso con las funcionalidades de streaming existentes de Azure Media Services.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: be42b39c167798e4e288c77dbd48a8734eb71fdf
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 9669194f3dff8f64d54cb15c8cb6fee0d7a2667b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278599"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368393"
 ---
-# <a name="video-playback"></a>Reproducción de vídeo 
+# <a name="video-playback-with-live-video-analytics"></a>Reproducción de vídeo con Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## <a name="suggested-pre-reading"></a>Sugerencias antes de la lectura 
 

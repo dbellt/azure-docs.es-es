@@ -1,16 +1,18 @@
 ---
-title: 'Implementación de Live Video Analytics en un dispositivo IoT Edge: Azure'
-description: En este artículo se enumeran los pasos que ayudarán a implementar Live Video Analytics en el dispositivo IoT Edge. Hará esto, por ejemplo, si tiene acceso a una máquina Linux local o ha creado previamente una cuenta de Azure Media Services.
+title: Implementación de Azure Live Video Analytics en un dispositivo IoT Edge
+description: En este artículo se enumeran los pasos para implementar Azure Live Video Analytics en el dispositivo IoT Edge. Hará esto, por ejemplo, si tiene acceso a una máquina Linux local o ha creado previamente una cuenta de Azure Media Services.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 466cc236c1482b2ae6a31b40b6f3461a2c2fbfc1
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 75b91855ff8e46a45fac96e90be08a272ef52dfb
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280299"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367473"
 ---
-# <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implementación de Live Video Analytics en un dispositivo IoT Edge
+# <a name="deploy-azure-live-video-analytics-on-an-iot-edge-device"></a>Implementación de Azure Live Video Analytics en un dispositivo IoT Edge
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 En este artículo se enumeran los pasos que ayudarán a implementar Live Video Analytics en el dispositivo IoT Edge. Hará esto, por ejemplo, si tiene acceso a una máquina Linux local o ha creado previamente una cuenta de Azure Media Services.
 

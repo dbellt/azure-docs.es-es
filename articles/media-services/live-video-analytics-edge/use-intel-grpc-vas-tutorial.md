@@ -1,19 +1,21 @@
 ---
-title: Análisis de vídeo en directo mediante el uso de la extensión de inteligencia artificial de Edge Intel OpenVINO™ DL Streamer a través de gRPC
-description: En este tutorial se muestra cómo usar la extensión de inteligencia artificial de Edge OpenVINO™ DL Streamer de Intel para analizar una fuente de vídeo en directo desde una cámara IP (simulada).
+title: Análisis de vídeo en directo mediante Live Video Analytics con la extensión de inteligencia artificial de Edge con gRPC OpenVINO™ DL Streamer de Intel
+description: En este tutorial se muestra cómo usar Live Video Analytics con la extensión de inteligencia artificial de Edge OpenVINO™ DL Streamer de Intel para analizar una fuente de vídeo en directo desde una cámara IP (simulada).
 ms.topic: tutorial
 ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
 author: fvneerden
-ms.openlocfilehash: 07a7daf6363f0e528f84635ed6713ac462f89ca5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d6d842a59a184470720da50917726eae069c6b02
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562858"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368516"
 ---
-# <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutorial: análisis de vídeo en directo mediante el uso de la extensión de inteligencia artificial de Edge Intel OpenVINO™ DL Streamer 
+# <a name="tutorial-analyze-live-video-by-using-live-video-analytics-with-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutorial: Análisis de vídeo en directo mediante Live Video Analytics con la extensión de inteligencia artificial de Edge OpenVINO™ DL Streamer 
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 En este tutorial se muestra cómo usar la extensión de inteligencia artificial de Edge OpenVINO™ DL Streamer de Intel para analizar una fuente de vídeo en directo desde una cámara IP (simulada). Verá la forma en que este servidor de inferencia le proporciona acceso a diferentes modelos de detección de objetos (una persona, un vehículo o una bicicleta), clasificación de objetos (atribuciones de los vehículos) y un modelo para hacer un seguimiento de objetos (persona, vehículo y bicicleta). La integración con el módulo gRPC permite enviar fotogramas de vídeo al servidor de inferencia de inteligencia artificial. Luego, los resultados se envían al centro de IoT Edge. Su este servicio de inferencia se ejecuta en el mismo nodo de proceso que Live Video Analytics, puede aprovechar el envío de datos de vídeo a través de la memoria compartida. Esto le permite ejecutar la inferencia a la velocidad de fotogramas de la fuente de vídeo en directo (por ejemplo, 30 fotogramas por segundo). 
 
@@ -66,7 +68,7 @@ En este tutorial, aprenderá lo siguiente:
 
 El módulo Extensión de inteligencia artificial perimetral Intel OpenVINO™ DL Streamer es un microservicio basado en el servicio de análisis de vídeo de Intel (servicio de VA) que sirve de canalizaciones de análisis de vídeo creadas con OpenVINO™ DL Streamer. Los desarrolladores pueden enviar fotogramas de vídeo descodificados al módulo de extensión de inteligencia artificial que realiza la detección, la clasificación o el seguimiento, y devuelve los resultados. El módulo de extensión de inteligencia artificial expone las API de gRPC que son compatibles con plataformas de análisis de vídeo como Live Video Analytics en IoT Edge de Microsoft. 
 
-Con el fin de crear soluciones de análisis de vídeo en directo complejas y de alto rendimiento, el módulo Live Video Analytics en IoT Edge se debe emparejar con un potente motor de inferencia que pueda aprovechar la escala en el perímetro. En este tutorial, se envían solicitudes de inferencia a la [Extensión de inteligencia artificial perimetral Intel OpenVINO™ DL Streamer](), un módulo de Edge que se ha diseñado para funcionar con Live Video Analytics en IoT Edge. 
+Con el fin de crear soluciones de análisis de vídeo en directo complejas y de alto rendimiento, el módulo Live Video Analytics en IoT Edge se debe emparejar con un potente motor de inferencia que pueda aprovechar la escala en el perímetro. En este tutorial, se envían solicitudes de inferencia a la [Extensión de inteligencia artificial perimetral Intel OpenVINO™ DL Streamer](), un módulo de Edge que se ha diseñado para funcionar con Live Video Analytics en IoT Edge.
 
 En la versión inicial de este servidor de inferencia, se tiene acceso a los siguientes [modelos](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options):
 

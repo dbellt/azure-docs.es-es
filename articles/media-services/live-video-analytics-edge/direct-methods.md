@@ -1,16 +1,18 @@
 ---
-title: 'Uso de métodos directos en Live Video Analytics on IoT Edge: Azure'
-description: Live Video Analytics on IoT Edge expone varios métodos directos. Los métodos directos se basan en las convenciones descritas en este tema.
+title: Uso de métodos directos en Azure Live Video Analytics on IoT Edge
+description: Azure Live Video Analytics on IoT Edge expone varios métodos directos. Los métodos directos se basan en las convenciones descritas en este tema.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 56fbf565af45a9b3877ff8d6c48a56713ddc3da6
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 4f9a0e6e75f4bf0304631bc2da87e013348e6707
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076996"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371528"
 ---
-# <a name="direct-methods"></a>Métodos directos
+# <a name="direct-methods-with-live-video-analytics"></a>Métodos directos con Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Live Video Analytics on IoT Edge expone varios métodos directos que se pueden invocar desde IoT Hub. Los métodos directos representan una interacción solicitud-respuesta con un dispositivo similar a una llamada HTTP en la cual se completan correctamente o generan un error de inmediato (tras un tiempo de espera que especifica el usuario). Este enfoque es útil en escenarios donde el curso de una acción inmediata es distinto en función de si el dispositivo pudo responder. Para obtener más información, vea el artículo [Conocimiento e invocación de los métodos directos de IoT Hub](../../iot-hub/iot-hub-devguide-direct-methods.md).
 

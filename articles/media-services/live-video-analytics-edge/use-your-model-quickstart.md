@@ -1,17 +1,19 @@
 ---
 title: 'Análisis de vídeo en directo con su propio modelo HTTP: Azure'
-description: En este inicio rápido, aplicará Computer Vision para analizar la fuente de vídeo en directo desde una cámara IP (simulada) mediante su propio modelo de HTTP.
+description: En este inicio rápido, aplicará Computer Vision para analizar la fuente de vídeo en directo desde una cámara IP (simulada) mediante su propio modelo HTTP.
 ms.topic: quickstart
 ms.date: 04/27/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: d3ba937abcc7bbfd9bb2afe7b15aec28ebb57446
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 685deddb9a55d024081acd0b7d4ff639d1eecd43
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99508518"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368551"
 ---
-# <a name="quickstart-analyze-live-video-by-using-your-own-http-model"></a>Inicio rápido: Análisis de vídeo en directo con su propio modelo HTTP
+# <a name="quickstart-analyze-live-video-with-your-own-http-model"></a>Inicio rápido: Análisis de vídeo en directo con su propio modelo HTTP
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 En este inicio rápido se muestra cómo usar Live Video Analytics en IoT Edge para analizar una fuente de vídeo en directo desde una cámara IP (simulada). Verá cómo aplicar un modelo de Computer Vision para detectar objetos. Un subconjunto de los fotogramas de la fuente de vídeo en directo se envía a un servicio de inferencia. Los resultados se envían al centro de IoT Edge. 
 

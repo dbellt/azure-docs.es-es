@@ -1,17 +1,19 @@
 ---
-title: 'Grabación de vídeo basada en eventos: Azure'
-description: La grabación de vídeo basada en eventos (EVR) hace referencia al proceso de grabación de vídeo desencadenado por un evento. El evento en cuestión podría generarse a partir del procesamiento de la propia señal de vídeo (por ejemplo, al detectar un objeto en movimiento) o desde un origen independiente (por ejemplo, la apertura de una puerta).  En este artículo se describen algunos casos de uso relacionados con la grabación de vídeo basada en eventos.
+title: Grabación de vídeo basada en eventos de Azure Live Video Analytics
+description: La grabación de vídeo basada en eventos (EVR) hace referencia al proceso de grabación de vídeo desencadenado por un evento con Live Video Analytics. El evento en cuestión podría generarse a partir del procesamiento de la propia señal de vídeo (por ejemplo, al detectar un objeto en movimiento) o desde un origen independiente (por ejemplo, la apertura de una puerta).  En este artículo se describen algunos casos de uso relacionados con la grabación de vídeo basada en eventos.
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 6a5f4873b2cfef8d9a6594916d82cd30a3bc1cc2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7970bc6e29a6fb9f914541a52188bf0b53b83b86
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97401617"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371493"
 ---
-# <a name="event-based-video-recording"></a>Grabación de vídeo basada en eventos  
- 
+# <a name="event-based-video-recording-with-live-video-analytics"></a>Grabación de vídeo basada en eventos con Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 ## <a name="suggested-pre-reading"></a>Sugerencias previas a la lectura  
 
 * [Grabación de vídeo continua](continuous-video-recording-concept.md)

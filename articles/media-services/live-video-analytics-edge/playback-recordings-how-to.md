@@ -1,16 +1,18 @@
 ---
-title: 'Reproducción de grabaciones: Azure'
-description: Puede usar Live Video Analytics on IoT Edge para la grabación continua de vídeo, lo que permite grabar vídeo en la nube durante semanas o meses. También puede limitar la grabación a clips de interés mediante la grabación basada en eventos. En este artículo se habla sobre cómo reproducir las grabaciones.
+title: 'Reproducción de grabaciones con Live Video Analytics: Azure'
+description: Puede usar Azure Live Video Analytics on IoT Edge para la grabación continua de vídeo, lo que permite grabar vídeo en la nube durante semanas o meses. También puede limitar la grabación a clips de interés mediante la grabación basada en eventos. En este artículo se habla sobre cómo reproducir las grabaciones.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 0351f10d9fac3ad7e3b4fdd5fd549eb7c0023694
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc8698fc9317421513677eb64403ac2cdc3905c3
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99490902"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372086"
 ---
-# <a name="playback-of-recordings"></a>Reproducción de grabaciones 
+# <a name="playback-of-recordings-with-live-video-analytics"></a>Reproducción de grabaciones con Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## <a name="pre-read"></a>Lectura previa  
 

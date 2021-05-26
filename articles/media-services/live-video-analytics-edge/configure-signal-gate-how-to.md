@@ -1,16 +1,18 @@
 ---
-title: 'Configuración de una puerta de señal para la grabación de vídeo basada en eventos: Azure'
-description: En este artículo se proporcionan instrucciones sobre cómo configurar una puerta de señal en un grafo de elementos multimedia.
+title: Configuración de una puerta de señal para la grabación de vídeo basada en eventos con Live Video Analytics
+description: En este artículo se proporciona una guía sobre cómo configurar una puerta de señal en un grafo de elementos multimedia con Live Video Analytics.
 ms.topic: how-to
 ms.date: 11/3/2020
-ms.openlocfilehash: afcec7c03f1353f08b58311278f5a533e0c911bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6fc36757c44ad69d61466b373756bdd9428dbab9
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94410800"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367699"
 ---
-# <a name="configure-a-signal-gate-for-event-based-video-recording"></a>Configuración de una puerta de señal para la grabación de vídeo basada en eventos
+# <a name="configure-a-signal-gate-for-event-based-video-recording-with-live-video-analytics"></a>Configuración de una puerta de señal para la grabación de vídeo basada en eventos con Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Dentro de un grafo de elementos multimedia, un [nodo de procesador de puerta de señal](media-graph-concept.md#signal-gate-processor) le permite reenviar el elemento multimedia de un nodo a otro cuando un evento desencadena la puerta. Cuando se desencadena, la puerta se abre y permite el flujo de elementos multimedia durante una duración especificada. En ausencia de eventos para desencadenar la puerta, esta se cierra y el elemento multimedia deja de fluir. Puede usar el procesador de puerta de señal para la grabación de vídeo basada en eventos.
 

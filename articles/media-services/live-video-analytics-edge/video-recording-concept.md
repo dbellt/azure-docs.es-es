@@ -1,16 +1,18 @@
 ---
-title: 'Grabación de vídeo: Azure'
-description: En el contexto de un sistema de administración de vídeo para cámaras CCTV, la grabación de vídeo se refiere al proceso de capturar vídeo a través de las cámaras y grabarlo para su visualización mediante aplicaciones móviles y de explorador. La grabación de vídeo se puede clasificar en grabación continua de vídeo y grabación de vídeo basada en eventos.
+title: 'Grabación de vídeo con Live Video Analytics: Azure'
+description: En el contexto de un sistema de administración de vídeo para cámaras CCTV, la grabación de vídeo se refiere al proceso de capturar vídeo a través de las cámaras y grabarlo para su visualización mediante aplicaciones móviles y de explorador. La grabación de vídeo se puede clasificar en grabación continua de vídeo y grabación de vídeo basada en eventos. En este artículo se describe la grabación de vídeo.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: c03472f577e67d5b2705a2ebe3f53e85e0849819
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fea0d2daaa4724cf4d354c8ab16b6b6ba3e76bf5
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84260198"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368376"
 ---
-# <a name="video-recording"></a>Grabación de vídeo
+# <a name="video-recording-with-live-video-analytics"></a>Grabación de vídeo con Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 En el contexto de un sistema de administración de vídeo para cámaras CCTV, la grabación de vídeo se refiere al proceso de capturar vídeo a través de las cámaras y grabarlo para su visualización mediante aplicaciones móviles y de explorador. La grabación de vídeo se puede clasificar en grabación continua de vídeo y grabación de vídeo basada en eventos. 
 

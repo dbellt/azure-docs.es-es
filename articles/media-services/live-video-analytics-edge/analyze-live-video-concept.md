@@ -1,16 +1,18 @@
 ---
-title: Análisis del vídeo en directo sin grabación - Azure
-description: Un grafo multimedia se puede usar para extraer análisis de una secuencia de vídeo en directo sin tener que grabarlo en el borde ni en la nube. En este artículo se describe este concepto.
+title: Análisis de vídeo en directo sin grabación con Live Video Analytics - Azure
+description: Un grafo multimedia se puede usar para extraer análisis de una secuencia de vídeo en directo sin tener que grabarlo en el borde ni en la nube. En este artículo se describe este concepto y cómo analizar vídeo en directo sin ninguna grabación con Live Video Analytics.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 25a7cadc47603b726542fa391d441e1fbca78908
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4f880646410ba77015663915575cdc32a7c188b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97398981"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378931"
 ---
-# <a name="analyzing-live-video-without-any-recording"></a>Análisis del vídeo en directo sin grabación
+# <a name="analyze-live-video-without-any-recording-with-live-video-analytics"></a>Análisis de vídeo en directo sin grabación con Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## <a name="suggested-pre-reading"></a>Sugerencias antes de la lectura 
 

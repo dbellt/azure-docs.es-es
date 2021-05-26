@@ -1,16 +1,18 @@
 ---
-title: 'Introducción a Live Video Analytics en IoT Edge: Azure'
-description: En este inicio rápido se muestran los primeros pasos con Live Video Analytics en IoT Edge. Aprenda a detectar movimiento en transmisiones de vídeo en directo.
+title: Introducción a Azure Live Video Analytics on IoT Edge
+description: En este inicio rápido se muestra cómo empezar a usar Azure Live Video Analytics on IoT Edge. Aprenda a detectar movimiento en transmisiones de vídeo en directo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 57edf1721249f839f5c781756b3e09bf59888dab
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 06a84a53db4e981802ad3de930288b6aa467f563
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730293"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371476"
 ---
-# <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Inicio rápido: Introducción: Live Video Analytics on IoT Edge
+# <a name="quickstart-get-started-with-live-video-analytics-on-iot-edge"></a>Inicio rápido: Introducción a Live Video Analytics en IoT Edge
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Este inicio rápido le guiará por los pasos necesarios para empezar a usar Live Video Analytics en IoT Edge. Utiliza una máquina virtual de Azure como dispositivo IoT Edge. También usa una secuencia de vídeo en directo simulada. 
 
@@ -250,7 +252,7 @@ En unos segundos, se ve la siguiente respuesta en la ventana **SALIDA**.
   "payload": {
     "systemData": {
       "createdAt": "2020-05-19T07:41:34.507Z",
-      "lastModifiedAt": "2020-05-19T07:41:34.507Z"
+      "lastModifiedAt&quot;: &quot;2020-05-19T07:41:34.507Z"
     },
     "name": "MotionDetection",
     "properties": {
@@ -260,18 +262,18 @@ En unos segundos, se ve la siguiente respuesta en la ventana **SALIDA**.
           "name": "rtspUserName",
           "type": "String",
           "description": "rtsp source user name.",
-          "default": "dummyUserName"
+          "default&quot;: &quot;dummyUserName"
         },
         {
           "name": "rtspPassword",
           "type": "String",
           "description": "rtsp source password.",
-          "default": "dummyPassword"
+          "default&quot;: &quot;dummyPassword"
         },
         {
           "name": "rtspUrl",
           "type": "String",
-          "description": "rtsp Url"
+          "description&quot;: &quot;rtsp Url"
         }
       ],
       "sources": [
@@ -284,7 +286,7 @@ En unos segundos, se ve la siguiente respuesta en la ventana **SALIDA**.
             "url": "${rtspUrl}",
             "credentials": {
               "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
-              "username": "${rtspUserName}"
+              "username&quot;: &quot;${rtspUserName}"
             }
           }
         }
@@ -335,7 +337,7 @@ Invoque a `GraphTopologyGet` mediante el uso de la siguiente carga.
 ```
 {
     "@apiVersion" : "2.0",
-    "name" : "MotionDetection"
+    "name&quot; : &quot;MotionDetection"
 }
 ```
 
@@ -349,7 +351,7 @@ En unos segundos, se ve la siguiente respuesta en la ventana **SALIDA**:
   "payload": {
     "systemData": {
       "createdAt": "2020-05-19T07:41:34.507Z",
-      "lastModifiedAt": "2020-05-19T07:41:34.507Z"
+      "lastModifiedAt&quot;: &quot;2020-05-19T07:41:34.507Z"
     },
     "name": "MotionDetection",
     "properties": {
@@ -359,18 +361,18 @@ En unos segundos, se ve la siguiente respuesta en la ventana **SALIDA**:
           "name": "rtspUserName",
           "type": "String",
           "description": "rtsp source user name.",
-          "default": "dummyUserName"
+          "default&quot;: &quot;dummyUserName"
         },
         {
           "name": "rtspPassword",
           "type": "String",
           "description": "rtsp source password.",
-          "default": "dummyPassword"
+          "default&quot;: &quot;dummyPassword"
         },
         {
           "name": "rtspUrl",
           "type": "String",
-          "description": "rtsp Url"
+          "description&quot;: &quot;rtsp Url"
         }
       ],
       "sources": [
@@ -383,7 +385,7 @@ En unos segundos, se ve la siguiente respuesta en la ventana **SALIDA**:
             "url": "${rtspUrl}",
             "credentials": {
               "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
-              "username": "${rtspUserName}"
+              "username&quot;: &quot;${rtspUserName}"
             }
           }
         }
@@ -467,7 +469,7 @@ En unos segundos, se ve la siguiente respuesta en la ventana **SALIDA**:
       "parameters": [
         {
           "name": "rtspUrl",
-          "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+          "value&quot;: &quot;rtsp://rtspsim:554/media/camera-300s.mkv"
         }
       ]
     }
@@ -517,7 +519,7 @@ Ahora, invoque el método directo `GraphInstanceGet` mediante la carga siguiente
 ```
  {
      "@apiVersion" : "2.0",
-     "name" : "Sample-Graph-1"
+     "name&quot; : &quot;Sample-Graph-1"
  }
  ```
 
@@ -539,7 +541,7 @@ En pocos segundos, verá la siguiente respuesta en la ventana **SALIDA**.
       "parameters": [
         {
           "name": "rtspUrl",
-          "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+          "value&quot;: &quot;rtsp://rtspsim:554/media/camera-300s.mkv"
         }
       ]
     }
@@ -620,7 +622,7 @@ Si deja que el grafo multimedia se ejecute un tiempo, verá el siguiente mensaje
 [IoTHubMonitor] [7:47:45 AM] Message received from [lva-sample-device/lvaEdge]:
 {
   "body": {
-    "sdp": "SDP:\nv=0\r\no=- 1588948185746703 1 IN IP4 172.xx.xx.xx\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.04.12\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets={SPS}\r\na=control:track1\r\n"
+    "sdp&quot;: &quot;SDP:\nv=0\r\no=- 1588948185746703 1 IN IP4 172.xx.xx.xx\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.04.12\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets={SPS}\r\na=control:track1\r\n"
   },
   "applicationProperties": {
     "dataVersion": "1.0",
@@ -675,7 +677,7 @@ Invoque el método directo `GraphInstanceDelete` mediante la carga siguiente.
 ```
 {
     "@apiVersion" : "2.0",
-    "name" : "Sample-Graph-1"
+    "name&quot; : &quot;Sample-Graph-1"
 }
 ```
 
@@ -699,7 +701,7 @@ Invoque el método directo `GraphTopologyDelete` mediante la siguiente carga.
 ```
 {
     "@apiVersion" : "2.0",
-    "name" : "MotionDetection"
+    "name&quot; : &quot;MotionDetection"
 }
 ```
 

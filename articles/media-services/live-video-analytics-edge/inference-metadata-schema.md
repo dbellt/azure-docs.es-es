@@ -1,16 +1,18 @@
 ---
-title: 'Esquema de metadatos de inferencia: Azure'
-description: En este artículo, obtendrá información acerca del esquema de metadatos de inferencia.
+title: Esquema de metadatos de inferencia en Live Video Analytics - Azure
+description: En este artículo, obtendrá información acerca del esquema de metadatos de inferencia en Live Video Analytics.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 2de437577dc00692fb98c46fec32bfaa6612dc99
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c79071609c291b6d09fe9c83d90d2cac137241b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92019501"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376994"
 ---
-# <a name="inference-metadata-schema"></a>Esquema de metadatos de inferencia 
+# <a name="inference-metadata-schema-in-live-video-analytics"></a>Esquema de metadatos de inferencia en Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Cada objeto de inferencia, independientemente de que se use el contrato basado en HTTP o el contrato basado en gRPC, sigue el modelo de objetos que se describe en este tema.
 
@@ -20,14 +22,14 @@ Cada objeto de inferencia, independientemente de que se use el contrato basado e
  
 |Definición de tipo|Descripción|
 |---|---|
-|Etiqueta|Etiqueta asociada al resultado. Además del etiquetado, obtiene además el valor de confianza asociado a la etiqueta.|
+|Etiqueta|Etiqueta asociada al resultado. Junto con el etiquetado, también puede obtener el valor de confianza asociado a la etiqueta.|
 |Atributo|Atributos adicionales asociados al resultado. Puede agregar nuevos atributos que reciba del motor de inferencia junto con el valor de confianza.|
 |Lista de atributos|Lista de atributos opcionales.|
-|Rectángulo|Región rectangular relativa a la imagen de la esquina superior izquierda de la imagen. Las propiedades necesarias serán "longitud", "ancho", "alto" y "distancia al borde superior desde el origen".|
+|Rectángulo|Región rectangular relativa a la esquina superior izquierda de la imagen. Las propiedades necesarias serán "longitud", "ancho", "alto" y "distancia al borde superior desde el origen".|
 |clasificación|La etiqueta del clasificador suele ser aplicable a todo el ejemplo. Con la ayuda de "etiqueta", puede clasificar el resultado.|
-|Entidad|Entidad detectada o identificada en el ejemplo. Cuando el motor de inferencia detecta una entidad, obtiene una "etiqueta", los atributos adicionales que se deducen y se devuelven las coordenadas de un cuadro rectangular alrededor de la entidad encontrada.|
-|Evento|Evento detectado en el ejemplo. Cuando se detecta un evento en el ejemplo, se devuelven el nombre del evento y las propiedades específicas del mismo.|
-|Movimiento|Movimiento detectado en el ejemplo. Cuando se detecta movimiento en el ejemplo, se devuelven las coordenadas de un rectángulo de selección en el que se detecta movimiento.|
+|Entidad|Entidad detectada o identificada en el ejemplo. Cuando el motor de inferencia detecta una entidad, obtiene una "etiqueta" y se devuelven los atributos adicionales que se infirieron y las coordenadas de un cuadro rectangular alrededor de la entidad encontrada.|
+|Evento|Evento detectado en el ejemplo. Cuando se detecta un evento en la muestra, se devuelven el nombre del evento y las propiedades específicas del mismo.|
+|Movimiento|Movimiento detectado en el ejemplo. Cuando se detecta movimiento en la muestra, se devuelven las coordenadas de un cuadro de límite rectangular en el que se ha detectado movimiento.|
 |Texto|Se devuelve el texto asociado al ejemplo junto con la marca de tiempo de inicio y finalización del texto.|
 |Otros|Devuelve otra información de carga genérica.|
 

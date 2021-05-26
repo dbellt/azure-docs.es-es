@@ -1,16 +1,18 @@
 ---
-title: 'Implementación en IoT Edge para Linux en Windows: Azure'
-description: En este artículo se proporcionan instrucciones sobre cómo realizar la implementación en un dispositivo de IoT Edge para Linux en Windows.
+title: Implementación en un dispositivo de IoT Edge para Linux en Windows con Live Video Analytics- Azure
+description: En este artículo se proporcionan instrucciones sobre cómo realizar la implementación en un dispositivo IoT Edge para Linux en Windows con Live Video Analytics.
 ms.topic: how-to
 ms.date: 02/18/2021
-ms.openlocfilehash: d5c3d89ae7447b062714ad90be117a6426a39581
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c504ecf2bb7405ee49d6e9ee94f069336924f5c0
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561090"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378101"
 ---
-# <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device"></a>Implementación en un dispositivo de IoT Edge para Linux en Windows (EFLOW)
+# <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device-with-live-video-analytics"></a>Implementación en un dispositivo IoT Edge para Linux en Windows (EFLOW) con Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 En este artículo, aprenderá a implementar Live Video Analytics en un dispositivo perimetral que tiene [IoT Edge para Linux en Windows (EFLOW)](../../iot-edge/iot-edge-for-linux-on-windows.md). Una vez que haya terminado de realizar los pasos que se indican en este documento, podrá ejecutar un [grafo de elementos multimedia](media-graph-concept.md) que detecte el movimiento en un vídeo y emita esos eventos a IoT Hub en la nube. Después, puede desactivar el grafo de elementos multimedia para escenarios avanzados y aportar la potencia de Live Video Analytics a su dispositivo de IoT Edge basado en Windows.
 

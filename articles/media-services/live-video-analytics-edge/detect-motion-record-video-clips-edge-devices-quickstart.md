@@ -1,18 +1,20 @@
 ---
-title: 'Detección de movimiento y grabación de vídeo en dispositivos perimetrales: Azure'
-description: En este inicio rápido se muestra cómo usar Live Video Analytics en IoT Edge para analizar la fuente de vídeo en directo desde una cámara IP (simulada), detectar si hay algún movimiento y, en caso afirmativo, grabar un clip de vídeo MP4 en el sistema de archivos local del dispositivo perimetral.
+title: 'Detección de movimiento y grabación de vídeo en dispositivos perimetrales con Live Video Analytics: Azure'
+description: En este inicio rápido se muestra cómo usar Azure Live Video Analytics on IoT Edge para analizar la fuente de vídeo en directo desde una cámara IP (simulada), detectar si hay algún movimiento y, en caso afirmativo, grabar un clip de vídeo MP4 en el sistema de archivos local del dispositivo perimetral.
 ms.topic: quickstart
 ms.date: 04/27/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: e4334cdd14242337a2a870f31886606020654685
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d563aea803b92c10db1309365bb3ee3b29da57f
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96498360"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372018"
 ---
-# <a name="quickstart-detect-motion-and-record-video-on-edge-devices"></a>Inicio rápido: Detección de movimiento y grabación de vídeo en dispositivos perimetrales
+# <a name="quickstart-detect-motion-and-record-video-on-edge-devices-with-live-video-analytics"></a>Inicio rápido: Detección de movimiento y grabación de vídeo en dispositivos perimetrales con Live Video Analytics
  
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 En este inicio rápido se muestra cómo usar Live Video Analytics en IoT Edge para analizar la fuente de vídeo en directo desde una cámara IP (simulada). Muestra cómo detectar si existe algún movimiento y, en caso afirmativo, graba un clip de vídeo MP4 en el sistema de archivos local del dispositivo perimetral. El inicio rápido usa una máquina virtual de Azure como dispositivo IoT Edge y emplea también una secuencia de vídeo en directo simulada. 
 
 ::: zone pivot="programming-language-csharp"

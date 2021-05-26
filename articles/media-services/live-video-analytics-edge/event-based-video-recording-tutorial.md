@@ -1,16 +1,18 @@
 ---
-title: 'Tutorial de grabación de vídeo basada en eventos en la nube y reproducción desde la nube: Azure'
-description: En este tutorial, obtendrá información sobre cómo usar Azure Live Video Analytics en Azure IoT Edge para realizar una grabación de vídeo basada en eventos en la nube y reproducirla desde la nube.
+title: 'Grabación de vídeo basada en eventos en la nube y reproducción desde la nube: Azure'
+description: En este tutorial, aprenderá a usar Azure Live Video Analytics on Azure IoT Edge para realizar una grabación de vídeo basada en eventos en la nube y reproducirla desde la nube.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: de1a4d423108ddb18af4f8478c9bac60672d6062
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: bf5bd39805aa581553bdf2e663f462251bf418d1
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279823"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371547"
 ---
-# <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Grabación de vídeo basada en eventos en la nube y reproducción desde la nube
+# <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud-with-live-video-analytics"></a>Tutorial: Grabación de vídeo basada en eventos en la nube y reproducción desde la nube con Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 En este tutorial, aprenderá a usar Azure Live Video Analytics en Azure IoT Edge para grabar de forma selectiva partes de un origen de vídeo en directo en Azure Media Services en la nube. En este tutorial, este caso de uso se conoce como [grabación de vídeo basada en eventos](event-based-video-recording-concept.md) (EVR). Para grabar partes de un vídeo en directo, se usará un modelo de inteligencia artificial de detección de objetos para buscar objetos en el vídeo y grabar clips de vídeo solo cuando se detecte un tipo determinado de objeto. También aprenderá cómo reproducir los clips de vídeo grabados mediante Media Services. Esta funcionalidad resulta útil en diversos escenarios en los que es necesario mantener un archivo de clips de vídeo de interés. 
 

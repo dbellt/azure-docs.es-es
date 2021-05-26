@@ -1,16 +1,18 @@
 ---
-title: 'Análisis de vídeo en directo con Computer Vision para análisis espacial: Azure'
-description: En este tutorial se muestra cómo usar Live Video Analytics junto con la característica de IA de análisis espacial de Computer Vision, parte de Azure Cognitive Services, para analizar una fuente de vídeo en directo desde una cámara IP (simulada).
+title: 'Análisis de vídeo en directo con Computer Vision para análisis espacial con Live Video Analytics: Azure'
+description: En este tutorial se muestra cómo usar Azure Live Video Analytics junto con la característica de IA de análisis espacial de Computer Vision, parte de Azure Cognitive Services, para analizar una fuente de vídeo en directo desde una cámara IP (simulada).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 1c3fd411e60cabb504f01bece62d497ddeea31d8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 549c1405e7deb3531da65ff4425befa2d29aaeef
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561022"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373570"
 ---
-# <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Análisis de vídeo en directo con Computer Vision para análisis espacial (versión preliminar)
+# <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-and-live-video-analytics-preview"></a>Análisis de vídeo en directo con Computer Vision para análisis espacial y Live Video Analytics (versión preliminar)
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 En este tutorial se muestra cómo usar Live Video Analytics junto con el [servicio de IA de Computer Vision para análisis espacial de Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/computer-vision/) para analizar una fuente de vídeo en directo desde una cámara IP (simulada). Verá cómo este servidor de inferencia le permite analizar el vídeo en streaming para comprender las relaciones espaciales entre las personas y el movimiento en el espacio físico.  Un subconjunto de los fotogramas de la fuente de vídeo se envía a este servidor de inferencia y los resultados se envían al centro de IoT Edge. Cuando se cumplen algunas condiciones, los clips de vídeo se graban y almacenan como recursos de Azure Media Services.
 

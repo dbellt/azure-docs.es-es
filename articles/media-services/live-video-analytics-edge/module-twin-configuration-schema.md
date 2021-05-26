@@ -1,16 +1,18 @@
 ---
-title: Esquema JSON de módulo gemelo - Azure
-description: En este tema se describe el esquema JSON de módulo gemelo de Live Video Analytics on IoT Edge.
+title: 'Esquema JSON de módulos gemelos en Live Video Analytics: Azure'
+description: En este tema se describe el esquema JSON de módulos gemelos de Azure Live Video Analytics on IoT Edge.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 8bd86bdc2c8de9ee586e785db2074fa772100420
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be80b5782d76f1ec490395013310058f1cb2fe79
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87053064"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371177"
 ---
-# <a name="module-twin-json-schema"></a>Esquema JSON de módulo gemelo
+# <a name="module-twin-json-schema-in-live-video-analytics"></a>Esquema JSON de módulos gemelos en Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Los dispositivos gemelos son documentos JSON que almacenan información acerca del estado del dispositivo, incluidos metadatos, configuraciones y condiciones. Azure IoT Hub mantiene un dispositivo gemelo para cada dispositivo que se conecta a IoT Hub. Para obtener una explicación detallada, consulte [Uso de módulos gemelos en IoT Hub](../../iot-hub/iot-hub-devguide-module-twins.md).
 

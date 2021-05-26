@@ -1,16 +1,18 @@
 ---
-title: 'Tutorial de grabación continua de vídeo en la nube y reproducción desde la nube: Azure'
+title: Grabación continua de vídeo en la nube y reproducción desde la nube - Azure
 description: En este tutorial aprenderá a usar Azure Live Video Analytics en Azure IoT Edge para grabar continuamente vídeo en la nube y transmitir cualquier parte de ese vídeo con Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: d534fb174afa700671b6a3991a6aafa6357eb167
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 38a6afbae8f05bea4d165131eeab8cf97f48a465
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280350"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376698"
 ---
-# <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Grabación continua de vídeo en la nube y reproducción desde la nube
+# <a name="tutorial-use-live-video-analytics-for-continuous-video-recording-and-playback-tofrom-the-cloud"></a>Tutorial: Uso de Live Video Analytics para grabación continua de vídeo y reproducción con origen y destino en la nube
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 En este tutorial aprenderá a usar Azure Live Video Analytics en Azure IoT Edge para realizar una [grabación continua de vídeo](continuous-video-recording-concept.md) (CVR) en la nube y transmitir cualquier parte de ese vídeo con Azure Media Services. Esta funcionalidad resulta útil para escenarios como la seguridad o el cumplimiento, en los que es necesario mantener un archivo de la secuencia de una cámara durante días o semanas. 
 

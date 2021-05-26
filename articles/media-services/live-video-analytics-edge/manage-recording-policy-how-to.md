@@ -1,16 +1,18 @@
 ---
-title: 'Administración de la directiva de grabación: Azure'
-description: En este tema se explica cómo administrar la directiva de grabación.
+title: Administración de la directiva de grabación con Live Video Analytics - Azure
+description: En este tema se explica cómo administrar la directiva de grabación con Live Video Analytics.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: ec72f28496c1392b9d95134c343e1892998a0c28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 52c9011e81c4e9d43aa32158d8577a7388dc20d2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99224996"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379052"
 ---
-# <a name="manage-recording-policy"></a>Administración de la directiva de grabación
+# <a name="manage-recording-policy-with-live-video-analytics"></a>Administración de la directiva de grabación con Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Puede usar Live Video Analytics on IoT Edge para la [grabación continua de vídeo](continuous-video-recording-concept.md), lo que permite grabar vídeo en la nube durante semanas o meses. Además, puede administrar la longitud (en días) de ese archivo de la nube con las [herramientas de administración del ciclo de vida](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal) integradas en Azure Storage.  
 
