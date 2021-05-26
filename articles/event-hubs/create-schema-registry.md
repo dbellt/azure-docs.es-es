@@ -2,21 +2,21 @@
 title: Creación de un registro de esquemas de Azure Event Hubs
 description: En este artículo se muestra cómo crear un registro de esquemas en un espacio de nombres de Azure Event Hubs.
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 05/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: 45791cd69772be97ca6768184ed17179e04ad9dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c9794d1521b8b16b99a108517bfd19a3c9e29b21
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96576815"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373622"
 ---
 # <a name="create-an-azure-event-hubs-schema-registry-preview"></a>Creación de un registro de esquemas de Azure Event Hubs (versión preliminar)
 En este artículo se muestra cómo crear un grupo de esquemas con esquemas en un registro de esquemas hospedado en Azure Event Hubs. Para obtener información general sobre la característica de Registro de esquemas de Azure Event Hubs, vea [Registro de esquemas de Azure en Event Hubs](schema-registry-overview.md).
 
 > [!NOTE]
 > - La característica de **registro de esquema** se encuentra actualmente en **versión preliminar** y no se recomienda para las cargas de trabajo de producción.
-> - La característica solo está disponible en los niveles **estándar** y **dedicado**, no en el nivel **básico**.
+> - La característica no está disponible en el nivel **básico**.
 > - Si el centro de eventos se encuentra en una **red virtual**, no podrá crear esquemas en Azure Portal a menos que tenga acceso al portal desde una máquina virtual de la misma red virtual. 
 
 ## <a name="prerequisites"></a>Requisitos previos

@@ -2,13 +2,13 @@
 title: Instancias reservadas de Azure VMware Solution
 description: Obtenga información sobre cómo comprar una instancia reservada para Azure VMware Solution. Las instancias reservadas solo cubren la parte del uso dedicada a los procesos y tienen costos de licencias de software.
 ms.topic: how-to
-ms.date: 04/09/2021
-ms.openlocfilehash: fb30ae2fcf06abfa25770aff85f2668d7aaca770
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 05/13/2021
+ms.openlocfilehash: 2ec43374561db9b0de39f4d1c571b85a75df13ba
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108753738"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110063107"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Ahorro de costos con Azure VMware Solution
 
@@ -20,7 +20,7 @@ Las instancias reservadas están disponibles con algunas excepciones:
 
 -   **Nubes**: las reservas solo están disponibles en las regiones enumeradas en la página [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware).
 
--   **Cuota insuficiente**: una reserva cuyo ámbito sea de una suscripción única o compartida debe tener cuota de hosts disponible en la suscripción para la nueva instancia reservada. Puede [crear una solicitud de aumento de la cuota](enable-azure-vmware-solution.md) para resolver este problema.
+-   **Cuota insuficiente**: una reserva cuyo ámbito sea de una suscripción única o compartida debe tener cuota de hosts disponible en la suscripción para la nueva instancia reservada. Puede [crear una solicitud de aumento de la cuota](request-host-quota-azure-vmware-solution.md) para resolver este problema.
 
 -   **Elegibilidad de la oferta**: necesitará un [Contrato Enterprise (EA) de Azure](../cost-management-billing/manage/ea-portal-agreements.md) con Microsoft.
 
@@ -138,6 +138,6 @@ Los CSP pueden cancelar, intercambiar o reembolsar reservas, con algunas limitac
 Ahora que se han explicado las instancias reservadas de Azure VMware Solution, es posible que necesite más información sobre:
 
 - [Creación de una evaluación de Azure VMware Solution](../migrate/how-to-create-azure-vmware-solution-assessment.md).
-- [Administración de DHCP para Azure VMware Solution](manage-dhcp.md).
+- [Administración de DHCP para Azure VMware Solution](configure-dhcp-azure-vmware-solution.md).
 - [Supervisión y administración de máquinas virtuales de Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md)
  

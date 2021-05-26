@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 504d66501cc041d6fec4671b6955723505910d0c
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 272c6e80633da826bf14389fbe0a1d2783d34a3d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788452"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110098677"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-cli"></a>Habilitación de una identidad administrada para el enrutamiento de eventos de Azure Digital Twins (versión preliminar): Azure CLI
 
@@ -99,7 +99,7 @@ az dt create --dt-name {instance_name} --resource-group {resource_group} --assig
 
 Para obtener más ejemplos de asignaciones de roles con este comando, consulte la documentación de referencia del comando [az dt create](/cli/azure/dt#az_dt_create).
 
-Como alternativa, también puede usar el grupo de comandos [az role assignment](/cli/azure/role/assignment) para crear y administrar roles. Se puede usar para respaldar escenarios adicionales en los que no desea agrupar la asignación de roles con el comando create.
+Como alternativa, también puede usar el grupo de comandos [az role assignment](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true) para crear y administrar roles. Se puede usar para respaldar escenarios adicionales en los que no desea agrupar la asignación de roles con el comando create.
 
 ## <a name="create-an-endpoint-with-identity-based-authentication"></a>Creación de un punto de conexión con autenticación basada en identidades
 
@@ -108,7 +108,7 @@ Después de configurar una identidad administrada por el sistema para la instanc
 >[!NOTE]
 > No se puede editar un punto de conexión que ya se haya creado con la identidad basada en claves para cambiar a la autenticación basada en identidades. Debe elegir el tipo de autenticación al crear el punto de conexión por primera vez.
 
-Esto se hace agregando un parámetro `--auth-type` al comando `az dt endpoint create` que se usa para crear el punto de conexión. (Para más información acerca de este comando, consulte la [documentación de referencia](/cli/azure/dt/endpoint/create) o las [instrucciones generales para configurar un punto de conexión de Azure Digital Twins](how-to-manage-routes-apis-cli.md#create-the-endpoint)).
+Esto se hace agregando un parámetro `--auth-type` al comando `az dt endpoint create` que se usa para crear el punto de conexión. (Para más información acerca de este comando, consulte la [documentación de referencia](/cli/azure/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) o las [instrucciones generales para configurar un punto de conexión de Azure Digital Twins](how-to-manage-routes-apis-cli.md#create-the-endpoint)).
 
 Para crear un punto de conexión que use la autenticación basada en identidades, especifique el tipo de autenticación `IdentityBased` con el parámetro `--auth-type`. En el ejemplo siguiente se muestra esto para un punto de conexión de Event Hubs.
 

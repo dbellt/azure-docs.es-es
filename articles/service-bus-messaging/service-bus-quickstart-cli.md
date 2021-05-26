@@ -5,12 +5,12 @@ author: spelluru
 ms.topic: quickstart
 ms.date: 08/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 14892b114f3bb8a0bb6c07f7cdd01a174b931cf9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 73457e6b2e210bd7db91165e97ce73591d921be4
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95810629"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479030"
 ---
 # <a name="use-the-azure-cli-to-create-a-service-bus-namespace-and-a-queue"></a>Uso de la CLI de Azure para crear un espacio de nombres de Service Bus y una cola
 En este inicio rápido se muestra cómo crear un espacio de nombres de Service Bus y una cola mediante la CLI de Azure. También se muestra cómo obtener credenciales de autorización que una aplicación cliente puede usar para enviar mensajes a la cola, o recibirlos de ella. 
@@ -59,7 +59,6 @@ En este artículo, ha creado un espacio de nombres de Service Bus y una cola en 
 - [JavaScript](service-bus-nodejs-how-to-use-queues.md)
 - [Python](service-bus-python-how-to-use-queues.md)
 - [PHP](service-bus-php-how-to-use-queues.md)
-- [Ruby](service-bus-ruby-how-to-use-queues.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 

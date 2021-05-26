@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/04/2021
+ms.date: 05/14/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 4d6e1187d3fba858f050690ad524774dcd40b61c
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 41554141ab98c3385d5391f638b9ad1bd3c7ef35
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756472"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110098690"
 ---
 ## <a name="azure-security-benchmark"></a>Prueba comparativa de la seguridad de Azure
 
@@ -20,7 +20,7 @@ Para revisar el modo en que las integraciones de Azure Policy disponibles para t
 
 |Domain |Id. de control |Título de control |Directiva<br /><sub>(Azure Portal)</sub> |Versión de la directiva<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
-|registro y detección de amenazas |LT-4 |Habilitación del registro para recursos de Azure |[Los registros de recursos de IoT Hub deben estar habilitados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F383856f8-de7f-44a2-81fc-e5135b5c2aa4). |[3.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IoTHub_AuditDiagnosticLog_Audit.json) |
+|registro y detección de amenazas |LT-4 |Habilitación del registro para recursos de Azure |[Los registros de recursos de IoT Hub deben estar habilitados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F383856f8-de7f-44a2-81fc-e5135b5c2aa4) |[3.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IoTHub_AuditDiagnosticLog_Audit.json) |
 
 ## <a name="azure-security-benchmark-v1"></a>Azure Security Benchmark v1
 
@@ -30,7 +30,7 @@ Para revisar el modo en que las integraciones de Azure Policy disponibles para t
 
 |Domain |Id. de control |Título de control |Directiva<br /><sub>(Azure Portal)</sub> |Versión de la directiva<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
-|Registro y supervisión |2.3 |Habilitación del registro de auditoría para recursos de Azure |[Los registros de recursos de IoT Hub deben estar habilitados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F383856f8-de7f-44a2-81fc-e5135b5c2aa4). |[3.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IoTHub_AuditDiagnosticLog_Audit.json) |
+|Registro y supervisión |2.3 |Habilitación del registro de auditoría para recursos de Azure |[Los registros de recursos de IoT Hub deben estar habilitados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F383856f8-de7f-44a2-81fc-e5135b5c2aa4) |[3.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IoTHub_AuditDiagnosticLog_Audit.json) |
 
 ## <a name="cis-microsoft-azure-foundations-benchmark-130"></a>CIS Microsoft Azure Foundations Benchmark 1.3.0
 
@@ -48,7 +48,7 @@ Para más información sobre este estándar de cumplimiento, consulte [Certifica
 
 |Domain |Id. de control |Título de control |Directiva<br /><sub>(Azure Portal)</sub> |Versión de la directiva<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
-|Auditoría y responsabilidad |AU.3.048 |Recopila la información de auditoría (los registros, por ejemplo) en uno o varios repositorios centrales. |[Los registros de recursos de IoT Hub deben estar habilitados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F383856f8-de7f-44a2-81fc-e5135b5c2aa4). |[3.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IoTHub_AuditDiagnosticLog_Audit.json) |
+|Auditoría y responsabilidad |AU.3.048 |Recopila la información de auditoría (los registros, por ejemplo) en uno o varios repositorios centrales. |[Los registros de recursos de IoT Hub deben estar habilitados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F383856f8-de7f-44a2-81fc-e5135b5c2aa4) |[3.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IoTHub_AuditDiagnosticLog_Audit.json) |
 
 ## <a name="hipaa-hitrust-92"></a>HIPAA/HITRUST 9.2
 
@@ -57,5 +57,5 @@ Para más información acerca de este estándar de cumplimiento, consulte [HIPAA
 
 |Domain |Id. de control |Título de control |Directiva<br /><sub>(Azure Portal)</sub> |Versión de la directiva<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
-|Registro de auditoría |1204.09aa1System.3 - 09.aa |Las actividades de los usuarios con privilegios (administradores, operadores, etc.) indican el éxito o el fracaso del evento, la hora en que se produjo el evento, la cuenta afectada, los procesos implicados e información adicional sobre el evento. |[Los registros de recursos de IoT Hub deben estar habilitados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F383856f8-de7f-44a2-81fc-e5135b5c2aa4). |[3.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IoTHub_AuditDiagnosticLog_Audit.json) |
+|Registro de auditoría |1204.09aa1System.3 - 09.aa |Las actividades de los usuarios con privilegios (administradores, operadores, etc.) indican el éxito o el fracaso del evento, la hora en que se produjo el evento, la cuenta afectada, los procesos implicados e información adicional sobre el evento. |[Los registros de recursos de IoT Hub deben estar habilitados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F383856f8-de7f-44a2-81fc-e5135b5c2aa4) |[3.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IoTHub_AuditDiagnosticLog_Audit.json) |
 

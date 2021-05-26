@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: trbye
-ms.openlocfilehash: ddf36530e52703ab1033b8e2e787b42b6dc60332
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 84253f897e8b85029ea4425a7919be4bf71028ed
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553284"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451951"
 ---
 # <a name="develop-custom-commands-applications"></a>Desarrollo de aplicaciones de Comandos personalizados
 
@@ -42,7 +42,7 @@ Empiece por crear una aplicación de Comandos personalizados vacía. Para obtene
 
 ### <a name="update-luis-resources-optional"></a>Actualización de recursos de LUIS (opcional)
 
-Puede actualizar el recurso de creación que seleccionó en la ventana **Nuevo proyecto**. También puede establecer un recurso de predicción. 
+Puede actualizar el recurso de creación que seleccionó en la ventana **Nuevo proyecto**. También puede establecer un recurso de predicción.
 
 Se usa un recurso de predicción para el reconocimiento cuando se publica la aplicación de Comandos personalizados. No necesita un recurso de predicción durante las fases de desarrollo y pruebas.
 
@@ -54,7 +54,7 @@ En la aplicación de Comandos personalizados Smart-Room-Lite vacía que creó, a
 1. En el campo **Nombre**, especifique el valor `TurnOn`.
 1. Seleccione **Crear**.
 
-En el panel central se muestran las propiedades del comando. 
+En el panel central se muestran las propiedades del comando.
 
 En la siguiente tabla se explican las propiedades de configuración del comando. Para más información, vea [Conceptos y definiciones de Comandos personalizados](./custom-commands-references.md).
 
@@ -86,13 +86,13 @@ Aún no hay ningún parámetro, por lo que puede ir a la sección **Completion r
 
 #### <a name="add-a-completion-rule"></a>Adición de una regla de finalización
 
-A continuación, el comando necesita una regla de finalización. Esta regla informa al usuario que se está llevando a cabo una acción de cumplimiento. 
+A continuación, el comando necesita una regla de finalización. Esta regla informa al usuario que se está llevando a cabo una acción de cumplimiento.
 
 Para obtener más información sobre las reglas y las reglas de finalización, vea [Conceptos y definiciones de Comandos personalizados](./custom-commands-references.md).
 
 1. Seleccione la regla de finalización predeterminada **Listo**. Edítela de la manera siguiente:
 
-    
+
     | Configuración    | Valor sugerido                          | Descripción                                        |
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
     | **Nombre**       | `ConfirmationResponse`                  | Nombre que describe el propósito de la regla.          |
@@ -103,7 +103,7 @@ Para obtener más información sobre las reglas y las reglas de finalización, v
    > ![Captura de pantalla que muestra dónde crear una respuesta de voz.](media/custom-commands/create-speech-response-action.png)
 
 1. Seleccione **Guardar** para guardar la acción.
-1. De nuevo en la sección **Completion rules** (reglas de finalización), seleccione **Guardar** para guardar todos los cambios. 
+1. De nuevo en la sección **Completion rules** (reglas de finalización), seleccione **Guardar** para guardar todos los cambios.
 
     > [!NOTE]
     > No tiene que usar la regla de finalización predeterminada que viene con el comando. Puede eliminar la regla de finalización predeterminada y agregar su propia regla.
@@ -138,10 +138,10 @@ Seleccione **Guardar** para guardar todos los cambios del comando.
 
 ### <a name="try-it-out"></a>Prueba
 
-Use el panel de prueba para probar el comportamiento de la aplicación: 
+Use el panel de prueba para probar el comportamiento de la aplicación:
 
-1. En la esquina superior derecha, seleccione el icono **Entrenar**. 
-1. Cuando finalice el entrenamiento, seleccione **Probar**. 
+1. En la esquina superior derecha, seleccione el icono **Entrenar**.
+1. Cuando finalice el entrenamiento, seleccione **Probar**.
 
 Pruebe los siguientes ejemplos de expresiones mediante el uso de voz o texto:
 
@@ -168,7 +168,7 @@ Empiece por editar el comando `TurnOn` existente para activar y desactivar vario
 
 1. Ahora que el comando controlará los escenarios de encendido y apagado, cambie el nombre del comando a *TurnOnOff*.
    1. En el panel de la izquierda, seleccione el comando **TurnOn**. A continuación, junto a **Nuevo comando** en la parte superior del panel, seleccione el botón de puntos suspensivos ( **...** ).
-   
+
    1. Seleccione **Rename** (Cambiar nombre). En la ventana **Rename command** (Cambiar nombre del comando), cambie el nombre a *TurOnOff*.
 
 1. Agregue un parámetro nuevo al comando. El parámetro representa si el usuario quiere encender o apagar el dispositivo.
@@ -179,9 +179,9 @@ Empiece por editar el comando `TurnOn` existente para activar y desactivar vario
 
        > [!div class="mx-imgBorder"]
        > ![Captura de pantalla que muestra la sección "Add response for a required parameter" (Agregar respuesta para un parámetro requerido) con la pestaña "Simple editor" (Editor sencillo) seleccionada.](media/custom-commands/add-required-on-off-parameter-response.png)
-   
+
    1. Configure las propiedades del parámetro mediante la tabla siguiente. Para obtener información sobre todas las propiedades de configuración de un comando, vea [Conceptos y definiciones de Comandos personalizados](./custom-commands-references.md).
-      
+
 
        | Configuración      | Valor sugerido     | Descripción                                                      |
        | ------------------ | ----------------| ---------------------------------------------------------------------|
@@ -192,15 +192,15 @@ Empiece por editar el comando `TurnOn` existente para activar y desactivar vario
        | **Tipo**               | **String**          | Tipo de parámetro; por ejemplo, Number, String, Date Time o Geography.   |
        | **Configuración**      | **Accept predefined input values from internal catalog** (Aceptar valores de entrada predefinidos del catálogo interno) | En el caso de las cadenas, esta configuración limita las entradas a un conjunto de valores posibles. |
        | **Predefined input values** (Valores de entrada predefinidos)     | `on`, `off`           | Conjunto de valores posibles y sus alias.         |
-       
-        
+
+
    1. Para agregar valores de entrada predefinidos, seleccione **agregar un** de entrada predefinido. En ventana **Nuevo elemento**, escriba *Nombre* como se muestra en la tabla anterior. En este caso, no usa alias, por lo que puede dejar este campo en blanco.
-   
+
       > [!div class="mx-imgBorder"]
       > ![Captura de pantalla que muestra cómo crear un parámetro.](media/custom-commands/create-on-off-parameter.png)
 
    1. Seleccione **Guardar** para guardar todas las configuraciones del parámetro.
- 
+
 #### <a name="add-a-subjectdevice-parameter"></a>Adición de un parámetro SubjectDevice
 
 1. Para agregar un segundo parámetro que represente el nombre de los dispositivos que se podrán controlar con este comando, seleccione **Agregar**. Use la configuración siguiente.
@@ -251,7 +251,6 @@ Modifique la regla de finalización existente `ConfirmationResponse`.
 
 1. En la sección **Conditions** (Condiciones), seleccione **Add a condition** (Agregar una condición).
 1. En la ventana **New Condition** (Nueva condición), en la lista **Type** (Tipo), seleccione **Required parameters** (Parámetros requeridos). En la lista siguiente, seleccione **OnOff** y **SubjectDevice**.
-1. Deje **ISGlobal** sin seleccionar.
 1. Seleccione **Crear**.
 1. En la sección **Acciones**, edite la acción **Send speech response** (Enviar respuesta de voz) existente. Para ello, mantenga el puntero sobre ella y seleccione el botón de edición. Esta vez, use los parámetros `OnOff` y `SubjectDevice` creados recientemente:
 
@@ -260,7 +259,7 @@ Modifique la regla de finalización existente `ConfirmationResponse`.
     ```
 1. Seleccione **Guardar**.
 
-Para probar los cambios, seleccione el icono **Entrenar** en la parte superior del panel de la derecha. 
+Para probar los cambios, seleccione el icono **Entrenar** en la parte superior del panel de la derecha.
 
 Cuando finalice el entrenamiento, seleccione **Probar**. Aparece una ventana **Test your application** (Probar la aplicación). Pruebe las siguientes interacciones:
 
@@ -307,11 +306,11 @@ Edite las reglas de finalización existentes. Use la configuración siguiente.
 
 Agregue un parámetro llamado `DateTime`. Use la configuración siguiente.
 
-   | Configuración                           | Valor sugerido                     | 
+   | Configuración                           | Valor sugerido                     |
    | --------------------------------- | ----------------------------------------|
    | **Nombre**                              | `DateTime`                               |
    | **Obligatorio**                          | Seleccionado                                 |
-   | **Respuesta para el parámetro requerido**   | **Simple editor (Editor sencillo)**  > `For what time?`            | 
+   | **Respuesta para el parámetro requerido**   | **Simple editor (Editor sencillo)**  > `For what time?`            |
    | **Tipo**                              | **DateTime**                                |
    | **Valores predeterminados de fecha**                     | Si falta la fecha, use la fecha de hoy.            |
    | **Valores predeterminados de hora**                     | Si falta la hora, use el inicio del día.     |
@@ -369,7 +368,7 @@ Para mover el contenido, empiece por agregar un nuevo punto de conexión web. En
 
 
 Si el valor sugerido para la dirección URL no funciona, configure y hospede un punto de conexión web que devuelva un archivo JSON que conste de la lista los dispositivos que se pueden controlar. El punto de conexión web debe devolver un archivo JSON con el formato siguiente:
-    
+
 ```json
 {
     "fan" : [],
@@ -466,13 +465,13 @@ Para agregar una confirmación, use el comando `SetTemperature`. Para conseguir 
         1. Agregue una condición nueva: **Parámetros requeridos** > **Temperatura**.
         1. Agregue una nueva acción: **Tipo** > **Send speech response (Enviar respuesta de voz)**  > **Are you sure you want to set the temperature as {Temperature} degrees?** (¿Está seguro de que quiere definir la temperatura en {Temperature} grados?)
         1. En la sección **Expectations** (Expectativas), deje el valor predeterminado de **Expecting confirmation from user** (A la espera de confirmación del usuario).
-      
+
          > [!div class="mx-imgBorder"]
          > ![Captura de pantalla que muestra cómo crear la respuesta de parámetro necesario.](media/custom-speech-commands/add-validation-set-temperature.png)
-    
+
 
     1. Modifique la regla de interacción **Confirmation succeeded** (Confirmación correcta) para controlar una confirmación correcta (el usuario dijo sí).
-      
+
           1. Cambie el nombre a **Confirmation temperature succeeded** (Confirmación de temperatura correcta).
           1. Deje la condición **Confirmation was successful** (La confirmación se realizó correctamente) existente.
           1. Agregue una condición nueva: **Tipo** > **Parámetros requeridos** > **Temperatura**.
@@ -488,7 +487,7 @@ Para agregar una confirmación, use el comando `SetTemperature`. Para conseguir 
 
 > [!IMPORTANT]
 > En este artículo, se usa la funcionalidad de confirmación integrada. También puede agregar manualmente reglas de interacción de una en una.
-   
+
 Pruebe los cambios seleccionando **Entrenar**. Cuando finalice el entrenamiento, seleccione **Probar**.
 
 - **Entrada**: *Set temperature to 80 degrees* (Establece la temperatura en 80 grados)
@@ -505,7 +504,7 @@ Pruebe los cambios seleccionando **Entrenar**. Cuando finalice el entrenamiento,
 En esta sección, configurará una corrección de un paso. Esta corrección se usa después de que se haya ejecutado la acción de cumplimiento. También verá un ejemplo de cómo la corrección se habilita de forma predeterminada si el comando aún no se ha completado. Para agregar una corrección cuando no ha finalizado el comando, agregue el nuevo parámetro `AlarmTone`.
 
 En el panel izquierdo, seleccione el comando **Setalarm**. A continuación, agregue el nuevo parámetro **AlarmTone**.
-        
+
 - **Nombre** > `AlarmTone`
 - **Tipo** > **Cadena**
 - **Valor predeterminado** > **Campanillas**
@@ -524,7 +523,7 @@ A continuación, actualice la respuesta del parámetro **DateTime** como **Ready
 
 #### <a name="implement-a-correction-when-a-command-is-finished"></a>Implementación de una corrección cuando finaliza un comando
 
-La plataforma de Comandos personalizados también permite la corrección de un paso, incluso cuando el comando ha finalizado. Esta característica no está habilitada de forma predeterminada. Debe configurarse explícitamente. 
+La plataforma de Comandos personalizados también permite la corrección de un paso, incluso cuando el comando ha finalizado. Esta característica no está habilitada de forma predeterminada. Debe configurarse explícitamente.
 
 Siga estos pasos para configurar una corrección de un paso:
 
@@ -553,7 +552,7 @@ Las plantillas de generación de idioma (LG) le permiten personalizar las respue
 * Plantillas de generación de idioma.
 * Expresiones adaptables.
 
-Las plantillas de Comandos personalizados están basadas en las [plantillas LG](/azure/bot-service/file-format/bot-builder-lg-file-format#templates) de Bot Framework. Dado que la característica Comandos personalizados crea una nueva plantilla LG cuando es necesario (para las respuestas de voz de los parámetros o acciones), no es necesario especificar el nombre de la plantilla LG. 
+Las plantillas de Comandos personalizados están basadas en las [plantillas LG](/azure/bot-service/file-format/bot-builder-lg-file-format#templates) de Bot Framework. Dado que la característica Comandos personalizados crea una nueva plantilla LG cuando es necesario (para las respuestas de voz de los parámetros o acciones), no es necesario especificar el nombre de la plantilla LG.
 
 Por lo tanto, no es necesario definir la plantilla de la siguiente manera:
 
@@ -572,7 +571,7 @@ En su lugar, defina el cuerpo de la plantilla sin el nombre, de esta manera:
 
 Este cambio ofrece variedad en las respuestas de voz que se envían al cliente. Para una expresión, la respuesta de voz correspondiente se elegirá de forma aleatoria entre las opciones proporcionadas.
 
-Si aprovecha las plantillas LG, también puede definir respuestas de voz complejas para los comandos mediante expresiones adaptables. Para obtener más información, vea [Formato de las plantillas LG](/azure/bot-service/file-format/bot-builder-lg-file-format#templates). 
+Si aprovecha las plantillas LG, también puede definir respuestas de voz complejas para los comandos mediante expresiones adaptables. Para obtener más información, vea [Formato de las plantillas LG](/azure/bot-service/file-format/bot-builder-lg-file-format#templates).
 
 De forma predeterminada, la característica Comandos personalizados admite todas sus funcionalidades, con las siguientes variaciones mínimas:
 
@@ -585,14 +584,14 @@ De forma predeterminada, la característica Comandos personalizados admite todas
 
 Use el comando `TurnOnOff` para agregar un nuevo parámetro. Use la configuración siguiente.
 
-| Configuración            | Valor sugerido       | 
-| ------------------ | --------------------- | 
-| **Nombre**               | `SubjectContext`         | 
-| **Is Global** (Es global)          | No seleccionado             | 
-| **Obligatorio**           | No seleccionado               | 
+| Configuración            | Valor sugerido       |
+| ------------------ | --------------------- |
+| **Nombre**               | `SubjectContext`         |
+| **Is Global** (Es global)          | No seleccionado             |
+| **Obligatorio**           | No seleccionado               |
 | **Tipo**               | **String**                |
 | **Valor predeterminado**      | `all` |
-| **Configuración**      | **Aceptar valores de entrada predefinidos del catálogo interno** | 
+| **Configuración**      | **Aceptar valores de entrada predefinidos del catálogo interno** |
 | **Predefined input values** (Valores de entrada predefinidos) | `room`, `bathroom`, `all`|
 
 #### <a name="modify-a-completion-rule"></a>Modificación de una regla de finalización
@@ -642,5 +641,4 @@ Ahora la aplicación responderá en la voz seleccionada, en lugar de en la voz p
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga información sobre cómo [integrar la aplicación de Comandos personalizados](how-to-custom-commands-setup-speech-sdk.md) con una aplicación cliente mediante el SDK de Voz.
-* [Configuración de la implementación continua](how-to-custom-commands-deploy-cicd.md) para una aplicación de Comandos personalizados mediante Azure DevOps. 
-                      
+* [Configuración de la implementación continua](how-to-custom-commands-deploy-cicd.md) para una aplicación de Comandos personalizados mediante Azure DevOps.

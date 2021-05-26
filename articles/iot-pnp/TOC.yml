@@ -75,6 +75,8 @@
       href: /cli/azure/azure-cli-reference-for-IoT
 - name: Recursos
   items:
+    - name: Ejemplos de código
+      href: /samples/browse/?expanded=azure&products=azure-iot-pnp
     - name: Opciones de ayuda y soporte técnico
       href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-pnp/toc.json&bc=/azure/iot-pnp/breadcrumb/toc.json
     - name: Glosario de IoT

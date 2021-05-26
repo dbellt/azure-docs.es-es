@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5d64a6e6a4dcd1d7b1917720152e2738bf6476e9
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: 82e9901c4bea8de7e5fee37ff4f2b7374f67e0ca
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108063992"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467243"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidad de Microsoft y protocolo OpenID Connect
 
@@ -188,7 +188,7 @@ Recibir un solo valor de id_token no siempre es suficiente para autenticar al us
 
 No todas las aplicaciones se benefician de comprobar el token de id.: las aplicaciones nativas y las aplicaciones de página única, por ejemplo, casi nunca se benefician de la validación del token de id.  Un usuario con acceso físico al dispositivo (o explorador) puede omitir la validación de muchas maneras: desde editar el tráfico web hasta el dispositivo para proporcionar claves y tokens falsos a fin de depurar simplemente la aplicación y omitir la lógica de validación.  Por otro lado, las API y las aplicaciones web que usan un token de id. para la autorización deben validar cuidadosamente el token de id., ya que están canalizando el acceso a los datos.
 
-Una vez haya validado la firma de id_token, se le solicitará que compruebe algunas notificaciones. Para más información, consulte la [Referencia de `id_token`](id-tokens.md), incluidas la sección [Validación de los tokens](id-tokens.md#validating-an-id_token) y [Sustitución de claves de firma de Azure Active Directory](active-directory-signing-key-rollover.md). Hay al menos una disponible para la mayoría de los lenguajes y las plataformas.
+Una vez haya validado la firma de id_token, se le solicitará que compruebe algunas notificaciones. Para más información, consulte la [Referencia de `id_token`](id-tokens.md), incluidas la sección [Validación de los tokens](id-tokens.md#validating-an-id-token) y [Sustitución de claves de firma de Azure Active Directory](active-directory-signing-key-rollover.md). Hay al menos una disponible para la mayoría de los lenguajes y las plataformas.
 
 Se recomienda que valide notificaciones adicionales según su escenario. Algunas validaciones comunes incluyen:
 
@@ -275,7 +275,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Para una descripción de los posibles códigos de error y las respuestas de cliente recomendadas, consulte [Códigos de error correspondientes a errores de puntos de conexión de autorización](#error-codes-for-authorization-endpoint-errors).
 
-Cuando tiene un código de autorización y un token de identificador, puede iniciar la sesión del usuario y obtener tokens de acceso en su nombre. Para iniciar la sesión del usuario, debe validar el token de identificador [exactamente como se describió](id-tokens.md#validating-an-id_token). Para obtener tokens de acceso, siga los pasos descritos en la [documentación del flujo de código de OAuth](v2-oauth2-auth-code-flow.md#redeem-a-code-for-an-access-token).
+Cuando tiene un código de autorización y un token de identificador, puede iniciar la sesión del usuario y obtener tokens de acceso en su nombre. Para iniciar la sesión del usuario, debe validar el token de identificador [exactamente como se describió](id-tokens.md#validating-an-id-token). Para obtener tokens de acceso, siga los pasos descritos en la [documentación del flujo de código de OAuth](v2-oauth2-auth-code-flow.md#redeem-a-code-for-an-access-token).
 
 ### <a name="calling-the-userinfo-endpoint"></a>Llamada al punto de conexión de UserInfo
 

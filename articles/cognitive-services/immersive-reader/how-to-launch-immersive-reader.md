@@ -1,6 +1,6 @@
 ---
 title: Inicio del Lector inmersivo
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Aprenda a iniciar el Lector inmersivo con JavaScript, Python, Android o iOS. El Lector inmersivo emplea técnicas demostradas para mejorar la comprensión lectora de estudiantes de idiomas, lectores en ciernes y personas con diferencias en el aprendizaje.
 author: metanMSFT
 manager: guillasi
@@ -11,12 +11,12 @@ ms.date: 03/04/2021
 ms.author: metang
 ms.custom: devx-track-js
 zone_pivot_groups: immersive-reader-how-to-guides
-ms.openlocfilehash: 63aa9fc0c68e2cfa3e649cbe1eb7bfbddf9a77ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d65ec4bd9683b7217cb8efbda7beef4371fc9dc
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102620298"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373916"
 ---
 # <a name="how-to-launch-the-immersive-reader"></a>Inicio del Lector inmersivo
 

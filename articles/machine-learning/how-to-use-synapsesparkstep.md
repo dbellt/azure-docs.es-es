@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 03/04/2021
 ms.topic: how-to
 ms.custom: synapse-azureml
-ms.openlocfilehash: 6541cc008c479d8836f90ea99874d24713adb434
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a54a78bebe6dc0a1fc49a32aa2d82203b7da5028
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108746862"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077111"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Uso de Apache Spark (con tecnología de Azure Synapse Analytics) en la canalización de aprendizaje automático (versión preliminar)
 
@@ -41,7 +41,7 @@ Asimismo, puede conectar un grupo de Apache Spark a través del SDK (como se mue
 
 Puede usar la línea de comandos para seguir la plantilla de ARM, agregar el servicio vinculado y conectar el grupo de Apache Spark con el código siguiente:
 
-```bash
+```azurecli
 az deployment group create --name --resource-group <rg_name> --template-file "azuredeploy.json" --parameters @"azuredeploy.parameters.json"
 ```
 

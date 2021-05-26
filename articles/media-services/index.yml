@@ -21,12 +21,6 @@ highlightedContent:
     - title: "Conceptos de Azure Media Services, versión\_3"
       itemType: concept
       url: ./latest/concepts-overview.md
-    - title: Acerca de Video Indexer de Azure Media Services
-      itemType: overview
-      url: ./video-indexer/video-indexer-overview.md
-    - title: Comparación de los valores predeterminados de Media Services v3 y Video Indexer
-      itemType: concept
-      url: ./video-indexer/compare-video-indexer-with-media-services-presets.md
     - title: Live Video Analytics on IoT Edge (versión preliminar)
       itemType: overview
       url: ./live-video-analytics-edge/overview.md

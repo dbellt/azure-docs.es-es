@@ -4,12 +4,12 @@ description: Recopilación y visualización automática de dependencias de Appli
 ms.topic: reference
 ms.custom: devx-track-dotnet
 ms.date: 05/06/2020
-ms.openlocfilehash: aa4d39ca8964e95ca787d236223e2b475a9597c1
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: c81be9762af658d0149dd6547f50aa9a7503601d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107873836"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110097289"
 ---
 # <a name="dependency-auto-collection"></a>Recopilación automática de dependencias
 
@@ -61,7 +61,7 @@ A continuación encontrará la lista de las llamadas de dependencia admitida act
 
 > [!NOTE]
 > \* Excepto el soporte técnico de programación reactivo.
-> <br>† Requiere la instalación del [agente de JVM](./java-agent.md#install-the-application-insights-agent-for-java).
+> <br>† Requiere la instalación del [agente de JVM](java-2x-agent.md#install-the-application-insights-agent-for-java).
 
 ## <a name="nodejs"></a>Node.js
 
@@ -88,7 +88,7 @@ A continuación encontrará la lista de las llamadas de dependencia admitida act
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Configuración del seguimiento de dependencias personalizadas para [.NET](./asp-net-dependencies.md).
-- Configuración del seguimiento de dependencias personalizadas para [Java](./java-agent.md).
+- Configuración del seguimiento de dependencias personalizadas para [Java](java-2x-agent.md).
 - Configuración del seguimiento de dependencias personalizado para [OpenCensus Python](./opencensus-python-dependency.md).
 - [Escritura de una telemetría de dependencia personalizada](./api-custom-events-metrics.md#trackdependency)
 - Consulte [modelo de datos](./data-model.md) para los tipos y el modelo de datos de Application Insights.

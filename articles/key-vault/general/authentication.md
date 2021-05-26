@@ -7,12 +7,12 @@ ms.date: 03/31/2021
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 08ed6fc4c4a18a699a8a27b2436f5eb92252fa7e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 1fa4f4b4b9b56b5acc3a3d3d9e75177889a4a8af
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108755229"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479242"
 ---
 # <a name="authentication-in-azure-key-vault"></a>Autenticación de Azure Key Vault
 
@@ -24,7 +24,7 @@ Una entidad de seguridad es un objeto que representa un usuario, un grupo o una 
 
 * Una entidad de seguridad de **grupo** identifica un conjunto de usuarios creados en Azure Active Directory. Los roles o permisos asignados al grupo se conceden a todos los usuarios dentro del grupo.
 
-* Un **entidad de servicio** es un tipo de entidad de seguridad que identifica una aplicación o un servicio, es decir, un fragmento de código en lugar de un usuario o grupo. El identificador de objeto de una entidad de servicio se conoce como su **Id. de cliente** y actúa como su nombre de usuario. El **secreto de cliente** de la entidad de servicio actúa como su contraseña.
+* Una **entidad de servicio** es un tipo de entidad de seguridad que identifica una aplicación o un servicio, es decir, un fragmento de código en lugar de un usuario o grupo. El identificador de objeto de una entidad de servicio se conoce como su **Id. de cliente** y actúa como su nombre de usuario. El **secreto de cliente** de la entidad de servicio actúa como su contraseña.
 
 En el caso de las aplicaciones, hay dos maneras de obtener una entidad de servicio:
 

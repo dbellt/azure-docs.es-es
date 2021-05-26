@@ -3,12 +3,12 @@ title: Procedimientos en Azure Application Insights | Microsoft Docs
 description: P+F en Application Insights.
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 74a4d7ee65dccead132cfcebd9bf8c0de9b761a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c889c0890f8e6d193b7e36a525470fc18bef494d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100584168"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110060839"
 ---
 # <a name="how-do-i--in-application-insights"></a>¿Cómo ... en Application Insights?
 ## <a name="get-an-email-when-"></a>Recibir un correo electrónico cuando...
@@ -162,7 +162,7 @@ Entre las métricas que se pueden mostrar en el Explorador de métricas se encue
 ### <a name="if-you-see-no-performance-counter-data"></a>Si no ve ningún dato de contadores de rendimiento
 * **servidor IIS** en su propia máquina o en una VM. [Instale el Monitor de estado](./monitor-performance-live-website-now.md).
 * **Sitio web de Azure** : todavía no se admiten los contadores de rendimiento. Hay varias métricas que se puede obtener como parte estándar del sitio web de Azure en el panel de control.
-* **Servidor Unix** - [instale collectd](./java-collectd.md)
+* **Servidor Unix** - [instale collectd](java-2x-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>Para mostrar más contadores de rendimiento
 * En primer lugar, [agregue un nuevo gráfico](../essentials/metrics-charts.md) y compruebe si el contador está en el conjunto básico que se ofrece.

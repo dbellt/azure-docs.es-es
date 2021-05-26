@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 9a7fb228763870792765c954589b347a18c560b5
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a32e5a417dc54ae77785adfa46610d1fbf83f470
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108758976"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110455699"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conocidos con Azure Data Lake Storage Gen2
 
@@ -54,6 +54,7 @@ Las siguientes API REST de blob no se admiten:
 * [Get Page Ranges](/rest/api/storageservices/get-page-ranges) (Conseguir intervalos de páginas)
 * [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob) (Copia incremental del blob)
 * [Put Page from URL](/rest/api/storageservices/put-page-from-url) (Poner página de dirección URL)
+* [Put Block List](/rest/api/storageservices/put-block-list)
 
 No se admiten discos de máquina virtual no administrados en cuentas que tengan un espacio de nombres jerárquico. Si desea habilitar un espacio de nombres jerárquico en una cuenta de almacenamiento, coloque los discos de máquina virtual no administrados en una cuenta de almacenamiento que no tenga habilitada la característica de espacio de nombres jerárquico.
 
@@ -85,7 +86,8 @@ Las ACL aún no se admiten.
 
 ## <a name="third-party-applications"></a>Aplicaciones de terceros
 
-Las aplicaciones de terceros que usan las API REST para funcionar seguirán funcionando si se usan con Data Lake Storage Gen2. Lo más probable es que las aplicaciones que llaman a las API de Blob funcionen.
+Las aplicaciones de terceros que usan las API REST para funcionar seguirán funcionando si se usan con Data Lake Storage Gen2.
+Lo más probable es que las aplicaciones que llaman a las API de Blob funcionen.
 
 ## <a name="access-control-lists-acl-and-anonymous-read-access"></a>Listas de control de acceso (ACL) y acceso de lectura anónimo
 

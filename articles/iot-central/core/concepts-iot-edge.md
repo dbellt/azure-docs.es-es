@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: feb84e408c5f5339c6195b87a3ecc38791eaa90a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 2233e6f40c1023f1b02543f4e234b00422f6f77f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760938"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077201"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Conexión de dispositivos de Azure IoT Edge a una aplicación de Azure IoT Central
 
@@ -195,8 +195,6 @@ El manifiesto de implementación no incluye información sobre la telemetría qu
 Para más información, consulte [Tutorial: Incorporación de un dispositivo Azure IoT Edge a la aplicación Azure IoT Central](tutorial-add-edge-as-leaf-device.md).
 
 ### <a name="update-a-deployment-manifest"></a>Actualización de un manifiesto de implementación
-
-Si crea una nueva [versión](howto-version-device-template.md) de la plantilla de dispositivo, puede reemplazar el manifiesto de implementación por una nueva versión:
 
 Al reemplazar el manifiesto de implementación, todos los dispositivos IoT Edge conectados descargan el nuevo manifiesto y actualizan sus módulos. Sin embargo, IoT Central no actualiza las interfaces de la plantilla de dispositivo con ningún cambio en la configuración del módulo. Por ejemplo, si reemplaza el manifiesto mostrado en el fragmento de código anterior por el siguiente manifiesto, no verá automáticamente la propiedad **SendUnits** en la interfaz de **administración** de la plantilla de dispositivo. Agregue manualmente la nueva propiedad a la interfaz de **administración** para que IoT Central la reconozca:
 

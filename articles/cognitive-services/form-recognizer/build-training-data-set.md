@@ -1,6 +1,6 @@
 ---
 title: Creación de un conjunto de datos de aprendizaje para un modelo personalizado (Form Recognizer)
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Obtenga información sobre cómo asegurarse de que el conjunto de datos de aprendizaje está optimizado para entrenar un modelo de Form Recognizer.
 author: laujan
 manager: nitinme
@@ -9,16 +9,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: lajanuar
-ms.openlocfilehash: b33ac3cb710a2d2a9d92efadf14dc829cb5da6e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4ef7375b647116e8cbc08124d1e13c3c14cfd85
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467500"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374996"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Creación de un conjunto de datos de aprendizaje para un modelo personalizado
 
-Cuando se usa el modelo personalizado de Form Recognizer, puede proporcionar sus propios datos de entrenamiento a la operación [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/TrainCustomModelAsync) (Entrenar modelo personalizado), para que el modelo pueda entrenar según los formularios específicos del sector. Siga esta guía para obtener información sobre cómo recopilar y preparar los datos para entrenar el modelo de forma eficaz.
+Cuando se usa el modelo personalizado de Form Recognizer, puede proporcionar sus propios datos de entrenamiento a la operación [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) (Entrenar modelo personalizado), para que el modelo pueda entrenar según los formularios específicos del sector. Siga esta guía para obtener información sobre cómo recopilar y preparar los datos para entrenar el modelo de forma eficaz.
 
 Necesita al menos cinco formularios rellenados del mismo tipo.
 
@@ -43,11 +43,11 @@ Siga estas sugerencias adicionales para optimizar aún más el conjunto de datos
 
 Una vez que recopila el conjunto de documentos de formularios que usará para el entrenamiento, deberá cargarlo a un contenedor de Azure Blob Storage. Si no sabe cómo crear una cuenta de almacenamiento de Azure con un contenedor, siga el [inicio rápido de Azure Storage para Azure Portal](../../storage/blobs/storage-quickstart-blobs-portal.md). Use el nivel de rendimiento estándar.
 
-Si desea usar datos etiquetados manualmente, también tendrá que cargar los archivos *.labels.json* y *.ocr.json* correspondientes a los documentos de entrenamiento. Puede usar la [herramienta de etiquetado de ejemplo](./quickstarts/label-tool.md) (o su propia interfaz de usuario) para generar estos archivos.
+Si desea usar datos etiquetados manualmente, también tendrá que cargar los archivos *.labels.json* y *.ocr.json* correspondientes a los documentos de entrenamiento. Puede usar la [herramienta de etiquetado de ejemplo](label-tool.md) (o su propia interfaz de usuario) para generar estos archivos.
 
 ### <a name="organize-your-data-in-subfolders-optional"></a>Organización de los datos en subcarpetas (opcional)
 
-De manera predeterminada, la API de [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/TrainCustomModelAsync) (Entrenar modelo personalizado) solo usará documentos de formularios que se encuentren en la raíz del contenedor de almacenamiento. Sin embargo, puede realizar el entrenamiento con los datos de las subcarpetas si lo especifica así en la llamada API. Por lo general, el cuerpo de la llamada [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/TrainCustomModelAsync) (Entrenar modelo personalizado) tiene el formato siguiente, donde `<SAS URL>` es la dirección URL de la firma de acceso compartido del contenedor:
+De manera predeterminada, la API de [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) (Entrenar modelo personalizado) solo usará documentos de formularios que se encuentren en la raíz del contenedor de almacenamiento. Sin embargo, puede realizar el entrenamiento con los datos de las subcarpetas si lo especifica así en la llamada API. Por lo general, el cuerpo de la llamada [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) (Entrenar modelo personalizado) tiene el formato siguiente, donde `<SAS URL>` es la dirección URL de la firma de acceso compartido del contenedor:
 
 ```json
 {
@@ -73,7 +73,7 @@ Si agrega el contenido siguiente al cuerpo de la solicitud, la API se entrenará
 Ahora que aprendió a crear un conjunto de datos de aprendizaje, siga un inicio rápido para entrenar a un modelo personalizado de Form Recognizer y empezar a usarlo en los formularios.
 
 * [Entrenamiento de un modelo y extracción de datos de formularios mediante la biblioteca cliente o la API de REST](./quickstarts/client-library.md)
-* [Entrenamiento con etiquetas mediante la herramienta de etiquetado de ejemplo](./quickstarts/label-tool.md)
+* [Entrenamiento con etiquetas mediante la herramienta de etiquetado de ejemplo](label-tool.md)
 
 ## <a name="see-also"></a>Consulte también
 

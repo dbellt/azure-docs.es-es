@@ -1,15 +1,15 @@
 ---
 title: Lista de definiciones de directiva integradas
 description: Se enumeran las definiciones de directiva integradas para Azure Policy. Las categorías incluyen Etiquetas, Cumplimiento de normativas, Key Vault, Kubernetes, Configuración de invitados, etc.
-ms.date: 05/04/2021
+ms.date: 05/14/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: ce3b40f51fcf0b9dc79eac5c69553b394d3a349a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0aa7bce0fd603386469b04a94d18135075e944f4
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108762151"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110074609"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definiciones de directiva integradas de Azure Policy
 

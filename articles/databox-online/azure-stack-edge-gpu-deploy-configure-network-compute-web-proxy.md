@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 05/11/2021
 ms.author: alkohli
-ms.openlocfilehash: dfef9b3078b17e4758d5fd886ecd1b3fbefc5794
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 38259febaed159217379ba131fb2bffb808e65e7
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055236"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109838157"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-with-gpu"></a>Tutorial: Configuración de la red para Azure Stack Edge Pro con GPU
 
@@ -128,7 +128,6 @@ Siga estos pasos para habilitar el proceso y configurar la red de proceso.
 Es una configuración opcional.
 
 > [!IMPORTANT]
-> * Si habilita el proceso y usa un módulo de IoT Edge en el dispositivo de Azure Stack Edge Pro, se recomienda establecer la autenticación del proxy web en **Ninguna**. No se admite NTML.
 > * No se admiten los archivos de configuración automática del proxy (PAC). Los archivos de PAC definen el número de exploradores web y otros agentes de usuario que pueden elegir automáticamente el servidor proxy (método de acceso) adecuado para obtener una dirección URL determinada. 
 > * Los servidores proxy transparentes funcionan bien con Azure Stack Edge Pro. En el caso de los servidores proxy no transparentes que interceptan y leen todo el tráfico (a través de sus propios certificados instalados en el servidor proxy), cargue la clave pública del certificado del proxy como cadena de firma en el dispositivo de Azure Stack Edge Pro. Después, puede configurar las opciones del servidor proxy en el dispositivo de Azure Stack Edge. Para más información, consulte [Aportación de sus propios certificados y carga mediante la interfaz de usuario local](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).  
 
@@ -139,15 +138,11 @@ Es una configuración opcional.
 
 1. En la página **Configuración de proxy web**, realice los siguientes pasos:
 
-    1. En el cuadro **URL de proxy web** , escriba la dirección URL en este formato: `http://host-IP address or FQDN:Port number`. No se admiten direcciones URL HTTPS.
+   1. En el cuadro **URL de proxy web** , escriba la dirección URL en este formato: `http://host-IP address or FQDN:Port number`. No se admiten direcciones URL HTTPS.
 
-    2. En **Autenticación**, seleccione **No** o **NTLM**. Si habilita el proceso y usa un módulo IoT Edge en el dispositivo de Azure Stack Edge Pro, se recomienda establecer la autenticación del proxy web en **Ninguna**. No se admite **NTML**.
+   2. Para validar y aplicar la configuración del proxy web configurado, seleccione **Aplicar**.
 
-    3. Si usa autenticación, especifique el nombre de usuario y la contraseña.
-
-    4. Para validar y aplicar la configuración del proxy web configurado, seleccione **Aplicar**.
-    
-   ![Página 2 "Configuración de proxy web" de la interfaz de usuario web local](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/web-proxy-2.png)
+   ![Página 2 "Configuración de proxy web" de la interfaz de usuario web local](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/web-proxy-2.png)<!--UI text update for instruction text is needed.-->
 
 2. Una vez aplicada la configuración, seleccione **Siguiente: Device** (IoT Workbench: dispositivo).
 

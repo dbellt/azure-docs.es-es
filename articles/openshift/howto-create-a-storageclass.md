@@ -8,12 +8,12 @@ author: grantomation
 ms.author: b-grodel
 keywords: aro, openshift, az aro, red hat, cli, azure file
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 039aa3cce6615e71960db810ae383d22d7bcd909
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b7d40ecd22a66e1f4327f9147061ce4befd21e67
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102212984"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109848004"
 ---
 # <a name="create-an-azure-files-storageclass-on-azure-red-hat-openshift-4"></a>Creación de una clase StorageClass de Azure Files en Red Hat OpenShift en Azure 4
 
@@ -68,7 +68,7 @@ La cuenta de servicio del enlazador de volumen persistente de OpenShift necesita
 ```bash
 ARO_API_SERVER=$(az aro list --query "[?contains(name,'$CLUSTER')].[apiserverProfile.url]" -o tsv)
 
-oc login -u kubeadmin -p $(az aro list-credentials -g $ARO_RESOURCE_GROUP -n $CLUSTER --query=kubeadminPassword -o tsv) $APISERVER
+oc login -u kubeadmin -p $(az aro list-credentials -g $ARO_RESOURCE_GROUP -n $CLUSTER --query=kubeadminPassword -o tsv) $ARO_API_SERVER
 
 oc create clusterrole azure-secret-reader \
     --verb=create,get \

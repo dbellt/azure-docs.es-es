@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/04/2021
+ms.date: 05/14/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 237e8440cbe591270e0a10ea5eff9be941bc2aa3
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0dbe33d141bd646d58d9d409e4058e9a28907bae
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769944"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110097178"
 ---
 ## <a name="azure-security-benchmark"></a>Prueba comparativa de la seguridad de Azure
 
@@ -71,7 +71,7 @@ Para revisar el modo en que las integraciones de Azure Policy disponibles para t
 
 ## <a name="canada-federal-pbmm"></a>Canada Federal PBMM
 
-Para revisar cómo las integraciones de Azure Policy disponibles para todos los servicios de Azure se asignan a este estándar de cumplimiento, consulte [Cumplimiento normativo de Azure Policy: Canada Federal PBMM](../../../../articles/governance/policy/samples/canada-federal-pbmm.md).
+Para revisar cómo las integraciones de Azure Policy disponibles de todos los servicios de Azure se asignan a este estándar de cumplimiento, consulte [Cumplimiento normativo de Azure Policy: Canada Federal PBMM](../../../../articles/governance/policy/samples/canada-federal-pbmm.md).
 Para más información sobre este estándar de cumplimiento, consulte [Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html).
 
 |Domain |Id. de control |Título de control |Directiva<br /><sub>(Azure Portal)</sub> |Versión de la directiva<br /><sub>(GitHub)</sub>  |
@@ -268,7 +268,7 @@ Para más información acerca de este estándar de cumplimiento, consulte [ISM r
 
 |Domain |Id. de control |Título de control |Directiva<br /><sub>(Azure Portal)</sub> |Versión de la directiva<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
-|Supervisión de la seguridad de la información |ISM-3 |6.2.5 Realización de evaluaciones de vulnerabilidades |[Las bases de datos SQL deben tener resueltos los hallazgos de vulnerabilidades.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
+|Supervisión de seguridad de la información |ISM-3 |6.2.5 Realización de evaluaciones de vulnerabilidades |[Las bases de datos SQL deben tener resueltos los hallazgos de vulnerabilidades.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
 |Supervisión de la seguridad de la información |ISM-3 |6.2.5 Realización de evaluaciones de vulnerabilidades |[La configuración de Evaluación de vulnerabilidad para SQL Server debe contener una dirección de correo electrónico para recibir los informes de los exámenes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057d6cfe-9c4f-4a6d-bc60-14420ea1f1a9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_VulnerabilityAssessmentEmails_Audit.json) |
 |Supervisión de la seguridad de la información |ISM-3 |6.2.5 Realización de evaluaciones de vulnerabilidades |[La evaluación de vulnerabilidades debe estar habilitada en Instancia administrada de SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1b7aa243-30e4-4c9e-bca8-d0d3022b634a) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnManagedInstance_Audit.json) |
 |Supervisión de la seguridad de la información |ISM-3 |6.2.5 Realización de evaluaciones de vulnerabilidades |[La evaluación de vulnerabilidades debe estar activada en sus servidores de SQL Server](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef2a8f2a-b3d9-49cd-a8a8-9a3aaaf647d9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnServer_Audit.json) |

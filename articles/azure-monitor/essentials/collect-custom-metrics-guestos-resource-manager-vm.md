@@ -6,15 +6,15 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: bwren
-ms.openlocfilehash: 8e510cf2e6fed9f9ffdec1dcc4dacf16a866d66b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c0e8ae9e642caad0486b862b48d94ba392256a45
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102049022"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109839498"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Enviar métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Azure Resource Manager para una máquina virtual Windows
-Los datos de rendimiento del sistema operativo invitado de las máquinas virtuales de Azure no se recopilan automáticamente como otras [métricas de la plataforma](./monitor-azure-resource.md#monitoring-data). Instale la [extensión de diagnósticos](../agents/diagnostics-extension-overview.md) de Azure Monitor para recopilar métricas del sistema operativo invitado en la base de datos de métricas, de modo que se pueda usar con todas las características de métricas de Azure Monitor, incluidos alertas, gráficos, enrutamiento y acceso casi en tiempo real de una API REST. En este artículo se describe el proceso de envío de métricas de rendimiento del SO invitado para una máquina virtual Windows a la base de datos de métricas mediante una plantilla de Resource Manager. 
+Los datos de rendimiento del sistema operativo invitado de las máquinas virtuales de Azure no se recopilan automáticamente como otras [métricas de la plataforma](./monitor-azure-resource.md#monitoring-data). Instale la [extensión de diagnósticos](../agents/diagnostics-extension-overview.md) de Azure Monitor para recopilar métricas del sistema operativo invitado en la base de datos de métricas, de modo que se pueda usar con todas las características de métricas de Azure Monitor, incluidos alertas, gráficos, enrutamiento y acceso casi en tiempo real de una API REST. En este artículo se describe el proceso de envío de métricas de rendimiento del SO invitado para una máquina virtual Windows a la base de datos de métricas mediante una plantilla de Resource Manager.
 
 > [!NOTE]
 > Para obtener más información sobre la configuración de la extensión de diagnósticos para recopilar métricas del SO invitado mediante Azure Portal, consulte [Instalación y configuración de la extensión de Azure Diagnostics (WAD) para Windows](../agents/diagnostics-extension-windows-install.md).
@@ -28,14 +28,14 @@ Si no está familiarizado con las plantillas de Resource Manager, obtenga inform
 
 - Debe tener instalado [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](../../cloud-shell/overview.md).
 
-- El recurso de máquina virtual debe estar en una [región que admita métricas personalizadas](./metrics-custom-overview.md#supported-regions). 
+- El recurso de máquina virtual debe estar en una [región que admita métricas personalizadas](./metrics-custom-overview.md#supported-regions).
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configuración de Azure Monitor como receptor de datos
 La extensión Azure Diagnostics usa una característica denominada "receptores de datos" para enrutar las métricas y los registros a distintas ubicaciones. En los pasos siguientes se muestra cómo usar una plantilla de Resource Manager y PowerShell para implementar una VM con el nuevo receptor de datos "Azure Monitor".
 
 ## <a name="author-resource-manager-template"></a>Creación de una plantilla de Resource Manager
-En este ejemplo, puede usar una plantilla de ejemplo disponible públicamente. Las plantillas iniciales se encuentran en https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows.
+En este ejemplo, puede usar una plantilla de ejemplo disponible públicamente. Las plantillas iniciales se encuentran en https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows.
 
 - **Azuredeploy.json** es una plantilla de Resource Manager configurada previamente para la implementación de una máquina virtual.
 

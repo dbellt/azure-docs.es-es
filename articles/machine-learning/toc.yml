@@ -75,11 +75,11 @@
       items:
         - name: Entrenamiento e implementación con la CLI
           href: tutorial-train-deploy-model-cli.md
+        - name: Acceso a recursos de Azure con puntos de conexión administrados
+          href: tutorial-deploy-managed-endpoints-using-system-managed-identity.md
     - name: Visual Studio Code
       items:
-        - name: Configuración de la extensión de Azure Machine Learning
-          href: tutorial-setup-vscode-extension.md
-        - name: Entrenamiento e implementación de un modelo de clasificación de imágenes de TensorFlow
+        - name: Entrenamiento de un modelo de clasificación de imágenes de TensorFlow
           href: tutorial-train-deploy-image-classification-model-vscode.md
     - name: "Integración de Microsoft Power\_BI"
       items:
@@ -134,6 +134,8 @@
       href: concept-workspace.md
     - name: Entornos
       href: concept-environments.md
+    - name: Imágenes de Docker precompiladas para la inferencia
+      href: concept-prebuilt-docker-images-inference.md
     - name: Instancia de proceso
       displayName: 'resource, dsvm, Data Science Virtual Machine'
       href: concept-compute-instance.md
@@ -157,6 +159,8 @@
     - name: Aprendizaje profundo
       displayName: 'deep learning vs machine learning, deep learning, vs, versus'
       href: concept-deep-learning-vs-machine-learning.md
+    - name: Puntos de conexión
+      href: concept-endpoints.md
     - name: Administración de modelos (MLOps)
       displayName: 'deploy, deployment, publish, production, operationalize, operationalization'
       href: concept-model-management-and-deployment.md
@@ -283,6 +287,9 @@
           href: how-to-create-attach-compute-studio.md
     - name: Configurar el entorno
       items:
+        - name: "Instalación y configuración de la CLI\_2.0"
+          displayName: 'azurecli, mlops'
+          href: how-to-configure-cli.md
         - name: Configuración de entornos de desarrollo
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
@@ -305,8 +312,11 @@
         - name: Establecimiento de directorios de entrada y salida
           displayName: 'large data, write, experiment files, size limit'
           href: how-to-save-write-experiment-files.md
-        - name: Visual Studio Code
+        - name: "Configuración de la extensión de VS\_Code"
           displayName: 'Visual Studio Code, VSCode, debug, bugs, remote, compute, instance'
+          href: how-to-setup-vs-code.md
+        - name: "Conexión a VS\_Code de la instancia de proceso"
+          displayName: 'Visual Studio Code, VSCode, debug, bugs'
           href: how-to-set-up-vs-code-remote.md
         - name: Integración de Git
           displayName: github gitlab
@@ -371,6 +381,8 @@
               href: how-to-differential-privacy.md
     - name: Entrenamiento de modelos
       items:
+        - name: "Entrenamiento con la CLI\_2.0"
+          href: how-to-train-cli.md
         - name: Configuración y envío de ejecución de entrenamiento
           displayName: 'run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
           href: how-to-set-up-training-targets.md
@@ -387,6 +399,8 @@
           href: how-to-train-pytorch.md
         - name: Entrenamiento con una imagen de Docker personalizada
           href: how-to-train-with-custom-image.md
+        - name: Entrenamiento con la API REST
+          href: how-to-train-with-rest.md
         - name: Migración de Estimadores a ScriptRunConfig
           href: how-to-migrate-from-estimators-to-scriptrunconfig.md
         - name: Seguimiento y supervisión del entrenamiento
@@ -424,6 +438,9 @@
         - name: Seguimiento de las ejecuciones de Azure Databricks con MLflow
           displayName: 'log, monitor, deploy, metrics, databricks'
           href: how-to-use-mlflow-azure-databricks.md
+        - name: Entrenamiento de experimentos con proyectos de MLflow
+          displayName: 'log, monitor, metrics, model registry, register'
+          href: how-to-train-mlflow-projects.md
         - name: Implementación de modelos de MLflow
           displayName: 'log, monitor, deploy, metrics, databricks, aci, aks'
           href: how-to-deploy-mlflow-models.md
@@ -461,6 +478,30 @@
         - name: Dónde y cómo implementar
           displayName: 'publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker'
           href: how-to-deploy-and-where.md
+        - name: Implementación y servicio con puntos de conexión
+          items:
+            - name: En línea
+              items:
+                - name: Implementación de un modelo de Machine Learning con un punto de conexión en línea administrado
+                  href: how-to-deploy-managed-online-endpoints.md
+                - name: Implementación segura para puntos de conexión en línea
+                  href: how-to-safely-rollout-managed-endpoints.md
+                - name: Uso de puntos de conexión en línea administrados en Studio
+                  href: how-to-use-managed-online-endpoint-studio.md
+                - name: Visualización de los costos de los puntos de conexión en línea administrados
+                  href: how-to-view-online-endpoints-costs.md
+                - name: Lista de SKU de máquina virtual de puntos de conexión en línea administrados
+                  href: reference-managed-online-endpoints-vm-sku-list.md
+                - name: Supervisión de puntos de conexión en línea administrados
+                  href: how-to-monitor-online-endpoints.md
+                - name: Solución de problemas de puntos de conexión en línea administrados
+                  href: how-to-troubleshoot-managed-online-endpoints.md
+            - name: Batch
+              items:
+                - name: Puntuación por lotes con puntos de conexión por lotes
+                  href: how-to-use-batch-endpoint.md
+                - name: Solución de problemas de puntos de conexión por lotes
+                  href: how-to-troubleshoot-batch-endpoints.md
         - name: Destinos de implementación
           items:
             - name: Local
@@ -487,6 +528,14 @@
               href: ../iot-edge/tutorial-deploy-machine-learning.md?context=azure%2fmachine-learning%2fservice%2fcontext%2fml-context
             - name: Inferencia de FPGA
               href: how-to-deploy-fpga-web-service.md
+        - name: Imágenes de Docker precompiladas
+          items:
+            - name: Extensibilidad de Python
+              href: how-to-prebuilt-docker-images-inference-python-extensibility.md
+            - name: Extensibilidad de Dockerfile
+              href: how-to-extend-prebuilt-docker-image-inference.md
+            - name: Solución de problemas de imágenes de Docker precompiladas
+              href: how-to-troubleshoot-prebuilt-docker-image-inference.md
         - name: Solución de problemas de implementación
           href: how-to-troubleshoot-deployment.md
         - name: Solución de problemas de implementación (local)
@@ -524,7 +573,7 @@
         - name: Implementación de modelos del diseñador
           displayName: 'designer, studio'
           href: how-to-deploy-model-designer.md
-        - name: (Versión preliminar) Implementación sin código
+        - name: Implementación sin programación
           displayName: no code
           href: how-to-deploy-no-code-deployment.md
         - name: Modelos de paquetes
@@ -632,6 +681,8 @@
       href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: Límites de servicio
       href: resource-limits-quotas-capacity.md
+    - name: Licencias de Conda
+      href: /legal/machine-learning/conda-licensing
     - name: Disponibilidad regional
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Foro de usuarios

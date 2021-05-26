@@ -5,12 +5,12 @@ ms.date: 12/2/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions-full
-ms.openlocfilehash: 7950bfb4a57db812da87f4e5f76f3075d50a8293
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: aacf57206895c73055c624b8a5d80e68cc73f38e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782284"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110099215"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Creación de una función en Linux con un contenedor personalizado
 
@@ -120,7 +120,7 @@ El parámetro `-DjavaVersion` indica al entorno de ejecución de Functions qué 
 Maven le pide los valores necesarios para finalizar la generación del proyecto en la implementación.   
 Indique los siguientes valores cuando se le solicite:
 
-| Prompt | Value | Descripción |
+| Prompt | Valor | Descripción |
 | ------ | ----- | ----------- |
 | **groupId** | `com.fabrikam` | Un valor que identifica de forma única su proyecto entre todos los demás y que sigue las [reglas de nomenclatura de paquetes](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) de Java. |
 | **artifactId** | `fabrikam-functions` | Un valor que es el nombre del archivo jar, sin un número de versión. |
@@ -251,7 +251,7 @@ En *host.json*, modifique la sección `customHandler` para configurar el comando
 Para probar la función localmente, inicie el host en tiempo de ejecución de Azure Functions local en la carpeta raíz del proyecto: 
 ::: zone pivot="programming-language-csharp"  
 ```console
-func start --build  
+func start  
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"   

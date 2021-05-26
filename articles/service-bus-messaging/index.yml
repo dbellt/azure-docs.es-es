@@ -12,12 +12,12 @@ metadata:
   author: spelluru
   ms.author: spelluru
   ms.date: 06/23/2020
-  ms.openlocfilehash: aaa2115609e08077ad29e5e8b9eefb4d8a65147e
-  ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+  ms.openlocfilehash: ec91be71357e2dda70032930d2133eebbf1b5dfd
+  ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/24/2020
-  ms.locfileid: "95805641"
+  ms.lasthandoff: 05/26/2021
+  ms.locfileid: "110468260"
 landingContent:
 - title: Acerca de la mensajería de Service Bus
   linkLists:
@@ -41,9 +41,9 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Azure portal
+    - text: Portal de Azure
       url: service-bus-quickstart-portal.md
-    - text: Azure CLI
+    - text: CLI de Azure
       url: service-bus-quickstart-cli.md
     - text: Azure PowerShell
       url: service-bus-quickstart-powershell.md
@@ -71,8 +71,6 @@ landingContent:
       url: service-bus-python-how-to-use-queues.md
     - text: PHP
       url: service-bus-php-how-to-use-queues.md
-    - text: Ruby
-      url: service-bus-ruby-how-to-use-queues.md
 - title: Publicación y suscripción de mensajes
   linkLists:
   - linkListType: quickstart
@@ -87,8 +85,6 @@ landingContent:
       url: service-bus-python-how-to-use-topics-subscriptions.md
     - text: PHP
       url: service-bus-php-how-to-use-topics-subscriptions.md
-    - text: Ruby
-      url: service-bus-ruby-how-to-use-topics-subscriptions.md
 - title: Supervisión y administración
   linkLists:
   - linkListType: how-to-guide
@@ -96,7 +92,7 @@ landingContent:
     - text: Uso de PowerShell para aprovisionar entidades
       url: service-bus-manage-with-ps.md
     - text: Supervisión de Service Bus mediante Azure Monitor
-      url: service-bus-metrics-azure-monitor.md
+      url: monitor-service-bus-reference.md
     - text: Configuración de registros de diagnósticos
       url: service-bus-diagnostic-logs.md
     - text: Suspensión y reactivación de entidades de mensajería

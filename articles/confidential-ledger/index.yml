@@ -1,0 +1,59 @@
+### YamlMime:Landing
+title: Azure Confidential Ledger
+summary: Aprenda a usar Azure Confidential Ledger.
+metadata:
+  title: Documentación de Azure Confidential Ledger
+  description: Aprenda a usar Azure Confidential Ledger.
+  services: confidential-ledger
+  ms.service: confidential-ledger
+  ms.topic: landing-page
+  author: msmbaldwin
+  ms.author: mbaldwin
+  ms.date: 04/15/2021
+  ms.openlocfilehash: 9ba47997232d3eb8b6b99d5608c382ba6b8f7039
+  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 05/25/2021
+  ms.locfileid: "110383481"
+landingContent:
+- title: Acerca de Azure Confidential Ledger
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Confidential Ledger?
+      url: overview.md
+- title: Introducción
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Inicio rápido de Python
+      url: quickstart-python.md
+    - text: Inicio rápido de la plantilla de Resource Manager
+      url: quickstart-template.md
+- title: Conceptos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Architecture
+      url: architecture.md
+    - text: Autenticación de nodos de Ledger
+      url: authenticate-ledger-nodes.md
+- title: Guías paso a paso
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Autenticación de nodos de Ledger
+      url: authenticate-ledger-nodes.md
+    - text: Creación de un certificado de cliente
+      url: create-client-certificate.md
+    - text: Registro de una entidad de servicio de Ledger
+      url: register-ledger-service-principal.md
+    - text: Registro del proveedor de recursos de Confidential Ledger
+      url: register-ledger-resource-provider.md
+- title: Referencias
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Preguntas más frecuentes
+      url: faq.md
