@@ -3,17 +3,17 @@ title: Creación de una máquina virtual a partir de un disco duro virtual gener
 description: Cargue un VHD generalizado en Azure y úselo para crear máquinas virtuales nuevas en el modelo de implementación de Resource Manager.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: disks
+ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 793bc5518664761a2a9b0cfd46e616d2fb72c3e6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 98e94952481ebfabffb39ba46247717bca4de447
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562102"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109809245"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Carga de un VHD generalizado y su uso para crear máquinas virtuales nuevas en Azure
 
@@ -40,7 +40,7 @@ Asegúrese de que los roles de servidor que se ejecutan en la máquina sean comp
 
 1. Inicie sesión en la máquina virtual de Windows.
 1. Abra una ventana del símbolo del sistema como administrador. 
-1. Elimine el directorio de Panther (C:\Windows\Panther).
+1. Elimine el directorio Panther (C:\Windows\Panther).
 1. Cambie el directorio a %windir%\system32\sysprep, y, después, ejecute `sysprep.exe`.
 1. En **Herramienta de preparación del sistema**, seleccione **Iniciar la Configuración rápida (OOBE)** y asegúrese de que la casilla **Generalizar** está seleccionada.
 1. En **Opciones de apagado**, seleccione **Apagar**.

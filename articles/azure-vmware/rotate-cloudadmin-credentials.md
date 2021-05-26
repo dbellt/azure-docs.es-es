@@ -3,12 +3,12 @@ title: Rotación de las credenciales de administrador de la nube en Azure VMware
 description: Aprenda a rotar las credenciales de vCenter Server y NSX-T Manager para la nube privada de Azure VMware Solution.
 ms.topic: how-to
 ms.date: 05/11/2021
-ms.openlocfilehash: 6e7a37a1c262548e49952ed162cf725b1a7d6ed1
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: fbfed495fd904b67ce283934791cee516349dfa6
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789757"
+ms.locfileid: "109814968"
 ---
 # <a name="rotate-the-cloudadmin-credentials-for-azure-vmware-solution"></a>Rotación de las credenciales de administrador de la nube en Azure VMware Solution
 
@@ -51,7 +51,7 @@ En este paso, comprobará que el conector HCX tiene las credenciales actualizada
 
 2. En el panel de VMware HCX, seleccione **Site Pairing** (Emparejamiento de sitios).
     
-   :::image type="content" source="media/reset-vsphere-credentials/hcx-site-pairing.png" alt-text="Captura de pantalla del panel de VMware HCX con el emparejamiento de sitios resaltado.":::
+   :::image type="content" source="media/rotate-cloudadmin-credentials/hcx-site-pairing.png" alt-text="Captura de pantalla del panel de VMware HCX con el emparejamiento de sitios resaltado.":::
  
 3. Seleccione la conexión correcta en Azure VMware Solution y seleccione **Edit Connection**.
  

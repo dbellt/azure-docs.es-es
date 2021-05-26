@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 6c44c87221442797f063877385ac5eb7f8585850
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 576c1f0b087775ee3784229147b3715b22135217
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107719104"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110090683"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Alta disponibilidad en Azure Cache for Redis
 
@@ -22,7 +22,7 @@ Azure Cache for Redis implementa alta disponibilidad usando varias máquinas vir
 | Opción | Descripción | Disponibilidad | Estándar | Premium | Enterprise |
 | ------------------- | ------- | ------- | :------: | :---: | :---: |
 | [Replicación estándar](#standard-replication)| Configuración replicada de dos nodos en un único centro de recursos con conmutación automática por error | 99,9 % (consulte los [detalles](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |✔|✔|-|
-| [Redundancia de zona](#zone-redundancy) | Configuración replicada de varios nodos en varias zonas de disponibilidad, con conmutación automática por error | Hasta el 99,99 % (consulte los [detalles](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |-|Vista previa|✔|
+| [Redundancia de zona](#zone-redundancy) | Configuración replicada de varios nodos en varias zonas de disponibilidad, con conmutación automática por error | Hasta el 99,99 % (consulte los [detalles](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |-|✔|✔|
 | [Replicación geográfica](#geo-replication) | Instancias de caché vinculadas en dos regiones, con conmutación por error controlada por el usuario | Hasta el 99,999 % (consulte los [detalles](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |-|✔|Vista previa|
 
 ## <a name="standard-replication"></a>Replicación estándar
@@ -40,11 +40,6 @@ Si el nodo principal de una caché en Redis no está disponible, el de réplica 
 
 Un nodo principal puede retirarse del servicio como parte de una actividad de mantenimiento planeado, como la actualización del sistema operativo o del software de Redis. También puede dejar de funcionar debido a eventos no planeados como errores en el hardware, el software o la red subyacentes. En el artículo [Conmutación por error y aplicación de revisión de Azure Cache for Redis](cache-failover.md) se proporciona una explicación detallada sobre los tipos de conmutaciones por error de Redis. Una instancia de Azure Cache for Redis pasará por muchas conmutaciones por error durante su vigencia. La arquitectura de alta disponibilidad está diseñada para realizar estos cambios en una caché de la forma más transparente posible para sus clientes.
 
->[!NOTE]
->Lo siguiente está disponible como una versión preliminar.
->
->
-
 Además, Azure Cache for Redis permite nodos de réplica adicionales en el nivel Premium. Una [caché de varias réplicas](cache-how-to-multi-replicas.md) puede configurarse con hasta tres nodos de réplica. Normalmente, la existencia de más réplicas mejora la resistencia debido a los nodos adicionales que copian el principal. Incluso con más réplicas, una instancia de Azure Cache for Redis se puede ver seriamente afectada por una interrupción a nivel de las zonas de disponibilidad o del centro de datos. Puede aumentar la disponibilidad de la caché usando varias réplicas juntas con [redundancia de zona](#zone-redundancy).
 
 ## <a name="zone-redundancy"></a>Redundancia de zona
@@ -52,11 +47,6 @@ Además, Azure Cache for Redis permite nodos de réplica adicionales en el nivel
 Azure Cache for Redis admite configuraciones con redundancia de zona en los niveles Premium y Enterprise. Una [caché con redundancia de zona](cache-how-to-zone-redundancy.md) puede colocar sus nodos en diferentes [zonas de disponibilidad de Azure](../availability-zones/az-overview.md) dentro de la misma región. Además, acaba con el problema de que las interrupciones de las zonas de disponibilidad o del centro de datos sean el único punto de error, y aumenta la disponibilidad general de la caché.
 
 ### <a name="premium-tier"></a>Nivel Premium
-
->[!NOTE]
->Opción disponible en versión preliminar.
->
->
 
 En el diagrama siguiente se muestra la configuración de redundancia de zona para el nivel Premium:
 

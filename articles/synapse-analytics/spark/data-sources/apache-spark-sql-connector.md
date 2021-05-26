@@ -8,17 +8,17 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: spark
 ms.date: 05/19/2020
-ms.openlocfilehash: 39d43bd9e4006b50339979a2dbdcdbf1d36655d1
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 82518e6c8f4901ffe6c5503d902359a79c12e0b0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109795615"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110081683"
 ---
 # <a name="azure-sql-database-and-sql-server-connector-for-apache-spark"></a>Conector de Azure SQL Database y SQL Server para Apache Spark
 El conector de Apache Spark para Azure SQL Database y SQL Server permite que estas bases de datos actúen como orígenes de datos de entrada y receptores de datos de salida en los trabajos de Apache Spark. Permite usar datos transaccionales en tiempo real en análisis de macrodatos y conservar los resultados para informes o consultas ad hoc.
 
-En comparación con el conector JDBC integrado, este conector proporciona la capacidad para insertar datos de forma masiva en bases de datos SQL. Puede mejorar el rendimiento de la inserción de fila en fila, ya que puede insertar datos entre 10 y 20 veces más rápido. El conector de Spark para SQL Server y Azure SQL Database también admite la [autenticación](https://docs.microsoft.com/sql/connect/spark/connector?view=sql-server-ver15#azure-active-directory-authentication)de Azure Active Directory (Azure AD), lo que permite conectarse de forma segura a las bases de datos de Azure SQL Database desde Azure Synapse Analytics. 
+En comparación con el conector JDBC integrado, este conector proporciona la capacidad para insertar datos de forma masiva en bases de datos SQL. Puede mejorar el rendimiento de la inserción de fila en fila, ya que puede insertar datos entre 10 y 20 veces más rápido. El conector de Spark para SQL Server y Azure SQL Database también admite la [autenticación](/sql/connect/spark/connector#azure-active-directory-authentication)de Azure Active Directory (Azure AD), lo que permite conectarse de forma segura a las bases de datos de Azure SQL Database desde Azure Synapse Analytics. 
 
 En este artículo se explica cómo usar DataFrame API para conectarse a bases de datos SQL mediante el conector de MS SQL. En este artículo se proporcionan ejemplos detallados del uso de PySpark API. Para ver todos los ejemplos y argumentos admitidos para conectarse a bases de datos SQL mediante el conector de MS SQL, consulte [Ejemplos de Azure Data SQL.](https://github.com/microsoft/sql-server-samples#azure-data-sql-samples-repository)
 
@@ -130,5 +130,5 @@ jdbc_df = spark.read \
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Más información sobre el conector de SQL Server y Azure SQL](https://docs.microsoft.com/sql/connect/spark/connector?view=sql-server-ver15)
+- [Más información sobre el conector de SQL Server y Azure SQL](/sql/connect/spark/connector)
 - [Visualización de ejemplos de Azure Data SQL](https://github.com/microsoft/sql-server-samples)

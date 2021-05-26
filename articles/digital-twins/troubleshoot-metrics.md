@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b4f0182c6214f500d10904760087be5c89a07acd
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: ffae474f6de5de7715585f0606a9630b136a2c37
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108203566"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110092141"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Solución de problemas de Azure Digital Twins: Métricas
 
@@ -78,7 +78,7 @@ Métricas relacionadas con la facturación:
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | Operaciones de la API de facturación | Count | Total | Métrica de facturación para el recuento de todas las solicitudes de API realizadas en el servicio Azure Digital Twins. | Meter ID |
 | BillingMessagesProcessed | Mensajes de facturación procesados | Count | Total | Métrica de facturación para el número de mensajes enviados desde Azure Digital Twins a puntos de conexión externos.<br><br>Para que se considere un solo mensaje para su facturación, una carga no debe ser superior a 1 KB. Las cargas superiores a este se contarán como mensajes adicionales en incrementos de 1 KB (por lo que un mensaje de entre 1 y 2 KB se contará como dos mensajes, entre 2 y 3 KB serán tres mensajes, etc.).<br>Esta restricción también se aplica a las respuestas, por lo que una llamada que devuelve 1,5 KB en el cuerpo de la respuesta, por ejemplo, se facturará como dos operaciones. | Meter ID |
-| BillingQueryUnits | Facturación de unidades de consulta | Count | Total | Número de unidades de consulta, una medida del uso de recursos de servicio calculada internamente, que se consume para ejecutar consultas. También hay una API auxiliar disponible para medir las unidades de consulta: [Clase de QueryChargeHelper](/dotnet/api/azure.digitaltwins.core.querychargehelper) | Meter ID |
+| BillingQueryUnits | Facturación de unidades de consulta | Count | Total | Número de unidades de consulta, una medida del uso de recursos de servicio calculada internamente, que se consume para ejecutar consultas. También hay una API auxiliar disponible para medir las unidades de consulta: [Clase de QueryChargeHelper](/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet&preserve-view=true) | Meter ID |
 
 Para obtener más información sobre la forma en que se factura Azure Digital Twins, consulte [Precios de Azure Digital Twins](https://azure.microsoft.com/pricing/details/digital-twins/).
 

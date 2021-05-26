@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: banders
-ms.openlocfilehash: c3294c09012339cb19f04327f1933688b05ae077
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 1e9e5582c95183a5e832950c5ac0b154cdef8362
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321472"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110088127"
 ---
 # <a name="transfer-azure-subscription-billing-ownership-for-a-microsoft-customer-agreement"></a>Transferencia de la propiedad de facturación de la suscripción de Azure en un Contrato de cliente de Microsoft
 
@@ -77,11 +77,11 @@ La persona a la que solicite la propiedad de facturación debe tener uno de los 
    |Fecha de solicitud|La fecha en la que se envió la solicitud de transferencia.|
    |Recipient|La dirección de correo electrónico del usuario que envió la solicitud para transferir la propiedad de la facturación|
    |Fecha de expiración|La fecha en que expira la solicitud|
-   |Status|El estado de la solicitud de transferencia|
+   |Estado|El estado de la solicitud de transferencia|
 
     La solicitud de transferencia puede tener uno de los siguientes estados:
 
-   |Status|Definición|
+   |Estado|Definición|
    |---------|---------|
    |En curso|El usuario no ha aceptado la solicitud de transferencia.|
    |Processing|El usuario aprueba la solicitud de transferencia. La facturación de las suscripciones seleccionadas por el usuario está en proceso de transferencia a la sección de factura|
@@ -157,7 +157,7 @@ Es posible que quiera acceder a las facturas de su cuenta antigua del Contrato M
 
 Debe usar sus credenciales de administrador de cuenta de la cuenta anterior si las credenciales difieren de las usadas para acceder a la nueva cuenta del Contrato de cliente de Microsoft.
 
-1.  Inicie sesión en Azure Portal en https://azure.portal.com.
+1.  Inicie sesión en Azure Portal en https://portal.azure.com/.
 1.  Vaya a **Administración de costos + facturación**.
 1.  Seleccione **Ámbitos de facturación** en el panel izquierdo.
 1.  Seleccione la cuenta de facturación asociada a la cuenta del Contrato Microsoft Online Subscription.

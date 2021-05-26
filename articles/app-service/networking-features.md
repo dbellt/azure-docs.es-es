@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/26/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9ba85ecfe2b57ceb1eed5c51929107a95f5a4669
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 7410793a429395b7f1b1e826c66cb2647eb77cd2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889151"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367716"
 ---
 # <a name="app-service-networking-features"></a>Características de redes de App Service
 
@@ -23,6 +23,9 @@ Hay dos tipos de implementación principales para Azure App Service:
 - App Service Environment (ASE) de un único inquilino hospeda planes de App Service de SKU aislada directamente en su red virtual de Azure. 
 
 Las características que puede usar dependerán de si está en el servicio multiinquilino o en un entorno de ASE. 
+
+> [!NOTE]
+> Las características de redes no están disponibles para las [aplicaciones implementadas en Azure Arc](overview-arc-integration.md).
 
 ## <a name="multitenant-app-service-networking-features"></a>Características de red de App Service multiinquilino 
 

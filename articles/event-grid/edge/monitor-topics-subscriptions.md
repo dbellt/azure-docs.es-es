@@ -1,14 +1,15 @@
 ---
 title: Supervisión de temas y suscripciones de eventos - Azure Event Grid IoT Edge | Microsoft Docs
 description: Supervisión de temas y suscripciones de eventos
-ms.date: 07/08/2020
+ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: d230be4f74abd61ad7b7f0fdb3facb32ee63da73
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.subservice: iot-edge
+ms.openlocfilehash: 02fa0daa54d7b5a079ee1d8dff5a104ca23cc56e
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86171540"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367803"
 ---
 # <a name="monitor-topics-and-event-subscriptions"></a>Supervisión de temas y suscripciones de eventos
 

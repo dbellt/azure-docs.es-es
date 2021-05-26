@@ -55,6 +55,12 @@
         - name: Plantilla ARM
           displayName: Resource Manager
           href: functions-create-first-function-resource-manager.md
+        - name: "Azure\_Arc (versión preliminar)"
+          items:
+            - name: Publicación de proyecto de código
+              href: create-first-function-arc-cli.md
+            - name: Publicación de contenedor de Linux
+              href: create-first-function-arc-custom-container.md
     - name: Conectar con una base de datos
       items:
         - name: Visual Studio Code
@@ -73,8 +79,9 @@
       href: functions-twitter-email.md
     - name: "Desarrollo de funciones de Python con VS\_Code"
       href: /azure/python/tutorial-vs-code-serverless-python-01
-    - name: Definición de OpenAPI para API sin servidor
-      href: functions-openapi-definition.md
+    - name: "Creación de API sin servidor mediante Visual\_Studio"
+      href: openapi-apim-integrate-visual-studio.md
+      displayName: 'OpenAPI, Swagger'
     - name: Redes
       items:
         - name: Conexión a una red virtual
@@ -452,8 +459,14 @@
           href: functions-scenario-database-table-cleanup.md
         - name: Conexión a una red virtual
           href: ./functions-create-vnet.md
-        - name: Creación de una definición de OpenAPI 2.0
-          href: ./functions-openapi-definition.md
+        - name: Creación de definiciones de OpenAPI
+          items:
+            - name: Integración de API Management (portal)
+              href: ./functions-openapi-definition.md
+              displayName: 'OpenAPI, Swagger'
+            - name: "Visual\_Studio con API Management (C#)"
+              href: openapi-apim-integrate-visual-studio.md
+              displayName: 'OpenAPI, Swagger'
         - name: Uso de una identidad administrada
           href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Personalización del punto de conexión de la función HTTP
@@ -658,8 +671,6 @@
       href: functions-host-json-v1.md
     - name: Preguntas más frecuentes sobre las redes
       href: functions-networking-faq.md
-    - name: Referencia de OpenAPI
-      href: functions-api-definition.md
 - name: Recursos
   items:
     - name: Desarrollo de aptitudes con Microsoft Learn

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: 3a02876234d43df2e98a3a4e60453fc3f1f74ef6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b649c8e51224043b02be791eee217bed98c7130
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98724176"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109838562"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importación o exportación de una base de datos de Azure SQL Database sin permitir que los servicios de Azure accedan al servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,9 +34,9 @@ Seleccione el botón **Implementar en Azure** para crear una máquina virtual de
 Esta plantilla le permite implementar una máquina virtual de Windows simple mediante diversas opciones de versión de Windows con el parche más reciente. Esto implementará una máquina virtual de tamaño A2 en la ubicación del grupo de recursos y devolverá el nombre de dominio completo de la máquina virtual.
 <br><br>
 
-[![Imagen que muestra un botón con la etiqueta "Implementar en Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json)
+[![Imagen que muestra un botón con la etiqueta "Implementar en Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-simple-windows%2Fazuredeploy.json)
 
-Para obtener más información, consulte [Implementación muy simple de una máquina virtual de Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows).
+Para obtener más información, consulte [Implementación muy simple de una máquina virtual de Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows).
 
 ## <a name="connect-to-the-virtual-machine"></a>Conexión a la máquina virtual
 
@@ -44,13 +44,13 @@ En los pasos siguientes se muestra cómo conectarse a la máquina virtual median
 
 1. Una vez finalizada la implementación, vaya al recurso de máquina virtual.
 
-   ![Captura de pantalla que muestra la página de información general de una máquina virtual con el botón Conectar.](./media/database-import-export-azure-services-off/vm.png)  
+   ![Captura de pantalla que muestra la página de información general de una máquina virtual con el botón Conectar.](./media/database-import-export-azure-services-off/vm.png)
 
 2. Seleccione **Conectar**.
 
    Aparece un formulario de archivo de Protocolo de escritorio remoto (archivo .rdp) con la dirección IP pública y el número de puerto de la máquina virtual.
 
-   ![Formulario RDP](./media/database-import-export-azure-services-off/rdp.png)  
+   ![Formulario RDP](./media/database-import-export-azure-services-off/rdp.png)
 
 3. Seleccione **Descargar archivo RDP**.
 

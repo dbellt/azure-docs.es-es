@@ -4,12 +4,12 @@ description: Application Performance Management y seguimiento del uso de la apli
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: f25a53cb227d6894aaabaf82033178f15f61c173
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: a3f8ef90dc7c62bd710a918e16af17e8309a9f6e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076214"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110082673"
 ---
 # <a name="what-is-application-insights"></a>¿Qué es Application Insights?
 Application Insights es una característica de [Azure Monitor](../overview.md) que es un servicio de Application Performance Management (APM) extensible para desarrolladores y profesionales de DevOps. Úselo para supervisar las aplicaciones en directo. Detectará automáticamente anomalías en el rendimiento e incluye eficaces herramientas de análisis que le ayudan a diagnosticar problemas y a saber lo que hacen realmente los usuarios con la aplicación.  Está diseñado para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso. Funciona con diversas aplicaciones y en una amplia variedad de plataformas, como .NET, Node.js, Java y Python, hospedadas en el entorno local, de forma híbrida o en cualquier nube pública. Se integra con el proceso de DevOps y tiene puntos de conexión a numerosas herramientas de desarrollo. Puede supervisar y analizar la telemetría de aplicaciones móviles mediante la integración con Visual Studio App Center.
@@ -100,7 +100,7 @@ Hay varias formas de empezar. Comience con la que más se ajuste a sus necesidad
   * [Aplicaciones ASP.NET](./asp-net.md)
   * [Aplicación ASP.NET Core](./asp-net-core.md)
   * [Aplicaciones de consola .NET](./console.md)
-  * [Java](./java-get-started.md)
+  * [Java](./java-in-process-agent.md)
   * [Node.js](./nodejs.md)
   * [Python](./opencensus-python.md)
   * [Otras plataformas](./platforms.md)
@@ -119,7 +119,7 @@ Comience en el tiempo de desarrollo con:
 
 * [ASP.NET](./asp-net.md)
 * [ASP.NET Core](./asp-net-core.md)
-* [Java](./java-get-started.md)
+* [Java](./java-in-process-agent.md)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)
 * [JavaScript](./javascript.md)
@@ -143,7 +143,7 @@ Comience en el tiempo de desarrollo con:
 [desktop]: ./windows-desktop.md
 [greenbrown]: ./asp-net.md
 [ios]: ../app/mobile-center-quickstart.md
-[java]: ./java-get-started.md
+[java]: ./java-in-process-agent.md
 [knowUsers]: app-insights-web-track-usage.md
 [platforms]: ./platforms.md
 [portal]: https://portal.azure.com/

@@ -3,12 +3,12 @@ title: Establecimiento del orden de implementación para recursos
 description: En este artículo se describe cómo establecer un recurso de Azure como dependiente de otro recurso durante la implementación. Las dependencias garantizan que los recursos se implementan en el orden correcto.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 009f5731e871c47aba418fca0937ae7aa195919e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 723344a4619325eb29a481a42f7dd2de5094a7b0
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108737070"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109814071"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definición del orden de implementación de recursos en las plantillas de ARM
 
@@ -20,7 +20,7 @@ Azure Resource Manager evalúa las dependencias entre recursos y los implementa 
 
 Dentro de la plantilla de Azure Resource Manager, el elemento `dependsOn` permite definir un recurso como dependiente de uno o más recursos. Su valor es una matriz de cadenas de notación de objetos JavaScript (JSON), cada una de las cuales es un nombre o identificador de recurso. La lista puede incluir recursos que [se implementan condicionalmente](conditional-resource-deployment.md). Cuando un recurso condicional no está implementado, Azure Resource Manager lo quita automáticamente de las dependencias necesarias.
 
-En el ejemplo siguiente se muestra una interfaz de red que depende de una red virtual, un grupo de seguridad de red y una dirección IP pública. Para ver la plantilla completa, consulte la [plantilla de inicio rápido de una máquina virtual Linux](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-simple-linux/azuredeploy.json).
+En el ejemplo siguiente se muestra una interfaz de red que depende de una red virtual, un grupo de seguridad de red y una dirección IP pública. Para ver la plantilla completa, consulte la [plantilla de inicio rápido de una máquina virtual Linux](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-simple-linux/azuredeploy.json).
 
 ```json
 {

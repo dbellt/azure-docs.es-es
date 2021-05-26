@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/04/2021
+ms.date: 05/14/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: fee62d81d4e42f2fdfc3980479480671dc977a9a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 27f831031824535b214499e84fee8820363f0f0b
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108746102"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110083781"
 ---
 ## <a name="azure-security-benchmark"></a>Prueba comparativa de la seguridad de Azure
 
@@ -94,7 +94,7 @@ Para revisar el modo en que las integraciones de Azure Policy disponibles para t
 
 ## <a name="canada-federal-pbmm"></a>Canada Federal PBMM
 
-Para revisar cómo las integraciones de Azure Policy disponibles para todos los servicios de Azure se asignan a este estándar de cumplimiento, consulte [Cumplimiento normativo de Azure Policy: Canada Federal PBMM](../../../../articles/governance/policy/samples/canada-federal-pbmm.md).
+Para revisar cómo las integraciones de Azure Policy disponibles de todos los servicios de Azure se asignan a este estándar de cumplimiento, consulte [Cumplimiento normativo de Azure Policy: Canada Federal PBMM](../../../../articles/governance/policy/samples/canada-federal-pbmm.md).
 Para más información sobre este estándar de cumplimiento, consulte [Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html).
 
 |Domain |Id. de control |Título de control |Directiva<br /><sub>(Azure Portal)</sub> |Versión de la directiva<br /><sub>(GitHub)</sub>  |
@@ -340,7 +340,7 @@ Para más información sobre este estándar de cumplimiento, consulte [ISO 27001
 |Criptografía |10.1.1 |Directiva sobre el uso de controles criptográficos |[Acceso a Function App solo a través de HTTPS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6d555dd1-86f2-4f1c-8ed7-5abae7c6cbab) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppServiceFunctionApp_AuditHTTP_Audit.json) |
 |Criptografía |10.1.1 |Directiva sobre el uso de controles criptográficos |[Acceso a la aplicación web solo a través de HTTPS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa4af4a39-4135-47fb-b175-47fbdf85311d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppServiceWebapp_AuditHTTP_Audit.json) |
 
-## <a name="new-zealand-ism-restricted"></a>ISM restringido de Nueva Zelanda
+## <a name="new-zealand-ism-restricted"></a>ISM restringido en Nueva Zelanda
 
 Para consultar la correspondencia que existe entre las integraciones de Azure Policy disponibles para todos los servicios de Azure y este estándar de cumplimiento, consulte este artículo sobre el [cumplimiento normativo de Azure Policy y la restricción de ISM en Nueva Zelanda](../../../../articles/governance/policy/samples/new-zealand-ism.md).
 Para más información acerca de este estándar de cumplimiento, consulte [ISM restringido de Nueva Zelanda](https://www.nzism.gcsb.govt.nz/).

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 505c0de5a508bd97b10091451116ec3670a20493
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f6d52f75b3e4f1c703125a8f9172e9f8b6fc6ece
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101677548"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110081539"
 ---
 # <a name="sql-authentication"></a>Autenticación de SQL
 
@@ -60,7 +60,7 @@ Para crear un inicio de sesión en el grupo de SQL sin servidor, use la siguient
 ```sql
 CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
 -- or
-CREATE LOGIN Mary@domainname.net FROM EXTERNAL PROVIDER;
+CREATE LOGIN [Mary@domainname.net] FROM EXTERNAL PROVIDER;
 ```
 Cuando exista el inicio de sesión, podrá crear usuarios en las distintas bases de datos del punto de conexión del grupo de SQL sin servidor y concederles los permisos necesarios. Para crear un usuario, puede utilizar la siguiente sintaxis:
 ```sql

@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 4affc2add2822702c1d5395f81efe01eeedf448b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb5a6fd09fee0ef266df16055c46aac8e70ab1ec
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98696030"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109838472"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Tutorial: Uso de condiciones en plantillas de Resource Manager
 
@@ -60,7 +60,7 @@ Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure R
 1. En **Nombre de archivo**, pegue el código URL siguiente:
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json
     ```
 
 1. Seleccione **Abrir** para abrir el archivo.

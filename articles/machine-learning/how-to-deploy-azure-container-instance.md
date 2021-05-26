@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: 4e682615ae4807611711307b5c9181c14d5c1dc4
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 667174fbf36b7113d49ea5c5d700e2e3a7f41949
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885477"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367226"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Implementación de un modelo en Azure Container Instances
 
@@ -38,7 +38,7 @@ Para información de la disponibilidad de cuotas y regiones de ACI, consulte el 
 
 - Un modelo de Machine Learning registrado en el área de trabajo. Si no tiene un modelo registrado, consulte el artículo en el que se explica [cómo y dónde se implementan los modelos](how-to-deploy-and-where.md).
 
-- La [extensión de la CLI de Azure para Machine Learning Service](reference-azure-machine-learning-cli.md), el [SDK de Python para Azure Machine Learning](/python/api/overview/azure/ml/intro) o la [extensión de Visual Studio Code para Azure Machine Learning](tutorial-setup-vscode-extension.md).
+- La [extensión de la CLI de Azure para Machine Learning Service](reference-azure-machine-learning-cli.md), el [SDK de Python para Azure Machine Learning](/python/api/overview/azure/ml/intro) o la [extensión de Visual Studio Code para Azure Machine Learning](how-to-setup-vs-code.md).
 
 - En los fragmentos de código de __Python__ de este artículo se supone que se han establecido las siguientes variables:
 
@@ -98,7 +98,7 @@ Para obtener más información, consulte la referencia [az ml model deploy](/cli
 
 ## <a name="using-vs-code"></a>Uso de Visual Studio Code
 
-Consulte [Implementación de modelos con VS Code](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model).
+Consulte [cómo administrar recursos en VS Code](how-to-manage-resources-vscode.md).
 
 > [!IMPORTANT]
 > No es necesario crear un contenedor ACI para probar de antemano. Los contenedores ACI se crean según sea necesario.

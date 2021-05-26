@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/9/2020
-ms.openlocfilehash: da46084c8c2616284c31ef155927e8dbcbd19e0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a24045d38b594e09b931a885c60851109a108e3
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102209366"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372694"
 ---
 # <a name="service-configuration"></a>Configuración del servicio
 
@@ -38,9 +38,9 @@ Puede establecer una configuración individual a través de la lista de configur
 
 Debe **reiniciar** el servicio en la página **Información general** de Azure Portal, una vez que haya terminado de realizar los cambios.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
-Las personalizaciones de App Service no se aplican a QnA Maker administrado (versión preliminar).
+Las personalizaciones de App Service no se aplican a la característica de respuesta a preguntas personalizada (versión preliminar).
 
 ---
 
@@ -64,9 +64,9 @@ Aprenda [a cambiar el texto de las respuestas predeterminadas](How-To/change-def
 
 Application Insights se usa para supervisar la telemetría con QnA Maker GA. No hay valores de configuración específicos de QnA Maker.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
-Aprenda [a agregar datos de telemetría a un servicio QnA Maker administrado (versión preliminar)](How-To/get-analytics-knowledge-base.md). 
+Aprenda a [agregar datos de telemetría al servicio de respuesta a preguntas personalizada (versión preliminar)](How-To/get-analytics-knowledge-base.md). 
 
 ---
 
@@ -76,9 +76,9 @@ Aprenda [a agregar datos de telemetría a un servicio QnA Maker administrado (ve
 
 El plan de App Service no tiene valores de configuración específicos de QnA Maker.
 
-# <a name="qnamaker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
-App Service Plan no se utiliza con QnA Maker administrado (versión preliminar).
+El plan de App Service no se usa con la característica de respuesta a preguntas personalizada (versión preliminar).
 
 ---
 

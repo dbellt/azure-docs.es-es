@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 0db26f372cd8a9cbe96752f1d72f6cafcba56715
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: dffe54250bdbe8b060483a846b84b4adae858fb6
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109655613"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109845500"
 ---
 # <a name="edv4-and-edsv4-series"></a>Series Edv4 y Edsv4
 
@@ -77,6 +77,8 @@ Los tamaños de la serie Edsv4 se ejecutan en procesadores Intel&reg; Xeon&reg; 
 <sup>1</sup> [Tamaños de núcleos restringidos disponibles](./constrained-vcpu.md).
 
 <sup>2</sup> La instancia está aislada en el hardware dedicado a un solo cliente.
+
+<sup>**</sup> Estos valores de IOPS se pueden lograr mediante las [VM Gen2](generation-2.md)
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

@@ -1,29 +1,25 @@
 ---
-title: Habilitación de la redundancia de zona para Azure Cache for Redis (versión preliminar)
+title: Habilitación de la redundancia de zona para Azure Cache for Redis
 description: Obtenga información sobre cómo configurar la redundancia de zona para el nivel Premium y Enterprise de las instancias de Azure Cache for Redis.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 0623f47528d0530838f62c28cf5546e1e66c187b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c355939191e6da9a9408edde02deac97d69c9bbf
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508272"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084437"
 ---
-# <a name="enable-zone-redundancy-for-azure-cache-for-redis-preview"></a>Habilitación de la redundancia de zona para Azure Cache for Redis (versión preliminar)
+# <a name="enable-zone-redundancy-for-azure-cache-for-redis"></a>Habilitación de la redundancia de zona para Azure Cache for Redis
 En este artículo, aprenderá a configurar una instancia de Azure Cache con redundancia de zona mediante Azure Portal.
 
 Los niveles Estándar, Premium y Enterprise de Azure Cache for Redis hospedan cada caché en dos máquinas virtuales dedicadas para proporcionar redundancia integrada. Aunque estas máquinas virtuales se encuentran en distintos [dominios de error y actualización de Azure](../virtual-machines/availability.md) y tienen alta disponibilidad, son susceptibles a tener errores en el nivel del centro de datos. Azure Cache for Redis también admite la redundancia de zona en los niveles Premium y Enterprise. Una instancia de caché con redundancia de zona se ejecuta en máquinas virtuales distribuidas en [varias zonas de disponibilidad](../availability-zones/az-overview.md). Proporciona mayor resistencia y disponibilidad.
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
-
-> [!NOTE]
-> Esta característica se encuentra actualmente en versión preliminar: [póngase en contacto con nosotros](mailto:azurecache@microsoft.com) si le interesa.
->
 
 ## <a name="create-a-cache"></a>Creación de una caché
 Para crear una instancia de caché, siga estos pasos:
