@@ -1,22 +1,22 @@
 ---
-title: Automatización de tareas y flujos de trabajo con Visual Studio
-description: Cree, programe y ejecute flujos de trabajo automáticos para la integración empresarial mediante Azure Logic Apps y Visual Studio
+title: 'Inicio rápido: Creación de flujos de trabajo de integración con Azure Logic Apps multiinquilino en Visual Studio'
+description: Cree flujos de trabajo de integración automatizados con Azure Logic Apps multiinquilino y Visual Studio Code.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/24/2021
-ms.openlocfilehash: 5ae67e5708a7298385a4e27d612566008884b972
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/25/2021
+ms.openlocfilehash: 8aa96455eba49dd624f1ced469d34f0cf0f48757
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790066"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372505"
 ---
-# <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Inicio rápido: Creación y automatización de tareas, procesos y flujos de trabajo con Azure Logic Apps en Visual Studio
+# <a name="quickstart-create-automated-integration-workflows-with-multi-tenant-azure-logic-apps-and-visual-studio"></a>Inicio rápido: Creación de flujos de trabajo de integración automatizados con Azure Logic Apps multiinquilino y Visual Studio
 
-Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y Visual Studio, puede crear flujos de trabajo que automaticen las tareas y los procesos de integración de aplicaciones, datos, sistemas y servicios a través de empresas y organizaciones. En este inicio rápido se muestra cómo puede diseñar y compilar estos flujos de trabajo mediante la creación de aplicaciones lógicas en Visual Studio y la implementación de esas aplicaciones en Azure. Aunque puede realizar estas tareas en Azure Portal, Visual Studio le permite agregar aplicaciones lógicas para el control de código fuente, publicar versiones diferentes y crear plantillas de Azure Resource Manager para distintos entornos de implementación.
+En este inicio rápido se muestra cómo diseñar, desarrollar e implementar flujos de trabajo automatizados que integran aplicaciones, datos, sistemas y servicios entre empresas y organizaciones mediante el uso de [Azure Logic Apps](../logic-apps/logic-apps-overview.md) multiinquilino y Visual Studio. Aunque puede realizar estas tareas en Azure Portal, Visual Studio le permite agregar aplicaciones lógicas para el control de código fuente, publicar versiones diferentes y crear plantillas de Azure Resource Manager para distintos entornos de implementación. Para más información sobre el modelo multiinquilino frente al modelo de inquilino único, consulte [Inquilino único (versión preliminar) frente a multiinquilino y entorno del servicio de integración para Azure Logic Apps](single-tenant-overview-compare.md).
 
 Si no está familiarizado con Azure Logic Apps y solo desea conocer los conceptos básicos, pruebe en su lugar con el [inicio rápido para crear una aplicación lógica en Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md). El Diseñador de aplicación lógica, tanto en Azure Portal como en Visual Studio, funciona de forma similar.
 

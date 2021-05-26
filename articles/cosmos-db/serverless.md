@@ -5,15 +5,15 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/08/2021
-ms.openlocfilehash: 3ee8d5f36977a5a9f20c7e636118ffa9f6ee0b6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/25/2021
+ms.openlocfilehash: 146a1dba3e13ac594e3b4d9edc358d46b0d54201
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100571002"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378497"
 ---
-# <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB sin servidor (versión preliminar)
+# <a name="azure-cosmos-db-serverless"></a>Azure Cosmos DB sin servidor
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB sin servidor le permite usar su cuenta de Azure Cosmos en un modo basado en el consumo, donde solo se cobran las unidades de solicitud que las operaciones de base de datos consumen y el almacenamiento consumido por los datos. Los contenedores sin servidor pueden servir miles de solicitudes por segundo sin cargos mínimos y no es necesario planear la capacidad.
@@ -45,9 +45,6 @@ Sin servidor es un nuevo tipo de cuenta de Azure Cosmos, lo que significa que ti
 
 Cualquier contenedor que se cree en una cuenta sin servidor será un contenedor sin servidor. Los contenedores sin servidor exponen las mismas funcionalidades que los contenedores creados en el modo de rendimiento aprovisionado, por lo que puede leer, escribir y consultar los datos de la misma manera. Sin embargo, las cuentas y los contenedores sin servidor también tienen características específicas:
 
-> [!IMPORTANT]
-> Es posible que algunas de estas limitaciones se reduzcan o eliminen cuando el servidor se comercialice de forma general y **sus comentarios** nos ayudarán a tomar decisiones. Póngase en contacto con nosotros y cuéntenos más sobre su experiencia en el modo sin servidor: [azurecosmosdbserverless@service.microsoft.com](mailto:azurecosmosdbserverless@service.microsoft.com).
-
 - Una cuenta sin servidor solo puede ejecutarse en una única región de Azure. No es posible agregar más regiones de Azure a una cuenta sin servidor después de crearla.
 - No es posible habilitar la [Característica en vista previa (GB) de Synapse Link](synapse-link.md) en una cuenta sin servidor.
 - El aprovisionamiento de rendimiento no es necesario en los contenedores sin servidor, por lo que se aplican las siguientes instrucciones:
@@ -68,7 +65,7 @@ Puede encontrar el mismo gráfico al usar Azure Monitor, tal y como se describe 
 
 ## <a name="performance"></a><a id="performance"></a>Rendimiento
 
-Los recursos sin servidor brindan características de rendimiento específicas que son diferentes a las que ofrecen los recursos de rendimiento aprovisionados. una vez que la oferta sin servidor esté disponible con carácter general, la latencia de los contenedores sin servidor se incluirá en un objetivo de nivel de servicio (SLO) de 10 milisegundos o menos para las lecturas de punto y de 30 milisegundos o menos para las escrituras. Una operación de lectura de punto consiste en capturar un solo elemento por su identificador y el valor de clave de partición.
+Los recursos sin servidor brindan características de rendimiento específicas que son diferentes a las que ofrecen los recursos de rendimiento aprovisionados. La latencia de los contenedores sin servidor se cubrirá mediante un objetivo de nivel de servicio (SLO) de 10 milisegundos o menos para las lecturas puntuales y de 30 milisegundos o menos para las escrituras. Una operación de lectura de punto consiste en capturar un solo elemento por su identificador y el valor de clave de partición.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

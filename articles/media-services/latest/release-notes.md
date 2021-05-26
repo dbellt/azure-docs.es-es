@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: bb331f8829252b69499944e5354c9343e96c78bd
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 1b3d13402e18659d0deba723eaf52d4eb5959253
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684746"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379257"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -284,7 +284,7 @@ Media Services V3 anuncia la versión preliminar de la codificación lineal de e
 
 #### <a name="deprecation-of-media-processors"></a>Desuso de los procesadores de multimedia
 
-Estamos anunciando el desuso de *Azure Media Indexer* y *Azure Media Indexer 2 Preview*. Para ver las fechas de retirada, consulte el artículo sobre [componentes heredados](../previous/legacy-components.md). [Video Indexer de Azure Media Services ](../video-indexer/index.yml) reemplaza a estos procesadores multimedia heredados.
+Estamos anunciando el desuso de *Azure Media Indexer* y *Azure Media Indexer 2 Preview*. Para ver las fechas de retirada, consulte el artículo sobre [componentes heredados](../previous/legacy-components.md). Video Indexer de Azure Media Services  reemplaza a estos procesadores multimedia heredados.
 
 Para más información, consulte [Migración de Azure Media Indexer y Azure Media Indexer 2 a Video Indexer de Azure Media Services](../previous/migrate-indexer-v1-v2.md).
 

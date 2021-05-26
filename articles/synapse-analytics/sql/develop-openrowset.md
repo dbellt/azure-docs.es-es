@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 90ff0a42a9d82fc0bf4f9235e235c774a2d0e75d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: be412f4dd2413cfe5562f895489aed10b9a9a80f
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146570"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378691"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Uso de OPENROWSET con un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -70,10 +70,10 @@ El autor de llamada debe tener permiso de `REFERENCES` en la credencial para usa
 ## <a name="syntax"></a>Sintaxis
 
 ```syntaxsql
---OPENROWSET syntax for reading Parquet files
+--OPENROWSET syntax for reading Parquet or Delta Lake (preview) files
 OPENROWSET  
 ( { BULK 'unstructured_data_path' , [DATA_SOURCE = <data source name>, ]
-    FORMAT='PARQUET' }  
+    FORMAT= ['PARQUET' | 'DELTA'] }  
 )  
 [WITH ( {'column_name' 'column_type' }) ]
 [AS] table_alias(column_alias,...n)
@@ -107,6 +107,8 @@ Hay dos opciones para los archivos de entrada que contienen los datos de destino
 - "CSV": incluye cualquier archivo de texto delimitado con separadores de filas o columnas. Se puede usar cualquier carácter como separador de campo, como TSV: FIELDTERMINATOR = pestaña.
 
 - "PARQUET": archivo binario en formato Parquet 
+
+- "DELTA": conjunto de archivos Parquet organizados en formato Delta Lake (versión preliminar) 
 
 **"unstructured_data_path"**
 
@@ -152,9 +154,9 @@ La cláusula WITH le permite especificar las columnas que desea leer de los arch
     > [!TIP]
     > También puede omitir la cláusula WITH para los archivos .csv. Los tipos de datos se infieren automáticamente a partir del contenido del archivo. Puede usar el argumento HEADER_ROW para especificar que existe una fila de encabezado, en cuyo caso los nombres de columna se leerán de ella. Para más información, consulte [Detección automática del esquema](#automatic-schema-discovery).
     
-- En el caso de los archivos de datos con formato Parquet, especifique nombres de columna que coincidan con los de los archivos de datos de origen. Las columnas se enlazan por nombre y distinguen mayúsculas de minúsculas. Si se omite la cláusula WITH, se devolverán todas las columnas de los archivos con formato Parquet.
+- En el caso de los archivos con formato Parquet o Delta Lake, especifique nombres de columna que coincidan con los de los archivos de datos de origen. Las columnas se enlazan por nombre y distinguen mayúsculas de minúsculas. Si se omite la cláusula WITH, se devolverán todas las columnas de los archivos con formato Parquet.
     > [!IMPORTANT]
-    > Los nombres de columna de los archivos con formato Parquet distinguen mayúsculas de minúsculas. Si especifica el nombre de columna con un tratamiento de distinción de mayúsculas y minúsculas diferente del que se hace en el nombre de columna del archivo con formato Parquet, se devolverán valores NULL para esa columna.
+    > Los nombres de columna de los archivos con formato Parquet y Delta Lake distinguen mayúsculas de minúsculas. Si especifica el nombre de columna con un tratamiento de distinción de mayúsculas y minúsculas diferente del que se hace en los archivos, se devolverán valores `NULL` para esa columna.
 
 
 column_name = Nombre de la columna de salida. Si se especifica, este nombre reemplaza el nombre de columna del archivo de origen fuente y el nombre de columna especificado en la ruta de acceso JSON, en caso de que haya. Si no se proporciona json_path, se agregará automáticamente como "$.column_name". Compruebe el comportamiento del argumento json_path.
@@ -261,7 +263,7 @@ Los nombres de columna de los archivos .csv se leen en la fila de encabezado. Se
 
 ### <a name="type-mapping-for-parquet"></a>Asignación de tipos para Parquet
 
-Los archivos de Parquet contienen descripciones de tipos para cada columna. En la tabla siguiente se describe cómo se asignan los tipos de Parquet a los tipos nativos de SQL.
+Los archivos Parquet y Delta Lake contienen descripciones de tipos para cada columna. En la tabla siguiente se describe cómo se asignan los tipos de Parquet a los tipos nativos de SQL.
 
 | Tipo de Parquet | Tipo lógico de Parquet (anotación) | Tipo de datos de SQL |
 | --- | --- | --- |
@@ -340,6 +342,20 @@ FROM
     ) AS [r]
 ```
 
+### <a name="read-delta-lake-files-without-specifying-schema"></a>Lectura de archivos Delta Lake sin especificar el esquema
+
+En el ejemplo siguiente se devuelven todas las columnas de la primera fila del conjunto de datos del censo en formato Delta Lake y sin especificar los nombres de columna ni los tipos de datos: 
+
+```sql
+SELECT 
+    TOP 1 *
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='DELTA'
+    ) AS [r]
+```
+
 ### <a name="read-specific-columns-from-csv-file"></a>Lectura de columnas específicas de un archivo .csv
 
 En el ejemplo siguiente se devuelven solo dos columnas con los números ordinales 1 y 4 de los archivos population*.csv. Al no haber fila de encabezado en los archivos, empieza a leer desde la primera línea:
@@ -404,4 +420,5 @@ AS [r]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver más ejemplos, consulte el [inicio rápido del almacenamiento de datos de consulta](query-data-storage.md) para aprender a usar `OPENROWSET`para leer los formatos de archivo [CSV ](query-single-csv-file.md),[PARQUET](query-parquet-files.md) y [JSON](query-json-files.md). Consulte los [procedimientos recomendados](./best-practices-serverless-sql-pool.md) para lograr un rendimiento óptimo. También puede obtener información sobre cómo guardar los resultados de la consulta en Azure Storage mediante [CETAS](develop-tables-cetas.md).
+Para ver más ejemplos, consulte el [inicio rápido del almacenamiento de datos de consulta](query-data-storage.md) para aprender a usar `OPENROWSET` para leer los formatos de archivo [CSV](query-single-csv-file.md),[PARQUET](query-parquet-files.md), [DELTA LAKE](query-delta-lake-format.md) y [JSON](query-json-files.md). Consulte los [procedimientos recomendados](best-practices-sql-on-demand.md) para lograr un rendimiento óptimo. También puede obtener información sobre cómo guardar los resultados de la consulta en Azure Storage mediante [CETAS](develop-tables-cetas.md).
+

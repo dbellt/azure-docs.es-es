@@ -3,15 +3,15 @@ title: Modelos de facturación y precios
 description: Información general sobre cómo funcionan los modelos de precios y facturación para Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 03/24/2021
-ms.openlocfilehash: a3c20dd85c94c359259cf69e25bb9083d56857fc
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/25/2021
+ms.openlocfilehash: 629b7a4a52dcc5749941de695eec4558085263df
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777156"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372711"
 ---
 # <a name="pricing-and-billing-models-for-azure-logic-apps"></a>Modelos de precios y facturación en Azure Logic Apps
 
@@ -19,9 +19,9 @@ ms.locfileid: "107777156"
 
 <a name="consumption-pricing"></a>
 
-## <a name="multi-tenant-pricing"></a>Precios de multiinquilino
+## <a name="consumption-pricing-multi-tenant"></a>Precios de consumo (multiinquilino)
 
-Se aplica un modelo de precios de consumo de pago por uso a las aplicaciones lógicas que se ejecutan en el servicio Logic Apps multiinquilino público, "global". Se miden y facturan todas las ejecuciones correctas e incorrectas.
+Se aplica un modelo de precios de consumo de pago por uso a las aplicaciones lógicas que se ejecutan en el entorno Logic Apps multiinquilino público, "global". Se miden y facturan todas las ejecuciones correctas e incorrectas.
 
 Por ejemplo, una solicitud realizada por un desencadenador de sondeo se mide como una ejecución aunque se omita dicho desencadenador y no se cree ninguna instancia de flujo de trabajo de aplicación lógica.
 
@@ -29,7 +29,7 @@ Por ejemplo, una solicitud realizada por un desencadenador de sondeo se mide com
 |-------|-------------|
 | Acciones y desencadenadores [integrados](../connectors/built-in.md) | Se ejecutan de forma nativa en el servicio Logic Apps y se miden con el [precio de **Acciones**](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>Por ejemplo, el desencadenador HTTP y el desencadenador de solicitud son desencadenadores integrados, mientras que la acción de respuesta y la acción HTTP son acciones integradas. Las operaciones de datos, las operaciones por lotes, las operaciones de variables y las [acciones de control de flujo de trabajo](../connectors/built-in.md), como bucles, condiciones, conmutadores, ramas paralelas, etc., también son acciones integradas. |
 | Desencadenadores y acciones de [conector estándar](../connectors/managed.md) <p><p>Desencadenadores y acciones de [conector personalizado](../connectors/apis-list.md#custom-apis-and-connectors) | Se miden con el [precio de conector estándar](https://azure.microsoft.com/pricing/details/logic-apps/). |
-| Desencadenadores y acciones de [conector empresarial](../connectors/managed.md) | Se miden con el [precio de conector empresarial](https://azure.microsoft.com/pricing/details/logic-apps/). Sin embargo, los conectores empresariales en versión preliminar pública se miden con el [precio de conector *estándar*](https://azure.microsoft.com/pricing/details/logic-apps/). |
+| Desencadenadores y acciones de [conector empresarial](../connectors/managed.md) | Se miden con el [precio de conector empresarial](https://azure.microsoft.com/pricing/details/logic-apps/). Sin embargo, durante la versión preliminar del conector, los conectores empresariales se miden con el [precio de conector *estándar*](https://azure.microsoft.com/pricing/details/logic-apps/). |
 | Acciones dentro de [bucles](logic-apps-control-flow-loops.md) | Cada acción que se ejecuta en un bucle se mide para cada ciclo de bucle que se ejecuta. <p><p>Por ejemplo, supongamos que tiene un bucle "para cada uno" que incluye acciones que procesan una lista. El servicio Logic Apps mide una acción de ese bucle multiplicando el número de elementos de lista por el número de acciones del bucle, y agrega la acción que inicia el bucle. Por lo tanto, el cálculo de una lista de 10 elementos es (10x1)+1, lo que da como resultado 11 ejecuciones de acción. |
 | Número de reintentos | Para controlar las excepciones y errores más básicos, puede configurar una [directiva de reintentos](logic-apps-exception-handling.md#retry-policies) sobre desencadenadores y acciones si se admite. Estos reintentos junto con la solicitud original se cobran según tarifas basadas en si el desencadenador o la acción tiene un tipo integrado, estándar o empresarial. Por ejemplo, una acción que se ejecuta con 2 reintentos se cobra por 3 ejecuciones de acción. |
 | [Retención de datos y consumo de almacenamiento](#data-retention) | Se mide con el precio de retención de datos, que puede encontrar en la [página de precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/), en la tabla **Detalles de precios**. |
@@ -64,11 +64,47 @@ Para ayudarle a estimar de manera más precisa los costos de consumo, revise est
 
   Por ejemplo, suponga que configura un desencadenador que comprueba un punto de conexión cada día. Cuando el desencadenador comprueba el punto de conexión y busca 15 eventos que satisfacen los criterios, se activa y ejecuta el flujo de trabajo correspondiente 15 veces. El servicio Logic Apps mide todas las acciones que realizan esos 15 flujos de trabajo, incluidas las solicitudes del desencadenador.
 
+<a name="standard-pricing"></a>
+
+## <a name="standard-pricing-single-tenant"></a>Precios estándar (un solo inquilino)
+
+Al crear el recurso **Logic Apps (estándar)** en Azure Portal o implementarlo desde Visual Studio Code, debe elegir un plan de hospedaje y un plan de tarifa para la aplicación lógica. Estas opciones determinan los precios que se aplican al ejecutar los flujos de trabajo en Azure Logic Apps de un solo inquilino.
+
+<a name="hosting-plans"></a>
+
+### <a name="hosting-plans-and-pricing-tiers"></a>Planes de hospedaje y planes de tarifa
+
+En el caso de las aplicaciones lógicas basadas en un solo inquilino, use el plan de hospedaje **Flujo de trabajo estándar**. En la lista siguiente se muestran los planes de tarifa disponibles que puede seleccionar:
+
+| Plan de tarifa | Núcleos | Memoria | Storage |
+|--------------|-------|--------|---------|
+| **WS1** | 1 | 3,5 GB | 250 GB |
+| **WS2** | 2 | 7 GB | 250 GB |
+| **WS3** | 2 | 14 GB | 250 GB |
+|||||
+
+<a name="storage-transactions"></a>
+
+### <a name="storage-transactions"></a>Transacciones de almacenamiento
+
+Azure Logic Apps usa [Azure Storage](/storage) para las operaciones de almacenamiento. Con Azure Logic Apps multiinquilino, el uso y los costos de almacenamiento se asocian a la aplicación lógica. Con Azure Logic Apps de un solo inquilino, puede usar su propia [cuenta de almacenamiento](../azure-functions/storage-considerations.md#storage-account-requirements) de Azure. Esta funcionalidad proporciona más control y flexibilidad con los datos de Logic Apps.
+
+Cuando los flujos de trabajo *con estado* ejecutan sus operaciones, Azure Logic Apps realiza transacciones de almacenamiento en tiempo de ejecución. Por ejemplo, las colas se utilizan para la programación, mientras que las tablas y blobs se utilizan para almacenar los estados de los flujos de trabajo. Los costos de almacenamiento cambian en función del contenido del flujo de trabajo. Los distintos desencadenadores, acciones y cargas tienen como resultado diferentes operaciones y necesidades de almacenamiento. Las transacciones de almacenamiento siguen el [modelo de precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/). Los costos de almacenamiento se enumeran por separado en la factura de Azure.
+
+### <a name="tips-for-estimating-storage-needs-and-costs"></a>Sugerencias para calcular los costos y las necesidades de almacenamiento
+
+En el caso de Azure Logic Apps de un solo inquilino, puede hacerse una idea del número de operaciones de almacenamiento que un flujo de trabajo podría ejecutar y su costo con la [calculadora de almacenamiento de Logic Apps](https://logicapps.azure.com/calculator). Puede seleccionar un flujo de trabajo de ejemplo o usar una definición de flujo de trabajo existente. El primer cálculo estima el número de operaciones de almacenamiento en el flujo de trabajo. Luego, puede usar estos números para calcular los posibles costos mediante la [calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/).
+
+Para más información, revise la siguiente documentación:
+
+* [Estimación de las necesidades de almacenamiento y los costos de los flujos de trabajo de Azure Logic Apps de un solo inquilino](estimate-storage-costs.md).
+* [Detalles de precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/)
+
 <a name="fixed-pricing"></a>
 
-## <a name="ise-pricing"></a>Precios de ISE
+## <a name="ise-pricing-dedicated"></a>Precios de ISE (dedicado)
 
-Se aplica un modelo de precios fijos a las aplicaciones lógicas que se ejecutan en un [*entorno de servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Un ISE se factura con el [precio del Entorno del servicio de integración](https://azure.microsoft.com/pricing/details/logic-apps), que depende del [nivel de ISE o *SKU*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) que cree. Este precio difiere del precio de multiinquilino ya que se paga por la capacidad reservada y los recursos dedicados, tanto si se usan como si no.
+Se aplica un modelo de precios fijos a las aplicaciones lógicas que se ejecutan en un [*entorno del servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) dedicado. Un ISE se factura con el [precio del Entorno del servicio de integración](https://azure.microsoft.com/pricing/details/logic-apps), que depende del [nivel de ISE o *SKU*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) que cree. Este precio difiere del precio de multiinquilino ya que se paga por la capacidad reservada y los recursos dedicados, tanto si se usan como si no.
 
 | SKU de ISE | Descripción |
 |---------|-------------|
@@ -81,7 +117,7 @@ Se aplica un modelo de precios fijos a las aplicaciones lógicas que se ejecutan
 | Elementos | Descripción |
 |-------|-------------|
 | Acciones y desencadenadores [integrados](../connectors/built-in.md) | Se muestra la etiqueta **Núcleo** y se ejecuta en el mismo ISE que las aplicaciones lógicas. |
-| [Conectores estándar](../connectors/managed.md) <p><p>[Conectores de empresa](../connectors/managed.md#enterprise-connectors) | - Los conectores administrados en los que se muestra la etiqueta **ISE** están diseñados especialmente para funcionar en la puerta de enlace de datos local y ejecutarse en el mismo ISE que las aplicaciones lógicas. Los precios de ISE incluyen tantas conexiones empresariales como desee. <p><p>- Los conectores en los que no se muestra la etiqueta ISE se ejecutan en el servicio Logic Apps multiinquilino. Sin embargo, en el precio de ISE se incluyen estas ejecuciones para aplicaciones lógicas que se ejecutan en un ISE. |
+| [Conectores estándar](../connectors/managed.md) <p><p>[Conectores de empresa](../connectors/managed.md#enterprise-connectors) | - Los conectores administrados en los que se muestra la etiqueta **ISE** están diseñados especialmente para funcionar en la puerta de enlace de datos local y ejecutarse en el mismo ISE que las aplicaciones lógicas. Los precios de ISE incluyen tantas conexiones empresariales como desee. <p><p>- Los conectores en los que no se muestra la etiqueta ISE se ejecutan en el servicio Azure Logic Apps de un solo inquilino. Sin embargo, en el precio de ISE se incluyen estas ejecuciones para aplicaciones lógicas que se ejecutan en un ISE. |
 | Acciones dentro de [bucles](logic-apps-control-flow-loops.md) | En el precio de ISE se incluye todas las acciones que se ejecutan en un bucle se mide para cada ciclo de bucle que se ejecuta. <p><p>Por ejemplo, supongamos que tiene un bucle "para cada uno" que incluye acciones que procesan una lista. Para obtener el número total de ejecuciones de acciones, multiplique el número de elementos de lista por el número de acciones del bucle, y agregue la acción que inicia el bucle. Por lo tanto, el cálculo de una lista de 10 elementos es (10x1)+1, lo que da como resultado 11 ejecuciones de acción. |
 | Número de reintentos | Para controlar las excepciones y errores más básicos, puede configurar una [directiva de reintentos](logic-apps-exception-handling.md#retry-policies) sobre desencadenadores y acciones si se admite. Los precios de ISE incluyen reintentos junto con la solicitud original. |
 | [Retención de datos y consumo de almacenamiento](#data-retention) | Logic Apps en un ISE no genera costos de retención y almacenamiento. |

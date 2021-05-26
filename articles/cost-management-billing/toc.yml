@@ -450,8 +450,6 @@
           href: manage/review-enterprise-billing.md
         - name: Examen del uso de la suscripción
           href: manage/review-subscription-billing.md
-        - name: Revisión del uso de recursos
-          href: manage/review-service-usage-api.md
 - name: Cloudyn
   items:
     - name: Información general
