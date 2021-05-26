@@ -52,6 +52,14 @@
           href: dynamic-dictionary.md
         - name: Traducción detrás de firewalls
           href: firewalls.md
+        - name: Uso del contenedor de Translator
+          items:
+            - name: Instalación y ejecución de contenedores
+              href: containers/translator-how-to-install-container.md
+            - name: Configuración de contenedores
+              href: containers/translator-container-configuration.md
+            - name: 'Contenedor: traducción'
+              href: containers/translator-container-supported-parameters.md
     - name: Tutoriales
       items:
         - name: 'Creación de una aplicación de WPF para Traductor, C#'
@@ -128,7 +136,7 @@
           href: custom-translator/how-to-view-document-details.md
         - name: Entrenamiento de un modelo
           href: custom-translator/how-to-train-model.md
-        - name: Ver detalles de los modelos
+        - name: Visualización de detalles de un modelo
           href: custom-translator/how-to-view-model-details.md
         - name: Ver resultados de pruebas del sistema
           href: custom-translator/how-to-view-system-test-results.md

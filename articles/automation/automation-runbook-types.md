@@ -3,15 +3,15 @@ title: Tipos de runbooks de Azure Automation
 description: En este artículo se describen los tipos de runbooks que puede usar en Azure Automation y las consideraciones de determinar qué tipo usar.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/17/2021
+ms.date: 05/17/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3e4f90372c2da22e8df3430ce340477352e5033b
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 9528443e7e89ecb91db70736d2051f813b130cce
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830455"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110073187"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbooks de Azure Automation
 
@@ -122,7 +122,6 @@ Los runbooks de Python 3 se admiten en las siguientes infraestructuras globales
 * Debe estar familiarizado con el scripting de Python.
 * Para utilizar bibliotecas de terceros, debe [importar los paquetes](python-packages.md) a la cuenta de Automation.
 * Usar el cmdlet **Start-AutomationRunbook** en PowerShell o en el flujo de trabajo de PowerShell para iniciar un runbook de Python 3 (versión preliminar) no funciona. Puede usar el cmdlet  **Start-AzAutomationRunbook** desde el nódulo Az.Automation o el cmdlet  **Start-AzureRmAutomationRunbook** del módulo AzureRm.Automation para solucionar esta limitación.  
-* Los runbooks (versión preliminar) y los paquetes de Python 3 no funcionan con PowerShell.
 * Azure Automation no admite  **sy.stderr**.
 
 ### <a name="known-issues"></a>Problemas conocidos

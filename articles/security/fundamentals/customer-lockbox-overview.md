@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 04/05/2021
-ms.openlocfilehash: 80d1e4f39d69f761b801ccec834c0228057e4847
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.date: 05/12/2021
+ms.openlocfilehash: 2d115fb0c4cd068c8b7cdc36a0a17d3e5a0827c9
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448532"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109839588"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Caja de seguridad del cliente de Microsoft Azure
 
@@ -32,6 +32,7 @@ Los servicios siguientes están disponibles con carácter general para Caja de s
 
 - Azure API Management
 - Azure App Service
+- Azure Cognitive Search
 - Azure Cognitive Services
 - Azure Container Registry
 - Azure Database for MySQL

@@ -4,12 +4,12 @@ description: Obtenga información sobre el clúster básico y los componentes de
 services: container-service
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 5e505ed44d221b20178ea5ffb1d9125fb2bddd4c
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: b8a342730a6f37a5498e59e883b0f77b8bfabbb2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105942"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372436"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)
 
@@ -72,10 +72,9 @@ Para ejecutar las aplicaciones y los servicios de soporte técnico, necesitará 
 
 | Componente | Descripción |  
 | ----------------- | ------------- |  
-| `kubelet`                                                                                 | Agente de Kubernetes que procesa las solicitudes de orquestación desde el plano de control y la programación de la ejecución de los contenedores solicitados.                                                        |  
-| *kube-proxy* | Controla las redes virtuales en cada nodo. El proxy enruta el tráfico de red y administra las direcciones IP para los servicios y los pods.                                      |  
-| *entorno de ejecución de contenedor*                                                                            | Permite que las aplicaciones contenedorizadas ejecuten recursos adicionales, como la red virtual y el almacenamiento, e interactúen con estos. Los clústeres de AKS que usan grupos de nodos con la versión 1.19 de Kubernetes u otras posteriores usan `containerd` como entorno de ejecución del contenedor. Los clústeres de AKS que usan grupos de nodos con versiones de Kubernetes anteriores a la 1.19 utilizan [Moby](https://mobyproject.org/) (docker ascendente) como entorno de ejecución de contenedor.                                                                                    |  
-
+| `kubelet` | Agente de Kubernetes que procesa las solicitudes de orquestación desde el plano de control y la programación de la ejecución de los contenedores solicitados. |  
+| *kube-proxy* | Controla las redes virtuales en cada nodo. El proxy enruta el tráfico de red y administra las direcciones IP para los servicios y los pods. |  
+| *entorno de ejecución de contenedor* | Permite que las aplicaciones contenedorizadas ejecuten recursos adicionales, como la red virtual y el almacenamiento, e interactúen con estos. Los clústeres de AKS que usan la versión 1.19 de Kubernetes u otras posteriores en nodos de Linux utilizan `containerd` como entorno de ejecución del contenedor. A partir de la versión 1.20 de Kubernetes para grupos de nodos de Windows, se puede usar `containerd` en versión preliminar en el entorno de ejecución del contenedor, aunque Docker sigue siendo el entorno de ejecución de contenedor predeterminado. Los clústeres de AKS que usan versiones anteriores de Kubernetes en los grupos de nodos emplean Docker como entorno de ejecución de contenedor. |  
 
 ![Máquina virtual de Azure y recursos auxiliares para un nodo de Kubernetes](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
@@ -83,7 +82,7 @@ El tamaño de la máquina virtual de Azure para los nodos define las CPU, la mem
 
 En AKS, la imagen de máquina virtual para los nodos del clúster se basa en Ubuntu Linux o Windows Server 2019. Al crear un clúster de AKS o escalar horizontalmente el número de nodos, la plataforma Azure crea y configura automáticamente el número solicitado de máquinas virtuales. Los nodos de agente se facturan como máquinas virtuales estándar, por lo que cualquier descuento en el tamaño de la máquina virtual (incluidas [reservas de Azure][reservation-discounts]) se aplica automáticamente.
 
-Implemente su propio clúster de Kubernetes con [aks-engine][aks-engine] si usa un sistema operativo host diferente o un entorno de ejecución de contenedor, o bien si incluye distintos paquetes personalizados. El componente `aks-engine` ascendente incluye y ofrece opciones de configuración antes de que se admitan en los clústeres de AKS. Por lo tanto, si quiere usar un entorno de ejecución de contenedor que no sea `containerd` ni [Moby](https://mobyproject.org/), puede ejecutar `aks-engine` para configurar e implementar un clúster de Kubernetes que satisfaga sus necesidades actuales.
+Implemente su propio clúster de Kubernetes con [aks-engine][aks-engine] si usa un sistema operativo host diferente o un entorno de ejecución de contenedor, o bien si incluye distintos paquetes personalizados. El componente `aks-engine` ascendente incluye y ofrece opciones de configuración antes de que se admitan en los clústeres de AKS. Por lo tanto, si quiere usar un entorno de ejecución de contenedor distinto de `containerd` o Docker, puede ejecutar `aks-engine` para configurar e implementar un clúster de Kubernetes que satisfaga sus necesidades actuales.
 
 ### <a name="resource-reservations"></a>Reservas de recursos
 

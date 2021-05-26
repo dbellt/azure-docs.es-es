@@ -58,6 +58,8 @@
   items:
     - name: Identidades administradas y máquinas virtuales de Azure
       href: how-managed-identities-work-vm.md
+    - name: Mejores prácticas recomendadas
+      url: managed-identity-best-practice-recommendations.md
 - name: Guías paso a paso
   items:
     - name: Configuración de identidades administradas en las máquinas virtuales

@@ -31,7 +31,7 @@
   items:
     - name: Ejemplos de código
       href: 'https://azure.microsoft.com/resources/samples/?service=cdn'
-    - name: Azure CLI
+    - name: CLI de Azure
       items:
         - name: Creación de un perfil y un punto de conexión
           displayName: 'az cdn profile, az cdn endpoint, az cdn origin, az cdn custom-domain, cdn origin-group'
@@ -177,7 +177,7 @@
           href: cdn-http-debug-headers.md
     - name: Encabezados HTTP específicos de Microsoft
       href: cdn-msft-http-debug-headers.md
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/cdn
     - name: Azure PowerShell
       href: /powershell/module/az.cdn
@@ -194,7 +194,11 @@
         - name: Ubicaciones POP por región
           href: cdn-pop-locations.md
         - name: Ubicaciones POP de abreviatura
-          href: cdn-pop-abbreviations.md
+          items:
+            - name: Microsoft
+              href: microsoft-pop-abbreviations.md
+            - name: Verizon
+              href: cdn-pop-abbreviations.md
     - name: Facturación de Azure Content Delivery Network
       href: cdn-billing.md
     - name: Azure Roadmap

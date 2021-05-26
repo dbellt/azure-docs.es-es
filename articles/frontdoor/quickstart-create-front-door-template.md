@@ -15,12 +15,12 @@ ms.devlang: na
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: de8a592f6eecbb43b58a044096e8ba2e0f9b5973
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: db51e7ca844ee9d4e36b522e21d395bf9544acf3
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107539008"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109847461"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>Inicio rápido: Creación de una instancia de Front Door mediante una plantilla de ARM
 
@@ -43,7 +43,7 @@ La plantilla usada en este inicio rápido forma parte de las [plantillas de inic
 
 En este inicio rápido, creará una configuración de Front Door con un solo back-end y una única ruta de acceso predeterminada que coincide con `/*`.
 
-:::code language="json" source="~/quickstart-templates/101-front-door-create-basic/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/front-door-create-basic/azuredeploy.json":::
 
 En la plantilla, se define un recurso de Azure:
 

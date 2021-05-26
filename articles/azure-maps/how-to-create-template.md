@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 04/27/2021
 ms.topic: how-to
 ms.service: azure-maps
-ms.openlocfilehash: a2434494a769fb9a4695e698b3d9215dffc18974
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 262c6cb92f9c7327f13e357298242e281358253e
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326874"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109845841"
 ---
 # <a name="create-your-azure-maps-account-using-an-arm-template"></a>Creación de su cuenta de Azure Maps mediante una plantilla de ARM
 
@@ -21,7 +21,7 @@ Puede crear su cuenta de Azure Maps mediante una plantilla de Azure Resource Man
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-maps-create%2Fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.maps%2Fmaps-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -33,7 +33,7 @@ Para completar este artículo:
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-maps-create/).
 
-:::code language="json" source="~/quickstart-templates/101-maps-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.maps/maps-create/azuredeploy.json":::
 
 El recurso de cuenta de Azure Maps se define en esta plantilla:
 
@@ -43,7 +43,7 @@ El recurso de cuenta de Azure Maps se define en esta plantilla:
 
 1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea una cuenta de Azure Maps.
 
-    [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-maps-create%2Fazuredeploy.json)
+    [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.maps%2Fmaps-create%2Fazuredeploy.json)
 
 2. Seleccione o escriba los siguientes valores.
 
@@ -57,7 +57,7 @@ El recurso de cuenta de Azure Maps se define en esta plantilla:
     * **Nombre de cuenta**: escriba un nombre para la cuenta de Azure Maps, que debe ser único globalmente.
     * **Plan de tarifa**: seleccione el plan de tarifa adecuado, el valor predeterminado de la plantilla es S0.
 
-3. Seleccione **Revisar + crear**. 
+3. Seleccione **Revisar + crear**.
 4. Confirme la configuración en la página de revisión y haga clic en **Crear**. Una vez implementada correctamente la instancia de Azure Maps, recibirá una notificación:
 
     ![Notificación del portal de implementación de plantilla de ARM](./media/how-to-create-template/resource-manager-template-portal-deployment-notification.png)

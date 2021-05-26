@@ -8,12 +8,12 @@ ms.date: 01/08/2021
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: c2b2a9a03a654e8ccba58e62a1d017cd11db5abc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c38ed9767f92eaaa53b7b95eba9e455130606b3
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98050772"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110063959"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Implementación con Table API de Azure Cosmos DB y Azure Table Storage
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -38,7 +38,7 @@ En este momento, [Table API de Azure Cosmos DB](table-introduction.md) tiene cua
 * [SDK de Node.js](table-sdk-nodejs.md): Este SDK de Azure Storage tiene la capacidad de conectarse a las cuentas de Azure Cosmos DB mediante Table API.
 
 
-Puede encontrar información adicional sobre el funcionamiento con Table API en el artículo [Preguntas más frecuentes: desarrollo con Table API en .NET](table-api-faq.md).
+Puede encontrar información adicional sobre el funcionamiento con Table API en el artículo [Preguntas más frecuentes: desarrollo con Table API en .NET](table-api-faq.yml).
 
 ## <a name="developing-with-azure-table-storage"></a>Desarrollo con Azure Table Storage
 

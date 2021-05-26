@@ -5,20 +5,20 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: article
-ms.date: 12/07/2020
+ms.date: 05/25/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 3f88fa38d62778bc3c4c1e29571d1d0ae4eeb5ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 139c8336d4f40bc12cd942f27b5726a555f58605
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98179612"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372970"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Adición y ejecución de fragmentos de código mediante código en línea en Azure Logic Apps
 
-Si desea ejecutar un fragmento de código dentro de su aplicación lógica, puede agregar la acción Código en línea integrada como un paso en el flujo de trabajo de la aplicación lógica. Esta acción funciona mejor si desea ejecutar código que se adapta a este escenario:
+Si quiere ejecutar un fragmento de código dentro del flujo de trabajo de la aplicación lógica, puede agregar la acción integrada Código en línea como paso en el flujo de trabajo de la aplicación lógica. Esta acción funciona mejor si desea ejecutar código que se adapta a este escenario:
 
-* Se ejecuta en JavaScript. Próximamente más lenguajes.
+* Se ejecuta en JavaScript. Hay más lenguajes en desarrollo.
 
 * Termina de ejecutarse en cinco segundos o menos.
 
@@ -26,7 +26,9 @@ Si desea ejecutar un fragmento de código dentro de su aplicación lógica, pued
 
 * No es necesario trabajar con [acciones de **variables**](../logic-apps/logic-apps-create-variables-store-values.md), ya que aún no están permitidas.
 
-* Usa la versión 8.11.1 de Node.js. Para más información, consulte [Objetos integrados estándar](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
+* Usa Node.js, versión 8.11.1 para las [aplicaciones lógicas multiinquilino](logic-apps-overview.md) o [Node.js, versiones 10.x.x, 11.x.x o 12.x.x](https://nodejs.org/en/download/releases/) para las [aplicaciones lógicas de inquilino único](single-tenant-overview-compare.md).
+
+  Para más información, consulte [Objetos integrados estándar](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
 
   > [!NOTE]
   > La función `require()` no es compatible con la acción Código en línea para la ejecución de JavaScript.
@@ -39,49 +41,38 @@ En este artículo, la aplicación lógica de ejemplo se desencadena cuando un nu
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Una cuenta y una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
-* La aplicación lógica donde desea agregar el fragmento de código, incluido un desencadenador. Si no tiene una aplicación lógica, consulte [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* El flujo de trabajo de la aplicación lógica donde quiere agregar el fragmento de código, incluido un desencadenador. En el ejemplo de este tema se usa el desencadenador de Office 365 Outlook denominado **Cuando llega un nuevo correo electrónico**.
 
-   En el ejemplo de este tema se usa el desencadenador de Office 365 Outlook denominado **Cuando llega un nuevo correo electrónico**.
+  Si no tiene una aplicación lógica, revise la documentación siguiente:
 
-* Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) vinculada a la aplicación lógica.
+  * Multiinquilino: [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+  * Inquilino único: [Creación de flujos de trabajo de aplicación lógica de inquilino único](create-single-tenant-workflows-azure-portal.md)
 
-  * Asegúrese de usar una cuenta de integración adecuada para su caso de uso o escenario.
+* En función de si la aplicación lógica es multiinquilino o de inquilino único, revise la siguiente información.
 
-    Por ejemplo, las cuentas de integración de [nivel gratuito](../logic-apps/logic-apps-pricing.md#integration-accounts) están diseñadas solo para escenarios y cargas de trabajo exploratorias, no para escenarios de producción, están limitadas en el uso y el rendimiento, y no se admiten en un contrato de nivel de servicio (SLA). Otros niveles implican costos, pero incluyen compatibilidad con el contrato de nivel de servicio, ofrecen más rendimiento y tienen límites más altos. Obtenga más información sobre los [niveles](../logic-apps/logic-apps-pricing.md#integration-accounts) de la cuenta de integración, los [precios](https://azure.microsoft.com/pricing/details/logic-apps/) y los [límites](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
+  * Multiinquilino: requiere Node.js, versión 8.11.1. También necesita una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) vacía que esté vinculada a la aplicación lógica. Asegúrese de usar una cuenta de integración adecuada para su caso de uso o escenario.
 
-   * Si no quiere usar una cuenta de integración, puede utilizar [Azure Logic Apps en versión preliminar](logic-apps-overview-preview.md) y crear una aplicación lógica desde el tipo de recurso **Logic Apps (versión preliminar)** .
+    Por ejemplo, las cuentas de integración de [nivel gratuito](../logic-apps/logic-apps-pricing.md#integration-accounts) están diseñadas solo para escenarios y cargas de trabajo exploratorias, no para escenarios de producción, están limitadas en el uso y el rendimiento, y no se admiten en un contrato de nivel de servicio (SLA).
 
-     En la versión preliminar de Azure Logic Apps, **Código en línea** se denomina ahora **Operaciones de código en línea** junto con estas otras diferencias:
+    Otros niveles de cuentas de integración acarrean costos, pero incluyen compatibilidad con el Acuerdo de Nivel de Servicio, ofrecen más rendimiento y tienen límites más altos. Obtenga más información sobre los [niveles](../logic-apps/logic-apps-pricing.md#integration-accounts) de la cuenta de integración, los [precios](https://azure.microsoft.com/pricing/details/logic-apps/) y los [límites](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
-     * **Ejecute código de JavaScript** ahora se llama **Ejecutar JavaScript en línea**.
-
-     * Si usa macOS o Linux, las acciones de Operaciones de código en línea no están disponibles actualmente si se emplea la extensión Azure Logic Apps (versión preliminar) en Visual Studio Code.
-
-     * Las acciones de Operaciones de código en línea tienen [límites actualizados](logic-apps-overview-preview.md#inline-code-limits).
-
-     Puede empezar desde cualquiera de estas opciones:
-
-     * Crear la aplicación lógica desde el tipo de recurso **Logic Apps (versión preliminar)** [mediante Azure Portal](create-stateful-stateless-workflows-azure-portal.md).
-
-     * Crear un proyecto para la aplicación lógica [mediante Visual Studio Code y la extensión Azure Logic Apps (versión preliminar)](create-stateful-stateless-workflows-visual-studio-code.md).
+  * Inquilino único: requiere [Node.js, versiones 10.x.x, 11.x.x o 12.x.x](https://nodejs.org/en/download/releases/). Sin embargo, no necesita una cuenta de integración, pero la acción Código en línea se llama ahora **Inline Code Operations** (Operaciones de código en línea) y tiene [límites actualizados](logic-apps-limits-and-config.md).
 
 ## <a name="add-inline-code"></a>Adición de código en línea
 
-1. Si aún no lo ha hecho, en [Azure Portal](https://portal.azure.com), abra la aplicación lógica en el Diseñador de aplicación lógica.
+1. Si aún no lo ha hecho, en [Azure Portal](https://portal.azure.com), abra el flujo de trabajo de la aplicación lógica en el diseñador.
 
-1. En el diseñador, elija dónde agregar la acción Código en línea en el flujo de trabajo de la aplicación lógica.
+1. En el flujo de trabajo, elija dónde agregar la acción Código en línea, ya sea como un nuevo paso al final del flujo de trabajo o entre pasos.
 
-   * Para agregar la acción al final del flujo de trabajo, seleccione **Nuevo paso**.
+   Para agregar la acción entre pasos, mueva el puntero del mouse sobre la flecha que conecta esos pasos. Seleccione el signo más ( **+** ) que aparece y elija **Agregar una acción**.
 
-   * Para agregar la acción entre pasos, mueva el puntero del mouse sobre la flecha que conecta esos pasos. Seleccione el signo más ( **+** ) que aparece y elija **Agregar una acción**.
-
-   Este ejemplo agrega la acción Código en línea en el desencadenador de Office 365 Outlook.
+   Este ejemplo agrega la acción en el desencadenador de Office 365 Outlook.
 
    ![Adición del nuevo paso en el desencadenador](./media/logic-apps-add-run-inline-code/add-new-step.png)
 
-1. En **Elegir una acción**, en el cuadro de búsqueda, escriba `inline code`. En la lista de acciones, seleccione la acción **Ejecutar código de JavaScript**.
+1. En el cuadro de búsqueda de acciones, escriba `inline code`. En la lista de acciones, seleccione la acción **Ejecutar código de JavaScript**.
 
    ![Selección de la acción "Ejecutar código de JavaScript"](./media/logic-apps-add-run-inline-code/select-inline-code-action.png)
 

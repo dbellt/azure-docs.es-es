@@ -34,5 +34,9 @@
       href: fxt-specs.md
     - name: Documentación adicional
       href: fxt-additional-doc.md
+    - name: Cifrados compatibles
+      href: fxt-supported-ciphers.md
+    - name: Puertos de red
+      href: fxt-port-list.md
     - name: Abrir una incidencia de soporte técnico
       href: fxt-support-ticket.md

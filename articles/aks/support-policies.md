@@ -4,12 +4,12 @@ description: Aprenda sobre las directivas de soporte técnico de Azure Kubernete
 services: container-service
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: d30e2aa5ab13c5d7676ca7cb455a2372981e4a46
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 3e4f5e4411eb81ab14d844adf03433e9de0d73b2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714483"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368116"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Directivas de soporte técnico para Azure Kubernetes Service
 
@@ -92,7 +92,7 @@ Microsoft y los clientes comparten la responsabilidad sobre los nodos de agente 
   * `Kube-proxy`
   * Túneles de red que proporcionan rutas de acceso de comunicación para los componentes maestros de Kubernetes
   * `Kubelet`
-  * `Moby` o `ContainerD`
+  * Docker o `containerd`
 
 > [!NOTE]
 > Si un nodo de agente no está operativo, AKS podría reiniciar componentes individuales o todo el nodo de agente. Estas operaciones de reinicio se automatizan y proporcionan corrección automática de los problemas comunes. Si desea obtener más información sobre los mecanismos de corrección automática, consulte [Reparación automática de nodo](node-auto-repair.md).

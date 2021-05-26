@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 01/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: dbd892498675b8a672104a045f5c9f66b1740caf
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 830e0904d6aa905a621b245adae2b2d94b46e243
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108017877"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109847173"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configuración de Traiga su propio almacenamiento (BYOS) para Application Insights Profiler y Snapshot Debugger
 
@@ -124,19 +124,19 @@ Para configurar BYOS para el diagnóstico en el nivel de código (Profiler/Debug
     Para instalar la CLI de Azure, consulte la [documentación oficial de la CLI de Azure](/cli/azure/install-azure-cli).
 
 1. Instale la extensión de la CLI de Application Insights.
-    ```powershell
+    ```azurecli
     az extension add -n application-insights
     ```
 
 1. Conecte la cuenta de almacenamiento con el recurso de Application Insights.
 
     Patrón:
-    ```powershell
+    ```azurecli
     az monitor app-insights component linked-storage link --resource-group "{resource_group_name}" --app "{application_insights_name}" --storage-account "{storage_account_name}"
     ```
     
     Ejemplo:
-    ```powershell
+    ```azurecli
     az monitor app-insights component linked-storage link --resource-group "byos-test" --app "byos-test-westus2-ai" --storage-account "byosteststoragewestus2"
     ```
     

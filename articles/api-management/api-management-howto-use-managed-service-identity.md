@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 03/09/2021
 ms.author: apimpm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 40ee196f53af040e4099fb344de5488109ce001b
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 1dc0c67a173333f2d2bcabd71d92ec88fa5a467d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812253"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110071783"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Uso de identidades administradas en Azure API Management
 
@@ -44,7 +44,7 @@ Para configurar una identidad administrada en Azure Portal, primero tendrá que 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Los siguientes pasos le guiarán por la creación de una instancia de API Management y la asignación de una identidad a esta mediante Azure PowerShell. 
+Los siguientes pasos le guiarán por la creación de una instancia de API Management y la asignación de una identidad a esta mediante Azure PowerShell.
 
 1. Si es necesario, instale Azure PowerShell con las instrucciones que se encuentra en la [Guía de Azure PowerShell](/powershell/azure/install-az-ps). Luego, ejecute `Connect-AzAccount` para crear una conexión con Azure.
 
@@ -298,7 +298,7 @@ Para configurar una identidad administrada en el portal, primero tendrá que cre
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Los siguientes pasos le guiarán por la creación de una instancia de API Management y la asignación de una identidad a esta mediante Azure PowerShell. 
+Los siguientes pasos le guiarán por la creación de una instancia de API Management y la asignación de una identidad a esta mediante Azure PowerShell.
 
 1. Si es necesario, instale Azure PowerShell con las instrucciones que se encuentra en la [Guía de Azure PowerShell](/powershell/azure/install-az-ps). Luego, ejecute `Connect-AzAccount` para crear una conexión con Azure.
 
@@ -372,7 +372,7 @@ Por ejemplo, una plantilla de Azure Resource Manager completa podría tener el a
                 "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName'))]": {}
              }
         },
-         "dependsOn": [       
+         "dependsOn": [
           "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName'))]"
         ]
     }]
@@ -401,7 +401,7 @@ El valor `principalId` es un identificador único de la identidad que se usa par
 ## <a name="supported-scenarios-using-user-assigned-managed-identity"></a>Escenarios admitidos que usan la identidad administrada asignada por el usuario
 
 ### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault-ua"></a>Obtención de un certificado TLS/SSL personalizado para la instancia de API Management desde Azure Key Vault
-Puede usar cualquier identidad asignada por el usuario para establecer la confianza entre una instancia de API Management y Key Vault. Esta confianza se puede usar para recuperar los certificados TLS/SSL personalizados almacenados en Azure Key Vault. Después, puede asignar estos certificados a dominios personalizados en la instancia de API Management. 
+Puede usar cualquier identidad asignada por el usuario para establecer la confianza entre una instancia de API Management y Key Vault. Esta confianza se puede usar para recuperar los certificados TLS/SSL personalizados almacenados en Azure Key Vault. Después, puede asignar estos certificados a dominios personalizados en la instancia de API Management.
 
 Tenga en cuenta las consideraciones siguientes:
 
@@ -411,7 +411,7 @@ Tenga en cuenta las consideraciones siguientes:
 > [!Important]
 > Si no se proporciona la versión del objeto del certificado, API Management obtendrá automáticamente la versión más reciente del certificado dentro del plazo de cuatro horas a partir de que se cargue en Key Vault.
 
-Para ver la plantilla completa, consulte [API Management con SSL basado en KeyVault mediante identidades asignadas por el usuario](https://github.com/Azure/azure-quickstart-templates/blob/master/101-api-management-key-vault-create/azuredeploy.json).
+Para ver la plantilla completa, consulte [API Management con SSL basado en KeyVault mediante identidades asignadas por el usuario](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.apimanagement/api-management-key-vault-create/azuredeploy.json).
 
 En esta plantilla, implementará lo siguiente:
 
@@ -421,7 +421,7 @@ En esta plantilla, implementará lo siguiente:
 
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-api-management-key-vault-create%2Fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-key-vault-create%2Fazuredeploy.json)
 
 ### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>Autenticación en el back-end mediante una identidad de asignada por el usuario
 
