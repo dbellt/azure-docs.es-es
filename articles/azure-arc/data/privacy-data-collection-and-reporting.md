@@ -9,12 +9,12 @@ ms.subservice: azure-arc-data
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.custom: template-concept
-ms.openlocfilehash: 036922e3a87e3378f0f517ee0c2d973c78c26bfb
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: dcaf900164e3d9d4b9b3b54e27a79fdae937abc5
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108776840"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472775"
 ---
 # <a name="azure-arc-data-services-data-collection-and-reporting"></a>Servicios de datos para Azure Arc | Informes y recopilación de datos
 
@@ -43,7 +43,7 @@ En la tabla siguiente se describe el tipo de datos, cómo se envían y los requi
 |Datos operativos|Métricas y registros|Automático, cuando se configura para hacerlo|No
 Datos de facturación e inventario|Inventario como el número de instancias y uso, como el número de núcleos virtuales consumidos|Automático |Sí
 Diagnóstico|Información de diagnóstico para solucionar problemas|Exportada y proporcionada manualmente al Soporte técnico de Microsoft|Solo para el ámbito de solución de problemas y sigue las [directivas de privacidad](https://privacy.microsoft.com/privacystatement) estándar
-Programa para la mejora de la experiencia del usuario (CEIP)|[Resumen del CEIP](/sql-server/usage-and-diagnostic-data-configuration-for-sql-server)|Automático, si está permitido|No
+Programa para la mejora de la experiencia del usuario (CEIP)|[Resumen del CEIP](/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server)|Automático, si está permitido|No
 
 ## <a name="indirectly-connected"></a>Conexión indirecta
 
@@ -56,7 +56,7 @@ En la tabla siguiente se describe el tipo de datos, cómo se envían y los requi
 |Datos operativos|Métricas y registros|Manual|No
 Datos de facturación e inventario|Inventario como el número de instancias y uso, como el número de núcleos virtuales consumidos|Manual |Sí
 Diagnóstico|Información de diagnóstico para solucionar problemas|Exportada y proporcionada manualmente al Soporte técnico de Microsoft|Solo para el ámbito de solución de problemas y sigue las [directivas de privacidad](https://privacy.microsoft.com/privacystatement) estándar
-Programa para la mejora de la experiencia del usuario (CEIP)|[Resumen del CEIP](/sql-server/usage-and-diagnostic-data-configuration-for-sql-server)|Automático, si está permitido|No
+Programa para la mejora de la experiencia del usuario (CEIP)|[Resumen del CEIP](/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server)|Automático, si está permitido|No
 
 ## <a name="detailed-description-of-data"></a>Descripción detallada de los datos
 

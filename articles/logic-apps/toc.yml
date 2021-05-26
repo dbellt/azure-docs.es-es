@@ -63,14 +63,18 @@
           href: /security/benchmark/azure/baselines/logic-apps-security-baseline?toc=/azure/logic-apps/toc.json
 - name: Guías paso a paso
   items:
-    - name: Azure Logic Apps (versión preliminar) de un solo inquilino
+    - name: "Azure\_Logic Apps de un solo inquilino"
       items:
-        - name: Introducción a un solo inquilino (versión preliminar)
+        - name: Introducción a un solo inquilino
           href: single-tenant-overview-compare.md
         - name: 'Creación de flujos de trabajo de un solo inquilino: Azure Portal'
           href: create-single-tenant-workflows-azure-portal.md
         - name: 'Creación de flujos de trabajo de un solo inquilino: Visual Studio Code'
           href: create-single-tenant-workflows-visual-studio-code.md
+        - name: Edición de la configuración de host y aplicación para aplicaciones lógicas en un solo inquilino
+          href: edit-app-settings-host-settings.md
+        - name: Creación de parámetros para flujos de trabajo de un solo inquilino
+          href: parameterize-workflow-app.md
         - name: Implementación de DevOps para un solo inquilino
           href: devops-deployment-single-tenant-azure-logic-apps.md
         - name: Configuración de la implementación de DevOps para un solo inquilino
@@ -79,6 +83,12 @@
           href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
         - name: Cálculo de los costos de almacenamiento de los flujos de trabajo de un solo inquilino
           href: estimate-storage-costs.md
+    - name: "Logic Apps habilitado para Azure\_Arc"
+      items:
+        - name: "Acerca de Logic Apps habilitado para Azure\_Arc"
+          href: azure-arc-enabled-logic-apps-overview.md
+        - name: Creación e implementación de aplicaciones lógicas habilitadas para Arc
+          href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
     - name: Desarrollar
       items:
         - name: Creación a partir de plantillas precompiladas
