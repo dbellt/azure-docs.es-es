@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: how-to
 ms.date: 06/20/2019
-ms.author: rohogue
-ms.openlocfilehash: 86e1d74d5e4ab9f6e799c73bcf0d807d0d874f21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: v-erkel
+ms.openlocfilehash: 2ebc8ccb32034091e270bf85d7a9ac43becd0366
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92219724"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110456191"
 ---
 # <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Supervisión del estado del hardware de Azure FXT Edge Filer
 

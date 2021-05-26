@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: d0fdc9e322d2aec76b04c96a75e727b84f95cb10
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: cdc7ce9fbb24dc593ebd4dedc7c2c4ce82afa3f0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108770738"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094828"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo IoT Edge de nivel inferior a una puerta de enlace Azure IoT Edge
 
@@ -89,7 +89,7 @@ Los comandos adicionales de identidades de dispositivos, incluidos `add-children
 ---
 
 >[!NOTE]
->Si desea establecer relaciones entre elementos primarios y secundarios mediante programación, puede usar el [SDK de servicios de IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) de C#, Java o Node.js.
+>Si desea establecer relaciones entre elementos primarios y secundarios mediante programación, puede usar el [SDK de servicios de IoT Hub](../iot-hub/iot-hub-devguide-sdks.md) de C#, Java o Node.js.
 >
 >Este es un [ejemplo de asignación de dispositivos secundarios](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs) mediante el SDK de C#. La tarea `RegistryManager_AddAndRemoveDeviceWithScope()` muestra cómo crear mediante programación una jerarquía de tres capas. Un dispositivo IoT Edge está en la capa uno, como elemento primario. Otro dispositivo IoT Edge está en la capa dos, que sirve como elemento secundario y primario. Por último, un dispositivo IoT está en la capa tres, como el dispositivo secundario de la capa más baja.
 
@@ -421,7 +421,7 @@ El módulo de proxy de API se diseñó para personalizarse y administrar los esc
 
 1. Escriba el siguiente comando para crear una implementación en un dispositivo IoT Edge:
 
-   ```bash
+   ```azurecli
    az iot edge set-modules --device-id <device_id> --hub-name <iot_hub_name> --content ./<deployment_file_name>.json
    ```
 

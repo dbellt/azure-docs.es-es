@@ -3,12 +3,12 @@ title: Uso de Búsqueda en Azure Application Insights | Microsoft Docs
 description: Busque y filtre los datos de telemetría sin procesar que envía la aplicación web.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: f7c2229a2e497fb052db79d61fcfeff140897798
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e9da2acea857f2b295fd2333988507babd967c88
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579542"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110059399"
 ---
 # <a name="using-search-in-application-insights"></a>Uso de Búsqueda en Application Insights
 
@@ -128,7 +128,7 @@ La primera vez que lo haga, se le pedirá que configure un vínculo a la organiz
 
 Además de la telemetría inmediata enviada por el SDK de Application Insights, puede:
 
-* Capturar seguimientos de registros de su plataforma de registro de favoritos en [.NET](./asp-net-trace-logs.md) o [Java](./java-trace-logs.md). Esto significa que puede buscar en los seguimientos de registros y correlacionarlos con vistas de página, excepciones y otros eventos.
+* Capturar seguimientos de registros de su plataforma de registro de favoritos en [.NET](./asp-net-trace-logs.md) o [Java](java-2x-trace-logs.md). Esto significa que puede buscar en los seguimientos de registros y correlacionarlos con vistas de página, excepciones y otros eventos.
 * [Escribir código](./api-custom-events-metrics.md) para enviar eventos personalizados, vistas de página y excepciones.
 
 [Aprender a enviar registros y telemetría personalizada a Application Insights](./asp-net-trace-logs.md).

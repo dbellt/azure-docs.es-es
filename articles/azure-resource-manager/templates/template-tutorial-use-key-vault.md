@@ -6,12 +6,12 @@ ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 388996dc0054192f6d9f3c87e11ca1d15e8a85e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3bd0a0f70aa3ff983f87677219513aa56e051d89
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101703892"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109838454"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager
 
@@ -114,7 +114,7 @@ Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure R
 1. En el cuadro **Nombre de archivo**, pegue la siguiente dirección URL:
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json
     ```
 
 1. Seleccione **Abrir** para abrir el archivo. El escenario es el mismo que el que se usa en [Tutorial: Creación de plantillas de Resource Manager con recursos dependientes](./template-tutorial-create-templates-with-dependent-resources.md).
@@ -134,7 +134,7 @@ Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure R
 1. Repita los pasos de 1 al 3 para abrir la dirección URL siguiente y luego guarde el archivo como *azuredeploy.parameters.json*.
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.parameters.json
     ```
 
 ## <a name="edit-the-parameters-file"></a>Edición del archivo de parámetros

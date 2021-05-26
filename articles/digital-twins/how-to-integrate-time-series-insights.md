@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 4/7/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 18089da198d842f19eb6c42e82188dc615888993
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 8f87b373d640a330006b6b3675376ce46c1c02ae
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789937"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078767"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integración de Azure Digital Twins con Azure Time Series Insights
 
@@ -82,7 +82,7 @@ az eventhubs eventhub create --name <name-for-your-twins-hub> --resource-group <
 
 ### <a name="create-twins-hub-authorization-rule"></a>Creación de una regla de autorización del centro de gemelos
 
-Cree una [regla de autorización](/cli/azure/eventhubs/eventhub/authorization-rule#az_eventhubs_eventhub_authorization_rule_create) con permisos de envío y recepción. Especifique un nombre para la regla.
+Cree una [regla de autorización](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az_eventhubs_eventhub_authorization_rule_create) con permisos de envío y recepción. Especifique un nombre para la regla.
 
 ```azurecli-interactive
 az eventhubs eventhub authorization-rule create --rights Listen Send --name <name-for-your-twins-hub-auth-rule> --resource-group <your-resource-group> --namespace-name <your-event-hubs-namespace-from-earlier> --eventhub-name <your-twins-hub-from-above>
@@ -134,7 +134,7 @@ Cree el **centro de serie temporal** con el siguiente comando. Especifique un no
 
 ### <a name="create-time-series-hub-authorization-rule"></a>Creación de una regla de autorización del centro de serie temporal
 
-Cree una [regla de autorización](/cli/azure/eventhubs/eventhub/authorization-rule#az_eventhubs_eventhub_authorization_rule_create) con permisos de envío y recepción. Especifique un nombre para la regla de autorización del centro de serie temporal.
+Cree una [regla de autorización](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az_eventhubs_eventhub_authorization_rule_create) con permisos de envío y recepción. Especifique un nombre para la regla de autorización del centro de serie temporal.
 
 ```azurecli-interactive
 az eventhubs eventhub authorization-rule create --rights Listen Send --name <name-for-your-time-series-hub-auth-rule> --resource-group <your-resource-group> --namespace-name <your-event-hub-namespace-from-earlier> --eventhub-name <your-time-series-hub-name-from-above>

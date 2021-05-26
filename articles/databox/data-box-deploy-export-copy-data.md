@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 05/17/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 495b4427fb7e456c60a489b9ce3d19c2a44bd918
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 68012cd27318822b8c18b281db967a26da3a15a2
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680896"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095651"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-smb"></a>Tutorial: Copia de datos de Azure Data Box a través de SMB
 
@@ -56,7 +56,7 @@ Si usa un equipo host Windows Server, realice los pasos siguientes para conectar
 
 3. Para acceder a los recursos compartidos asociados con la cuenta de almacenamiento (*exportbvtdataset2* en el ejemplo siguiente) desde el equipo host, abra una ventana de comandos. En el símbolo del sistema, escriba:
 
-    `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
+    `net use \\<IP address of the device>\<share name>  /u:<IP address of the device>\<user name for the share>`
 
     Dependiendo del formato de los datos, las rutas de acceso de los recursos compartidos son las siguientes:
     - Blob en bloques de Azure: `\\169.254.143.85\exportbvtdataset2_BlockBlob`
@@ -66,7 +66,7 @@ Si usa un equipo host Windows Server, realice los pasos siguientes para conectar
 4. Cuando se le solicite, escriba la contraseña del recurso compartido. En el ejemplo siguiente se muestra la conexión a un recurso compartido con el comando anterior.
 
     ```
-    C:\Users\Databoxuser>net use \\169.254.143.85\exportbvtdataset2_BlockBlob /u:exportbvtdataset2
+    C:\Users\Databoxuser>net use \\169.254.143.85\exportbvtdataset2_BlockBlob /u:169.254.143.85\exportbvtdataset2
     Enter the password for 'exportbvtdataset2' to connect to '169.254.143.85':
     The command completed successfully.
     ```

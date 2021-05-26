@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: 4e8be77851d0d7102d7c0cef85d9fbfefd8dc2a2
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5aa15204d646278abfb669466a34f11543e338f2
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137173"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110091223"
 ---
 # <a name="backend-pool-management"></a>Administración de grupos de back-end
 El grupo de back-end es un componente esencial del equilibrador de carga. Define el grupo de recursos que atenderán el tráfico de una regla de equilibrio de carga determinada.
@@ -22,7 +22,7 @@ Hay dos formas de configurar un grupo de back-end:
 * Tarjeta de interfaz de red (NIC)
 * Combinación de dirección IP e identificador de recurso de red virtual
 
-Configure el grupo de back-end por la NIC si usa máquinas virtuales y conjuntos de escalado de máquinas virtuales existentes. Este método crea el vínculo más directo entre el recurso y el grupo de back-end. 
+Configure el grupo de back-end por la NIC si usa máquinas virtuales y conjuntos de escalado de máquinas virtuales existentes. Este método crea el vínculo más directo entre el recurso y el grupo de back-end.
 
 Al asignar previamente el grupo de back-end con un intervalo de direcciones IP con el que planea crear posteriormente máquinas virtuales y conjuntos de escalado de máquinas virtuales, configure el grupo de back-end por la combinación de dirección IP e identificador de red virtual.
 
@@ -33,7 +33,7 @@ Las secciones de configuración de este artículo se centrarán en los siguiente
 * Azure PowerShell
 * Azure CLI
 * API DE REST
-* Plantillas del Administrador de recursos de Azure 
+* Plantillas del Administrador de recursos de Azure
 
 En estas secciones se proporciona información sobre cómo se estructuran los grupos de back-end para cada opción de configuración.
 
@@ -42,7 +42,7 @@ El grupo de back-end se crea como parte de la operación del equilibrador de car
 
 Los siguientes ejemplos se centran en las operaciones de creación y rellenado del grupo de back-end para resaltar este flujo de trabajo y esta relación.
 
-  >[!NOTE] 
+  >[!NOTE]
   >Es importante tener en cuenta que los grupos de back-end configurados mediante la interfaz de red no se pueden actualizar como parte de una operación en el grupo de back-end. Cualquier incorporación o eliminación de recursos de back-end debe realizarse en la interfaz de red del recurso.
 
 ### <a name="powershell"></a>PowerShell
@@ -53,7 +53,7 @@ $resourceGroup = "myResourceGroup"
 $loadBalancerName = "myLoadBalancer"
 $backendPoolName = "myBackendPool"
 
-$backendPool = 
+$backendPool =
 New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
 ```
 
@@ -67,10 +67,10 @@ $nicname = "myNic"
 $location = "eastus"
 $vnetname = <your-vnet-name>
 
-$vnet = 
+$vnet =
 Get-AzVirtualNetwork -Name $vnetname -ResourceGroupName $resourceGroup
 
-$nic = 
+$nic =
 New-AzNetworkInterface -ResourceGroupName $resourceGroup -Location $location -Name $nicname -LoadBalancerBackendAddressPool $backendPoolName -Subnet $vnet.Subnets[0]
 ```
 
@@ -105,9 +105,9 @@ $location = "eastus"
 $nic =
 Get-AzNetworkInterface -Name $nicname -ResourceGroupName $resourceGroup
 
-$vmConfig = 
+$vmConfig =
 New-AzVMConfig -VMName $vmname -VMSize $vmsize | Set-AzVMOperatingSystem -Windows -ComputerName $vmname -Credential $cred | Set-AzVMSourceImage -PublisherName $pubname -Offer $off -Skus $sku -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
- 
+
 # Create a virtual machine using the configuration
 $vm1 = New-AzVM -ResourceGroupName $resourceGroup -Zone 1 -Location $location -VM $vmConfig
 ```
@@ -119,7 +119,7 @@ Cree el grupo de back-end:
 az network lb address-pool create \
 --resource-group myResourceGroup \
 --lb-name myLB \
---name myBackendPool 
+--name myBackendPool
 ```
 
 Cree una nueva interfaz de red y agréguela al grupo de back-end:
@@ -158,7 +158,7 @@ az vm create \
 
 ### <a name="resource-manager-template"></a>Plantilla de Resource Manager
 
-Siga la [plantilla de Resource Manager de este inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) para implementar un equilibrador de carga y máquinas virtuales, y para agregar las máquinas virtuales al grupo de back-end a través de la interfaz de red.
+Siga la [plantilla de Resource Manager de este inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/load-balancer-standard-create/) para implementar un equilibrador de carga y máquinas virtuales, y para agregar las máquinas virtuales al grupo de back-end a través de la interfaz de red.
 
 Siga la [plantilla de Resource Manager de este inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-ip-configured-backend-pool) para implementar un equilibrador de carga y máquinas virtuales, y para agregar las máquinas virtuales al grupo de back-end a través de la dirección IP.
 
@@ -203,7 +203,7 @@ Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBala
 Cree una interfaz de red y agréguela al grupo de back-end. Establezca la dirección IP en una de las direcciones de back-end:
 
 ```azurepowershell-interactive
-$nic = 
+$nic =
 New-AzNetworkInterface -ResourceGroupName $resourceGroup -Location $location -Name $nicName -PrivateIpAddress 10.0.0.4 -Subnet $virtualNetwork.Subnets[0]
 ```
 
@@ -225,7 +225,7 @@ $location = "eastus"
 $nic =
 Get-AzNetworkInterface -Name $nicname -ResourceGroupName $resourceGroup
 
-$vmConfig = 
+$vmConfig =
 New-AzVMConfig -VMName $vmname -VMSize $vmsize | Set-AzVMOperatingSystem -Windows -ComputerName $vmname -Credential $cred | Set-AzVMSourceImage -PublisherName $pubname -Offer $off -Skus $sku -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
 
 # Create a virtual machine using the configuration
@@ -233,7 +233,7 @@ $vm1 = New-AzVM -ResourceGroupName $resourceGroup -Zone 1 -Location $location -V
 ```
 
 ### <a name="cli"></a>CLI
-Con la CLI puede rellenar el grupo de back-end mediante parámetros de la línea de comandos o mediante un archivo de configuración de JSON. 
+Con la CLI puede rellenar el grupo de back-end mediante parámetros de la línea de comandos o mediante un archivo de configuración de JSON.
 
 Cree y rellene el grupo de back-end mediante parámetros de la línea de comandos:
 
@@ -307,7 +307,7 @@ az vm create \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
- 
+
 ### <a name="limitations"></a>Limitaciones
 Un grupo de back-end configurado por la dirección IP tiene las siguientes limitaciones:
   * Solo se puede usar para equilibradores de carga estándar

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: cd26034b0049e2eeceb2526bbb6f89e9eb70d236
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 8fcc7b4f7f23c33450bdc00c53e97b0081ad1035
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905841"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109848050"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Diseño de redes virtuales con recursos de puertas de enlace de NAT
 
@@ -45,7 +45,7 @@ Red virtual:
 
 No se necesitan rutas definidas por el usuario.
 
-## <a name="resource"></a>Resource
+## <a name="resource"></a>Recurso
 
 El recurso se ha diseñado para que sea muy sencillo, como se puede ver en el siguiente ejemplo de Azure Resource Manager en un formato de tipo plantilla.  Este formato se muestra aquí para ilustrar los conceptos y la estructura.  Modifique el ejemplo para adecuarlo a sus necesidades.  No se pretende que este documento sea un tutorial.
 
@@ -72,13 +72,13 @@ El siguiente ejemplo es un fragmento de código de una plantilla de Azure Resour
 
 El número total de direcciones IP proporcionado por todas las direcciones IP y recursos de prefijo no pueden superar un total de 16 direcciones IP. Se permite cualquier número de direcciones IP entre 1 y 16.
 
-:::code language="json" source="~/quickstart-templates/101-nat-gateway-vnet/azuredeploy.json" range="81-96":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/nat-gateway-vnet/azuredeploy.json" range="81-96":::
 
 Cuando se haya creado el recurso de puerta de enlace de NAT, se puede usar en una o varias subredes de una red virtual. Especifique qué subredes usan este recurso de puerta de enlace de NAT. Una puerta de enlace de NAT no puede abarcar más de una red virtual. No es preciso asignar la misma puerta de enlace de NAT a todas las subredes de una red virtual. Se pueden configurar subredes individuales con diferentes recursos de puerta de enlace de NAT.
 
 Los escenarios que no usen zonas de disponibilidad serán regionales (sin zona especificada). Si usa zonas de disponibilidad, puede especificar una de ellas para aislar NAT en una zona concreta. No se admite la redundancia de zonas. Examine las [zonas de disponibilidad](#availability-zones) de NAT.
 
-:::code language="json" source="~/quickstart-templates/101-nat-gateway-vnet/azuredeploy.json" range="1-146" highlight="81-96":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/nat-gateway-vnet/azuredeploy.json" range="1-146" highlight="81-96":::
 
 Las puertas de enlace de NAT se definen con una propiedad en una subred de una red virtual. Los flujos que creen las máquinas virtuales en la subred **subnetname** de la red virtual **vnetname** usarán la puerta de enlace NAT. Toda la conectividad de salida usará las direcciones IP asociadas con **natgatewayname** como dirección IP de origen.
 
@@ -132,7 +132,7 @@ El escenario de solo salida a Internet que proporciona la puerta de enlace de NA
 
 *Ilustración: Virtual Network NAT y máquina virtual con IP pública de nivel de instancia*
 
-| Dirección | Resource |
+| Dirección | Recurso |
 |:---:|:---:|
 | Entrada | Máquina virtual con IP pública de nivel de instancia |
 | Salida | NAT Gateway |
@@ -147,7 +147,7 @@ La máquina virtual usará una puerta de enlace de NAT para la salida.  La entra
 
 *Ilustración: Virtual Network NAT y máquina virtual con equilibrador de carga público*
 
-| Dirección | Resource |
+| Dirección | Recurso |
 |:---:|:---:|
 | Entrada | Equilibrador de carga público |
 | Salida | NAT Gateway |
@@ -162,7 +162,7 @@ La puerta de enlace de NAT sustituye la configuración de salida de una regla de
 
 *Ilustración: Virtual Network NAT y máquina virtual con IP pública de nivel de instancia y equilibrador de carga pública*
 
-| Dirección | Resource |
+| Dirección | Recurso |
 |:---:|:---:|
 | Entrada | Máquina virtual con IP pública de nivel de instancia y equilibrador de carga pública |
 | Salida | NAT Gateway |

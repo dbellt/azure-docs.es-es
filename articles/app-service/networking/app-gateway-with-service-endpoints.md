@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: f1d517ba37bbef95d1863485c8c3b6313f196c11
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: b383c28ca5097a6a30dc43f48213b0793ccdee11
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374920"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110096389"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Integración de Application Gateway con puntos de conexión de servicio
 Hay tres variaciones de App Service que requieren una configuración ligeramente diferente de la integración con Azure Application Gateway. Por ejemplo, la versión normal de App Service, también conocida como "multiinquilino", el equilibrador de carga interno (ILB) y el ASE externo. En este artículo se explica cómo configurarlo con App Service (multiinquilino) y se explican las consideraciones sobre ILB y el ASE externo.
@@ -43,7 +43,7 @@ Ahora puede acceder a App Service a través de Application Gateway, pero si tr
 ![Captura de pantalla que muestra el texto de un error 403: prohibido.](./media/app-gateway-with-service-endpoints/website-403-forbidden.png)
 
 ## <a name="using-azure-resource-manager-template"></a>Uso de la plantilla de Azure Resource Manager
-La [plantilla de implementación de Resource Manager][template-app-gateway-app-service-complete] aprovisionará un escenario completo. El escenario consta de una instancia de App Service bloqueada con puntos de conexión de servicio y restricciones de acceso para recibir únicamente el tráfico de Application Gateway. La plantilla incluye muchos valores predeterminados inteligentes y versiones de reparación únicas agregadas a los nombres de recursos para que sea simple. Para invalidarlos, tendrá que clonar el repositorio o descargar la plantilla y editarla. 
+La [plantilla de implementación de Resource Manager][template-app-gateway-app-service-complete] aprovisionará un escenario completo. El escenario consta de una instancia de App Service bloqueada con puntos de conexión de servicio y restricciones de acceso para recibir únicamente el tráfico de Application Gateway. La plantilla incluye muchos valores predeterminados inteligentes y versiones de reparación únicas agregadas a los nombres de recursos para que sea simple. Para invalidarlos, tendrá que clonar el repositorio o descargar la plantilla y editarla.
 
 Para aplicar la plantilla, puede usar el botón Implementar en Azure, que se encuentra en la descripción de la plantilla, o bien usar la función de PowerShell o la CLI adecuadas.
 
@@ -57,7 +57,7 @@ az webapp config access-restriction add --resource-group myRG --name myWebApp --
 En la configuración predeterminada, el comando garantizará que se establezca la configuración de los puntos de conexión de servicio en la subred y la restricción de acceso en App Service.
 
 ## <a name="considerations-for-ilb-ase"></a>Consideraciones del ASE de ILB
-El ASE de ILB no está expuesto a Internet y el tráfico entre la instancia y Application Gateway está ya aislado en la red virtual. La siguiente [guía paso a paso](../environment/integrate-with-application-gateway.md) configura un ASE de ILB y lo integra con Application Gateway mediante Azure Portal. 
+El ASE de ILB no está expuesto a Internet y el tráfico entre la instancia y Application Gateway está ya aislado en la red virtual. La siguiente [guía paso a paso](../environment/integrate-with-application-gateway.md) configura un ASE de ILB y lo integra con Application Gateway mediante Azure Portal.
 
 Si desea asegurarse de que solo el tráfico procedente de la subred de Application Gateway llegue al ASE, puede configurar un grupo de seguridad de red (NSG) que afecte a todas las aplicaciones web del ASE. En el caso del NSG, es posible especificar el intervalo de direcciones IP de la subred y, opcionalmente, los puertos (80/443). No invalide [las reglas de NSG necesarias](../environment/network-info.md#network-security-groups) para que ASE funcione correctamente.
 
@@ -66,7 +66,7 @@ Para aislar el tráfico en una aplicación web concreta, deberá usar restriccio
 ## <a name="considerations-for-external-ase"></a>Consideraciones del ASE externo
 El ASE externo tiene un equilibrador de carga de acceso público como la versión de App Service multiinquilino. Los puntos de conexión de servicio no funcionan con el ASE y por eso tendrá que usar las restricciones de acceso basadas en IP mediante la dirección IP pública de la instancia de Application Gateway. Para crear un ASE externo mediante Azure Portal, puede seguir este [inicio rápido](../environment/create-external-ase.md)
 
-[template-app-gateway-app-service-complete]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-app-gateway-v2/ "Plantilla de Azure Resource Manager para un escenario completo"
+[template-app-gateway-app-service-complete]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-with-app-gateway-v2/ "Plantilla de Azure Resource Manager para un escenario completo"
 
 ## <a name="considerations-for-kuduscm-site"></a>Consideraciones sobre el sitio de KUDU/SCM
 El sitio de SCM, también conocido como "KUDU", es un sitio de administración que existe para cada aplicación web. No es posible invertir el proxy en el sitio SCM y lo más probable es que también desee bloquearlo en direcciones IP específicas o en una subred específica.

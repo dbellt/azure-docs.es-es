@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b918cc2b692ed3d5e6594cd6b888b55eb54e5aa
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 7b07e27139ce4a09c5e9964401c9e2b533a94c96
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109733359"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109838994"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
@@ -156,6 +156,15 @@ Con esta actualización, los escenarios siguientes relacionados con eventos ahor
 Estos resultados mostrarán detalles contextuales y pertinentes sobre el evento y las acciones que se deben realizar para resolver estos problemas. Además, en escenarios en los que no tenemos diagnósticos contextuales profundos, el diagnóstico de inicio de sesión presentará contenido más descriptivo sobre el evento de error.
 
 Para más información, consulte [¿Qué es el diagnóstico de inicio de sesión en Azure AD?](../reports-monitoring/overview-sign-in-diagnostics.md)
+
+---
+### <a name="azure-ad-connect-cloud-sync-general-availability-refresh"></a>Actualización de la disponibilidad general de Azure AD Connect Cloud Sync 
+**Tipo:** Característica modificada  
+**Categoría del servicio:** Azure AD Connect Cloud Sync **Funcionalidad del producto:** Directorio
+
+Azure AD Connect Cloud Sync ahora tiene un agente actualizado (n.° de versión 1.1.359). Para más información sobre las actualizaciones del agente, incluidas las correcciones de errores, consulte el [historial de versiones](../cloud-sync/reference-version-history.md). Con el agente actualizado, los clientes de la sincronización en la nube pueden usar cmdlets de GMSA para establecer y restablecer su permiso de gMSA en un nivel detallado. Además, cambiamos el límite de sincronización de los miembros mediante el filtrado del ámbito de grupo de 1499 a 50 000 miembros. 
+
+Consulte el [generador de expresiones](../cloud-sync/how-to-expression-builder.md#deploy-the-expression) recién disponible para la sincronización en la nube, que lo ayuda a crear expresiones complejas y expresiones sencillas cuando realiza transformaciones de valores de atributo de AD a Azure AD mediante la asignación de atributos.
 
 ---
 
@@ -341,16 +350,6 @@ Para más información acerca de cómo proteger mejor una organización mediante
 **Funcionalidad del producto:** Control de acceso
  
 Ahora está disponible con carácter general la compatibilidad nativa del proxy de aplicaciones de Azure AD con la autenticación basada en encabezados. Con esta característica, puede configurar los atributos de usuario necesarios como encabezados HTTP para la aplicación sin necesidad de componentes adicionales para la implementación. [Más información](../manage-apps/application-proxy-configure-single-sign-on-with-headers.md).
-
----
-
-### <a name="azure-ad-connect-cloud-sync-general-availability-refresh"></a>Actualización de la disponibilidad general de Azure AD Connect Cloud Sync 
-**Tipo:** Característica modificada  
-**Categoría del servicio:** Azure AD Connect Cloud Sync **Funcionalidad del producto:** Directorio
-
-Azure AD Connect Cloud Sync ahora tiene un agente actualizado (n.° de versión 1.1.359). Para más información sobre las actualizaciones del agente, incluidas las correcciones de errores, consulte el [historial de versiones](../cloud-sync/reference-version-history.md). Con el agente actualizado, los clientes de la sincronización en la nube pueden usar cmdlets de GMSA para establecer y restablecer su permiso de gMSA en un nivel detallado. Además, cambiamos el límite de sincronización de los miembros mediante el filtrado del ámbito de grupo de 1499 a 50 000 miembros. 
-
-Consulte el [generador de expresiones](../cloud-sync/how-to-expression-builder.md#deploy-the-expression) recién disponible para la sincronización en la nube, que lo ayuda a crear expresiones complejas y expresiones sencillas cuando realiza transformaciones de valores de atributo de AD a Azure AD mediante la asignación de atributos.
 
 ---
 
