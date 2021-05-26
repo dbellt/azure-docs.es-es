@@ -393,8 +393,6 @@
       items:
         - name: Problemas comunes
           href: troubleshooting.md
-        - name: Comprobación de los procedimientos recomendados
-          href: kube-advisor-tool.md
         - name: Acceso al nodo SSH
           href: ssh.md
         - name: Herramientas de rendimiento de Linux

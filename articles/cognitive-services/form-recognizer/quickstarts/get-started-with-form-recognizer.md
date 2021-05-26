@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Etiquetado de formularios, entrenamiento de un modelo y análisis de formularios mediante la herramienta de etiquetado de ejemplo: Form Recognizer'
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: En este inicio rápido, utilizará la herramienta de etiquetado de ejemplo Form Recognizer para etiquetar manualmente documentos de formularios. A continuación, entrenará un modelo personalizado de procesamiento de documentos con los documentos etiquetados y lo empleará para extraer pares clave-valor.
 author: laujan
 manager: nitinme
@@ -11,12 +11,12 @@ ms.date: 05/14/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-may-2021
 keywords: procesamiento de documentos
-ms.openlocfilehash: c833e08915347682276cb53b45c507902d5ea43f
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: af803b92945be059f604a3890a90d3aa36e5781e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382345"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475160"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -32,8 +32,6 @@ Use Form Recognizer para:
 * Análisis de diseño
 * Análisis con un modelo precompilado (facturas, recibos, documentos de identificación)
 * Entrenamiento y análisis de un formulario personalizado
-
-> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
 ## <a name="prerequisites"></a>Requisitos previos
 

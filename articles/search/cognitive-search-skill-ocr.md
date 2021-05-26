@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: aa9c8e1d5579538df11358edc08eb7e2043cea74
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 12b6c8e71052d8d821d4b253d5f921bbff82e02d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285848"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110473884"
 ---
 # <a name="ocr-cognitive-skill"></a>Aptitud cognitiva de OCR
 
 La aptitud de **reconocimiento óptico de caracteres (OCR)** reconoce texto impreso y manuscrito en archivos de imágenes. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Computer Vision](../cognitive-services/computer-vision/overview.md) API [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) de Cognitive Services. La aptitud de **reconocimiento óptico de caracteres** se asocia a la siguiente funcionalidad:
 
 + En inglés, español, alemán, francés, italiano, portugués y holandés, se usa ["Read"](../cognitive-services/computer-vision/overview-ocr.md#read-api) API.
-+ En todos los demás idiomas se usa la API [OCR heredado](../cognitive-services/computer-vision/overview-ocr.md#ocr-api).
++ En todos los demás idiomas se usa la API [OCR heredado](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f20d).
 
 La aptitud de **OCR** extrae texto de los archivos de imagen. Entre otros, estos son los formatos de archivos admitidos:
 

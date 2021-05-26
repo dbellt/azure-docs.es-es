@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 05/06/2021
 ms.author: rolyon
-ms.openlocfilehash: 96eb88bf1e62753cff5606881af471d32bf1e85c
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 47375c32869be4433e02273306a8d47f88ffa61d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483714"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110463563"
 ---
 # <a name="list-azure-role-definitions"></a>Enumeración de las definiciones de roles de Azure
 
@@ -40,7 +40,7 @@ La pestaña **Roles** se actualizó recientemente con algunas características a
 
 1. Haga clic en la pestaña **Roles** para ver una lista de todos los roles integrados y personalizados.
 
-   ![Captura de pantalla que muestra la lista de roles con la nueva experiencia.](./media/role-definitions-list/roles-list.png)
+   ![Captura de pantalla que muestra la lista de roles con la nueva experiencia.](./media/shared/roles-list.png)
 
 1. Para ver los permisos de un rol determinado, en la columna **Detalles**, haga clic en el vínculo **Ver**.
 

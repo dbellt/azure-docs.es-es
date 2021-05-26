@@ -1,22 +1,22 @@
 ---
-title: Automatización de tareas y flujos con Visual Studio Code
-description: Crear o editar definiciones de flujos de trabajo de una aplicación lógica mediante Visual Studio Code (VS Code)
+title: Inicio rápido - Creación de flujos de trabajo de integración con Azure Logic Apps en Visual Studio Code
+description: Cree y administre definiciones de flujo de trabajo con Azure Logic Apps multiinquilino en Visual Studio Code.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, deli, logicappspm
+ms.reviewer: azla
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/23/2021
-ms.openlocfilehash: 0163b58017599ceb26f52f0e47cbc87e161f6ed2
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.date: 05/25/2021
+ms.openlocfilehash: 41ed5f3e85390a51fa30316bc9f95c8b320c4468
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161254"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474473"
 ---
-# <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Inicio rápido: Creación y administración de definiciones de flujo de trabajo de aplicaciones lógicas mediante Visual Studio Code
+# <a name="quickstart-create-and-manage-logic-app-workflow-definitions-with-multi-tenant-azure-logic-apps-and-visual-studio-code"></a>Inicio rápido - Cree y administre definiciones de flujo de trabajo de aplicación lógica con Azure Logic Apps multiinquilino y Visual Studio Code
 
-Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y Visual Studio Code, puede crear y administrar aplicaciones lógicas que le ayuden a automatizar tareas, flujos de trabajo y procesos para integrar aplicaciones, datos, sistemas y servicios entre organizaciones y empresas. En este inicio rápido se muestra cómo crear y editar las definiciones de los flujos de subyacentes, que usan la notación de objetos JavaScript (JSON), para aplicaciones lógicas mediante código. También puede trabajar en aplicaciones lógicas existentes ya implementadas en Azure.
+En este inicio rápido se muestra cómo crear y administrar flujos de trabajo de aplicación lógica que le ayudan a automatizar tareas y procesos que integran aplicaciones, datos, sistemas y servicios en organizaciones y empresas mediante el uso de [Azure Logic Apps](../logic-apps/logic-apps-overview.md) multiinquilino y Visual Studio Code. Puede crear y editar las definiciones de los flujos de trabajo subyacentes, que usan la notación de objetos JavaScript (JSON), para aplicaciones lógicas mediante código. También puede trabajar en aplicaciones lógicas existentes ya implementadas en Azure. Para más información sobre el modelo multiinquilino frente al modelo de inquilino único, consulte [Inquilino único (versión preliminar) frente a multiinquilino y entorno del servicio de integración para Azure Logic Apps](single-tenant-overview-compare.md).
 
 Aunque puede realizar estas mismas tareas en [Azure Portal](https://portal.azure.com) y en Visual Studio, puede empezar a trabajar con mayor rapidez en Visual Studio Code si ya tiene familiaridad con la aplicación lógica y desea trabajar directamente en el código. Por ejemplo, puede deshabilitar, habilitar, eliminar y actualizar las aplicaciones lógicas ya creadas. Además, puede trabajar en Logic Apps y las cuentas de integración desde cualquier plataforma de desarrollo donde se ejecute Visual Studio Code, como Linux, Windows y Mac.
 
@@ -301,9 +301,9 @@ En Visual Studio Code, si edita una aplicación lógica publicada y guarda los 
 >
 > * El servicio Logic Apps continúa todas las ejecuciones en curso y pendientes hasta que finalizan. Según el volumen o el trabajo pendiente, este proceso puede tardar en completarse.
 >
-> * El servicio Logic Apps no crea ni ejecuta nuevas instancias de flujo de trabajo.
+> * El servicio Logic Apps no crea ni ejecuta nuevas instancias de flujo de trabajo.
 >
-> * El desencadenador no se activará la próxima vez que se cumplan sus condiciones. Sin embargo, el estado del desencadenador recuerda el punto en el que se detuvo la aplicación lógica. Por lo tanto, si la reactiva, el desencadenador se activará para todos los elementos no procesados desde la última ejecución.
+> * El desencadenador no se activará la próxima vez que se cumplan sus condiciones. Sin embargo, el estado del desencadenador recuerda el punto en el que se detuvo la aplicación lógica. Por lo tanto, si reactiva la aplicación lógica, el desencadenador se activará para todos los elementos no procesados desde la última ejecución.
 >
 >   Para evitar que el desencadenador se active con elementos no procesados desde la última ejecución, borre el estado del desencadenador antes de reactivar la aplicación lógica:
 >
@@ -329,13 +329,13 @@ En Visual Studio Code, si edita una aplicación lógica publicada y guarda los 
 
 La eliminación de una aplicación lógica afecta a las instancias de flujo de trabajo de las maneras siguientes:
 
-* El servicio Logic Apps hace todo lo posible por cancelar todas las ejecuciones en curso y pendientes.
+* El servicio Logic Apps hace todo lo posible por cancelar las ejecuciones en curso y pendientes.
 
-  Incluso con un gran volumen o trabajo pendiente, la mayoría de las ejecuciones se cancelan antes de que finalizan o se inician. Sin embargo, el proceso de cancelación puede tardar en completarse. Mientras tanto, pueden seleccionarse algunas ejecuciones para su ejecución mientras el servicio se encarga del proceso de cancelación.
+  Incluso con un gran volumen o trabajo pendiente, la mayoría de las ejecuciones se cancelan antes de que finalicen o se inicien. Sin embargo, el proceso de cancelación puede tardar en completarse. Mientras tanto, pueden seleccionarse algunas ejecuciones para su ejecución mientras el servicio se encarga del proceso de cancelación.
 
-* El servicio Logic Apps no crea ni ejecuta nuevas instancias de flujo de trabajo.
+* El servicio Logic Apps no crea ni ejecuta nuevas instancias de flujo de trabajo.
 
-* Si elimina un flujo de trabajo y, luego, vuelve a crearlo, este no tendrá los mismos metadatos que el eliminado. Tiene que volver a guardar cualquier flujo de trabajo que haya llamado al eliminado. De este modo, el autor de la llamada obtiene la información correcta sobre el flujo de trabajo que se ha vuelto a crear. De lo contrario, las llamadas a este flujo de trabajo generarán el error `Unauthorized`. Este comportamiento también se aplica a los flujos de trabajo que usan artefactos en cuentas de integración y a flujos de trabajo que llaman a funciones de Azure.
+* Si elimina un flujo de trabajo y, luego, vuelve a crear el mismo flujo de trabajo, el flujo de trabajo recreado no tendrá los mismos metadatos que el flujo de trabajo eliminado. Tiene que volver a guardar todo flujo de trabajo que haya llamado al flujo de trabajo eliminado. De este modo, el autor de la llamada obtiene la información correcta para el flujo de trabajo recreado. De lo contrario, las llamadas al flujo de trabajo recreado producirán un error `Unauthorized`. Este comportamiento también se aplica a los flujos de trabajo que usan artefactos en cuentas de integración y a flujos de trabajo que llaman a funciones de Azure.
 
 1. Si aún no ha iniciado sesión en su cuenta y suscripción de Azure desde dentro de Visual Studio Code, siga los [pasos anteriores para iniciar sesión ahora](#access-azure).
 
@@ -348,4 +348,4 @@ La eliminación de una aplicación lógica afecta a las instancias de flujo de t
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Creación de aplicaciones lógicas con y sin estado en Visual Studio Code (versión preliminar)](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)
+> [Creación de flujos de trabajo de aplicación lógica basados en un solo inquilino en Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md)

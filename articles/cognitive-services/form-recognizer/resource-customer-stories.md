@@ -1,6 +1,6 @@
 ---
 title: Contenido destacado de los clientes
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Resalte los casos de clientes con Form Recognizer.
 services: cognitive-services
 author: laujan
@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/10/2021
 ms.author: lajanuar
-ms.openlocfilehash: b93021e0bbc423d3b0ddb23281a1513de0f5ab1c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: a16be44f350b1305b4dd1778bc8457e9bb568a6d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382949"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475037"
 ---
 # <a name="customer-spotlight"></a>Contenido destacado de los clientes
 

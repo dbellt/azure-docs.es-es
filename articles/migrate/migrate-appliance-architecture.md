@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: 4fc71f3242cc5607acebc68b62c5c0565b8f8e56
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 88ed92f4db7037753e93386eea329ab560f0847b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107715017"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110464222"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Arquitectura del dispositivo de Azure Migrate
 
@@ -51,7 +51,7 @@ El dispositivo tiene los servicios siguientes:
 - **Agente de detección y evaluación de SQL**: envía los metadatos de configuración y rendimiento de las instancias y bases de datos de SQL Server a Azure.
 
 > [!Note]
-> Los tres últimos servicios solo están disponibles en el dispositivo que se usa para la detección y evaluación de los servidores que se ejecutan en el entorno de VMware.<br/> La detección y valoración de las bases de datos e instancias de SQL Server que se ejecutan en el entorno de VMware se encuentran ahora en versión preliminar. Para probar esta característica, use [**este vínculo**](https://aka.ms/AzureMigrate/SQL) para crear un proyecto en la región **Este de Australia**. Si ya tiene un proyecto en la región Este de Australia y desea probar esta característica, asegúrese de que ha completado estos [**requisitos previos**](how-to-discover-sql-existing-project.md) en el portal.
+> Los tres últimos servicios solo están disponibles en el dispositivo que se usa para la detección y evaluación de los servidores que se ejecutan en el entorno de VMware.
 
 ## <a name="discovery-and-collection-process"></a>Proceso de detección y recopilación
 

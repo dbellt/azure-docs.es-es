@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 37b8c79df5b208feea185292fa09c323b64fa27d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2404fc1a0570f3e55a31dc7742b268365288c238
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89001814"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461783"
 ---
 # <a name="configure-transport-layer-security-tls-for-a-client-application"></a>Configuración de Seguridad de la capa de transporte (TLS) para una aplicación cliente
 
@@ -44,13 +44,13 @@ $ctx = $storageAccount.Context
 New-AzStorageContainer -Name "sample-container" -Context $ctx
 ```
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 En el ejemplo siguiente se muestra cómo habilitar TLS 1.2 en un cliente .NET con la versión 12 de la biblioteca cliente de Azure Storage:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Networking.cs" id="Snippet_ConfigureTls12":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
 
 En el ejemplo siguiente se muestra cómo habilitar TLS 1.2 en un cliente .NET con la versión 11 de la biblioteca cliente de Azure Storage:
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e1b4ca90cf7b4d8c5bdc23ea311a5a1feaada89c
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c2b75d8b9d4743e4ee632ad1840f50a4580f3ea7
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108741102"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474297"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Administración de dispositivos en la aplicación de Azure IoT Central
 
@@ -38,7 +38,7 @@ Para ver un dispositivo determinado:
 
 1. En el panel derecho de la página **Devices** (Dispositivos), verá una lista de los dispositivos creados con esa plantilla. Elija un dispositivo para ver la página de detalles de ese dispositivo:
 
-    ![Página Detalles del dispositivo](./media/howto-manage-devices/devicelist.png)
+    ![Página Detalles del dispositivo](./media/howto-manage-devices/device-list.png)
 
 ## <a name="add-a-device"></a>Agregar un dispositivo
 
@@ -78,7 +78,7 @@ Para registrar dispositivos en la aplicación en bloque:
 
 1. Seleccione **Import** (Importar).
 
-    ![Acción de importación](./media/howto-manage-devices/bulkimport1a.png)
+    ![Acción de importación](./media/howto-manage-devices/bulk-import-1.png)
 
 
 1. Seleccione el archivo CSV que tiene la lista de identificadores de dispositivo que desea importar.
@@ -87,7 +87,7 @@ Para registrar dispositivos en la aplicación en bloque:
 
 1. Una vez que la importación finalizada, se muestra un mensaje de confirmación en el panel Device Operations (Operaciones de dispositivo).
 
-    ![Importación correcta](./media/howto-manage-devices/bulkimport3a.png)
+    ![Importación correcta](./media/howto-manage-devices/bulk-import-2.png)
 
 Si se produce un error en la operación de importación de dispositivos, aparece un mensaje de error en el panel Device Operations (Operaciones de dispositivo). Se genera un archivo de registro descargable con todos los errores.
 
@@ -99,7 +99,7 @@ Si para registrar dispositivos inicia la importación en **All devices** (Todos 
 
 1. Elija **All devices** (Todos los servicios) en el panel izquierdo:
 
-    ![Dispositivos no asociados](./media/howto-manage-devices/unassociateddevices1a.png)
+    ![Dispositivos no asociados](./media/howto-manage-devices/unassociated-devices-1.png)
 
 1. Use el filtro de la cuadrícula para determinar si el valor de la columna **Plantilla de dispositivo** es **Sin asociar** en cualquiera de los dispositivos.
 
@@ -107,7 +107,7 @@ Si para registrar dispositivos inicia la importación en **All devices** (Todos 
 
 1. Seleccione **Migrate** (Migrar):
 
-    ![Asociar dispositivos](./media/howto-manage-devices/unassociateddevices2a.png)
+    ![Asociar dispositivos](./media/howto-manage-devices/unassociated-devices-2.png)
 
 1. Elija la plantilla en la lista de plantillas disponibles y seleccione **Migrate** (Migrar).
 
@@ -125,7 +125,7 @@ Para realizar la exportación masiva de dispositivos desde la aplicación:
 
 1. Seleccione los dispositivos que desea exportar y la acción **Exportar**.
 
-    ![Exportación](./media/howto-manage-devices/export1a.png)
+    ![Exportación](./media/howto-manage-devices/export-1.png)
 
 1. Se inicia el proceso de exportación. Para realizar un seguimiento del estado, utilice el panel Device Operations (Operaciones de dispositivo).
 
@@ -133,7 +133,7 @@ Para realizar la exportación masiva de dispositivos desde la aplicación:
 
 1. Seleccione el vínculo **Download File** (Descargar archivo) para descargar el archivo en una carpeta local del disco.
 
-    ![Exportación correcta](./media/howto-manage-devices/export2a.png)
+    ![Exportación correcta](./media/howto-manage-devices/export-2.png)
 
 1. El archivo CSV exportado contiene las siguientes columnas: Id. de dispositivo, nombre del dispositivo, claves de dispositivo y huellas digitales de certificado X509:
 

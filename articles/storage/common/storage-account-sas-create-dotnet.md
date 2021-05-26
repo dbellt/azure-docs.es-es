@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2918b845430a6fc6dc59eca7041c114fc9d06515
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3e08962c0cff2e9aa04601f89e677334878e2f53
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97092217"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461868"
 ---
 # <a name="create-an-account-sas-with-net"></a>Creación de una SAS de cuenta con .NET
 
@@ -26,13 +26,13 @@ En este artículo se muestra cómo usar la clave de cuenta de almacenamiento par
 
 ## <a name="create-an-account-sas"></a>Creación de una SAS de cuenta
 
-### <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+### <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 Se firma una SAS de una cuenta con la clave de acceso de la cuenta. Use la clase [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) para crear la credencial que se usa para firmar la SAS. A continuación, cree un objeto [AccountSasBuilder](/dotnet/api/azure.storage.sas.accountsasbuilder) y llame al elemento [ToSasQueryParameters](/dotnet/api/azure.storage.sas.accountsasbuilder.tosasqueryparameters) para obtener la cadena de token de SAS.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetAccountSASToken":::
 
-### <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+### <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 Para crear una SAS de cuenta para un contenedor, llame al método [CloudStorageAccount.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.getsharedaccesssignature).
 
@@ -66,11 +66,11 @@ static string GetAccountSASToken()
 
 Para usar la SAS de cuenta a fin de acceder a las API de nivel de servicio para Blob service, construya un objeto de cliente de Blob service con la SAS y el punto de conexión de Blob Storage para la cuenta de almacenamiento.
 
-### <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+### <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_UseAccountSAS":::
 
-### <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+### <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 En este fragmento de código, reemplace el marcador de posición `<storage-account>` por el nombre de la cuenta de almacenamiento.
 

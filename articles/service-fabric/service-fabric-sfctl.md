@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: fc317345155a6807a20d342e2cefd0701b20f180
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4721598961ae912e8f0a9ef2f61022e5feb39e6c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86257060"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110462256"
 ---
 # <a name="sfctl"></a>sfctl
 Comandos para administrar clústeres y entidades de Service Fabric. Esta versión es compatible con el entorno de ejecución de Service Fabric 7.0.
@@ -27,7 +27,6 @@ Los comandos siguientes siguen el patrón nombre-verbo. Consulte los subgrupos p
 | [container](service-fabric-sfctl-container.md) | Ejecute los comandos relacionados con el contenedor en un nodo de clúster. |
 | [eventos](service-fabric-sfctl-events.md) | Recupere eventos del almacén de eventos (si ya está instalado el servicio EventStore). |
 | [is](service-fabric-sfctl-is.md) | Consulte y envíe comandos al servicio de infraestructura. |
-| [mesh](service-fabric-sfctl-mesh.md) | Elimina y administra aplicaciones de Service Fabric Mesh. |
 | [node](service-fabric-sfctl-node.md) | Administre los nodos que forman un clúster. |
 | [partition](service-fabric-sfctl-partition.md) | Consulte y administre las particiones para cualquier servicio. |
 | [property](service-fabric-sfctl-property.md) | Almacene y consulte las propiedades con nombres de Service Fabric. |

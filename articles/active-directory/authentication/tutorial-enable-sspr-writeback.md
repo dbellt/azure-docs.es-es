@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/13/2020
+ms.date: 05/19/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 444ca19732921b336cae32a9b1eb5755a08e4bd3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1572b0a9822f340887c512c5cc20448fe0729109
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97028060"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461731"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Habilitación de la escritura diferida del autoservicio de restablecimiento de contraseña de Azure Active Directory en un entorno local
 
@@ -87,7 +87,7 @@ Para configurar los permisos adecuados para que se realice la escritura diferida
 
 Cuando actualiza los permisos, pueden tardar una hora (o más) en replicarse en todos los objetos del directorio.
 
-Las directivas de contraseñas en el entorno de AD DS local pueden impedir que se procesen correctamente los restablecimientos de contraseña. Para que la escritura diferida de contraseñas funcione de forma más eficaz, la directiva de grupo para la *Vigencia mínima de la contraseña* debe establecerse en 0. Esta configuración se puede encontrar en **Configuración del equipo > Directivas > Configuración de Windows > Configuración de seguridad > Directivas de cuenta** en `gpedit.msc`.
+Las directivas de contraseñas en el entorno de AD DS local pueden impedir que se procesen correctamente los restablecimientos de contraseña. Para que la escritura diferida de contraseñas funcione de forma más eficaz, la directiva de grupo para la *Vigencia mínima de la contraseña* debe establecerse en 0. Esta configuración se puede encontrar en **Configuración del equipo > Directivas > Configuración de Windows > Configuración de seguridad > Directivas de cuenta** en `gpmc.msc`.
 
 Si actualiza la directiva de grupo, espere a que la directiva actualizada se replique o use el comando `gpupdate /force`.
 
