@@ -7,12 +7,12 @@ ms.reviewer: logicappspm, azla
 ms.topic: conceptual
 ms.date: 02/10/2021
 tags: connectors
-ms.openlocfilehash: 98d2ee8a85d25065c0021841a9b99a6d616a35d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb8e97dfd929be96d51c761ff91c91cc033d5127
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100367425"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109847842"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Intercambio de mensajes en la nube con Azure Logic Apps y Azure Service Bus
 
@@ -29,15 +29,15 @@ Puede usar desencadenadores que obtengan respuestas de Service Bus y hagan que l
 
 [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta y una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
-* Un espacio de nombres de Service Bus y una entidad de mensajería, como una cola. Estos elementos y la aplicación lógica deben usar la misma suscripción de Azure. Si no tiene estos elementos, aprenda a [crear el espacio de nombres de Service Bus y una cola](../service-bus-messaging/service-bus-create-namespace-portal.md).
+* Un espacio de nombres de Service Bus y una entidad de mensajería, como una cola. Si no tiene estos elementos, aprenda a [crear el espacio de nombres de Service Bus y una cola](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* La aplicación lógica donde se usa el espacio de nombres de Service Bus y la entidad de mensajería. La aplicación lógica y el bus de servicio deben usar la misma suscripción de Azure. Para comenzar el flujo de trabajo con un desencadenador de Service Bus, [cree una aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar una acción de Service Bus en el flujo de trabajo, inicie la aplicación lógica con otro desencadenador, por ejemplo, el de [periodicidad](../connectors/connectors-native-recurrence.md).
+* La aplicación lógica donde se usa el espacio de nombres de Service Bus y la entidad de mensajería. Para comenzar el flujo de trabajo con un desencadenador de Service Bus, [cree una aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar una acción de Service Bus en el flujo de trabajo, inicie la aplicación lógica con otro desencadenador, por ejemplo, el de [periodicidad](../connectors/connectors-native-recurrence.md).
 
 <a name="permissions-connection-string"></a>
 
