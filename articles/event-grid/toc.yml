@@ -1,5 +1,7 @@
 - name: Documentación sobre Azure Event Grid
   href: index.yml
+- name: Documentación del cambio a Event Grid en Kubernetes
+  href: kubernetes/index.yml
 - name: Documentación del cambio a Event Grid en IoT Edge
   href: edge/pub-sub-events-webhook-local.md
 - name: Información general
@@ -268,8 +270,6 @@
           href: move-custom-topics-across-regions.md
         - name: Traslado de dominios entre regiones
           href: move-domains-across-regions.md
-        - name: Traslado espacios de nombres de asociados entre regiones
-          href: move-partner-namespaces-across-regions.md
     - name: Seguridad
       items:
         - name: Publicación de eventos de forma segura a través de un vínculo privado
@@ -308,7 +308,7 @@
           href: set-alerts.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/eventgrid
     - name: PowerShell
       href: /powershell/module/az.eventgrid

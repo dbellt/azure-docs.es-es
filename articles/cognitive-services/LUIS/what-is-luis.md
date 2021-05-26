@@ -5,14 +5,14 @@ keywords: Azure, artificial intelligence, ai, natural language processing, nlp, 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 04/16/2021
+ms.date: 05/17/2021
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 3a83e6d62b030c436af31cc853ef0e5c109679a1
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: d48d80170e3f1b9db83e12b34610a8b6736f42ca
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107945150"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095831"
 ---
 # <a name="what-is-language-understanding-luis"></a>¿Qué es Language Understanding (LUIS)?
 
@@ -33,13 +33,13 @@ Esta documentación contiene los siguientes tipos de artículos:
 
 * **Simplicidad**: con LUIS se elimina la necesidad de expertos internos en IA o de conocimientos previos de aprendizaje automático. Con solo unos pocos clics puede crear su propia aplicación de inteligencia artificial de conversación. Puede compilar la aplicación personalizada siguiendo uno de nuestros [inicios rápidos](luis-get-started-create-app.md) o puede usar una de nuestras aplicaciones de [dominio precompilado](luis-get-started-create-app.md).
 * **Seguridad, privacidad y cumplimiento:** gracias al respaldo de la infraestructura de Azure, LUIS ofrece seguridad, privacidad y cumplimiento de nivel empresarial. Los datos siguen siendo suyos y puede eliminarlos en cualquier momento. Los datos se cifran mientras están almacenados. Aprenda más al respecto [aquí](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy).
-* **Integración:** integre fácilmente la aplicación de LUIS con otros servicios de Microsoft, como [Microsoft Bot Framework](https://docs.microsoft.com/composer/tutorial/tutorial-luis), [QnA Maker](../QnAMaker/choose-natural-language-processing-service.md) y el [servicio de voz](../Speech-Service/quickstarts/intent-recognition.md).
+* **Integración:** integre fácilmente la aplicación de LUIS con otros servicios de Microsoft, como [Microsoft Bot Framework](/composer/tutorial/tutorial-luis), [QnA Maker](../QnAMaker/choose-natural-language-processing-service.md) y el [servicio de voz](../speech-service/get-started-intent-recognition.md).
 
 
 ## <a name="luis-scenarios"></a>Escenarios de LUIS
-* [Creación de un bot de conversación de nivel empresarial](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/conversational-bot): esta arquitectura de referencia describe cómo crear un bot de conversación de nivel empresarial (bot de chat) mediante Azure Bot Framework.
-* [Bot de chat de comercio](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/commerce-chatbot): juntos, Azure Bot Service y Language Understanding permiten a los desarrolladores crear interfaces de conversación para diversos escenarios, como banca, viajes y entretenimiento.
-* [Control de dispositivos IoT mediante un asistente para voz](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-controlling-devices-with-voice-assistant): cree interfaces de conversación sencillas con todos los dispositivos accesibles desde Internet (desde un televisor o un frigorífico conectados hasta los dispositivos de una central eléctrica conectada).
+* [Creación de un bot de conversación de nivel empresarial](/azure/architecture/reference-architectures/ai/conversational-bot): esta arquitectura de referencia describe cómo crear un bot de conversación de nivel empresarial (bot de chat) mediante Azure Bot Framework.
+* [Bot de chat de comercio](/azure/architecture/solution-ideas/articles/commerce-chatbot): juntos, Azure Bot Service y Language Understanding permiten a los desarrolladores crear interfaces de conversación para diversos escenarios, como banca, viajes y entretenimiento.
+* [Control de dispositivos IoT mediante un asistente para voz](/azure/architecture/solution-ideas/articles/iot-controlling-devices-with-voice-assistant): cree interfaces de conversación sencillas con todos los dispositivos accesibles desde Internet (desde un televisor o un frigorífico conectados hasta los dispositivos de una central eléctrica conectada).
 
 
 ## <a name="application-development-life-cycle"></a>Ciclo de vida del desarrollo de aplicaciones
@@ -49,8 +49,8 @@ Esta documentación contiene los siguientes tipos de artículos:
 -   **Planeamiento**: identifique los escenarios con los que los usuarios pueden usar la aplicación. Defina las acciones y la información importante que debe reconocerse.
 -   **Compilación**: use el recurso de creación para desarrollar la aplicación. Empiece por definir [intenciones](luis-concept-intent.md) y [entidades](luis-concept-entity-types.md). Luego, agregue [expresiones](luis-concept-utterance.md) de entrenamiento para cada intención. 
 -   **Prueba y mejora**: empiece a probar el modelo con otras expresiones para obtener una idea de cómo se comporta la aplicación y decidir si se necesita alguna mejora. Puede mejorar la aplicación siguiendo estos [procedimientos recomendados](luis-concept-best-practices.md). 
--   **Publicación**: implemente la aplicación de cara a la predicción y consulte el punto de conexión mediante el recurso de predicción. Puede encontrar más información sobre la creación y predicción de puntos de conexión [aquí](luis-how-to-azure-subscription.md#luis-resources). 
--   **Conexión**: conéctese a otros servicios, como [Microsoft Bot Framework](https://docs.microsoft.com/composer/tutorial/tutorial-luis), [QnA Maker](../QnAMaker/choose-natural-language-processing-service.md) y el [servicio de voz](../Speech-Service/quickstarts/intent-recognition.md). 
+-   **Publicación**: implemente la aplicación de cara a la predicción y consulte el punto de conexión mediante el recurso de predicción. Puede encontrar más información sobre la creación y predicción de puntos de conexión [aquí](luis-how-to-azure-subscription.md). 
+-   **Conexión**: conéctese a otros servicios, como [Microsoft Bot Framework](/composer/tutorial/tutorial-luis), [QnA Maker](../QnAMaker/choose-natural-language-processing-service.md) y el [servicio de voz](../speech-service/get-started-intent-recognition.md). 
 -   **Refinamiento**: [revise las expresiones de punto de conexión](luis-concept-review-endpoint-utterances.md) para mejorar la aplicación con ejemplos reales.
 
 Puede encontrar más información sobre el planeamiento y la creación de aplicaciones [aquí](luis-how-plan-your-app.md).

@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24ec646c2928570c67a7f71481f2ca0191f1c8b9
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: ae18548c8344e5fe874d3c4c1d99742d7f8a8b43
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280214"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451724"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Administración de propiedades y metadatos de blobs con .NET
 
@@ -35,13 +35,13 @@ Además de los datos que contienen, los blobs admiten propiedades del sistema y 
 
 En el ejemplo de código siguiente se establecen las propiedades del sistema `ContentType` y `ContentLanguage` en un blob.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 Para establecer las propiedades de un blob, llame a [SetHttpHeaders](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.sethttpheaders) o [SetHttpHeadersAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.sethttpheadersasync). Se borran todas las propiedades no establecidas explícitamente. En el siguiente ejemplo de código se obtienen primero las propiedades existentes en el blob y, a continuación, se usan para rellenar los encabezados que no se están actualizando.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_SetBlobProperties":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
 
 ```csharp
 public static async Task SetBlobPropertiesAsync(CloudBlob blob)
@@ -72,11 +72,11 @@ public static async Task SetBlobPropertiesAsync(CloudBlob blob)
 
 En el ejemplo de código siguiente se obtienen las propiedades del sistema de un blob y se muestran algunos de los valores.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobProperties":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
 
 El proceso de recuperación de los valores de propiedad y metadatos de un recurso de almacenamiento de blobs consta de dos pasos. Para poder leer estos valores, tiene que capturarlos explícitamente llamando al método `FetchAttributes` o `FetchAttributesAsync`. La excepción a esta regla es que los métodos `Exists` y `ExistsAsync` llaman al método `FetchAttributes` adecuado en segundo plano. Cuando se llama a uno de estos métodos, no es necesario llamar también a `FetchAttributes`.
 
@@ -115,12 +115,12 @@ private static async Task GetBlobPropertiesAsync(CloudBlob blob)
 
 Puede especificar metadatos como uno o más pares nombre-valor en un recurso de blob o contenedor. Para establecer los metadatos, agregue pares nombre-valor a la colección `Metadata` del recurso. A continuación, llame a uno de los métodos siguientes para escribir los valores:
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 - [SetMetadata](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.setmetadata)
 - [SetMetadataAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.setmetadataasync)
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
 
 - [SetMetadata](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadata)
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadataasync)
@@ -132,11 +132,11 @@ El nombre de los metadatos debe cumplir las convenciones de nomenclatura para lo
 
 El ejemplo de código siguiente establece los metadatos en un blob. Un valor se establece mediante el método `Add` de la colección. El otro valor se establece mediante la sintaxis implícita de clave/valor.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_AddBlobMetadata":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
 
 ```csharp
 public static async Task AddBlobMetadataAsync(CloudBlob blob)
@@ -166,13 +166,13 @@ public static async Task AddBlobMetadataAsync(CloudBlob blob)
 
 El ejemplo de código siguiente lee los metadatos en un blob.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 Para recuperar metadatos, llame al método [GetProperties](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getproperties) o [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getpropertiesasync) en el blob o contenedor para rellenar la colección [Metadata](/dotnet/api/azure.storage.blobs.models.blobproperties.metadata) y después lea los valores tal como se muestra en el ejemplo siguiente. Los métodos **GetProperties** recuperan las propiedades y los metadatos del blob en una sola llamada. Esto es diferente de las API REST que requieren llamadas independientes a [Get Blob Properties](/rest/api/storageservices/get-blob-properties) y [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata).
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobMetadata":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
 
 Para recuperar metadatos, llame al método `FetchAttributes` o `FetchAttributesAsync` en el blob o contenedor para rellenar la colección `Metadata` y, a continuación, lea los valores tal como se muestra en el ejemplo siguiente.
 

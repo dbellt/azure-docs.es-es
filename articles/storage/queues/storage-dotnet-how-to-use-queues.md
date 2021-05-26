@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5e32779e75480d365ec10e8c7f849fddd27c891c
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: bec9ea1e01edc3e8289eb7212d3c5fecd673faaa
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275998"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477367"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introducción a Azure Queue Storage mediante .NET
 
@@ -60,7 +60,7 @@ Las bibliotecas cliente de Azure Storage se pueden usar en cualquier tipo de apl
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>Uso de NuGet para instalar los paquetes necesarios
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 Para completar este tutorial, es preciso que haga referencia a los siguientes cuatro paquetes en el proyecto:
 
@@ -76,7 +76,7 @@ Puede usar NuGet para obtener estos paquetes. Siga estos pasos:
 1. Busque `Azure.Storage.Queues` en línea y seleccione **Instalar** para instalar la biblioteca cliente de Azure Storage y sus dependencias. También se instalarán las bibliotecas Azure.Storage.Common y Azure.Core, que son dependencias de la biblioteca de colas.
 1. Busque `System.Configuration.ConfigurationManager` en línea y seleccione **Instalar** para instalar Configuration Manager.
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 Para completar este tutorial, es preciso que haga referencia a los siguientes tres paquetes en el proyecto:
 
@@ -152,11 +152,11 @@ Para elegir como destino el emulador de almacenamiento Azurite, puede utilizar u
 
 Agregue las siguientes directivas `using` al principio del archivo `Program.cs`:
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_UsingStatements":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 ```csharp
 using System; // Namespace for Console output
@@ -169,13 +169,13 @@ using Microsoft.Azure.Storage.Queue; // Namespace for Queue storage types
 
 ### <a name="create-the-queue-storage-client"></a>Creación del cliente de Queue Storage
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 La clase [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) permite recuperar las colas almacenadas en Queue Storage. Esta es una forma de crear el cliente de servicio:
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_CreateClient":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 La clase [`CloudQueueClient`](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy&preserve-view=true) permite recuperar las colas almacenadas en Queue Storage. Esta es una forma de crear el cliente de servicio:
 
@@ -196,11 +196,11 @@ Ahora ya puede escribir código que lee y escribe datos en Queue Storage.
 
 En este ejemplo se muestra cómo crear una cola:
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_CreateQueue":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 ```csharp
 // Retrieve storage account from connection string
@@ -221,13 +221,13 @@ queue.CreateIfNotExists();
 
 ## <a name="insert-a-message-into-a-queue"></a>un mensaje en una cola
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 Para insertar un mensaje en una cola existente, llame al método [`SendMessage`](/dotnet/api/azure.storage.queues.queueclient.sendmessage). Un mensaje puede ser una cadena (en formato UTF-8) o una matriz de bytes. En el código siguiente se crea una cola (si es que no existe) y se inserta un mensaje:
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_InsertMessage":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 Para insertar un mensaje en una cola existente, cree en primer lugar un nuevo [`CloudQueueMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy&preserve-view=true). A continuación, llame al método [`AddMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy&preserve-view=true). Se puede crear un objeto `CloudQueueMessage` a partir de una cadena (en formato UTF-8) o de una matriz de bytes. A continuación, se muestra el código con el que se crea una cola (si no existe) y se inserta el mensaje `Hello, World`: Para insertar un mensaje en una cola existente, cree en primer lugar un nuevo [`CloudQueueMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy&preserve-view=true). A continuación, llame al método [`AddMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy&preserve-view=true). Se puede crear un objeto `CloudQueueMessage` a partir de una cadena (en formato UTF-8) o de una matriz de bytes. A continuación, se muestra el código con el que se crea una cola (si no existe) y se inserta el mensaje `Hello, World`:
 
@@ -254,13 +254,13 @@ queue.AddMessage(message);
 
 ## <a name="peek-at-the-next-message"></a>siguiente mensaje
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 Puede inspeccionar el mensaje de la cola sin tener que quitarlo de ella, mediante una llamada al método [`PeekMessages`](/dotnet/api/azure.storage.queues.queueclient.peekmessages). Si no pasa un valor para el parámetro `maxMessages`, el valor predeterminado es inspeccionar un mensaje.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_PeekMessage":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método [`PeekMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet-legacy&preserve-view=true).
 
@@ -288,11 +288,11 @@ Console.WriteLine(peekedMessage.AsString);
 
 Puede cambiar el contenido de un mensaje local en la cola. Si el mensaje representa una tarea de trabajo, puede usar esta característica para actualizar el estado de la tarea de trabajo. El siguiente código actualiza el mensaje de la cola con contenido nuevo y amplía el tiempo de espera de la visibilidad en 60 segundos más. De este modo, se guarda el estado de trabajo asociado al mensaje y se le proporciona al cliente un minuto más para que siga elaborando el mensaje. Esta técnica se puede utilizar para realizar un seguimiento de los flujos de trabajo de varios pasos en los mensajes en cola, sin que sea necesario volver a empezar desde el principio si se produce un error en un paso del proceso a causa de un error de hardware o software. Normalmente, también mantendría un número de reintentos y, si el mensaje se intentara más de *n* veces, lo eliminaría. Esto proporciona protección frente a un mensaje que produce un error en la aplicación cada vez que se procesa.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_UpdateMessage":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -317,13 +317,13 @@ queue.UpdateMessage(message,
 
 ## <a name="dequeue-the-next-message"></a>Extracción del siguiente mensaje de la cola
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 Quitar un mensaje de una cola en dos pasos. Si llama a [`ReceiveMessages`](/dotnet/api/azure.storage.queues.queueclient.receivemessages), obtiene el siguiente mensaje en una cola. Un mensaje devuelto por `ReceiveMessages` se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. Para acabar de quitar el mensaje de la cola, también debe llamar a [`DeleteMessage`](/dotnet/api/azure.storage.queues.queueclient.deletemessage). Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código siguiente llama a `DeleteMessage` justo después de haberse procesado el mensaje.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_DequeueMessage":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 El código extrae un mensaje de una cola en dos pasos. Si llama a [`GetMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy&preserve-view=true), obtiene el siguiente mensaje en una cola. Un mensaje devuelto por `GetMessage` se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. Para acabar de quitar el mensaje de la cola, también debe llamar a [`DeleteMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy&preserve-view=true). Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código siguiente llama a `DeleteMessage` justo después de haberse procesado el mensaje.
 
@@ -353,11 +353,11 @@ queue.DeleteMessage(retrievedMessage);
 
 En este ejemplo se muestra cómo usar el patrón Async-Await con API comunes de Queue Storage. El ejemplo llama a la versión asincrónica de cada uno de los métodos indicados, tal como se puede ver por el sufijo `Async` de cada método. Cuando se utiliza un método asincrónico, el patrón Async-Await suspende la ejecución local hasta que se completa la llamada. Este comportamiento permite que el subproceso actual realice otro trabajo, lo que ayuda a evitar cuellos de botella en el rendimiento y mejora la capacidad de respuesta general de la aplicación. Para más información sobre el uso del patrón Async-Await en. NET, consulte [Async y Await (C# y Visual Basic)](/previous-versions/hh191443(v=vs.140))
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_AsyncQueue":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 ```csharp
 // Create the queue if it doesn't already exist
@@ -392,13 +392,13 @@ Console.WriteLine("Deleted message");
 
 Hay dos formas de personalizar la recuperación de mensajes de una cola. En primer lugar, puede obtener un lote de mensajes (hasta 32). En segundo lugar, puede establecer un tiempo de espera de la invisibilidad más largo o más corto para que el código disponga de más o menos tiempo para procesar cada mensaje.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
-El siguiente ejemplo de código usa el método [`ReceiveMessages`](/dotnet/api/azure.storage.queues.queueclient.receivemessages) para obtener 20 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle `foreach`. También establece el tiempo de espera de la invisibilidad en cinco minutos para cada mensaje. Tenga en cuenta que los 5 minutos empiezan a contar para todos los mensajes al mismo tiempo, por lo que después de pasar los 5 minutos desde la llamada a `ReceiveMessages`, todos los mensajes que no se han eliminado volverán a estar visibles.
+El siguiente ejemplo de código usa el método [`ReceiveMessages`](/dotnet/api/azure.storage.queues.queueclient.receivemessages) para obtener 20 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle `foreach`. También establece el tiempo de espera de la invisibilidad en cinco minutos para cada mensaje. Tenga en cuenta que los 5 minutos empiezan a contar para todos los mensajes al mismo tiempo, por lo que después de pasar los 5 minutos desde la llamada a `ReceiveMessages`, todos los mensajes que no se han eliminado volverán a estar visibles.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_DequeueMessages":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 El siguiente ejemplo de código usa el método [`GetMessages`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy&preserve-view=true) para obtener 20 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle `foreach`. También establece el tiempo de espera de la invisibilidad en cinco minutos para cada mensaje. Tenga en cuenta que los 5 minutos empiezan a contar para todos los mensajes al mismo tiempo, por lo que después de pasar los 5 minutos desde la llamada a `GetMessages`, todos los mensajes que no se han eliminado volverán a estar visibles.
 
@@ -424,13 +424,13 @@ foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes
 
 ## <a name="get-the-queue-length"></a>la longitud de la cola
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 Puede obtener una estimación del número de mensajes existentes en una cola. El método [`GetProperties`](/dotnet/api/azure.storage.queues.queueclient.getproperties) devuelve propiedades de cola, incluido el recuento de mensajes. La propiedad [`ApproximateMessagesCount`](/dotnet/api/azure.storage.queues.models.queueproperties.approximatemessagescount) obtiene el número aproximado de mensajes en la cola. Este número no es menor que el número real de mensajes de la cola, pero podría ser mayor.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_GetQueueLength":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 Puede obtener una estimación del número de mensajes existentes en una cola. El método [`FetchAttributes`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy&preserve-view=true) devuelve atributos de cola, incluido el recuento de mensajes. La propiedad [`ApproximateMessageCount`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy&preserve-view=true) devuelve el último valor recuperado por el método `FetchAttributes`, sin llamar a Queue Storage.
 
@@ -459,13 +459,13 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
 ## <a name="delete-a-queue"></a>Eliminación de una cola
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 Para eliminar una cola y todos los mensajes contenidos en ella, llame al método [`Delete`](/dotnet/api/azure.storage.queues.queueclient.delete) en el objeto de cola.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_DeleteQueue":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 Para eliminar una cola y todos los mensajes contenidos en ella, llame al método [`Delete`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet-legacy&preserve-view=true) en el objeto de cola.
 

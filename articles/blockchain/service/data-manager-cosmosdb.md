@@ -4,16 +4,20 @@ description: Uso de Blockchain Data Manager para Azure Blockchain Service para e
 ms.date: 03/08/2020
 ms.topic: tutorial
 ms.reviewer: chroyal
-ms.openlocfilehash: 69790787bc888448f2f40178bd12ee7058cc5892
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b054688fb524d82e758f2ac1a9ff643293bc3b29
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91283467"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "110465755"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Tutorial: Uso de Blockchain Data Manager para enviar datos a Azure Cosmos DB
 
-En este tutorial, usará Blockchain Data Manager  para que Azure Blockchain Service registre datos de transacciones de cadenas de bloques en Azure Cosmos DB. Blockchain Data Manager captura, transforma y entrega datos de libro de contabilidad de cadena de bloques a los temas de Azure Event Grid. En Azure Event Grid, se usa un conector de aplicación lógica para crear documentos en una base de datos de Azure Cosmos DB. Una vez finalizado el tutorial, puede explorar los datos de transacciones de cadena de bloques en Azure Cosmos DB Data Explorer.
+En este tutorial, usará Blockchain Data Manager  para que Azure Blockchain Service registre datos de transacciones de cadenas de bloques en Azure Cosmos DB.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
+Blockchain Data Manager captura, transforma y entrega datos de libro de contabilidad de cadena de bloques a los temas de Azure Event Grid. En Azure Event Grid, se usa un conector de aplicación lógica para crear documentos en una base de datos de Azure Cosmos DB. Una vez finalizado el tutorial, puede explorar los datos de transacciones de cadena de bloques en Azure Cosmos DB Data Explorer.
 
 [![La captura de pantalla muestra los detalles de la transacción de cadena de bloques.](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 

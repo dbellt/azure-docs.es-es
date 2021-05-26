@@ -4,12 +4,12 @@ description: Aprenda a utilizar Azure PowerShell desde una estación de trabajo 
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: 1c34b673cd970a9e7577b7ff01d27eb0e4cc1ac1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 165660a0141c50cf1c6dc24e3ba8df0299f885f2
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98946444"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110069011"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Uso de Apache Sqoop con Hadoop en HDInsight
 
@@ -71,11 +71,11 @@ El clúster, la instancia de SQL Database y otros objetos se crean a través de 
 
 1. Seleccione en la imagen siguiente para abrir una plantilla de Resource Manager en Azure Portal.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.hdinsight%2Fhdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 2. Especifique las siguientes propiedades:
 
-    |Campo |Value |
+    |Campo |Valor |
     |---|---|
     |Suscripción |Seleccione la suscripción de Azure en la lista desplegable.|
     |Resource group |Seleccione el grupo de recursos en la lista desplegable o cree uno nuevo.|

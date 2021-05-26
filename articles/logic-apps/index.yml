@@ -10,12 +10,12 @@ metadata:
   author: ecfan
   ms.author: estfan; logicappspm
   ms.date: 03/24/2021
-  ms.openlocfilehash: 55f2be9b738e91c076d918cf19ddd5d55d445e20
-  ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+  ms.openlocfilehash: e49682f79efb102ccf71a184b77b74e0c6df3fbc
+  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/28/2021
-  ms.locfileid: "108204970"
+  ms.lasthandoff: 05/25/2021
+  ms.locfileid: "110372988"
 landingContent:
 - title: Acerca de Azure Logic Apps
   linkLists:
@@ -23,17 +23,15 @@ landingContent:
     links:
     - text: ¿Qué es Azure Logic Apps?
       url: logic-apps-overview.md
+    - text: 'Entorno de servicio de integración: inquilino único o multiinquilino'
+      url: single-tenant-overview-compare.md
+    - text: ¿Qué es Logic Apps habilitado para Azure Arc?
+      url: azure-arc-enabled-logic-apps-overview.md
   - linkListType: concept
     links:
     - text: Introducción a los conectores para Azure Logic Apps
       url: ../connectors/apis-list.md
-    - text: Conectores administrados
-      url: ../connectors/managed.md
-    - text: Conectores disponibles para Azure Logic Apps
-      url: /connectors/connector-reference/connector-reference-logicapps-connectors
-    - text: Acciones y desencadenadores integrados
-      url: ../connectors/built-in.md
-    - text: Programación de flujos de trabajo repetitivos
+    - text: Programaciones de periodicidad para flujos de trabajo
       url: concepts-schedule-automated-recurring-tasks-workflows.md
     - text: Integración empresarial B2B
       url: logic-apps-enterprise-integration-overview.md
@@ -157,6 +155,8 @@ landingContent:
       url: logic-apps-limits-and-config.md
     - text: Modelo de precios
       url: logic-apps-pricing.md
+    - text: Referencia de conectores disponibles para Azure Logic Apps
+      url: /connectors/connector-reference/connector-reference-logicapps-connectors
     - text: Esquema del lenguaje de definición de flujo de trabajo
       url: logic-apps-workflow-definition-language.md
     - text: Azure PowerShell

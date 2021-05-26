@@ -2,24 +2,31 @@
 title: Extensiones de clústeres de Kubernetes habilitados para Azure Arc
 services: azure-arc
 ms.service: azure-arc
-ms.date: 04/05/2021
+ms.date: 05/25/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Implementación y administración del ciclo de vida de las extensiones en Kubernetes habilitado para Azure Arc
-ms.openlocfilehash: 362f1f0ca62c915eb7c17c80084d15aaaa75110e
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 34e8f39450b6ac87ccb0e377526e2b2172e21ed7
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108139658"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373339"
 ---
-# <a name="kubernetes-cluster-extensions"></a>Extensiones de clúster de Kubernetes
+# <a name="deploy-and-manage-azure-arc-enabled-kubernetes-cluster-extensions"></a>Implementación y administración de extensiones de clústeres de Kubernetes habilitados para Azure Arc
 
 La característica de extensiones de Kubernetes habilita lo siguiente en los clústeres de Kubernetes habilitados para Azure Arc:
 
 * Implementación basada en Azure Resource Manager de la extensión de clúster.
 * Administración del ciclo de vida de los gráficos de Helm de la extensión.
+
+En este artículo, aprenderá lo siguiente:
+> [!div class="checklist"]
+> * Extensiones de clústeres de Kubernetes habilitados para Azure Arc disponibles actualmente.
+> * Cómo crear instancias de extensiones.
+> * Parámetros obligatorios y opcionales.
+> * Cómo ver, enumerar, actualizar y eliminar instancias de extensiones. 
 
 Puede encontrar información general y algunos conceptos sobre esta característica en el artículo [Extensiones de clúster: Kubernetes habilitado para Azure Arc](conceptual-extensions.md).
 
@@ -52,6 +59,10 @@ Puede encontrar información general y algunos conceptos sobre esta característ
 | --------- | ----------- |
 | [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json) | Proporciona visibilidad sobre el rendimiento de las cargas de trabajo implementadas en el clúster de Kubernetes. Recopila métricas de uso de memoria y CPU de los controladores, nodos y contenedores. |
 | [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Recopila información relacionada con la seguridad, como los datos de registros de auditoría del clúster de Kubernetes. Proporciona recomendaciones y alertas de amenazas basadas en los datos recopilados. |
+| [Data Services habilitado para Azure Arc](../../azure-arc/kubernetes/custom-locations.md#create-custom-location) | Permite ejecutar Azure Data Services en el entorno local, en el perímetro y en nubes públicas con Kubernetes y la infraestructura de su elección. |
+| [Azure App Service en Azure Arc](../../app-service/overview-arc-integration.md) | Permite aprovisionar un entorno de Kubernetes de App Service, además de clústeres de Kubernetes habilitados para Azure Arc. |
+| [Event Grid en Kubernetes](/azure/event-grid/kubernetes/overview) | Cree y administre recursos de Event Grid, como temas y suscripciones de eventos, además de clústeres de Kubernetes habilitados para Azure Arc. |
+| [Azure API Management en Azure Arc](/azure/api-management/how-to-deploy-self-hosted-gateway-azure-arc) | Implemente y administre la puerta de enlace de API Management en clústeres de Kubernetes habilitados para Azure Arc. |
 
 ## <a name="usage-of-cluster-extensions"></a>Uso de las extensiones de clúster
 
@@ -101,7 +112,7 @@ az k8s-extension create --name azuremonitor-containers  --extension-type Microso
 
 > [!NOTE]
 > * El servicio no puede conservar información confidencial durante más de 48 horas. Si los agentes de Kubernetes habilitados para Azure Arc no tienen conectividad de red durante más de 48 horas y no pueden determinar si se va a crear una extensión en el clúster, dicha extensión cambiará al estado `Failed`. Una vez en el estado `Failed`, tendrá que ejecutar `k8s-extension create` de nuevo para crear un nuevo recurso de extensión de Azure.
-> * * Azure Monitor para contenedores es una extensión singleton (solo se necesita una por clúster). Deberá limpiar todas las instalaciones de gráficos de Helm anteriores de Azure Monitor para contenedores (sin extensiones) antes de instalarlos a través de la extensión. Siga las instrucciones para [eliminar el gráfico Helm antes de ejecutar `az k8s-extension create`](../../azure-monitor/containers/container-insights-optout-hybrid.md).
+> * Azure Monitor para contenedores es una extensión singleton (solo se necesita una por clúster). Deberá limpiar todas las instalaciones de gráficos de Helm anteriores de Azure Monitor para contenedores (sin extensiones) antes de instalarlos a través de la extensión. Siga las instrucciones para [eliminar el gráfico Helm antes de ejecutar `az k8s-extension create`](../../azure-monitor/containers/container-insights-optout-hybrid.md).
 
 **Parámetros obligatorios**
 
@@ -247,10 +258,21 @@ az k8s-extension delete --name azuremonitor-containers --cluster-name <clusterNa
 >[!NOTE]
 > El recurso de Azure que representa esta extensión se elimina inmediatamente. La versión de Helm del clúster asociado a esta extensión solo se eliminará cuando los agentes que se ejecutan en el clúster de Kubernetes tengan conectividad de red y puedan ponerse en contacto con los servicios de Azure de nuevo para recuperar el estado deseado.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información sobre las extensiones de clúster disponibles actualmente para Kubernetes habilitado para Azure Arc:
+
 > [!div class="nextstepaction"]
 > [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json)
+> 
+> [!div class="nextstepaction"]
 > [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
+> 
+> [!div class="nextstepaction"]
+> [Azure App Service en Azure Arc](../../app-service/overview-arc-integration.md)
+> 
+> [!div class="nextstepaction"]
+> [Event Grid en Kubernetes](/azure/event-grid/kubernetes/overview)
+> 
+> [!div class="nextstepaction"]
+> [Azure API Management en Azure Arc](/azure/api-management/how-to-deploy-self-hosted-gateway-azure-arc)

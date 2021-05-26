@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 98510132b2341736664dfafa52e9567df95652be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c0694e7d136b7fd339362145179939d350eb23ef
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94561104"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475971"
 ---
 # <a name="custom-commands-concepts-and-definitions"></a>Conceptos y definiciones de Comandos personalizados
 
@@ -25,7 +25,7 @@ Este artículo funcionará como referencia sobre los conceptos y las definicione
 Los comandos son los bloques de creación fundamentales de una aplicación de Comandos personalizados. Un comando es un conjunto de configuraciones necesarias para completar una tarea específica que ha definido un usuario.
 
 ### <a name="example-sentences"></a>Oraciones de ejemplo
-Las expresiones de ejemplo son el conjunto de ejemplos que el usuario puede decir para desencadenar un comando determinado. Solo tiene que proporcionar ejemplos de expresiones, no una lista exhaustiva. 
+Las expresiones de ejemplo son el conjunto de ejemplos que el usuario puede decir para desencadenar un comando determinado. Solo tiene que proporcionar ejemplos de expresiones, no una lista exhaustiva.
 
 ### <a name="parameters"></a>Parámetros
 Los parámetros son información que los comandos requieren para completar una tarea. En los escenarios complejos, los parámetros también se pueden usar para definir las condiciones que desencadenan acciones personalizadas.
@@ -42,9 +42,6 @@ Los parámetros son la información que los comandos requieren para completar un
 
 ### <a name="name"></a>Nombre
 Un parámetro se identifica mediante la propiedad de nombre. Siempre debe asignar un nombre descriptivo a los parámetros. Se puede hacer referencia a un parámetro en distintas secciones; por ejemplo, durante la construcción de condiciones, respuestas de voz u otras acciones.
- 
-### <a name="isglobal"></a>IsGlobal
-Esta casilla indica si el ámbito de este parámetro se comparte entre todos los comandos de la aplicación. Si un parámetro es global, su valor se puede proporcionar, potencialmente, desde cualquier ámbito de comando. Una vez asignado un valor, se puede hacer referencia a él desde cualquiera de los comandos. 
 
 ### <a name="required"></a>Obligatorio
 Esta casilla indica si es obligatorio especificar un valor para este parámetro para completar el comando. Debe configurar las respuestas que pedirán al usuario que proporcione un valor si el parámetro se marca como obligatorio.
@@ -82,7 +79,7 @@ Una regla de Comandos personalizados se define mediante un conjunto de *condicio
 ### <a name="types"></a>Tipos
 Comandos personalizados admite las siguientes categorías de reglas:
 
-* **Reglas de finalización**: estas reglas se deben ejecutar cuando se completa un comando. Se ejecutarán todas las reglas configuradas en esta sección cuyas condiciones se cumplan. 
+* **Reglas de finalización**: estas reglas se deben ejecutar cuando se completa un comando. Se ejecutarán todas las reglas configuradas en esta sección cuyas condiciones se cumplan.
 * **Reglas de interacción**: estas reglas se pueden usar para configurar validaciones personalizadas adicionales, confirmaciones o correcciones de un paso, así como para aplicar cualquier otra lógica de diálogo personalizada. Las reglas de interacción se evalúan durante el procesamiento de cada turno y se pueden usar para desencadenar reglas de finalización.
 
 Las distintas acciones configuradas como parte de una regla se ejecutan en el orden en el que aparecen en el portal de creación.

@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 3765229fccb00f6e19fd3cf2b6b1a39919abcf05
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 2270d9569f2638cd08e81e26cff4a4605011ffbb
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321814"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110070145"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Tutorial: Creación de una aplicación administrada con acciones y recursos personalizados
 
@@ -41,7 +41,7 @@ Para completar este tutorial, necesita saber lo siguiente:
 
 En este tutorial, creará una aplicación administrada y su grupo de recursos administrados contendrá una instancia de proveedor personalizado, una cuenta de almacenamiento y una función. La función de Azure que se usa en este ejemplo implementa una API que controla las operaciones del proveedor personalizado para las acciones y los recursos. La cuenta de Azure Storage se usa como almacenamiento básico para los recursos del proveedor personalizado.
 
-La definición de la interfaz de usuario para crear una instancia de aplicación administrada incluye los elementos de entrada `funcname` y `storagename`. El nombre de la cuenta de almacenamiento y el nombre de la función deben ser únicos globalmente. De forma predeterminada, los archivos de función se implementarán desde el [paquete de función de ejemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip), pero esto puede cambiarse si agrega un elemento de entrada de un vínculo de paquete en *createUiDefinition.json*:
+La definición de la interfaz de usuario para crear una instancia de aplicación administrada incluye los elementos de entrada `funcname` y `storagename`. El nombre de la cuenta de almacenamiento y el nombre de la función deben ser únicos globalmente. De forma predeterminada, los archivos de función se implementarán desde el [paquete de función de ejemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.customproviders/custom-rp-with-function/artifacts/functionzip), pero esto puede cambiarse si agrega un elemento de entrada de un vínculo de paquete en *createUiDefinition.json*:
 
 ```json
 {
@@ -67,7 +67,7 @@ La definición de la interfaz de usuario para crear una instancia de aplicación
 {
   "name": "zipFileBlobUri",
   "type": "Microsoft.Common.TextBox",
-  "defaultValue": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip/functionpackage.zip",
+  "defaultValue": "https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.customproviders/custom-rp-with-function/artifacts/functionzip/functionpackage.zip",
   "label": "The Uri to the uploaded function zip file",
   "toolTip": "The Uri to the uploaded function zip file",
   "visible": true
@@ -185,7 +185,7 @@ Empaquete los siguientes artefactos de aplicación administrada en un archivo ZI
 * mainTemplate.json
 * viewDefinition.json
 
-Todos los archivos deben estar en el nivel raíz. El paquete con artefactos se puede almacenar en cualquier almacenamiento, por ejemplo, un blob de GitHub o un blob de una cuenta de Azure Storage. Este es un script para cargar el paquete de aplicación en la cuenta de almacenamiento: 
+Todos los archivos deben estar en el nivel raíz. El paquete con artefactos se puede almacenar en cualquier almacenamiento, por ejemplo, un blob de GitHub o un blob de una cuenta de Azure Storage. Este es un script para cargar el paquete de aplicación en la cuenta de almacenamiento:
 
 ```powershell
 $resourceGroup="appResourcesGroup"
@@ -210,7 +210,7 @@ Set-AzStorageBlobContent `
   -File "path_to_your_zip_package" `
   -Container appcontainer `
   -Blob app.zip `
-  -Context $ctx 
+  -Context $ctx
 
 # Get blob absolute uri
 $blobUri=(Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $ctx).ICloudBlob.uri.AbsoluteUri
@@ -248,8 +248,8 @@ az managedapp definition create \
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. En Azure Portal, seleccione **Todos los servicios**. En la lista de recursos, escriba y seleccione **Centro de Managed Applications**.
-2. En **Centro de Managed Applications**, seleccione **Definición de aplicación del catálogo de servicios** y haga clic en **Agregar**. 
-    
+2. En **Centro de Managed Applications**, seleccione **Definición de aplicación del catálogo de servicios** y haga clic en **Agregar**.
+
     ![Adición de catálogo de servicios](./media/tutorial-create-managed-app-with-custom-provider/service-catalog-managed-application.png)
 
 3. Proporcione valores para crear una definición del catálogo de servicios:
@@ -304,7 +304,7 @@ az managedapp create \
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. En Azure Portal, seleccione **Todos los servicios**. En la lista de recursos, escriba y seleccione **Centro de Managed Applications**.
-2. En **Centro de Managed Applications**, seleccione **Aplicaciones del catálogo de servicios** y haga clic en **Agregar**. 
+2. En **Centro de Managed Applications**, seleccione **Aplicaciones del catálogo de servicios** y haga clic en **Agregar**.
 
     ![Adición de aplicación administrada](./media/tutorial-create-managed-app-with-custom-provider/add-managed-application.png)
 
@@ -319,8 +319,8 @@ az managedapp create \
 
     ![Configuración de la aplicación](./media/tutorial-create-managed-app-with-custom-provider/application-settings.png)
 
-5. Cuando se supere la validación, haga clic en **Aceptar** para implementar una instancia de una aplicación administrada. 
-    
+5. Cuando se supere la validación, haga clic en **Aceptar** para implementar una instancia de una aplicación administrada.
+
     ![Implementación de una aplicación administrada](./media/tutorial-create-managed-app-with-custom-provider/deploy-managed-application.png)
 
 ---
@@ -349,7 +349,7 @@ Puede ir a la instancia de la aplicación administrada y realizar una **acción 
 
 ## <a name="looking-for-help"></a>¿Busca ayuda?
 
-Si tiene preguntas sobre Azure Managed Applications, puede probar a hacer preguntas en [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managed-app) con la etiqueta azure-managed-app o en [Microsoft Q&A](/answers/topics/azure-managed-applications.html) con la etiqueta azure-managed-application. Puede que ya se haya formulado y respondido una pregunta similar, así que compruébelo antes de publicar la suya. Use las etiquetas correspondientes para recibir una respuesta más rápida. 
+Si tiene preguntas sobre Azure Managed Applications, puede probar a hacer preguntas en [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managed-app) con la etiqueta azure-managed-app o en [Microsoft Q&A](/answers/topics/azure-managed-applications.html) con la etiqueta azure-managed-application. Puede que ya se haya formulado y respondido una pregunta similar, así que compruébelo antes de publicar la suya. Use las etiquetas correspondientes para recibir una respuesta más rápida.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

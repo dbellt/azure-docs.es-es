@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ad6d006157424c995ea94e89163d69a0db242ce1
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 513b6ca963535cefe72caf1f7c98c130be99e45d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789693"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475868"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Descripción de los modelos gemelos de Azure Digital Twins
 
@@ -126,7 +126,7 @@ Los campos del modelo son los siguientes:
 
 | Campo | Descripción |
 | --- | --- |
-| `@id` | Identificador del modelo. Debe tener el formato `dtmi:<domain>:<unique model identifier>;<model version number>`. |
+| `@id` | Identificador del modelo. Debe tener el formato `dtmi:<domain>:<unique-model-identifier>;<model-version-number>`. |
 | `@type` | Identifica el tipo de información que se describe. En el caso de una interfaz, el tipo es *Interfaz*. |
 | `@context` | Establece el [contexto](https://niem.github.io/json/reference/json-ld/context/) del documento JSON. Los modelos deben usar `dtmi:dtdl:context;2`. |
 | `displayName` | [opcional] Permite asignar un nombre descriptivo al modelo, si lo desea. |

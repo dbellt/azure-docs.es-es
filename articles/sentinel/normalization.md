@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 5d847ac7ed805ad88bc24ed63896edc6f7596f9b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 08f7f7998fce5c3361ec8d89a7ae4da4a43db832
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101729783"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466639"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalización en Azure Sentinel
 
@@ -147,7 +147,7 @@ Una vez modificada la función, vuelva a hacer clic en "Guardar" y use el mismo 
 
 Los formatos JSON, XML y CSV son especialmente útiles para el análisis en el momento de la consulta. Azure Sentinel tiene funciones de análisis integradas para JSON, XML y CSV, así como una herramienta de análisis de JSON.  Para obtener más información, consulte la entrada de blog sobre el [uso de campos JSON en Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747). 
 
-Más información sobre las [consultas guardadas](../azure-monitor/logs/example-queries.md) (implementación de analizadores en tiempo de consulta) en Log Analytics.
+Más información sobre las [consultas guardadas](../azure-monitor/logs/queries.md) (implementación de analizadores en tiempo de consulta) en Log Analytics.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
