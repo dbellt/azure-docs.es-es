@@ -4,12 +4,12 @@ description: Busque registros generados por Seguimiento, NLog o Log4Net.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-ms.openlocfilehash: 083ddbd06561550f89e414d6c679cdc6433fa338
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f94920d44e37aae17c484be4f8e74a4f351e1b1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98937562"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110082781"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Exploración de los registros de seguimiento de .NET, .NET Core y Python en Application Insights
 
@@ -195,7 +195,7 @@ Por ejemplo, puede:
 ### <a name="how-do-i-do-this-for-java"></a>¿Cómo se puede hacer para Java?
 En la instrumentación sin código de Java (recomendado) donde los registros se recopilan de forma predefinida, use el [agente Java 3.0](./java-in-process-agent.md).
 
-Si usa el SDK de Java, utilice los [adaptadores de registro de Java](./java-trace-logs.md).
+Si usa el SDK de Java, utilice los [adaptadores de registro de Java](java-2x-trace-logs.md).
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>No aparece la opción de Application Insights en el menú contextual del proyecto
 * Asegúrese de que Developer Analytics Tools está instalado en el equipo de desarrollo. En Visual Studio, en **Herramientas** > **Extensiones y actualizaciones**, busque **Developer Analytics Tools**. Si no se encuentra en la pestaña **Instalado**, abra la pestaña **En línea** e instálelo.

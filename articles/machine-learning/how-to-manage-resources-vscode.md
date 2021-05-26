@@ -9,13 +9,13 @@ ms.reviewer: luquinta
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 11/16/2020
-ms.openlocfilehash: a968f50b1a867e17659195a53e7aa4383628500a
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.date: 05/25/2021
+ms.openlocfilehash: e0922d4b32162660e5ede7501eb4a23db519b9b2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888951"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377175"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Administración de recursos de Azure Machine Learning con la extensión de VS Code (versión preliminar)
 
@@ -27,9 +27,37 @@ Aprenda a administrar los recursos de Azure Machine Learning con la extensión d
 
 - Suscripción de Azure. Si no tiene una, regístrese para probar la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 - Código de Visual Studio. Si no lo tiene, [instálelo](https://code.visualstudio.com/docs/setup/setup-overview).
-- Extensión Azure Machine Learning para VS Code. Siga la [guía de instalación de la extensión Azure Machine Learning para VS Code](tutorial-setup-vscode-extension.md#install-the-extension) para instalar la extensión.
+- Extensión de Azure Machine Learning. Siga la [guía de instalación de la extensión Azure Machine Learning para VS Code](how-to-setup-vs-code.md) para configurar la extensión.
 
-Todos los procesos siguientes suponen que se encuentra en la vista Azure Machine Learning de Visual Studio Code. Para iniciar la extensión, seleccione el icono **Azure** en la barra de actividades de VS Code.
+## <a name="create-resources"></a>Crear recursos
+
+La manera más rápida de crear recursos es mediante la barra de herramientas de la extensión.
+
+1. Abra la vista de Azure Machine Learning.
+1. Seleccione **+** en la barra de actividades.
+1. Elija el recurso en la lista desplegable.
+1. Configure el archivo de especificación. La información necesaria depende del tipo de recurso que desee crear.
+1. Haga clic con el botón derecho en el archivo de plantilla y seleccione **Azure ML: Crear recurso**.
+
+También puede crear un recurso mediante la paleta de comandos:
+
+1. Abra la paleta de comandos **Ver > Paleta de comandos**.
+1. Escriba `> Azure ML: Create <RESOURCE-TYPE>` en el cuadro de texto. Reemplace `RESOURCE-TYPE` por el tipo de recurso que desee crear.
+1. Configure el archivo de especificación.
+1. Abra la paleta de comandos **Ver > Paleta de comandos**.
+1. Escriba `> Azure ML: Create Resource` en el cuadro de texto.
+
+## <a name="version-resources"></a>Recursos de versión
+
+Algunos recursos (como entornos, conjuntos de datos y modelos) permiten realizar cambios en un recurso y almacenar las distintas versiones.
+
+Para crear una versión de un recurso:
+
+1. Use el archivo de especificación existente que creó el recurso o siga el proceso de creación de recursos para crear un nuevo archivo de especificación.
+1. Incremente el número de versión en la plantilla.
+1. Haga clic con el botón derecho en el archivo de plantilla y seleccione **Azure ML: Crear recurso**.
+
+Siempre que el nombre del recurso actualizado sea el mismo que el de la versión anterior, Azure Machine Learning recoge los cambios y crea una nueva versión.
 
 ## <a name="workspaces"></a>Áreas de trabajo
 
@@ -37,20 +65,13 @@ Para más información, consulte el artículo sobre las [áreas de trabajo](conc
 
 ### <a name="create-a-workspace"></a>Crear un área de trabajo
 
-1. En la vista Azure Machine Learning, haga clic con el botón derecho en el nodo de suscripción y seleccione **Crear área de trabajo**.
-1. En la solicitud:
-    1. Escriba un nombre para el área de trabajo.
-    1. Elegir la suscripción de Azure
-    1. Elija o cree un grupo de recursos donde aprovisionar el área de trabajo.
-    1. Seleccione la ubicación donde aprovisionar el área de trabajo.
+1. En la vista de Azure Machine Learning, haga clic con el botón derecho en el nodo de suscripción y seleccione **Crear área de trabajo**.
+1. Aparecerá un archivo de especificación. Configure el archivo de especificación.
+1. Haga clic con el botón derecho en el archivo de plantilla y seleccione **Azure ML: Crear recurso**.
 
-Los métodos alternativos para crear un área de trabajo incluyen:
+También puede usar el comando `> Azure ML: Create Workspace` en la paleta de comandos.
 
-- Abra la paleta de comandos **Ver > Paleta de comandos** y escriba el mensaje de texto **Azure ML: Creación del área de trabajo**.
-- Hacer clic en el icono `+` que aparece en la parte superior de la vista Azure Machine Learning.
-- Crear un área de trabajo nueva cuando se le pida que seleccione un área de trabajo durante el aprovisionamiento de otros recursos.
-
-### <a name="remove-a-workspace"></a>Eliminación de un área de trabajo
+### <a name="remove-workspace"></a>Eliminación del área de trabajo
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
 1. Haga clic con el botón derecho en el área de trabajo que quiere quitar.
@@ -58,14 +79,16 @@ Los métodos alternativos para crear un área de trabajo incluyen:
     - *Solo el área de trabajo*: esta opción **solo** elimina el recurso de área de trabajo de Azure. El grupo de recursos, las cuentas de almacenamiento y otros recursos a los que se adjuntó el área de trabajo siguen en Azure.
     - *Con recursos asociados*: esta opción elimina el área de trabajo **y** todos los recursos que tiene asociados.
 
+También puede usar el comando `> Azure ML: Remove Workspace` en la paleta de comandos.
+
 ## <a name="datastores"></a>Almacenes de datos
 
-Actualmente, la extensión de VS Code admite estos tipos de almacenes de datos:
+Actualmente, la extensión admite estos tipos de almacenes de datos:
 
-- Recurso compartido de archivos de Azure
-- Azure Blob Storage
-
-Al crear un área de trabajo, se crea un almacén de datos para cada uno de estos tipos.
+- Blob de Azure
+- Azure Data Lake Gen 1
+- Azure Data Lake Gen 2
+- Archivo de Azure
 
 Para más información, consulte la sección sobre los [almacenes de datos](concept-data.md#datastores).
 
@@ -73,29 +96,29 @@ Para más información, consulte la sección sobre los [almacenes de datos](conc
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
 1. Expanda el nodo del área de trabajo donde quiere crear el almacén de datos.
-1. Haga clic con el botón derecho en el nodo **Almacenes de datos** y seleccione **Register datastore** (Registrar almacén de datos).
-1. En la solicitud:
-    1. Escriba un nombre para el almacén de datos.
-    1. Elija el tipo de almacén de datos.
-    1. Seleccione el recurso de almacenamiento. Puede elegir un recurso de almacenamiento asociado con el área de trabajo o seleccionar uno de los recursos de almacenamiento válidos en las suscripciones de Azure.
-    1. Elija el contenedor en el que se encuentran los datos en el recurso de almacenamiento seleccionado anteriormente.
-1. Un archivo de configuración aparece en VS Code. Si está satisfecho con el archivo de configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code (**Ver > Paleta de comandos**) y escriba **Azure ML: Guardar y continuar**.
+1. Haga clic con el botón derecho en el nodo **Almacenes de datos** y seleccione **Crear almacén de datos**.
+1. Elija el tipo de almacén de datos.
+1. Aparecerá un archivo de especificación. Configure el archivo de especificación.
+1. Haga clic con el botón derecho en el archivo de plantilla y seleccione **Azure ML: Crear recurso**.
+
+También puede usar el comando `> Azure ML: Create Datastore` en la paleta de comandos.
 
 ### <a name="manage-a-datastore"></a>Administración de un almacén de datos
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
 1. Expanda el nodo del área de trabajo.
 1. Expanda el nodo **Almacenes de datos** dentro del área de trabajo.
-1. Seleccione el almacén de datos en el que quiere hacer lo siguiente:
-    - *Establecer como predeterminado*. Este será el almacén de datos que se usará cada vez que ejecute un experimento.
-    - *Inspeccionar la configuración de solo lectura*.
-    - *Modificar*. Cambie el tipo de autenticación y las credenciales. Entre los tipos de autenticación admitidos se incluyen la clave de cuenta y el token de SAS.
+1. Haga clic con el botón derecho en el almacén de datos para el que desee realizar alguna de las siguientes operaciones:
+    - *Anular registro de almacén de datos*. Quita el almacén de datos del área de trabajo.
+    - *Ver el almacén de datos*. Se muestra la configuración del almacén de datos de solo lectura.
+
+También puede usar los comandos `> Azure ML: Unregister Datastore` y `> Azure ML: View Datastore` respectivamente en la paleta de comandos.
 
 ## <a name="datasets"></a>Conjuntos de datos
 
 Actualmente, la extensión admite estos tipos de conjunto de datos:
 
-- *Tabular*: permite materializar los datos en una estructura DataFrame (Pandas o PySpark).
+- *Tabular*: permite materializar los datos en un dataframe.
 - *Archivo*: un archivo o una colección de archivos. Permite descargar o montar archivos en el proceso.
 
 Para más información, consulte la sección sobre [conjuntos de datos](concept-data.md#datasets).
@@ -103,48 +126,24 @@ Para más información, consulte la sección sobre [conjuntos de datos](concept-
 ### <a name="create-dataset"></a>Creación de un conjunto de datos
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
-1. Expanda el nodo del área de trabajo donde quiere crear el almacén de datos.
+1. Expanda el nodo del área de trabajo donde desee crear el conjunto de datos.
 1. Haga clic con el botón derecho en el nodo **Conjuntos de datos** y seleccione **Crear conjunto de datos**.
-1. En la solicitud:
-    1. Elija el tipo de conjunto de datos.
-    1. Defina si los datos están ubicados en el equipo o en la Web.
-    1. Indique la ubicación de los datos. Puede ser un solo archivo o un directorio que contenga los archivos de datos.
-    1. Elija el almacén de datos al que quiere cargar los datos.
-    1. Proporcione un prefijo que ayude a identificar el conjunto de datos en el almacén de datos.
+1. Aparecerá un archivo de especificación. Configure el archivo de especificación.
+1. Haga clic con el botón derecho en el archivo de plantilla y seleccione **Azure ML: Crear recurso**.
 
-### <a name="version-datasets"></a>Conjuntos de datos de versión
+También puede usar el comando `> Azure ML: Create Dataset` en la paleta de comandos.
 
-Al crear modelos de aprendizaje automático, a medida que cambian los datos, puede que quiera crear una versión del conjunto de datos. Para ello, en la extensión de VS Code:
+### <a name="manage-a-dataset"></a>Administración de un conjunto de datos
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
 1. Expanda el nodo del área de trabajo.
 1. Expanda el nodo **Conjuntos de datos**.
-1. Haga clic con el botón derecho en el conjunto de datos cuya versión quiere crear y seleccione **Crear nueva versión**.
-1. En la solicitud:
-    1. Seleccione el tipo de conjunto de datos.
-    1. Defina si los datos están ubicados en el equipo o en la Web.
-    1. Indique la ubicación de los datos. Puede ser un solo archivo o un directorio que contenga los archivos de datos.
-    1. Elija el almacén de datos al que quiere cargar los datos.
-    1. Proporcione un prefijo que ayude a identificar el conjunto de datos en el almacén de datos.
+1. Haga clic con el botón derecho en el conjunto de datos en el que desee realizar alguna de las siguientes operaciones:
+    - **Ver las propiedades del conjunto de datos**. Permite ver los metadatos asociados a un conjunto de datos específico. Si tiene varias versiones de un conjunto de datos, puede optar por ver solo las propiedades del conjunto de datos de una versión específica al expandir el nodo del conjunto de datos y realizar los mismos pasos descritos en esta sección sobre la versión correspondiente.
+    - **Obtener una vista previa del conjunto de datos**. Vea el conjunto de datos directamente en el visor de datos de VS Code. Tenga en cuenta que esta opción solo está disponible para los conjuntos de datos tabulares.
+    - **Anular el registro de un conjunto de dato**. Quita un conjunto de datos y todas sus versiones del área de trabajo.
 
-### <a name="view-dataset-properties"></a>Visualización de las propiedades del conjunto de datos
-
-Esta opción permite ver los metadatos asociados a un conjunto de datos específico. Para ello, en la extensión de VS Code:
-
-1. Expanda el nodo del área de trabajo.
-1. Expanda el nodo **Conjuntos de datos**.
-1. Haga clic con el botón derecho en el conjunto de datos que quiere inspeccionar y seleccione **View Dataset Properties** (Ver propiedades del conjunto de datos). Se mostrará un archivo de configuración con las propiedades de la versión del conjunto de datos más reciente.
-
-> [!NOTE]
-> Si tiene varias versiones del conjunto de datos, puede optar por ver solo las propiedades del conjunto de datos de una versión específica al expandir el nodo del conjunto de datos y realizar los mismos pasos descrito en esta sección sobre la versión correspondiente.
-
-### <a name="unregister-datasets"></a>Anulación del registro de los conjuntos de datos
-
-Para quitar un conjunto de datos y todas sus versiones, anule su registro. Para ello, en la extensión de VS Code:
-
-1. Expanda el nodo del área de trabajo.
-1. Expanda el nodo **Conjuntos de datos**.
-1. Haga clic con el botón derecho en el conjunto de datos cuyo registro quiere anular y seleccione **Unregister dataset** (Anular registro del conjunto de datos).
+También puede usar los comandos `> Azure ML: View Dataset Properties` y `> Azure ML: Unregister Dataset` respectivamente en la paleta de comandos.
 
 ## <a name="environments"></a>Entornos
 
@@ -155,15 +154,10 @@ Para más información, consulte la sección sobre los [entornos](concept-enviro
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
 1. Expanda el nodo del área de trabajo donde quiere crear el almacén de datos.
 1. Haga clic con el botón derecho en el nodo **Entornos** y seleccione **Crear entorno**.
-1. En la solicitud:
-    1. Proporcione un nombre para el entorno.
-    1. Defina la configuración del entorno:
-        - *Entornos mantenidos*: entornos configurados previamente en Azure Machine Learning. Para personalizar aún más el entorno, modifique la propiedad `dependencies` en el archivo JSON. Obtenga más información sobre los [entornos mantenidos](resource-curated-environments.md).
-        - *Archivo de dependencias de Conda*: en los entornos Anaconda, se puede proporcionar el archivo que contiene la definición del entorno.
-        - *Archivo de requisitos de pip*: en los entornos de pip, se puede proporcionar el archivo que contiene la definición del entorno.
-        - *Entorno de Conda existente*: esta opción busca los entornos de Conda en el equipo local e intenta crear un entorno desde el entorno seleccionado.
-        - *Personalizado*: defina sus propios canales y dependencias.
-    1. Se abrirá un archivo de configuración en el editor. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code (**Ver > Paleta de comandos**) y escriba **Azure ML: Guardar y continuar**.
+1. Aparecerá un archivo de especificación. Configure el archivo de especificación.
+1. Haga clic con el botón derecho en el archivo de plantilla y seleccione **Azure ML: Crear recurso**.
+
+También puede usar el comando `> Azure ML: Create Environment` en la paleta de comandos.
 
 ### <a name="view-environment-configurations"></a>Visualización de configuraciones de entorno
 
@@ -174,74 +168,60 @@ Para ver las dependencias y configuraciones de un entorno específico en la exte
 1. Expanda el nodo **Entornos**.
 1. Haga clic con el botón derecho en el entorno que quiere ver y seleccione **Ver entorno**.
 
-### <a name="edit-environment-configurations"></a>Edición de configuraciones de entorno
-
-Para editar las dependencias y configuraciones de un entorno específico en la extensión:
-
-1. Expanda el nodo de suscripción que contiene el área de trabajo.
-1. Expanda el nodo **Entornos** en el área de trabajo.
-1. Haga clic con el botón derecho en el entorno que quiere ver y seleccione **Editar entorno**.
-1. Después de realizar las modificaciones, si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code (**Ver > Paleta de comandos**) y escriba **Azure ML: Guardar y continuar**.
+También puede usar el comando `> Azure ML: View Environment` en la paleta de comandos.
 
 ## <a name="experiments"></a>Experimentos
 
 Para más información, consulte la sección sobre los [experimentos](concept-azure-machine-learning-architecture.md#experiments).
 
-### <a name="create-experiment"></a>Crear un experimento
+### <a name="create-job"></a>Creación del trabajo
+
+La manera más rápida de crear un trabajo es hacer clic en el icono **Crear trabajo** de la barra de actividades de la extensión.
+
+Mediante los nodos de recursos de la vista de Azure Machine Learning:
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
 1. Expanda el nodo del área de trabajo.
-1. Haga clic con el botón derecho en el nodo **Experimentos** en el área de trabajo y seleccione **Crear experimento**.
-1. En la solicitud, escriba un nombre para el experimento.
+1. Haga clic con el botón derecho en el nodo **Experimentos** en el área de trabajo y seleccione **Crear trabajo**.
+1. Elija el tipo de trabajo.
+1. Aparecerá un archivo de especificación. Configure el archivo de especificación.
+1. Haga clic con el botón derecho en el archivo de plantilla y seleccione **Azure ML: Crear recurso**.
 
-### <a name="run-experiment"></a>Ejecutar experimento
+También puede usar el comando `> Azure ML: Create Job` en la paleta de comandos.
 
-1. Expanda el nodo de suscripción que contiene el área de trabajo.
-1. Expanda el nodo **Experimentos** en el área de trabajo.
-1. Haga clic con el botón derecho en el experimento que quiere ejecutar.
-1. Seleccione el icono **Ejecutar experimento** en la barra de actividades.
-1. Seleccione si quiere ejecutar el experimento de manera local o remota. Consulte la [guía de depuración](how-to-debug-visual-studio-code.md) para más información sobre la ejecución y la depuración de experimentos de manera local.
-1. Elija su suscripción.
-1. Elija el área de trabajo de Azure ML donde ejecutar el experimento.
-1. Elija el experimento.
-1. Elija o cree un proceso donde ejecutar el experimento.
-1. Elija o cree una configuración de ejecución para el experimento.
+### <a name="view-job"></a>Ver trabajo
 
-También puede seleccionar el botón **Ejecutar experimento** en la parte superior de la extensión y configurar la ejecución del experimento en la solicitud.
-
-### <a name="view-experiment"></a>Visualización de un experimento
-
-Para ver el experimento en Azure Machine Learning Studio:
+Para ver el trabajo en Azure Machine Learning Studio:
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
 1. Expanda el nodo **Experimentos** en el área de trabajo.
-1. Haga clic con el botón derecho en el experimento que quiere ver y seleccione **Ver experimento**. 
+1. Haga clic con el botón derecho en el experimento que desee ver y seleccione **View Experiment in Studio** (Ver experimento en Studio).
 1. Aparece una solicitud para que abra la dirección URL del experimento en Azure Machine Learning Studio. seleccione **Open**(Abrir).
+
+También puede usar el comando `> Azure ML: View Experiment in Studio` en la paleta de comandos.
 
 ### <a name="track-run-progress"></a>Seguimiento del progreso de la ejecución
 
-Mientras ejecuta el experimento, puede que quiera ver el progreso. Para hacer un seguimiento del progreso de una ejecución en Azure Machine Learning Studio desde la extensión:
+Mientras ejecuta el trabajo, puede que quiera ver el progreso. Para hacer un seguimiento del progreso de una ejecución en Azure Machine Learning Studio desde la extensión:
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
 1. Expanda el nodo **Experimentos** en el área de trabajo.
-1. Expanda el nodo del experimento para el que quiere hacer el seguimiento.
-1. Haga clic con el botón derecho en la ejecución y seleccione **View Run in Azure portal** (Ver ejecución en Azure Portal).
+1. Expanda el nodo del trabajo para el que quiere hacer el seguimiento.
+1. Haga clic con el botón derecho en la ejecución y seleccione **View Run in Studio** (Ver ejecución en Studio).
 1. Aparece una solicitud para que abra la dirección URL de la ejecución en Azure Machine Learning Studio. seleccione **Open**(Abrir).
 
 ### <a name="download-run-logs--outputs"></a>Descarga de registros y salidas de la ejecución
 
-Una vez que se completa una ejecución, puede que quiera descargar los registros y recursos, como el modelo generado como parte de la ejecución de un experimento.
+Una vez que se completa una ejecución, puede que quiera descargar los registros y recursos, como el modelo generado como parte de la ejecución.
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
 1. Expanda el nodo **Experimentos** en el área de trabajo.
-1. Expanda el nodo del experimento para el que quiere hacer el seguimiento.
+1. Expanda el nodo de trabajo para el que desea descargar registros y salidas.
 1. Haga clic con el botón derecho en la ejecución:
     - Para descargar las salidas, seleccione **Download outputs** (Descargar salidas).
     - Para descargar los registros, seleccione **Download logs** (Descargar registros).
 
-### <a name="view-run-metadata"></a>Visualización de metadatos de la ejecución
-
-En la extensión, puede inspeccionar los metadatos, como la configuración de ejecución que se usa para la ejecución, así como los detalles de la ejecución.
+También puede usar los comandos `> Azure ML: Download Outputs` y `> Azure ML: Download Logs` respectivamente en la paleta de comandos.
 
 ## <a name="compute-instances"></a>Instancias de proceso
 
@@ -250,113 +230,130 @@ Para obtener más información, vea [instancias de proceso](concept-compute-inst
 ### <a name="create-compute-instance"></a>Creación de una instancia de proceso
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
-1. Expanda el nodo del área de trabajo donde quiere crear la instancia de proceso.
-1. Haga clic con el botón derecho en el nodo **Compute instances** (Instancias de proceso) y seleccione **Create compute instance** (Crear instancia de proceso).
-1. En la solicitud:
-    1. Proporcione un nombre para la instancia de proceso.
-    1. Seleccione un tamaño de VM de la lista.
-    1. Elija si quiere habilitar el acceso SSH.
-        1. Si habilita el acceso SSH, tendrá que proporcionar también la clave SSH pública o el archivo que contiene la clave. Para obtener más información, consulte la [guía sobre la creación y el uso de claves SSH en Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
+1. Expanda el nodo del área de trabajo.
+1. Expanda el nodo **Proceso**.
+1. Haga clic con el botón derecho en el nodo **Instancias de Compute** en el área de trabajo y seleccione **Creación de un proceso**.
+1. Aparecerá un archivo de especificación. Configure el archivo de especificación.
+1. Haga clic con el botón derecho en el archivo de plantilla y seleccione **Azure ML: Crear recurso**.
+
+También puede usar el comando `> Azure ML: Create Compute` en la paleta de comandos.
+
+### <a name="connect-to-compute-instance"></a>Conexión a una instancia de proceso
+
+Para usar una instancia de proceso como un entorno de desarrollo o un servidor de Jupyter remoto, consulte [Conexión a una instancia de proceso](how-to-set-up-vs-code-remote.md?tabs=extension).
 
 ### <a name="stop-or-restart-compute-instance"></a>Detención o reinicio de la instancia de proceso
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
-1. Expanda el nodo **Compute instance** (Instancia de proceso) en el área de trabajo.
-1. Haga clic con el botón secundario en la instancia de proceso que quiere detener o reiniciar y seleccione **Stop Compute instance** (Detener instancia de proceso) o **Restart compute instance** (Reiniciar instancia de proceso), respectivamente.
+1. Expanda el nodo del área de trabajo.
+1. Expanda el nodo **Instancias de Compute** dentro del nodo **Proceso**.
+1. Haga clic con el botón secundario en la instancia de proceso que desee detener o reiniciar y seleccione **Detener instancia de proceso** o **Restart compute instance** (Reiniciar instancia de proceso), respectivamente.
+
+También puede usar los comandos `> Azure ML: Stop Compute instance` y `Restart Compute instance` respectivamente en la paleta de comandos.
 
 ### <a name="view-compute-instance-configuration"></a>Configuración de visualización de la instancia de proceso
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
-1. Expanda el nodo **Compute instance** (Instancia de proceso) en el área de trabajo.
+1. Expanda el nodo del área de trabajo.
+1. Expanda el nodo **Instancias de Compute** dentro del nodo **Proceso**.
 1. Haga clic con el botón derecho en la instancia de proceso que quiere inspeccionar y seleccione **View Compute instance Properties** (Ver propiedades de la instancia de proceso).
+
+También puede usar el comando `Azure ML: View Compute instance Properties` en la paleta de comandos.
 
 ### <a name="delete-compute-instance"></a>Eliminación de una instancia de proceso
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
-1. Expanda el nodo **Compute instance** (Instancia de proceso) en el área de trabajo.
+1. Expanda el nodo del área de trabajo.
+1. Expanda el nodo **Instancias de Compute** dentro del nodo **Proceso**.
 1. Haga clic con el botón derecho en la instancia de proceso que quiere eliminar y seleccione **Delete compute instance** (Eliminar instancia de proceso).
+
+También puede usar el comando `Azure ML: Delete Compute instance` en la paleta de comandos.
 
 ## <a name="compute-clusters"></a>Clústeres de proceso
 
-La extensión admite estos tipos de proceso:
+Para más información, consulte el artículo sobre el [entrenamiento de destinos de proceso](concept-compute-target.md#train).
 
-- Clúster de proceso de Azure Machine Learning
-- Azure Kubernetes Service
-
-Para más información, consulte la sección sobre los [destinos de proceso](concept-compute-target.md#train).
-
-### <a name="create-compute"></a>Creación del proceso
+### <a name="create-compute-cluster"></a>Creación de un clúster de proceso
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
-1. Expanda el nodo del área de trabajo donde quiere crear el clúster de proceso.
-1. Haga clic con el botón derecho en el nodo **Clústeres de proceso** y seleccione **Crear proceso**.
-1. En la solicitud:
-    1. Elija un tipo de proceso.
-    1. Elija el tamaño de la máquina virtual. Obtenga más información sobre los [tamaños de VM](../virtual-machines/sizes.md).
-    1. Proporcione un nombre para el proceso.
+1. Expanda el nodo del área de trabajo.
+1. Expanda el nodo **Proceso**.
+1. Haga clic con el botón derecho en el nodo **Clústeres de proceso** en el área de trabajo y seleccione **Creación de un proceso**.
+1. Aparecerá un archivo de especificación. Configure el archivo de especificación.
+1. Haga clic con el botón derecho en el archivo de plantilla y seleccione **Azure ML: Crear recurso**.
+
+También puede usar el comando `> Azure ML: Create Compute` en la paleta de comandos.
 
 ### <a name="view-compute-configuration"></a>Vista de la configuración de proceso
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
-1. Expanda el nodo **Clústeres de proceso** en el área de trabajo.
+1. Expanda el nodo del área de trabajo.
+1. Expanda el nodo **Clústeres de proceso** dentro del nodo **Proceso**.
 1. Haga clic con el botón derecho en el proceso que quiere ver y seleccione **View Compute Properties** (Ver propiedades del proceso).
 
-### <a name="edit-compute-scale-settings"></a>Edición de configuración de escalado de proceso
+También puede usar el comando `> Azure ML: View Compute Properties` en la paleta de comandos.
 
-1. Expanda el nodo de suscripción que contiene el área de trabajo.
-1. Expanda el nodo **Clústeres de proceso** en el área de trabajo.
-1. Haga clic con el botón derecho en el proceso que quiere editar y seleccione **Editar proceso**.
-1. Se abre un archivo de configuración para el proceso en el editor. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code (**Ver > Paleta de comandos**) y escriba **Azure ML: Guardar y continuar**.
-
-### <a name="delete-compute"></a>Eliminación del proceso
-
-1. Expanda el nodo de suscripción que contiene el área de trabajo.
-1. Expanda el nodo **Clústeres de proceso** en el área de trabajo.
-1. Haga clic con el botón derecho en el proceso que quiere eliminar y seleccione **Eliminar proceso**.
-
-### <a name="create-run-configuration"></a>Creación de una configuración de ejecución
-
-Para crear una configuración de ejecución en la extensión:
-
-1. Expanda el nodo de suscripción que contiene el área de trabajo.
-1. Expanda el nodo **Clústeres de proceso** en el área de trabajo.
-1. Haga clic con el botón derecho en el destino de proceso donde quiere crear la configuración de ejecución y seleccione **Crear configuración de ejecución**.
-1. En la solicitud:
-    1. Proporcione un nombre para el destino de proceso.
-    1. Elija o cree un entorno nuevo.
-    1. Escriba el nombre del script que quiere ejecutar o presione **ENTRAR** para buscar el script en la máquina local.
-    1. (Opcional) Elija si quiere crear una referencia de datos para la ejecución de entrenamiento. Si lo hace, se le pedirá que defina un conjunto de datos en la configuración de ejecución.
-        1. Seleccione uno de los conjuntos de datos registrados para vincularlo con la configuración de ejecución. Se abre un archivo de configuración para el conjunto de datos en el editor. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code (**Ver > Paleta de comandos**) y escriba **Azure ML: Guardar y continuar**.
-    1. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code (**Ver > Paleta de comandos**) y escriba **Azure ML: Guardar y continuar**.
-
-### <a name="edit-run-configuration"></a>Edición de una configuración de ejecución
-
-1. Expanda el nodo de suscripción que contiene el área de trabajo.
-1. Expanda el nodo de clúster de proceso en el nodo **Clústeres de proceso** del área de trabajo.
-1. Haga clic con el botón derecho en la configuración de ejecución que quiere editar y seleccione **Editar configuración de ejecución**.
-1. Se abre un archivo de configuración para la configuración de ejecución en el editor. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code (**Ver > Paleta de comandos**) y escriba **Azure ML: Guardar y continuar**.
-
-### <a name="delete-run-configuration"></a>Eliminación de la configuración de ejecución
+### <a name="delete-compute-cluster"></a>Eliminación de un clúster de proceso
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
 1. Expanda el nodo del área de trabajo.
-1. Expanda el nodo de clúster de proceso de interés dentro del nodo **Clústeres de proceso**.
-1. Haga clic con el botón derecho en la configuración de ejecución que quiere editar y seleccione **Delete Run Configuration** (Eliminar configuración de ejecución).
+1. Expanda el nodo **Clústeres de proceso** dentro del nodo **Proceso**.
+1. Haga clic con el botón derecho en el proceso que desee eliminar y seleccione **Remove compute** (Quitar proceso).
+
+También puede usar el comando `> Azure ML: Remove Compute` en la paleta de comandos.
+
+## <a name="inference-clusters"></a>Clústeres de inferencia
+
+Para más información, consulte la sección sobre los [destinos de proceso para inferencia](concept-compute-target.md#deploy).
+
+### <a name="manage-inference-clusters"></a>Administración de clústeres de inferencia
+
+1. Expanda el nodo de suscripción que contiene el área de trabajo.
+1. Expanda el nodo del área de trabajo.
+1. Expanda el nodo **Inference clusters** (Clústeres de inferencia) dentro del nodo **Proceso**.
+1. Haga clic con el botón derecho en el proceso en el que desee realizar alguna de las siguientes operaciones:
+    - **Ver las propiedades del proceso**. Muestra datos de configuración de solo lectura sobre el proceso asociado.
+    - **Desasociar el proceso**. Desasocia el proceso del área de trabajo.
+
+También puede usar los comandos `> Azure ML: View Compute Properties` y `> Azure ML: Detach Compute` respectivamente en la paleta de comandos.
+
+### <a name="delete-inference-clusters"></a>Eliminación de clústeres de inferencia
+
+1. Expanda el nodo de suscripción que contiene el área de trabajo.
+1. Expanda el nodo del área de trabajo.
+1. Expanda el nodo **Procesos asociados** dentro del nodo **Proceso**.
+1. Haga clic con el botón derecho en el proceso que desee eliminar y seleccione **Remove compute** (Quitar proceso).
+
+También puede usar el comando `> Azure ML: Remove Compute` en la paleta de comandos.
+
+## <a name="attached-compute"></a>Proceso asociado
+
+Para más información, consulte [Proceso no administrado](concept-compute-target.md#unmanaged-compute).
+
+### <a name="manage-attached-compute"></a>Administración de procesos asociados
+
+1. Expanda el nodo de suscripción que contiene el área de trabajo.
+1. Expanda el nodo del área de trabajo.
+1. Expanda el nodo **Procesos asociados** dentro del nodo **Proceso**.
+1. Haga clic con el botón derecho en el proceso en el que desee realizar alguna de las siguientes operaciones:
+    - **Ver las propiedades del proceso**. Muestra datos de configuración de solo lectura sobre el proceso asociado.
+    - **Desasociar el proceso**. Desasocia el proceso del área de trabajo.
+
+También puede usar los comandos `> Azure ML: View Compute Properties` y `> Azure ML: Detach Compute` respectivamente en la paleta de comandos.
 
 ## <a name="models"></a>Modelos
 
 Para más información, consulte la sección sobre los [modelos](concept-azure-machine-learning-architecture.md#models).
 
-### <a name="register-model"></a>Registro del modelo
+### <a name="create-model"></a>Crear modelo
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
 1. Expanda el nodo del área de trabajo.
-1. Haga clic con el botón derecho en el nodo **Modelos** y seleccione **Register Model** (Registrar modelo).
-1. En la solicitud:
-    1. Proporcione un nombre para el modelo.
-    1. Elija si el modelo es un archivo o una carpeta.
-    1. Busque el modelo en el equipo local.
-    1. Un archivo de configuración para el modelo en el editor. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code (**Ver > Paleta de comandos**) y escriba **Azure ML: Guardar y continuar**.
+1. Haga clic con el botón derecho en el nodo **Modelos** en el área de trabajo y seleccione **Crear modelo**.
+1. Aparecerá un archivo de especificación. Configure el archivo de especificación.
+1. Haga clic con el botón derecho en el archivo de plantilla y seleccione **Azure ML: Crear recurso**.
+
+También puede usar el comando `> Azure ML: Create Model` en la paleta de comandos.
 
 ### <a name="view-model-properties"></a>Visualización de las propiedades del modelo
 
@@ -364,64 +361,59 @@ Para más información, consulte la sección sobre los [modelos](concept-azure-m
 1. Expanda el nodo **Modelos** en el área de trabajo.
 1. Haga clic con el botón derecho en el modelo cuyas propiedades quiere ver y seleccione **View Model Properties** (Ver propiedades del modelo). En el editor se abre un archivo que contiene las propiedades del modelo.
 
+También puede usar el comando `> Azure ML: View Model Properties` en la paleta de comandos.
+
 ### <a name="download-model"></a>Descarga del modelo
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
 1. Expanda el nodo **Modelos** en el área de trabajo.
 1. Haga clic con el botón derecho en el modelo que va a descargar y seleccione **Download Model File** (Descargar archivo del modelo).
 
+También puede usar el comando `> Azure ML: Download Model File` en la paleta de comandos.
+
 ### <a name="delete-a-model"></a>Eliminación de un modelo
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
 1. Expanda el nodo **Modelos** en el área de trabajo.
 1. Haga clic con el botón derecho en el modelo que quiere eliminar y seleccione **Eliminar modelo**.
+1. Aparece un mensaje para confirmar que quiere quitar el modelo. Seleccione **Aceptar**.
+
+También puede usar el comando `> Azure ML: Remove Model` en la paleta de comandos.
 
 ## <a name="endpoints"></a>Puntos de conexión
 
-La extensión de VS Code admite estos destinos de implementación:
+Para obtener más información, consulte [Puntos de conexión](concept-azure-machine-learning-architecture.md#endpoints).
 
-- Azure Container Instances
-- Azure Kubernetes Service
-
-Para más información, consulte la sección sobre los [puntos de conexión de servicio web](concept-azure-machine-learning-architecture.md#web-service-endpoint).
-
-### <a name="create-deployments"></a>Creación de implementaciones
-
-> [!NOTE]
-> Actualmente, la creación de la implementación solo funciona con entornos de Conda.
+### <a name="create-endpoint"></a>Crear punto de conexión
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
 1. Expanda el nodo del área de trabajo.
-1. Haga clic con el botón derecho en el nodo **Puntos de conexión** y seleccione **Implementar servicio**.
-1. En la solicitud:
-    1. Elija si quiere usar un modelo ya registrado o un archivo de modelo local.
-    1. Selección del modelo
-    1. Elija el destino de implementación donde quiere implementar el modelo.
-    1. Proporcione un nombre para el modelo.
-    1. Proporcione el script que se ejecutará al puntuar el modelo.
-    1. Proporcione un archivo de dependencias de Conda.
-    1. En el editor aparece un archivo de configuración para la implementación. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code (**Ver > Paleta de comandos**) y escriba **Azure ML: Guardar y continuar**.
+1. Haga clic con el botón derecho en el nodo **Modelos** en el área de trabajo y seleccione **Creación de un punto de conexión**.
+1. Elija el tipo de punto de conexión.
+1. Aparecerá un archivo de especificación. Configure el archivo de especificación.
+1. Haga clic con el botón derecho en el archivo de plantilla y seleccione **Azure ML: Crear recurso**.
 
-> [!NOTE]
-> También puede hacer clic con el botón derecho en un modelo registrado en el nodo *Modelos* y seleccionar **Deploy Service From Registered Model** (Implementar el servicio a partir del modelo registrado).
+También puede usar el comando `> Azure ML: Create Endpoint` en la paleta de comandos.
 
-### <a name="delete-deployments"></a>Eliminación de implementaciones
+### <a name="delete-endpoint"></a>Eliminación de un punto de conexión
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
 1. Expanda el nodo **Puntos de conexión** en el área de trabajo.
-1. Haga clic con el botón derecho en la implementación que quiere quitar y seleccione **Quitar servicio**.
+1. Haga clic con el botón derecho en la implementación que desee quitar y seleccione **Quitar servicio**.
 1. Aparece un mensaje para confirmar que quiere quitar el servicio. Seleccione **Aceptar**.
 
-### <a name="manage-deployments"></a>Administración de implementaciones
+También puede usar el comando `> Azure ML: Remove Service` en la paleta de comandos.
+
+### <a name="view-service-properties"></a>Visualización de las propiedades del servicio
 
 Además de crear y eliminar implementaciones, también puede ver y editar la configuración asociada con la implementación.
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
 1. Expanda el nodo **Puntos de conexión** en el área de trabajo.
 1. Haga clic con el botón derecho en la implementación que quiere administrar:
-    - Para editar la configuración, seleccione **Editar servicio**.
-        - En el editor aparece un archivo de configuración para la implementación. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code (**Ver > Paleta de comandos**) y escriba **Azure ML: Guardar y continuar**.
-    - Para ver la configuración de implementación, seleccione **View service properties** (Ver propiedades del servicio).
+    - Para ver la configuración de implementación, seleccione **View Service Properties** (Ver propiedades del servicio).
+
+También puede usar el comando `> Azure ML: View Service Properties` en la paleta de comandos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

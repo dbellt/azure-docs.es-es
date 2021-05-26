@@ -2,14 +2,14 @@
 title: Registro de esquema de Azure en Event Hubs (versión preliminar)
 description: En este artículo se proporciona información general sobre la compatibilidad del registro de esquema de Azure Event Hubs (versión preliminar).
 ms.topic: overview
-ms.date: 04/28/2021
+ms.date: 05/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: 578bb082cf439d48b186461742ed51c39ce85e80
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 43380ccd4f20616676f4eeb53fb2231b4f76f4e9
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108226451"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371212"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Registro de esquema de Azure en Event Hubs (versión preliminar)
 En muchos escenarios de transmisión de eventos y de mensajería, la carga de eventos o mensajes contiene datos estructurados que se serializan o deserializan con un formato controlado por esquemas, como Apache Avro. Tal vez los remitentes y receptores quieran validar la integridad de los datos con un documento de esquema, como con el esquema JSON. En el caso de los formatos controlados por esquema, que el esquema esté disponible para el consumidor de mensajes es un requisito previo para que el consumidor pueda deserializar los datos. 
@@ -18,7 +18,7 @@ El **registro de esquema de Azure** es una característica de Event Hubs, que pr
 
 > [!NOTE]
 > - La característica de **registro de esquema** se encuentra actualmente en **versión preliminar** y no se recomienda para las cargas de trabajo de producción.
-> - La característica solo está disponible en los niveles **estándar** y **dedicado**, no en el nivel **básico**.
+> - La característica no está disponible en el nivel **Básico**.
 
 Con marcos de serialización orientados a esquemas, como Apache Avro, la externalización de los metadatos de serialización en esquemas compartidos también puede ayudar a reducir drásticamente la sobrecarga por mensaje de información de tipo y nombres de campo incluidos con cada conjunto de datos, como es el caso de los formatos etiquetados como JSON. Al almacenar los esquemas junto con los eventos y dentro de la infraestructura de eventos se garantiza que los metadatos necesarios para la serialización o la deserialización estén siempre al alcance y los esquemas no se puedan perder. 
 
@@ -47,8 +47,8 @@ La siguiente imagen muestra el flujo de información del registro de esquema con
 
 :::image type="content" source="./media/schema-registry-overview/flow-diagram.png" alt-text="Diagrama de flujo":::
 
-## <a name="standard-vs-dedicated-limits"></a>Límites de estándar frente a dedicado
-Para los límites (por ejemplo: el número de grupos de esquema en un espacio de nombres) que son iguales y distintos en los niveles estándar y dedicado de Event Hubs, consulte [Cuotas y límites de Event Hubs](event-hubs-quotas.md)
+## <a name="limits"></a>Límites
+Para conocer los límites (por ejemplo, el número de grupos de esquemas de un espacio de nombres) de Event Hubs, consulte [Cuotas y límites de Event Hubs](event-hubs-quotas.md).
 
 ## <a name="azure-role-based-access-control"></a>Control de acceso basado en roles de Azure
 Al acceder al registro de esquema mediante programación, debe registrar una aplicación en Azure Active Directory (Azure AD) y agregar la entidad de seguridad de la aplicación a uno de los roles de control de acceso basado en rol de Azure (Azure RBAC):

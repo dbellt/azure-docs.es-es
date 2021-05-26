@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: afb63b76666f47217f9c19376d81aa4ed73991bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ffbe207109143956f6c5a56d8560925d93661bf
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98572568"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459076"
 ---
 # <a name="azure-signalr-service-internals"></a>Aspectos internos de Azure SignalR Service
 
@@ -57,21 +57,21 @@ Son dos los pasos necesarios para establecer conexiones persistentes entre el cl
 
 1. El cliente envía una solicitud de negociación al servidor de aplicaciones. Con el SDK de Azure SignalR Service, el servidor de aplicaciones devuelve una respuesta de redirección con la dirección URL de SignalR Service y el token de acceso.
 
-- Para SignalR para ASP.NET Core, una respuesta de redirección típica es similar a lo siguiente:
-    ```
-    {
-        "url":"https://test.service.signalr.net/client/?hub=chat&...",
-        "accessToken":"<a typical JWT token>"
-    }
-    ```
-- Para SignalR para ASP.NET, una respuesta de redirección típica es similar a lo siguiente:
-    ```
-    {
-        "ProtocolVersion":"2.0",
-        "RedirectUrl":"https://test.service.signalr.net/aspnetclient",
-        "AccessToken":"<a typical JWT token>"
-    }
-    ```
+    - Para SignalR para ASP.NET Core, una respuesta de redirección típica es similar a lo siguiente:
+        ```
+        {
+            "url":"https://test.service.signalr.net/client/?hub=chat&...",
+            "accessToken":"<a typical JWT token>"
+        }
+        ```
+    - Para SignalR para ASP.NET, una respuesta de redirección típica es similar a lo siguiente:
+        ```
+        {
+            "ProtocolVersion":"2.0",
+            "RedirectUrl":"https://test.service.signalr.net/aspnetclient",
+            "AccessToken":"<a typical JWT token>"
+        }
+        ```
 
 1. Después de recibir la respuesta de redirección, el cliente usa la nueva dirección URL y el token de acceso para iniciar el proceso normal para conectarse a SignalR Service.
 

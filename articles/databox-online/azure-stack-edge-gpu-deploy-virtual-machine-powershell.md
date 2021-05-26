@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 05/13/2021
 ms.author: alkohli
-ms.openlocfilehash: 90925f30e84ec3c06e715669ebd982c823dfaf5a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 94ebfcab77b6db579b263dc11f856612bb2c630a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568331"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110086327"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-device-via-azure-powershell"></a>Implementación de VM en el dispositivo Azure Stack Edge mediante Azure PowerShell
 
@@ -456,6 +456,13 @@ Las instrucciones para conectarse pueden ser diferentes en función de si se ha 
 Para conectarse a una máquina virtual Linux, realice lo siguiente:
 
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
+
+  Si usó una dirección IP pública durante la creación de la máquina virtual, puede usar esa IP para conectarse a la máquina virtual. Para obtener la dirección IP pública, ejecute el siguiente comando: 
+
+  ```powershell
+  $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
+  ```
+  En este caso, la dirección IP pública será la misma que la dirección IP privada que pasó durante la creación de la interfaz de red virtual.
 
 ### <a name="connect-to-a-windows-vm"></a>Conexión a una máquina virtual Windows
 

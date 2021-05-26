@@ -3,16 +3,16 @@ title: Dirección IP estática del grupo de contenedores
 description: Creación de un grupo de contenedores en una red virtual y uso de una instancia de Azure Application Gateway para exponer una dirección IP de front-end estática en una aplicación web en contenedor
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: de9e06b457a9ea5485fe268bd2b7cf206f0a6c0e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c0401c0b6ec4aae124ee1954762d22c16cacb994
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790948"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084230"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Exposición de una dirección IP estática para un grupo de contenedores
 
-En este artículo se muestra una manera de exponer una dirección IP pública estática para un [grupo de contenedores](container-instances-container-groups.md) mediante una instancia de Azure [Application Gateway](../application-gateway/overview.md). Siga estos pasos cuando necesite un punto de entrada estático para una aplicación en contenedor orientada externamente que se ejecute en Azure Container Instances. 
+En este artículo se muestra una manera de exponer una dirección IP pública estática para un [grupo de contenedores](container-instances-container-groups.md) mediante una instancia de Azure [Application Gateway](../application-gateway/overview.md). Siga estos pasos cuando necesite un punto de entrada estático para una aplicación en contenedor orientada externamente que se ejecute en Azure Container Instances.
 
 En este artículo se usa la CLI de Azure para crear los recursos para este escenario:
 
@@ -69,9 +69,9 @@ az network public-ip create \
 
 ## <a name="create-container-group"></a>Creación de un grupo de contenedores
 
-Ejecute el siguiente comando [az container create][az-container-create] para crear un grupo de contenedores en la red virtual que configuró en el paso anterior. 
+Ejecute el siguiente comando [az container create][az-container-create] para crear un grupo de contenedores en la red virtual que configuró en el paso anterior.
 
-El grupo se implementa en la subred *myACISubnet* y contiene una única instancia denominada *appcontainer* que extrae la imagen `aci-helloworld`. Como se muestra en otros artículos de la documentación, esta imagen empaqueta una pequeña aplicación web escrita en Node.js que sirve una página HTML estática. 
+El grupo se implementa en la subred *myACISubnet* y contiene una única instancia denominada *appcontainer* que extrae la imagen `aci-helloworld`. Como se muestra en otros artículos de la documentación, esta imagen empaqueta una pequeña aplicación web escrita en Node.js que sirve una página HTML estática.
 
 ```azurecli
 az container create \
@@ -119,14 +119,14 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress \
   --vnet-name myVNet \
   --subnet myAGSubnet \
-  --servers "$ACI_IP" 
+  --servers "$ACI_IP"
 ```
 
 
-Azure puede tardar hasta 15 minutos en crear la puerta de enlace de aplicaciones. 
+Azure puede tardar hasta 15 minutos en crear la puerta de enlace de aplicaciones.
 
 ## <a name="test-public-ip-address"></a>Prueba de la dirección IP pública
-  
+
 Ahora puede probar el acceso a la aplicación web que se ejecuta en el grupo de contenedores subyacente a Application Gateway.
 
 Ejecute el comando [az network public-ip show][az-network-public-ip-show] para recuperar la dirección IP pública de front-end de la puerta de enlace:
@@ -147,7 +147,7 @@ Para ver la aplicación web en ejecución cuando esté configurada correctamente
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte una [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet) para crear un grupo de contenedores con una instancia de contenedor de WordPress como un servidor back-end subyacente a Application Gateway.
+* Consulte una [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/wordpress/aci-wordpress-vnet) para crear un grupo de contenedores con una instancia de contenedor de WordPress como un servidor back-end subyacente a Application Gateway.
 * También puede configurar una instancia de Application Gateway con un certificado para la terminación SSL. Consulte la [introducción](../application-gateway/ssl-overview.md) y el [tutorial](../application-gateway/create-ssl-portal.md).
 * En función de su escenario, considere la posibilidad de usar otras soluciones de equilibrio de carga de Azure con Azure Container Instances. Por ejemplo, use [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) para distribuir el tráfico entre varias instancias de contenedor y entre varias regiones. Consulte esta [entrada de blog](https://aaronmsft.com/posts/azure-container-instances/).
 

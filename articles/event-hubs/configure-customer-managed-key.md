@@ -2,19 +2,19 @@
 title: Configuración de su propia clave para cifrar datos en reposo de Azure Event Hubs
 description: En este artículo se proporciona información sobre cómo configurar su propia clave para cifrar datos en reposo de Azure Event Hubs.
 ms.topic: conceptual
-ms.date: 02/01/2021
-ms.openlocfilehash: 33587812121051d93aa8b939c3df70530ba65c5e
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.date: 05/04/2021
+ms.openlocfilehash: 89d12079195406e4b3c6da77105dc359cc1dacae
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812451"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377249"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configuración de claves administradas por el cliente para cifrar datos en reposo de Azure Event Hubs mediante Azure Portal
 Azure Event Hubs proporciona cifrado de datos en reposo con Azure Storage Service Encryption (Azure SSE). El servicio de Event Hubs usa Azure Storage para almacenar los datos. Todos los datos almacenados con Azure Storage se cifran con claves administradas por Microsoft. Si usa su propia clave (también conocida como Bring Your Own Key [BYOK] o clave administrada por el cliente), los datos se cifran mediante la clave administrada por Microsoft, pero además la clave administrada por Microsoft se cifrará mediante la clave administrada por el cliente. Esta característica permite crear, rotar, deshabilitar y revocar el acceso a las claves administradas por el cliente que se usan para cifrar claves administradas por Microsoft. La habilitación de la característica BYOK es un proceso que solo hay que configurar una vez en el espacio de nombres.
 
-> [!NOTE]
-> - La funcionalidad BYOK es compatible con los clústeres [dedicados de un solo inquilino de Event Hubs](event-hubs-dedicated-overview.md). No se puede habilitar para espacios de nombres de Event Hubs estándar.
+> [!IMPORTANT]
+> - La funcionalidad BYOK se admite en los niveles **Premium** y **Dedicado** de Event Hubs.
 > - El cifrado solo se puede habilitar para espacios de nombres nuevos o vacíos. Si el espacio de nombres contiene centros de eventos, se producirá un error en la operación de cifrado.
 
 Puede usar Azure Key Vault para administrar las claves y auditar su uso. Puede crear sus propias claves y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generarlas. Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../key-vault/general/overview.md)
@@ -25,9 +25,8 @@ En este artículo se muestra cómo configurar un almacén de claves con claves a
 > El uso de claves administradas por el cliente con Azure Event Hubs requiere que el almacén de claves tenga configuradas dos propiedades obligatorias. Son las siguientes:  **Eliminación temporal** y **No purgar**. Estas propiedades están habilitadas de manera predeterminada cuando crea un nuevo almacén de claves en Azure Portal. Sin embargo, si tiene que habilitar estas propiedades en un almacén de claves existente, deberá usar PowerShell o la CLI de Azure.
 
 ## <a name="enable-customer-managed-keys"></a>Habilitar claves administradas del cliente
-Para habilitar claves administradas del cliente en Azure Portal, siga estos pasos:
+Para habilitar las claves administradas por el cliente en Azure Portal, siga estos pasos. Si usa el nivel Dedicado, vaya primero al clúster dedicado de Event Hubs.
 
-1. Vaya al clúster de Event Hubs dedicado.
 1. Seleccione el espacio de nombres en el que desea habilitar BYOK.
 1. En la página **Configuración** del espacio de nombres de Event Hubs, seleccione **Cifrado**. 
 1. Seleccione **Cifrado de claves en reposo que administra el cliente** como se muestra en la siguiente imagen. 

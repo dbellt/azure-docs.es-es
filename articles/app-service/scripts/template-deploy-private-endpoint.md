@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: df71c1a92840ae0e7fa263e2ababcf5b3e059789
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 11761a7ec3716703d6714b515957d3a085791354
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832543"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110068255"
 ---
 # <a name="create-an-app-service-app-and-deploy-a-private-endpoint-by-using-an-azure-resource-manager-template"></a>Creación de una aplicación de App Service e implementación de un punto de conexión privado mediante una plantilla de Azure Resource Manager
 
@@ -32,13 +32,13 @@ Esta plantilla crea un punto de conexión privado para una aplicación web de Az
 
 ### <a name="review-the-template"></a>Revisión de la plantilla
 
-:::code language="json" source="~/quickstart-templates/101-private-endpoint-webapp/azuredeploy.json" :::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/private-endpoint-webapp/azuredeploy.json" :::
 
 ### <a name="deploy-the-template"></a>Implementación de la plantilla
 
 A continuación, se muestra cómo implementar la plantilla de Azure Resource Manager en Azure:
 
-1. Seleccione este vínculo para iniciar sesión en Azure y abrir la plantilla:  [Implementarse en Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-webapp%2Fazuredeploy.json). La plantilla crea la red virtual, la aplicación web, el punto de conexión privado y la zona DNS privada.
+1. Seleccione este vínculo para iniciar sesión en Azure y abrir la plantilla:  [Implementarse en Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fprivate-endpoint-webapp%2Fazuredeploy.json). La plantilla crea la red virtual, la aplicación web, el punto de conexión privado y la zona DNS privada.
 2. Elija su grupo de recursos o cree uno.
 3. Escriba el nombre de la aplicación web, el plan de Azure App Service y el punto de conexión privado.
 5. Lea la declaración de los términos y condiciones. Si está de acuerdo con ellos, seleccione **Acepto los términos y condiciones indicados anteriormente** > **Comprar**. La implementación puede tardar unos minutos en finalizar.
