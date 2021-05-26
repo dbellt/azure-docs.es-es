@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/05/2021
 ms.author: cherylmc
 ms.custom: subject-armqs
-ms.openlocfilehash: f325dd445e778bf03049d2c9e2e00fed7a427ccf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c954db5c75f1cf32833ec5ecb270ef3c4b57c10b
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102444015"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110093185"
 ---
 # <a name="quickstart-route-to-shared-services-vnets-using-an-arm-template"></a>Inicio rápido: Enrutamiento a redes virtuales de servicios compartidos mediante una plantilla de ARM
 
@@ -24,7 +24,7 @@ Este inicio rápido se describe cómo usar una plantilla de Azure Resource Manag
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f301-virtual-wan-with-route-tables%2fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-route-tables%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -33,7 +33,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 ## <a name="review-the-template"></a><a name="review"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/301-virtual-wan-with-route-tables). La plantilla de este artículo es demasiado larga para mostrarse aquí. Para ver la plantilla, consulte [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/301-virtual-wan-with-route-tables/azuredeploy.json).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templatesvirtual-wan-with-route-tables). La plantilla de este artículo es demasiado larga para mostrarse aquí. Para ver la plantilla, consulte [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/virtual-wan-with-route-tables/azuredeploy.json).
 
 En este inicio rápido creará una implementación de varios centros de conectividad de Azure Virtual WAN con todas las puertas de enlace y conexiones de red virtual. La lista de parámetros de entrada se ha reducido al mínimo a propósito. El esquema de direccionamiento IP se puede cambiar si se modifican las variables de la plantilla. El escenario se explica con más detalle en el artículo [Escenario: Enrutamiento a redes virtuales de servicios compartidos](scenario-shared-services-vnet.md).
 
@@ -78,7 +78,7 @@ Para implementar esta plantilla correctamente, en lugar de otros métodos debe u
 
 1. Haga clic en **Implementar en Azure**.
 
-   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f301-virtual-wan-with-route-tables%2fazuredeploy.json)
+   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-route-tables%2fazuredeploy.json)
 1. Para ver la plantilla, haga clic en **Editar plantilla**. En esta página puede ajustar algunos de los valores, como el espacio de direcciones o el nombre de determinados recursos. Haga clic en **Guardar** para guardar los cambios o en **Descartar**.
 1. En la página plantilla, escriba los valores. Para esta plantilla, se necesitan los datos del certificado público de punto a sitio. Si este artículo es para hacer un ejercicio, puede usar los siguientes datos de este archivo .cer como datos de ejemplo para ambos centros de conectividad. Con la plantilla en ejecución y la implementación completa, para usar la configuración de punto a sitio, debe reemplazar esta información con los [datos del certificado](certificates-point-to-site.md#cer) de clave pública para su propia implementación.
 

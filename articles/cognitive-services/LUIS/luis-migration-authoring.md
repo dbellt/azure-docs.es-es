@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/14/2020
-ms.openlocfilehash: 3ff48ff5a3f46d8ec0fbf81b4cd20d20c217344b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 54c0d8aa8ba17beb5a2f5a51c4a19795f767733a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98787644"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089442"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migración a una clave de creación de recursos de Azure
 
@@ -33,7 +33,7 @@ La migración es el proceso de cambiar la autenticación de creación de una cue
 La migración debe realizarse desde el [portal de LUIS](https://www.luis.ai). Por ejemplo, si crea las claves de creación con la CLI de LUIS, de todos modos tendrá que completar el proceso de migración en el portal de LUIS. Puede seguir teniendo coautores en las aplicaciones después de la migración, pero se agregarán en el nivel de recursos de Azure en lugar de en el nivel de aplicación. No se puede revertir la migración de la cuenta.
 
 > [!Note]
-> * Si necesita crear un recurso de predicción en tiempo de ejecución, hay [un proceso independiente](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) para hacerlo.
+> * Si necesita crear un recurso de predicción en tiempo de ejecución, hay [un proceso independiente](luis-how-to-azure-subscription.md#create-luis-resources) para hacerlo.
 > * Consulte la sección [notas de migración](#migration-notes) a continuación para más información sobre cómo se verán afectadas las aplicaciones y los colaboradores. 
 > * La creación de la aplicación de LUIS es gratuita, lo que está indicado por el nivel F0. [Más información sobre planes de tarifa](luis-limits.md#key-limits).
 

@@ -3,22 +3,22 @@ title: Habilitación de TLS con un contenedor sidecar
 description: Crear un punto de conexión SSL o TLS para un grupo de contenedores que se ejecute en Azure Container Instances mediante la ejecución de Nginx en un contenedor sidecar
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 906a1f239d7050ea17fd7d1425138049ebf045c1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 17467cab93f3a930c8290f73c5f4c971b53f12b5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790984"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110090557"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Habilitación de un punto de conexión TLS en un contenedor sidecar
 
 En este artículo se muestra cómo crear un [grupo de contenedores](container-instances-container-groups.md) con un contenedor de aplicaciones y un contenedor sidecar que ejecutan un proveedor de TLS/SSL. Al configurar un grupo de contenedores con un punto de conexión TLS independiente, se habilitan las conexiones TLS para la aplicación sin cambiar el código de la aplicación.
 
 Va a configurar un grupo de contenedores formado por dos contenedores:
-* Un contenedor de aplicaciones que ejecute una aplicación web sencilla mediante la imagen pública [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) de Microsoft. 
-* Un contenedor sidecar que ejecuta la imagen pública [Nginx](https://hub.docker.com/_/nginx), configurada para usar TLS. 
+* Un contenedor de aplicaciones que ejecute una aplicación web sencilla mediante la imagen pública [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) de Microsoft.
+* Un contenedor sidecar que ejecuta la imagen pública [Nginx](https://hub.docker.com/_/nginx), configurada para usar TLS.
 
-En este ejemplo, el grupo de contenedores solo expone el puerto 443 para Nginx con su dirección IP pública. Nginx enruta las solicitudes HTTPS a la aplicación web complementaria, que escucha internamente en el puerto 80. Puede adaptar el ejemplo para las aplicaciones de contenedor que escuchan en otros puertos. 
+En este ejemplo, el grupo de contenedores solo expone el puerto 443 para Nginx con su dirección IP pública. Nginx enruta las solicitudes HTTPS a la aplicación web complementaria, que escucha internamente en el puerto 80. Puede adaptar el ejemplo para las aplicaciones de contenedor que escuchan en otros puertos.
 
 Consulte [Pasos siguientes](#next-steps) para conocer otros enfoques para habilitar TLS en un grupo de contenedores.
 
@@ -112,7 +112,7 @@ http {
 
         location / {
             proxy_pass http://localhost:80; # TODO: replace port if app listens on port other than 80
-            
+
             proxy_set_header Connection "";
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
@@ -242,4 +242,4 @@ Si implementa el grupo de contenedores en una [red virtual de Azure](container-i
 
 * [Azure Functions Proxies](../azure-functions/functions-proxies.md)
 * [Azure API Management](../api-management/api-management-key-concepts.md)
-* [Azure Application Gateway](../application-gateway/overview.md): consulte una [plantilla de implementación](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet) de muestra.
+* [Azure Application Gateway](../application-gateway/overview.md): consulte una [plantilla de implementación](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/wordpress/aci-wordpress-vnet) de muestra.

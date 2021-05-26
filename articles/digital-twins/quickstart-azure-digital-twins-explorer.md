@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/27/2021
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: d56c4b8fc17dc29578366e3d84e9ba20ca95a9dd
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 128bc90ec019927a34d258d3cc58286c5b5ab048
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789720"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110092303"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-azure-digital-twins-explorer"></a>Inicio rápido: Exploración de un escenario de Azure Digital Twins de ejemplo mediante Azure Digital Twins Explorer
 
@@ -59,7 +59,7 @@ El resto de esta sección le guía a través de estos pasos.
 
 ### <a name="set-up-local-azure-credentials"></a>Configuración de credenciales locales de Azure
 
-La aplicación Azure Digital Twins Explorer usa [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) (parte de la biblioteca `Azure.Identity`) para autenticar a los usuarios en la instancia de Azure Digital Twins cuando la ejecuta en la máquina local. Para más información sobre las distintas formas en que una aplicación cliente puede autenticarse con Azure Digital Twins, consulte [Escritura de código de autenticación de aplicación](how-to-authenticate-client.md).
+La aplicación Azure Digital Twins Explorer usa [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet&preserve-view=true) (parte de la biblioteca `Azure.Identity`) para autenticar a los usuarios en la instancia de Azure Digital Twins cuando la ejecuta en la máquina local. Para más información sobre las distintas formas en que una aplicación cliente puede autenticarse con Azure Digital Twins, consulte [Escritura de código de autenticación de aplicación](how-to-authenticate-client.md).
 
 Con este tipo de autenticación, Azure Digital Twins Explorer buscará las credenciales en el entorno local, por ejemplo, un inicio de sesión de Azure en una [CLI de Azure](/cli/azure/install-azure-cli) local o en Visual Studio o Visual Studio Code. Por este motivo, debe **iniciar sesión en Azure localmente** mediante uno de estos mecanismos para configurar las credenciales de la aplicación Azure Digital Twins Explorer.
 

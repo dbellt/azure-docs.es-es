@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo crear un recurso compartido de arc
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 05/11/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: b549c625f0a6ff0480eafc38f84d292e66350950
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 4b49d8a0fce3dac1c5558d4784d1bb7ddb33b734
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717138"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109810559"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Procedimiento para crear un recurso compartido NFS
 Los recursos compartidos de archivos de Azure son recursos compartidos de archivos totalmente administrados en la nube. En este artículo se describe la creación de un recurso compartido de archivos que usa el protocolo NFS. Para obtener más información sobre ambos protocolos, consulte [Protocolos de recurso compartido de archivos de Azure](storage-files-compare-protocols.md).

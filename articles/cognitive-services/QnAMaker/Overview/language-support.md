@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2019
-ms.openlocfilehash: 1edd5ffc2578a27a53c7e9a46a4a5f1cf61331ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3718a4255e8b58202c723bccbbfb1aa3459e1ce2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97605066"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372328"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Idiomas admitidos en el recurso de QnA Maker y en las bases de conocimiento
 
@@ -25,11 +25,11 @@ El idioma del servicio se selecciona al crear la primera base de conocimiento en
 
 El idioma determina la relevancia de los resultados que QnA Maker proporciona en respuesta a las consultas de los usuarios. El recurso de QnA Maker y todas las bases de conocimiento dentro de ese recurso admiten solo un idioma. Solo debe ser un idioma para proporcionar los mejores resultados de respuesta para las consultas.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
-En QnA Maker administrado, tiene la opción de realizar la configuración de idioma en el nivel de la knowledge base individual. Esta configuración solo se puede habilitar con la knowledge base del servicio. Una vez establecida la configuración de idioma del servicio, no se puede cambiar. 
+En la característica de respuesta a preguntas personalizada, tiene la opción de agregar knowledge bases en distintos idiomas dentro del mismo servicio. Una vez que decide habilitar la configuración de idioma por knowledge base ya no puede deshabilitarla. Tendrá que elegir un idioma para cada knowledge base que cree dentro del servicio.
 
-Si selecciona que la configuración de idioma sea específica de la knowledge base, podrá crear knowledge-bases de distintos idiomas en el propio servicio. 
+Esta opción ofrece a los usuarios la flexibilidad de tener varias knowledge bases con una configuración de idioma diferente para cada una dentro del mismo servicio.
 
 ---
 
@@ -45,15 +45,16 @@ Tenga en cuenta lo siguiente.
 * No se puede cambiar el idioma de ninguna otra knowledge base del servicio.
 * Tanto el Cognitive Search (clasificador 1) como el servicio QnA Maker (clasificador 2) usan el idioma para generar la mejor respuesta a cualquier consulta.
 
-# <a name="qnamaker-managed-preview"></a>[QnAMaker administrado (versión preliminar)](#tab/v2)
-![Configuración de idioma en QnA Maker administrado](../media/language-support/language-setting-managed.png)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
+> [!div class="mx-imgBorder"]
+> ![Selección de una knowledge base multilingüe](../media/language-support/language-support-custom-qna.png)
 
-Si **no activa la casilla para habilitar la configuración de idioma por knowledge base**, tenga en cuenta lo siguiente: 
-* Un servicio de QnA Maker, y todas sus knowledge bases, solo admiten un idioma.
+Si **no activa la casilla para habilitar las knowledge bases en varios idiomas**, tenga en cuenta lo siguiente: 
+* Una instancia de servicio de Text Analytics, y todas sus knowledge bases, solo admitirá un idioma.
 * El idioma se establece de forma explícita cuando se crea la primera base de conocimiento del servicio.
 * El idioma se determina a partir de los archivos y las direcciones URL que se agregan al crear la base de conocimiento.
 * No se puede cambiar el idioma de ninguna otra base de conocimiento en el servicio.
-* El servicio de Cognitive Search (clasificador n.º 1) y el servicio de QnA Maker (clasificador n.º 2) usan el idioma para generar la mejor respuesta de una consulta.
+* Tanto el servicio Cognitive Search (clasificador 1) como la característica de respuesta a preguntas personalizada (clasificador 2) usan el idioma para generar la mejor respuesta a cualquier consulta.
 
 ---
 
@@ -62,12 +63,13 @@ Si **no activa la casilla para habilitar la configuración de idioma por knowled
 # <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
 Esta funcionalidad no se admite en versión estable disponible con carácter general actual. Extraiga del repositorio QnA Maker administrado para probar esta funcionalidad. 
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
-* Al crear la primera knowledge base en el servicio, tiene la opción de habilitar la configuración de idioma por knowledge base. Active la casilla para crear knowledge bases que pertenezcan a distintos idiomas dentro de un solo servicio.
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
+* Al crear la primera knowledge base en el servicio, tiene la opción de habilitar varios idiomas por servicio. Active la casilla para crear knowledge bases que pertenezcan a distintos idiomas dentro de un solo servicio.
 * Una vez que se crea la primera knowledge base, la opción de configuración de idioma no se puede modificar en el servicio.
-* Si habilita una configuración de idioma específica para cada knowledge base, en lugar de tener un índice de prueba para el servicio tendrá un índice de prueba por cada knowledge base. 
+* Si habilita varios idiomas para la knowledge base, en lugar de tener un índice de prueba para el servicio tendrá un índice de prueba por cada knowledge base. 
 
-![Configuración de idioma en QnA Maker administrado](../media/language-support/language-setting-managed.png)
+> [!div class="mx-imgBorder"]
+> ![Selección de una knowledge base multilingüe](../media/language-support/language-support-custom-qna-chkd.png)
 
 ---
 

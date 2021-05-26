@@ -3,12 +3,12 @@ title: Exportación a SQL desde Azure Application Insights | Microsoft Docs
 description: Exportación continua de datos de Application Insights a mediante el Stream Analytics
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 25d28bb0fc35ef76231c085dc1d9d8a1234a264c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7627ae6dabb75782549ed17fc6e590b7bc7da77d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100587755"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110092753"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Tutorial: exportación a SQL desde Application Insights mediante Stream Analytics
 En este artículo se muestra cómo trasladar los datos de telemetría desde [Azure Application Insights][start] a Azure SQL Database mediante la [Exportación continua][export] y [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -26,7 +26,7 @@ Primeros pasos:
 
 1. [Configure Application Insights para sus páginas web](./javascript.md). 
    
-    (En este ejemplo, nos centraremos en el procesamiento de datos de vistas de página de los exploradores cliente, pero también puede configurar Application Insights para el lado servidor de una aplicación [Java](./java-get-started.md) o [ASP.NET](./asp-net.md) y procesar peticiones, dependencias y otra telemetría de servidor).
+    (En este ejemplo, nos centraremos en el procesamiento de datos de vistas de página de los exploradores cliente, pero también puede configurar Application Insights para el lado servidor de una aplicación [Java](./java-in-process-agent.md) o [ASP.NET](./asp-net.md) y procesar peticiones, dependencias y otra telemetría de servidor).
 2. Publique la aplicación y vea los datos de telemetría que aparecen en el recurso de Application Insights.
 
 ## <a name="create-storage-in-azure"></a>Creación de almacenamiento en Azure

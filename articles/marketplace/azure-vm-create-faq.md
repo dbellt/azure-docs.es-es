@@ -7,12 +7,12 @@ ms.topic: guide
 author: kriti-ms
 ms.author: krsh
 ms.date: 03/10/2021
-ms.openlocfilehash: 2975d1f1558bc7f9e4a12c18882e43a163b97982
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 867b9dfefd47e38b5bcfd54ae54aab607e7acea5
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593431"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109814917"
 ---
 # <a name="common-questions-about-vm-in-azure-marketplace"></a>Preguntas comunes sobre máquinas virtuales en Azure Marketplace
 
@@ -474,8 +474,8 @@ New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgNa
 ## <a name="how-do-i-test-a-hidden-preview-image"></a>¿Cómo puedo probar una imagen de vista previa oculta?
 
 Puede implementar imágenes de vista previa ocultas mediante plantillas de inicio rápido.
-Para implementar una imagen de vista previa: 
-1. Vaya a la plantilla de inicio rápido correspondiente para [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) o [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) y seleccione "Implementar en Azure". Esto le llevará a Azure Portal.
+Para implementar una imagen de vista previa:
+1. Vaya a la plantilla de inicio rápido correspondiente para [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-linux/) o [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) y seleccione "Implementar en Azure". Esto le llevará a Azure Portal.
 2. En Azure Portal, seleccione "Editar plantilla".
 3. En la plantilla JSON, busque el elemento imageReference y actualice los valores de publisherid, offerid, skuid y version de la imagen. Para probar la imagen de vista previa, anexe "-PREVIEW" a offerid.
  ![image](https://user-images.githubusercontent.com/79274470/110191995-71c7d500-7de0-11eb-9f3c-6a42f55d8f03.png)

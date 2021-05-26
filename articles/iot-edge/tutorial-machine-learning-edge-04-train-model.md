@@ -8,12 +8,12 @@ ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 16d5fe90be71f39d448e4c1ce10c0373f6bfc86c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 73e4edd25946f71cfb6d14a379d5b004343cc4e3
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463109"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367244"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutorial: Entrenamiento e implementación de un modelo de Azure Machine Learning
 
@@ -52,7 +52,7 @@ Se usa Machine Learning Studio para hospedar tanto los dos cuadernos de Jupyter 
 
 ### <a name="install-azure-machine-learning-visual-studio-code-extension"></a>Instalación de la extensión Azure Machine Learning para Visual Studio Code
 
-En la máquina virtual de desarrollo Visual Studio Code debe estar instalada esta extensión. Si la ejecución se realiza en otra instancia, vuelva a instalar la extensión tal como se describe en el artículo sobre la [configuración de la extensión para Visual Studio Code](../machine-learning/tutorial-setup-vscode-extension.md).
+En la máquina virtual de desarrollo Visual Studio Code debe estar instalada esta extensión. Si la ejecución se realiza en otra instancia, vuelva a instalar la extensión tal como se describe en el artículo sobre la [configuración de la extensión para Visual Studio Code](../machine-learning/how-to-setup-vs-code.md).
 
 ### <a name="create-an-azure-machine-learning-account"></a>Creación de una cuenta de Azure Machine Learning
 

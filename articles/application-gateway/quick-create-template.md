@@ -9,12 +9,12 @@ ms.date: 01/20/2021
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: devx-track-azurepowershell - mvc - subject-armqs - mode-arm
-ms.openlocfilehash: 09efb78251e6ca385a2bd45be722aa267736d318
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: ab9a586e657652c50f182fd1dcb7e085e2e8dac7
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321328"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109839174"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---arm-template"></a>Inicio rápido: Dirección del tráfico web con Azure Application Gateway: plantilla de ARM
 
@@ -28,7 +28,7 @@ También se puede completar este inicio rápido mediante [Azure Portal](quick-cr
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fag-docs-qs%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -40,7 +40,7 @@ Para simplificar, en esta plantilla se crea una configuración sencilla con una 
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/ag-docs-qs/).
 
-:::code language="json" source="~/quickstart-templates/ag-docs-qs/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/demos/ag-docs-qs/azuredeploy.json":::
 
 En la plantilla se definen varios recursos de Azure:
 
@@ -58,7 +58,7 @@ Implementación de la plantilla de Resource Manager en Azure:
 
 1. Seleccione **Implementar en Azure** para iniciar sesión en Azure y abrir la plantilla. La plantilla crea una puerta de enlace de aplicaciones, la infraestructura de red y dos máquinas virtuales en el grupo de back-end que ejecuta IIS.
 
-   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
+   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fag-docs-qs%2Fazuredeploy.json)
 
 2. Seleccione o cree el grupo de recursos, y escriba el nombre de usuario y la contraseña del administrador de la máquina virtual.
 3. Seleccione **Revisar y crear** y, luego, **Crear**.
