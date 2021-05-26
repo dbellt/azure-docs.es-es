@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: tisande
-ms.openlocfilehash: cb7b2e62a9fabeeca675edb8e6aa356213e0999e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c792a967805bdda1e51ab3a0f5521c5b1baa1be2
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98011414"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466891"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Combinaciones en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -76,11 +76,9 @@ Observemos la siguiente cláusula FROM: `<from_source1> JOIN <from_source2> JOIN
   
 **Ejemplo 3**: 3 orígenes  
   
-- <from_source1> tendrá ámbito de contenedor y representa el conjunto {A, B, C}.  
-  
 - `<from_source1>` tendrá ámbito de contenedor y representa el conjunto {A, B, C}.  
   
-- <from_source2> tendrá ámbito de documento, hará referencia a input_alias1 y representará los conjuntos:  
+- `<from_source2>` tendrá ámbito de documento, hará referencia a `input_alias1` y representará los conjuntos:  
   
     {1, 2} para `input_alias1 = A,`  
   

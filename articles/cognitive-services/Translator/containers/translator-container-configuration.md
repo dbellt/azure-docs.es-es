@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/05/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: f379a66d2175fa42102a118693daae21925e0b0e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 42376cc7c1e1745e3db3ce3467ea02221fb7b834
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382974"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478111"
 ---
 # <a name="configure-translator-docker-containers-preview"></a>Configuración de contenedores de Translator Docker (versión preliminar)
 
@@ -26,7 +26,18 @@ El entorno de tiempo de ejecución de contenedores de **Translator** se configur
 
 ## <a name="configuration-settings"></a>Parámetros de configuración
 
-[!INCLUDE [Container shared configuration settings table](../../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
+Este contenedor tiene las siguientes opciones de configuración:
+
+|Obligatorio|Configuración|Propósito|
+|--|--|--|
+|Sí|[ApiKey](#apikey-configuration-setting)|Realiza el seguimiento de la información de facturación.|
+|No|[ApplicationInsights](#applicationinsights-setting)|Permite agregar compatibilidad con los datos de telemetría de [Azure Application Insights](/azure/application-insights) al contenedor.|
+|Sí|[Facturación](#billing-configuration-setting)|Especifica el URI del punto de conexión del recurso de servicio en Azure.|
+|Sí|[Eula](#eula-setting)| Indica que ha aceptado la licencia del contenedor.|
+|No|[Fluentd](#fluentd-settings)|Escribe el registro y, opcionalmente, los datos de métricas en un servidor de Fluentd.|
+|No|Proxy HTTP|Configura un proxy HTTP para realizar solicitudes de salida.|
+|No|[Logging](#logging-settings)|Proporciona compatibilidad con el registro de ASP.NET Core al contenedor. |
+|Sí|[Mounts](#mount-settings)|Lee y escribe los datos desde el equipo host al contenedor y del contenedor de nuevo al equipo host.|
 
  > [!IMPORTANT]
 > Los parámetros [**ApiKey**](#apikey-configuration-setting), [**Billing**](#billing-configuration-setting) y [**EULA**](#eula-setting) se usan conjuntamente. Además, debe proporcionar valores válidos para los tres; de lo contrario, el contenedor no se iniciará. Para obtener más información sobre cómo usar estos parámetros de configuración con el fin de crear instancias de un contenedor,

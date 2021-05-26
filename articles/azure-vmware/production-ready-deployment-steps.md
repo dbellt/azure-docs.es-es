@@ -3,13 +3,13 @@ title: Planificación de la implementación de Azure VMware Solution
 description: En este artículo se describe el flujo de trabajo de implementación de Azure VMware Solution.  El resultado final es un entorno listo para la creación y migración de máquinas virtuales (VM).
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
-ms.date: 04/27/2021
-ms.openlocfilehash: bc78830180f12c947b195b8525ea9b100b123836
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.date: 05/13/2021
+ms.openlocfilehash: 0b8826582957e02ec3f18d09dec7283cc92188a1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108179550"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110097127"
 ---
 # <a name="plan-the-azure-vmware-solution-deployment"></a>Planificación de la implementación de Azure VMware Solution
 
@@ -24,15 +24,15 @@ Los pasos destacados proporcionan un entorno listo para producción para la crea
 ## <a name="request-a-host-quota"></a>Solicitud de una cuota de host 
 
 Es importante solicitar una cuota de host al prepararse para crear el recurso Azure VMware Solution. Puede solicitar una cuota de host ahora, de forma que cuando finalice el proceso de planeamiento, estará listo para implementar la nube privada de Azure VMware Solution. Cuando el equipo de soporte técnico reciba su solicitud, tardará un máximo de cinco días laborables en confirmarla y asignar los hosts. Si tiene una nube privada de Azure VMware Solution y desea asignar más hosts, debe realizar el mismo proceso. Para más información, consulte los vínculos siguientes, en función del tipo de suscripción que tenga:
-- [Clientes de EA](enable-azure-vmware-solution.md?tabs=azure-portal#request-host-quota-for-ea-customers)
-- [Clientes de CSP](enable-azure-vmware-solution.md?tabs=azure-portal#request-host-quota-for-csp-customers)
+- [Clientes de EA](request-host-quota-azure-vmware-solution.md#request-host-quota-for-ea-customers)
+- [Clientes de CSP](request-host-quota-azure-vmware-solution.md#request-host-quota-for-csp-customers)
 
 ## <a name="identify-the-subscription"></a>Identificación de la suscripción
 
 Identifique la suscripción que piensa usar para implementar Azure VMware Solution.  Puede crear una nueva suscripción o reutilizar una existente.
 
 >[!NOTE]
->La suscripción debe estar asociada a un plan de Contrato Enterprise de Microsoft o a un plan de Proveedor de soluciones en la nube de Azure. Para más información, consulte [Habilitación del recurso de Azure VMware Solution](enable-azure-vmware-solution.md).
+>La suscripción debe estar asociada a un plan de Contrato Enterprise de Microsoft o a un plan de Proveedor de soluciones en la nube de Azure. Para más información, consulte [Habilitación del recurso de Azure VMware Solution](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider).
 
 ## <a name="identify-the-resource-group"></a>Identificación del grupo de recursos
 

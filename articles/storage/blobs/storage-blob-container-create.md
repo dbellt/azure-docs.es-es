@@ -9,12 +9,12 @@ ms.date: 02/04/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dac50d8e35080a083e42891732512e012fae8fbd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1c5dcd5e65a46208a365dc828f41a83099944653
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99576454"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477695"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Creación o eliminación de un contenedor en Azure Storage con .NET
 
@@ -36,14 +36,14 @@ El URI de un contenedor tiene este formato:
 
 Para crear un contenedor, llame a uno de los métodos siguientes:
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 - [CreateBlobContainer](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainer)
 - [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync)
 
 Estos métodos producen una excepción si ya existe un contenedor con el mismo nombre.
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 - [Crear](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.create)
 - [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync)
@@ -60,11 +60,11 @@ Los contenedores se crean inmediatamente debajo de la cuenta de almacenamiento. 
 
 En el ejemplo siguiente se crea un contenedor de forma asincrónica:
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="CreateSampleContainerAsync":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 ```csharp
 private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBlobClient blobClient)
@@ -108,11 +108,11 @@ Puede hacer referencia a un blob almacenado en el contenedor raíz sin incluir e
 
 En el ejemplo siguiente se crea el contenedor raíz de forma sincrónica:
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="CreateRootContainer":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 ```csharp
 private static void CreateRootContainer(CloudBlobClient blobClient)
@@ -145,14 +145,14 @@ private static void CreateRootContainer(CloudBlobClient blobClient)
 
 Para eliminar un contenedor de .NET, use uno de los métodos siguientes:
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 - [Eliminar](/dotnet/api/azure.storage.blobs.blobcontainerclient.delete)
 - [DeleteAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteasync)
 - [DeleteIfExists](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteifexistsasync)
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 - [Eliminar](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync)
@@ -168,11 +168,11 @@ Después de eliminar un contenedor, no se puede crear otro con el mismo nombre d
 
 En el ejemplo siguiente se elimina el contenedor especificado y se controla la excepción si el contenedor no existe:
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="DeleteSampleContainerAsync":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 ```csharp
 private static async Task DeleteSampleContainerAsync(CloudBlobClient blobClient, string containerName)
@@ -198,11 +198,11 @@ private static async Task DeleteSampleContainerAsync(CloudBlobClient blobClient,
 
 En el ejemplo siguiente se muestra cómo eliminar todos los contenedores que comienzan con un prefijo especificado.
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="DeleteContainersWithPrefixAsync":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 ```csharp
 private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobClient, string prefix)

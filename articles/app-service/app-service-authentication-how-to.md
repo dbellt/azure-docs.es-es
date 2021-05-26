@@ -4,12 +4,12 @@ description: Aprenda a personalizar la característica de autenticación y autor
 ms.topic: article
 ms.date: 03/29/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 9335bb62e494fab50f7beadf3d7bbc423d80cf14
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7209f5176480577f14ba5b02fafc5a249c58fd1c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775734"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110452228"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzado de la autenticación y autorización en Azure App Service
 
@@ -302,9 +302,6 @@ Los pasos siguientes permiten migrar manualmente la aplicación a la API de V2 
    ```azurecli
    # For Web Apps
    az webapp auth show -g <group_name> -n <site_name>
-
-   # For Azure Functions
-   az functionapp auth show -g <group_name> -n <site_name>
    ```
 
    En la carga JSON resultante, anote el valor secreto que se usa para cada proveedor que ha configurado:

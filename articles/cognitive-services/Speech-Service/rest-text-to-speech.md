@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 7a15f51b76cc6109537a8c2e0cbbe27bfb9ffb0f
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: c5772f6632629a75bc1ea54cf2434dac34d9586a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368774"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478322"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-speech REST API
 
@@ -130,11 +130,11 @@ Esta respuesta se ha truncado para ilustrar la estructura de una respuesta.
 
     ...
 
-    {
+     {
     "Name": "Microsoft Server Speech Text to Speech Voice (en-US, JennyMultilingualNeural)",
     "ShortName": "en-US-JennyMultilingualNeural",
-    "DisplayName": "JennyMultilingualNeural",
-    "LocalName": "JennyMultilingualNeural",
+    "DisplayName": "Jenny Multilingual",
+    "LocalName": "Jenny Multilingual",
     "Gender": "Female",
     "Locale": "en-US",
     "SampleRateHertz": "24000",
@@ -318,4 +318,4 @@ Si el estado HTTP es `200 OK`, el cuerpo de la respuesta contiene un archivo de 
 
 - [Creación de una cuenta de Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)
 - [Síntesis asincrónica para audio de formato largo](./long-audio-api.md)
-- [Introducción a Voz personalizada](how-to-custom-voice.md)
+- [Introducción a Voz neuronal personalizada](how-to-custom-voice.md)

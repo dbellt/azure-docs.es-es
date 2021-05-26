@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2021
 ms.author: rolyon
-ms.openlocfilehash: fd13fa81d3b6081468bc4071ffe3c41bf3294c7a
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 7d7b8732cedc05759fe4aa343a58eb89a3cec3c9
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656673"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109844681"
 ---
 # <a name="add-or-edit-azure-role-assignment-conditions-using-the-azure-portal-preview"></a>Incorporación o edición de condiciones de asignación de roles de Azure mediante Azure Portal (versión preliminar)
 
@@ -124,13 +124,13 @@ Una vez abierta la página para agregar una condición de asignación de roles, 
 
 1. En el cuadro Valor, escriba un valor para el lado derecho de la expresión.
 
-    ![Sección Generación de expresión con valores para las etiquetas de índice de blobs.](./media/conditions-role-assignments-portal/condition-expressions.png)
+    ![Sección Generación de expresión con valores para las etiquetas de índice de blobs.](./media/shared/condition-expressions.png)
 
 ## <a name="step-6-review-and-add-condition"></a>Paso 6: Revisar y agregar una condición
 
 1. Desplácese hacia arriba hasta **Editor type** (tipo de editor) y haga clic en **Código**.
 
-    La condición se muestra como código. Puede realizar cambios a la condición en este editor de código. Para volver a emplear el editor visual, haga clic en **Visual**.
+    La condición se muestra en forma de código. En este editor de código se pueden realizar cambios en la condición. Para volver a emplear el editor visual, haga clic en **Visual**.
 
     ![Se muestra una condición en el editor de código con acciones seleccionadas y una expresión agregada.](./media/conditions-role-assignments-portal/condition-code.png)
 

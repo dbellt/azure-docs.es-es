@@ -4,12 +4,12 @@ description: Aprenda a proteger el clúster mediante un intervalo de direcciones
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: 9b6ee4a17c15b6ada39798db40408d1d26971dfe
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: e97ed38d3491ace658a92e2abfbc7cd417ca9cf1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108016354"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110100565"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Protección del acceso al servidor de API con intervalos de direcciones IP autorizadas en Azure Kubernetes Service (AKS)
 
@@ -61,7 +61,6 @@ az aks create \
 > Debe agregar estos intervalos a una lista de permitidos:
 > - La dirección IP pública del firewall
 > - Cualquier intervalo que represente redes desde las que se va a administrar el clúster
-> - Si usa Azure Dev Spaces en el clúster de AKS, tiene que permitir [intervalos adicionales en función de su región][dev-spaces-ranges].
 >
 > El límite superior para el número de intervalos IP que se puede especificar es de 200.
 >

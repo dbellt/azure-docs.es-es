@@ -1,6 +1,6 @@
 ---
 title: Preparación del contenido HTML para el Lector inmersivo
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Aprenda a iniciar el Lector inmersivo con HTML, JavaScript, Python, Android o iOS. El Lector inmersivo emplea técnicas demostradas para mejorar la comprensión lectora de estudiantes de idiomas, lectores en ciernes y personas con diferencias en el aprendizaje.
 author: erhopf
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 03/04/2021
 ms.author: erhopf
-ms.openlocfilehash: 40aab9510eb90c405f92be49a3b4c0a3f756c872
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35fa7067a8aaf669bd2487465cfa7f0ba5315aa9
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102620290"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373847"
 ---
 # <a name="how-to-prepare-html-content-for-immersive-reader"></a>Preparación del contenido HTML para el Lector inmersivo
 

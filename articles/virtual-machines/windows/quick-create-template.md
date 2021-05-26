@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: b2856c51ccc31b57ea567c5d0940cd260797f770
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d56f565dab1b83e0cf9572e6807577be32678fe7
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560759"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109839156"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>Inicio rápido: Creación de una máquina virtual Windows con una plantilla de Resource Manager
 
@@ -24,7 +24,7 @@ En este inicio rápido se muestra como usar una plantilla de Azure Resource Mana
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-windows%2fazuredeploy.json)
+[![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-windows%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -34,7 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-:::code language="json" source="~/quickstart-templates/101-vm-simple-windows/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json":::
 
 
 En la plantilla se definen varios recursos:
@@ -53,7 +53,7 @@ En la plantilla se definen varios recursos:
 
 1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea un almacén de claves y un secreto.
 
-    [![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-windows%2fazuredeploy.json)
+    [![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-windows%2fazuredeploy.json)
 
 1. Seleccione o escriba los siguientes valores. Utilice los valores predeterminados, si están disponibles.
 
@@ -78,7 +78,7 @@ Puede usar Azure Portal para comprobar la VM y otros recursos que se crearon. Un
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no lo necesite, elimine el grupo de recursos, lo que eliminará la VM y todos los recursos del grupo de recursos. 
+Cuando ya no lo necesite, elimine el grupo de recursos, lo que eliminará la VM y todos los recursos del grupo de recursos.
 
 1. Seleccione el **Grupo de recursos**.
 1. En la página del grupo de recursos, seleccione **Eliminar**.

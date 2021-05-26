@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 514a6f9d4d72eeffaa4a8592b57c3fdd6592d958
-ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
+ms.openlocfilehash: beb77517a953163c9d1dd34b59fa429b5d58cdd2
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109627535"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478042"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Mejora de la síntesis con el Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -202,14 +202,11 @@ Actualmente, los ajustes del estilo de habla son compatibles con las siguientes 
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
 * `zh-CN-YunyeNeural`
-* `zh-CN-YunxiNeural` (versión preliminar)
-* `zh-CN-XiaohanNeural` (versión preliminar)
-* `zh-CN-XiaomoNeural` (versión preliminar)
-* `zh-CN-XiaoxuanNeural` (versión preliminar)
-* `zh-CN-XiaoruiNeural` (versión preliminar)
-
-> [!NOTE]
-> Las voces en versión preliminar solo están disponibles en estas tres regiones: Este de EE. UU., Oeste de Europa y Sudeste de Asia.
+* `zh-CN-YunxiNeural` 
+* `zh-CN-XiaohanNeural` 
+* `zh-CN-XiaomoNeural` 
+* `zh-CN-XiaoxuanNeural` 
+* `zh-CN-XiaoruiNeural`
 
 La intensidad del estilo de habla se puede cambiar aún más para ajustarse mejor a su caso de uso. Puede especificar un estilo más seguro o más suave con `styledegree` para que la voz sea más expresiva o moderada. Actualmente, se admiten ajustes del estilo de habla de las voces neuronales en chino (mandarín y simplificado).
 
@@ -372,6 +369,63 @@ Este fragmento de código SSML muestra cómo se usa el atributo `role` para camb
         <mstts:express-as role="OlderAdultMale" style="calm">
             “刚打车过来的，路上还挺顺畅。”
         </mstts:express-as>
+    </voice>
+</speak>
+```
+
+## <a name="adjust-speaking-languages"></a>Ajuste de idiomas de habla
+
+> [!IMPORTANT]
+>  Solo puede ajustar los idiomas de habla para las voces neuronales.
+> Habilite una voz para hablar idiomas diferentes con fluidez (como inglés, español y chino) mediante el elemento `<lang xml:lang>`. Se trata de un elemento opcional único para el servicio de voz. Sin este elemento, la voz hablará su idioma principal.
+> Actualmente, los ajustes de idioma de habla son compatibles con estas voces neuronales: `en-US-JennyMultilingualNeural`. Los cambios anteriores se aplican en el nivel de la oración y la palabra. Si un idioma no se admite, el servicio no devolverá ninguna secuencia de audio.
+
+**Sintaxis**
+
+```xml
+<lang xml:lang="string"></lang>
+```
+
+**Atributos**
+
+| Atributo | Descripción | Obligatorio u opcional |
+|-----------|-------------|---------------------|
+| `lang` | Especifica los idiomas de habla. Actualmente, el habla de idiomas diferentes es una característica que depende de la voz. | Se necesita si se ajusta el idioma de habla para una voz neuronal. Si se usa `lang xml:lang`, se debe especificar la configuración regional. |
+
+Utilice esta tabla para determinar qué idiomas de habla son compatibles para cada voz neuronal.
+
+| Voz                            | Idioma de la configuración regional           | Descripción                                                 |
+|----------------------------------|---------------------------|-------------------------------------------------------------|
+| `en-US-JennyMultilingualNeural`  | `lang="en-US"`            | Configuración regional de habla en-US, que es la configuración regional principal de esta voz |
+|                                  | `lang="en-CA"`            | Idioma de la configuración regional de habla en-CA                                  |
+|                                  | `lang="en-AU"`            | Idioma de la configuración regional de habla en-AU                                  |
+|                                  | `lang="en-GB"`            | Idioma de la configuración regional de habla en-GB                                  |
+|                                  | `lang="de-DE"`            | Idioma de la configuración regional de habla de-DE                                  |
+|                                  | `lang="fr-FR"`            | Idioma de la configuración regional de habla fr-FR                                  |
+|                                  | `lang="fr-CA"`            | Idioma de la configuración regional de habla fr-CA                                  |
+|                                  | `lang="es-ES"`            | Idioma de la configuración regional de habla es-ES                                  |
+|                                  | `lang="es-MX"`            | Idioma de la configuración regional de habla es-MX                                  |
+|                                  | `lang="zh-CN"`            | Idioma de la configuración regional de habla zh-CN                                  |
+|                                  | `lang="ko-KR"`            | Idioma de la configuración regional de habla ko-KR                                  |
+|                                  | `lang="ja-JP"`            | Idioma de la configuración regional de habla ja-JP                                  |
+|                                  | `lang="it-IT"`            | Idioma de la configuración regional de habla it-IT                                  |
+|                                  | `lang="pt-BR"`            | Idioma de la configuración regional de habla pt-BR                                  |
+
+**Ejemplo**
+
+Este fragmento de código SSML muestra cómo usar `<lang xml:lang>` para cambiar los idiomas de habla a `en-US`, `es-MX` y `de-DE`.
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+    <voice name="en-US-JennyMultilingualNeural">
+        I am looking forward to the exciting things.
+        <lang xml:lang="es-MX">
+            Estoy deseando que lleguen las cosas emocionantes.
+        </lang>
+        <lang xml:lang="de-DE">
+            Ich freue mich auf die spannenden Dinge.
+        </lang>
     </voice>
 </speak>
 ```
@@ -912,7 +966,7 @@ Por ejemplo, puede que desee conocer el desplazamiento de tiempo de cada palabra
 Puede suscribirse al evento `BookmarkReached` de SDK de voz para obtener los desplazamientos del marcador.
 
 > [!NOTE]
-> El evento `BookmarkReached` solo está disponible desde la versión 1.16.0 del SDK de voz.
+> El evento `BookmarkReached` solo está disponible desde la versión 1.16 del SDK de voz.
 
 Los eventos `BookmarkReached` se generan cuando los datos de audio de salida están disponibles, lo que será más rápido que la reproducción en un dispositivo de salida.
 

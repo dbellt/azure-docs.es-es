@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: f421274513cc3d76f7e8c1119cf98e4e5d36b1f9
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: a0644342c417cb06c257372e526fff55df62f9b9
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950285"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095435"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>¿Qué son los destinos de proceso en Azure Machine Learning?
 
@@ -56,7 +56,7 @@ Puede crear instancias de procesos o clústeres de procesos de Azure Machine Lea
     * [Instancia de proceso](how-to-create-manage-compute-instance.md).
     * [Clúster de proceso](how-to-create-attach-compute-cluster.md).
 * El [SDK de R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (versión preliminar).
-* Una plantilla de Azure Resource Manager Para ver una plantilla de ejemplo, consulte [Creación de un clúster de proceso de Azure Machine Learning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
+* Una plantilla de Azure Resource Manager Para ver una plantilla de ejemplo, consulte [Creación de un clúster de proceso de Azure Machine Learning](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-amlcompute).
 * Una [extensión de aprendizaje automático para la CLI de Azure](reference-azure-machine-learning-cli.md#resource-management).
 
 Cuando se crean, estos recursos de proceso forman parte automáticamente del área de trabajo, a diferencia de otros tipos de destinos de proceso.
@@ -103,11 +103,11 @@ Consulte la tabla siguiente para más información sobre las series admitidas y 
 | NC | Ninguno. |  GPU | Clústeres de proceso e instancia |
 | NC Promo | Ninguno. | GPU | Clústeres de proceso e instancia |
 | NCsv2 | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
-| NCsv3 | Requiere aprobación. | GPU | Clústeres de proceso e instancia |  
-| NDs | Requiere aprobación. | GPU | Clústeres de proceso e instancia | 
-| NDv2 | Requiere aprobación. | GPU | Clústeres de proceso e instancia | 
-| NV | Ninguno. | GPU | Clústeres de proceso e instancia | 
-| NVv3 | Requiere aprobación. | GPU | Clústeres de proceso e instancia | 
+| NCsv3 | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
+| NDs | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
+| NDv2 | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
+| NV | Ninguno. | GPU | Clústeres de proceso e instancia |
+| NVv3 | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
 
 
 Aunque Azure Machine Learning admite estas series de máquinas virtuales, puede que no estén disponibles en todas las regiones de Azure. Para comprobar si las series de máquinas virtuales están disponibles o no, consulte [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).

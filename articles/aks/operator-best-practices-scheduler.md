@@ -4,12 +4,12 @@ description: Conozca las prácticas recomendadas para utilizar características 
 services: container-service
 ms.topic: conceptual
 ms.date: 03/09/2021
-ms.openlocfilehash: 8c0f1d0cda61638abe03b92c627a5ea0455c31cb
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 034b7e18d3114804f846d77aa4feb001492c8883
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107104905"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467070"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para características básicas del programador en Azure Kubernetes Service (AKS)
 
@@ -20,7 +20,6 @@ Este artículo de procedimientos recomendados se centra en las características 
 > [!div class="checklist"]
 > * Utilizar las cuotas de recursos para proporcionar una cantidad fija de recursos para cargas de trabajo o equipos
 > * Limitar el impacto del mantenimiento programado utilizando presupuestos de interrupciones de pods
-> * Comprobar si faltan solicitudes y límites de recursos de pods con la herramienta `kube-advisor`
 
 ## <a name="enforce-resource-quotas"></a>Aplicación de cuotas de recursos
 
@@ -134,18 +133,6 @@ Trabaje con los desarrolladores y propietarios de su aplicación para conocer su
 
 Para obtener más información sobre el uso de los presupuestos de interrupciones de pods, vea [Especificando un presupuesto de disrupción para tu aplicación][k8s-pdbs].
 
-## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>Comprobación de forma periódica de problemas de clúster con kube-advisor
-
-> **Guía de procedimientos recomendados** 
->
-> Ejecute periódicamente la versión más reciente de la herramienta de código abierto `kube-advisor` para detectar problemas en el clúster. Si aplica cuotas de recursos en un clúster de AKS existente, en primer lugar, ejecute `kube-advisor` para buscar los pods que no tienen definidos los límites y las solicitudes de recursos.
-
-La herramienta [kube-advisor][kube-advisor] es un proyecto de código abierto de AKS asociado que examina un clúster de Kubernetes e informa sobre los problemas identificados. `kube-advisor` resulta útil para identificar pods sin solicitudes de recursos ni límites.
-
-Aunque la herramienta `kube-advisor` puede informar sobre la solicitud de recursos y la falta de límites en PodSpecs para las aplicaciones Windows y Linux, la propia herramienta debe programarse en un pod de Linux. Programe un pod para que se ejecute en un grupo de nodos con un sistema operativo específico mediante un [selector de nodo][k8s-node-selector] en la configuración del pod.
-
-El seguimiento de pods sin límites y solicitudes de recursos establecidos en un clúster de AKS que hospeda varios equipos y aplicaciones de desarrollo puede ser difícil. Como práctica recomendada, ejecute regularmente `kube-advisor` en los clústeres de AKS, especialmente si no asigna cuotas de recursos a los espacios de nombres.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 Este artículo se ha centrado en características básicas del programador de Kubernetes. Para obtener más información acerca de las operaciones de clúster en AKS, consulte los siguientes procedimientos recomendados:
@@ -157,7 +144,6 @@ Este artículo se ha centrado en características básicas del programador de Ku
 <!-- EXTERNAL LINKS -->
 [k8s-resource-quotas]: https://kubernetes.io/docs/concepts/policy/resource-quotas/
 [configure-default-quotas]: https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/
-[kube-advisor]: https://github.com/Azure/kube-advisor
 [k8s-pdbs]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
 
 <!-- INTERNAL LINKS -->

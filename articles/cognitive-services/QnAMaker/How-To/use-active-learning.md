@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 87dde7662050794a24cf976a0bae6237b91d29b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d346610ecb4e0552a52775c086eeb16e6e11680
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102213715"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373022"
 ---
 # <a name="active-learning"></a>Aprendizaje activo
 
@@ -130,9 +130,9 @@ Use [Train API](/rest/api/cognitiveservices/qnamaker4.0/runtime/train) para envi
 
 El aprendizaje activo se admite en el tiempo de ejecución versión 4.4.0 y superior. Si la base de conocimiento se creó en una versión anterior, [actualice el tiempo de ejecución](configure-QnA-Maker-resources.md#get-the-latest-runtime-updates) para usar esta característica.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
-En QnA Maker administrado (versión preliminar), como el runtime se hospeda en el propio servicio QnA Maker, no es necesario actualizarlo de forma manual.
+En la respuesta a preguntas personalizada (versión preliminar), no es necesario actualizar el entorno de ejecución manualmente.
 
 ---
 
@@ -159,9 +159,9 @@ El aprendizaje activo está desactivado de forma predeterminada. Actívelo para 
 
     Una vez que **Aprendizaje activo** está habilitado, la base de conocimiento sugiere nuevas preguntas a intervalos regulares según las preguntas enviadas por el usuario. Para deshabilitar **Aprendizaje activo**, vuelva a cambiar la configuración.
     
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
-De forma predeterminada, el aprendizaje activo está **en funcionamiento** en QnA Maker administrado (versión preliminar). Para ver las preguntas alternativas sugeridas, [use las opciones de vista](../How-To/improve-knowledge-base.md#view-suggested-questions) en la página de edición.
+De forma predeterminada, el aprendizaje activo está **activado** en la respuesta a preguntas personalizada (versión preliminar). Para ver las preguntas alternativas sugeridas, [use las opciones de vista](../How-To/improve-knowledge-base.md#view-suggested-questions) en la página de edición.
 
 ---
 

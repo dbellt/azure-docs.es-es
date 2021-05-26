@@ -11,12 +11,12 @@ ms.date: 12/01/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ea0bed0884a3a03e2cd15b274b2afb0f054b0cbd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53005bffde698030221751ec0638a6cc6cbd98c7
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96523333"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478940"
 ---
 # <a name="managing-concurrency-in-blob-storage"></a>Administrar la simultaneidad en almacenamiento de blobs
 
@@ -49,11 +49,11 @@ El esquema de este proceso es el siguiente:
 
 En los siguientes ejemplos de código se muestra cómo construir una condición **If-Match** en la solicitud de escritura que compruebe el valor de ETag para un blob. Azure Storage evalúa si el valor de ETag actual del blob es igual al de la etiqueta de entidad proporcionada en la solicitud y realiza la operación de escritura solo si ambos coinciden. Si otro proceso ha actualizado el blob provisionalmente, Blob Storage devuelve un mensaje de estado HTTP 412 (error en la condición previa).  
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Concurrency.cs" id="Snippet_DemonstrateOptimisticConcurrencyBlob":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 ```csharp
 public void DemonstrateOptimisticConcurrencyBlob(string containerName, string blobName)
@@ -116,11 +116,11 @@ Las concesiones permiten que se admitan diferentes estrategias de sincronizació
 
 En los siguientes ejemplos de código se muestra cómo adquirir una concesión exclusiva en un blob, actualizar el contenido del blob al proporcionar el identificador de la concesión y, a continuación, liberar la concesión. Si la concesión está activa y el identificador de concesión no se proporciona en una solicitud de escritura, se produce un error en la operación de escritura con el código de error 412 (error de condición previa).  
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Concurrency.cs" id="Snippet_DemonstratePessimisticConcurrencyBlob":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 ```csharp
 public void DemonstratePessimisticConcurrencyBlob(string containerName, string blobName)
