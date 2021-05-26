@@ -6,19 +6,16 @@ ms.author: vlvinogr
 ms.date: 02/18/2021
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: 051bf4398555f318f613c66d58ec65be1d30e215
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d12945642e4a948df7f81da3ac89d5f8814fa4b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646816"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472740"
 ---
 # <a name="api-management-dapr-integration-policies"></a>Directivas de API Management para la integración de Dapr
 
 Este tema contiene información de referencia sobre las directivas de API Management para la integración de Dapr. Dapr es un entorno de ejecución portátil para compilar aplicaciones basadas en microservicios con y sin estado creadas en cualquier lenguaje o plataforma. Codifica los patrones comunes de microservicios, como la detección y la invocación de servicios con una lógica de reintento integrada, la semántica de publicación y suscripción con al menos una entrega o los recursos de enlace conectables para facilitar la composición mediante servicios externos. Acceda a [dapr.io](https://dapr.io) si desea consultar más detalles y obtener instrucciones para empezar a utilizar Dapr. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](api-management-howto-policies.md).
-
-> [!CAUTION]
-> Las directivas a las que se hace referencia en este tema se encuentran en versión preliminar pública y están sujetas a los [términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!IMPORTANT]
 > Las directivas a las que se hace referencia en este tema solo funcionan en la [versión autohospedada de la puerta de enlace de API Management](self-hosted-gateway-overview.md) con la compatibilidad con Dapr habilitada.

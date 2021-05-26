@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: 09110bb15f853f20b0be9d8c4c6f5088e7a55d8b
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: aad800a710a1bc3942efc128f8350044a513d44f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106382987"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472030"
 ---
 # <a name="support-matrix-for-physical-server-discovery-and-assessment"></a>Matriz de compatibilidad con la detección y la evaluación físicas de servidores 
 
@@ -66,7 +66,7 @@ En la tabla siguiente se resumen los requisitos de los puertos para la evaluaci�
 **Dispositivo** | **Connection**
 --- | ---
 **Dispositivo** | Conexiones entrantes en el puerto TCP 3389 para permitir las conexiones del Escritorio remoto al dispositivo.<br/><br/> Conexiones entrantes en el puerto 44368 para tener acceso de forma remota a la aplicación de administración del dispositivo mediante la dirección URL: ``` https://<appliance-ip-or-name>:44368 ```.<br/><br/> Conexiones salientes en el puerto 443 (HTTPS) para enviar metadatos de detección y rendimiento a Azure Migrate.
-**Servidores físicos** | **Windows:** conexión entrante en el puerto 5985 (HTTP) de WinRM o 5986 (HTTPS) para extraer los metadatos de configuración y rendimiento de los servidores Windows. <br/><br/> **Linux:**  conexiones entrantes en el puerto 22 (TCP) para extraer los metadatos de configuración y rendimiento de los servidores Linux. |
+**Servidores físicos** | **Windows:** conexiones entrantes en el puerto 5985 (HTTP) de WinRM para extraer los metadatos de configuración y rendimiento de los servidores Windows. <br/><br/> **Linux:**  conexiones entrantes en el puerto 22 (TCP) para extraer los metadatos de configuración y rendimiento de los servidores Linux. |
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Requisitos para el análisis de dependencia con agentes
 
