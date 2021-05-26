@@ -7,15 +7,15 @@ metadata:
   services: api-management
   ms.service: api-management
   ms.topic: landing-page
-  author: georgewallace
-  ms.author: gwallace
-  ms.date: 03/08/2020
-  ms.openlocfilehash: 5a3b09c3835e09d734c1083f84893224c3fe8cfd
-  ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+  author: dlepow
+  ms.author: danlep
+  ms.date: 05/13/2021
+  ms.openlocfilehash: 996bd32a932d866978267ae19f1811f76036517c
+  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 12/14/2020
-  ms.locfileid: "97399101"
+  ms.lasthandoff: 05/25/2021
+  ms.locfileid: "110368809"
 landingContent:
 - title: Acerca de API Management
   linkLists:
@@ -23,15 +23,19 @@ landingContent:
     links:
     - text: ¿Qué es API Management?
       url: api-management-key-concepts.md
-    - text: Disponibilidad de las características
+    - text: Niveles y características del servicio
       url: api-management-features.md
+  - linkListType: architecture
+    links:
+    - text: Integración empresarial básica
+      url: /azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration
 - title: Creación de una instancia
   linkLists:
   - linkListType: quickstart
     links:
     - text: CLI de Azure
       url: get-started-create-service-instance-cli.md
-    - text: Azure Portal
+    - text: Portal de Azure
       url: get-started-create-service-instance.md
     - text: Azure PowerShell
       url: powershell-create-service-instance.md
@@ -73,9 +77,15 @@ landingContent:
       url: powershell-samples.md
     - text: Elementos integrados de Azure Policy
       url: ./policy-reference.md
-- title: Architecture
+- title: Habilitación de la administración híbrida y multinube
   linkLists:
-  - linkListType: architecture
+  - linkListType: overview
     links:
-    - text: Integración empresarial básica
-      url: /azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration
+    - text: Introducción a la puerta de enlace autohospedada
+      url: self-hosted-gateway-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Puerta de enlace de host en Azure Arc
+      url: how-to-deploy-self-hosted-gateway-azure-arc.md
+    - text: Puerta de enlace de host en Kubernetes
+      url: how-to-deploy-self-hosted-gateway-kubernetes.md

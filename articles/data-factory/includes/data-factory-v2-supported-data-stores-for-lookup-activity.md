@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/18/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 79af505b15c8a61721ca11b8b99cebb3f736c3e9
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c49406780c6e9f35aadfdfc5fad11d69949aeaf0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108739419"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110165408"
 ---
 | Category | Almacén de datos |
 |:--- |:--- |
@@ -61,17 +61,19 @@ ms.locfileid: "108739419"
 | **NoSQL** |[Cassandra](../connector-cassandra.md) |
 | &nbsp; |[Couchbase (versión preliminar)](../connector-couchbase.md) |
 | **Archivo** |[Amazon S3](../connector-amazon-simple-storage-service.md) |
+| &nbsp; |[Almacenamiento compatible con Amazon S3](../connector-amazon-s3-compatible-storage.md) |
 | &nbsp; |[Sistema de archivos](../connector-file-system.md) |
 | &nbsp; |[FTP](../connector-ftp.md) |
 | &nbsp; |[Google Cloud Storage](../connector-google-cloud-storage.md) |
 | &nbsp; |[HDFS](../connector-hdfs.md) |
+| &nbsp; |[Oracle Cloud Storage](../connector-oracle-cloud-storage.md) |
 | &nbsp; |[SFTP](../connector-sftp.md) |
 | **Protocolo genérico** |[HTTP genérico](../connector-http.md) |
 | &nbsp; |[OData genérico](../connector-odata.md) |
 | &nbsp; |[ODBC genérico](../connector-odbc.md) |
 | **Servicios y aplicaciones** |[Servicio web de Amazon Marketplace](../connector-amazon-marketplace-web-service.md) |
-| &nbsp; |[Common Data Service for Apps](../connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Concur (versión preliminar)](../connector-concur.md) |
+| &nbsp; |[Dataverse](../connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Dynamics 365](../connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Dynamics AX](../connector-dynamics-ax.md) |
 | &nbsp; |[Dynamics CRM](../connector-dynamics-crm-office-365.md) |

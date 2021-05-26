@@ -102,7 +102,7 @@
           href: cache-private-link.md
         - name: Habilitación de la redundancia de zona
           href: cache-how-to-zone-redundancy.md
-        - name: Configuración de la replicación geográfica de OSS
+        - name: Configuración de la replicación geográfica
           href: cache-how-to-geo-replication.md
         - name: Configuración de la replicación geográfica activa empresarial
           href: cache-how-to-active-geo-replication.md

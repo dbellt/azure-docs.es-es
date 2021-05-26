@@ -7,21 +7,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 03/15/2021
+ms.date: 04/14/2021
 ms.author: aahi
-ms.openlocfilehash: 7484b49ed3c868a1ad3e0f97dffa346f350e127f
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 20334f48866875614e313ea35403f3d2694ad275
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106096935"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110164860"
 ---
 > [!NOTE]
 > Para detectar información de salud protegida (PHI), use el parámetro `domain=phi` y la versión del modelo `2020-04-01` o posterior.
 >
-> Por ejemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii?domain=phi&model-version=2021-01-15`
+> Por ejemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/pii?domain=phi&model-version=2021-01-15`
  
-Se devuelven las siguientes categorías de entidad al enviar solicitudes al punto de conexión `/v3.1-preview.3/entities/recognition/pii`.
+Se devuelven las siguientes categorías de entidad al enviar solicitudes al punto de conexión `/v3.1-preview.5/entities/recognition/pii`.
 
 
 | Category   |  Descripción                          |
