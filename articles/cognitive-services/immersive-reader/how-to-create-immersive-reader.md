@@ -1,6 +1,6 @@
 ---
 title: Creación de un recurso del Lector inmersivo
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: En este artículo se mostrará cómo crear un nuevo recurso de Lector inmersivo con un subdominio personalizado y, luego, configurar Azure AD en el inquilino de Azure.
 services: cognitive-services
 author: rwaller
@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 369905ed5ee0ce9a93ec2be879b5e40114b0a380
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 56d7c56e77382dcf2b06c2ab79c712b42796e67e
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048670"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377752"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Creación de un recurso del Lector inmersivo y configuración de la autenticación de Azure Active Directory
 

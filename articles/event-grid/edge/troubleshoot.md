@@ -5,14 +5,15 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 07/08/2020
+ms.subservice: iot-edge
+ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: 0196522618d4b61f615f7cc6faeacbe9a8c7c5b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b8e5b95b0d1853d81de5a4ec603a3a59563da9d
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86171353"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379806"
 ---
 # <a name="common-issues"></a>Problemas comunes
 
@@ -20,7 +21,7 @@ Si experimenta problemas al ejecutar Azure Event Grid en IoT Edge en el entorno,
 
 ## <a name="view-event-grid-module-logs"></a>Ver registros del módulo de Event Grid
 
-Para solucionar problemas, puede que deba tener acceso a los registros del módulo de Event Grid. Para ello, en la máquina virtual donde se implementa el módulo, ejecute el siguiente comando:
+Para solucionar problemas, puede que deba tener acceso a los registros del módulo de Event Grid. En la máquina virtual donde se implementa el módulo, ejecute el siguiente comando:
 
 En Windows:
 
@@ -38,7 +39,7 @@ sudo docker logs eventgridmodule
 
 * En primer lugar, asegúrese de que el módulo de Event Grid tiene establecido **inbound:serverAuth:tlsPolicy** en **estricto**  o **habilitado**.
 
-* Si es comunicación de módulo a módulo, asegúrese de que está realizando la llamada en el puerto **4438** y el nombre del módulo coincide con lo que se implementa. 
+* En el caso de la comunicación de módulo a módulo, asegúrese de que está realizando la llamada en el puerto **4438** y de que el nombre del módulo coincide con lo que se implementa. 
 
   Por ejemplo, si el módulo de Event Grid se implementó con el nombre **eventgridmodule**, la dirección URL debe ser **https://eventgridmodule:4438** . Asegúrese de que el uso de mayúsculas y el número de puerto son correctos.
     
@@ -60,7 +61,7 @@ sudo docker logs eventgridmodule
 
 * En primer lugar, asegúrese de que el módulo de Event Grid tiene establecido **inbound:serverAuth:tlsPolicy** en **estricto**  o **deshabilitado**.
 
-* Si es comunicación de módulo a módulo, asegúrese de que está realizando la llamada en el puerto **5888** y el nombre del módulo coincide con lo que se implementa. 
+* En el caso de la comunicación de módulo a módulo, asegúrese de que está realizando la llamada en el puerto **5888** y de que el nombre del módulo coincide con lo que se implementa. 
 
   Por ejemplo, si el módulo de Event Grid se implementó con el nombre **eventgridmodule**, la dirección URL debe ser **http://eventgridmodule:5888** . Asegúrese de que el uso de mayúsculas y el número de puerto son correctos.
     
@@ -84,13 +85,13 @@ De forma predeterminada, el módulo de Event Grid está configurado para autenti
 
 La clase **IoTSecurity** en [https://github.com/Azure/event-grid-iot-edge](https://github.com/Azure/event-grid-iot-edge) muestra cómo recuperar certificados del demonio de seguridad de IoT Edge y cómo usarlos para configurar las llamadas salientes.
 
-Si se trata de un entorno que no es de producción, tiene la opción de desactivar la autenticación de cliente. Consulte [Seguridad y autenticación](security-authentication.md) para obtener más información sobre cómo hacerlo.
+Si se trata de un entorno que no es de producción, tiene la opción de desactivar la autenticación de cliente. Para más información, consulte [Seguridad y autenticación](security-authentication.md).
 
 ## <a name="debug-events-not-received-by-subscriber"></a>El suscriptor no recibe los eventos de depuración
 
 Los motivos comunes son:
 
-* El evento nunca se publicó correctamente. Al publicar un evento en el módulo de Event Grid, se debe recibir un código de estado de HTTP 200 (correcto).
+* El evento nunca se publicó correctamente. Al publicar un evento en el módulo de Event Grid, el cliente debe haber recibido un código de estado de HTTP 200 (correcto).
 
 * Compruebe la suscripción del evento para comprobar que:
     * La dirección URL del punto de conexión es válida

@@ -8,12 +8,12 @@ ms.date: 4/8/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: 625f69b0088ffe6931410afc6f2a825c3156fd70
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 8b8205681da7ea24fdafcef337ad903fff06c589
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209956"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474635"
 ---
 # <a name="event-notifications"></a>Notificaciones de eventos
 
@@ -234,7 +234,7 @@ Estos son los campos del cuerpo de una notificación de cambio de relación.
 | `specversion` | *1.0*<br>El mensaje se ajusta a esta versión de la [especificación CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete` |
 | `datacontenttype` | `application/json` |
-| `subject` | Identificador de la relación, como `<twinID>/relationships/<relationshipID>` |
+| `subject` | Identificador de la relación, como `<twin-ID>/relationships/<relationshipID>` |
 | `time` | Marca de tiempo para el momento en que se produjo la relación. |
 | `traceparent` | Un contexto de seguimiento de W3C para el evento. |
 
@@ -280,7 +280,7 @@ Estos son los campos del cuerpo de un mensaje de telemetría.
 | Nombre    | Value |
 | --- | --- |
 | `id` | Identificador de la notificación, que proporciona el cliente al llamar a la API de telemetría. |
-| `source` | Nombre completo del gemelo al que se envió el evento de telemetría. Utilice el siguiente formato: `<yourDigitalTwinInstance>.api.<yourRegion>.digitaltwins.azure.net/<twinId>`. |
+| `source` | Nombre completo del gemelo al que se envió el evento de telemetría. Utilice el siguiente formato: `<your-Digital-Twin-instance>.api.<your-region>.digitaltwins.azure.net/<twin-ID>`. |
 | `specversion` | *1.0*<br>El mensaje se ajusta a esta versión de la [especificación CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `microsoft.iot.telemetry` |
 | `data` | Mensaje de telemetría que se ha enviado a los gemelos. La carga está sin modificar y puede que no se alinee con el esquema del gemelo al que se ha enviado la telemetría. |

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: cfcb3a5a601afadb9f3fcd71c24e18a9d7f27b9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 69c1acff7c03ce44ff70b4feb99105a7fbd8ee30
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98946417"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190245"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configuración de la replicación de clústeres de Apache HBase en redes virtuales de Azure
 
@@ -367,15 +367,15 @@ La sección `print_usage()` del [script](https://github.com/Azure/hbase-utils/bl
 
 - **Copiar tablas específicas (test1, test2 y test3) con todas las filas editadas hasta ahora (marca de tiempo actual)**:
 
-  `-m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow`
+  `-m hn1 -t "test1::;test2::;test3::" -p "<zookeepername1>;<zookeepername2>;<zookeepername3>:2181:/hbase-unsecure" -everythingTillNow`
 
   O:
 
-  `-m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow`
+  `-m hn1 -t "test1::;test2::;test3::" --replication-peer="<zookeepername1>;<zookeepername2>;<zookeepername3>:2181:/hbase-unsecure" -everythingTillNow`
 
 - **Copiar tablas específicas con un intervalo de tiempo especificado**:
 
-  `-m hn1 -t "table1:0:452256397;table2:14141444:452256397" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure"`
+  `-m hn1 -t "table1:0:452256397;table2:14141444:452256397" -p "<zookeepername1>;<zookeepername2>;<zookeepername3>:2181:/hbase-unsecure"`
 
 ## <a name="disable-replication"></a>Deshabilitar replicación
 

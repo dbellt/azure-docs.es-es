@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 09/18/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 687c3d49f98fe6832d23dc1529a9761d862e0666
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: f6a32bdef2269e1235534ca99144a61c5ea023db
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830887"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110463378"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Habilitación de Update Management mediante una plantilla de Azure Resource Manager
 
@@ -22,8 +22,6 @@ Puede usar una [plantilla de Azure Resource Manager](../../azure-resource-manage
 * El vínculo de la cuenta de Automation al área de trabajo de Log Analytics.
 * Agrega runbooks de Automation de ejemplo a la cuenta.
 * Habilita la característica Update Management.
-
-La plantilla no automatiza la habilitación de Update Management en una o varias máquinas virtuales de Azure o que no son de Azure.
 
 Si ya tiene un área de trabajo de Log Analytics y una cuenta de Automation implementada en una región admitida de la suscripción, no se vinculan. Con esta plantilla se crea correctamente el vínculo y se implementa Update Management.
 

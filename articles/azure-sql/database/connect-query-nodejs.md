@@ -10,14 +10,14 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-ms.date: 05/29/2020
+ms.date: 05/19/2021
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-js
-ms.openlocfilehash: 0eb06e756601f987b9a0f652f13943ea876252df
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 31901c456c31b5b63bb6e7201dcb9a980107a89a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107929478"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110473663"
 ---
 # <a name="quickstart-use-nodejs-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Inicio rápido: Uso de Node.js para consultar una base de datos de Azure SQL Database o Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -153,6 +153,8 @@ Abra un símbolo del sistema y cree una carpeta denominada *sqltest*. Abra la ca
         queryDatabase();
       }
     });
+    
+    connection.connect();
 
     function queryDatabase() {
       console.log("Reading rows from the Table...");

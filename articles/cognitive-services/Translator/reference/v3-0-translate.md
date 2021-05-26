@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 08/06/2020
+ms.date: 05/12/2021
 ms.author: lajanuar
-ms.openlocfilehash: 7c92fb7f5de5542af08d1335bea745557a330f0d
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 431e42e422ecbaeb0e404928a505cf90180f6dd7
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107506013"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379343"
 ---
 # <a name="translator-30-translate"></a>Traductor 3.0: Translate
 
@@ -35,93 +35,41 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
 
 ### <a name="required-parameters"></a>Parámetros obligatorios
 
-<table width="100%">
-  <th width="20%">Parámetro de consulta</th>
-  <th>Descripción</th>
-  <tr>
-    <td>api-version</td>
-    <td><em>Parámetro obligatorio</em>.<br/>Versión de la API que el cliente solicitó. El valor debe ser <code>3.0</code>.</td>
-  </tr>
-  <tr>
-    <td>to</td>
-    <td><em>Parámetro obligatorio</em>.<br/>Especifica el idioma del texto de salida. El idioma de destino debe ser uno de los <a href="./v3-0-languages.md">idiomas admitidos</a> que están incluidos en el ámbito <code>translation</code>. Por ejemplo, utilice <code>to=de</code> para traducir al alemán.<br/>Es posible traducir a varios idiomas simultáneamente mediante la repetición del parámetro en la cadena de consulta. Por ejemplo, utilice <code>to=de&to=it</code> para traducir al alemán e italiano.</td>
-  </tr>
-</table>
+| Parámetro de consulta | Descripción |
+| --- | --- |
+| api-version | _Parámetro obligatorio_.  <br>Versión de la API que el cliente solicitó. El valor debe ser `3.0`. |
+| to  | _Parámetro obligatorio_.  <br>Especifica el idioma del texto de salida. El idioma de destino debe ser uno de los [idiomas admitidos](v3-0-languages.md) que están incluidos en el ámbito `translation`. Por ejemplo, utilice `to=de` para traducir al alemán.  <br>Es posible traducir a varios idiomas simultáneamente mediante la repetición del parámetro en la cadena de consulta. Por ejemplo, utilice `to=de&to=it` para traducir al alemán e italiano. |
 
 ### <a name="optional-parameters"></a>Parámetros opcionales
 
-<table width="100%">
-  <th width="20%">Parámetro de consulta</th>
-  <th>Descripción</th>
-  <tr>
-    <td>desde</td>
-    <td><em>Parámetro opcional</em>.<br/>Especifica el idioma del texto de entrada. Busque los idiomas que están disponibles desde los que realizar la traducción mediante la busca de <a href="./v3-0-languages.md">idiomas admitidos</a> con el ámbito <code>translation</code>. Si no se ha especificado el parámetro <code>from</code>, se aplica la detección de idioma automática para determinar el idioma de origen. <br/><br/>Debe usar el parámetro <code>from</code> en lugar de la detección automática cuando use la característica de <a href="/azure/cognitive-services/translator/dynamic-dictionary">diccionario dinámico</a>.</td>
-  </tr>  
-  <tr>
-    <td>textType</td>
-    <td><em>Parámetro opcional</em>.<br/>Define si el texto que se está traduciendo es texto sin formato o texto HTML. El código HTML debe ser un elemento completo y bien formado. Los possible valores son: <code>plain</code> (predeterminado) o <code>html</code>.</td>
-  </tr>
-  <tr>
-    <td>category</td>
-    <td><em>Parámetro opcional</em>.<br/>Una cadena que especifica la categoría (dominio) de la traducción. Este parámetro se utiliza para obtener las traducciones de un sistema personalizado creado con <a href="../customization.md">Custom Translator</a>. Agregue el identificador de categoría de los <a href="/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">detalles del proyecto</a> de Traductor personalizado a este parámetro para usar el sistema personalizado implementado. El valor predeterminado es <code>general</code>.</td>
-  </tr>
-  <tr>
-    <td>profanityAction</td>
-    <td><em>Parámetro opcional</em>.<br/>Especifica cómo se deben tratar las palabras soeces en las traducciones. Los valores posibles son <code>NoAction</code> (valor predeterminado), <code>Marked</code> o <code>Deleted</code>. Para entender las maneras de tratar las palabras soeces, consulte <a href="#handle-profanity">Control de palabras soeces</a>.</td>
-  </tr>
-  <tr>
-    <td>profanityMarker</td>
-    <td><em>Parámetro opcional</em>.<br/>Especifica cómo deben marcarse las palabras soeces en las traducciones. Los valores posibles son <code>Asterisk</code> (valor predeterminado) o <code>Tag</code>. Para entender las maneras de tratar las palabras soeces, consulte <a href="#handle-profanity">Control de palabras soeces</a>.</td>
-  </tr>
-  <tr>
-    <td>includeAlignment</td>
-    <td><em>Parámetro opcional</em>.<br/>Especifica si se debe incluir la proyección de la alineación del texto de origen en el texto traducido. Los valores posibles son <code>true</code> o <code>false</code> (valor predeterminado). </td>
-  </tr>
-  <tr>
-    <td>includeSentenceLength</td>
-    <td><em>Parámetro opcional</em>.<br/>Especifica si se deben incluir los límites de oraciones del texto de entrada y el texto traducido. Los valores posibles son <code>true</code> o <code>false</code> (valor predeterminado).</td>
-  </tr>
-  <tr>
-    <td>suggestedFrom</td>
-    <td><em>Parámetro opcional</em>.<br/>Especifica un idioma de reserva si no se puede identificar el idioma del texto de entrada. La detección de idioma automática se aplica cuando se omite el parámetro <code>from</code>. Si se produce un error en la detección, se asume el idioma <code>suggestedFrom</code>.</td>
-  </tr>
-  <tr>
-    <td>fromScript</td>
-    <td><em>Parámetro opcional</em>.<br/>Especifica el script del texto de entrada.</td>
-  </tr>
-  <tr>
-    <td>toScript</td>
-    <td><em>Parámetro opcional</em>.<br/>Especifica el script del texto traducido.</td>
-  </tr>
-  <tr>
-    <td>allowFallback</td>
-    <td><em>Parámetro opcional</em>.<br/>Especifica que el servicio puede recurrir a un sistema general cuando no existe un sistema personalizado. Los valores posibles son <code>true</code> (valor predeterminado) o <code>false</code>.<br/><br/><code>allowFallback=false</code> especifica que la traducción solo debe usar sistemas entrenados para la <code>category</code> especificada por la solicitud. Si una traducción del idioma X al idioma Y requiere de encadenamiento a través de un idioma puente E, entonces todos los sistemas de la cadena (X -> E y E -> Y) deberán estar personalizados y tener la misma categoría. Si no se encuentra ningún sistema con la categoría específica, la solicitud devolverá un código de estado de 400. <code>allowFallback=true</code> especifica que el servicio puede recurrir a un sistema general cuando no existe un sistema personalizado.
-</td>
-  </tr>
-</table> 
+
+
+| Parámetro de consulta | Descripción |
+| --- | --- |
+
+
+| Parámetro de consulta | Descripción |
+| --- | --- |
+| desde | _Parámetro opcional_.  <br>Especifica el idioma del texto de entrada. Busque los idiomas que están disponibles desde los que realizar la traducción mediante la busca de [idiomas admitidos](../reference/v3-0-languages.md) con el ámbito `translation`. Si no se ha especificado el parámetro `from`, se aplica la detección de idioma automática para determinar el idioma de origen.  <br>  <br>Debe usar el parámetro `from` en lugar de la detección automática cuando use la característica de [diccionario dinámico](/azure/cognitive-services/translator/dynamic-dictionary). |
+| textType | _Parámetro opcional_.  <br>Define si el texto que se está traduciendo es texto sin formato o texto HTML. El código HTML debe ser un elemento completo y bien formado. Los valores posibles son `plain` (valor predeterminado) o `html`. |
+| category | _Parámetro opcional_.  <br>Una cadena que especifica la categoría (dominio) de la traducción. Este parámetro se utiliza para obtener las traducciones de un sistema personalizado creado con [Custom Translator](../customization.md). Agregue el identificador de categoría de los [detalles del proyecto](/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details) de Traductor personalizado a este parámetro para usar el sistema personalizado implementado. El valor predeterminado es `general`. |
+| profanityAction | _Parámetro opcional_.  <br>Especifica cómo se deben tratar las palabras soeces en las traducciones. Los valores posibles son `NoAction` (valor predeterminado), `Marked` o `Deleted`. Para entender las maneras de tratar las palabras soeces, consulte [Control de palabras soeces](#handle-profanity). |
+| profanityMarker | _Parámetro opcional_.  <br>Especifica cómo deben marcarse las palabras soeces en las traducciones. Los valores posibles son `Asterisk` (valor predeterminado) o `Tag`. Para entender las maneras de tratar las palabras soeces, consulte [Control de palabras soeces](#handle-profanity). |
+| includeAlignment | _Parámetro opcional_.  <br>Especifica si se debe incluir la proyección de la alineación del texto de origen en el texto traducido. Los valores posibles son `true` o `false` (valor predeterminado). |
+| includeSentenceLength | _Parámetro opcional_.  <br>Especifica si se deben incluir los límites de oraciones del texto de entrada y el texto traducido. Los valores posibles son `true` o `false` (valor predeterminado). |
+| suggestedFrom | _Parámetro opcional_.  <br>Especifica un idioma de reserva si no se puede identificar el idioma del texto de entrada. La detección automática de idioma se aplica cuando se omite el parámetro `from`. Si se produce un error en la detección, se asume el idioma `suggestedFrom`. |
+| fromScript | _Parámetro opcional_.  <br>Especifica el script del texto de entrada. |
+| toScript | _Parámetro opcional_.  <br>Especifica el script del texto traducido. |
+| allowFallback | _Parámetro opcional_.  <br>Especifica que el servicio tiene permiso para recurrir a un sistema general cuando no existe uno personalizado. Los valores posibles son `true` (valor predeterminado) o `false`.  <br>  <br>`allowFallback=false` especifica que la traducción solo debe usar sistemas entrenados para la `category` especificada por la solicitud. Si una traducción del idioma X al idioma Y requiere de encadenamiento a través de un idioma puente E, entonces todos los sistemas de la cadena (X -> E y E -> Y) deberán estar personalizados y tener la misma categoría. Si no se encuentra ningún sistema con la categoría específica, la solicitud devolverá un código de estado de 400. `allowFallback=true` especifica que el servicio tiene permiso para recurrir a un sistema general cuando no existe uno personalizado. |
 
 Los encabezados de solicitud incluyen lo siguiente:
 
-<table width="100%">
-  <th width="20%">encabezados</th>
-  <th>Descripción</th>
-  <tr>
-    <td>Encabezados de autenticación</td>
-    <td><em>Encabezado de solicitud obligatorio</em>.<br/>Consulte las <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opciones disponibles para la autenticación</a>.</td>
-  </tr>
-  <tr>
-    <td>Content-Type</td>
-    <td><em>Encabezado de solicitud obligatorio</em>.<br/>Especifica el tipo de contenido de la carga.<br/> El valor aceptado es <code>application/json; charset=UTF-8</code>.</td>
-  </tr>
-  <tr>
-    <td>Content-Length</td>
-    <td><em>Encabezado de solicitud obligatorio</em>.<br/>Longitud del cuerpo de la solicitud.</td>
-  </tr>
-  <tr>
-    <td>X-ClientTraceId</td>
-    <td><em>Opcional</em>.<br/>GUID generado por el cliente para identificar de forma única la solicitud. Puede omitir este encabezado si incluye el id. de seguimiento en la cadena de la consulta mediante un parámetro de consulta denominado <code>ClientTraceId</code>.</td>
-  </tr>
-</table> 
+| encabezados | Descripción |
+| --- | --- |
+| Encabezados de autenticación | _Encabezado de solicitud obligatorio_.  <br>Consulte las [opciones disponibles para la autenticación](/azure/cognitive-services/translator/reference/v3-0-reference#authentication). |
+| Content-Type | _Encabezado de solicitud obligatorio_.  <br>Especifica el tipo de contenido de la carga.  <br>El valor aceptado es `application/json; charset=UTF-8`. |
+| Content-Length | _Encabezado de solicitud obligatorio_.  <br>Longitud del cuerpo de la solicitud. |
+| X-ClientTraceId | _Opcional_.  <br>GUID generado por el cliente para identificar de forma única la solicitud. Puede omitir este encabezado si incluye el id. de seguimiento en la cadena de la consulta mediante un parámetro de consulta denominado `ClientTraceId`. |
 
 ## <a name="request-body"></a>Cuerpo de la solicitud
 
@@ -148,7 +96,7 @@ Una respuesta correcta es una matriz JSON con un resultado para cada cadena en l
 
       * `score`: valor flotante que indica la confianza en el resultado. La puntuación varía entre cero y uno, y una puntuación baja indica una confianza baja.
 
-    La propiedad `detectedLanguage` solo está presente en el objeto de resultado cuando se solicita la detección de idioma automática.
+    La propiedad `detectedLanguage` solo está presente en el objeto de resultado cuando se solicita la detección automática de idioma.
 
   * `translations`: matriz de resultados de la traducción. El tamaño de la matriz coincide con el número de idiomas de destino especificados a través del parámetro de consulta `to`. Cada elemento de la matriz incluye:
 
@@ -158,7 +106,7 @@ Una respuesta correcta es una matriz JSON con un resultado para cada cadena en l
 
     * `transliteration`: objeto que proporciona el texto traducido en el script especificado por el parámetro `toScript`.
 
-      * `script`: cadena que especifica el script de destino.   
+      * `script`: cadena que especifica el script de destino.
 
       * `text`: cadena que proporciona el texto traducido en el script de destino.
 
@@ -180,61 +128,22 @@ En la sección de [ejemplos](#examples) se proporcionan ejemplos de respuestas J
 
 ## <a name="response-headers"></a>Encabezados de respuesta
 
-<table width="100%">
-  <th width="20%">encabezados</th>
-  <th>Descripción</th>
-    <tr>
-    <td>X-RequestId</td>
-    <td>Valor generado por el servicio para identificar la solicitud. Se usa para solucionar problemas.</td>
-  </tr>
-  <tr>
-    <td>Sistema X-MT</td>
-    <td>Especifica el tipo de sistema que se usó para la traducción en cada idioma de 'destino' solicitado para la traducción. El valor es una lista de cadenas separadas por comas. Cada cadena indica un tipo:<br/><ul><li>Custom: la solicitud incluye un sistema personalizado y se usó al menos un sistema personalizado durante la traducción.</li><li>Team: todas las demás solicitudes.</li></td>
-  </tr>
-</table> 
+| encabezados | Descripción |
+| --- | --- |
+| X-RequestId | Valor generado por el servicio para identificar la solicitud. Se usa para solucionar problemas. |
+| Sistema X-MT | Especifica el tipo de sistema que se usó para la traducción en cada idioma de 'destino' solicitado para la traducción. El valor es una lista de cadenas separadas por comas. Cada cadena indica un tipo:  <br><br>* Custom: la solicitud incluye un sistema personalizado y se ha usado al menos un sistema personalizado durante la traducción.<br>* Team: todas las demás solicitudes. |
 
 ## <a name="response-status-codes"></a>Códigos de estado de respuesta
 
-A continuación se indican los códigos de estado HTTP posibles que devuelve una solicitud. 
+A continuación se indican los códigos de estado HTTP posibles que devuelve una solicitud.
 
-<table width="100%">
-  <th width="20%">Código de estado</th>
-  <th>Descripción</th>
-  <tr>
-    <td>200</td>
-    <td>Correcto.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>Uno de los parámetros de consulta falta o no es válido. Corrija los parámetros de la solicitud antes de volver a intentarlo.</td>
-  </tr>
-  <tr>
-    <td>401</td>
-    <td>No pudo autenticarse la solicitud. Compruebe que las credenciales que se especificaron sean correctas.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>La solicitud no está autenticada. Compruebe los detalles del mensaje de error. Esto a menudo indica que todas las traducciones gratuitas que proporciona la suscripción de prueba se han agotado.</td>
-  </tr>
-  <tr>
-    <td>408</td>
-    <td>No se pudo satisfacer la solicitud porque falta un recurso. Compruebe los detalles del mensaje de error. Cuando se usa una <code>category</code> personalizada, a menudo, esto indica que el sistema de traducción personalizada todavía no está disponible para atender las solicitudes. Se debe reintentar la solicitud tras un período de espera (por ejemplo, 1 minuto).</td>
-  </tr>
-  <tr>
-    <td>429</td>
-    <td>El servidor rechazó la solicitud porque el cliente superó los límites de solicitudes.</td>
-  </tr>
-  <tr>
-    <td>500</td>
-    <td>Se ha producido un error inesperado. Si el error continúa, notifíquelo con: fecha y hora del error, identificador de la solicitud del encabezado de respuesta <code>X-RequestId</code> e identificador de cliente del encabezado de solicitud <code>X-ClientTraceId</code>.</td>
-  </tr>
-  <tr>
-    <td>503</td>
-    <td>Servidor no disponible temporalmente. Vuelva a intentarlo. Si el error continúa, notifíquelo con: fecha y hora del error, identificador de la solicitud del encabezado de respuesta <code>X-RequestId</code> e identificador de cliente del encabezado de solicitud <code>X-ClientTraceId</code>.</td>
-  </tr>
-</table> 
+| ProfanityAction | Acción |
+| --- | --- |
+| `NoAction` |NoAction es el comportamiento predeterminado. Las palabras soeces pasarán del origen al destino.  <br>  <br>**Ejemplo de origen (japonés)**: 彼はジャッカスです。  <br>**Ejemplo de traducción (español)**: Es un idiota. |
+| `Deleted` | Las palabras soeces se quitarán de la salida sin reemplazo.  <br>  <br>**Ejemplo de origen (japonés)**: 彼はジャッカスです。  <br>**Ejemplo de traducción (español)** : Es  |
+| `Marked` | Las palabras soeces se reemplazan por un marcador en la salida. El marcador depende del parámetro `ProfanityMarker`.  <br>  <br>En el caso de `ProfanityMarker=Asterisk`, las palabras soeces se reemplazan por `***`:  <br>**Ejemplo de origen (japonés)**: 彼はジャッカスです。  <br>**Ejemplo de traducción (español)** : Es un \\ *\\* \\*.  <br>  <br>En el caso de `ProfanityMarker=Tag`, las palabras soeces aparecerán rodeadas por las etiquetas XML &lt;profanity&gt; y &lt;/profanity&gt;:  <br>**Ejemplo de origen (japonés)**: 彼はジャッカスです。  <br>**Ejemplo de traducción (español)**: Es un &lt;profanity&gt;estúpido&lt;/profanity&gt;. |
 
-Si se produce un error, la solicitud también devolverá una respuesta de error JSON. El código de error es un número de 6 dígitos que combina el código de estado HTTP de 3 dígitos y otro número de 3 dígitos que ayuda a categorizar aún más el error. En la [página de referencia de Traductor v3](./v3-0-reference.md#errors) pueden encontrarse los códigos de error comunes. 
+Si se produce un error, la solicitud también devolverá una respuesta de error JSON. El código de error es un número de 6 dígitos que combina el código de estado HTTP de 3 dígitos y otro número de 3 dígitos que ayuda a categorizar aún más el error. En la [página de referencia de Traductor v3](./v3-0-reference.md#errors) pueden encontrarse los códigos de error comunes.
 
 ## <a name="examples"></a>Ejemplos
 
@@ -260,7 +169,7 @@ El cuerpo de la respuesta es:
 
 La matriz `translations` incluye un elemento, que proporciona la traducción de la parte única de texto en la entrada.
 
-### <a name="translate-a-single-input-with-language-auto-detection"></a>Traducción de una única entrada con la detección de idioma automática
+### <a name="translate-a-single-input-with-language-autodetection"></a>Traducción de una única entrada con la detección automática de idioma
 
 En este ejemplo se muestra cómo traducir una única oración del inglés al chino simplificado. La solicitud no especifica el idioma de entrada. En su lugar, se usa la detección automática del idioma de origen.
 
@@ -280,7 +189,7 @@ El cuerpo de la respuesta es:
     }
 ]
 ```
-La respuesta es similar a la respuesta del ejemplo anterior. Dado que se solicitó la detección de idioma automática, la respuesta también incluye información sobre el idioma detectado del texto de entrada. La detección automática de idioma funciona mejor con texto de entrada más largo.
+La respuesta es similar a la respuesta del ejemplo anterior. Dado que se ha solicitado la detección automática de idioma, la respuesta también incluye información sobre el idioma detectado con relación al texto de entrada. La detección automática de idioma funciona mejor con texto de entrada más largo.
 
 ### <a name="translate-with-transliteration"></a>Traducción con transliteración
 
@@ -326,7 +235,7 @@ El cuerpo de la respuesta es:
         "translations":[
             {"text":"你好, 你叫什么名字？","to":"zh-Hans"}
         ]
-    },            
+    },
     {
         "translations":[
             {"text":"我很好，谢谢你。","to":"zh-Hans"}
@@ -362,41 +271,19 @@ Normalmente, el servicio de Traductor conserva las palabras soeces que están pr
 
 Si quiere evitar obtener palabras soeces en la traducción, independientemente de su presencia en el texto de origen, puede usar la opción de filtrado de palabras soeces. La opción permite elegir si quiere que se eliminen las palabras soeces, si quiere marcarlas con etiquetas adecuadas (lo que le ofrece la opción de agregar su propio postprocesamiento) o si no quiere que se realice ninguna acción. Los valores aceptados de `ProfanityAction` son `Deleted`, `Marked` y `NoAction` (valor predeterminado).
 
-<table width="100%">
-  <th width="20%">ProfanityAction</th>
-  <th>Acción</th>
-  <tr>
-    <td><code>NoAction</code></td>
-    <td>Este es el comportamiento predeterminado. Las palabras soeces pasarán del origen al destino.<br/><br/>
-    <strong>Ejemplo de origen (japonés)</strong>: 彼はジャッカスです。<br/>
-    <strong>Ejemplo de traducción (español)</strong>: Es un idiota.
-    </td>
-  </tr>
-  <tr>
-    <td><code>Deleted</code></td>
-    <td>Las palabras soeces se quitarán de la salida sin reemplazo.<br/><br/>
-    <strong>Ejemplo de origen (japonés)</strong>: 彼はジャッカスです。<br/>
-    <strong>Ejemplo de traducción (español)</strong>: Es un.
-    </td>
-  </tr>
-  <tr>
-    <td><code>Marked</code></td>
-    <td>Las palabras soeces se reemplazan por un marcador en la salida. El marcador depende del parámetro <code>ProfanityMarker</code>.<br/><br/>
-En el caso de <code>ProfanityMarker=Asterisk</code>, las palabras soeces se reemplazan por <code>***</code>:<br/>
-    <strong>Ejemplo de origen (japonés)</strong>: 彼はジャッカスです。<br/>
-    <strong>Ejemplo de traducción (español)</strong>: Es un \*\*\*.<br/><br/>
-En el caso de <code>ProfanityMarker=Tag</code>, las palabras soeces aparecerán rodeadas por las etiquetas XML &lt;profanity&gt; y &lt;/profanity&gt;:<br/>
-    <strong>Ejemplo de origen (japonés)</strong>: 彼はジャッカスです。<br/>
-    <strong>Ejemplo de traducción (español)</strong>: Es un &lt;profanity&gt;estúpido&lt;/profanity&gt;.
-  </tr>
-</table> 
+
+| ProfanityAction | Acción |
+| --- | --- |
+| `NoAction` | NoAction es el comportamiento predeterminado. Las palabras soeces pasarán del origen al destino.  <br>  <br>**Ejemplo de origen (japonés)**: 彼はジャッカスです。  <br>**Ejemplo de traducción (español)**: Es un idiota. |
+| `Deleted` | Las palabras soeces se quitarán de la salida sin reemplazo.  <br>  <br>**Ejemplo de origen (japonés)**: 彼はジャッカスです。  <br>**Ejemplo de traducción (español)**: Es un. |
+| `Marked` | Las palabras soeces se reemplazan por un marcador en la salida. El marcador depende del parámetro `ProfanityMarker`.  <br>  <br>En el caso de `ProfanityMarker=Asterisk`, las palabras soeces se reemplazan por `***`:  <br>**Ejemplo de origen (japonés)**: 彼はジャッカスです。  <br>**Ejemplo de traducción (español)** : Es un \\ *\\* \\*.  <br>  <br>En el caso de `ProfanityMarker=Tag`, las palabras soeces aparecerán rodeadas por las etiquetas XML &lt;profanity&gt; y &lt;/profanity&gt;:  <br>**Ejemplo de origen (japonés)**: 彼はジャッカスです。  <br>**Ejemplo de traducción (español)**: Es un &lt;profanity&gt;estúpido&lt;/profanity&gt;. |
 
 Por ejemplo:
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
-Esto devuelve:
+Esta solicitud devuelve lo siguiente:
 
 ```
 [
@@ -428,7 +315,7 @@ La última solicitud devuelve:
 
 ### <a name="translate-content-with-markup-and-decide-whats-translated"></a>Traducción del contenido con marcado y decisión de qué traducir
 
-Es común traducir el contenido que incluye marcado como contenido de una página HTML o de un documento XML. Incluya el parámetro de consulta `textType=html` al traducir contenido con etiquetas. Además, a veces resulta útil para excluir contenido específico de la traducción. Puede utilizar el atributo `class=notranslate` para especificar contenido que debería permanecer en el idioma original. En el ejemplo siguiente, el contenido del primer elemento `div` no se traducirá, mientras que el del segundo elemento `div`, sí.
+Es habitual traducir el contenido que incluye marcado, como contenido de una página HTML o de un documento XML. Incluya el parámetro de consulta `textType=html` al traducir contenido con etiquetas. Además, a veces resulta útil para excluir contenido específico de la traducción. Puede utilizar el atributo `class=notranslate` para especificar contenido que debería permanecer en el idioma original. En el ejemplo siguiente, el contenido del primer elemento `div` no se traducirá, mientras que el del segundo elemento `div`, sí.
 
 ```
 <div class="notranslate">This will not be translated.</div>
@@ -494,8 +381,8 @@ La obtención de información de alineación es una característica experimental
 * La alineación solo se devuelve para un subconjunto de pares de idiomas:
   - De inglés a cualquier otro idioma o viceversa, excepto el chino tradicional, cantonés (tradicional) o serbio (cirílico).
   - de japonés a coreano, o viceversa.
-  - De japonés a chino simplificado y de chino simplificado a japonés. 
-  - De chino simplificado a chino tradicional y de chino tradicional a chino simplificado. 
+  - De japonés a chino simplificado y de chino simplificado a japonés.
+  - De chino simplificado a chino tradicional y de chino tradicional a chino simplificado.
 * No recibirá alineación si la oración es una traducción preestablecida. Un ejemplo de traducción preestablecida es "Esto es una prueba", "Te quiero" y otras frases que se usan con mucha frecuencia.
 * La alineación no está disponible cuando se aplica cualquiera de los enfoques para evitar la traducción como se describe [aquí](../prevent-translation.md)
 
@@ -529,7 +416,7 @@ Si ya conoce la traducción que quiere aplicar a una palabra o frase, puede prop
 
 El marcado que se va a proporcionar utiliza la sintaxis siguiente.
 
-``` 
+```
 <mstrans:dictionary translation="translation of phrase">phrase</mstrans:dictionary>
 ```
 

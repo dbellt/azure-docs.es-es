@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 52e900be177cef3468e99a0707e6458924a3c3c1
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 68c2cfeec9ef2aaa73c1553c8b50150564986e88
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714699"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465252"
 ---
 # <a name="detect-common-objects-in-images"></a>Detección de objetos comunes en imágenes
 
@@ -99,4 +99,4 @@ Es importante tener en cuenta las limitaciones de la detección de objetos para 
 
 La característica de detección de objetos forma parte de la API [de análisis de imágenes](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b). Puede llamar a esta API mediante una SDK nativa o con llamadas a REST. Incluya `Objects` en el parámetro de consulta **visualFeatures**. Después, cuando llegue la respuesta JSON completa, simplemente analice la cadena con el contenido de la sección `"objects"`.
 
-* [Inicio rápido: API REST Computer Vision o bibliotecas cliente](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Inicio rápido: API REST Computer Vision o bibliotecas cliente](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)

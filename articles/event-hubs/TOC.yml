@@ -4,20 +4,12 @@
   items:
     - name: ¿Qué es Event Hubs?
       href: event-hubs-about.md
-    - name: Event Hubs para Apache Kafka
-      href: event-hubs-for-kafka-ecosystem-overview.md
-    - name: Captura de Event Hubs
-      href: event-hubs-capture-overview.md
-    - name: Event Hubs dedicado
-      href: event-hubs-dedicated-overview.md
-    - name: Registro de esquema de Azure en Event Hubs (versión preliminar)
-      href: schema-registry-overview.md
 - name: Guías de inicio rápido
   expanded: true
   items:
     - name: Creación de un centro de eventos
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: event-hubs-create.md
         - name: Azure CLI
           href: event-hubs-quickstart-cli.md
@@ -81,6 +73,16 @@
   items:
     - name: Terminología de Event Hubs
       href: event-hubs-features.md
+    - name: Event Hubs Premium
+      href: event-hubs-premium-overview.md
+    - name: Event Hubs para Apache Kafka
+      href: event-hubs-for-kafka-ecosystem-overview.md
+    - name: Captura de Event Hubs
+      href: event-hubs-capture-overview.md
+    - name: Event Hubs dedicado
+      href: event-hubs-dedicated-overview.md
+    - name: Registro de esquema de Azure en Event Hubs (versión preliminar)
+      href: schema-registry-overview.md
     - name: Host del procesador de eventos (SDK heredado)
       href: event-hubs-event-processor-host.md
     - name: Procesador de eventos (SDK más reciente)

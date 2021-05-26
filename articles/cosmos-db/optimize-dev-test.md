@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 3ddae808fbb2e3dcfe20909c8b3d0c5a20bb04bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/25/2021
+ms.openlocfilehash: 130499c2dd2b421be2c739ea392c1272069e7186
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98247529"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379291"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Optimización del coste de desarrollo y pruebas en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -24,12 +24,9 @@ El [emulador de Azure Cosmos DB](local-emulator.md) es una versión que se puede
 
 ## <a name="azure-cosmos-db-free-tier"></a>Nivel Gratis de Azure Cosmos DB
 
-El nivel Gratis de Azure Cosmos DB facilita la introducción, el desarrollo y la prueba de las aplicaciones, o incluso la ejecución de pequeñas cargas de trabajo de producción de forma gratuita. Cuando el nivel Gratis esté habilitado en una cuenta, obtendrá las primeras 400 RU/s y 5 GB de almacenamiento de la cuenta gratis. También puede crear una base de datos de rendimiento compartida con 25 contenedores que compartan 400 RU/s en el nivel de base de datos, todo ello incluido en el nivel Gratis (limitar cinco bases de datos de rendimiento compartido en una cuenta de nivel Gratis). Al usar el nivel gratis, si aprovisiona una base de datos compartida con un rendimiento mínimo de 400 RU/s, todos los contenedores de esa base de datos pueden compartir el rendimiento. Las bases de datos nuevas con rendimiento compartido o los contenedores con un rendimiento dedicado se facturan según los precios normales.
+El nivel Gratis de Azure Cosmos DB facilita la introducción, el desarrollo y la prueba de las aplicaciones, o incluso la ejecución de pequeñas cargas de trabajo de producción de forma gratuita. Cuando el nivel gratis esté habilitado en una cuenta, obtendrá las primeras 1000 RU/s y 25 GB de almacenamiento en la cuenta gratuita.
 
-> [!NOTE]
-> El nivel Gratis solo está disponible en modo de rendimiento aprovisionado.
-
-El nivel Gratis se mantiene indefinidamente durante la vigencia de la cuenta e incluye todas las [ventajas y características](introduction.md#key-benefits) de una cuenta de Azure Cosmos DB normal, incluidos el almacenamiento ilimitado y el rendimiento (RU/s), los Acuerdos de Nivel de Servicio, la alta disponibilidad, la distribución global llave en mano en todas las regiones de Azure y mucho más. Puede tener una cuenta de nivel Gratis por cada suscripción de Azure y debe optar por tenerla al crear la cuenta. Para empezar, [cree una cuenta en Azure Portal con el nivel gratis habilitado](create-cosmosdb-resources-portal.md) o use una [plantilla de ARM](./manage-with-templates.md#free-tier). Consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/) para más información.
+El nivel Gratis se mantiene indefinidamente durante la vigencia de la cuenta e incluye todas las [ventajas y características](introduction.md#key-benefits) de una cuenta de Azure Cosmos DB normal, incluidos el almacenamiento ilimitado y el rendimiento (RU/s), los Acuerdos de Nivel de Servicio, la alta disponibilidad, la distribución global llave en mano en todas las regiones de Azure y mucho más. Puede crear una cuenta de nivel Gratis mediante Azure Portal, la CLI, PowerShell y una plantilla de Resource Manager. Para más información, consulte el artículo sobre cómo [crear una cuenta de nivel Gratis](free-tier.md) y la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Pruebe gratis Azure Cosmos DB
 

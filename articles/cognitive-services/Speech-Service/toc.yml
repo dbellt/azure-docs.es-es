@@ -116,7 +116,7 @@
           href: how-to-speech-synthesis-viseme.md
         - name: Personalización
           items:
-            - name: Portal de Voz personalizada
+            - name: Voz neuronal personalizada
               items:
                 - name: ¿Qué es la voz neuronal personalizada?
                   href: custom-neural-voice.md
