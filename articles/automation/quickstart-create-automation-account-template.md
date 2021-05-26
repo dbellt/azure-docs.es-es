@@ -11,12 +11,12 @@ ms.custom:
 - mvc
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 50a8c057a6fdf6350a18225cd2dc538942d6686d
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: effdb8ec511a6060fffb571864273a1f84901ab6
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538397"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110081305"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Inicio rápido: Creación de una cuenta de Automation mediante una plantilla de ARM
 
@@ -26,7 +26,7 @@ Azure Automation ofrece un servicio de configuración y de automatización basad
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-automation%2Fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.automation%2F101-automation%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -48,7 +48,7 @@ Después de completar estos pasos, debe [Configurar las opciones de diagnóstico
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-automation/).
 
-:::code language="json" source="~/quickstart-templates/101-automation/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.automation/101-automation/azuredeploy.json":::
 
 ### <a name="api-versions"></a>Versiones de API
 
@@ -92,7 +92,7 @@ Si no está familiarizado con Azure Automation y Azure Monitor, es importante qu
 
 1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea una cuenta de Azure Automation, un área de trabajo de Log Analytics y vincula la cuenta de Automation al área de trabajo.
 
-    [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-automation%2Fazuredeploy.json)
+    [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.automation%2F101-automation%2Fazuredeploy.json)
 
 2. Escriba los valores.
 
@@ -104,7 +104,7 @@ Si no está familiarizado con Azure Automation y Azure Monitor, es importante qu
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-2. En Azure Portal, abra la cuenta de Automation que acaba de crear. 
+2. En Azure Portal, abra la cuenta de Automation que acaba de crear.
 
 3. En el panel izquierdo, seleccione **Runbooks**. En la página **Runbooks**, se muestran tres runbooks de tutorial creados con la cuenta de Automation.
 

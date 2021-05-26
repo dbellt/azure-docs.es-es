@@ -7,20 +7,20 @@ ms.workload: infrastructure-services
 ms.author: cynthn
 author: cynthn
 ms.date: 10/26/2018
-ms.openlocfilehash: e7dd75a025b76773a0bf1e3b4f752b5a77db6786
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a07c3b2c95367debb375785effc15b69dc8de0a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98897381"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110087587"
 ---
 # <a name="tagging-a-vm-using-a-template"></a>Etiquetado de una máquina virtual mediante una plantilla
 
 En este artículo se describe cómo etiquetar una máquina virtual en Azure mediante una plantilla de Resource Manager. Las etiquetas son pares clave-valor definidos por el usuario que se pueden colocar directamente en un recurso o un grupo de recursos. Actualmente, Azure admite un máximo de 50 etiquetas por recurso y grupo de recursos. Las etiquetas se pueden colocar en un recurso en el momento de su creación, o bien se pueden agregar a un recurso existente.
 
-[Esta plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) coloca etiquetas en los siguientes recursos: proceso (máquina virtual), almacenamiento (cuenta de almacenamiento) y red (dirección IP pública, red virtual e interfaz de red). Esta plantilla es para una máquina virtual Windows, pero se puede adaptar a máquinas virtuales Linux.
+[Esta plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-tags) coloca etiquetas en los siguientes recursos: proceso (máquina virtual), almacenamiento (cuenta de almacenamiento) y red (dirección IP pública, red virtual e interfaz de red). Esta plantilla es para una máquina virtual Windows, pero se puede adaptar a máquinas virtuales Linux.
 
-Haga clic en el botón **Implementar en Azure** del [vínculo de la plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags). Esto le remitirá al [Portal de Azure](https://portal.azure.com/) , donde puede implementar esta plantilla.
+Haga clic en el botón **Implementar en Azure** del [vínculo de la plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-tags). Esto le remitirá al [Portal de Azure](https://portal.azure.com/) , donde puede implementar esta plantilla.
 
 ![Implementación sencilla con etiquetas](./media/tag/deploy-to-azure-tags.png)
 

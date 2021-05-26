@@ -8,12 +8,12 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 603c891e53e5712d489fcef8415e3db55328c9ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 271bcd12fea3a09a3a62570cee865292f7c413e6
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99988428"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064436"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guía de diseño de tablas de Azure Table Storage: Tablas escalables y eficaces
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -209,7 +209,7 @@ Estas son algunas directrices generales para diseñar consultas de Table Storage
 * La segunda mejor opción es una *consulta por rango*. Utiliza el `PartitionKey` y filtra en un intervalo de valores `RowKey` para devolver más de una entidad. El valor `PartitionKey` identifica una partición específica y los valores `RowKey` identifican un subconjunto de las entidades de esa partición. Por ejemplo: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
 * La tercera mejor opción es un *examen de partición*. Utiliza `PartitionKey` y filtra en función de otra propiedad que no sea clave y podría devolver más de una entidad. El valor `PartitionKey` identifica una partición específica y los valores de propiedad seleccionan un subconjunto de las entidades de esa partición. Por ejemplo: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
 * Un *recorrido de tabla* no incluye `PartitionKey` y es ineficaz, ya que busca en todas las particiones que componen la tabla todas las entidades coincidentes. Realiza un recorrido de tabla independientemente de si su filtro usa `RowKey`. Por ejemplo: `$filter=LastName eq 'Jones'`.  
-* Las consultas de Azure Table Storage que devuelven varias entidades las clasifican en orden `PartitionKey` y `RowKey`. Para evitar reordenar las entidades del cliente, seleccione un valor `RowKey` que defina el criterio de ordenación más común. Los resultados de consulta devueltos por la Table API de Azure en Azure Cosmos DB no se ordenan por clave de fila ni por clave de partición. Para obtener una lista detallada de las diferencias entre características, consulte las [diferencias entre Table API de Azure Cosmos DB y Azure Table Storage](table-api-faq.md#table-api-vs-table-storage).
+* Las consultas de Azure Table Storage que devuelven varias entidades las clasifican en orden `PartitionKey` y `RowKey`. Para evitar reordenar las entidades del cliente, seleccione un valor `RowKey` que defina el criterio de ordenación más común. Los resultados de consulta devueltos por la Table API de Azure en Azure Cosmos DB no se ordenan por clave de fila ni por clave de partición. Para obtener una lista detallada de las diferencias entre características, consulte las [diferencias entre Table API de Azure Cosmos DB y Azure Table Storage](/table-api-faq.yml#table-api-in-azure-cosmos-db-vs-azure-table-storage).
 
 Al usar "**or**" para especificar un filtro basado en valores `RowKey`, se generará un examen de partición y no se tratará como una consulta por rango. Por lo tanto, evite las consultas que utilizan filtros como `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`.  
 
@@ -251,7 +251,7 @@ Muchos diseños deben cumplir los requisitos para habilitar la búsqueda de enti
 Table Storage devuelve los resultados de la consulta ordenados de forma ascendente, en función de `PartitionKey` y, luego, `RowKey`.
 
 > [!NOTE]
-> Los resultados de consulta devueltos por la Table API de Azure en Azure Cosmos DB no se ordenan por clave de fila ni por clave de partición. Para obtener una lista detallada de las diferencias entre características, consulte las [diferencias entre Table API de Azure Cosmos DB y Azure Table Storage](table-api-faq.md#table-api-vs-table-storage).
+> Los resultados de consulta devueltos por la Table API de Azure en Azure Cosmos DB no se ordenan por clave de fila ni por clave de partición. Para obtener una lista detallada de las diferencias entre características, consulte las [diferencias entre Table API de Azure Cosmos DB y Azure Table Storage](/table-api-faq.yml#table-api-in-azure-cosmos-db-vs-azure-table-storage).
 
 Las claves de Table Storage son valores de cadena. Para asegurarse de que los valores numéricos se ordenen correctamente, debe convertirlos a una longitud fija y rellenarlos con ceros. Por ejemplo, si el valor de identificador de empleado que utiliza como `RowKey` es un valor entero, debe convertir el identificador de empleado **123** en **00000123**. 
 
@@ -735,7 +735,7 @@ Los patrones y las directrices siguientes también pueden ser importantes a la h
 Recupere las entidades *n* agregadas recientemente a una partición utilizando un valor `RowKey` que se ordene en orden de fecha y hora inverso.  
 
 > [!NOTE]
-> Los resultados de consulta devueltos por la Table API de Azure en Azure Cosmos DB no se ordenan por clave de fila ni por clave de partición. Por lo tanto, si bien este patrón es adecuado para Table Storage, no lo es para Azure Cosmos DB. Para ver una lista detallada de las diferencias de las características, consulte las [diferencias de Table API en Azure Cosmos DB y Azure Table Storage](table-api-faq.md#table-api-vs-table-storage).
+> Los resultados de consulta devueltos por la Table API de Azure en Azure Cosmos DB no se ordenan por clave de fila ni por clave de partición. Por lo tanto, si bien este patrón es adecuado para Table Storage, no lo es para Azure Cosmos DB. Para ver una lista detallada de las diferencias de las características, consulte las [diferencias de Table API en Azure Cosmos DB y Azure Table Storage](/table-api-faq.yml#table-api-in-azure-cosmos-db-vs-azure-table-storage).
 
 #### <a name="context-and-problem"></a>Contexto y problema
 Un requisito común es poder recuperar las entidades creadas más recientemente, por ejemplo, las últimas diez reclamaciones de gastos enviadas por un empleado. Las consultas de tabla admiten una operación de consulta `$top` para devolver las primeras *n* entidades de un conjunto. No hay ninguna operación de consulta equivalente para devolver las últimas *n* entidades de un conjunto.  

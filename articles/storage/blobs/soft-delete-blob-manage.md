@@ -10,12 +10,12 @@ ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d5ef85d947ae999fd94ba5a6e9cdb00baec9786
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 7e951de46b5220e5c2edde2fcd84673c9a16cebc
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106555952"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477712"
 ---
 # <a name="manage-and-restore-soft-deleted-blobs"></a>Administración y restauración de blobs eliminados temporalmente
 
@@ -70,7 +70,7 @@ Puede usar las bibliotecas cliente de Azure Storage para restaurar un blob o una
 
 ### <a name="restore-soft-deleted-objects-when-versioning-is-disabled"></a>Restauración de objetos eliminados temporalmente cuando el control de versiones está deshabilitado
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 Para restaurar los blobs eliminados cuando el control de versiones no está habilitado, llame a la operación [Undelete Blob](/rest/api/storageservices/undelete-blob) en esos blobs. La operación **Undelete Blob** restaura los blobs eliminados temporalmente y las instantáneas eliminadas que tienen asociadas.
 
@@ -82,7 +82,7 @@ Para restaurar una versión específica, primero llame a la operación **Undelet
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobSnapshot":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
 
 Para restaurar los blobs eliminados cuando el control de versiones no está habilitado, llame a la operación [Undelete Blob](/rest/api/storageservices/undelete-blob) en esos blobs. La operación **Undelete Blob** restaura los blobs eliminados temporalmente y las instantáneas eliminadas que tienen asociadas.
 
@@ -118,11 +118,11 @@ blockBlob.StartCopy(copySource);
 
 Para restaurar un blob eliminado temporalmente cuando el control de versiones está habilitado, copie una versión anterior en el blob base con una operación [Copy Blob](/rest/api/storageservices/copy-blob) o [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url).  
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RestorePreviousVersion":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
 
 No es aplicable. El control de versiones de blobs solo se admite en la versión 12.x de las bibliotecas cliente de Azure Storage y en versiones posteriores.
 

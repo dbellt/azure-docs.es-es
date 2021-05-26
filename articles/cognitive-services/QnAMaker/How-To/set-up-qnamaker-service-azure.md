@@ -5,16 +5,16 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: b6ab131c0fa81609b956de53f2b15d445e8979dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 67ba835237dac96a28aae124781bbb71b59323f2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102219274"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369395"
 ---
 # <a name="manage-qna-maker-resources"></a>Administración de recursos de QnA Maker
 
-Antes de crear alguna base de conocimiento de QnA Maker, primero debe configurar un servicio QnA Maker en Azure. Cualquiera que tenga autorización para crear recursos en una suscripción puede configurar un servicio QnA Maker.
+Antes de crear alguna base de conocimiento de QnA Maker, primero debe configurar un servicio QnA Maker en Azure. Cualquiera que tenga autorización para crear recursos en una suscripción puede configurar un servicio QnA Maker. Si está probando la característica de respuesta a preguntas personalizada, deberá crear el recurso de Text Analytics y agregar esta característica.
 
 Antes de crear el recurso, es útil comprender perfectamente los conceptos siguientes:
 
@@ -63,35 +63,41 @@ En este procedimiento se crean los recursos de Azure necesarios para administrar
 
     El recurso con el tipo _Cognitive Services_ tiene las claves de la _suscripción_.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
 En este procedimiento se crean los recursos de Azure necesarios para administrar el contenido de la base de conocimiento. Después de completar estos pasos, encontrará las claves de *suscripción* en la página **Claves** del recurso en Azure Portal.
 
-1. Inicie sesión en Azure Portal y [cree un recurso de QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker).
+1.  Inicie sesión en Azure Portal y [cree un recurso de Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
 
-1. Después de leer los términos y condiciones, seleccione **Crear**:
+2.  Seleccione la característica de respuesta a preguntas personalizada para agregarla al recurso de Text Analytics. Haga clic en **Continue to create your resource** (Continuar para crear el recurso).
 
-    ![Creación de un servicio QnA Maker](../media/qnamaker-how-to-setup-service/create-new-resource-button.png)
+> [!div class="mx-imgBorder"]
+> ![Adición de preguntas y respuestas a TA](../media/qnamaker-how-to-setup-service/select-qna-feature-create-flow.png)
 
-1. En **QnA Maker**, active la casilla Administrado (versión preliminar) y seleccione los niveles y regiones apropiados:
+3.  Seleccione los niveles y las regiones adecuados para el recurso de Text Analytics. Para la característica de respuesta a preguntas personalizada, seleccione la ubicación de búsqueda y el plan de tarifa.
 
-    ![Creación de un servicio QnA Maker administrado: plan de tarifa y regiones](../media/qnamaker-how-to-setup-service/enter-qnamaker-v2-info.png)
+> [!div class="mx-imgBorder"]
+> ![Creación de un servicio de TA: plan de tarifa y regiones](../media/qnamaker-how-to-setup-service/custom-qna-create-button.png)
 
-    * En **Suscripción**, elija la suscripción en la que se implementará el recurso de QnA Maker.
-    * Cree un **grupo de recursos** (se recomienda) o use uno existente en el que implementar este recurso de QnA Maker administrado (versión preliminar). QnA Maker administrado (versión preliminar) crea pocos recursos de Azure. Cuando se crea un grupo de recursos que contenga estos recursos, puede encontrar, administrar y eliminar fácilmente estos recursos por su nombre.
-    * En el campo **Nombre**, escriba un nombre único que identifique este servicio QnA Maker administrado (versión preliminar). 
-    * Elija la **ubicación** en la que desea que se implemente el servicio QnA Maker administrado (versión preliminar). Tanto las API de administración como el punto de conexión de servicio se hospedarán en esta ubicación. 
-    * Seleccione el **plan de tarifa** del servicio QnA Maker administrado (versión preliminar) (gratis para la versión preliminar). Vea [más detalles sobre los precios de las SKU](https://aka.ms/qnamaker-pricing).
-    * Elija la **Ubicación de búsqueda** en la que desea que se implementen los índices de Azure Cognitive Search. Las restricciones sobre dónde deben almacenarse los datos de los clientes ayudarán a determinar la ubicación elegida para Azure Cognitive Search.
-    * Elija el **Plan de tarifa de búsqueda** del servicio Azure Cognitive Search. Si la opción de nivel Gratis no está disponible (aparece atenuada), significa que ya tiene un servicio gratuito implementado a través de la suscripción. En ese caso, tendrá que comenzar con el nivel Básico. Consulte los [detalles de precios de Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/).
+   * En **Suscripción**, elija la suscripción en la que se implementará el recurso de Text Analytics.
+   * Cree un **grupo de recursos** (se recomienda) o use uno existente en el que implementar este recurso de Text Analytics. La habilitación de la respuesta a preguntas personalizada con un recurso de Text Analytics crea menos recursos de Azure. Cuando se crea un grupo de recursos que contenga estos recursos, puede encontrar, administrar y eliminar fácilmente estos recursos por su nombre.
+   * En el campo **Nombre**, escriba un nombre único que identifique este recurso de Text Analytics. 
+   * Elija la **ubicación** donde quiere que se implemente el recurso de Text Analytics. Tanto las API de administración como el punto de conexión de servicio se hospedarán en esta ubicación. 
+   * Seleccione el **plan de tarifa** del servicio de Text Analytics. Vea [más detalles sobre los precios de las SKU](https://aka.ms/qnamaker-pricing).
+   * Elija la **Ubicación de búsqueda** en la que desea que se implementen los índices de Azure Cognitive Search. Las restricciones sobre dónde deben almacenarse los datos de los clientes ayudarán a determinar la ubicación elegida para Azure Cognitive Search.
+   * Elija el **Plan de tarifa de búsqueda** del servicio Azure Cognitive Search. Si la opción de nivel Gratis no está disponible (aparece atenuada), significa que ya tiene un servicio gratuito implementado a través de la suscripción. En ese caso, tendrá que comenzar con el nivel Básico. Consulte los [detalles de precios de Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/).
 
-1. Una vez que se hayan validado todos los campos, seleccione **Revisar y crear**. El proceso puede tardar unos minutos en completarse.
+4.  Una vez que se hayan validado todos los campos, seleccione **Revisar y crear**. El proceso puede tardar unos minutos en completarse.
 
-1. Después de que se complete la implementación, verá que los siguientes recursos se crean en la suscripción:
+> [!div class="mx-imgBorder"]
+> ![Revisión del recurso de TA](../media/qnamaker-how-to-setup-service/custom-qna-review-resource.png)
 
-    ![El recurso ha creado un servicio QnA Maker administrado (versión preliminar)](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
+5.  Después de que se complete la implementación, verá que los siguientes recursos se crean en la suscripción:
 
-    El recurso con el tipo _Cognitive Services_ tiene las claves de la _suscripción_.
+> [!div class="mx-imgBorder"]
+> ![El recurso ha creado un servicio QnA Maker administrado (versión preliminar)](../media/qnamaker-how-to-setup-service/resources-created-question-answering.png)
+
+   El recurso con el tipo _Cognitive Services_ tiene las claves de la _suscripción_.
 
 ---
 
@@ -157,13 +163,13 @@ Si no va a usar un recurso de QnA Maker, debe quitar todos los recursos. Si no q
 
 Los recursos de búsqueda gratuitos se eliminan al cabo de 90 días sin recibir una llamada API.
     
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
 ### <a name="upgrade-the-azure-cognitive-search-service"></a>Actualización del servicio Azure Cognitive Search
 
 Si planea tener muchas bases de conocimiento, actualice el plan de tarifa del servicio Azure Cognitive Search.
 
-Actualmente, no puede realizar una actualización local de la SKU de Azure Search. Sin embargo, puede crear un recurso de Azure Search con la SKU deseada, restaurar los datos al nuevo recurso y luego vincularlo a la pila de QnA Maker. Para ello, siga estos pasos.
+Actualmente, no puede realizar una actualización local de la SKU de Azure Search. Sin embargo, puede crear un recurso de búsqueda de Azure con la SKU deseada, restaurar los datos en el nuevo recurso y, luego, vincularlo a la pila de la respuesta a preguntas personalizada. Para ello, siga estos pasos.
 
 1. Cree un recurso de Azure Search en Azure Portal y elija la SKU que desee.
 
@@ -171,11 +177,11 @@ Actualmente, no puede realizar una actualización local de la SKU de Azure Searc
 
 1. Restaure los índices a partir del recurso Azure Search original en uno nuevo. Vea el [código de ejemplo de restauración de copia de seguridad](https://github.com/pchoudhari/QnAMakerBackupRestore).
 
-1. Para vincular el nuevo recurso de búsqueda de Azure al servicio QnA Maker administrado (versión preliminar), consulte el tema siguiente.
+1. Vincule el nuevo recurso de búsqueda de Azure a la característica de respuesta a preguntas personalizada en la [pestaña de características del recurso de Text Analytics](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/configure-qna-maker-resources?tabs=v2#configure-qna-maker-managed-preview-service-to-use-different-cognitive-search-resource).
 
 ### <a name="inactivity-policy-for-free-search-resources"></a>Directiva de inactividad para recursos de búsqueda gratuitos
 
-Si no va a usar un recurso de QnA Maker, debe quitar todos los recursos. Si no quita los recursos no utilizados, la base de conocimiento dejará de funcionar si ha creado un recurso de búsqueda gratuito.
+Si no va a usar un recurso de QnA Maker o de Text Analytics, debe quitar todos los recursos. Si no quita los recursos no utilizados, la base de conocimiento dejará de funcionar si ha creado un recurso de búsqueda gratuito.
 
 Los recursos de búsqueda gratuitos se eliminan al cabo de 90 días sin recibir una llamada API.
 
@@ -183,7 +189,7 @@ Los recursos de búsqueda gratuitos se eliminan al cabo de 90 días sin recibir
 
 ## <a name="delete-azure-resources"></a>Eliminación de recursos de Azure
 
-Si elimina cualquiera de los recursos de Azure usados para las bases de conocimiento de QnA Maker, estas dejarán de funcionar. Antes de eliminar todos los recursos, asegúrese de exportar las bases de conocimiento desde la página **Settings** (Configuración).
+Si elimina cualquiera de los recursos de Azure usados para las bases de conocimiento, estas dejarán de funcionar. Antes de eliminar todos los recursos, asegúrese de exportar las bases de conocimiento desde la página **Settings** (Configuración).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

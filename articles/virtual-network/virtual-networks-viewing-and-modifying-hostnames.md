@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2018
+ms.date: 05/14/2021
 ms.author: genli
-ms.openlocfilehash: ed250e3f32965fc450102fb14b93b93d6753ab3e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d793dddcfd51c9d9bd2527298d958482a9216b88
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98222792"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110080626"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Ver y modificar los nombres de host
 Para permitir que el nombre de host haga referencia a las instancias de rol, debe establecer el valor del nombre de host en el archivo de configuración de servicio de cada rol. Para hacer esto, agregue el nombre de host que quiera al atributo **vmName** del elemento **Rol**. El valor del atributo **vmName** se usa como base para el nombre de host de cada instancia de rol. Por ejemplo, si el atributo **vmName** es *webrole* y hay tres instancias de ese rol, los nombres de host de las instancias serán *webrole0*, *webrole1* y *webrole2*. No es necesario especificar un nombre de host para máquinas virtuales en el archivo de configuración, porque el nombre de host de una máquina virtual se rellena según el nombre de esa máquina virtual. Para obtener más información sobre cómo configurar un servicio de Microsoft Azure, consulte [Esquema de configuración del servicio de Azure (archivo de .cscfg)](/previous-versions/azure/reference/ee758710(v=azure.100))
@@ -41,7 +41,7 @@ Desde un cliente REST, siga estas instrucciones:
 
 1. Asegúrese de que tiene un certificado de cliente para conectarse al Portal de Azure. Para obtener un certificado de cliente, siga los pasos que aparecen en el artículo sobre [cómo descargar e importar la configuración de publicación y la información de suscripción](/previous-versions/dynamicsnav-2013/dn385850(v=nav.70)). 
 2. Establezca una entrada de encabezado denominada x-ms-version con un valor de 2013-11-01.
-3. Envíe una solicitud con el siguiente formato: https:\//management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
+3. Envíe una solicitud con el formato siguiente: `https://management.core.windows.net/<subscription-id>/services/hostedservices/<service-name>?embed-detail=true`
 4. Busque el elemento **HostName** de cada elemento **RoleInstance**.
 
 > [!WARNING]

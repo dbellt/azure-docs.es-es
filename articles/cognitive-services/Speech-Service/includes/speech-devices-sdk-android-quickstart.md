@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 3b473d82eb879955a6cbdce58ba66176f5c6d6f5
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 2caf1ed42bec3c4e950fbb1067869576344085d7
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99215080"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110166219"
 ---
 En este inicio rápido, aprenderá a usar Speech Devices SDK para Android para crear un producto habilitado para voz o para utilizarlo como un dispositivo de [transcripción de conversaciones](../conversation-transcription.md).
 
@@ -96,7 +96,7 @@ Para validar la configuración del kit de desarrollo, compile e instale la aplic
     Actualice **build.gradle(Module:app)** agregando esta línea a la sección de dependencias. 
     
     ```xml
-    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.15.0'
+    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.17.0'
     ```
     
 1. Agregue la clave de suscripción de Voz al código fuente. Si quiere probar el reconocimiento de intenciones, agregue también la clave de suscripción y el identificador de aplicación del [servicio Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).

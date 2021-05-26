@@ -1,20 +1,20 @@
 ---
-title: Creación y administración de aplicaciones lógicas con la CLI de Azure
-description: Use la CLI de Azure para crear una aplicación lógica y, luego, adminístrela mediante operaciones como list, show (get), update y delete.
+title: 'Inicio rápido: Creación y administración de flujos de trabajo con Azure Logic Apps multiinquilino y la CLI de Azure'
+description: Con la CLI, cree flujos de trabajo de aplicación lógica con Azure Logic Apps multiinquilino y administre la lógica con operaciones como list, show (get), update y delete.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli, contperf-fy21q2
-ms.date: 04/23/2021
-ms.openlocfilehash: 48d71d3736737e88825bbae19e0a5274bacd21a1
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.date: 05/25/2021
+ms.openlocfilehash: 4a848b560fd0302690f1e52661b165182082dd9b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161094"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375936"
 ---
-# <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>Inicio rápido: Creación y administración de aplicaciones lógicas mediante la CLI de Azure
+# <a name="quickstart-create-and-manage-workflows-in-multi-tenant-azure-logic-apps-using-the-azure-cli"></a>Inicio rápido: Creación y administración de flujos de trabajo en Azure Logic Apps multiinquilino con la CLI de Azure
 
 En este inicio rápido se muestra cómo crear y administrar aplicaciones lógicas mediante la [extensión Logic Apps de la CLI de Azure](/cli/azure/logic) (`az logic`). Desde la línea de comandos, puede crear una aplicación lógica mediante el archivo JSON en una definición del flujo de trabajo de una aplicación lógica. Después, para administrar la aplicación lógica, es preciso ejecutar operaciones como `list`, `show` (`get`), `update` y `delete` también desde la línea de comandos.
 
@@ -82,7 +82,7 @@ az logic workflow create --definition
 
 El comando debe incluir los siguientes [parámetros requeridos](/cli/azure/logic/workflow#az_logic_workflow_create-required-parameters):
 
-| Parámetro | Value | Descripción |
+| Parámetro | Valor | Descripción |
 | --------- | ----- | ----------- |
 | Definición del flujo de trabajo | `--definition` | Archivo JSON con la [definición del flujo de trabajo](#workflow-definition) de la aplicación lógica. |
 | Ubicación | `--location -l` | La región de Azure en la que se encuentra la aplicación lógica. |
@@ -137,7 +137,7 @@ Desde la CLI de Azure se puede eliminar el flujo de trabajo de una aplicación l
 
 El comando debe incluir los siguientes [parámetros requeridos](/cli/azure/logic/workflow#az_logic_workflow_delete-required-parameters):
 
-| Parámetro | Value | Descripción |
+| Parámetro | Valor | Descripción |
 | --------- | ----- | ----------- |
 | Nombre | `--name -n` | Nombre de la aplicación lógica. |
 | Definición de un nombre de grupo de recursos | `-resource-group -g` | El grupo de recursos en que se encuentra la aplicación lógica. |
@@ -173,13 +173,13 @@ Después de responder al aviso de confirmación con `y`, se elimina la aplicaci�
 
 La eliminación de una aplicación lógica afecta a las instancias de flujo de trabajo de las maneras siguientes:
 
-* El servicio Logic Apps hace todo lo posible por cancelar todas las ejecuciones en curso y pendientes.
+* El servicio Logic Apps hace todo lo posible por cancelar las ejecuciones en curso y pendientes.
 
   Incluso con un gran volumen o trabajo pendiente, la mayoría de las ejecuciones se cancelan antes de que finalicen o se inicien. Sin embargo, el proceso de cancelación puede tardar en completarse. Mientras tanto, pueden seleccionarse algunas ejecuciones para su ejecución mientras el entorno en tiempo de ejecución se encarga del proceso de cancelación.
 
 * El servicio Logic Apps no crea ni ejecuta nuevas instancias de flujo de trabajo.
 
-* Si elimina un flujo de trabajo y, luego, vuelve a crearlo, este no tendrá los mismos metadatos que el eliminado. Tiene que volver a guardar cualquier flujo de trabajo que haya llamado al eliminado. De este modo, el autor de la llamada obtiene la información correcta sobre el flujo de trabajo que se ha vuelto a crear. De lo contrario, las llamadas a este flujo de trabajo generarán el error `Unauthorized`. Este comportamiento también se aplica a los flujos de trabajo que usan artefactos en cuentas de integración y a flujos de trabajo que llaman a funciones de Azure.
+* Si elimina un flujo de trabajo y, luego, vuelve a crear el mismo flujo de trabajo, el flujo de trabajo recreado no tendrá los mismos metadatos que el flujo de trabajo eliminado. Tiene que volver a guardar todo flujo de trabajo que haya llamado al flujo de trabajo eliminado. De este modo, el autor de la llamada obtiene la información correcta para el flujo de trabajo recreado. De lo contrario, las llamadas al flujo de trabajo recreado producirán un error `Unauthorized`. Este comportamiento también se aplica a los flujos de trabajo que usan artefactos en cuentas de integración y a flujos de trabajo que llaman a funciones de Azure.
 
 ## <a name="show-logic-apps-in-cli"></a>Visualización de aplicaciones lógicas en la CLI
 
@@ -192,7 +192,7 @@ az logic workflow show --name
 
 Este comando debe incluir los siguientes [parámetros requeridos](/cli/azure/logic/workflow#az_logic_workflow_show-required-parameters)
 
-| Parámetro | Value | Descripción |
+| Parámetro | Valor | Descripción |
 | --------- | ----- | ----------- |
 | Nombre | `--name -n` | Nombre de la aplicación lógica. |
 | Nombre de grupo de recursos | `--resource-group -g` | Nombre del grupo de recursos en que se encuentra la aplicación lógica. |
@@ -212,7 +212,7 @@ Mediante el comando [`az logic workflow list`](/cli/azure/logic/workflow#az_logi
 
 Puede filtrar los resultados por los siguientes [parámetros opcionales](/cli/azure/logic/workflow#az_logic_workflow_list-optional-parameters):
 
-| Parámetro | Value | Descripción |
+| Parámetro | Valor | Descripción |
 | --------- | ----- | ----------- |
 | Nombre de grupo de recursos | `--resource-group -g` | Nombre del grupo de recursos por el que desea filtrar los resultados. |
 | Número de elementos | `--top` | Número de elementos que se incluyen en los resultados. |
@@ -251,7 +251,7 @@ Expecting value: line 1 column 1 (char 0)
 
 Puede usar los siguientes parámetros globales opcionales de la CLI de Azure con sus comandos de `az logic`:
 
-| Parámetro | Value | Descripción |
+| Parámetro | Valor | Descripción |
 | --------- | ----- | ----------- |
 | Formato de salida | `--output -o` | Cambia el [formato de salida](/cli/azure/format-output-azure-cli) para que no sea el JSON predeterminado. |
 | Mostrar solo errores | `--only-show-errors` | Suprime las advertencias y muestra solo los errores. |

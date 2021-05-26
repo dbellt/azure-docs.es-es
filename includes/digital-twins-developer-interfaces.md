@@ -5,16 +5,16 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 4/30/2021
 ms.author: baanders
-ms.openlocfilehash: 7d11367c820400f37caab411486eaf78c5e09864
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 1b0ff4eed849ef0741fa471851f7c56a76f8596a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108772968"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110065141"
 ---
 ## <a name="developer-interfaces"></a>Interfaces para desarrolladores
 
-En este artículo se describe cómo completar diferentes operaciones de administración con el [SDK de .NET (C#)](/dotnet/api/overview/azure/digitaltwins/management). También puede crear estas mismas llamadas de administración con los otros SDK de lenguaje descritos en [Conceptos: Las API y los SDK de Azure Digital Twins](../articles/digital-twins/concepts-apis-sdks.md).
+En este artículo se describe cómo completar diferentes operaciones de administración con el [SDK de .NET (C#)](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true). También puede crear estas mismas llamadas de administración con los otros SDK de lenguaje descritos en [Conceptos: Las API y los SDK de Azure Digital Twins](../articles/digital-twins/concepts-apis-sdks.md).
 
 Otras interfaces de desarrollador que se pueden usar para completar estas operaciones incluyen:
 * Llamadas a la [API de REST](/rest/api/azure-digitaltwins/)

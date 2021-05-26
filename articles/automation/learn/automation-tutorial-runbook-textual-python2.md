@@ -3,15 +3,15 @@ title: Creación de un runbook de Python en Azure Automation
 description: En este artículo se muestra cómo crear, probar y publicar un sencillo runbook de Python en la cuenta de Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/28/2021
+ms.date: 05/17/2021
 ms.topic: tutorial
 ms.custom: has-adal-ref, devx-track-python
-ms.openlocfilehash: 84b448b6a31dc9bdbad1b604a0a385aeae742b53
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 38ee30fd555ec9a1c43d59d2ca56446bc2311393
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205024"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084761"
 ---
 # <a name="tutorial-create-a-python-runbook"></a>Tutorial: Creación de un runbook de Python
 
@@ -22,9 +22,6 @@ Este tutorial le guiará por la creación de un [runbook de Python](../automatio
 > * Prueba y publicación del runbook
 > * Ejecución y seguimiento del estado del trabajo de runbook
 > * Actualización del runbook para iniciar una máquina virtual de Azure con parámetros de runbook
-
-> [!NOTE]
-> No se admite el uso de un webhook para iniciar un runbook de Python.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 0775df0d5ca1061bff127ba5491040a90ddb8597
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 98f9ffdfa7addd8689b01332b88261311a525c81
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447019"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469335"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Uso de Log Analytics para la característica de diagnóstico
 
@@ -134,7 +134,7 @@ Acceda a consultas de ejemplo desde la interfaz de usuario de Azure Monitor Log 
 1. Seleccione **Windows Virtual Desktop** para examinar las consultas disponibles.
 1. Seleccione **Ejecutar** para ejecutar la consulta seleccionada.
 
-Obtenga más información sobre la interfaz de consulta de ejemplo en [Consultas guardadas en Log Analytics de Azure Monitor](../azure-monitor/logs/example-queries.md).
+Obtenga más información sobre la interfaz de consulta de ejemplo en [Consultas guardadas en Log Analytics de Azure Monitor](../azure-monitor/logs/queries.md).
 
 La siguiente lista de consultas le permite examinar la información de conexión o los problemas de un solo usuario. Puede ejecutar estas consultas en el [editor de consultas de Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query). En todas las consultas, reemplace `userupn` por el UPN del usuario que desee buscar.
 

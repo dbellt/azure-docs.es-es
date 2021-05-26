@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/16/2021
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: c6b83a25816c29f1642625618e66624aa3e0a6de
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 09279e476f2d130c4938937e2c9e60df863c688d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289811"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110450613"
 ---
 # <a name="what-are-azure-cognitive-services"></a>¿Qué es Azure Cognitive Services?
 
@@ -42,8 +42,6 @@ Las siguientes secciones de este artículo ofrecen una lista de los servicios qu
 |[Computer Vision](./computer-vision/index.yml "Computer Vision")|El servicio Computer Vision proporciona acceso a algoritmos cognitivos avanzados para procesar imágenes y devolver información. Consulte [Inicio rápido de Computer Vision](./computer-vision/quickstarts-sdk/client-library.md) para empezar a trabajar con el servicio.|
 |[Custom Vision Service](./custom-vision-service/index.yml "Custom Vision Service")|El servicio Custom Vision le permite crear, implementar y mejorar los clasificadores de imágenes propios. Un clasificador de imágenes es un servicio de inteligencia artificial que aplica etiquetas a las imágenes, en función de sus características visuales. |
 |[Face](./face/index.yml "Caras")| El servicio Face proporciona acceso a algoritmos faciales avanzados, lo que permite la detección y el reconocimiento de atributos faciales. Consulte [Inicio rápido de Face](./face/quickstarts/client-libraries.md) para empezar a trabajar con el servicio.|
-|[Form Recognizer](./form-recognizer/index.yml "Form Recognizer")|Form Recognizer identifica y extrae pares clave-valor y datos de tabla de documentos de formulario; luego, genera datos estructurados, incluidas las relaciones en el archivo original. Consulte [Inicio rápido de Form Recognizer](./form-recognizer/quickstarts/client-library.md) para comenzar.|
-|[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "Video Indexer")|Video Indexer permite extraer información de un vídeo. Consulte [Inicio rápido de Video Indexer](../media-services/video-indexer/video-indexer-get-started.md) para comenzar.|
 
 ## <a name="speech-apis"></a>API de voz
 
@@ -63,7 +61,6 @@ Las siguientes secciones de este artículo ofrecen una lista de los servicios qu
 |[QnA Maker](./qnamaker/index.yml "QnA Maker")|QnA Maker permite generar un servicio de preguntas y respuestas a partir de contenido semiestructurado. [Consulte el inicio rápido de QnA Maker](./qnamaker/quickstarts/create-publish-knowledge-base.md) para empezar a trabajar con el servicio.|
 |[Text Analytics](./text-analytics/index.yml "Text Analytics")| Proporciona procesamiento de lenguaje natural en texto sin formato para el análisis de opiniones, la extracción de frases clave y la detección del idioma. Consulte [Inicio rápido de Text Analytics](./text-analytics/quickstarts/client-libraries-rest-api.md) para empezar a trabajar con el servicio.|
 |[Traductor](./translator/index.yml "Traductor")|Traductor proporciona la traducción de texto automática casi en tiempo real.|
-| [Lector inmersivo](./immersive-reader/index.yml "Lector inmersivo") | El Lector inmersivo agrega a las aplicaciones funcionalidad de comprensión y lectura en pantalla. Consulte [Inicio rápido de Lector inmersivo](./immersive-reader/quickstarts/client-libraries.md) para empezar a trabajar con el servicio. |
 
 ## <a name="decision-apis"></a>API de Decision
 
@@ -71,7 +68,6 @@ Las siguientes secciones de este artículo ofrecen una lista de los servicios qu
 |:-----------|:------------------|
 |[Anomaly Detector](./anomaly-detector/index.yml "Anomaly Detector") |Anomaly Detector permite supervisar y detectar anomalías en datos de series temporales. Consulte [Inicio rápido de Anomaly Detector](./anomaly-detector/quickstarts/client-libraries.md) para empezar a trabajar con el servicio.|
 |[Content Moderator](./content-moderator/overview.md "Content Moderator")|Content Moderator proporciona la supervisión de posibles contenidos ofensivos, indeseables y peligrosos. Consulte [Inicio rápido de Content Moderator](./content-moderator/client-libraries.md) para empezar a trabajar con el servicio.|
-|[Metrics Advisor](./metrics-advisor/index.yml) (versión preliminar) | Metrics Advisor proporciona una detección de anomalías personalizable en los datos de serie temporal de varios variados y un portal web con todas las características para ayudarle a usar el servicio. Consulte [Inicio rápido de Metrics Advisor](./metrics-advisor/quickstarts/rest-api-and-client-library.md) para empezar a trabajar con el servicio. |
 |[Personalizer](./personalizer/index.yml "Personalizer")|Personalizer permite elegir la mejor experiencia para mostrar a los usuarios y aprender de su comportamiento en tiempo real. Consulte [Inicio rápido de Personalizer](./personalizer/quickstart-personalizer-sdk.md) para empezar a trabajar con el servicio.|
 
 ## <a name="search-apis"></a>API de búsqueda
