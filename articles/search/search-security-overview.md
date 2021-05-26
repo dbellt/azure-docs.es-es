@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: 46f2035e5f8409cd38faeb9c327b88b06fc7d7a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d4310c724707548cd55df5591504736d8f3c3857
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100097643"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460058"
 ---
 # <a name="security-overview-for-azure-cognitive-search"></a>Información general de seguridad para Azure Cognitive Search
 
@@ -109,7 +109,7 @@ Las operaciones de administración de servicios se autorizan mediante el [contro
 
 En Azure Cognitive Search, Resource Manager se usa para crear o eliminar el servicio, administrar las claves de API y escalar el servicio. Como tal, las asignaciones de roles de Azure determinan quién puede realizar esas tareas, independientemente de si se usa el [portal](search-manage.md), [PowerShell](search-manage-powershell.md) o las [API de REST de administración](/rest/api/searchmanagement/search-howto-management-rest-api).
 
-Se han definido [tres roles básicos](search-security-rbac.md#management-tasks-by-role) para la administración de servicios de búsqueda. Las asignaciones de roles se pueden realizar con cualquier metodología compatible (portal, PowerShell, etc.) y se respetan en todo el servicio. Los roles Propietario y Colaborador pueden realizar diversas funciones de administración. Puede asignar el rol Lector a los usuarios que solo ven información esencial.
+Se han definido [tres roles básicos](search-security-rbac.md) para la administración de servicios de búsqueda. Las asignaciones de roles se pueden realizar con cualquier metodología compatible (portal, PowerShell, etc.) y se respetan en todo el servicio. Los roles Propietario y Colaborador pueden realizar diversas funciones de administración. Puede asignar el rol Lector a los usuarios que solo ven información esencial.
 
 > [!Note]
 > Mediante el uso de mecanismos de aplicación en todo el sistema de Azure, puede bloquear una suscripción o un recurso para evitar la eliminación accidental o no autorizada del servicio de búsqueda por parte de usuarios con derechos de administrador. Para más información, consulte [Bloqueo de recursos para impedir eliminación inesperada](../azure-resource-manager/management/lock-resources.md).

@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: c362603771744cf94f3e1d70a9f636f31bbd399a
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 03c6697f07f66cd1d12cae55ddc5f4c73db70505
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750976"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461696"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de registro mediante Azure Monitor
 
@@ -35,7 +35,7 @@ A continuación se indican los pasos para empezar a escribir consultas para las 
 
 1. Vaya al recurso para el que le gustaría crear la alerta. Considere la posibilidad de configurar reglas de alerta en varios recursos mediante la selección de un ámbito de suscripción o grupo de recursos siempre que sea posible. La alerta de varios recursos reduce los costos y la necesidad de administrar varias reglas de alerta.
 1. En **Supervisar**, seleccione **Registros**.
-1. Consulte los datos de registro que pueden indicar el problema. Puede usar el [tema de ejemplos de consultas de alertas](../logs/example-queries.md) para comprender qué puede detectar, o bien puede [empezar a escribir su propia consulta](../logs/log-analytics-tutorial.md). Además, [aprenda a crear consultas de alertas optimizadas](alerts-log-query.md).
+1. Consulte los datos de registro que pueden indicar el problema. Puede usar el [tema de ejemplos de consultas de alertas](../logs/queries.md) para comprender qué puede detectar, o bien puede [empezar a escribir su propia consulta](../logs/log-analytics-tutorial.md). Además, [aprenda a crear consultas de alertas optimizadas](alerts-log-query.md).
 1. Presione el botón "+ Nueva regla de alertas" para iniciar el flujo de creación de alerta.
 
     ![Log Analytics: Establecer alerta](media/alerts-log/AlertsAnalyticsCreate.png)

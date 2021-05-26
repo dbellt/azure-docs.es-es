@@ -8,17 +8,17 @@ ms.author: shipatel
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
-ms.date: 12/23/2020
+ms.date: 05/25/2021
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: 41ea16c72794115052234831c8d84a37821645f6
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 783be7d595022ba08d7896540683635dbc59ade4
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884271"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378845"
 ---
-# <a name="train-and-track-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Entrenamiento y seguimiento de modelos de Machine Learning con MLflow y Azure Machine Learning (versión preliminar)
+# <a name="track-ml-models-with-mlflow-and-azure-machine-learning"></a>Seguimiento de modelos de Machine Learning con MLflow y Azure Machine Learning
 
 En este artículo, obtendrá información sobre cómo habilitar el identificador URI de seguimiento y la API de registro de MLflow, que en conjunto se conocen como [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), para conectar Azure Machine Learning como el back-end de experimentos de MLflow. 
 
@@ -26,14 +26,11 @@ Las funcionalidades admitidas son:
 
 + Realizar un seguimiento de las métricas y los artefactos de los experimentos, así como registrarlos, en el [área de trabajo de Azure Machine Learning](./concept-azure-machine-learning-architecture.md#workspace). Si ya usa Seguimiento de MLflow para los experimentos, el área de trabajo proporciona una ubicación centralizada, segura y escalable para almacenar los modelos y las métricas de entrenamiento.
 
-+ Enviar trabajos de aprendizaje con [proyectos de MLflow](https://www.mlflow.org/docs/latest/projects.html) con compatibilidad de back-end con Azure Machine Learning (versión preliminar). Puede enviar trabajos localmente con el seguimiento de Azure Machine Learning o migrar las ejecuciones a la nube, por ejemplo, a través de un [Proceso de Azure Machine Learning](./how-to-create-attach-compute-cluster.md).
++ [Envíe trabajos de entrenamiento con proyectos de MLflow con compatibilidad de back-end con Azure Machine Learning (versión preliminar)](how-to-train-mlflow-projects.md). Puede enviar trabajos localmente con el seguimiento de Azure Machine Learning o migrar las ejecuciones a la nube, por ejemplo, a través de un [Proceso de Azure Machine Learning](how-to-create-attach-compute-cluster.md).
 
 + Hacer un seguimiento de modelos y administrarlos en MLflow y el registro de modelos de Azure Machine Learning.
 
 [MLflow](https://www.mlflow.org) es una biblioteca de código abierto para administrar el ciclo de vida de los experimentos de aprendizaje automático. MLFlow Tracking es un componente de MLflow que lleva a cabo un registro y un seguimiento de las métricas de ejecución de entrenamiento y de los artefactos del modelo, independientemente del entorno del experimento (localmente en su equipo, en un destino de proceso remoto, en una máquina virtual o en un [clúster de Azure Databricks](how-to-use-mlflow-azure-databricks.md)). 
-
->[!NOTE]
-> Como biblioteca de código abierto, MLflow cambia con frecuencia. Como tal, la funcionalidad que se pone a disposición a través de la integración de Azure Machine Learning y MLflow debe considerarse como una vista previa y no es totalmente compatible con Microsoft.
 
 En el siguiente diagrama se ilustra que con Seguimiento de MLflow, se realiza un seguimiento de las métricas de ejecución de un experimento y se almacenan los artefactos del modelo en el área de trabajo de Azure Machine Learning.
 
@@ -41,6 +38,9 @@ En el siguiente diagrama se ilustra que con Seguimiento de MLflow, se realiza un
 
 > [!TIP]
 > La información de este documento va destinada principalmente a aquellos científicos de datos y desarrolladores que deseen supervisar el proceso de entrenamiento del modelo. Los administradores que estén interesados en la supervisión del uso de recursos y eventos desde Azure Machine Learning, como cuotas, ejecuciones de entrenamiento completadas o implementaciones de modelos completadas pueden consultar [Supervisión de Azure Machine Learning](monitor-azure-machine-learning.md).
+
+> [!NOTE] 
+> Puede usar el [cliente MLflow Skinny](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst), que es un paquete MLflow ligero sin dependencias de almacenamiento SQL, servidor, interfaz de usuario o ciencia de datos. Esto se recomienda para los usuarios que necesitan principalmente las funcionalidades de seguimiento y registro sin importar el conjunto completo de características de MLflow, incluidas las implementaciones. 
 
 ## <a name="compare-mlflow-and-azure-machine-learning-clients"></a>Comparación entre los clientes de MLflow y Azure Machine Learning
 
@@ -115,6 +115,7 @@ dependencies:
   - numpy
   - pip:
     - azureml-mlflow
+    - mlflow
     - numpy
 ```
 
@@ -131,72 +132,6 @@ Con esta configuración del proceso y de la ejecución de entrenamiento, use el 
 
 ```Python
 run = exp.submit(src)
-```
-
-## <a name="train-with-mlflow-projects"></a>Entrenamiento con proyectos de MLflow
-
-Los [proyectos de MLflow](https://mlflow.org/docs/latest/projects.html) permiten organizar y describir el código para permitir que otros científicos de datos (o herramientas automatizadas) lo ejecuten. Los proyectos de MLflow con Azure Machine Learning le permiten realizar un seguimiento de las ejecuciones de entrenamiento y administrarlas en el área de trabajo. 
-
-En este ejemplo se muestra cómo enviar proyectos de MLflow localmente con seguimiento de Azure Machine Learning.
-
-Instale el paquete `azureml-mlflow` que va a usar el seguimiento de MLflow con Azure Machine Learning en los experimentos localmente. Los experimentos pueden ejecutarse a través de una instancia de Jupyter Notebook o un editor de código.
-
-```shell
-pip install azureml-mlflow
-```
-
-Importe las clases `mlflow` y [`Workspace`](/python/api/azureml-core/azureml.core.workspace%28class%29) para acceder al URI de seguimiento de MLflow y configurar el área de trabajo.
-
-```Python
-import mlflow
-from azureml.core import Workspace
-
-ws = Workspace.from_config()
-
-mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
-```
-
-Establezca el nombre del experimento de MLflow con `set_experiment()` y comience la ejecución de entrenamiento con `start_run()`. Después, use `log_metric()` para activar la API de registro de MLflow y empezar a registrar las métricas de la ejecución de entrenamiento.
-
-```Python
-experiment_name = 'experiment-with-mlflow-projects'
-mlflow.set_experiment(experiment_name)
-```
-
-Cree el objeto de configuración de back-end para almacenar la información necesaria para la integración, por ejemplo, el destino de proceso y el tipo de entorno administrado que se va a usar.
-
-```python
-backend_config = {"USE_CONDA": False}
-```
-Agregue el paquete `azureml-mlflow` como dependencia pip al archivo de configuración del entorno para realizar el seguimiento de las métricas y los artefactos clave en el área de trabajo. 
-
-``` shell
-name: mlflow-example
-channels:
-  - defaults
-  - anaconda
-  - conda-forge
-dependencies:
-  - python=3.6
-  - scikit-learn=0.19.1
-  - pip
-  - pip:
-    - mlflow
-    - azureml-mlflow
-```
-Envíe la ejecución local y asegúrese de establecer el parámetro `backend = "azureml" `. Con esta configuración, puede enviar ejecuciones localmente y obtener la compatibilidad adicional del seguimiento de salida automático, archivos de registro, instantáneas y errores impresos en el área de trabajo. 
-
-Vea las ejecuciones y métricas en [Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md). 
-
-
-```python
-local_env_run = mlflow.projects.run(uri=".", 
-                                    parameters={"alpha":0.3},
-                                    backend = "azureml",
-                                    use_conda=False,
-                                    backend_config = backend_config, 
-                                    )
-
 ```
 
 ## <a name="view-metrics-and-artifacts-in-your-workspace"></a>Visualización de las métricas y los artefactos en el área de trabajo

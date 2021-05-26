@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: e0591d9897b1ea20978afc663e63e74af7153832
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 29430671cd5879f140127c94541dd50d765fa87e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788517"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460282"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Explicación del concepto de gemelos digitales y su grafo gemelo
 
@@ -75,17 +75,17 @@ Si se representa como un objeto JSON, un gemelo digital mostrará los campos sig
 | `$dtId` | Cadena proporcionada por el usuario que representa el identificador del gemelo digital. |
 | `$etag` | Campo HTTP estándar asignado por el servidor web. |
 | `$conformance` | Enumeración que contiene el estado de conformidad de este gemelo digital (*conforme*, *no conforme* o *desconocido*) |
-| `{propertyName}` | Valor de una propiedad en formato JSON (`string`, tipo de número u objeto). |
+| `<property-name>` | Valor de una propiedad en formato JSON (`string`, tipo de número u objeto). |
 | `$relationships` | Dirección URL de la ruta de acceso a la colección de relaciones. Este campo no está presente si el gemelo digital no tiene bordes de relación salientes. |
 | `$metadata.$model` | [Opcional] Identificador de la interfaz del modelo que caracteriza al gemelo digital. |
-| `$metadata.{propertyName}.desiredValue` | [Solo para propiedades grabables] Valor deseado de la propiedad especificada. |
-| `$metadata.{propertyName}.desiredVersion` | [Solo para propiedades grabables] Versión del valor deseado. |
-| `$metadata.{propertyName}.ackVersion` | Versión confirmada por la aplicación del dispositivo que implementa el gemelo digital. |
-| `$metadata.{propertyName}.ackCode` | [Solo para propiedades grabables] Código `ack` devuelto por la aplicación del dispositivo que implementa el gemelo digital. |
-| `$metadata.{propertyName}.ackDescription` | [Solo para propiedades grabables] Descripción `ack` devuelta por la aplicación del dispositivo que implementa el gemelo digital. |
-| `{componentName}` | Objeto JSON que contiene los valores de propiedad y los metadatos del componente, similares a los del objeto raíz. Este objeto existe aunque el componente no tenga propiedades. |
-| `{componentName}.{propertyName}` | Valor de la propiedad del componente en formato JSON (`string`, tipo de número u objeto). |
-| `{componentName}.$metadata` | Información de metadatos del componente, similar al nivel de raíz `$metadata`. |
+| `$metadata.<property-name>.desiredValue` | [Solo para propiedades grabables] Valor deseado de la propiedad especificada. |
+| `$metadata.<property-name>.desiredVersion` | [Solo para propiedades grabables] Versión del valor deseado. |
+| `$metadata.<property-name>.ackVersion` | Versión confirmada por la aplicación del dispositivo que implementa el gemelo digital. |
+| `$metadata.<property-name>.ackCode` | [Solo para propiedades grabables] Código `ack` devuelto por la aplicación del dispositivo que implementa el gemelo digital. |
+| `$metadata.<property-name>.ackDescription` | [Solo para propiedades grabables] Descripción `ack` devuelta por la aplicación del dispositivo que implementa el gemelo digital. |
+| `<component-name>` | Objeto JSON que contiene los valores de propiedad y los metadatos del componente, similares a los del objeto raíz. Este objeto existe aunque el componente no tenga propiedades. |
+| `<component-name>.<property-name>` | Valor de la propiedad del componente en formato JSON (`string`, tipo de número u objeto). |
+| `<component-name>.$metadata` | Información de metadatos del componente, similar al nivel de raíz `$metadata`. |
 
 A continuación se muestra un ejemplo de gemelo digital formateado como un objeto JSON:
 
@@ -144,7 +144,7 @@ Si se representa como un objeto JSON, una relación de un gemelo digital mostrar
 | `$sourceId` | Identificador del gemelo digital de origen. |
 | `$targetId` | Identificador del gemelo digital de destino. |
 | `$relationshipName` | Nombre de la relación. |
-| `{propertyName}` | [Opcional] Valor de una propiedad de esta relación en formato JSON (`string`, tipo de número u objeto). |
+| `<property-name>` | [Opcional] Valor de una propiedad de esta relación en formato JSON (`string`, tipo de número u objeto). |
 
 A continuación se muestra un ejemplo de relación formateada como un objeto JSON:
 

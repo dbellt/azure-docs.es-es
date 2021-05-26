@@ -1,24 +1,24 @@
 ---
 title: Ahorros para Azure App Service con capacidad reservada
-description: Aprenda a ahorrar costos en instancias de Premium v3 y el impuesto sobre el timbre en entorno aislado de Azure App Service.
+description: Aprenda a ahorrar costos en instancias reservadas de Azure App Service Premium v3 y Premium v2 y tarifas de unidades de escalado aisladas.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 05/13/2021
 ms.author: banders
 ms.custom: references_regions
-ms.openlocfilehash: 92a315121ad8ae6fadcadbf6d531eb3e99ae69a9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f80619f1eeb7cdd970e4e3ee64491453c790149d
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374548"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378533"
 ---
 # <a name="save-costs-with-azure-app-service-reserved-instances"></a>Ahorro de costos con instancias reservadas de Azure App Service
 
-En este artículo se explica cómo puede ahorrar con instancias reservadas de Azure App Service en instancias de Premium v3 y el impuesto sobre el timbre en entorno aislado.
+En este artículo se explica cómo ahorrar con instancias reservadas de Azure App Service para instancias de Premium v3 y Premium v2 y tarifas de unidades de escalado aisladas.
 
 ## <a name="save-with-premium-v3-reserved-instances"></a>Ahorro con instancias reservadas de Premium v3
 
@@ -42,7 +42,6 @@ Puede consultar las recomendaciones de reserva para averiguar las reservas que d
 Analice su información de uso para averiguar qué reservas debe adquirir. Los datos de uso están disponibles en el archivo de uso y en las API. Úselos de manera conjunta para determinar qué reserva adquirir. Para determinar la cantidad de reservas que necesita adquirir, compruebe si hay instancias de Premium v3 que tengan un uso elevado diario.
 
 El archivo de uso proporciona los cargos por período de facturación y el uso diario. Para más información sobre cómo descargar el archivo de uso, vea [Visualización y descarga de los datos de uso y los cargos de Azure](../understand/download-azure-daily-usage.md). Tras ello, una vez posea la información del archivo de uso, podrá [determinar qué reserva comprar](determine-reservation-purchase.md).
-
 
 ## <a name="buy-a-premium-v3-reserved-instance"></a>Adquisición de una instancia reservada de Premium v3
 
@@ -69,6 +68,32 @@ Si tiene un Contrato Enterprise, puede usar la opción **Agregar más** para agr
 | Tamaño de instancias reservadas de Premium v3 | El tamaño de las instancias reservadas de Premium v3. |
 | Término | Un año o tres años. También hay un período de 5 años disponible solo para las instancias reservadas de Premium v3 HBv2. |
 | Cantidad | Número de instancias que se compran dentro de la reserva. La cantidad es el número de instancias reservadas de Premium v3 en ejecución a las que se aplica el descuento de facturación. Por ejemplo, si tiene 10 instancias reservadas de Premium v3 Standard\_D2 en la región Este de EE UU., debería especificar 10 como cantidad para maximizar la ventaja para todas las instancias reservadas de Premium v3 en ejecución. |
+
+## <a name="buy-an-isolated-v2-reserved-instance"></a>Compra de una instancia reservada de App Service aislado v2
+
+Puede comprar una instancia reservada de App Service aislado v2 en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pague la reserva [por adelantado o mensualmente](prepare-buy-reservation.md). Estos requisitos se aplican a la compra de una instancia reservada de App Service aislado v2:
+
+- Debe tener un rol de propietario en al menos una suscripción de EA o en una suscripción con una tarifa de pago por uso.
+- En el caso de las suscripciones de EA, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com/). O bien, si esa opción está deshabilitada, debe ser un administrador de EA en la suscripción.
+- En el caso del programa Proveedor de soluciones en la nube (CSP), solo los agentes de administración o de ventas pueden adquirir reservas.
+
+Para comprar una instancia:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+2. Seleccione **Todos los servicios** > **Reservations**.
+3. Seleccione **Agregar** para comprar una nueva reserva y, luego, haga clic en **Instancia**.
+4. Rellene los campos obligatorios. Las instancias reservadas de App Service aislado v2 en ejecución que coinciden con los atributos seleccionados cumplen los requisitos para obtener el descuento de reserva. El número real de instancias reservadas de App Service aislado v2 que obtienen el descuento depende del ámbito y la cantidad seleccionados.
+
+Si tiene un Contrato Enterprise, puede usar la opción **Agregar más** para agregar rápidamente instancias adicionales. La opción no está disponible para otros tipos de suscripciones.
+
+| **Campo** | **Descripción** |
+| --- | --- |
+| Subscription | Suscripción que se usa para pagar la reserva. Los costos de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Contrato de cliente de Microsoft o una suscripción individual con tarifas de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Los cargos se deducen del saldo de compromiso monetario, si está disponible, o se cobran como uso por encima del límite. En una suscripción con tarifas de pago por uso, los cargos se cobran con el método de pago de factura o la tarjeta de crédito de la suscripción. |
+| Ámbito | El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona:<UL><LI>**Single resource group scope** (Ámbito de grupo de recursos único): aplica el descuento por reserva a los recursos coincidentes solo en el grupo de recursos seleccionado.</li><li>**Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.</li><li>**Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Para los clientes de EA, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.</li> |
+| Region | Región de Azure que está cubierta por la reserva. |
+| Tamaño de instancia reservada de App Service aislado v2 | Tamaño de las instancias reservadas de App Service aislado v2. |
+| Término | Un año o tres años. También hay un período de 5 años disponible solo para las instancias reservadas de App Service aislado v2 HBv2. |
+| Cantidad | Número de instancias que se compran dentro de la reserva. La cantidad es el número de instancias reservadas de App Service aislado v2 en ejecución que pueden obtener el descuento de facturación. Por ejemplo, si tiene 10 instancias reservadas de App Service aislado v2 Standard\_D2 en la región Este de EE UU., especificaría 10 como cantidad para maximizar el beneficio para todas las instancias reservadas de App Service aislado v2 en ejecución. |
 
 ## <a name="save-with-isolated-stamp-fees"></a>Ahorro en el impuesto sobre el timbre en entorno aislado
 

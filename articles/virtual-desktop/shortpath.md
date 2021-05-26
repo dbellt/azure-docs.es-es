@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 295a46f6d1074ddf8422233ea3ccfa4d65c28fd8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f52796cd5477ecd692296213e337ded4f52503cd
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100571586"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110189593"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>RDP Shortpath de Windows Virtual Desktop (versión preliminar)
 
@@ -57,6 +57,7 @@ En el diagrama siguiente se ofrece información general de la conexión de red d
 
 Para admitir RDP Shortpath, el cliente de Windows Virtual Desktop necesita una línea de visión directa hacia el host de sesión. Puede obtener una línea de visión directa mediante una de las siguientes tecnologías:
 
+* Los equipos cliente remotos deben ejecutar Windows 10 o Windows 7 y tener instalado el [cliente de Escritorio de Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop). Actualmente, no se admite el cliente web.
 * [Emparejamiento privado de ExpressRoute](../expressroute/expressroute-circuit-peerings.md)
 * [VPN de sitio a sitio (basada en IPsec)](../vpn-gateway/tutorial-site-to-site-portal.md)
 * [VPN de punto a sitio (basada en IPsec)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)

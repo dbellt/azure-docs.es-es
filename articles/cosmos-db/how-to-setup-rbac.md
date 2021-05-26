@@ -4,20 +4,17 @@ description: Aprenda a configurar el control de acceso basado en roles con Azure
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 05/25/2021
 ms.author: thweiss
-ms.openlocfilehash: 9de41835e33d50a670a44089cb10d44cc57e92a7
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 35e3d4668fc3a5eb260bc187ec1cb6177f91911b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107818717"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378480"
 ---
-# <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Configuración del control de acceso basado en roles con Azure Active Directory para la cuenta de Azure Cosmos DB (versión preliminar).
+# <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account"></a>Configuración del control de acceso basado en roles con Azure Active Directory para la cuenta de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
-
-> [!IMPORTANT]
-> El control de acceso basado en roles de Azure Cosmos DB se encuentra actualmente en versión preliminar. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para obtener más información, consulte [Términos de uso complementarios de las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
 > Este artículo trata sobre el control de acceso basado en roles para las operaciones del plano de datos de Azure Cosmos DB. Si usa operaciones del plano de administración, consulte la documentación sobre el [control de acceso basado en roles](role-based-access-control.md) aplicado a las operaciones de este plano.
@@ -40,14 +37,11 @@ El control de acceso basado en roles del plano de datos de Azure Cosmos DB se b
 
   :::image type="content" source="./media/how-to-setup-rbac/concepts.png" alt-text="Conceptos del control de acceso basado en roles":::
 
-> [!NOTE]
-> El control de acceso basado en roles de Azure Cosmos DB no expone actualmente ninguna definición de roles integrada.
-
 ## <a name="permission-model"></a><a id="permission-model"></a> Modelo de permiso
 
 > [!IMPORTANT]
 > Este modelo de permisos solo incluye las operaciones de base de datos que permiten leer y escribir datos. **No** incluye ningún tipo de operaciones de administración, como la creación de contenedores o la modificación de su rendimiento. Esto significa que **no puede usar ningún SDK del plano de datos de Azure Cosmos DB** para autenticar las operaciones de administración con una identidad de AAD. En su lugar, tiene que usar [Azure RBAC](role-based-access-control.md) a través de:
-> - [Plantillas de ARM](manage-with-templates.md)
+> - [Plantillas de Azure Resource Manager (ARM)](manage-with-templates.md)
 > - [Scripts de Azure PowerShell](manage-with-powershell.md)
 > - [Scripts de la CLI de Azure](manage-with-cli.md)
 > - Bibliotecas de administración de Azure disponibles en
@@ -95,13 +89,22 @@ Las solicitudes de metadatos reales que permite la acción `Microsoft.DocumentDB
 | Base de datos | - Lectura de metadatos de la base de datos<br>- Enumeración de los contenedores de la base de datos<br>- Para cada contenedor de la base de datos, las acciones permitidas en el ámbito de contenedor |
 | Contenedor | - Lectura de metadatos del contenedor<br>- Enumeración de las particiones físicas en el contenedor<br>- Resolución de la dirección de cada partición física |
 
-## <a name="create-role-definitions"></a><a id="role-definitions"></a> Creación de definiciones de roles
+## <a name="built-in-role-definitions"></a>Definiciones de roles integradas
 
-Al crear una definición de roles, debe proporcionar:
+Azure Cosmos DB expone dos definiciones de roles integrados:
+
+| ID | Nombre | Acciones incluidas |
+|---|---|---|
+| 00000000-0000-0000-0000-000000000001 | Lector de datos integrado de Cosmos DB | `Microsoft.DocumentDB/databaseAccounts/readMetadata`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed` |
+| 00000000-0000-0000-0000-000000000002 | Colaborador de datos integrado de Cosmos DB | `Microsoft.DocumentDB/databaseAccounts/readMetadata`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*` |
+
+## <a name="create-custom-role-definitions"></a><a id="role-definitions"></a> Creación de definiciones de roles personalizados
+
+Al crear una definición de roles, debe proporcionar lo siguiente:
 
 - El nombre de la cuenta de Azure Cosmos DB.
 - El grupo de recursos que contiene la cuenta.
-- El tipo de definición de roles; solo se admite `CustomRole` actualmente.
+- El tipo de la definición de roles: `CustomRole`.
 - El nombre de la definición de roles.
 - Una lista de [acciones](#permission-model) que desea que permita el rol.
 - Uno o varios ámbitos en los que se puede asignar la definición de roles; los ámbitos admitidos son:
@@ -273,9 +276,13 @@ az cosmosdb sql role definition list --account-name $accountName --resource-grou
 ]
 ```
 
+### <a name="using-azure-resource-manager-templates"></a>Uso de plantillas del Administrador de recursos de Azure
+
+Consulte [esta página](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/sqlresources2/createupdatesqlroledefinition) para obtener una referencia y ejemplos del uso de plantillas de Azure Resource Manager para crear definiciones de roles.
+
 ## <a name="create-role-assignments"></a><a id="role-assignments"></a> Creación de asignaciones de roles
 
-Una vez que haya creado las definiciones de roles, puede asociarlas a las identidades de AAD. Al crear una asignación de roles, debe proporcionar:
+Puede asociar definiciones de roles integrados o personalizados con sus identidades de Azure AD. Al crear una asignación de roles, debe proporcionar:
 
 - El nombre de la cuenta de Azure Cosmos DB.
 - El grupo de recursos que contiene la cuenta.
@@ -324,6 +331,10 @@ principalId = '<aadPrincipalId>'
 az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
 ```
 
+### <a name="using-azure-resource-manager-templates"></a>Uso de plantillas del Administrador de recursos de Azure
+
+Consulte [esta página](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/sqlresources2/createupdatesqlroleassignment) para obtener una referencia y ejemplos del uso de plantillas de Azure Resource Manager para crear asignaciones de roles.
+
 ## <a name="initialize-the-sdk-with-azure-ad"></a>Inicialización del SDK con Azure AD
 
 Para usar el control de acceso basado en roles de Azure Cosmos DB en la aplicación, tiene que actualizar la forma en que inicializa el SDK de Azure Cosmos DB. En lugar de pasar la clave principal de la cuenta, debe pasar una instancia de una clase `TokenCredential`. Esta instancia proporciona el SDK de Azure Cosmos DB con el contexto necesario para capturar un token de AAD en nombre de la identidad que desea usar.
@@ -333,7 +344,6 @@ La forma de crear una instancia de `TokenCredential` queda fuera del ámbito de 
 - [En .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
 - [En Java](/java/api/overview/azure/identity-readme#credential-classes)
 - [En JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
-- En la API de REST
 
 En los ejemplos siguientes se usa una entidad de servicio con una instancia de `ClientSecretCredential`.
 
@@ -381,13 +391,20 @@ const client = new CosmosClient({
 });
 ```
 
-### <a name="in-rest-api"></a>En la API de REST
+## <a name="authenticate-requests-on-the-rest-api"></a>Autenticación de solicitudes en la API de REST
 
-El rol RBAC de Azure Cosmos DB actualmente es compatible con la versión 2021-03-15 de la API de REST. Al construir el [encabezado de autorización](/rest/api/cosmos-db/access-control-on-cosmosdb-resources), establezca el parámetro **type** en **aad** y la firma de hash **(sig)** en el **token de Oauth** como se muestra en el ejemplo siguiente:
+El rol RBAC de Azure Cosmos DB actualmente es compatible con la versión `2021-03-15` de la API de REST. Al construir el [encabezado de autorización](/rest/api/cosmos-db/access-control-on-cosmosdb-resources), establezca el parámetro **type** en **aad** y la firma de hash **(sig)** en el **token de Oauth** como se muestra en el ejemplo siguiente:
 
 `type=aad&ver=1.0&sig=<token-from-oauth>`
 
-## <a name="auditing-data-requests"></a>Auditoría de solicitudes de datos
+## <a name="use-data-explorer"></a>Uso del Explorador de datos
+
+> [!NOTE]
+> El explorador de datos expuesto en Azure Portal todavía no es compatible con RBAC de Azure Cosmos DB. Para usar la identidad de Azure AD al explorar los datos, debe usar el [Explorador de Azure Cosmos DB](https://cosmos.azure.com/) en su lugar.
+
+Al examinar los datos almacenados en su cuenta, el [Explorador de Azure Cosmos DB](https://cosmos.azure.com/) inicialmente intenta capturar la clave principal de la cuenta en nombre del usuario que ha iniciado sesión y usar esta clave para acceder a los datos. Si ese usuario no puede capturar la clave principal, se usará la identidad de Azure AD de dicho usuario en lugar para acceder a los datos.
+
+## <a name="audit-data-requests"></a>Auditoría de solicitudes de datos
 
 Al usar el control de acceso basado en roles de Azure Cosmos DB, los [registros de diagnóstico](cosmosdb-monitor-resource-logs.md) se incrementan con la información de identidad y autorización de cada operación de datos. Esto le permite realizar una auditoría detallada y recuperar la identidad de AAD que se usa para cada solicitud de datos enviada a su cuenta de Azure Cosmos DB.
 
@@ -402,7 +419,6 @@ Esta información adicional fluye en la categoría de registro **DataPlaneReques
 - Solo puede asignar definiciones de roles a identidades de Azure AD que pertenezcan al mismo inquilino de Azure AD que su cuenta de Azure Cosmos DB.
 - La resolución de grupos de Azure AD no se admite actualmente para las identidades que pertenecen a más de 200 grupos.
 - El token de Azure AD se pasa actualmente como un encabezado con cada solicitud que se envía al servicio Azure Cosmos DB, con lo que aumenta el tamaño total de la carga útil.
-- Todavía no se admite el acceso a los datos con Azure AD a través del [Explorador de Azure Cosmos DB](data-explorer.md). El uso del Explorador de Azure Cosmos DB todavía requiere que el usuario tenga acceso a la clave principal de la cuenta.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
@@ -416,15 +432,15 @@ Todavía no está disponible la compatibilidad de Azure Portal con la administra
 
 ### <a name="which-sdks-in-azure-cosmos-db-sql-api-support-rbac"></a>¿Qué SDK de la API de SQL para Azure Cosmos DB admite el control de acceso basado en roles?
 
-Actualmente se admiten los SDK de [.NET V3](sql-api-sdk-dotnet-standard.md) y [Java V4](sql-api-sdk-java-v4.md).
+Actualmente se admiten los SDK de [.NET V3](sql-api-sdk-dotnet-standard.md), [Java V4](sql-api-sdk-java-v4.md) y [JavaScript V3](sql-api-sdk-node.md).
 
 ### <a name="is-the-azure-ad-token-automatically-refreshed-by-the-azure-cosmos-db-sdks-when-it-expires"></a>¿Actualizan automáticamente los SDK de Azure Cosmos DB el token de Azure AD cuando este expira?
 
 Sí.
 
-### <a name="is-it-possible-to-disable-the-usage-of-the-account-primary-key-when-using-rbac"></a>¿Es posible deshabilitar el uso de la clave principal de la cuenta al usar el control de acceso basado en roles?
+### <a name="is-it-possible-to-disable-the-usage-of-the-account-primarysecondary-keys-when-using-rbac"></a>¿Es posible deshabilitar el uso de las claves principal o secundaria de la cuenta al usar el control de acceso basado en roles?
 
-Actualmente no es posible deshabilitar la clave principal de la cuenta.
+Actualmente no es posible deshabilitar las claves principal o secundaria de la cuenta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

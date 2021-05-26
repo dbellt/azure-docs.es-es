@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 02607c219cf39a20a40854632e961b3ce199d0d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eca43b43606828ebb514f3f22e1839d96db4e0fa
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104588263"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461800"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage
 
@@ -125,7 +125,7 @@ La biblioteca de cliente de almacenamiento utiliza las interfaces de Key Vault e
 
 ### <a name="interface-and-dependencies"></a>Interfaz y dependencias
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 Hay dos paquetes necesarios para la integración de Key Vault:
 
@@ -134,7 +134,7 @@ Hay dos paquetes necesarios para la integración de Key Vault:
 
 Key Vault está diseñado para claves maestras de gran valor. Por su parte, los valores de limitación por cada almacén de claves se diseñan teniendo en cuenta este aspecto. A partir de Azure.Security.KeyVault.Keys 4.1.0, no hay ninguna implementación `IKeyEncryptionKeyResolver` que admita el almacenamiento en caché de claves. Si el almacenamiento en caché es necesario debido a una limitación, se puede seguir [este ejemplo](/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) para insertar una capa de almacenamiento en caché en una instancia de `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver`.
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
 
 Hay tres paquetes de Key Vault:
 
@@ -179,7 +179,7 @@ Los usuarios pueden habilitar opcionalmente un modo de operación en el que se d
 
 ### <a name="blob-service-encryption"></a>Cifrado de Blob service
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 Cree un objeto **ClientSideEncryptionOptions** y establézcalo en la creación de cliente con **SpecializedBlobClientOptions**. No se pueden establecer opciones de cifrado por API. Todo lo demás lo controlará la biblioteca de cliente internamente.
 
@@ -229,7 +229,7 @@ ClientSideEncryptionOptions encryptionOptions;
 BlobClient clientSideEncryptionBlob = plaintextBlob.WithClientSideEncryptionOptions(encryptionOptions);
 ```
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
 
 Cree un objeto **BlobEncryptionPolicy** y configúrelo en las opciones de solicitud (por API o en un nivel de cliente mediante el elemento **DefaultRequestOptions**). Todo lo demás lo controlará la biblioteca de cliente internamente.
 
@@ -255,7 +255,7 @@ blob.DownloadToStream(outputStream, null, options, null);
 
 ### <a name="queue-service-encryption"></a>Cifrado del servicio Cola
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 Cree un objeto **ClientSideEncryptionOptions** y establézcalo en la creación de cliente con **SpecializedQueueClientOptions**. No se pueden establecer opciones de cifrado por API. Todo lo demás lo controlará la biblioteca de cliente internamente.
 
@@ -333,7 +333,7 @@ QueueMessage[] messages = queue.ReceiveMessages(maxMessages: 5).Value;
 Debug.Assert(messages.Length == 4)
 ```
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
 
 Cree un objeto **QueueEncryptionPolicy** y configúrelo en las opciones de solicitud (por API o en el nivel del cliente usando **DefaultRequestOptions**). Todo lo demás lo controlará la biblioteca de cliente internamente.
 

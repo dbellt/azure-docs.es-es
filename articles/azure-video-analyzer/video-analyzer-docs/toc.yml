@@ -152,7 +152,7 @@
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/updates/?category=media'
     - name: Precios
-      href: 'https://azure.microsoft.com/services/media-services/live-video-analytics/'
+      href: 'https://azure.microsoft.com/pricing/details/video-analyzer/'
     - name: Preguntas más frecuentes
       href: faq-edge.md
     - name: Cuotas y limitaciones

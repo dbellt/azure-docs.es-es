@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 0c182e1093c29206d27a0e55a46dd9a5607fa6ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7634a07ab3a0026a06f959c99e7b104a9dc91650
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101701712"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459728"
 ---
 # <a name="enable-and-manage-azure-storage-analytics-logs-classic"></a>Habilitación y administración de los registros de Azure Storage Analytics (clásico)
 
@@ -113,11 +113,11 @@ También puede indicar a Azure Storage que guarde los registros de diagnóstico 
 
    Para más información sobre cómo configurar los cmdlets de Azure PowerShell para que funcionen con su suscripción de Azure y cómo seleccionar la cuenta de almacenamiento predeterminada que quiere usar, vea: [Cómo instalar y configurar Azure PowerShell](/powershell/azure/).  
 
-### <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+### <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
 
-### <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+### <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -210,7 +210,7 @@ Los datos de registro se pueden acumular en la cuenta a lo largo del tiempo, lo 
 
    Para más información sobre cómo configurar los cmdlets de Azure PowerShell para que funcionen con su suscripción de Azure y cómo seleccionar la cuenta de almacenamiento predeterminada que quiere usar, vea: [Cómo instalar y configurar Azure PowerShell](/powershell/azure/).  
 
-### <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+### <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 En el ejemplo siguiente, se imprime en la consola el período de retención para los servicios de almacenamiento de blobs y colas.
 
@@ -220,7 +220,7 @@ En el ejemplo siguiente se cambia el período de retención a 4 días.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_ModifyRetentionPeriod":::
 
-### <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+### <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
 
 En el ejemplo siguiente, se imprime en la consola el período de retención para los servicios de almacenamiento de blobs y colas.
 
