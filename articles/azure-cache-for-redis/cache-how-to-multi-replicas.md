@@ -1,33 +1,25 @@
 ---
-title: Incorporación de réplicas a Azure Cache for Redis (versión preliminar)
+title: Incorporación de réplicas a Azure Cache for Redis
 description: Aprenda a agregar más réplicas a las instancias de Azure Cache for Redis de nivel Premium.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 87b5ec5eb13f2bc53bdf993547ce3da1c74404bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aef8055d289ada8a62078185517c3ba129972488
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91566795"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110099862"
 ---
-# <a name="add-replicas-to-azure-cache-for-redis-preview"></a>Incorporación de réplicas a Azure Cache for Redis (versión preliminar)
+# <a name="add-replicas-to-azure-cache-for-redis"></a>Incorporación de réplicas a Azure Cache for Redis
 En este artículo, aprenderá a configurar una instancia de caché de Azure con réplicas adicionales mediante Azure Portal.
 
 Los niveles Estándar y Premium de Azure Cache for Redis ofrecen redundancia mediante el hospedaje de cada caché en dos máquinas virtuales (VM) dedicadas. Estas máquinas virtuales están configuradas como principal y réplica. Cuando la máquina virtual principal deja de estar disponible, la réplica lo detecta y toma el relevo automáticamente como la nueva principal. Ahora puede aumentar el número de réplicas en una caché Premium hasta tres, lo que le dará un total de cuatro máquinas virtuales que respaldan una caché. Tener varias réplicas tiene como resultado una mayor resistencia que la que puede proporcionar una sola.
 
-> [!IMPORTANT]
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Condiciones de uso complementarias de las versiones preliminares de Microsoft Azure.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 
-> 
-
 ## <a name="prerequisites"></a>Requisitos previos
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
-
-> [!NOTE]
-> Esta característica se encuentra actualmente en versión preliminar: [póngase en contacto con nosotros](mailto:azurecache@microsoft.com) si le interesa.
->
 
 ## <a name="create-a-cache"></a>Creación de una caché
 Para crear una instancia de caché, siga estos pasos:

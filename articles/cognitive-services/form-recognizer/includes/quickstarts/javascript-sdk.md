@@ -7,20 +7,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 04/14/2021
+ms.date: 05/12/2021
 ms.author: lajanuar
-ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: feff8b003428fd61fba826d05f8212fa8d9788f9
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.custom: devx-track-js
+ms.openlocfilehash: 84d6f181636c65aea5c247185bfd7ef083151c75
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107601922"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374208"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
+
 > [!IMPORTANT]
 >
 > * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. Para más información, consulte la siguiente documentación de referencia.
@@ -80,7 +81,7 @@ Cree variables para el punto de conexión y la clave de Azure del recurso.
 
 ## <a name="object-model"></a>Modelo de objetos
 
-Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `FormRecognizerClient`, se utiliza para consultar el servicio con los campos de formulario y el contenido reconocidos. El segundo, `FormTrainingClient`, se usa para crear y administrar modelos personalizados que se pueden usar para mejorar el reconocimiento.
+Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `FormRecognizerClient`, se utiliza para consultar el servicio con los campos de formulario y el contenido reconocidos. El segundo, `FormTrainingClient`, se usa para crear y administrar modelos personalizados que se pueden emplear para mejorar el reconocimiento.
 
 ### <a name="formrecognizerclient"></a>FormRecognizerClient
 
@@ -100,7 +101,7 @@ Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `F
 * La copia de un modelo personalizado entre recursos de Form Recognizer.
 
 > [!NOTE]
-> Los modelos también se pueden entrenar mediante una interfaz gráfica de usuario, como la [herramienta de etiquetado de Form Recognizer](../../quickstarts/label-tool.md).
+> Los modelos también se pueden entrenar mediante una interfaz gráfica de usuario, como la [herramienta de etiquetado de Form Recognizer](../../label-tool.md).
 
 ## <a name="code-examples"></a>Ejemplos de código
 
@@ -114,7 +115,7 @@ Estos fragmentos de código muestran cómo realizar las siguientes tareas con la
 * [Análisis de documentos de identidad](#analyze-identity-documents)
 * [Entrenar un modelo personalizado](#train-a-custom-model)
 * [Analizar formularios con un modelo personalizado](#analyze-forms-with-a-custom-model)
-* [Administrar modelos personalizados](#manage-your-custom-models)
+* [Administración de modelos personalizados](#manage-custom-models)
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
@@ -126,7 +127,7 @@ Autentique un objeto de cliente mediante las variables de suscripción que ha de
 
 También tendrá que agregar referencias a las direcciones URL de los datos de entrenamiento y prueba.
 
-* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+* [!INCLUDE [get SAS URL](../sas-instructions.md)]
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recuperación de la dirección URL de SAS":::
 * Use las imágenes de envío y de recepción que se incluyen en los ejemplos siguientes (también disponibles en [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/assets)). O bien, siga los pasos anteriores para obtener la dirección URL de SAS de un documento individual en el almacenamiento de blobs.
@@ -217,7 +218,7 @@ Para analizar documentos de identificación de una dirección URL, use el métod
 En esta sección se muestra cómo entrenar un modelo con sus propios datos. Un modelo entrenado puede generar datos estructurados que incluyan las relaciones clave-valor del documento de formulario original. Después de entrenar el modelo, puede probarlo, volver a entrenarlo y finalmente usarlo para extraer datos de forma confiable de más formularios en función de las propias necesidades.
 
 > [!NOTE]
-> También puede entrenar modelos con una interfaz gráfica de usuario, como la [herramienta de etiquetado de ejemplo de Form Recognizer](../../quickstarts/label-tool.md).
+> También puede entrenar modelos con una interfaz gráfica de usuario, como la [herramienta de etiquetado de ejemplo de Form Recognizer](../../label-tool.md).
 
 ### <a name="train-a-model-without-labels"></a>Entrenamiento de un modelo sin etiquetas
 
@@ -265,7 +266,7 @@ Document errors:
 
 ### <a name="train-a-model-with-labels"></a>Entrenamiento de un modelo con etiquetas
 
-También puede entrenar modelos personalizados mediante el etiquetado manual de los documentos de entrenamiento. En algunos escenarios, el entrenamiento con etiquetas conduce a un mejor rendimiento. Para realizar el entrenamiento con etiquetas, debe disponer de archivos de información con etiquetas especiales (`\<filename\>.pdf.labels.json`) en el contenedor de almacenamiento de blobs junto con los documentos para el entrenamiento. La [herramienta de etiquetado de ejemplo de Form Recognizer](../../quickstarts/label-tool.md) proporciona una interfaz de usuario para ayudarle a crear estos archivos de etiqueta. Cuando los tenga, puede llamar al método `beginTraining` con el parámetro `uselabels` establecido en `true`.
+También puede entrenar modelos personalizados mediante el etiquetado manual de los documentos de entrenamiento. En algunos escenarios, el entrenamiento con etiquetas conduce a un mejor rendimiento. Para realizar el entrenamiento con etiquetas, debe disponer de archivos de información con etiquetas especiales (`\<filename\>.pdf.labels.json`) en el contenedor de almacenamiento de blobs junto con los documentos para el entrenamiento. La [herramienta de etiquetado de ejemplo de Form Recognizer](../../label-tool.md) proporciona una interfaz de usuario para ayudarle a crear estos archivos de etiqueta. Cuando los tenga, puede llamar al método `beginTraining` con el parámetro `uselabels` establecido en `true`.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_trainlabels)]
 
@@ -353,7 +354,7 @@ Field Tax has value 'undefined' with a confidence score of undefined
 Field Total has value 'undefined' with a confidence score of undefined
 ```
 
-## <a name="manage-your-custom-models"></a>Administración de modelos personalizados
+## <a name="manage-custom-models"></a>Administración de modelos personalizados
 
 En esta sección se muestra cómo administrar los modelos personalizados almacenados en su cuenta. Como ejemplo, el código siguiente realiza todas las tareas de administración del modelo en una única función.
 

@@ -11,12 +11,12 @@ ms.reviewer: sgilley
 ms.date: 04/19/2021
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: d50820e954c1a34f1ccffe133a338538bf0abd18
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: f61e1a604c9296f85bbfd508f39dcbc74e256caf
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888537"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110098729"
 ---
 # <a name="start-monitor-and-track-run-history"></a>Inicio, supervisión y seguimiento del historial de ejecución
 
@@ -194,11 +194,11 @@ Para ver las ejecuciones en el estudio:
 En la página **Todas las ejecuciones**, puede filtrar la lista de ejecuciones por etiquetas, experimentos y destino de proceso, entre otros criterios, para organizar mejor el ámbito del trabajo.  
     
 1. Para hacer personalizaciones en la página, seleccione ejecuciones para comparar, agregue gráficos o aplique filtros. Estos cambios se pueden guardar como una **vista personalizada** para que pueda volver fácilmente a su trabajo. Los usuarios con permisos en el área de trabajo pueden editar o ver la vista personalizada. Además, comparta la vista personalizada con los miembros del equipo para mejorar la colaboración seleccionando **Compartir vista**.   
-    
+
+1. Para ver los registros de ejecución, seleccione una ejecución específica y, en la pestaña **Resultados y registros**, puede encontrar registros de diagnóstico y errores para la ejecución.    
+
 :::image type="content" source="media/how-to-track-monitor-analyze-runs/custom-views.gif" alt-text="Captura de pantalla: creación de una vista personalizada":::
     
-1. Para ver los registros de ejecución, seleccione una ejecución específica y, en la pestaña **Resultados y registros**, puede encontrar registros de diagnóstico y errores para la ejecución.
-
 ## <a name="run-description"></a>Descripción de la ejecución 
 
 Se puede agregar una descripción a una ejecución para proporcionar más contexto e información a la ejecución. También puede buscar en estas descripciones desde la lista de ejecuciones y agregar la descripción de la ejecución como una columna en la lista de ejecuciones. 

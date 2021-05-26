@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 08/10/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: edd02085abe63b124082255247362f096248ba82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fac3ad13f34620bb2ec817601041001ccf393d4e
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91317266"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369069"
 ---
 # <a name="create-your-first-durable-function-in-powershell"></a>Creación de la primera función durable en PowerShell
 
@@ -90,7 +90,7 @@ Se usa una plantilla para crear el código de la función de Durable Functions d
 
     | Prompt | Valor | Descripción |
     | ------ | ----- | ----------- |
-    | Seleccionar una plantilla para la función | Orquestador de Durable Functions (versión preliminar) | Crear una orquestación de Durable Functions |
+    | Seleccionar una plantilla para la función | Orquestador de Durable Functions | Crear una orquestación de Durable Functions |
     | Proporcionar un nombre de función | HelloOrchestrator | Nombre de la función de Durable Functions |
 
 Hemos agregado un orquestador para coordinar las funciones de actividad. Open *HelloOrchestrator/run.ps1* para ver la función del orquestador. Cada llamada al cmdlet `Invoke-ActivityFunction` invoca una función de actividad denominada `Hello`.
@@ -105,7 +105,7 @@ A continuación, agregará la función de actividad `Hello` a la que se hace ref
 
     | Prompt | Valor | Descripción |
     | ------ | ----- | ----------- |
-    | Seleccionar una plantilla para la función | Actividad de Durable Functions (versión preliminar) | Crear una función de actividad |
+    | Seleccionar una plantilla para la función | Actividad de Durable Functions | Crear una función de actividad |
     | Proporcionar un nombre de función | Hola | Nombre de la función de actividad |
 
 Ha agregado la función de actividad `Hello` que el orquestador invoca. Abra *Hello/run.ps1* para comprobar que toma un nombre como entrada y devuelve un saludo. Una función de actividad es donde realizará acciones como realizar una llamada a la base de datos o realizar un cálculo.
@@ -120,7 +120,7 @@ Por último, agregará una función desencadenada por HTTP que inicie la orquest
 
     | Prompt | Valor | Descripción |
     | ------ | ----- | ----------- |
-    | Seleccionar una plantilla para la función | Inicio de HTTP de Durable Functions (versión preliminar) | Crear una función de inicio de HTTP |
+    | Seleccionar una plantilla para la función | Inicio de HTTP de Durable Functions | Crear una función de inicio de HTTP |
     | Proporcionar un nombre de función | HttpStart | Nombre de la función de actividad |
     | Nivel de autorización | Anónimas | Para la demostración, permita que se llame a la función sin autenticación. |
 

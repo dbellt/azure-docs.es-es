@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6f7ae7af0f2764bd3f157ad5ca3166c9989cd9bf
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 63f06b9cab7896bcd98b6b6cd9c037b7ee83b47f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276797"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451775"
 ---
 # <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Uso de etiquetas de índice de blobs (versión preliminar) para administrar y buscar datos en Azure Blob Storage
 
@@ -32,7 +32,7 @@ Para obtener más información sobre esta característica junto con las limitaci
 - Una suscripción a Azure registrada y aprobada para el acceso a la versión preliminar del índice de blobs
 - Acceso a [Azure Portal](https://portal.azure.com/)
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/net)
 
 Como el índice de blobs está en versión preliminar, el paquete de almacenamiento de .NET se publica en la fuente NuGet de la versión preliminar. Esta biblioteca está sujeta a cambios durante el período de versión preliminar.
 
@@ -76,7 +76,7 @@ Esta tarea puede realizarla un [propietario de datos de Storage Blob](../../role
 
 :::image type="content" source="media/storage-blob-index-concepts/blob-index-upload-data-with-tags.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo cargar un blob con etiquetas de índice.":::
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/net)
 
 En el ejemplo siguiente se muestra cómo crear un blob en anexos con etiquetas establecidas durante la creación.
 
@@ -136,7 +136,7 @@ El establecimiento y actualización de las etiquetas de índice de blob puede re
 
 :::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo obtener, establecer, actualizar y eliminar etiquetas de índice en blobs.":::
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/net)
 
 ```csharp
 static async Task BlobIndexTagsExample()
@@ -213,7 +213,7 @@ En Azure Portal, el filtro de las etiquetas de índice de blobs aplica automáti
 
 :::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo filtrar y buscar blobs etiquetados mediante etiquetas de índice":::
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/net)
 
 ```csharp
 static async Task FindBlobsByTagsExample()
@@ -313,7 +313,7 @@ static async Task FindBlobsByTagsExample()
 
 6. Seleccione **Agregar** para aplicar la nueva regla a la directiva de administración del ciclo de vida.
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/net)
 
 Las directivas de [administración del ciclo de vida](storage-lifecycle-management-concepts.md) se aplican a cada cuenta de almacenamiento en el nivel del plano de control. Para .NET, instale la versión 16.0.0 o posterior de la [biblioteca Microsoft.Azure.Management.Storage](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/).
 

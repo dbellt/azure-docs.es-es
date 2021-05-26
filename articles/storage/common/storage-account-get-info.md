@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 26ce4a77e02e62a1a204529ce8652fbba3aab2c9
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 96c77291a1c540e2ff95fb911b2321e78f20e604
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277154"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478850"
 ---
 # <a name="get-storage-account-type-and-sku-name-with-net"></a>Obtención del tipo de cuenta de almacenamiento y el nombre de SKU con .NET
 
@@ -31,13 +31,13 @@ En este artículo se muestra cómo obtener el tipo de cuenta de Azure Storage y 
 
 En el ejemplo de código siguiente se recuperan y se muestran las propiedades de la cuenta de solo lectura.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 Para obtener el tipo de cuenta de almacenamiento y el nombre de SKU asociados a un blob, llame al método [GetAccountInfo](/dotnet/api/azure.storage.blobs.blobserviceclient.getaccountinfo) o [GetAccountInfoAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.getaccountinfoasync).
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Account.cs" id="Snippet_GetAccountInfo":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
 
 Para obtener el tipo de cuenta de almacenamiento y el nombre de SKU asociados a un blob, llame al método [GetAccountProperties](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountproperties) o [GetAccountPropertiesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountpropertiesasync).
 

@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: bacf9682e8ac9587a664eb7f363f505faa73b383
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 1cfed11eec3758586519eeb33b396a41b768e693
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787714"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110075508"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Programación con las API de Azure Digital Twins
 
-Es habitual que los desarrolladores que trabajan con Azure Digital Twins escriban una aplicación que interactúe con su instancia del servicio Azure Digital Twins. Este tutorial orientado al desarrollador proporciona una introducción a la programación para el servicio Azure Digital Twins, mediante el [SDK de Azure Digital Twins para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client). Le guía a través de la escritura de una aplicación cliente de consola paso a paso en C#, empezando desde cero.
+Es habitual que los desarrolladores que trabajan con Azure Digital Twins escriban una aplicación que interactúe con su instancia del servicio Azure Digital Twins. Este tutorial orientado al desarrollador proporciona una introducción a la programación para el servicio Azure Digital Twins, mediante el [SDK de Azure Digital Twins para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). Le guía a través de la escritura de una aplicación cliente de consola paso a paso en C#, empezando desde cero.
 
 > [!div class="checklist"]
 > * Configuración del proyecto
@@ -57,7 +57,7 @@ Se crean varios archivos dentro del directorio, incluido uno llamado *Program.cs
 
 Mantenga abierta la ventana de comandos, ya que la seguirá usando durante todo el tutorial.
 
-A continuación, **agregue dos dependencias al proyecto**, que necesitará para trabajar con Azure Digital Twins. El primero es el paquete para el [SDK de Azure Digital Twins para .NET](/dotnet/api/overview/azure/digitaltwins/client), el segundo proporciona herramientas para ayudar con la autenticación en Azure.
+A continuación, **agregue dos dependencias al proyecto**, que necesitará para trabajar con Azure Digital Twins. El primero es el paquete para el [SDK de Azure Digital Twins para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), el segundo proporciona herramientas para ayudar con la autenticación en Azure.
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core

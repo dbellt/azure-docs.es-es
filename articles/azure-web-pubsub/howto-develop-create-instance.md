@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: how-to
 ms.date: 03/17/2021
-ms.openlocfilehash: 9f13f0f62a9bd3b26b4c855110fbc97971ecfea8
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 0ed91129f2093018ff34a2b3eef505eded9483cf
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108167121"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110060713"
 ---
 # <a name="how-to-create-azure-web-pubsub-instance"></a>Cómo crear la instancia de Azure Web PubSub
 
@@ -33,7 +33,7 @@ Para compilar una aplicación con el servicio Azure Web PubSub, debe crear la 
     | **Suscripción** | Suscripción de Azure en la que se va a crear esta instancia del servicio Web PubSub. | 
     | **[Grupo de recursos](../azure-resource-manager/management/overview.md)** |  Nombre del grupo de recursos nuevo o existente en el que se va a crear la instancia del servicio Web PubSub. | 
     | **Ubicación** | Seleccione una [región](https://azure.microsoft.com/regions/) cerca de usted. |
-    | **Plan de tarifa** | Obtenga más información sobre los [planes de tarifa del servicio Azure Web PubSub](https://azure.microsoft.com/pricing/details/web-[pubsub]). |
+    | **Plan de tarifa** | Obtenga más información sobre los [planes de tarifa del servicio Azure Web PubSub](https://azure.microsoft.com/pricing/details/web-pubsub/). |
     | **Recuento de unidades** |  El recuento de unidades especifica cuántas conexiones puede aceptar la instancia del servicio Web PubSub. Cada unidad admite 1000 conexiones simultáneas como máximo. Solo es configurable en el nivel Estándar. |
 
 1. Seleccione **Crear** para empezar a implementar la instancia del servicio Web PubSub.

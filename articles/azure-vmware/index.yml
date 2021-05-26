@@ -9,12 +9,12 @@ metadata:
   author: shortpatti
   ms.author: v-patsho
   ms.date: 05/11/2021
-  ms.openlocfilehash: 43baa8884bb7ab649ddba0e0516d828837a529ec
-  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+  ms.openlocfilehash: b70f47f5cba7782862ddd2e81e6743830f2a8c1d
+  ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/19/2021
-  ms.locfileid: "110086849"
+  ms.lasthandoff: 05/26/2021
+  ms.locfileid: "110452090"
 landingContent:
 - title: Acerca de Azure VMware Solution
   linkLists:
@@ -52,8 +52,8 @@ landingContent:
       url: /azure/azure-vmware/faq#configuration-and-setup
     - text: Software de VMware
       url: /azure/azure-vmware/faq#vmware-software
-    - text: Procesamiento, copia de seguridad y recuperación ante desastres
-      url: /azure/azure-vmware/faq#compute,-backup,-and-disaster-recovery
+    - text: Compute
+      url: /azure/azure-vmware/faq#compute
     - text: Redes e interconectividad
       url: /azure/azure-vmware/faq#networking-and-interconnectivity
     - text: Storage
@@ -106,12 +106,12 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
+    - text: Creación de una evaluación de Azure VMware Solution
+      url: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
     - text: Solicitud de la cuota del host para Azure VMware Solution
       url: request-host-quota-azure-vmware-solution.md
     - text: Ahorro de costos con una instancia reservada
       url: reserved-instance.md
-    - text: Creación de una evaluación de Azure VMware Solution
-      url: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
   - linkListType: how-to-guide
     links:
     - text: Configuración y administración de DHCP
