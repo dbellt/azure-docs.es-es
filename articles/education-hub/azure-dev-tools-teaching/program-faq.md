@@ -7,12 +7,12 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.topic: overview
 ms.date: 06/30/2020
-ms.openlocfilehash: cb283380487310165c646c8615d10a545d1a923b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c2690b625454c7767619ba756f61383fc8f509c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92675694"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110481039"
 ---
 # <a name="frequently-asked-questions-about-the-education-hub"></a>Preguntas frecuentes sobre el Centro de Education
 
@@ -22,7 +22,7 @@ En este artículo se tratan preguntas frecuentes sobre Azure for Students, Azure
 
 ### <a name="what-happens-after-i-use-my-100-credit-or-im-at-the-end-of-12-months"></a>¿Qué sucede después de agotar mi crédito de 100 USD o si ya han pasado los 12 meses?
 
-Una vez agotado el crédito disponible o si ya ha pasado el período de 12 meses, se deshabilitará la suscripción de Azure. Para seguir usando [Azure](https://account.azure.com/), puede actualizar a una suscripción de pago por uso en el portal de cuentas de Azure. Para obtener las condiciones de uso detalladas de Azure for Students, visite las [condiciones de la oferta](https://azure.microsoft.com/offers/ms-azr-0170p/).
+Una vez agotado el crédito disponible o si ya ha pasado el período de 12 meses, se deshabilitará la suscripción de Azure. Para seguir usando Azure, puede actualizar a una suscripción de pago por uso en Azure Portal. Para obtener las condiciones de uso detalladas de Azure for Students, visite las [condiciones de la oferta](https://azure.microsoft.com/offers/ms-azr-0170p/).
 
 ### <a name="can-i-get-azure-for-students-again-next-year"></a>¿Puedo volver a obtener Azure for Students para el próximo año?
 

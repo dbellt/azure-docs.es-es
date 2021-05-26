@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 12/10/2020
+ms.date: 05/17/2021
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 02742610f6febd832470307a5000526cadb3ecbd
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: e93e3619ebf63d27d1739da75e1f5762aad4b502
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166152"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110086040"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>Inicio rápido: aplicación web ASP.NET Core que inicia la sesión de los usuarios y llama a Microsoft Graph en su nombre
 
@@ -31,20 +31,8 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) o [Visual Studio Code](https://code.visualstudio.com/)
 > * [SDK de .NET Core 3.1+](https://dotnet.microsoft.com/download)
 >
-> ## <a name="register-and-download-the-quickstart-app"></a>Registro y descarga de la aplicación de inicio rápido
-> Tiene dos opciones para comenzar con la aplicación de inicio rápido:
-> * [Rápido] [Opción 1: registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * [Manual] [Opción 2: registrar y configurar manualmente la aplicación y el código de ejemplo](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opción 1: registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo
->
-> 1. Vaya a la experiencia de inicio rápido <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetCoreWebAppQuickstartPage/sourceType/docs" target="_blank">Azure Portal: Registros de aplicaciones</a>.
-> 1. Escriba un nombre para la aplicación y seleccione **Registrar**.
-> 1. Siga las instrucciones para descargar y configurar automáticamente la nueva aplicación en un solo clic.
->
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opción 2: registrar y configurar manualmente la aplicación y el código de ejemplo
->
-> #### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
+> ## <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 > Para registrar la aplicación y agregar la información de registro de la aplicación a la solución de forma manual, siga estos pasos:
 >
 > 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
@@ -63,7 +51,8 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 > 1. Seleccione **Agregar** y registre inmediatamente el **valor** del secreto para usarlo en un paso posterior. Este valor de secreto *no se volverá a mostrar* y no se puede recuperar de ninguna otra manera. Regístrelo en una ubicación segura, tal como haría con cualquier contraseña.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Paso 1: Configuración de la aplicación en Azure Portal
+> ## <a name="step-1-configure-your-application-in-the-azure-portal"></a>Paso 1: Configuración de la aplicación en Azure Portal
+>
 > Para que el código de ejemplo de este inicio rápido funcione, agregue un **URI de redirección**  de `https://localhost:44321/signin-oidc` y un valor para **Front-channel logout URL** (Dirección URL de cierre de sesión del canal frontal) de `https://localhost:44321/signout-oidc` en el registro de la aplicación.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Hacer este cambio por mí]()
@@ -71,7 +60,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Ya configurada](media/quickstart-v2-aspnet-webapp/green-check.png) La aplicación está configurada con estos atributos.
 
-#### <a name="step-2-download-the-aspnet-core-project"></a>Paso 2: Descarga del proyecto de ASP.NET Core
+## <a name="step-2-download-the-aspnet-core-project"></a>Paso 2: Descarga del proyecto de ASP.NET Core
 
 > [!div renderon="docs"]
 > [Descargar la solución de ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1-callsgraph.zip)
@@ -85,13 +74,15 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 [!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Paso 3: La aplicación está configurada y lista para ejecutarse
+> ## <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Paso 3: La aplicación está configurada y lista para ejecutarse
+>
 > Hemos configurado el proyecto con los valores de las propiedades de su aplicación y está preparado para ejecutarse.
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 > [!div renderon="docs"]
-> #### <a name="step-3-configure-your-aspnet-core-project"></a>Paso 3: Configuración del proyecto de ASP.NET Core
+>
+> ## <a name="step-3-configure-your-aspnet-core-project"></a>Paso 3: Configuración del proyecto de ASP.NET Core
 > 1. Extraiga el archivo. zip en una carpeta local cerca de la raíz de la unidad. Por ejemplo, en *C:\Azure-Samples*.
 > 1. Abra la solución en Visual Studio 2019.
 > 1. Abra el archivo *appsettings.json* y modifique lo siguiente:
@@ -111,7 +102,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 >
 > Para esta guía de inicio rápido, no cambie ningún otro valor del archivo *appsettings.json*.
 >
-> #### <a name="step-4-build-and-run-the-application"></a>Paso 4: Compilación y ejecución de la aplicación
+> ## <a name="step-4-build-and-run-the-application"></a>Paso 4: Compilación y ejecución de la aplicación
 >
 > Para compilar y ejecutar la aplicación en Visual Studio, seleccione el menú **Depurar** > **Iniciar depuración** o presione la tecla `F5`.
 >

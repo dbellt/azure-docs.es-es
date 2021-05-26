@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 03/11/2021
 ms.author: mlearned
-ms.openlocfilehash: 3fafbe3f4b1c53f929682f4ca160fb19a5e91918
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 7f754aa8d454949c74ccd31e3f52423f755b2fa4
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105313"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372400"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceptos de seguridad de las aplicaciones y los clústeres en Azure Kubernetes Service (AKS)
 
@@ -45,15 +45,15 @@ Puede regular el acceso al servidor de API mediante control de acceso basado en 
 ## <a name="node-security"></a>Seguridad de nodos
 
 Los nodos de AKS son máquinas virtuales (VM) de Azure que el usuario administra y mantiene. 
-* Los nodos de Linux ejecutan una distribución Ubuntu optimizada con `containerd` o el entorno de ejecución del contenedor de Moby. 
-* Los nodos de Windows Server ejecutan una versión de Windows Server 2019 optimizada con `containerd` o el entorno de ejecución del contenedor de Moby. 
+* Los nodos de Linux ejecutan una distribución Ubuntu optimizada con `containerd` o el entorno de ejecución del contenedor de Docker. 
+* Los nodos de Windows Server ejecutan una versión de Windows Server 2019 optimizada con `containerd` o el entorno de ejecución del contenedor de Docker.
 
 Cuando se crea o se escala verticalmente un clúster de AKS, los nodos se implementan automáticamente con las actualizaciones de seguridad del sistema operativo y las configuraciones más recientes.
 
 > [!NOTE]
 > Clústeres de AKS que usan:
-> * Grupos de nodos con la versión 1.19 de Kubernetes y posterior usan `containerd` como entorno de ejecución del contenedor. 
-> * Grupos de nodos con versiones anteriores a la 1.19 de Kubernetes usan [Moby](https://mobyproject.org/) (Docker ascendente) como entorno de ejecución del contenedor.
+> * Kubernetes versión 1.19 y posteriores para que los grupos de nodos de Linux usen `containerd` como su entorno de ejecución de contenedores. El uso de `containerd` con grupos de nodos de Windows Server 2019 está actualmente en versión preliminar. Para más información, consulte [Adición de un grupo de nodos de Windows Server con `containerd`][aks-add-np-containerd].
+> * Las versiones de Kubernetes anteriores a la 1.19 para grupos de nodos de Linux usan Docker como su entorno de ejecución de contenedores. En el caso de los grupos de nodos de Windows Server 2019, Docker es el entorno de ejecución de contenedores predeterminado.
 
 ### <a name="node-security-patches"></a>Parches de seguridad de nodo
 
@@ -124,7 +124,7 @@ Para limitar el tráfico de red entre los pods del clúster, AKS ofrece compatib
 Con un *secreto* de Kubernetes, puede insertar datos confidenciales en pods, como credenciales de acceso o claves. 
 1. Cree un secreto mediante la API de Kubernetes. 
 1. Defina el pod o la implementación y solicite un secreto específico. 
-    * Los secretos solo se proporcionan a los nodos que tienen un pod programado que los requiere.
+    * Los secretos solo se proporcionan a nodos con un pod programado que los requiera.
     * El secreto se almacena en *tmpfs*, no se escribe en el disco. 
 1. Cuando se elimina el último pod de un nodo que requiere un secreto, dicho secreto se elimina del tmpfs del nodo. 
    * Los secretos se almacenan en un espacio de nombres determinado y solo son accesibles para los pods del mismo espacio de nombres.
@@ -160,6 +160,7 @@ Para obtener más información sobre los conceptos básicos de Kubernetes y AKS,
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
 [aks-aad]: ./managed-aad.md
+[aks-add-np-containerd]: windows-container-cli.md#add-a-windows-server-node-pool-with-containerd-preview
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md

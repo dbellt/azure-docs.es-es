@@ -1,20 +1,20 @@
 ---
 title: Plan prémium de Azure Functions
 description: Detalles y opciones de configuración (red virtual, arranques no en frío, duración de ejecución ilimitada, etc) del plan Premium de Azure Functions.
-author: jeffhollan
+author: cachai2
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.author: jehollan
+ms.author: cachai
 ms.custom:
 - references_regions
 - fasttrack-edit
 - devx-track-azurecli
-ms.openlocfilehash: 3061329ad9dcb368dab586acc2146e6fb4e23028
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e53089c2287d255fd3dbe6ca7961646e0e3de05a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708720"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457430"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan prémium de Azure Functions
 

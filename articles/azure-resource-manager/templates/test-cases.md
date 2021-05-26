@@ -2,15 +2,15 @@
 title: Casos de prueba del kit de herramientas para pruebas
 description: En este artículo se describen las pruebas que se ejecutan en el kit de herramientas para pruebas de plantillas de Resource Manager.
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 05/17/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 5dc4891bbc8bf6397a0f041fa845f4fb0ad6c600
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 8e771d8c15e26367ab205ea77a451fae443ac981
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142520"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064403"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Casos de prueba predeterminados del kit de herramientas para pruebas de plantillas de Resource Manager
 
@@ -40,30 +40,6 @@ La propiedad de esquema de la plantilla debe establecerse en uno de los esquemas
 * `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`
 * `https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#`
 * `https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json`
-
-## <a name="parameters-must-exist"></a>Deben existir parámetros
-
-Nombre de la prueba: **Debe existir la propiedad de parámetros**
-
-La plantilla debe tener un elemento de parámetros. Los parámetros son esenciales para que las plantillas se puedan volver a usar en distintos entornos. Agregue parámetros a la plantilla para los valores que cambian cuando se implementan en otros entornos.
-
-En el ejemplo siguiente **se supera** esta prueba:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "vmName": {
-          "type": "string",
-          "defaultValue": "linux-vm",
-          "metadata": {
-            "description": "Name for the Virtual Machine."
-          }
-      }
-  },
-  ...
-```
 
 ## <a name="declared-parameters-must-be-used"></a>Los parámetros declarados deben usarse
 

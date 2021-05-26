@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: 15ff2ec296cedc37b086a9ca2d0825fb20b4f05a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 40b9d9e665aacf3024e409ef6bf1b5596ad28ca9
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99549548"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372538"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Instrucciones de formato para las direcciones URL y los documentos importados
 
@@ -42,7 +42,8 @@ Un manual suele ser material de orientación que acompaña a un producto. Ayuda 
 
 A continuación se muestra un ejemplo de un manual con una página de índice y contenido jerárquico
 
- ![Ejemplo de manual del producto para una base de conocimiento](./media/qnamaker-concepts-datasources/product-manual.png)
+> [!div class="mx-imgBorder"]
+> ![Ejemplo de manual del producto para una base de conocimiento](./media/qnamaker-concepts-datasources/product-manual.png)
 
 > [!NOTE]
 > La extracción funciona mejor en manuales que tienen una tabla de contenido o una página de índice y una estructura clara con títulos jerárquicos.
@@ -53,7 +54,22 @@ También se pueden procesar muchos otros tipos de documentos para generar pares 
 
 A continuación se muestra un ejemplo de documento semiestructurado, sin un índice:
 
- ![Documento semiestructurado de Azure Blob Storage](./media/qnamaker-concepts-datasources/semi-structured-doc.png)
+> [!div class="mx-imgBorder"]
+> ![Documento semiestructurado de Azure Blob Storage](./media/qnamaker-concepts-datasources/semi-structured-doc.png)
+
+### <a name="unstructured-document-support"></a>Compatibilidad con documentos no estructurados
+
+La característica de respuesta a preguntas personalizada ahora admite documentos no estructurados. Se puede considerar que un documento que no tiene su contenido organizado de una manera jerárquica bien definida, al que le falta una estructura de conjunto o cuyo contenido fluye libremente es un documento no estructurado.
+
+A continuación se muestra un ejemplo de un documento PDF no estructurado:
+
+> [!div class="mx-imgBorder"]
+> ![Ejemplo de documento no estructurado para una knowledge base](./media/qnamaker-concepts-datasources/unstructured-qna-pdf.png)
+
+ Actualmente, esta funcionalidad solo está disponible por medio de la carga de documentos y solo para los formatos de archivo PDF y DOC.
+
+> [!IMPORTANT]
+> La compatibilidad con archivos o contenido no estructurado solo está disponible en la característica de respuesta a preguntas personalizada (versión preliminar).
 
 ### <a name="structured-qna-document"></a>Documento de preguntas y respuestas estructurado
 
@@ -71,7 +87,8 @@ Answer2
 
 A continuación se muestra un ejemplo de un documento de Word de preguntas y respuestas estructurado:
 
- ![Ejemplo de documento de QnA estructurado para una base de conocimiento](./media/qnamaker-concepts-datasources/structured-qna-doc.png)
+> [!div class="mx-imgBorder"]
+> ![Ejemplo de documento de QnA estructurado para una base de conocimiento](./media/qnamaker-concepts-datasources/structured-qna-doc.png)
 
 ### <a name="structured-txt-tsv-and-xls-files"></a>Archivos *TXT*, *TSV* y *XLS* estructurados
 
@@ -88,17 +105,20 @@ Se ignoran las columnas adicionales del archivo de origen.
 
 A continuación se muestra un ejemplo de archivo *.xls* de preguntas y respuestas estructurado, con contenido HTML:
 
- ![Ejemplo de libro Excel de QnA estructurado para una base de conocimiento](./media/qnamaker-concepts-datasources/structured-qna-xls.png)
+> [!div class="mx-imgBorder"]
+> ![Ejemplo de libro Excel de QnA estructurado para una base de conocimiento](./media/qnamaker-concepts-datasources/structured-qna-xls.png)
 
 #### <a name="example-of-alternate-questions-for-single-answer-in-excel-file"></a>Ejemplo de preguntas alternativas para una sola respuesta en un archivo de Excel
 
 A continuación se muestra un ejemplo de un archivo *.xls* de QnA estructurado, con varias preguntas alternativas para una sola respuesta:
 
- ![Ejemplo de preguntas alternativas para una sola respuesta en un archivo de Excel](./media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
+> [!div class="mx-imgBorder"]
+> ![Ejemplo de preguntas alternativas para una sola respuesta en un archivo de Excel](./media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
 
 Una vez importado el archivo, el par pregunta-respuesta se encuentra en la base de conocimiento, como se muestra a continuación:
 
- ![Captura de pantalla de preguntas alternativas para una sola respuesta importada en la base de conocimiento](./media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla de preguntas alternativas para una sola respuesta importada en la base de conocimiento](./media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
 
 ### <a name="structured-data-format-through-import"></a>Formato de datos estructurado mediante importación
 
@@ -133,7 +153,8 @@ Este es el tipo más común de página de preguntas más frecuentes, en la que l
 
 Aquí tiene un ejemplo de una página de preguntas más frecuentes sin formato:
 
-![Ejemplo de página de preguntas más frecuentes sin formato para una base de conocimiento](./media/qnamaker-concepts-datasources/plain-faq.png)
+> [!div class="mx-imgBorder"]
+> ![Ejemplo de página de preguntas más frecuentes sin formato para una base de conocimiento](./media/qnamaker-concepts-datasources/plain-faq.png)
 
 
 ### <a name="faq-pages-with-links"></a>Páginas de preguntas más frecuentes con vínculos
@@ -142,7 +163,8 @@ En este tipo de página de preguntas más frecuentes, las preguntas se agregan j
 
 A continuación se muestra un ejemplo de una página de preguntas más frecuentes con vínculos en las secciones que se encuentran en la misma página:
 
- ![Ejemplo de página de preguntas más frecuentes con sección de vínculos para una base de conocimiento](./media/qnamaker-concepts-datasources/sectionlink-faq.png)
+> [!div class="mx-imgBorder"]
+> ![Ejemplo de página de preguntas más frecuentes con sección de vínculos para una base de conocimiento](./media/qnamaker-concepts-datasources/sectionlink-faq.png)
 
 
 ### <a name="parent-topics-page-links-to-child-answers-pages"></a>Vínculos de páginas de temas primarios a páginas de respuestas secundarias
@@ -151,7 +173,8 @@ Este tipo de preguntas más frecuentes tiene una página de temas en la que cada
 
 A continuación, se muestra un ejemplo de una página de temas con vínculos a secciones de preguntas más frecuentes en páginas distintas.
 
- ![Ejemplo de página de preguntas más frecuentes con vínculos profundos para una base de conocimiento](./media/qnamaker-concepts-datasources/topics-faq.png)
+> [!div class="mx-imgBorder"]
+> ![Ejemplo de página de preguntas más frecuentes con vínculos profundos para una base de conocimiento](./media/qnamaker-concepts-datasources/topics-faq.png)
 
 ### <a name="support-urls"></a>Direcciones URL de soporte técnico
 
@@ -160,7 +183,8 @@ QnA Maker puede procesar páginas web de soporte semiestructuradas, como artícu
 > [!NOTE]
 > La extracción para artículos de soporte técnico es una característica nueva que se encuentra en sus primeras etapas. Funciona mejor con páginas simples, que están bien estructuradas y no contienen encabezados ni pies de página complejos.
 
-![QnA Maker admite la extracción en páginas web semiestructuradas con una estructura clara y con encabezados jerárquicos.](./media/qnamaker-concepts-datasources/support-web-pages-with-heirarchical-structure.png)
+> [!div class="mx-imgBorder"]
+> ![QnA Maker admite la extracción en páginas web semiestructuradas con una estructura clara y con encabezados jerárquicos.](./media/qnamaker-concepts-datasources/support-web-pages-with-heirarchical-structure.png)
 
 ## <a name="import-and-export-knowledge-base"></a>Importación y exportación de la base de conocimiento
 

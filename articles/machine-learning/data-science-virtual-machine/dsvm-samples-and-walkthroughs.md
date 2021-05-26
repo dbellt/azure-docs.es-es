@@ -5,16 +5,16 @@ description: Mediante estos ejemplos y tutoriales, aprenda a administrar tareas 
 keywords: herramientas de ciencia de datos, máquina virtual de ciencia de datos, herramientas para la ciencia de datos, ciencia de datos de linux
 services: machine-learning
 ms.service: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: timoklimmer
+ms.author: tklimmer
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: cda5dfd936243602775e1f4f965032b9d746b0b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/12/2021
+ms.openlocfilehash: 5ce6b2d80341a9c6ebb8afcbbe8f7072b54ca93c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100519769"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110087911"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Ejemplos de Azure Data Science Virtual Machines
 
@@ -35,8 +35,6 @@ Para ejecutar estos ejemplos, tiene que haber aprovisionado una [instancia de Da
 | Azure Machine Learning  | Explica cómo crear modelos de aprendizaje automático y aprendizaje profundo con Machine Learning. Implemente los modelos en cualquier lenguaje. Utilice el ajuste de hiperparámetros inteligente y el aprendizaje automático automatizado. También puede usar la administración de modelos y el aprendizaje distribuido. <br/> [Machine Learning](#azure-machine-learning) | <br/>`~notebooks/AzureML`<br/> <br/>|
 | Cuadernos de PyTorch  | Ejemplos de aprendizaje profundo que usan redes neuronales basadas en PyTorch. Los cuadernos abarcan desde escenarios para principiantes a usuarios avanzados.  <br/> [Cuadernos de PyTorch](#pytorch) | <br/>`~notebooks/Deep_learning_frameworks/pytorch`<br/> <br/>|
 | TensorFlow  |  Varios ejemplos diferentes de red neuronal y técnicas implementadas mediante la plataforma TensorFlow. <br/> [TensorFlow](#tensorflow) | <br/>`~notebooks/Deep_learning_frameworks/tensorflow`<br/><br/> |
-| Microsoft Cognitive Toolkit <br/>   | Ejemplos de aprendizaje profundo publicados por el equipo de Cognitive Toolkit en Microsoft.  <br/> [Cognitive Toolkit](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> Linux:<br/> `~notebooks/CNTK`<br/> <br/>|
-| Caffe2 | Ejemplos de aprendizaje profundo que usan redes neuronales basadas en Caffe2. Varios cuadernos que permiten a los usuarios familiarizarse con Caffe2 y cómo usarlo de forma eficaz. Algunos ejemplos son la creación de imágenes de preprocesamiento y conjuntos de datos. También incluyen la regresión y cómo usar modelos previamente entrenados. <br/> [Caffe2](#caffe2) | <br/>`~notebooks/Deep_learning_frameworks/caffe2`<br/><br/> |
 | H2O   | Ejemplos basados en Python que usan H2O para escenarios de problemas reales. <br/> [H2O](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
 | Lenguaje SparkML  | Ejemplos que usan características del kit de herramientas de Apache Spark MLLib mediante pySpark y MMLSpark: Microsoft Machine Learning para Apache Spark en Apache Spark 2.x.  <br/> [Lenguaje SparkML](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/>`~notebooks/MMLSpark`<br/><br/>  |
 | XGBoost | Ejemplos de aprendizaje automático estándar en XGBoost para escenarios como clasificación y regresión. <br/> [XGBoost](#xgboost) | <br/>Windows:<br/>`\dsvm\samples\xgboost\demo`<br/><br/> |
@@ -77,14 +75,6 @@ Inicie sesión con la misma contraseña que ha usado para el inicio de sesión e
 ## <a name="tensorflow"></a>TensorFlow 
 <br/>![Ejemplos de TensorFlow](./media/tensorflow-samples.png)<br/>
 
-
-## <a name="cntk"></a>CNTK 
-<br/>![Ejemplos de CNTK](./media/cntk-samples.png)<br/>
-
-
-## <a name="caffe2"></a>Caffe2 
-<br/>![Ejemplos de caffe2](./media/caffe2-samples.png)<br/>
-
 ## <a name="h2o"></a>H2O 
 <br/>![Ejemplos de H2O](./media/h2o-samples.png)<br/>
 
@@ -93,4 +83,3 @@ Inicie sesión con la misma contraseña que ha usado para el inicio de sesión e
 
 ## <a name="xgboost"></a>XGBoost 
 <br/>![Ejemplos de XGBoost](./media/xgboost-samples.png)<br/>
-

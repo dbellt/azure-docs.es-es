@@ -3,12 +3,12 @@ title: Introducción a la limitación de Azure Service Bus | Microsoft Docs
 description: 'Introducción a la limitación de Service Bus: niveles Estándar y Premium.'
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 436f9a40269f7eea4e31b55b9657d38849876eb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95b03859b26d97c1089b6112b41511618abdcffe
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85340953"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110191107"
 ---
 # <a name="throttling-operations-on-azure-service-bus"></a>Operaciones de limitación en Azure Service Bus
 
@@ -89,7 +89,7 @@ Si el número de solicitudes es mayor de lo que los recursos actuales pueden ate
 ### <a name="how-will-i-know-that-im-being-throttled"></a>¿Cómo sé que estoy limitado?
 
 Hay varias maneras de identificar una limitación en el nivel Prémium de Azure Service Bus: 
-  * Las **solicitudes limitadas** aparecen en las [métricas de solicitudes de Azure Monitor](service-bus-metrics-azure-monitor.md#request-metrics) para identificar el número de solicitudes que se han limitado.
+  * Las **solicitudes limitadas** aparecen en las [métricas de solicitudes de Azure Monitor](monitor-service-bus-reference.md#request-metrics) para identificar el número de solicitudes que se han limitado.
   * Un **uso elevado de la CPU** indica que la asignación de recursos actual es alta y que se pueden limitar las solicitudes si la carga de trabajo actual no se reduce.
   * Un **uso elevado de la memoria** indica que la asignación de recursos actual es alta y que se pueden limitar las solicitudes si la carga de trabajo actual no se reduce.
 

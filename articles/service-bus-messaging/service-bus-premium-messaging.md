@@ -3,12 +3,12 @@ title: Niveles premium y estándar de Azure Service Bus
 description: En este artículo se describen los niveles estándar y premium de Azure Service Bus. Compara estos niveles y proporciona diferencias técnicas.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: b7117da6a959181704dd136c6d5be5ab62edef55
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: e0149f0ad1ee608179cc7dbdfaa61b498dd60ca0
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389492"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190747"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Niveles de mensajería Premium y Estándar de Service Bus
 
@@ -69,7 +69,7 @@ El número de unidades de mensajería asignadas al espacio de nombres Premium de
 Hay una serie de factores que se deben tener en cuenta a la hora de decidir el número de unidades de mensajería para la arquitectura:
 
 - Comience con ***1 o 2 unidades de mensajería*** asignadas al espacio de nombres.
-- Estudie las métricas de uso de la CPU en [Métricas de uso de recursos](service-bus-metrics-azure-monitor.md#resource-usage-metrics) para el espacio de nombres.
+- Estudie las métricas de uso de la CPU en [Métricas de uso de recursos](monitor-service-bus-reference.md#resource-usage-metrics) para el espacio de nombres.
     - Si el uso de CPU está por ***debajo del 20 %** , es posible que pueda *_reducir verticalmente_** el número de unidades de mensajería asignadas al espacio de nombres.
     - Si el uso de CPU está ***por encima del 70 %** , la aplicación se beneficiará del *_escalado vertical_** del número de unidades de mensajería asignadas al espacio de nombres.
 
