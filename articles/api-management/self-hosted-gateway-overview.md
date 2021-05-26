@@ -8,14 +8,14 @@ manager: gwallace
 editor: ''
 ms.service: api-management
 ms.topic: article
-ms.date: 01/25/2021
+ms.date: 05/25/2021
 ms.author: apimpm
-ms.openlocfilehash: 48abce693ca22163c0a1742ba71faf36fc6156a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 946a2707e68e2f3ce6f78df997d102eeb0c7c450
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99989090"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376976"
 ---
 # <a name="self-hosted-gateway-overview"></a>Introducción a la puerta de enlace autohospedada
 
@@ -43,7 +43,7 @@ La implementación de puertas de enlace autohospedadas en los mismos entornos en
 
 ## <a name="packaging-and-features"></a>Empaquetado y características
 
-La puerta de enlace autohospedada es una versión en contenedor, funcionalmente equivalente, de la puerta de enlace administrada implementada en Azure como parte de cada servicio de API Management. La puerta de enlace autohospedada está disponible como un [contenedor](https://aka.ms/apim/sputnik/dhub) de Docker basado en Linux de Microsoft Container Registry. Se puede implementar en Docker, Kubernetes o en cualquier otra solución de orquestación de contenedores que se ejecute en un clúster de servidores local, una infraestructura en la nube o, con fines de evaluación y desarrollo, en un equipo personal.
+La puerta de enlace autohospedada es una versión en contenedor, funcionalmente equivalente, de la puerta de enlace administrada implementada en Azure como parte de cada servicio de API Management. La puerta de enlace autohospedada está disponible como un [contenedor](https://aka.ms/apim/sputnik/dhub) de Docker basado en Linux de Microsoft Container Registry. Se puede implementar en Docker, Kubernetes o en cualquier otra solución de orquestación de contenedores que se ejecute en un clúster de servidores local, una infraestructura en la nube o, con fines de evaluación y desarrollo, en un equipo personal. También puede implementar la puerta de enlace autohospedada como una extensión de clúster en un [clúster de Kubernetes habilitado para Azure Arc](./how-to-deploy-self-hosted-gateway-azure-arc.md).
 
 Las siguientes funcionalidades de las puertas de enlace administradas **no están disponibles** en las puertas de enlace autohospedadas:
 
@@ -85,3 +85,4 @@ Cuando se restaura la conectividad, cada puerta de enlace autohospedada afectada
 -   [Lea las notas del producto para obtener más información sobre este tema](https://aka.ms/hybrid-and-multi-cloud-api-management)
 -   [Implementación de una puerta de enlace autohospedada en Docker](how-to-deploy-self-hosted-gateway-docker.md)
 -   [Implementación de una puerta de enlace autohospedada en Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)
+-   [Implementación de una puerta de enlace autohospedada en el clúster de Kubernetes habilitado para Azure Arc](how-to-deploy-self-hosted-gateway-azure-arc.md)

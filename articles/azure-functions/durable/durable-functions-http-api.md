@@ -3,14 +3,14 @@ title: 'API de HTTP en Durable Functions: Azure Functions'
 description: Aprenda a implementar API de HTTP en la extensión Durable Functions para Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 05/11/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 0ab9f33616547c073e8e3a2128a441238bf3a17d
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: eff6a44734600a6399f76fc7be331835ae395593
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220460"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377456"
 ---
 # <a name="http-api-reference"></a>Referencia a las API de HTTP
 
@@ -21,10 +21,10 @@ Todas las API de HTTP que implementa la extensión requieren los siguientes par�
 | Parámetro        | Tipo de parámetro  | Descripción |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | Cadena de consulta    | Nombre de la [central de tareas](durable-functions-task-hubs.md). Si no se especifica, se toma el nombre de la central de tareas de la aplicación de función actual. |
-| **`connection`** | Cadena de consulta    | **Nombre** de la cadena de conexión de la cuenta de almacenamiento. Si no se especifica, se toma el de la cadena de conexión predeterminada de la aplicación de función. |
+| **`connection`** | Cadena de consulta    | **Nombre** de la configuración de aplicación de conexión para el proveedor de almacenamiento de back-end. Si no se especifica, se toma el de la configuración de conexión predeterminada de la aplicación de funciones. |
 | **`systemKey`**  | Cadena de consulta    | Clave de autorización necesaria para invocar la API. |
 
-`systemKey` es una clave de autorización que el host de Azure Functions genera automáticamente. En concreto, concede acceso a las API de la extensión Durable Tasks y se administra igual que las [demás claves de autorización](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Puede generar direcciones URL que contengan los valores de cadena de consulta `taskHub`, `connection` y `systemKey` correctos mediante API de [enlace de clientes de orquestación](durable-functions-bindings.md#orchestration-client), como las API `CreateCheckStatusResponse` y `CreateHttpManagementPayload` en .NET o las API `createCheckStatusResponse` y `createHttpManagementPayload` en JavaScript.
+`systemKey` es una clave de autorización que el host de Azure Functions genera automáticamente. En concreto, concede acceso a las API de la extensión Durable Tasks y se administra igual que las [demás claves de acceso de Azure Functions](../security-concepts.md#function-access-keys). Puede generar direcciones URL que contengan los valores de cadena de consulta `taskHub`, `connection` y `systemKey` correctos mediante API de [enlace de clientes de orquestación](durable-functions-bindings.md#orchestration-client), como las API `CreateCheckStatusResponse` y `CreateHttpManagementPayload` en .NET o las API `createCheckStatusResponse` y `createHttpManagementPayload` en JavaScript, etc.
 
 Las siguientes secciones tratan las API de HTTP específicas que admite la extensión y ofrecen ejemplos de uso.
 
@@ -240,9 +240,6 @@ La respuesta **HTTP 202** también incluye un encabezado de respuesta **Location
 
 También puede consultar el estado de todas las instancias mediante la eliminación de `instanceId` de la solicitud "Obtener el estado de la instancia". En este caso, los parámetros básicos son los mismos que en "Obtener el estado de la instancia". También se admiten parámetros de cadena de consulta para filtrar.
 
-Es importante recordar que `connection` y `code` son parámetros opcionales. Si tiene la autenticación anónima en la función, `code` no es necesario.
-Puede ignorar el parámetro de la cadena de consulta de conexión si solo quiere usar la cadena de conexión de almacenamiento definida en la configuración de la aplicación AzureWebJobsStorage.
-
 ### <a name="request"></a>Solicitud
 
 Para la versión 1.x del entorno de ejecución de Functions, la solicitud tiene el formato siguiente (se muestran varias líneas para mayor claridad):
@@ -340,8 +337,7 @@ Este es un ejemplo de cargas de respuesta, incluido el estado de orquestación (
 ```
 
 > [!NOTE]
-> Esta operación puede ser muy costosa en términos de E/S de Azure Storage si hay muchas filas en la tabla Instancias. Puede encontrar más detalles sobre la tabla Instancias en la documentación [Rendimiento y escalado horizontal en Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table).
->
+> Esta operación puede ser muy costosa en términos de E/S de Azure Storage si usa el [proveedor predeterminado de Azure Storage](durable-functions-storage-providers.md#azure-storage) y si hay muchas filas en la tabla Instancias. Puede encontrar más detalles sobre la tabla Instancias en la documentación [Rendimiento y escalado horizontal en Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table).
 
 Si existen más resultados, se devuelve un token de continuación en el encabezado de respuesta.  El nombre del encabezado es `x-ms-continuation-token`.
 
@@ -437,7 +433,7 @@ Los parámetros de solicitud de esta API incluyen el conjunto predeterminado men
 | **`runtimeStatus`**   | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias purgadas según su estado en tiempo de ejecución. Para ver la lista de valores posibles del estado en tiempo de ejecución, consulte el artículo [Consulta de instancias](durable-functions-instance-management.md). |
 
 > [!NOTE]
-> Esta operación puede ser muy costosa en términos de E/S de Azure Storage si hay muchas filas en la tabla Instancias o Historial. Puede encontrar más detalles sobre estas tablas en la documentación [Performance and scale in Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table) (Rendimiento y escalado horizontal en Durable Functions [Azure Functions]).
+> Esta operación puede ser muy costosa en términos de E/S de Azure Storage si usa el [proveedor predeterminado de Azure Storage](durable-functions-storage-providers.md#azure-storage) y si hay muchas filas en las tablas Instancias o Historial. Puede encontrar más detalles sobre estas tablas en la documentación [Performance and scale in Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table) (Rendimiento y escalado horizontal en Durable Functions [Azure Functions]).
 
 ### <a name="response"></a>Response
 

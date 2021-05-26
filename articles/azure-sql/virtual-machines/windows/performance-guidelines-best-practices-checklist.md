@@ -15,12 +15,12 @@ ms.date: 05/06/2021
 ms.author: dpless
 ms.custom: contperf-fy21q3
 ms.reviewer: jroth
-ms.openlocfilehash: 7e22da62570a1689f5113f41710006698469fa6a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 3649c593fcc7a0d27ed7326efa03b1325763649d
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110452193"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190898"
 ---
 # <a name="checklist-performance-best-practices-for-sql-server-on-azure-vms"></a>Lista de comprobación: procedimientos recomendados de rendimiento de SQL Server en VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -108,7 +108,7 @@ La siguiente es una lista de comprobación rápida de los procedimientos recomen
 - Aproveche la mejor [estrategia de copia de seguridad y restauración](backup-restore.md#decision-matrix) para la carga de trabajo de SQL Server.
 - Asegúrese de que la opción [Redes aceleradas esté habilitada](../../../virtual-network/create-vm-accelerated-networking-cli.md#portal-creation) en la máquina virtual.
 - Aproveche [Azure Security Center](../../../security-center/index.yml) para mejorar la posición de seguridad general de la implementación de la máquina virtual.
-- Aproveche [Azure Defender](../../../security-center/azure-defender.md), integrado en [Azure Security Center](https://azure.microsoft.com/services/security-center/), para una [cobertura de VM de SQL Server](../../../security-center/defender-for-sql-introduction.md) específica, incluidas las evaluaciones de vulnerabilidades y el acceso Just-In-Time, lo que reduce el servicio de ataques y permite a los usuarios legítimos acceder a las máquinas virtuales cuando sea necesario. Para más información, consulte [evaluaciones de vulnerabilidades](../../../security-center/defender-for-sql-on-machines-vulnerability-assessment.md), [habilite evaluaciones de vulnerabilidades para VM de SQL Server](../../../security-center/defender-for-sql-on-machines-vulnerability-assessment.md) y [acceso Just-In-Time.](../../../security-center/just-in-time-explained.md) 
+- Aproveche [Azure Defender](../../../security-center/azure-defender.md), integrado en [Azure Security Center](https://azure.microsoft.com/services/security-center/), para una [cobertura de VM de SQL Server](../../../security-center/defender-for-sql-introduction.md) específica, incluidas las evaluaciones de vulnerabilidades y el acceso Just-In-Time, lo que reduce el servicio de ataques y permite a los usuarios legítimos acceder a las máquinas virtuales cuando sea necesario. Para más información, consulte [evaluaciones de vulnerabilidades](../../../security-center/defender-for-sql-on-machines-vulnerability-assessment.md), [habilite evaluaciones de vulnerabilidades para VM de SQL Server](sql-vulnerability-assessment-enable.md) y [acceso Just-In-Time.](../../../security-center/just-in-time-explained.md) 
 - Aproveche [Azure Advisor](../../../advisor/advisor-overview.md) para abordar las recomendaciones de [rendimiento](../../../advisor/advisor-performance-recommendations.md), [costo](../../../advisor/advisor-cost-recommendations.md), [confiabilidad](../../../advisor/advisor-high-availability-recommendations.md), [excelencia operativa](../../../advisor/advisor-operational-excellence-recommendations.md) y [seguridad](../../../advisor/advisor-security-recommendations.md).
 - Aproveche [Azure Monitor](../../../azure-monitor/vm/quick-monitor-azure-vm.md) para recopilar, analizar y actuar sobre los datos de telemetría del entorno de SQL Server. Esto incluye la detección de problemas de infraestructura con [VM Insights](../../../azure-monitor/vm/vminsights-overview.md) y la supervisión de datos con [Log Analytics](../../../azure-monitor/logs/log-query-overview.md) para un diagnóstico más profundo.
 - Habilite el [apagado automático](../../../automation/automation-solution-vm-management.md) para entornos de desarrollo y pruebas. 

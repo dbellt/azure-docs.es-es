@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/25/2021
-ms.openlocfilehash: b90d628f0d24e43d7b9f2e3fa87e74d426648c6e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1da3f75fb95488d45a3f29284bdc8c7424b6bc9a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048580"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459111"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizar datos de Azure Monitor
 En este artículo se proporciona un resumen de los métodos disponibles para visualizar los datos de métricas y de registro almacenados en Azure Monitor.
@@ -29,10 +29,6 @@ Los [libros](./visualize/workbooks-overview.md) son documentos interactivos que 
 - Opción de libros personales o compartidos.
 - Experiencia de creación sencilla y colaborativa.
 - Las plantillas admiten la galería de plantillas públicas basadas en GitHub.
-
-### <a name="limitations"></a>Limitaciones
-- No hay actualizaciones automáticas.
-- No hay ningún diseño denso, como paneles, que haga que los libros tengan menos utilidad que un solo panel de vidrio. Diseñado especialmente para proporcionar información más detallada.
 
 
 ## <a name="azure-dashboards"></a>Paneles de Azure

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/09/2020
-ms.openlocfilehash: 529fc432bf8777ef7e2b527f08e9cb59e42bf156
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cb4f074cb9487c22fc340b2e7b2941cd7b69ca98
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041032"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459059"
 ---
 # <a name="log-queries-in-azure-monitor"></a>Consultas de registro en Azure Monitor
 Los registros de Azure Monitor se basan en Azure Data Explorer y las consultas de registros se escriben con el mismo lenguaje de consulta de Kusto (KQL). Se trata de un lenguaje enriquecido que se ha diseñado para ser fácil de leer y de crear, por lo que debería poder empezar a escribir consultas con las instrucciones básicas.
@@ -30,7 +30,7 @@ La mejor manera de empezar a aprender a escribir consultas de registros mediante
 
 - [Tutorial de Log Analytics](./log-analytics-tutorial.md): tutorial sobre el uso de las características de Log Analytics, que es la herramienta que utilizará en Azure Portal para editar y ejecutar consultas. También permite escribir consultas simples sin tener que trabajar directamente con el lenguaje de la consulta. Si no ha usado Log Analytics antes, empiece aquí para aprender a usar esta herramienta con otros tutoriales y ejemplos.
 - [Tutorial de KQL](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor): guía de los conceptos básicos de KQL y los operadores comunes. Este es el mejor lugar para comenzar a usar el lenguaje en si, y la estructura de las consultas de registro. 
-- [Consultas de ejemplo](../logs/example-queries.md): descripción de las consultas de ejemplo disponibles en Log Analytics. Puede usar las consultas sin modificaciones o utilizarlas como ejemplos para aprender a usar KQL.
+- [Consultas de ejemplo](../logs/queries.md): descripción de las consultas de ejemplo disponibles en Log Analytics. Puede usar las consultas sin modificaciones o utilizarlas como ejemplos para aprender a usar KQL.
 - [Ejemplos de consultas](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor): consultas de ejemplo que ilustran una variedad de conceptos diferentes.
 
 

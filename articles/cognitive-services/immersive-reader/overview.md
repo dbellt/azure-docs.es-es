@@ -1,6 +1,6 @@
 ---
-title: ¿Qué es Lector inmersivo?
-titleSuffix: Azure Cognitive Services
+title: ¿Qué es Lector inmersivo de Azure?
+titleSuffix: Azure Applied AI Services
 description: Lector inmersivo es una herramienta diseñada para ayudar a personas con dificultades de aprendizaje o para ayudar a los nuevos lectores y los estudiantes de idiomas con la comprensión lectora.
 services: cognitive-services
 author: metanMSFT
@@ -12,16 +12,16 @@ ms.date: 01/4/2020
 ms.author: metang
 ms.custom: cog-serv-seo-aug-2020
 keywords: readers, language learners, display pictures, improve reading, read content, translate
-ms.openlocfilehash: 1911d3ce62434f1dc24966798e9ace259ae072bc
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: a8a8f26f6b79d5a687b3adf5d68bdfd89cc837d4
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104801577"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377646"
 ---
-# <a name="what-is-immersive-reader"></a>¿Qué es Lector inmersivo?
+# <a name="what-is-azure-immersive-reader"></a>¿Qué es Lector inmersivo de Azure?
 
-[Lector inmersivo](https://www.onenote.com/learningtools) es una herramienta diseñada de manera inclusiva que implementa técnicas demostradas para mejorar la comprensión lectora de nuevos lectores, estudiantes de idiomas y personas con dificultades de aprendizaje, como la dislexia. Con la biblioteca cliente de Lector inmersivo, puede aprovechar la misma tecnología que se usa en Microsoft Word y Microsoft OneNote para mejorar sus aplicaciones web. 
+[Lector inmersivo](https://www.onenote.com/learningtools) es parte de [Azure Applied AI Services](../../applied-ai-services/what-are-applied-ai-services.md), una herramienta diseñada de manera inclusiva que implementa técnicas demostradas para mejorar la comprensión lectora de nuevos lectores, estudiantes de idiomas y personas con dificultades de aprendizaje, como la dislexia. Con la biblioteca cliente de Lector inmersivo, puede aprovechar la misma tecnología que se usa en Microsoft Word y Microsoft OneNote para mejorar sus aplicaciones web. 
 
 Esta documentación contiene los siguientes tipos de artículos:  
 

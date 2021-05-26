@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/05/2020
-ms.openlocfilehash: fe951881d2f8fa4c38e529122a96f3ca1ed078bb
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 0fb633dea9239aadfeb797e5659f8442ceb19728
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483504"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470699"
 ---
 # <a name="how-to-run-self-hosted-integration-runtime-in-windows-container"></a>Ejecución de un entorno de ejecución de integración autohospedado en un contenedor de Windows
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se explica cómo ejecutar un entorno de ejecución de integración autohospedado en un contenedor de Windows.
 Azure Data Factory proporciona la compatibilidad de contenedor oficial de Windows con los entornos de ejecución de integración autohospedados. Puede descargar el código fuente de compilación de Docker y combinar el proceso de compilación y ejecución en la canalización de entrega continua propia. 
