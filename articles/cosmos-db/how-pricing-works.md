@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 573fc4fac413ceed50246bc6fb8df1d9db021c94
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ae981ed39276d7b4a3a338c0ab822afd2d8e456
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98247478"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373481"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Modelo de precios de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -37,7 +37,7 @@ Si implementa la cuenta de Azure Cosmos DB en una región no gubernamental de E
 
 Azure Cosmos DB ofrece muchas opciones para que los desarrolladores lo prueben de forma gratuita. Entre estas opciones se incluyen:
 
-* **Nivel Gratis de Azure Cosmos DB**: El nivel Gratis de Azure Cosmos DB facilita la introducción, el desarrollo y la prueba de las aplicaciones, o incluso la ejecución de pequeñas cargas de trabajo de producción de forma gratuita. Cuando el nivel Gratis esté habilitado en una cuenta, obtendrá las primeras 400 RU/s y 5 GB de almacenamiento de la cuenta gratis, durante la duración de dicha cuenta. Puede tener una cuenta de nivel Gratis por cada suscripción de Azure y debe optar por tenerla al crear la cuenta. Para empezar, [cree una cuenta en Azure Portal con el nivel gratis habilitado](create-cosmosdb-resources-portal.md) o use una [plantilla de ARM](./manage-with-templates.md#free-tier).
+* **Nivel Gratis de Azure Cosmos DB**: El nivel Gratis de Azure Cosmos DB facilita la introducción, el desarrollo y la prueba de las aplicaciones, o incluso la ejecución de pequeñas cargas de trabajo de producción de forma gratuita. Cuando el nivel Gratis esté habilitado en una cuenta, obtendrá las primeras 1000 RU/s y 25 GB de almacenamiento de la cuenta gratis, durante la duración de dicha cuenta. Puede tener una cuenta de nivel Gratis por cada suscripción de Azure y debe optar por tenerla al crear la cuenta. Para más información, consulte el artículo sobre la [creación de una cuenta de nivel Gratis](free-tier.md).
 
 * **Cuenta gratuita de Azure**: Azure ofrece una [cuenta gratuita](https://azure.microsoft.com/free/) con 200 USD de crédito de Azure para los 30 primeros días y una cantidad limitada de servicios gratuitos durante 12 meses. Para más información consulte el sitio de [cuentas gratuitas de Azure](../cost-management-billing/manage/avoid-charges-free-account.md). Azure Cosmos DB forma parte de esta cuenta gratuita de Azure. Específicamente para Azure Cosmos DB, esta cuenta gratuita ofrece 25 GB de almacenamiento y 400 RU/s de capacidad de proceso aprovisionada para todo el año.
 

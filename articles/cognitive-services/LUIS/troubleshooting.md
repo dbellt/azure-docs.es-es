@@ -4,13 +4,13 @@ description: Este artículo contiene respuestas a las preguntas más frecuentes 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
-ms.date: 04/16/2021
-ms.openlocfilehash: 593e02520d3e6ae87550257381dbc47aa068a242
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.date: 05/17/2021
+ms.openlocfilehash: ba3d6da1d4b9505746e0316bb0f34217e86a7914
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107951547"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110096281"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Preguntas más frecuentes de Language Understanding
 
@@ -44,7 +44,7 @@ Sí, es conveniente entrenar la intención **None** con más expresiones a medid
 Consulte el tutorial de [Bing Spell Check API V7](luis-tutorial-bing-spellcheck.md). LUIS aplica los límites impuestos por Bing Spell Check API V7.
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>¿Cómo se edita la aplicación LUIS mediante programación?
-Para editar la aplicación LUIS mediante programación, use la [API de creación](https://go.microsoft.com/fwlink/?linkid=2092087). Consulte [Llamada a la API de creación de LUIS](./get-started-get-model-rest-apis.md) y [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) (Compilar la aplicación LUIS mediante programación con Node.js) para obtener ejemplos de cómo llamar a la API de creación. La API de creación requiere el uso de una [clave de creación](luis-how-to-azure-subscription.md#azure-resources-for-luis) en lugar de una clave de punto de conexión. Crear mediante programación permite hasta 1 000 000 llamadas al mes y cinco transacciones por segundo. Para obtener más información sobre las claves que se utilizan con LUIS, consulte [Administrar claves](./luis-how-to-azure-subscription.md).
+Para editar la aplicación LUIS mediante programación, use la [API de creación](https://go.microsoft.com/fwlink/?linkid=2092087). Consulte [Llamada a la API de creación de LUIS](./get-started-get-model-rest-apis.md) y [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) (Compilar la aplicación LUIS mediante programación con Node.js) para obtener ejemplos de cómo llamar a la API de creación. La API de creación requiere el uso de una [clave de creación](luis-how-to-azure-subscription.md) en lugar de una clave de punto de conexión. Crear mediante programación permite hasta 1 000 000 llamadas al mes y cinco transacciones por segundo. Para obtener más información sobre las claves que se utilizan con LUIS, consulte [Administrar claves](./luis-how-to-azure-subscription.md).
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>¿Dónde está la característica de patrón que proporcionaba coincidencias con una expresión regular?
 La **característica de patrón** anterior está en desuso actualmente, y se reemplazó por **[Patrones](luis-concept-patterns.md)** .

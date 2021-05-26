@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 08d5e53facce172c2287c2e341895f0ee38571f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4199e82ee5b32fe3e34df421a9ca54136b8cbfb7
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943698"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109846399"
 ---
 # <a name="tutorial-sentiment-analysis-with-cognitive-services-preview"></a>Tutorial: Análisis de sentimiento con Cognitive Services (versión preliminar)
 
@@ -109,6 +109,6 @@ Los sentimientos que se devuelven pueden ser **positivos**, **negativos**, **neu
 ![Captura de pantalla en la que se muestra el análisis de sentimiento.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00h.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Tutorial: Detección de anomalías con Azure Cognitive Services](tutorial-cognitive-services-sentiment.md)
+- [Tutorial: Detección de anomalías con Azure Cognitive Services](tutorial-cognitive-services-anomaly.md)
 - [Tutorial: Asistente para puntuación de modelos de Machine Learning en grupos de SQL dedicados de Azure Synapse](tutorial-sql-pool-model-scoring-wizard.md)
 - [Funcionalidades de aprendizaje automático en Azure Synapse Analytics](what-is-machine-learning.md)

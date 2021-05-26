@@ -77,6 +77,8 @@
       href: durable-functions-instance-management.md
     - name: Control de versiones
       href: durable-functions-versioning.md
+    - name: Proveedores de almacenamiento
+      href: durable-functions-storage-providers.md
     - name: Rendimiento y escala
       href: durable-functions-perf-and-scale.md
     - name: Alta disponibilidad

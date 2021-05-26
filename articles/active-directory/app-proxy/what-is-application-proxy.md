@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 1ddc1579686fae1f37b4bf3aed5225b87625dfd9
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 53fb43a2ca45bf6c599f23ffc9a2fdc492bbdc68
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632734"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110068531"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Uso de Azure AD Application Proxy para publicar aplicaciones locales para usuarios remotos
 
@@ -184,7 +184,7 @@ Hasta ahora, nos hemos centrado en el uso de Application Proxy para publicar apl
 
 * **Publicación de forma segura de API REST**. Si tiene lógica de negocio o API que se ejecutan localmente o se hospedan en máquinas virtuales en la nube, Application Proxy proporciona un punto de conexión público para el acceso a la API. El acceso al punto de conexión de la API le permite controlar la autenticación y la autorización sin necesidad de puertos de entrada. Proporciona seguridad adicional mediante las características de Azure AD Premium, como la autenticación multifactor y el acceso condicional basado en dispositivos para equipos de sobremesa, iOS, MAC y dispositivos Android que utilizan Intune. Para más información, consulte [How to enable native client applications to interact with proxy applications](../manage-apps/application-proxy-configure-native-client-application.md) (Cómo habilitar las aplicaciones cliente nativas para que interactúen con las aplicaciones proxy) y [Protección de una API mediante OAuth 2.0 con Azure Active Directory API Management](../../api-management/api-management-howto-protect-backend-with-aad.md).
 * **Servicios de Escritorio remoto** **(RDS)** . Las implementaciones de RDS estándar requieren conexiones de entrada abiertas. Sin embargo, la implementación de [RDS con Application Proxy](../manage-apps/application-proxy-integrate-with-remote-desktop-services.md) tiene una conexión de salida permanente desde el servidor que ejecuta el servicio de conexión. De esta forma, puede ofrecer más aplicaciones a los usuarios finales mediante la publicación de aplicaciones locales mediante Servicios de Escritorio remoto. También puede reducir la superficie de ataque de la implementación con un conjunto limitado de controles de verificación en dos pasos y de acceso condicional a RDS.
-* **Publicación de aplicaciones que se conectan mediante WebSockets**. La compatibilidad con [Qlik Sense](../manage-apps/application-proxy-qlik.md) se encuentra en versión preliminar pública y se expandirá a otras aplicaciones en el futuro.
+* **Publicación de aplicaciones que se conectan mediante WebSockets**. La compatibilidad con [Qlik Sense](/azure/active-directory/app-proxy/application-proxy-qlik) se encuentra en versión preliminar pública y se expandirá a otras aplicaciones en el futuro.
 * **Habilitación de las aplicaciones de cliente nativas para interactuar con el proxy de aplicaciones**. Puede usar Azure AD Application Proxy para publicar aplicaciones web, pero también se puede utilizarse para publicar las [aplicaciones cliente nativas](../manage-apps/application-proxy-configure-native-client-application.md) que se configuran con la Biblioteca de autenticación de Azure AD (ADAL). Las aplicaciones cliente nativas son distintas de las aplicaciones web porque se instalan en un dispositivo, mientras a las aplicaciones web se accede mediante un explorador.
 
 ## <a name="conclusion"></a>Conclusión

@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: badc6b6f1b45938e950ffadeefe30d81ed383440
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 27e17fd6cc9f50a5a46bf3de9bf2603209894bf3
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762450"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368254"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Cómo usar identidades administradas para App Service y Azure Functions
 
@@ -20,6 +20,9 @@ En este tema se muestra cómo crear una identidad administrada para las aplicaci
 
 > [!Important] 
 > Las identidades administradas de App Service y Azure Functions no se comportarán según lo esperado si la aplicación se migra entre suscripciones e inquilinos. La aplicación tiene que obtener una nueva identidad, para lo cual se deshabilita y vuelve a habilitar la característica. Consulte [Eliminación de una identidad](#remove) a continuación. Los recursos de nivel inferior también han de tener directivas de acceso actualizadas para utilizar la nueva identidad.
+
+> [!NOTE]
+> Las identidades administradas no están disponibles para las [aplicaciones implementadas en Azure Arc](overview-arc-integration.md).
 
 [!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 

@@ -1,0 +1,50 @@
+- name: Documentación de Event Grid en Kubernetes
+  href: index.yml
+- name: Documentación del cambio a Azure Event Grid
+  href: ../overview.md
+- name: Información general
+  items:
+    - name: ¿Qué es Event Grid en Kubernetes con Azure Arc?
+      href: overview.md
+    - name: Características
+      href: features.md
+- name: Guías de inicio rápido
+  items:
+    - name: Webhook como controlador de eventos
+      href: create-topic-subscription.md
+- name: Ejemplos
+  items:
+    - name: Ejemplos de código
+      href: 'https://devblogs.microsoft.com/azure-sdk/event-grid-ga/'
+- name: Conceptos
+  items:
+    - name: Conceptos de Event Grid en Kubernetes
+      href: concepts.md
+    - name: Controladores de eventos
+      href: event-handlers.md
+    - name: Esquemas de eventos
+      href: event-schemas.md
+    - name: Entrega de eventos por lotes
+      href: batch-event-delivery.md
+    - name: Entrega y nuevo intento
+      href: delivery-retry.md
+    - name: Filtro de evento
+      href: filter-events.md
+- name: Guías paso a paso
+  items:
+    - name: Instalación de la extensión de Event Grid
+      href: install-k8s-extension.md
+- name: Referencia
+  items:
+    - name: API DE REST
+      href: /rest/api/eventgrid/version2020-10-15-preview/topics
+    - name: SDK
+      href: ../sdk-overview.md?toc=%2fazure%2fevent-grid%2fkubernetes%2ftoc.json
+- name: Recursos
+  items:
+    - name: Obtener soporte técnico
+      href: get-support.md
+    - name: Términos legales
+      href: legal-terms.md
+    - name: Preguntas y respuestas acerca de Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-event-grid.html'

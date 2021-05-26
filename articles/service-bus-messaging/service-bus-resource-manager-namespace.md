@@ -7,12 +7,12 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 1b7aafca331170100ce99c084a11c96c97df7781
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c350ca6ce392804760d06790d0131654397ffab5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88067399"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110070380"
 ---
 # <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Service Bus mediante una plantilla de Azure Resource Manager
 
@@ -31,9 +31,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="create-a-service-bus-namespace"></a>Crear un espacio de nombres de Service Bus
 
-En este inicio rápido, puede usar una [plantilla de Resource Manager de inicio rápido](https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/azuredeploy.json) de [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/):
+En este inicio rápido, puede usar una [plantilla de Resource Manager de inicio rápido](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.servicebus/servicebus-create-namespace/azuredeploy.json) de [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/):
 
-[!code-json[create-azure-service-bus-namespace](~/quickstart-templates/101-servicebus-create-namespace/azuredeploy.json)]
+[!code-json[create-azure-service-bus-namespace](~/quickstart-templates/quickstarts/microsoft.servicebus/servicebus-create-namespace/azuredeploy.json)]
 
 Para buscar más ejemplos de plantillas, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Servicebus&pageNumber=1&sort=Popular).
 
@@ -45,7 +45,7 @@ Para crear un espacio de nombres de Service Bus mediante la implementación de u
     $serviceBusNamespaceName = Read-Host -Prompt "Enter a name for the service bus namespace to be created"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $resourceGroupName = "${serviceBusNamespaceName}rg"
-    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json"
+    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicebus/servicebus-create-namespace/azuredeploy.json"
 
     New-AzResourceGroup -Name $resourceGroupName -Location $location
     New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -serviceBusNamespaceName $serviceBusNamespaceName
@@ -60,7 +60,7 @@ Para crear un espacio de nombres de Service Bus mediante la implementación de u
 
 Lleva algunos minutos crear un centro de eventos.
 
-## <a name="verify-the-deployment"></a>Comprobación de la implementación
+## <a name="verify-the-deployment"></a>Comprobar la implementación
 
 Para ver el espacio de nombres de Service Bus implementación, puede abrir el grupo de recursos desde Azure Portal o usar el script de Azure PowerShell siguiente. Si Cloud Shell todavía está abierto, no es necesario copiar ni ejecutar la primera y la segunda líneas del script siguiente.
 

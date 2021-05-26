@@ -1,22 +1,22 @@
 ---
-title: 'Inicio rápido: Creación de un flujo de trabajo de integración en Azure Portal'
+title: 'Inicio rápido: Creación de flujos de trabajo de integración con Azure Logic Apps en Azure Portal'
 description: Cree su primer flujo de trabajo de integración automatizado con Azure Logic Apps en Azure Portal.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: contperf-fy21q4
-ms.date: 04/28/2021
-ms.openlocfilehash: 1ff7ba5e3835fccb2f67fa56cf3737adb9d36b45
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.date: 05/25/2021
+ms.openlocfilehash: b7419986137632561cae71b91dd55a2af64912a7
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738903"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373298"
 ---
-# <a name="quickstart-create-an-integration-workflow-using-azure-logic-apps-in-the-azure-portal"></a>Inicio rápido: Creación de un flujo de trabajo de integración con Azure Logic Apps en Azure Portal
+# <a name="quickstart-create-an-integration-workflow-with-multi-tenant-azure-logic-apps-and-the-azure-portal"></a>Inicio rápido: Creación de un flujo de trabajo de integración con Azure Logic Apps multiinquilino en Azure Portal
 
-En este inicio rápido se muestra cómo crear un flujo de trabajo automatizado de ejemplo que integra dos servicios, una fuente RSS para un sitio web y una cuenta de correo electrónico, cuando usa [Azure Logic Apps](logic-apps-overview.md). Aunque este ejemplo está basado en la nube, Logic Apps admite flujos de trabajo que conectan aplicaciones, datos, servicios y sistemas en entornos en la nube, locales e híbridos.
+En este inicio rápido se muestra cómo crear un flujo de trabajo automatizado de ejemplo que integra dos servicios: una fuente RSS para un sitio web y una cuenta de correo electrónico, cuando se usa [Azure Logic Apps](logic-apps-overview.md) *multiinquilino*. Aunque este ejemplo está basado en la nube, Azure Logic Apps admite flujos de trabajo que conectan aplicaciones, datos, servicios y sistemas en entornos de nube, locales e híbridos. Para más información sobre el modelo multiinquilino frente al modelo de inquilino único, consulte [Entorno del servicio de integración: inquilino único frente a multiinquilino](single-tenant-overview-compare.md).
 
 En este ejemplo, creará un flujo de trabajo que usa el conector RSS y el conector de Office 365 Outlook. El conector RSS tiene un desencadenador que comprueba una fuente RSS, según una programación. El conector de Office 365 Outlook tiene una acción que envía un correo electrónico para cada nuevo elemento. Los conectores de este ejemplo son solo dos de los [cientos de conectores](/connectors/connector-reference/connector-reference-logicapps-connectors) que puede usar en un flujo de trabajo.
 
@@ -71,7 +71,7 @@ Para crear y administrar una aplicación lógica mediante otras herramientas, re
 
 1. En el panel **Aplicación lógica**, proporcione los detalles básicos y la configuración de la aplicación lógica. Cree un [grupo de recursos](../azure-resource-manager/management/overview.md#terminology) para esta aplicación lógica de ejemplo.
 
-   | Propiedad | Value | Descripción |
+   | Propiedad | Valor | Descripción |
    |----------|-------|-------------|
    | **Suscripción** | <*Azure-subscription-name*> | Nombre de la suscripción de Azure. |
    | **Grupos de recursos** | <*nombre del grupo de recursos de Azure*> | El nombre del [grupo de recursos de Azure](../azure-resource-manager/management/overview.md#terminology), que debe ser único en todas las regiones. En este ejemplo se usa "My-First-LA-RG". |

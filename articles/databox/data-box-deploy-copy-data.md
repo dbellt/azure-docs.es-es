@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/11/2020
+ms.date: 05/17/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: c68f76e56f49f055466f7332d7751ac468e034d8
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: aefaf2ca96ac697a74561ff3df68bacbadf1ec99
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616746"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067212"
 ---
 ::: zone target="docs"
 
@@ -80,7 +80,7 @@ Si usa un equipo host Windows Server, realice los pasos siguientes para conectar
 
 3. Para acceder a los recursos compartidos asociados con su cuenta de almacenamiento (*utsac1* en el ejemplo siguiente) desde el equipo host, abra una ventana de comandos. En el símbolo del sistema, escriba:
 
-    `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
+    `net use \\<IP address of the device>\<share name>  /u:<IP address of the device>\<user name for the share>`
 
     Dependiendo del formato de los datos, las rutas de acceso de los recursos compartidos son las siguientes:
     - Blob en bloques de Azure: `\\10.126.76.138\utSAC1_202006051000_BlockBlob`
@@ -90,7 +90,7 @@ Si usa un equipo host Windows Server, realice los pasos siguientes para conectar
 4. Cuando se le solicite, escriba la contraseña del recurso compartido. Si la contraseña tiene caracteres especiales, agregue comillas dobles antes y después de ella. En el ejemplo siguiente se muestra la conexión a un recurso compartido con el comando anterior.
 
     ```
-    C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:testuser1
+    C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:10.126.76.138\testuser1
     Enter the password for 'testuser1' to connect to '10.126.76.138': "ab1c2def$3g45%6h7i&j8kl9012345"
     The command completed successfully.
     ```

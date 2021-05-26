@@ -4,13 +4,13 @@ description: Extraiga los datos estructurados de una expresión mediante la enti
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/08/2020
-ms.openlocfilehash: aa2783abe86b90a907510dec8d7eb40162820ad5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 04/28/2020
+ms.openlocfilehash: b3a41ec4eb10ccf1f1b9e80315f554f72a5c8cfe
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025266"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095918"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Tutorial: Extracción de datos estructurados de una expresión de usuario con entidades de aprendizaje automático en Language Understanding (LUIS)
 
@@ -27,8 +27,9 @@ La entidad con aprendizaje automático admite el [concepto de descomposición de
 > * Entrenar, probar y publicar una aplicación
 > * Obtener la predicción de la entidad a partir del punto de conexión
 
+<!---
 [!INCLUDE [LUIS Free account](includes/quickstart-tutorial-use-free-starter-key.md)]
-
+-->
 
 ## <a name="why-use-a-machine-learning-entity"></a>¿Por qué usar una entidad de aprendizaje automático?
 

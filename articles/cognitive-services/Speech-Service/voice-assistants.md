@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: fc85eec008ef099d63d538e4871a1a84573f5a18
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a3d99a0befd336d37b02b448a65df406d3a8e6e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98790452"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110059021"
 ---
 # <a name="what-is-a-voice-assistant"></a>¿Qué es un asistente de voz?
 
@@ -74,7 +74,7 @@ Los asistentes de voz creados con los servicios de voz de Azure pueden usar toda
 
 * [Habla personalizada](./custom-speech-overview.md)
 * [Voz personalizada](how-to-custom-voice.md)
-* [Palabra clave personalizada](custom-keyword-overview.md)
+* [Palabra clave personalizada](keyword-recognition-overview.md)
 
 > [!NOTE]
 > Las opciones de personalización varían según el idioma o la configuración regional (consulte los [idiomas admitidos](language-support.md)).
