@@ -1,26 +1,43 @@
 ---
 title: Novedades en Form Recognizer
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Comprenda los últimos cambios en la API de Form Recognizer.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
-ms.topic: conceptual
-ms.date: 04/28/2021
+ms.topic: overview
+ms.date: 04/14/2021
 ms.author: lajanuar
-ms.openlocfilehash: 58430c94fa1b22954ca640188ced5bfb1fb197d0
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 691094164a9aa57ab9b029455b5e3a0e9fefd63f
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293329"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373978"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
 # <a name="whats-new-in-form-recognizer"></a>Novedades en Form Recognizer
 
-El servicio Form Recognizer se actualiza de forma continuada. Use este artículo para mantenerse al día con mejoras de características, correcciones y actualizaciones de la documentación.
+El servicio Form Recognizer se actualiza de forma continuada. Marque esta página para mantenerse al día con las notas de la versión, las mejoras de características y las actualizaciones de documentación.
+
+## <a name="may-2021"></a>Mayo de 2021
+
+### <a name="form-recognizer-21-ga"></a>Form Recognizer 2.1 (disponibilidad general)
+
+Form Recognizer 2.1 está disponible con carácter general. Esta versión le permite detectar y extraer información y datos de lo siguiente:
+
+* [Documentos](concept-layout.md)
+* [Receipts](concept-receipts.md)
+* [Tarjetas de presentación](concept-business-cards.md)
+* [Facturas](concept-invoices.md)
+* [Documentos de identidad](concept-identification-cards.md)
+* [Formularios personalizados](concept-custom.md)
+
+### <a name="layout-adds-table-headers"></a>Adición de encabezados de tabla por diseño
+
+La característica de tabla de la API de diseño actualizada agrega el reconocimiento de encabezados con encabezados de columna que pueden abarcar varias filas. Cada celda de tabla tiene un atributo que indica si forma parte de un encabezado o no. Esto se puede usar para identificar qué filas son el encabezado de tabla.
 
 ## <a name="april-2021"></a>Abril de 2021
 <!-- markdownlint-disable MD029 -->
@@ -258,7 +275,7 @@ La **versión 2.0** incluye la siguiente actualización:
 Hay **nuevos ejemplos** disponibles en GitHub.
 
 * En el [cuaderno de estrategias de Forms: recetas de extracción de conocimientos](https://github.com/microsoft/knowledge-extraction-recipes-forms) se recopilan procedimientos recomendados de interacciones de clientes reales de Form Recognizer y se proporcionan ejemplos de código útiles, listas de comprobación y canalizaciones de ejemplo que se usan en el desarrollo de estos proyectos.
-* La [herramienta de etiquetado de ejemplo](https://github.com/microsoft/OCR-Form-Tools) se ha actualizado para admitir la nueva funcionalidad de v2.1. Vea este [inicio rápido](quickstarts/label-tool.md) para empezar a trabajar con la herramienta.
+* La [herramienta de etiquetado de ejemplo](https://github.com/microsoft/OCR-Form-Tools) se ha actualizado para admitir la nueva funcionalidad de v2.1. Vea este [inicio rápido](label-tool.md) para empezar a trabajar con la herramienta.
 * El ejemplo de Form Recognizer [Intelligent Kiosk](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) muestra cómo integrar `Analyze Receipt` y `Train Custom Model` - _Entrenamiento sin etiquetas_.
 
 ## <a name="july-2020"></a>Julio de 2020
@@ -322,7 +339,7 @@ Hay **nuevos ejemplos** disponibles en GitHub.
   * `time`
   * `integer`
 
-  Para aprender a usar esta característica, consulte la [herramienta de etiquetado de ejemplo](./quickstarts/label-tool.md#specify-tag-value-types).
+  Para aprender a usar esta característica, consulte la [herramienta de etiquetado de ejemplo](label-tool.md#specify-tag-value-types).
 
 * **Visualización de tablas**: la herramienta de etiquetado de ejemplo ahora muestra las tablas que se reconocieron en el documento. Esta característica permite ver las tablas que se han reconocido y extraído del documento antes de etiquetarlas y analizarlas. Esta característica se puede activar o desactivar mediante la opción de capas.
 

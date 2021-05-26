@@ -2,19 +2,19 @@
 title: Información general de Kubernetes habilitado para Azure Arc
 services: azure-arc
 ms.service: azure-arc
-ms.date: 03/03/2021
+ms.date: 05/25/2021
 ms.topic: overview
 author: mlearned
 ms.author: mlearned
 description: En este artículo se proporciona información general de Kubernetes habilitado para Azure Arc.
 keywords: Kubernetes, Arc, Azure, containers
 ms.custom: references_regions
-ms.openlocfilehash: 69e9886f214d0076c8e66231fd6ad15bb060828f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 74db1dda9ffdf40ec7e6a571a63986d4ab75c193
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449655"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375361"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes"></a>¿Qué es Kubernetes habilitado para Azure Arc?
 
@@ -48,6 +48,8 @@ Kubernetes habilitado para Azure Arc admite los siguientes escenarios:
 * Aplicación de la protección contra amenazas con Azure Defender para Kubernetes.
 
 * Aplicación de directivas mediante Azure Policy para Kubernetes.
+
+* Cree [ubicaciones personalizadas](./custom-locations.md) como ubicaciones de destino para implementar Data Services habilitado para Azure Arc, [App Services en Azure Arc](../../app-service/overview-arc-integration.md) (incluido web, funciones y aplicaciones lógicas) y [Event Grid en Kubernetes](/azure/event-grid/kubernetes/overview).
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 

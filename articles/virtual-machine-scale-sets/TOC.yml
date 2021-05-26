@@ -413,6 +413,42 @@
       href: /azure/templates/microsoft.compute/virtualmachinescalesets
     - name: Elementos integrados de Azure Policy
       displayName: 'samples, policies, definitions'
-      href: ./policy-reference.md
+      href: ../virtual-machines/policy-reference.md
 - name: Recursos
-  items: null
+  items:
+    - name: Cloud Adoption Framework
+      href: /azure/cloud-adoption-framework/get-started/
+    - name: Centro de arquitectura
+      href: /azure/architecture/
+    - name: Herramientas de migración
+      href: /azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools
+    - name: Preguntas y respuestas acerca de Microsoft
+      href: /answers/topics/azure-virtual-machines.html
+    - name: Plantillas de inicio rápido de Azure
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/#Linux'
+    - name: Disponibilidad regional
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Desarrollo de aptitudes con Microsoft Learn
+      href: /learn/browse/?products=azure-virtual-machines
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: Calculadora de precios
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Comandos comunes de la CLI
+      href: ../virtual-machines/linux/cli-manage.md
+    - name: Comandos comunes de PowerShell
+      href: ../virtual-machines/windows/ps-common-ref.md
+    - name: Comandos comunes de PowerShell para redes
+      href: ../virtual-machines/windows/ps-common-network-ref.md
+    - name: Descripción de la plantilla de máquina virtual
+      href: ../virtual-machines/windows/template-description.md
+    - name: Preguntas más frecuentes
+      items:
+        - name: Linux
+          href: ../virtual-machines/linux/faq.md
+        - name: Windows
+          href: ../virtual-machines/windows/faq.md
+- name: Soporte técnico y solución de problemas
+  href: vmss-support-help.md

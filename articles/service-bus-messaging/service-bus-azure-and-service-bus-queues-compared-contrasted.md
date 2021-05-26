@@ -3,12 +3,12 @@ title: Comparación de colas de Azure Storage con colas de Service Bus
 description: Analiza las diferencias y similitudes entre dos tipos de colas que se ofrecen en Azure.
 ms.topic: article
 ms.date: 04/12/2021
-ms.openlocfilehash: 1c3b0fda12d5e301b17a342c5d5ed11ab76c76da
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: a63ed276981a692b96b7e7369093af221b3d3a5f
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304365"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190133"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Colas de Storage y de Service Bus: comparación y diferencias
 En este artículo se analizan las diferencias y similitudes entre los dos tipos de cola que ofrece Microsoft Azure: las colas de Storage y las colas de Service Bus. Con esta información, puede tomar una decisión más fundamentada sobre la solución que mejor se adapta a sus necesidades.
@@ -100,7 +100,7 @@ En esta sección se comparan algunas de las funcionalidades avanzadas ofrecidas 
 | Compatibilidad con mensajes dudosos |**Sí** |**Sí** |
 | Actualización local |**Sí** |**Sí** |
 | Registro de transacciones del servidor |**Sí** |**No** |
-| Métricas de almacenamiento |**Sí**<br/><br/>**Métricas por minuto** proporciona métricas en tiempo real de disponibilidad, TPS, recuentos de llamadas API, recuentos de errores y mucho más. Todas ellas son en tiempo real, se agregan por minuto y se muestran pocos minutos después de lo que ha ocurrido en producción. Para obtener más información, vea [Acerca de las métricas de Storage Analytics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Sí**<br/><br/>Para información sobre las métricas admitidas por Azure Service Bus, consulte [Métricas de mensajes](service-bus-metrics-azure-monitor.md#message-metrics). |
+| Métricas de almacenamiento |**Sí**<br/><br/>**Métricas por minuto** proporciona métricas en tiempo real de disponibilidad, TPS, recuentos de llamadas API, recuentos de errores y mucho más. Todas ellas son en tiempo real, se agregan por minuto y se muestran pocos minutos después de lo que ha ocurrido en producción. Para obtener más información, vea [Acerca de las métricas de Storage Analytics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Sí**<br/><br/>Para información sobre las métricas admitidas por Azure Service Bus, consulte [Métricas de mensajes](monitor-service-bus-reference.md#message-metrics). |
 | Administración de estados |**No** |**Sí** (Active, Disabled, SendDisabled, ReceiveDisabled. Para más información sobre estos estados, vea [Estado de la cola](entity-suspend.md#queue-status)). |
 | Reenvío automático de mensajes |**No** |**Sí** |
 | Purgar la función de cola |**Sí** |**No** |

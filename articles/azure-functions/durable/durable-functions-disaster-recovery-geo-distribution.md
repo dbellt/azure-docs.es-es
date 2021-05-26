@@ -3,20 +3,23 @@ title: Recuperación ante desastres y distribución geográfica en Azure Durable
 description: Información acerca de la recuperación ante desastres y la distribución geográfica en Durable Functions.
 author: MS-Santi
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 05/11/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 01c400f51cce85ef39e9d39bcad1221253c6942d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18919b56ffdc9368f2593f2384b3d7a8e836afd0
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89071217"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375970"
 ---
 # <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Recuperación ante desastres y distribución geográfica en Azure Durable Functions
 
 Microsoft se esfuerza por garantizar que los servicios de Azure siempre estén disponibles. Sin embargo, es posible que se produzcan interrupciones en el servicio. Si su aplicación requiere resistencia, Microsoft recomienda que la configure para usar la redundancia geográfica. Además, los clientes deben tener implementado un plan de recuperación ante desastres para controlar una interrupción del servicio regional. Parte importante de un plan de recuperación ante desastres es preparar la conmutación por error a la réplica secundaria de la aplicación y almacenamiento ante la eventualidad de que la réplica principal deje de estar disponible.
 
 En Durable Functions, todos los estados se conservan en Azure Storage de manera predeterminada. Una [central de tareas](durable-functions-task-hubs.md) es un contenedor lógico para los recursos de Azure Storage que se usan para las [orquestaciones](durable-functions-types-features-overview.md#orchestrator-functions) y las [entidades](durable-functions-types-features-overview.md#entity-functions). Las funciones de orquestador, actividad y entidad solo pueden interactuar entre sí si pertenecen a la misma central de tareas. Este documento hará referencia a las centrales de tareas cuando se describan escenarios para hacer que estos recursos de Azure Storage tengan una alta disponibilidad.
+
+> [!NOTE]
+> En las instrucciones de este artículo se da por supuesto que usa el proveedor de Azure Storage predeterminado para almacenar el estado del entorno de ejecución de Durable Functions. Sin embargo, es posible configurar proveedores de almacenamiento alternativos que almacenen el estado en otro lugar, como una base de datos SQL Server. Es posible que se requieran diferentes estrategias de recuperación ante desastres y distribución geográfica para los proveedores de almacenamiento alternativos. Para obtener más información sobre los proveedores de almacenamiento alternativos, consulte la documentación sobre [Proveedores de almacenamiento de Durable Functions](durable-functions-storage-providers.md).
 
 Las orquestaciones y entidades se pueden desencadenar mediante [funciones de cliente](durable-functions-types-features-overview.md#client-functions) que se desencadenan mediante HTTP o uno de los otros tipos de desencadenadores de Azure Functions compatibles. También se pueden desencadenar mediante las [API HTTP integradas](durable-functions-http-features.md#built-in-http-apis). Para simplificarlo, este artículo se centrará en escenarios que involucren a Azure Storage y desencadenadores de función basados en HTTP, así como opciones para aumentar la disponibilidad y minimizar el tiempo de inactividad durante las actividades de recuperación ante desastres. Otros tipos de desencadenadores, como los desencadenadores de Service Bus o Cosmos DB, no se tratarán a explícitamente.
 

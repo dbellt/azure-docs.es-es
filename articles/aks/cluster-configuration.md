@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/09/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 5740c1c299e8a6a2e8874bd13aae76b0353cc6a2
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 3937e0a6c00de78acfa774ab6446d2b3d8e68206
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775877"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377130"
 ---
 # <a name="configure-an-aks-cluster"></a>Configuración de un clúster de AKS
 
@@ -74,11 +74,9 @@ az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-gro
 
 ## <a name="container-runtime-configuration"></a>Configuración del entorno de ejecución de contenedor
 
-Un entorno de ejecución de contenedor es un software que ejecuta contenedores y administra imágenes de contenedor en un nodo. El entorno de ejecución ayuda a abstraer la funcionalidad específica del sistema operativo o de sys-call para ejecutar contenedores en Linux o Windows. Los clústeres de AKS que usan grupos de nodos con la versión 1.19 de Kubernetes y posterior usan `containerd` como entorno de ejecución del contenedor. Los clústeres de AKS que usan grupos de nodos con versiones anteriores a la 1.19 de Kubernetes usan [Moby](https://mobyproject.org/) (Docker ascendente) como entorno de ejecución del contenedor.
+Un entorno de ejecución de contenedor es un software que ejecuta contenedores y administra imágenes de contenedor en un nodo. El entorno de ejecución ayuda a abstraer la funcionalidad específica del sistema operativo o de sys-call para ejecutar contenedores en Linux o Windows. En el caso de los grupos de nodos de Linux, se usa `containerd` para los grupos de nodos con Kubernetes versión 1.19 y posteriores, y se usa Docker para los grupos de nodos con Kubernetes 1.18 y versiones anteriores. En el caso de los grupos de nodos de Windows Server 2019, `containerd` está disponible en versión preliminar y se puede usar en grupos de nodos con Kubernetes 1.20 y versiones posteriores, pero Docker todavía se usa de forma predeterminada.
 
-![Docker CRI 1](media/cluster-configuration/docker-cri.png)
-
-[`Containerd`](https://containerd.io/) es un entorno de ejecución de contenedor básico compatible con [OCI](https://opencontainers.org/) (Open Container Initiative) que proporciona el conjunto mínimo de funciones necesarias para ejecutar contenedores y administrar imágenes en un nodo. Fue [donado](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) a la Cloud Native Compute Foundation (CNCF) en marzo de 2017. La versión actual de Moby que AKS usa se basa en `containerd` y ya aprovecha sus ventajas, como se mostró anteriormente.
+[`Containerd`](https://containerd.io/) es un entorno de ejecución de contenedor básico compatible con [OCI](https://opencontainers.org/) (Open Container Initiative) que proporciona el conjunto mínimo de funciones necesarias para ejecutar contenedores y administrar imágenes en un nodo. Fue [donado](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) a la Cloud Native Compute Foundation (CNCF) en marzo de 2017. La versión actual de Moby (Docker ascendente) que AKS ya usa se basa en `containerd` y ya aprovecha sus ventajas, como se mostró anteriormente.
 
 Con los grupos de nodos y los nodos basados en `containerd`, en lugar de comunicarse con `dockershim`, el kubelet se comunicará directamente con `containerd` mediante el complemento CRI (interfaz del entorno de ejecución de contenedor) y eliminará los saltos adicionales del flujo, en comparación con la implementación de CRI de Docker. Como tal, verá una mejor latencia de inicio del pod y menor uso de recursos (CPU y memoria).
 
@@ -89,21 +87,21 @@ Usar `containerd` para los nodos AKS mejora la latencia de inicio del pod y redu
 `Containerd` funciona en todas las versiones de disponibilidad general de Kubernetes en AKS y en todas las versiones de Kubernetes anteriores a la versión 1.19, y admite todas las características de Kubernetes y AKS.
 
 > [!IMPORTANT]
-> Los clústeres con grupos de nodos creados en Kubernetes versión 1.19 o versiones posteriores tienen como entorno de ejecución del contenedor a `containerd` de manera predeterminada. Los clústeres con grupos de nodos de una versión de Kubernetes compatible inferior a la versión 1.19 reciben `Moby` como entorno de ejecución del contenedor, pero se actualizarán a `ContainerD` una vez que la versión de Kubernetes del grupo de nodos se actualice a la versión 1.19 o posteriores. Puede seguir usando los clústeres y grupos de nodos de `Moby` en las versiones anteriores compatibles hasta que se retire el soporte técnico.
+> Los clústeres con grupos de nodos de Linux creados en Kubernetes versión 1.19 o versiones posteriores utilizan `containerd` de manera predeterminada para su entorno de ejecución de contenedores. Los clústeres con grupos de nodos en versiones de Kubernetes admitidas anteriormente reciben Docker para su entorno de ejecución de contenedores. Los grupos de nodos de Linux se actualizarán a `containerd` una vez que la versión de Kubernetes del grupo de nodos se actualice a una versión compatible con `containerd`. Puede seguir usando los clústeres y grupos de nodos de Docker en las versiones admitidas más antiguas hasta que se retire el soporte técnico.
 > 
-> Es muy recomendable que pruebe sus cargas de trabajo en los grupos de nodos de AKS con `containerD` antes de usar los clústeres en la versión 1.19 o posteriores.
+> El uso de `containerd` con grupos de nodos de Windows Server 2019 está actualmente en versión preliminar. Para más información, consulte [Adición de un grupo de nodos de Windows Server con `containerd`][aks-add-np-containerd].
+> 
+> Se recomienda encarecidamente probar las cargas de trabajo en grupos de nodos de AKS con `containerd` antes de usar clústeres con una versión de Kubernetes compatible con `containerd` para sus grupos de nodos.
 
 ### <a name="containerd-limitationsdifferences"></a>Limitaciones y diferencias de `Containerd`
 
-* Para usar `containerd` como entorno de ejecución de contenedor, debe usar AKS Ubuntu 18.04 como imagen base del sistema operativo.
-* Aunque el conjunto de herramientas de Docker todavía está presente en los nodos, Kubernetes usa `containerd` como entorno de ejecución de contenedor. Por lo tanto, dado que Moby y Docker no administran los contenedores creados por Kubernetes en los nodos, no puede ver los contenedores ni interactuar con ellos mediante los comandos de Docker (como `docker ps`) o la API de Docker.
 * Para `containerd`, se recomienda usar [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) como CLI en lugar de la CLI de Docker para **solucionar problemas** de pods, contenedores e imágenes de contenedor en nodos Kubernetes (por ejemplo, `crictl ps`). 
    * No proporciona la funcionalidad completa de la CLI de Docker. Está pensado solo para solucionar problemas.
    * `crictl` ofrece una vista de los contenedores más compatible con Kubernetes, con conceptos como pods, etc.
 * `Containerd` configura el registro con el formato de registro `cri` normalizado (que es diferente de lo que se obtiene actualmente del controlador JSON de Docker). La solución de registro debe admitir el formato de registro `cri` (como [Azure Monitor para contenedores](../azure-monitor/containers/container-insights-enable-new-cluster.md))
 * Ya no puede tener acceso al motor de Docker, `/var/run/docker.sock`, ni usar Docker en Docker (DinD).
   * Si actualmente extrae los registros de aplicación o los datos de supervisión del motor de Docker, utilice en su lugar [Azure Monitor para contenedores](../azure-monitor/containers/container-insights-enable-new-cluster.md), por ejemplo. Además, AKS no admite la ejecución de comandos fuera de banda en los nodos del agente que podrían provocar inestabilidad.
-  * Incluso cuando se use Moby o Docker, es muy desaconsejable crear imágenes y aprovechar directamente el motor de Docker con los métodos anteriores. Kubernetes no es totalmente consciente de esos recursos consumidos y esos enfoques presentan numerosos problemas, que se detallan [aquí](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) y [aquí](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/), por ejemplo.
+  * Incluso si usa Docker, es muy desaconsejable crear imágenes y aprovechar directamente el motor de Docker con los métodos anteriores. Kubernetes no es totalmente consciente de esos recursos consumidos y esos enfoques presentan numerosos problemas, que se detallan [aquí](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) y [aquí](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/), por ejemplo.
 * Compilación de imágenes: puede seguir usando su flujo de trabajo de compilación de Docker como de costumbre, a menos que vaya a compilar imágenes dentro del clúster de AKS. En este caso, considere la posibilidad de utilizar el enfoque recomendado para compilar imágenes con [ACR Tasks](../container-registry/container-registry-quickstart-task-cli.md). O bien, una alternativa más segura dentro del clúster, como [docker buildx](https://github.com/docker/buildx).
 
 ## <a name="generation-2-virtual-machines"></a>Máquinas virtuales de generación 2
@@ -124,7 +122,7 @@ En cambio, los discos de sistema operativo efímero solo se almacenan en el equi
 Al igual que sucede con un disco temporal, el disco de sistema operativo efímero está incluido en el precio de la máquina virtual, por lo que no lleva asociado ningún costo adicional de almacenamiento.
 
 > [!IMPORTANT]
->Cuando un usuario no solicita explícitamente los discos administrados para el sistema operativo, AKS tomará como valor predeterminado el sistema operativo efímero si es posible para una configuración de grupo de nodos determinada.
+>Si un usuario no solicita explícitamente los discos administrados para el sistema operativo, AKS tomará como valor predeterminado el sistema operativo efímero si es posible para una configuración de grupo de nodos determinada.
 
 Cuando se usa un sistema operativo efímero, el disco del sistema operativo debe caber en la memoria caché de la máquina virtual. Los tamaños de la memoria caché de la máquina virtual están disponibles en la [documentación de Azure](../virtual-machines/dv3-dsv3-series.md) entre paréntesis junto a rendimiento de E/S ("tamaño de caché en GiB").
 
@@ -132,7 +130,7 @@ Con el tamaño de máquina virtual predeterminado de AKS Standard_DS2_v2 con el 
 
 Si un usuario solicita el mismo tamaño Standard_DS2_v2 con un disco del sistema operativo de 60 GB, esta configuración sería el sistema operativo efímero de manera predeterminada: el tamaño solicitado de 60 GB es menor que el tamaño máximo de la caché de 86 GB.
 
-Al usar el tamaño Standard_D8s_v3 con un disco de sistema operativo de 100 GB, este tamaño de máquina virtual es compatible con el sistema operativo efímero y tiene 200 GB de espacio en caché. Si un usuario no especifica el tipo de disco del sistema operativo, el grupo de nodos recibiría un sistema operativo efímero de manera predeterminada. 
+Al usar el tamaño Standard_D8s_v3 con un disco de sistema operativo de 100 GB, este tamaño de máquina virtual es compatible con el sistema operativo efímero y tiene 200 GB de espacio en caché. Si un usuario no especifica el tipo de disco del sistema operativo, el grupo de nodos recibirá un sistema operativo efímero de manera predeterminada. 
 
 El sistema operativo efímero requiere la versión 2.15.0 de la CLI de Azure.
 
@@ -197,3 +195,4 @@ Cuando trabaje con el grupo de recursos del nodo, tenga en cuenta que no puede:
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[aks-add-np-containerd]: windows-container-cli.md#add-a-windows-server-node-pool-with-containerd-preview

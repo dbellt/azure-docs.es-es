@@ -3,12 +3,12 @@ title: 'Tutorial: Incorporación de un segmento de red de NSX-T en Azure VMware 
 description: Aprenda a crear un segmento de red de NSX-T para usarlo en máquinas virtuales en vCenter.
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: 9125e552f9641a2d26b9584b66a4447f9c152161
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 70a0602b037aaebd4b9776c3a8dafafcb173fa23
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103462137"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064467"
 ---
 # <a name="tutorial-add-a-network-segment-in-azure-vmware-solution"></a>Tutorial: Incorporación de un segmento de red en Azure VMware Solution 
 
@@ -35,7 +35,7 @@ En este tutorial, ha creado un segmento de red de NSX-T que se usa para las máq
 
 Ahora puede: 
 
-- [Crear y administrar DHCP para Azure VMware Solution](manage-dhcp.md)
+- [Crear y administrar DHCP para Azure VMware Solution](configure-dhcp-azure-vmware-solution.md)
 - [Crear una biblioteca de contenido para implementar máquinas virtuales en Azure VMware Solution](deploy-vm-content-library.md) 
 - [Emparejamiento de entornos locales con una nube privada](tutorial-expressroute-global-reach-private-cloud.md)
 

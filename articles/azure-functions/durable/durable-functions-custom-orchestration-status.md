@@ -2,29 +2,29 @@
 title: Estado de orquestación personalizada en Durable Functions - Azure
 description: Obtenga información acerca de cómo configurar y usar el estado de orquestación personalizada en Durable Functions.
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 05/10/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 4a95e7c74fac7043d0adb5f31d2bdcdd73b9577a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de74c2d8c4e7abf5735dad0b1c04f2cce88aa2c1
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97766335"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110370932"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Estado de orquestación personalizada en Durable Functions (Azure Functions)
 
-El estado de orquestación personalizada le permite establecer un valor de estado personalizado para la función del orquestador. Este estado se proporciona a través de [HTTP GetStatus API](durable-functions-http-api.md#get-instance-status) o de la [API `GetStatusAsync`](durable-functions-instance-management.md#query-instances) en el cliente de orquestación.
+El estado de orquestación personalizada le permite establecer un valor de estado personalizado para la función del orquestador. Este estado se proporciona a través de [HTTP GetStatus API](durable-functions-http-api.md#get-instance-status) o de la [API de SDK](durable-functions-instance-management.md#query-instances) equivalente en el objeto del cliente de orquestación.
 
 ## <a name="sample-use-cases"></a>Casos de uso de ejemplo
-
-> [!NOTE]
-> En los siguientes ejemplos se muestra cómo usar la característica de estado personalizado en C#, JavaScript y Python. Los ejemplos de C# están escritos para Durable Functions 2.x y no son compatibles con Durable Functions 1.x. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
 
 ### <a name="visualize-progress"></a>Visualizar el progreso
 
 Los clientes pueden comprobar el estado del punto de conexión y ver la interfaz de usuario del progreso que muestra la fase de ejecución actual. En el siguiente ejemplo se muestra el progreso de uso compartido:
 
 # <a name="c"></a>[C#](#tab/csharp)
+
+> [!NOTE]
+> Estos ejemplos de C# están escritos para Durable Functions 2.x y no son compatibles con Durable Functions 1.x. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -108,7 +108,33 @@ def main(name: str) -> str:
     return f"Hello {name}!"
 
 ```
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
+### <a name="e1_hellosequence-orchestrator-function"></a>Función de orquestador `E1_HelloSequence`
+```powershell
+param($Context)
+
+$output = @()
+
+$output += Invoke-DurableActivity -FunctionName 'E1_SayHello' -Input 'Tokyo'
+Set-DurableCustomStatus -CustomStatus 'Tokyo'
+
+$output += Invoke-DurableActivity -FunctionName 'E1_SayHello' -Input 'Seattle'
+Set-DurableCustomStatus -CustomStatus 'Seattle'
+
+$output += Invoke-DurableActivity -FunctionName 'E1_SayHello' -Input 'London'
+Set-DurableCustomStatus -CustomStatus 'London'
+
+
+return $output
+```
+
+### <a name="e1_sayhello-activity-function"></a>Función de actividad `E1_SayHello`
+```powershell
+param($name)
+
+"Hello $name"
+```
 ---
 
 A continuación, el cliente recibirá la salida de la orquestación solo si el campo `CustomStatus` está establecido en "London":
@@ -202,6 +228,10 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 > [!NOTE]
 > En Python, el campo `custom_status` se establecerá cuando se programe la próxima acción `yield` o `return`.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Esta característica no se implementa actualmente en PowerShell.
 
 ---
 
@@ -315,6 +345,36 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+#### <a name="cityrecommender-orchestrator"></a>Orquestador `CityRecommender`
+
+```powershell
+param($Context)
+
+$userChoice = $Context.Input -as [int]
+
+if ($userChoice -eq 1) {
+    Set-DurableCustomStatus -CustomStatus @{ recommendedCities = @('Tokyo', 'Seattle'); 
+                                             recommendedSeasons = @('Spring', 'Summer') 
+                                            }  
+}
+
+if ($userChoice -eq 2) {
+    Set-DurableCustomStatus -CustomStatus @{ recommendedCities = @('Seattle', 'London'); 
+                                             recommendedSeasons = @('Summer') 
+                                            }  
+}
+
+if ($userChoice -eq 3) {
+    Set-DurableCustomStatus -CustomStatus @{ recommendedCities = @('Tokyo', 'London'); 
+                                             recommendedSeasons = @('Spring', 'Summer') 
+                                            }  
+}
+
+# Wait for user selection and refine the recommendation
+```
 ---
 
 ### <a name="instruction-specification"></a>Especificación de instrucciones
@@ -399,7 +459,33 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
+```powershell
+param($Context)
+
+$userId = $Context.Input -as [int]
+
+$discount = Invoke-DurableActivity -FunctionName 'CalculateDiscount' -Input $userId
+
+$status = @{
+            discount = $discount;
+            discountTimeout = 60;
+            bookingUrl = "https://www.myawesomebookingweb.com"
+            }
+
+Set-DurableCustomStatus -CustomStatus $status
+
+$isBookingConfirmed = Invoke-DurableActivity -FunctionName 'BookingConfirmed'
+
+if ($isBookingConfirmed) {
+    Set-DurableCustomStatus -CustomStatus @{message = 'Thank you for confirming your booking.'}
+} else {
+    Set-DurableCustomStatus -CustomStatus @{message = 'The booking was not confirmed on time. Please try again.'}
+}
+
+return $isBookingConfirmed
+```
 ---
 
 ## <a name="sample"></a>Muestra
@@ -453,6 +539,20 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+# ...do work...
+
+Set-DurableCustomStatus -CustomStatus @{ nextActions = @('A', 'B', 'C'); 
+                                         foo = 2 
+                                        }  
+
+# ...do more work...
+```
 ---
 
 Mientras se ejecuta la orquestación, los clientes externos pueden capturar este estado personalizado:
@@ -475,7 +575,7 @@ Los clientes obtendrán la siguiente respuesta:
 ```
 
 > [!WARNING]
-> La carga de estado personalizada se limita a 16 KB de texto JSON de UTF-16, ya que debe caber en una columna de Azure Table Storage. Se recomienda usar almacenamiento externo si se necesita una carga mayor.
+> La carga de estado personalizada se limita a 16 KB de texto JSON de UTF-16. Se recomienda usar almacenamiento externo si se necesita una carga mayor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
