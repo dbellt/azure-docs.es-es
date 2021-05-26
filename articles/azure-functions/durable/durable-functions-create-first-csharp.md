@@ -1,17 +1,17 @@
 ---
 title: Creación de la primera función durable en Azure con C#
 description: Cree y publique una función perdurable de Azure con Visual Studio o Visual Studio Code.
-author: jeffhollan
+author: anthonychu
 ms.topic: quickstart
 ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
-ms.openlocfilehash: 36566baac2885c449e1eae762924357bf571b39f
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: da5819c6a40e1d5a513e9d742702d5435f4efbeb
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490223"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465979"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Creación de su primera función durable en C\#
 
@@ -53,7 +53,7 @@ En esta sección se usa Visual Studio Code para crear un proyecto local en Azur
 
 1. Siguiendo las indicaciones, proporcione la información siguiente:
 
-    | Prompt | Value | Descripción |
+    | Prompt | Valor | Descripción |
     | ------ | ----- | ----------- |
     | Seleccionar el lenguaje para el proyecto de la aplicación de funciones | C# | Cree un proyecto local de Functions en C#. |
     | Selección de una versión | Azure Functions v3 | Esta opción solo se ve si las herramientas principales no estén instaladas. En este caso, las herramientas principales se instalan la primera vez que se ejecuta la aplicación. |
@@ -70,7 +70,7 @@ En los pasos siguientes se usa una plantilla para crear el código de Durable Fu
 
 1. Siguiendo las indicaciones, proporcione la información siguiente:
 
-    | Prompt | Value | Descripción |
+    | Prompt | Valor | Descripción |
     | ------ | ----- | ----------- |
     | Seleccionar una plantilla para la función | DurableFunctionsOrchestration | Crear una orquestación de Durable Functions |
     | Proporcionar un nombre de función | HelloOrchestration | Nombre de la clase en la que se crean las funciones |
@@ -78,7 +78,7 @@ En los pasos siguientes se usa una plantilla para crear el código de Durable Fu
 
 1. Cuando VS Code le pida que seleccione una cuenta de almacenamiento, elija **Seleccionar cuenta de almacenamiento**. Siga las indicaciones y proporcione la siguiente información para crear una nueva cuenta de almacenamiento en Azure.
 
-    | Prompt | Value | Descripción |
+    | Prompt | Valor | Descripción |
     | ------ | ----- | ----------- |
     | Seleccionar suscripción | *nombre de la suscripción* | Selección de su suscripción a Azure |
     | Seleccione una cuenta de almacenamiento | Creación de una cuenta de almacenamiento nueva |  |

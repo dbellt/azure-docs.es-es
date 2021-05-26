@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 7656efeb26a8a8b3c752ea996c8e644c68a48626
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: dc73ac91320e1860c5c30f1b31962ad826a1038f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102044007"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110076805"
 ---
 # <a name="deploy-azure-monitor"></a>Implementación de Azure Monitor
 Habilitar Azure Monitor para supervisar todos los recursos de Azure es una combinación de la configuración de los componentes de Azure Monitor y la configuración de los recursos de Azure para generar datos de supervisión para que Azure Monitor los recopile. En este artículo se describen los diferentes pasos necesarios para realizar una implementación completa de Azure Monitor con una configuración común para supervisar todos los recursos de la suscripción de Azure. Se proporcionan descripciones básicas de cada paso con vínculos a otra documentación para obtener información detallada sobre los requisitos de configuración.
@@ -137,7 +137,7 @@ La **supervisión basada en código** es más personalizable y recopila telemetr
 - [Aplicaciones ASP.NET](app/asp-net.md)
 - [Aplicación ASP.NET Core](app/asp-net-core.md)
 - [Aplicaciones de consola .NET](app/console.md)
-- [Java](app/java-get-started.md)
+- [Java](app/java-in-process-agent.md)
 - [Node.js](app/nodejs.md)
 - [Python](app/opencensus-python.md)
 - [Otras plataformas](app/platforms.md)

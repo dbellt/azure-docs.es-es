@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: c7b695455ab571d97be06f8b0f5293e3007083be
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 92a41c3b18b96dc7d12fe7a0cfdae022fcb4d363
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331221"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110079163"
 ---
 # <a name="long-audio-api"></a>Long Audio API
 
@@ -27,7 +27,7 @@ Ventajas adicionales de Long Audio API:
 * No es necesario implementar un punto de conexión de voz.
 
 > [!NOTE]
-> Long Audio API admite [voces neuronales públicas](./language-support.md#neural-voices) y [voces neuronales personalizadas](./how-to-custom-voice.md#custom-neural-voices).
+> Long Audio API admite [voces neuronales públicas](./language-support.md#neural-voices) y [voces neuronales personalizadas](./how-to-custom-voice.md).
 
 ## <a name="workflow"></a>Flujo de trabajo
 

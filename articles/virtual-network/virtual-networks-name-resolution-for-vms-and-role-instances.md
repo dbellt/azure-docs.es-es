@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5af424ff79cb8dc919590db7e236323b2d16fc4e
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 2e2f9876c77e292a2634b5ba29958f64f1f32679
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752902"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110079307"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolución de nombres de recursos en redes virtuales de Azure
 
@@ -162,7 +162,7 @@ Puede que sus necesidades de resolución de nombres superen las posibilidades de
 
 Los servidores DNS dentro de una red virtual pueden reenviar consultas DNS a las resoluciones recursivas en Azure. Esto le permite resolver los nombres de host dentro de esa red virtual. Por ejemplo, un controlador de dominio (DC) que se ejecute en Azure puede responder a las consultas DNS referidas a sus dominios y reenviar todas las demás consultas a Azure. El reenvío de consultas permite que las máquinas virtuales vean sus recursos locales (mediante el controlador de dominio) y los nombres de host proporcionados por Azure (mediante el reenviador). El acceso a las resoluciones recursivas de Azure se proporciona mediante la IP virtual 168.63.129.16.
 
-El reenvío de DNS también habilita la resolución de DNS entre redes virtuales y permite que los equipos locales resuelvan nombres de host proporcionados por Azure. Para resolver el nombre de host de una máquina virtual, la máquina virtual del servidor DNS debe residir en la misma red virtual y debe configurarse para reenviar consultas de nombre de host a Azure. Dado que el sufijo DNS es diferente en cada red virtual, puede usar las reglas de desvío condicional para enviar consultas de DNS a la red virtual correcta para su resolución. En la imagen siguiente se muestran dos redes virtuales y una red local que está realizando resolución DNS entre redes virtuales con este método. Puede encontrar un reenviador DNS de ejemplo disponible en la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/demos/dns-forwarder/) y en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/dns-forwarder).
+El reenvío de DNS también habilita la resolución de DNS entre redes virtuales y permite que los equipos locales resuelvan nombres de host proporcionados por Azure. Para resolver el nombre de host de una máquina virtual, la máquina virtual del servidor DNS debe residir en la misma red virtual y debe configurarse para reenviar consultas de nombre de host a Azure. Dado que el sufijo DNS es diferente en cada red virtual, puede usar las reglas de desvío condicional para enviar consultas de DNS a la red virtual correcta para su resolución. En la imagen siguiente se muestran dos redes virtuales y una red local que está realizando resolución DNS entre redes virtuales con este método. Puede encontrar un reenviador DNS de ejemplo disponible en la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/en-us/resources/templates/dns-forwarder) y en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/dns-forwarder).
 
 > [!NOTE]
 > Una instancia de rol puede realizar la resolución de nombres de máquinas virtuales dentro de la misma red virtual. Para ello, use el FQDN, que consta del nombre de host de la máquina virtual y el sufijo DNS **internal.cloudapp.net**. Sin embargo, en este caso, la resolución de nombres solo es correcta si la instancia de rol tiene el nombre de máquina virtual definido en el [esquema Role (archivo .cscfg)](/previous-versions/azure/reference/jj156212(v=azure.100)).
@@ -199,7 +199,7 @@ Supongamos que necesita realizar la resolución de nombres de una aplicación we
 
 Si necesita ejecutar la resolución de nombres de la aplicación web integrada mediante App Service vinculada a una red virtual, a las máquinas virtuales que se encuentran en una red virtual diferente, debe usar servidores DNS personalizados en las dos redes virtuales, del modo siguiente:
 
-* Configure un servidor DNS en la red virtual de destino en una máquina virtual que también pueda reenviar consultas a la resolución recursiva de Azure (dirección IP virtual 168.63.129.16). Puede encontrar un reenviador DNS de ejemplo disponible en la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/demos/dns-forwarder) y en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/dns-forwarder).
+* Configure un servidor DNS en la red virtual de destino en una máquina virtual que también pueda reenviar consultas a la resolución recursiva de Azure (dirección IP virtual 168.63.129.16). Puede encontrar un reenviador DNS de ejemplo disponible en la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/en-us/resources/templates/dns-forwarder/) y en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/dns-forwarder).
 * Configure un reenviador DNS en la red virtual de origen en una máquina virtual. Configure este reenviador DNS para que reenvíe consultas al servidor DNS de la red virtual de destino.
 * Configure el servidor DNS de origen en la configuración de su red virtual de origen.
 * Habilite la integración de red virtual para la aplicación web para vincular a la red virtual de origen, siguiendo las instrucciones de [Integración de su aplicación con una instancia de Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

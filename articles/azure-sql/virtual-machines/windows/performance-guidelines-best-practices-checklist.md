@@ -3,7 +3,7 @@ title: 'Lista de comprobación: procedimientos recomendados e instrucciones de r
 description: Aquí se proporciona una lista de comprobación rápida para revisar los procedimientos recomendados y las instrucciones para optimizar el rendimiento de SQL Server en la máquina virtual (VM) de Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: dplessMSFT
 editor: ''
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/25/2021
-ms.author: mathoma
+ms.date: 05/06/2021
+ms.author: dpless
 ms.custom: contperf-fy21q3
 ms.reviewer: jroth
-ms.openlocfilehash: 84f2f4f679de80cd9b5fc986d40e084bae8a4cad
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 7e22da62570a1689f5113f41710006698469fa6a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313766"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110452193"
 ---
 # <a name="checklist-performance-best-practices-for-sql-server-on-azure-vms"></a>Lista de comprobación: procedimientos recomendados de rendimiento de SQL Server en VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -69,31 +69,51 @@ La siguiente es una lista de comprobación rápida de los procedimientos recomen
     - Detenga siempre el servicio de SQL Server antes de cambiar la configuración de la memoria caché del disco.
 - En las cargas de trabajo de desarrollo y pruebas, considere la posibilidad de usar almacenamiento estándar. No se recomienda usar HDD o SDD estándar para las cargas de trabajo de producción.
 - La [expansión de disco basada en crédito](../../../virtual-machines/disk-bursting.md#credit-based-bursting) (P1-P20) solo se debe tener en cuenta para cargas de trabajo de desarrollo y pruebas más pequeñas y sistemas departamentales.
-- Aprovisione la cuenta de almacenamiento en la misma región que la VM de SQL Server. 
-- Deshabilite el almacenamiento con redundancia geográfica de Azure (replicación geográfica) y use LRS (almacenamiento con redundancia local) en la cuenta de almacenamiento.
 - Formatee el disco de datos para que use un tamaño de unidad de asignación de 64 KB para todos los archivos de datos ubicados en una unidad que no sea la unidad temporal `D:\` (que tiene un valor predeterminado de 4 KB). Las VM de SQL Server implementadas a través de Azure Marketplace se ofrecen con discos de datos formateados con el tamaño de la unidad de asignación y la intercalación para el bloque de almacenamiento establecido en 64 KB. 
 
 Para obtener más información, vea los [procedimientos recomendados de almacenamiento](performance-guidelines-best-practices-storage.md) generales. 
 
+## <a name="sql-server-features"></a>características de SQL Server
 
-## <a name="azure--sql-feature-specific"></a>Características específicas de Azure y SQL
+A continuación se muestra una lista de comprobación rápida de los procedimientos recomendados para las opciones de configuración de SQL Server al ejecutar las instancias de SQL Server en una máquina virtual de Azure en producción: 
 
-La siguiente es una lista de comprobación rápida de los procedimientos recomendados para configuraciones específicas de SQL Server y Azure al ejecutar la instancia de SQL Server en la máquina virtual de Azure: 
-
-- Regístrese con la [extensión Agente de IaaS de SQL](sql-agent-extension-manually-register-single-vm.md) para desbloquear una serie de [Ventajas de las características](sql-server-iaas-agent-extension-automate-management.md#feature-benefits). 
-- Habilite la compresión de páginas de bases de datos.
-- Habilite la inicialización instantánea de archivos para archivos de datos.
-- Limite el crecimiento automático de la base de datos.
-- Deshabilite la reducción automática de la base de datos.
-- Mueva todas las bases de datos a discos de datos, incluidas bases de datos del sistema.
+- Habilite la [compresión de páginas de base de datos](/sql/relational-databases/data-compression/data-compression) cuando corresponda.
+- Habilite la [compresión de copias de seguridad](/sql/relational-databases/backup-restore/backup-compression-sql-server).
+- Habilite la [inicialización instantánea de archivos](/sql/relational-databases/databases/database-instant-file-initialization) para archivos de datos.
+- Limite el [crecimiento automático](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-autogrow) de la base de datos.
+- Deshabilite la [reducción automática](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-auto_shrink) de la base de datos.
+- Deshabilite el cierre automático de la base de datos.
+- Mueva todas las bases de datos a discos de datos, incluidas las [bases de datos del sistema](/sql/relational-databases/databases/move-system-databases).
 - Mueva los directorios de archivos de seguimiento y registros de errores de SQL Server a discos de datos.
 - Configure ubicaciones predeterminadas para los archivos de base de datos y copia de seguridad.
-- [Habilite las páginas bloqueadas en la memoria](/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows).
-- Evalúe y aplique las [actualizaciones acumulativas más recientes](/sql/database-engine/install-windows/latest-updates-for-microsoft-sql-server) para la versión instalada de SQL Server.
-- Realice copias de seguridad directamente en Azure Blob Storage.
-- Use varios archivos [tempdb](/sql/relational-databases/databases/tempdb-database#optimizing-tempdb-performance-in-sql-server), un archivo por núcleo, hasta ocho archivos.
+- Establezca el [límite máximo de memoria de SQL Server](/sql/database-engine/configure-windows/server-memory-server-configuration-options#use-) para dejar memoria suficiente para el sistema operativo. ([Aproveche Memoria: Bytes disponibles](/sql/relational-databases/performance-monitor/monitor-memory-usage) para supervisar el estado de la memoria del sistema operativo).
+- Habilite el [bloqueo de las páginas en la memoria](/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows).
+- Habilite la [optimización para cargas de trabajo ad hoc](/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option) para entornos pesados de OLTP.
+- Evalúe y aplique las [actualizaciones acumulativas más recientes](/sql/database-engine/install-windows/latest-updates-for-microsoft-sql-server) para las versiones instaladas de SQL Server.
+- Habilite [Almacén de consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) en todas las bases de datos de SQL Server de producción [siguiendo los procedimientos recomendados](/sql/relational-databases/performance/best-practice-with-the-query-store).
+- Habilite el [ajuste automático](/sql/relational-databases/automatic-tuning/automatic-tuning) en bases de datos de aplicaciones críticas.
+- Asegúrese de que se sigan todos los [procedimientos recomendados de tempdb](/sql/relational-databases/databases/tempdb-database#optimizing-tempdb-performance-in-sql-server).
+- Coloque tempdb en la unidad efímera D:/.
+- [Use el número recomendado de archivos](/troubleshoot/sql/performance/recommendations-reduce-allocation-contention#resolution), mediante varios archivos de datos tempdb, empezando por 1 archivo por núcleo, hasta 8 archivos.
+- Programe trabajos del Agente SQL Server para ejecutar [DBCC CHECKDB](/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql#a-checking-both-the-current-and-another-database), [reorganizar índices](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes#reorganize-an-index), [recompilar índices](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes#rebuild-an-index) y [actualizar estadísticas](/sql/t-sql/statements/update-statistics-transact-sql#examples).
+- Supervise y administre el estado y el tamaño del [archivo de registro de transacciones](/sql/relational-databases/logs/manage-the-size-of-the-transaction-log-file#Recommendations) de SQL Server.
+- Aproveche las ventajas de las nuevas [características de SQL Server](/sql/sql-server/what-s-new-in-sql-server-ver15) disponibles para la versión que se va a usar.
+- Tenga en cuenta las diferencias en las [características admitidas](/sql/sql-server/editions-and-components-of-sql-server-version-15) entre las ediciones que está considerando implementar.
 
+## <a name="azure-features"></a>de Windows Azure
 
+La siguiente es una lista de comprobación rápida de los procedimientos recomendados para una guía específica de Azure al ejecutar la instancia de SQL Server en una máquina virtual de Azure:
+
+- Regístrese con la [extensión Agente de IaaS de SQL](sql-agent-extension-manually-register-single-vm.md) para desbloquear una serie de [ventajas de las características](sql-server-iaas-agent-extension-automate-management.md#feature-benefits).
+- Aproveche la mejor [estrategia de copia de seguridad y restauración](backup-restore.md#decision-matrix) para la carga de trabajo de SQL Server.
+- Asegúrese de que la opción [Redes aceleradas esté habilitada](../../../virtual-network/create-vm-accelerated-networking-cli.md#portal-creation) en la máquina virtual.
+- Aproveche [Azure Security Center](../../../security-center/index.yml) para mejorar la posición de seguridad general de la implementación de la máquina virtual.
+- Aproveche [Azure Defender](../../../security-center/azure-defender.md), integrado en [Azure Security Center](https://azure.microsoft.com/services/security-center/), para una [cobertura de VM de SQL Server](../../../security-center/defender-for-sql-introduction.md) específica, incluidas las evaluaciones de vulnerabilidades y el acceso Just-In-Time, lo que reduce el servicio de ataques y permite a los usuarios legítimos acceder a las máquinas virtuales cuando sea necesario. Para más información, consulte [evaluaciones de vulnerabilidades](../../../security-center/defender-for-sql-on-machines-vulnerability-assessment.md), [habilite evaluaciones de vulnerabilidades para VM de SQL Server](../../../security-center/defender-for-sql-on-machines-vulnerability-assessment.md) y [acceso Just-In-Time.](../../../security-center/just-in-time-explained.md) 
+- Aproveche [Azure Advisor](../../../advisor/advisor-overview.md) para abordar las recomendaciones de [rendimiento](../../../advisor/advisor-performance-recommendations.md), [costo](../../../advisor/advisor-cost-recommendations.md), [confiabilidad](../../../advisor/advisor-high-availability-recommendations.md), [excelencia operativa](../../../advisor/advisor-operational-excellence-recommendations.md) y [seguridad](../../../advisor/advisor-security-recommendations.md).
+- Aproveche [Azure Monitor](../../../azure-monitor/vm/quick-monitor-azure-vm.md) para recopilar, analizar y actuar sobre los datos de telemetría del entorno de SQL Server. Esto incluye la detección de problemas de infraestructura con [VM Insights](../../../azure-monitor/vm/vminsights-overview.md) y la supervisión de datos con [Log Analytics](../../../azure-monitor/logs/log-query-overview.md) para un diagnóstico más profundo.
+- Habilite el [apagado automático](../../../automation/automation-solution-vm-management.md) para entornos de desarrollo y pruebas. 
+- Implemente una solución de alta disponibilidad y recuperación ante desastres (HADR) que cumpla los SLA de continuidad empresarial. Consulte las [opciones de HADR](business-continuity-high-availability-disaster-recovery-hadr-overview.md#deployment-architectures) disponibles para SQL Server en VM de Azure. 
+- Use Azure Portal (soporte técnico y solución de problemas) para evaluar el historial y el [estado de los recursos](../../../service-health/resource-health-overview.md), y enviar nuevas solicitudes de soporte técnico cuando sea necesario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

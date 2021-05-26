@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 478f8be017ced99776a0b69ef034d54ba8075c6e
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 7d3a108185c43be2f6de72466db10db5e2ec94f1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076804"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077327"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Entrega continua con Azure DevOps
 
@@ -177,7 +177,7 @@ steps:
 
 En función del sistema operativo de hospedaje, deberá incluir uno de los siguientes ejemplos YAML en el archivo YAML.
 
-#### <a name="windows-function-app"></a>Aplicación de funciones de Windows
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Puede usar el siguiente fragmento de código para implementar una aplicación de funciones de Windows:
 
@@ -194,7 +194,7 @@ steps:
     #slotName: '<Slot name>'
 ```
 
-#### <a name="linux-function-app"></a>Aplicación de funciones de Linux
+# <a name="linux"></a>[Linux](#tab/linux)
 
 Puede usar el siguiente fragmento de código para implementar una aplicación de funciones de Linux:
 
@@ -211,6 +211,7 @@ steps:
     #resourceGroupName: '<Resource Group Name>'
     #slotName: '<Slot name>'
 ```
+---
 
 ## <a name="template-based-pipeline"></a>Canalización basada en plantilla
 

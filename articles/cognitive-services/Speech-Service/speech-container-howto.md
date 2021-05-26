@@ -12,12 +12,12 @@ ms.date: 03/02/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: entorno local, Docker, contenedor
-ms.openlocfilehash: efc92bbd149bf66abf8d1582902443df054ce0e6
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: e4b79dc278bf41015c84f72994dd68419ae6e230
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107930241"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110097955"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalación y ejecución de contenedores de Docker para las API del servicio de voz 
 
@@ -40,15 +40,15 @@ Los contenedores de Voz permiten a los clientes compilar una arquitectura de apl
 
 | Contenedor | Características | Más reciente |
 |--|--|--|
-| Voz a texto | Analice opiniones y transcriba grabaciones continuas de audio por lotes o de voz en tiempo real con resultados intermedios.  | 2.11.0 |
-| Conversión de voz a texto personalizada | Con un modelo personalizado del [portal de Habla personalizada](https://speech.microsoft.com/customspeech), transcribe las grabaciones continuas de voz en tiempo real o de audio por lotes a texto con resultados inmediatos. | 2.11.0 |
-| Texto a voz | Convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.13.0 |
+| Voz a texto | Analice opiniones y transcriba grabaciones continuas de audio por lotes o de voz en tiempo real con resultados intermedios.  | 2.12.0 |
+| Conversión de voz a texto personalizada | Con un modelo personalizado del [portal de Habla personalizada](https://speech.microsoft.com/customspeech), transcribe las grabaciones continuas de voz en tiempo real o de audio por lotes a texto con resultados inmediatos. | 2.12.0 |
+| Texto a voz | Convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.14.0 |
 | Detección de idioma de Voz | Detecte el idioma que se habla en los archivos de audio. | 1,0 |
-| Texto a voz neuronal | Convierte texto en voz con un sonido natural utilizando una tecnología de red neuronal profunda, lo que permite obtener una voz sintetizada más natural. | 1.5.0 |
+| Texto a voz neuronal | Convierte texto en voz con un sonido natural utilizando una tecnología de red neuronal profunda, lo que permite obtener una voz sintetizada más natural. | 1.6.0 |
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Requisitos previos para poder usar los contenedores de Voz:
 

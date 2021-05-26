@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: ed6edeadfb1c6f73cc10771d4a5328e7bddb3642
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 921a2c6425010dbf98c170d8435267e440883aa5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107835171"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110075149"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Guía de implementación de aplicaciones web mediante plantillas de Azure Resource Manager
 
@@ -53,7 +53,7 @@ Los recursos se implementan en el orden siguiente:
 
 Normalmente, la solución incluye solo algunos de estos recursos y niveles. Para los niveles que faltan, asigne los recursos inferiores al siguiente nivel superior.
 
-En el ejemplo siguiente se muestra parte de una plantilla. El valor de configuración de la cadena de conexión depende de la extensión MSDeploy. La extensión de MSDeploy depende de la aplicación web y la base de datos. 
+En el ejemplo siguiente se muestra parte de una plantilla. El valor de configuración de la cadena de conexión depende de la extensión MSDeploy. La extensión de MSDeploy depende de la aplicación web y la base de datos.
 
 ```json
 {
@@ -82,7 +82,7 @@ En el ejemplo siguiente se muestra parte de una plantilla. El valor de configura
 }
 ```
 
-Para obtener un ejemplo listo para ejecutarse que use el código anterior, consulte [Template: Build a simple Umbraco Web App](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple) (Plantilla: creación de una aplicación web de Umbraco sencilla).
+Para obtener un ejemplo listo para ejecutarse que use el código anterior, consulte [Template: Build a simple Umbraco Web App](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/umbraco/umbraco-webapp-simple) (Plantilla: creación de una aplicación web de Umbraco sencilla).
 
 ## <a name="find-information-about-msdeploy-errors"></a>Búsqueda de información sobre los errores de MSDeploy
 

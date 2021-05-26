@@ -4,12 +4,12 @@ description: Modelo de datos de Application Insights para la telemetría de segu
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 8fea4bbf590816b2ef168a2ed16f197389ee282e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cb298812b9970882c4bb3c7d2562bb5cbbf69b2d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87320551"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110098909"
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>Telemetría de seguimientos: modelo de datos de Application Insights
 
@@ -32,7 +32,7 @@ El nivel de gravedad del seguimiento. El valor puede ser `Verbose`, `Information
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Exploración de los registros de seguimiento de .NET en Application Insights](./asp-net-trace-logs.md).
-- [Exploración de los registros de seguimiento de Java en Application Insights](./java-trace-logs.md).
+- [Exploración de los registros de seguimiento de Java en Application Insights](java-2x-trace-logs.md).
 - Consulte [modelo de datos](data-model.md) para los tipos y el modelo de datos de Application Insights.
 - [Escritura de telemetría de seguimiento personalizada](./api-custom-events-metrics.md#tracktrace)
 - Consulte las [plataformas](./platforms.md) compatibles con Application Insights.

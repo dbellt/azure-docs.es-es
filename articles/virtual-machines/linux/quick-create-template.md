@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 97a9d3632cb0e78b899844b1aaa84a030c6da23e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6c72f62db310155c9b2fa1d09476ab9406f2d330
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102549624"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109813207"
 ---
 # <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-an-arm-template"></a>Inicio rápido: Creación de una máquina virtual Ubuntu Linux mediante una plantilla de Resource Manager
 
@@ -24,7 +24,7 @@ En este inicio rápido se muestra como usar una plantilla de Azure Resource Mana
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-linux%2fazuredeploy.json)
+[![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-linux%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -34,7 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/).
 
-:::code language="json" source="~/quickstart-templates/101-vm-simple-linux/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/vm-simple-linux/azuredeploy.json":::
 
 
 En la plantilla se definen varios recursos:
@@ -51,7 +51,7 @@ En la plantilla se definen varios recursos:
 
 1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea un almacén de claves y un secreto.
 
-    [![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-linux%2fazuredeploy.json)
+    [![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-linux%2fazuredeploy.json)
 
 1. Seleccione o escriba los siguientes valores. Utilice los valores predeterminados, si están disponibles.
 
@@ -82,7 +82,7 @@ Puede usar Azure Portal para comprobar la VM y otros recursos que se crearon. Un
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no lo necesite, elimine el grupo de recursos, lo que eliminará la VM y todos los recursos del grupo de recursos. 
+Cuando ya no lo necesite, elimine el grupo de recursos, lo que eliminará la VM y todos los recursos del grupo de recursos.
 
 1. Seleccione el **Grupo de recursos**.
 1. En la página del grupo de recursos, seleccione **Eliminar**.

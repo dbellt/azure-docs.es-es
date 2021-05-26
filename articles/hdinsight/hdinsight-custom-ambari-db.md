@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: fe38ddc594060c78a2d26e9b25476e38736b4cf7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d5b67bb25f6f2425016824e5b73783a8db8e806
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98946049"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110072161"
 ---
 # <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>Configuración de clústeres de HDInsight con una base de datos de Ambari personalizada
 
@@ -49,7 +49,7 @@ Al hospedar la base de datos de Apache Ambari en una base de datos externa, recu
 
 ## <a name="deploy-clusters-with-a-custom-ambari-db"></a>Implementación de clústeres con una base de datos de Ambari personalizada
 
-Para crear un clúster de HDInsight que use su propia base de datos externa de Ambari, use la [plantilla de inicio rápido de la base de datos personalizada de Ambari](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-custom-ambari-db).
+Para crear un clúster de HDInsight que use su propia base de datos externa de Ambari, use la [plantilla de inicio rápido de la base de datos personalizada de Ambari](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-custom-ambari-db).
 
 Edite los parámetros en el archivo `azuredeploy.parameters.json` para especificar información sobre el nuevo clúster y la base de datos que contendrá Ambari.
 

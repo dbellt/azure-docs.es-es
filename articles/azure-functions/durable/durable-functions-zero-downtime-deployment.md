@@ -3,15 +3,15 @@ title: Implementación sin tiempo de inactividad en Durable Functions
 description: Aprenda a habilitar la orquestación de Durable Functions para realizar implementaciones sin tiempo de inactividad.
 author: tsushi
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 05/11/2021
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 707d624c47c536e00e98910a8902772703733515
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab3c9db7cc06add6019be7a92faf3f523e50f039
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558770"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368064"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Implementación sin tiempo de inactividad en Durable Functions
 
@@ -29,6 +29,11 @@ En el gráfico siguiente se comparan las tres estrategias principales para logra
 | [Comprobación de estado con espacio](#status-check-with-slot) | Un sistema que no tenga orquestaciones de larga ejecución que duren más de 24 horas u orquestaciones que se superpongan con frecuencia. | Base de código sencilla.<br/>No requiere una administración adicional de la aplicación de funciones. | Requiere administración adicional de la cuenta de almacenamiento o de la central de tareas.<br/>Requiere períodos de tiempo en los que no se ejecuten orquestaciones. |
 | [Enrutamiento de aplicaciones](#application-routing) | Un sistema que no tenga períodos de tiempo en los que no se ejecuten orquestaciones como, por ejemplo, aquellos con orquestaciones que duran más de 24 horas u orquestaciones que se superponen con frecuencia. | Controla las nuevas versiones de los sistemas con orquestaciones que se ejecutan continuamente y que tienen cambios importantes. | Requiere un enrutador de aplicación inteligente.<br/>Podría maximizar el número de aplicaciones de funciones que permite la suscripción. El valor predeterminado es 100. |
 
+En el resto de este documento se describen estas estrategias con más detalle.
+
+> [!NOTE]
+> En las descripciones de estas estrategias de implementación sin tiempo de inactividad se supone que usa el proveedor de Azure Storage predeterminado para Durable Functions. Es posible que la guía no sea adecuada si usa un proveedor de almacenamiento que no sea el proveedor predeterminado de Azure Storage. Para más información sobre las diversas opciones del proveedor de almacenamiento y cómo se comparan, consulte la documentación sobre [proveedores de almacenamiento de Durable Functions](durable-functions-storage-providers.md).
+
 ## <a name="versioning"></a>Control de versiones
 
 Defina nuevas versiones de las funciones y deje las versiones anteriores en la aplicación de funciones. Como puede ver en el diagrama, la versión de una función forma parte de su nombre. Dado que las versiones anteriores de las funciones se conservan, las instancias de orquestación en curso pueden seguir haciendo referencia a ellas. En cambio, las solicitudes de nuevas instancias de orquestación llaman a la versión más reciente, a la que la función de cliente de orquestación puede hacer referencia desde una configuración de aplicación.
@@ -37,8 +42,8 @@ Defina nuevas versiones de las funciones y deje las versiones anteriores en la a
 
 En esta estrategia, se deben copiar todas las funciones y actualizar sus referencias a otras funciones. Puede simplificar esto mediante la escritura de un script. Este es un [ejemplo de proyecto](https://github.com/TsuyoshiUshio/DurableVersioning) con un script de migración.
 
->[!NOTE]
->Esta estrategia usa ranuras de implementación para evitar tiempos de inactividad durante la implementación. Para obtener información más detallada sobre cómo crear y usar nuevas ranuras de implementación, consulte [Ranuras de implementación de Azure Functions](../functions-deployment-slots.md).
+> [!NOTE]
+> Esta estrategia usa ranuras de implementación para evitar tiempos de inactividad durante la implementación. Para obtener información más detallada sobre cómo crear y usar nuevas ranuras de implementación, consulte [Ranuras de implementación de Azure Functions](../functions-deployment-slots.md).
 
 ## <a name="status-check-with-slot"></a>Comprobación de estado con espacio
 
@@ -50,7 +55,7 @@ Use el procedimiento siguiente para configurar este escenario.
 
 1. [Agregue ranuras de implementación](../functions-deployment-slots.md#add-a-slot) a la aplicación de funciones en los espacios de ensayo y de producción.
 
-1. En cada espacio, establezca la [configuración de la aplicación AzureWebJobsStorage](../functions-app-settings.md#azurewebjobsstorage) en la cadena de conexión de una cuenta de almacenamiento compartida. Azure Functions Runtime usa esta cadena de conexión de la cuenta de almacenamiento. Azure Functions Runtime usará esta cuenta y administrará las claves de la función.
+1. En cada espacio, establezca la [configuración de la aplicación AzureWebJobsStorage](../functions-app-settings.md#azurewebjobsstorage) en la cadena de conexión de una cuenta de almacenamiento compartida. El entorno de ejecución de Azure Functions usa esta cadena de conexión de la cuenta de almacenamiento para almacenar de forma segura las [claves de acceso de las funciones](../security-concepts.md#function-access-keys).
 
 1. Para cada espacio, cree un nuevo valor para la aplicación; por ejemplo, `DurableManagementStorage`. Establezca su valor en la cadena de conexión de distintas cuentas de almacenamiento. La extensión de Durable Functions usa estas cuentas de almacenamiento para una [ejecución confiable](./durable-functions-orchestrations.md). Use una cuenta de almacenamiento independiente para cada espacio. No marque este valor como un valor de ranura de implementación.
 

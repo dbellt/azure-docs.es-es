@@ -1,0 +1,85 @@
+### YamlMime:Hub
+title: Documentación de Azure Applied AI Services
+summary: 'Una familia de servicios de inteligencia artificial que aceleran el desarrollo de soluciones para procesos empresariales comunes '
+brand: azure
+metadata:
+  title: Documentación de Azure Applied AI Services
+  description: Aprenda a usar Azure Applied AI Services para usar la inteligencia artificial para resolver escenarios empresariales complejos.
+  ms.service: applied-ai-services
+  ms.topic: hub-page
+  author: nitinme
+  ms.author: nitinme
+  manager: nitinme
+  ms.custom: custom-portals-hub
+  ms.date: 05/05/2021
+highlightedContent:
+  items:
+    - title: ¿Qué es Applied AI Services?
+      itemType: overview
+      url: ./what-are-applied-ai-services.md
+    - title: ¿Por qué usar Azure Applied AI Services?
+      itemType: concept
+      url: ./why-applied-ai-services.md
+    - title: Contenido destacado de los clientes sobre casos de uso
+      itemType: learn
+      url: ./applied-ai-services-customer-spotlight-use-cases.md
+productDirectory:
+  items:
+    - title: Azure Form Recognizer
+      imageSrc: ./media/form-recognizer.svg
+      summary: Convertir documentos en datos utilizables en una fracción del tiempo y el costo
+      url: ../cognitive-services/form-recognizer/index.yml
+    - title: Lector inmersivo de Azure
+      imageSrc: ./media/immersive-reader.svg
+      summary: Ayuda a los usuarios a leer y comprender el texto.
+      url: ../cognitive-services/immersive-reader/index.yml
+    - title: Azure Metrics Advisor
+      imageSrc: ./media/metrics-advisor.svg
+      summary: Supervisión proactiva de métricas y diagnóstico de problemas
+      url: ../cognitive-services/metrics-advisor/index.yml
+    - title: Azure Cognitive Search
+      imageSrc: ./media/cognitive-search.svg
+      summary: Incorporación de la búsqueda en la nube con tecnología de inteligencia artificial a las aplicaciones web y móviles
+      url: ../search/index.yml
+    - title: Azure Video Analyzer
+      imageSrc: ./media/video-analytics.svg
+      summary: Extracción de información útil a partir de los vídeos
+      url: 'https://aka.ms/video-analyzer-hub'
+    - title: Azure Bot Service
+      imageSrc: ./media/bot-services.svg
+      summary: Creación de bots y su conexión mediante canales
+      url: 'https://docs.microsoft.com/composer/'
+additionalContent:
+  sections:
+    - title: Recursos adicionales
+      items:
+        - title: Ayuda y soporte técnico
+          links:
+            - text: Envío de comentarios en UserVoice
+              url: 'https://aka.ms/AppliedAIUserVoice'
+            - text: Preguntas en Microsoft Q&A
+              url: 'https://aka.ms/AppliedAIMSFTQandA'
+            - text: Solución de problemas en StackOverflow
+              url: 'https://aka.ms/AppliedAIStackOverflow'
+        - title: Obtención de la codificación con inicios rápidos
+          links:
+            - text: Azure Form Recognizer
+              url: ../cognitive-services/form-recognizer/quickstarts/get-started-with-form-recognizer.md
+            - text: Azure Metrics Advisor
+              url: ../cognitive-services/metrics-advisor/quickstarts/web-portal.md
+            - text: Lector inmersivo de Azure
+              url: ../cognitive-services/immersive-reader/quickstarts/client-libraries.md
+            - text: Azure Cognitive Search
+              url: ../search/search-get-started-portal.md
+            - text: Azure Video Analyzer
+              url: 'https://aka.ms/video-analytics-qs'
+            - text: Azure Bot Service
+              url: 'https://docs.microsoft.com/composer/quickstart-create-bot'
+            - text: Comenzar de forma gratuita
+              url: 'https://azure.microsoft.com/free/ai'
+        - title: Explorar otros servicios de Azure AI
+          links:
+            - text: Azure Cognitive Services
+              url: 'https://docs.microsoft.com/en-us/azure/cognitive-services/'
+            - text: Azure Machine Learning
+              url: 'https://docs.microsoft.com/en-us/azure/machine-learning/'

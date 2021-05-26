@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: 12d78846f5892e71388de6e6e76b868f9b14d4de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0a912a3023ba6d8504d5856d5a45a93d0dc9488
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88008923"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109809407"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Solución de problemas del lado servidor de Redis Cache
 
@@ -33,7 +33,7 @@ La presión de memoria en el servidor genera todo tipo de problemas de rendimien
 - La caché se rellena con los datos cerca de su capacidad máxima.
 - Redis ve la fragmentación de memoria alta. El almacenamiento de objetos grandes es lo que suele provocar esta fragmentación, ya que Redis está optimizado para objetos pequeños.
 
-Redis expone dos estadísticas a través del comando [INFO](https://redis.io/commands/info) que ayuda a identificar esta incidencia: "used_memory" y "used_memory_rss". También puede [ver estas métricas](cache-how-to-monitor.md#view-metrics-with-azure-monitor) mediante el portal.
+Redis expone dos estadísticas a través del comando [INFO](https://redis.io/commands/info) que ayuda a identificar esta incidencia: "used_memory" y "used_memory_rss". También puede [ver estas métricas](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) mediante el portal.
 
 Hay varios cambios posibles que puede hacer para ayudar a mantener una utilización de memoria correcta:
 
@@ -47,7 +47,7 @@ Hay varios cambios posibles que puede hacer para ayudar a mantener una utilizaci
 
 Una carga o utilización de la CPU elevada en el servidor significa que el servidor no puede procesar solicitudes de manera oportuna. Puede que el servidor tarde en responder y sea capaz de seguir el ritmo con las tasas de solicitud.
 
-[Supervise las métricas](cache-how-to-monitor.md#view-metrics-with-azure-monitor), como la carga de la CPU o el servidor. Busque picos de uso de CPU que correspondan a tiempos de espera agotados.
+[Supervise las métricas](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer), como la carga de la CPU o el servidor. Busque picos de uso de CPU que correspondan a tiempos de espera agotados.
 
 Hay varios cambios que puede hacer para mitigar la carga elevada en el servidor:
 
@@ -65,7 +65,7 @@ Mediante el comando [SLOWLOG](https://redis.io/commands/slowlog), puede medir lo
 
 Tamaños de caché diferentes tienen capacidades distintas de ancho de banda de red. Si el servidor supera el ancho de banda disponible, los datos no se enviarán al cliente con la misma rapidez. Las solicitudes de los clientes podrían agotar el tiempo de espera debido a que el servidor no puede insertar datos al cliente lo suficientemente rápido.
 
-Las métricas de "Lectura de caché" y "Escritura de caché" pueden usarse para ver el ancho de banda del lado servidor que se está usando. Puede [ver estas métricas](cache-how-to-monitor.md#view-metrics-with-azure-monitor) en el portal.
+Las métricas de "Lectura de caché" y "Escritura de caché" pueden usarse para ver el ancho de banda del lado servidor que se está usando. Puede [ver estas métricas](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) en el portal.
 
 Para mitigar las situaciones en las que la utilización de ancho de banda de red está cerca de la capacidad máxima, haga lo siguiente:
 

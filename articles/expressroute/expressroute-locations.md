@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/10/2021
 ms.author: duau
-ms.openlocfilehash: 656a59de51e066a17316304d0cd81f33abb0bf78
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: bc1238f3386ff835b8d21bfe2a360474ec3a5885
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787047"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110075365"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Asociados de conectividad de ExpressRoute y ubicaciones de emparejamiento
 
@@ -236,6 +236,7 @@ Si es un empleado remoto y no tiene conectividad de fibra o quiere explorar otra
 | **[Airgate Technologies, Inc.](https://www.airgate.ca/)** | Equinix, Cologix | Toronto, Montreal |
 | **[Alaska Communications](https://www.alaskacommunications.com/Business)** |Equinix |Seattle |
 | **[Altice Business](https://golightpath.com/transport)** |Equinix |Nueva York, Washington DC |
+| **[Aptum Technologies](https://aptum.com/services/cloud/managed-azure/)**| Equinix | Montreal, Toronto |
 | **[Arteria Networks Corporation](https://www.arteria-net.com/business/service/cloud/sca/)** |Equinix |Tokio |
 | **[Axtel](https://alestra.mx/landing/expressrouteazure/)** |Equinix |Dallas|
 | **[Beanfield Metroconnect](https://www.beanfield.com/business/cloud-exchange)** |Megaport |Toronto|
@@ -247,7 +248,6 @@ Si es un empleado remoto y no tiene conectividad de fibra o quiere explorar otra
 | **[Cinia](https://www.cinia.fi/en/services/connectivity-services/direct-public-cloud-connection.html)** | Equinix, Megaport | Fráncfort, Hamburgo |
 | **[CloudXpress](https://www2.telenet.be/fr/business/produits-services/internet/cloudxpress/)** | Equinix | Ámsterdam | 
 | **[CMC Telecom](https://cmctelecom.vn/san-pham/value-added-service-and-it/cmc-telecom-cloud-express-en/)** | Equinix | Singapur | 
-| **[Aptum Technologies](https://aptum.com/services/cloud/managed-azure/)**| Equinix | Montreal, Toronto |
 | **[CoreAzure](https://www.coreazure.com/)**| Equinix | London |
 | **[Cox Business](https://www.cox.com/business/networking/cloud-connectivity.html)**| Equinix | Dallas, Silicon Valley, Washington DC |
 | **[Crown Castle](https://fiber.crowncastle.com/solutions/added/cloud-connect)**| Equinix | Atlanta, Chicago, Dallas, Los Ángeles, Nueva York, Washington DC |
@@ -275,10 +275,10 @@ Si es un empleado remoto y no tiene conectividad de fibra o quiere explorar otra
 | **[Proximus](https://www.proximus.be/en/id_b_cl_proximus_external_cloud_connect/companies-and-public-sector/discover/magazines/expert-blog/proximus-external-cloud-connect.html)**|Equinix | Ámsterdam, Dublín, Londres, París |
 | **[QSC AG](https://www2.qbeyond.de/en/)** |Interxion | Fráncfort |  
 | **[RETN](https://retn.net/services/cloud-connect/)** | Equinix | Ámsterdam |
-| **[Tata Teleservices](https://www.tatateleservices.com/business-services/data-services/secure-cloud-connect)** | Tata Communications | Chennai, Mumbai |
 | **Rogers** | Cologix y Equinix | Montreal, Toronto |
 | **[Spectrum Enterprise](https://enterprise.spectrum.com/services/cloud/cloud-connect.html)** | Equinix | Chicago, Dallas, Los Ángeles, Nueva York, Silicon Valley | 
 | **[Tamares Telecom](http://www.tamarestelecom.com/our-services/#Connectivity)** | Equinix | London | 
+| **[Tata Teleservices](https://www.tatateleservices.com/business-services/data-services/secure-cloud-connect)** | Tata Communications | Chennai, Mumbai |
 | **[TDC Erhverv](https://tdc.dk/Produkter/cloudaccessplus)** | Equinix | Ámsterdam | 
 | **[Telecom Italia Sparkle](https://www.tisparkle.com/our-platform/corporate-platform/sparkle-cloud-connect#catalogue)**| Equinix | Ámsterdam |
 | **[Telekom Deutschland GmbH](https://cloud.telekom.de/de/infrastruktur/managed-it-services/managed-hybrid-infrastructure-mit-microsoft-azure)** | Interxion | Ámsterdam, Fráncfort |
@@ -307,8 +307,8 @@ Si es un empleado remoto y no tiene conectividad de fibra o quiere explorar otra
 | **[QTS Data Centers](https://www.qtsdatacenters.com/hybrid-solutions/connectivity/azure-cloud )** | Megaport, PacketFabric |
 | **[Stream Data Centers]( https://www.streamdatacenters.com/products-services/network-cloud/ )** | Megaport |
 | **[Centros de datos de RagingWire](https://www.ragingwire.com/wholesale/wholesale-data-centers-worldwide-nexcenters)** | IX Reach, Megaport, PacketFabric |
-| **[vXchnge](https://www.vxchnge.com/colocation-services/interconnection)** | IX Reach, Megaport |
 | **[Centros de datos de T5](https://t5datacenters.com/)** | IX Reach |
+| **[vXchnge](https://www.vxchnge.com/colocation-services/interconnection)** | IX Reach, Megaport |
 
 ## <a name="connectivity-through-national-research-and-education-networks-nren"></a>Conectividad mediante redes nacionales de investigación y educación (NREN)
 

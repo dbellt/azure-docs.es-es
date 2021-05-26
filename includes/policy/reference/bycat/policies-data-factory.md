@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/04/2021
+ms.date: 05/14/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: dee1bd9ae9d6074296cf038fdf4e385953fe7ffb
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 640acb37fb2a61ddd57a7c02c0c4e275c44c3913
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108762271"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110074716"
 ---
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -25,4 +25,4 @@ ms.locfileid: "108762271"
 |[Configurar las zonas DNS privadas para los puntos de conexión privados que se conectan a Azure Data Factory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86cd96e1-1745-420d-94d4-d3f2fe415aa4) |Los registros de DNS privado permiten conexiones privadas a puntos de conexión privados. Las conexiones de los puntos de conexión privados permiten la comunicación segura al habilitar la conectividad privada con la instancia de Azure Data Factory sin necesidad de direcciones IP públicas en el origen o el destino. Para más información sobre los puntos de conexión privados y las zonas DNS en Azure Data Factory, consulte [https://docs.microsoft.com/azure/data-factory/data-factory-private-link](https://docs.microsoft.com/azure/data-factory/data-factory-private-link). |DeployIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Factory/DataFactory_PrivateDnsZones_DeployIfNotExists.json) |
 |[Configurar los puntos de conexión privados para factorías de datos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F496ca26b-f669-4322-a1ad-06b7b5e41882) |Los puntos de conexión privados conectan la red virtual a los servicios de Azure sin una dirección IP pública en el origen o el destino.  Al asignar puntos de conexión privados a la instancia de Azure Data Factory, se reduce el riesgo de pérdida de datos.  Más información en: [https://docs.microsoft.com/azure/data-factory/data-factory-private-link](https://docs.microsoft.com/azure/data-factory/data-factory-private-link). |DeployIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Factory/DataFactory_PrivateEndpoints_DeployIfNotExists.json) |
 |[Debe deshabilitarse el acceso a redes públicas en Azure Data Factory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1cf164be-6819-4a50-b8fa-4bcaa4f98fb6). |Al deshabilitar la propiedad de acceso a la red pública, se mejora la seguridad al garantizar que solo se pueda acceder a la instancia de Azure Data Factory desde un punto de conexión privado. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Factory/DataFactory_PublicNetworkAccess_Audit.json) |
-|[Los entornos de ejecución de integración de SQL Server Integration Services en Azure Data Factory deben unirse a una red virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0088bc63-6dee-4a9c-9d29-91cfdc848952) |La implementación de Azure Virtual Network proporciona seguridad y aislamiento mejorados para los entornos de ejecución de integración de SQL Server Integration Services en Azure Data Factory, así como subredes, directivas de control de acceso y otras características para restringir aún más el acceso. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Factory/SSISIR_JoinVirtualNetwork_Audit.json) |
+|[Los entornos de ejecución de integración de SQL Server Integration Services en Azure Data Factory deben unirse a una red virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0088bc63-6dee-4a9c-9d29-91cfdc848952) |La implementación de Azure Virtual Network proporciona seguridad y aislamiento mejorados para los entornos de ejecución de integración de SQL Server Integration Services en Azure Data Factory, así como subredes, directivas de control de acceso y otras características para restringir aún más el acceso. |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Factory/SSISIR_JoinVirtualNetwork_Audit.json) |

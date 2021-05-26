@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 39db32a7ee7eb8fed1da9ac8c9eb609efcf57c74
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 5feb16227653bdc7e51925b7a327c3eb50c88491
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070828"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110453817"
 ---
 # <a name="call-the-image-analysis-api"></a>Llamada a API Análisis de imágenes
 
@@ -71,7 +71,7 @@ Así podría ser una dirección URL rellena:
 > [!NOTE]
 > **Llamadas API con ámbito**
 >
-> A algunas de las características de Image Analysis se les puede llamar directamente, así como a través de una llamada a Analyze API. Por ejemplo, si se desea realizar un análisis con ámbito solo de etiquetas de imagen, es preciso hacer una solicitud a `https://{endpoint}/vision/v3.2-preview.3/tag`. Consulte la [documentación de referencia](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) para ver otras características a las que se puede llamar por separado.
+> A algunas de las características de Image Analysis se les puede llamar directamente, así como a través de una llamada a Analyze API. Por ejemplo, si se desea realizar un análisis con ámbito solo de etiquetas de imagen, es preciso hacer una solicitud a `https://{endpoint}/vision/v3.2/tag`. Consulte la [documentación de referencia](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) para ver otras características a las que se puede llamar por separado.
 
 ## <a name="get-results-from-the-service"></a>Obtención de resultados a partir del servicio
 

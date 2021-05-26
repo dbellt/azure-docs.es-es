@@ -4,17 +4,17 @@ description: Obtenga información sobre cómo no participar en la versión preli
 documentationCenter: ''
 author: barclayn
 manager: daveba
-ms.service: identity
+ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: d6e72b6d6f566fcf3f52e1c48ab6824c0e9a968e
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 1fe2d9755eac9a4048f7ed61388d0cdc7914552c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222799"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466101"
 ---
 # <a name="opt-out-of-the-verifiable-credentials-preview"></a>No participación en las credenciales verificables (versión preliminar)
 
