@@ -101,8 +101,6 @@
           href: how-to-create-azure-function.md
         - name: Consulta del grafo de gemelos
           href: how-to-query-graph.md
-        - name: Creación de RBAC de nivel de gemelo con etiquetas de marcador
-          href: how-to-create-twin-level-role-based-access-control.md
     - name: Desarrollo de aplicaciones cliente
       items:
         - name: Realización de solicitudes con Postman

@@ -8,12 +8,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 243c17bee08e2aad878eb78406c9ed8091abe8ab
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c6c09389628e1a9648d827eb5562a06c4f746db2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108758166"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110370949"
 ---
 # <a name="cognitive-services-development-options"></a>Opciones de desarrollo de Cognitive Services
 
@@ -125,7 +125,7 @@ Las herramientas que usará para entrenar y configurar modelos son diferentes de
 | Fundamento | Servicio | IU de personalización | Inicio rápido |
 |--------|---------|------------------|------------|
 | Visión | Custom Vision | https://www.customvision.ai/ | [Guía de inicio rápido](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
-| Visión | Form Recognizer | [Herramienta de etiquetado de ejemplo](https://fott-preview.azurewebsites.net/) | [Guía de inicio rápido](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
+| Visión | Form Recognizer | [Herramienta de etiquetado de ejemplo](https://aka.ms/fott-2.1-ga) | [Artículo de procedimientos](./form-recognizer/label-tool.md?tabs=v2-0) |
 | Decisión | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Guía de inicio rápido](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
 | Decisión | Metrics Advisor | https://metricsadvisor.azurewebsites.net/  | [Guía de inicio rápido](./metrics-advisor/quickstarts/web-portal.md) |
 | Decisión | Personalizer | La interfaz de usuario está disponible en Azure Portal en el recurso de Personalizer. | [Guía de inicio rápido](./personalizer/quickstart-personalizer-sdk.md) |

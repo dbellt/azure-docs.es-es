@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 05/08/2021
-ms.openlocfilehash: eb835fad0f051098b1689ed6d165dc712a73f908
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 5926add3b4affffeb532c1b10cd81edc866f7f14
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109655271"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110059561"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-purview"></a>Preguntas más frecuentes sobre Azure Purview
 
@@ -150,4 +150,4 @@ Sí, Azure Purview admite la eliminación temporal para la perspectiva de admini
 
 No, Azure Purview no proporciona funcionalidades de prevención de pérdida de datos en este momento. 
 
-Consulte [Prevenir la pérdida de datos](https://docs.microsoft.com/microsoft-365/compliance/information-protection?view=o365-worldwide#prevent-data-loss) si está interesado en las características de prevención de pérdida de datos dentro de Microsoft 365.
+Consulte [Prevenir la pérdida de datos](/microsoft-365/compliance/information-protection#prevent-data-loss) si está interesado en las características de prevención de pérdida de datos dentro de Microsoft 365.

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a99f5ebf0fd4f3c4684446a868e1c4e342f3785e
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: a161df47047ffb92b1557b84e457363ee9d2507c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783845"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110090089"
 ---
 # <a name="add-tags-to-digital-twins"></a>Incorporación de etiquetas a gemelos digitales 
 
@@ -42,7 +42,7 @@ Este es un ejemplo que rellena el marcador `tags` para tres gemelos:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesMarker":::
 
-Este es un ejemplo de código de cómo establecer el marcador `tags` para un gemelo con el [SDK de .NET](/dotnet/api/overview/azure/digitaltwins/client):
+Este es un ejemplo de código de cómo establecer el marcador `tags` para un gemelo con el [SDK de .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true):
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesCsharp":::
 

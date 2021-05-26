@@ -6,12 +6,12 @@ ms.author: palatter
 ms.date: 01/25/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 222ae284f77950c729a6a790e2ad29453a9ce34a
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 671c86790a3c90f948edb574bc015c0f41c5fbdf
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903186"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109858031"
 ---
 En este inicio rápido, aprenderá cómo unirse a una reunión de Microsoft Teams mediante la biblioteca insertada de Teams de Azure Communication Services para iOS.
 
@@ -86,7 +86,7 @@ Haga clic con el botón derecho en la entrada `Info.plist` del árbol del proyec
 
 ### <a name="add-the-teams-embed-framework"></a>Adición del marco de integración de Teams
 
-1. Descargue el paquete [`MicrosoftTeamsSDK` para iOS](https://github.com/Azure/communication-teams-embed/releases).
+1. Descargue el paquete `MicrosoftTeamsSDK` para iOS.
 2. Cree la carpeta `Frameworks` en la raíz del proyecto. Por ejemplo, `\TeamsEmbedGettingStarted\Frameworks\`
 3. Copie los marcos `TeamsAppSDK.framework` y `MeetingUIClient.framework` descargados y otros marcos que se proporcionan en la agrupación de versiones en esta carpeta.
 4. Agregue los marcos al destino del proyecto en la pestaña General. Use `Add Other` -> `Add Files...` para desplazarse a los archivos del marco y agregarlos.

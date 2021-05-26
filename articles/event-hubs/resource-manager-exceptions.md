@@ -2,13 +2,13 @@
 title: 'Azure Event Hubs: excepciones de Resource Manager | Microsoft Docs'
 description: Lista de excepciones de Azure Event Hubs que se exhiben en Azure Resource Manager y acciones sugeridas.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: cec24696d0d49ba408860f6562c34dd14876c311
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/10/2021
+ms.openlocfilehash: 5ca80024e317063acacd3fe54a1eb57cc3115a95
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91334215"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371247"
 ---
 # <a name="azure-event-hubs---resource-manager-exceptions"></a>Azure Event Hubs: excepciones de Resource Manager
 En este artículo se enumeran las excepciones generadas al interactuar con Azure Event Hubs mediante Azure Resource Manager por medio de plantillas o llamadas directas.
@@ -37,14 +37,14 @@ En las secciones siguientes se proporcionan varias excepciones o errores que se 
 
 | Código de error | Subcódigo de error | Mensaje de error | Descripción | Recomendación |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
-| BadRequest | 40000 | No se puede cambiar PartitionCount para un centro de eventos. | El nivel básico o estándar de Azure Event Hubs no admite el cambio de particiones. | Cree un centro de eventos con el número deseado de particiones en el espacio de nombres de nivel básico o estándar. La escalabilidad horizontal de la partición es compatible con [clústeres dedicados](event-hubs-dedicated-overview.md). |
+| BadRequest | 40000 | No se puede cambiar PartitionCount para un centro de eventos. | Los niveles Básico, Estándar y Premium de Azure Event Hubs no admiten el cambio de particiones. | Cree un centro de eventos con el número deseado de particiones en el espacio de nombres del nivel Básico, Estándar o Premium. La escalabilidad horizontal de la partición es compatible con [clústeres dedicados](event-hubs-dedicated-overview.md). |
 | BadRequest | 40000 | El valor "#" de MessageRetentionInDays no es válido para el nivel básico. El valor no puede superar "1" día(s). | Los espacios de nombres de Event Hubs del nivel básico solo admiten la retención de mensajes de hasta 1 día. | Si quiere más de un día de retención de mensajes, [cree un espacio de nombres de Event Hubs estándar](event-hubs-create.md). | 
 | BadRequest | None | El nombre especificado no está disponible. | Los nombres de espacios de nombres deben ser únicos, sin embargo, el nombre especificado ya se ha usado. | Si es el propietario del espacio de nombres existente con el nombre especificado, puede eliminarlo, lo que producirá la pérdida de datos. Luego, vuelva a intentarlo con el mismo nombre. Si no es seguro eliminar el espacio de nombres (o no es el propietario), elija otro nombre de espacio de nombres. |
 | BadRequest | None | La suscripción especificada ha alcanzado su cuota de espacios de nombres. | Su suscripción ha alcanzado la [cuota](event-hubs-quotas.md) del número de espacios de nombres que puede contener. | Considere la posibilidad de eliminar los espacios de nombres no usados en esta suscripción, crear otra suscripción o actualizar a un [clúster dedicado](event-hubs-dedicated-overview.md). |
 | BadRequest | None | No se puede actualizar un espacio de nombres secundario. | El espacio de nombres no se puede actualizar porque es el espacio de nombres secundario de un [emparejamiento de GeoDR](event-hubs-geo-dr.md). | Si es necesario, realice el cambio en el espacio de nombres principal de este emparejamiento. De lo contrario, interrumpa el emparejamiento de GeoDR para efectuar el cambio. |
-| BadRequest | None | No se puede establecer el inflado automático en la SKU básica. | No se puede habilitar el inflado automático en los espacios de nombres de Event Hubs de nivel básico. | Para [habilitar el inflado automático](event-hubs-auto-inflate.md) en un espacio de nombres, asegúrese de que sea de nivel estándar. |
+| BadRequest | None | No se puede establecer el inflado automático en la SKU básica. | No se puede habilitar el inflado automático en los espacios de nombres de Event Hubs de nivel básico. | Para [habilitar el inflado automático](event-hubs-auto-inflate.md) en un espacio de nombres, asegúrese de que sea de nivel Estándar o Premium. |
 | BadRequest | None | No hay suficiente capacidad para crear el espacio de nombres. Póngase en contacto con el administrador de Event Hubs. | La región seleccionada está al máximo de su capacidad y no se pueden crear más espacios de nombres. | Seleccione otra región para hospedar el espacio de nombres. |
-| BadRequest | None | No se puede realizar la operación en el tipo de entidad "ConsumerGroup" porque el espacio de nombres "nombre del espacio de nombres" usa el nivel "Básico".  | Los espacios de nombres de Event Hubs de nivel básico tienen una cuota (event-hubs-quotas.md) de un grupo de consumidores (valor predeterminado). No se admite la creación de más grupos de consumidores. | Siga usando el grupo de consumidores predeterminado ($Default) o, si necesita más, considere la posibilidad de usar en su lugar un espacio de nombres de Event Hubs de nivel estándar. | 
+| BadRequest | None | No se puede realizar la operación en el tipo de entidad "ConsumerGroup" porque el espacio de nombres "nombre del espacio de nombres" usa el nivel "Básico".  | Los espacios de nombres de Event Hubs de nivel básico tienen una cuota (event-hubs-quotas.md) de un grupo de consumidores (valor predeterminado). No se admite la creación de más grupos de consumidores. | Siga usando el grupo de consumidores predeterminado ($Default) o, si necesita más, considere la posibilidad de usar en su lugar un espacio de nombres de Event Hubs de nivel Estándar o Premium. | 
 | BadRequest | None | El espacio de nombres "nombre del espacio de nombres" no existe. | No se pudo encontrar el espacio de nombres proporcionado. | Compruebe que el nombre del espacio de nombres sea correcto y se encuentre en su suscripción. Si no, [cree un espacio de nombres de Event Hubs](event-hubs-create.md). | 
 | BadRequest | None | La propiedad location del recurso no coincide con el espacio de nombres contenedor. | No se pudo crear un centro de eventos en una región específica porque no coincidía con la región del espacio de nombres. | Intente crear el centro de eventos en la misma región que el espacio de nombres. | 
 

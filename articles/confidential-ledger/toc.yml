@@ -1,0 +1,48 @@
+- name: Azure Confidential Ledger
+  href: index.yml
+- name: Información general
+  items:
+    - name: Acerca de Azure Confidential Ledger
+      href: overview.md
+- name: Guías de inicio rápido
+  items:
+    - name: Python
+      href: quickstart-python.md
+    - name: Plantilla ARM
+      href: quickstart-template.md
+- name: Conceptos
+  items:
+    - name: Architecture
+      href: architecture.md
+    - name: Autenticación de nodos de Ledger
+      href: authenticate-ledger-nodes.md
+- name: Guías de procedimientos
+  items:
+    - name: Creación de un certificado de cliente
+      href: create-client-certificate.md
+    - name: Registro de una entidad de servicio de Ledger
+      href: register-ledger-service-principal.md
+    - name: Registro del proveedor de recursos de Confidential Ledger
+      href: register-ledger-resource-provider.md
+- name: Referencias
+  items:
+    - name: Preguntas más frecuentes
+      href: faq.md
+    - name: Biblioteca cliente de .NET
+      href: /dotnet/api/overview/azure/storage.confidentialledger-readme-pre
+    - name: Biblioteca cliente de versión preliminar de Java
+      href: /java/api/overview/azure/data-confidentialledger-readme?view=azure-java-preview
+- name: Recursos
+  items:
+    - name: Desarrollo de aptitudes con Microsoft Learn
+      href: /learn/browse/
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing'
+    - name: Disponibilidad en regiones
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Contrato de nivel de servicio (SLA)
+      href: 'https://azure.microsoft.com/support/legal/sla/'
+    - name: Estado del servicio
+      href: 'https://azure.microsoft.com/status/'
+    - name: Actualizaciones del servicio
+      href: 'https://azure.microsoft.com/updates/'

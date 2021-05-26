@@ -8,16 +8,18 @@ ms.custom:
 - references_regions
 - devx-track-azurepowershell
 - mode-api
-ms.openlocfilehash: 9087bda9c1979a98f4bbf9f8343d012c4cf3098c
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 82451b94c83c0883beed66fac1f8e1b6b7132d3a
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529627"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "110094211"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-powershell"></a>Inicio rápido: Creación de un miembro de cadena de bloques de Azure Blockchain Service mediante Azure PowerShell
 
 En este inicio rápido, implementará un miembro y un consorcio de cadena de bloques nuevos en Azure Blockchain Service mediante Azure PowerShell.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 

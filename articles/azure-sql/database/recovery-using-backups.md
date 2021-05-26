@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
-ms.openlocfilehash: 670176d7478ddab3d17e15526df512dfa7e99fd4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 800fa34901ee63434d3f4798ec4c16dd52479fa6
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762090"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110191853"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Recuperación de una base de datos de Azure SQL Database o Instancia administrada de Azure SQL mediante copias de seguridad automatizadas
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -191,7 +191,7 @@ Para ver un script de PowerShell que indica cómo realizar la restauración geog
 
 ### <a name="geo-restore-considerations"></a>Consideraciones sobre la restauración geográfica
 
-No se puede realizar una restauración a un momento dado en una base de datos de replicación geográfica secundaria. Solo puede hacerlo en una base de datos principal. Para obtener información detallada sobre cómo usar la restauración geográfica a fin de recuperarse de una interrupción, consulte [Restauración de una base de datos SQL de Azure o una conmutación por error en una secundaria](../../key-vault/general/disaster-recovery-guidance.md).
+No se puede realizar una restauración a un momento dado en una base de datos de replicación geográfica secundaria. Solo puede hacerlo en una base de datos principal. Para obtener información detallada sobre cómo usar la restauración geográfica a fin de recuperarse de una interrupción, consulte [Restauración de una base de datos SQL de Azure o una conmutación por error en una secundaria](disaster-recovery-guidance.md#recover-using-geo-restore).
 
 > [!IMPORTANT]
 > La restauración geográfica es la solución de recuperación ante desastres más básica disponible en SQL Database e Instancia administrada de SQL. Depende de copias de seguridad con replicación geográfica creadas automáticamente con el objetivo de punto de recuperación (RPO) hasta 1 hora y un tiempo de recuperación estimado de hasta 12 horas. No garantiza que la región de destino tenga la capacidad de restaurar las bases de datos después de una interrupción regional porque es probable que se produzca un fuerte aumento de la demanda. Si la aplicación usa bases de datos relativamente pequeñas y no es de importancia crítica para la empresa, la restauración geográfica es una solución de recuperación ante desastres adecuada. 

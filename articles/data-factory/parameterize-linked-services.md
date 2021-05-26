@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/18/2021
 author: chez-charlie
 ms.author: chez
-ms.openlocfilehash: 2bbb4017d0f5bd700bfbc9964f8949d59999ea4d
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 48e8c9ff5111b6b67e835676e3bc56e4536248a0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903711"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110091493"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrización de servicios vinculados en Azure Data Factory
 
@@ -38,6 +38,7 @@ Al crear un servicio vinculado en la interfaz de usuario, Data Factory proporcio
 
 - Amazon Redshift
 - Amazon S3
+- Almacenamiento compatible con Amazon S3
 - Azure Blob Storage
 - Azure Cosmos DB (API de SQL)
 - Azure Data Lake Storage Gen2
@@ -52,6 +53,7 @@ Al crear un servicio vinculado en la interfaz de usuario, Data Factory proporcio
 - REST genérico
 - MySQL
 - Oracle
+- Oracle Cloud Storage
 - SQL Server
 
 Para otros tipos de servicios vinculados que no están en la lista anterior, puede parametrizar el servicio vinculado mediante la edición del código JSON en la interfaz de usuario:

@@ -1,17 +1,17 @@
 ---
 title: Disponibilidad de características en la nube de servicios de Azure para clientes de la Administración Pública de Estados Unidos
 description: Incluya una lista de la disponibilidad de características para los servicios de seguridad de Azure, como Azure Sentinel para los clientes de la Administración Pública de Estados Unidos
-author: batami
-ms.author: bagol
+author: TerryLanfear
+ms.author: terrylan
 ms.service: security
 ms.topic: reference
 ms.date: 04/29/2021
-ms.openlocfilehash: d545d406bc914eaf634ff2c47698df7c1206a5cb
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: f9ce2ab9df2febc4dcc5d79e5937b97ef498aebe
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109655523"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109845031"
 ---
 # <a name="cloud-feature-availability-for-us-government-customers"></a>Disponibilidad de las características en la nube para clientes de la Administración Pública de Estados Unidos
 

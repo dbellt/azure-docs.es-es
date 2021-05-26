@@ -3,12 +3,12 @@ title: Configuración de la red para clústeres administrados de Service Fabric
 description: Aprenda a configurar el clúster administrado de Service Fabric para las reglas de grupos de seguridad de red, el acceso a puertos RDP, las reglas de equilibrio de carga, etc.
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: 2b31e62bdd7f18ea866c69566ffea80e77df145f
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 67bcdccbd3a54fc0e05b2516aaf5633ddddb1f00
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685286"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110060983"
 ---
 # <a name="configure-network-settings-for-service-fabric-managed-clusters"></a>Configuración de la red para clústeres administrados de Service Fabric
 
@@ -26,7 +26,7 @@ Tenga en cuenta estas consideraciones al crear nuevas reglas del grupo de seguri
 
 ## <a name="apply-nsg-rules"></a>Aplicación de las reglas de grupo de seguridad de red
 
-Con los clústeres clásicos (no administrados) de Service Fabric, debe declarar y administrar un recurso *Microsoft.Network/networkSecurityGroups* independiente para [aplicar las reglas del grupo de seguridad de red al clúster](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-nsg-cluster-65-node-3-nodetype). Los clústeres administrados de Service Fabric le permiten asignar reglas de grupo de seguridad de red directamente en el recurso de clúster de la plantilla de implementación.
+Con los clústeres clásicos (no administrados) de Service Fabric, debe declarar y administrar un recurso *Microsoft.Network/networkSecurityGroups* independiente para [aplicar las reglas del grupo de seguridad de red al clúster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.servicefabric/service-fabric-secure-nsg-cluster-65-node-3-nodetype). Los clústeres administrados de Service Fabric le permiten asignar reglas de grupo de seguridad de red directamente en el recurso de clúster de la plantilla de implementación.
 
 Use la propiedad [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedclusters#managedclusterproperties-object) del recurso *Microsoft.ServiceFabric/managedclusters* (versión `2021-05-01` o posterior) para asignar reglas de grupo de seguridad de red. Por ejemplo:
 
@@ -46,7 +46,7 @@ Use la propiedad [networkSecurityRules](/azure/templates/microsoft.servicefabric
                         "destinationPortRange": "33000-33499",
                         "access": "Allow",
                         "priority": 2001,
-                        "direction": "Inbound" 
+                        "direction": "Inbound"
                     },
                     {
                         "name": "AllowARM",
@@ -57,7 +57,7 @@ Use la propiedad [networkSecurityRules](/azure/templates/microsoft.servicefabric
                         "destinationPortRange": "33500-33699",
                         "access": "Allow",
                         "priority": 2002,
-                        "direction": "Inbound" 
+                        "direction": "Inbound"
                     },
                     {
                         "name": "DenyCustomers",
@@ -94,14 +94,14 @@ Use la propiedad [networkSecurityRules](/azure/templates/microsoft.servicefabric
 Los clústeres administrados de Service Fabric no permiten el acceso a los puertos RDP de forma predeterminada. Puede abrir puertos RDP en Internet estableciendo la siguiente propiedad en un recurso de clúster administrado de Service Fabric.
 
 ```json
-"allowRDPAccess": true 
+"allowRDPAccess": true
 ```
 
-Si la propiedad allowRDPAccess está establecida en true, se agregará la siguiente regla de grupo de seguridad de red a la implementación del clúster.  
+Si la propiedad allowRDPAccess está establecida en true, se agregará la siguiente regla de grupo de seguridad de red a la implementación del clúster.
 
 ```json
 {
-    "name": "SFMC_AllowRdpPort", 
+    "name": "SFMC_AllowRdpPort",
     "type": "Microsoft.Network/networkSecurityGroups/securityRules",
     "properties": {
         "description": "Optional rule to open RDP ports.",
@@ -128,59 +128,59 @@ Se agrega una regla de grupo de seguridad de red predeterminada para permitir qu
 >Esta regla se agrega siempre y no se puede invalidar.
 
 ```json
-{ 
-    "name": "SFMC_AllowServiceFabricGatewayToSFRP", 
-    "type": "Microsoft.Network/networkSecurityGroups/securityRules", 
-    "properties": { 
-        "description": "This is required rule to allow SFRP to connect to the cluster. This rule cannot be overridden.", 
-        "protocol": "TCP", 
-        "sourcePortRange": "*", 
-        "sourceAddressPrefix": "ServiceFabric", 
-        "destinationAddressPrefix": "VirtualNetwork", 
-        "access": "Allow", 
-        "priority": 500, 
-        "direction": "Inbound", 
-        "sourcePortRanges": [], 
-        "destinationPortRanges": [ 
-            "19000", 
-            "19080" 
-        ] 
-    } 
+{
+    "name": "SFMC_AllowServiceFabricGatewayToSFRP",
+    "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+    "properties": {
+        "description": "This is required rule to allow SFRP to connect to the cluster. This rule cannot be overridden.",
+        "protocol": "TCP",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "ServiceFabric",
+        "destinationAddressPrefix": "VirtualNetwork",
+        "access": "Allow",
+        "priority": 500,
+        "direction": "Inbound",
+        "sourcePortRanges": [],
+        "destinationPortRanges": [
+            "19000",
+            "19080"
+        ]
+    }
 }
 ```
 
 ### <a name="nsg-rule-sfmc_allowservicefabricgatewayports"></a>Regla de grupo de seguridad de red: SFMC_AllowServiceFabricGatewayPorts
 
-Se trata de una regla de grupo de seguridad de red opcional para permitir el acceso a clientConnectionPort y httpGatewayPort desde Internet. Esta regla permite a los clientes tener acceso a SFX, conectarse al clúster mediante PowerShell y usar puntos de conexión de API del clúster de Service Fabric desde fuera. 
+Se trata de una regla de grupo de seguridad de red opcional para permitir el acceso a clientConnectionPort y httpGatewayPort desde Internet. Esta regla permite a los clientes tener acceso a SFX, conectarse al clúster mediante PowerShell y usar puntos de conexión de API del clúster de Service Fabric desde fuera.
 
 >[!NOTE]
->Esta regla no se agregará si hay una regla personalizada con los mismos valores de acceso, dirección y protocolo para el mismo puerto. Puede invalidar esta regla con reglas de grupo de seguridad de red personalizadas. 
+>Esta regla no se agregará si hay una regla personalizada con los mismos valores de acceso, dirección y protocolo para el mismo puerto. Puede invalidar esta regla con reglas de grupo de seguridad de red personalizadas.
 
 ```json
-{ 
-    "name": "SFMC_AllowServiceFabricGatewayPorts", 
-    "type": "Microsoft.Network/networkSecurityGroups/securityRules", 
-    "properties": { 
-        "description": "Optional rule to open SF cluster gateway ports. To override add a custom NSG rule for gateway ports in priority range 1000-3000.", 
-        "protocol": "tcp", 
-        "sourcePortRange": "*", 
-        "sourceAddressPrefix": "*", 
-        "destinationAddressPrefix": "VirtualNetwork", 
-        "access": "Allow", 
-        "priority": 3001, 
-        "direction": "Inbound", 
-        "sourcePortRanges": [], 
-        "destinationPortRanges": [ 
-            "19000", 
-            "19080" 
-        ] 
-    } 
+{
+    "name": "SFMC_AllowServiceFabricGatewayPorts",
+    "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+    "properties": {
+        "description": "Optional rule to open SF cluster gateway ports. To override add a custom NSG rule for gateway ports in priority range 1000-3000.",
+        "protocol": "tcp",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "*",
+        "destinationAddressPrefix": "VirtualNetwork",
+        "access": "Allow",
+        "priority": 3001,
+        "direction": "Inbound",
+        "sourcePortRanges": [],
+        "destinationPortRanges": [
+            "19000",
+            "19080"
+        ]
+    }
 }
 ```
 
 ## <a name="load-balancer-ports"></a>Puertos del equilibrador de carga
 
-Los clústeres administrados de Service Fabric crean una regla de grupo de seguridad de red en el intervalo de prioridad predeterminado de todos los puertos del equilibrador de carga (LB) configurados en la sección "loadBalancingRules" en las propiedades de *ManagedCluster*. Esta regla abre los puertos del equilibrador de carga para el tráfico entrante desde Internet.  
+Los clústeres administrados de Service Fabric crean una regla de grupo de seguridad de red en el intervalo de prioridad predeterminado de todos los puertos del equilibrador de carga (LB) configurados en la sección "loadBalancingRules" en las propiedades de *ManagedCluster*. Esta regla abre los puertos del equilibrador de carga para el tráfico entrante desde Internet.
 
 >[!NOTE]
 >Esta regla se agrega en el intervalo de prioridad opcional y se puede invalidar mediante la adición de reglas de grupo de seguridad de red personalizadas.
@@ -191,7 +191,7 @@ Los clústeres administrados de Service Fabric crean una regla de grupo de segur
     "type": "Microsoft.Network/networkSecurityGroups/securityRules",
     "properties": {
         "description": "Optional rule to open LB ports",
-        "protocol": "*", 
+        "protocol": "*",
         "sourcePortRange": "*",
         "sourceAddressPrefix": "*",
         "destinationAddressPrefix": "VirtualNetwork",
@@ -211,58 +211,58 @@ Los clústeres administrados de Service Fabric crean una regla de grupo de segur
 Los clústeres administrados de Service Fabric crean automáticamente sondeos del equilibrador de carga para los puertos de Fabric Gateway, así como para todos los puertos configurados en la sección "loadBalancingRules" de las propiedades del clúster administrado.
 
 ```json
-{ 
-  "value": [ 
-    { 
-        "name": "FabricTcpGateway", 
-        "properties": { 
-            "provisioningState": "Succeeded", 
-            "protocol": "Tcp", 
-            "port": 19000, 
-            "intervalInSeconds": 5, 
-            "numberOfProbes": 2, 
-            "loadBalancingRules": [ 
-                { 
+{
+  "value": [
+    {
+        "name": "FabricTcpGateway",
+        "properties": {
+            "provisioningState": "Succeeded",
+            "protocol": "Tcp",
+            "port": 19000,
+            "intervalInSeconds": 5,
+            "numberOfProbes": 2,
+            "loadBalancingRules": [
+                {
                     "id": "<>"
-                } 
-            ] 
-        }, 
-        "type": "Microsoft.Network/loadBalancers/probes" 
-    }, 
-    { 
-        "name": "FabricHttpGateway", 
-        "properties": { 
-            "provisioningState": "Succeeded", 
-            "protocol": "Tcp", 
-            "port": 19080, 
-            "intervalInSeconds": 5, 
-            "numberOfProbes": 2, 
-            "loadBalancingRules": [ 
-                { 
-                    "id": "<>" 
-                } 
+                }
             ]
         },
-        "type": "Microsoft.Network/loadBalancers/probes" 
+        "type": "Microsoft.Network/loadBalancers/probes"
     },
     {
-        "name": "probe1_tcp_8080", 
-        "properties": { 
-            "provisioningState": "Succeeded", 
-            "protocol": "Tcp", 
-            "port": 8080, 
-            "intervalInSeconds": 5, 
-            "numberOfProbes": 2, 
-            "loadBalancingRules": [ 
-            { 
-                "id": "<>" 
-            } 
-        ] 
-      }, 
-      "type": "Microsoft.Network/loadBalancers/probes" 
-    } 
-  ] 
-} 
+        "name": "FabricHttpGateway",
+        "properties": {
+            "provisioningState": "Succeeded",
+            "protocol": "Tcp",
+            "port": 19080,
+            "intervalInSeconds": 5,
+            "numberOfProbes": 2,
+            "loadBalancingRules": [
+                {
+                    "id": "<>"
+                }
+            ]
+        },
+        "type": "Microsoft.Network/loadBalancers/probes"
+    },
+    {
+        "name": "probe1_tcp_8080",
+        "properties": {
+            "provisioningState": "Succeeded",
+            "protocol": "Tcp",
+            "port": 8080,
+            "intervalInSeconds": 5,
+            "numberOfProbes": 2,
+            "loadBalancingRules": [
+            {
+                "id": "<>"
+            }
+        ]
+      },
+      "type": "Microsoft.Network/loadBalancers/probes"
+    }
+  ]
+}
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

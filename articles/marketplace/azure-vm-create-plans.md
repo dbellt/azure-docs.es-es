@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 05/06/2021
-ms.openlocfilehash: b6efd4fbb96c519508d621983eee7619d18efc38
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 27f7aa419a2dd57bf205e945221c8224c6247f11
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656135"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110062670"
 ---
 # <a name="create-plans-for-a-virtual-machine-offer"></a>Creación de planes para una oferta de máquina virtual
 
@@ -156,9 +156,6 @@ Seleccione **Guardar borrador** antes de pasar a la pestaña siguiente del menú
 ## <a name="technical-configuration"></a>Configuración técnica
 
 Proporcione las imágenes y otras propiedades técnicas asociadas al plan.
-
-> [!NOTE]
-> Esta pestaña no aparece si configuró este plan para reutilizar paquetes de otro plan en la pestaña **Configuración del plan**.
 
 ### <a name="reuse-technical-configuration"></a>Reutilización de la configuración técnica
 

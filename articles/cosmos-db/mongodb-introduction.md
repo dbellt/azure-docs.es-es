@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/22/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: ead8bf6620bbe53af6c28870fa94b7a16490fcb1
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: c5d98afb3bc228cc3eb8789aa242b3dc3b129e5d
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108202792"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367440"
 ---
 # <a name="azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB API para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -28,12 +28,12 @@ La API para MongoDB tiene numerosas ventajas adicionales por estar integrada en 
 * **Hasta cinco nueves de disponibilidad**: se puede configurar fácilmente una [disponibilidad del 99,999 %](high-availability.md) para asegurarse de que los datos siempre estén ahí.  
 * **Escalabilidad rentable, granular e ilimitada**: las colecciones particionadas se pueden escalar a cualquier tamaño, a diferencia de otras ofertas de servicio de MongoDB. Los usuarios de la API para MongoDB están ejecutando bases de datos con más de 600 TB de almacenamiento en la actualidad. El escalado se realiza de forma rentable, ya que, a diferencia de otras ofertas de servicio de MongoDB, la plataforma Cosmos DB puede escalar en incrementos de un tamaño mínimo equivalente a una centésima parte de una máquina virtual debido a las economías de escalado y gobernanza de recursos.
 * **Implementaciones sin servidor:** a diferencia de MongoDB Atlas, la API para MongoDB es una base de datos nativa en la nube que ofrece un [modo de capacidad sin servidor](serverless.md). Con la opción [sin servidor](serverless.md), solo se le cobra por operación y no paga por la base de datos cuando no la usa.
-* **Nivel Gratis**: con el nivel Gratis de Azure Cosmos DB, obtendrá en la cuenta las primeras 400 RU/s y 5 GB de almacenamiento gratis para siempre, que se aplicarán en el nivel de cuenta.
+* **Nivel Gratis**: con el nivel Gratis de Azure Cosmos DB, recibirá en su cuenta las primeras 1000 RU/s y 25 GB de almacenamiento gratis para siempre, que se aplican en el nivel de cuenta.
 * **Las actualizaciones tardan segundos**: todas las versiones de la API se encuentran dentro de un código base, lo que hace que los cambios de versión sean tan sencillos como [cambiar un conmutador](mongodb-version-upgrade.md), sin tiempo de inactividad.
 * **Análisis en tiempo real (HTAP) a cualquier escala**: la API de MongoDB ofrece la posibilidad de ejecutar consultas analíticas complejas para casos de uso como la inteligencia empresarial en los datos de la base de datos en tiempo real sin afectar a la base de datos. Esto es rápido y económico, debido al almacén de columnas analítico nativo en la nube que se está empleando, sin canalizaciones de extracción, transformación y carga de datos (ETL). Más información sobre [Azure Synapse Link](synapse-link.md).
 
 > [!NOTE]
-> [Puede usar Azure Cosmos DB API para MongoDB de forma gratuita con el nivel gratis.](how-pricing-works.md) Con el nivel Gratis de Azure Cosmos DB, obtendrá en la cuenta las primeras 400 RU/s y 5 GB de almacenamiento gratis, que se aplicarán en el nivel de cuenta.
+> [Puede usar Azure Cosmos DB API para MongoDB de forma gratuita con el nivel gratis.](free-tier.md) Con el nivel Gratis de Azure Cosmos DB, recibirá en su cuenta las primeras 1000 RU/s y 25 GB de almacenamiento gratis, que se aplican en el nivel de cuenta.
 
 
 ## <a name="how-the-api-works"></a>Cómo funciona la API
@@ -53,7 +53,7 @@ Todas las versiones de la API para MongoDB se ejecutan en el mismo código base,
 
 ## <a name="what-you-need-to-know-to-get-started"></a>Lo que necesita saber para comenzar
 
-* No se le facturará por las máquinas virtuales de un clúster. Los [precios](how-pricing-works.md) se basan en el rendimiento expresado en unidades de solicitud (RU) configuradas por cada base de datos o por cada colección. Las primeras 400 RU por segundo son gratuitas con el [nivel Gratis](how-pricing-works.md).
+* No se le facturará por las máquinas virtuales de un clúster. Los [precios](how-pricing-works.md) se basan en el rendimiento expresado en unidades de solicitud (RU) configuradas por cada base de datos o por cada colección. Las primeras 1000 RU son gratuitas con el [nivel Gratis](free-tier.md).
 
 * Hay tres maneras de implementar Azure Cosmos DB API para MongoDB:
      * [Rendimiento aprovisionado](set-throughput.md): establezca un número de RU/s y cámbielo manualmente. Este modelo se adapta mejor a las cargas de trabajo coherentes.

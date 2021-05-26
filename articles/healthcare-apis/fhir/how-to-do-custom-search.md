@@ -1,22 +1,22 @@
 ---
 title: Cómo realizar búsquedas personalizadas en Azure API for FHIR
 description: En este artículo se describe cómo puede definir sus propios parámetros de búsqueda personalizados que se usarán en la base de datos.
-author: stevewohl
+author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 05/03/2021
 ms.author: cavoeg
-ms.openlocfilehash: d61e886771fb3bc667ff9e219de736c03e591ba7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5453b11cb49bb48c48e6c949a00654a797c89202
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108765204"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476672"
 ---
 # <a name="defining-custom-search-parameters"></a>Definición de parámetros de búsqueda personalizados
 
-La especificación de FHIR define un conjunto de parámetros de búsqueda para todos los recursos y parámetros de búsqueda que son específicos de los recursos. Sin embargo, hay escenarios en los que es posible que desee buscar en un elemento de un recurso que no está definido por la especificación de FHIR como parámetro de búsqueda estándar. En este artículo se describe cómo puede definir sus propios parámetros [de](https://www.hl7.org/fhir/searchparameter.html) búsqueda que se usarán en el Azure API for FHIR.
+La especificación FHIR define un conjunto de parámetros de búsqueda para todos los recursos y parámetros de búsqueda que son específicos de los recursos. Sin embargo, hay escenarios en los que es posible que quiera buscar en un elemento de un recurso que no está definido por la especificación FHIR como parámetro de búsqueda estándar. En este artículo se describe cómo puede definir sus propios parámetros [de](https://www.hl7.org/fhir/searchparameter.html) búsqueda que se usarán en el Azure API for FHIR.
 
 > [!NOTE]
 > Cada vez que cree, actualice o elimine un parámetro de búsqueda, deberá ejecutar un trabajo de [reindexación](how-to-run-a-reindex.md) para permitir que el parámetro de búsqueda se utilice en producción. A continuación se describe cómo puede probar los parámetros de búsqueda antes de volver a indexar todo el servidor de FHIR.
@@ -76,7 +76,7 @@ Elementos importantes de `SearchParameter` :
 
 * **url:** clave única para describir el parámetro de búsqueda. Muchas organizaciones, como HL7, usan un formato de dirección URL estándar para los parámetros de búsqueda que definen, como se muestra anteriormente en el parámetro de búsqueda de carreras de US Core.
 
-* **code:** el valor almacenado en **el código** es lo que se usará al buscar. En el ejemplo anterior, buscaría con para obtener todos `GET {FHIR_URL}/Patient?race=<code>` los pacientes de una carrera específica. El código debe ser único para los recursos a los que se aplica el parámetro de búsqueda.
+* **code**: el valor almacenado en **el código** es lo que se usará al buscar. En el ejemplo anterior, buscaría con para obtener todos `GET {FHIR_URL}/Patient?race=<code>` los pacientes de una carrera específica. El código debe ser único para los recursos a los que se aplica el parámetro de búsqueda.
 
 * **base:** describe a qué recursos se aplica el parámetro de búsqueda. Si el parámetro de búsqueda se aplica a todos los recursos, puede usar ; de lo `Resource` contrario, puede enumerar todos los recursos pertinentes.
  

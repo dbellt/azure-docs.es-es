@@ -5,17 +5,17 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 04/25/2021
+ms.date: 05/13/2021
 ms.author: mjbrown
-ms.openlocfilehash: 6ce01bf2f285513e6422f16de927fd532f148f9d
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: b4a33fab54f56c7b510afdddb1bc21c8e6033302
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228755"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084671"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Administración de una cuenta de Azure Cosmos
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 En este artículo se describe cómo administrar varias tareas en una cuenta de Azure Cosmos mediante Azure Portal, Azure PowerShell, la CLI de Azure y plantillas de Azure Resource Manager.
 

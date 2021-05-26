@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: f41f202ede49892608e1ca3c5fdfbe703b6a5293
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 8fc2654dfb41ef4b9e1e2491f6c130229b856682
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108074950"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110091709"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Tutorial: Creación de una canalización de datos de un extremo a otro para derivar información de ventas en Azure HDInsight
 
@@ -168,7 +168,7 @@ ADLSGen2StorageName=$(cat resourcesoutputs_storage.json | jq -r '.properties.out
 El script hace lo siguiente:
 
 1. Crea una entidad de servicio con permisos de `Storage Blob Data Contributor` en la cuenta de almacenamiento de Data Lake Storage Gen2.
-1. Obtiene un token de autenticación para autorizar solicitudes POST a la [API REST del sistema de archivos de Data Lake Storage Gen2](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/filesystem/create).
+1. Obtiene un token de autenticación para autorizar solicitudes POST a la [API REST del sistema de archivos de Data Lake Storage Gen2](/rest/api/storageservices/datalakestoragegen2/filesystem/create).
 1. Rellena el nombre de la cuenta de almacenamiento de Data Lake Storage Gen2 en los archivos `sparktransform.py` y `query.hql`.
 1. Obtiene las claves de almacenamiento para las cuentas de Data Lake Storage Gen2 y Blob Storage.
 1. Crea otra implementación de recursos para crear una canalización de Azure Data Factory, con sus actividades y servicios vinculados asociados. Pasa las claves de almacenamiento como parámetros al archivo de plantilla para que los servicios vinculados puedan acceder a las cuentas de almacenamiento correctamente.
@@ -265,8 +265,8 @@ Consulte [este artículo sobre el uso de Jupyter Notebook](/azure/hdinsight/spar
 
 1. En **Navegador**, seleccione `sales` o `sales_raw` para obtener una vista previa de los datos. Una vez cargados los datos, puede experimentar con el panel que desee crear. Consulte los siguientes vínculos para ver una introducción a los paneles de Power BI:
 
-* [Introducción a los paneles para diseñadores de Power BI](https://docs.microsoft.com/power-bi/service-dashboards)
-* [Tutorial: introducción al servicio Power BI](https://docs.microsoft.com/power-bi/service-get-started)
+* [Introducción a los paneles para diseñadores de Power BI](/power-bi/service-dashboards)
+* [Tutorial: introducción al servicio Power BI](/power-bi/service-get-started)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
