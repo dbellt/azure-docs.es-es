@@ -4,12 +4,12 @@ description: Obtenga información sobre los pasos necesarios para habilitar los 
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: a84a9de854123b70ca96531942debc00afb2d6c6
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 0ae01212eaa73deeac4774f7e13f5b46976ee7e2
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754504"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110075599"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Recursos de Application Insights basados en áreas de trabajo
 
@@ -68,7 +68,7 @@ Para obtener documentación detallada sobre la configuración de un SDK de Appli
 - [ASP.NET Core](./asp-net-core.md)
 - [Tareas en segundo plano y aplicaciones de consola modernas (.NET/.NET Core)](./worker-service.md)
 - [Aplicaciones de consola clásicas (.NET)](./console.md) 
-- [Java](./java-get-started.md?tabs=maven)
+- [Java](./java-in-process-agent.md)
 - [JavaScript](./javascript.md)
 - [Node.js](./nodejs.md)
 - [Python](./opencensus-python.md)

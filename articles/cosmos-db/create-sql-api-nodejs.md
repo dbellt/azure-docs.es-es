@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/07/2021
 ms.author: anfeldma
 ms.custom: devx-track-js
-ms.openlocfilehash: ead4004813cf6415dfa1c7da3d308d93ea49a773
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: a46978e55e41cb05bb4a270c8c241c244e3c5021
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365917"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110100451"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Inicio rápido: Uso de Node.js para conectarse y consultar datos en una cuenta de Azure Cosmos DB SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "107365917"
 > - [.NET V4](create-sql-api-dotnet-V4.md)
 > - [SDK para Java v4](create-sql-api-java.md)
 > * [Spring Data v3](create-sql-api-spring-data.md)
-> * [Conector Spark v3](create-sql-api-spark.md)
+> * [Conector de Spark v3](create-sql-api-spark.md)
 > - [Node.js](create-sql-api-nodejs.md)
 > - [Python](create-sql-api-python.md)
 > - [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -57,26 +57,7 @@ La opción "Pruebe gratis Azure Cosmos DB" no requiere una suscripción de Azure
 
 ## <a name="add-a-container"></a>Agregar un contenedor
 
-Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear una base de datos y un contenedor.
-
-1. Seleccione **Data Explorer** > **Nuevo contenedor**.
-
-   El área **Agregar contenedor** se muestra en el extremo derecho, pero es posible que haya que desplazarse hacia la derecha para verlo.
-
-   :::image type="content" source="./media/create-sql-api-nodejs/azure-cosmosdb-data-explorer.png" alt-text="Explorador de datos de Azure Portal, panel Agregar contenedor":::
-
-2. En la página **Agregar contenedor**, especifique la configuración del nuevo contenedor.
-
-   | Configuración           | Valor sugerido | Descripción                                                                                                                                                                                                                                                                                                                                                                           |
-   | ----------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **Identificador de base de datos**   | Tareas           | Escriba _Tareas_ como nombre de la nueva base de datos. Los nombres de base de datos tienen que tener entre 1 y 255 caracteres y no pueden contener `/, \\, #, ?` o espacios finales. Seleccione la opción **Provision database throughput** (Aprovisionar rendimiento de la base de datos) que le permite compartir el rendimiento aprovisionado de la base de datos entre todos los contenedores de esta. Esta opción también le ayudará a reducir los costos. |
-   | **Rendimiento**    | 400             | Deje el rendimiento en 400 unidades de solicitud por segundo (RU/s). Si quiere reducir la latencia, puede escalar verticalmente el rendimiento más adelante.                                                                                                                                                                                                                                                    |
-   | **ID de contenedor**  | Elementos           | Escriba _Elementos_ como nombre del nuevo contenedor. Los identificadores de contenedor tienen los mismos requisitos de caracteres que los nombres de las bases de datos.                                                                                                                                                                                                                                                               |
-   | **Clave de partición** | /categoría       | El ejemplo que se describe en este artículo usa _/category_ como clave de partición.                                                                                                                                                                                                                                                                                                           |
-
-   Además de la configuración anterior, puede agregar opcionalmente **claves únicas** para el contenedor. En este ejemplo vamos a dejar el campo en blanco. Las claves únicas proporcionan a los desarrolladores la capacidad de agregar una capa de integridad de datos a la base de datos. Mediante la creación de una directiva de clave única al crear un contenedor, se garantiza la unicidad de uno o varios valores por clave de partición. Para más información, consulte el artículo [Claves únicas en Azure Cosmos DB](unique-keys.md).
-
-   Seleccione **Aceptar**. El Explorador de datos muestra la nueva base de datos y el contenedor.
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## <a name="add-sample-data"></a>Adición de datos de ejemplo
 

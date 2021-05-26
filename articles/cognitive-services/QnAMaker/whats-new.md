@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: 3bb7311a16b71b9bb76f14b4ba7a29dd2dae4a96
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 341ce0d0400bb1b56f96182e13d526da32d9729e
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103010004"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369275"
 ---
 # <a name="whats-new-in-qna-maker"></a>Novedades de QnA Maker
 
@@ -22,6 +22,12 @@ Conozca las novedades del servicio. Estos elementos pueden ser notas de la versi
 ## <a name="release-notes"></a>Notas de la versión
 
 Conozca las novedades de QnA Maker.
+
+### <a name="may-2021"></a>Mayo de 2021
+
+* QnA Maker administrado se ha presentado de nuevo como característica de respuesta a preguntas personalizada del [recurso Text Analytics](https://ms.portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics).
+* Respuesta a preguntas personalizada admite documentos no estructurados.
+* Se ha incorporado una [API precompilada](how-to/using-prebuilt-api.md) para generar respuestas a las consultas de los usuarios a partir del texto de documentos pasado por medio de la API.
 
 ### <a name="november-2020"></a>Noviembre de 2020
 

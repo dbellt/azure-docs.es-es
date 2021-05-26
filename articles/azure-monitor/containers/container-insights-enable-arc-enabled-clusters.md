@@ -5,12 +5,12 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Recopile métricas y registros de clústeres de Kubernetes habilitado para Azure Arc con Azure Monitor
-ms.openlocfilehash: 0a983f6d7032310d02d35e713482de942bfbfd70
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 55beedec85b5e2a426954f179b738fcf81eb4982
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106443857"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109845751"
 ---
 # <a name="azure-monitor-container-insights-for-azure-arc-enabled-kubernetes-clusters"></a>Azure Monitor Container Insights para contenedores con clústeres de Kubernetes habilitado para Azure Arc
 
@@ -90,7 +90,7 @@ Esta opción usa los siguientes valores predeterminados:
 - Crea o usa el área de trabajo de Log Analytics predeterminada existente que corresponde a la región del clúster.
 - La actualización automática está habilitada para la extensión de clúster de Azure Monitor.
 
-```console
+```azurecli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers
 ```
 
@@ -98,7 +98,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 Puede usar un área de trabajo de Azure Log Analytics existente en cualquier suscripción en la que tenga la asignación de roles *Colaborador* o una más permisiva.
 
-```console
+```azurecli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings logAnalyticsWorkspaceResourceID=<armResourceIdOfExistingWorkspace>
 ```
 
@@ -106,7 +106,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 Si quiere retocar las solicitudes y los límites de recursos predeterminados, puede usar las opciones de configuración avanzada:
 
-```console
+```azurecli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings  omsagent.resources.daemonset.limits.cpu=150m omsagent.resources.daemonset.limits.memory=600Mi omsagent.resources.deployment.limits.cpu=1 omsagent.resources.deployment.limits.memory=750Mi
 ```
 
@@ -116,7 +116,7 @@ Consulte la [sección de solicitudes y límites de recursos del gráfico Helm](h
 
 Si el clúster de Kubernetes habilitado para Azure Arc está en Azure Stack Edge, se debe usar una ruta de acceso de montaje personalizada `/home/data/docker`.
 
-```console
+```azurecli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings omsagent.logsettings.custommountpath=/home/data/docker
 ```
 
@@ -163,7 +163,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 3. Implementación de la plantilla para crear una extensión de Azure Monitor Container Insights 
 
-    ```console
+    ```azurecli
     az login
     az account set --subscription "Subscription Name"
     az deployment group create --resource-group <resource-group> --template-file ./arc-k8s-azmon-extension-arm-template.json --parameters @./arc-k8s-azmon-extension-arm-template-params.json

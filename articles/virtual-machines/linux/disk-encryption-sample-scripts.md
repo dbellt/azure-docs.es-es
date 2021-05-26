@@ -9,24 +9,24 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: b8581bf3ec4170b6914409d060b64a50c8bff2d2
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 52a5e60537aaaa9a4fcd7f8345a21854d48a2076
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109715617"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110076123"
 ---
 # <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Scripts de ejemplo de Azure Disk Encryption para máquinas virtuales Linux
 
-En este artículo se proporcionan scripts de ejemplo tanto para preparar los discos duros virtuales previamente cifrados como para realizar otras tareas.  
+En este artículo se proporcionan scripts de ejemplo tanto para preparar los discos duros virtuales previamente cifrados como para realizar otras tareas.
 
 > [!NOTE]
 > Todos los scripts hacen referencia a la versión más reciente de ADE que no sea de AAD, excepto donde se indique lo contrario.
 
-## <a name="sample-powershell-scripts-for-azure-disk-encryption"></a>Scripts de ejemplo de PowerShell para Azure Disk Encryption 
+## <a name="sample-powershell-scripts-for-azure-disk-encryption"></a>Scripts de ejemplo de PowerShell para Azure Disk Encryption
 
 - **Enumerar todas las máquinas virtuales cifradas en la suscripción**
-  
+
   Puede encontrar todas las VM cifradas con ADE y la versión de la extensión en todos los grupos de recursos presentes en una suscripción, mediante [este script de PowerShell](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/Find_1passAdeVersion_VM.ps1).
 
   Como alternativa, estos cmdlets mostrarán todas las VM cifradas con ADE (pero no la versión de la extensión):
@@ -38,19 +38,19 @@ En este artículo se proporcionan scripts de ejemplo tanto para preparar los dis
    ```
 
 - **Enumeración de todas las instancias de VMSS cifradas de la suscripción**
-    
+
     Puede encontrar todas las instancias de VMSS cifradas con ADE y la versión de la extensión en todos los grupos de recursos presentes en una suscripción, mediante [este script de PowerShell](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/Find_1passAdeVersion_VMSS.ps1).
 
-- **Enumerar todos los secretos de cifrado de disco usados para cifrar las máquinas virtuales en un almacén de claves** 
+- **Enumerar todos los secretos de cifrado de disco usados para cifrar las máquinas virtuales en un almacén de claves**
 
    ```azurepowershell-interactive
    Get-AzKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
    ```
 
 ### <a name="using-the-azure-disk-encryption-prerequisites-powershell-script"></a>Uso del script de PowerShell de requisitos previos de Azure Disk Encryption
-Si ya está familiarizado con los requisitos previos para Azure Disk Encryption, puede usar el [script de PowerShell de requisitos previos de Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para un ejemplo de uso de este script de PowerShell, consulte la [guía de inicio rápido para el cifrado de máquinas virtuales](disk-encryption-powershell-quickstart.md). Puede quitar los comentarios de una sección del script, a partir de la línea 211, para cifrar todos los discos de las máquinas virtuales de un grupo de recursos existente. 
+Si ya está familiarizado con los requisitos previos para Azure Disk Encryption, puede usar el [script de PowerShell de requisitos previos de Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para un ejemplo de uso de este script de PowerShell, consulte la [guía de inicio rápido para el cifrado de máquinas virtuales](disk-encryption-powershell-quickstart.md). Puede quitar los comentarios de una sección del script, a partir de la línea 211, para cifrar todos los discos de las máquinas virtuales de un grupo de recursos existente.
 
-En la siguiente tabla se muestran los parámetros que se pueden usar en el script de PowerShell: 
+En la siguiente tabla se muestran los parámetros que se pueden usar en el script de PowerShell:
 
 
 |Parámetro|Descripción|¿Obligatorio?|
@@ -65,17 +65,17 @@ En la siguiente tabla se muestran los parámetros que se pueden usar en el scrip
 
 ### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Cifrado o descifrado de máquinas virtuales sin aplicación de Azure AD
 
-- [Habilitar el cifrado de disco en una máquina virtual Linux existente o en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
-- [Deshabilitar el cifrado en una máquina virtual Linux en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
-    - La deshabilitación del cifrado solo se permite en volúmenes de datos de máquinas virtuales Linux.  
+- [Habilitar el cifrado de disco en una máquina virtual Linux existente o en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)
+- [Deshabilitar el cifrado en una máquina virtual Linux en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm)
+    - La deshabilitación del cifrado solo se permite en volúmenes de datos de máquinas virtuales Linux.
 
 ### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Cifrado o descifrado de máquinas virtuales con aplicación de Azure AD (versión anterior)
- 
-- [Habilitar el cifrado de disco en una máquina virtual Linux existente o en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
+
+- [Habilitar el cifrado de disco en una máquina virtual Linux existente o en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm)
 
 
--  [Deshabilitar el cifrado en una máquina virtual Linux en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm) 
-    - La deshabilitación del cifrado solo se permite en volúmenes de datos de máquinas virtuales Linux. 
+-  [Deshabilitar el cifrado en una máquina virtual Linux en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm)
+    - La deshabilitación del cifrado solo se permite en volúmenes de datos de máquinas virtuales Linux.
 
 
 - [Crear un disco administrado cifrado a partir de un blob de almacenamiento o disco duro virtual previamente cifrado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
@@ -85,7 +85,7 @@ En la siguiente tabla se muestran los parámetros que se pueden usar en el scrip
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>Requisitos previos para el cifrado de disco del sistema operativo
 
-* La máquina virtual debe usar una distribución compatible con el cifrado del disco del sistema operativo, como se muestra en el artículo [Sistemas operativos compatibles con Azure Disk Encryption](disk-encryption-overview.md#supported-vms) 
+* La máquina virtual debe usar una distribución compatible con el cifrado del disco del sistema operativo, como se muestra en el artículo [Sistemas operativos compatibles con Azure Disk Encryption](disk-encryption-overview.md#supported-vms)
 * La máquina virtual debe crearse a partir de la imagen de Marketplace en Azure Resource Manager.
 * La máquina virtual de Azure con al menos 4 GB de RAM (el tamaño recomendado es 7 GB).
 * (Para RHEL y CentOS) Deshabilite SELinux. Para deshabilitar SELinux, consulte "4.4.2. Disabling SELinux" (Deshabilitar SELinux) en el documento [SELinux User's and Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) (Guía del administrador y del usuario de SELinux) en la máquina virtual.
@@ -151,7 +151,7 @@ Hay tres maneras de supervisar el progreso de cifrado del sistema operativo:
                               |-- virtualMachines
                                    |-- [Your virtual machine]
                                         |-- InstanceView
-  ```                
+  ```
 
   En el objeto InstanceView, desplácese hacia abajo para ver el estado de cifrado de las unidades de disco.
 
@@ -166,7 +166,7 @@ Hay tres maneras de supervisar el progreso de cifrado del sistema operativo:
   Se recomienda que no inicie sesión en la máquina virtual con el cifrado del sistema operativo en curso. Copie los registros solo cuando los otros dos métodos no den resultado.
 
 ## <a name="prepare-a-pre-encrypted-linux-vhd"></a>Preparación de un VHD con Linux precifrado
-La preparación de disco duros virtuales previamente cifrados puede variar dependiendo de la distribución. Se pueden encontrar ejemplos sobre cómo preparar Ubuntu 16, openSUSE 13.2 y CentOS 7. 
+La preparación de disco duros virtuales previamente cifrados puede variar dependiendo de la distribución. Se pueden encontrar ejemplos sobre cómo preparar Ubuntu 16, openSUSE 13.2 y CentOS 7.
 
 ### <a name="ubuntu-16"></a>Ubuntu 16
 Configure el cifrado durante la instalación de la distribución; para ello, siga estos pasos:
@@ -400,7 +400,7 @@ Para configurar el cifrado de manera que funcione con Azure, siga estos pasos:
         break
     fi
     done
-    ```    
+    ```
 5. Ejecute "/usr/sbin/dracut -f -v" para actualizar initrd.
 
     ![Configuración de CentOS 7: run /usr/sbin/dracut -f -v](./media/disk-encryption/centos-encrypt-fig5.png)
@@ -413,7 +413,7 @@ Una vez que se cifre DM-Crypt, el disco duro virtual cifrado local debe cargarse
 ## <a name="upload-the-secret-for-the-pre-encrypted-vm-to-your-key-vault"></a>Carga del secreto de la máquina virtual previamente cifrada en el almacén de claves
 Al cifrar mediante una aplicación de Azure AD (versión anterior), el secreto de cifrado del disco que obtuvo con anterioridad se debe cargar como secreto en el almacén de claves. El almacén de claves debe tener habilitados el cifrado de discos y los permisos para el cliente de Azure AD.
 
-```powershell 
+```powershell
  $AadClientId = "My-AAD-Client-Id"
  $AadClientSecret = "My-AAD-Client-Secret"
 
@@ -421,7 +421,7 @@ Al cifrar mediante una aplicación de Azure AD (versión anterior), el secreto d
 
  Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -ServicePrincipalName $AadClientId -PermissionsToKeys all -PermissionsToSecrets all
  Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -EnabledForDiskEncryption
-``` 
+```
 
 ### <a name="disk-encryption-secret-not-encrypted-with-a-kek"></a>Secreto del cifrado de disco no cifrado con una KEK
 Para configurar el secreto en el almacén de claves, use [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). La frase de contraseña se codifica en forma de cadena base64 y, después, se carga en el almacén de claves. Además, asegúrese de que se establecen las siguientes etiquetas al crear el secreto en el almacén de claves.

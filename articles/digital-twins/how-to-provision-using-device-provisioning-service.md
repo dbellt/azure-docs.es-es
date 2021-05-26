@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 30419579dab90af07efcea38592d783f1a1d8e00
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 91a204015f24bafad27a83d7c65be3b7c04807e7
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109786958"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078299"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Administración automática de dispositivos en Azure Digital Twins mediante Device Provisioning Service (DPS)
 
@@ -330,7 +330,7 @@ Debería ver que el gemelo del dispositivo ya no se encuentra en la instancia de
 
 Cuando ya no necesite los recursos creados en este artículo, siga estos pasos para eliminarlos.
 
-Con Azure Cloud Shell o la CLI de Azure local, puede eliminar todos los recursos de Azure de un grupo de recursos mediante el comando [az group delete](/cli/azure/group#az_group_delete). Esto permite eliminar el grupo de recursos, la instancia de Azure Digital Twins, el centro de IoT y el registro del dispositivo del centro, el tema de Event Grid y las suscripciones asociadas, así como el espacio de nombres de los centros de eventos y ambas aplicaciones de Azure Functions, incluidos los recursos asociados, como el almacenamiento.
+Con Azure Cloud Shell o la CLI de Azure local, puede eliminar todos los recursos de Azure de un grupo de recursos mediante el comando [az group delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_delete). Esto permite eliminar el grupo de recursos, la instancia de Azure Digital Twins, el centro de IoT y el registro del dispositivo del centro, el tema de Event Grid y las suscripciones asociadas, así como el espacio de nombres de los centros de eventos y ambas aplicaciones de Azure Functions, incluidos los recursos asociados, como el almacenamiento.
 
 > [!IMPORTANT]
 > La eliminación de un grupo de recursos es irreversible. El grupo de recursos y todos los recursos contenidos en él se eliminan permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. 

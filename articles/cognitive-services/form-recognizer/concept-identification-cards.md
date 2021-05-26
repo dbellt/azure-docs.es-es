@@ -1,6 +1,6 @@
 ---
 title: 'ID: Form Recognizer'
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Conozca los conceptos relacionados con la extracción de datos de los documentos de identidad con la API de identificadores precompilados de Form Recognizer.
 services: cognitive-services
 author: laujan
@@ -10,16 +10,35 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: d59df677fda920be5ed9547bee3855d4c9511187
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 9ab936f90fb890d50e6e476e216b327ed26fc4f5
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108330843"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374857"
 ---
 # <a name="form-recognizer-prebuilt-identification-id-document-model"></a>Modelo de documento de identificación (ID) precompilado de Form Recognizer
 
-Azure Form Recognizer puede analizar y extraer información de documentos de identificación (ID) expedidos por la Administración mediante sus modelos de ID precompilados. Combina nuestras eficaces funcionalidades de [reconocimiento óptico de caracteres (OCR)](../computer-vision/overview-ocr.md) con capacidades de reconocimiento de ID para extraer información clave de pasaportes de todo el mundo y de permisos de conducir de EE. UU. (de los 50 estados y del D.C.). La API de ID extrae información clave de estos documentos de identidad, como el nombre, el apellido, la fecha de nacimiento, el número del documento, etc. Esta API está disponible en la versión preliminar de Form Recognizer v2.1 como un servicio en la nube y como un contenedor local.
+Azure Form Recognizer puede analizar y extraer información de documentos de identificación (ID) expedidos por la Administración mediante sus modelos de ID precompilados. Combina nuestras eficaces funcionalidades de [reconocimiento óptico de caracteres (OCR)](../computer-vision/overview-ocr.md) con capacidades de reconocimiento de ID para extraer información clave de pasaportes de todo el mundo y de permisos de conducir de EE. UU. (de los 50 estados y del D.C.). La API de ID extrae información clave de estos documentos de identidad, como el nombre, el apellido, la fecha de nacimiento, el número del documento, etc. Esta API está disponible en Form Recognizer v2.1 como un servicio en la nube. 
+
+## <a name="customer-scenarios"></a>Escenarios de cliente
+
+Los datos extraídos con la API de identificadores se pueden usar para realizar diversas tareas en escenarios del tipo Know Your Customer (KYC, conozca a su cliente) en sectores como finanzas, salud y seguros, administración pública, etc. A continuación, se muestran algunos ejemplos:
+
+* Incorporación digital: el usuario final puede usar una aplicación móvil para examinar sus identificadores e incorporarse a varios servicios. La extracción de datos de los identificadores ayuda a la verificación del cliente remoto. 
+
+* Validación y coincidencia de los identificadores: el usuario final puede rellenar una aplicación y adjuntar imágenes de los identificadores. Los identificadores precompilados permiten a un banco verificar las coincidencias de la información con los datos disponibles.
+
+* Rellenado previo de formularios: como parte de un proceso de reclamación de seguros, el usuario final envía sus identificadores y los campos se rellenan previamente en los documentos en línea, lo que ahorra tiempo en el proceso.
+
+La API de identificadores también respalda la [característica del lector de identificadores de AI Builder](/ai-builder/prebuilt-id-reader).
+
+## <a name="try-it-out"></a>Prueba
+
+Para probar el servicio de ID de Form Recognizer, vaya a la herramienta de interfaz de usuario de ejemplo en línea:
+
+> [!div class="nextstepaction"]
+> [Uso de modelos precompilados](https://aka.ms/fott-2.1-ga)
 
 ## <a name="what-does-the-id-service-do"></a>¿Qué hace el servicio de ID?
 
@@ -35,7 +54,7 @@ El servicio de identificaciones precompiladas extrae los principales valores de 
 
 ### <a name="fields-extracted"></a>Campos extraídos
 
-|Nombre| Tipo | Descripción | Value |
+|Nombre| Tipo | Descripción | Valor |
 |:-----|:----|:----|:----|
 |  País | country | Código de país conforme con la norma ISO 3166 estándar. | "USA" |
 |  DateOfBirth | date | Fecha de nacimiento en formato AAAA-MM-DD. | "1980-01-01" |
@@ -48,14 +67,14 @@ El servicio de identificaciones precompiladas extrae los principales valores de 
 |  MachineReadableZone | object | Zona de lectura automática del pasaporte extraída, incluidas dos líneas de 44 caracteres cada una. | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
 |  DocumentType | string | Tipo de documento, por ejemplo, pasaporte o permiso de conducir. | "passport" |
 |  Dirección | string | Dirección extraída (solo permiso de conducir) | "123 STREET ADDRESS YOUR CITY WA 99999-1234"|
-|  Region (Región) | string | Valor extraído de región, estado, provincia, etc. (solo permiso de conducir) | "Washington" |
+|  Region | string | Valor extraído de región, estado, provincia, etc. (solo permiso de conducir) | "Washington" |
 
 ### <a name="additional-features"></a>Características adicionales
 
 La API de ID también devuelve la siguiente información:
 
 * Nivel de confianza de campo (cada campo devuelve un valor de confianza asociado)
-* Texto sin formato OCR (salida de texto extraído mediante OCR para todo el recibo)
+* Texto sin formato OCR (salida de texto extraído mediante OCR de todo el documento de identidad)
 * Cuadro de límite de cada campo extraído en los permisos de conducir de EE. UU.
 * Cuadro de límite para la zona de lectura automática (MRZ) en pasaportes.
 
@@ -64,24 +83,17 @@ La API de ID también devuelve la siguiente información:
   >
   > Las identificaciones precompiladas de Form Recognizer extraen información clave de los datos de identificador. Sin embargo, no detectan la validez ni la autenticidad del documento de identidad original.
 
-## <a name="try-it-out"></a>Prueba
-
-Para probar el servicio de ID de Form Recognizer, vaya a la herramienta de interfaz de usuario de ejemplo en línea:
-
-> [!div class="nextstepaction"]
-> [Uso de modelos precompilados](https://fott-preview.azurewebsites.net/)
-
 ## <a name="input-requirements"></a>Requisitos de entrada
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## <a name="supported-locales"></a>Configuraciones regionales admitidas
 
- **Identificador precompilado v2.1-preview.3** (versión preliminar) admite documentos de identidad en la configuración regional **en-us**.
+ **Pre-built ID v2.1** admite documentos de identidad en la configuración regional **en-us**.
 
 ## <a name="supported-identity-document-types"></a>Tipos de documentos de identidad admitidos
 
-* **Identificaciones precompiladas, v2.1-preview.3** Extrae valores clave de pasaportes de todo el mundo y de permisos de conducir de EE. UU.
+* **Pre-built IDs v2.1** extrae los valores principales de los pasaportes de todo el mundo y de los permisos de conducir estadounidenses.
 
   > [!NOTE]
   > Compatibilidad con el tipo de ID.
@@ -90,19 +102,19 @@ Para probar el servicio de ID de Form Recognizer, vaya a la herramienta de inter
 
 ## <a name="post-analyze-id-document"></a>Aplicación de POST a documento de Analyze ID
 
-La operación [Analyze ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5f74a7daad1f2612c46f5822) toma una imagen o un archivo PDF de una ID como entrada y extrae los valores de interés. La llamada devuelve un campo de encabezado de respuesta denominado `Operation-Location`. El valor `Operation-Location` es una dirección URL que contiene el id. de resultado que se va a usar en el paso siguiente.
+La operación [Analyze ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7daad1f2612c46f5822) toma una imagen o un archivo PDF de una ID como entrada y extrae los valores de interés. La llamada devuelve un campo de encabezado de respuesta denominado `Operation-Location`. El valor `Operation-Location` es una dirección URL que contiene el id. de resultado que se va a usar en el paso siguiente.
 
 |Encabezado de respuesta| Dirección URL del resultado |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/idDocument/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1/prebuilt/idDocument/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
-## <a name="get-analyze-id-document-result"></a>Aplicación de GET a resultado de documento de Analyze Id
+## <a name="get-analyze-id-document-result"></a>Resultado de GET Analyze ID Document
 
 <!---
 Need to update this with updated APIM links when available
 -->
 
-El segundo paso consiste en llamar a la operación [**Get Analyze idDocument Result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5f74a7738978e467c5fb8707). Esta operación toma como entrada el identificador de resultado que la operación Analyze ID ha creado. Devuelve una respuesta JSON que contiene un campo de **estado** con los siguientes valores posibles. Llamará a esta operación de forma iterativa hasta que se devuelva con el valor **correcto**. Use un intervalo de 3 a 5 segundos para evitar superar la tasa de solicitudes por segundo (RPS).
+El segundo paso consiste en llamar a la operación [**Get Analyze idDocument Result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707). Esta operación toma como entrada el identificador de resultado que la operación Analyze ID ha creado. Devuelve una respuesta JSON que contiene un campo de **estado** con los siguientes valores posibles. Llamará a esta operación de forma iterativa hasta que se devuelva con el valor **correcto**. Use un intervalo de 3 a 5 segundos para evitar superar la tasa de solicitudes por segundo (RPS).
 
 |Campo| Tipo | Valores posibles |
 |:-----|:----:|:----|
@@ -253,10 +265,7 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta: El nodo `readResul
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Pruebe sus propios ID y ejemplos en la [interfaz de usuario de ejemplo de Form Recognizer](https://fott-preview.azurewebsites.net/).
+* Pruebe sus propios ID y ejemplos en la [interfaz de usuario de ejemplo de Form Recognizer](https://aka.ms/fott-2.1-ga).
 * Realice un [inicio rápido de Form Recognizer](quickstarts/client-library.md) para empezar a escribir una aplicación de procesamiento de ID con Form Recognizer en el lenguaje de desarrollo que prefiera.
 
-## <a name="see-also"></a>Consulte también
 
-* [**¿Qué es Form Recognizer?**](./overview.md)
-* [**Documentos de referencia de la API de REST**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)

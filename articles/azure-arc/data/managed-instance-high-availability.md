@@ -10,12 +10,12 @@ ms.topic: conceptual
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.openlocfilehash: bd4541f8c8471c68ed539f407d9ff79684ccb3bf
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: a847eb04745895fb903385715296a2c5c5d8898e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109733514"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110061523"
 ---
 # <a name="azure-arc-enabled-managed-instance-high-availability"></a>Alta disponibilidad de Instancia administrada habilitada para Azure Arc
 
@@ -79,7 +79,7 @@ Funcionalidades que permiten los grupos de disponibilidad:
 
 - Todas las bases de datos se agregan automáticamente al grupo de disponibilidad, incluidas todas las bases de datos del usuario y el sistema, como `master` y `msdb`. Esta funcionalidad proporciona una vista de un solo sistema de las réplicas del grupo de disponibilidad. Observe las bases de datos `containedag_master` y `containedag_msdb` si se conecta directamente a la instancia. Las bases de datos `containedag_*` representan `master` y `msdb` dentro del grupo de disponibilidad.
 
-- Se aprovisiona automáticamente un punto de conexión externo para conectarse a las bases de datos del grupo de disponibilidad. Este punto de conexión `<managed_instance_name>-svc-external` desempeña el rol de escucha de grupo de disponibilidad.
+- Se aprovisiona automáticamente un punto de conexión externo para conectarse a las bases de datos del grupo de disponibilidad. Este punto de conexión `<managed_instance_name>-external-svc` desempeña el rol de escucha de grupo de disponibilidad.
 
 ### <a name="deploy"></a>Implementación
 

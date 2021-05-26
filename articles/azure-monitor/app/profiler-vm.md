@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 11/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: f514dd7b54ac091535aeab43a8a7d2a645b50a09
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f556fff4f83e76fc99f508d96d1e05aefac0023
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87315842"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109847914"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Generación de perfiles de aplicaciones web en ejecución en una máquina virtual o un conjunto de escalado de máquinas virtuales de Azure mediante Application Insights Profiler
 
@@ -74,7 +74,7 @@ En este artículo se muestran los pasos necesarios para que Application Insights
     ```  
    b. Si el establecimiento del acceso remoto supone un problema, puede usar la [CLI de Azure](/cli/azure/get-started-with-azure-cli) para ejecutar el siguiente comando:  
 
-    ```powershell
+    ```azurecli
     az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
     ```
 

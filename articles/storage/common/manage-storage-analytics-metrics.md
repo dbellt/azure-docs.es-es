@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 784929e50d25a07ae92cf388be5ac14f6fa820a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 90dc5ee9dcd9df500f9a5e593c3e6ee83b7f916e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99221486"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110452590"
 ---
 # <a name="enable-and-manage-azure-storage-analytics-metrics-classic"></a>Habilitación y administración de las métricas de Azure Storage Analytics (clásico)
 
@@ -117,7 +117,7 @@ Puede deshabilitar la recopilación y el registro de métricas estableciendo el 
 
    Para obtener información sobre cómo configurar los cmdlets de Azure PowerShell para que funcionen con su suscripción a Azure y cómo seleccionar la cuenta de almacenamiento predeterminada que quiere usar, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/).  
 
-### <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+### <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
 
@@ -125,7 +125,7 @@ Para obtener más información sobre cómo usar un lenguaje .NET para configurar
 
 Para obtener información general sobre cómo configurar las métricas de almacenamiento con la API de REST, consulte [Habilitación y configuración de Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics). 
 
-### <a name="net-v11"></a>[.NET v11](#tab/dotnet11)  
+### <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)  
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  

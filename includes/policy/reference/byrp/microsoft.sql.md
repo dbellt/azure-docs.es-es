@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/04/2021
+ms.date: 05/14/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 718ed77d00c574de891a1d015072a7c1db0ab0eb
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f04dbd73d8bc5222de7bfccb095854586b9da1b2
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108753879"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110071474"
 ---
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -25,7 +25,7 @@ ms.locfileid: "108753879"
 |[Configurar instancias de SQL Server para habilitar la auditoría](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4c68484-132f-41f9-9b6d-3e4b1cb55036) |Para asegurarse de que se capturan las operaciones realizadas en los recursos de SQL, las instancias de SQL Server deben tener habilitada la auditoría. A veces, es necesario para cumplir con los estándares normativos. |DeployIfNotExists, Disabled |[1.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditing_Deploy.json) |
 |[Implementación: configuración de diagnóstico para instancias de SQL Database en el área de trabajo de Log Analytics](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb79fa14e-238a-4c2d-b376-442ce508fc84) |Implementa la configuración de diagnóstico para que las instancias de SQL Database transmitan los registros de recursos a un área de trabajo de Log Analytics cuando se cree o actualice cualquier instancia de SQL Database en la que falte esta configuración de diagnóstico. |DeployIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/DataConnectosSqlLogs_PolicyAssignment.json) |
 |[Implementar Advanced Data Security en los servidores de SQL Server](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6134c3db-786f-471e-87bc-8f479dc890f6) |Esta directiva habilita Advanced Data Security en los servidores de SQL Server. Esta opción también habilita la detección de amenazas y la evaluación de vulnerabilidades. Asimismo, creará automáticamente una cuenta de almacenamiento en la misma región y grupo de recursos que el servidor de SQL Server, para así almacenar los resultados del análisis con un prefijo "sqlva". |DeployIfNotExists |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAdvancedDataSecurity_Deploy.json) |
-|[Implementar la configuración de diagnóstico para Azure SQL Database en el Centro de eventos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9a7c7a7d-49e5-4213-bea8-6a502b6272e0) |Implementa la configuración de diagnóstico para que Azure SQL Database se transmita a un Centro de eventos regional cuando se cree o actualice cualquier instancia de Azure SQL Database a la que falte esta configuración de diagnóstico. |DeployIfNotExists |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlDB_DiagnosticsLog_Deploy.json) |
+|[Implementar la configuración de diagnóstico para Azure SQL Database en el Centro de eventos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9a7c7a7d-49e5-4213-bea8-6a502b6272e0) |Implementa la configuración de diagnóstico para que Azure SQL Database se transmita a un Centro de eventos regional cuando se cree o actualice cualquier instancia de Azure SQL Database a la que falte esta configuración de diagnóstico. |DeployIfNotExists |[1.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlDB_DiagnosticsLog_Deploy.json) |
 |[Implementar el cifrado de datos transparente de SQL Database](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86a912f6-9a06-4e26-b447-11b16ba8659f) |Habilita el cifrado de datos transparente en bases de datos SQL. |DeployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlDBEncryption_Deploy.json) |
 |[Implementar la detección de amenazas en servidores SQL Server](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F36d49e87-48c4-4f2e-beed-ba4ed02b71f5) |Esta directiva garantiza que la detección de amenazas esté habilitada en servidores SQL Server. |DeployIfNotExists |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/DeployTdOnSqlServers_Deploy.json) |
 |[La copia de seguridad con redundancia geográfica a largo plazo debe estar habilitada para las instancias de Azure SQL Database](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd38fc420-0735-4ef3-ac11-c806f651a570) |Esta directiva audita cualquier instancia de Azure SQL Database que no tenga la copia de seguridad con redundancia geográfica habilitada. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_SQLDatabase_AuditIfNotExists.json) |

@@ -6,12 +6,12 @@ ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 929d8412b3be894e80a13d9a2bd07ab7401b8dda
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 036db7999ce6d5fd84ad6210aa50206e2b031b2f
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277868"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369362"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Inicio rápido: Carga, codificación y streaming de contenido con el portal
 
@@ -36,7 +36,7 @@ En este inicio rápido se muestra cómo usar Azure Portal para cargar, codificar
 
         Actualmente, cuando usa Azure Portal, puede hacer lo siguiente: generar archivos de subtítulos TTML y WebVTT. Los archivos en estos formatos se pueden usar para crear archivos de audio y vídeo accesibles para personas con discapacidades auditivas. También puede extraer palabras clave del contenido.
 
-        Para disfrutar de una experiencia enriquecida que le permita extraer información de sus archivos de audio y vídeo, use los valores preestablecidos de Media Services v3 (como se describe en [Tutorial: Análisis de vídeos con Media Services v3](analyze-videos-tutorial.md)). <br/>Si desea información más detallada, use [Video Indexer](../video-indexer/index.yml) directamente.    
+        Para disfrutar de una experiencia enriquecida que le permita extraer información de sus archivos de audio y vídeo, use los valores preestablecidos de Media Services v3 (como se describe en [Tutorial: Análisis de vídeos con Media Services v3](analyze-videos-tutorial.md)). <br/>Si desea información más detallada, use Video Indexer directamente.    
 * Una vez procesado el contenido, puede proporcionar contenido multimedia a los reproductores cliente. Para que los vídeos del recurso de salida estén disponibles para los clientes para su reproducción, tiene que crear un **localizador de streaming**. Al crear el **localizador de streaming**, deberá especificar una **directiva de streaming**. Las **directivas de streaming** permiten definir los protocolos de streaming y las opciones de cifrado (si hubiera) de los **localizadores de streaming**.
     
     Revisión:

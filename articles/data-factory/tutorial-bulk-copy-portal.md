@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/29/2021
-ms.openlocfilehash: 08d69e46989687cfbb3c4e766c56fd4447dfbbb5
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 73162ebdb28f8b8fa743ea4bb310b92b64f27557
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109481542"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110076761"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copia masiva de varias tablas mediante Azure Data Factory en Azure Portal
 
@@ -254,7 +254,7 @@ La canalización **IterateAndCopySQLTables** toma una lista de tablas como pará
     1. Haga clic en el cuadro de entrada **Script previo a la copia** -> seleccione el vínculo **Agregar contenido dinámico** que aparece a continuación -> escriba la siguiente expresión como script -> seleccione **Finalizar**. 
 
         ```sql
-        TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
+        IF EXISTS (SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}) TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ```
 
         ![Copia de la configuración del receptor](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)

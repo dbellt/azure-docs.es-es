@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1
-ms.openlocfilehash: 6a77cfd933b79e3ada02e90f900467cedf08e406
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: b3f313000bf66162cd4abffa18fd2b7bfbfb0693
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889977"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110458575"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning
 
@@ -32,7 +32,7 @@ Las canalizaciones de ML se ejecutan en destinos de proceso (consulte [¿Qué so
 
 Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Cree un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md) que contendrá todos los recursos de la canalización.
 
@@ -286,7 +286,7 @@ Para más información, incluidas formas alternativas de pasar datos y acceder a
 
 Para optimizar y personalizar el comportamiento de las canalizaciones, puede hacer algunas cosas en relación con el almacenamiento en caché y la reutilización. Por ejemplo, puede hacer lo siguiente:
 + **Desactivar la reutilización predeterminada de la salida de ejecución de pasos** configurando `allow_reuse=False` durante la [definición de pasos](/python/api/azureml-pipeline-steps/). La reutilización es clave cuando se usan canalizaciones en un entorno de colaboración, ya que eliminar las repeticiones innecesarias ofrece agilidad. Sin embargo, puede optar por ignorar esta reutilización.
-+ **Forzar la regeneración de salida de todos los pasos de una ejecución** con `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
++ **Forzar la regeneración de salida de todos los pasos de una ejecución** con `pipeline_run = exp.submit(pipeline, regenerate_outputs=True)`
 
 De forma predeterminada, se habilita `allow_reuse` para los pasos y se crea un hash para el valor de `source_directory` especificados en la definición del paso. Así pues, si el script de un paso determinado permanece igual (`script_name`, entradas y parámetros) y no ha cambiado nada más de ` source_directory`, se reutiliza la salida de un paso anterior ejecutado, el trabajo no se envía al proceso y los resultados de la ejecución anterior están inmediatamente disponibles para el siguiente paso.
 
