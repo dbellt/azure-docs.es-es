@@ -4,12 +4,12 @@ description: Modelo de datos de Application Insights para la telemetría de depe
 ms.topic: conceptual
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 0f9fc96479569c3411024068ed614d422035ab17
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 06e22c69e8d2d5187b2f78022302d10d12fe6a6c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87315978"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110098963"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetría de dependencia: Modelo de datos de Application Insights
 
@@ -59,7 +59,7 @@ Indicación de si la llamada es correcta o no.
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Configure el seguimiento de dependencias para [.NET](./asp-net-dependencies.md).
-- Configure el seguimiento de dependencias para [Java](./java-agent.md).
+- Configure el seguimiento de dependencias para [Java](java-2x-agent.md).
 - [Escritura de una telemetría de dependencia personalizada](./api-custom-events-metrics.md#trackdependency)
 - Consulte [modelo de datos](data-model.md) para los tipos y el modelo de datos de Application Insights.
 - Consulte las [plataformas](./platforms.md) compatibles con Application Insights.

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0d4454e18c993aa412daa0570a6e60550caf35cb
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 50bf5f3188728db41f74b6fefe5946ef2127efe3
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783639"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110062315"
 ---
 # <a name="localization-string-ids"></a>Identificadores de cadenas de localización
 
@@ -258,46 +258,46 @@ En el ejemplo siguiente se muestra el uso de algunos de los elementos de la inte
 
 Los siguientes identificadores corresponden a una definición de contenido con un identificador `api.phonefactor` y un [perfil técnico de factor de teléfono](phone-factor-technical-profile.md).
 
-| ID | Valor predeterminado |
-| -- | ------------- |
-| **button_verify** | Llamarme |
-| **country_code_label** | Código de país |
-| **cancel_message** | El usuario ha cancelado la autenticación multifactor. |
-| **text_button_send_second_code** | Envía un código nuevo |
-| **code_pattern** | \\d{6} |
-| **intro_mixed** | Entre sus datos nos consta el número siguiente. Podemos enviarle un código por SMS o por teléfono para autenticar su identidad. |
-| **intro_mixed_p** | Entre sus datos nos constan los números siguientes. Elija un número al que podamos llamarle o enviarle un código por SMS para autenticar su identidad. |
-| **button_verify_code** | Verifique el código |
-| **requiredField_code** | Escriba el código de verificación que ha recibido. |
-| **invalid_code** | Escriba el código de seis dígitos que ha recibido. |
-| **button_cancel** | Cancelar |
-| **local_number_input_placeholder_text** | Número de teléfono |
-| **button_retry** | Reintento |
-| **alternative_text** | No tengo mi teléfono |
-| **intro_phone_p** | Entre sus datos nos constan los números siguientes. Elija un número al que podamos llamarle para autenticar su identidad. |
-| **intro_phone** | Entre sus datos nos consta el número siguiente. Le llamaremos para autenticar su identidad. |
-| **enter_code_text_intro** | Escriba su código de verificación a continuación.  |
-| **intro_entry_phone** | Escriba un número a continuación al que podamos llamar para autenticar su identidad. |
-| **intro_entry_sms** | Escriba un número a continuación al que podamos enviarle un código por SMS para autenticar su identidad. |
-| **button_send_code** | Envié el código |
-| **invalid_number** | Escriba un número de teléfono válido. |
-| **intro_sms** | Entre sus datos nos consta el número siguiente. Le enviaremos un código por SMS para autenticar su identidad. |
-| **intro_entry_mixed** | Escriba un número a continuación al que podamos llamar o enviar un código por SMS para autenticar su identidad. |
-| **number_pattern** | ^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$ |
-| **intro_sms_p** |Entre sus datos nos constan los números siguientes. Elija un número al que podamos enviarle un código por SMS para autenticar su identidad. |
-| **requiredField_countryCode** | Seleccione su código de país. |
-| **requiredField_number** | Escriba su número de teléfono. |
-| **country_code_input_placeholder_text** |País o región |
-| **number_label** | Número de teléfono |
-| **error_tryagain** | El número de teléfono que ha proporcionado está ocupado o no está disponible. Compruebe el número y vuelva a intentarlo. |
-| **error_sms_throttled** | Ha alcanzado el límite en el número de mensajes de texto. Vuelva a intentarlo más tarde. |
-| **error_phone_throttled** | Ha alcanzado el límite en el número de intentos de llamada. Vuelva a intentarlo más tarde. |
-| **error_throttled** | Ha alcanzado el límite en el número de intentos de comprobación. Vuelva a intentarlo más tarde. |
-| **error_incorrect_code** | El código de verificación que ha escrito no figura en nuestros registros. Inténtelo de nuevo o solicite uno nuevo. |
-| **countryList** | Consulte la [lista de países](#phone-factor-authentication-page-example). |
-| **error_448** | No se puede establecer contacto con el número de teléfono que ha proporcionado. |
-| **error_449** | El usuario ha superado el número de reintentos permitidos. |
-| **verification_code_input_placeholder_text** | Código de verificación |
+| ID | Valor predeterminado | Versión de diseño de página |
+| -- | ------------- | ------ |
+| **button_verify** | Llamarme | `All` |
+| **country_code_label** | Código de país | `All` |
+| **cancel_message** | El usuario ha cancelado la autenticación multifactor. | `All` |
+| **text_button_send_second_code** | Envía un código nuevo | `All` |
+| **code_pattern** | \\d{6} | `All` |
+| **intro_mixed** | Entre sus datos nos consta el número siguiente. Podemos enviarle un código por SMS o por teléfono para autenticar su identidad. | `All` |
+| **intro_mixed_p** | Entre sus datos nos constan los números siguientes. Elija un número al que podamos llamarle o enviarle un código por SMS para autenticar su identidad. | `All` |
+| **button_verify_code** | Verifique el código | `All` |
+| **requiredField_code** | Escriba el código de verificación que ha recibido. | `All` |
+| **invalid_code** | Escriba el código de seis dígitos que ha recibido. | `All` |
+| **button_cancel** | Cancelar | `All` |
+| **local_number_input_placeholder_text** | Número de teléfono | `All` |
+| **button_retry** | Reintento | `All` |
+| **alternative_text** | No tengo mi teléfono | `All` |
+| **intro_phone_p** | Entre sus datos nos constan los números siguientes. Elija un número al que podamos llamarle para autenticar su identidad. | `All` |
+| **intro_phone** | Entre sus datos nos consta el número siguiente. Le llamaremos para autenticar su identidad. | `All` |
+| **enter_code_text_intro** | Escriba su código de verificación a continuación.  | `All` |
+| **intro_entry_phone** | Escriba un número a continuación al que podamos llamar para autenticar su identidad. | `All` |
+| **intro_entry_sms** | Escriba un número a continuación al que podamos enviarle un código por SMS para autenticar su identidad. | `All` |
+| **button_send_code** | Envié el código | `All` |
+| **invalid_number** | Escriba un número de teléfono válido. | `All` |
+| **intro_sms** | Entre sus datos nos consta el número siguiente. Le enviaremos un código por SMS para autenticar su identidad. | `All` |
+| **intro_entry_mixed** | Escriba un número a continuación al que podamos llamar o enviar un código por SMS para autenticar su identidad. | `All` |
+| **number_pattern** | ^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$ | `All` |
+| **intro_sms_p** |Entre sus datos nos constan los números siguientes. Elija un número al que podamos enviarle un código por SMS para autenticar su identidad. | `All` |
+| **requiredField_countryCode** | Seleccione su código de país. | `All` |
+| **requiredField_number** | Escriba su número de teléfono. | `All` |
+| **country_code_input_placeholder_text** |País o región | `All` |
+| **number_label** | Número de teléfono | `All` |
+| **error_tryagain** | El número de teléfono que ha proporcionado está ocupado o no está disponible. Compruebe el número y vuelva a intentarlo. | `All` |
+| **error_sms_throttled** | Ha alcanzado el límite en el número de mensajes de texto. Vuelva a intentarlo más tarde. | `>= 1.2.3` |
+| **error_phone_throttled** | Ha alcanzado el límite en el número de intentos de llamada. Vuelva a intentarlo más tarde. | `>= 1.2.3` |
+| **error_throttled** | Ha alcanzado el límite en el número de intentos de comprobación. Vuelva a intentarlo más tarde. | `>= 1.2.3` |
+| **error_incorrect_code** | El código de verificación que ha escrito no figura en nuestros registros. Inténtelo de nuevo o solicite uno nuevo. | `All` |
+| **countryList** | Consulte la [lista de países](#phone-factor-authentication-page-example). | `All` |
+| **error_448** | No se puede establecer contacto con el número de teléfono que ha proporcionado. | `All` |
+| **error_449** | El usuario ha superado el número de reintentos permitidos. | `All` |
+| **verification_code_input_placeholder_text** | Código de verificación | `All` |
 
 En el ejemplo siguiente se muestra el uso de algunos de los elementos de la interfaz de usuario en la página de inscripción a la autenticación multifactor:
 

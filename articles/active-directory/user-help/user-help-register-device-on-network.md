@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 08/31/2020
+ms.date: 05/24/2020
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 0435b99525c34eb72d7cc5315ccb4359859cd528
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b38a0d4c5baf0f19140f2a210959b4904bf130a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90033054"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466378"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Registre su dispositivo personal en la red de su organización
 Registre su dispositivo personal, que suele ser un teléfono o una tablet, en la red de su organización. Una vez registrado su dispositivo, podrá tener acceso a los recursos restringidos de su organización.
@@ -45,24 +45,27 @@ Siga estos pasos para registrar su dispositivo personal en su red.
 
     ![Cuentas en la pantalla Configuración](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Seleccione **Obtener acceso a trabajo o escuela** y seleccione **Conectar** en la pantalla **Obtener acceso a trabajo o escuela**.
+1. Seleccione **Obtener acceso a trabajo o escuela** y seleccione **Conectar** en la pantalla **Obtener acceso a trabajo o escuela**.
 
     ![Pantalla Obtener acceso a trabajo o escuela con la opción Conectar resaltada](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
 
-3. En la pantalla **Agregar una cuenta de trabajo o escuela**, escriba la dirección de correo electrónico de su cuenta profesional o educativa y seleccione **Siguiente**. Por ejemplo, alain@contoso.com.
+1. En la pantalla **Agregar una cuenta de trabajo o escuela**, escriba la dirección de correo electrónico de su cuenta profesional o educativa y seleccione **Siguiente**. Por ejemplo, alain@contoso.com.
 
-4. Inicie sesión en su cuenta profesional o educativa y seleccione **Iniciar sesión**.
+1. Inicie sesión en su cuenta profesional o educativa y seleccione **Iniciar sesión**.
 
-5. Complete el resto del proceso de registro, incluidas la aprobación de su solicitud de verificación de identidad (si usa la verificación en dos pasos) y la configuración de Windows Hello (si es necesario).
+1. Complete el resto del proceso de registro, incluidas la aprobación de su solicitud de verificación de identidad (si usa la verificación en dos pasos) y la configuración de Windows Hello (si es necesario).
+
+1. Reinicie el dispositivo.
 
 ## <a name="to-verify-that-youre-registered"></a>Para verificar que está registrado
+
 Puede asegurarse de que se ha registrado fijándose en su configuración.
 
 1. Abra **Configuración** y, a continuación, seleccione **Cuentas**.
 
     ![Cuentas en la pantalla Configuración](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Seleccione **Obtener acceso a trabajo o escuela** y asegúrese de que ve su cuenta profesional o educativa.
+1. Seleccione **Obtener acceso a trabajo o escuela** y asegúrese de que ve su cuenta profesional o educativa.
 
     ![Pantalla Obtener acceso a trabajo o escuela con cuenta Contoso conectada](./media/user-help-register-device-on-network/register-device-setup-verify.png)
 

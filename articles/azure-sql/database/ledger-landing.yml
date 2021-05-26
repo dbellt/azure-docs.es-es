@@ -1,0 +1,96 @@
+### YamlMime:Landing
+title: Documentación del libro de contabilidad de Azure SQL Database
+summary: Búsqueda de documentación sobre el libro de contabilidad de Azure SQL Database
+metadata:
+  title: Documentación del libro de contabilidad de Azure SQL Database
+  description: Búsqueda de documentación del libro de contabilidad para Azure SQL Database
+  ms.service: sql-database
+  ms.subservice: security
+  ms.tgt_pltfrm: na
+  ms.devlang: 
+  ms.topic: landing-page
+  author: VanMSFT
+  ms.author: vanto
+  ms.reviewer: 
+  ms.date: 05/25/2021
+  ms.openlocfilehash: 18bbf2d2747d65cd177520c44d68fdda224f385c
+  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 05/25/2021
+  ms.locfileid: "110402072"
+landingContent:
+- title: Introducción al libro de contabilidad de Azure SQL Database
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es el libro de contabilidad de Azure SQL Database?
+      url: ledger-overview.md
+- title: Conceptos sobre el libro de contabilidad
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: ¿Qué es el libro de contabilidad de base de datos?
+      url: ledger-database-ledger.md
+    - text: Tablas de libro de contabilidad de solo anexión
+      url: ledger-append-only-ledger-tables.md
+    - text: Tablas de libro de contabilidad actualizables
+      url: ledger-updatable-ledger-tables.md
+- title: Inicios rápidos del libro de contabilidad
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creación de una instancia de Azure SQL Database con el libro de contabilidad habilitado
+      url: ledger-create-a-single-database-with-ledger-enabled.md
+- title: Uso del libro de contabilidad
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Creación de tablas de libro de contabilidad de solo anexión
+      url: ledger-how-to-append-only-ledger-tables.md
+    - text: Creación de tablas de libro de contabilidad actualizables
+      url: ledger-how-to-updatable-ledger-tables.md
+    - text: Acceso a los resúmenes almacenados en Azure Confidential Ledger (ACL)
+      url: ledger-how-to-access-acl-digest.md
+    - text: Comprobación de una tabla de libro de contabilidad para detectar alteraciones
+      url: ledger-verify-database.md
+- title: Administración, comprobación y almacenamiento del libro de contabilidad
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Administración de resúmenes y comprobación de la base de datos
+      url: ledger-digest-management-and-database-verification.md
+    - text: Auditoría del libro de contabilidad
+      url: ledger-audit.md
+- title: Referencias del libro de contabilidad
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Limitaciones actuales del libro de contabilidad
+      url: ledger-limits.md
+    - text: Notas del producto del libro de contabilidad de Azure SQL Database
+      url: https://aka.ms/sql-ledger-whitepaper
+- title: Vistas de catálogo del sistema del libro de contabilidad
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: sys.database_ledger_blocks (Transact-SQL)
+      url: /sql/relational-databases/system-catalog-views/sys-database-ledger-blocks-transact-sql
+    - text: sys.database_ledger_transactions (Transact-SQL)
+      url: /sql/relational-databases/system-catalog-views/sys-database-ledger-transactions-transact-sql
+    - text: sys.database_ledger_digest_locations (Transact-SQL)
+      url: /sql/relational-databases/system-catalog-views/sys-database-ledger-digest-locations-transact-sql
+    - text: sys.ledger_table_history (Transact-SQL)
+      url: /sql/relational-databases/system-catalog-views/sys-ledger-table-history-transact-sql
+    - text: sys.ledger_column_history (Transact-SQL)
+      url: /sql/relational-databases/system-catalog-views/sys-ledger-column-history-transact-sql
+- title: Procedimientos de almacén del libro de contabilidad
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: sys.sp_generate_database_ledger_digest (Transact-SQL)
+      url: /sql/relational-databases/system-stored-procedures/sys-sp-generate-database-ledger-digest-transact-sql
+    - text: sys.sp_verify_database_ledger (Transact-SQL)
+      url: /sql/relational-databases/system-stored-procedures/sys-sp-verify-database-ledger-transact-sql
+    - text: sys.sp_verify_database_ledger_from_digest_storage (Transact-SQL)
+      url: /sql/relational-databases/system-stored-procedures/sys-sp-verify-database-ledger-from-digest-storage-transact-sql

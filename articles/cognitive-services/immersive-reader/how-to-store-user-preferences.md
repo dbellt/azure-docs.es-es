@@ -1,6 +1,6 @@
 ---
 title: Almacenamiento de las preferencias del usuario
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: En este artículo se muestra cómo almacenar las preferencias del usuario.
 author: metanMSFT
 manager: guillasi
@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: how-to
 ms.date: 06/29/2020
 ms.author: metang
-ms.openlocfilehash: 16ecd2166604d29fbc2242229f625b30ffd684e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b3ac552d60515d907157e9d4d778aef9bd7bb380
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102617699"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373864"
 ---
 # <a name="how-to-store-user-preferences"></a>Procedimiento: Almacenamiento de las preferencias del usuario
 

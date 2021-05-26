@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/13/2021
 ms.author: aahi
 keywords: local, Docker, contenedor, Kubernetes
-ms.openlocfilehash: e047a96dc154ecc57226b7ecf4f673e86547fbd3
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b6414d1a4fabb1d052151aec110dce2cde6c70cb
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110465063"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379035"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contenedores de Azure Cognitive Services
 

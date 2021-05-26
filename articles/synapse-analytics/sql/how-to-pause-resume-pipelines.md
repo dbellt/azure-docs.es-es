@@ -7,12 +7,12 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.date: 02/05/2021
 ms.custom: template-how-to
-ms.openlocfilehash: b75f1e7df44840618accdbcc3b8d95eba9d2e228
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 454c25891759d99b3f622d66920f20d2ec0f1a6c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108776762"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110081647"
 ---
 # <a name="pause-and-resume-dedicated-sql-pools-with-synapse-pipelines"></a>Pausa y reanudación de grupos de SQL dedicados con canalizaciones de Synapse
 
@@ -48,7 +48,7 @@ Las canalizaciones de Synapse permiten la automatización de la pausa y la reanu
 
 - Un [área de trabajo de Azure Synapse](../get-started-create-workspace.md) existente.
 - Al menos un [grupo de SQL dedicado](../get-started-analyze-sql-pool.md).
-- El área de trabajo debe tener asignado el rol de colaborador de Azure. Consulte [Concesión del rol Colaborador de Azure a los administradores de Synapse en el área de trabajo](https://review.docs.microsoft.com/en-us/azure/synapse-analytics/security/how-to-set-up-access-control?branch=pr-en-us-146232#step-5-grant-synapse-administrators-the-azure-contributor-role-on-the-workspace).
+- El área de trabajo debe tener asignado el rol de colaborador de Azure. Consulte [Concesión del rol Colaborador de Azure a los administradores de Synapse en el área de trabajo](../security/how-to-set-up-access-control.md#step-5-grant-synapse-administrators-the-azure-contributor-role-on-the-workspace).
 
 ## <a name="step-1-create-a-pipeline-in-synapse-studio"></a>Paso 1: Creación de una canalización en Synapse Studio
 1. Vaya al área de trabajo y abra Synapse Studio. 

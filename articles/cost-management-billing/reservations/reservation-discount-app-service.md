@@ -1,23 +1,23 @@
 ---
 title: Descuentos de reserva para Azure App Service
-description: Obtenga información sobre cómo se aplican los descuentos de reserva a instancias de Premium v3 y timbres en entorno aislado de Azure App Service.
+description: Obtenga información sobre cómo se aplican los descuentos de reserva a instancias de Azure App Service Premium v3 y Premium v2 y unidades de escalado aisladas.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 05/13/2021
 ms.author: banders
-ms.openlocfilehash: c599c64ce4b22bbf7bece77602b22fef6629d07c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b6230f86fc33dca290f6d61f923024c9352d8600
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369737"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378515"
 ---
-# <a name="how-reservation-discounts-apply-to-azure-app-service-premium-v3-instances-and-isolated-stamps"></a>Aplicación de descuentos de reserva a instancias de Premium v3 y timbres en entorno aislado de Azure App Service.
+# <a name="how-reservation-discounts-apply-to-azure-app-service"></a>Aplicación de los descuentos de reserva a Azure App Service
 
-En este artículo se describe cómo se aplican los descuentos de reserva a instancias de Premium v3 y timbres en entorno aislado de Azure App Service.
+Este artículo ayuda a entender cómo se aplican los descuentos a instancias de Azure App Service Premium v3 y Premium v2 y unidades de escalado aisladas.
 
 ## <a name="how-reservation-discounts-apply-to-premium-v3-instances"></a>Aplicación de descuentos de reserva a instancias de Premium v3
 
@@ -38,6 +38,20 @@ El descuento de reserva de Azure se aplica a las instancias de Premium v3 en ej
 2.  En la hora 1, la instancia 1 se ejecuta durante 0,75 horas y la instancia 2 se ejecuta durante 0,5 horas. El uso total de la hora 1 es de 1,25 horas. Se le cobrará según las tarifas de pago por uso para las 0,25 horas restantes.
 3.  Para las horas 2 y 3, ambas instancias se ejecutaron durante 1 hora cada una. Una instancia está cubierta por la reserva, mientras que la otra se cobra según las tarifas de pago por uso.
 4.  Durante la hora 4, la instancia 1 se ejecuta durante 0,5 horas y la instancia 2 se ejecuta durante 1 hora. La instancia 1 está cubierta al completo por la reserva y 0,5 horas de la instancia 2 también. Se le cobrará según la tarifa de pago por uso por las 0,5 horas restantes.
+
+Para comprender y ver la aplicación de Azure Reservations en los informes de uso de facturación consulte [Información sobre el uso de reservas](understand-reserved-instance-usage-ea.md).
+
+## <a name="how-reservation-discounts-apply-to-isolated-v2-instances"></a>Aplicación de descuentos de reserva a instancias de App Service aislado v2
+
+Después de comprar una instancia reservada de Azure App Service aislado v2, el descuento de reserva se aplica automáticamente a las instancias de App Service que coinciden con los atributos y la cantidad de la reserva. Una reserva cubre el costo de las instancias de App Service aislado v2.
+
+### <a name="how-the-discount-is-applied-to-azure-app-service"></a>Aplicación de descuento a Azure App Service
+
+Un descuento por reserva es para _usarlo o perderlo_. Por lo tanto, si no tiene recursos coincidentes para ninguna hora, perderá una cantidad de reserva para esa hora. No se pueden arrastrar las horas reservadas no utilizadas. Al cerrar un recurso, el descuento por reserva se aplica automáticamente a otro recurso que coincida con el ámbito especificado. Si no se encuentran recursos coincidentes en el ámbito especificado, las horas reservadas se pierden.
+
+### <a name="reservation-discount-for-isolated-v2-instances"></a>Descuento de reserva para instancias de App Service aislado v2
+
+El descuento de reserva de Azure se aplica a las instancias de App Service aislado v2 en ejecución por hora. Las reservas compradas se comparan con el uso emitido por las instancias de App Service aislado v2 en ejecución a fin de aplicar el descuento de reserva. En el caso de las instancias de App Service aislado v2 que no se ejecuten la hora completa, se completa la reserva con otras instancias que no usen una reserva, incluidas las que se ejecutan simultáneamente. Al final de la hora, se bloquea la aplicación de reserva para las instancias en dicha hora. En el caso de que una instancia no se ejecute durante una hora o que haya instancias simultáneas dentro de la hora que no llenen la hora de reserva, la reserva estará infrautilizada durante esa hora.
 
 Para comprender y ver la aplicación de Azure Reservations en los informes de uso de facturación consulte [Información sobre el uso de reservas](understand-reserved-instance-usage-ea.md).
 

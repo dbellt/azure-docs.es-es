@@ -11,12 +11,12 @@ ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: automated data processing, document processing, automated data entry, forms processing
-ms.openlocfilehash: b3991d6cce5505a88250a4f470565f6b191667e2
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: fc87a621aa58d058efc2420c7baaa81fffdb69e6
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110453378"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374092"
 ---
 # <a name="what-is-azure-form-recognizer"></a>¿Qué es Azure Form Recognizer?
 
@@ -31,7 +31,7 @@ Esta documentación contiene los siguientes tipos de artículos:
 * Los [**conceptos**](concept-layout.md) proporcionan explicaciones detalladas sobre la funcionalidad y las características del servicio.
 * Los [**inicios rápidos**](quickstarts/client-library.md) son instrucciones de inicio que le guiarán a la hora de hacer solicitudes al servicio.
 * Las [**guías de procedimientos**](build-training-data-set.md) contienen instrucciones para usar el servicio de una manera más específica o personalizada.
-* Los [**tutoriales**](tutorial-ai-builder.md) son guías más largas que muestran cómo usar el servicio como un componente en soluciones empresariales más amplias.
+* Los [**tutoriales**](tutorial-bulk-processing.md) son guías más largas que muestran cómo usar el servicio como un componente en soluciones empresariales más amplias.
 
 ## <a name="form-recognizer-features"></a>Características de Form Recognizer
 

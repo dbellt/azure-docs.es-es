@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial, devx-track-azurecli
-ms.openlocfilehash: e27923ff1f29163f5d3390c2c92a11f3adfa5c87
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3d7b88007a27b05119ebe93217c64279c8c541ff
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126640"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373411"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>Tutorial: Implementación de CI/CD con GitOps mediante clústeres de Kubernetes habilitados para Azure Arc
 
@@ -40,7 +40,7 @@ En este tutorial se da por supuesto que está familiarizado con Azure DevOps, Az
 * Complete el [tutorial anterior](./tutorial-use-gitops-connected-cluster.md) para obtener información sobre cómo implementar GitOps para su entorno de CI/CD.
 * Conozca las [ventajas y arquitectura](./conceptual-configurations.md) de esta característica.
 * Compruebe que tiene:
-  * Un [clúster de Kubernetes conectado habilitado para Azure Arc](./quickstart-connect-cluster.md#connect-an-existing-kubernetes-cluster) con el nombre **arc-cicd-cluster**.
+  * Un [clúster de Kubernetes conectado habilitado para Azure Arc](./quickstart-connect-cluster.md#3-connect-an-existing-kubernetes-cluster) con el nombre **arc-cicd-cluster**.
   * Una instancia conectada de Azure Container Registry (ACR) con la [integración de AKS](../../aks/cluster-container-registry-integration.md) o la [autenticación de un clúster que no es de AKS](../../container-registry/container-registry-auth-kubernetes.md).
   * Permisos "Administrador de compilación" y "Administrador de proyectos" para [Azure Repos](/azure/devops/repos/get-started/what-is-repos) y [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started).
 * Instale las siguientes extensiones de versiones de la CLI de Kubernetes habilitado para Azure Arc >= 1.0.0:
@@ -181,14 +181,13 @@ Para evitar tener que establecer un secreto de extracción de imágenes para cad
 | ENVIRONMENT_NAME | Desarrollo |
 | MANIFESTS_BRANCH | `master` |
 | MANIFESTS_REPO | Cadena de conexión de Git para el repositorio de GitOps |
-| PAT | [Token de PAT creado](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate#create-a-pat) con permisos de lectura y escritura de código fuente. Guárdelo para usarlo más adelante al crear el grupo de variables `stage`. |
+| ORGANIZATION_NAME | Nombre de la organización de Azure DevOps |
+| PROJECT_NAME | Nombre del proyecto de GitOps en Azure DevOps |
+| REPO_URL | Dirección URL completa del repositorio de GitOps |
 | SRC_FOLDER | `azure-vote` | 
 | TARGET_CLUSTER | `arc-cicd-cluster` |
 | TARGET_NAMESPACE | `dev` |
 
-> [!IMPORTANT]
-> Marque el PAT como tipo secreto. En las aplicaciones, considere la posibilidad de vincular los secretos desde un almacén de [Azure Key Vault](/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault).
->
 ### <a name="stage-environment-variable-group"></a>Grupo de variables del entorno de fase
 
 1. Clone el grupo de variables **az-vote-app-dev**.
@@ -201,6 +200,20 @@ Para evitar tener que establecer un secreto de extracción de imágenes para cad
 | TARGET_NAMESPACE | `stage` |
 
 Ahora está listo para realizar la implementación en los entornos `dev` y `stage`.
+
+## <a name="give-more-permissions-to-the-build-service"></a>Concesión de más permisos al servicio de compilación
+La canalización de CD usa el token de seguridad de la compilación en ejecución para autenticarse en el repositorio de GitOps. Se necesitan más permisos para que la canalización cree una nueva rama, inserte cambios y cree solicitudes de extracción.
+
+1. Vaya a `Project settings` desde la página principal del proyecto de Azure DevOps.
+1. Seleccione `Repositories`.
+1. Seleccione `<GitOps Repo Name>`.
+1. Seleccione `Security`. 
+1. Para `<Project Name> Build Service (<Organization Name>)`, permita `Contribute`, `Contribute to pull requests` y `Create branch`.
+
+Para más información, consulte:
+- [Concesión de permisos de VC al servicio de compilación](https://docs.microsoft.com/azure/devops/pipelines/scripts/git-commands?view=azure-devops&tabs=yaml&preserve-view=true#version-control )
+- [Administración de permisos de cuenta de servicio de compilación](https://docs.microsoft.com/azure/devops/pipelines/process/access-tokens?view=azure-devops&tabs=yaml&preserve-view=true#manage-build-service-account-permissions)
+
 
 ## <a name="deploy-the-dev-environment-for-the-first-time"></a>Implementación en el entorno de desarrollo por primera vez
 Con las canalizaciones de CI y CD creadas, ejecute la canalización de CI para implementar la aplicación por primera vez.
@@ -219,6 +232,8 @@ La canalización de CI:
 * Comprueba que la imagen de Docker ha cambiado y que se ha insertado la nueva imagen.
 
 ### <a name="cd-pipeline"></a>Canalización de CD
+Durante la ejecución inicial de la canalización de CD, se le pedirá que dé acceso a la canalización al repositorio de GitOps. Seleccione Ver cuando se le indique que la canalización necesita permiso para acceder a un recurso. A continuación, seleccione Permitir para conceder permiso para usar el repositorio de GitOps para las ejecuciones actuales y futuras de la canalización.
+
 La ejecución correcta de la canalización de CI desencadena la canalización de CD para completar el proceso de implementación. Realizará la implementación en cada entorno de forma incremental.
 
 > [!TIP]

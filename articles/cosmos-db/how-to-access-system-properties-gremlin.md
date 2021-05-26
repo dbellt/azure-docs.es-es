@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/10/2019
 author: SnehaGunda
 ms.author: sngun
-ms.openlocfilehash: 61814082ebe9828a08da1e8786890b500c239082
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad5d24acb96170bdccd3d3b06d21b6f2ee86eb4b
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93081848"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110073655"
 ---
 # <a name="system-document-properties"></a>Propiedades de documentos del sistema
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -42,5 +42,5 @@ g.addV('vertex-one').property('ttl', 123)
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Simultaneidad optimista de Cosmos DB](faq.md#how-does-the-sql-api-provide-concurrency)
+* [Simultaneidad optimista de Cosmos DB](faq.yml#how-does-the-sql-api-provide-concurrency-)
 * [Período de vida (TTL)](time-to-live.md) en Azure Cosmos DB
