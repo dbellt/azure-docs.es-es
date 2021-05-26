@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 05/25/2021
 ms.reviewer: sngun
-ms.openlocfilehash: b0d27cb2f941db374a144cbd5c026444730e24e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b143f3628747cc39060c999a6fee6b5950be4ee
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98247512"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376819"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entienda la factura de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -217,38 +217,51 @@ La factura mensual total (suponiendo 30 días o 720 horas en un mes) se calcular
 
 ## <a name="billing-examples-with-azure-cosmos-db-free-tier-accounts"></a><a id="azure-free-tier"></a>Ejemplos de facturación con cuentas de nivel Gratis de Azure Cosmos DB
 
-Con el nivel Gratis de Azure Cosmos DB, obtendrá en la cuenta las primeras 400 RU/s y 5 GB de almacenamiento gratis, que se aplicarán en el nivel de cuenta. Las RU/s y el almacenamiento que superen, respectivamente, las 400 RU/s y los 5 GB, se facturarán según las tarifas de precios habituales de la página de precios. En la factura no verá un cargo o una partida por las 400 RU/s y los 5 GB gratis, solo por las RU/s y el almacenamiento que supere lo que cubre el nivel Gratis. Las 400 RU/s se aplican a cualquier tipo de RU/s: rendimiento aprovisionado, escalabilidad automática y escrituras en varias regiones.  
-
-> [!NOTE]
-> El nivel Gratis de Azure Cosmos DB es diferente de la cuenta gratuita de Azure. La cuenta gratuita de Azure ofrece créditos y recursos de Azure de forma gratuita durante un tiempo limitado. Al usar Azure Cosmos DB como parte de esta cuenta gratuita, obtendrá 25 GB de almacenamiento y 400 RU/s de rendimiento aprovisionado durante 12 meses.
+Con el nivel Gratis de Azure Cosmos DB, obtendrá en la cuenta las primeras 1000 RU/s y 25 GB de almacenamiento gratis, que se aplicarán en el nivel de cuenta. Las RU/s y el almacenamiento que superen, respectivamente, las 1000 RU/s y los 25 GB, se facturarán según las tarifas de precios habituales de la página de precios. En la factura no verá un cargo o una partida por las 1000 RU/s y los 25 GB gratis, solo por las RU/s y el almacenamiento que supere lo que cubre el nivel Gratis. Para más información, consulte el artículo sobre la [creación de una cuenta de nivel Gratis](free-tier.md).
 
 ### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>Ejemplo de facturación: contenedor o base de datos con capacidad de proceso aprovisionada
-- Supongamos que creamos una base de datos o un contenedor en una cuenta de nivel Gratis con 400 RU/s y 5 GB de almacenamiento.
+
+- Supongamos que creamos una base de datos o un contenedor en una cuenta de nivel Gratis con 1000 RU/s y 25 GB de almacenamiento.
 - La factura no mostrará ningún cargo por este recurso. El costo por hora y mensual será de 0 USD.
-- Supongamos ahora que en la misma cuenta agregamos otra base de datos o contenedor con 1000 RU/s y 10 GB de almacenamiento.
-- La factura mostrará un cargo por los 1000 RU/s y los 10 GB de almacenamiento. 
+- Supongamos ahora que en la misma cuenta agregamos otra base de datos o contenedor con 400 RU/s y 10 GB de almacenamiento.
+- La factura mostrará un cargo por los 400 RU/s y los 10 GB de almacenamiento.
 
 ### <a name="billing-example---container-with-autoscale-throughput"></a>Ejemplo de facturación: contenedor con rendimiento de escalabilidad automática
-- Supongamos que en una cuenta de nivel Gratis creamos un contenedor con escalabilidad automática habilitada, con un máximo de 4000 RU/s. Este recurso se escalará automáticamente entre 400 y 4000 RU/s. 
-- Supongamos que, desde la hora 1 a la hora 10, el recurso se sitúa en el mínimo de 400 RU/s. Durante la hora 11, el recurso se escala verticalmente hasta 1000 RU/s y después vuelve a 400 RU/s en la misma hora.
-- En las horas de 1 a 10 se le facturará 0 USD por la capacidad de proceso, ya que las 400 RU/s están cubiertas por el nivel Gratis. 
-- En la hora 11 se le facturará por una cantidad efectiva de 1000 RU/s - 400 RU/s = 600 RU/s, ya que es el valor máximo de RU/s de la hora. Serán 6 unidades de 100 RU/s por la hora, por lo que el costo de capacidad de proceso total de la hora será de 6 unidades * 0,012 USD = 0,072 USD. 
-- Cualquier almacenamiento que supere los primeros 5 GB se facturará a las tarifas de almacenamiento normales. 
+
+- Supongamos que en una cuenta de nivel Gratis creamos un contenedor con escalabilidad automática habilitada, con un máximo de 4000 RU/s. Este recurso se escalará automáticamente entre 400 y 4000 RU/s.
+- Supongamos que, de la hora 1 a la hora 10, el recurso se escala a 1000 RU/s. Durante la hora 11, el recurso se escala verticalmente hasta 1600 RU/s y después vuelve a 1000 RU/s en la misma hora.
+- En las horas de 1 a 10 se le facturará 0 USD por la capacidad de proceso, ya que las 1000 RU/s están cubiertas por el nivel Gratis.
+- En la hora 11 se le facturará por una cantidad efectiva de 1600 RU/s - 1000 RU/s = 600 RU/s, ya que es el valor máximo de RU/s de la hora. Serán 6 unidades de 100 RU/s por la hora, por lo que el costo de capacidad de proceso total de la hora será de 6 unidades * 0,012 USD = 0,072 USD.
+- Cualquier almacenamiento que supere los primeros 25 GB se facturará a las tarifas de almacenamiento normales.
 
 ### <a name="billing-example---multi-region-single-write-region-account"></a>Ejemplo de facturación: cuenta de varias regiones, con una sola región de escritura
+
 - Supongamos que en una cuenta de nivel Gratis creamos una base de datos o un contenedor con 1200 RU/s y 10 GB de almacenamiento. La cuenta se replica en 3 regiones y se tiene una cuenta de una sola región de escritura.
 - En total, sin el nivel Gratis, se le facturarían 3 * 1200 RU/s = 3600 RU/s y 3 * 10 GB = 30 GB de almacenamiento.
-- Con el descuento por nivel Gratis, después de quitar 400 RU/s y 5 GB de almacenamiento, se le facturará por una cantidad efectiva de 3200 RU/s (32 unidades) de capacidad de proceso aprovisionada con la tarifa de región de escritura única y 25 GB de almacenamiento.
-- El costo mensual de RU/s sería: 32 unidades * 0,008 USD * 24 horas * 31 días = 190,46 USD. El costo mensual del almacenamiento sería: 25 GB * 0,25/GB = 6,25 USD. El costo total sería de 190,46 + 6,25 = 196,71 USD.
-- Nota: Si el precio por unidad de RU/s o de almacenamiento difiere en las regiones, las 400 RU/s y los 5 GB del nivel Gratis reflejarán las tarifas de la región donde se creó la cuenta.
+- Con el descuento por nivel Gratis, después de quitar 1000 RU/s y 25 GB de almacenamiento, se le facturará por una cantidad efectiva de 2600 RU/s (26 unidades) de capacidad de proceso aprovisionada con la tarifa de región de escritura única y 5 GB de almacenamiento.
+- El costo mensual de RU/s sería: 26 unidades * 0,008 USD * 24 horas * 31 días = 154,75 USD. El costo mensual del almacenamiento sería: 5 GB * 0,25/GB = 1,25 USD. El costo total sería de 154,75 USD + 1,25 USD = 156 USD.
+
+> [!NOTE]
+> Si el precio por unidad de RU/s o de almacenamiento difiere en las regiones, las 1000 RU/s y los 25 GB del nivel Gratis reflejarán las tarifas de la región donde se creó la cuenta.
 
 ### <a name="billing-example---multi-region-account-with-multiple-write-regions"></a>Ejemplo de facturación: cuenta de varias regiones con escritura en varias regiones
 
-Este ejemplo refleja los [precios de las escrituras en varias regiones](https://azure.microsoft.com/pricing/details/cosmos-db/) de las cuentas creadas después del 1 de diciembre de 2019. 
-- Supongamos que en una cuenta de nivel Gratis creamos una base de datos o un contenedor con 1200 RU/s y 10 GB de almacenamiento. La cuenta se replica en 3 regiones y se tiene una cuenta de escritura en varias regiones. 
+Este ejemplo refleja los [precios de las escrituras en varias regiones](https://azure.microsoft.com/pricing/details/cosmos-db/) de las cuentas creadas después del 1 de diciembre de 2019.
+
+- Supongamos que en una cuenta de nivel Gratis creamos una base de datos o un contenedor con 1200 RU/s y 10 GB de almacenamiento. La cuenta se replica en 3 regiones y se tiene una cuenta de escritura en varias regiones.
 - En total, sin el nivel Gratis, se le facturarían 3 * 1200 RU/s = 3600 RU/s y 3 * 10 GB = 30 GB de almacenamiento.
-- Con el descuento por nivel Gratis, después de quitar 400 RU/s y 5 GB de almacenamiento, se le facturará por una cantidad efectiva de 3200 RU/s (32 unidades) de capacidad de proceso aprovisionada con la tarifa de varias regiones de escritura y 25 GB de almacenamiento.
-- El costo mensual de RU/s sería: 32 unidades * 0,016 USD * 24 horas * 31 días = 380,93 USD. El costo mensual del almacenamiento sería: 25 GB * 0,25/GB = 6,25 USD. El costo total sería de 380,93 + 6,25 = 387,18 USD.
+- Con el descuento por nivel Gratis, después de quitar 1000 RU/s y 25 GB de almacenamiento, se le facturará por una cantidad efectiva de 2600 RU/s (26 unidades) de capacidad de proceso aprovisionada con la tarifa de varias regiones de escritura y 5 GB de almacenamiento.
+- El costo mensual de RU/s sería: 26 unidades * 0,016 USD * 24 horas * 31 días = 309,50 USD. El costo mensual del almacenamiento sería: 5 GB * 0,25/GB = 1,25 USD. El costo total sería de 309,50 USD + 1,25 USD = 310,75 USD.
+
+### <a name="billing-example--azure-free-account"></a>Ejemplo de facturación: cuenta gratuita de Azure
+
+Supongamos que tiene una cuenta gratuita de Azure, que incluye una cuenta de Azure Cosmos DB de nivel Gratis. La cuenta de Azure Cosmos DB cuenta tiene una sola región de escritura.
+
+- Ha creado una base de datos o un contenedor con 2000 RU/s y 55 GB de almacenamiento.
+- Durante los primeros 12 meses, la factura no mostrará ningún cargo por 1400 RU/s (1000 RU/s del nivel Gratis de Azure Cosmos DB y 400 RU/s de la cuenta gratuita de Azure) y 50 GB de almacenamiento (25 GB del nivel Gratis de Azure Cosmos DB y 25 GB de la cuenta gratuita de Azure).
+- Después de quitar 1400 RU/s y 50 GB de almacenamiento, se le facturará por una cantidad efectiva de 600 RU/s (6 unidades) de capacidad de proceso aprovisionada con la tarifa de región de escritura única y 5 GB de almacenamiento.
+- El costo mensual de RU/s sería: 6 unidades * 0,008 USD * 24 horas * 31 días = 35,72 USD. El costo mensual del almacenamiento sería: 5 GB * 0,25/GB = 1,25 USD. El costo total sería de 35,72 USD + 1,25 USD = 36,97 USD.
+- Después del período de 12 meses, el descuento de la cuenta gratuita de Azure ya no es aplicable. Con el descuento por nivel Gratis de Azure Cosmos DB aplicado, se le facturará por 1000 RU/s efectivas (10 unidades) de rendimiento aprovisionado a la tarifa de región de escritura única y 30 GB de almacenamiento.
 
 ## <a name="proactively-estimating-your-monthly-bill"></a>Cálculo proactivo de la factura mensual  
 

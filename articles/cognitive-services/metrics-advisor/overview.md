@@ -1,6 +1,6 @@
 ---
-title: ¿Qué es el servicio Metrics Advisor?
-titleSuffix: Azure Cognitive Services
+title: ¿Qué es el servicio Azure Metrics Advisor?
+titleSuffix: Azure Applied AI Services
 description: ¿Qué es Metrics Advisor?
 services: cognitive-services
 author: mrbullwinkle
@@ -10,16 +10,16 @@ ms.subservice: metrics-advisor
 ms.topic: overview
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: dfdd7286013bbb6462fb8e5b1bdf52e6ed738029
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 34ab524cfc00cf4f74d632883ffeb18b904342a6
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384687"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376854"
 ---
-# <a name="what-is-metrics-advisor-preview"></a>¿Qué es Metrics Advisor (versión preliminar)? 
+# <a name="what-is-azure-metrics-advisor-preview"></a>¿Qué es Azure Metrics Advisor (versión preliminar)? 
 
-Metrics Advisor forma parte de Azure Cognitive Services que usa inteligencia artificial para realizar la supervisión de datos y la detección de anomalías en los datos de series temporales. El servicio automatiza el proceso de aplicación de modelos a los datos y proporciona un conjunto de API y un área de trabajo basada en web para la ingesta de datos, la detección de anomalías y los diagnósticos, sin necesidad de conocer el aprendizaje automático. Los desarrolladores pueden crear aplicaciones de AIOps, mantenimiento de predictivo y supervisión empresarial basadas en el servicio. Use Metrics Advisor para:
+Metrics Advisor forma parte de [Azure Applied AI Services](../../applied-ai-services/what-are-applied-ai-services.md), que usa inteligencia artificial para realizar la supervisión de datos y la detección de anomalías en los datos de series temporales. El servicio automatiza el proceso de aplicación de modelos a los datos y proporciona un conjunto de API y un área de trabajo basada en web para la ingesta de datos, la detección de anomalías y los diagnósticos, sin necesidad de conocer el aprendizaje automático. Los desarrolladores pueden crear aplicaciones de AIOps, mantenimiento de predictivo y supervisión empresarial basadas en el servicio. Use Metrics Advisor para:
 
 * Analizar los datos multidimensionales de varios orígenes de datos
 * Identificar y correlacionar las anomalías

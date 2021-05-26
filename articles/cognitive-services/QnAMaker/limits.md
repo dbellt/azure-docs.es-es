@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: ad498575b029f918538909a9b5b2d52c71c1389c
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: c654153340586004415b9d2fd8744fb539726960
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816375"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369413"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Límites de la base de conocimiento de QnA Maker
 
@@ -52,7 +52,7 @@ Los nombres de archivo no pueden incluir los siguientes caracteres:
 El número máximo de archivos que se pueden extraer y tamaño máximo del archivo se basa en los **[límites del plan de tarifa de QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)** .
 
 > [!NOTE]
-> QnA Maker administrado (versión preliminar) es un servicio gretuito que no tiene límites en cuanto al número de orígenes que se pueden agregar. Su rendimiento está actualmente limitado a 10 transacciones por segundo tanto para las API de administración como para las de predicción.
+> Respuesta personalizada a preguntas (versión preliminar) es un servicio gratuito sin límites en cuanto al número de orígenes que se pueden agregar. Su rendimiento está actualmente limitado a 10 transacciones por segundo tanto para las API de administración como para las de predicción.
 
 ### <a name="maximum-number-of-deep-links-from-url"></a>Número máximo de vínculos profundos de la dirección URL
 
@@ -128,6 +128,9 @@ Estos representan los límites cuando se usa la API precompilada para *generar r
 * Número de documentos: 5
 * Tamaño máximo de un solo documento: 5120 caracteres.
 * 3 respuestas como máximo por documento.
+
+> [!IMPORTANT]
+> La compatibilidad con archivos o contenido sin estructurar y la API precompilada solo está disponible en Respuesta personalizada a preguntas (versión preliminar)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

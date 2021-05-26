@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9f9626ebdcc52f9aeb2b9283dac6c5790e3df8cf
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 7503c0ffff064f0fee0352beb0955c964c7770b9
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108179967"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368359"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Consulta de archivos del almacenamiento con el grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -34,6 +34,7 @@ Para tener una experiencia fluida en las consultas en contexto de los datos que 
 - [Consulta de varios archivos o carpetas](#query-multiple-files-or-folders)
 - [Formato de archivo PARQUET](#query-parquet-files)
 - [Consulta de CSV y texto delimitado (terminador de campo, terminador de fila, carácter de escape)](#query-csv-files)
+- [Formato DELTA LAKE](#query-delta-lake-format)
 - [Lectura de un subconjunto de columnas elegido](#read-a-chosen-subset-of-columns)
 - [Inferencia de esquemas](#schema-inference)
 - [Función filename](#filename-function)
@@ -42,11 +43,11 @@ Para tener una experiencia fluida en las consultas en contexto de los datos que 
 
 ## <a name="query-parquet-files"></a>Consulta de archivos de PARQUET
 
-Para consultar los datos de origen con formato Parquet, use FORMAT = 'PARQUET'
+Para consultar los datos de origen de Parquet, use FORMAT = 'PARQUET':
 
 ```syntaxsql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net//mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
+OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
 WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
@@ -67,6 +68,19 @@ Hay algunas opciones adicionales que se pueden usar para ajustar las reglas de a
 El parámetro ESCAPE_CHAR se aplicará, independientemente de que FIELDQUOTE esté habilitado o no. No se utilizará como carácter de escape el carácter de comillas. El carácter de comillas se debe escapar con otro carácter de comillas. El carácter de comillas solo puede aparecer dentro del valor de la columna si el valor se encapsula entre caracteres de comillas.
 - FIELDTERMINATOR='field_terminator' especifica el terminador de campo que se va a usar. El terminador de campo predeterminado es una coma (" **,** ")
 - ROWTERMINATOR ='row_terminator' especifica el terminador de fila que se va a usar. El terminador de fila predeterminado es un carácter de nueva línea:  **\r\n**.
+
+
+## <a name="query-delta-lake-format"></a>Consulta de archivos con el formato DELTA LAKE
+
+Para consultar los datos de origen de Delta Lake, use FORMAT = 'DELTA' y haga referencia a la carpeta raíz que contiene los archivos de Delta Lake.
+
+```syntaxsql
+SELECT * FROM
+OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder', FORMAT = 'DELTA') 
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
+```
+
+La carpeta raíz debe contener una subcarpeta denominada `_delta_log`. Revise el artículo [Consulta de archivos en formato Delta Lake](query-delta-lake-format.md) para ver ejemplos de uso.
 
 ## <a name="file-schema"></a>Esquema de archivos
 
@@ -101,7 +115,7 @@ SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
 ```
 
-Asegúrese de que se usan [tipos de datos inferidos adecuados](./best-practices-serverless-sql-pool.md#check-inferred-data-types) para obtener un rendimiento óptimo. 
+Asegúrese de que se usan [tipos de datos inferidos adecuados](best-practices-sql-on-demand.md#check-inferred-data-types) para obtener un rendimiento óptimo. 
 
 ## <a name="query-multiple-files-or-folders"></a>Consulta de varios archivos o carpetas
 
