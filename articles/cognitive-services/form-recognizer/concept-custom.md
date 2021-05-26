@@ -1,6 +1,6 @@
 ---
 title: 'Modelos personalizados: Form Recognizer'
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: 'Conozca los conceptos relacionados con los modelos personalizados de la API de Form Recognizer: uso y límites.'
 services: cognitive-services
 author: laujan
@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: lajanuar
-ms.openlocfilehash: 9d339d02310fddc3e5fd463f7d37e253614dba17
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 329176e40b1a8cf187a4b2154a26b1adbbca4233
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067595"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374738"
 ---
 # <a name="form-recognizer-custom-models"></a>Modelos personalizados de Form Recognizer
 
@@ -46,7 +46,7 @@ Tendrá que cargar los datos de entrenamiento en un contenedor de Azure Blob Sto
 > [!div class="nextstepaction"]
 >[&#120785;. Entrenamiento del modelo personalizado](quickstarts/client-library.md#train-a-custom-model)
 
-Puede entrenar el modelo [sin](quickstarts/client-library.md#train-a-model-without-labels) o [con](quickstarts/client-library.md#train-a-model-with-labels) conjuntos de datos con etiqueta. Los conjuntos de datos no etiquetados se basan únicamente en la API de diseño para detectar e identificar la información clave sin necesidad de añadir información humana. Los conjuntos de datos etiquetados también se basan en la API de diseño, pero se incluye información humana complementaria, como sus etiquetas específicas y las ubicaciones de los campos. Para utilizar datos etiquetados y no etiquetados, comience con al menos cinco formularios completados del mismo tipo para los datos de entrenamiento etiquetados y luego añada datos no etiquetados al conjunto de datos requerido.  
+Puede [entrenar el modelo](quickstarts/client-library.md#train-a-custom-model) con o sin conjuntos de datos con etiqueta. Los conjuntos de datos no etiquetados se basan únicamente en la API de diseño para detectar e identificar la información clave sin necesidad de añadir información humana. Los conjuntos de datos etiquetados también se basan en la API de diseño, pero se incluye información humana complementaria, como sus etiquetas específicas y las ubicaciones de los campos. Para utilizar datos etiquetados y no etiquetados, comience con al menos cinco formularios completados del mismo tipo para los datos de entrenamiento etiquetados y luego añada datos no etiquetados al conjunto de datos requerido.  
 
 >[!div class="nextstepaction"]
 >[&#120786;. Análisis de documentos con el modelo personalizado](quickstarts/client-library.md#analyze-forms-with-a-custom-model)
@@ -63,5 +63,5 @@ En cualquier momento, puede ver una lista de todos los modelos personalizados de
 Para más información sobre la biblioteca cliente de Form Recognizer, consulte nuestra documentación de referencia de la API.
 
 > [!div class="nextstepaction"]
-> [Referencia de la API Form Recognizer](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)
+> [Referencia de la API Form Recognizer](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)
 >

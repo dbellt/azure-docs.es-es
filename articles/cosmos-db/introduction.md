@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 05/07/2021
-ms.openlocfilehash: 4432de4bb5f156ed1be0230759fcf3cd86adfe60
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: f435ed599e39b2dd0c204ef8c2cdcbb23146bc08
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634318"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367874"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenido a Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -23,7 +23,7 @@ Azure Cosmos DB es una base de datos NoSQL totalmente administrada para el desa
 > [!NOTE]
 > ¿Desea ayudar a mejorar los documentos de Azure Cosmos DB participando en un estudio de usuario? Dedique unos minutos a rellenar esta [encuesta de filtrado](https://aka.ms/cosmosdb-documentation-screener-survey) de 5 minutos. Si cumple con los requisitos, se le redirigirá a un programador en el que puede reservar un espacio para unirse a una sesión de investigación interactiva. Durante este proceso no se recopilan datos personales de conformidad con nuestra [declaración de privacidad](https://go.microsoft.com/fwlink/?LinkId=521839).
 
-Puede [probar Azure Cosmos DB de forma gratuita](https://azure.microsoft.com/try/cosmosdb/) sin necesidad de una suscripción de Azure y sin compromisos o bien usar una [cuenta de nivel Gratis de Azure Cosmos DB](optimize-dev-test.md#azure-cosmos-db-free-tier) para obtener una cuenta con los primeros 400 RU/s y 5 GB de almacenamiento totalmente gratis.
+Puede [probar Azure Cosmos DB de forma gratuita](https://azure.microsoft.com/try/cosmosdb/) sin necesidad de una suscripción de Azure y sin compromisos o bien usar una [cuenta de nivel Gratis de Azure Cosmos DB](free-tier.md) para obtener una cuenta con los primeros 1000 RU/s y 25 GB de almacenamiento totalmente gratis.
 
 > [!div class="nextstepaction"]
 > [Probar gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)

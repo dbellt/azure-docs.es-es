@@ -3,26 +3,36 @@ title: 'Centrales de tareas en Durable Functions: Azure'
 description: Aprenda qué son las centrales de tareas en la extensión Durable Functions para Azure Functions. Aprenda a configurar centrales de tareas.
 author: cgillum
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 05/12/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 26234039c77601bc1d29beeebd3fcb8461d6d6c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9172075ca22937a85fd7fd5827ebb40a4b58bcfa
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96009524"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375764"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Centrales de tareas en Durable Functions (Azure Functions)
 
-Una *central de tareas* en [Durable Functions](durable-functions-overview.md) es un contenedor lógico para los recursos de Azure Storage que se usan para las orquestaciones. Las funciones de orquestador y actividad solo pueden interactuar entre sí si pertenecen a la misma central de tareas.
+Una *central de tareas* en [Durable Functions](durable-functions-overview.md) es un contenedor lógico de recursos de almacenamiento duraderos que se usan en las orquestaciones y las entidades. Las funciones de orquestador, actividad y entidad solo pueden interactuar entre sí si pertenecen a la misma central de tareas.
 
-Si varias aplicaciones de función comparten una cuenta de almacenamiento, se *debe* configurar cada una de ellas con un nombre de central de tareas independiente. Una cuenta de almacenamiento puede contener varias centrales de tareas. El siguiente diagrama muestra una central de tareas por cada aplicación de función en las cuentas de almacenamiento compartidas y dedicadas.
+> [!NOTE]
+> En este documento se describen los detalles de las centrales de tareas de forma específica para el [proveedor de Azure Storage para Durable Functions](durable-functions-storage-providers.md#azure-storage) predeterminado. Si usa un proveedor de almacenamiento no predeterminado para la aplicación Durable Functions, puede encontrar documentación detallada de la central de tareas en la documentación específica del proveedor:
+> 
+> * [Información de la central de tareas para el proveedor de almacenamiento Netherite](https://microsoft.github.io/durabletask-netherite/#/storage)
+> * [Información de la central de tareas para el proveedor de almacenamiento Microsoft SQL (MSSQL)](https://microsoft.github.io/durabletask-mssql/#/taskhubs)
+> 
+> Para más información sobre las diversas opciones del proveedor de almacenamiento y cómo se comparan, consulte la documentación sobre [proveedores de almacenamiento de Durable Functions](durable-functions-storage-providers.md).
+
+Si varias aplicaciones de función comparten una cuenta de almacenamiento, se *debe* configurar cada una de ellas con un nombre de central de tareas independiente. Una cuenta de almacenamiento puede contener varias centrales de tareas. Esta restricción se suele aplicar también a otros proveedores de almacenamiento.
+
+El siguiente diagrama muestra una central de tareas por cada aplicación de función en las cuentas de Azure Storage compartidas y dedicadas.
 
 ![Diagrama de almacenamiento que muestra las cuentas de almacenamiento compartidas y dedicadas.](./media/durable-functions-task-hubs/task-hubs-storage.png)
 
 ## <a name="azure-storage-resources"></a>Recursos de Azure Storage
 
-Una central de tareas consta de los siguientes recursos de almacenamiento:
+Una central de tareas en Azure Storage consta de los siguientes recursos:
 
 * Una o más colas de control.
 * Una cola de elementos de trabajo.
@@ -31,11 +41,11 @@ Una central de tareas consta de los siguientes recursos de almacenamiento:
 * Un contenedor de almacenamiento que contiene uno o varios blobs de concesión.
 * Un contenedor de almacenamiento que contiene cargas de mensajes grandes, si procede.
 
-Todos estos recursos se crean automáticamente en la cuenta de Azure Storage predeterminada cuando se ejecutan funciones de orquestador, de entidad o de actividad o cuando se programa su ejecución. El artículo [Rendimiento y escala](durable-functions-perf-and-scale.md) explica cómo se utilizan estos recursos.
+Todos estos recursos se crean automáticamente en la cuenta de Azure Storage configurada cuando se ejecutan funciones de orquestador, entidad o actividad o cuando se programa su ejecución. El artículo [Rendimiento y escala](durable-functions-perf-and-scale.md) explica cómo se utilizan estos recursos.
 
 ## <a name="task-hub-names"></a>Nombres de las centrales de tareas
 
-Las centrales de tareas se identifican mediante un nombre que se ajusta a estas reglas:
+Las centrales de tareas de Azure Storage se identifican mediante un nombre que se ajusta a estas reglas:
 
 * Solo contiene caracteres alfanuméricos.
 * Comienza con una letra.
@@ -102,7 +112,7 @@ El nombre de la central de tareas se establecerá en el valor de la configuraci�
 }
 ```
 
-En el siguiente código se muestra cómo escribir una función que usa el [enlace del cliente de orquestación](durable-functions-bindings.md#orchestration-client) para trabajar con una central de tareas definida como configuración de la aplicación:
+Además de **host.json**, los nombres de central de tareas también se pueden configurar en los metadatos de [enlace de cliente de orquestación](durable-functions-bindings.md#orchestration-client). Esta opción resulta útil si necesita acceder a orquestaciones o entidades que se encuentran en una aplicación de función aparte. En el siguiente código se muestra cómo escribir una función que usa el [enlace del cliente de orquestación](durable-functions-bindings.md#orchestration-client) para trabajar con una central de tareas definida como configuración de la aplicación:
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -155,7 +165,10 @@ La propiedad de la central de tareas del archivo `function.json` se establece me
 
 ---
 
-Los nombres de la central de tareas deben empezar por una letra y estar formados únicamente por letras y números. Si no se especifica, se usará un nombre de central de tareas predeterminado, tal y como se muestra en la tabla siguiente:
+> [!NOTE]
+> La configuración de nombres de central de tareas en los metadatos de enlace de cliente solo es necesaria cuando se usa una aplicación de funciones para acceder a orquestaciones y entidades de otra aplicación de funciones. Si las funciones de cliente se definen en la misma aplicación de funciones que las orquestaciones y las entidades, debe evitar especificar nombres de central de tareas en los metadatos de enlace. De forma predeterminada, todos los enlaces de cliente obtienen sus metadatos de central de tareas de la configuración de **host.jsconfiguración**.
+
+Los nombres de central de tareas de Azure Storage deben empezar por una letra y estar formados únicamente por letras y números. Si no se especifica, se usará un nombre de central de tareas predeterminado, tal y como se muestra en la tabla siguiente:
 
 | Versión de la extensión de Durable | Nombre de central de tareas predeterminado |
 | - | - |

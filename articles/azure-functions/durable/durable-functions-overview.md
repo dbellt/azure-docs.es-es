@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 27d3253d1bd2ec407968ff03e22c34222797ad81
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 62d5d3095d2c68741a61f2df64d54287fb429110
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656351"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375988"
 ---
 # <a name="what-are-durable-functions"></a>¿Qué es Durable Functions?
 
@@ -25,7 +25,7 @@ Durable Functions admite actualmente los siguientes idiomas:
 * **JavaScript**: solo es compatible con la versión 2.x del entorno de ejecución de Azure Functions. Requiere la versión 1.7.0 de la extensión Durable Functions, o una posterior. 
 * **Python**: requiere la versión 2.3.1 de la extensión Durable Functions, o cualquier versión posterior.
 * **F#**: tanto las bibliotecas de clases precompiladas como script F#. El script F# solo es compatible con la versión 1.x del entorno de ejecución de Azure Functions.
-* **PowerShell**: la compatibilidad con Durable Functions está actualmente en versión preliminar pública. Solo es compatible con la versión 3.x del entorno de ejecución de Azure Functions y PowerShell 7. Requiere la versión 2.2.2 de la extensión Durable Functions, o cualquier versión posterior. Actualmente, solo se admiten los siguientes patrones: [Encadenamiento de funciones](#chaining), [distribución ramificada de entrada o salida](#fan-in-out), [API de HTTP asincrónico](#async-http).
+* **PowerShell**: solo es compatible con la versión 3.x del entorno de ejecución de Azure Functions y PowerShell 7. Requiere la versión 2.x de las extensiones de agrupación.
 
 Para acceder a las características y actualizaciones más recientes, se recomienda usar las versiones más recientes de la extensión Durable Functions y las bibliotecas de Durable Functions específicas de cada lenguaje. Más información sobre las [versiones de Durable Functions](durable-functions-versions.md).
 
@@ -127,13 +127,13 @@ Puede usar el objeto `context` para invocar otras funciones por nombre, pasar pa
 ```PowerShell
 param($Context)
 
-$X = Invoke-ActivityFunction -FunctionName 'F1'
-$Y = Invoke-ActivityFunction -FunctionName 'F2' -Input $X
-$Z = Invoke-ActivityFunction -FunctionName 'F3' -Input $Y
-Invoke-ActivityFunction -FunctionName 'F4' -Input $Z
+$X = Invoke-DurableActivity -FunctionName 'F1'
+$Y = Invoke-DurableActivity -FunctionName 'F2' -Input $X
+$Z = Invoke-DurableActivity -FunctionName 'F3' -Input $Y
+Invoke-DurableActivity -FunctionName 'F4' -Input $Z
 ```
 
-Puede usar el comando `Invoke-ActivityFunction` para invocar otras funciones por nombre, pasar parámetros y devolver la salida de la función. Cada vez que el código llama a `Invoke-ActivityFunction` sin el modificador `NoWait`, el marco de Durable Functions establece un punto de control en el progreso de la instancia actual de la función. Si el proceso o la máquina virtual se reciclan a mitad de la ejecución, la instancia de la función se reanuda desde la llamada a `Invoke-ActivityFunction` anterior. Para obtener más información, consulte la siguiente sección, Patrón 2: Distribución ramificada de entrada y salida.
+Puede usar el comando `Invoke-DurableActivity` para invocar otras funciones por nombre, pasar parámetros y devolver la salida de la función. Cada vez que el código llama a `Invoke-DurableActivity` sin el modificador `NoWait`, el marco de Durable Functions establece un punto de control en el progreso de la instancia actual de la función. Si el proceso o la máquina virtual se reciclan a mitad de la ejecución, la instancia de la función se reanuda desde la llamada a `Invoke-DurableActivity` anterior. Para obtener más información, consulte la siguiente sección, Patrón 2: Distribución ramificada de entrada y salida.
 
 ---
 
@@ -234,18 +234,18 @@ La creación automática de puntos de control que se produce en la llamada a `yi
 param($Context)
 
 # Get a list of work items to process in parallel.
-$WorkBatch = Invoke-ActivityFunction -FunctionName 'F1'
+$WorkBatch = Invoke-DurableActivity -FunctionName 'F1'
 
 $ParallelTasks =
     foreach ($WorkItem in $WorkBatch) {
-        Invoke-ActivityFunction -FunctionName 'F2' -Input $WorkItem -NoWait
+        Invoke-DurableActivity -FunctionName 'F2' -Input $WorkItem -NoWait
     }
 
 $Outputs = Wait-ActivityFunction -Task $ParallelTasks
 
 # Aggregate all outputs and send the result to F3.
 $Total = ($Outputs | Measure-Object -Sum).Sum
-Invoke-ActivityFunction -FunctionName 'F3' -Input $Total
+Invoke-DurableActivity -FunctionName 'F3' -Input $Total
 ```
 
 El trabajo de distribución ramificada se distribuye en varias instancias de la función `F2`. Observe el uso del modificador `NoWait` en la invocación de la función `F2`: este modificador permite que el orquestador invoque a `F2` sin que finalice la actividad. Se realiza un seguimiento del trabajo mediante una lista dinámica de las tareas. Se llama al comando `Wait-ActivityFunction` para esperar a que finalicen todas las funciones llamadas. Después, los resultados de la función `F2` se agregan desde la lista de tareas dinámica y se pasan a la función `F3`.
@@ -399,7 +399,32 @@ main = df.Orchestrator.create(orchestrator_function)
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Actualmente, la supervisión no se admite en PowerShell.
+```powershell
+param($Context)
+
+$output = @()
+
+$jobId = $Context.Input.JobId
+$machineId = $Context.Input.MachineId
+$pollingInterval = New-TimeSpan -Seconds $Context.Input.PollingInterval
+$expiryTime = $Context.Input.ExpiryTime
+
+while ($Context.CurrentUtcDateTime -lt $expiryTime) {
+    $jobStatus = Invoke-DurableActivity -FunctionName 'GetJobStatus' -Input $jobId
+    if ($jobStatus -eq "Completed") {
+        # Perform an action when a condition is met.
+        $output += Invoke-DurableActivity -FunctionName 'SendAlert' -Input $machineId
+        break
+    }
+
+    # Orchestration sleeps until this time.
+    Start-DurableTimer -Duration $pollingInterval
+}
+
+# Perform more work here, or let the orchestration end.
+
+$output
+```
 
 ---
 
@@ -501,7 +526,32 @@ Para crear el temporizador durable, llame a `context.create_timer`. `context.wai
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Actualmente, la interacción humana no se admite en PowerShell.
+```powershell
+param($Context)
+
+$output = @()
+
+$duration = New-TimeSpan -Seconds $Context.Input.Duration
+$managerId = $Context.Input.ManagerId
+
+$output += Invoke-DurableActivity -FunctionName "RequestApproval" -Input $managerId
+
+$durableTimeoutEvent = Start-DurableTimer -Duration $duration -NoWait
+$approvalEvent = Start-DurableExternalEventListener -EventName "ApprovalEvent" -NoWait
+
+$firstEvent = Wait-DurableTask -Task @($approvalEvent, $durableTimeoutEvent) -Any
+
+if ($approvalEvent -eq $firstEvent) {
+    Stop-DurableTimerTask -Task $durableTimeoutEvent
+    $output += Invoke-DurableActivity -FunctionName "ProcessApproval" -Input $approvalEvent
+}
+else {
+    $output += Invoke-DurableActivity -FunctionName "EscalateApproval"
+}
+
+$output
+```
+Para crear el temporizador durable, llame a `Start-DurableTimer`. `Start-DurableExternalEventListener` recibe la notificación. Después, se realiza una llamada a `Wait-DurableTask` para decidir si la aprobación se escala (primero se agota el tiempo de expiración) o se procesa (la aprobación antes se recibe de que se agote el tiempo de expiración).
 
 ---
 
@@ -552,7 +602,11 @@ async def main(client: str):
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Actualmente, la interacción humana no se admite en PowerShell.
+```powershell
+
+Send-DurableExternalEvent -InstanceId $InstanceId -EventName "ApprovalEvent" -EventData "true"
+
+``````
 
 ---
 
