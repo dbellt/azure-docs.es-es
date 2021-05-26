@@ -52,18 +52,9 @@ conceptualContent:
         - url: ./face/index.yml
           itemType: overview
           text: Caras
-        - url: ./form-recognizer/index.yml
-          itemType: overview
-          text: Form Recognizer
-        - url: ../media-services/video-indexer/index.yml
-          itemType: overview
-          text: Video Indexer
     - title: Idioma
       summary: 'Permita que sus aplicaciones procesen lenguaje natural con scripts precompilados, evalúen sentimientos y aprendan a reconocer lo que los usuarios quieren.'
       links:
-        - url: ./immersive-reader/index.yml
-          itemType: overview
-          text: Lector inmersivo
         - url: ./luis/index.yml
           itemType: overview
           text: Language Understanding (LUIS)
@@ -94,9 +85,6 @@ conceptualContent:
         - url: ./content-moderator/index.yml
           itemType: overview
           text: Content Moderator
-        - url: ./metrics-advisor/index.yml
-          itemType: overview
-          text: Metrics Advisor (versión preliminar)
         - url: ./personalizer/index.yml
           itemType: overview
           text: Personalizer

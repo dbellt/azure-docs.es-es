@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/12/2021
+ms.date: 05/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 7360ad5abc7342043152c2da11038b624b0bfadc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ccd7886007177e32506ce0c3db489826a8a708d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101650001"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479992"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-enterprise-cloud---enterprise-account"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con GitHub Enterprise Cloud - Enterprise Account
 
@@ -76,13 +76,13 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
 
-    a. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://github.com/enterprises/<ENTERPRISE-SLUG>`
+    a. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://github.com/orgs/<ENTERPRISE-SLUG>`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://github.com/enterprises/<ENTERPRISE-SLUG>/saml/consume`
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://github.com/orgs/<ENTERPRISE-SLUG>/saml/consume`
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://github.com/enterprises/<ENTERPRISE-SLUG>/sso`
+     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://github.com/orgs/<ENTERPRISE-SLUG>/sso`
 
     > [!NOTE]
     > Reemplace `<ENTERPRISE-SLUG>` por el nombre real de su cuenta de GitHub Enterprise.
@@ -138,7 +138,7 @@ Después de habilitar el inicio de sesión único de SAML para su cuenta de GitH
 
 ## <a name="test-sso-with-another-enterprise-account-owner-or-organization-member-account"></a>Prueba del inicio de sesión único con otro propietario de la cuenta de empresa o cuenta de miembro de la organización
 
-Una vez configurada la integración de SAML para la cuenta de GitHub Enterprise (que también se aplica a las organizaciones de GitHub de la cuenta de empresa), otros propietarios de cuentas de empresa que estén asignados a la aplicación en Azure AD deberían poder acceder a la URL de la cuenta de GitHub Enterprise (`https://github.com/enterprises/<enterprise account>`), autenticarse mediante SAML y acceder a las directivas y la configuración de la cuenta de GitHub Enterprise. 
+Una vez configurada la integración de SAML para la cuenta de GitHub Enterprise (que también se aplica a las organizaciones de GitHub de la cuenta de empresa), otros propietarios de cuentas de empresa que estén asignados a la aplicación en Azure AD deberían poder acceder a la URL de la cuenta de GitHub Enterprise (`https://github.com/orgs/<enterprise account>`), autenticarse mediante SAML y acceder a las directivas y la configuración de la cuenta de GitHub Enterprise. 
 
 El propietario de una organización para una cuenta de empresa debería poder [invitar a un usuario a unirse a su organización de GitHub](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization). Inicie sesión en GitHub.com con una cuenta de propietario de organización y siga los pasos del artículo para invitar a `B.Simon` a la organización. Es necesario crear una cuenta de usuario de GitHub para `B.Simon`, si aún no dispone de una. 
 

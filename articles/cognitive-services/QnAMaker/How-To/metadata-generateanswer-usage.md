@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9d2100dbc2c5f24742a949778a1b7450bf303c5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0daa44f0d901dc14541785f764d5ccf8f96fc737
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103232212"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376680"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api"></a>Obtención de una respuesta con GenerateAnswer API
 
@@ -42,7 +42,7 @@ Para obtener los detalles del punto de conexión:
 
     ![Captura de los detalles del punto de conexión](../media/qnamaker-how-to-metadata-usage/view-code.png)
 
-    # <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+    # <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
     ![Captura de pantalla de los detalles del punto de conexión administrados](../media/qnamaker-how-to-metadata-usage/view-code-managed.png)
 
@@ -180,9 +180,9 @@ El código JSON anterior solo solicitó aquellas respuestas con una puntuación 
 
 Solo ofrecemos una característica de respuesta precisa con la versión administrada de QnA Maker.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
-El usuario puede habilitar [respuestas precisas](../reference-precise-answering.md) al usar el recurso administrado de QnA Maker. El parámetro answerSpanRequest debe actualizarse por lo mismo.
+El usuario puede habilitar [respuestas precisas](../reference-precise-answering.md) al usar el recurso de Text Analytics con la característica de respuesta a preguntas personalizada. El parámetro answerSpanRequest debe actualizarse por lo mismo.
 
 ```json
 {

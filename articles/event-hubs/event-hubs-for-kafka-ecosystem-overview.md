@@ -3,12 +3,12 @@ title: 'Uso del centro de eventos desde una aplicación de Apache Kafka: Azure E
 description: En este artículo se proporciona información sobre la compatibilidad de Apache Kafka con Azure Event Hubs.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: 1cd6d06b610ccccb8c80818d3bdec726ed94e875
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 2e6e1defffd012e524044bc427788fc8a1bcc53a
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505321"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376090"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Uso de Azure Event Hubs desde aplicaciones de Apache Kafka
 Event Hubs proporciona un punto de conexión compatible con las API de productor y consumidor de Apache Kafka® que pueden usar la mayoría de las aplicaciones cliente de Apache Kafka existentes como alternativa a la ejecución de su propio clúster de Apache Kafka. Event Hubs admite clientes de API de productor y consumidor de Apache Kafka en la versión 1.0 y posteriores.
@@ -39,7 +39,7 @@ Conceptualmente, Kafka y Event Hubs son muy similares: son registros con partici
 
 Para más información acerca de Event Hubs y de los espacios de nombres, consulte las [características de Event Hubs](event-hubs-features.md#namespace). Como servicio en la nube, Event Hubs usa una única dirección IP virtual estable como punto de conexión, de forma que los clientes no necesitan conocer los agentes o equipos de un clúster. Aunque Event Hubs implementa el mismo protocolo, esta diferencia significa que todo el tráfico de Kafka para todas las particiones se enruta de forma predecible a través de este punto de conexión, en lugar de requerir acceso de firewall para todos los agentes de un clúster.   
 
-La escala en Event Hubs se controla por el número de unidades de procesamiento que adquiere; cada unidad de procesamiento le otorga 1 MB por segundo o 1000 eventos por segundo de entrada y dos veces ese volumen en salidas. Event Hubs puede escalar verticalmente de forma automática las unidades de procesamiento cuando se alcanza el límite de procesamiento si usa la característica [Inflado automático](event-hubs-auto-inflate.md), que también funciona con la compatibilidad con protocolos de Apache Kafka.  
+La escala en Event Hubs se controla por el número de [unidades de rendimiento](event-hubs-scalability.md#throughput-units) o [unidades de procesamiento](event-hubs-scalability.md#processing-units) que se adquieren; cada unidad de rendimiento da derecho a 1 MB por segundo, o 1000 eventos por segundo, de entrada y dos veces ese volumen de salida. Event Hubs puede escalar verticalmente de forma automática las unidades de rendimiento o procesamiento cuando se alcanza el límite si se usa la característica de [inflado automático](event-hubs-auto-inflate.md), que también funciona con la compatibilidad con protocolos de Apache Kafka.  
 
 ### <a name="is-apache-kafka-the-right-solution-for-your-workload"></a>¿Es Apache Kafka la solución adecuada para su carga de trabajo?
 

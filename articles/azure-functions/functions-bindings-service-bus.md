@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4573e471b69c11b055d8f0f1dfd6416c8d158c20
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 4b0daecadd3af5f1322afc97f91706098aade768
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227927"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110080495"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces de Azure Service Bus en Azure Functions
 
@@ -126,8 +126,7 @@ El archivo host.json de ejemplo a continuación contiene solo la configuración 
                 "maxConcurrentCalls": 32,
                 "maxConcurrentSessions": 10,
                 "maxMessages": 2000,
-                "sessionIdleTimeout": "00:01:00",
-                "maxAutoLockRenewalDuration": "00:05:00"
+                "sessionIdleTimeout": "00:01:00"
             }
         }
     }

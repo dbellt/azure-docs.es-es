@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/25/2021
 ms.author: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4907a81fc8cb55499fa97f2b02a3e19e7117bbbc
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 2f9eca1600ffe9270ac2f02db38c815e92498afe
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286392"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110086219"
 ---
 # <a name="find-and-redact-blur-faces-with-the-face-detector-preset"></a>Búsqueda y censura (desenfoque) de caras con el valor preestablecido de Face Detector
 
@@ -29,10 +29,8 @@ La API de Azure Media Services v3 incluye un valor preestablecido de Face Detect
 
 En este artículo se proporcionan detalles sobre el **Valor preestablecido de Face Detector** y se muestra cómo se usa con el SDK de Media Services para .NET.
 
-[!INCLUDE [regulation](../video-indexer/includes/regulation.md)]
-
 ## <a name="compliance-privacy-and-security"></a>Cumplimiento, privacidad y seguridad
- 
+
 Como recordatorio importante, debe cumplir todas las leyes aplicables en el uso del análisis en Azure Media Services. No debe usar Azure Media Services ni ningún otro servicio de Azure de forma que infrinja los derechos de los demás. Antes de cargar vídeos que incluyan datos biométricos en el servicio Azure Media Services para procesarlos y almacenarlos, debe tener todos los derechos apropiados (por ejemplo, todos los consentimientos adecuados) de las personas del vídeo. Para información sobre el cumplimiento, la privacidad y la seguridad de Azure Media Services, consulte [Términos de Azure Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). En lo que respecta a las obligaciones de privacidad de Microsoft y al control de los datos, consulte la [declaración de privacidad](https://privacy.microsoft.com/PrivacyStatement), los [Términos de los Servicios en Línea](https://www.microsoft.com/licensing/product-licensing/products) (OST) y el [anexo de procesamiento de datos](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA") de Microsoft. Puede encontrar información adicional sobre la privacidad, como la retención, eliminación o destrucción de los datos, en los términos de OST y [aquí](../video-indexer/faq.md). Al usar Azure Media Services, acepta las obligaciones de los Términos de Cognitive Services, OST, DPA y la declaración de privacidad.
 
 ## <a name="face-redaction-modes"></a>Modos de censura de rostros
@@ -55,7 +53,7 @@ Esto genera un archivo de vídeo MP4 censurado en un solo paso sin que sea neces
 
 ### <a name="analyze-mode"></a>Modo Analyze (Análisis)
 
-El paso **Analizar** del flujo de trabajo de dos pasos toma una entrada de vídeo y genera un archivo JSON con una lista de ubicaciones de caras, id. de caras e imágenes jpg de cada cara detectada. 
+El paso **Analizar** del flujo de trabajo de dos pasos toma una entrada de vídeo y genera un archivo JSON con una lista de ubicaciones de caras, id. de caras e imágenes jpg de cada cara detectada.
 
 | Fase | Nombre de archivo | Notas |
 | --- | --- | --- |
@@ -149,7 +147,6 @@ En los modos **Combinado** o **Redact** (Censurar), hay cinco modos de desenfoqu
 
 Puede encontrar ejemplos de los tipos de desenfoque a continuación.
 
-
 #### <a name="low"></a>Bajo
 
 ![Ejemplo de configuración de desenfoque de resolución baja.](./media/media-services-face-redaction/blur-1.png)
@@ -214,4 +211,3 @@ En este ejemplo de código se muestra cómo se pasa el valor preestablecido a un
 ## <a name="provide-feedback"></a>Envío de comentarios
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

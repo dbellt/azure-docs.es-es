@@ -2,16 +2,16 @@
 title: 'Tutorial: Creación del clúster de caché de Azure FXT Edge Filer'
 description: Aprenda a crear un clúster de caché de almacenamiento híbrido con Azure FXT Edge Filer y a iniciar sesión en el panel de control del clúster para configurar los valores del clúster.
 author: ekpgh
-ms.author: rohogue
+ms.author: v-erkel
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.openlocfilehash: d019f5df4bba6d223076c8ce35151510afedf2e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a58eb462d37c94373c21915cfc22287d3749184
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92220812"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110456297"
 ---
 # <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>Tutorial: Creación de clústeres de Azure FXT Edge Filer
 

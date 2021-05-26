@@ -1,6 +1,6 @@
 ---
-title: Uso de Azure Portal para solucionar problemas de pedidos de Azure Stack Edge Pro | Microsoft Docs
-description: Se describe cómo solucionar problemas de pedidos de Azure Stack Edge Pro.
+title: Uso de Azure Portal para solucionar problemas de pedidos de Azure Stack Edge | Microsoft Docs
+description: Describe cómo solucionar los problemas de pedidos de Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: e074043cb685f60027d3c09ae7ad8dc17dded0df
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0b0c39ba59fe851d04ba4ec538f14051e23b056d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443410"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110058589"
 ---
-# <a name="troubleshoot-your-azure-stack-edge-pro-ordering-issues"></a>Solución de problemas de pedidos de Azure Stack Edge Pro
+# <a name="troubleshoot-your-azure-stack-edge-ordering-issues"></a>Solución de problemas de pedidos de Azure Stack Edge
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-En este artículo se describe cómo solucionar problemas de pedidos de Azure Stack Edge Pro.
+En este artículo se describe cómo solucionar los problemas de pedidos de Azure Stack Edge.
 
 En este tutorial, aprenderá a:
 
@@ -61,7 +61,7 @@ Para obtener más información, consulte [Registro del proveedor de recursos](az
 
 ## <a name="microsoftdataboxedge-not-registered-for-subscription"></a>Microsoft.DataBoxEdge no registrado para suscripción
 
-**Error:** En Azure Portal, selecciona una suscripción que se usará para Azure Stack Edge Pro o Data Box Gateway y recibe el error siguiente:
+**Error:** En Azure Portal, selecciona una suscripción que se usará para Azure Stack Edge o Data Box Gateway y recibe el siguiente error:
 
 *Resource provider(s): Microsoft.DataBoxEdge are not registered for subscription &lt;nombre de la suscripción&gt; and you don't have permissions to register a resource provider for subscription &lt;nombre de la suscripción&gt;* (Proveedores de recursos: Microsoft.DataBoxEdge no está registrado en <nombre de la suscripción>, y usted no tiene permisos para registrar un proveedor de recursos para la suscripción <nombre de la suscripción>).
 
@@ -77,4 +77,4 @@ Para obtener más información, consulte [Registro del proveedor de recursos](az
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre la [Solución de problemas de Azure Stack Edge Pro](azure-stack-edge-troubleshoot.md).
+* Obtenga más información sobre la [Solución de problemas de Azure Stack Edge](azure-stack-edge-troubleshoot.md).

@@ -4,13 +4,13 @@ description: En el glosario se explican los términos que puede encontrar cuando
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 05/08/2020
-ms.openlocfilehash: 7c65c8272172cab9f5361d16141bf7b229037480
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/17/2021
+ms.openlocfilehash: 15235ddd1ae6bfe3166b523004bc8fe80a5b5be9
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98786951"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110061469"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glosario de Language Understanding de conceptos y vocabulario común
 En el glosario de Language Understanding (LUIS) se explican los términos que pueden aparecer cuando se trabaja con el servicio LUIS.
@@ -44,7 +44,7 @@ La [clave de creación](luis-how-to-azure-subscription.md) se usa para crear la 
 
 ### <a name="authoring-resource"></a>Recurso de creación
 
-El [recurso de creación](luis-how-to-azure-subscription.md#azure-resources-for-luis) de LUIS es un elemento administrable que está disponible a través de Azure. El recurso es el acceso a las capacidades de creación, aprendizaje y publicación asociadas del servicio de Azure. El recurso incluye la información de autenticación, autorización y seguridad que necesita para acceder al servicio asociado de Azure.
+El [recurso de creación](luis-how-to-azure-subscription.md) de LUIS es un elemento administrable que está disponible a través de Azure. El recurso es el acceso a las capacidades de creación, aprendizaje y publicación asociadas del servicio de Azure. El recurso incluye la información de autenticación, autorización y seguridad que necesita para acceder al servicio asociado de Azure.
 
 El recurso de creación tiene una "clase" de Azure de `LUIS-Authoring`.
 

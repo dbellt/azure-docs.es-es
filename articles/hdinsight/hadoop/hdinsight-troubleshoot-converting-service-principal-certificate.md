@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/31/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0ee2e783a7a9443db4c96817cf611272667c675a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1ccd47b0a2f10c67dc808fb13aafca55fa5a5e67
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98944417"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110088757"
 ---
 # <a name="converting-service-principal-certificate-contents-to-base-64-encoded-string-format-in-hdinsight"></a>Conversión del contenido del certificado de entidad de servicio al formato de cadena con codificación Base 64 en HDInsight
 
@@ -26,7 +26,7 @@ Al usar PowerShell o la implementación de plantillas de Azure para crear clúst
 
 ## <a name="resolution"></a>Solución
 
-Cuando tenga el certificado de entidad de servicio en formato PFX (haga clic [aquí](https://github.com/Azure/azure-quickstart-templates/tree/master/201-hdinsight-datalake-store-azure-storage) para ver los pasos de creación de la entidad de servicio de ejemplo), use el siguiente fragmento de código de C# o comando de PowerShell para convertir el contenido del certificado al formato Base 64.
+Cuando tenga el certificado de entidad de servicio en formato PFX (haga clic [aquí](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-datalake-store-azure-storage) para ver los pasos de creación de la entidad de servicio de ejemplo), use el siguiente fragmento de código de C# o comando de PowerShell para convertir el contenido del certificado al formato Base 64.
 
 ```powershell
 $servicePrincipalCertificateBase64 = [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes(path-to-servicePrincipalCertificatePfxFile))

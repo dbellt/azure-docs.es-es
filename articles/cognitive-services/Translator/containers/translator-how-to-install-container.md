@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 05/25/2021
 ms.author: lajanuar
 recommendations: false
 keywords: entorno local, Docker, contenedor, identificar
-ms.openlocfilehash: 6b73492ee08f5abdb70fea8a2dcc04016f2601a2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 93cf53bb53c5a86ff6b4b073105c08c595fcf182
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382970"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110480259"
 ---
 # <a name="install-and-run-translator-containers-preview"></a>Instalación y ejecución de contenedores de Translator (versión preliminar)
 
@@ -85,7 +85,7 @@ Para cada par de idiomas, se recomienda tener 2 GB de memoria. De manera prede
 
 ## <a name="request-approval-to-run-container"></a>Solicitud de aprobación para ejecutar un contenedor
 
-Rellene y envíe la [**solicitud de Azure Cognitive Services de servicios controlados**](https://aka.ms/csgate) para solicitar acceso al contenedor.
+Rellene y envíe la [**solicitud de Azure Cognitive Services de servicios controlados**](https://aka.ms/csgate-translator) para solicitar acceso al contenedor.
 
 [!INCLUDE [Request access to public preview](../../../../includes/cognitive-services-containers-request-access.md)]
 

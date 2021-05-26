@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 01/15/2021
-ms.openlocfilehash: 3bd617f052d52339ae35e5a088c6ee85b797fb48
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/01/2021
+ms.openlocfilehash: 29ce9430d43ed663be8d888dc2388551659c873c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779190"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110468915"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Información general del modelo de núcleo virtual: Azure SQL Database y Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -112,12 +112,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 
 La serie DC solo es compatible con el proceso aprovisionado (no se admite sin servidor) y no admite la redundancia de zona. Para ver las regiones en las que la serie DC está disponible, consulte la [disponibilidad de la serie DC](#dc-series-1).
 
-#### <a name="azure-offer-types-supported-by-dc-series"></a>Tipos de oferta de Azure disponibles en la serie DC
-
-Para acceder a la serie DC, la suscripción debe ser un tipo de oferta de pago, como Pago por uso o Contrato Enterprise (EA).  Para ver una lista completa de los tipos de oferta de Azure disponibles en la serie DC, consulte las [ofertas actuales sin límites de gasto](https://azure.microsoft.com/support/legal/offer-details).
-
 ### <a name="compute-and-memory-specifications"></a>Especificaciones de memoria y proceso
-
 
 |Generación de hardware  |Proceso  |Memoria  |
 |:---------|:---------|:---------|

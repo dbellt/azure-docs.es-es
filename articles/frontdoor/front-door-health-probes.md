@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 05/17/2021
 ms.author: duau
-ms.openlocfilehash: dd56740b7153cdbafdfa847a22d34b57f862cdf3
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 6fb47cf8c3bea7080151d635620bde549070060d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550750"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084995"
 ---
 # <a name="health-probes"></a>Sondeos de estado
 
@@ -26,7 +26,7 @@ Con el fin de determinar el estado y la proximidad de cada back-end de un entorn
 > Como Front Door tiene muchos entornos perimetrales en todo el mundo, el volumen de solicitudes de sondeo de estado a los back-end puede ser bastante superior, desde 25 solicitudes por minuto hasta un máximo de 1200 solicitudes por minuto, dependiendo de la frecuencia de sondeo de estado configurada. Con la frecuencia de sondeo predeterminada de 30 segundos, el volumen de sondeo del back-end debe ser de aproximadamente 200 solicitudes por minuto.
 
 > [!NOTE]
-> Los sondeos HTTP/HTTPS de Front Door se envían con el encabezado `User-Agent` establecido en el valor: `Edge Health Probes`. 
+> Los sondeos HTTP/HTTPS de Front Door se envían con el encabezado `User-Agent` establecido en el valor: `Edge Health Probe`. 
 
 ## <a name="supported-protocols"></a>Protocolos admitidos
 
@@ -46,7 +46,7 @@ Front Door admite los siguientes métodos HTTP para enviar los sondeos de estado
 
 | Respuestas  | Descripción | 
 | ------------- | ------------- |
-| Determinación del estado  |  Un código de estado 200 - Correcto indica que el back-end está en buen estado. Todo lo demás se considera un error. Si por algún motivo (incluidos los errores de red) no se recibe una respuesta HTTP válida de un sondeo, este se considera un error.|
+| Determinación del estado  | Un código de estado 200 - Correcto indica que el back-end está en buen estado. Todo lo demás se considera un error. Si por algún motivo (incluidos los errores de red) no se recibe una respuesta HTTP válida de un sondeo, este se considera un error.|
 | Medida de la latencia  | La latencia es el tiempo de reloj medido desde el momento inmediatamente antes de enviar la solicitud de sondeo hasta el momento de recibir el último byte de la respuesta. Como se usa una nueva conexión TCP para cada solicitud, esta medida no está orientada a los servidores back-end con conexiones parcialmente activas existentes.  |
 
 ## <a name="how-front-door-determines-backend-health"></a>Cómo determina Front Door el mantenimiento de back-end

@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 03/09/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: dc156afa2c5b5143e1543ef58203d6dea5d046c3
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3f94b22d4f439769b27d38943603f7c726bfc40d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145004"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110468414"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Las ventajas de Marketplace comercial
 
 Ya ha publicado en el marketplace comercial de Microsoft, ahora quiere ver que la oferta tenga éxito. Se le ofrecen las ventajas comerciales, técnicas y de marketing que necesita para acelerar el crecimiento de su oferta.
 
-Una vez que la oferta esté activa en Microsoft AppSource o Azure Marketplace, vaya al [Centro de partners](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) para acceder a sus ventajas aptas de marketing, ventas y técnicas y activarlas. Para obtener información general sobre cómo inscribirse en Marketplace Rewards y activar en el Centro de partners las ventajas de hacerlo, vea el [vídeo de demostración](https://partner.microsoft.com/asset/detail/marketplace-rewards-demo-mp4) de Marketplace Rewards. Las ventajas de las Recompensas de Marketplace se basan en la involucración y las ventas comerciales de Marketplace. Cuanto más se involucra, más gana.
+Una vez que la oferta esté activa en Microsoft AppSource o Azure Marketplace, vaya al [Centro de partners](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) para acceder a sus ventajas aptas de marketing, ventas y técnicas y activarlas. Las ventajas de las Recompensas de Marketplace se basan en la involucración y las ventas comerciales de Marketplace. Cuanto más se involucra, más gana.
 
 ## <a name="marketplace-rewards"></a>Recompensas de Marketplace
 

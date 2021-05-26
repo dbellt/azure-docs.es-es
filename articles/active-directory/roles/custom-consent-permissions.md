@@ -12,20 +12,20 @@ ms.date: 11/04/2020
 ms.author: rolyon
 ms.reviewer: psignoret
 ms.custom: it-pro
-ms.openlocfilehash: f9c2c15bbfcf9a9271e629ef26c11ecc4cbaaa6f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7a26bfd979fd58ba0519aeba274b22ae502f8a8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98740115"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110085931"
 ---
 # <a name="app-consent-permissions-for-custom-roles-in-azure-active-directory"></a>Permisos para el consentimiento de aplicaciones para roles personalizados en Azure Active Directory
 
 Este artículo contiene los permisos del registro de aplicaciones disponibles actualmente para las definiciones de roles personalizados en Azure Active Directory (Azure AD). En este artículo, encontrará los permisos necesarios para algunos escenarios comunes relacionados con los permisos y el consentimiento de aplicaciones.
 
-## <a name="required-license-plan"></a>Plan de licencia necesario
+## <a name="license-requirements"></a>Requisitos de licencia
 
-El uso de esta característica requiere tener una licencia de Azure AD Premium P1 para la organización de Azure AD. Para obtener la licencia correcta para sus requisitos, consulte [Comparación de las características con disponibilidad general de las ediciones Gratis, Básico y Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+[!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="app-consent-permissions"></a>Permisos para el consentimiento de aplicaciones
 

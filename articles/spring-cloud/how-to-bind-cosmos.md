@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 73ab7e9bab4106af52f615982666922115af4187
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 51f6807ebaa611f8c21588aa4e6dea3461bce265
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108135390"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110058463"
 ---
 # <a name="bind-an-azure-cosmos-db-database-to-your-azure-spring-cloud-application"></a>Enlace de una base de datos de Azure Cosmos DB a una aplicación de Azure Spring Cloud
 
@@ -60,16 +60,6 @@ Azure Cosmos DB tiene cinco tipos de API diferentes que admiten el enlace. En e
       <dependency>
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-starter-data-cassandra</artifactId>
-      </dependency>
-      ```
-
-    * Tipo de API: Gremlin (graph)
-
-      ```xml
-      <dependency>
-          <groupId>com.microsoft.spring.data.gremlin</groupId>
-          <artifactId>spring-data-gremlin</artifactId>
-          <version>2.1.7</version>
       </dependency>
       ```
 
