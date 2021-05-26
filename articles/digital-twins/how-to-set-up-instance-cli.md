@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 51af805bf157edbfed8022730bb7f7a429b715db
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 6370e8646c561ae88e27acf4355bfa2e4bf66f98
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787111"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078422"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configuración de una instancia de Azure Digital Twins y autenticación (CLI)
 
@@ -100,8 +100,8 @@ Ahora tiene lista una instancia de Azure Digital Twins y los permisos asignados 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Pruebe las llamadas individuales de la API de REST en su instancia mediante los comandos de la CLI de Azure Digital Twins: 
-* [Referencia de az dt](/cli/azure/dt)
-* [Conceptos: conjunto de comandos de la CLI de Azure Digital Twins](concepts-cli.md)
+* [Referencia de az dt](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
+* [Conceptos: Conjunto de comandos de la CLI de Azure Digital Twins](concepts-cli.md)
 
 O bien consulte cómo conectar una aplicación cliente a la instancia mediante el código de autenticación:
 * [Procedimiento: Escritura de código de autenticación de aplicación](how-to-authenticate-client.md)

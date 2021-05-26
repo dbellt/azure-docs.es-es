@@ -294,11 +294,14 @@
       items:
         - name: Crear base de datos
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: database/single-database-create-quickstart.md
             - name: Plantilla ARM
               displayName: Resource Manager
               href: database/single-database-create-arm-template-quickstart.md
+            - name: Con el almacenamiento del libro de contabilidad y el resumen
+              displayName: Create Azure SQL Database with ledger
+              href: database/ledger-create-a-single-database-with-ledger-enabled.md
         - name: Configuración
           items:
             - name: Reglas de firewall de IP en el nivel de servidor
@@ -434,14 +437,32 @@
               href: database/auditing-overview.md
             - name: Formato de los registros de auditoría
               href: database/audit-log-format.md
-            - name: Controles de acceso a la red
-              href: database/network-access-controls-overview.md
             - name: Alias DNS
               href: database/dns-alias-overview.md
-            - name: Puntos de conexión de red virtual
-              href: database/vnet-service-endpoint-rule-overview.md
+            - name: Libro de contabilidad
+              items:
+                - name: Libro de contabilidad
+                  href: database/ledger-landing.yml
+                - name: Información general del libro de contabilidad
+                  href: database/ledger-overview.md
+                - name: Libro de contabilidad de base de datos
+                  href: database/ledger-database-ledger.md
+                - name: Tablas de libro de contabilidad actualizables
+                  href: database/ledger-updatable-ledger-tables.md
+                - name: Tablas de libro de contabilidad de solo anexión
+                  href: database/ledger-append-only-ledger-tables.md
+                - name: Administración de resúmenes y comprobación de la base de datos
+                  href: database/ledger-digest-management-and-database-verification.md
+                - name: Auditoría del libro de contabilidad
+                  href: database/ledger-audit.md
+                - name: Limitaciones del libro de contabilidad
+                  href: database/ledger-limits.md
+            - name: Controles de acceso a la red
+              href: database/network-access-controls-overview.md
             - name: Private Link
               href: database/private-endpoint-overview.md
+            - name: Puntos de conexión de red virtual
+              href: database/vnet-service-endpoint-rule-overview.md
         - name: Partición de base de datos
           items:
             - name: Partición de base de datos
@@ -472,7 +493,7 @@
                   href: /sql/azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fazure-sql%2Ftoc.json
                 - name: SSMS
                   href: database/connect-query-ssms.md
-                - name: Azure portal
+                - name: Portal de Azure
                   href: database/connect-query-portal.md
                 - name: Código de VS
                   href: database/connect-query-vscode.md
@@ -522,6 +543,17 @@
               href: database/dynamic-data-masking-configure-portal.md
             - name: Firewall basado en IP
               href: database/firewall-configure.md
+            - name: Libro de contabilidad
+              items:
+                - name: Creación de tablas de libro de contabilidad de solo anexión
+                  href: database/ledger-how-to-append-only-ledger-tables.md
+                - name: Creación de tablas de libro de contabilidad actualizables
+                  href: database/ledger-how-to-updatable-ledger-tables.md
+                - name: "Acceso al resumen de Azure\_Confidential Ledger"
+                  displayName: Access Azure Confidential Ledger digest
+                  href: database/ledger-how-to-access-acl-digest.md
+                - name: Verificación de la alteración de la base de datos del libro de contabilidad
+                  href: database/ledger-verify-database.md
             - name: 'Puntos de conexión de red virtual: PowerShell'
               href: database/scripts/vnet-service-endpoint-rule-powershell-create.md
         - name: Continuidad empresarial

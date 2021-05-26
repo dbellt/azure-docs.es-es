@@ -2,14 +2,14 @@
 title: 'Procedimiento para ejecutar Durable Functions como WebJobs: Azure'
 description: Aprenda a programar y configurar Durable Functions para ejecutarlas en WebJobs mediante el SDK de WebJobs.
 ms.topic: conceptual
-ms.date: 04/25/2018
+ms.date: 05/12/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 826e475eb71563b52d687903aeac4ec936e267f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1bfc285d1afba0c83d07dcd7da3851231553e2f1
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96009507"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375730"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Procedimiento para ejecutar Durable Functions como WebJobs
 
@@ -37,7 +37,7 @@ Para completar los pasos de este artículo:
 
   (Puede usar [Visual Studio Code](https://code.visualstudio.com/) en su lugar, pero algunas de las instrucciones son específicas para Visual Studio).
 
-* Instale y ejecute la versión 5.2 o posterior del [Emulador de Azure Storage](../../storage/common/storage-use-emulator.md). Una alternativa consiste en actualizar el archivo *App.config* con una cadena de conexión de Azure Storage.
+* Instale y ejecute un [emulador de Azure Storage](../../storage/common/storage-use-emulator.md). Una alternativa consiste en actualizar el archivo *App.config* con una cadena de conexión real de Azure Storage.
 
 ## <a name="webjobs-sdk-versions"></a>Versiones del SDK de WebJobs
 
@@ -58,7 +58,7 @@ Necesita los paquetes de NuGet para el SDK de WebJobs, los enlaces de núcleo, l
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions -version 2.2.0
 Install-Package Microsoft.Extensions.Logging -version 2.0.1
-Install-Package Microsoft.Azure.WebJobs.Extensions.DurableTask -version 1.8.3
+Install-Package Microsoft.Azure.WebJobs.Extensions.DurableTask -version 1.8.7
 ```
 
 También necesita proveedores de registro. El siguiente comando instala el proveedor de Azure Application Insights y `ConfigurationManager`. `ConfigurationManager` le permite obtener la clave de instrumentación de Application Insights de la configuración de la aplicación.

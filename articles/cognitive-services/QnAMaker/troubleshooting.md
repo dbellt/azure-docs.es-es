@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: troubleshooting
 ms.date: 11/09/2020
-ms.openlocfilehash: 7b7ac20672ee653cbf6d2b82b7a9454c1d742b2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7b4bbafd5630c2c116e002ee6ebafaa5444ce2d
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102612701"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369326"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Solución de problemas para QnA Maker
 
@@ -49,7 +49,7 @@ Obtenga más información sobre los [planes de tarifa](Concepts/azure-resources.
 
 </details>
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
 <details>
 <summary><b>¿Cómo puedo mejorar el rendimiento de las predicciones de consulta?</b></summary>
@@ -173,7 +173,7 @@ Si tiene contenido en varios idiomas, asegúrese de crear un servicio independie
 
 </details>
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
 <details>
 <summary><b>¿Por qué mis direcciones URL o archivos no extraen pares de preguntas y respuestas?</b></summary>
@@ -349,7 +349,7 @@ Si tiene contenido en varios idiomas, asegúrese de crear un servicio independie
 
 </details>
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
 
 <details>
@@ -432,7 +432,7 @@ La clave del punto de conexión de la base de conocimiento se llama `QnAAuthkey`
 
 </details>
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
 
 <details>
@@ -494,7 +494,7 @@ Cuando se crea el servicio de QnA Maker, se selecciona una región de Azure. Sus
 
 </details>
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
 <details>
 <summary><b>¿Qué datos se almacenan y dónde?</b></summary>

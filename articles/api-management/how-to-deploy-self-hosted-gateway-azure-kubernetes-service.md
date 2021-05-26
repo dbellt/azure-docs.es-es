@@ -8,18 +8,21 @@ manager: gwallace
 editor: ''
 ms.service: api-management
 ms.topic: article
-ms.date: 04/26/2020
+ms.date: 05/25/2021
 ms.author: apimpm
-ms.openlocfilehash: 02962e9c5be2c4b73d121a53a7b595c573ad6cd0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 366b0fa70fd5229310d0f999acd07a49c45f0da0
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87015228"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375448"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Implementación en Azure Kubernetes Service
 
-En este artículo se detallan los pasos para implementar un componente de puerta de enlace autohospedada de Azure API Management en [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/). Para implementar una puerta de enlace autohospedada en un clúster de Kubernetes, consulte este [documento](how-to-deploy-self-hosted-gateway-kubernetes.md).
+En este artículo se detallan los pasos para implementar un componente de puerta de enlace autohospedada de Azure API Management en [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/). 
+
+> [!NOTE]
+> También puede implementar una puerta de enlace autohospedada en un [clúster de Kubernetes habilitado para Azure Arc](how-to-deploy-self-hosted-gateway-azure-arc.md) como una [extensión de clúster](../azure-arc/kubernetes/extensions.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -62,7 +65,8 @@ contosogateway   NodePort    10.110.230.87   <none>        80:32504/TCP,443:3004
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener más información sobre la puerta de enlace autohospedada, consulte [Introducción a la puerta de enlace autohospedada de Azure API Management](self-hosted-gateway-overview.md)
-* Más información acerca de [Azure Kubernetes Service](../aks/intro-kubernetes.md)
-* Información sobre cómo [configurar y conservar los registros en la nube](how-to-configure-cloud-metrics-logs.md)
-* * Información sobre cómo [configurar y conservar los registros localmente](how-to-configure-local-metrics-logs.md)
+* Para más información sobre la puerta de enlace autohospedada, consulte [Introducción a la puerta de enlace autohospedada de Azure API Management](self-hosted-gateway-overview.md).
+* Aprenda [cómo implementar una puerta de enlace de API Management autohospedada en clústeres de Kubernetes habilitados para Azure Arc](how-to-deploy-self-hosted-gateway-azure-arc.md).
+* Obtenga más información acerca de [Azure Kubernetes Service](../aks/intro-kubernetes.md).
+* Obtenga información sobre [cómo configurar y conservar los registros en la nube](how-to-configure-cloud-metrics-logs.md).
+* Obtenga información sobre [cómo configurar y conservar los registros localmente](how-to-configure-local-metrics-logs.md).

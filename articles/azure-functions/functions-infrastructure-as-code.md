@@ -5,16 +5,16 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit, devx-track-azurepowershell
-ms.openlocfilehash: e5de54384d59423ac5e4b8ab851faf98070d027d
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 072aa17783382c7d46298b2757b3bda9390e5e29
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278855"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368757"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatización de la implementación de recursos para una aplicación de función en Azure Functions
 
-Puede usar una plantilla de Azure Resource Manager para implementar una aplicación de función. En este artículo se describen los recursos y los parámetros necesarios para hacerlo. Es posible que tenga que implementar recursos adicionales, dependiendo de los [desencadenadores y enlaces](functions-triggers-bindings.md) de la aplicación de función.
+Puede usar una plantilla de Azure Resource Manager para implementar una aplicación de función. En este artículo se describen los recursos y los parámetros necesarios para hacerlo. Es posible que tenga que implementar recursos adicionales, dependiendo de los [desencadenadores y enlaces](functions-triggers-bindings.md) de la aplicación de funciones.
 
 Para más información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
@@ -56,7 +56,7 @@ Se necesita una cuenta de Azure Storage para una aplicación de función. Se nec
 }
 ```
 
-Además, la propiedad `AzureWebJobsStorage` se debe especificar como una configuración de aplicación en la configuración del sitio. Si la aplicación de función no usa Application Insights para la supervisión, debe especificar también `AzureWebJobsDashboard` como configuración de aplicación.
+También debe especificar la propiedad `AzureWebJobsStorage` como una opción de aplicación en la configuración del sitio. Si la aplicación de función no usa Application Insights para la supervisión, debe especificar también `AzureWebJobsDashboard` como configuración de aplicación.
 
 El tiempo de ejecución de Azure Functions usa la cadena de conexión `AzureWebJobsStorage` para crear colas internas.  Cuando Application Insights no está habilitado, el entorno de tiempo de ejecución usa la cadena de conexión `AzureWebJobsDashboard` para iniciar sesión en Azure Table Storage y activar la pestaña **Supervisión** en el portal.
 
@@ -186,16 +186,16 @@ No es necesario definir un plan de consumo. Se creará o se seleccionará uno au
 El plan de consumo es un tipo especial de recurso de "granja de servidores". Para Windows, se especifica mediante el valor `Dynamic` para las propiedades `computeMode` y `sku`:
 
 ```json
-{  
+{
    "type":"Microsoft.Web/serverfarms",
    "apiVersion":"2016-09-01",
    "name":"[variables('hostingPlanName')]",
    "location":"[resourceGroup().location]",
-   "properties":{  
+   "properties":{
       "name":"[variables('hostingPlanName')]",
       "computeMode":"Dynamic"
    },
-   "sku":{  
+   "sku":{
       "name":"Y1",
       "tier":"Dynamic",
       "size":"Y1",
@@ -212,7 +212,7 @@ Si define explícitamente su plan de consumo, deberá establecer la propiedad `s
 
 ### <a name="create-a-function-app"></a>Creación de una aplicación de función
 
-La configuración requerida por una aplicación de funciones que se ejecuta en el plan de consumo es distinta en Windows y Linux. 
+La configuración requerida por una aplicación de funciones que se ejecuta en el plan de consumo es distinta en Windows y Linux.
 
 #### <a name="windows"></a>Windows
 
@@ -258,11 +258,11 @@ En Windows, un plan de consumo requiere un valor adicional en la configuración 
 ```
 
 > [!IMPORTANT]
-> No establezca la configuración [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare), ya que se genera automáticamente cuando se crea el sitio por primera vez.  
+> No establezca la configuración [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare), ya que se genera automáticamente cuando se crea el sitio por primera vez.
 
 #### <a name="linux"></a>Linux
 
-En Linux, la aplicación de funciones debe tener `kind` establecido en `functionapp,linux` y la propiedad `reserved` establecida en `true`. 
+En Linux, la aplicación de funciones debe tener `kind` establecido en `functionapp,linux` y la propiedad `reserved` establecida en `true`.
 
 ```json
 {
@@ -305,7 +305,7 @@ No se admiten los valores de configuración [`WEBSITE_CONTENTAZUREFILECONNECTION
 <a name="premium"></a>
 ## <a name="deploy-on-premium-plan"></a>Implementación en el plan Premium
 
-El plan Premium ofrece la misma escala que el plan de consumo, pero incluye funcionalidades adicionales y recursos dedicados. Para obtener más información, consulte [Plan Premium de Azure Functions](./functions-premium-plan.md).
+El plan Prémium ofrece la misma escala que el plan de consumo, pero incluye funcionalidades adicionales y recursos dedicados. Para obtener más información, consulte [Plan Premium de Azure Functions](./functions-premium-plan.md).
 
 ### <a name="create-a-premium-plan"></a>Creación de un plan Premium
 
@@ -334,7 +334,7 @@ Un plan Premium es un tipo especial de recurso de "granja de servidores". Puede 
 
 ### <a name="create-a-function-app"></a>Creación de una aplicación de función
 
-Una aplicación de funciones en un plan Premium debe tener la propiedad `serverFarmId` establecida en el identificador de recurso del plan creado anteriormente. Además, un plan Premium requiere un valor adicional en la configuración del sitio: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring). Esta propiedad configura la cuenta de almacenamiento donde se almacenan el código de aplicación de funciones y la configuración.
+Una aplicación de funciones en un plan Premium debe tener la propiedad `serverFarmId` establecida en el identificador de recurso del plan creado anteriormente. Además, un plan Prémium requiere un valor adicional en la configuración del sitio: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring). Esta propiedad configura la cuenta de almacenamiento donde se almacenan el código de aplicación de funciones y la configuración.
 
 ```json
 {
@@ -342,7 +342,7 @@ Una aplicación de funciones en un plan Premium debe tener la propiedad `serverF
     "type": "Microsoft.Web/sites",
     "name": "[variables('functionAppName')]",
     "location": "[resourceGroup().location]",
-    "kind": "functionapp",            
+    "kind": "functionapp",
     "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
@@ -377,7 +377,7 @@ Una aplicación de funciones en un plan Premium debe tener la propiedad `serverF
 }
 ```
 > [!IMPORTANT]
-> No establezca la configuración [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare), ya que se genera automáticamente cuando se crea el sitio por primera vez.  
+> No establezca la configuración [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare), ya que se genera automáticamente cuando se crea el sitio por primera vez.
 
 <a name="app-service-plan"></a>
 
@@ -569,6 +569,109 @@ Si está [implementando una imagen de contenedor personalizada](./functions-crea
 }
 ```
 
+## <a name="deploy-to-azure-arc"></a>Implementación en Azure Arc
+
+Azure Functions se puede implementar en [Kubernetes habilitado para Azure Arc](../app-service/overview-arc-integration.md). Este proceso sigue en gran medida la [implementación en un plan de App Service](#deploy-on-app-service-plan), con algunas diferencias que se deben tener en cuenta.
+
+Para crear la aplicación y planear los recursos, ya debe haber [creado un entorno de Kubernetes de App Service](../app-service/manage-create-arc-environment.md) para un clúster de Kubernetes habilitado para Azure Arc. En estos ejemplos se supone que tiene el identificador de recurso de la ubicación personalizada y el entorno de Kubernetes de App Service en el que va a realizar la implementación. En la mayoría de las plantillas, puede proporcionar estos como parámetros.
+
+```json
+{
+    "parameters": {
+        "kubeEnvironmentId" : {
+            "type": "string"
+        },
+        "customLocationId" : {
+            "type": "string"
+        }
+    }
+}
+```
+
+Tanto los sitios como los planes deben hacer referencia a la ubicación personalizada mediante un campo `extendedLocation`. Este bloque se encuentra fuera de `properties`, en el mismo nivel que `kind` y `location`:
+
+```json
+{
+    "extendedLocation": {
+        "type": "customlocation",
+        "name": "[parameters('customLocationId')]"
+    },
+}
+```
+
+El recurso de plan debe usar la SKU de Kubernetes (K1) y su campo `kind` debe ser "linux,kubernetes". Dentro de `properties`, `reserved` debe ser "true", y `kubeEnvironmentProfile.id` debe establecerse en el identificador de recurso del entorno de Kubernetes de App Service. Un archivo de ejemplo puede tener el siguiente aspecto:
+
+```json
+{
+    "type": "Microsoft.Web/serverfarms",
+    "name": "[variables('hostingPlanName')]",
+    "location": "[parameters('location')]",
+    "apiVersion": "2020-12-01",
+    "kind": "linux,kubernetes",
+    "sku": {
+        "name": "K1",
+        "tier": "Kubernetes"
+    },
+    "extendedLocation": {
+        "type": "customlocation",
+        "name": "[parameters('customLocationId')]"
+    },
+    "properties": {
+        "name": "[variables('hostingPlanName')]",
+        "location": "[parameters('location')]",
+        "workerSizeId": "0",
+        "numberOfWorkers": "1",
+        "kubeEnvironmentProfile": {
+            "id": "[parameters('kubeEnvironmentId')]"
+        },
+        "reserved": true
+    }
+}
+```
+
+El recurso de aplicación de funciones debe tener su campo `kind` establecido en "functionapp,linux,kubernetes" o "functionapp,linux,kubernetes,container", según si tiene pensado realizar la implementación mediante código o un contenedor. Por ejemplo, una aplicación de funciones podría tener el aspecto siguiente:
+
+```json
+ {
+    "apiVersion": "2018-11-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('appName')]",
+    "kind": "kubernetes,functionapp,linux,container",
+    "location": "[parameters('location')]",
+    "extendedLocation": {
+        "type": "customlocation",
+        "name": "[parameters('customLocationId')]"
+    },
+    "dependsOn": [
+        "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+        "[variables('hostingPlanId')]"
+    ],
+    "properties": {
+        "serverFarmId": "[variables('hostingPlanId')]",
+        "siteConfig": {
+            "linuxFxVersion": "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice-quickstart",
+            "appSettings": [
+                {
+                    "name": "FUNCTIONS_EXTENSION_VERSION",
+                    "value": "~3"
+                },
+                {
+                    "name": "AzureWebJobsStorage",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+
+                },
+                {
+                    "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+                    "value": "[reference(resourceId('microsoft.insights/components/', variables('appInsightsName')), '2015-05-01').InstrumentationKey]"
+                }
+            ],
+            "alwaysOn": true
+        }
+    }
+}
+```
+
 ## <a name="customizing-a-deployment"></a>Personalización de una implementación
 
 Una aplicación de función tiene muchos recursos secundarios que puede usar en la implementación, incluidas la configuración de la aplicación y las opciones de control del código fuente. Es posible que también elija quitar el recurso secundario **sourcecontrols** y usar otra [opción de implementación](functions-continuous-deployment.md) en su lugar.
@@ -697,4 +800,4 @@ Aprenda a desarrollar y configurar Azure Functions.
 <!-- LINKS -->
 
 [Aplicación de función en el plan de consumo]: https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json
-[Aplicación de función en el plan Azure App Service]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
+[Aplicación de función en el plan Azure App Service]: https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/azuredeploy.json

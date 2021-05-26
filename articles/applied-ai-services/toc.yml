@@ -1,0 +1,31 @@
+- name: "Documentación de Azure\_Applied AI Services"
+  href: index.yml
+- name: Información general
+  expanded: true
+  items:
+    - name: ¿Qué es Applied AI Services?
+      href: what-are-applied-ai-services.md
+    - name: ¿Por qué usar Applied AI Services?
+      href: why-applied-ai-services.md
+- name: Guías de inicio rápido
+  items:
+    - name: "Azure\_Form Recognizer"
+      href: ../cognitive-services/form-recognizer/quickstarts/get-started-with-form-recognizer.md
+    - name: Azure Metrics Advisor
+      href: ../cognitive-services/metrics-advisor/quickstarts/web-portal.md
+    - name: Lector inmersivo de Azure
+      href: ../cognitive-services/immersive-reader/quickstarts/client-libraries.md
+    - name: Azure Cognitive Search
+      href: ../search/search-get-started-portal.md
+    - name: Azure Video Analyzer
+      href: 'https://aka.ms/video-analytics-qs'
+    - name: Azure Bot Service
+      href: 'https://docs.microsoft.com/composer/quickstart-create-bot'
+- name: Recursos
+  items:
+    - name: Información destacada de asociados
+      href: applied-ai-services-customer-spotlight-use-cases.md
+    - name: UserVoice
+      href: 'https://aka.ms/AppliedAIUserVoice'
+    - name: StackOverflow
+      href: 'https://aka.ms/AppliedAIStackOverflow'

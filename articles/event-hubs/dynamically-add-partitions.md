@@ -2,13 +2,13 @@
 title: Adición de particiones de forma dinámica a un centro de eventos en Azure Event Hubs
 description: En este artículo se muestra cómo agregar particiones de forma dinámica a un centro de eventos en Azure Event Hubs.
 ms.topic: how-to
-ms.date: 06/23/2020
-ms.openlocfilehash: aeeee1bcefe58b006dac0b6913aaa609cbeefb8c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/04/2021
+ms.openlocfilehash: 00163a74564e4cac5ac0b62cf6de98b7ae3ef23e
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775127"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376107"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Agregar particiones de forma dinámica a un centro de eventos (tema Apache Kafka) en Azure Event Hubs
 Event Hubs proporciona streaming de mensajes mediante un patrón de consumidor con particiones en el que cada consumidor lee solo un subconjunto específico o una partición del flujo de mensajes. Este patrón permite un escalado horizontal para el procesamiento de eventos y ofrece otras características centradas en los flujos que no están disponibles en las colas y los temas. Una partición es una secuencia ordenada de eventos que se mantiene en un centro de eventos. A medida que llegan eventos más recientes, se agregan al final de esta secuencia. Para más información sobre las particiones en general, consulte [Particiones](event-hubs-scalability.md#partitions).
@@ -16,7 +16,7 @@ Event Hubs proporciona streaming de mensajes mediante un patrón de consumidor c
 Puede especificar el número de particiones en el momento de crear un centro de eventos. En algunos escenarios, puede que tenga que agregar particiones después de crear el centro de eventos. En este artículo se describe cómo agregar particiones de forma dinámica a un centro de eventos existente. 
 
 > [!IMPORTANT]
-> La adición dinámica de particiones solo está disponible en clústeres de Event Hubs **dedicados**.
+> Las adiciones dinámicas de particiones solo están disponibles en los niveles **Premium** y **Dedicado** de Event Hubs. 
 
 > [!NOTE]
 > En el caso de los clientes de Apache Kafka, un **centro de eventos** se asigna a un **tema de Kafka**. Para obtener más asignaciones entre Azure Event Hubs y Apache Kafka, consulte [Asignación conceptual de Kafka y Event Hubs](event-hubs-for-kafka-ecosystem-overview.md#kafka-and-event-hub-conceptual-mapping).

@@ -10,14 +10,14 @@ ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/09/2019
+ms.date: 05/15/2021
 ms.author: amverma
-ms.openlocfilehash: 0f421dd7d6e494f8047c408623fc6beb828a5c73
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5a8e26aac388f44554a0a9d701f76a5e0f906a1e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108768182"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110081485"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensión del controlador de GPU de NVIDIA para Windows
 
@@ -37,6 +37,7 @@ Esta extensión es compatible con los siguientes sistemas operativos:
 | Distribución | Versión |
 |---|---|
 | Windows 10 | Core |
+| Windows Server 2019 | Core |
 | Windows Server 2016 | Core |
 | Windows Server 2012 R2 | Core |
 

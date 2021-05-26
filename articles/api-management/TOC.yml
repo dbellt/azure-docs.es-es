@@ -133,6 +133,8 @@
           href: zone-redundancy.md
         - name: Aprovisionamiento de una puerta de enlace autohospedada
           href: api-management-howto-provision-self-hosted-gateway.md
+        - name: Implementación de una puerta de enlace de Azure API Management en Azure Arc
+          href: how-to-deploy-self-hosted-gateway-azure-arc.md
         - name: Implementación de una puerta de enlace autohospedada en Azure Kubernetes Service
           href: how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md
         - name: Implementación de una puerta de enlace autohospedada en Kubernetes

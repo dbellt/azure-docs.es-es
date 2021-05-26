@@ -7,18 +7,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 04/09/2021
+ms.date: 05/12/2021
 ms.author: lajanuar
-ms.openlocfilehash: 606755333856f6dd97ab6c5158ac67f122a1237d
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 0210ef3d82997887cd306098d4db7934443cd300
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107516466"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374236"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
+
 > [!IMPORTANT]
 >
 > * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. Para más información, consulte la siguiente documentación de referencia.
@@ -41,7 +42,7 @@ ms.locfileid: "107516466"
 
 Después de instalar Python, puede instalar la versión más reciente de la biblioteca de cliente de Form Recognizer con:
 
-#### <a name="v21-preview"></a>[Versión preliminar v2.1](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 ```console
 pip install azure-ai-formrecognizer --pre
@@ -50,7 +51,7 @@ pip install azure-ai-formrecognizer --pre
 > [!NOTE]
 > Form Recognizer 3.1.0b4 es la versión preliminar del SDK más reciente y refleja la _versión preliminar 3 de la versión 2.1 de la API._
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 ```console
 pip install azure-ai-formrecognizer
@@ -76,7 +77,7 @@ Cree variables para el punto de conexión y la clave de Azure del recurso.
 
 ## <a name="object-model"></a>Modelo de objetos
 
-Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `form_recognizer_client`, se usa para realizar consultas en el servicio para reconocer contenido y campos del formulario. El segundo, `form_training_client`, se usa para crear y administrar modelos personalizados que se pueden usar para mejorar el reconocimiento. 
+Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `form_recognizer_client`, se usa para realizar consultas en el servicio para reconocer contenido y campos del formulario. El segundo, `form_training_client`, se usa para crear y administrar modelos personalizados que se pueden emplear para mejorar el reconocimiento.
 
 ### <a name="formrecognizerclient"></a>FormRecognizerClient
 
@@ -96,14 +97,14 @@ Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `f
 * La copia de un modelo personalizado entre recursos de Form Recognizer.
 
 > [!NOTE]
-> Los modelos también se pueden entrenar mediante una interfaz gráfica de usuario, como la [herramienta de etiquetado de Form Recognizer](../../quickstarts/label-tool.md).
+> Los modelos también se pueden entrenar mediante una interfaz gráfica de usuario, como la [herramienta de etiquetado de Form Recognizer](../../label-tool.md).
 
 ## <a name="code-examples"></a>Ejemplos de código
 
 En estos fragmentos de código, se muestra cómo realizar las siguientes tareas con la biblioteca cliente de Form Recognizer para Python:
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
-#### <a name="v21-preview"></a>[Versión preliminar v2.1](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 * [Autenticar el cliente](#authenticate-the-client)
 * [Análisis de diseño](#analyze-layout)
@@ -113,16 +114,16 @@ En estos fragmentos de código, se muestra cómo realizar las siguientes tareas 
 * [Análisis de documentos de identidad](#analyze-identity-documents)
 * [Analizar formularios con un modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Entrenar un modelo personalizado](#train-a-custom-model)
-* [Administrar modelos personalizados](#manage-your-custom-models)
+* [Administración de modelos personalizados](#manage-custom-models)
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 * [Autenticar el cliente](#authenticate-the-client)
 * [Análisis de diseño](#analyze-layout)
 * [Análisis de las confirmaciones de recepción](#analyze-receipts)
 * [Entrenar un modelo personalizado](#train-a-custom-model)
 * [Analizar formularios con un modelo personalizado](#analyze-forms-with-a-custom-model)
-* [Administrar modelos personalizados](#manage-your-custom-models)
+* [Administración de modelos personalizados](#manage-custom-models)
 
 ---
 
@@ -140,7 +141,7 @@ Es preciso que agregue referencias a las direcciones URL de los datos de entrena
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recuperación de la dirección URL de SAS":::
 
-* Use las imágenes de envío y de recepción que se incluyen en los ejemplos siguientes (también disponibles en [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)). O bien, siga los pasos anteriores para obtener la dirección URL de SAS de un documento individual en el almacenamiento de blobs. 
+* Use las imágenes de envío y de recepción que se incluyen en los ejemplos siguientes (también disponibles en [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)). O bien, siga los pasos anteriores para obtener la dirección URL de SAS de un documento individual en el almacenamiento de blobs.
 
 > [!NOTE]
 > Los fragmentos de código de esta guía usan formularios remotos con acceso mediante direcciones URL. En cambio, si quiere procesar documentos de formulario locales, consulte los métodos relacionados en la [documentación de referencia](/python/api/azure-ai-formrecognizer) y los [ejemplos](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
@@ -212,9 +213,9 @@ Total: 1203.39 has confidence 0.774
 
 ## <a name="analyze-business-cards"></a>Análisis de tarjetas de presentación
 
-#### <a name="v21-preview"></a>[versión preliminar v2.1](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
-En esta sección se muestra cómo analizar y extraer campos comunes de tarjetas de presentación inglesas mediante un modelo entrenado previamente. Para más información acerca del análisis de tarjetas de presentación, consulte la [guía conceptual sobre tarjetas de presentación](../../concept-business-cards.md). 
+En esta sección se muestra cómo analizar y extraer campos comunes de tarjetas de presentación inglesas mediante un modelo entrenado previamente. Para más información acerca del análisis de tarjetas de presentación, consulte la [guía conceptual sobre tarjetas de presentación](../../concept-business-cards.md).
 
 Para analizar tarjetas de presentación en una dirección URL, use el método `begin_recognize_business_cards_from_url`.
 
@@ -223,7 +224,7 @@ Para analizar tarjetas de presentación en una dirección URL, use el método `b
 > [!TIP]
 > También puede analizar imágenes de tarjeta de presentación locales. Consulte los métodos [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient), como `begin_recognize_business_cards`. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para escenarios relacionados con imágenes locales.
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 > [!IMPORTANT]
 > Esta característica no está disponible en la versión de API seleccionada.
@@ -232,9 +233,9 @@ Para analizar tarjetas de presentación en una dirección URL, use el método `b
 
 ## <a name="analyze-invoices"></a>Análisis de facturas
 
-#### <a name="v21-preview"></a>[Versión preliminar v2.1](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
-En esta sección se muestra cómo analizar y extraer campos comunes de facturas de compra mediante un modelo entrenado previamente. Para más información sobre el análisis de facturas, consulte la [guía conceptual sobre facturas](../../concept-invoices.md). 
+En esta sección se muestra cómo analizar y extraer campos comunes de facturas de compra mediante un modelo entrenado previamente. Para más información sobre el análisis de facturas, consulte la [guía conceptual sobre facturas](../../concept-invoices.md).
 
 Para analizar facturas de una dirección URL, use el método `begin_recognize_invoices_from_url`.
 
@@ -243,7 +244,7 @@ Para analizar facturas de una dirección URL, use el método `begin_recognize_in
 > [!TIP]
 > También puede analizar imágenes de facturas locales. Consulte los métodos [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient), como `begin_recognize_invoices`. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para escenarios relacionados con imágenes locales.
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 > [!IMPORTANT]
 > Esta característica no está disponible en la versión de API seleccionada.
@@ -252,7 +253,7 @@ Para analizar facturas de una dirección URL, use el método `begin_recognize_in
 
 ## <a name="analyze-identity-documents"></a>Análisis de documentos de identidad
 
-#### <a name="v21-preview"></a>[versión preliminar v2.1](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 En esta sección se muestra cómo analizar y extraer información clave de documentos de identificación emitidos por la administración pública (pasaportes de todo el mundo y permisos de conducir de EE. UU.) mediante el modelo de identificación precompilado de Form Recognizer. Para obtener más información sobre el análisis de facturas, consulte nuestra [guía conceptual del modelo de identificación precompilado](../../concept-identification-cards.md).
 
@@ -263,7 +264,7 @@ Para analizar documentos de identificación de una dirección URL, use el métod
 > [!TIP]
 > También puede analizar imágenes de documentos de identificación. _Consulte_ los métodos [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python&preserve-view=true#methods), como `begin_recognize_id_documents`. _Consulte también_ el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para escenarios relacionados con imágenes locales.
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 > [!IMPORTANT]
 > Esta característica no está disponible en la versión de API seleccionada.
@@ -275,7 +276,7 @@ Para analizar documentos de identificación de una dirección URL, use el métod
 En esta sección se muestra cómo entrenar un modelo con sus propios datos. Un modelo entrenado puede generar datos estructurados que incluyan las relaciones clave-valor del documento de formulario original. Después de entrenar el modelo, puede probarlo, volver a entrenarlo y finalmente usarlo para extraer datos de forma confiable de más formularios en función de las propias necesidades.
 
 > [!NOTE]
-> También puede entrenar modelos con una interfaz gráfica de usuario, como la [herramienta de etiquetado de ejemplo de Form Recognizer](../../quickstarts/label-tool.md).
+> También puede entrenar modelos con una interfaz gráfica de usuario, como la [herramienta de etiquetado de ejemplo de Form Recognizer](../../label-tool.md).
 
 ### <a name="train-a-model-without-labels"></a>Entrenamiento de un modelo sin etiquetas
 
@@ -324,7 +325,7 @@ Document errors: []
 También puede entrenar modelos personalizados mediante el etiquetado manual de los documentos de entrenamiento. En algunos escenarios, el entrenamiento con etiquetas conduce a un mejor rendimiento. El valor de `CustomFormModel` devuelto indica los campos que el modelo puede extraer, junto con su precisión estimada en cada campo. El siguiente bloque de código imprime esta información en la consola.
 
 > [!IMPORTANT]
-> Para realizar el entrenamiento con etiquetas, debe disponer de archivos de información con etiquetas especiales (`\<filename\>.pdf.labels.json`) en el contenedor de almacenamiento de blobs junto con los documentos para el entrenamiento. La [herramienta de etiquetado de ejemplo de Form Recognizer](../../quickstarts/label-tool.md) proporciona una interfaz de usuario para ayudarle a crear estos archivos de etiqueta. Cuando los tenga, puede llamar a la función `begin_training` con el parámetro *use_training_labels* establecido en `true`.
+> Para realizar el entrenamiento con etiquetas, debe disponer de archivos de información con etiquetas especiales (`\<filename\>.pdf.labels.json`) en el contenedor de almacenamiento de blobs junto con los documentos para el entrenamiento. La [herramienta de etiquetado de ejemplo de Form Recognizer](../../label-tool.md) proporciona una interfaz de usuario para ayudarle a crear estos archivos de etiqueta. Cuando los tenga, puede llamar a la función `begin_training` con el parámetro *use_training_labels* establecido en `true`.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_trainlabels)]
 
@@ -400,8 +401,7 @@ Field 'Tax' has label 'Tax' with value 'None' and a confidence score of None
 Field 'Total' has label 'Total' with value 'None' and a confidence score of None
 ```
 
-
-## <a name="manage-your-custom-models"></a>Administración de modelos personalizados
+## <a name="manage-custom-models"></a>Administración de modelos personalizados
 
 En esta sección se muestra cómo administrar los modelos personalizados almacenados en su cuenta.
 
@@ -410,7 +410,6 @@ En esta sección se muestra cómo administrar los modelos personalizados almacen
 El siguiente bloque de código comprueba cuántos modelos se han guardado en la cuenta de Form Recognizer y compara esta cifra con el límite de la cuenta.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_count)]
-
 
 ### <a name="output"></a>Resultados
 
@@ -423,7 +422,6 @@ Our account has 5 custom models, and we can have at most 5000 custom models
 El siguiente bloque de código enumera los modelos actuales de la cuenta e imprime los detalles en la consola. También se guarda una referencia al primer modelo.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_list)]
-
 
 ### <a name="output"></a>Resultados
 
@@ -444,7 +442,6 @@ El siguiente bloque de código usa el identificador de modelo guardado en la sec
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_getmodel)]
 
-
 ### <a name="output"></a>Resultados
 
 Esta es la salida de ejemplo para el modelo personalizado creado en el ejemplo anterior.
@@ -461,7 +458,6 @@ Training completed on: 2020-08-20 23:20:57+00:00
 También puede eliminar un modelo de su cuenta haciendo referencia a su identificador. Este código elimina el modelo usado en la sección anterior.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_delete)]
-
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
@@ -492,10 +488,23 @@ El registro detallado del nivel de depuración, incluidos los cuerpos de solicit
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerLogging.py?name=snippet_logging)]
 
-
 Igualmente, `logging_enable` puede habilitar el registro detallado de una sola operación, aunque no esté habilitado para el cliente:
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerLogging.py?name=snippet_example)]
+
+## <a name="rest-samples-on-github"></a>Ejemplos de REST en GitHub
+
+* Extracción de texto, marcas de selección y estructura de tablas de documentos
+  * [Extracción de datos de diseño: Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
+* Entrenamiento de modelos personalizados y extracción de datos de formularios
+  * [Entrenamiento sin etiquetas: Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
+  * [ Entrenamiento con etiquetas: Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
+* Extracción de datos de facturas
+  * [Extracción de datos de facturas: Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
+* Extracción de datos de recibos de ventas
+  * [Extracción de datos de recibos: Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
+* Extracción de datos de tarjetas de presentación
+  * [Extracción de datos de tarjetas de presentación: Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

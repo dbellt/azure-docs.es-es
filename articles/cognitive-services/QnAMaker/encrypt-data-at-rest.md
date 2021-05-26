@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.author: egeaney
-ms.openlocfilehash: 19dc0f3a676d5373b28e4b7055050477c426f847
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84f95e4c1d24ee100efbd0572dfe0dc88aca22d3
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100524078"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369493"
 ---
 # <a name="qna-maker-encryption-of-data-at-rest"></a>Cifrado de datos en reposo de QnA Maker
 
@@ -28,9 +28,9 @@ De forma predeterminada, su suscripción usa claves de cifrado administradas por
 
 QnA Maker usa la compatibilidad con CMK de Azure Search. Configure [CMK en Azure Search mediante Azure Key Vault](../../search/search-security-manage-encryption-keys.md). Esta instancia de Azure debe estar asociada con el servicio QnA Maker para que esté habilitada para CMK.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
-QnA Maker usa la [compatibilidad con CMK de Azure Search](../../search/search-security-manage-encryption-keys.md) y asocia automáticamente la clave administrada por el cliente proporcionada para cifrar los datos almacenados en el índice de Azure Search.
+La característica de respuesta a preguntas personalizada usa la [compatibilidad con CMK de Azure Search](../../search/search-security-manage-encryption-keys.md) y asocia automáticamente la clave administrada por el cliente proporcionada para cifrar los datos almacenados en el índice de Azure Search.
 
 ---
 
@@ -59,17 +59,18 @@ El servicio QnA Maker usa CMK del servicio Azure Search. Siga estos pasos para h
 
 4. Cuando termine, reinicie el entorno de ejecución. Ahora el servicio QnA Maker está habilitado para CMK.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
-1.  Vaya a la pestaña **Encryption** (Cifrado) del servicio QnA Maker administrado (versión preliminar).
+1.  Vaya a la pestaña **Cifrado** del servicio Text Analytics con la característica de respuesta a preguntas personalizada (versión preliminar) habilitada.
 2.  Seleccione la opción **Claves administradas de cliente**. Especifique los detalles de sus [claves administradas por el cliente](../../storage/common/customer-managed-keys-configure-key-vault.md?tabs=portal) y haga clic en **Guardar**.
 
-     :::image type="content" source="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png" alt-text="Configuración de CMK en QnA Maker administrado (versión preliminar)" lightbox="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png":::
-
+> [!div class="mx-imgBorder"]
+> ![Clave administrada por el cliente de respuesta a preguntas](media/question-answering-cmk.png)
+   
 3.  Si se guarda correctamente, la clave administrada por el cliente se usará para cifrar los datos almacenados en el índice de Azure Search.
 
 > [!IMPORTANT]
-> Se recomienda establecer la clave administrada por el cliente en un servicio Azure Cognitive Search nuevo antes de crear knowledge bases. Si CMK se establece en un servicio QnA Maker con knowledge bases existentes, se puede perder el acceso a ellas. En Azure Cognitive Search puede encontrar más información sobre cómo [trabajar con contenido cifrado](../../search/search-security-manage-encryption-keys.md#work-with-encrypted-content).
+> Se recomienda establecer la clave administrada por el cliente en un servicio Azure Cognitive Search nuevo antes de crear knowledge bases. Si establece la clave administrada por el cliente en un servicio de Text Analytics con knowledge bases existentes, puede perder el acceso a ellas. En Azure Cognitive Search puede encontrar más información sobre cómo [trabajar con contenido cifrado](../../search/search-security-manage-encryption-keys.md#work-with-encrypted-content).
 
 > [!NOTE]
 > Para solicitar la capacidad de usar claves administradas por el cliente, rellene y envíe el [formulario de solicitud de claves administradas por el cliente de Cognitive Services](https://aka.ms/cogsvc-cmk).

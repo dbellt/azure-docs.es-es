@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a3aff7b99dad910a9691eef2004df856ca883789
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 08aad681160a4f0d369fd312ba58c3ea6c7e8780
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103224391"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110454129"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalación del agente de Azure AD Connect Health
 
@@ -210,7 +210,7 @@ Si se produce un error del agente de registro de Azure AD Connect Health para S
 
 Registre manualmente el agente de Azure AD Connect Health para Sincronización con el siguiente comando de PowerShell. Los servicios de Azure AD Connect Health se iniciarán después de que el agente se registre correctamente.
 
-`Register-AzureADConnectHealthSyncAgent -AttributeFiltering $false -StagingMode $false`
+`Register-AzureADConnectHealthSyncAgent -AttributeFiltering $true -StagingMode $false`
 
 El comando toma los siguientes parámetros:
 

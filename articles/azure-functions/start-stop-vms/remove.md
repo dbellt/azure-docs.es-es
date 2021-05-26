@@ -2,15 +2,15 @@
 title: Eliminar información general sobre iniciar/detener máquinas virtuales v2 (versión preliminar)
 description: En este artículo se describe cómo quitar la característica iniciar/detener máquinas virtuales V2 (versión preliminar).
 services: azure-functions
-ms.subservice: ''
+ms.subservice: start-stop-vms
 ms.date: 03/30/2021
 ms.topic: conceptual
-ms.openlocfilehash: b4308be8f7494c1cb6f6b4839fc5a2e9717668e3
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: fd24de679781cda37ba9489eb7acad6332896659
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111343"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110076859"
 ---
 # <a name="how-to-remove-startstop-vms-v2-preview"></a>Cómo eliminar iniciar/detener máquinas virtuales v2 (versión preliminar)
 

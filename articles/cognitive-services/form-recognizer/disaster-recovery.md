@@ -1,6 +1,6 @@
 ---
 title: Guía de recuperación ante desastres para Azure Form Recognizer
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Aprenda a usar la API de copia de modelos para realizar copias de seguridad de los recursos de Form Recognizer.
 author: laujan
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: b5eb776a7807f48ae6c1a0e3c5879da1f6823830
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ddf13e190f80ddbda0c5b97be4e55e2ca963aef
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466922"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374533"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Copia de seguridad y recuperación de los modelos de Form Recognizer
 
@@ -162,4 +162,4 @@ curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v
 ## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía, ha aprendido a usar la API de copia para realizar una copia de seguridad de los modelos personalizados en un recurso de Form Recognizer secundario. A continuación, consulte los documentos de referencia de la API para ver qué más puede hacer con Form Recognizer.
-* [Documentación de referencia de API REST](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)
+* [Documentación de referencia de API REST](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)
