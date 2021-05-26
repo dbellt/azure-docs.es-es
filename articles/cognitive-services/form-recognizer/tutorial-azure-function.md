@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Uso de una instancia de Azure Functions para procesar documentos almacenados'
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: En esta guía se muestra cómo usar una función de Azure para desencadenar el procesamiento de documentos que se han cargado en un contenedor de Azure Blob Storage.
 author: laujan
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 03/19/2021
 ms.author: lajanuar
-ms.openlocfilehash: bf455d9401593b5c09fa295e492368a2a5bee240
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 6a8f3cf5b98361f96df26da923ff6bff7a604d23
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105048699"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374005"
 ---
 # <a name="tutorial-use-an-azure-function-to-process-stored-documents"></a>Tutorial: Uso de una instancia de Azure Functions para procesar documentos almacenados
 
@@ -123,7 +123,7 @@ def main(myblob: func.InputStream):
     f"Blob Size: {myblob.length} bytes")
 ```
 
-El siguiente bloque de código llama a la API de [análisis de diseño](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync) de Form Recognizer en el documento cargado. Rellene los valores de punto de conexión y clave. 
+El siguiente bloque de código llama a la API de [análisis de diseño](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync) de Form Recognizer en el documento cargado. Rellene los valores de punto de conexión y clave. 
 
 
 # <a name="version-20"></a>[versión 2.0](#tab/2-0)
@@ -144,13 +144,13 @@ El siguiente bloque de código llama a la API de [análisis de diseño](https://
     text1=os.path.basename(myblob.name)
 ```
 
-# <a name="version-21-preview"></a>[versión preliminar 2.1](#tab/2-1)
+# <a name="version-21"></a>[versión 2.1](#tab/2-1)
 
 ```Python
 # This is the call to the Form Recognizer endpoint
     endpoint = r"Your Form Recognizer Endpoint"
     apim_key = "Your Form Recognizer Key"
-    post_url = endpoint + "/formrecognizer/v2.1-preview.3/Layout/analyze"
+    post_url = endpoint + "/formrecognizer/v2.1/Layout/analyze"
     source = myblob.read()
 
     headers = {

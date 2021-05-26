@@ -2,13 +2,13 @@
 title: 'Azure Event Hubs: Procesamiento de eventos de Apache Kafka'
 description: 'Tutorial: En este artículo se muestra cómo procesar los eventos de Kafka que se introducen a través de Event Hubs mediante Azure Stream Analytics'
 ms.topic: tutorial
-ms.date: 06/23/2020
-ms.openlocfilehash: 328537eebd05391fc4c8138395a9c10f0a5d072f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/10/2021
+ms.openlocfilehash: 449301effbbb8fb92a873bd90d95da4653bfd8a2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92319391"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373605"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutorial: Procesamiento de eventos de Apache Kafka para Event Hubs mediante Stream Analytics 
 En este artículo se muestra cómo transmitir en secuencias datos a Event Hubs y cómo procesarlos con Azure Stream Analytics. Estos pasos son los siguientes: 
@@ -32,10 +32,10 @@ Para completar esta guía de inicio rápido, asegúrese de cumplir los siguiente
 
 
 ## <a name="create-an-event-hubs-namespace"></a>Creación de un espacio de nombres de Event Hubs
-Al crear un espacio de nombres en el nivel **estándar** de Event Hubs, se habilita automáticamente el punto de conexión de Kafka para el espacio de nombres. Puede transmitir eventos desde las aplicaciones que usan el protocolo de Kafka a instancias del nivel estándar de Event Hubs. Siga las instrucciones paso a paso de [Creación de un centro de eventos mediante Azure Portal](event-hubs-create.md) para crear un espacio de nombres de Event Hubs de nivel **estándar**. 
+Al crear un espacio de nombres de Event Hubs, se habilita automáticamente el punto de conexión de Kafka para el espacio de nombres. Puede transmitir eventos a Event Hubs desde las aplicaciones que usan el protocolo de Kafka. Siga las instrucciones paso a paso de [Creación de un centro de eventos mediante Azure Portal](event-hubs-create.md) para crear un espacio de nombres de Event Hubs. Si usa un clúster dedicado, consulte [Creación de un espacio de nombres y un centro de eventos en un clúster dedicado](event-hubs-dedicated-cluster-create-portal.md#create-a-namespace-and-event-hub-within-a-cluster).
 
 > [!NOTE]
-> Event Hubs para Kafka solo está disponible en los niveles **estándar** y **dedicado**. El nivel **básico** no es compatible con Kafka en Event Hubs.
+> Event Hubs para Kafka no se admite en el nivel **básico**.
 
 ## <a name="send-messages-with-kafka-in-event-hubs"></a>Envío de mensajes con Kafka en Event Hubs
 

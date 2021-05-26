@@ -1,7 +1,7 @@
 ---
 title: Instalación y ejecución de un contenedor para Form Recognizer
-titleSuffix: Azure Cognitive Services
-description: En este artículo se explica cómo usar el contenedor de Azure Cognitive Services Form Recognizer para analizar datos de formularios y tablas.
+titleSuffix: Azure Applied AI Services
+description: En este artículo se explica cómo usar el contenedor de Azure Form Recognizer para analizar datos de formularios y tablas.
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1be8afb58b22435f4f43b2d6884332a38b7f1e11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 059d780b9d9e31d01b1d1999971af77d982e3b92
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467483"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374584"
 ---
 # <a name="install-and-run-form-recognizer-containers-retiring"></a>Instalación y ejecución de contenedores de Form Recognizer (en retirada)
 
@@ -31,7 +31,7 @@ Para reducir la complejidad e integrar fácilmente un modelo de Form Recognizer 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de utilizar los contenedores de Form Recognizer, debe cumplir los siguientes requisitos previos:
 
@@ -264,7 +264,7 @@ formrecognizer_config =
 
 ### <a name="form-recognizer"></a>Form Recognizer
 
-El contenedor proporciona las API de punto de conexión REST, que puede encontrar en la página de referencia [API de Form Recognizer]https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm).
+El contenedor proporciona las API de punto de conexión REST, que puede encontrar en la página de referencia [API de Form Recognizer]https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm).
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]

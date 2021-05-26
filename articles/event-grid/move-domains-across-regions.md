@@ -4,12 +4,12 @@ description: En este artículo se muestra cómo trasladar dominios de Azure Even
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/20/2020
-ms.openlocfilehash: fff8638a819511f84f15c52ad0695cdd5759f971
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c9b6ef9f6ec2bf1ef96bfcb3327bf7307a29ef5
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89082643"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466794"
 ---
 # <a name="move-azure-event-grid-domains-to-another-region"></a>Traslado de dominios de Azure Event Grid a otra región
 Puede mover sus recursos a otra región por varios motivos. Por ejemplo, para aprovechar una nueva región de Azure, para cumplir los requisitos de gobernanza y las directivas internas o como respuesta a los requisitos de planeamiento de capacidad. 
@@ -99,6 +99,5 @@ Ha aprendido a trasladar un dominio de Event Grid de una región a otra. Consult
 
 - [Traslado de temas del sistema entre regiones](move-system-topics-across-regions.md) 
 - [Traslado de temas personalizados entre regiones](move-custom-topics-across-regions.md) 
-- [Traslado de espacios de nombres del asociado entre regiones](move-partner-namespaces-across-regions.md)
 
 Para obtener más información sobre el traslado de recursos entre regiones y la recuperación ante desastres en Azure, consulte el siguiente artículo: [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/management/move-resource-group-and-subscription.md)

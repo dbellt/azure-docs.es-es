@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 67284225299641a71050342056ad7ca91bf39740
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7abc34719cbbd03d84fc34a3691c7c84e1abda5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96353721"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067265"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Preguntas más frecuentes sobre Text to Speech
 
@@ -33,7 +33,7 @@ Si no encuentra respuestas a sus preguntas en estas P+F, [consulte otras opcione
 
 **P: Si quiero usar un modelo de voz personalizado, ¿es la API la misma que la usada para las voces estándar?**
 
-**R.** : Cuando se crea e implementa un modelo de voz personalizado, obtiene un punto de conexión único para el modelo. Para usar la voz para hablar en las aplicaciones, deberá especificar el punto de conexión en las solicitudes HTTP. La misma funcionalidad que está disponible a través de la API de REST para el servicio Text to Speech está disponible para el punto de conexión personalizado. Aprenda a [crear y usar el punto de conexión personalizado](./how-to-custom-voice-create-voice.md#create-and-use-a-custom-voice-endpoint).
+**R.** : Cuando se crea e implementa un modelo de voz personalizado, obtiene un punto de conexión único para el modelo. Para usar la voz para hablar en las aplicaciones, deberá especificar el punto de conexión en las solicitudes HTTP. La misma funcionalidad que está disponible a través de la API de REST para el servicio Text to Speech está disponible para el punto de conexión personalizado. Aprenda a [crear y usar el punto de conexión personalizado](./how-to-custom-voice-create-voice.md#create-and-use-a-custom-neural-voice-endpoint).
 
 **P: ¿Es necesario preparar los datos de entrenamiento para crear modelos de voz personalizados por mi cuenta?**
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/18/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: befd80ea212d5439c19733c9e64e25e53ba416b7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 46f03b56ad7fd2a57720962a624ee03f86c246fc
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773291"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110093650"
 ---
 | Category | Almacén de datos | Se admite como origen | Se admite como receptor | Compatible con [IR de Azure](../concepts-integration-runtime.md#azure-integration-runtime) | Compatible con [IR autohospedado](../concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -65,18 +65,20 @@ ms.locfileid: "108773291"
 | &nbsp; |[MongoDB](../connector-mongodb.md) |✓ | |✓ |✓  |
 | &nbsp; |[MongoDB Atlas](../connector-mongodb-atlas.md) |✓ | |✓ |✓  |
 | **Archivo** |[Amazon S3](../connector-amazon-simple-storage-service.md) |✓ | |✓ |✓  |
+| &nbsp; |[Almacenamiento compatible con Amazon S3](../connector-amazon-s3-compatible-storage.md) |✓ | |✓ |✓  |
 | &nbsp; |[Sistema de archivos](../connector-file-system.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[FTP](../connector-ftp.md) |✓ | |✓ |✓  |
 | &nbsp; |[Google Cloud Storage](../connector-google-cloud-storage.md) |✓ | |✓ |✓  |
 | &nbsp; |[HDFS](../connector-hdfs.md) |✓ | |✓ |✓  |
+| &nbsp; |[Oracle Cloud Storage](../connector-oracle-cloud-storage.md) |✓ | |✓ |✓  |
 | &nbsp; |[SFTP](../connector-sftp.md) |✓ |✓ |✓ |✓  |
 | **Protocolo genérico** |[HTTP genérico](../connector-http.md) |✓ | |✓ |✓  |
 | &nbsp; |[OData genérico](../connector-odata.md) |✓ | |✓ |✓  |
 | &nbsp; |[ODBC genérico](../connector-odbc.md) |✓ |✓ | |✓  |
 | &nbsp; |[REST genérico](../connector-rest.md) |✓ | ✓ |✓ |✓  |
 | **Servicios y aplicaciones** |[Servicio web de Amazon Marketplace](../connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
-| &nbsp; |[Common Data Service](../connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Concur (versión preliminar)](../connector-concur.md) |✓ | |✓ |✓  |
+| &nbsp; |[Dataverse](../connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Dynamics 365](../connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Dynamics AX](../connector-dynamics-ax.md) |✓ | |✓ |✓  |
 | &nbsp; |[Dynamics CRM](../connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |

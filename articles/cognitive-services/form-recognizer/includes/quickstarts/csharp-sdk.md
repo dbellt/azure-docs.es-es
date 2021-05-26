@@ -7,16 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 04/14/2021
+ms.date: 05/12/2021
 ms.author: lajanuar
-ms.openlocfilehash: b7a35046a7f170365974c50a5be99f35cb4a868f
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.custom: " devx-track-csharp"
+ms.openlocfilehash: 1adba2b8f0be01be231721a9c838ad6961ab03a0
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107516473"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374222"
 ---
 <!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD033 -->
 > [!IMPORTANT]
 > Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas.
 
@@ -59,7 +61,7 @@ Build succeeded.
 
 Dentro del directorio de aplicaciones, instale la biblioteca cliente de Form Recognizer para .NET con el siguiente comando:
 
-#### <a name="v21-preview"></a>[Versión preliminar v2.1](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.4
@@ -68,7 +70,7 @@ dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.4
 > [!NOTE]
 > El SDK de Form Recognizer 3.1.0-beta.4 refleja la versión preliminar 3 de la versión 2.1 de la API.
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.0.0
@@ -97,11 +99,11 @@ En la clase **Program** de la aplicación, cree variables para el punto de conex
 
 En el método **Main** de la aplicación, agregue una llamada a las tareas asincrónicas que se usan en este inicio rápido. Las implementará más adelante.
 
-#### <a name="v21-preview"></a>[Versión preliminar v2.1](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_main)]
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_main)]
 
@@ -109,7 +111,7 @@ En el método **Main** de la aplicación, agregue una llamada a las tareas asinc
 
 ## <a name="object-model"></a>Modelo de objetos
 
-Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `FormRecognizerClient`, se utiliza para consultar el servicio con los campos de formulario y el contenido reconocidos. El segundo, `FormTrainingClient`, se usa para crear y administrar los modelos personalizados que puede usar para mejorar el reconocimiento.
+Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `FormRecognizerClient`, se utiliza para consultar el servicio con los campos de formulario y el contenido reconocidos. El segundo, `FormTrainingClient`, se usa para crear y administrar modelos personalizados que se pueden emplear para mejorar el reconocimiento.
 
 ### <a name="formrecognizerclient"></a>FormRecognizerClient
 
@@ -131,14 +133,14 @@ Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `F
 Vea ejemplos de [entrenar un modelo](#train-a-custom-model) y [administrar modelos personalizados](#manage-custom-models).
 
 > [!NOTE]
-> Los modelos también se pueden entrenar mediante una interfaz gráfica de usuario, como la [herramienta de etiquetado de Form Recognizer](../../quickstarts/label-tool.md).
+> Los modelos también se pueden entrenar mediante una interfaz gráfica de usuario, como la [herramienta de etiquetado de Form Recognizer](../../label-tool.md).
 
 ## <a name="code-examples"></a>Ejemplos de código
 
 Estos fragmentos de código muestran cómo realizar las siguientes tareas con la biblioteca cliente de Form Recognizer para .NET:
 <!-- markdownlint-disable MD001 -->
 
-#### <a name="v21-preview"></a>[Versión preliminar v2.1](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 * [Autenticar el cliente](#authenticate-the-client)
 * [Análisis de diseño](#analyze-layout)
@@ -148,16 +150,16 @@ Estos fragmentos de código muestran cómo realizar las siguientes tareas con la
 * [Análisis de documentos de identidad](#analyze-identity-documents)
 * [Entrenar un modelo personalizado](#train-a-custom-model)
 * [Analizar formularios con un modelo personalizado](#analyze-forms-with-a-custom-model)
-* [Administrar modelos personalizados](#manage-your-custom-models)
+* [Administración de modelos personalizados](#manage-custom-models)
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 * [Autenticar el cliente](#authenticate-the-client)
 * [Análisis de diseño](#analyze-layout)
 * [Análisis de las confirmaciones de recepción](#analyze-receipts)
 * [Entrenar un modelo personalizado](#train-a-custom-model)
 * [Analizar formularios con un modelo personalizado](#analyze-forms-with-a-custom-model)
-* [Administrar modelos personalizados](#manage-your-custom-models)
+* [Administración de modelos personalizados](#manage-custom-models)
 
 ---
 
@@ -180,17 +182,17 @@ Repita los pasos anteriores para realizar un nuevo método que autentique un cli
 
 También tendrá que agregar referencias a las direcciones URL de los datos de entrenamiento y prueba. Agréguelas a la raíz de la clase **Program**.
 
-* [!INCLUDE [get SAS URL](../sas-instructions.md)]
+* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recuperación de la dirección URL de SAS":::
 * A continuación, repita los pasos anteriores para obtener la dirección URL de SAS de un documento individual del contenedor de almacenamiento de blobs. Guárdela también en una ubicación temporal.
 * Por último, guarde la dirección URL de las imágenes de ejemplo que se incluyen a continuación (también están disponibles en [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)).
 
-#### <a name="v21-preview"></a>[Versión preliminar v2.1](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_urls)]
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_urls)]
 
@@ -307,7 +309,7 @@ Total: '1203.39', with confidence '0.774'
 
 ## <a name="analyze-business-cards"></a>Análisis de tarjetas de presentación
 
-####  <a name="v21-preview"></a>[versión preliminar v2.1](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 En esta sección se muestra cómo analizar y extraer campos comunes de tarjetas de presentación inglesas mediante un modelo entrenado previamente. Para más información acerca del análisis de tarjetas de presentación, consulte la [guía conceptual sobre tarjetas de presentación](../../concept-business-cards.md).
 
@@ -322,7 +324,7 @@ En el código siguiente se procesa la tarjeta de presentación en el identificad
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_print)]
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 > [!IMPORTANT]
 > Esta característica no está disponible en la versión de API seleccionada.
@@ -331,7 +333,7 @@ En el código siguiente se procesa la tarjeta de presentación en el identificad
 
 ## <a name="analyze-invoices"></a>Análisis de facturas
 
-#### <a name="v21-preview"></a>[Versión preliminar v2.1](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 En esta sección se muestra cómo analizar y extraer campos comunes de facturas de compra mediante un modelo entrenado previamente. Para más información sobre el análisis de facturas, consulte la [guía conceptual sobre facturas](../../concept-invoices.md).
 
@@ -346,7 +348,7 @@ En el código siguiente se procesa la factura en el identificador URI especifica
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_print)]
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 > [!IMPORTANT]
 > Esta característica no está disponible en la versión de API seleccionada.
@@ -355,7 +357,7 @@ En el código siguiente se procesa la factura en el identificador URI especifica
 
 ## <a name="analyze-identity-documents"></a>Análisis de documentos de identidad
 
-#### <a name="v21-preview"></a>[versión preliminar v2.1](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 En esta sección se muestra cómo analizar y extraer información clave de documentos de identificación emitidos por la administración pública (pasaportes de todo el mundo y permisos de conducir de EE. UU.) mediante el modelo de identificación precompilado de Form Recognizer. Para obtener más información sobre el análisis de documentos de identificación, consulte nuestra [guía conceptual del modelo de identificación precompilado](../../concept-identification-cards.md).
 
@@ -370,7 +372,7 @@ En el código siguiente se procesa el documento de identificación en el identif
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs" id="snippet_id_print":::
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 > [!IMPORTANT]
 > Esta característica no está disponible en la versión de API seleccionada.
@@ -382,7 +384,7 @@ En el código siguiente se procesa el documento de identificación en el identif
 En esta sección se muestra cómo entrenar un modelo con sus propios datos. Un modelo entrenado puede generar datos estructurados que incluyan las relaciones clave-valor del documento de formulario original. Después de entrenar el modelo, puede probarlo, volver a entrenarlo y finalmente usarlo para extraer datos de forma confiable de más formularios en función de las propias necesidades.
 
 > [!NOTE]
-> También puede entrenar modelos con una interfaz gráfica de usuario, como la [herramienta de etiquetado de ejemplo de Form Recognizer](../../quickstarts/label-tool.md).
+> También puede entrenar modelos con una interfaz gráfica de usuario, como la [herramienta de etiquetado de ejemplo de Form Recognizer](../../label-tool.md).
 
 ### <a name="train-a-model-without-labels"></a>Entrenamiento de un modelo sin etiquetas
 
@@ -456,7 +458,7 @@ Submodel Form Type: form-0
 
 ### <a name="train-a-model-with-labels"></a>Entrenamiento de un modelo con etiquetas
 
-También puede entrenar modelos personalizados mediante el etiquetado manual de los documentos de entrenamiento. En algunos escenarios, el entrenamiento con etiquetas conduce a un mejor rendimiento. Para realizar el entrenamiento con etiquetas, debe disponer de archivos de información con etiquetas especiales (`\<filename\>.pdf.labels.json`) en el contenedor de almacenamiento de blobs junto con los documentos para el entrenamiento. La [herramienta de etiquetado de ejemplo de Form Recognizer](../../quickstarts/label-tool.md) proporciona una interfaz de usuario para ayudarle a crear estos archivos de etiqueta. Cuando los tenga, puede llamar al método `StartTrainingAsync` con el parámetro `uselabels` establecido en `true`.
+También puede entrenar modelos personalizados mediante el etiquetado manual de los documentos de entrenamiento. En algunos escenarios, el entrenamiento con etiquetas conduce a un mejor rendimiento. Para realizar el entrenamiento con etiquetas, debe disponer de archivos de información con etiquetas especiales (`\<filename\>.pdf.labels.json`) en el contenedor de almacenamiento de blobs junto con los documentos para el entrenamiento. La [herramienta de etiquetado de ejemplo de Form Recognizer](../../label-tool.md) proporciona una interfaz de usuario para ayudarle a crear estos archivos de etiqueta. Cuando los tenga, puede llamar al método `StartTrainingAsync` con el parámetro `uselabels` establecido en `true`.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_trainlabels)]
 

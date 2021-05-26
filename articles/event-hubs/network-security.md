@@ -2,13 +2,13 @@
 title: Seguridad de red para Azure Event Hubs
 description: En este artículo se describe cómo configurar el acceso desde puntos de conexión privados
 ms.topic: conceptual
-ms.date: 10/20/2020
-ms.openlocfilehash: 9503fc26c22d7dbff13c5754288f577b7bb3242f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/04/2021
+ms.openlocfilehash: 51977e9b9f9b0164acfb640392c16b20e58202ca
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96011003"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367139"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Seguridad de red para Azure Event Hubs 
 En este artículo se describe cómo usar las siguientes características de seguridad con Azure Event Hubs: 
@@ -46,7 +46,7 @@ Una vez realizada la configuración para enlazarse con al menos un punto de cone
 El resultado es una relación privada y aislada entre las cargas de trabajo enlazadas a la subred y el espacio de nombres respectivo de Event Hubs, a pesar de que la dirección de red que se puede observar en el punto de conexión de servicio de mensajería esté en un intervalo IP público. Hay una excepción a este comportamiento. Al habilitar un punto de conexión de servicio, de forma predeterminada, se habilita la regla `denyall` en el [firewall de IP](event-hubs-ip-filtering.md) asociado a la red virtual. Puede agregar direcciones IP específicas en el firewall de IP para habilitar el acceso al punto de conexión público del centro de eventos. 
 
 > [!IMPORTANT]
-> Las redes virtuales se admiten en los niveles **estándar** y **dedicado** de Event Hubs. No se admiten en el nivel **básico**.
+> No se admiten redes virtuales en el nivel **básico**.
 
 ### <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Escenarios de seguridad avanzados que habilita la integración de VNet 
 
@@ -73,7 +73,7 @@ El [servicio Azure Private Link](../private-link/private-link-overview.md) le pe
 Un punto de conexión privado es una interfaz de red que le conecta de forma privada y segura a un servicio con la tecnología de Azure Private Link. El punto de conexión privado usa una dirección IP privada de la red virtual para incorporar el servicio de manera eficaz a su red virtual. Todo el tráfico dirigido al servicio se puede enrutar mediante el punto de conexión privado, por lo que no se necesita ninguna puerta de enlace, dispositivos NAT, conexiones de ExpressRoute o VPN ni direcciones IP públicas. El tráfico entre la red virtual y el servicio atraviesa la red troncal de Microsoft, eliminando la exposición a la red pública de Internet. Puede conectarse a una instancia de un recurso de Azure, lo que le otorga el nivel más alto de granularidad en el control de acceso.
 
 > [!IMPORTANT]
-> Esta característica se admite en los niveles tanto **estándar** como **dedicado**. No se admiten en el nivel **básico**.
+> Esta característica no se admite en el nivel **básico**.
 
 Para más información, consulte [Configuración de puntos de conexión privados para un centro de eventos](private-link-service.md).
 

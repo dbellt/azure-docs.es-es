@@ -3,12 +3,12 @@ title: Supervisión continua de la canalización de versión de DevOps con Azure
 description: Proporciona instrucciones para configurar rápidamente la supervisión continua con Application Insights
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: fd7cd6a107ed45adb60167a57661b60be5dc8212
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: faa2dc0918756587ccf9093e8c9cc5d4379c6883
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86517134"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109846795"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Incorporación de supervisión continua a la canalización de versión
 
@@ -55,7 +55,7 @@ En el panel izquierdo de la página canalización de versión, seleccione **Conf
 
 Las cuatro reglas de alerta predeterminadas se crean mediante un script en línea:
 
-```bash
+```azurecli
 $subscription = az account show --query "id";$subscription.Trim("`"");$resource="/subscriptions/$subscription/resourcegroups/"+"$(Parameters.AppInsightsResourceGroupName)"+"/providers/microsoft.insights/components/" + "$(Parameters.ApplicationInsightsResourceName)";
 az monitor metrics alert create -n 'Availability_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg availabilityResults/availabilityPercentage < 99' --description "created from Azure DevOps";
 az monitor metrics alert create -n 'FailedRequests_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'count requests/failed > 5' --description "created from Azure DevOps";

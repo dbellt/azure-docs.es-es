@@ -10,12 +10,12 @@ ms.reviewer: laobri
 ms.author: seramasu
 author: rsethur
 ms.date: 05/10/2021
-ms.openlocfilehash: 227e740dacc4778e8eff666cfd92b81ab11b73a6
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 8cdc688af7a9ce57200b817576fe9746793ff19c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382945"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466622"
 ---
 # <a name="managed-online-endpoints-sku-list-preview"></a>Lista de SKU de puntos de conexión en línea administrados (versión preliminar)
 
@@ -33,6 +33,6 @@ En esta tabla se muestran las SKU de máquina virtual que se admiten para los pu
 | Pequeña | DS3_v2 | F4s v2 | E4 v3 | NC6s v2 <br/> NC6s v3 <br/> NC8as_T4_v3 |
 | Media | DS4 v2 | F8s v2 | E8 v3 | NC12s v2 <br/> NC12s v3 <br/> NC16as_T4_v3 |
 | grande | DS5 v2 | F16s v2 |E16 v3 | NC24s v2 <br/> NC24s v3 <br/> NC64as_T4_v3 |
-| Mas grande <br/> (admite cola larga) | - | F32s v2 <br/> F48s v2 <br/> F64s v2 <br/> F72s v2 | - | - |
+| Mas grande| - | F32s v2 <br/> F48s v2 <br/> F64s v2 <br/> F72s v2 | - | - |
 
 

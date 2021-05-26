@@ -1,6 +1,6 @@
 ---
 title: Implementación de la herramienta de etiquetado de ejemplo de Form Recognizer
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Obtenga información sobre las distintas formas en que puede implementar la herramienta de etiquetado de ejemplo de Form Recognizer para que lo ayude con el aprendizaje supervisado.
 author: laujan
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: lajanuar
-ms.openlocfilehash: 0f5f0714235ee23624b3a199eac744155d2bbdd1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 66edf7dbe7bc32cffcc5c4adad6e04d81f8a21ac
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101093382"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374601"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implementación de la herramienta de etiquetado de ejemplo
 
@@ -28,7 +28,7 @@ La herramienta de etiquetado de ejemplo de Form Recognizer es una aplicación qu
 
 La manera más rápida de empezar a etiquetar los datos es ejecutar la herramienta de etiquetado de ejemplo de manera local. En el siguiente inicio rápido, usará la API REST de Form Recognizer con la herramienta de etiquetado de ejemplo para entrenar un modelo personalizado con datos etiquetados manualmente. 
 
-* [Inicio rápido: Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo](./quickstarts/label-tool.md).
+* [Inicio rápido: Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo](label-tool.md).
 
 ## <a name="deploy-with-azure-container-instances-aci"></a>Implementación con Azure Container Instances (ACI)
 
@@ -70,14 +70,14 @@ Siga estos pasos para crear un recurso mediante Azure Portal:
 
 6. Ahora vamos a configurar el contenedor de Docker. Todos los campos son obligatorios a menos que se indique lo contrario:
 <!-- markdownlint-disable MD025 -->
-# <a name="v21-preview"></a>[versión preliminar v2.1](#tab/v2-1)
+# <a name="v21"></a>[v2.1](#tab/v2-1)
 
 * Opciones: seleccione **Contenedor único**.
 * Origen de imagen: seleccione **Registro privado**. 
 * URL de servidor: establézcalo en `https://mcr.microsoft.com`.
 * Nombre de usuario (opcional): cree un nombre de usuario. 
 * Contraseña (opcional): cree una contraseña segura que recuerde.
-* Imagen y etiqueta: establézcalo en `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`.
+* Imagen y etiqueta: establézcalo en `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`.
 * Implementación continua: establezca esta opción en **Activado** si quiere recibir actualizaciones automáticas cuando el equipo de desarrollo realice cambios en la herramienta de etiquetado de ejemplo.
 * Comando de inicio: establézcalo en `./run.sh eula=accept`.
 
@@ -119,7 +119,7 @@ Hay algunas cosas que necesita saber sobre este comando:
 En la CLI de Azure, ejecute este comando para crear un recurso de aplicación web para la herramienta de etiquetado de ejemplo:
 
 <!-- markdownlint-disable MD024 -->
-# <a name="v21-preview"></a>[Versión preliminar v2.1](#tab/v2-1)
+# <a name="v21"></a>[v2.1](#tab/v2-1)
 
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
@@ -127,7 +127,7 @@ DNS_NAME_LABEL=aci-demo-$RANDOM
 az container create \
   --resource-group <resource_group_name> \
   --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest \
   --ports 3000 \
   --dns-name-label $DNS_NAME_LABEL \
   --location <region name> \
@@ -168,4 +168,4 @@ OCR Form Labeling Tool también está disponible como proyecto de código abiert
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Use el inicio rápido [Entrenamiento con etiquetas](./quickstarts/label-tool.md) para aprender a usar la herramienta para etiquetar manualmente los datos de entrenamiento y realizar aprendizaje supervisado.
+Use el inicio rápido [Entrenamiento con etiquetas](label-tool.md) para aprender a usar la herramienta para etiquetar manualmente los datos de entrenamiento y realizar aprendizaje supervisado.

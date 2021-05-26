@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 03917b332d6ce204cda0ec072d213a0844690b94
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 8aaa1b2865b1d0f39e6cb224c3979b4f53eeee81
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787840"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110066726"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Configuración de aplicaciones de funciones de Azure para procesar datos
 
@@ -52,7 +52,7 @@ Después de crear la aplicación de funciones, Visual Studio genera un código 
 
 ## <a name="write-a-function-that-has-an-event-grid-trigger"></a>Escritura de una función que tenga un desencadenador de Event Grid
 
-Para escribir una función, agregue un SDK a la aplicación de funciones. La aplicación de funciones interactúa con Azure Digital Twins con el [SDK de Azure Digital Twins para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client). 
+Para escribir una función, agregue un SDK a la aplicación de funciones. La aplicación de funciones interactúa con Azure Digital Twins con el [SDK de Azure Digital Twins para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
 
 Para usar el SDK, debe incluir los siguientes paquetes en el proyecto. Instale los paquetes mediante el administrador de paquetes NuGet de Visual Studio. O bien, agregue los paquetes mediante `dotnet` en una herramienta de línea de comandos.
 

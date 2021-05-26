@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Biblioteca cliente o API REST de Form Recognizer'
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Use la biblioteca cliente o API REST de Form Recognizer con el fin de crear una aplicación de procesamiento de formularios que extraiga pares clave-valor y datos de tabla de los documentos personalizados.
 services: cognitive-services
 author: laujan
@@ -13,27 +13,29 @@ ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: forms processing, automated data processing
-ms.openlocfilehash: b4631892f1c35c665c4468a6e0b3ad481a19e8df
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 34b2e591c8d050a168e82bb40c5167823c136e52
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107516441"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374203"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library-or-rest-api"></a>Inicio rápido: Uso de la biblioteca cliente o API REST de Form Recognizer
 
-Comience a usar Form Recognizer mediante el lenguaje de desarrollo de su elección. Azure Form Recognizer es un servicio cognitivo que le permite crear software de procesamiento de datos automatizado mediante tecnología de aprendizaje automático. Identifique y extraiga texto, pares clave-valor, marcas de selección, datos de tabla, etc., de los documentos de formulario; el servicio genera datos estructurados que incluyen las relaciones en el archivo original. Puede usar Form Recognizer a través de la API REST o el SDK. Siga estos pasos para instalar el paquete SDK y probar el código de ejemplo para realizar tareas básicas.
+Comience a usar Form Recognizer mediante el lenguaje de desarrollo de su elección. Azure Form Recognizer es un servicio cognitivo que le permite crear software de procesamiento de datos automatizado mediante tecnología de aprendizaje automático. Identifique y extraiga texto, pares clave-valor, marcas de selección, datos de tabla, etc., de los documentos de formulario; el servicio genera datos estructurados que incluyen las relaciones en el archivo original. Puede usar Form Recognizer a través de la API REST o el SDK. Se recomienda usar el servicio gratuito cuando se está aprendiendo la tecnología. Recuerde que el número de páginas gratuitas se limita a 500 al mes.
 
-Use Form Recognizer para:
+Va a utilizar las siguientes API para extraer datos estructurados de formularios y documentos:
 
-* [Análisis de diseño](#analyze-layout)
-* [Análisis de las confirmaciones de recepción](#analyze-receipts)
-* [Análisis de tarjetas de presentación](#analyze-business-cards)
-* [Análisis de facturas](#analyze-invoices)
-* [Análisis de documentos de identidad](#analyze-identity-documents)
-* [Entrenar un modelo personalizado](#train-a-custom-model)
-* [Analizar formularios con un modelo personalizado](#analyze-forms-with-a-custom-model)
-* [Administrar modelos personalizados](#manage-your-custom-models)
+|Nombre |Descripción |
+|---|---|
+| **[Análisis de diseño](#analyze-layout)** | Analice un documento pasado como flujo para extraer de él texto, marcas de selección, tablas y su estructura. |
+| **[Análisis de las confirmaciones de recepción](#analyze-receipts)** | Analice un recibo para extraer de él la información clave y cualquier otro texto.|
+| **[Análisis de tarjetas de presentación](#analyze-business-cards)** | Analice una tarjeta de presentación para extraer el texto y la información más importante.|
+| **[Análisis de facturas](#analyze-invoices)** | Analice una factura para extraer de ella información clave, tablas y otro tipo de texto.|
+| **[Análisis de documentos de identidad](#analyze-identity-documents)** | Analice un documento de identidad para extraer información importante y otro texto del carné de identidad.|
+| **[Entrenamiento de un modelo personalizado](#train-a-custom-model)**| Entrene un nuevo modelo para analizar los formularios con cinco formularios del mismo tipo. Establezca el parámetro _useLabelFile_ en `true` para entrenar con datos etiquetados manualmente. |
+| **[Analizar formularios con un modelo personalizado](#analyze-forms-with-a-custom-model)**|Analice un formulario pasado como una secuencia para extraer texto, pares clave-valor y tablas del formulario con su modelo personalizado.  |
+|**[Administración de modelos personalizados](#manage-custom-models)**| Puede comprobar el número de modelos personalizados en su cuenta de Form Recognizer, obtener un modelo específico mediante su identificador y eliminar un modelo de su cuenta.|
 
 ::: zone pivot="programming-language-csharp"
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 08/31/2020
-ms.openlocfilehash: 9787fd244ffe18bcaa37bcc28392d29c9e8768d4
-ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
+ms.openlocfilehash: f2dffe98f401acad927cc3404ffd2c48378e9026
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108006913"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372245"
 ---
 # <a name="tutorial-create-an-faq-bot-with-azure-bot-service"></a>Tutorial: Creación de un bot de preguntas frecuentes con Azure Bot Service
 Cree un bot de preguntas frecuentes con QnA Maker y Azure [Bot Service](https://azure.microsoft.com/services/bot-service/) sin código.
@@ -30,11 +30,13 @@ Siga el [inicio rápido](../Quickstarts/create-publish-knowledge-base.md) para c
 
 # <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
 
-![Captura de pantalla de una publicación correcta](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla de una publicación correcta](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint.png)
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
-![Captura de pantalla de una publicación correcta administrada](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint-managed.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla de una publicación correcta administrada](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint-managed.png)
 
 ---
 
@@ -49,13 +51,15 @@ Si realiza cambios en la base de conocimiento y vuelve a publicarla, no es neces
 
 1. En el portal de QnA Maker, en la página **Publish** (Publicar), seleccione **Create bot** (Crear bot). Este botón solo aparece cuando se publica la base de conocimiento.
 
-     # <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
+    # <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
 
-    ![Captura de pantalla de creación de un bot](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de creación de un bot](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page.png)
 
-    # <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+    # <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
-    ![Captura de pantalla de creación de la versión preliminar administrada de un bot](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page-managed.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de creación de la versión preliminar administrada de un bot](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page-managed.png)
 
     ---
     
@@ -79,10 +83,22 @@ Si realiza cambios en la base de conocimiento y vuelve a publicarla, no es neces
 
     El bot de chat muestra una respuesta de la base de conocimiento.
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Escriba una consulta de usuario en el chat en web de prueba.":::
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de un bot que devuelve una respuesta](../media/qnamaker-create-publish-knowledge-base/test-web-chat.png)
+
+
 1. Destacar el bot en los [canales admitidos](/azure/bot-service/bot-service-manage-channels) adicionales.
 
-   * Haga clic en **Canales** en el recurso de Bot Service.
+
+    - Haga clic en Canales en el recurso de Bot Service.
+
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la conexión de un bot a un canal](../media/qnamaker-tutorial-updates/connect-with-teams.png)
+    
+## <a name="integrate-the-bot-with-channels"></a>Integración del bot con canales
+
+Haga clic en **Canales** en el recurso de Bot Service que ha creado. Puede activar el bot en otros [canales admitidos](/azure/bot-service/bot-service-manage-channels).
 
    >[!div class="mx-imgBorder"]
    >![Captura de pantalla de la integración con Teams](../media/qnamaker-tutorial-updates/connect-with-teams.png)
+

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: d8a6471d53ad4b2428504f9c53cbec6bc1967c49
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1cf5d2cd191b787b6981c8c54950ad341e9d3dad
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93089647"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110073673"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Cómo elegir entre el rendimiento aprovisionado estándar (manual) y el de escalabilidad automática 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -139,4 +139,4 @@ Si usa la escalabilidad automática, use Azure Monitor para ver el máximo de RU
 * Use la [calculadora de RU](https://cosmos.azure.com/capacitycalculator/) para calcular el rendimiento de las cargas de trabajo nuevas.
 * Use [Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) para supervisar las cargas de trabajo existentes.
 * Obtenga más información sobre el [aprovisionamiento del rendimiento de escalabilidad automática en una base de datos o contenedor de Azure Cosmos](how-to-provision-autoscale-throughput.md).
-* Revise las [preguntas más frecuentes sobre Escalabilidad automática](autoscale-faq.md).
+* Revise las [preguntas más frecuentes sobre Escalabilidad automática](autoscale-faq.yml).

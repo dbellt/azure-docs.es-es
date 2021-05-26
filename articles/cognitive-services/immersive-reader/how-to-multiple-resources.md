@@ -1,6 +1,6 @@
 ---
 title: Integración de varios recursos del Lector inmersivo
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: En este tutorial, creará una aplicación de Node.js que inicia el Lector inmersivo mediante el uso de varios recursos del Lector inmersivo.
 author: skamal
 manager: nitinme
@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 01/14/2020
 ms.author: skamal
 ms.custom: devx-track-js
-ms.openlocfilehash: dc6c7bd9e38aa21ab10f55fca2500b0c12194d43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2b8258b5235deac0f6ebc03b1da4d28bb2439a82
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102620291"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373830"
 ---
 # <a name="integrate-multiple-immersive-reader-resources"></a>Integración de varios recursos del Lector inmersivo
 
