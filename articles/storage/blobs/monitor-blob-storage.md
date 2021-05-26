@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 464b5a6fddb724500e27a4b7d5e35fd84549565b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: dd4d4c1ddea737a1aa2083f7e2801aaee1b4cff7
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771630"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467452"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Supervisión de Azure Blob Storage
 
@@ -298,7 +298,7 @@ Para obtener una lista de todas las métricas compatibles de Azure Monitor, lo q
 > [!TIP]
 > Para ver ejemplos de la CLI de Azure o .NET, elija las pestañas correspondientes a continuación.
 
-### <a name="net"></a>[.NET](#tab/azure-portal)
+### <a name="net-sdk"></a>[SDK de .NET](#tab/azure-portal)
 
 Azure Monitor proporciona el [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) para leer la definición y los valores de las métricas. El [código de ejemplo](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) muestra cómo utilizar el SDK con parámetros diferentes. Debe usar `0.18.0-preview` o una versión posterior para las métricas de almacenamiento.
  
