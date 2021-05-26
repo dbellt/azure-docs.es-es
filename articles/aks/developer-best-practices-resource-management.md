@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: zarhoads
-ms.openlocfilehash: 2cd2bab05346f66b933512e677f1d38f4514796c
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: f45c3a0bb425b9b4d780a78bb32afa3186232b11
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105279"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467104"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para desarrolladores de aplicaciones para administrar recursos en Azure Kubernetes Services (AKS)
 
@@ -23,7 +23,6 @@ Este artículo se centra en la ejecución del clúster y las cargas de trabajo d
 > [!div class="checklist"]
 > * Solicitudes y límites de recursos de pod
 > * Formas de desarrollar e implementar aplicaciones con Bridge to Kubernetes y Visual Studio Code.
-> * Cómo usar la herramienta `kube-advisor` para comprobar si existen problemas con las implementaciones.
 
 ## <a name="define-pod-resource-requests-and-limits"></a>Definición de los límites y solicitudes de recursos del pod
 
@@ -113,18 +112,6 @@ La [extensión de Visual Studio Code para Kubernetes][vscode-kubernetes] le ayud
 
     ![Advertencia de la extensión de VS Code para Kubernetes que indica que faltan los límites de memoria.](media/developer-best-practices-resource-management/vs-code-kubernetes-extension.png)
 
-## <a name="regularly-check-for-application-issues-with-kube-advisor"></a>Comprobación de forma periódica de problemas de aplicaciones con kube-advisor
-
-> **Guía de procedimientos recomendados** 
-> 
-> Ejecute periódicamente la versión más reciente de la herramienta de código abierto `kube-advisor` para detectar problemas en el clúster. Ejecute `kube-advisor` antes de aplicar cuotas de recursos en un clúster de AKS existente para buscar pods que no tengan definidas solicitudes y límites de recursos.
-
-La herramienta [kube-advisor][kube-advisor] es un proyecto de código abierto de AKS asociado que examina un clúster de Kubernetes e informa sobre los problemas identificados. Una comprobación útil consiste en identificar los pods sin límites y solicitudes de recursos vigentes.
-
-Aunque la herramienta `kube-advisor` puede informar sobre la falta de límites y solicitudes de recursos en PodSpecs para las aplicaciones Windows y Linux, la propia `kube-advisor` debe programarse en un pod de Linux. Use un [selector de nodos][k8s-node-selector] en la configuración del pod para programar la ejecución de un pod en un grupo de nodos con un sistema operativo específico.
-
-En un clúster de AKS que hospeda muchos equipos y aplicaciones de desarrollo, le resultará fácil realizar un seguimiento de los pods con los límites y solicitudes de recursos. Como procedimiento recomendado, ejecute `kube-advisor` de forma periódica en los clústeres de AKS.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 Este artículo se centra en cómo ejecutar el clúster y las cargas de trabajo desde la perspectiva de un operador de clústeres. Para obtener información acerca de los procedimientos recomendados, consulte [Procedimientos recomendados para el aislamiento y la administración de recursos en Azure Kubernetes Service (AKS)][operator-best-practices-isolation].
@@ -132,16 +119,13 @@ Este artículo se centra en cómo ejecutar el clúster y las cargas de trabajo d
 Para implementar algunos de estos procedimientos recomendados, consulte los artículos siguientes:
 
 * [Desarrollo con Bridge to Kubernetes][btk]
-* [Comprobación de problemas con kube-advisor][aks-kubeadvisor]
 
 <!-- EXTERNAL LINKS -->
 [k8s-resource-limits]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 [vscode-kubernetes]: https://github.com/Azure/vscode-kubernetes-tools
-[kube-advisor]: https://github.com/Azure/kube-advisor
 [minikube]: https://kubernetes.io/docs/setup/minikube/
 
 <!-- INTERNAL LINKS -->
-[aks-kubeadvisor]: kube-advisor-tool.md
 [btk]: /visualstudio/containers/overview-bridge-to-kubernetes
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas

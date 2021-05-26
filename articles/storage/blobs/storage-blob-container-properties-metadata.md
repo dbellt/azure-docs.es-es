@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/01/2020
 ms.author: tamram
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9fb77179a00969da7a3dc372dc70c99cfe4220ca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e2a8e6893fbcc10fc1c528438034fd36d5b745f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92091005"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477661"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>Administración de propiedades y metadatos de contenedor con .NET
 
@@ -30,7 +30,7 @@ Los pares de nombre/valor de metadatos son encabezados HTTP válidos y, por tant
 
 ## <a name="retrieve-container-properties"></a>Recuperación de las propiedades del contenedor
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 Para recuperar las propiedades del contenedor, llame a uno de los métodos siguientes:
 
@@ -41,7 +41,7 @@ En el ejemplo de código siguiente se capturan las propiedades del sistema de un
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadContainerProperties":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
 
 El proceso de recuperación de los valores de propiedad y metadatos de un recurso de almacenamiento de blobs consta de dos pasos. Para poder leer estos valores, tiene que capturarlos explícitamente llamando al método **FetchAttributes** o **FetchAttributesAsync**. La excepción a esta regla es que los métodos **Exists** y **ExistsAsync** llaman al método **FetchAttributes** en segundo plano. Cuando se llama a uno de estos métodos, no es necesario llamar también a **FetchAttributes**.
 
@@ -81,7 +81,7 @@ private static async Task ReadContainerPropertiesAsync(CloudBlobContainer contai
 
 ## <a name="set-and-retrieve-metadata"></a>Establecimiento y recuperación de metadatos
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 Puede especificar metadatos como uno o más pares nombre-valor en un recurso de blob o contenedor. Para establecer los metadatos, agregue pares nombre-valor a un objeto [IDictionary](/dotnet/api/system.collections.idictionary) del recurso y, luego, llame a uno de los métodos siguientes para escribir los valores:
 
@@ -103,7 +103,7 @@ A continuación, copie los valores como se muestra en el ejemplo siguiente.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadContainerMetadata":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
 
 Puede especificar metadatos como uno o más pares nombre-valor en un recurso de blob o contenedor. Para establecer los metadatos, agregue pares nombre-valor a la colección **Metadatos** del recurso y, luego, llame a uno de los métodos siguientes para escribir los valores:
 

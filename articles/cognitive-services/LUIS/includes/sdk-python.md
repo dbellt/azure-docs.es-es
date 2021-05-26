@@ -5,15 +5,15 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 09/01/2020
+ms.date: 05/17/2021
 ms.topic: include
 ms.custom: include file, cog-serv-seo-aug-2020
-ms.openlocfilehash: b44fae4d2a4c8d0a60d751068e765932fed7e8fb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2cf4ab723c339641a0e9fc956c521df644f4ad44
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947195"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110163260"
 ---
 Use las bibliotecas cliente de Language Understanding (LUIS) para Python para:
 
@@ -29,7 +29,7 @@ Use las bibliotecas cliente de Language Understanding (LUIS) para Python para:
 * La versión actual de [Python 3.x](https://www.python.org/).
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services)
 * Cuando tenga la suscripción a Azure, [cree un recurso de creación de Language Understanding](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) en Azure Portal para obtener la clave de creación y el punto de conexión. Espere a que se implemente y haga clic en el botón **Ir al recurso**.
-    * Necesitará la clave y el punto de conexión del recurso que [cree](../luis-how-to-azure-subscription.md#create-luis-resources-in-the-azure-portal) para conectar la aplicación a la creación de Language Understanding. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente. Puede usar el plan de tarifa gratuito (`F0`) para probar el servicio.
+    * Necesitará la clave y el punto de conexión del recurso que [cree](../luis-how-to-azure-subscription.md) para conectar la aplicación a la creación de Language Understanding. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente. Puede usar el plan de tarifa gratuito (`F0`) para probar el servicio.
 
 ## <a name="setting-up"></a>Instalación
 

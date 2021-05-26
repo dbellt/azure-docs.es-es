@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Biblioteca cliente del Lector inmersivo'
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: La biblioteca cliente de Lector inmersivo facilita la integración de este servicio en las aplicaciones web para mejorar la comprensión lectora. En este inicio rápido, aprenderá a usar Lector inmersivo para la selección de texto, reconocer partes del texto, leer el texto seleccionado en voz alta, traducir, etc.
 services: cognitive-services
 author: nitinme
@@ -13,12 +13,12 @@ ms.date: 03/08/2021
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
 keywords: display pictures, parts of speech, read selected text, translate words, reading comprehension
-ms.openlocfilehash: 78270700c49e3f0943940db3271a6605d583308c
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 2b368e23063a921b9a7f1cd22d404414b2e9f91d
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102619270"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376595"
 ---
 # <a name="quickstart-get-started-with-immersive-reader"></a>Inicio rápido: Introducción a Lector inmersivo
 

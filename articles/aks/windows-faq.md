@@ -5,12 +5,12 @@ description: Vea las preguntas frecuentes cuando ejecute cargas de trabajo de ap
 services: container-service
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: e9b2072ddcb688cd320700d47bb5f5f3670e6543
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 192306d2aeb9abddef641c0b55adaacaf8442de2
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790080"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110065717"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Preguntas frecuentes sobre los grupos de nodos de Windows Server en AKS
 
@@ -116,10 +116,6 @@ Kubenet actualmente no es compatible con los nodos de Windows.
 ## <a name="can-i-run-ingress-controllers-on-windows-nodes"></a>¿Puedo ejecutar controladores de entrada en los nodos de Windows?
 
 Sí, un controlador de entrada que admita contenedores de Windows Server se puede ejecutar en nodos de Windows en AKS.
-
-## <a name="can-i-use-azure-dev-spaces-with-windows-nodes"></a>¿Puedo usar Azure Dev Spaces con los nodos de Windows?
-
-Azure Dev Spaces actualmente solo está disponible para grupos de nodos basados en Linux.
 
 ## <a name="can-my-windows-server-containers-use-gmsa"></a>¿Pueden usar gMSA los contenedores de Windows Server?
 

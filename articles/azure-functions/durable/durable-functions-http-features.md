@@ -3,14 +3,14 @@ title: 'Características de HTTP en Durable Functions: Azure Functions'
 description: Aprenda a implementar las características de HTTP integradas en la extensión Durable Functions para Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 05/11/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 64d40de50f21811a56318971de1836abc8fbf8c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 67a28bccf3353ed7e33826b0ef5b82fc1cc5f981
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93027268"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376888"
 ---
 # <a name="http-features"></a>Características de HTTP
 
@@ -106,6 +106,48 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 }
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+**run.ps1**
+
+```powershell
+$FunctionName = $Request.Params.FunctionName
+$InstanceId = Start-NewOrchestration -FunctionName $FunctionName
+Write-Host "Started orchestration with ID = '$InstanceId'"
+
+$Response = New-OrchestrationCheckStatusResponse -Request $Request -InstanceId $InstanceId
+Push-OutputBinding -Name Response -Value $Response
+```
+
+**function.json**
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "Request",
+      "type": "httpTrigger",
+      "direction": "in",
+      "route": "orchestrators/{FunctionName}",
+      "methods": [
+        "post",
+        "get"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    },
+    {
+      "name": "starter",
+      "type": "orchestrationClient",
+      "direction": "in"
+    }
+  ]
+}
+```
 ---
 
 El inicio de una función de orquestador mediante las funciones de desencadenador HTTP mostradas anteriormente se puede hacer con cualquier cliente HTTP. El siguiente comando de cURL inicia una función de orquestador denominada `DoWork`:
@@ -216,6 +258,10 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Esta característica es compatible actualmente con PowerShell.
+
 ---
 
 Mediante la acción "llamar a HTTP", puede realizar las siguientes acciones en las funciones de orquestador:
@@ -313,6 +359,10 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell) 
+
+Esta característica es compatible actualmente con PowerShell.
+
 ---
 
 En el ejemplo anterior, el parámetro `tokenSource` se configura para adquirir tokens de Azure AD para [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Los tokens se identifican mediante el URI de recurso `https://management.core.windows.net/.default`. En el ejemplo se da por supuesto que la aplicación de funciones actual se está ejecutando localmente o se ha implementado como una aplicación de función con una identidad administrada. Se supone que la identidad local o la identidad administrada tienen permiso para administrar las máquinas virtuales en el grupo de recursos especificado `myRG`.
@@ -331,10 +381,10 @@ Las identidades administradas no se limitan a la administración de recursos de 
 
 La compatibilidad integrada para llamar a las API HTTP es una característica útil. No es adecuada para todos los escenarios.
 
-Las solicitudes HTTP enviadas por las funciones de orquestador y sus respuestas se serializan y se conservan como mensajes en cola. Este comportamiento de puesta en cola garantiza que las llamadas HTTP sean [confiables y seguras para la reproducción de orquestación](durable-functions-orchestrations.md#reliability). Sin embargo, el comportamiento de puesta en cola también tiene limitaciones:
+Las solicitudes HTTP enviadas por las funciones de orquestador y sus respuestas [se serializan y se conservan](durable-functions-serialization-and-persistence.md) como mensajes en el proveedor de almacenamiento de Durable Functions. Este comportamiento de puesta en cola persistente garantiza que las llamadas HTTP sean [confiables y seguras para la reproducción de orquestación](durable-functions-orchestrations.md#reliability). Sin embargo, el comportamiento de puesta en cola persistente también tiene limitaciones:
 
 * Cada solicitud HTTP implica una latencia adicional en comparación con un cliente HTTP nativo.
-* Los mensajes de solicitud o respuesta de gran tamaño que no caben en un mensaje de cola pueden degradar significativamente el rendimiento de la orquestación. La sobrecarga que supone descargar cargas de mensajes en el almacenamiento de blobs puede causar una degradación potencial del rendimiento.
+* En función del [proveedor de almacenamiento configurado](durable-functions-storage-providers.md), los mensajes de solicitud o respuesta grandes pueden degradar significativamente el rendimiento de la orquestación. Por ejemplo, al usar Azure Storage, las cargas HTTP que son demasiado grandes para adaptarse a los mensajes de Azure Queue se comprimen y almacenan en Azure Blob Storage.
 * No se admiten las cargas de streaming, fragmentadas ni binarias.
 * La capacidad de personalizar el comportamiento del cliente HTTP es limitada.
 

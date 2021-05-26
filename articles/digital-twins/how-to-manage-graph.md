@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f1136676002a737f4e860e33e8b3b855712d3928
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 31c99fbac936ab6ec96d6e24bc824d9cb2069e0f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789828"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078785"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Administración de un grafo de gemelos digitales con relaciones
 
@@ -95,7 +95,7 @@ Puede usar las relaciones recuperadas para navegar a otros gemelos del grafo. Pa
 Azure Digital Twins también dispone de una API para buscar todas las relaciones de **entrada** para un gemelo determinado. Suele ser útil para la navegación inversa o cuando se elimina un gemelo.
 
 >[!NOTE]
-> Las llamadas a `IncomingRelationship` no devuelven todo el cuerpo de la relación. Para más información sobre la clase `IncomingRelationship`, consulte su [documentación de referencia](/dotnet/api/azure.digitaltwins.core.incomingrelationship).
+> Las llamadas a `IncomingRelationship` no devuelven todo el cuerpo de la relación. Para más información sobre la clase `IncomingRelationship`, consulte su [documentación de referencia](/dotnet/api/azure.digitaltwins.core.incomingrelationship?view=azure-dotnet&preserve-view=true).
 
 El ejemplo de código de la sección anterior se centraba en buscar relaciones de salida desde un gemelo. El ejemplo siguiente está estructurado de manera similar, pero en su lugar busca relaciones de *entrada* para el gemelo. En este ejemplo también se usa la llamada de SDK (resaltada) de un método personalizado que puede aparecer en el contexto de un programa más grande.
 
@@ -182,7 +182,7 @@ Luego **copie el código siguiente** del ejemplo ejecutable en el proyecto:
 Luego siga estos pasos para configurar el código del proyecto:
 1. Agregue los archivos **Room.json** y **Floor.json** que ha descargado anteriormente al proyecto y reemplace los marcadores de posición `<path-to>` en el código para indicar al programa dónde encontrarlos.
 1. Reemplace el marcador de posición `<your-instance-hostname>` por el nombre de host de la instancia de Azure Digital Twins.
-1. Agregue dos dependencias al proyecto ya que las necesitará para trabajar con Azure Digital Twins. La primera es el paquete del [SDK de Azure Digital Twins para .NET](/dotnet/api/overview/azure/digitaltwins/client) y la segunda proporciona herramientas para ayudar con la autenticación en Azure.
+1. Agregue dos dependencias al proyecto ya que las necesitará para trabajar con Azure Digital Twins. La primera es el paquete del [SDK de Azure Digital Twins para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) y la segunda proporciona herramientas para ayudar con la autenticación en Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core

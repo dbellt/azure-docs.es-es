@@ -4,12 +4,12 @@ description: Aprenda a controlar eventos externos en la extensión Durable Funct
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: a7625a6fcd1000595c2c582935c839ba6d26b20d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 513bb1837a50ba05314afb7e89745438e3b8ed79
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728494"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376916"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Control de eventos externos con Durable Functions (Azure Functions)
 
@@ -73,6 +73,20 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
         # approval denied - send a notification
 
 main = df.Orchestrator.create(orchestrator_function)
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$approved = Start-DurableExternalEventListener -EventName "Approval"
+
+if ($approved) {
+    # approval granted - do the approved action
+} else {
+    # approval denied - send a notification
+}
 ```
 
 ---
@@ -154,6 +168,25 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$event1 = Start-DurableExternalEventListener -EventName "Event1" -NoWait
+$event2 = Start-DurableExternalEventListener -EventName "Event2" -NoWait
+$event3 = Start-DurableExternalEventListener -EventName "Event3" -NoWait
+
+$winner = Wait-DurableTask -Task @($event1, $event2, $event3) -Any
+
+if ($winner -eq $event1) {
+    # ...
+} else if ($winner -eq $event2) {
+    # ...
+} else if ($winner -eq $event3) {
+    # ...
+}
+```
 ---
 
 El ejemplo anterior escucha *cualquiera* de varios eventos posibles. También es posible esperar *todos* los eventos.
@@ -221,6 +254,20 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$applicationId = $Context.Input
+$gate1 = Start-DurableExternalEventListener -EventName "CityPlanningApproval" -NoWait
+$gate2 = Start-DurableExternalEventListener -EventName "FireDeptApproval" -NoWait
+$gate3 = Start-DurableExternalEventListener -EventName "BuildingDeptApproval" -NoWait
+
+Wait-DurableTask -Task @($gate1, $gate2, $gate3)
+
+Invoke-ActivityFunction -FunctionName 'IssueBuildingPermit' -Input $applicationId
+```
 ---
 
 `WaitForExternalEvent` espera indefinidamente alguna entrada.  La aplicación de función puede descargarse con seguridad mientras espera. En el momento en que un evento llega a esta instancia de orquestación, esta se activa automáticamente y procesa de inmediato el evento.
@@ -278,9 +325,16 @@ async def main(instance_id:str, starter: str) -> func.HttpResponse:
     await client.raise_event(instance_id, 'Approval', True)
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```powershell
+param($instanceId)
+
+Send-DurableExternalEvent -InstanceId $InstanceId -EventName "Approval"
+```
 ---
 
-Internamente, `RaiseEventAsync` (.NET), `raiseEvent` (JavaScript) o `raise_event` (Python) pone en cola un mensaje que la función de orquestador en espera selecciona. Si la instancia no está esperando el *nombre de evento* especificado, el mensaje del evento se agrega a una cola en memoria. Si la instancia de orquestación inicia posteriormente la escucha de ese *nombre de evento*, se comprobará si hay mensajes de eventos en la cola.
+Internamente, `RaiseEventAsync` (.NET), `raiseEvent` (JavaScript), `raise_event` (Python) o `Send-DurableExternalEvent` (PowerShell) pone en cola un mensaje que la función de orquestador en espera selecciona. Si la instancia no está esperando el *nombre de evento* especificado, el mensaje del evento se agrega a una cola en memoria. Si la instancia de orquestación inicia posteriormente la escucha de ese *nombre de evento*, se comprobará si hay mensajes de eventos en la cola.
 
 > [!NOTE]
 > Si no hay ninguna instancia de orquestación con el *identificador de instancia* especificado, se descartará el mensaje del evento.

@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8f65ca9386963824f0cb740f587de83c9dec7f78
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 268cb05b7399c6fc812310f451797df60e283557
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103017426"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376312"
 ---
 # <a name="filter-responses-with-metadata"></a>Filtrado de las respuestas con metadatos
 
@@ -51,6 +51,35 @@ Puesto que los resultados solo son necesarios para el restaurante "Paradise", pu
     "strictFilters": [ { "name": "restaurant", "value": "paradise"}]
 }
 ```
+
+## <a name="filter-by-source"></a>Filtrar por origen
+
+# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
+
+En la versión de disponibilidad general de QnA Maker no se pueden filtrar los resultados por un origen de contenido.
+
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
+
+En caso de que tenga varios orígenes de contenido en la base de conocimiento y quiera limitar los resultados a un conjunto determinado de orígenes, puede hacerlo con la palabra clave reservada `source_name_metadata`, como se muestra a continuación.
+
+```json
+"strictFilters": [
+    {
+        "name": "category",
+        "value": "api"
+    },
+   {
+        "name": "source_name_metadata",
+        "value": "boby_brown_docx"
+    },
+   {
+        "name": "source_name_metadata",
+        "value": "chitchat.tsv"
+   }
+]
+```
+
+---
 
 ### <a name="logical-and-by-default"></a>AND lógico de manera predeterminada
 

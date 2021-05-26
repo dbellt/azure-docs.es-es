@@ -4,16 +4,16 @@ description: Aprenda cómo agregar una entidad de servicio de automatización al
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 05/14/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b1d5f8ec628245756c53e4dfeeecdeb3a4bebc2e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f28d7e46acd5d9c22729ff7878f44a27d5cb6363
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93100735"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110065699"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Incorporación de una entidad de servicio al rol de administrador del servidor 
 
@@ -103,7 +103,7 @@ También se puede agregar una identidad administrada a la lista de administrador
 
 En la mayoría de las partes de Azure Portal y las API, las identidades administradas se identifican mediante el identificador de objeto de la entidad de servicio. Sin embargo, Analysis Services requiere que se identifiquen mediante su identificador de cliente. Para obtener el identificador de cliente de una entidad de servicio, puede usar la CLI de Azure:
 
-```bash
+```azurecli
 az ad sp show --id <ManagedIdentityServicePrincipalObjectId> --query appId -o tsv
 ```
 

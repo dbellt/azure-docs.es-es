@@ -9,12 +9,12 @@ ms.date: 10/14/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a12fc991734fe74e450aa14a477f3a4500ba659c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 40dade86882cdfa8f85015bebc8769430fbf3f1a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96937260"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477626"
 ---
 # <a name="list-blob-containers-with-net"></a>Enumeración de contenedores de blob con .NET
 
@@ -24,12 +24,12 @@ Al enumerar los contenedores de una cuenta de Azure Storage desde el código, pu
 
 Para enumerar los contenedores de la cuenta de almacenamiento, llame a uno de los métodos siguientes:
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 - [GetBlobContainers](/dotnet/api/azure.storage.blobs.blobserviceclient.getblobcontainers)
 - [GetBlobContainersAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.getblobcontainersasync)
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
 
 - [ListContainersSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmented)
 - [ListContainersSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmentedasync)
@@ -58,11 +58,11 @@ Para devolver metadatos de contenedor con los resultados, especifique el valor *
 
 En el ejemplo siguiente se enumeran de forma asincrónica los contenedores de una cuenta de almacenamiento que comienzan con un prefijo especificado. En el ejemplo se muestran los contenedores que comienzan con el prefijo especificado y se devuelve el número especificado de resultados por llamada a la operación de enumeración. A continuación, usa el token de continuación para obtener el segmento de resultados siguiente. En el ejemplo también se devuelven metadatos de contenedor con los resultados.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="Snippet_ListContainers":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
 
 ```csharp
 private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClient,

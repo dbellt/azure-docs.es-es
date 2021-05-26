@@ -3,16 +3,16 @@ title: 'Introducción a los centros de eventos dedicados: Azure Event Hubs | Mic
 description: En este artículo, se proporciona información general sobre Azure Event Hubs dedicado, que permite realizar implementaciones de centros de eventos con un único inquilino.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 7f4693857f2c963623cb7ab7c132781d1061f5d7
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 5468588c0dc1dc8660c2ddfbb44c554029cffa0c
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108017470"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376124"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Introducción a Event Hubs dedicado
 
-Los *clústeres de Event Hubs* disponen de implementaciones con un único inquilino, ideales para aquellos clientes con las necesidades de streaming más exigentes. Esta oferta de inquilino único tiene un acuerdo de nivel de servicio garantizado del 99,99 % y solo está disponible en el plan de tarifa Dedicado. Un clúster de Event Hubs puede incorporar millones de eventos por segundo con capacidad garantizada y una latencia inferior a un segundo. Los espacios de nombres y los centros de eventos creados en el clúster Dedicado incluyen todas las características de la oferta Estándar y muchas otras, pero sin imponer límites de entrada. También incluye la conocida característica [Captura de Event Hubs](event-hubs-capture-overview.md) sin costo adicional. Esta característica permite procesar por lotes y registrar flujos de datos automáticamente en Azure Storage o Azure Data Lake. 
+Los *clústeres de Event Hubs* disponen de implementaciones con un único inquilino, ideales para aquellos clientes con las necesidades de streaming más exigentes. Esta oferta de inquilino único tiene un acuerdo de nivel de servicio garantizado del 99,99 % y solo está disponible en el plan de tarifa Dedicado. Un clúster de Event Hubs puede incorporar millones de eventos por segundo con capacidad garantizada y una latencia inferior a un segundo. Los espacios de nombres y los centros de eventos creados en el clúster Dedicado incluyen todas las características de la oferta Premium y muchas otras, pero sin imponer límites de entrada. También incluye la conocida característica [Captura de Event Hubs](event-hubs-capture-overview.md) sin costo adicional. Esta característica permite procesar por lotes y registrar flujos de datos automáticamente en Azure Storage o Azure Data Lake. 
 
 Los clústeres se aprovisionan y facturan por **unidades de capacidad (CU)** , una cantidad de recursos de CPU y memoria asignada previamente. Puede adquirir 1, 2, 4, 8, 12, 16 o 20 CU para cada clúster. El grado de ingesta y transmisión por CU depende de diversos factores, como los siguientes: 
 
@@ -35,27 +35,8 @@ Un clúster dedicado garantiza la capacidad con el máximo nivel de escalado. Pu
 
 La oferta dedicada incluye características, como Capture, sin ningún costo adicional y proporciona acceso exclusivo a características como Bring Your Own Key (BYOK). El servicio también administra el equilibrio de carga, las actualizaciones del sistema operativo, las revisiones de seguridad y la creación de particiones. Por lo tanto, puede dedicar menos tiempo al mantenimiento de la infraestructura y más tiempo a la creación de características del lado cliente.  
 
-#### <a name="cost-savings"></a>Ahorro de costos
-
-Cuando los volúmenes de entrada son altos (> 100 unidades de procesamiento), el costo por hora de un clúster es significativamente inferior a la cantidad equivalente de unidades de procesamiento de la oferta Estándar.
-
-
 ## <a name="event-hubs-dedicated-quotas-and-limits"></a>Cuotas y límites de Event Hubs dedicado
-
-La oferta de Event Hubs dedicado se factura aplicando una tarifa mensual fija con un uso mínimo de 4 horas. El nivel Dedicado ofrece todas las características del plan Estándar, pero con una capacidad de escalado de nivel empresarial para aquellos clientes que tienen cargas de trabajo muy exigentes. 
-
-| Característica | Estándar | Dedicado |
-| --- |:---|:---|
-| Ancho de banda | 20 TU (hasta 40 TU) | 20 CU |
-| Espacios de nombres |  1 | 50 por CU |
-| Event Hubs |  10 por espacio de nombres | 1000 por espacio de nombres |
-| Eventos de entrada | Pago por millones de eventos | Se incluye |
-| Tamaño de los mensajes | 1 millón de bytes | 1 millón de bytes |
-| Particiones | 32 por centro de eventos | 1024 por centro de eventos<br/>2000 por CU |
-| Grupos de consumidores | 20 por centro de eventos | Sin límite por CU, 1000 por centro de eventos |
-| Conexiones asincrónicas | 1000 incluidas, 5000 como máximo | 100 000 incluidos y como máximo |
-| [Retención de eventos](event-hubs-features.md#event-retention) | 7 días, 84 GB incluidas por TU | 90 días, 10 TB incluidas por TU |
-| Capturar | Pago por hora | Se incluye |
+La oferta de Event Hubs dedicado se factura aplicando una tarifa mensual fija con un uso mínimo de 4 horas. El nivel Dedicado ofrece todas las características del plan Premium, pero con una capacidad y unos límites de clase empresarial para aquellos clientes que tienen cargas de trabajo muy exigentes. 
 
 Para obtener más información sobre cuotas y límites, consulte [Cuotas y límites de Azure Event Hubs](event-hubs-quotas.md).
 

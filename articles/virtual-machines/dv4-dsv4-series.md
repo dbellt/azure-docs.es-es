@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: cc6ce30855d17f45636e0df04978fed88dcecff7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 07ce54e796cdda3cf7661036ba62ee2b6c5a826a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102549148"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110454041"
 ---
 # <a name="dv4-and-dsv4-series"></a>Series Dv4 y Dsv4
 
@@ -33,7 +33,7 @@ El almacenamiento en disco de datos remotos se factura de forma independiente a 
 [Almacenamiento en caché de Premium Storage](premium-storage-performance.md): No compatible<br>
 [Migración en vivo](maintenance-and-updates.md): Compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
-[Compatibilidad con generación de VM](generation-2.md): Generación 1<br>
+[Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible (*se requieren 4 vCPU como mínimo*)<br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
 <br>

@@ -6,21 +6,21 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 356353da639ab97a1a4e5483abf56050f5a236f8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d6d497d241a91c0125f5ebe1c8437e90679768b8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676064"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064997"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Supervisión del estado de ejecución, revisión del historial de los desencadenadores y configuración de alertas en Azure Logic Apps
 
 Después de [crear y ejecutar una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md), puede comprobar su estado de ejecución, el [historial de ejecuciones](#review-runs-history), el [historial de los desencadenadores](#review-trigger-history) y el rendimiento. Para recibir notificaciones sobre errores u otros posibles problemas, configure [alertas](#add-azure-alerts). Por ejemplo, puede crear una alerta que detecte "cuando se produzcan errores en más de cinco ejecuciones en una hora".
 
-Para la supervisión de eventos en tiempo real y una depuración más rica, configure el registro de diagnóstico de la aplicación lógica mediante los [registros de Azure Monitor](../azure-monitor/overview.md). Este servicio de Azure le ayuda a supervisar los entornos locales y en la nube para que pueda mantener más fácilmente su disponibilidad y rendimiento. De este modo, puede buscar y ver eventos, como los de desencadenador, de ejecución y de acción. Al almacenarla en [registros de Azure Monitor](../azure-monitor/platform/data-platform-logs.md), puede crear [consultas de registro](../azure-monitor/log-query/log-query-overview.md) que le ayuden a buscar y analizar esta información. También puede usar estos datos de diagnóstico con otros servicios de Azure, como Azure Storage y Azure Event Hubs. Para más información, consulte [Supervisión de aplicaciones lógicas con Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
+Para la supervisión de eventos en tiempo real y una depuración más rica, configure el registro de diagnóstico de la aplicación lógica mediante los [registros de Azure Monitor](../azure-monitor/overview.md). Este servicio de Azure le ayuda a supervisar los entornos locales y en la nube para que pueda mantener más fácilmente su disponibilidad y rendimiento. De este modo, puede buscar y ver eventos, como los de desencadenador, de ejecución y de acción. Al almacenarla en [registros de Azure Monitor](../azure-monitor/logs/data-platform-logs.md), puede crear [consultas de registro](../azure-monitor/logs/log-query-overview.md) que le ayuden a buscar y analizar esta información. También puede usar estos datos de diagnóstico con otros servicios de Azure, como Azure Storage y Azure Event Hubs. Para más información, consulte [Supervisión de aplicaciones lógicas con Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
 
 > [!NOTE]
-> Si las aplicaciones lógicas se ejecutan en un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) que se creó para usar un [punto de conexión de acceso interno](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access), puede ver las entradas y salidas del historial de ejecuciones de la aplicación lógica y acceder a ellas *solo desde dentro de la red virtual*. Asegúrese de tener conectividad de red entre los puntos de conexión privados y el equipo desde el que desea acceder al historial de ejecuciones. Por ejemplo, el equipo cliente puede existir dentro de la red virtual del ISE o en una red virtual que esté conectada a la red virtual del ISE, por ejemplo, a través de emparejamiento o de una red privada virtual. Para obtener más información, consulte [Acceso al punto de conexión del ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
+> Si las aplicaciones lógicas se ejecutan en un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) que se creó para usar un [punto de conexión de acceso interno](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access), puede ver las entradas y salidas del historial de ejecuciones de la aplicación lógica y acceder a ellas *solo desde dentro de la red virtual*. Asegúrese de tener conectividad de red entre los puntos de conexión privados y el equipo desde el que desea acceder al historial de ejecuciones. Por ejemplo, el equipo cliente puede existir dentro de la red virtual del ISE o en una red virtual que esté conectada a la red virtual del ISE, por ejemplo, a través de emparejamiento o de una red privada virtual. Para obtener más información, consulte [Acceso al punto de conexión del ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access).
 
 <a name="review-runs-history"></a>
 
@@ -43,7 +43,8 @@ Cada vez que el desencadenador se activa por un elemento o un evento, el motor d
    En el panel de información general, en **Runs history** (Historial de ejecuciones), aparecen todas las ejecuciones pasadas, actuales y en espera de la aplicación lógica. Si en la lista aparece una gran cantidad de ejecuciones y no se encuentra la entrada deseada, intente filtrar la lista.
 
    > [!TIP]
-   > Si el estado de ejecución no aparece, intente actualizar la página de información general seleccionando **Actualizar**. No se produce ninguna ejecución para un desencadenador que se omite debido a criterios que no se cumplen o si no se encuentra ningún dato.
+   > Si el estado de ejecución no aparece, intente actualizar la página de información general seleccionando **Actualizar**.
+   > No se produce ninguna ejecución para un desencadenador que se omite debido a criterios que no se cumplen o si no se encuentra ningún dato.
 
    ![Introducción, historial de ejecuciones y otros datos de la aplicación lógica](./media/monitor-logic-apps/overview-pane-logic-app-details-run-history.png)
 
@@ -91,7 +92,9 @@ Cada vez que el desencadenador se activa por un elemento o un evento, el motor d
      Podrá ver información como las entradas y las salidas de ese paso, por ejemplo:
 
    > [!NOTE]
-   > Todos los eventos y los detalles de runtime se cifran en el servicio Logic Apps. Solo se descifran cuando un usuario solicita ver esos datos. Puede [ocultar las entradas y salidas en el historial de ejecución](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) o controlar el acceso de los usuarios a esta información mediante el [control de acceso basado en roles de Azure (RBAC de Azure)](../role-based-access-control/overview.md).
+   > Todos los eventos y los detalles de runtime se cifran en el servicio Logic Apps.
+   > Solo se descifran cuando un usuario solicita ver esos datos.
+   > Puede [ocultar las entradas y salidas en el historial de ejecución](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) o controlar el acceso de los usuarios a esta información mediante el [control de acceso basado en roles de Azure (RBAC de Azure)](../role-based-access-control/overview.md).
 
 <a name="review-trigger-history"></a>
 
@@ -143,7 +146,7 @@ Cada ejecución de aplicación lógica se inicia con un desencadenador. En este 
 
 ## <a name="set-up-monitoring-alerts"></a>Configuración de alertas de supervisión
 
-Para obtener alertas de métricas o umbrales superados concretos de la aplicación lógica, configure las [alertas en Azure Monitor](../azure-monitor/platform/alerts-overview.md). Más información sobre [métricas de Azure](../azure-monitor/platform/data-platform.md). Para configurar alertas sin [Azure Monitor](../azure-monitor/log-query/log-query-overview.md), siga estos pasos.
+Para obtener alertas de métricas o umbrales superados concretos de la aplicación lógica, configure las [alertas en Azure Monitor](../azure-monitor/alerts/alerts-overview.md). Más información sobre [métricas de Azure](../azure-monitor/data-platform.md). Para configurar alertas sin [Azure Monitor](../azure-monitor/logs/log-query-overview.md), siga estos pasos.
 
 1. En el menú de la aplicación lógica, en **Supervisión**, seleccione **Alertas** > **Nueva regla de alertas**.
 
@@ -189,10 +192,10 @@ Para obtener alertas de métricas o umbrales superados concretos de la aplicaci�
 
 > [!TIP]
 > Para ejecutar una aplicación lógica desde una alerta, puede incluir el [desencadenador de solicitud](../connectors/connectors-native-reqres.md) en el flujo de trabajo, lo que permite realizar tareas como estos ejemplos:
-> 
-> * [Publicar en Slack](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
-> * [Enviar un texto](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
-> * [Agregar un mensaje a una cola](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+>
+> * [Publicar en Slack](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-slack-with-logic-app)
+> * [Enviar un texto](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-text-message-with-logic-app)
+> * [Agregar un mensaje a una cola](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-queue-with-logic-app)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

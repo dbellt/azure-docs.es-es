@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 4879c8370953a5ac8c6b46efe8010db9692d3052
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 3b7b752af1456996f847b1aa367939a61b4c61bd
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107714513"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470506"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Detección, evaluación y migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
@@ -147,7 +147,7 @@ El primer paso de la migración consiste en configurar el dispositivo de replica
     - Después de hacer clic en este botón ya no se puede cambiar la región de destino de este proyecto.
     - Para migrar las máquinas virtuales a otra región, debe crear un proyecto de Azure Migrate nuevo o diferente.  
     > [!NOTE]
-    > Si seleccionó los puntos de conexión privados como método de conexión para el proyecto de Azure Migrate al crearlo, el almacén de Recovery Services también se configurará para la conexión de los puntos de conexión privados. Asegúrese de que los puntos de conexión privados son accesibles desde el dispositivo de replicación. [**Más información**](how-to-use-azure-migrate-with-private-endpoints.md#troubleshoot-network-connectivity)
+    > Si seleccionó el punto de conexión privado como método de conectividad para el proyecto Azure Migrate cuando se creó, el almacén de Recovery Services también se configurará para la conectividad de punto de conexión privado. Asegúrese de que los puntos de conexión privados sean accesibles desde el dispositivo de replicación. [**Más información**](how-to-use-azure-migrate-with-private-endpoints.md#troubleshoot-network-connectivity)
 
 6. En **¿Quiere instalar un nuevo dispositivo de replicación?** , seleccione **Instalar un dispositivo de replicación**.
 7. En **Descargue e instale el software del dispositivo de replicación**, descargue el instalador del dispositivo y la clave de registro. Necesitará la clave para registrar el dispositivo. La clave será válida durante cinco días a partir del momento en que se descarga.
@@ -168,7 +168,7 @@ El primer paso de la migración consiste en configurar el dispositivo de replica
     9.10 En **Summary** (Resumen), seleccione **Install** (Instalar).   
     9.11 **Installation Progress** (Progreso de la instalación) muestra información acerca del proceso de instalación. Cuando haya finalizado, seleccione **Finalizar**. Aparece una ventana que muestra un mensaje sobre un reinicio. Seleccione **Aceptar**.   
     9.12 A continuación, en una ventana se muestra un mensaje sobre la frase de contraseña de la conexión del servidor de configuración. Copie esa frase en el portapapeles y guárdela en un archivo de texto temporal en las máquinas virtuales de origen. Necesitará la frase de contraseña más adelante, durante el proceso de instalación del servicio Mobility.
-10. Una vez finalizada la instalación, el asistente para la configuración de dispositivos se iniciará automáticamente (también puede iniciarlo manualmente mediante el acceso directo cspsconfigtool que se crea en el escritorio del dispositivo). Use la pestaña Administrar cuentas del Asistente para agregar los detalles de la cuenta que se usarán para la instalación de extracción del servicio Mobility. En este tutorial, vamos a instalar manualmente el servicio Mobility en las máquinas virtuales de origen que se van a replicar, por lo que debe crear una cuenta ficticia en este paso y continuar. Puede especificar los siguientes datos para crear la cuenta ficticia: "guest" como nombre descriptivo, "username" como nombre de usuario y "password" como contraseña de la cuenta. Esta cuenta ficticia la usará en la fase de habilitación de la replicación. 
+10. Una vez finalizada la instalación, el asistente para la configuración de dispositivos se iniciará automáticamente (también puede iniciarlo manualmente mediante el acceso directo cspsconfigtool que se crea en el escritorio del dispositivo). En este tutorial, vamos a instalar manualmente el servicio Mobility en las máquinas virtuales de origen que se van a replicar, por lo que debe crear una cuenta ficticia en este paso y continuar. Puede especificar los siguientes datos para crear la cuenta ficticia: "guest" como nombre descriptivo, "username" como nombre de usuario y "password" como contraseña de la cuenta. Esta cuenta ficticia la usará en la fase de habilitación de la replicación. 
 11. Una vez que se haya reiniciado el dispositivo después de la configuración, en **Detectar máquinas**, seleccione el nuevo dispositivo en **Seleccionar servidor de configuración** y haga clic en **Finalize registration**  (Finalizar registro). El paso de finalización del registro realiza un par de tareas finales para preparar el dispositivo de replicación.
 
     ![Finalizar el registro](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
@@ -247,11 +247,11 @@ Se debe instalar un agente del servicio Mobility en las máquinas virtuales de A
 
 8. En **Configuración de destino**, seleccione la suscripción y la región de destino a la que va a migrar, y especifique el grupo de recursos en el que residirán las máquinas virtuales de Azure después de la migración.
 9. En **Red virtual**, seleccione la red virtual o la subred de Azure a la que se unirán las máquinas virtuales de Azure después de la migración.  
-10. En **Cuenta de almacenamiento en caché**, mantenga la opción predeterminada para usar la cuenta de almacenamiento en caché que se crea automáticamente para el proyecto. Use la lista desplegable si desea especificar una cuenta de almacenamiento diferente para usarla como cuenta de almacenamiento de caché para la replicación. <br/> 
+10. En **Cuenta de almacenamiento en caché**, mantenga la opción predeterminada para usar la cuenta de almacenamiento en caché que se crea automáticamente para el proyecto. Use la lista desplegable si desea especificar una cuenta de almacenamiento diferente para usarla como cuenta de almacenamiento en caché con fines de replicación. <br/> 
     > [!NOTE]
     >
-    > - Si seleccionó punto de conexión privado como método de conexión para el proyecto de Azure Migrate, conceda al almacén de Recovery Services acceso a la cuenta de almacenamiento en caché. [**Más información**](how-to-use-azure-migrate-with-private-endpoints.md#grant-access-permissions-to-the-recovery-services-vault)
-    > - Para replicar mediante ExpressRoute con emparejamiento privado, cree un punto de conexión privado para la cuenta de almacenamiento en caché. [**Más información**](how-to-use-azure-migrate-with-private-endpoints.md#create-a-private-endpoint-for-the-storage-account-optional) 
+    > - Si seleccionó el punto de conexión privado como método de conectividad para el proyecto Azure Migrate, conceda al almacén de Recovery Services acceso a la cuenta de almacenamiento en caché. [**Más información**](how-to-use-azure-migrate-with-private-endpoints.md#grant-access-permissions-to-the-recovery-services-vault)
+    > - Para la replicación mediante ExpressRoute con emparejamiento privado, cree un punto de conexión privado para la cuenta de almacenamiento en caché. [**Más información**](how-to-use-azure-migrate-with-private-endpoints.md#create-a-private-endpoint-for-the-storage-account-optional) 
 11. En **Opciones de disponibilidad**, seleccione:
     -  La zona de disponibilidad para anclar la máquina migrada a una zona de disponibilidad específica de la región. Use esta opción para distribuir los servidores que forman una capa de aplicación de varios nodos en Availability Zones. Si selecciona esta opción, deberá especificar la zona de disponibilidad que se va a usar en cada una de las máquinas seleccionadas en la pestaña Proceso. Esta opción solo está disponible si la región de destino seleccionada para la migración admite Availability Zones.
     -  El conjunto de disponibilidad para colocar la máquina migrada en un conjunto de disponibilidad. Para usar esta opción, el grupo de recursos de destino seleccionado debe tener uno o varios conjuntos de disponibilidad.

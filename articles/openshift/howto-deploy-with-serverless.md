@@ -7,12 +7,12 @@ ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 4/5/2021
 keywords: aro, openshift, red hat, serverless
-ms.openlocfilehash: 6db87e752745e3df919c93b2ffc8144e5886b319
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 0cd6ac8ae31c43bf1fe1be1d42ec27f183512442
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532810"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110063633"
 ---
 # <a name="deploy-an-application-to-azure-red-hat-openshift-using-openshift-serverless"></a>Implementación de una aplicación en Red Hat OpenShift en Azure con OpenShift Serverless
 
@@ -377,4 +377,4 @@ En esta guía aprendió información sobre lo siguiente:
 > * Implementación de un proyecto sin servidor mediante la CLI de Knative (kn)
 > * Configuración de implementaciones azul-verde e implementaciones de valores controlados mediante la CLI de Knative (kn)
 
-Obtenga más información sobre cómo compilar e implementar aplicaciones sin servidor y controladas por eventos en Red Hat OpenShift en Azure mediante [OpenShift Serverless](https://www.openshift.com/learn/topics/serverless) y siga los documentos [Introducción a OpenShift Serverless](https://docs.openshift.com/container-platform/4.6/serverless/serverless-getting-started.html) y [creación y administración de aplicaciones sin servidor](https://docs.openshift.com/container-platform/4.6/serverless/serving-creating-managing-apps.html).
+Obtenga más información sobre cómo compilar e implementar aplicaciones sin servidor y controladas por eventos en Red Hat OpenShift en Azure mediante [OpenShift Serverless](https://www.openshift.com/learn/topics/serverless) y siga los documentos [Introducción a OpenShift Serverless](https://docs.openshift.com/container-platform/4.6/serverless/serverless-getting-started.html) y [creación y administración de aplicaciones sin servidor](https://docs.openshift.com/container-platform/4.5/serverless/serving-creating-managing-apps.html).
