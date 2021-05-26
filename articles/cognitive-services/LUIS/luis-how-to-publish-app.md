@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: 8e78fc5bd49aaf2b31fdc83ced132e2a39ca83d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53549869098504396d1fa1039ed43b5ff02d2a9b
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100558923"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110083645"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicación de la aplicación activa y entrenada en un punto de conexión de almacenamiento provisional o de producción
 
@@ -44,7 +44,7 @@ Si usa las dos ranuras de publicación, puede tener dos versiones distintas de l
 
 ### <a name="publishing-regions"></a>Regiones de publicación
 
-La aplicación se publica en todas las regiones asociadas a los recursos del punto de conexión de predicción de LUIS agregados en el portal de LUIS desde la página **Administrar** ->  **[Recursos de Azure](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** .
+La aplicación se publica en todas las regiones asociadas a los recursos del punto de conexión de predicción de LUIS agregados en el portal de LUIS desde la página **Administrar** ->  **[Recursos de Azure](luis-how-to-azure-subscription.md#assign-luis-resources)** .
 
 Por ejemplo, para una aplicación creada en [www.luis.ai](https://www.luis.ai), si crea un recurso de LUIS en dos regiones, **westus** y **eastus**, y agrega los recursos creados a la aplicación como recursos, la aplicación se publicará en ambas regiones. Para obtener más información sobre las regiones de LUIS, consulte [Regiones](luis-reference-regions.md).
 

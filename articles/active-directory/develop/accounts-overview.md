@@ -13,12 +13,12 @@ ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev, devx-track-java
 ms.reviewer: shoatman
-ms.openlocfilehash: fac66e8f82ea4c04e866b28fed5f8d0860ab81ef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b11b2591ad90111c7a2d96ae1f7bf7bdde0673d5
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98755966"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110471422"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Cuentas y perfiles de inquilinos (Android)
 
@@ -118,7 +118,7 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 ```
 
 > [!TIP]
-> Para ver una lista de las notificaciones disponibles en el objeto de cuenta, consulte [Notificaciones de un id_token](./id-tokens.md#claims-in-an-id_token)
+> Para ver una lista de las notificaciones disponibles en el objeto de cuenta, consulte [Notificaciones de un id_token](./id-tokens.md#claims-in-an-id-token)
 
 > [!TIP]
 > Para incluir notificaciones adicionales en el id_token, consulte la documentación sobre notificaciones opcionales en [Procedimientos para: Proporcionar notificaciones opcionales a la aplicación de Azure AD](./active-directory-optional-claims.md)

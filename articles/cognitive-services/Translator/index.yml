@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 title: Documentación sobre Traductor
-summary: Traductor es un servicio de traducción automática basado en la nube que se puede utilizar para traducir texto casi en tiempo real mediante una sola llamada API REST. El servicio usa la tecnología de traducción automática neuronal más moderna, al tiempo que también ofrece la tecnología de traducción automática estadística. Traductor personalizado es una extensión de Traductor que permite crear sistemas de traducción neuronal. El sistema de traducción personalizado se puede usar para traducir texto con Traductor o con Microsoft Speech Services.
+summary: Traductor es un servicio de traducción automática basado en la nube que se puede utilizar para traducir texto con una simple llamada a la API REST. El servicio usa la tecnología de traducción automática neuronal más moderna, al tiempo que también ofrece la tecnología de traducción automática estadística. Traductor personalizado es una extensión de Traductor que permite crear sistemas de traducción neuronal. El sistema de traducción personalizado se puede usar para traducir texto con Traductor o con Microsoft Speech Services.
 metadata:
   title: 'Documentación sobre Traductor: inicios rápidos, tutoriales, referencia de API'
   titleSuffix: Azure Cognitive Services
-  description: Traductor es un servicio de traducción automática basado en la nube que se puede utilizar para traducir texto casi en tiempo real mediante una sola llamada API REST. El servicio usa la tecnología de traducción automática neuronal más moderna, al tiempo que también ofrece la tecnología de traducción automática estadística. Traductor personalizado es una extensión de Traductor que permite crear sistemas de traducción neuronal. El sistema de traducción personalizado se puede usar para traducir texto con Traductor o con Microsoft Speech Services.
+  description: Traductor es un servicio de traducción automática basado en la nube que se puede utilizar para traducir texto con una simple llamada a la API REST. El servicio usa la tecnología de traducción automática neuronal más moderna, al tiempo que también ofrece la tecnología de traducción automática estadística. Traductor personalizado es una extensión de Traductor que permite crear sistemas de traducción neuronal. El sistema de traducción personalizado se puede usar para traducir texto con Traductor o con Microsoft Speech Services.
   services: cognitive-services
   author: erhopf
   manager: nitinme
@@ -14,12 +14,12 @@ metadata:
   ms.date: 10/14/2019
   ms.author: erhopf
   ms.custom: contperf-fy21q2
-  ms.openlocfilehash: c8e74f83085054d7fc4e0892d371d644a06b060a
-  ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+  ms.openlocfilehash: bef769bdb0533d6509badfd3f6bb8441996a67a4
+  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/19/2021
-  ms.locfileid: "104656284"
+  ms.lasthandoff: 05/25/2021
+  ms.locfileid: "110379395"
 landingContent:
 - title: Traductor
   linkLists:

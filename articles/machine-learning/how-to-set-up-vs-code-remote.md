@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 04/08/2021
-ms.openlocfilehash: 7199534fa581ccb235bc8091d9459c640d53b74f
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 534becdfcba1ccc992daadc5007e2eb56337a45e
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884631"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379274"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Conexión a una instancia de proceso de Azure Machine Learning en Visual Studio Code (versión preliminar)
 
@@ -31,7 +31,7 @@ Hay dos maneras de conectarse a una instancia de proceso desde Visual Studio Co
 
 Para configurar una instancia de proceso remoto para el desarrollo, necesitará algunos requisitos previos.
 
-* Extensión Azure Machine Learning para Visual Studio Code. Para más información, consulte la [guía de instalación de la extensión Azure Machine Learning para Visual Studio Code](tutorial-setup-vscode-extension.md).
+* Extensión Azure Machine Learning para Visual Studio Code. Para más información, consulte la [guía de instalación de la extensión Azure Machine Learning para Visual Studio Code](how-to-setup-vs-code.md).
 * Área de trabajo de Azure Machine Learning. [Use la extensión Azure Machine Learning para Visual Studio Code para crear un área de trabajo](how-to-manage-resources-vscode.md#create-a-workspace) si aún no tiene una.
 * Instancia de proceso de Azure Machine Learning. [Use la extensión Azure Machine Learning para Visual Studio Code para crear una instancia de proceso](how-to-manage-resources-vscode.md#create-compute-instance) si no tiene una.
 
@@ -98,7 +98,7 @@ Después de conectarse a la instancia de proceso remoto, use el editor para:
 
 Para configurar una instancia de proceso como servidor remoto de Jupyter Notebook, necesitará cumplir algunos requisitos previos:
 
-* Extensión Azure Machine Learning para Visual Studio Code. Para más información, consulte la [guía de instalación de la extensión Azure Machine Learning para Visual Studio Code](tutorial-setup-vscode-extension.md).
+* Extensión Azure Machine Learning para Visual Studio Code. Para más información, consulte la [guía de instalación de la extensión Azure Machine Learning para Visual Studio Code](how-to-setup-vs-code.md).
 * Área de trabajo de Azure Machine Learning. [Use la extensión Azure Machine Learning para Visual Studio Code para crear un área de trabajo](how-to-manage-resources-vscode.md#create-a-workspace) si aún no tiene una.
 
 Para conectarse a una instancia de proceso:

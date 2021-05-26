@@ -4,12 +4,12 @@ description: Muestra cómo aplicar etiquetas para organizar los recursos de Azur
 ms.topic: conceptual
 ms.date: 05/05/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: ef9e94203987374bebb461989fd1763cf1b0bf80
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 0106ae6bda21544629616f2268ccc111c1946b47
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108803285"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110480312"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Uso de etiquetas para organizar los recursos de Azure y la jerarquía de administración
 
@@ -831,7 +831,7 @@ Los recursos no heredan las etiquetas aplicadas al grupo de recursos ni a la sus
 
 Puede usar etiquetas a fin de agrupar los datos de facturación. Por ejemplo, si va a ejecutar varias máquinas virtuales para distintas organizaciones, use las etiquetas para agrupar el uso por centro de costo. También puede usar etiquetas para clasificar los costos por entorno de tiempo de ejecución; por ejemplo, el uso de facturación en máquinas virtuales que se ejecutan en el entorno de producción.
 
-Puede recuperar información sobre las etiquetas si descarga el archivo de uso, un archivo de valores separados por comas (CSV) disponible en Azure Portal. Para más información, consulte [Procedimiento para descargar las datos de uso diario y de factura de Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Al descargar el archivo de uso del Centro de cuentas de Azure, seleccione **Versión 2**. En los servicios que admiten etiquetas con facturación, las etiquetas aparecen en la columna **Etiquetas**.
+Puede recuperar información sobre las etiquetas si descarga el archivo de uso, un archivo de valores separados por comas (CSV) disponible en Azure Portal. Para más información, consulte [Procedimiento para descargar las datos de uso diario y de factura de Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). En los servicios que admiten etiquetas con facturación, las etiquetas aparecen en la columna **Etiquetas**.
 
 Para las operaciones de API de REST, vea [Referencia de API de REST de facturación de Azure](/rest/api/billing/).
 

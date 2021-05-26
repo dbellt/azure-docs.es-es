@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Documentación sobre Lector inmersivo
+title: Documentación sobre Lector inmersivo de Azure
 summary: Lector inmersivo es una herramienta que implementa técnicas demostradas para mejorar la comprensión lectora de nuevos lectores, estudiantes de idiomas y personas con diferencias de aprendizaje. Puede usar Lector inmersivo en la aplicación web mediante el SDK correspondiente.
 metadata:
-  title: Documentación sobre Lector inmersivo
+  title: Documentación sobre Lector inmersivo de Azure
   description: Lector inmersivo es una herramienta que implementa técnicas demostradas para mejorar la comprensión lectora de nuevos lectores, estudiantes de idiomas y personas con diferencias de aprendizaje. Puede usar Lector inmersivo en la aplicación web mediante el SDK correspondiente.
   services: service
   ms.service: cognitive-services
@@ -12,12 +12,12 @@ metadata:
   author: IEvangelist
   ms.author: dapine
   ms.date: 01/23/2020
-  ms.openlocfilehash: 4cc05d3b99530e5ba923bfcbf7f749fbcd1c0f20
-  ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+  ms.openlocfilehash: dff95a1989d8ff55658227cf135d3e2fc687ec0f
+  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/10/2021
-  ms.locfileid: "102616645"
+  ms.lasthandoff: 05/25/2021
+  ms.locfileid: "110377735"
 landingContent:
 - title: Acerca del Lector inmersivo
   linkLists:
@@ -25,6 +25,8 @@ landingContent:
     links:
     - text: ¿Qué es Lector inmersivo?
       url: overview.md
+    - text: ¿Qué son los servicios Azure Applied AI Services?
+      url: ../../applied-ai-services/what-are-applied-ai-services.md
   - linkListType: video
     links:
     - text: 'Introducción: vídeos de ingeniería cortos'

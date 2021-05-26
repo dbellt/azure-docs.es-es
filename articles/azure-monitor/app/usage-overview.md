@@ -3,12 +3,12 @@ title: Análisis de uso con Azure Application Insights | Microsoft Docs
 description: Entienda a los usuarios y lo qué hacen con la aplicación.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: d9de1e10363f2100b9dfe557dc12e0be951ce6b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8be8f6ad5285819d2cdb7e369c98d6e9da9d76c8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102489045"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110082349"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análisis de uso con Application Insights
 
@@ -20,7 +20,7 @@ ms.locfileid: "102489045"
 
 La mejor experiencia se obtiene mediante la instalación de Application Insights en el código de servidor de aplicaciones y en las páginas web. Los componentes de cliente y servidor de la aplicación devuelven telemetría a Azure Portal para su análisis.
 
-1. **Código de servidor**: instale el módulo adecuado para [ASP.NET](./asp-net.md), [Azure](./app-insights-overview.md), [Java](./java-get-started.md), [Node.js](./nodejs.md) u [otra](./platforms.md) aplicación.
+1. **Código de servidor**: instale el módulo adecuado para [ASP.NET](./asp-net.md), [Azure](./app-insights-overview.md), [Java](./java-in-process-agent.md), [Node.js](./nodejs.md) u [otra](./platforms.md) aplicación.
 
     * *¿No desea instalar código del servidor? Simplemente [cree un recurso de Azure Application Insights](./create-new-resource.md).*
 

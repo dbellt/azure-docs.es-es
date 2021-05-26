@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 0ae059054c68da662e05342525987f6925184906
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 615a3911c81a9111a3e7834bb3a80b74cfe51427
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107073734"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110486912"
 ---
 <a name="HOLTop"></a>
 
@@ -95,7 +95,7 @@ Cree variables para la clave de suscripción y el punto de conexión de Computer
 A continuación, empezará a agregar código para llevar a cabo distintas operaciones de OCR.
 
 > [!div class="nextstepaction"]
-> [He configurado el cliente](?success=set-up-client#object-model) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=set-up-client)
+> [He configurado el cliente](?success=set-up-client#object-model) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=set-up-client&product=computer-vision&page=go-sdk)
 
 ## <a name="object-model"></a>Modelo de objetos
 
@@ -123,7 +123,7 @@ Cree una función `main` y agréguele el código siguiente para crear una instan
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_client)]
 
 > [!div class="nextstepaction"]
-> [He autenticado el cliente](?success=authenticate-client#read-printed-and-handwritten-text) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=authenticate-client)
+> [He autenticado el cliente](?success=authenticate-client#read-printed-and-handwritten-text) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=authenticate-client&product=computer-vision&page=go-sdk)
 
 
 
@@ -136,7 +136,7 @@ Agregue la referencia de imagen de ejemplo y la llamada de función a la funció
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_readinmain)]
 
 > [!TIP]
-> También puede extraer texto de una imagen local. Consulte los métodos [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient), como **BatchReadFileInStream**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) para escenarios relacionados con imágenes locales.
+> También puede extraer texto de una imagen local. Consulte los métodos [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient), como **BatchReadFileInStream**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go#L1084) para escenarios relacionados con imágenes locales.
 
 ### <a name="call-the-read-api"></a>Llamada a la API Read
 
@@ -157,7 +157,7 @@ Agregue el código siguiente para analizar y mostrar los datos de texto recupera
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_display)]
 
 > [!div class="nextstepaction"]
-> [He leído un texto](?success=read-printed-handwritten-text#run-the-application) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=read-printed-handwritten-text)
+> [He leído un texto](?success=read-printed-handwritten-text#run-the-application) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=read-printed-handwritten-text&product=computer-vision&page=go-sdk)
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
@@ -168,7 +168,7 @@ go run sample-app.go
 ```
 
 > [!div class="nextstepaction"]
-> [He ejecutado la aplicación](?success=run-the-application#clean-up-resources) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=run-the-application)
+> [He ejecutado la aplicación](?success=run-the-application#clean-up-resources) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=run-the-application&product=computer-vision&page=go-sdk)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -178,7 +178,7 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 * [CLI de Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 > [!div class="nextstepaction"]
-> [He limpiado los recursos](?success=clean-up-resources#next-steps) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=clean-up-resources)
+> [He limpiado los recursos](?success=clean-up-resources#next-steps) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=clean-up-resources&product=computer-vision&page=go-sdk)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

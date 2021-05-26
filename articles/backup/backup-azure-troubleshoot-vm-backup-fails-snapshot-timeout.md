@@ -2,14 +2,14 @@
 title: Solucionar problemas del agente y la extensión
 description: Síntomas, causas y soluciones de errores de Azure Backup relacionados con el agente, la extensión y los discos.
 ms.topic: troubleshooting
-ms.date: 07/05/2019
+ms.date: 05/25/2021
 ms.service: backup
-ms.openlocfilehash: 0313394ad149460f82c98c63cab95b922b4a3da2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 57a0002d353ebb75570dc3b70c55d2f17f70db35
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519612"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472480"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -34,7 +34,7 @@ Los errores de copia de seguridad más comunes se pueden resolver automáticamen
     - El agente de máquina virtual de Azure se instala de forma predeterminada en cualquier máquina virtual Windows a partir de una imagen de Azure Marketplace desde el portal, PowerShell, la interfaz de la línea de comandos o una plantilla de Azure Resource Manager. Cuando se crea una imagen de máquina virtual personalizada que se implementa en Azure, es posible que sea necesaria una [instalación manual del agente](../virtual-machines/extensions/agent-windows.md#manual-installation).
     - Revise la matriz de compatibilidad para comprobar si la máquina virtual se ejecuta en el [sistema operativo Windows compatible](backup-support-matrix-iaas.md#operating-system-support-windows).
   - En una máquina virtual de Linux,
-    - Asegúrese de que el servicio de agente invitado de la máquina virtual de Azure se está ejecutando mediante el comando `ps-e`. Además, asegúrese de que esté instalada la [versión más reciente](../virtual-machines/extensions/update-linux-agent.md). Para más información, consulte el artículo sobre [problemas del agente invitado de la máquina virtual de Linux](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
+    - Asegúrese de que el servicio de agente invitado de la máquina virtual de Azure se está ejecutando mediante el comando `ps -e`. Además, asegúrese de que esté instalada la [versión más reciente](../virtual-machines/extensions/update-linux-agent.md). Para más información, consulte el artículo sobre [problemas del agente invitado de la máquina virtual de Linux](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
     - Asegúrese de que las [dependencias del agente de la máquina virtual de Linux en los paquetes del sistema](../virtual-machines/extensions/agent-linux.md#requirements) tengan la configuración admitida. Por ejemplo: La versión de Python compatible es 2.6 y posteriores.
     - Revise la matriz de compatibilidad para comprobar si la máquina virtual se ejecuta en el [sistema operativo Linux compatible](backup-support-matrix-iaas.md#operating-system-support-linux).
 

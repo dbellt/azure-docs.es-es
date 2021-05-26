@@ -4,14 +4,16 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 607c83bd97f8e371896a5a8ac0c9aa05ab34fa2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c5911d1c0355006e1c6d4efe39312a0cc52692a5
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95511684"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110487210"
 ---
 En este inicio rápido se muestra cómo compilar una aplicación de dispositivo IoT Plug and Play de ejemplo, conectarla al centro de IoT y usar la herramienta Azure IoT Explorer para ver los datos de telemetría que envía. La aplicación de ejemplo se escribe para Python y se incluye en el SDK de dispositivo de Azure IoT Hub para Python. Un generador de soluciones puede usar la herramienta Azure IoT Explorer para comprender las funcionalidades de cualquier dispositivo IoT Plug and Play sin necesidad de ver nada de código del dispositivo.
+
+[![Examinar el código](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/pnp)
 
 ## <a name="prerequisites"></a>Requisitos previos
 

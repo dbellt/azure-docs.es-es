@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: bc809cf02b827b7498890cb7d929c44bd360ab53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 14f21939e53a284619f18049df84706cab6fd594
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99094748"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110087067"
 ---
 # <a name="tutorial-assign-directory-readers-role-to-an-azure-ad-group-and-manage-role-assignments"></a>Tutorial: Asignación del rol Lectores de directorio a un grupo de Azure AD y administración de las asignaciones de roles
 
@@ -94,7 +94,7 @@ No es necesario asignar el rol **Lectores de directorio** a la identidad del ser
 ## <a name="directory-readers-role-assignment-using-powershell"></a>Asignación del rol Lectores de directorio mediante PowerShell
 
 > [!IMPORTANT]
-> Estos pasos iniciales tiene que ejecutarlos [administrador global](../../active-directory/roles/permissions-reference.md#global-administrator) o un [Administrador de roles con privilegios](../../active-directory/roles/permissions-reference.md#privileged-role-administrator). Además de PowerShell, Azure AD ofrece Microsoft Graph API para [crear un grupo al que se puedan asignar roles en Azure AD](../../active-directory/roles/groups-create-eligible.md#using-microsoft-graph-api).
+> Estos pasos iniciales tiene que ejecutarlos [administrador global](../../active-directory/roles/permissions-reference.md#global-administrator) o un [Administrador de roles con privilegios](../../active-directory/roles/permissions-reference.md#privileged-role-administrator). Además de PowerShell, Azure AD ofrece Microsoft Graph API para [crear un grupo al que se puedan asignar roles en Azure AD](../../active-directory/roles/groups-create-eligible.md#microsoft-graph-api).
 
 1. Descargue el módulo de PowerShell de la versión preliminar de Azure AD con los siguientes comandos. Tiene que ejecutar PowerShell como administrador.
 

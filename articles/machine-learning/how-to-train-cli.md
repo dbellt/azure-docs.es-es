@@ -10,12 +10,12 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 05/25/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 38b166818f9f27a2905647518c36296965dc953d
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 92397e1648afe8e92cd810827b75cb23c2dac09f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382901"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110458282"
 ---
 # <a name="train-models-create-jobs-with-the-20-cli-preview"></a>Entrenamiento de modelos (crear trabajos) con la CLI 2.0 (versión preliminar)
 
@@ -23,7 +23,8 @@ La extensión de la CLI de Azure 2.0 para Machine Learning (versión preliminar
 
 El entrenamiento de un modelo de aprendizaje automático habitualmente es un proceso iterativo. Las herramientas modernas facilitan más que nunca el entrenamiento de modelos mayor en más datos es con más rapidez. Los procesos manuales que anteriormente eran tediosos, como el ajuste de hiperparámetros, e incluso la selección de algoritmos, a menudo se automatizan. Con la CLI de Azure Machine Learning puede realizar un seguimiento de los trabajos (y modelos) en un [área de trabajo](concept-workspace.md) con barridos de hiperparámetros, realizar un escalado vertical de proceso de Azure de alto rendimiento y un escalado horizontal mediante el entrenamiento distribuido.
 
-Si desea un entorno de desarrollo completo, use Visual Studio Code y la [extensión de Azure Machine Learning](how-to-setup-vs-code.md) para [administrar los recursos de Azure Machine Learning](how-to-manage-resources-vscode.md) y [entrenar modelos de Machine Learning](tutorial-train-deploy-image-classification-model-vscode.md).
+> [!TIP]
+> Si desea un entorno de desarrollo completo, use Visual Studio Code y la [extensión de Azure Machine Learning](how-to-setup-vs-code.md) para [administrar los recursos de Azure Machine Learning](how-to-manage-resources-vscode.md) y [entrenar modelos de Machine Learning](tutorial-train-deploy-image-classification-model-vscode.md).
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -48,7 +49,7 @@ En el caso de la CLI Azure Machine Learning, los trabajos se crean en formato YA
 
 El trabajo "hola mundo" tiene los tres elementos:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/hello-world.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/hello-world.yml":::
 
 Se trata simplemente de un trabajo de ejemplo que lo único que genera es una línea en el archivo de registro. Lo habitual es que se desee generar artefactos adicionales, como archivos binarios de un modelo y los metadatos que los acompañan, además de los registros generados por el sistema.
 
@@ -74,11 +75,11 @@ Este directorio contiene dos archivos de trabajo, un archivo de entorno Conda y 
 
 El trabajo del comando básico se configura a través de `job.yml`:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/lightgbm/iris/job.yml":::
 
 Este trabajo se puede crear y ejecutar mediante `az ml job create`, y para ello se usa el parámetro `--file/-f`. Sin embargo, el trabajo tiene como destino un proceso denominado `cpu-cluster` que aún no existe. Para ejecutar primero el trabajo localmente, puede reemplazar el destino de proceso por `--set`:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="lightgbm_iris_local":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="lightgbm_iris_local":::
 
 Aunque la ejecución local de este trabajo es más lenta que la ejecución de `python main.py` en un entorno de Python local con los paquetes necesarios, lo anterior le permite:
 
@@ -98,7 +99,7 @@ Aunque la ejecución local de este trabajo es más lenta que la ejecución de `p
 
 Puede crear un clúster de proceso de Azure Machine Learning desde la línea de comandos. Por ejemplo, los siguientes comandos crearán un clúster denominado `cpu-cluster` y otro denominado `gpu-cluster`.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="create_computes":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="create_computes":::
 
 Tenga en cuenta que no se le cobra por el proceso en este momento, ya que `cpu-cluster` y `gpu-cluster` permanecerá en 0 nodos hasta que se envíe un trabajo. Más información sobre cómo [planear y administrar el costo de AmlCompute](concept-plan-manage-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
 
@@ -108,7 +109,7 @@ Use `az ml compute create -h` para más detalles sobre las opciones de creación
 
 Con `cpu-cluster` creado, puede ejecutar el trabajo de entrenamiento básico, que genera un modelo y los metadatos que le acompañan. Vamos a revisar el archivo YAML del trabajo en detalle:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/lightgbm/iris/job.yml":::
 
 | Clave | Descripción |
 | --- | ----------- |
@@ -125,11 +126,11 @@ Al crear este trabajo, se cargan los recursos locales especificados, como el dir
 
 Para ejecutar el trabajo de entrenamiento lightgbm/iris:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="lightgbm_iris":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="lightgbm_iris":::
 
 Una vez que el trabajo finalice, puede descargar las salidas:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="download_outputs":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="download_outputs":::
 
 > [!IMPORTANT]
 > Reemplace `$run_id` por el identificador de ejecución, que se puede encontrar en la salida de la consola o en la página de detalles de ejecución de Studio.
@@ -142,7 +143,7 @@ Azure Machine Learning también permite ajustar de forma más eficaz los hiperpa
 
 Puede modificar `job.yml` en `job-sweep.yml` para barrer los hiperparámetros:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job-sweep.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/lightgbm/iris/job-sweep.yml":::
 
 | Clave | Descripción |
 | --- | ----------- |
@@ -159,7 +160,7 @@ Puede modificar `job.yml` en `job-sweep.yml` para barrer los hiperparámetros:
 
 Cree un trabajo y ábralo en Studio:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="lightgbm_iris_sweep":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="lightgbm_iris_sweep":::
 
 > [!TIP]
 > Los barridos de hiperparámetros se pueden usar con trabajos de comandos distribuidos.
@@ -174,25 +175,25 @@ Asegúrese de establecer `compute.instance_count`, cuyo valor predeterminado es�
 
 Un archivo YAML de ejemplo para el entrenamiento distribuido de PyTorch en el conjunto de datos de CIFAR-10:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/pytorch/cifar-distributed/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/pytorch/cifar-distributed/job.yml":::
 
 Tenga en cuenta que esto hace referencia a datos locales, que no están presentes en el repositorio de ejemplos clonados. Primero debe descargar, extraer y reubicar el conjunto de datos de CIFAR-10 localmente, colocándolo en la ubicación adecuada en el directorio del proyecto:
 
-:::code language="bash" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="download_cifar":::
+:::code language="bash" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="download_cifar":::
 
 Cree el trabajo y ábralo en Studio:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="pytorch_cifar":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="pytorch_cifar":::
 
 ### <a name="tensorflow"></a>TensorFlow
 
 Un archivo YAML de ejemplo para el entrenamiento distribuido de TensorFlow en el conjunto de datos de MNIST:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/tensorflow/mnist-distributed/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/tensorflow/mnist-distributed/job.yml":::
 
 Cree el trabajo y ábralo en Studio:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="tensorflow_mnist":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="tensorflow_mnist":::
 
 ### <a name="mpi"></a>MPI
 
@@ -202,13 +203,13 @@ Para iniciar un trabajo de MPI, especifique `mpi` como tipo y el número de proc
 
 Una especificación YAML de ejemplo, que ejecuta un trabajo de TensorFlow en MNIST mediante Horovod:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/tensorflow/mnist-distributed-horovod/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/tensorflow/mnist-distributed-horovod/job.yml":::
 
 Cree el trabajo y ábralo en Studio:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="tensorflow_mnist_horovod":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="tensorflow_mnist_horovod":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Implementación y puntuación de un modelo de aprendizaje automático con un punto de conexión en línea administrado (versión preliminar)](how-to-deploy-managed-online-endpoints.md)
-- [Entrenamiento de modelos con REST (versión preliminar)] [how-to-train-with-rest.md]
+- [Entrenamiento de modelos con REST (versión preliminar)](how-to-train-with-rest.md)
