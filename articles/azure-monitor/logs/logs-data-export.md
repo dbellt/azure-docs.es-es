@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: bwren
 ms.author: bwren
 ms.date: 05/07/2021
-ms.openlocfilehash: 0547e6dbdddc5533642145e6a54a20d29ae240d1
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 827e860c0b25945339a9e1640b94863697e04f88
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109518385"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377147"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)
 La exportación de datos del área de trabajo de Log Analytics en Azure Monitor permite exportar continuamente los datos de las tablas seleccionadas del área de trabajo de Log Analytics en una cuenta de Azure Storage o Azure Event Hubs a medida que se recopilan. En este artículo se ofrecen detalles sobre esta característica y pasos para configurar la exportación de datos en las áreas de trabajo.
@@ -33,11 +33,11 @@ La exportación de datos del área de trabajo de Log Analytics permite exportar 
 
 ## <a name="limitations"></a>Limitaciones
 
-- La configuración se puede realizar mediante solicitudes REST o la CLI actualmente. Todavía no se admiten Azure Portal o PowerShell.
-- La opción ```--export-all-tables``` de la CLI y REST no se admite y se quitará. Debe proporcionar la lista de tablas en las reglas de exportación de manera explícita.
-- Las tablas admitidas se limitan actualmente a las específicas de la sección [Tablas admitidas](#supported-tables) más adelante. Por ejemplo, actualmente no se admiten las tablas de registros personalizadas.
-- Si la regla de exportación de datos incluye una tabla no admitida, la operación se realizará correctamente, pero no se exportará ningún dato de esa tabla hasta que esta se admita. 
-- Si la regla de exportación de datos incluye una tabla que no existe, se producirá un error ```Table <tableName> does not exist in the workspace```.
+- Actualmente, la configuración se puede realizar mediante solicitudes REST o la CLI. Todavía no se admiten Azure Portal o PowerShell.
+- La opción `--export-all-tables` de la CLI y REST no se admite y se quitará. Debe proporcionar la lista de tablas en las reglas de exportación de manera explícita.
+- Las tablas admitidas actualmente se limitan a las especificadas en la sección [Tablas admitidas](#supported-tables) más adelante. Por ejemplo, actualmente no se admiten las tablas de registro personalizadas.
+- Si la regla de exportación de datos incluye una tabla no admitida, la operación se realizará correctamente, pero no se exportará ningún dato de esa tabla hasta que se admita. 
+- Si la regla de exportación de datos incluye una tabla que no existe, se producirá un error `Table <tableName> does not exist in the workspace`.
 - La exportación de datos estará disponible en todas las regiones, pero actualmente no está disponible en las siguientes regiones: Azure Government, Japón Occidental, Sudeste de Brasil, Este de Noruega, Oeste de Noruega, Norte de Emiratos Árabes Unidos, Centro de Emiratos Árabes Unidos, Centro de Australia 2, Norte de Suiza, Oeste de Suiza, Centro-oeste de Alemania, Sur de la India, Sur de Francia, Japón Occidental.
 - Puede definir hasta 10 reglas habilitadas en el área de trabajo. Se permiten reglas adicionales, pero en estado de deshabilitación. 
 - El destino debe ser único en todas las reglas de exportación del área de trabajo.
@@ -48,7 +48,7 @@ La exportación de datos del área de trabajo de Log Analytics permite exportar 
 La exportación de datos continuará reintentando el envío de datos durante un máximo de 30 minutos, en el caso de que el destino no esté disponible. Si sigue sin estar disponible después de 30 minutos, los datos se descartarán hasta que el destino esté disponible.
 
 ## <a name="cost"></a>Coste
-Actualmente no se cobran cargos adicionales por la característica de exportación de datos. Los precios de la exportación de datos se anunciarán en el futuro y se mostrará un aviso antes del inicio de la facturación. Si decide seguir usando la exportación de datos después del período de aviso, se le facturará según la tarifa aplicable.
+Actualmente no hay cargos adicionales por la característica de exportación de datos. Los precios de la exportación de datos se anunciarán en el futuro y habrá un periodo de aviso antes del inicio de la facturación. Si decide seguir usando la exportación de datos después del período de aviso, se le facturará según la tarifa aplicable.
 
 ## <a name="export-destinations"></a>Destinos de la exportación
 
@@ -70,11 +70,11 @@ Los datos se envían al centro de eventos prácticamente en tiempo real a medida
 > El [número de centros de eventos admitidos por los niveles de espacios de nombres "Básico" y "Estándar"](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers) es 10. Si exporta más de 10 tablas, divida las tablas entre varias reglas de exportación en distintos espacios de nombres del centro de eventos o proporcione el nombre del centro de eventos en la regla de exportación y exporte todas las tablas a ese centro de eventos.
 
 Consideraciones:
-1. El nivel del centro de eventos "Básico" admite un [tamaño de evento](../../event-hubs/event-hubs-quotas.md) inferior y algunos registros del área de trabajo pueden superarlo y quitarse. Recomendamos que se use el centro de eventos 'estándar' o 'dedicado' como destino de exportación.
-2. El volumen de los datos exportados suele aumentar con el tiempo, y es necesario aumentar la escala del centro de eventos para administrar velocidades de transferencia mayores, así como para evitar escenarios de limitación y latencia de datos. Debe usar la característica de inflado automático de Event Hubs para escalar verticalmente y aumentar el número de unidades de procesamiento de forma automática y, de este modo, satisfacer las necesidades de uso. Consulte [Escalado vertical y automático de las unidades de procesamiento de Azure Event Hubs](../../event-hubs/event-hubs-auto-inflate.md) para obtener más información.
+1. La SKU del centro de eventos "básico" admite un [límite](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) de tamaño de evento inferior; algunos registros del área de trabajo pueden superarlo y quitarse. Recomendamos que se use el centro de eventos "estándar" o "dedicado" como destino de exportación.
+2. El volumen de los datos exportados suele aumentar con el tiempo, y es necesario aumentar la escala del centro de eventos para administrar velocidades de transferencia mayores, así como para evitar escenarios de límite de ancho de banda y latencia de datos. Debe usar la característica de inflado automático de Event Hubs para escalar verticalmente y aumentar el número de unidades de procesamiento de forma automática y, de este modo, satisfacer las necesidades de uso. Consulte [Escalado vertical y automático de las unidades de procesamiento de Azure Event Hubs](../../event-hubs/event-hubs-auto-inflate.md) para obtener más información.
 
 ## <a name="prerequisites"></a>Requisitos previos
-A continuación se indican los requisitos previos que hay que cumplir para poder configurar la exportación de datos de Log Analytics.
+A continuación se indican los requisitos previos que hay que cumplir para poder configurar la exportación de datos de Log Analytics:
 
 - Los destinos deben crearse antes de la configuración de la regla de exportación y deben estar en la misma región que el área de trabajo de Log Analytics. Si tiene que replicar los datos en otras cuentas de almacenamiento, puede utilizar cualquiera de las [opciones de redundancia Azure Storage](../../storage/common/storage-redundancy.md).  
 - La cuenta de almacenamiento debe ser StorageV1 o StorageV2. No se admite el almacenamiento clásico.  

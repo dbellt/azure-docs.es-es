@@ -7,12 +7,12 @@ ms.author: apimpm
 ms.date: 03/25/2021
 ms.service: api-management
 ms.topic: how-to
-ms.openlocfilehash: 3debf537aff12e943068d48a181fc9ae4c6ee5eb
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 207f5cbfb0e8f6d9d52920f7e4c72d7e663489fc
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108207321"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459356"
 ---
 # <a name="alternative-approaches-to-self-host-developer-portal"></a>Enfoques alternativos al autohospedaje del portal para desarrolladores
 
@@ -81,7 +81,7 @@ npm run build-function
 
 A continuación, inicie sesión en la CLI de Azure e impleméntela:
 
-```sh
+```azurecli
 az login
 cd ./dist/function
 func azure functionapp publish <function app name>

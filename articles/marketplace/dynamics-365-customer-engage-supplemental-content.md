@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/20/2021
-ms.openlocfilehash: fc0ac4c795144e306137b5c6f49ed99d0ec9f9b7
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.date: 05/20/2021
+ms.openlocfilehash: 98ddf6abab68b8ec9d5f00b494308de49aa594ba
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107820299"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110473142"
 ---
 # <a name="set-up-dynamics-365-for-customer-engagement--power-apps-offer-supplemental-content"></a>Configuración de contenido complementario de una oferta de Dynamics 365 for Customer Engagement & Power Apps
 
@@ -26,4 +26,4 @@ Seleccione **Guardar borrador** y, luego, continúe con la revisión y publicaci
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Revisión y publicación](dynamics-365-customer-engage-review-publish.md)
+- [Revisión y publicación](dynamics-365-review-publish.md)

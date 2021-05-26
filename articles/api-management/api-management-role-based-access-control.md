@@ -11,15 +11,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 05/18/2021
 ms.author: apimpm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ef71591d6d5a26aa737db4e7cb547c8b2c39d92a
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 407defa76b5677e3e5136a5e28a64eb4a78c3cd2
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812181"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110191222"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Uso del control de acceso basado en rol en Azure API Management
 
@@ -38,14 +38,10 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | Colaborador de servicio de administración de API | ✓ | ✓ | ✓ | ✓ | Superusuario. Tiene acceso CRUD completo a los servicios y a las entidades de API Management (por ejemplo, API y directivas). Tiene acceso al portal del editor heredado. |
 | Rol de lector de servicios de API Management | ✓ | | || Tiene acceso de solo lectura a los servicios y a las entidades de API Management. |
 | Rol del operador de servicios de API Management | ✓ | | ✓ | | Puede administrar servicios de API Management, pero no entidades.|
-| Editor de servicios de API Management<sup>*</sup> | ✓ | ✓ | |  | Puede administrar entidades de API Management, pero no servicios.|
-| Administrador de contenido de API Management<sup>*</sup> | ✓ | | | ✓ | Puede administrar el portal del desarrollador. Acceso de solo lectura a servicios y entidades.|
 
 <sup>[1] Acceso de lectura a los servicios y entidades de API Management (por ejemplo, API y directivas)</sup>
 
 <sup>[2] Acceso de escritura a los servicios y identidades de API Management, excepto las operaciones siguientes: creación, eliminación y escalado de instancias; configuración de VPN, y configuración personalizada de dominios</sup>
-
-<sup>\* El rol Service Editor estará disponible cuando se realice la migración de toda la interfaz de usuario de administración desde el portal del editor existente a Azure Portal. El rol Content Manager estará disponible después de que el portal del editor se refactorice, de modo que solo contenga funcionalidades relacionadas con la administración del portal del desarrollador.</sup>  
 
 ## <a name="custom-roles"></a>Roles personalizados
 

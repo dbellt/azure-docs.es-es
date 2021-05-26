@@ -4,12 +4,12 @@ description: En este artículo se muestra cómo trasladar temas personalizados d
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
-ms.openlocfilehash: d0656a4f6ec1c7431cf7111f786b0f1d779166e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a8e4283b0b9ed2a6bb7080e9a0fa05bf8f409cc
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89145353"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472221"
 ---
 # <a name="move-azure-event-grid-custom-topics-to-another-region"></a>Traslado de temas del sistema de Azure Event Grid a otra región
 Puede mover sus recursos a otra región por varios motivos. Por ejemplo, para aprovechar una nueva región de Azure, para cumplir los requisitos de gobernanza y las directivas internas o como respuesta a los requisitos de planeamiento de capacidad. 
@@ -107,6 +107,5 @@ Ha aprendido a trasladar un tema de Event Grid personalizado de una región a ot
 
 - [Traslado de temas del sistema entre regiones](move-system-topics-across-regions.md) 
 - [Traslado de dominios entre regiones](move-domains-across-regions.md) 
-- [Traslado de espacios de nombres del asociado entre regiones](move-partner-namespaces-across-regions.md)
 
 Para obtener más información sobre el traslado de recursos entre regiones y la recuperación ante desastres en Azure, consulte el siguiente artículo: [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/management/move-resource-group-and-subscription.md)

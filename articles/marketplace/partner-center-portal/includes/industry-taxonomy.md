@@ -5,16 +5,16 @@ documentationcenter: partner-center-commercial-marketplace
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
-ms.date: 06/17/2020
+ms.date: 12/14/2020
 ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 3b18bba04d313091cb579498febb3f383f018bff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 339396a17b5066b5697b5ca20a339ff46da14a74
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88604623"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110486758"
 ---
 Opcionalmente, seleccione hasta dos sectores y segmentos verticales en cada sector. Estas categorías se usan para mostrar la oferta, cuando el sector y los segmentos verticales se usan en filtros de búsqueda y se aplican en la tienda en línea. Si la oferta está dirigida a un sector o segmento vertical específico, explique cómo la oferta es compatible con los sectores o los segmentos verticales seleccionados en la descripción de la oferta. En caso contrario, si la oferta no es específica del sector, no realice una selección y deje esta sección en blanco.
 

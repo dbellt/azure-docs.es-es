@@ -1,16 +1,16 @@
 ---
-title: Publicación de Durable Functions en Azure Event Grid (versión preliminar)
+title: Publicación de Durable Functions en Azure Event Grid
 description: Aprenda a configurar la publicación automática en Azure Event Grid de Durable Functions.
 ms.topic: conceptual
-ms.date: 04/25/2020
-ms.openlocfilehash: 44df100a5c794abf918a09dea0f94d30ddf916d3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 05/11/2020
+ms.openlocfilehash: 51069504bef29d9761d5c36be77fef33fd3d1ca6
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175964"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377559"
 ---
-# <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Publicación de Durable Functions en Azure Event Grid (versión preliminar)
+# <a name="durable-functions-publishing-to-azure-event-grid"></a>Publicación de Durable Functions en Azure Event Grid
 
 En este artículo se muestra cómo configurar Durable Functions para publicar eventos de ciclo de vida de orquestación (como los creados, los completados y los que contienen errores) en un [tema de Azure Event Grid](../../event-grid/overview.md) personalizado.
 
@@ -25,7 +25,7 @@ A continuación se muestran algunos escenarios donde esta característica result
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * Instale [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) en el proyecto de Durable Functions.
-* Instale el [emulador de Azure Storage](../../storage/common/storage-use-emulator.md) (solo para Windows) o use una cuenta de Azure Storage existente.
+* Instale el [emulador de Azure Storage](../../storage/common/storage-use-emulator.md) o use una cuenta de Azure Storage existente.
 * Instale la [CLI de Azure](/cli/azure/) o use [Azure Cloud Shell](../../cloud-shell/overview.md).
 
 ## <a name="create-a-custom-event-grid-topic"></a>Creación de un tema de Event Grid personalizado
@@ -103,22 +103,21 @@ Agregue una sección `notifications` a la propiedad `durableTask` del archivo, r
 
 Las posibles propiedades de configuración de Azure Event Grid se pueden encontrar en la [documentación de host.json](../functions-host-json.md#durabletask). Después de configurar el archivo `host.json`, la aplicación de función envía eventos del ciclo de vida al tema de Event Grid. Esta acción empieza cuando se ejecuta la aplicación de funciones tanto localmente como en Azure.
 
-Establezca la configuración de la aplicación para la clave del tema en la aplicación de función y en `local.settings.json`. El siguiente JSON es un ejemplo de `local.settings.json` para la depuración local. Reemplace `<topic_key>` por la clave del tema.  
+Establezca la configuración de la aplicación para la clave del tema en la aplicación de función y en `local.settings.json`. El siguiente JSON es un ejemplo de `local.settings.json` para la depuración local mediante un emulador de Azure Storage. Reemplace `<topic_key>` por la clave del tema.  
 
 ```json
 {
     "IsEncrypted": false,
     "Values": {
         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-        "AzureWebJobsDashboard": "UseDevelopmentStorage=true",
         "EventGridKey": "<topic_key>"
     }
 }
 ```
 
-Si usa el [emulador Storage](../../storage/common/storage-use-emulator.md) (solo para Windows), asegúrese de que funciona. Es conveniente ejecutar el comando `AzureStorageEmulator.exe clear all` antes de la ejecución.
+Si usa el [emulador de Storage](../../storage/common/storage-use-emulator.md) en lugar de una cuenta de Azure Storage real, asegúrese de que se está ejecutando. Es una buena idea borrar los datos de almacenamiento existentes antes de ejecutarlo.
 
-Si utiliza una cuenta de Azure Storage existente, reemplace `UseDevelopmentStorage=true` en `local.settings.json` por su cadena de conexión.
+Si utiliza una cuenta de Azure Storage real, reemplace `UseDevelopmentStorage=true` en `local.settings.json` por su cadena de conexión.
 
 ## <a name="create-functions-that-listen-for-events"></a>Creación de funciones que realicen escuchas para los eventos
 
