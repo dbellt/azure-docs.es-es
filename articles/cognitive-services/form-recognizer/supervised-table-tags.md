@@ -1,6 +1,6 @@
 ---
 title: 'Cómo usar etiquetas de tabla para entrenar el modelo de formulario personalizado: Form Recognizer'
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Aprenda a usar de forma eficaz el etiquetado de etiquetas de tabla supervisado.
 author: laujan
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 5422520c6a863876091d7820a5c07fa2413346c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6cbf96a050124fe0d72bb0fc24be4ad7ea265fed
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467970"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374058"
 ---
 # <a name="use-table-tags-to-train-your-custom-form-model"></a>Uso de etiquetas de tabla para entrenar el modelo de formulario personalizado
 
@@ -47,7 +47,7 @@ Estos son algunos ejemplos de cuándo sería apropiado usar etiquetas de tabla:
 Siga nuestra guía de inicio rápido para entrenar y usar el modelo de Form Recognizer personalizado:
 
 > [!div class="nextstepaction"]
-> [Entrenamiento con etiquetas mediante la herramienta de etiquetado de ejemplo](quickstarts/label-tool.md)
+> [Entrenamiento con etiquetas mediante la herramienta de etiquetado de ejemplo](label-tool.md)
 
 ## <a name="see-also"></a>Consulte también
 

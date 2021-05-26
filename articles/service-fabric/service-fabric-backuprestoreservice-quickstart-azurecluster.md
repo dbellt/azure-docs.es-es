@@ -3,23 +3,23 @@ title: Restauración y copia de seguridad periódicas de Azure Service Fabric
 description: Use la característica de copia de seguridad periódica y restauración de Service Fabric para habilitar la copia de seguridad periódica de los datos de su aplicación.
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.openlocfilehash: 42097b50277e78b3f0e8f5e61a2bf70cc08dbc02
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: dbbeac5e5efad4e19561ba5f812e29d029de8317
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103198725"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110059777"
 ---
 # <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Restauración y copia de seguridad periódicas en un clúster de Azure Service Fabric
 > [!div class="op_single_selector"]
-> * [Clústeres en Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
+> * [Clústeres en Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
 > * [Clústeres independientes](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
-> 
+>
 
 Service Fabric es una plataforma de sistemas distribuidos que facilita el desarrollo y la administración de aplicaciones en la nube basadas en microservicios, confiables y distribuidas. Permite la ejecución de microservicios sin estado y con estado. Los servicios con estado pueden mantener el estado mutable y autoritativo tras la solicitud y la respuesta o una transacción completa. Si un servicio con estado deja de funcionar durante mucho tiempo o pierde información debido a un desastre, es posible que tenga que restaurarse a alguna copia de seguridad reciente de su estado con el fin de seguir proporcionando servicios una vez que vuelva a activarse.
 
 Service Fabric replica el estado en varios nodos para asegurarse de que el servicio ofrece alta disponibilidad. Incluso si se produce un error en un nodo del clúster, el servicio sigue estando disponible. Sin embargo, en algunos casos, aún se desea que los datos del servicio sean de confianza frente a los errores mayores.
- 
+
 Por ejemplo, es posible que un servicio quiera realizar copias de seguridad de los datos como medida de protección en los escenarios siguientes:
 - En caso de que se produzca una pérdida permanente de todo un clúster de Service Fabric.
 - En caso de que se produzca una pérdida permanente de la mayoría de las réplicas de una partición del servicio.
@@ -29,7 +29,7 @@ Por ejemplo, es posible que un servicio quiera realizar copias de seguridad de l
 
 Service Fabric proporciona una API integrada para realizar [copias de seguridad y restauraciones](service-fabric-reliable-services-backup-restore.md) a un momento dado. Los desarrolladores de aplicaciones pueden usar estas API para hacer una copia de seguridad del estado del servicio periódicamente. Además, si los administradores de servicios quieren desencadenar una copia de seguridad desde el exterior del servicio en un momento específico, como antes de la actualización de la aplicación, los desarrolladores deben exponer la copia de seguridad (y la restauración) como una API del servicio. El mantenimiento de las copias de seguridad supone un costo adicional. Por ejemplo, es posible que quiera hacer cinco copias de seguridad incrementales cada media hora, seguidas de una copia de seguridad completa. Tras la copia de seguridad completa, puede eliminar las copias de seguridad incrementales anteriores. Este enfoque requiere un código adicional que conlleva costos adicionales durante el desarrollo de aplicaciones.
 
-El servicio de copia de seguridad y restauración de Service Fabric permite realizar copias de seguridad de información almacenada en los servicios con estado de forma sencilla y automática. Realizar copias de seguridad de datos de aplicaciones de forma periódica es fundamental para evitar la pérdida de datos y la falta de disponibilidad de servicios. Service Fabric proporciona un servicio de restauración y copia de seguridad opcional, que le permite configurar la copia de seguridad periódica de Reliable Services con estado (incluidos los servicios de actor) sin tener que escribir ningún código adicional. También facilita la restauración de las copias de seguridad realizadas previamente. 
+El servicio de copia de seguridad y restauración de Service Fabric permite realizar copias de seguridad de información almacenada en los servicios con estado de forma sencilla y automática. Realizar copias de seguridad de datos de aplicaciones de forma periódica es fundamental para evitar la pérdida de datos y la falta de disponibilidad de servicios. Service Fabric proporciona un servicio de restauración y copia de seguridad opcional, que le permite configurar la copia de seguridad periódica de Reliable Services con estado (incluidos los servicios de actor) sin tener que escribir ningún código adicional. También facilita la restauración de las copias de seguridad realizadas previamente.
 
 
 Service Fabric proporciona un conjunto de API para lograr la siguiente funcionalidad relacionada con la característica de restauración y copia de seguridad periódica:
@@ -63,7 +63,7 @@ Service Fabric proporciona un conjunto de API para lograr la siguiente funcional
 
 ```powershell
 
-    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 
 ```
 
@@ -77,7 +77,7 @@ Habilite la casilla `Include backup restore service` bajo `+ Show optional setti
 
 
 ### <a name="using-azure-resource-manager-template"></a>Uso de la plantilla de Azure Resource Manager
-Primero debe habilitar el _servicio de copia de seguridad y restauración_ en el clúster. Obtenga la plantilla del clúster que desea implementar. Puede usar las [plantillas de ejemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) o crear una plantilla de Resource Manager. Habilite el _servicio de copia de seguridad y restauración_ realizando los pasos siguientes:
+Primero debe habilitar el _servicio de copia de seguridad y restauración_ en el clúster. Obtenga la plantilla del clúster que desea implementar. Puede usar las [plantillas de ejemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.servicefabric/service-fabric-secure-cluster-5-node-1-nodetype) o crear una plantilla de Resource Manager. Habilite el _servicio de copia de seguridad y restauración_ realizando los pasos siguientes:
 
 1. Compruebe que `apiversion` está establecido en **`2018-02-01`** para el recurso `Microsoft.ServiceFabric/clusters` y, si no es así, actualícelo como se muestra en el siguiente fragmento de código:
 
@@ -91,7 +91,7 @@ Primero debe habilitar el _servicio de copia de seguridad y restauración_ en el
     }
     ```
 
-2. Ahora, habilite el _servicio de copia de seguridad y restauración_ mediante la adición de la siguiente sección `addonFeatures` en la sección `properties`, como se muestra en el siguiente fragmento de código: 
+2. Ahora, habilite el _servicio de copia de seguridad y restauración_ mediante la adición de la siguiente sección `addonFeatures` en la sección `properties`, como se muestra en el siguiente fragmento de código:
 
     ```json
         "properties": {
@@ -102,7 +102,7 @@ Primero debe habilitar el _servicio de copia de seguridad y restauración_ en el
         }
 
     ```
-3. Configure el certificado X.509 para el cifrado de credenciales. Esto es importante para asegurarse de que las credenciales proporcionadas para conectarse al almacenamiento se cifran antes de continuar. Configure el certificado de cifrado mediante la adición de la siguiente sección `BackupRestoreService` en la sección `fabricSettings`, como se muestra en el siguiente fragmento de código: 
+3. Configure el certificado X.509 para el cifrado de credenciales. Esto es importante para asegurarse de que las credenciales proporcionadas para conectarse al almacenamiento se cifran antes de continuar. Configure el certificado de cifrado mediante la adición de la siguiente sección `BackupRestoreService` en la sección `fabricSettings`, como se muestra en el siguiente fragmento de código:
 
     ```json
     "properties": {
@@ -119,7 +119,7 @@ Primero debe habilitar el _servicio de copia de seguridad y restauración_ en el
     }
     ```
 
-4. Una vez actualizada la plantilla del clúster con los cambios anteriores, aplíquelos y deje que se complete la actualización o la implementación. Cuando haya terminado, el _servicio de copia de seguridad y restauración_ empezará a ejecutarse en el clúster. El URI de este servicio es `fabric:/System/BackupRestoreService` y el servicio puede estar ubicado en la sección de servicio del sistema de Service Fabric Explorer. 
+4. Una vez actualizada la plantilla del clúster con los cambios anteriores, aplíquelos y deje que se complete la actualización o la implementación. Cuando haya terminado, el _servicio de copia de seguridad y restauración_ empezará a ejecutarse en el clúster. El URI de este servicio es `fabric:/System/BackupRestoreService` y el servicio puede estar ubicado en la sección de servicio del sistema de Service Fabric Explorer.
 
 ## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>Habilitación de la copia de seguridad periódica del servicio de confianza con estado y Reliable Actors
 Vamos a examinar los pasos para habilitar la copia de seguridad periódica del servicio de confianza con estado y Reliable Actors. Con estos pasos se asume que:
@@ -129,7 +129,7 @@ Vamos a examinar los pasos para habilitar la copia de seguridad periódica del s
 
 ### <a name="create-backup-policy"></a>Creación de una directiva de copia de seguridad
 
-El primer paso consiste en crear una directiva de copia de seguridad que describa la programación de las copias de seguridad, el almacenamiento de destino para los datos de la copia de seguridad, el nombre de la directiva y el número máximo de copias de seguridad incrementales permitidas antes de desencadenar la copia de seguridad completa y la directiva de retención para el almacenamiento de copia de seguridad. 
+El primer paso consiste en crear una directiva de copia de seguridad que describa la programación de las copias de seguridad, el almacenamiento de destino para los datos de la copia de seguridad, el nombre de la directiva y el número máximo de copias de seguridad incrementales permitidas antes de desencadenar la copia de seguridad completa y la directiva de retención para el almacenamiento de copia de seguridad.
 
 Para el almacenamiento de copia de seguridad, use la cuenta de Azure Storage creada anteriormente. El contenedor `backup-container` está configurado para almacenar copias de seguridad. Se crea un contenedor con este nombre, si aún no existe, durante la carga de la copia de seguridad. Rellene `ConnectionString` con una cadena de conexión válida para la cuenta de almacenamiento de Azure, reemplazando `account-name` con el nombre de la cuenta de almacenamiento y `account-key` con la clave de la cuenta de almacenamiento.
 
@@ -159,7 +159,7 @@ $ScheduleInfo = @{
     ScheduleKind = 'FrequencyBased'
 }
 
-$RetentionPolicy = @{ 
+$RetentionPolicy = @{
     RetentionPolicyType = 'Basic'
     RetentionDuration =  'P10D'
 }
@@ -212,10 +212,10 @@ $body = (ConvertTo-Json $BackupPolicyReference)
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/EnableBackup?api-version=6.4"
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
-``` 
+```
 
 #### <a name="using-service-fabric-explorer"></a>Uso de Service Fabric Explorer
-Asegúrese de que esté habilitado el [modo avanzado](service-fabric-visualizing-your-cluster.md#backup-and-restore) para Service Fabric Explorer. 
+Asegúrese de que esté habilitado el [modo avanzado](service-fabric-visualizing-your-cluster.md#backup-and-restore) para Service Fabric Explorer.
 
 1. Seleccione una aplicación y vaya a las acciones. Haga clic en "Habilitar o actualizar la copia de seguridad de aplicaciones".
 
@@ -228,7 +228,7 @@ Asegúrese de que esté habilitado el [modo avanzado](service-fabric-visualizing
 
 ### <a name="verify-that-periodic-backups-are-working"></a>Comprobación del funcionamiento de las copias de seguridad periódicas
 
-Después de habilitar la copia de seguridad en el nivel de aplicación, empezará a realizarse la copia de seguridad periódicamente de todas las particiones que pertenecen a los servicios de confianza con estado y Reliable Actors en la aplicación según la directiva de copia de seguridad asociada. 
+Después de habilitar la copia de seguridad en el nivel de aplicación, empezará a realizarse la copia de seguridad periódicamente de todas las particiones que pertenecen a los servicios de confianza con estado y Reliable Actors en la aplicación según la directiva de copia de seguridad asociada.
 
 ![Evento de estado de copia de seguridad de la partición][0]
 
@@ -239,7 +239,7 @@ Las copias de seguridad asociadas a todas las particiones que pertenecen a los s
 #### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell con el módulo Microsoft.ServiceFabric.Powershell.Http
 
 ```powershell
-    
+
 Get-SFApplicationBackupList -ApplicationId WordCount
 ```
 
@@ -269,7 +269,7 @@ BackupType              : Full
 EpochOfLastBackupRecord : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
 LsnOfLastBackupRecord   : 3334
 CreationTimeUtc         : 2018-04-06T20:55:16Z
-FailureError            : 
+FailureError            :
 
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
 BackupChainId           : b9577400-1131-4f88-b309-2bb1e943322c
@@ -281,7 +281,7 @@ BackupType              : Incremental
 EpochOfLastBackupRecord : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
 LsnOfLastBackupRecord   : 3552
 CreationTimeUtc         : 2018-04-06T21:10:27Z
-FailureError            : 
+FailureError            :
 
 BackupId                : 69436834-c810-4163-9386-a7a800f78359
 BackupChainId           : b9577400-1131-4f88-b309-2bb1e943322c
@@ -293,7 +293,7 @@ BackupType              : Incremental
 EpochOfLastBackupRecord : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
 LsnOfLastBackupRecord   : 3764
 CreationTimeUtc         : 2018-04-06T21:25:36Z
-FailureError            : 
+FailureError            :
 ```
 
 #### <a name="using-service-fabric-explorer"></a>Uso de Service Fabric Explorer

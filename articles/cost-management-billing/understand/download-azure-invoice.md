@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 05/17/2021
 ms.author: banders
-ms.openlocfilehash: 37ce1a292b6ff2efe0abecdb2ab934f096689f87
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: b98e9af17b20482a1c5c3178aa183198e936bef7
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "105560804"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110069209"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Visualización y descarga de la factura de Microsoft Azure
 
@@ -116,7 +116,7 @@ Para descargar una factura:
 
 ## <a name="get-mosp-subscription-invoice-in-email"></a>Recepción de la factura de suscripción de MOSP en el correo electrónico
 
-Debe tener un rol de administrador de cuenta en una suscripción o un plan de soporte técnico para poder recibir su factura por correo electrónico. Las facturas por correo electrónico solo están disponibles para las suscripciones y los planes de soporte técnico, no para reservas o compras de Azure Marketplace. Tras seleccionar esta opción, puede agregar destinatarios adicionales, que también recibirán la factura por correo electrónico.
+Debe tener un rol de administrador de cuenta en una suscripción o un plan de soporte técnico para poder recibir su factura por correo electrónico. Tras seleccionar esta opción, puede agregar destinatarios adicionales, que también recibirán la factura por correo electrónico.
 
 1.  Inicie sesión en [Azure Portal](https://portal.azure.com).
 2.  Busque **Administración de costos + facturación**.  

@@ -3,12 +3,12 @@ title: Límites y cuotas de suscripción de Azure
 description: Se proporciona una lista de límites, cuotas y restricciones de suscripción y servicio comunes de Azure. Este artículo incluye información acerca de cómo aumentar los límites junto con los valores máximos.
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.openlocfilehash: cb39dc5312c729659993d9a9e754bef711137b4d
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 3feb0c0ac40812ef628281d93d5848c2d60df6eb
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790133"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375866"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 
@@ -254,8 +254,7 @@ En la tabla siguiente se detallan las características y los límites de los [ni
 [!INCLUDE [event-grid-limits](../../../includes/event-grid-limits.md)]
 
 ## <a name="event-hubs-limits"></a>Límites de Event Hubs
-
-[!INCLUDE [azure-servicebus-limits](../../../includes/event-hubs-limits.md)]
+[!INCLUDE [event-hubs-limits](../../../includes/event-hubs-limits.md)]
 
 ## <a name="iot-central-limits"></a>Límites de IoT Central
 [!INCLUDE [iot-central-limits](../../../includes/iot-central-limits.md)]
@@ -365,6 +364,8 @@ Los valores más recientes de las cuotas de Azure Purview se pueden encontrar en
 ## <a name="sql-database-limits"></a>Límites de SQL Database
 
 Para los límites de SQL Database, consulte [Límites de recursos de SQL Database para bases de datos únicas](../../azure-sql/database/resource-limits-vcore-single-databases.md), [Límites de recursos de SQL Database para grupos elásticos y bases de datos agrupadas](../../azure-sql/database/resource-limits-vcore-elastic-pools.md) y [Límites de recursos de SQL Database para SQL Managed Instance](../../azure-sql/managed-instance/resource-limits.md).
+
+El número máximo de puntos de conexión privados por servidor lógico de Azure SQL Database es 250.
 
 ## <a name="azure-synapse-analytics-limits"></a>Límites de Azure Synapse Analytics
 

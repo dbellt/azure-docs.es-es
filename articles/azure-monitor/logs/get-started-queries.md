@@ -5,17 +5,17 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: c87b70c74a5de9cc4b6c48935b93fdd13295f0f8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6e389cf58b5761d4069cf8a8b1e336d58db7a787
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052337"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459303"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introducción a las consultas de registro en Azure Monitor
 
 > [!NOTE]
-> Puede trabajar en este ejercicio en su propio entorno si va a recopilar datos de al menos una máquina virtual. Si no es así, use nuestro [entorno de demostración](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), que incluye gran cantidad de datos de ejemplo.  Si ya sabe cómo realizar consultas en KQL, pero solo necesita crear rápidamente consultas útiles basadas en tipos de recursos, vea el [panel de consultas de ejemplo guardado](../logs/example-queries.md).
+> Puede trabajar en este ejercicio en su propio entorno si va a recopilar datos de al menos una máquina virtual. Si no es así, use nuestro [entorno de demostración](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), que incluye gran cantidad de datos de ejemplo.  Si ya sabe cómo realizar consultas en KQL, pero solo necesita crear rápidamente consultas útiles basadas en tipos de recursos, vea el [panel de consultas de ejemplo guardado](../logs/queries.md).
 
 En este tutorial aprenderá a escribir consultas de registro en Azure Monitor. Le mostrará cómo:
 

@@ -8,19 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 05/17/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: f1e509156beea0b3da3539306dc055291cbff0c8
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 21f072747c9184fa15fd7e3477c0b4009cd885fc
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107314191"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376244"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novedades de Text Analytics API
 
 Text Analytics API se actualiza constantemente. Para mantenerse al día con los avances recientes, en este artículo se proporciona información sobre las nuevas versiones y características.
+
+## <a name="may-2021"></a>Mayo de 2021
+
+* Ya se puede acceder a [Respuesta personalizada a preguntas](../qnamaker/custom-question-answering.md) la (anteriormente QnA Maker) mediante un recurso de Text Analytics. 
+
+### <a name="general-api-updates"></a>Actualizaciones de API generales
+
+* Versión de la nueva API v3.1-preview.5, que incluye: 
+  * La [API de análisis](how-tos/text-analytics-how-to-call-api.md?tabs=asynchronous) asincrónica ahora admite Análisis de sentimiento (SA) y Minería de opiniones (OM).
+  * Ahora, los clientes que opten por no registrar el texto de entrada de informes de incidentes disponen de un nuevo parámetro de consulta `LoggingOptOut`.  Para obtener más información sobre este parámetro, consulte el artículo sobre [privacidad de datos](/legal/cognitive-services/text-analytics/data-privacy?context=/azure/cognitive-services/text-analytics/context/context).
+* Text Analytics for Health y las operaciones asincrónicas de análisis ya están disponibles en todas las regiones.
 
 ## <a name="march-2021"></a>Marzo de 2021
 

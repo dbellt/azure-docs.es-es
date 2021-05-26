@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 04/08/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: f394b6b44b2030253f7b78ec68459819c82c3c27
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 43b3332629922bb60eefb68782b84e996b692848
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107480909"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461489"
 ---
 # <a name="change-contact-information-for-an-azure-billing-account"></a>Cambio de la información de contacto de una cuenta de facturación de Azure
 
@@ -79,6 +79,20 @@ Para agregar o cambiar el número de pedido de un perfil de facturación, siga e
 1. En el menú de la izquierda, en **Configuración**, seleccione **Propiedades**.
 1. Seleccione **Actualizar el número de pedido de compra**.
 1. Escriba un número de pedido de compra y, a continuación, seleccione **Actualizar**.
+
+## <a name="update-your-tax-id"></a>Actualización del identificador fiscal
+
+Asegúrese de actualizar el identificador fiscal después de mover las suscripciones. Este número de identificación fiscal se utiliza para los cálculos de exención fiscal y aparece en la factura.
+
+**Para actualizar la información de las cuentas de facturación**
+
+1. Inicie sesión en [Microsoft Store para Empresas](https://businessstore.microsoft.com/) o [Microsoft Store para Educación](https://educationstore.microsoft.com/).
+1. Seleccione **Administrar** y, a continuación, seleccione **Cuentas de facturación**.
+1. En **Información general**, seleccione **Edit billing account information** (Editar información de la cuenta de facturación).
+1. Realice las actualizaciones y, después, seleccione **Guardar**.
+
+[Obtenga más información sobre cómo actualizar la configuración de la cuenta de facturación](/microsoft-store/update-microsoft-store-for-business-account-settings).
+
 
 ## <a name="service-and-marketing-emails"></a>Correos electrónicos de servicio y marketing
 

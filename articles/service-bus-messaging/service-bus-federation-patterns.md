@@ -3,12 +3,12 @@ title: 'Patrones de tareas de replicación de mensajes: Azure Service Bus | Micr
 description: En este artículo se proporcionan instrucciones detalladas para implementar patrones de tareas de replicación de mensajes específicos.
 ms.topic: article
 ms.date: 12/12/2020
-ms.openlocfilehash: d823ee7ccd4f53bfc3e10211a4f44908273a110d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5e6161d39281dc48284737cf3ee1f83853db17ef
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97663496"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110462324"
 ---
 # <a name="message-replication-tasks-patterns"></a>Patrones de tareas de replicación de mensajes
 
@@ -59,7 +59,7 @@ En la zona de la aplicación, creará una entrada CNAME que apunte a la zona sub
 
 | Registro CNAME                 | Alias
 |------------------------------|-------------------------------------------------------------
-| `servicebus.test.example.com`  | `test1.test.example.com`
+| `servicebus.test.example.com`  | `sb1.test.example.com`
 
 El uso de un cliente DNS que permite consultar los registros CNAME y SRV explícitamente (los clientes integrados de Java y .NET solo permiten la resolución simple de nombres en direcciones IP), puede resolver el punto de conexión deseado. Con [DnsClient.NET](https://dnsclient.michaco.net/), por ejemplo, la función de búsqueda es:
 

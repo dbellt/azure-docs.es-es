@@ -7,16 +7,16 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
 ms.custom: devx-track-java, devx-track-azurecli, subject-rbac-steps
-ms.openlocfilehash: ebf8070a6f5fae97d1cee3720ffee2ee2399735c
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 50d60621c1d6b08ded5a2fdb6f6137281e9dee78
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634426"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110462273"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Implementación de Azure Spring Cloud en una red virtual
 
-**Este artículo se aplica a:** âœ”ï¸ Java âœ”ï¸ C#
+**Este artículo se aplica a:** ✔️ Java ✔️ C#
 
 En este tutorial se explica cómo implementar una instancia de Azure Spring Cloud en una red virtual. Esta implementación en ocasiones se llama inserción de red virtual.
 
@@ -62,7 +62,7 @@ Si ya tiene una red virtual para hospedar la instancia de Azure Spring Cloud, om
 
 1. En el cuadro de diálogo **Crear red virtual**, escriba o seleccione la siguiente información:
 
-    |Configuración          |Value                                             |
+    |Configuración          |Valor                                             |
     |-----------------|--------------------------------------------------|
     |Suscripción     |Seleccione su suscripción.                         |
     |Resource group   |Seleccione el grupo de recursos o cree uno nuevo.  |

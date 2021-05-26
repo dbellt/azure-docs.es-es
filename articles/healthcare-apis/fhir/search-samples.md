@@ -5,14 +5,14 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 05/03/2021
+ms.date: 05/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 33dcd9ace7af6d4ff820654fef20aa0a5aa3ff9d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6e3a074c24305209047fbd3e741fdb81256374e5
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756798"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460110"
 ---
 # <a name="fhir-search-examples"></a>Ejemplos de búsqueda de FHIR
 
@@ -22,7 +22,7 @@ A continuación se muestran algunos ejemplos de uso de las operaciones de búsqu
 
 ### <a name="_include"></a>_include
 
-`_include` busca entre los recursos los que incluyen el parámetro especificado del recurso. Por ejemplo, puede buscar entre recursos para buscar solo los que incluyen información sobre las recetas de un paciente específico, que `MedicationRequest` es el parámetro `reference` `patient` :
+`_include` busca entre los recursos los que incluyen el parámetro especificado del recurso. Por ejemplo, puede buscar entre recursos para buscar solo los que incluyen información sobre las recetas de un paciente específico, que `MedicationRequest` es el parámetro `reference` `patient` . En el ejemplo siguiente, se extraerán todos los pacientes y a los que se hace `MedicationRequests` referencia desde `MedicationRequests` :
 
 ```rest
  GET [your-fhir-server]/MedicationRequest?_include=MedicationRequest:patient
@@ -30,14 +30,14 @@ A continuación se muestran algunos ejemplos de uso de las operaciones de búsqu
 ```
 
 > [!NOTE]
-> **_include** y **_revinclude** están limitados a 100 elementos.
+> **_include** y **_revinclude** está limitado a 100 elementos.
 
 ### <a name="_revinclude"></a>_revinclude
 
-`_revinclude` es una búsqueda adicional sobre , buscando en los recursos que hacen referencia a `_include` los resultados de la búsqueda de `_include` . Por ejemplo, puede buscar `MedicationRequest` recursos. Para cada recurso devuelto, busque recursos `DetectedIssue` que muestren los problemas clínicos con `patient` :
+`_revinclude` permite buscar en la dirección opuesta como `_include` . Por ejemplo, puede buscar pacientes y, a continuación, invertir incluir todos los encuentros que hacen referencia a los pacientes:
 
 ```rest
-GET [your-fhir-server]/MedicationRequest?_revinclude=DetectedIssue:patient
+GET [your-fhir-server]/Patient?_revinclude=Encounter:subject
 
 ```
 ### <a name="_elements"></a>_elements
@@ -62,14 +62,14 @@ GET [your-fhir-server]/Patient?gender:not=female
 
 ```
 
-Como valor devuelto, se obtienen todas las entradas de pacientes en las que el género no es mujer, incluidos los valores vacíos (entradas especificadas sin género). Esto es diferente de buscar Pacientes en los que el sexo es varón, ya que eso no incluiría las entradas sin un género específico.
+Como valor devuelto, se obtienen todas las entradas de pacientes en las que el sexo no es mujer, incluidos los valores vacíos (entradas especificadas sin género). Esto es diferente de buscar Pacientes en los que el sexo es varón, ya que eso no incluiría las entradas sin un género específico.
 
 ### <a name="missing"></a>:missing
 
-`:missing` devuelve todos los recursos que no tienen un valor para el elemento especificado cuando el valor es y devuelve todos los recursos que contienen el elemento especificado cuando el `true` valor es `false` . En el caso de los elementos de tipo de datos simples, coincidirá con todos los recursos en los que el elemento esté presente con `:missing=true` extensiones, pero tenga un valor vacío. Por ejemplo, si desea encontrar todos los recursos a los que les falta información sobre la fecha de `Patient` nacimiento, puede hacer lo siguiente:
+`:missing` devuelve todos los recursos que no tienen un valor para el elemento especificado cuando el valor es y devuelve todos los recursos que contienen el elemento especificado cuando el `true` valor es `false` . En el caso de los elementos de tipo de datos simples, coincidirá con todos los recursos en los que el elemento esté presente con `:missing=true` extensiones, pero tenga un valor vacío. Por ejemplo, si desea encontrar todos los recursos a los que falta información sobre la fecha de `Patient` nacimiento, puede hacer lo siguiente:
 
 ```rest
-GET [your-fhir-server]/Patient?birthDate:missing=true
+GET [your-fhir-server]/Patient?birthdate:missing=true
 
 ```
 
@@ -102,9 +102,9 @@ Para realizar una serie de operaciones de búsqueda que cubren varios parámetro
 
 ```
 
-Esta solicitud devolvería todos los recursos con el paciente sujeto llamado "Sarah". Período después `.` de que el campo realice la búsqueda `Patient` encadenada en el parámetro de referencia del `subject` parámetro .
+Esta solicitud devolvería todos los recursos con el paciente llamado "Sarah". Período después `.` de que el campo realice la búsqueda `Patient` encadenada en el parámetro de referencia del `subject` parámetro .
 
-Otro uso común de la búsqueda encadenada es buscar todos los encuentros de un paciente específico. `Patient`a menudo tendrá uno o varios `Encounter` con un asunto. Para buscar todos los `Encounter` recursos de un con el `Patient` `id` proporcionado:
+Otro uso común de una búsqueda normal (no una búsqueda encadenada) es encontrar todos los encuentros de un paciente específico. `Patient`a menudo tendrá uno o varios `Encounter` con un asunto. Para buscar todos los `Encounter` recursos de un con el `Patient` `id` proporcionado:
 
 ```rest
 GET [your-fhir-server]/Encounter?subject=Patient/78a14cbe-8968-49fd-a231-d43e6619399f
@@ -114,11 +114,11 @@ GET [your-fhir-server]/Encounter?subject=Patient/78a14cbe-8968-49fd-a231-d43e661
 Mediante la búsqueda encadenada, puede encontrar todos los recursos que coincidan con un fragmento de información `Encounter` `Patient` determinado, como `birthdate` :
 
 ```rest
-GET [your-fhir-server]/Encounter?subject:Patient.birthDate=1987-02-20
+GET [your-fhir-server]/Encounter?subject:Patient.birthdate=1987-02-20
 
 ```
 
-Esto permitiría no solo buscar recursos para un solo paciente, sino en todos los pacientes que `Encounter` tengan el valor de fecha de nacimiento especificado. 
+Esto permitiría no solo buscar recursos para un solo paciente, sino en todos los pacientes que tengan el `Encounter` valor de fecha de nacimiento especificado. 
 
 Además, la búsqueda encadenada se puede realizar más de una vez en una solicitud mediante el símbolo , que permite buscar varias condiciones `&` en una solicitud. En tales casos, la búsqueda encadenada busca "independientemente" cada parámetro, en lugar de buscar condiciones que solo cumplan todas las condiciones a la vez. Es una operación OR, no una operación AND. Por ejemplo, si desea obtener todos los pacientes que tenían un profesional con un nombre determinado o de un estado determinado:
 
@@ -161,7 +161,7 @@ GET [your-fhir-server]/DiagnosticReport?result.code-value-quantity=2823-3$lt9.2
 
 ``` 
 
-Esta solicitud especifica el componente que contiene un código de , que en `2823-3` este caso sería un elemento de tiempo. Después del símbolo, especifica el intervalo del valor para el componente que usa para "menor o igual que" y para el intervalo de valores `$` `lt` de `9.2` enumeración. 
+Esta solicitud especifica el componente que contiene un código de , que en `2823-3` este caso sería desapercibo. Después del símbolo, especifica el intervalo del valor para el componente que usa para "menor o igual que" y para el intervalo de valores `$` `lt` de `9.2` enumeración. 
 
 ## <a name="search-the-next-entry-set"></a>Buscar en el siguiente conjunto de entradas
 

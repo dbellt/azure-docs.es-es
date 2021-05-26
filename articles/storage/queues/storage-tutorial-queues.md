@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 40d54d9e495efef4b0e1ddb8dc8b8c7114421414
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: c7d960735ee3ebd056858b93576d219ade514a00
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165576"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459708"
 ---
 # <a name="tutorial-work-with-azure-queue-storage-queues-in-net"></a>Tutorial: Uso de las colas de Azure Queue Storage en .NET
 
@@ -101,7 +101,7 @@ Cree una aplicación de .NET Core llamada `QueueApp`. Por motivos de sencillez, 
 
 1. Agregue las bibliotecas cliente de Azure Storage al proyecto mediante el comando `dotnet add package`.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
    Ejecute el siguiente comando desde la carpeta de proyecto en la ventana de la consola.
 
@@ -109,7 +109,7 @@ Cree una aplicación de .NET Core llamada `QueueApp`. Por motivos de sencillez, 
    dotnet add package Azure.Storage.Queues
    ```
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
    Ejecute los siguientes comandos desde la carpeta de proyecto en la ventana de la consola.
 
@@ -129,11 +129,11 @@ Cree una aplicación de .NET Core llamada `QueueApp`. Por motivos de sencillez, 
 
 1. Abra el archivo de origen `Program.cs` y agregue los siguientes espacios de nombres justo después de la instrucción `using System;`. Esta aplicación utiliza tipos de estos espacios de nombres para conectarse a Azure Storage y trabajar con colas.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_UsingStatements":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_UsingStatements":::
 
@@ -165,21 +165,21 @@ Agregue la cadena de conexión a la aplicación para que pueda acceder a la cuen
 
 1. En el método `Main`, reemplace el código `Console.WriteLine("Hello, World");` por la línea siguiente que obtiene la cadena de conexión de la variable de entorno.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_DeclareConnectionString":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_DeclareConnectionString":::
 
 1. Actualice el código siguiente a `Main` para crear un objeto de cola, que se pasa posteriormente a los métodos de envío y recepción.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_CreateQueueClient":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_CreateQueueClient":::
 
@@ -191,13 +191,13 @@ Cree un nuevo método para enviar un mensaje a la cola.
 
 1. Agregue el método `InsertMessageAsync` a la clase `Program`.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
    A este método se le pasa una referencia de cola. Se crea una cola, en caso de que no exista, mediante una llamada a [`CreateIfNotExistsAsync`](/dotnet/api/azure.storage.queues.queueclient.createifnotexistsasync). Luego, agrega `newMessage` a la cola mediante una llamada a [`SendMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync).
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_InsertMessage":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
    A este método se le pasa una referencia de cola. Se crea una cola, en caso de que no exista, mediante una llamada a [`CreateIfNotExistsAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync). Luego, agrega `newMessage` a la cola mediante una llamada a [`AddMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
 
@@ -205,13 +205,13 @@ Cree un nuevo método para enviar un mensaje a la cola.
 
 1. **Opcional:** de forma predeterminada, el tiempo de vida máximo de un mensaje se establece en siete días. Puede especificar cualquier número positivo para el período de vida de un mensaje. El siguiente fragmento de código agrega un mensaje que **nunca** expira.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
     Para agregar un mensaje que no expire, use `Timespan.FromSeconds(-1)` en la llamada a `SendMessageAsync`.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_SendNonExpiringMessage":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
     Para agregar un mensaje que no expire, use `Timespan.FromSeconds(-1)` en la llamada a `AddMessageAsync`.
 
@@ -227,7 +227,7 @@ Cree un método para recuperar un mensaje de la cola. Una vez que el mensaje se 
 
 1. Agregue un nuevo método llamado `RetrieveNextMessageAsync` a la clase `Program`.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
    Este método recibe un mensaje de la cola mediante la realización de una llamada a [`ReceiveMessagesAsync`](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync), y usando`1` en el primer parámetro para recuperar solo el siguiente mensaje de la cola. Una vez recibido el mensaje, elimínelo de la cola mediante una llamada a [`DeleteMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.deletemessageasync).
 
@@ -235,7 +235,7 @@ Cree un método para recuperar un mensaje de la cola. Una vez que el mensaje se 
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_InitialRetrieveMessage":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
    Este método recibe un mensaje de la cola mediante una llamada a [`GetMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync). Una vez recibido el mensaje, elimínelo de la cola mediante una llamada a [`DeleteMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync).
 
@@ -249,11 +249,11 @@ Al final de un proyecto es un procedimiento recomendado identificar si aún nece
 
 1. Expanda el método `RetrieveNextMessageAsync` para incluir un aviso para eliminar la cola vacía.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_RetrieveMessage":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_RetrieveMessage":::
 
@@ -269,11 +269,11 @@ Por último, espere la entrada del usuario antes de salir mediante una llamada a
 
 1. Expanda el método `Main` para que busque argumentos de línea de comandos y espere la entrada del usuario.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_Main":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_Main":::
 
@@ -283,11 +283,11 @@ Por último, espere la entrada del usuario antes de salir mediante una llamada a
 
 Aquí está la lista de códigos completa de este proyecto.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_AllCode":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_AllCode":::
    ---

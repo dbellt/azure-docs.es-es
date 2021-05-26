@@ -7,22 +7,22 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 05/06/2021
 ms.author: ginle
-ms.openlocfilehash: 679d8b2ac86ec63d33fcd5cd069a3135d33ab981
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 2c367dbed14e0dba9a8a95a3ce2709d2415c7cd6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109657064"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466708"
 ---
 # <a name="how-to-validate-fhir-resources-against-profiles"></a>Validación de recursos de FHIR con perfiles
 
-HL7 FHIR define una manera estándar e interoperable de almacenar e intercambiar datos sanitarios. Incluso dentro de la especificación FHIR base, puede ser útil definir reglas o extensiones adicionales en función del contexto que se usa FHIR. Para estos usos específicos del contexto de FHIR, los **perfiles de FHIR** se usan para la capa adicional de especificaciones.
+HL7 FHIR define una manera estándar e interoperable de almacenar e intercambiar datos sanitarios. Incluso dentro de la especificación FHIR base, puede ser útil definir reglas o extensiones adicionales en función del contexto que se usa FHIR. Para estos usos específicos del contexto de FHIR, los perfiles **de FHIR** se usan para la capa adicional de especificaciones.
 
 [El perfil de FHIR](https://www.hl7.org/fhir/profiling.html) describe contexto adicional, como restricciones o extensiones, en un recurso representado como `StructureDefinition` . El estándar HL7 FHIR define un conjunto de recursos base y estos recursos base estándar tienen definiciones genéricas. El perfil de FHIR permite restringir y personalizar las definiciones de recursos mediante restricciones y extensiones.
 
-Azure API for FHIR permite validar recursos en perfiles para ver si los recursos se ajustan a los perfiles. Este artículo le guía por los conceptos básicos del perfil de FHIR y cómo usar para validar recursos en los perfiles al `$validate` crear y actualizar recursos.
+Azure API for FHIR permite validar los recursos en los perfiles para ver si los recursos se ajustan a los perfiles. Este artículo le guía por los conceptos básicos del perfil de FHIR y cómo usar para validar recursos en los perfiles al `$validate` crear y actualizar recursos.
 
-## <a name="fhir-profile-the-basics"></a>Perfil de FHIR: conceptos básicos
+## <a name="fhir-profile-the-basics"></a>Perfil de FHIR: los aspectos básicos
 
 Un perfil establece contexto adicional en el recurso, normalmente representado como `StructureDefinition` un recurso. `StructureDefinition` define un conjunto de reglas sobre el contenido de un recurso o un tipo de datos, como qué campos tiene un recurso y qué valores pueden tomar estos campos. Por ejemplo, los perfiles pueden restringir la cardinalidad (por ejemplo, establecer la cardinalidad máxima en 0 para descartar el elemento), restringir el contenido de un elemento a un único valor fijo o definir las extensiones necesarias para el recurso. También puede especificar restricciones adicionales en un perfil existente. Un `StructureDefinition` se identifica mediante su dirección URL canónica:
 
@@ -65,6 +65,93 @@ Intercambio de datos del pagador da-payer |<http://hl7.org/fhir/us/davinci-pdex/
 Argonauta |<http://www.fhir.org/guides/argonaut/pd/>
 
 ## <a name="accessing-profiles-and-storing-profiles"></a>Acceso a perfiles y almacenamiento de perfiles
+
+### <a name="storing-profiles"></a>Almacenamiento de perfiles
+
+Para almacenar perfiles en el servidor, puede realizar una `POST` solicitud:
+
+```rest
+POST http://<your FHIR service base URL>/{Resource}
+```
+
+En el que el campo se reemplazará por , y tendría el recurso en el `{Resource}` servidor en formato o `StructureDefinition` `StructureDefinition` `POST` `JSON` `XML` . Por ejemplo, si desea almacenar el `us-core-allergyintolerance` perfil, haría lo siguiente:
+
+```rest
+POST http://my-fhir-server.azurewebsites.net/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
+```
+
+Dónde se almacenaría y recuperaría el perfil de us core- ing:
+
+```json
+{
+    "resourceType" : "StructureDefinition",
+    "id" : "us-core-allergyintolerance",
+    "text" : {
+        "status" : "extensions"
+    },
+    "url" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance",
+    "version" : "3.1.1",
+    "name" : "USCoreAllergyIntolerance",
+    "title" : "US  Core AllergyIntolerance Profile",
+    "status" : "active",
+    "experimental" : false,
+    "date" : "2020-06-29",
+        "publisher" : "HL7 US Realm Steering Committee",
+    "contact" : [
+    {
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://www.healthit.gov"
+        }
+      ]
+    }
+  ],
+    "description" : "Defines constraints and extensions on the AllergyIntolerance resource for the minimal set of data to query and retrieve allergy information.",
+
+...
+```
+
+La mayoría de los perfiles tienen el tipo de recurso , pero también pueden ser de `StructureDefinition` los tipos y , que son recursos de `ValueSet` `CodeSystem` [terminología.](http://hl7.org/fhir/terminologies.html) Por ejemplo, si tiene un perfil en un formulario JSON, el servidor devolverá el perfil almacenado con el asignado para el perfil, tal como lo `POST` `ValueSet` haría con `id` `StructureDefinition` . A continuación se muestra un [](https://www.hl7.org/fhir/valueset-condition-severity.html) ejemplo que se obtiene al cargar un perfil de gravedad de condición, que especifica los criterios para una clasificación de gravedad de condición o diagnóstico:
+
+```json
+{
+    "resourceType": "ValueSet",
+    "id": "35ab90e5-c75d-45ca-aa10-748fefaca7ee",
+    "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-05-07T21:34:28.781+00:00",
+        "profile": [
+            "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+        ]
+    },
+    "text": {
+        "status": "generated"
+    },
+    "extension": [
+        {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+            "valueCode": "pc"
+        }
+    ],
+    "url": "http://hl7.org/fhir/ValueSet/condition-severity",
+    "identifier": [
+        {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:oid:2.16.840.1.113883.4.642.3.168"
+        }
+    ],
+    "version": "4.0.1",
+    "name": "Condition/DiagnosisSeverity",
+    "title": "Condition/Diagnosis Severity",
+    "status": "draft",
+    "experimental": false,
+    "date": "2019-11-01T09:29:23+11:00",
+    "publisher": "FHIR Project team",
+...
+```
+
+Puede ver que es un , y para el perfil también especifica `resourceType` que se trata de un tipo : `ValueSet` `url` `ValueSet` `"http://hl7.org/fhir/ValueSet/condition-severity"` .
 
 ### <a name="viewing-profiles"></a>Visualización de perfiles
 
@@ -115,55 +202,6 @@ Nuestro servidor FHIR no devuelve instancias para los perfiles base, pero se pue
 - `http://hl7.org/fhir/Observation.profile.json.html`
 - `http://hl7.org/fhir/Patient.profile.json.html`
 
-### <a name="storing-profiles"></a>Almacenamiento de perfiles
-
-Para almacenar perfiles en el servidor, puede realizar una `POST` solicitud:
-
-```rest
-POST http://<your FHIR service base URL>/{Resource}
-```
-
-En el que el campo se reemplazará por , y tendría el recurso en el `{Resource}` servidor en formato o `StructureDefinition` `StructureDefinition` `POST` `JSON` `XML` .
-
-La mayoría de los perfiles tienen el tipo de recurso , pero también pueden ser de `StructureDefinition` los tipos y , que son recursos de `ValueSet` `CodeSystem` [terminología.](http://hl7.org/fhir/terminologies.html) Por ejemplo, si tiene un perfil en formato JSON, el servidor devolverá el perfil almacenado con el asignado para el perfil, tal como lo `POST` `ValueSet` haría con `id` `StructureDefinition` . A continuación se muestra un [](https://www.hl7.org/fhir/valueset-condition-severity.html) ejemplo que se obtiene al cargar un perfil de gravedad de condición, que especifica los criterios para una clasificación de gravedad de condición o diagnóstico:
-
-```json
-{
-    "resourceType": "ValueSet",
-    "id": "35ab90e5-c75d-45ca-aa10-748fefaca7ee",
-    "meta": {
-        "versionId": "1",
-        "lastUpdated": "2021-05-07T21:34:28.781+00:00",
-        "profile": [
-            "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
-        ]
-    },
-    "text": {
-        "status": "generated",
-        "div": "<div>!-- Snipped for Brevity --></div>"
-    },
-    "extension": [
-        {
-            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
-            "valueCode": "pc"
-        }
-    ],
-    "url": "http://hl7.org/fhir/ValueSet/condition-severity",
-    "identifier": [
-        {
-            "system": "urn:ietf:rfc:3986",
-            "value": "urn:oid:2.16.840.1.113883.4.642.3.168"
-        }
-    ],
-    "version": "4.0.1",
-    "name": "Condition/DiagnosisSeverity",
-    "title": "Condition/Diagnosis Severity",
-    "status": "draft",
-    "experimental": false,
-    "date": "2019-11-01T09:29:23+11:00",
-    "publisher": "FHIR Project team",
-...
-```
 
 ### <a name="profiles-in-the-capability-statement"></a>Perfiles en la instrucción de funcionalidad
 
@@ -172,7 +210,7 @@ enumera todos los comportamientos posibles del servidor de FHIR que se usarán c
 - `CapabilityStatement.rest.resource.profile`
 - `CapabilityStatement.rest.resource.supportedProfile`
 
-Estos mostrarán toda la especificación del perfil que describe la compatibilidad general con el recurso, incluidas las restricciones de cardinalidad, enlaces, extensiones u otras restricciones. Por lo tanto, cuando un perfil en forma de y los metadatos de recursos para ver la instrucción de funcionalidad completa, verá junto al parámetro todos los detalles sobre el perfil que ha `POST` `StructureDefinition` `GET` `supportedProfiles` cargado.
+Estos mostrarán toda la especificación del perfil que describe la compatibilidad general con el recurso, incluidas las restricciones de cardinalidad, enlaces, extensiones u otras restricciones. Por lo tanto, cuando un perfil en forma de y los metadatos de recursos para ver la instrucción de funcionalidad completa, verá junto al parámetro todos los detalles sobre el perfil que `POST` `StructureDefinition` `GET` `supportedProfiles` carizó.
 
 Por ejemplo, si tiene un `POST` perfil de us Core Patient, que comienza de esta forma:
 
@@ -191,7 +229,7 @@ Por ejemplo, si tiene un `POST` perfil de us Core Patient, que comienza de esta 
 ...
 ```
 
-Y envíe una `GET` solicitud para : `metadata`
+Y envíe una `GET` solicitud para `metadata` :
 
 ```rest
 GET http://<your FHIR service base URL>/metadata
@@ -218,7 +256,7 @@ Hay dos maneras de validar el recurso. En primer lugar, puede `$validate` usar l
 
 ### <a name="using-validate"></a>Uso de $validate
 
-La `$validate` operación comprueba si el perfil proporcionado es válido y si el recurso se ajusta al perfil especificado. Como se mencionó en las [especificaciones de HL7 FHIR,](https://www.hl7.org/fhir/resource-operation-validate.html)también puede especificar `mode` para , como y `$validate` `create` `update` :
+La operación comprueba si el perfil proporcionado es válido y `$validate` si el recurso se ajusta al perfil especificado. Como se mencionó en las [especificaciones de HL7 FHIR,](https://www.hl7.org/fhir/resource-operation-validate.html)también puede especificar `mode` para , como y `$validate` `create` `update` :
 
 - `create`: el servidor comprueba que el contenido del perfil es único de los recursos existentes y que es aceptable que se cree como un nuevo recurso.
 - `update`: comprueba que el perfil es una actualización con respecto al recurso existente designado (por ejemplo, que no se realiza ningún cambio en los campos inmutables).
@@ -325,7 +363,7 @@ Por ejemplo:
 POST http://my-fhir-server.azurewebsites.net/Patient/$validate 
 ```
 
-Esta solicitud creará el nuevo recurso que está especificando en la carga de la solicitud, ya sea en formato JSON o XML, y validará el recurso cargado. A continuación, devolverá `OperationOutcome` como resultado de la validación en el nuevo recurso.
+Esta solicitud creará el nuevo recurso que está especificando en la carga de la solicitud, tanto si está en formato JSON como XML, y validará el recurso cargado. A continuación, devolverá `OperationOutcome` como resultado de la validación en el nuevo recurso.
 
 ### <a name="validate-on-resource-create-or-resource-update"></a>Validación en el recurso CREATE o resource UPDATE
 

@@ -3,12 +3,12 @@ title: Versiones de Azure Service Fabric
 description: Obtenga información sobre las versiones de clúster de Azure Service Fabric y las versiones de plataforma que se admiten activamente
 ms.topic: troubleshooting
 ms.date: 04/12/2021
-ms.openlocfilehash: 0afe2a70b6eb2e01e44ceea92032f7c93354262f
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: f8979d83934234379a61cb8fab606cf5f37cf7e5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108795229"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110080694"
 ---
 # <a name="service-fabric-supported-versions"></a>Versiones admitidas de Service Fabric
 En las tablas de este artículo se describen las versiones de Service Fabric y de plataforma que se admiten activamente.
@@ -75,7 +75,14 @@ El soporte técnico para Service Fabric en un sistema operativo específico fina
 | Ubuntu 18.04 | Abril de 2028 | <a href="https://wiki.ubuntu.com/Releases">Ciclo de vida de Ubuntu</a>|
 | Ubuntu 16.04 | Abril de 2024 | <a href="https://wiki.ubuntu.com/Releases">Ciclo de vida de Ubuntu</a>|
 
-<br>
+## <a name="supported-net-runtimes"></a>Entornos de ejecución .NET compatibles
+
+En la tabla siguiente se enumeran los entornos de ejecución .NET compatibles con Service Fabric:
+
+| Entorno de ejecución de Service Fabric | Entornos de ejecución .NET compatibles con Windows |Entornos de ejecución .NET compatibles con Linux |
+| --- | --- | --- |
+| 8.0 CU1 | .NET 5.0, >= .NET Core 2.1, Todo >= .NET Framework 4.5 | >= .NET Core 2.1|
+| 8.0 RTO | .NET 5.0, >= .NET Core 2.1, Todo >= .NET Framework 4.5 | >= .NET Core 2.1|
 
 ## <a name="service-fabric-version-name-and-number-reference"></a>Nombre y número de referencia de la versión de Service Fabric
 En la tabla siguiente se indican los nombres de versión de Service Fabric y sus números de versión correspondientes.
@@ -87,15 +94,6 @@ En la tabla siguiente se indican los nombres de versión de Service Fabric y sus
 | 7.2 CU7 | 7.2.477.9590 | 7.2.476.1 |
 | 7.2 CU6 | 7.2.457.9590 | 7.2.456.1 |
 | 7.2 CU7 | 7.2.477.9590 | 7.2.476.1 |
-
-## <a name="supported-net-runtimes"></a>Entornos de ejecución .NET compatibles
-
-En la tabla siguiente se enumeran los entornos de ejecución .NET compatibles con Service Fabric:
-
-| Entorno de ejecución de Service Fabric | Entornos de ejecución .NET compatibles con Windows |Entornos de ejecución .NET compatibles con Linux |
-| --- | --- | --- |
-| 8.0 CU1 | .NET 5.0, >= .NET Core 2.1, Todo >= .NET Framework 4.5 | >= .NET Core 2.1|
-| 8.0 RTO | .NET 5.0, >= .NET Core 2.1, Todo >= .NET Framework 4.5 | >= .NET Core 2.1|
 | 7.2 CU5 | 7.2.452.9590 | 7.2.454.1 |
 | 7.2 CU4 | 7.2.445.9590 | 7.2.447.1 |
 | 7.2 CU3 | 7.2.433.9590 | N/D |

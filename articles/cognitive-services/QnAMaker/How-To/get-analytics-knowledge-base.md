@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 5f149dd6db82b66b45a4c995e2004936481af786
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 41477b99c6bb07ab836f6c4ef75a06b2f642f3a2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96352429"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375431"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Obtener análisis en la base de conocimiento
 
@@ -48,11 +48,11 @@ QnA Maker almacena todos los registros de chat y otra telemetría, si ha habilit
 
     [![Ejecute la consulta para determinar las preguntas, respuestas y puntuaciones de los usuarios](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
-QnA Maker administrado (versión preliminar) usa el registro de diagnóstico de Azure para almacenar los datos de telemetría y los registros de chat. Siga los pasos que se indican a continuación para ejecutar consultas de ejemplo para obtener análisis sobre el uso de la knowledge base de QnA Maker.
+Respuesta a preguntas personalizada (versión preliminar) usa el registro de diagnóstico de Azure para almacenar los datos de telemetría y los registros de chat. Siga los pasos que se indican a continuación para ejecutar consultas de ejemplo para obtener análisis sobre el uso de la knowledge base de QnA Maker.
 
-1. [Habilite el registro de diagnóstico](../../diagnostic-logging.md) del servicio QnA Maker administrado (versión preliminar).
+1. [Habilite el registro de diagnóstico](../../diagnostic-logging.md) del servicio Text Analytics con la característica de respuesta a preguntas personalizada (versión preliminar).
 
 2. En el paso anterior, seleccione **Trace** (Seguimiento), además de **Audit, RequestResponse y AllMetrics** para el registro
 
@@ -132,7 +132,7 @@ traces | extend id = operation_ParentId
 | order  by timestamp  desc
 ```
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
 ### <a name="all-qna-chat-log"></a>Todos los registros de chat de QnA
 

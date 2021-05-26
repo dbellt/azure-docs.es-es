@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 5b6b2a2c8fdee17cef6c74ebfab758fe2fdb7bc0
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 8d23fd6b1b16f794e504b68f3b88d50b04922ba9
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108766850"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110068039"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configuración de una instancia de Azure Digital Twins y autenticación (con scripts)
 
@@ -125,7 +125,7 @@ Si la comprobación no se ha realizado correctamente, también puede rehacer su 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Pruebe las llamadas individuales de la API de REST en su instancia mediante los comandos de la CLI de Azure Digital Twins: 
-* [Referencia de az dt](/cli/azure/dt)
+* [Referencia de az dt](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
 * [Conceptos: Conjunto de comandos de la CLI de Azure Digital Twins](concepts-cli.md)
 
 O bien consulte cómo conectar una aplicación cliente a la instancia mediante el código de autenticación:

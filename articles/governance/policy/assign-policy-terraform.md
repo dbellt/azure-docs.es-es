@@ -3,12 +3,12 @@ title: 'Inicio rápido: Nueva asignación de directivas con Terraform'
 description: En este inicio rápido se usan Terraform y la sintaxis de HCL para crear una asignación de directivas para identificar los recursos no compatibles.
 ms.date: 03/31/2021
 ms.topic: quickstart
-ms.openlocfilehash: 7530ad1c4e87fb2df00e1fa81e324bb9bd0c4034
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c9e33fc8070adc2685e26272565d95716c0df8db
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108763044"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094769"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-terraform"></a>Inicio rápido: Creación de una asignación de directivas para identificar los recursos no compatibles mediante Terraform
 
@@ -85,7 +85,7 @@ A continuación, inicialice Terraform para descargar los proveedores necesarios 
 
 1. Autentique Terraform con la [CLI de Azure](/cli/azure/). Para más información, consulte [Proveedor de Azure: autenticación mediante la CLI de Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html).
 
-   ```bash
+   ```azurecli
    az login
    ```
 

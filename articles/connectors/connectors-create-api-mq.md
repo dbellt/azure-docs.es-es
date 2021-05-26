@@ -7,14 +7,14 @@ author: ChristopherHouser
 ms.author: chrishou
 ms.reviewer: valthom, estfan, logicappspm
 ms.topic: article
-ms.date: 04/26/2021
+ms.date: 05/25/2021
 tags: connectors
-ms.openlocfilehash: 80ff8508caefd355f00a0407df0d9a65c76c999a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: e852f0ce1584a0858f9523c1ea055d4f2cd616d2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742110"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376261"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-a-workflow-in-azure-logic-apps"></a>Conexión a un servidor IBM MQ desde un flujo de trabajo en Azure Logic Apps
 
@@ -30,11 +30,9 @@ Este conector incluye un cliente de MQ de Microsoft que se comunica con un servi
 
 ## <a name="available-operations"></a>Operaciones disponibles
 
-El conector de IBM MQ proporciona acciones, pero no desencadenadores.
+* Azure Logic Apps multiinquilino: al crear un recurso de **aplicación lógica (consumo)** , puede conectarse a un servidor MQ solamente mediante el conector de MQ *administrado*. El conector proporciona únicamente las acciones, no los desencadenadores.
 
-* Azure Logic Apps multiinquilino: al crear un flujo de trabajo de una aplicación lógica basada en el consumo, puede conectarse a un servidor MQ mediante el conector de MQ *administrado*.
-
-* Azure Logic Apps para un solo inquilino (versión preliminar): al crear un flujo de trabajo de aplicación lógica de la versión preliminar, puede conectarse a un servidor MQ mediante el conector de MQ administrado o las operaciones *integradas* de MQ (versión preliminar).
+* Azure Logic Apps para un solo inquilino: al crear un flujo de trabajo de aplicación lógica basado en un inquilino único, puede conectarse a un servidor MQ mediante el conector de MQ administrado, que incluye *solo* acciones, o las operaciones *integradas* de MQ, que incluye desencadenadores *y* acciones.
 
 Para más información sobre la diferencia entre un conector administrado y las operaciones integradas, consulte [Términos clave de Logic Apps](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
@@ -49,14 +47,17 @@ En la lista siguiente solo se describen algunas de las operaciones administradas
 
 Para obtener información sobre todas las operaciones del conector administrado y otra información técnica, como propiedades, límites, etc., consulte la [página de referencia del conector de MQ](/connectors/mq/).
 
-#### <a name="built-in-preview"></a>[Integrado (versión preliminar)](#tab/built-in)
+#### <a name="built-in"></a>[Integrada](#tab/built-in)
 
 En la lista siguiente solo se describen algunas de las operaciones integradas disponibles para MQ:
 
-* Recibir un mensaje individual o una matriz de mensajes del servidor MQ. Para varios mensajes, puede especificar el número máximo de mensajes que se devolverán por cada lote y el tamaño máximo del lote en KB.
+* Cuando un mensaje esté disponible en una cola, realice alguna acción.
+* Cuando se reciben uno o varios mensajes de una cola (autocompletar), realice alguna acción.
+* Cuando se reciben uno o varios mensajes de una cola (inspección y bloqueo), realice alguna acción.
+* Recibir un mensaje individual o una matriz de mensajes de una cola. Para varios mensajes, puede especificar el número máximo de mensajes que se devolverán por cada lote y el tamaño máximo del lote en KB.
 * Enviar un mensaje individual o una matriz de mensajes al servidor MQ.
 
-Estas operaciones integradas de MQ también tienen las siguientes funcionalidades, además de las ventajas de todas las demás funcionalidades de las aplicaciones lógicas en el [servicio Logic Apps para inquilino único](../logic-apps/logic-apps-overview-preview.md):
+Estas operaciones integradas de MQ también tienen las siguientes funcionalidades, además de las ventajas de todas las demás funcionalidades de las aplicaciones lógicas en el [servicio Logic Apps para inquilino único](../logic-apps/single-tenant-overview-compare.md):
 
 * Cifrado de los datos en tránsito mediante Seguridad de la capa de transporte (TLS)
 * Codificación de mensajes para las operaciones de envío y recepción
@@ -125,7 +126,7 @@ Cuando agregue una acción de MQ por primera vez, se le pedirá que cree una con
 
 1. Seleccione **Crear** cuando haya terminado.
 
-#### <a name="built-in-preview"></a>[Integrado (versión preliminar)](#tab/built-in)
+#### <a name="built-in"></a>[Integrada](#tab/built-in)
 
 1. Proporcione la información de conexión para el servidor MQ.
 
