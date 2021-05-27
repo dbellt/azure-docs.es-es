@@ -4,12 +4,12 @@ ms.service: azure-video-analyzer
 ms.topic: include
 ms.date: 03/18/2021
 ms.author: faneerde
-ms.openlocfilehash: cc93611bf0fc1b6c86ac937e09d296adf1e609f5
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8eaf734d2f32772f1c24b49b20fa27940fbfbcac
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110486360"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110388541"
 ---
 Para ejecutar el código de ejemplo, siga estos pasos:
 
@@ -28,7 +28,7 @@ Para ejecutar el código de ejemplo, siga estos pasos:
 1. En el nodo **pipelineTopologySet**, asegúrese de que ve el siguiente valor:
 
    ```
-   "pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/motion-detection/topology.json"
+   "pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/azure-video-analyzer/main//pipelines/live/topologies/motion-detection/topology.json"
    ```
 
 1. En los nodos `livePipelineSet` y `livePipelineDelete`, asegúrese de que el valor de **topologyName** coincide con el valor de la propiedad **name** en la topología de la canalización:

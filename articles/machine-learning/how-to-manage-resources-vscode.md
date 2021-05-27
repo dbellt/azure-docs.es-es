@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 05/25/2021
-ms.openlocfilehash: e0922d4b32162660e5ede7501eb4a23db519b9b2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 4ebdb5d092a64213727bd35d923c335c8e82210b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377175"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479917"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Administración de recursos de Azure Machine Learning con la extensión de VS Code (versión preliminar)
 
@@ -37,7 +37,7 @@ La manera más rápida de crear recursos es mediante la barra de herramientas de
 1. Seleccione **+** en la barra de actividades.
 1. Elija el recurso en la lista desplegable.
 1. Configure el archivo de especificación. La información necesaria depende del tipo de recurso que desee crear.
-1. Haga clic con el botón derecho en el archivo de plantilla y seleccione **Azure ML: Crear recurso**.
+1. Haga clic con el botón derecho en el archivo de especificación y seleccione **Azure ML: Crear recurso**.
 
 También puede crear un recurso mediante la paleta de comandos:
 
@@ -55,7 +55,7 @@ Para crear una versión de un recurso:
 
 1. Use el archivo de especificación existente que creó el recurso o siga el proceso de creación de recursos para crear un nuevo archivo de especificación.
 1. Incremente el número de versión en la plantilla.
-1. Haga clic con el botón derecho en el archivo de plantilla y seleccione **Azure ML: Crear recurso**.
+1. Haga clic con el botón derecho en el archivo de especificación y seleccione **Azure ML: Crear recurso**.
 
 Siempre que el nombre del recurso actualizado sea el mismo que el de la versión anterior, Azure Machine Learning recoge los cambios y crea una nueva versión.
 
@@ -67,7 +67,7 @@ Para más información, consulte el artículo sobre las [áreas de trabajo](conc
 
 1. En la vista de Azure Machine Learning, haga clic con el botón derecho en el nodo de suscripción y seleccione **Crear área de trabajo**.
 1. Aparecerá un archivo de especificación. Configure el archivo de especificación.
-1. Haga clic con el botón derecho en el archivo de plantilla y seleccione **Azure ML: Crear recurso**.
+1. Haga clic con el botón derecho en el archivo de especificación y seleccione **Azure ML: Crear recurso**.
 
 También puede usar el comando `> Azure ML: Create Workspace` en la paleta de comandos.
 
@@ -99,7 +99,7 @@ Para más información, consulte la sección sobre los [almacenes de datos](conc
 1. Haga clic con el botón derecho en el nodo **Almacenes de datos** y seleccione **Crear almacén de datos**.
 1. Elija el tipo de almacén de datos.
 1. Aparecerá un archivo de especificación. Configure el archivo de especificación.
-1. Haga clic con el botón derecho en el archivo de plantilla y seleccione **Azure ML: Crear recurso**.
+1. Haga clic con el botón derecho en el archivo de especificación y seleccione **Azure ML: Crear recurso**.
 
 También puede usar el comando `> Azure ML: Create Datastore` en la paleta de comandos.
 
@@ -129,7 +129,7 @@ Para más información, consulte la sección sobre [conjuntos de datos](concept-
 1. Expanda el nodo del área de trabajo donde desee crear el conjunto de datos.
 1. Haga clic con el botón derecho en el nodo **Conjuntos de datos** y seleccione **Crear conjunto de datos**.
 1. Aparecerá un archivo de especificación. Configure el archivo de especificación.
-1. Haga clic con el botón derecho en el archivo de plantilla y seleccione **Azure ML: Crear recurso**.
+1. Haga clic con el botón derecho en el archivo de especificación y seleccione **Azure ML: Crear recurso**.
 
 También puede usar el comando `> Azure ML: Create Dataset` en la paleta de comandos.
 
@@ -155,7 +155,7 @@ Para más información, consulte la sección sobre los [entornos](concept-enviro
 1. Expanda el nodo del área de trabajo donde quiere crear el almacén de datos.
 1. Haga clic con el botón derecho en el nodo **Entornos** y seleccione **Crear entorno**.
 1. Aparecerá un archivo de especificación. Configure el archivo de especificación.
-1. Haga clic con el botón derecho en el archivo de plantilla y seleccione **Azure ML: Crear recurso**.
+1. Haga clic con el botón derecho en el archivo de especificación y seleccione **Azure ML: Crear recurso**.
 
 También puede usar el comando `> Azure ML: Create Environment` en la paleta de comandos.
 
@@ -185,7 +185,7 @@ Mediante los nodos de recursos de la vista de Azure Machine Learning:
 1. Haga clic con el botón derecho en el nodo **Experimentos** en el área de trabajo y seleccione **Crear trabajo**.
 1. Elija el tipo de trabajo.
 1. Aparecerá un archivo de especificación. Configure el archivo de especificación.
-1. Haga clic con el botón derecho en el archivo de plantilla y seleccione **Azure ML: Crear recurso**.
+1. Haga clic con el botón derecho en el archivo de especificación y seleccione **Azure ML: Crear recurso**.
 
 También puede usar el comando `> Azure ML: Create Job` en la paleta de comandos.
 
@@ -234,7 +234,7 @@ Para obtener más información, vea [instancias de proceso](concept-compute-inst
 1. Expanda el nodo **Proceso**.
 1. Haga clic con el botón derecho en el nodo **Instancias de Compute** en el área de trabajo y seleccione **Creación de un proceso**.
 1. Aparecerá un archivo de especificación. Configure el archivo de especificación.
-1. Haga clic con el botón derecho en el archivo de plantilla y seleccione **Azure ML: Crear recurso**.
+1. Haga clic con el botón derecho en el archivo de especificación y seleccione **Azure ML: Crear recurso**.
 
 También puede usar el comando `> Azure ML: Create Compute` en la paleta de comandos.
 
@@ -280,7 +280,7 @@ Para más información, consulte el artículo sobre el [entrenamiento de destino
 1. Expanda el nodo **Proceso**.
 1. Haga clic con el botón derecho en el nodo **Clústeres de proceso** en el área de trabajo y seleccione **Creación de un proceso**.
 1. Aparecerá un archivo de especificación. Configure el archivo de especificación.
-1. Haga clic con el botón derecho en el archivo de plantilla y seleccione **Azure ML: Crear recurso**.
+1. Haga clic con el botón derecho en el archivo de especificación y seleccione **Azure ML: Crear recurso**.
 
 También puede usar el comando `> Azure ML: Create Compute` en la paleta de comandos.
 
@@ -351,7 +351,7 @@ Para más información, consulte la sección sobre los [modelos](concept-azure-m
 1. Expanda el nodo del área de trabajo.
 1. Haga clic con el botón derecho en el nodo **Modelos** en el área de trabajo y seleccione **Crear modelo**.
 1. Aparecerá un archivo de especificación. Configure el archivo de especificación.
-1. Haga clic con el botón derecho en el archivo de plantilla y seleccione **Azure ML: Crear recurso**.
+1. Haga clic con el botón derecho en el archivo de especificación y seleccione **Azure ML: Crear recurso**.
 
 También puede usar el comando `> Azure ML: Create Model` en la paleta de comandos.
 
@@ -391,7 +391,7 @@ Para obtener más información, consulte [Puntos de conexión](concept-azure-mac
 1. Haga clic con el botón derecho en el nodo **Modelos** en el área de trabajo y seleccione **Creación de un punto de conexión**.
 1. Elija el tipo de punto de conexión.
 1. Aparecerá un archivo de especificación. Configure el archivo de especificación.
-1. Haga clic con el botón derecho en el archivo de plantilla y seleccione **Azure ML: Crear recurso**.
+1. Haga clic con el botón derecho en el archivo de especificación y seleccione **Azure ML: Crear recurso**.
 
 También puede usar el comando `> Azure ML: Create Endpoint` en la paleta de comandos.
 

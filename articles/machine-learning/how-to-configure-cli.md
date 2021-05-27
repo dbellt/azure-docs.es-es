@@ -10,12 +10,12 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 05/25/2021
 ms.reviewer: laobri
-ms.openlocfilehash: e9a5562f665ee2d52a39f296fb39d9a7139be6cb
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 19534a5b55ea666233bb1a9b66916791e934908a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110383015"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476619"
 ---
 # <a name="install-set-up-and-use-the-20-cli-preview"></a>Instalación, configuración y uso de la CLI 2.0 (versión preliminar)
 
@@ -43,23 +43,23 @@ Si no es así, [actualice la CLI de Azure](/cli/azure/update-azure-cli).
 
 Compruebe las extensiones de la CLI de Azure que ha instalado:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_extension_list":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="az_extension_list":::
 
 Asegúrese de que no haya instalada ninguna extensión en conflicto con el espacio de nombres `ml`, incluida la extensión `azure-cli-ml`:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_extension_remove":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="az_extension_remove":::
 
 Ahora, instale la extensión `ml`:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_ml_install":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_ml_install":::
 
 Ejecute el comando de ayuda para comprobar la instalación y comprobar los subcomandos disponibles:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_ml_verify":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="az_ml_verify":::
 
 Puede actualizar la extensión a la versión más reciente:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_ml_update":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="az_ml_update":::
 
 ## <a name="set-up"></a>Configuración
 
@@ -71,22 +71,22 @@ az login
 
 Si tiene acceso a varias suscripciones de Azure, puede establecer la suscripción de Azure.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_account_set":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="az_account_set":::
 
 Si aún no existe, cree el grupo de recursos de Azure:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_group_create":::
-
-De igual forma para el área de trabajo de aprendizaje automático:
-
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_ml_workspace_create":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_group_create":::
 
 Los subcomandos de Machine Learning requieren los parámetros `--workspace/-w` y `--resource-group/-g`. Para evitar escribirlos repetidamente, configure los valores predeterminados:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_configure_defaults":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_configure_defaults":::
 
 > [!TIP]
 > La mayoría de los ejemplos de código suponen que ha establecido un área de trabajo y un grupo de recursos predeterminados. Puede invalidar estos valores en la línea de comandos.
+
+Ahora cree un área de trabajo de aprendizaje automático:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_ml_workspace_create":::
 
 ## <a name="hello-world"></a>Hola a todos
 
@@ -99,19 +99,20 @@ cd azureml-examples/cli
 
 Para ejecutar "Hola mundo" localmente mediante Python, consulte el ejemplo del subdirectorio `jobs`:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/hello-world.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/hello-world.yml":::
 
 > [!IMPORTANT]
 > [Docker](https://docker.io) debe instalarse y ejecutarse localmente.
 
 Envíe el trabajo, transmita los registros a la salida de la consola y abra la ejecución en Estudio de Azure Machine Learning:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="hello_world":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="hello_world":::
 
 > [!IMPORTANT]
 > Esto puede tardar unos minutos en ejecutarse la primera vez, ya que la imagen de Docker se extrae localmente y se ejecuta el trabajo de Azure ML. Las ejecuciones posteriores tendrán la imagen copiada en caché localmente y se completarán más rápido.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [Configuración de la extensión Azure Machine Learning para Visual Studio Code](how-to-setup-vs-code.md)
 - [Entrenamiento de modelos mediante la extensión de CLI para Machine Learning (versión preliminar)](how-to-train-cli.md)
 - [Entrenamiento e implementación de un modelo de TensorFlow de clasificación de imágenes con la extensión Azure Machine Learning para Visual Studio Code (versión preliminar)](tutorial-train-deploy-image-classification-model-vscode.md)

@@ -61,6 +61,9 @@
         - name: Publicación de ofertas de servicios administrados en Azure Marketplace
           displayName: 'managed services, azure marketplace, publish, marketplace'
           href: ./how-to/publish-managed-services-offers.md
+        - name: Creación de autorizaciones aptas
+          displayName: 'jit, pim, elevate, elevation, just-in-time'
+          href: ./how-to/create-eligible-authorizations.md
         - name: Actualización de delegaciones
           displayName: upgrade
           href: ./how-to/update-delegation.md

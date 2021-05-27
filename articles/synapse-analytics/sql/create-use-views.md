@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3de7a322d90f3a6a45a0965da72a1f53d5edc3a2
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 7528d1f29b293e1efadde84fac9fa8d95f8f5076
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751858"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371336"
 ---
 # <a name="create-and-use-views-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Creación y uso de vistas mediante un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ En esta sección, aprenderá a crear y usar vistas para encapsular consultas de 
 
 El primer paso es crear la base de datos en que se va a crear la vista e inicializar los objetos necesarios para realizar la autenticación en Azure Storage mediante la ejecución de un [script de instalación](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) en esa base de datos. Todas las consultas de este artículo se ejecutarán en la base de datos de ejemplo.
 
-## <a name="create-a-view"></a>Creación de una vista
+## <a name="views-over-external-data"></a>Vistas sobre datos externos
 
 Las vistas se crean de la misma manera que las vistas de SQL Server normales. La siguiente consulta crea una vista que lee el archivo *population.csv*.
 
@@ -57,7 +57,31 @@ WITH (
 
 La vista usa un elemento `EXTERNAL DATA SOURCE` con una dirección URL raíz del almacenamiento, como `DATA_SOURCE` y agrega una ruta de acceso relativa a los archivos.
 
-## <a name="create-a-partitioned-view"></a>Creación de una vista con particiones
+### <a name="delta-lake-views"></a>Vistas de Delta Lake
+
+Si va a crear las vistas encima de la carpeta de Delta Lake, debe especificar la ubicación de la carpeta raíz después de la opción `BULK` en lugar de especificar la ruta de acceso del archivo.
+
+> [!div class="mx-imgBorder"]
+>![Carpeta ECDC COVID-19 de Delta Lake](./media/shared/covid-delta-lake-studio.png)
+
+La función `OPENROWSET` que lee datos de la carpeta de Delta Lake examinará la estructura de carpetas e identificará automáticamente las ubicaciones de los archivos.
+
+```sql
+create or alter view CovidDeltaLake
+as
+select *
+from openrowset(
+           bulk 'covid',
+           data_source = 'DeltaLakeStorage',
+           format = 'delta'
+    ) with (
+           date_rep date,
+           cases int,
+           geo_id varchar(6)
+           ) as rows
+```
+
+## <a name="partitioned-views"></a>Vistas con particiones
 
 Si tiene un conjunto de archivos con particiones en la estructura jerárquica de carpetas, puede describir el patrón de partición mediante los caracteres comodín en la ruta de acceso del archivo. Use la función `FILEPATH` para exponer partes de la ruta de acceso de carpeta como columnas de partición.
 
@@ -74,11 +98,33 @@ FROM
 
 Las vistas con particiones realizarán la eliminación de la partición de carpeta si se consulta esta vista con los filtros de las columnas de partición. Esta solución podría mejorar el rendimiento de las consultas.
 
+### <a name="delta-lake-partitioned-views"></a>Vistas con particiones de Delta Lake
+
+Si va a crear las vistas con particiones encima del almacenamiento de Delta Lake, puede especificar solo una carpeta de Delta Lake raíz; no es necesario exponer explícitamente las columnas de partición mediante la función `FILEPATH`:
+
+```sql
+CREATE OR ALTER VIEW YellowTaxiView
+AS SELECT *
+FROM  
+    OPENROWSET(
+        BULK 'yellow',
+        DATA_SOURCE = 'DeltaLakeStorage',
+        FORMAT='DELTA'
+    ) nyc
+```
+
+La función `OPENROWSET` examinará la estructura de la carpeta subyacente de Delta Lake e identificará y expondrá automáticamente las columnas de partición. La eliminación de particiones se realizará automáticamente si coloca la columna de partición en la cláusula `WHERE` de una consulta.
+
+El nombre de la carpeta en la función `OPENROWSET` (`yellow` en este ejemplo) que se concatena con el URI `LOCATION` definido en el origen de datos `DeltaLakeStorage` debe hacer referencia a la carpeta raíz Delta Lake que contiene una subcarpeta denominada `_delta_log`.
+
+> [!div class="mx-imgBorder"]
+>![Carpeta Yellow Taxi de Delta Lake](./media/shared/yellow-taxi-delta-lake.png)
+
 ## <a name="use-a-view"></a>Uso de una vista
 
 Puede usar vistas en las consultas de la misma manera que las utiliza en las consultas de SQL Server.
 
-En la consulta siguiente se muestra el uso de la vista de *population_csv* que creamos en la sección [Creación de una vista](#create-a-view). Devuelve los nombres de país/región con su población en 2019, en orden descendente.
+En la consulta siguiente se muestra el uso de la vista de *population_csv* que creamos en la sección [Creación de una vista](#views-over-external-data). Devuelve los nombres de país/región con su población en 2019, en orden descendente.
 
 > [!NOTE]
 > Cambie la primera línea de la consulta, es decir, [mydbname], para usar la base de datos que ha creado.

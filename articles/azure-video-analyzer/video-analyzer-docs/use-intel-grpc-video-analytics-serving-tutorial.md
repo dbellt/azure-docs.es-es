@@ -4,12 +4,12 @@ description: En este tutorial se muestra cómo usar la extensión de inteligenci
 ms.topic: tutorial
 ms.service: azure-video-analyzer
 ms.date: 05/18/2021
-ms.openlocfilehash: 449cd027396f92be0443d7cd4fe6dabc3eb449f6
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: e06acecfd65686d90afa4727dd611bcfa2877c51
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110384317"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465720"
 ---
 # <a name="tutorial-analyze-live-video-with-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutorial: análisis de vídeo en directo con la extensión de inteligencia artificial de Edge Intel OpenVINO™ DL Streamer 
 
@@ -75,8 +75,8 @@ En su caso concreto, puede usar la flexibilidad de las distintas canalizaciones.
 En este tutorial, aprenderá lo siguiente:
 
 1. Configure un entorno de desarrollo.
-1. Implementar los módulos perimetrales necesarios.
-1. Crear e implementar la canalización en directo.
+1. Implementará los módulos perimetrales necesarios.
+1. Creará e implementará la canalización en directo.
 1. Interpretará los resultados.
 1. Limpieza de recursos.
 
@@ -114,7 +114,7 @@ Haga clic con el botón derecho en el dispositivo de Azure Video Analyzer y sele
 ![Iniciar supervisión](./media/quickstarts/start-monitoring-iot-hub-events.png) 
 
 ### <a name="run-the-sample-program-to-detect-vehicles-persons-or-bike"></a>Ejecución del programa de ejemplo para detectar personas, vehículos o bicicletas
-Si abre la [topología de canalización](https://raw.githubusercontent.com/Azure/azure-video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json) para este tutorial en un explorador, verá que el valor de `grpcExtensionAddress` se ha establecido en `tcp://avaExtension:5001`, en comparación con el tutorial *httpExtensionOpenVINO*, no necesita cambiar la dirección URL al servidor de gRPC. En su lugar, indique al módulo que ejecute una canalización específica según `extensionConfiguration` en el archivo de operaciones. Cuando no se proporciona, de manera predeterminada, su valor es "object_detection" para "person_vehicle_bike_detection". Puede experimentar con otras canalizaciones admitidas.
+Si abre la [topología de canalización](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json) para este tutorial en un explorador, verá que el valor de `grpcExtensionAddress` se ha establecido en `tcp://avaExtension:5001`, en comparación con el tutorial *httpExtensionOpenVINO*, no necesita cambiar la dirección URL al servidor de gRPC. En su lugar, indique al módulo que ejecute una canalización específica según `extensionConfiguration` en el archivo de operaciones. Cuando no se proporciona, de manera predeterminada, su valor es "object_detection" para "person_vehicle_bike_detection". Puede experimentar con otras canalizaciones admitidas.
 
 1. Edite el archivo *operations.json*:
     * Cambie el vínculo a la topología de la canalización en directo:
@@ -329,7 +329,7 @@ En los mensajes siguientes, el módulo Video Analyzer define el contenido del cu
 
 ### <a name="mediasessionestablished-event"></a>Evento MediaSessionEstablished
 
-Cuando se activa una canalización en directo, el nodo de origen RTSP intenta conectarse al servidor RTSP que se ejecuta en el contenedor rtspsim-live555. Si la conexión se realiza correctamente, se imprime el evento siguiente.
+Cuando se activa una canalización en directo, el nodo de origen de RTSP intenta conectarse al servidor RTSP que se ejecuta en el contenedor rtspsim-live555. Si la conexión se realiza correctamente, se imprime el evento siguiente.
 
 ```
 [IoTHubMonitor] [10:51:34 AM] Message received from [avasample-iot-edge-device/avaedge]:

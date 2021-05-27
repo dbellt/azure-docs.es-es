@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a usar Azure Video Analyzer para graba
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 05/12/2021
-ms.openlocfilehash: 38d47ec6f27984eb7cc204b8421cec9016d2db65
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 7b1122c098fc30150699f6c878058d37f74a007f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388641"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465823"
 ---
 # <a name="tutorial-record-and-stream-inference-metadata-with-video"></a>Tutorial: Grabación y transmisión de metadatos de inferencia con vídeo
   
@@ -57,8 +57,8 @@ Como se muestra en el diagrama, se usará un nodo de [origen RTSP](pipeline.md#r
 En este tutorial, aprenderá lo siguiente:
 
 1. Configure un entorno de desarrollo.
-1. Implementar los módulos perimetrales necesarios.
-1. Crear e implementar la canalización en directo.
+1. Implementará los módulos perimetrales necesarios.
+1. Creará e implementará la canalización en directo.
 1. Interpretará los resultados.
 1. Limpieza de recursos.
 
@@ -132,7 +132,7 @@ A continuación, vaya a la carpeta src/cloud-to-device-console-app. Aquí podrá
 1. Luego, en los nodos **livePipelineSet** y **pipelineTopologyDelete**, compruebe que el valor de **topologyName** coincide con el valor de la propiedad **name** de la topología de canalización anterior:
 
     `"pipelineTopologyName" : "CVRHttpExtensionObjectTracking"`
-1. Abra la [topología de canalización](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-with-httpExtension-objTracking/topology.json) en un explorador y vea que videoName está codificado de forma rígida como `sample-cvr-inferencing`. Para los fines de este tutorial, este valor es aceptable. En producción, tendría que asegurarse de que cada cámara RTSP única se graba en un recurso de vídeo con un nombre único.  
+1. Abra la [topología de la canalización](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-with-httpExtension-objTracking/topology.json) en un explorador y vea que videoName está codificado de forma rígida como `sample-cvr-with-inference-metadata`. Para los fines de este tutorial, este valor es aceptable. En producción, tendría que asegurarse de que cada cámara RTSP única se graba en un recurso de vídeo con un nombre único.  
 
 1. Examine la configuración del nodo de extensión HTTP.
 
@@ -215,7 +215,7 @@ En los mensajes siguientes, el módulo Video Analyzer define las propiedades de 
 ## <a name="diagnostics-events"></a>Eventos de diagnóstico
 ### <a name="mediasessionestablished-event"></a>Evento MediaSessionEstablished
 
-Cuando se activa una canalización en directo, el nodo de origen RTSP intenta conectarse al servidor RTSP que se ejecuta en el contenedor rtspsim-live555. Si la conexión se realiza correctamente, se imprime el evento siguiente. El tipo de evento es Microsoft.VideoAnalyzer.Diagnostics.MediaSessionEstablished.
+Cuando se activa una canalización en directo, el nodo de origen de RTSP intenta conectarse al servidor RTSP que se ejecuta en el contenedor rtspsim-live555. Si la conexión se realiza correctamente, se imprime el evento siguiente. El tipo de evento es Microsoft.VideoAnalyzer.Diagnostics.MediaSessionEstablished.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [avasample-iot-edge-device/avaedge]:
@@ -300,7 +300,7 @@ Cuando el nodo receptor de vídeo comienza a grabar elementos multimedia, emite 
 {
   "body": {
     "outputType": "videoName",
-    "outputLocation&quot;: &quot;sample-cvr-inferencing"
+    "outputLocation&quot;: &quot;sample-cvr-with-inference-metadata"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoAnalyzers/{ava-account-name}",
@@ -325,7 +325,7 @@ Como sugiere su nombre, el evento RecordingStarted se envía cuando se inicia la
 {
   "body": {
     "outputType": "videoName",
-    "outputLocation&quot;: &quot;sample-cvr-inferencing"
+    "outputLocation&quot;: &quot;sample-cvr-with-inference-metadata"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoAnalyzers/{ava-account-name}",
@@ -345,14 +345,14 @@ La sección body contiene información sobre la ubicación de salida. En este ca
 
 ### <a name="recordingstopped-event"></a>Evento RecordingStopped
 
-Al desactivar la canalización en directo, el nodo receptor de vídeo deja de grabar los elementos multimedia y emite este evento del tipo **Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingStopped**:
+Al desactivar la canalización en directo, el nodo receptor de vídeo deja de grabar los elementos multimedia. y emite este evento de tipo **Microsoft.Media.Graph.Operational.RecordingStopped**:
 
 ```
 [IoTHubMonitor] [11:33:31 PM] Message received from [ava-sample-device/avaedge]:
 {
   "body": {
     "outputType": "videoName",
-    "outputLocation&quot;: &quot;sample-cvr-inferencing"
+    "outputLocation&quot;: &quot;sample-cvr-with-inference-metadata"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoAnalyzers/{ava-account-name}",
@@ -377,7 +377,7 @@ Para examinar el recurso de vídeo de Video Analyzer que se ha creado con la can
 1. Abra el explorador web y vaya a [Azure Portal](https://portal.azure.com/). Introduzca sus credenciales para iniciar sesión en el portal. La vista predeterminada es el panel del servicio.
 1. Busque la cuenta de Video Analyzer entre los recursos que tiene en la suscripción y abra el panel de cuentas.
 1. Seleccione **Vídeos** en la lista **Instancias de Video Analyzer**.
-1. Encontrará un vídeo con el nombre `sample-cvr-inferencing`. Este es el nombre elegido en el archivo de topología de la canalización.
+1. Encontrará un vídeo con el nombre `sample-cvr-with-inference-metadata`. Este es el nombre elegido en el archivo de topología de la canalización.
 1. Seleccione el vídeo.
 1. En la página de detalles del vídeo, haga clic en el icono **Reproducir**
 

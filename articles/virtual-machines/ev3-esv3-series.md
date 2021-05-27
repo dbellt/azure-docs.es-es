@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: mimckitt
-ms.openlocfilehash: 878ca249a02d3b53d0085052b2ff1caf590e3ce3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e96c54fb5e0bab71a68bd6a9749a358843b76a0c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102557869"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110083321"
 ---
 # <a name="ev3-and-esv3-series"></a>Series Ev3 y Esv3
 
@@ -46,9 +46,7 @@ Las máquinas virtuales de la serie Ev3 cuentan con la tecnología Hyper-Threadi
 | Standard_E32_v3 | 32 | 256 | 800  | 32 | 48000/750/375  | 8/16000 |
 | Standard_E48_v3 | 48 | 384 | 1200 | 32 | 96000/1000/500 | 8/24000 |
 | Standard_E64_v3 | 64 | 432 | 1600 | 32 | 96000/1000/500 | 8/30000 |
-| Standard_E64i_v3 <sup>1,2</sup> | 64 | 432 | 1600 | 32 | 96000/1000/500 | 8/30000 |
-
-<sup>1</sup> Tamaños de núcleos restringidos disponibles.
+| Standard_E64i_v3 <sup>2</sup> | 64 | 432 | 1600 | 32 | 96000/1000/500 | 8/30000 |
 
 <sup>2</sup> La instancia está aislada en el hardware dedicado a un solo cliente.
 
@@ -76,11 +74,11 @@ Las máquinas virtuales de la serie Esv3 cuentan con la tecnología Hyper-Thread
 | Standard_E16s_v3 <sup>1</sup>  | 16 | 128 | 256 | 32 | 32000/256 (400)    | 32 000/800   | 25600/384  | 32 000/800 | 8/8000 |
 | Standard_E20s_v3               | 20 | 160 | 320 | 32 | 40000/320 (400)    | 40000/1000  | 32000/480  | 40000/1000 | 8/10000 |
 | Standard_E32s_v3 <sup>1</sup>  | 32 | 256 | 512 | 32 | 64000/512 (800)    | 64 000/1600  | 51200/768  | 64 000/1600 | 8/16000 |
-| Standard_E48s_v3 <sup>1</sup>  | 48 | 384 | 768 | 32 | 96000/768 (1200)   | 96 000/2000  | 76800/1152 | 80000/2000 | 8/24000 |
+| Standard_E48s_v3               | 48 | 384 | 768 | 32 | 96000/768 (1200)   | 96 000/2000  | 76800/1152 | 80000/2000 | 8/24000 |
 | Standard_E64s_v3 <sup>1</sup>  | 64 | 432 | 864 | 32 | 128000/1024 (1600) | 128 000/2000 | 80000/1200 | 80000/2000 | 8/30000 |
 | Standard_E64is_v3 <sup>2</sup> | 64 | 432 | 864 | 32 | 128000/1024 (1600) | 128 000/2000 | 80000/1200 | 80000/2000 | 8/30000 |
 
-<sup>1</sup> Tamaños de núcleos restringidos disponibles.
+<sup>1</sup> [Tamaños de núcleos restringidos disponibles](./constrained-vcpu.md).
 
 <sup>2</sup> La instancia está aislada en el hardware dedicado a un solo cliente.
 

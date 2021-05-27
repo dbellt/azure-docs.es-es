@@ -1,14 +1,14 @@
 ---
 title: Incorporación de un cliente a Azure Lighthouse
 description: Obtenga información sobre cómo incorporar un cliente a Azure Lighthouse, lo que permite administrar sus recursos y acceder a ellos desde su propio inquilino mediante la administración de recursos delegados de Azure.
-ms.date: 05/11/2021
+ms.date: 05/25/2021
 ms.topic: how-to
-ms.openlocfilehash: fc67146b6fb1fb5767678838af0c7cbf30c5815a
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 7b64a189fdf6b33fada1750b667260989d2827e8
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109786137"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376227"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Incorporación de un cliente a Azure Lighthouse
 
@@ -73,6 +73,9 @@ A fin de facilitar la administración, se recomienda usar grupos de usuarios de 
 > Para agregar permisos a un grupo de Azure AD, el **Tipo de grupo** debe establecerse en **Seguridad**. Esta opción se selecciona cuando se crea el grupo. Para obtener más información vea [Creación de un grupo básico e incorporación de miembros con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Al definir las autorizaciones, asegúrese de seguir el principio de privilegios mínimos para que los usuarios solo tengan los permisos necesarios para completar su trabajo. Para obtener información sobre los roles admitidos y los procedimientos recomendados, vea [Inquilinos, usuarios y roles en escenarios de Azure Lighthouse](../concepts/tenants-users-roles.md).
+
+> [!TIP]
+> También puede crear *autorizaciones aptas* que permitan a los usuarios del inquilino de administración tener un rol superior temporalmente. Esta característica está actualmente en una versión preliminar pública y tiene requisitos de licencia específicos. Para obtener más información, vea [Creación de autorizaciones aptas](create-eligible-authorizations.md).
 
 Para definir las autorizaciones, tiene que conocer los valores de identificador de cada usuario, grupo de usuarios o entidad de servicio en el inquilino del proveedor de servicios al que quiera conceder acceso. También necesitará el identificador de definición de roles para cada rol integrado que quiera asignar. Si aún no los tiene, puede recuperarlos ejecutando los comandos a continuación en el inquilino del proveedor de servicios.
 
@@ -159,32 +162,32 @@ En el ejemplo siguiente se muestra un archivo **delegatedResourceManagement.para
             "value": "Fabrikam Managed Services - Interstellar"
         },
         "managedByTenantId": {
-            "value": "df4602a3-920c-435f-98c4-49ff031b9ef6"
+            "value": "00000000-0000-0000-0000-000000000000"
         },
         "authorizations": {
             "value": [
                 {
-                    "principalId": "0019bcfb-6d35-48c1-a491-a701cf73b419",
+                    "principalId": "00000000-0000-0000-0000-000000000000",
                     "principalIdDisplayName": "Tier 1 Support",
                     "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c"
                 },
                 {
-                    "principalId": "0019bcfb-6d35-48c1-a491-a701cf73b419",
+                    "principalId": "00000000-0000-0000-0000-000000000000",
                     "principalIdDisplayName": "Tier 1 Support",
                     "roleDefinitionId": "36243c78-bf99-498c-9df9-86d9f8d28608"
                 },
                 {
-                    "principalId": "0afd8497-7bff-4873-a7ff-b19a6b7b332c",
+                    "principalId": "00000000-0000-0000-0000-000000000000",
                     "principalIdDisplayName": "Tier 2 Support",
                     "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7"
                 },
                 {
-                    "principalId": "9fe47fff-5655-4779-b726-2cf02b07c7c7",
+                    "principalId": "00000000-0000-0000-0000-000000000000",
                     "principalIdDisplayName": "Service Automation Account",
                     "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c"
                 },
                 {
-                    "principalId": "3kl47fff-5655-4779-b726-2cf02b05c7c4",
+                    "principalId": "00000000-0000-0000-0000-000000000000",
                     "principalIdDisplayName": "Policy Automation Account",
                     "roleDefinitionId": "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
                     "delegatedRoleDefinitionIds": [
