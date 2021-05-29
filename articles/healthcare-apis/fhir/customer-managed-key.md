@@ -8,12 +8,13 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 05/04/2021
 ms.author: ginle
-ms.openlocfilehash: e1f5159ae192d4be7aa683b68c6a994725089a7f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 371b1286976a5f9dabfb82a5a706ff4a2672ceb2
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756870"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110700470"
 ---
 # <a name="configure-customer-managed-keys-at-rest"></a>Configuración de claves administradas por el cliente en reposo
 
@@ -33,7 +34,7 @@ Para empezar, consulte los vínculos siguientes:
 Al crear la cuenta Azure API for FHIR en Azure Portal, observará  la opción de  configuración Cifrado de datos en Configuración de base de datos en la **pestaña Configuración** adicional. De forma predeterminada, se seleccionará la opción de clave administrada por el servicio.
 
 > [!Important]
-> La opción de cifrado de datos solo está disponible cuando el Azure API for FHIR se crea y no se puede cambiar posteriormente. Sin embargo, puede ver y actualizar la clave de cifrado si está seleccionada la opción Clave **administrada** por el cliente. 
+> La opción de cifrado de datos solo está disponible cuando el Azure API for FHIR se crea y no se puede cambiar posteriormente. Sin embargo, puede ver y actualizar la clave de cifrado si está seleccionada la opción **Clave** administrada por el cliente. 
 
 
 La clave se puede elegir en KeyPicker:
@@ -145,7 +146,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a configurar claves administradas por el cliente en reposo mediante Azure Portal, PowerShell, cli y Resource Manager plantilla. Para obtener más información, consulte la Azure Cosmos DB preguntas más frecuentes. 
+En este artículo, ha aprendido a configurar claves administradas por el cliente en reposo mediante Azure Portal, PowerShell, cli y Resource Manager plantilla. Puede consultar la sección de preguntas Azure Cosmos DB más frecuentes para obtener más información. 
  
 >[!div class="nextstepaction"]
 >[Cosmos DB: procedimientos para configurar CMK](../../cosmos-db/how-to-setup-cmk.md#frequently-asked-questions)
