@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 04/30/2021
 ms.author: cavoeg
-ms.openlocfilehash: 14328179a297ebcc3994bf627b1690195774b2b1
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: dbc03ccd235c456941e5f201b647215389fed92c
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108741138"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408234"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Preguntas más frecuentes sobre Azure API for FHIR
 
@@ -74,11 +74,11 @@ No se permiten recursos de FHIR personalizados. Si necesita un recurso FHIR pers
 
 ### <a name="are-extensions-supported-on-azure-api-for-fhir"></a>¿Se admiten las [extensiones](https://www.hl7.org/fhir/extensibility.html) en Azure API for FHIR?
 
-Está permitido cargar datos JSON de FHIR válidos en el servidor. Si desea almacenar la definición de la estructura que define la extensión, puede guardarla como un recurso de definición de estructura. Actualmente, no se puede buscar en las extensiones.
+Está permitido cargar datos JSON de FHIR válidos en el servidor. Si desea almacenar la definición de la estructura que define la extensión, puede guardarla como un recurso de definición de estructura. Para buscar en extensiones, deberá definir sus propios [parámetros de búsqueda.](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fhealthcare-apis%2Ffhir%2Fhow-to-do-custom-search&data=04%7C01%7Cv-stevewohl%40microsoft.com%7Cc6a08c7f0c86433f248c08d925377d85%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637581742517376233%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=Ws%2FVQ2N33sMagzs393hmR67M9dNaL6WCLXyxXtor6PM%3D&reserved=0) 
 
 ### <a name="what-is-the-limit-on-_count"></a>¿Cuál es el límite en recuento?
 
-El límite actual de _count es 1000. Si establece _count en más de 1000, recibirá una advertencia en la agrupación que indica que solo se mostrarán 1000 registros.
+El límite actual de _count es 1000. Si establece _count en más de 1000, recibirá una advertencia en el paquete que indica que solo se mostrarán 1000 registros.
 
 ### <a name="are-there-any-limitations-on-the-group-export-functionality"></a>¿Hay alguna limitación en la funcionalidad de exportación de grupos?
 
@@ -100,7 +100,7 @@ A continuación se muestran algunos ejemplos de eso:
 
 ### <a name="what-is-the-default-sort-when-searching-for-resources-in-azure-api-for-fhir"></a>¿Cuál es el orden predeterminado al buscar recursos en Azure API for FHIR?
 
-Se admite la ordenación por la fecha de la última actualización: _sort=_lastUpdated. Para obtener más información sobre otros parámetros de búsqueda admitidos, vea [Información general de FHIR Search.](overview-of-search.md)
+Se admite la ordenación por la fecha de la última actualización: _sort=_lastUpdated. Para obtener más información sobre otros parámetros de búsqueda admitidos, vea [Información general de la búsqueda de FHIR.](overview-of-search.md)
 
 ### <a name="does-the-azure-api-for-fhir-support-everything"></a>¿Azure API for FHIR admite $everything? 
 

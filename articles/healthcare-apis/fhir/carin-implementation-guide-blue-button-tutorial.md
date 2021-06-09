@@ -9,21 +9,20 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 05/27/2021
-ms.openlocfilehash: 25be80678389b59e907caf60529a8e4048a959e0
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 1fade881fbe6d5c401712a4f97c8a249006d8190
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111562912"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590385"
 ---
 # <a name="carin-implementation-guide-for-blue-button174"></a>Guía de implementación de CARIN para el botón azul&#174;
 
-En este tutorial, le guiaremos por la configuración del Azure API for FHIR para pasar las pruebas de [Touchstone](https://touchstone.aegis.net/touchstone/) para la Guía de implementación de [CARIN ](https://build.fhir.org/ig/HL7/carin-bb/index.html) para el botón azul (C4BB IG).
+En este tutorial, le guiaremos por la configuración del Azure API for FHIR para pasar las pruebas de [Touchstone](https://touchstone.aegis.net/touchstone/) para la Guía de implementación de [CARIN](https://build.fhir.org/ig/HL7/carin-bb/index.html) para el botón azul (C4BB IG).
 
 ## <a name="touchstone-capability-statement"></a>Instrucción de funcionalidad de Touchstone
 
 La primera prueba en la que nos centraremos es probar el Azure API for FHIR con la instrucción de funcionalidad [C4BB IG](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS). Si ejecuta esta prueba en el Azure API for FHIR sin actualizaciones, se producirá un error en la prueba debido a la falta de parámetros de búsqueda y a la falta de perfiles. 
-
 
 ### <a name="define-search-parameters"></a>Definición de parámetros de búsqueda
 
@@ -43,19 +42,12 @@ El resto de los parámetros de búsqueda necesarios para C4BB IG se definen medi
 Fuera de definir los parámetros de búsqueda, la otra actualización que debe realizar para superar esta prueba es cargar los [perfiles necesarios.](validation-against-profiles.md) Hay ocho perfiles definidos dentro de C4BB IG. 
 
 * [Cobertura C4BB](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-Coverage.html) 
-
 * [C4BB ExplanationOfBenefit Inpatient Institutional](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-ExplanationOfBenefit-Inpatient-Institutional.html) 
-
 * [Explicación de C4BBOfBenefit Outpatient Institutional](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-ExplanationOfBenefit-Outpatient-Institutional.html) 
-
 * [Explicación de C4BBOfBenefit Infirible](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-ExplanationOfBenefit-Pharmacy.html) 
-
 * [C4BB ExplanationOfBenefit Professional NonCcian](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-ExplanationOfBenefit-Professional-NonClinician.html) 
-
 * [Organización C4BB](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-Organization.html) 
-
 * [C4BB Patient](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-Patient.html) 
-
 * [Profesional de C4BB](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-Practitioner.html) 
 
 ### <a name="sample-rest-file"></a>Archivo de rest de ejemplo
@@ -72,13 +64,13 @@ Después de probar la instrucción capabilities, probaremos las [funcionalidades
 
 ## <a name="touchstone-eob-query-test"></a>Prueba de consulta EOB de Touchstone
 
-La siguiente prueba que revisaremos es la [prueba de consulta EOB](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/02-EOBQuery&activeOnly=false&contentEntry=TEST_SCRIPTS). Si ya ha completado la prueba de lectura, tendrá todos los datos cargados que necesitará. Esta prueba valida que puede buscar pacientes específicos y explicar los recursos de las ventajas mediante varios parámetros.
+La siguiente prueba que revisaremos es la [prueba de consulta EOB](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/02-EOBQuery&activeOnly=false&contentEntry=TEST_SCRIPTS). Si ya ha completado la prueba de lectura, tiene todos los datos cargados que necesitará. Esta prueba valida que puede buscar recursos y `Patient` específicos `ExplanationOfBenefit` mediante varios parámetros.
 
 :::image type="content" source="media/cms-tutorials/test-execution-touchstone-eob-query-test.png" alt-text="Resultados de la ejecución de consultas EOB de Touchstone.":::
 
 ## <a name="touchstone-error-handling-test"></a>Prueba de control de errores de Touchstone
 
-La prueba final que se recorrerá es probar el [control de errores.](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/99-ErrorHandling&activeOnly=false&contentEntry=TEST_SCRIPTS) El único paso que debe realizar es eliminar un recurso ExplanationOfBenefit de la base de datos y usar el identificador del recurso ExplanationOfBenfit de eliminación en la prueba.
+La prueba final que se recorrerá es probar el [control de errores.](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/99-ErrorHandling&activeOnly=false&contentEntry=TEST_SCRIPTS) El único paso que debe realizar es eliminar un recurso ExplanationOfBenefit de la base de datos y usar el identificador del recurso `ExplanationOfBenefit` eliminado en la prueba.
 
 :::image type="content" source="media/cms-tutorials/test-execution-touchstone-error-handling.png" alt-text="Resultados del control de errores de EOB de Touchstone.":::
 

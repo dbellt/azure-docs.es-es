@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 4/15/2021
 ms.author: cavoeg
-ms.openlocfilehash: b36937b61b5508dfc933ef15b316d1d1da7b7acc
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: de99d6b5480a8e8262aba9d40826f69862630961
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078641"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592985"
 ---
 # <a name="features"></a>Características
 
@@ -36,7 +36,7 @@ Entre las versiones anteriores también admitidas actualmente se incluye: `3.0.2
 | update (conditional)           | Sí       | Sí       | Sí       |                                                     |
 | patch                          | No        | No        | No        |                                                     |
 | delete                         | Sí       | Sí       | Sí       |  Consulte la nota siguiente.                                   |
-| delete (conditional)           | No        | No        | No        |                                                     |
+| delete (conditional)           | Sí       | Sí        | Sí        |                                                     |
 | history                        | Sí       | Sí       | Sí       |                                                     |
 | create                         | Sí       | Sí       | Sí       | Admite POST y PUT                               |
 | create (conditional)           | Sí       | Sí       | Sí       | Problema [n.º 1382](https://github.com/microsoft/fhir-server/issues/1382) |
@@ -54,9 +54,9 @@ Entre las versiones anteriores también admitidas actualmente se incluye: `3.0.2
 
 
  **Nota 2**
-* Agrega compatibilidad con MVP para búsqueda FHIR encadenada e inversa en CosmosDB. 
+* Agrega compatibilidad con MVP para la búsqueda de FHIR encadenada y encadenada inversa en CosmosDB. 
 
-  En el Azure API for FHIR servidor FHIR de código abierto con el respaldo de Cosmos, la búsqueda encadenada y la búsqueda encadenada inversa es una implementación de MVP. Para realizar búsquedas encadenadas en Cosmos DB, la implementación recorre la expresión de búsqueda y emite subconsediciones para resolver los recursos coincidentes. Esto se hace para cada nivel de la expresión. Si alguna consulta devuelve más de 100 resultados, se producirá un error. De forma predeterminada, la búsqueda encadenada está detrás de una marca de característica. Para usar la búsqueda encadenada en Cosmos DB, use el encabezado `x-ms-enable-chained-search: true` . Para obtener más información, [vea PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
+  En la Azure API for FHIR servidor de FHIR de código abierto con el respaldo de Cosmos, la búsqueda encadenada y la búsqueda encadenada inversa es una implementación de MVP. Para realizar búsquedas encadenadas en Cosmos DB, la implementación recorre la expresión de búsqueda y emite subconsediciones para resolver los recursos coincidentes. Esto se hace para cada nivel de la expresión. Si alguna consulta devuelve más de 100 resultados, se producirá un error. De forma predeterminada, la búsqueda encadenada está detrás de una marca de características. Para usar la búsqueda encadenada en Cosmos DB, use el encabezado `x-ms-enable-chained-search: true` . Para obtener más información, vea [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
 
 ## <a name="extended-operations"></a>Operaciones extendidas
 
@@ -68,7 +68,9 @@ Todas las operaciones que se admiten y que extienden la API RESTful.
 | Patient/$export        | Sí       | Sí       | Sí       |         |
 | Group/$export          | Sí       | Sí       | Sí       |         |
 | $convert-data          | Sí       | Sí       | Sí       |         |
-| $validate          | Sí       | Sí       | Sí       |         |
+| $validate              | Sí       | Sí       | Sí       |         |
+| $member coincidencia          | Sí       | Sí       | Sí       |         |
+| $patient-everything    | No        | No        | Sí       |         |
 
 ## <a name="persistence"></a>Persistencia
 
@@ -92,9 +94,9 @@ Actualmente, las acciones permitidas para un rol determinado se aplican *globalm
 
 * **Tamaño de los datos**: los datos y documentos deben ser ligeramente inferiores a 2 MB.
 
-* **Límite de** suscripciones: de forma predeterminada, cada suscripción está limitada a un máximo de 10 instancias de servidor de FHIR. Si necesita más instancias por suscripción, abra una vale de soporte técnico y proporcione detalles sobre sus necesidades.
+* **Límite de** suscripción: de forma predeterminada, cada suscripción está limitada a un máximo de 10 instancias de servidor de FHIR. Si necesita más instancias por suscripción, abra una vale de soporte técnico y proporcione detalles sobre sus necesidades.
 
-* **Conexiones e instancias simultáneas:** de forma predeterminada, tiene 15 conexiones simultáneas en dos instancias del clúster (para un total de 30 solicitudes simultáneas). Si necesita más solicitudes simultáneas, abra una vale de soporte técnico y proporcione detalles sobre sus necesidades.
+* **Conexiones simultáneas e** instancias: de forma predeterminada, tiene 15 conexiones simultáneas en dos instancias del clúster (para un total de 30 solicitudes simultáneas). Si necesita más solicitudes simultáneas, abra una vale de soporte técnico y proporcione detalles sobre sus necesidades.
 
 ## <a name="performance-expectations"></a>Expectativas de rendimiento
 
