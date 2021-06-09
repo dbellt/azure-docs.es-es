@@ -7,22 +7,22 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 05/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 6e3a074c24305209047fbd3e741fdb81256374e5
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 5be1be72e47af10868867e0dce8b747911509381
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460110"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111810813"
 ---
 # <a name="fhir-search-examples"></a>Ejemplos de búsqueda de FHIR
 
-A continuación se muestran algunos ejemplos de uso de las operaciones de búsqueda de FHIR, incluidos los parámetros y modificadores de búsqueda, la búsqueda en cadena y la cadena inversa, la búsqueda compuesta, la visualización del siguiente conjunto de entradas para los resultados de la búsqueda y la búsqueda con una `POST` solicitud. Para obtener más información sobre la búsqueda, vea [Información general de la búsqueda de FHIR.](overview-of-search.md)
+A continuación se muestran algunos ejemplos de uso de las operaciones de búsqueda de FHIR, incluidos los parámetros y modificadores de búsqueda, la búsqueda en cadena y la cadena inversa, la búsqueda compuesta, la visualización del siguiente conjunto de entradas para los resultados de la búsqueda y la búsqueda con una `POST` solicitud. Para obtener más información sobre la búsqueda, vea [Información general de FHIR Search.](overview-of-search.md)
    
 ## <a name="search-result-parameters"></a>Parámetros de resultados de la búsqueda
 
 ### <a name="_include"></a>_include
 
-`_include` busca entre los recursos los que incluyen el parámetro especificado del recurso. Por ejemplo, puede buscar entre recursos para buscar solo los que incluyen información sobre las recetas de un paciente específico, que `MedicationRequest` es el parámetro `reference` `patient` . En el ejemplo siguiente, se extraerán todos los pacientes y a los que se hace `MedicationRequests` referencia desde `MedicationRequests` :
+`_include` busca en los recursos los que incluyen el parámetro especificado del recurso. Por ejemplo, puede buscar entre recursos para buscar solo los que incluyen información sobre las recetas de un paciente `MedicationRequest` específico, que es el `reference` parámetro `patient` . En el ejemplo siguiente, se extraerán todos los pacientes y a los que se `MedicationRequests` hace referencia desde `MedicationRequests` :
 
 ```rest
  GET [your-fhir-server]/MedicationRequest?_include=MedicationRequest:patient
@@ -30,7 +30,7 @@ A continuación se muestran algunos ejemplos de uso de las operaciones de búsqu
 ```
 
 > [!NOTE]
-> **_include** y **_revinclude** está limitado a 100 elementos.
+> **_include** y **_revinclude** están limitados a 100 elementos.
 
 ### <a name="_revinclude"></a>_revinclude
 
@@ -42,14 +42,14 @@ GET [your-fhir-server]/Patient?_revinclude=Encounter:subject
 ```
 ### <a name="_elements"></a>_elements
 
-`_elements` reduce el resultado de la búsqueda a un subconjunto de campos para reducir el tamaño de la respuesta omitiendo los datos innecesarios. El parámetro acepta una lista separada por comas de elementos base:
+`_elements` limita el resultado de la búsqueda a un subconjunto de campos para reducir el tamaño de la respuesta omitiendo los datos innecesarios. El parámetro acepta una lista separada por comas de elementos base:
 
 ```rest
 GET [your-fhir-server]/Patient?_elements=identifier,active
 
 ```
 
-En esta solicitud, recibirá un conjunto de pacientes, pero cada recurso solo incluirá los identificadores y el estado activo del paciente. Los recursos de esta respuesta devuelta contendrán `meta.tag` un valor de para indicar que son un conjunto incompleto de `SUBSETTED` resultados.
+En esta solicitud, recibirá un conjunto de pacientes, pero cada recurso solo incluirá los identificadores y el estado activo del paciente. Los recursos de esta respuesta devuelta contendrán un valor de para indicar que se trata de `meta.tag` un conjunto incompleto de `SUBSETTED` resultados.
 
 ## <a name="search-modifiers"></a>Modificadores de búsqueda
 
@@ -62,7 +62,7 @@ GET [your-fhir-server]/Patient?gender:not=female
 
 ```
 
-Como valor devuelto, se obtienen todas las entradas de pacientes en las que el sexo no es mujer, incluidos los valores vacíos (entradas especificadas sin género). Esto es diferente de buscar Pacientes en los que el sexo es varón, ya que eso no incluiría las entradas sin un género específico.
+Como valor devuelto, se obtienen todas las entradas de pacientes en las que el género no es mujer, incluidos los valores vacíos (entradas especificadas sin género). Esto es diferente de buscar Pacientes en los que el sexo es varón, ya que eso no incluiría las entradas sin un género específico.
 
 ### <a name="missing"></a>:missing
 
@@ -84,7 +84,7 @@ GET [your-fhir-server]/Patient?name:exact=Jon
 Esta solicitud devuelve `Patient` recursos que tienen el nombre exactamente igual que `Jon` . Si el recurso tuviera pacientes con nombres como o , la búsqueda omitiría y omitiría el recurso, ya que no coincide exactamente con `Jonathan` `joN` el valor especificado.
 
 ### <a name="contains"></a>:contains
-`:contains` se usa para los parámetros y busca recursos con coincidencias parciales del valor especificado en cualquier parte de la cadena dentro del campo en el que `string` se está buscando. `contains` no tiene en cuenta las mayúsculas y minúsculas y permite la concatenación de caracteres. Por ejemplo:
+`:contains` se usa para los parámetros y busca recursos con coincidencias parciales del valor especificado en cualquier parte de la cadena dentro `string` del campo en el que se está buscando. `contains` no tiene en cuenta las mayúsculas y minúsculas y permite la concatenación de caracteres. Por ejemplo:
 
 ```rest
 GET [your-fhir-server]/Patient?address:contains=Meadow
@@ -102,9 +102,9 @@ Para realizar una serie de operaciones de búsqueda que cubren varios parámetro
 
 ```
 
-Esta solicitud devolvería todos los recursos con el paciente llamado "Sarah". Período después `.` de que el campo realice la búsqueda `Patient` encadenada en el parámetro de referencia del `subject` parámetro .
+Esta solicitud devolvería todos los `DiagnosticReport` recursos con un paciente llamado "Sarah". El período `.` después de que el campo realice la búsqueda `Patient` encadenada en el parámetro de referencia del `subject` parámetro .
 
-Otro uso común de una búsqueda normal (no una búsqueda encadenada) es encontrar todos los encuentros de un paciente específico. `Patient`a menudo tendrá uno o varios `Encounter` con un asunto. Para buscar todos los `Encounter` recursos de un con el `Patient` `id` proporcionado:
+Otro uso común de una búsqueda normal (no una búsqueda encadenada) es encontrar todos los encuentros de un paciente específico. `Patient`a menudo, los tendrán uno o `Encounter` varios con un asunto. Para buscar todos los `Encounter` recursos de un con el `Patient` `id` proporcionado:
 
 ```rest
 GET [your-fhir-server]/Encounter?subject=Patient/78a14cbe-8968-49fd-a231-d43e6619399f
@@ -118,16 +118,16 @@ GET [your-fhir-server]/Encounter?subject:Patient.birthdate=1987-02-20
 
 ```
 
-Esto permitiría no solo buscar recursos para un solo paciente, sino en todos los pacientes que tengan el `Encounter` valor de fecha de nacimiento especificado. 
+Esto permitiría no solo buscar recursos para un solo paciente, sino en todos los pacientes que tengan el valor de fecha `Encounter` de nacimiento especificado. 
 
-Además, la búsqueda encadenada se puede realizar más de una vez en una solicitud mediante el símbolo , que permite buscar varias condiciones `&` en una solicitud. En tales casos, la búsqueda encadenada busca "independientemente" cada parámetro, en lugar de buscar condiciones que solo cumplan todas las condiciones a la vez. Es una operación OR, no una operación AND. Por ejemplo, si desea obtener todos los pacientes que tenían un profesional con un nombre determinado o de un estado determinado:
+Además, la búsqueda encadenada se puede realizar más de una vez en una solicitud mediante el símbolo , que permite buscar varias `&` condiciones en una solicitud. En tales casos, la búsqueda encadenada busca "independientemente" cada parámetro, en lugar de buscar condiciones que solo cumplan todas las condiciones a la vez:
 
 ```rest
-GET [your-fhir-server]/Patient?general-practitioner.name=Sarah&general-practitioner.address-state=WA
+GET [your-fhir-server]/Patient?general-practitioner:Practitioner.name=Sarah&general-practitioner:Practitioner.address-state=WA
 
 ```
 
-Esto devolvería todos los recursos que tienen "Sarah" como y todos los recursos que tienen la dirección `Patient` `generalPractitioner` con el estado `Patient` `generalPractitioner` WA. En otras palabras, puede tener a Sarah del estado NY y Bill del estado WA como los resultados devueltos. La búsqueda encadenada no requiere cumplir todas las condiciones y se evalúa individualmente según el parámetro .
+Esto devolvería todos los recursos que tienen "Sarah" como y tienen un que `Patient` tiene la dirección con el wa de `generalPractitioner` `generalPractitioner` estado. En otras palabras, si un paciente tuviera a Sarah del estado NY y Bill del estado WA a los que se hace referencia como la del paciente, se `generalPractitioner` devolvería .
 
 Para los escenarios en los que la búsqueda tiene que ser una operación AND que cubre todas las condiciones como grupo, consulte el ejemplo de **búsqueda** compuesta siguiente.
 
@@ -145,12 +145,12 @@ Esta solicitud devuelve los recursos de pacientes a los que hace `Observation` r
 Además, la búsqueda en cadena inversa puede tener una estructura recursiva. Por ejemplo, si desea buscar todos los pacientes que tienen donde la observación tiene un evento de auditoría de un usuario `Observation` `janedoe` específico, podría hacer lo siguiente:
 
 ```rest
-GET [base]/Patient?_has:Observation:patient:_has:AuditEvent:entity:user=janedoe
+GET [base]/Patient?_has:Observation:patient:_has:AuditEvent:entity:agent:Practitioner.name=janedoe
 
 ``` 
 
 > [!NOTE]
-> En la Azure API for FHIR servidor de FHIR de código abierto con el respaldo de Cosmos, la búsqueda encadenada y la búsqueda encadenada inversa es una implementación de MVP. Para realizar búsquedas encadenadas en Cosmos DB, la implementación recorre la expresión de búsqueda y emite subconsediciones para resolver los recursos coincidentes. Esto se hace para cada nivel de la expresión. Si alguna consulta devuelve más de 100 resultados, se producirá un error. De forma predeterminada, la búsqueda encadenada está detrás de una marca de características. Para usar la búsqueda encadenada Cosmos DB, use el encabezado x-ms-enable-chained-search: true.
+> En la Azure API for FHIR servidor de FHIR de código abierto con el respaldo de Cosmos, la búsqueda encadenada y la búsqueda encadenada inversa es una implementación de MVP. Para realizar búsquedas encadenadas en Cosmos DB, la implementación recorre la expresión de búsqueda y emite subconsediciones para resolver los recursos coincidentes. Esto se hace para cada nivel de la expresión. Si alguna consulta devuelve más de 100 resultados, se producirá un error.
 
 ## <a name="composite-search"></a>Búsqueda compuesta
 
@@ -161,11 +161,11 @@ GET [your-fhir-server]/DiagnosticReport?result.code-value-quantity=2823-3$lt9.2
 
 ``` 
 
-Esta solicitud especifica el componente que contiene un código de , que en `2823-3` este caso sería desapercibo. Después del símbolo, especifica el intervalo del valor para el componente que usa para "menor o igual que" y para el intervalo de valores `$` `lt` de `9.2` enumeración. 
+Esta solicitud especifica el componente que contiene un código de , que en `2823-3` este caso sería un elemento de tiempo. Después del símbolo, especifica el intervalo del valor para el componente que usa para "menor o igual que" y para el intervalo de valores `$` `lt` de `9.2` enumeración. 
 
 ## <a name="search-the-next-entry-set"></a>Buscar en el siguiente conjunto de entradas
 
-El número máximo de entradas que se pueden devolver por cada consulta de búsqueda única es 1000. Sin embargo, es posible que tenga más de 1000 entradas que coincidan con la consulta de búsqueda y que desee ver el siguiente conjunto de entradas después de las primeras 1000 entradas devueltas. En tal caso, usaría el valor del token de `url` continuación en `searchset` como en el `Bundle` resultado siguiente:
+El número máximo de entradas que se pueden devolver por una sola consulta de búsqueda es 1000. Sin embargo, es posible que tenga más de 1000 entradas que coincidan con la consulta de búsqueda y que desee ver el siguiente conjunto de entradas después de las primeras 1000 entradas devueltas. En tal caso, usaría el valor del token de `url` continuación en `searchset` como en el `Bundle` resultado siguiente:
 
 ```json
     "resourceType": "Bundle",
@@ -194,7 +194,7 @@ GET [your-fhir-server]/Patient?_sort=_lastUpdated&ct=WzUxMDAxNzc1NzgzODc5MjAwODB
 
 ```
 
-Esto devolverá el siguiente conjunto de entradas para el resultado de la búsqueda. es el conjunto completo de entradas de resultados de búsqueda y el token de continuación es el vínculo proporcionado por el servidor para que pueda recuperar las entradas que no aparecen en el primer conjunto porque la restricción en el número máximo de entradas devueltas para una consulta de `searchset` `url` búsqueda.
+Esto devolverá el siguiente conjunto de entradas para el resultado de la búsqueda. es el conjunto completo de entradas de resultados de búsqueda y el token de continuación es el vínculo proporcionado por el servidor para que pueda recuperar las entradas que no se muestran en el primer conjunto debido a la restricción en el número máximo de entradas devueltas para una consulta de `searchset` `url` búsqueda.
 
 ## <a name="search-using-post"></a>Búsqueda mediante POST
 
@@ -205,7 +205,7 @@ POST [your-fhir-server]/Patient/_search?_id=45
 
 ```
 
-Esta solicitud devolvería todos `Patient` los recursos con el valor `id` 45. Al igual que en las solicitudes GET, el servidor determina cuál de los recursos cumple las condiciones y devuelve un recurso de agrupación en la respuesta HTTP.
+Esta solicitud devolvería todos `Patient` los recursos con el valor de `id` 45. Al igual que en las solicitudes GET, el servidor determina cuál de los recursos cumple las condiciones y devuelve un recurso de agrupación en la respuesta HTTP.
 
 Otro ejemplo de búsqueda mediante POST donde los parámetros de consulta se envían como cuerpo del formulario es:
 
@@ -219,4 +219,4 @@ name=John
 ## <a name="next-steps"></a>Pasos siguientes
 
 >[!div class="nextstepaction"]
->[Información general de FHIR Search](overview-of-search.md)
+>[Introducción a la búsqueda de FHIR](overview-of-search.md)
