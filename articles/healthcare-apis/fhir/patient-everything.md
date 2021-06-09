@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 06/04/2021
 ms.author: cavoeg
-ms.openlocfilehash: fee544c318df318e09c75ebaf18fc0837cb4af0d
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: b02a2b582130c439298653d7c2a0512edbb8a23b
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111562864"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756372"
 ---
 # <a name="patient-everything-in-fhir"></a>Patient-everything in FHIR
 
@@ -26,10 +26,10 @@ Para llamar a patient-everything, use el siguiente comando:
 GET {FHIRURL}/Patient/{ID}/$everything
 ```
 El Azure API for FHIR valida que puede encontrar el paciente que coincide con el identificador de paciente proporcionado. Si se encuentra un resultado, la respuesta será un conjunto de tipo "searchset" con la siguiente información: 
-* [Recurso de pacientes](https://www.hl7.org/fhir/patient.html) 
+* [Recurso de paciente](https://www.hl7.org/fhir/patient.html) 
 *  Recursos a los que hace referencia directamente el recurso Patient (excepto el vínculo) 
 *  Recursos en el compartimiento del [paciente](https://www.hl7.org/fhir/compartmentdefinition-patient.html)
-*  [Recursos de dispositivo](https://www.hl7.org/fhir/device.html) que hacen referencia al recurso Patient  
+*  [Recursos de dispositivo](https://www.hl7.org/fhir/device.html) que hacen referencia al recurso Patient. Tenga en cuenta que esto está limitado a 100 dispositivos. Si el paciente tiene más de 100 dispositivos vinculados a ellos, solo se devolverán 100. 
 
  
 > [!Note]

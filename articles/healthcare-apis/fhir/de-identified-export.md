@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 9/28/2020
 ms.author: matjazl
-ms.openlocfilehash: 60a2a41a8005e8bd0fbc313c9a177d54df6dac5e
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: d4e3c1801425daa9c907f7d713a339d44647e185
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020358"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751044"
 ---
 # <a name="exporting-de-identified-data-preview"></a>Exportación de datos sin identificación (versión preliminar)
 
