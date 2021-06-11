@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/04/2021
 ms.author: ginle
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 371b1286976a5f9dabfb82a5a706ff4a2672ceb2
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 0c32725d020043c3cd62828e4bdccfafef2f53aa
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110700470"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970174"
 ---
 # <a name="configure-customer-managed-keys-at-rest"></a>Configuración de claves administradas por el cliente en reposo
 
@@ -41,14 +41,14 @@ La clave se puede elegir en KeyPicker:
 
 :::image type="content" source="media/bring-your-own-key/bring-your-own-key-keypicker.png" alt-text="KeyPicker":::
 
-También puede especificar la clave de Azure Key Vault aquí seleccionando la **opción Clave administrada por el** cliente.
+También puede especificar la clave Azure Key Vault aquí seleccionando la **opción Clave administrada por el** cliente.
  
 También puede escribir el URI de clave aquí:
 
 :::image type="content" source="media/bring-your-own-key/bring-your-own-key-create.png" alt-text="Creación de Azure API for FHIR":::
 
 > [!Important]
-> Asegúrese de que todos los permisos Azure Key Vault se establecen correctamente. Para obtener más información, consulte [Adición de una directiva de acceso a la Azure Key Vault instancia de](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-access-policy). Además, asegúrese de que la eliminación automática está habilitada en las propiedades del Key Vault. Si no se completan estos pasos, se producirá un error de implementación. Para más información, consulte [Comprobación de si la eliminación automática está habilitada en un almacén de claves y habilitación de la eliminación automática.](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#verify-if-soft-delete-is-enabled-on-a-key-vault-and-enable-soft-delete)
+> Asegúrese de que todos los permisos Azure Key Vault se establecen correctamente. Para obtener más información, consulte [Adición de una directiva de acceso a la Azure Key Vault instancia de](../../cosmos-db/how-to-setup-cmk.md#add-access-policy). Además, asegúrese de que la eliminación automática está habilitada en las propiedades del Key Vault. Si no se completan estos pasos, se producirá un error de implementación. Para más información, consulte [Comprobación de si la eliminación automática está habilitada en un almacén de claves y habilitación de la eliminación automática.](../../key-vault/general/key-vault-recovery.md?tabs=azure-portal#verify-if-soft-delete-is-enabled-on-a-key-vault-and-enable-soft-delete)
 
 En el caso de las cuentas de FHIR existentes, puede ver la  opción de cifrado de claves **(clave** administrada por el servicio o clave administrada por el **cliente)** en la hoja Base de datos, como se muestra a continuación. La opción de configuración no se puede modificar una vez seleccionada. Sin embargo, se puede modificar y actualizar la clave.
 
@@ -146,7 +146,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a configurar claves administradas por el cliente en reposo mediante Azure Portal, PowerShell, cli y Resource Manager plantilla. Puede consultar la sección de preguntas Azure Cosmos DB más frecuentes para obtener más información. 
+En este artículo, ha aprendido a configurar claves administradas por el cliente en reposo mediante Azure Portal, PowerShell, cli y Resource Manager plantilla. Para obtener más información, consulte la Azure Cosmos DB preguntas más frecuentes. 
  
 >[!div class="nextstepaction"]
 >[Cosmos DB: procedimientos para configurar CMK](../../cosmos-db/how-to-setup-cmk.md#frequently-asked-questions)

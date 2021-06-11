@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 5/25/2021
 ms.author: cavoeg
-ms.openlocfilehash: 54dadb47018b474bb7651ddb17b0170a2c07e29a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 30e9b5cf5f296ac161301f27c82ac6a2f98f4611
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110477852"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970165"
 ---
 # <a name="how-to-export-fhir-data"></a>Exportación de datos de FHIR
 
@@ -78,27 +78,27 @@ Azure API for FHIR admite una operación de exportación segura. Elija una de la
 
 * Permitir que Azure API for FHIR servicio de confianza de Microsoft acceda a la cuenta de Almacenamiento de Azure.
  
-* Permitir que direcciones IP específicas asociadas a Azure API for FHIR accedan a la cuenta de Almacenamiento de Azure. Esta opción proporciona dos configuraciones diferentes en función de si la cuenta de almacenamiento está en la misma ubicación que o está en una ubicación diferente de la del Azure API for FHIR.
+* Permitir que direcciones IP específicas asociadas a Azure API for FHIR accedan a la cuenta de Almacenamiento de Azure. Esta opción proporciona dos configuraciones diferentes en función de si la cuenta de almacenamiento está en la misma ubicación que o si se encuentra en una ubicación diferente de la del Azure API for FHIR.
 
 ### <a name="allowing-azure-api-for-fhir-as-a-microsoft-trusted-service"></a>Permitir Azure API for FHIR como un servicio de confianza de Microsoft
 
-Seleccione una cuenta de almacenamiento en la Azure Portal y, a continuación, seleccione la **hoja** Redes. Seleccione **Redes seleccionadas en** la pestaña **Firewalls y redes** virtuales.
+Seleccione una cuenta de almacenamiento en el Azure Portal y, a continuación, seleccione la **hoja** Redes. Seleccione **Redes seleccionadas en** la pestaña **Firewalls y redes** virtuales.
 
 > [!IMPORTANT]
-> Asegúrese de que ha concedido permiso de acceso a la cuenta de almacenamiento para Azure API for FHIR mediante su identidad administrada. Para más información, consulte [Configuración de la configuración de exportación y configuración de la cuenta de almacenamiento.](https://docs.microsoft.com/azure/healthcare-apis/fhir/configure-export-data)
+> Asegúrese de que ha concedido permiso de acceso a la cuenta de almacenamiento para Azure API for FHIR mediante su identidad administrada. Para más información, consulte [Configuración de la configuración de exportación y configuración de la cuenta de almacenamiento.](./configure-export-data.md)
 
   :::image type="content" source="media/export-data/storage-networking.png" alt-text="Configuración de redes de Azure Storage." lightbox="media/export-data/storage-networking.png":::
 
-En la **sección Excepciones,** seleccione la casilla Permitir a servicios Microsoft de confianza **acceder a esta cuenta de almacenamiento** y guardar la configuración. 
+En la **sección Excepciones,** active la casilla Allow **trusted servicios Microsoft to access this storage account** and save the setting (Permitir que los usuarios de confianza accedan a esta cuenta de almacenamiento y guarden la configuración). 
 
-:::image type="content" source="media/export-data/exceptions.png" alt-text="Permita que los servicios Microsoft de confianza accedan a esta cuenta de almacenamiento.":::
+:::image type="content" source="media/export-data/exceptions.png" alt-text="Permitir que los servicios Microsoft de confianza accedan a esta cuenta de almacenamiento.":::
 
-Ya está listo para exportar datos de FHIR a la cuenta de almacenamiento de forma segura. Tenga en cuenta que la cuenta de almacenamiento está en redes seleccionadas y no es accesible públicamente. Para acceder a los archivos, puede habilitar y usar puntos de conexión privados para la cuenta de almacenamiento, o bien habilitar todas las redes para la cuenta de almacenamiento durante un breve período de tiempo.
+Ya está listo para exportar datos de FHIR a la cuenta de almacenamiento de forma segura. Tenga en cuenta que la cuenta de almacenamiento está en redes seleccionadas y no es accesible públicamente. Para acceder a los archivos, puede habilitar y usar puntos de conexión privados para la cuenta de almacenamiento o habilitar todas las redes para la cuenta de almacenamiento durante un breve período de tiempo.
 
 > [!IMPORTANT]
-> La interfaz de usuario se actualizará más adelante para permitirle seleccionar el tipo de recurso para Azure API for FHIR una instancia de servicio específica.
+> La interfaz de usuario se actualizará más adelante para que pueda seleccionar el tipo de recurso para Azure API for FHIR una instancia de servicio específica.
 
-### <a name="allowing-specific-ip-addresses-for-the-azure-storage-account-in-a-different-region"></a>Permitir direcciones IP específicas para la cuenta de almacenamiento de Azure en una región diferente
+### <a name="allowing-specific-ip-addresses-for-the-azure-storage-account-in-a-different-region"></a>Permitir direcciones IP específicas para la cuenta de Almacenamiento de Azure en una región diferente
 
 Seleccione **Redes** de la cuenta de Almacenamiento de Azure en el portal. 
    
@@ -129,7 +129,7 @@ Seleccione **Redes seleccionadas**. En la sección Firewall, especifique la dire
 | Oeste de EE. UU. 2            | 40.64.135.77      |
 
 > [!NOTE]
-> Los pasos anteriores son similares a los pasos de configuración descritos en el documento Conversión de datos a FHIR (versión preliminar). Para más información, consulte [Host and use templates (Hospedar y usar plantillas).](https://docs.microsoft.com/azure/healthcare-apis/fhir/convert-data#host-and-use-templates)
+> Los pasos anteriores son similares a los pasos de configuración descritos en el documento Conversión de datos a FHIR (versión preliminar). Para más información, consulte [Host and use templates (Hospedar y usar plantillas).](./convert-data.md#host-and-use-templates)
 
 ### <a name="allowing-specific-ip-addresses-for-the-azure-storage-account-in-the-same-region"></a>Permitir direcciones IP específicas para la cuenta de Almacenamiento de Azure en la misma región
 
