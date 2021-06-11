@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 05/11/2021
 ms.author: ranku
-ms.openlocfilehash: 8d60cde14d52dceb58ea5c68383fad192a1e1ff3
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2d42cf0a59c3ff20078930559870f346efd7b6d9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078695"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970255"
 ---
 # <a name="how-to-convert-data-to-fhir-preview"></a>Procedimientos para la conversión de datos a FHIR (versión preliminar)
 
@@ -120,7 +120,7 @@ Cambie el estado a **Activado** para habilitar Identidad administrada en Azure A
 
 1. Seleccione **Agregar y,** a continuación, **seleccione Agregar asignación de roles** para abrir la página Agregar asignación de roles.
 
-1. Asigne el [rol AcrPull.](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#acrpull) 
+1. Asigne el [rol AcrPull.](../../role-based-access-control/built-in-roles.md#acrpull) 
 
    ![Página Agregar asignación de roles](../../../includes/role-based-access-control/media/add-role-assignment-page.png) 
 
@@ -136,7 +136,7 @@ Vaya a la **hoja Artefactos** en **Transformación de datos** en Azure API for F
 #### <a name="registering-the-acr-server-using-cli"></a>Registro del servidor de ACR mediante la CLI
 Puede registrar hasta 20 servidores de ACR en el Azure API for FHIR.
 
-Instale la CLI de healthcare API desde Azure PowerShell si es necesario:
+Instale la CLI de Healthcare API desde Azure PowerShell si es necesario:
 
 ```powershell
 az extension add -n healthcareapis
@@ -164,7 +164,7 @@ Seleccione **Redes** de la cuenta de Almacenamiento de Azure en el portal.
 
 Seleccione **Redes seleccionadas**. 
 
-En la **sección Firewall,** especifique la dirección IP en el **cuadro Intervalo de** direcciones. Agregue intervalos IP para permitir el acceso desde Internet o las redes locales. 
+En la **sección Firewall,** especifique la dirección IP en el **cuadro Intervalo de** direcciones. Agregue intervalos IP para permitir el acceso desde Internet o desde las redes locales. 
 
 En la tabla siguiente, encontrará la dirección IP de la región de Azure donde se aprovisiona Azure API for FHIR servicio.
 
@@ -194,7 +194,7 @@ En la tabla siguiente, encontrará la dirección IP de la región de Azure donde
 
 
 > [!NOTE]
-> Los pasos anteriores son similares a los pasos de configuración descritos en el documento Cómo exportar datos de FHIR. Para obtener más información, [vea Exportación segura a Azure Storage](https://docs.microsoft.com/azure/healthcare-apis/fhir/export-data#secure-export-to-azure-storage)
+> Los pasos anteriores son similares a los pasos de configuración descritos en el documento Cómo exportar datos de FHIR. Para obtener más información, [vea Exportación segura a Azure Storage](./export-data.md#secure-export-to-azure-storage)
 
 ### <a name="verify"></a>Comprobación
 
