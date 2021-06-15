@@ -61,8 +61,6 @@
                   href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                 - name: Configurar cadenas de conexión
                   href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                - name: Evitar autorización con clave compartida
-                  href: ../common/shared-key-authorization-prevent.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                 - name: Uso de la API REST de Azure Storage
                   href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: Autorización con SAS
@@ -132,13 +130,7 @@
                 - name: Azure CLI
                   href: authorize-data-operations-cli.md
             - name: Administración de derechos de acceso con Azure RBAC
-              items:
-                - name: Portal
-                  href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                - name: PowerShell
-                  href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                - name: Azure CLI
-                  href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+              href: assign-azure-role-data-access.md
             - name: Autenticación y autorización con Azure AD
               items:
                 - name: Autorización con una identidad administrada

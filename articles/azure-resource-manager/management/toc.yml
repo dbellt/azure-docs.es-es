@@ -72,7 +72,7 @@
                 - name: "Azure Cosmos\_DB"
                   href: ../../cosmos-db/how-to-move-regions.md?toc=/azure/azure-resource-manager/management/toc.json
                 - name: Azure Dev Spaces
-                  href: ../../dev-spaces/faq.md?toc=/azure/azure-resource-manager/management/toc.json#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region
+                  href: ../../dev-spaces/index.yml?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json
                 - name: Azure Event Hubs
                   href: ../../event-hubs/move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
                 - name: Azure IoT Hub
@@ -122,7 +122,7 @@
         - name: Azure portal
           displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
           href: manage-resource-groups-portal.md
-        - name: Azure CLI
+        - name: CLI de Azure
           displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
           href: manage-resource-groups-cli.md
         - name: Azure PowerShell
@@ -133,7 +133,7 @@
         - name: Azure portal
           displayName: 'open,delete,deploy,move,lock,tag,monitor'
           href: manage-resources-portal.md
-        - name: Azure CLI
+        - name: CLI de Azure
           displayName: 'open,delete,deploy,move,lock,tag'
           href: manage-resources-cli.md
         - name: Azure PowerShell
@@ -159,7 +159,7 @@
       href: /rest/api/resources/
     - name: Azure PowerShell
       href: /powershell/module/az.resources
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/resource
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.resourcemanager

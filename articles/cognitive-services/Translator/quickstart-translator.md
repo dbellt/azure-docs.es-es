@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, translator service, translate text, transliterate text, language detection
-ms.openlocfilehash: 87e67e5c62180c9120aaf7a426a4195960d9bcf8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6d10b954bbb5663d5e63f4b38fc49d8a3953f10a
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110076535"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111537552"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Inicio rápido: Introducción a Translator
 
@@ -1002,26 +1002,19 @@ Si se usa el punto de conexión `/detect`, la respuesta incluirá detecciones al
 
 ```json
 [
+
     {
-        "alternatives": [
-            {
-                "isTranslationSupported": true,
-                "isTransliterationSupported": false,
-                "language": "nl",
-                "score": 0.92
-            },
-            {
-                "isTranslationSupported": true,
-                "isTransliterationSupported": false,
-                "language": "sk",
-                "score": 0.77
-            }
-        ],
-        "isTranslationSupported": true,
-        "isTransliterationSupported": false,
+
         "language": "de",
-        "score": 1.0
+
+        "score": 1.0,
+
+        "isTranslationSupported": true,
+
+        "isTransliterationSupported": false
+
     }
+
 ]
 ```
 

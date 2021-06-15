@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/19/2021
+ms.date: 06/03/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb
+ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0eb008cdf85e6891f7d6e1159314ceccf46b794
-ms.sourcegitcommit: 2ab484c6c8aeef8c6b7a1eb56d28ba13010d912c
+ms.openlocfilehash: 9e760cbca23aba21ad2d8c85e21a8014590419e9
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2021
-ms.locfileid: "110208654"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438331"
 ---
 # <a name="conditional-access-filters-for-devices-preview"></a>Acceso condicional: filtros para dispositivos (versión preliminar)
 
@@ -46,7 +46,7 @@ Hay varios escenarios en los que las organizaciones ahora pueden habilitar el us
 Los filtros para dispositivos son una opción al crear una directiva de acceso condicional en Azure Portal o mediante Microsoft Graph API.
 
 > [!IMPORTANT]
-> El estado del dispositivo y los filtros para dispositivos no se pueden usar juntos en la directiva de acceso condicional. Los filtros para dispositivos proporcionan una selección de destino más granular, incluida la compatibilidad con la información de estado del dispositivo de destino a través de las propiedades `trustType` y `isCompliant`.
+> El estado del dispositivo y los filtros para dispositivos no se pueden usar juntos en la directiva de acceso condicional.
 
 Los pasos siguientes le ayudarán a crear dos directivas de acceso condicional para admitir el primer escenario de [Escenarios comunes](#common-scenarios). 
 

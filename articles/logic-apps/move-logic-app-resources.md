@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: aca2c51ff14b99ba41b159cf32e59dc861de7a53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f86a30a82bce15e8d2c5b6b33166793798deb2d5
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87826218"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411528"
 ---
 # <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>Traslado de recursos de aplicaciones lógicas a otros grupos de recursos, regiones o suscripciones de Azure
 
@@ -57,7 +57,7 @@ Para trasladar un recurso, como una aplicación lógica o una cuenta de integrac
 
 Para trasladar un recurso, como una aplicación lógica, una cuenta de integración o un [entorno de servicio de integración (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), a otro grupo de recursos de Azure, puede usar Azure Portal, Azure PowerShell, la CLI de Azure o la API de REST. Estos pasos detallan Azure Portal, que puede usar cuando la región del recurso se mantiene igual. Para otros pasos y preparación general, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-Antes de trasladar realmente los recursos entre grupos, puede comprobar si puede trasladar correctamente el recurso a otro grupo. Para más información, consulte [Validación del traslado](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move).
+Antes de trasladar realmente los recursos entre grupos, puede comprobar si puede trasladar correctamente el recurso a otro grupo. Para más información, consulte [Validación del traslado](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-rest-api).
 
 1. En [Azure Portal](https://portal.azure.com), busque y seleccione el recurso de aplicación lógica que desea trasladar.
 

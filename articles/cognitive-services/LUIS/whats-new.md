@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 04/07/2021
-ms.openlocfilehash: f6c6f2ba20a67cd39d4142ffadddc803927c936c
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 761dcc36e684aa8f024cb650929441b54dddb790
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227065"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952926"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novedades de Language Understanding
 
@@ -43,7 +43,7 @@ Conozca las novedades del servicio. Estos elementos incluyen notas de la versió
         * [Flujos de trabajo de integración continua y entrega continua para LUIS DevOps](luis-concept-devops-automation.md)
         * [Prueba de LUIS DevOps](luis-concept-devops-testing.md)
     * Instrucciones
-        * [Aplicación de DevOps al desarrollo de aplicaciones de LUIS mediante Acciones de GitHub](luis-how-to-devops-with-github.md)
+        * [Aplicación de DevOps al desarrollo de aplicaciones de LUIS mediante Acciones de GitHub](./luis-concept-devops-automation.md)
     * [Repositorio de GitHub de código completo](https://github.com/Azure-Samples/LUIS-DevOps-Template)
 
 ### <a name="may-2020---build"></a>Mayo de 2020 -//Build

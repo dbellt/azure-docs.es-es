@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: En el artículo se describen los niveles de servicio de uso general y crítico para la empresa en el modelo de compra basado en núcleo virtual, usado por Azure SQL Database e Instancia administrada de Azure SQL.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: features
+ms.subservice: service-overview
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: sashan, moslake
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
 ms.date: 12/14/2020
-ms.openlocfilehash: d4053628247cc01851aa19b66514398da0660a81
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 1ccf83fa98ec7024e74bd9829e241b8596b1fbf6
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107883569"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110693202"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Niveles de servicio de Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -37,7 +37,7 @@ Este artículo se analizan las diferencias entre los niveles de servicio, las co
 
 En la tabla siguiente se describen las diferencias principales entre los niveles de servicio de la última generación (Gen5). Tenga en cuenta que las características del nivel de servicio pueden ser diferentes en SQL Database e Instancia administrada de SQL.
 
-|-| Tipo de recurso | De uso general |  Hiperescala | Crítico para la empresa |
+|-| Tipo de recurso | Uso general |  Hiperescala | Crítico para la empresa |
 |:---:|:---:|:---:|:---:|:---:|
 | **Más adecuado para** | |  Ofrece opciones de proceso y almacenamiento equilibradas adecuadas para un presupuesto limitado. | La mayoría de las cargas de trabajo empresariales. Escalado automático del tamaño de almacenamiento hasta 100 TB, escalado de procesos vertical y horizontal fluido, restauración rápida de bases de datos. | Aplicaciones de OLTP con una alta tasa de transacciones y latencia de E/S baja. Ofrece mayor resistencia a los errores y rapidez en las conmutaciones por error mediante varias réplicas actualizadas sincrónicamente.|
 |  **Disponible en estos tipos de recurso:** ||SQL Database / Instancia administrada de SQL | Base de datos única de Azure SQL Database | SQL Database / Instancia administrada de SQL |

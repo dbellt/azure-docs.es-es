@@ -6,19 +6,19 @@ services: cognitive-services
 author: nitinme
 manager: nitinme
 zone_pivot_groups: programming-languages-set-twenty
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 03/08/2021
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
 keywords: display pictures, parts of speech, read selected text, translate words, reading comprehension
-ms.openlocfilehash: 2b368e23063a921b9a7f1cd22d404414b2e9f91d
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 1c0fa771212fd0ea734ef92285edfea785e78781
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376595"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111893656"
 ---
 # <a name="quickstart-get-started-with-immersive-reader"></a>Inicio rápido: Introducción a Lector inmersivo
 

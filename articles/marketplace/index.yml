@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: mingshen-ms
   ms.author: mingshen
-  ms.date: 09/02/2020
-  ms.openlocfilehash: 66bc200f2c330c839eb91e9172207c4c752d9b67
-  ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+  ms.date: 06/01/2021
+  ms.openlocfilehash: c4a3d962129dd7acc0d013dd05f482a29752bdd4
+  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/26/2021
-  ms.locfileid: "110450595"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111955665"
 landingContent:
 - title: Trabajo en Marketplace comercial
   linkLists:
@@ -24,13 +24,13 @@ landingContent:
     - text: Creación de una nueva cuenta
       url: create-account.md
     - text: Determinar la opción de publicación
-      url: ./determine-your-listing-type.md
+      url: determine-your-listing-type.md
     - text: Términos y directivas
-      url: ./policies-terms.md
+      url: policies-terms.md
     - text: Preguntas frecuentes de Marketplace comercial de Microsoft
-      url: ./marketplace-faq-publisher-guide.md
+      url: marketplace-faq-publisher-guide.md
     - text: Contrato de publicador de Microsoft
-      url: https://go.microsoft.com/fwlink/?LinkID=699560
+      url: /legal/marketplace/msft-publisher-agreement
     - text: Novedades
       url: what-is-new.md
 - title: Escenarios y tareas habituales
@@ -38,19 +38,19 @@ landingContent:
   - linkListType: overview
     links:
     - text: Procedimientos recomendados de marketing
-      url: ./gtm-marketing-best-practices.md
+      url: gtm-marketing-best-practices.md
     - text: Proveedores de soluciones en la nube
-      url: ./cloud-solution-providers.md
+      url: cloud-solution-providers.md
     - text: Procedimientos recomendados para la publicación de ofertas
-      url: ./gtm-offer-listing-best-practices.md
+      url: gtm-offer-listing-best-practices.md
   - linkListType: get-started
     links:
     - text: Clientes potenciales a partir de la oferta de Marketplace
-      url: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
+      url: partner-center-portal/commercial-marketplace-get-customer-leads.md
     - text: Opción de venta conjunta en el marketplace comercial
-      url: ./co-sell-configure.md
+      url: co-sell-configure.md
     - text: Participación de asociados de venta conjunta
-      url: ./co-sell-overview.md
+      url: co-sell-overview.md
     - text: Haga que las soluciones estén disponibles en Microsoft AppSource y en Office
       url: /office/dev/store/submit-to-appsource-via-partner-center
     - text: Participación en Azure Marketplace y en el foro de la comunidad AppSource
@@ -62,19 +62,19 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Panel Resumen
-      url: ./summary-dashboard.md
+      url: summary-dashboard.md
     - text: Panel de información de Marketplace
-      url: ./insights-dashboard.md
+      url: insights-dashboard.md
     - text: Panel de uso
-      url: ./usage-dashboard.md
+      url: usage-dashboard.md
     - text: Panel Cliente
-      url: ./customer-dashboard.md
+      url: customer-dashboard.md
     - text: Panel Pedidos
-      url: ./orders-dashboard.md
+      url: orders-dashboard.md
     - text: Panel Descargas
-      url: ./partner-center-portal/downloads-dashboard.md
+      url: downloads-dashboard.md
     - text: Panel de calificaciones y reseñas
-      url: ./partner-center-portal/ratings-reviews.md
+      url: ratings-reviews.md
 - title: Creación de una oferta
   linkLists:
   - linkListType: how-to-guide
@@ -82,17 +82,17 @@ landingContent:
     - text: SaaS
       url: plan-saas-offer.md
     - text: Máquinas virtuales
-      url: ./marketplace-virtual-machines.md
+      url: marketplace-virtual-machines.md
     - text: Aplicaciones de Azure
-      url: ./create-new-azure-apps-offer.md
+      url: azure-app-offer-setup.md
     - text: Dynamics 365 for Customer Engagement & Power Apps
       url: dynamics-365-customer-engage-offer-setup.md
     - text: Dynamics 365 Business Central
-      url: ./partner-center-portal/create-new-business-central-offer.md
+      url: dynamics-365-business-central-offer-setup.md
     - text: Dynamics 365 for Operations
       url: dynamics-365-operations-offer-setup.md
     - text: Más tipos de ofertas
-      url: ./publisher-guide-by-offer-type.md
+      url: publisher-guide-by-offer-type.md
 - title: Obtención de pagos
   linkLists:
   - linkListType: concept
@@ -106,7 +106,7 @@ landingContent:
     - text: Detalles fiscales
       url: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
     - text: Facturación de Marketplace comercial
-      url: ./marketplace-commercial-transaction-capabilities-and-considerations.md
+      url: marketplace-commercial-transaction-capabilities-and-considerations.md
 - title: Referencia de API
   linkLists:
   - linkListType: reference
@@ -114,11 +114,11 @@ landingContent:
     - text: Guía de las API de Marketplace
       url: marketplace-apis-guide.md
     - text: Requisitos previos de la API
-      url: ./cloud-partner-portal-api-prerequisites.md
+      url: cloud-partner-portal-api-prerequisites.md
     - text: API de suministro de SaaS
-      url: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
+      url: partner-center-portal/pc-saas-fulfillment-api-v2.md
     - text: API del servicio de medición de Marketplace
-      url: ./partner-center-portal/marketplace-metering-service-apis-faq.md
+      url: marketplace-metering-service-apis-faq.md
     - text: Reporting API (PDF)
       url: https://partneranalytics-api.azureedge.net/partneranalytics-api/Programmatic%20Access%20to%20Commercial%20Marketplace%20Analytics%20Data_v1.pdf
 - title: Obtención de soporte técnico
@@ -128,6 +128,6 @@ landingContent:
     - text: Opciones de soporte técnico
       url: ./support.md
     - text: Solución de errores de autenticación
-      url: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
+      url: cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - text: Disponibilidad geográfica y moneda
-      url: ./marketplace-geo-availability-currencies.md
+      url: marketplace-geo-availability-currencies.md

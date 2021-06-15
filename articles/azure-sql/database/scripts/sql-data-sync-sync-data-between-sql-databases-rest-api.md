@@ -3,20 +3,20 @@ title: 'API REST: sincronización entre varias bases de datos'
 description: Use un script de ejemplo de la API REST para sincronizar entre varias bases de datos.
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: sql-data-sync
 ms.custom: sqldbrb=1
 ms.devlang: REST API
 ms.topic: sample
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: MaraSteiu
+ms.author: masteiu
+ms.reviewer: mathoma
 ms.date: 03/12/2019
-ms.openlocfilehash: d3ff8114c11b224a0bdbb0bd2d0e5686a7e57b55
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b0e8b12c7a58f3376c4e05819dbe60c9436ecef8
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565918"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110693362"
 ---
 # <a name="use-rest-api-to-sync-data-between-multiple-databases"></a>Uso de la API REST para sincronizar datos entre varias bases de datos 
 

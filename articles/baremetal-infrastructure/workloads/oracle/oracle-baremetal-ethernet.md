@@ -2,14 +2,14 @@
 title: Configuración de Ethernet de BareMetal para Oracle
 description: Obtenga información acerca de la configuración de interfaces Ethernet en instancias de BareMetal para cargas de trabajo de Oracle.
 ms.topic: reference
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 04/14/2021
-ms.openlocfilehash: c381d06c5f152ef1bfecfb76747bf26dbb24f06e
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: b3183e660b8775e8f3c9137f27220e9db97deec6
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109516964"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578608"
 ---
 # <a name="ethernet-configuration-of-baremetal-for-oracle"></a>Configuración de Ethernet de BareMetal para Oracle
 

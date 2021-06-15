@@ -7,12 +7,13 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 01/24/2021
 ms.author: allensu
-ms.openlocfilehash: 366be37135808a6d3d5cc1a277e2de3e3d6da8ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: cc921bbbb78e0d6b53165a3d904d90a09144f9d9
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566415"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110696752"
 ---
 # <a name="quickstart-create-a-private-link-service-using-azure-powershell"></a>Inicio rápido: Creación de un servicio Private Link mediante Azure PowerShell
 

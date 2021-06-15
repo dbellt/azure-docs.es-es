@@ -2,21 +2,21 @@
 title: 'Ejemplo de PowerShell: Exportación de secretos y certificados de aplicaciones empresariales del inquilino de Azure Active Directory.'
 description: Ejemplo de PowerShell que exporta todos los secretos y certificados de las aplicaciones empresariales especificadas del inquilino de Azure Active Directory.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
 ms.date: 03/09/2021
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: mifarca
-ms.openlocfilehash: 536197ebc5df94447f3937773e0447e47961bd92
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 08fc5558cfe7b3459189f168e465ee2fa88d992a
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378608"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076805"
 ---
 # <a name="export-secrets-and-certificates-for-enterprise-apps"></a>Exportación de secretos y certificados de aplicaciones empresariales
 Este ejemplo de script de PowerShell exporta todos los secretos, certificados y propietarios de las aplicaciones empresariales especificadas del directorio a un archivo CSV.

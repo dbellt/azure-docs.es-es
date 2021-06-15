@@ -105,17 +105,7 @@
             - name: Información general
               href: ingest-data.md
             - name: Traslado hacia Blob Storage y desde este
-              items:
-                - name: Información general
-                  href: move-azure-blob.md
-                - name: Uso del Explorador de Storage
-                  href: move-data-to-azure-blob-using-azure-storage-explorer.md
-                - name: Uso de AzCopy
-                  href: ../../storage/common/storage-use-azcopy-v10.md
-                - name: Uso de Python
-                  href: ../../storage/blobs/storage-quickstart-blobs-python.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
-                - name: Uso de SSIS
-                  href: move-data-to-azure-blob-using-ssis.md
+              href: move-azure-blob.md
             - name: Traslado a SQL en una máquina virtual
               href: move-sql-server-virtual-machine.md
             - name: Traslado a Azure SQL Database

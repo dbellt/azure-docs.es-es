@@ -3,20 +3,20 @@ title: 'Niveles de servicio: modelo de compra basado en DTU'
 description: Obtenga información acerca de los niveles de servicio en el modelo de compra basado en DTU para Azure SQL Database para proporcionar los tamaños de proceso y de almacenamiento.
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: references_regions
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
 ms.date: 5/4/2021
-ms.reviewer: ''
-ms.openlocfilehash: a800e30f73c73659ecf31da3f63f4ae78bfb8278
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c5413918923ebb4e613ecb48e86dbccfcc60889b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742380"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110693277"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveles de servicio en el modelo de compra basado en DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

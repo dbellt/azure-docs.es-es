@@ -11,12 +11,12 @@ ms.devlang: na
 ms.date: 12/16/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7ecd31f6f788331071abbbe67d5460494d54de8d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 65c94346725123913cc2ea53be9b95a7c1bb0fda
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108753990"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111889587"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>Tutorial: Uso de scripts de implementación para crear un certificado autofirmado
 
@@ -60,7 +60,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 En lugar de crear una plantilla desde cero, abra una plantilla en las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/). Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure Resource Manager.
 
-La plantilla usada en este inicio rápido se llama [Create an Azure Key Vault and a secret](https://azure.microsoft.com/resources/templates/101-key-vault-create/) (Crear un almacén de claves de Azure y un secreto). La plantilla crea un almacén de claves y agrega un secreto a él.
+La plantilla usada en este inicio rápido se llama [Create an Azure Key Vault and a secret](https://azure.microsoft.com/resources/templates/key-vault-create/) (Crear un almacén de claves de Azure y un secreto). La plantilla crea un almacén de claves y agrega un secreto a él.
 
 1. En Visual Studio Code, seleccione **Archivo** > **Abrir archivo**.
 2. En **Nombre de archivo**, pegue el código URL siguiente:

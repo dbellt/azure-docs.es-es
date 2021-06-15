@@ -7,12 +7,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 05/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 10791fac984a5df4a7fba95217f00ef6a2114b86
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 956e84e8eb7281541fbb787a6ce7557a1f5fee03
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109689339"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110586498"
 ---
 # <a name="create-an-iot-central-application"></a>Creación de una aplicación de IoT Central
 
@@ -39,7 +39,7 @@ Los planes *estándar*:
 
 - Requieren una suscripción a Azure. Debe tener como mínimo acceso de **colaborador** en la suscripción a Azure. Si creó la suscripción usted mismo, automáticamente será un administrador con acceso suficiente. Para más información, consulte [¿Qué es el control de acceso basado en rol de Azure?](../../role-based-access-control/overview.md)
 - Permiten crear y administrar aplicaciones de IoT Central mediante cualquiera de los métodos disponibles.
-- Permiten conectar tantos dispositivos como necesite. Se le facturará por dispositivo. Para saber más, consulte [Precios de Azure IoT Central](/pricing/details/iot-central/).
+- Permiten conectar tantos dispositivos como necesite. Se le facturará por dispositivo. Para saber más, consulte [Precios de Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
 - No se pueden degradar a un plan gratuito, pero se pueden actualizar o degradar a otros planes estándar.
 
 En la tabla siguiente se resumen las diferencias entre los tres planes estándar:

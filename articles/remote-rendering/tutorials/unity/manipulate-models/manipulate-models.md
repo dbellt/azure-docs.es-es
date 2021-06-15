@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 301d6eb0867604a6e780eb1d059eef0c153f246f
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: c8e22a1e81792145c468aeecd347f38426f73613
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103574516"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412104"
 ---
 # <a name="tutorial-manipulating-models"></a>Tutorial: Manipulación de modelos
 
@@ -316,7 +316,7 @@ Cuando una proyección de rayos se completa correctamente en **RemoteRayCastPoin
     }
     ```
 
-2. En el elemento GameObject **TestModel** creado anteriormente, agregue los componentes **RemoteRayCastPointerHandler** y **RemoteEntityHelper**.
+1. En el elemento GameObject **TestModel** creado anteriormente, agregue los componentes **RemoteRayCastPointerHandler** y **RemoteEntityHelper**.
 1. Asigne el método `EntityToDebugLog` al evento `OnRemoteEntityClicked`. Cuando el tipo de salida del evento y el tipo de entrada del método coinciden, podemos usar el enlace de eventos dinámicos de Unity, que pasará automáticamente el valor del evento al método.
     1. Cree un campo de devolución de llamada, ![Agregar devolución de llamada](./media/add-callback-remote-entity-clicked.png)
     1. Arrastre el componente **RemoteEntityHelper** al campo Object (Objeto) para hacer referencia al objeto primario GameObject ![Asignar objeto](./media/assign-object.png)

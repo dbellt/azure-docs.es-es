@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: ec35917ca18064d58279d8ed2b3fb1f0e83a88fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 429215dbd35368c7a2c8681e480b5256813171a1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98736940"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753654"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-invision"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con InVision
 
@@ -26,7 +26,7 @@ En este tutorial, obtendrá información sobre cómo integrar InVision con Azure
 * Permitir que los usuarios puedan iniciar sesión automáticamente en InVision con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -154,7 +154,7 @@ En esta sección, va a permitir que B.Simon acceda a InVision mediante el inicio
 
     e. En el cuadro de texto **SAML Certificate** (Certificado de SAML), abra el archivo **Certificado (base 64)** descargado en el Bloc de notas, copie el contenido y péguelo en el cuadro de texto SAML Certificate (Certificado de SAML).
 
-    f. En el cuadro de texto **Name ID Format** (Formato del identificador de nombre), use `Unspecified` para el campo **Name ID Format** (Formato del identificador de nombre).
+    f. En el cuadro de texto **Name ID Format** (Formato del identificador de nombre), use `urn:oasis:names:tc:SAML:1.1:nameid-format:Unspecified` para el campo **Name ID Format** (Formato del identificador de nombre).
 
     g. Seleccione **SHA-256** en la lista desplegable **HASH Algorithm** (Algoritmo hash).
 

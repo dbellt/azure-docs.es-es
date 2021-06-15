@@ -12,12 +12,12 @@ ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: references_regions
-ms.openlocfilehash: d9d4ae746c192e8b4afd1781c1e072fc0dc70422
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 51120f70977a1ff09a30ae6418dc622c77ff5797
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98599799"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111437953"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>P+F sobre bases de datos MySql ClearDB con Azure App Service
 Estas P+F responden a preguntas comunes sobre el uso y la adquisición de bases de datos MySQL ClearDB para Azure Web Apps.
@@ -25,7 +25,7 @@ Estas P+F responden a preguntas comunes sobre el uso y la adquisición de bases 
 > [!IMPORTANT]
 > A partir del 13 de junio de 2018, ClearDB ha pasado a los clientes basados en Azure que actualmente son facturados por Microsoft a un modelo de facturación directa con ClearDB. La información de este artículo está ahora obsoleta. Ya no podrá crear ni actualizar una base de datos de ClearDB que se creara en Azure.
 >
-> Para más información y los siguientes pasos, consulte [Changes to ClearDB service plans](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/) (Cambios de los planes de servicio de ClearDB).
+> Para más información y los siguientes pasos, consulte [Changes to ClearDB service plans](https://www.navisite.com/blog/news/update-change-of-billing-notice-for-all-azure-cleardb-service-plans/) (Cambios de los planes de servicio de ClearDB).
 
 ## <a name="what-options-do-i-have-for-mysql-on-azure"></a>¿Qué opciones tengo para MySQL en Azure?
 Consulte [ClearDB](https://w2.cleardb.net/) para obtener la información más reciente sobre ese servicio. ClearDB es un servicio de hospedaje de MySQL que administra la infraestructura de MySQL en lugar del usuario. 
@@ -63,7 +63,7 @@ No, Azure no avisa si se elimina una compra de Marketplace de la que dependa una
 Azure Marketplace no está disponible para los clientes inscritos en Azerbaiyán, Croacia, Noruega y Puerto Rico. ClearDB no está disponible en estas regiones.
 
 ## <a name="what-pricing-tier-should-i-choose-for-a-production-web-app-and-database"></a>¿Qué plan de tarifa debo elegir para una base de datos y una aplicación web de producción?
-Use el plan de tarifa Básico o uno de nivel superior para Web Apps. Para ClearDB, se recomienda un plan Júpiter o Saturno. Revise las características y limitaciones de cada plan de tarifa para [Web Apps](https://azure.microsoft.com/pricing/details/app-service/) y las [bases de datos MySQL ClearDB](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/) con objeto de elegir el que se adapte a sus necesidades.
+Use el plan de tarifa Básico o uno de nivel superior para Web Apps. Para ClearDB, se recomienda un plan Júpiter o Saturno. Revise las características y limitaciones de cada plan de tarifa para [Web Apps](https://azure.microsoft.com/pricing/details/app-service/) y las [bases de datos MySQL ClearDB](https://www.navisite.com/blog/news/update-change-of-billing-notice-for-all-azure-cleardb-service-plans/) con objeto de elegir el que se adapte a sus necesidades.
 
 ## <a name="how-do-i-upgrade-my-cleardb-database-from-one-plan-to-another"></a>¿Cómo actualizo mi base de datos ClearDB de un plan a otro?
 En [Azure Portal](https://portal.azure.com), se puede escalar verticalmente una base de datos de hospedaje compartido de ClearDB. Lea este [artículo](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) para más información. Actualmente no se admite actualización para clústeres de ClearDB Premium en Azure Portal.

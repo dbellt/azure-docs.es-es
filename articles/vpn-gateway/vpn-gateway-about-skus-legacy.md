@@ -7,12 +7,13 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 08/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9c5e6d5aca51bd560a46837ba47de86362665773
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8f1325141ecd9220e3564c402c5fa75fa690fe29
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84687793"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110661973"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Trabajo con SKU de puerta de enlace de red virtual (SKU antiguas)
 

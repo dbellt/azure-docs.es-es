@@ -2,20 +2,20 @@
 title: Alta disponibilidad de Instancia administrada habilitada para Azure Arc
 titleSuffix: Deploy Azure Arc enabled Managed Instance with high availability
 description: Aprenda a implementar la Instancia administrada habilitada para Azure Arc con alta disponibilidad.
-author: rothja
-ms.author: jroth
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 03/02/2021
 ms.topic: conceptual
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.openlocfilehash: a847eb04745895fb903385715296a2c5c5d8898e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2214fa45650e1c68ec0d286e26cc91f7e8f6a2b3
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061523"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110495816"
 ---
 # <a name="azure-arc-enabled-managed-instance-high-availability"></a>Alta disponibilidad de Instancia administrada habilitada para Azure Arc
 

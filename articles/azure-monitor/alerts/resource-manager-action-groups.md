@@ -5,15 +5,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 12/03/2020
-ms.openlocfilehash: 3c7982c108cf6c238c28c843e1dfbb881a6e0bb4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a893e0c5d7820ebaa93e1258606ac799b04e6822
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102036408"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967045"
 ---
 # <a name="resource-manager-template-samples-for-action-groups-in-azure-monitor"></a>Ejemplos de plantillas de Azure Resource Manager para grupos de acciones en Azure Monitor
-Este artículo incluye ejemplos de [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para crear [grupos de acciones ](../alerts/action-groups.md) en Azure Monitor. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
+Este artículo incluye ejemplos de [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) para crear [grupos de acciones ](../alerts/action-groups.md) en Azure Monitor. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
@@ -121,4 +121,3 @@ En el ejemplo siguiente se crea un grupo de acciones.
 
 * [Otras plantillas de ejemplo para Azure Monitor](../resource-manager-samples.md).
 * [Más información sobre los grupos de acciones](../alerts/action-groups.md)
-

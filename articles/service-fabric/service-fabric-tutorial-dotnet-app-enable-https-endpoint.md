@@ -3,13 +3,13 @@ title: Adición de un punto de conexión HTTPS mediante Kestrel
 description: En este tutorial, aprenderá a agregar un punto de conexión HTTPS a un servicio web de front-end de ASP.NET Core que usa Kestrel y a implementar la aplicación en un clúster.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: c675f8ece8369bcfc0055343221ac82aea59dec1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, devx-track-csharp, devx-track-azurepowershell
+ms.openlocfilehash: 64af2b45ffc47d24eb99994bdba6f09d163d45c8
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91326242"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110665007"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: Incorporación de un punto de conexión HTTPS a un servicio de front-end de API Web de ASP.NET Core mediante Kestrel
 

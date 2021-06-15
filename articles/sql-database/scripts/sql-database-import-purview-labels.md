@@ -3,19 +3,20 @@ title: Clasificación de los datos de Azure SQL mediante etiquetas de Azure Purv
 description: Importación de la clasificación de Azure Purview en Azure SQL Database y Azure Synpase Analytics
 services: sql-database
 ms.service: sql-database
+ms.subservice: security
 ms.custom: ''
 ms.devlang: azurepowershell
 ms.topic: sample
 author: davidtrigano
 ms.author: datrigan
-ms.reviewer: vanto
+ms.reviewer: vanto, mathoma
 ms.date: 02/17/2021
-ms.openlocfilehash: 2eab7c535ff0c68da772e8a45ead12420734279c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d1064c6e60c8bdc80251228ddc2a36b5c3a77852
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101714908"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110694811"
 ---
 # <a name="classify-your-azure-sql-data-using-azure-purview-labels"></a>Clasificación de los datos de Azure SQL mediante etiquetas de Azure Purview
 [!INCLUDE[appliesto-sqldb-asa](../../azure-sql/includes/appliesto-sqldb-asa.md)]

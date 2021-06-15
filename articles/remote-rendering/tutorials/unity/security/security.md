@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d30ab051e58573daefd16f178feb4fc94f2ec83f
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: e133de6b4f7f67439734254686d388b9abe71ea0
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107835477"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412032"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Tutorial: Protección de Azure Remote Rendering y el almacenamiento de modelos
 
@@ -49,7 +49,7 @@ var task = ARRSessionService.CurrentActiveSession.Connection.LoadModelFromSasAsy
 En las líneas anteriores se usa la versión `FromSas` de los parámetros y de la acción de sesión. Estos deben convertirse a las versiones que no sean SAS:
 
 ```cs
-var loadModelParams = new LoadModelOptions(storageAccountPath, blobContainerName, modelPath, modelEntity);
+var loadModelParams = new LoadModelOptions(storageAccountPath, blobName, modelPath, modelEntity);
 var task = ARRSessionService.CurrentActiveSession.Connection.LoadModelAsync(loadModelParams);
 ```
 
@@ -63,12 +63,12 @@ Vamos a modificar **RemoteRenderingCoordinator** para cargar un modelo personali
     /// Loads a model from blob storage that has been linked to the ARR instance
     /// </summary>
     /// <param name="storageAccountName">The storage account name, this contains the blob containers </param>
-    /// <param name="blobContainerName">The blob container name, i.e. arroutput</param>
+    /// <param name="blobName">The blob container name, i.e. arroutput</param>
     /// <param name="modelPath">The relative path inside the container to the model, i.e. test/MyCustomModel.arrAsset</param>
     /// <param name="parent">The parent Transform for this remote entity</param>
     /// <param name="progress">A call back method that accepts a float progress value [0->1]</param>
     /// <returns></returns>
-    public async Task<Entity> LoadModel(string storageAccountName, string blobContainerName, string modelPath, Transform parent = null, Action<float> progress = null)
+    public async Task<Entity> LoadModel(string storageAccountName, string blobName, string modelPath, Transform parent = null, Action<float> progress = null)
     {
         //Create a root object to parent a loaded model to
         var modelEntity = ARRSessionService.CurrentActiveSession.Connection.CreateEntity();
@@ -87,20 +87,8 @@ Vamos a modificar **RemoteRenderingCoordinator** para cargar un modelo personali
             modelGameObject.name = parent.name + "_Entity";
         }
 
-    #if UNITY_WSA
-        //Anchor the model in the world, prefer anchoring parent if there is one
-        if (parent != null)
-        {
-            parent.gameObject.AddComponent<WorldAnchor>();
-        }
-        else
-        {
-            modelGameObject.AddComponent<WorldAnchor>();
-        }
-    #endif
-
         //Load a model that will be parented to the entity
-        var loadModelParams = new LoadModelOptions($"{storageAccountName}.blob.core.windows.net", blobContainerName, modelPath, modelEntity);
+        var loadModelParams = new LoadModelOptions($"{storageAccountName}.blob.core.windows.net", blobName, modelPath, modelEntity);
         var loadModelAsync = ARRSessionService.CurrentActiveSession.Connection.LoadModelAsync(loadModelParams, progress);
         var result = await loadModelAsync;
         return modelEntity;
@@ -109,7 +97,7 @@ Vamos a modificar **RemoteRenderingCoordinator** para cargar un modelo personali
 
     En su mayor parte, este código es idéntico al método `LoadModel` original; sin embargo, se ha reemplazado la versión SAS de las llamadas de método por las versiones que no son SAS.
 
-    También se han agregado las entradas adicionales `storageAccountName` y `blobContainerName` a los argumentos. Llamaremos a este nuevo método **LoadModel** desde otro método parecido al primer método **LoadTestModel** que hemos creado en el primer tutorial.
+    También se han agregado las entradas adicionales `storageAccountName` y `blobName` a los argumentos. Llamaremos a este nuevo método **LoadModel** desde otro método parecido al primer método **LoadTestModel** que hemos creado en el primer tutorial.
 
 1. Agregue el método siguiente a **RemoteRenderingCoordinator** justo después de **LoadTestModel**
 

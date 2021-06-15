@@ -42,32 +42,39 @@
               href: class-types.md
             - name: Adobe Creative Cloud
               href: class-type-adobe-creative-cloud.md
-            - name: Autodesk
-              href: class-type-autodesk.md
-            - name: Aprendizaje profundo en el procesamiento del lenguaje natural
-              href: class-type-deep-learning-natural-language-processing.md
-            - name: Generación de scripts en shell en Linux
-              href: class-type-shell-scripting-linux.md
-            - name: Piratería ética
-              href: class-type-ethical-hacking.md
-            - name: Redes con GNS3
-              href: class-type-networking-gns3.md
-            - name: Administración de bases de datos
-              href: class-type-database-management.md
-            - name: Desarrollo y administración de SQL Database
-              href: class-type-sql-server.md
-            - name: Cuadernos de Python y Jupyter Notebook
-              href: class-type-jupyter-notebook.md
-            - name: Análisis de macrodatos
-              href: class-type-big-data-analytics.md
-            - name: MATLAB
-              href: class-type-matlab.md
-            - name: Diseño asistido por ordenador (CAD) de SolidWorks
-              href: class-type-solidworks.md
             - name: ArcGIS
               href: class-type-arcgis.md
+            - name: Autodesk
+              href: class-type-autodesk.md
+            - name: Análisis de macrodatos
+              href: class-type-big-data-analytics.md
+            - name: Administración de bases de datos
+              href: class-type-database-management.md
+            - name: Aprendizaje profundo en el procesamiento del lenguaje natural
+              href: class-type-deep-learning-natural-language-processing.md
+            - name: Piratería ética
+              href: class-type-ethical-hacking.md
+            - name: MATLAB
+              href: class-type-matlab.md
+            - name: Redes con GNS3
+              href: class-type-networking-gns3.md
             - name: Project Lead the Way
               href: class-type-pltw.md
+            - name: Cuadernos de Python y Jupyter Notebook
+              href: class-type-jupyter-notebook.md
+            - name: Desarrollo web en React
+              items:
+                - name: React (Linux)
+                  href: class-type-react-linux.md
+                - name: React (Windows)
+                  href: class-type-react-windows.md
+            - name: Generación de scripts en shell en Linux
+              href: class-type-shell-scripting-linux.md
+            - name: Diseño asistido por ordenador (CAD) de SolidWorks
+              displayName: SolidWorks CAD
+              href: class-type-solidworks.md
+            - name: Desarrollo y administración de SQL Database
+              href: class-type-sql-server.md
         - name: Uso de Azure Lab Services en Teams
           items:
             - name: Información general
@@ -97,8 +104,12 @@
           href: how-to-connect-peer-virtual-network.md
         - name: Creación de un laboratorio con un recurso compartido
           href: how-to-create-a-lab-with-shared-resource.md
-        - name: Asociación o desasociación de una galería de imágenes compartidas
-          href: how-to-attach-detach-shared-image-gallery.md
+        - name: Uso de Shared Image Gallery
+          items:
+            - name: Asociación o desasociación de una galería de imágenes compartidas
+              href: how-to-attach-detach-shared-image-gallery.md
+            - name: Carga de una imagen personalizada de Windows en Shared Image Gallery
+              href: upload-custom-image-shared-image-gallery.md
         - name: Incorporación de propietarios adicionales a un laboratorio de clase
           href: how-to-add-user-lab-owner.md
         - name: Configuración del firewall
@@ -107,8 +118,6 @@
           href: specify-marketplace-images.md
         - name: Especificación de información de soporte técnico (propietario de cuenta de laboratorio)
           href: lab-account-owner-support-information.md
-        - name: Carga de una imagen compartida en Shared Image Gallery
-          href: upload-custom-image-shared-image-gallery.md
     - name: Creación y configuración de laboratorios (formador)
       items:
         - name: Creación y administración de laboratorios
