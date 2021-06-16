@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/11/2018
 ms.subservice: tables
-ms.openlocfilehash: b921be718bfeb5eb95d4a802fb4d2a8cdd0946c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b874bfb9f3c261f395f8358151ae555cdaed8e8
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88236784"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756894"
 ---
 # <a name="encrypt-table-data"></a>Cifrado de datos de tabla
 La biblioteca de clientes de Azure Storage para .NET admite el cifrado de propiedades de entidades de cadena en operaciones de insertar y reemplazar. Las cadenas cifradas se almacenan en el servicio como propiedades binarias y se convierten de nuevo en cadenas después del descifrado.    
@@ -29,6 +29,5 @@ Para información acerca del cifrado de datos de tablas, consulte [Cifrado del l
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Patrones de diseño de tablas](table-storage-design-patterns.md)
-- [Modelado de relaciones](table-storage-design-modeling.md)
 - [Modelado de relaciones](table-storage-design-modeling.md)
 - [Diseño para la modificación de datos](table-storage-design-for-modification.md)

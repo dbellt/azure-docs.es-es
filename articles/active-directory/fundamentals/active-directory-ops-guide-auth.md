@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 26b5331aa9242978f0f097c8e90bc807fc65f745
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: b7aefa537c9b822572f38501920afdaa45bc01c3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531950"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955053"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guía de referencia de operaciones de administración de autenticación de Azure Active Directory
 
@@ -153,7 +153,7 @@ Si quiere obtener más información sobre la autenticación sin contraseñas, co
 
 ### <a name="single-sign-on-for-apps"></a>Inicio de sesión único para aplicaciones
 
-Proporcionar un mecanismo estándar de inicio de sesión único para toda la empresa es fundamental para mejorar la experiencia del usuario, reducir el riesgo, generar informes y facilitar el gobierno. Si usa aplicaciones que admiten SSO con Azure AD pero actualmente están configuradas para usar cuentas locales, debe volver a configurar esas aplicaciones para poder usar SSO con Azure AD. Del mismo modo, si usa cualquier aplicación que admita SSO con Azure AD pero usa otro proveedor de identidades, debe volver a configurar esas aplicaciones para usar SSO con Azure AD también. En el caso de las aplicaciones que no admiten protocolos de federación, pero que admiten la autenticación basada en formularios, se recomienda que configure la aplicación para usar el [almacenamiento de contraseñas](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md) con Azure AD Application Proxy.
+Proporcionar un mecanismo estándar de inicio de sesión único para toda la empresa es fundamental para mejorar la experiencia del usuario, reducir el riesgo, generar informes y facilitar el gobierno. Si usa aplicaciones que admiten SSO con Azure AD pero actualmente están configuradas para usar cuentas locales, debe volver a configurar esas aplicaciones para poder usar SSO con Azure AD. Del mismo modo, si usa cualquier aplicación que admita SSO con Azure AD pero usa otro proveedor de identidades, debe volver a configurar esas aplicaciones para usar SSO con Azure AD también. En el caso de las aplicaciones que no admiten protocolos de federación, pero que admiten la autenticación basada en formularios, se recomienda que configure la aplicación para usar el [almacenamiento de contraseñas](../app-proxy/application-proxy-configure-single-sign-on-password-vaulting.md) con Azure AD Application Proxy.
 
 ![Inicio de sesión basado en contraseñas de AppProxy](./media/active-directory-ops-guide/active-directory-ops-img8.png)
 
@@ -196,10 +196,10 @@ Por otro lado, si encuentra aplicaciones que tienen una asignación a usuarios i
 
 ### <a name="named-locations"></a>Ubicaciones con nombre
 
-Gracias a las [ubicaciones con nombre](../reports-monitoring/quickstart-configure-named-locations.md) en Azure AD, puede etiquetar intervalos de direcciones IP de confianza en su organización. Azure AD usa las ubicaciones con nombre para:
+Gracias a las [ubicaciones con nombre](../conditional-access/location-condition.md) en Azure AD, puede etiquetar intervalos de direcciones IP de confianza en su organización. Azure AD usa las ubicaciones con nombre para:
 
 - Prevenir falsos positivos en eventos de riesgo. Si se inicia sesión desde una ubicación de confianza se reduce el riesgo en el inicio de sesión del usuario.
-- Configurar el [acceso condicional basado en la ubicación](../reports-monitoring/quickstart-configure-named-locations.md).
+- Configurar el [acceso condicional basado en la ubicación](../conditional-access/location-condition.md).
 
 ![Ubicación con nombre](./media/active-directory-ops-guide/active-directory-ops-img10.png)
 

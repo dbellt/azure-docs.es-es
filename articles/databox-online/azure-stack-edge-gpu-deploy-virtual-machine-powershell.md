@@ -8,12 +8,13 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/13/2021
 ms.author: alkohli
-ms.openlocfilehash: 94ebfcab77b6db579b263dc11f856612bb2c630a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8dd0d7cf63e736ec4854223bd519573ac6cab4c8
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110086327"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110698610"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-device-via-azure-powershell"></a>Implementación de VM en el dispositivo Azure Stack Edge mediante Azure PowerShell
 

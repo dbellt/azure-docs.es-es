@@ -7,12 +7,13 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: article
 ms.date: 07/07/2019
-ms.openlocfilehash: 54b4b6cedc2dc09e4a9d5c4b7b937e80750e17c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 2692cbd836b351e5c41dfe40168b365885997ac0
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92220829"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110703893"
 ---
 # <a name="use-powershell-to-view-the-details-of-a-sent-data-share"></a>Usar PowerShell para ver los detalles de un recurso compartido de datos enviado
 

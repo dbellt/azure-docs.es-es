@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jianleishen
-ms.openlocfilehash: 2140eeb3302799d55a0d45c9469edea9f11ded3b
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 4779d8830e0b4e78aea0cd4e9de0401806a85af7
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482154"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749226"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copia de datos de Office 365 en Azure con Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -34,7 +34,7 @@ Por ahora, en una única actividad de copia, solo puede **copiar datos de Office
 
 Para copiar datos de Office 365 en Azure, es preciso completar los pasos de requisitos previos siguientes:
 
-- El administrador de inquilinos de Office 365 debe completar las acciones de incorporación como se describe [aquí](/graph/data-connect-get-started).
+- El administrador de inquilinos de Office 365 debe completar las acciones de incorporación como se describe [aquí](/events/build-may-2021/microsoft-365-teams/breakouts/od483/).
 - Cree y configure una aplicación web de Azure AD en Azure Active Directory.  Para obtener instrucciones, vea cómo [crear una aplicación de Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 - Anote los siguientes valores; los usará para definir el servicio vinculado para Office 365:
     - Identificador de inquilino. Para obtener instrucciones, vea [Obtención del identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
@@ -46,7 +46,7 @@ Para copiar datos de Office 365 en Azure, es preciso completar los pasos de requ
 
 Si es la primera vez que solicita datos para este contexto (una combinación de los datos de tabla a los que se accede, la cuenta de destino en la que se cargan los datos y la identidad de usuario que realiza la solicitud de acceso a los datos), verá el estado de la actividad de copia como "En curso", y solo al hacer clic en el [vínculo "Detalles" en Acciones](copy-activity-overview.md#monitoring), verá el estado como "RequestingConsent".  Un miembro del grupo de aprobadores de acceso a datos debe aprobar la solicitud en Privileged Access Management antes de pasar a la extracción de datos.
 
-Consulte [aquí](/graph/data-connect-tips#approve-pam-requests-via-office-365-admin-portal) cómo el aprobador puede aprobar la solicitud de acceso a los datos y haga clic [aquí](/graph/data-connect-pam) para obtener una explicación sobre la integración total con Privileged Access Management, incluida la forma de configurar el grupo de aprobadores de acceso a los datos.
+Consulte [aquí](/graph/data-connect-faq#how-can-i-approve-pam-requests-via-microsoft-365-admin-portal) cómo el aprobador puede aprobar la solicitud de acceso a los datos y haga clic [aquí](/graph/data-connect-pam) para obtener una explicación sobre la integración total con Privileged Access Management, incluida la forma de configurar el grupo de aprobadores de acceso a los datos.
 
 ## <a name="policy-validation"></a>Validación de directivas
 

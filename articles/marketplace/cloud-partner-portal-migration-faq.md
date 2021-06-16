@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 04/14/2021
-ms.openlocfilehash: af648b24d1fb5006a6dbfae33030e4c064646aeb
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.date: 07/14/2020
+ms.openlocfilehash: c5fcdf69c6e111147ed429daedbc4f28061e4f5f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634264"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955892"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Preguntas más frecuentes sobre la transición de Cloud Partner Portal al Centro de partners
 
@@ -25,12 +25,12 @@ Puede seguir haciendo negocios en el Centro de partners:
 | Área | Cambios |
 | --- | --- |
 | Cuenta | No es necesario crear una cuenta del Centro de partners; puede usar las credenciales de Cloud Partner Portal existentes para iniciar sesión en el Centro de partners, donde podrá administrar la cuenta, los usuarios, los permisos y la facturación. El contrato de publicación y la información de perfil de empresa se migran a la nueva cuenta del Centro de partners, junto con cualquier información de perfil de pago de cuenta, permisos y cuentas de usuario, y ofertas activas. Obtenga más información en [Administración de la cuenta de marketplace comercial en el Centro de partners](manage-account.md). |
-| Experiencia de administración y publicación de ofertas | Los datos de la oferta se han migrado de Cloud Partner Portal al Centro de partners. Ahora accederá a las ofertas en el Centro de partners, que ofrece una mejor experiencia de usuario y una interfaz intuitiva. Aprenda a [actualizar una oferta existente en el marketplace comercial](partner-center-portal/update-existing-offer.md). |
+| Experiencia de administración y publicación de ofertas | Los datos de la oferta se han migrado de Cloud Partner Portal al Centro de partners. Ahora accederá a las ofertas en el Centro de partners, que ofrece una mejor experiencia de usuario y una interfaz intuitiva. Aprenda a [actualizar una oferta existente en el marketplace comercial](update-existing-offer.md). |
 | Disponibilidad de las ofertas en el marketplace comercial | Sin cambios. Si la oferta está activa en el marketplace comercial, lo seguirá estando. |
 | Nuevas compras e implementaciones | Sin cambios. Los clientes pueden seguir comprando e implementando las ofertas sin interrupciones. |
 | Pagos | Todas las compras e implementaciones se le seguirán pagando de la forma habitual. Obtenga más información sobre la [Recepción de pagos en el marketplace comercial](/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context). |
 | Integraciones de API con las [API de Cloud Partner Portal](cloud-partner-portal-api-overview.md) existentes | Todavía se admiten las API de Cloud Partner Portal existentes y las integraciones existentes siguen funcionando. Obtenga más información en [¿Se admitirán las API REST de Cloud Partner Portal?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
-| Análisis | Mediante el examen de los análisis en el Centro de partners puede seguir supervisando las ventas, evaluando el rendimiento y optimizando las ofertas en el marketplace comercial. Existen diferencias entre cómo se muestran los informes de análisis en CPP y en el Centro de partners. Por ejemplo, **Información para el vendedor** en CPP tiene una pestaña **Orders & Usage** (Pedidos y uso) que muestra los datos de las ofertas basadas o no basadas en el uso, mientras que, en el Centro de partners, la página **Pedidos** tiene una pestaña aparte para las ofertas de SaaS. Más información en [Acceso a los informes de análisis del marketplace comercial en el Centro de partners](partner-center-portal/analytics.md). |
+| Análisis | Mediante el examen de los análisis en el Centro de partners puede seguir supervisando las ventas, evaluando el rendimiento y optimizando las ofertas en el marketplace comercial. Existen diferencias entre cómo se muestran los informes de análisis en CPP y en el Centro de partners. Por ejemplo, **Información para el vendedor** en CPP tiene una pestaña **Orders & Usage** (Pedidos y uso) que muestra los datos de las ofertas basadas o no basadas en el uso, mientras que, en el Centro de partners, la página **Pedidos** tiene una pestaña aparte para las ofertas de SaaS. Más información en [Acceso a los informes de análisis del marketplace comercial en el Centro de partners](analytics.md). |
 |||
 
 ## <a name="do-i-need-to-create-a-new-account-to-manage-my-offers-in-partner-center"></a>¿Es necesario crear una cuenta para administrar las ofertas en el Centro de partners?
@@ -79,16 +79,16 @@ En el caso de los tipos de oferta admitidos en el Centro de partners, todas las 
 | --- | --- | --- |
 | SaaS | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Puede encontrar más información en [Planeamiento de una oferta de SaaS en el marketplace comercial](plan-saas-offer.md). |
 | Máquina virtual | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Puede encontrar más información en el artículo sobre la [planificación de ofertas de máquina virtual](marketplace-virtual-machines.md). |
-| Aplicación de Azure | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de aplicación de Azure](create-new-azure-apps-offer.md). |
-| Dynamics 365 Business Central | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
+| Aplicación de Azure | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de aplicación de Azure](azure-app-offer-setup.md). |
+| Dynamics 365 Business Central | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de Dynamics 365 Business Central](dynamics-365-business-central-offer-setup.md). |
 | Dynamics 365 for Customer Engagement y Power Apps | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de Dynamics 365 for Customer Engagement y PowerApps](dynamics-365-customer-engage-offer-setup.md). |
-| Dynamics 365 for Operations | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md). |
-| Aplicación Power BI | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una aplicación de Power BI para AppSource](partner-center-portal/create-power-bi-app-offer.md). |
-| Módulo IoT Edge | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación, configuración y publicación de una oferta de módulo de IoT Edge en Azure Marketplace](partner-center-portal/azure-iot-edge-module-creation.md). |
+| Dynamics 365 for Operations | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md). |
+| Aplicación Power BI | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una aplicación de Power BI para AppSource](./power-bi-app-offer-setup.md). |
+| Módulo IoT Edge | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación, configuración y publicación de una oferta de módulo de IoT Edge en Azure Marketplace](iot-edge-offer-setup.md). |
 | Contenedor | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de contenedor de Azure](./azure-container-offer-setup.md). |
 | Servicio de consultoría | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de servicios de consultoría](./create-consulting-service-offer.md). |
 | Servicio administrado | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de servicio administrado](./plan-managed-service-offer.md). |
-| Servicio administrado de Dynamics NAV | No | Microsoft ha evolucionado el Servicio administrado de Dynamics NAV a [Dynamics 365 Business Central](/dynamics365/business-central/), por lo que sus ofertas se han eliminado de la lista en AppSource. Los clientes ya no pueden detectar estas ofertas y no se han movido al Centro de partners. Para que las ofertas estén disponibles en AppSource, puede adaptarlas a ofertas de Dynamics 365 Business Central y enviarlas al [Centro de partners](https://partner.microsoft.com/). Más información en [Creación de una oferta de Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
+| Servicio administrado de Dynamics NAV | No | Microsoft ha evolucionado el Servicio administrado de Dynamics NAV a [Dynamics 365 Business Central](/dynamics365/business-central/), por lo que sus ofertas se han eliminado de la lista en AppSource. Los clientes ya no pueden detectar estas ofertas y no se han movido al Centro de partners. Para que las ofertas estén disponibles en AppSource, puede adaptarlas a ofertas de Dynamics 365 Business Central y enviarlas al [Centro de partners](https://partner.microsoft.com/). Más información en [Creación de una oferta de Dynamics 365 Business Central](dynamics-365-business-central-offer-setup.md). |
 | Cortana Intelligence | No | Microsoft ha evolucionado la hoja de ruta del producto para Cortana Intelligence, por lo que sus ofertas activas se han eliminado de la lista en AppSource. Los clientes ya no pueden detectar estas ofertas y no se han movido al Centro de partners. Para que las ofertas estén disponibles en el marketplace comercial, adáptelas a ofertas de software como servicio (SaaS) y envíelas al [Centro de partners](https://partner.microsoft.com/). Más información en [Lista de comprobación de creación de ofertas de SaaS](./plan-saas-offer.md). |
 
 ## <a name="i-cant-find-my-cloud-partner-portal-offers-in-partner-center"></a>No encuentro mis ofertas de Cloud Partner Portal en el Centro de partners
@@ -143,7 +143,7 @@ Las actualizaciones que no publique se guardan como borradores. Siga usando la v
 
 ### <a name="enhanced-preview-options"></a>Opciones de vista previa mejoradas
 
-El Centro de partners incluye una [característica de comparación](partner-center-portal/update-existing-offer.md#compare-changes-to-your-offer) con opciones de filtrado mejoradas. Esto le ofrece la posibilidad de comparar con la versión preliminar y las versiones publicadas de la oferta.
+El Centro de partners incluye una [característica de comparación](update-existing-offer.md#compare-changes-to-your-offer) con opciones de filtrado mejoradas. Esto le ofrece la posibilidad de comparar con la versión preliminar y las versiones publicadas de la oferta.
 
 [![Captura de pantalla que muestra la característica de comparación del Centro de partners](media/cpp-pc-faq/compare.png "Se muestra la característica Comparar del Centro de partners")](media/cpp-pc-faq/compare.png#lightbox)
 
@@ -170,14 +170,11 @@ El identificador de la oferta ahora se muestra en la barra de navegación izquie
 
 ![Se muestra la ubicación del id. de la oferta en el Centro de partners](media/cpp-pc-faq/offer-id.png)
 
-### <a name="deprecate-an-offer"></a>Desuso de una oferta
+### <a name="stop-selling-an-offer"></a>Detención de la venta de una oferta
 
-> [!IMPORTANT]
-> Detener la ha cambiado a desusar.
+Puede solicitar [dejar de vender una oferta](update-existing-offer.md#stop-selling-an-offer-or-plan) en Marketplace directamente desde el portal del Centro de partners. La opción está disponible en la página **Información general de la oferta** de la oferta.
 
-Puede solicitar [desusar (antiguamente, detener la venta de una oferta)](partner-center-portal/update-existing-offer.md#deprecate-an-offer-or-plan) en el marketplace directamente desde el portal del Centro de partners. La opción está disponible en la página **Información general de la oferta** de la oferta.
-
-[![Captura de pantalla que muestra la página de desusar (antiguamente, de dejar de vender) una oferta del Centro de partners.](media/cpp-pc-faq/stop-sell.png "Se muestra la página del Centro de partners para desusar una oferta")](media/cpp-pc-faq/stop-sell.png#lightbox)
+[![Captura de pantalla que muestra la página para dejar de vender una oferta del Centro de partners](media/cpp-pc-faq/stop-sell.png "Se muestra la página del Centro de partners para dejar de vender una oferta")](media/cpp-pc-faq/stop-sell.png#lightbox)
 <br><br>
 
 ## <a name="are-the-cloud-partner-portal-rest-apis-still-supported"></a>¿Se siguen admitiendo las API REST de Cloud Partner Portal?

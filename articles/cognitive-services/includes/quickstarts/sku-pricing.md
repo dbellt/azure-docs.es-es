@@ -7,41 +7,31 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/01/2020
 ms.author: pafarley
-ms.openlocfilehash: 8cc4bc6907f83ce062fed82dde17815fc4debd67
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 25c18d3e5b612c31a3c8a77a35118968616002dd
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104719920"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111896838"
 ---
 Consulte la lista de SKU e información sobre precios a continuación. 
 
 #### <a name="multi-service"></a>Varios servicios
 
-| Servicio                    | Clase                      |
-|----------------------------|---------------------------|
+| Servicio     | Clase    |
+|-------------|------------|
 | Varios servicios Consulte la [página de precios](https://azure.microsoft.com/pricing/details/cognitive-services/)para más información.            | `CognitiveServices`     |
 
 
 #### <a name="vision"></a>Visión
 
-| Servicio                    | Clase                      |
-|----------------------------|---------------------------|
+| Servicio    | Clase    |
+|------------|---------|
 | Computer Vision            | `ComputerVision`          |
 | Custom Vision: Prediction | `CustomVision.Prediction` |
 | Custom Vision: Training   | `CustomVision.Training`   |
 | Caras                       | `Face`                    |
 | Form Recognizer            | `FormRecognizer`          |
-
-#### <a name="search"></a>Search
-
-| Servicio            | Clase                  |
-|--------------------|-----------------------|
-| Bing Autosuggest   | `Bing.Autosuggest.v7` |
-| Bing Custom Search | `Bing.CustomSearch`   |
-| Bing Entity Search | `Bing.EntitySearch`   |
-| Bing Search        | `Bing.Search.v7`      |
-| Bing Spell Check   | `Bing.SpellCheck.v7`  |
 
 #### <a name="speech"></a>Voz
 

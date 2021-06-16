@@ -7,12 +7,13 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 05/05/2021
 ms.author: duau
-ms.openlocfilehash: 66a19ae5ce4eb80b9c6fb04abeb24abc833f0353
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 2da488eaf020f38e164b0dc3102ef589e2ee5f85
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108771105"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110697024"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Cómo proteger registros y zonas DNS
 

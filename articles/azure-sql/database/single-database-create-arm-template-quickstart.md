@@ -3,20 +3,19 @@ title: 'Azure Resource Manager: Crear una base de datos única'
 description: Cree una base de datos única en Azure SQL Database con una plantilla de Azure Resource Manager.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
-ms.custom: subject-armqs sqldbrb=1
+ms.subservice: deployment-configuration
+ms.custom: subject-armqs sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: quickstart
-author: mumian
-ms.author: jgao
-ms.reviewer: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.date: 06/24/2020
-ms.openlocfilehash: 0cd8869b96bcc482d8549378abf818f5fe5f50d6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6e2bf456d9a86f652ade4d68df8846d7c5f2a974
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769892"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111893163"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-an-arm-template"></a>Inicio rápido: Creación de una base de datos única en Azure SQL Database con una plantilla de Resource Manager
 
@@ -36,7 +35,7 @@ Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.m
 
 Una base de datos única tiene un conjunto definido de recursos de proceso, memoria, E/S y almacenamiento y se usa uno de los dos [modelos de compra](purchasing-models.md). Cuando se crea una base de datos única, también se define un [servidor](logical-servers.md) para administrarla y colocarla dentro de un [grupo de recursos de Azure](../../active-directory-b2c/overview.md) de una región determinada.
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-sql-database/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/sql-database/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.sql/sql-database/azuredeploy.json":::
 

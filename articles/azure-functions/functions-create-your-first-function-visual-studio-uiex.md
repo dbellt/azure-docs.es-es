@@ -6,26 +6,24 @@ ms.topic: quickstart
 ms.date: 09/30/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 9e3144738bd259ab9be75059af00f125581bb37c
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 5dffc4b1ffaa221e507c84c8a9b5654f9e5355c8
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "102050127"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110785252"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Inicio rápido: Creación de la primera función de Azure mediante Visual Studio
 
 En este artículo se usa Visual Studio para crear una función basada en biblioteca de clases de C# que responde a solicitudes HTTP. Después de probar el código localmente, lo implementará en el entorno <abbr title="Un entorno informático en tiempo de ejecución en el que todos los detalles del servidor son transparentes para los desarrolladores de aplicaciones, lo que simplifica el proceso de implementación y administración de código.">sin servidor</abbr> de <abbr title="Un servicio de Azure que proporciona un entorno informático sin servidor de bajo costo dirigido a las aplicaciones.">Azure Functions</abbr>.
 
-Este inicio rápido supone un pequeño costo en su <abbr title="El perfil que mantiene la información de facturación en relación con el uso de Azure.">cuenta de Azure</abbr>.
+Este inicio rápido supone un pequeño costo en su <abbr title="El perfil que mantiene la información de facturación en relación con el uso de Azure.">Cuenta de Azure</abbr>.
 
 ## <a name="1-prepare-your-environment"></a>1. Preparación del entorno
 
 + Creación de una cuenta de <abbr title="El perfil que mantiene la información de facturación en relación con el uso de Azure.">account</abbr> con una suscripción activa. <abbr title="La estructura organizativa básica en la que administra los recursos de Azure, que normalmente se asocia a un individuo o departamento dentro de una organización.">subscription</abbr>. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 + Instale [Visual Studio 2019](https://azure.microsoft.com/downloads/) y seleccione la carga de trabajo de **desarrollo de Azure** durante la instalación. 
-
-![Instale Visual Studio con la carga de trabajo de desarrollo de Azure.](media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 <br/>
 <details>
@@ -155,19 +153,7 @@ El atributo del método `FunctionName` establece el nombre de la función que, d
 
 ## <a name="7-clean-up-resources"></a>7. Limpieza de recursos
 
-Elimine la aplicación de funciones y los recursos relacionados para no incurrir en costos adicionales.
-
-1. En Cloud Explorer, expanda su suscripción, expanda **App Services**, haga clic con el botón derecho en su aplicación de funciones y elija **Abrir en el portal**. 
-
-1. En la página de la aplicación de funciones, seleccione la pestaña **Información general** y, después, seleccione el vínculo situado bajo **Grupo de recursos**.
-
-   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Seleccione el grupo de recursos que se va a eliminar de la página de la aplicación de funciones":::
-
-1. En la página **Grupo de recursos**, revise la lista de recursos incluidos y compruebe que son los que desea eliminar.
- 
-1. Seleccione **Eliminar grupo de recursos** y siga las instrucciones.
-
-    El proceso de eliminación tardará un par de minutos. Cuando termine, aparece una notificación durante unos segundos. También puede seleccionar el icono de campana en la parte superior de la página para ver la notificación.
+[!INCLUDE [functions-vstools-cleanup](../../includes/functions-vstools-cleanup.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

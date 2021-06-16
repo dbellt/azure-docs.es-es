@@ -3,12 +3,12 @@ title: Publicación de una oferta de servicio administrado en Azure Marketplace
 description: Aprenda a publicar una oferta de servicio administrado que incorpore clientes a Azure Lighthouse.
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: f59d9708925b52bcf9432663fe6d3137a54b37ad
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 014386c6c4676abbc441cc2e23bdfcf90f3adc09
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107455"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965110"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicación de una oferta de servicio administrado en Azure Marketplace
 
@@ -53,7 +53,7 @@ Una vez que un cliente agregue su oferta, podrá delegar uno o varios grupos de 
 
 Cuando haya completado todas las secciones, el siguiente paso es publicar la oferta en Azure Marketplace. Seleccione el botón **Publicar** para iniciar el proceso de publicación de la oferta. [Aquí](../../marketplace/review-publish-offer.md) puede encontrar más información sobre este proceso.
 
-Puede [publicar una versión actualizada de la oferta](../..//marketplace/partner-center-portal/update-existing-offer.md) en cualquier momento. Por ejemplo, puede querer agregar una nueva definición de roles a una oferta publicada previamente. Al hacerlo, los clientes que ya hayan agregado la oferta verán un icono en la página [**Proveedores de servicios**](view-manage-service-providers.md) de Azure Portal que les informa que hay disponible una actualización. Cada cliente podrá [revisar los cambios](view-manage-service-providers.md#update-service-provider-offers) y decidir si desea actualizar a la nueva versión. 
+Puede [publicar una versión actualizada de la oferta](../../marketplace/update-existing-offer.md) en cualquier momento. Por ejemplo, puede querer agregar una nueva definición de roles a una oferta publicada previamente. Al hacerlo, los clientes que ya hayan agregado la oferta verán un icono en la página [**Proveedores de servicios**](view-manage-service-providers.md) de Azure Portal que les informa que hay disponible una actualización. Cada cliente podrá [revisar los cambios](view-manage-service-providers.md#update-service-provider-offers) y decidir si desea actualizar a la nueva versión. 
 
 ## <a name="the-customer-onboarding-process"></a>Proceso de incorporación del cliente
 

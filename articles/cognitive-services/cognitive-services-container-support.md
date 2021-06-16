@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/13/2021
+ms.date: 06/07/2021
 ms.author: aahi
 keywords: local, Docker, contenedor, Kubernetes
-ms.openlocfilehash: b6414d1a4fabb1d052151aec110dce2cde6c70cb
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 9a0dbba69b6317ab5a3df0b87e5f288d5a95872c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379035"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752664"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contenedores de Azure Cognitive Services
 
@@ -53,7 +53,7 @@ Los contenedores de Azure Cognitive Services proporcionan el siguiente conjunto 
 | [Text Analytics][ta-containers-keyphrase] | **Extracción de frases clave** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Extrae las frases clave para identificar los puntos principales. Por ejemplo, si el texto de entrada es "La comida estaba deliciosa y el personal era maravilloso", la API devuelve los principales puntos de conversación: "comida" y "personal maravilloso". | Vista previa |
 | [Text Analytics][ta-containers-language] |  **Detección de idioma del texto** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | Se detecta el idioma (120 como máximo) en que está escrito el texto de entrada y se usa un código de idioma único para informar acerca de cada documento enviado en la solicitud. El código de idioma se empareja con una puntuación que indica la intensidad de esta. | Disponibilidad general |
 | [Text Analytics][ta-containers-sentiment] | **Análisis de sentimiento, versión 3** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analiza el texto sin formato para obtener pistas sobre opiniones positivas o negativas. Esta versión del análisis de sentimiento devuelve etiquetas de sentimiento (por ejemplo, *positivo* o *negativo*) para cada documento y oración que contiene. |  Disponibilidad general |
-| [Text Analytics][ta-containers-health] |  **Text Analytics para el estado** | Extraiga y etiquete la información médica del texto clínico no estructurado. | Versión preliminar "validada". [Solicite acceso][request-access]. |
+| [Text Analytics][ta-containers-health] |  **Text Analytics para el estado** | Extraiga y etiquete la información médica del texto clínico no estructurado. | Vista previa |
 | [Traductor][tr-containers] | **Traductor** | Traduzca texto a varios idiomas y dialectos. | Versión preliminar "validada". [Solicite acceso][request-access]. | 
 
 ### <a name="speech-containers"></a>Contenedores de Speech

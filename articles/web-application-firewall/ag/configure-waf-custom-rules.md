@@ -8,12 +8,13 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 05/21/2020
 ms.author: victorh
-ms.openlocfilehash: 2572e30c02552859eb5c61915a9ef524c0c6cc70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3f35a745e7fc498752677cc404c5b06c06d3e7a8
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83758969"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110668599"
 ---
 # <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Configuración del Firewall de aplicaciones web V2 en Application Gateway con una regla personalizada con Azure PowerShell
 

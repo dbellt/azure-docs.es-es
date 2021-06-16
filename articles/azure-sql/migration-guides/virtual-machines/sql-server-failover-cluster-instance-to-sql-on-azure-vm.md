@@ -8,12 +8,12 @@ manager: bsiva
 ms.topic: how-to
 ms.date: 4/25/2021
 ms.author: rahugup
-ms.openlocfilehash: 88cade73c03f1dd3562ac196cbad5091981c2058
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d21a9b91a7030deb805c80034ca0515e2b226b16
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108777024"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954585"
 ---
 # <a name="migrate-failover-cluster-instance-to-sql-server-on-azure-vms"></a>Migración de una instancia de clúster de conmutación por error a SQL Server en máquinas virtuales de Azure
 
@@ -46,7 +46,7 @@ Prepare Azure para la migración con Server Migration.
 
 **Task** | **Detalles**
 --- | ---
-**Crear un proyecto de Azure Migrate** | La cuenta de Azure necesita permisos de colaborador o propietario para [crear un proyecto](https://docs.microsoft.com/azure/migrate/create-manage-projects).
+**Crear un proyecto de Azure Migrate** | La cuenta de Azure necesita permisos de colaborador o propietario para [crear un proyecto](../../../migrate/create-manage-projects.md).
 **Comprobación de los permisos de la cuenta de Azure** | La cuenta de Azure necesita permisos de colaborador o propietario en la suscripción de Azure, permisos para registrar aplicaciones de Azure Active Directory (AAD) y permisos de administrador de acceso de usuarios en la suscripción de Azure para crear una instancia de Key Vault, crear una máquina virtual y escribir en un disco administrado de Azure.
 **Configuración de una red virtual de Azure** | [Configure](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network) una red virtual de Azure (VNet). Al realizar la replicación en Azure, se crean máquinas virtuales de Azure y se unen a la red virtual de Azure que se especifica al configurar la migración.
 
@@ -134,7 +134,7 @@ Para instalar el servicio Mobility, siga estos pasos:
 
 1. Inicie sesión en el dispositivo de replicación.
 2. Vaya a **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository**.
-3. Busque el instalador correspondiente al sistema operativo y la versión del equipo. Revise los [sistemas operativos compatibles](/site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines). 
+3. Busque el instalador correspondiente al sistema operativo y la versión del equipo. Revise los [sistemas operativos compatibles](../../../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines). 
 4. Copie el archivo de instalación en el equipo que desea migrar.
 5. Asegúrese de que tiene la frase de contraseña que se generó al implementar el dispositivo.
     - Almacene el archivo en un archivo de texto temporal de la máquina.
@@ -247,7 +247,7 @@ Ahora, seleccione las máquinas para la migración. Puede replicar hasta 10 má
     - Cifrado doble con claves administradas por el cliente y por la plataforma
 
     > [!NOTE]
-    > Para replicar máquinas virtuales con CMK, será necesario [crear un conjunto de cifrado de disco](https://go.microsoft.com/fwlink/?linkid=2151800) en el grupo de recursos de destino. Un objeto de conjunto de cifrado de disco asigna instancias de Managed Disks a una instancia de Key Vault que contiene las claves CMK que se van a usar para SSE.
+    > Para replicar máquinas virtuales con CMK, será necesario [crear un conjunto de cifrado de disco](../../../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) en el grupo de recursos de destino. Un objeto de conjunto de cifrado de disco asigna instancias de Managed Disks a una instancia de Key Vault que contiene las claves CMK que se van a usar para SSE.
   
 1. En **Ventaja híbrida de Azure**:
 
@@ -356,7 +356,7 @@ La instancia de clúster de conmutación por error de SQL Server está lista.
     - Detiene la replicación en la máquina local.
     - Quita la máquina del recuento de **Servidores en replicación** en Azure Migrate: Server Migration.
     - Limpia la información del estado de replicación de la máquina.
-1. Instale el agente de [Windows](/virtual-machines/extensions/agent-windows.md) de la máquina virtual de Azure en las máquinas migradas.
+1. Instale el agente de [Windows](../../../virtual-machines/extensions/agent-windows.md) de la máquina virtual de Azure en las máquinas migradas.
 1. Realice los ajustes de la aplicación posteriores a la migración, como actualizar las cadenas de conexión de la base de datos y las configuraciones del servidor web.
 1. Realice las pruebas finales de la aplicación y la aceptación de la migración en la aplicación migrada que ahora se ejecuta en Azure.
 1. Pase el tráfico a la instancia de máquina virtual de Azure migrada.

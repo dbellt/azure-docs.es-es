@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, ladolan, azla
 ms.topic: conceptual
 ms.date: 05/25/2021
-ms.openlocfilehash: 1dd4a75cbebeb0244ffd3e0c1f8e2cfcd1968440
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 0c09d013e3e9e3934702eb512334a33a60044b9d
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379738"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111441247"
 ---
 # <a name="single-tenant-versus-multi-tenant-and-integration-service-environment-for-azure-logic-apps"></a>Comparación de las opciones de un solo inquilino, multiinquilino y entorno del servicio de integración para Azure Logic Apps
 
@@ -95,7 +95,7 @@ Para crear una aplicación lógica basada en el entorno que desee, tiene varias 
 | Azure Portal | Tipo de recurso **Logic Apps (consumo)** | [Inicio rápido. Creación de flujos de trabajo de integración en Azure Logic Apps multiinquilino: Azure Portal](quickstart-create-first-logic-app-workflow.md) |
 | Visual Studio Code | [Extensión **Azure Logic Apps (consumo)**](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-logicapps) | [Inicio rápido. Creación de flujos de trabajo de integración en Azure Logic Apps multiinquilino: Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 | Azure CLI | [Extensión **Logic Apps de la CLI de Azure**](https://github.com/Azure/azure-cli-extensions/tree/master/src/logic) | - [Inicio rápido. Creación y administración de flujos de trabajo de integración en Azure Logic Apps multiinquilino: CLI de Azure](quickstart-logic-apps-azure-cli.md) <p><p>- [az logic](/cli/azure/logic) |
-| Azure Resource Manager | [**Creación de una plantilla de Azure Resource Manager (ARM) de aplicación lógica**](https://azure.microsoft.com/resources/templates/101-logic-app-create/) | [Inicio rápido. Creación e implementación de flujos de trabajo de integración en Azure Logic Apps multiinquilino: plantilla de ARM](quickstart-create-deploy-azure-resource-manager-template.md) |
+| Azure Resource Manager | [**Creación de una plantilla de Azure Resource Manager (ARM) de aplicación lógica**](https://azure.microsoft.com/resources/templates/logic-app-create/) | [Inicio rápido. Creación e implementación de flujos de trabajo de integración en Azure Logic Apps multiinquilino: plantilla de ARM](quickstart-create-deploy-azure-resource-manager-template.md) |
 | Azure PowerShell | [Módulo Az.LogicApp](/powershell/module/az.logicapp) | [Introducción a Azure PowerShell](/powershell/azure/get-started-azureps) |
 | API REST de Azure | [API de REST de Azure Logic Apps](/rest/api/logic) | [Introducción a la referencia de la API de REST de Azure](/rest/api/azure) |
 ||||

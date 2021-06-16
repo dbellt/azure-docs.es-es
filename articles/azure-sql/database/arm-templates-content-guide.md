@@ -3,20 +3,20 @@ title: 'Plantillas de Azure Resource Manager: Azure SQL Database e Instancia adm
 description: Use las plantillas de Azure Resource Manager para crear y configurar Azure SQL Database e Instancia administrada de Azure SQL.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: deployment-configuration
 ms.custom: overview-samples sqldbrb=2
 ms.devlang: ''
 ms.topic: guide
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 05/24/2021
-ms.openlocfilehash: 4c9cf08ad0a048c0c37f2c9943e455914ecc21fd
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 84a489222ed8d68c8c49d240cc22bd35f443227a
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110456938"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110705720"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Plantillas de Azure Resource Manager para Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

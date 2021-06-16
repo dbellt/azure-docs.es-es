@@ -8,12 +8,13 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: d476cdd8911762b7825db31a6703c83f82f71d3a
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0a2dfcdbd1a646284792df0a6d38b7c9272a0cc5
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325614"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110672017"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Creación de una instancia de VPN Gateway basada en rutas mediante PowerShell
 

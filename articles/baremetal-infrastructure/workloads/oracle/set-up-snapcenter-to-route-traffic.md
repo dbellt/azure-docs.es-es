@@ -2,14 +2,14 @@
 title: Configuración de SnapCenter para enrutar el tráfico de Azure a servidores de Oracle BareMetal
 description: Aprenda a configurar SnapCenter de NetApp para enrutar el tráfico de Azure a servidores de Oracle BareMetal Infrastructure.
 ms.topic: how-to
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 05/05/2021
-ms.openlocfilehash: 287f9d0cc174be21f7e95e650ece1afad0267759
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 9d8f83712822dcf556efe1098eadd1cfdb4867e6
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109520614"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110576236"
 ---
 # <a name="set-up-netapp-snapcenter-to-route-traffic-from-azure-to-oracle-baremetal-servers"></a>Configuración de SnapCenter de NetApp para enrutar el tráfico de Azure a servidores de Oracle BareMetal
 

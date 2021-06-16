@@ -8,12 +8,12 @@ author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
 ms.date: 04/07/2021
-ms.openlocfilehash: d7e5890201afeae5b88e3edff8d0ed2af278f308
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: f28e9f2da86a810ca8737505938e3115540232c9
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107108040"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007074"
 ---
 # <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Incorporación de nuevos publicadores al programa del marketplace comercial
 
@@ -29,7 +29,7 @@ Una organización puede tener varios publicadores asociados con una cuenta de ma
 
 ## <a name="add-new-publishers"></a>Incorporación de nuevos anunciantes
 
-1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+1. Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. En la parte superior derecha, seleccione **Configuración** > **Configuración de la cuenta**.
 1. En **Perfil de la organización**, seleccione **Identificadores**.
 1. En la sección **Anunciante**, seleccione **Agregar publicador**.

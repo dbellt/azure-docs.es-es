@@ -3,19 +3,20 @@ title: Próximos cambios en las reglas de ingesta y simplificación en Azure Tim
 description: Cambios en la regla de ingesta
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: lyhughes
-ms.openlocfilehash: 44553e2a57f796dcf48561ff3b273e25514247ae
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: f89e7196bcc0bf5dfce94ea0198e6fd255270941
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504539"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110615445"
 ---
 # <a name="upcoming-changes-to-json-flattening-and-escaping-rules-for-new-environments"></a>Próximos cambios en las reglas de aplanamiento y escape de JSON para los entornos nuevos
 

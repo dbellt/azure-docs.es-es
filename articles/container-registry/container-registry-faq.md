@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/15/2021
 ms.author: sajaya
-ms.openlocfilehash: 84567f9667619bb9208f066460b3c4483123b3fc
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 7ab6a090661521f81276188ebb0f63723a277d9f
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331455"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112008113"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Preguntas más frecuentes sobre Azure Container Registry
 
@@ -33,7 +33,7 @@ Para obtener instrucciones sobre la solución de problemas del registro, consult
 
 ### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>¿Se puede crear una instancia de Azure Container Registry con una plantilla de Resource Manager?
 
-Sí. Esta es [una plantilla](https://azure.microsoft.com/resources/templates/101-container-registry/) que puede usar para crear un registro.
+Sí. Esta es [una plantilla](https://azure.microsoft.com/resources/templates/container-registry/) que puede usar para crear un registro.
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>¿Existe un examen de vulnerabilidades de seguridad para imágenes en ACR?
 
@@ -498,7 +498,7 @@ Para obtener las reglas de nomenclatura de repositorios completas, vea la [Espec
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>¿Cómo se pueden recopilar los seguimientos http en Windows?
 
-#### <a name="prerequisites"></a>Requisitos previos
+#### <a name="prerequisites"></a>Prerrequisitos
 
 - Habilite el descifrado de https en Fiddler: <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
 - Habilite Docker para que use un proxy mediante la interfaz de usuario de Docker: <https://docs.docker.com/docker-for-windows/#proxies>

@@ -39,6 +39,8 @@
           href: work-remotely-support.md
         - name: Configuraciones de NVA y trabajo remoto
           href: nva-work-remotely-support.md
+    - name: Preguntas más frecuentes sobre VPN Gateway
+      href: vpn-gateway-vpn-faq.md
     - name: Acerca del diseño de VPN Gateway
       href: design.md
     - name: Acerca de la configuración de VPN Gateway
@@ -77,7 +79,7 @@
       items:
         - name: Creación de una puerta de enlace VPN basada en ruta
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: tutorial-create-gateway-portal.md
             - name: Azure PowerShell
               href: create-routebased-vpn-gateway-powershell.md
@@ -89,7 +91,7 @@
           href: reset-gateway.md
         - name: Eliminación de una instancia de VPN Gateway
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: vpn-gateway-delete-vnet-gateway-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-delete-vnet-gateway-powershell.md
@@ -99,7 +101,7 @@
       items:
         - name: Configuración de conexiones S2S
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: tutorial-site-to-site-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-create-site-to-site-rm-powershell.md
@@ -119,7 +121,7 @@
       items:
         - name: Configuración de conexiones de red virtual a red virtual
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: vpn-gateway-howto-vnet-vnet-resource-manager-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-vnet-vnet-rm-ps.md
@@ -127,7 +129,7 @@
               href: vpn-gateway-howto-vnet-vnet-cli.md
         - name: Configuración de una conexión de red virtual a red virtual entre distintos modelos de implementación
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: vpn-gateway-connect-different-deployment-models-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-connect-different-deployment-models-powershell.md
@@ -137,7 +139,7 @@
           items:
             - name: Configuración de una VPN de punto a sitio
               items:
-                - name: Portal de Azure
+                - name: Azure portal
                   href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
                 - name: Azure PowerShell
                   href: vpn-gateway-howto-point-to-site-rm-ps.md
@@ -225,7 +227,7 @@
           href: vpn-gateway-peering-gateway-transit.md
     - name: Modificación de una puerta de enlace de red local
       items:
-        - name: Portal de Azure
+        - name: Azure portal
           href: vpn-gateway-modify-local-network-gateway-portal.md
         - name: Azure PowerShell
           href: vpn-gateway-modify-local-network-gateway.md
@@ -320,8 +322,6 @@
       href: /cli/azure/network/vnet-gateway
 - name: Recursos
   items:
-    - name: Preguntas más frecuentes sobre VPN Gateway
-      href: vpn-gateway-vpn-faq.md
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: Blog

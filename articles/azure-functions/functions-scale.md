@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2cf201c17b97464386ce52f4d689c2c1006d0970
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: e4463659077943507651ddd2ad30ee2a1af9cf7a
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377422"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110785219"
 ---
 # <a name="azure-functions-hosting-options"></a>Opciones de hospedaje de Azure Functions
 
@@ -103,7 +103,7 @@ En la siguiente tabla se comparan los comportamientos de escalado de los distint
 | --- | --- |
 | **[Plan de consumo](consumption-plan.md)** | Solo paga por el tiempo durante el que se ejecutan las funciones. La facturación se basa en el número de ejecuciones, el tiempo de ejecución y el uso de la memoria. |
 | **[Plan Premium](functions-premium-plan.md)** | El plan Premium se basa en la cantidad de núcleos por segundo y en la memoria usada en las instancias necesarias y preparadas previamente. Al menos una instancia por plan se debe mantener preparada en todo momento. Este plan ofrece los precios más predecibles. |
-| * *[Plan dedicado](dedicated-plan.md)* | Paga lo mismo por las aplicaciones de funciones en un plan de App Service que por otros recursos de App Service, como las aplicaciones web.|
+| **[Plan dedicado](dedicated-plan.md)** | Paga lo mismo por las aplicaciones de funciones en un plan de App Service que por otros recursos de App Service, como las aplicaciones web.|
 | **[App Service Environment (ASE)](dedicated-plan.md)** | Hay una tarifa plana mensual para las instancias de ASE en la que se paga por la infraestructura y que no varía según el tamaño de la instancia de ASE. Además, existe un costo por cada vCPU del plan de App Service. Todas las aplicaciones hospedadas en una instancia de ASE están en el SKU de precios Aislado. |
 | **[Kubernetes](functions-kubernetes-keda.md)**| Solo paga los costos del clúster de Kubernetes; no existe facturación adicional para Functions. La aplicación de funciones se ejecuta como una carga de trabajo de aplicación en el clúster, al igual que una aplicación normal. |
 

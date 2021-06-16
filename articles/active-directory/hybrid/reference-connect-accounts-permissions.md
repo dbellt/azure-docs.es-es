@@ -6,23 +6,22 @@ documentationcenter: ''
 author: billmath
 manager: daveba
 editor: ''
-ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/03/2021
+ms.date: 06/02/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63d4c39c2c48312ca68adc501710ee23fb3bbf73
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 3b24375cd3c5566a1da4d4e1876844d6984c7985
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754494"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965858"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Cuentas y permisos
 
@@ -199,8 +198,8 @@ Leyenda:
 - Sin negrita: opción admitida
 - Cuenta local: cuenta de usuario local en el servidor
 - Cuenta de dominio: cuenta de usuario de dominio
-- sMSA: [cuenta de servicio administrada independiente](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
-- gMSA: [cuenta de servicio administrada de grupo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))
+- sMSA: [cuenta de servicio administrada independiente](../../active-directory/fundamentals/service-accounts-on-premises.md)
+- gMSA: [cuenta de servicio administrada de grupo](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)
 
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Personalizado | SQL remoto</br>Personalizado |
 | --- | --- | --- | --- |
@@ -217,11 +216,11 @@ Una VSA está pensada para usarse en escenarios donde el motor de sincronizació
 Esta característica requiere Windows Server 2008 R2 o versiones posteriores. Si instala Azure AD Connect en Windows Server 2008, la instalación vuelve a utilizar una [cuenta de usuario](#user-account) en su lugar.
 
 #### <a name="group-managed-service-account"></a>Cuenta de servicio administrada de grupo
-Si usa un servidor SQL remoto, se recomienda utilizar una **cuenta de servicio administrada de grupo**. Para más información sobre cómo preparar Active Directory para la cuenta de servicio administrada de grupo, consulte [Información general de las cuentas de servicio administradas de grupo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)).
+Si usa un servidor SQL remoto, se recomienda utilizar una **cuenta de servicio administrada de grupo**. Para más información sobre cómo preparar Active Directory para la cuenta de servicio administrada de grupo, consulte [Información general de las cuentas de servicio administradas de grupo](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
 
 Para usar esta opción, en la página [Instalar los componentes necesarios](how-to-connect-install-custom.md#install-required-components), seleccione **Usar una cuenta de servicio existente** y seleccione **Cuenta de servicio administrada**.  
 ![VSA](./media/reference-connect-accounts-permissions/serviceaccount.png)  
-También se puede usar una [cuenta de servicio administrada independiente](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10)). Sin embargo, solo se pueden utilizar en el equipo local y no hay ningún beneficio al usarlas en lugar de la cuenta de servicio virtual predeterminada.
+También se puede usar una [cuenta de servicio administrada independiente](../../active-directory/fundamentals/service-accounts-on-premises.md). Sin embargo, solo se pueden utilizar en el equipo local y no hay ningún beneficio al usarlas en lugar de la cuenta de servicio virtual predeterminada.
 
 Esta característica requiere Windows Server 2012 o posterior. Si necesita usar un sistema operativo anterior y usar SQL remoto, debe usar una [cuenta de usuario](#user-account).
 

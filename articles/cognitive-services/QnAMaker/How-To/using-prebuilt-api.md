@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/05/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 0aa26cc0d78d6ca20dccb97b3936bad840c989b7
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: b7e505bfbb27aca479569ff6cddfa2686674ae94
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382929"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954124"
 ---
 # <a name="prebuilt-question-answering"></a>Respuesta a preguntas precompilada
 
@@ -99,7 +99,7 @@ Vemos que se reciben varias respuestas como parte de la respuesta global de la A
 
 ## <a name="prebuilt-api-limits"></a>Límites de la API precompilada 
 
-Visite la documentación sobre los [límites de la API precompilada](https://docs.microsoft.com/azure/cognitive-services/qnamaker/limits?#prebuilt-question-answering-limits). 
+Visite la documentación sobre los [límites de la API precompilada](../limits.md#prebuilt-question-answering-limits). 
 
 ## <a name="prebuilt-api-reference"></a>Referencia de la API precompilada
-Visite la documentación de [referencia de la API precompilada](https://docs.microsoft.com/rest/api/cognitiveservices-qnamaker/qnamaker5.0preview2/prebuilt/generateanswer) para conocer los parámetros de entrada y salida necesarios para llamar a la API.
+Visite la documentación de [referencia de la API precompilada](/rest/api/cognitiveservices-qnamaker/qnamaker5.0preview2/prebuilt/generateanswer) para conocer los parámetros de entrada y salida necesarios para llamar a la API.

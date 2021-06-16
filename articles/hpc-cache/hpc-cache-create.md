@@ -6,12 +6,13 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 05/05/2021
 ms.author: v-erkel
-ms.openlocfilehash: 0cb4317a874e0f342c799fabad55aaefe5ba485d
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 72c9590cca805d0a6e22d42f482ad80935e842d3
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109733809"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110706785"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Creación de una instancia de Azure HPC Cache
 
@@ -135,11 +136,11 @@ nets/<cache_subnet_name>"``
 
   | Tamaño de memoria caché | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 GB    | sí         | no          | No          |
+  | 3072 GB    | sí         | No          | No          |
   | 6144 GB    | sí         | sí         | No          |
   | 12288 GB   | sí         | sí         | sí         |
   | 24576 GB   | No          | sí         | sí         |
-  | 49152 GB   | No          | no          | sí         |
+  | 49152 GB   | No          | No          | sí         |
 
   Si quiere usar más de 10 destinos de almacenamiento con la memoria caché, elija el valor de tamaño de caché más alto disponible para el SKU. Estas configuraciones admiten hasta 20 destinos de almacenamiento.
 
@@ -240,11 +241,11 @@ nets/<cache_subnet_name>"`
 
   | Tamaño de memoria caché | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 GB    | sí         | no          | No          |
+  | 3072 GB    | sí         | No          | No          |
   | 6144 GB    | sí         | sí         | no          |
   | 12,288 GB   | sí         | sí         | sí         |
   | 24,576 GB   | no          | sí         | sí         |
-  | 49,152 GB   | no          | no          | sí         |
+  | 49,152 GB   | no          | No          | sí         |
 
   Lea la sección **Establecimiento de la capacidad de la memoria caché** en la pestaña de instrucciones del portal para obtener información importante sobre los precios, el rendimiento y la definición del tamaño adecuado de la caché para su flujo de trabajo.
 

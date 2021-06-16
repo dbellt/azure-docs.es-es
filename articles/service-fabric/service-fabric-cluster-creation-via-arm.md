@@ -3,12 +3,13 @@ title: Creación de un clúster de Azure Service Fabric
 description: Obtenga información sobre cómo configurar un clúster de Service Fabric seguro en Azure mediante Azure Resource Manager.  Puede crear un clúster mediante una plantilla predeterminada o con su propia plantilla de clúster.
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.openlocfilehash: d4daa75fd9383bc19da1b09104ebddff5712c5b4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3f3d76b1cea2e1ed06f50bbdfbf4343972bc3945
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98791818"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671055"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Creación de un clúster de Service Fabric con Azure Resource Manager 
 > [!div class="op_single_selector"]

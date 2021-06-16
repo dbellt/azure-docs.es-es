@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ad70aff7e1673681541a1b6b37a0bd50d822fed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc0acadadc728f714e84418a438c451aea255ccc
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97954417"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408036"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets de Azure Active Directory para configurar las opciones de grupo
 
@@ -157,7 +157,7 @@ Esta es la configuración definida en el objeto SettingsTemplate Group.Unified. 
 |  <ul><li>DefaultClassification<li>Escriba:  String<li>Default: "" | La clasificación que se va a utilizar como la clasificación predeterminada para un grupo si no se ha especificado ninguno.<br>Esta configuración no se aplica cuando EnableMIPLabels = = True.|
 |  <ul><li>PrefixSuffixNamingRequirement<li>Escriba:  String<li>Default: "" | Cadena de una longitud máxima de 64 caracteres que define la convención de nomenclatura configurada para los grupos de Microsoft 365. Para obtener más información, vea [Aplicación de una directiva de nomenclatura en los grupos de Microsoft 365](groups-naming-policy.md). |
 | <ul><li>CustomBlockedWordsList<li>Escriba:  String<li>Default: "" | Cadena de frases separadas por comas que los usuarios no tendrán permiso para usar en los nombres de grupos o alias. Para obtener más información, vea [Aplicación de una directiva de nomenclatura en los grupos de Microsoft 365](groups-naming-policy.md). |
-| <ul><li>EnableMSStandardBlockedWords<li>Escriba:  Boolean<li>Valor predeterminado: "False" | No debe usarse
+| <ul><li>EnableMSStandardBlockedWords<li>Escriba:  Boolean<li>Valor predeterminado: "False" | Desusado. No utilizar.
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Escriba:  Boolean<li>Valor predeterminado: False | Valor booleano que indica si un usuario invitado puede ser o no un propietario de grupos. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Escriba:  Boolean<li>Valor predeterminado: True | Valor booleano que indica si un usuario invitado puede tener o no acceso al contenido de grupos de Microsoft 365.  Este valor no requiere una licencia Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Escriba:  String<li>Default: "" | La dirección URL de un vínculo a las instrucciones de uso del invitado. |

@@ -7,16 +7,16 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3a56ff7a53151030b1c0aec8d11906c09a499a63
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: b67a1dcb2f6df42c95bb0b5c20ae4397582112db
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319384"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966928"
 ---
 # <a name="resource-manager-template-samples-for-azure-monitor"></a>Ejemplos de plantillas de Resource Manager para Azure Monitor
 
-Azure Monitor se puede implementar y configurar a gran escala mediante una [plantilla de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Los artículos siguientes ofrecen plantillas de ejemplo para diferentes características de Azure Monitor. Estos ejemplos se pueden modificar con arreglo a sus requisitos y se pueden aplicar utilizando cualquier método estándar para implementar plantillas de Resource Manager. 
+Azure Monitor se puede implementar y configurar a gran escala mediante una [plantilla de Azure Resource Manager](../azure-resource-manager/templates/syntax.md). Los artículos siguientes ofrecen plantillas de ejemplo para diferentes características de Azure Monitor. Estos ejemplos se pueden modificar con arreglo a sus requisitos y se pueden aplicar utilizando cualquier método estándar para implementar plantillas de Resource Manager. 
 
 ## <a name="deploying-the-sample-templates"></a>Implementación de plantillas de ejemplo
 A continuación, se incluyen los pasos básicos para utilizar las plantillas de ejemplo:

@@ -4,17 +4,17 @@ titleSuffix: Azure Applied AI Services
 description: Vea cómo configurar el contenedor Form Recognizer para analizar los datos de formularios y tablas.
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: aahi
-ms.openlocfilehash: 444e59aa969950eadb8532849ae10b97412555ab
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: b40b9996a1cb8f66e5befa3b6e2d18addf6433f2
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374567"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111894261"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configuración de contenedores de Form Recognizer
 
@@ -78,7 +78,7 @@ La sintaxis exacta de la ubicación de montaje del host varía según el sistema
 
 |Opcional| Nombre | Tipo de datos | Descripción |
 |-------|------|-----------|-------------|
-|Obligatorio| `Input` | String | Destino del montaje de entrada. El valor predeterminado es `/input`.    <br><br>Ejemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Requerido| `Input` | String | Destino del montaje de entrada. El valor predeterminado es `/input`.    <br><br>Ejemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
 |Obligatorio| `Output` | String | Destino del montaje de salida. El valor predeterminado es `/output`.  <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos de ejemplo de docker run

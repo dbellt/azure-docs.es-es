@@ -9,12 +9,12 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-python
-ms.openlocfilehash: 232e28d3cc8b0bc7427dd035d51743f623e54259
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3e9fbda18c786f934790c9aa70cd0f27d045fa64
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103564310"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901320"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Tutorial: Azure Data Lake Storage Gen2, Azure Databricks y Spark
 
@@ -35,7 +35,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
   Consulte [Creación de una cuenta de almacenamiento para su uso con Azure Data Lake Storage Gen2 habilitado](create-data-lake-storage-account.md).
 
-* Asegúrese de que la cuenta de usuario tiene asignado el rol [Colaborador de datos de Storage Blob](../common/storage-auth-aad-rbac-portal.md).
+* Asegúrese de que la cuenta de usuario tiene asignado el rol [Colaborador de datos de Storage Blob](assign-azure-role-data-access.md).
 
 * Instale AzCopy v10. Consulte [Transferencia de datos con AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 

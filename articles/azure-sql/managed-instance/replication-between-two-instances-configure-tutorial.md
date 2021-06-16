@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Managed Instance
 description: En este tutorial aprenderá a configurar una replicación transaccional entre un publicador o distribuidor de Instancia administrada de Azure SQL y un suscriptor de Instancia administrada de SQL.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: data-movement
+ms.subservice: replication
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
+author: ferno-ms
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 47ea5ea73c581313f90791ca6d7892ebad3f666b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1169e3df6cc2c6d1d9850bbbcca3784ea80bec93
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101690692"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110691476"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Tutorial: Configuración de la replicación entre dos instancias administradas
 

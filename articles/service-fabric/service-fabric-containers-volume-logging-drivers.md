@@ -3,12 +3,12 @@ title: Controlador de volumen de Azure Files para Service Fabric
 description: Service Fabric admite el uso de Azure Files para realizar copias de seguridad de los volúmenes desde su contenedor.
 ms.topic: conceptual
 ms.date: 6/10/2018
-ms.openlocfilehash: a5125dbd88a2fe236196c427244f1311d9b73b9f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d3acb20723bc826a120a8333c0ef63c33131376a
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86247700"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901212"
 ---
 # <a name="azure-files-volume-driver-for-service-fabric"></a>Controlador de volumen de Azure Files para Service Fabric
 
@@ -198,7 +198,7 @@ Como se muestra en los elementos **DriverOption** en el fragmento de código ant
     ```
 
 ## <a name="using-your-own-volume-or-logging-driver"></a>Uso de su propio controlador de volumen o registro
-Service Fabric también permite el uso de sus propios controladores de [volumen](https://docs.docker.com/engine/extend/plugins_volume/) o de [registro](https://docs.docker.com/engine/admin/logging/overview/) personalizados. Si el controlador de volumen/registro de Docker no está instalado en el clúster, puede instalarlo manualmente mediante los protocolos RDP/SSH. Puede realizar la instalación con estos protocolos mediante un [script de inicio de conjunto de escalado de máquinas virtuales](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) o un [script SetupEntryPoint](./service-fabric-application-model.md).
+Service Fabric también permite el uso de sus propios controladores de [volumen](https://docs.docker.com/engine/extend/plugins_volume/) o de [registro](https://docs.docker.com/engine/admin/logging/overview/) personalizados. Si el controlador de volumen/registro de Docker no está instalado en el clúster, puede instalarlo manualmente mediante los protocolos RDP/SSH. Puede realizar la instalación con estos protocolos mediante un [script de inicio de conjunto de escalado de máquinas virtuales](https://azure.microsoft.com/resources/templates/vmss-custom-script-windows/) o un [script SetupEntryPoint](./service-fabric-application-model.md).
 
 A continuación se muestra un ejemplo del script para instalar el [controlador de volumen de Docker para Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/):
 

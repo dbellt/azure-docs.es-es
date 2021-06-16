@@ -3,12 +3,13 @@ title: Integración de Azure Event Hubs con Azure Private Link
 description: Aprenda a integrar Azure Event Hubs con Azure Private Link
 ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: d19060f96a1a6912dd0f1c8791689a61cd2b2293
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 76f205d97c7c77ff75f0143181631319c6a23b97
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371370"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110706049"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Permiso para acceder a los espacios de nombres de Azure Event Hubs a través de puntos de conexión privados 
 Azure Private Link le permite acceder a los servicios de Azure (por ejemplo, Azure Event Hubs, Azure Storage y Azure Cosmos DB) y a los servicios de asociados o clientes hospedados de Azure mediante un **punto de conexión privado** de la red virtual.
@@ -99,8 +100,6 @@ Para permitir que los servicios de confianza accedan a su espacio de nombres, ca
 En el ejemplo siguiente se muestra cómo usar Azure PowerShell para crear una conexión de punto de conexión privado. No crea un clúster dedicado. Siga los pasos de [este artículo](event-hubs-dedicated-cluster-create-portal.md) para crear un clúster de Event Hubs dedicado. 
 
 ```azurepowershell-interactive
-# create resource group
-
 $rgName = "<RESOURCE GROUP NAME>"
 $vnetlocation = "<VIRTUAL NETWORK LOCATION>"
 $vnetName = "<VIRTUAL NETWORK NAME>"
@@ -108,6 +107,9 @@ $subnetName = "<SUBNET NAME>"
 $namespaceLocation = "<NAMESPACE LOCATION>"
 $namespaceName = "<NAMESPACE NAME>"
 $peConnectionName = "<PRIVATE ENDPOINT CONNECTION NAME>"
+
+# create resource group
+New-AzResourceGroup -Name $rgName -Location $vnetLocation 
 
 # create virtual network
 $virtualNetwork = New-AzVirtualNetwork `

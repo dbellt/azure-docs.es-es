@@ -3,12 +3,12 @@ title: Guía y procedimientos recomendados
 description: Descubra los procedimientos recomendados y las instrucciones para realizar copias de seguridad en la nube de las cargas de trabajo locales y en la nube.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 14476533cf896434182e1d63f89c6a1279b36362
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 7b507fec6c3f9cd53dd5b775dff2ca43c4dcfd1f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107519070"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965490"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Copia de seguridad en la nube de cargas de trabajo locales y en la nube
 
@@ -178,7 +178,7 @@ Azure Backup requiere el traslado de los datos de la carga de trabajo al almacé
 
 * *Bases de datos SAP HANA y bases de datos SQL Server que se ejecutan en máquinas virtuales de Azure*: necesitan conectividad con el servicio Azure Backup, Azure Storage y Azure Active Directory. Esto puede lograrse mediante puntos de conexión privados o si se permite el acceso a las direcciones IP públicas o FQDN necesarios. No permitir la conectividad adecuada con los servicios de Azure necesarios puede provocar errores en operaciones como la detección de bases de datos, la configuración de copias de seguridad, la realización de copias de seguridad y la restauración de datos. Para obtener una guía de red completa cuando use etiquetas de NSG, Azure Firewall y un proxy HTTP, consulte estos artículos sobre [SQL](backup-sql-server-database-azure-vms.md#establish-network-connectivity) y [SAP HANA](./backup-azure-sap-hana-database.md#establish-network-connectivity).
 
-* *Híbrida*: el agente MARS (Microsoft Azure Recovery Services) requiere acceso a la red para todas las operaciones críticas: instalación, configuración, copia de seguridad y restauración. El agente MARS puede conectarse al servicio Azure Backup a través de [Azure ExpressRoute](install-mars-agent.md#use-azure-expressroute) mediante el uso del emparejamiento público (disponible para los circuitos anteriores) y el emparejamiento de Microsoft, con [puntos de conexión privados](install-mars-agent.md#private-endpoints) o a través de [proxy o firewall con los controles de acceso adecuados](install-mars-agent.md#verify-internet-access).
+* *Híbrida*: el agente MARS (Microsoft Azure Recovery Services) requiere acceso a la red para todas las operaciones críticas: instalación, configuración, copia de seguridad y restauración. El agente MARS puede conectarse al servicio Azure Backup a través de [Azure ExpressRoute](install-mars-agent.md#azure-expressroute-support) mediante el uso del emparejamiento público (disponible para los circuitos anteriores) y el emparejamiento de Microsoft, con [puntos de conexión privados](install-mars-agent.md#private-endpoint-support) o a través de [proxy o firewall con los controles de acceso adecuados](install-mars-agent.md#verify-internet-access).
 
 ### <a name="private-endpoints-for-azure-backup"></a>Puntos de conexión privados para Azure Backup
 

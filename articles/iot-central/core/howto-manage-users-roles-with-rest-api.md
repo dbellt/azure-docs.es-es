@@ -7,12 +7,12 @@ ms.date: 03/24/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 22356cb6d5745c9552e2bd26a24bcb25a3b33c1d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 34be4920b343117ed895313c45a66e54b2de9ab3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108776756"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950582"
 ---
 # <a name="how-to-use-the-iot-central-rest-api-to-manage-users-and-roles"></a>Uso de la API REST de IoT Central para administrar usuarios y roles
 
@@ -20,7 +20,7 @@ La API REST de IoT Central permite desarrollar aplicaciones cliente que se integ
 
 Cada llamada a la API REST de IoT Central requiere un encabezado de autorización. Para obtener más información, vea los [procedimientos de autenticación y autorización de llamadas a la API REST de IoT Central](howto-authorize-rest-api.md).
 
-Para ver la documentación de referencia sobre la API REST de IoT Central, consulte [Referencia de la API REST de Azure IoT Central](https://docs.microsoft.com/rest/api/iotcentral/).
+Para ver la documentación de referencia sobre la API REST de IoT Central, consulte [Referencia de la API REST de Azure IoT Central](/rest/api/iotcentral/).
 
 ## <a name="manage-roles"></a>Administración de roles
 

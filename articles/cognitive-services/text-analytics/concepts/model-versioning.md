@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 06/03/2021
 ms.author: aahi
-ms.openlocfilehash: ee3a56fed87f493d79796c0d91e5324c94e87eca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60b9b7ace0f788c7ae5b248c4011ccde52811d2b
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599364"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757146"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>Control de versiones de modelos en Text Analytics API
 
@@ -31,10 +31,10 @@ Use la siguiente tabla para averiguar qué modelos de versiones admite cada punt
 | `/sentiment`                    | `2019-10-01`, `2020-04-01`                             | `2020-04-01`   |
 | `/languages`                    | `2019-10-01`, `2020-07-01`, `2020-09-01`, `2021-01-05` | `2021-01-05`   |
 | `/entities/linking`             | `2019-10-01`, `2020-02-01`                             | `2020-02-01`   |
-| `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2021-01-15`  | `2021-01-15`   |
+| `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2021-01-15`,`2021-06-01`  | `2021-06-01`   |
 | `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`, `2021-01-15`  | `2021-01-15`   |
-| `/entities/health`              | `2021-03-01`                           | `2021-03-01`   |
-| `/keyphrases`                   | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
+| `/entities/health`              | `2021-05-15`                           | `2021-05-15`   |
+| `/keyphrases`                   | `2019-10-01`, `2020-07-01`, `2021-06-01`  | `2021-06-01`   |
 
 
 Encontrará más detalles sobre las actualizaciones de estos modelos en [Novedades](../whats-new.md).

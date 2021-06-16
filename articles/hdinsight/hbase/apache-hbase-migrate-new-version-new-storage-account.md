@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/06/2021
-ms.openlocfilehash: 57ce3d38e715dce80289b38efeb7ddacba46ff8e
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 4ed4de8c134575bba1b961f918216eb3cca9b6b1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109657546"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963981"
 ---
 # <a name="migrate-apache-hbase-to-a-new-version-and-storage-account"></a>Migración de Apache HBase a una nueva versión y cuenta de Storage
 
@@ -143,7 +143,7 @@ Para pasar la clave de la cuenta de almacenamiento, utilice:
 - `-Dfs.azure.account.key.<storageaccount>.blob.core.windows.net='<storage account key>'`
 - `-Dfs.azure.account.keyprovider.<storageaccount>.blob.core.windows.net=org.apache.hadoop.fs.azure.SimpleKeyProvider`
 
-También puede usar [AzCopy](/azure/storage/common/storage-ref-azcopy) para mejorar el rendimiento al copiar archivos de datos de HBase.
+También puede usar [AzCopy](../../storage/common/storage-ref-azcopy.md) para mejorar el rendimiento al copiar archivos de datos de HBase.
    
 1. Ejecute el comando AzCopy:
    
@@ -159,7 +159,7 @@ También puede usar [AzCopy](/azure/storage/common/storage-ref-azcopy) para mejo
    sudo -u hbase hadoop fs -chmod -R 0755 /hbase
    ```
 
-Puede descargar AzCopy en [Introducción a AzCopy.](/azure/storage/common/storage-use-azcopy-v10) Para más información sobre el uso de AzCopy, consulte [azcopy copy](/azure/storage/common/storage-ref-azcopy-copy).
+Puede descargar AzCopy en [Introducción a AzCopy.](../../storage/common/storage-use-azcopy-v10.md) Para más información sobre el uso de AzCopy, consulte [azcopy copy](../../storage/common/storage-ref-azcopy-copy.md).
 
 #### <a name="the-source-cluster-is-hdi-36-or-hdi-40-with-accelerated-writes-and-the-destination-cluster-has-accelerated-writes"></a>El clúster de origen es HDI 3.6 o HDI 4.0 con escrituras aceleradas, y el clúster de destino tiene escrituras aceleradas
 
@@ -170,7 +170,7 @@ Puede descargar AzCopy en [Introducción a AzCopy.](/azure/storage/common/storag
    hadoop distcp <source-container-fullpath>/hbase /
    ```
    
-1. Ejecute `hdfs dfs -rm /hbase/hbase.id` para quitar `hbase.id`
+1. Ejecute `hbase.id` para quitar `hdfs dfs -rm /hbase/hbase.id`
    
 1. Para limpiar y migrar el WAL, ejecute los comandos siguientes:
    
@@ -189,7 +189,7 @@ Puede descargar AzCopy en [Introducción a AzCopy.](/azure/storage/common/storag
    hdfs dfs -rm -r /hbase/*WALs
    ```
    
-1. Ejecute `hdfs dfs -rm /hbase/hbase.id` para quitar `hbase.id`
+1. Ejecute `hbase.id` para quitar `hdfs dfs -rm /hbase/hbase.id`
    
 1. Para limpiar y migrar el WAL, ejecute los comandos siguientes:
    
@@ -208,7 +208,7 @@ Puede descargar AzCopy en [Introducción a AzCopy.](/azure/storage/common/storag
    hdfs dfs -rm -r /hbase/*WALs
    ```
    
-1. Ejecute `hdfs dfs -rm /hbase/hbase.id` para quitar `hbase.id`
+1. Ejecute `hbase.id` para quitar `hdfs dfs -rm /hbase/hbase.id`
    
 1. Para limpiar y migrar el WAL, ejecute los comandos siguientes:
    
@@ -276,4 +276,3 @@ Para más información sobre [Apache HBase](https://hbase.apache.org/) y sobre l
 - [Supervisión y administración de clústeres de Azure HDInsight mediante la interfaz de usuario web de Apache Ambari](../hdinsight-hadoop-manage-ambari.md)
 - [Versiones de Azure HDInsight](../hdinsight-component-versioning.md)
 - [Optimización de Apache HBase](../optimize-hbase-ambari.md)
-

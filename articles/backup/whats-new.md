@@ -3,12 +3,12 @@ title: Novedades de Azure Backup
 description: Obtenga información acerca de las nuevas características de Azure Backup.
 ms.topic: conceptual
 ms.date: 05/05/2021
-ms.openlocfilehash: 23ef0a063eac051e40f01361e526fca96be3e3ef
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 7be5b96a8575c0bed9208ef5d700aca747411aa2
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108745584"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959337"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novedades de Azure Backup
 
@@ -103,7 +103,7 @@ Para más información, consulte [Plantillas de Azure Resource Manager para Azur
 
 Azure Backup ahora admite las copias de seguridad incrementales para las bases de datos SAP HANA hospedadas en máquinas virtuales de Azure. Esto permite realizar copias de seguridad más rápidas y rentables de sus datos de SAP HANA.
 
-Para obtener más información, consulte las [distintas opciones disponibles durante la creación de una directiva de copia de seguridad](/azure/backup/sap-hana-faq-backup-azure-vm#policy) y [cómo crear una directiva de copia de seguridad para las bases de datos SAP HANA](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
+Para obtener más información, consulte las [distintas opciones disponibles durante la creación de una directiva de copia de seguridad](/azure/backup/sap-hana-faq-backup-azure-vm.yml#policy) y [cómo crear una directiva de copia de seguridad para las bases de datos SAP HANA](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
 
 ## <a name="backup-center-in-preview"></a>Centro de copia de seguridad (en versión preliminar)
 

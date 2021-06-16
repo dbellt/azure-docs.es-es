@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: e4240e7ad53725494a2b9b04d827fef0395c1bd2
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: a97726498adc89a8453d88bef9a61aa343da2c5e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483180"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956436"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glosario de Microsoft Azure: un diccionario de terminología de la nube sobre la plataforma de Azure
 
@@ -104,7 +104,7 @@ Vea [Información general del Azure Resource Manager](azure-resource-manager/man
 
 ## <a name="resource-manager-template"></a><a name="arm-template"></a>plantilla de Resource Manager
 Un archivo JSON que define de forma declarativa uno o varios recursos de Azure y que define las dependencias entre los recursos implementados. La plantilla se puede usar para implementar los recursos de manera repetida y uniforme.  
-Vea [Creación de plantillas de Azure Resource Manager](./azure-resource-manager/templates/template-syntax.md)
+Vea [Creación de plantillas de Azure Resource Manager](./azure-resource-manager/templates/syntax.md)
 
 ## <a name="resource-provider"></a>proveedor de recursos
 Un servicio que proporciona los recursos que puede implementar y administrar mediante Resource Manager. Cada proveedor de recursos ofrece operaciones para trabajar con los recursos que se implementan. Es posible acceder a los proveedores de recursos mediante el Portal de Azure, Azure PowerShell y varios SDK de programación.  

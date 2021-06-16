@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 05/27/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 42376cc7c1e1745e3db3ce3467ea02221fb7b834
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: fa31cafb414792a5feef7207156ecfb2c0b68778
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110478111"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652867"
 ---
 # <a name="configure-translator-docker-containers-preview"></a>Configuración de contenedores de Translator Docker (versión preliminar)
 
@@ -85,15 +85,6 @@ Este valor se puede encontrar en el siguiente lugar:
 ## <a name="mount-settings"></a>Configuración de montaje
 
 Utilice montajes de enlace para leer y escribir datos hacia y desde el contenedor. Puede especificar un montaje de entrada o un montaje de salida mediante la opción `--mount` del comando [docker run](https://docs.docker.com/engine/reference/commandline/run/).
-
-Los contenedores de Translator no usan montajes de entrada o salida para almacenar datos de entrenamiento o servicio.
-
-La sintaxis exacta de la ubicación de montaje del host varía según el sistema operativo del host. Además, la ubicación de montaje del [equipo host](translator-how-to-install-container.md#host-computer) puede no estar accesible debido a un conflicto entre los permisos que utiliza la cuenta de servicio de Docker y los permisos de la ubicación de montaje del host.
-<!-- markdownlint-disable MD033 -->
-|Opcional| Nombre | Tipo de datos | Descripción |
-|-------|------|-----------|-------------|
-|No permitida| `Input` | String | Los contenedores de Translator no usan este valor.|
-|Opcional| `Output` | String | Destino del montaje de salida. El valor predeterminado es `/output`. Aquí es donde encontrará la ubicación de los registros, incluidos registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

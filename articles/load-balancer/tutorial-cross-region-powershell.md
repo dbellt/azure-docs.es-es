@@ -7,12 +7,13 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/10/2021
-ms.openlocfilehash: 88e400cea764be84521c003a681aa74885dc29ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0f6ee0323768287ee860becc5d02c85efb32e3fe
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101721351"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110704729"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-azure-powershell"></a>Tutorial: Creación de una instancia de Azure Load Balancer entre regiones mediante Azure PowerShell
 

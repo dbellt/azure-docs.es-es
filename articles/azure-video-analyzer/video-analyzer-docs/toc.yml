@@ -14,8 +14,12 @@
           href: release-notes.md
 - name: Guías de inicio rápido
   items:
-    - name: 'Introducción: Azure Video Analyzer'
-      href: get-started-detect-motion-emit-events.md
+    - name: Introducción a Azure Video Analyzer
+      items:
+        - name: Uso de una plantilla de Resource Manager
+          href: get-started-detect-motion-emit-events.md
+        - name: Uso del Portal
+          href: get-started-detect-motion-emit-events-portal.md
     - name: Extensión de Visual Studio Code de Azure Video Analyzer
       href: create-pipeline-vs-code-extension.md
     - name: Detección de movimiento y emisión de eventos
@@ -69,12 +73,12 @@
   items:
     - name: Canalización
       href: pipeline.md
+    - name: Extensión de canalización
+      href: pipeline-extension.md
     - name: Grabación de vídeo
       href: video-recording.md
     - name: Escenarios
       items:
-        - name: Extensión de canalización
-          href: pipeline-extension.md
         - name: Grabación de vídeo basada en eventos
           href: event-based-video-recording-concept.md
         - name: Grabación de vídeo continua

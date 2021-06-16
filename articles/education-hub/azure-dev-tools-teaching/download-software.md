@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: d556956a4e123d65a5725b56db57b3ce6cbb7aaf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfc16a5bfdb9297f60bced986f17a33ec69f6be9
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92675338"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111888849"
 ---
 # <a name="help-students-download-software-developer-tools-from-the-azure-education-hub"></a>Ayuda a alumnos para descargar herramientas de desarrollo de software desde el Centro de Education de Azure
 
@@ -37,4 +37,4 @@ Pida a los alumnos que sigan este procedimiento para descargar las herramientas 
 - [Azure for Students](azure-students-program.md)
 - [Microsoft Azure for Students Starter](azure-students-starter-program.md)
 - [Microsoft Learn: una plataforma de aprendizaje en línea gratuita](/learn/)
-- [Preguntas más frecuentes](program-faq.md#azure-for-students)
+- [Preguntas más frecuentes](/azure/education-hub/azure-dev-tools-teaching/program-faq#azure-for-students)

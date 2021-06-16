@@ -5,20 +5,20 @@ description: Aprenda a conectarse a Azure SQL Database o Instancia administrada 
 keywords: conexión a sql database
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: connect
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma
 ms.date: 05/29/2020
-ms.openlocfilehash: f823b6d04a217328fe2e825e64906460cd9cbae9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d306fa3c2933b39c336c756bff86e1ad1bca5b7b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92672488"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110704458"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query"></a>Inicio rápido: Uso de Visual Studio Code para conectarse y realizar consultas 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

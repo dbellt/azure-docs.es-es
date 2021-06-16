@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53cdbfb3ba531330c37f86233cbed990da4efaf4
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: c570a7f646f9fc76fcb858748c59f438b46bf033
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258391"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111572143"
 ---
 # <a name="resilient-end-user-experience"></a>Experiencia del usuario final resistente
 
@@ -46,7 +46,7 @@ Consulte el artículo [Comparación de los flujos de usuario y las directivas pe
 
 ## <a name="choose-multiple-idps"></a>Elección de varios IDP
 
-Al usar un [proveedor de identidades externo](../../active-directory-b2c/technical-overview.md#external-identity-providers) como Facebook, asegúrese de que tiene un plan de reserva en caso de que el proveedor externo deje de estar disponible.
+Al usar un [proveedor de identidades externo](../../active-directory-b2c/add-identity-provider.md) como Facebook, asegúrese de que tiene un plan de reserva en caso de que el proveedor externo deje de estar disponible.
 
 ### <a name="how-to-set-up-multiple-idps"></a>Cómo configurar varios IDP
 

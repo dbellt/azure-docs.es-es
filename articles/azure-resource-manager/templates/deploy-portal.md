@@ -3,12 +3,12 @@ title: Implementación de recursos con Azure Portal
 description: Utilice Azure Portal y Azure Resource Manager para implementar los recursos en un grupo de recursos de su suscripción.
 ms.topic: conceptual
 ms.date: 05/05/2021
-ms.openlocfilehash: 6370b628a8dc2d880168dd3c4ea8a7d10a1cd36c
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 718d8be4e51bf41467bea398440b24f98ac1f6e9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108737124"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957900"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Implementación de recursos con plantillas de ARM y Azure Portal
 
@@ -75,7 +75,7 @@ Aunque no lo vio, el portal usó una plantilla de Resource Manager para implemen
 
 ## <a name="deploy-resources-from-custom-template"></a>Implementación de recursos desde plantilla personalizada
 
-Si desea ejecutar una implementación sin usar las plantillas de Marketplace, puede crear una plantilla personalizada que defina la infraestructura para la solución. Para obtener información sobre cómo crear plantillas, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de ARM](template-syntax.md).
+Si desea ejecutar una implementación sin usar las plantillas de Marketplace, puede crear una plantilla personalizada que defina la infraestructura para la solución. Para obtener información sobre cómo crear plantillas, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de ARM](./syntax.md).
 
 > [!NOTE]
 > La interfaz del portal no admite referencias a un [secreto desde Key Vault](key-vault-parameter.md). En su lugar, use [PowerShell](deploy-powershell.md) o la [CLI de Azure](deploy-cli.md) para implementar la plantilla localmente o desde un URI externo.

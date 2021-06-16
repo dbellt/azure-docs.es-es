@@ -1,0 +1,51 @@
+### YamlMime:FAQ
+metadata:
+  title: 'Preguntas frecuentes sobre Azure Security Center: preguntas sobre agentes de Log Analytics existentes'
+  description: En este artículo de preguntas frecuentes se responde a preguntas de los clientes que ya usan el agente de Log Analytics y que se están planteando el empleo de Azure Security Center, un producto que ayuda a evitar amenazas, a detectarlas y a responder a ellas.
+  services: security-center
+  documentationcenter: na
+  author: memildin
+  manager: rkarlin
+  ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
+  ms.service: security-center
+  ms.devlang: na
+  ms.topic: conceptual
+  ms.tgt_pltfrm: na
+  ms.workload: na
+  ms.date: 02/25/2020
+  ms.author: memildin
+  ms.openlocfilehash: 251fffc4915e4fb0a53a1b1f8a6576ae390c69d1
+  ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 06/07/2021
+  ms.locfileid: "111907934"
+title: Preguntas frecuentes para clientes que ya usan registros de Azure Monitor
+summary: ''
+sections:
+- name: Omitido
+  questions:
+  - question: >
+      ¿Invalida Security Center las conexiones existentes entre VM y áreas de trabajo?
+    answer: "Si una VM ya tiene el agente de Log Analytics instalado como una extensión de Azure, Security Center no invalida la conexión de área de trabajo existente. En su lugar, Security Center usa el área de trabajo existente. La máquina virtual se protege siempre que se haya instalado la solución \"Security\" o \"SecurityCenterFree\" en el área de trabajo a la que está notificando. \n\nUna solución de Security Center se instala en el área de trabajo seleccionada en la pantalla Colección de datos si todavía no está presente y la solución solo se aplica a las máquinas virtuales pertinentes. Cuando se agrega una solución, se implementa automáticamente de forma predeterminada en todos los agentes de Windows y Linux conectados al área de trabajo de Log Analytics. La [selección de destino de solución](../azure-monitor/insights/solution-targeting.md) le permite aplicar un ámbito a sus soluciones.\n\n> [!TIP]\n> Si el agente de Log Analytics se instala directamente en la máquina virtual (no como una extensión de Azure), Security Center no lo instala y la supervisión de seguridad estará limitada.\n"
+  - question: >
+      ¿Instala Security Center soluciones en mis áreas de trabajo de Log Analytics existentes? ¿Qué implica desde el punto de vista de la facturación?
+    answer: >
+      Cuando Security Center identifica que una VM ya está conectada a un área de trabajo creada por el usuario, habilita las soluciones en esta área de trabajo según la configuración de precios. Las soluciones se aplican solo a las VM de Azure pertinentes a través de la [selección de destino de solución](../azure-monitor/insights/solution-targeting.md), por lo que la facturación sigue siendo la misma.
+
+
+      - **Azure Defender desactivado**: Security Center instala la solución “SecurityCenterFree” en el área de trabajo. No se le facturará.
+
+      - **Azure Defender activado**: Security Center instala la solución “Security” en el área de trabajo.
+
+         ![Soluciones del área de trabajo predeterminada](./media/security-center-platform-migration-faq/solutions.png)
+  - question: >
+      Ya tengo áreas de trabajo en mi entorno, ¿puedo utilizarlas para recopilar datos de seguridad?
+    answer: >
+      Si una VM ya tiene el agente de Log Analytics instalado como una extensión de Azure, Security Center usa el área de trabajo conectada existente. Una solución de Security Center se instala en el área de trabajo si todavía no está presente y la solución solo se aplica a VM relevantes mediante la [selección de destino de solución](../azure-monitor/insights/solution-targeting.md).
+
+
+      Cuando Security Center instala el agente de Log Analytics en las máquinas virtuales, usa los espacios de trabajo predeterminados creados por Security Center si este no apunta a un área de trabajo ya existente.
+  - question: >
+      Ya tengo una solución de seguridad en mis áreas de trabajo. ¿Qué implica desde el punto de vista de la facturación?
+    answer: La solución Seguridad y auditoría se usa para habilitar **Azure defender para servidores**. Si la solución Seguridad y auditoría ya está instalada en un área de trabajo, Security Center utiliza la solución existente. No hay ningún cambio en la facturación.

@@ -6,16 +6,16 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 52b5bd0650b3a069adc3ef7f101c48a4674deaab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1006f29544bf2708277c6b5a975836a31bcdeff9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97107114"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959279"
 ---
 # <a name="tutorial-add-template-functions-to-your-arm-template"></a>Tutorial: Adición de funciones de plantilla a una plantilla de Resource Manager
 
-En este tutorial, aprenderá a agregar [funciones de plantilla](template-functions.md) a la plantilla de Resource Manager (ARM). Las funciones se usan para construir valores de forma dinámica. Además de estas funciones de plantilla proporcionadas por el sistema, también puede crear [funciones definidas por el usuario](./template-user-defined-functions.md). Este tutorial se realiza en **7 minutos**.
+En este tutorial, aprenderá a agregar [funciones de plantilla](template-functions.md) a la plantilla de Resource Manager (ARM). Las funciones se usan para construir valores de forma dinámica. Además de estas funciones de plantilla proporcionadas por el sistema, también puede crear [funciones definidas por el usuario](./user-defined-functions.md). Este tutorial se realiza en **7 minutos**.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

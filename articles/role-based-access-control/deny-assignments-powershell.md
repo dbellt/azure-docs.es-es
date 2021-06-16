@@ -13,12 +13,13 @@ ms.workload: identity
 ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6cf379b051ba42be2d7df7d288f07cdc2a0002a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ab180dcbf12b43a3bd60a88767169877be5e7e2f
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94657642"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110696551"
 ---
 # <a name="list-azure-deny-assignments-using-azure-powershell"></a>Enumeración de asignaciones de denegación de Azure mediante Azure PowerShell
 

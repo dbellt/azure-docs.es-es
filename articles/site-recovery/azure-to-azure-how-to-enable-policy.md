@@ -6,16 +6,16 @@ ms.author: rishjai
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 3fe6ec7baba3e075f5c5026732b10fab81f3bd42
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 7707fb0688a10c1791556f0605b40cacc54b5a85
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749382"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111961028"
 ---
 # <a name="using-policy-with-azure-site-recovery-public-preview"></a>Uso de Azure Policy con Azure Site Recovery (versión preliminar pública)
 
-En este artículo se describe cómo configurar [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) para los recursos mediante Azure Policy. [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) ayuda a aplicar ciertas reglas de negocio a los recursos de Azure y a evaluar el cumplimiento de esos recursos.
+En este artículo se describe cómo configurar [Azure Site Recovery](./site-recovery-overview.md) para los recursos mediante Azure Policy. [Azure Policy](../governance/policy/overview.md) ayuda a aplicar ciertas reglas de negocio a los recursos de Azure y a evaluar el cumplimiento de esos recursos.
 
 ## <a name="disaster-recovery-with-azure-policy"></a>Recuperación ante desastres con Azure Policy
 Site Recovery ayuda a mantener las aplicaciones en funcionamiento en caso de interrupciones zonales o regionales planeadas o no planeadas. Habilitar Site Recovery en las máquinas a gran escala mediante Azure Portal puede ser complicado. Ahora, tiene la manera de hacerlo en masa en grupos de recursos específicos (_ámbito_ de la directiva) mediante el portal.
@@ -27,8 +27,8 @@ Azure Policy soluciona este problema. Una vez que haya creado una directiva de r
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Conozca cómo asignar una directiva [aquí](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal).
-- Aprenda más sobre la arquitectura de Azure para la recuperación ante desastres de Azure [aquí](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture).
+- Conozca cómo asignar una directiva [aquí](../governance/policy/assign-policy-portal.md).
+- Aprenda más sobre la arquitectura de Azure para la recuperación ante desastres de Azure [aquí](./azure-to-azure-architecture.md).
 - Revise la matriz de compatibilidad de Azure Policy con Azure Site Recovery:
 
 **Escenario** | **Declaración de compatibilidad**
@@ -93,7 +93,7 @@ Se dispone a crear una directiva para habilitar Azure Site Recovery. Ahora vamos
 ## <a name="remediation-and-other-properties"></a>Corrección y otras propiedades
 1. Las propiedades de destino de Azure Site Recovery se han configurado. Sin embargo, esta directiva solo tendrá efecto en las máquinas virtuales recién creadas en el ámbito de la directiva. Se puede aplicar a los recursos existentes mediante una tarea de corrección una vez asignada la directiva. Puede crear una tarea de corrección aquí activando la casilla _Crear una tarea de corrección_.
 
-1. Azure Policy creará una [identidad administrada](https://aka.ms/arm-policy-identity) que tendrá permisos de propietario para habilitar Azure Site Recovery en los recursos del ámbito.
+1. Azure Policy creará una [identidad administrada](../governance/policy/how-to/remediate-resources.md) que tendrá permisos de propietario para habilitar Azure Site Recovery en los recursos del ámbito.
 
 1. Puede configurar un mensaje personalizado de no cumplimiento para la directiva en la pestaña _Non-compliance messages_ (Mensajes de no cumplimiento).
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: d5a8fe4192c3778e259ed18239a4198398d8807b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74410025e148eb60438a020164837dac486d2ad3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94836842"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954998"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Referencia de la guía de operaciones generales de Azure Active Directory
 
@@ -70,7 +70,7 @@ A menos que se haya establecido uno, debe definir un proceso para actualizar est
 #### <a name="hybrid-management-recommended-reading"></a>Lectura recomendada de administración híbrida
 
 - [Azure AD Connect: actualización automática](../hybrid/how-to-connect-install-automatic-upgrade.md)
-- [Descripción de los conectores de Azure AD Application Proxy | Actualizaciones automáticas](../manage-apps/application-proxy-connectors.md#automatic-updates)
+- [Descripción de los conectores de Azure AD Application Proxy | Actualizaciones automáticas](../app-proxy/application-proxy-connectors.md#automatic-updates)
 
 ### <a name="azure-ad-connect-health-alert-baseline"></a>Línea de base de las alertas de Azure AD Connect Health
 
@@ -90,9 +90,9 @@ Algunos servicios de administración de identidades y acceso requieren agentes l
 
 #### <a name="on-premises-agents-logs-recommended-reading"></a>Lectura recomendada de registros de agentes locales
 
-- [Solucionar problemas de Proxy de aplicación](../manage-apps/application-proxy-troubleshoot.md)
+- [Solucionar problemas de Proxy de aplicación](../app-proxy/application-proxy-troubleshoot.md)
 - [Solución de problemas del autoservicio de restablecimiento de contraseña: Azure Active Directory](../authentication/troubleshoot-sspr.md)
-- [Descripción de los conectores del Proxy de aplicación de Azure AD](../manage-apps/application-proxy-connectors.md)
+- [Descripción de los conectores del Proxy de aplicación de Azure AD](../app-proxy/application-proxy-connectors.md)
 - [Azure AD Connect: Solución de problemas de autenticación de paso a través](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
 - [Solución de problemas de códigos de error para la extensión de NPS de Azure AD MFA](../authentication/howto-mfa-nps-extension-errors.md)
 
@@ -106,7 +106,7 @@ La adopción de procedimientos recomendados puede ayudarle a optimizar el funcio
 
 #### <a name="on-premises-agents-management-recommended-reading"></a>Lectura recomendada para la administración de agentes locales
 
-- [Descripción de los conectores del Proxy de aplicación de Azure AD](../manage-apps/application-proxy-connectors.md)
+- [Descripción de los conectores del Proxy de aplicación de Azure AD](../app-proxy/application-proxy-connectors.md)
 - [Autenticación de paso a través de Azure AD: inicio rápido](../hybrid/how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)
 
 ## <a name="management-at-scale"></a>Administración a escala

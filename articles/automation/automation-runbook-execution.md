@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 04/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a0c734d7717f157ba062b1c9369be5dd95be03af
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 5fcef44fed77b01e069129a160299f547340c346
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278477"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964557"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Ejecución de un runbook en Azure Automation
 
@@ -53,7 +53,7 @@ En la tabla siguiente se enumeran algunas tareas de ejecución de runbooks con e
 |Ejecución de script de ejecución prolongada|Hybrid Runbook Worker|Los espacios aislados de Azure tienen [límites de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
 |Interacción con servicios locales|Hybrid Runbook Worker|Acceda directamente a la máquina host, a los recursos de otros entornos en la nube o en el entorno local. |
 |Requerimiento de software de terceros y archivos ejecutables|Hybrid Runbook Worker|Usted administra el sistema operativo y puede instalar el software.|
-|Supervisar un archivo o carpeta con un runbook|Hybrid Runbook Worker|Use una [tarea del Monitor](automation-watchers-tutorial.md) en una instancia de Hybrid Runbook Worker.|
+|Supervisar un archivo o carpeta con un runbook|Hybrid Runbook Worker|Use una [tarea del Monitor](./automation-scenario-using-watcher-task.md) en una instancia de Hybrid Runbook Worker.|
 |Ejecución de un script con un uso intensivo de recursos|Hybrid Runbook Worker| Los espacios aislados de Azure tienen [límites de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
 |Uso de módulos con requisitos específicos| Hybrid Runbook Worker|Ejemplos:</br> WinSCP: dependencia de winscp.exe </br> Administración de IIS: dependencia de la habilitación o administración de IIS|
 |Instalación de un módulo con un instalador|Hybrid Runbook Worker|Los módulos para espacios aislados deben admitir copias.|
@@ -145,7 +145,7 @@ Los trabajos que se ejecutan en el mismo proceso de espacio aislado pueden afect
 
 En la tabla siguiente se describen los estados posibles para un trabajo. Puede ver un resumen del estado de todos los trabajos del runbook o profundizar en los detalles de un trabajo específico del runbook en Azure Portal. También puede configurar la integración con el área de trabajo de Log Analytics para reenviar flujos de trabajos y el estado del trabajo del runbook. Para más información sobre la integración con los registros de Azure Monitor, consulte [Reenvío del estado del trabajo y flujos de trabajo de Automation a los registros de Azure Monitor](automation-manage-send-joblogs-log-analytics.md). Consulte también [Obtención de estados del trabajo](manage-runbooks.md#obtain-job-statuses) para ver un ejemplo de cómo trabajar con estados en un runbook.
 
-| Status | Descripción |
+| Estado | Descripción |
 |:--- |:--- |
 | En activación |El trabajo se está activando. |
 | Completed |El trabajo se completó correctamente. |
