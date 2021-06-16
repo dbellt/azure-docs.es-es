@@ -4,12 +4,12 @@ description: Describe los proveedores de recursos compatibles con Azure Resource
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: d5936e1e4c80869495d5b71023e26264dc9a2cde
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: d33debc8a7cfd72e919f7e93e1af50a653fa651e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319204"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968274"
 ---
 # <a name="azure-resource-providers-and-types"></a>Tipos y proveedores de recursos de Azure
 
@@ -315,7 +315,7 @@ West US
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](../templates/template-syntax.md). 
+* Para obtener más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](../templates/syntax.md). 
 * Para ver los esquemas de plantilla de proveedor de recursos, consulte [Referencia de plantilla](/azure/templates/).
 * Para obtener una lista que asigna proveedores de recursos con servicios de Azure, consulte [Proveedores de recursos para servicios de Azure](azure-services-resource-providers.md).
 * Para ver las operaciones de un proveedor de recursos, consulte [API de REST de Azure](/rest/api/).

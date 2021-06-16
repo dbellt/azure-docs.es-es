@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/20/2021
 ms.author: mathapli
-ms.openlocfilehash: afbdd490a429c86f1842b83fb62c3ce6a023a0ed
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 71d585d16f4026ac605e7a61e64af89df806fed8
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108750952"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950040"
 ---
 # <a name="azure-hybrid-benefit-for-linux-virtual-machine-scale-set"></a>Ventaja híbrida de Azure para conjuntos de escalado de máquinas virtuales de Linux
 
-La **Ventaja híbrida de Azure para conjuntos de escalado de máquinas virtuales Linux se encuentra ya en disponibilidad general**. La ventaja de AHB puede ayudarle a reducir el costo que supone la ejecución de los [conjuntos de escalado de máquinas virtuales](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) de RHEL y SLES.
+La **Ventaja híbrida de Azure para conjuntos de escalado de máquinas virtuales Linux se encuentra ya en disponibilidad general**. La ventaja de AHB puede ayudarle a reducir el costo que supone la ejecución de los [conjuntos de escalado de máquinas virtuales](./overview.md) de RHEL y SLES.
 
 Con esta ventaja, solo paga por el costo de la infraestructura del conjunto de escalado. La ventaja está disponible para todas las imágenes de pago por uso (PAYG) de Marketplace de RHEL y SLES.
 

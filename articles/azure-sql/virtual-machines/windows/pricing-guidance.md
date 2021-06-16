@@ -16,12 +16,12 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d980b92bc4effc58ef84ef6ec70c3908f575e484
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 05883b3016ac3c8a8d26bfc02fea38e3adb2675a
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102615608"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079758"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Orientación de precios de SQL Server en máquinas virtuales de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -100,7 +100,7 @@ Para crear una máquina virtual de Azure que ejecute SQL Server 2017 con alguna 
 **Traiga su propia licencia de SQL Server a través de License Mobility**, que también se conoce como **BYOL**, consiste en usar una licencia por volumen existente de SQL Server con Software Assurance en una máquina virtual de Azure. Si se trata de una máquina virtual con SQL Server con licencia BYOL, solo se carga el costo de la ejecución de la máquina virtual, no el relativo a la licencia de SQL Server, puesto que ya ha adquirido licencias y Software Assurance a través de un programa de licencias por volumen o de un asociado de soluciones en la nube (CSP).
 
 > [!NOTE]
-> Actualmente, las imágenes BYOL solo están disponibles para máquinas virtuales de Windows. Sin embargo, puede instalar manualmente SQL Server en una máquina virtual con solo Linux. Consulte las instrucciones de [Preguntas más frecuentes para SQL Server en máquinas virtuales Linux](../linux/frequently-asked-questions-faq.md).
+> Actualmente, las imágenes BYOL solo están disponibles para máquinas virtuales de Windows. Sin embargo, puede instalar manualmente SQL Server en una máquina virtual con solo Linux. Consulte las instrucciones de [Preguntas más frecuentes para SQL Server en máquinas virtuales Linux](../linux/frequently-asked-questions-faq.yml).
 
 Se recomienda traer su propia licencia de SQL Server a través de la Movilidad de licencias:
 

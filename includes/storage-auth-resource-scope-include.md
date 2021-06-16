@@ -4,14 +4,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 02/10/2021
+ms.date: 06/07/2021
 ms.author: tamram
-ms.openlocfilehash: 483f5853c321eee4ac6d10543f0e360a0a5e54b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32f2d1a5533c48b3b7c78d9e66b08cafdde09a8f
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100373764"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901907"
 ---
 Antes de asignar un rol de Azure RBAC a una entidad de seguridad, determine el ámbito de acceso que debería tener la entidad de seguridad. Los procedimientos recomendados dictan que siempre es mejor conceder únicamente el ámbito más restringido posible. Los roles de Azure RBAC definidos en un ámbito más amplio los heredan los recursos que están debajo de ellos.
 

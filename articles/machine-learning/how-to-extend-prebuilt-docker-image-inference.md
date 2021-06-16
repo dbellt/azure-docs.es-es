@@ -11,12 +11,12 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: 2c410d6c310c8f9b0c50ff0073f4dda9a35c8f9c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: b84255a4148322f9aa1b5c0d59eb220c2555102f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382925"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967615"
 ---
 # <a name="extend-a-prebuilt-docker-image-preview"></a>Extensión de una imagen de Docker precompilada (versión preliminar)
 
@@ -61,7 +61,7 @@ docker build -f <above dockerfile> -t <image_name>:<tag> .
 > [!TIP]
 > Se puede encontrar más información acerca de `docker build` en la [documentación de Docker](https://docs.docker.com/engine/reference/commandline/build/).
 
-Si el comando `docker build` no está disponible localmente, use Azure Container Registry (ACR) para que el área de trabajo de Azure Machine Learning compile la imagen de Docker en la nube. Para más información, consulte [Tutorial: Compilación e implementación de imágenes de contenedor con Azure Container Registry](/azure/container-registry/container-registry-tutorial-quick-task).
+Si el comando `docker build` no está disponible localmente, use Azure Container Registry (ACR) para que el área de trabajo de Azure Machine Learning compile la imagen de Docker en la nube. Para más información, consulte [Tutorial: Compilación e implementación de imágenes de contenedor con Azure Container Registry](../container-registry/container-registry-tutorial-quick-task.md).
 
 > [!IMPORTANT]
 > Microsoft recomienda que primero valide que el Dockerfile funciona localmente antes de intentar crear una imagen base personalizada mediante Azure Container Registry.

@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.openlocfilehash: 5f7617fdfea68c8005c8a33ec782edc2bbe01f4b
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 2da5a39710e7bbce2e610ef7850b9284bc5c4309
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107930789"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111441476"
 ---
 # <a name="azure-cognitive-search-performance-benchmarks"></a>Puntos de referencia de rendimiento de Azure Cognitive Search
 
@@ -22,7 +22,7 @@ El rendimiento de Azure Cognitive Search depende de [diversos factores,](search-
 Para cubrir una variedad de casos de uso diferentes, hemos realizado puntos de referencia para dos escenarios principales:
 
 * **Búsqueda de comercio electrónico:** este punto de referencia emula un escenario real de comercio electrónico y se basa en la empresa de comercio electrónico escandinava [CDON](https://cdon.com).
-* **Búsqueda de documentos:** este escenario se compone de una búsqueda de palabras clave en documentos de texto completo de [Semantic Scholar](http://s2-public-api-prod.us-west-2.elasticbeanstalk.com/corpus/download/). Esto emula una solución de búsqueda de documentos típica.
+* **Búsqueda de documentos:** este escenario se compone de una búsqueda de palabras clave en documentos de texto completo de [Semantic Scholar](https://www.aclweb.org/anthology/2020.acl-main.447/). Esto emula una solución de búsqueda de documentos típica.
 
 Aunque estos escenarios reflejan distintos casos de uso, cada escenario es diferente, por lo que siempre se recomienda realizar pruebas de rendimiento de la carga de trabajo individual. Publicamos una [solución de pruebas de rendimiento con JMeter](https://github.com/Azure-Samples/azure-search-performance-testing) para que pueda ejecutar pruebas similares en su propio servicio.
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 4/29/2021
 ms.author: rambala
-ms.openlocfilehash: 719b68998cfc70f1075448e4c688d83f0f31a0b5
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 6e6b543741a27b7a99ef447e7e34fbec803403db
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517569"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970505"
 ---
 # <a name="using-expressroute-for-routing-microsoft-365-traffic"></a>Uso de ExpressRoute para el enrutamiento de tráfico de Microsoft 365
 
@@ -81,11 +81,11 @@ Mientras usa ExpressRoute, puede aplicar el filtro de ruta asociado al emparejam
 * Para establecer la línea de base y el historial de rendimiento para ayudar a detectar problemas emergentes de rendimiento de Microsoft 365, consulte [Ajuste del rendimiento de Office 365 mediante líneas de base y el historial de rendimiento][Microsoft 365perf].
 
 <!--Link References-->
-[ExR-Intro]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction 
-[CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
+[ExR-Intro]: ./expressroute-introduction.md
+[CreatePeering]: ./expressroute-howto-routing-portal-resource-manager.md
 [MGN]: https://azure.microsoft.com/blog/how-microsoft-builds-its-fast-and-reliable-global-network/
-[AFD]: https://docs.microsoft.com/azure/frontdoor/front-door-overview
-[ExRRF]: https://docs.microsoft.com/azure/expressroute/how-to-routefilter-portal
-[Teams]: https://docs.microsoft.com/microsoftteams/microsoft-teams-online-call-flows
+[AFD]: ../frontdoor/front-door-overview.md
+[ExRRF]: ./how-to-routefilter-portal.md
+[Teams]: /microsoftteams/microsoft-teams-online-call-flows
 [Microsoft 365-Test]: https://connectivity.office.com/
 [Microsoft 365perf]: /microsoft-365/enterprise/performance-tuning-using-baselines-and-history

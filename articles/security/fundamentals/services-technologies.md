@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 5914d5a54606f49f6fbd809a17e2b47375b58dcd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3d2c8f16e340b0b8eca30dd8a67010020b6362df
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641969"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950428"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Servicios y tecnologías de seguridad disponibles en Azure
 
@@ -89,7 +89,7 @@ Con el tiempo, esta lista cambiará y aumentará, igual que lo hace Azure. Aseg�
 | [Equilibrador de carga de Azure](../../load-balancer/load-balancer-overview.md)|Equilibrador de carga de red para aplicaciones TCP/UDP. |
 | [Información técnica de ExpressRoute](../../expressroute/expressroute-introduction.md)| Vínculo WAN dedicado entre las redes locales y las redes virtuales de Azure. |
 | [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)| Equilibrador de carga de DNS global.|
-| [Habilitación del proxy de la aplicación de Azure AD](../../active-directory/manage-apps/application-proxy.md)| Servidor front-end de autenticación usado para proteger el acceso remoto a las aplicaciones web hospedadas en los entornos locales. |
+| [Habilitación del proxy de la aplicación de Azure AD](../../active-directory/app-proxy/application-proxy.md)| Servidor front-end de autenticación usado para proteger el acceso remoto a las aplicaciones web hospedadas en los entornos locales. |
 |[Azure Firewall](../../firewall/overview.md)|Se trata de un servicio de seguridad de red administrado y basado en la nube que protege los recursos de Azure Virtual Network.|
 |[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md)|Junto con los procedimientos recomendados de diseño de aplicaciones, constituyen una defensa frente a los ataques DDoS.|
 |[Puntos de conexión de servicio de red virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)|Estos extienden el espacio de direcciones privadas de la red virtual y la identidad de la red virtual a los servicios de Azure mediante una conexión directa.|
