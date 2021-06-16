@@ -9,15 +9,13 @@ ms.date: 08/04/2020
 ms.lastreviewed: 05/15/2020
 ms.topic: quickstart
 ms.service: notification-hubs
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: a887821cf468fd0cd5cd3b8a5a044466d1e130c4
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
+ms.openlocfilehash: 8eb065d301bf1515aaf1f7158682c71db77f632b
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279485"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111889209"
 ---
 # <a name="quickstart-create-a-notification-hub-using-an-arm-template"></a>Inicio rápido: Creación de un centro de notificaciones mediante una plantilla de Resource Manager
 
@@ -37,7 +35,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-notification-hub/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/notification-hub/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.notificationhubs/notification-hub/azuredeploy.json":::
 
@@ -70,7 +68,7 @@ az notification-hub namespace show --resource-group ContosoNotificationsGroup --
 
 ---
 The output looks similar to: null
-:::image type="content" source="media/create-notification-hub-template/verify-deploy.png" alt-text="Verify deployment"::: null
+':::image type="content" source="media/create-notification-hub-template/verify-deploy.png" alt-text="Verify deployment"::': null
 ---
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

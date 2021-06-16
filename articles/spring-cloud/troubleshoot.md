@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: f08b9db58ee0e4ec7711afb95085ef27fa5db13c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 13f61378b16f41d80b5622a41a55c103247b381b
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132546"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968994"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Solución de problemas comunes de Azure Spring Cloud
 
@@ -115,7 +115,7 @@ Pero si intenta configurar la instancia de servicio de Azure Spring Cloud median
 * Que se ha creado el grupo de recursos de la instancia.
 * Que el nombre del recurso se ajusta a la regla de nomenclatura Solo debe contener minúsculas, números y guiones. El primer carácter debe ser una letra. El último carácter debe ser una letra o un número. El valor tiene que contener entre 2 y 32 caracteres.
 
-Si desea configurar la instancia de servicio de Azure Spring Cloud mediante la plantilla de Resource Manager, consulte primero [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
+Si desea configurar la instancia de servicio de Azure Spring Cloud mediante la plantilla de Resource Manager, consulte primero [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/syntax.md).
 
 El nombre de la instancia de servicio de Azure Spring Cloud se usará para solicitar un nombre de subdominio en `azureapps.io`, por lo que se producirá un error en la configuración si el nombre entra en conflicto con uno existente. Puede encontrar más detalles en los registros de actividad.
 

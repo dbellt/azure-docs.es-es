@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: e7d206b63d6e1bf741a5dc298dd5bbc2d48ab11b
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 9b898ea6c12b79035d2a9e968f38d7b202f19ddc
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107368536"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111747642"
 ---
 # <a name="azure-cosmos-db-apache-spark-3-oltp-connector-for-core-sql-api-preview-release-notes-and-resources"></a>Conector OLTP de Azure Cosmos DB Apache Spark 3 para Core (SQL API) (versión preliminar): notas de la versión y recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,13 +25,13 @@ ms.locfileid: "107368536"
 > * [SDK de .NET Core v2](sql-api-sdk-dotnet-core.md)
 > * [SDK de fuente de cambios de .NET, versión 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [SDK de Java v4](sql-api-sdk-java-v4.md)
+> * [SDK para Java v4](sql-api-sdk-java-v4.md)
 > * [Versión 2 del SDK de Java asincrónico](sql-api-sdk-async-java.md)
 > * [SDK de Java v2 sincrónico](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Conector OLTP de Spark 3](sql-api-sdk-java-spark-v3.md)
-> * [Conector OLTP de Spark 2](sql-api-sdk-java-spark.md)
+> * [Conector Spark 3 OLTP](sql-api-sdk-java-spark-v3.md)
+> * [Conector Spark 2 OLTP](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Proveedor de recursos de REST](/rest/api/cosmos-db-resource-provider/)
@@ -50,9 +50,9 @@ El **conector OLPT de Azure Cosmos DB Spark 3 (versión preliminar)** proporci
 
 ## <a name="documentation"></a>Documentación
 
-- [Introducción](https://github.com/Azure/azure-sdk-for-java/blob/feature/cosmos/spark30/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/quick-start.md)
-- [API de catálogo](https://github.com/Azure/azure-sdk-for-java/blob/feature/cosmos/spark30/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/catalog-api.md)
-- [Referencia de parámetros de configuración](https://github.com/Azure/azure-sdk-for-java/blob/feature/cosmos/spark30/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/configuration-reference.md)
+- [Introducción](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/quick-start.md)
+- [API de catálogo](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/catalog-api.md)
+- [Referencia de parámetros de configuración](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/configuration-reference.md)
 
 
 ## <a name="version-compatibility"></a>Compatibilidad de versiones

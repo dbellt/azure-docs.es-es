@@ -11,16 +11,16 @@ ms.topic: troubleshooting
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 3c5dce26a8c1274e68bb1d6cbc497852b86a3821
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 1e46bb0fad37e1a6da3676578f6cd92af912cb3f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108186750"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963901"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Solución de problemas y mensajes de error de Proxy de aplicación
 
-Al solucionar problemas de Application Proxy, se recomienda comenzar por revisar el flujo de solución de problemas, [Depuración de problemas del conector de proxy de aplicación](../manage-apps/application-proxy-debug-connectors.md), para determinar si los conectores de Application Proxy están configurados correctamente. Si sigue teniendo problemas para conectarse a la aplicación, siga el flujo de solución de problemas en el artículo sobre la [depuración de problemas de aplicación de Application Proxy](../manage-apps/application-proxy-debug-apps.md).
+Al solucionar problemas de Application Proxy, se recomienda comenzar por revisar el flujo de solución de problemas, [Depuración de problemas del conector de proxy de aplicación](./application-proxy-debug-connectors.md), para determinar si los conectores de Application Proxy están configurados correctamente. Si sigue teniendo problemas para conectarse a la aplicación, siga el flujo de solución de problemas en el artículo sobre la [depuración de problemas de aplicación de Application Proxy](./application-proxy-debug-apps.md).
 
 Si se producen errores al obtener acceso a una aplicación publicada o al publicar aplicaciones, compruebe las siguientes opciones para ver si Proxy de aplicación de Microsoft Azure AD funciona correctamente:
 
@@ -78,7 +78,7 @@ En esta lista se muestran los errores que los usuarios finales pueden encontrar 
 | No se puede tener acceso a esta aplicación corporativa. No está autorizado para tener acceso a esta aplicación. Error de autorización. Asegúrese de asignar el usuario con acceso a esta aplicación. | El usuario puede recibir este error al intentar acceder a la aplicación que publicó si para iniciar sesión usa cuentas de Microsoft, en lugar de su cuenta corporativa. Los usuarios invitados también pueden recibir este error. Los usuarios y los invitados de la Cuenta Microsoft no pueden tener acceso a aplicaciones IWA. Asegúrese de que el usuario inicia sesión con la cuenta corporativa que coincide con el dominio de la aplicación publicada.<br><br>Puede que no haya asignado el usuario para esta aplicación. Vaya a la pestaña **Aplicación** y, en **Usuarios y grupos**, asigne este usuario o grupo de usuarios a esta aplicación. |
 | No se puede tener acceso a esta aplicación corporativa en este momento. Inténtelo de nuevo más tarde... Se agotó el tiempo de espera del conector. | El usuario puede recibir este error al intentar acceder a la aplicación que publicó si no está definido correctamente para esta aplicación a nivel local. Asegúrese de que los usuarios tengan los permisos adecuados definidos para esta aplicación back-end en el equipo local. |
 | No se puede tener acceso a esta aplicación corporativa. No está autorizado para tener acceso a esta aplicación. Error de autorización. Asegúrese de que el usuario tiene una licencia de Azure Active Directory Premium. | Es posible que el usuario reciba este error al intentar acceder a la aplicación que publicó si el administrador del suscriptor no les asignó explícitamente una licencia Premium. Vaya a la pestaña **Licencias** de Active Directory del suscriptor y asegúrese de que se asigne a este usuario o grupo de usuarios una licencia Premium. |
-| No se encontró un servidor con el nombre de host especificado. | Es posible que el usuario reciba este error al intentar acceder a la aplicación que publicó si el dominio personalizado de la aplicación no está configurado correctamente. Asegúrese de haber cargado un certificado para el dominio y haber configurado correctamente el registro DNS siguiendo los pasos descritos en [Uso de dominios personalizados en el proxy de la aplicación de Azure AD](../manage-apps/application-proxy-configure-custom-domain.md) |
+| No se encontró un servidor con el nombre de host especificado. | Es posible que el usuario reciba este error al intentar acceder a la aplicación que publicó si el dominio personalizado de la aplicación no está configurado correctamente. Asegúrese de haber cargado un certificado para el dominio y haber configurado correctamente el registro DNS siguiendo los pasos descritos en [Uso de dominios personalizados en el proxy de la aplicación de Azure AD](./application-proxy-configure-custom-domain.md) |
 |Prohibido: This corporate app can't be accessed OR The user could not be authorized. Make sure the user is defined in your on-premises AD and that the user has access to the app in your on-premises AD (Prohibido: No se puede acceder a esta aplicación corporativa o no se pudo autorizar al usuario. Asegúrese de que el usuario está definido en la instancia de AD local y de que tenga acceso a la aplicación en dicha instancia). | Podría haber un problema con el acceso a la información de autorización. Consulte [Algunas aplicaciones y API requieren acceso a información de autorización en los objetos de cuenta]( https://support.microsoft.com/help/331951/some-applications-and-apis-require-access-to-authorization-information). En resumen, agregue la cuenta de máquina del conector del proxy de aplicación al grupo de dominio integrado "Grupo de acceso de autorización de Windows" para resolverlo. |
 
 ## <a name="my-error-wasnt-listed-here"></a>Mi error no aparece aquí.
@@ -89,7 +89,7 @@ Si se produce un error o un problema con el Proxy de aplicación de Azure AD que
 * [Habilitación del proxy de aplicación de Azure Active Directory](application-proxy-add-on-premises-application.md)
 * [Publicar aplicaciones con Proxy de aplicación](application-proxy-add-on-premises-application.md)
 * [Habilitar el inicio de sesión único](application-proxy-configure-single-sign-on-with-kcd.md)
-* [Habilitar el acceso condicional](../manage-apps/application-proxy-integrate-with-sharepoint-server.md)
+* [Habilitar el acceso condicional](./application-proxy-integrate-with-sharepoint-server.md)
 
 
 <!--Image references-->

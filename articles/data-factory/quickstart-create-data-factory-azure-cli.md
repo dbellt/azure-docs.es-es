@@ -9,12 +9,12 @@ ms.date: 03/24/2021
 ms.custom:
 - template-quickstart
 - devx-track-azurecli
-ms.openlocfilehash: b40407f4c4fb81bbf76bd0b552f3c9f2c827232a
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: c9f4b46553a119bfb7b8b639e6a28e95a2be5999
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107871542"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750847"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-azure-cli"></a>Inicio rápido: Creación de una instancia de Azure Data Factory con la CLI de Azure
 
@@ -73,7 +73,7 @@ En esta guía de inicio rápido se usa una cuenta de Azure Storage, que incluye 
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
-Para crear una factoría de datos de Azure, ejecute el comando [az datafactory factory create](/cli/azure/datafactory/factory#az_datafactory_factory_create):
+Para crear una factoría de datos de Azure, ejecute el comando [az datafactory factory create](/cli/azure/datafactory#az_datafactory_create):
 
 ```azurecli
 az datafactory factory create --resource-group ADFQuickStartRG \
@@ -83,7 +83,7 @@ az datafactory factory create --resource-group ADFQuickStartRG \
 > [!IMPORTANT]
 > Reemplace `ADFTutorialFactory` por un nombre único global para la factoría de datos, por ejemplo, ADFTutorialFactorySP1127.
 
-Puede ver la factoría de datos que ha creado con el comando [az datafactory factory show](/cli/azure/datafactory/factory#az_datafactory_factory_show):
+Puede ver la factoría de datos que ha creado con el comando [az datafactory factory show](/cli/azure/datafactory#az_datafactory_factory_show):
 
 ```azurecli
 az datafactory factory show --resource-group ADFQuickStartRG \
@@ -94,7 +94,7 @@ az datafactory factory show --resource-group ADFQuickStartRG \
 
 A continuación, cree un servicio vinculado y dos conjuntos de datos.
 
-1. Obtenga la cadena de conexión de la cuenta de almacenamiento mediante el comando [az storage account show-connection-string](/cli/azure/datafactory/factory#az_datafactory_factory_show):
+1. Obtenga la cadena de conexión de la cuenta de almacenamiento mediante el comando [az storage account show-connection-string](/cli/azure/datafactory#az_datafactory_factory_show):
 
    ```azurecli
    az storage account show-connection-string --resource-group ADFQuickStartRG \

@@ -3,12 +3,12 @@ title: Información general de la disponibilidad de Application Insights
 description: Configure pruebas web periódicas para supervisar la disponibilidad y la capacidad de respuesta de la aplicación o el sitio web.
 ms.topic: conceptual
 ms.date: 05/04/2021
-ms.openlocfilehash: 4e0cbcec2773186feb38f26720d40c03e5817b7f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 94fe55a5bce0e915a092fd32ad5acf6936d59e61
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742614"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967014"
 ---
 # <a name="availability-tests-overview"></a>Introducción a las pruebas de disponibilidad
 
@@ -39,4 +39,4 @@ Hay tres tipos de pruebas de disponibilidad:
 * [Pruebas web de varios pasos](availability-multistep.md)
 * [Pruebas de direcciones URL](monitor-web-app-availability.md)
 * [Creación y ejecución de pruebas de disponibilidad personalizadas mediante Azure Functions.](availability-azure-functions.md)
-* [Plantilla de Azure Resource Manager para pruebas web](https://docs.microsoft.com/azure/templates/microsoft.insights/webtests?tabs=json)
+* [Plantilla de Azure Resource Manager para pruebas web](/azure/templates/microsoft.insights/webtests?tabs=json)

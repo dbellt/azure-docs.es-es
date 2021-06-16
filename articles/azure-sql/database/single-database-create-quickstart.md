@@ -3,20 +3,20 @@ title: Crear una base de datos única
 description: Cree una base de datos única en Azure SQL Database con Azure Portal, PowerShell o la CLI de Azure.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
-ms.custom: contperf-fy21q1, devx-track-azurecli
+ms.subservice: deployment-configuration
+ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: ''
 ms.date: 01/27/2021
-ms.openlocfilehash: c0e86cad252da1b5484944c12351d4ee1e39edbe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 51c7f4fe8a82e1960e51312d8d806cbff5ba0a0c
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101656318"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110693082"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Inicio rápido: Creación de una base de datos única de Azure SQL Database
 

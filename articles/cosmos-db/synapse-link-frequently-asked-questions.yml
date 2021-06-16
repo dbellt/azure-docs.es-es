@@ -1,0 +1,192 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas frecuentes sobre Azure Synapse Link para Azure Cosmos DB
+  description: Obtenga respuestas a las preguntas más frecuentes sobre Synapse Link para Azure Cosmos DB en áreas como la facturación, el almacén analítico, la seguridad y el período de vida en el almacén analítico.
+  author: Rodrigossz
+  ms.author: rosouz
+  ms.service: cosmos-db
+  ms.topic: conceptual
+  ms.date: 11/30/2020
+  ms.custom: synapse-cosmos-db
+  ms.openlocfilehash: 49c8546ebe4c06135c4a7848a46385643fbfbd2e
+  ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 04/22/2021
+  ms.locfileid: "111907458"
+title: Preguntas frecuentes sobre Azure Synapse Link para Azure Cosmos DB
+summary: >
+  [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+
+
+  Azure Synapse Link para Azure Cosmos DB crea una integración sin contratiempos entre Azure Cosmos DB y Azure Synapse Analytics. Permite a los clientes ejecutar análisis casi en tiempo real de sus datos operativos junto con aislamiento de rendimiento completo de sus cargas de trabajo transaccionales y sin necesidad de una canalización de ETL. En este artículo se responden las preguntas más frecuentes sobre Synapse Link para Azure Cosmos DB.
+sections:
+- name: Preguntas más frecuentes generales
+  questions:
+  - question: >
+      ¿Azure Synapse Link es compatible con todas las API de Azure Cosmos DB?
+    answer: "Azure Synapse Link es compatible con SQL (Core) API de Azure Cosmos DB y Azure Cosmos DB API para MongoDB. \n"
+  - question: >
+      ¿Azure Synapse Link es compatible con las cuentas de Azure Cosmos DB para varias regiones?
+    answer: >
+      Sí, en el caso de las cuentas de Azure Cosmos para varias regiones, los datos almacenados en el almacén analítico también se distribuyen de forma global. Independientemente de si tienen una región de escritura única o varias regiones de escritura, las consultas analíticas realizadas desde Azure Synapse Analytics se pueden proporcionar desde la región local más cercana.
+
+
+      Al planear la configuración de una cuenta de Azure Cosmos DB para varias regiones que sea compatible con el almacén analítico, se recomienda que se agreguen todas las regiones necesarias durante la creación de la cuenta.
+  - question: >
+      ¿Puedo habilitar Azure Synapse Link solo para regiones determinadas y no para todas las regiones de una configuración de cuenta de varias regiones?
+    answer: >
+      Cuando Azure Synapse Link está habilitado para una cuenta de varias regiones, el almacén analítico se crea en todas las regiones. Los datos subyacentes se optimizan para el rendimiento y la coherencia transaccional en el almacén transaccional.
+  - question: >
+      ¿Se admite el almacén analítico en todas las regiones Azure Cosmos DB?
+    answer: >
+      Sí.
+  - question: >
+      ¿Se admite la copia de seguridad y restauración para las cuentas habilitadas para Azure Synapse Link?
+    answer: "En el caso de los contenedores con el almacén analítico activado, en este momento no se admite la copia de seguridad ni la restauración automáticas de los datos en el almacén analítico. \n\nCuando Synapse Link esté habilitado en una cuenta de base de datos, Azure Cosmos DB seguirá [haciendo copias de seguridad](./online-backup-and-restore.md) automáticamente, de los datos del almacén de transacciones (solo) de contenedores en el intervalo programado de copias de seguridad, como siempre. Es importante tener en cuenta que cuando un contenedor con un almacén analítico activado se restaura en una nueva cuenta, el contenedor se restaurará solo con el almacén transaccional y no se habilitará ningún almacén analítico. \n"
+  - question: >
+      ¿Puedo deshabilitar la característica Azure Synapse Link en mi cuenta de Azure Cosmos DB?
+    answer: >
+      En este momento, después de habilitar la funcionalidad Synapse Link en el nivel de cuenta, no se puede deshabilitar. Tenga en cuenta que no conlleva ningún costo que la capacidad Synapse Link esté habilitada en el nivel de cuenta y no haya ningún contenedor habilitado para el almacén analítico.
+
+
+      Si tiene que desactivar la capacidad, tiene dos opciones. La primera es eliminar y volver a crear una nueva cuenta de Azure Cosmos DB, migrando los datos si es necesario. La segunda opción es abrir una incidencia de soporte técnico para obtener ayuda sobre la migración de datos a otra cuenta.
+  - question: >
+      ¿El almacén analítico tiene algún impacto en los SLA transaccionales de Cosmos DB?
+    answer: >
+      No, ninguno.
+- name: Almacén analítico de Azure Cosmos DB
+  questions:
+  - question: >
+      ¿Puedo habilitar el almacén analítico en contenedores existentes?
+    answer: >
+      En este momento, solo se puede habilitar el almacén analítico para los contenedores nuevos (tanto en cuentas nuevas como ya existentes).
+  - question: >
+      ¿Puedo deshabilitar el almacén analítico en mis contenedores de Azure Cosmos DB después de haberlo habilitado durante la creación del contenedor?
+    answer: >
+      En este momento, el almacén analítico no se puede deshabilitar en un contenedor de Azure Cosmos DB después de haberlo habilitado durante la creación del contenedor.
+  - question: >
+      ¿El almacén analítico es compatible con los contenedores de Azure Cosmos DB que tienen rendimiento aprovisionado de escalabilidad automática?
+    answer: >
+      Sí, el almacén analítico se puede habilitar en los contenedores con rendimiento aprovisionado de escalabilidad automática.
+  - question: >
+      ¿Tiene algún efecto en las RU aprovisionadas por el almacén transaccional de Azure Cosmos DB?
+    answer: >
+      Azure Cosmos DB garantiza aislamiento del rendimiento entre las cargas de trabajo transaccionales y analíticas. La habilitación del almacén analítico en un contenedor no afectará a las RU/s aprovisionadas en el almacén transaccional de Azure Cosmos DB. Las transacciones (lectura y escritura) y los costos de almacenamiento del almacén analítico se cobrarán por separado. Consulte los [precios del almacén analítico de Azure Cosmos DB](analytical-store-introduction.md#analytical-store-pricing) para más información.
+  - question: >
+      ¿Puedo restringir el acceso a la red del almacén analítico de Azure Cosmos DB?
+    answer: "Sí, puede configurar un [punto de conexión privado administrado](analytical-store-private-endpoints.md) y restringir el acceso a la red del almacén analítico a la red virtual administrada de Azure Synapse. Los puntos de conexión privados administrados establecen un vínculo privado al almacén analítico. \n\nPuede agregar puntos de conexión privados del almacén de análisis y del almacén transaccional a la misma cuenta de Azure Cosmos DB en un área de trabajo de Azure Synapse Analytics. Si solo quiere ejecutar consultas analíticas, es posible que solo quiera habilitar el punto de conexión privado analítico en el área de trabajo de Synapse Analytics.\n"
+  - question: >
+      ¿Puedo usar claves administradas por el cliente con el almacén analítico de Azure Cosmos DB?
+    answer: >
+      Puede cifrar sin problemas los datos de los almacenes transaccionales y analíticos con las mismas claves administradas por el cliente de una manera automática y transparente. Para usar claves administradas por el cliente con el almacén analítico, debe usar la identidad administrada asignada por el sistema de la cuenta de Azure Cosmos DB en la directiva de acceso Azure Key Vault. Este procedimiento se describe [aquí](how-to-setup-cmk.md#using-managed-identity). A continuación, debería poder habilitar el almacén analítico en su cuenta.
+  - question: >
+      ¿Las operaciones de eliminación y actualización del almacén transaccional se reflejan en el almacén analítico?
+    answer: >
+      Sí, las eliminaciones y actualizaciones de datos en el almacén transaccional se reflejarán en el almacén analítico. Puede configurar el período de vida (TTL) en el contenedor para que incluya datos históricos. De este modo, el almacén analítico conservará todas las versiones de los elementos que cumplan los criterios del TTL analítico. Consulte la [información general sobre TTL analítico](analytical-store-introduction.md#analytical-ttl) para obtener más detalles.
+  - question: >
+      ¿Puedo conectarme al almacén analítico desde motores de análisis distintos de Azure Synapse Analytics?
+    answer: >
+      Solo puede acceder a las consultas en el almacén analítico y ejecutarlas mediante los diversos entornos de ejecución que proporciona Azure Synapse Analytics. El almacén analítico se puede consultar y analizar mediante:
+
+
+      * Spark en Synapse con compatibilidad completa con Scala, Python, SparkSQL y C#. Spark en Synapse es fundamental para los escenarios de ciencia e ingeniería de datos.
+
+      * El grupo de SQL sin servidor con lenguaje T-SQL y compatibilidad con herramientas de inteligencia empresarial conocidas (por ejemplo, Power BI Premium, etc.).
+  - question: >
+      ¿Puedo conectarme al almacén analítico desde Synapse SQL aprovisionado?
+    answer: >
+      En este momento, no se puede acceder al almacén analítico desde Synapse SQL aprovisionado.
+  - question: >
+      ¿Puedo reescribir los resultados de la agregación de consultas de Synapse en el almacén analítico?
+    answer: >
+      El almacén analítico es un almacén de solo lectura de un contenedor de Azure Cosmos DB. Por lo tanto, no puede volver a escribir directamente los resultados de la agregación en el almacén analítico, pero puede escribirlos en el almacén transaccional de Azure Cosmos DB de otro contenedor, que posteriormente se puede aprovechar como capa de servicio.
+  - question: >
+      ¿La replicación de sincronización automática del almacén transaccional al almacén analítico es asincrónica o sincrónica, y cuáles son las latencias?
+    answer: >
+      La latencia de sincronización automática suele ser de menos de 2 minutos. En los casos en los que una base de datos de rendimiento compartida cuente con un gran número de contenedores, la latencia de sincronización automática de contenedores individuales puede ser mayor y tardar hasta 5 minutos. Nos gustaría obtener más información sobre cómo encaja esta latencia en sus escenarios. Para ello, póngase en contacto con el [equipo de Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+  - question: >
+      ¿Hay algún escenario en el que los elementos del almacén transaccional no se propaguen automáticamente al almacén analítico?
+    answer: >
+      Si los elementos específicos del contenedor infringen el [esquema bien definido para análisis](analytical-store-introduction.md#analytical-schema), no se incluirán en el almacén analítico. Si tiene escenarios bloqueados por un esquema bien definido para análisis, envíe un correo electrónico al [equipo de Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com) para obtener ayuda.
+  - question: >
+      ¿Se pueden crear particiones de los datos en el almacén analítico de forma distinta a la del almacén transaccional?
+    answer: >
+      Las particiones de los datos del almacén analítico se crean en función de las particiones horizontales en el almacén transaccional. Actualmente, no se puede elegir una estrategia de creación de particiones diferente para el almacén analítico.
+  - question: >
+      ¿Puedo personalizar o invalidar la manera en que los datos transaccionales se transforman al formato de columnas en el almacén analítico?
+    answer: >
+      Actualmente no se pueden transformar los elementos de datos cuando se propagan de forma automática del almacén transaccional al almacén analítico. Si tiene escenarios bloqueados por esta limitación, envíe un correo electrónico al [equipo de Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+  - question: >
+      ¿Es compatible el almacén analítico con Terraform?
+    answer: >
+      Actualmente, Terraform no admite contenedores de almacenes analíticos. Consulte [problemas de GitHub de Terraform](https://github.com/hashicorp/terraform/issues) para más información.
+- name: Período de vida (TTL) analítico
+  questions:
+  - question: >
+      ¿Se admite el TTL de los datos analíticos en los niveles de contenedor y elemento?
+    answer: >
+      En este momento, el TTL de los datos analíticos solo se puede configurar en el nivel de contenedor y no hay compatibilidad para establecerlo en el nivel de elemento.
+  - question: >
+      Después de establecer el TTL analítico de nivel de contenedor en un contenedor de Azure Cosmos DB, ¿puedo cambiar a un valor diferente más adelante?
+    answer: >
+      Sí, el TTL analítico puede actualizarse a cualquier valor válido. Consulte el artículo [TTL analítico](analytical-store-introduction.md#analytical-ttl) para obtener más detalles sobre el TTL analítico.
+  - question: >
+      ¿Se puede actualizar o eliminar un elemento del almacén analítico una vez que se ha agotado el TTL del almacén transaccional?
+    answer: >
+      Todas las actualizaciones y eliminaciones de transacciones se copian en el almacén analítico pero, si el elemento se ha purgado del almacén transaccional, no se podrá actualizar en el almacén analítico. Para obtener más información, consulte el artículo [TTL analítico](analytical-store-introduction.md#analytical-ttl).
+- name: Facturación
+  questions:
+  - question: >
+      ¿Cuál es el modelo de facturación de Azure Synapse Link para Azure Cosmos DB?
+    answer: >
+      El modelo de facturación de Azure Synapse Link incluye los costos en los que se incurre al usar el almacén analítico de Azure Cosmos DB y el entorno de ejecución de Synapse. Para obtener más información, consulte los artículos sobre los [precios del almacén analítico de Azure Cosmos DB](analytical-store-introduction.md#analytical-store-pricing) y los [precios de Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
+  - question: >
+      ¿Cuál es el impacto en la facturación si habilito Synapse Link en mi cuenta de base de datos de Azure Cosmos DB?
+    answer: >
+      Ninguno. Solo se le cobrará cuando cree un contenedor habilitado para el almacén analítico y empiece a cargar datos.
+- name: Seguridad
+  questions:
+  - question: >
+      ¿De qué maneras hay para autenticarse con el almacén analítico?
+    answer: >
+      La autenticación con el almacén analítico es igual que en un almacén transaccional. En una base de datos determinada, puede autenticarse con la clave principal o de solo lectura. Puede aprovechar el servicio vinculado en Azure Synapse Studio para evitar pegar las claves de Azure Cosmos DB en los cuadernos de Spark. El acceso a este servicio vinculado está disponible para todos los usuarios que tienen acceso al área de trabajo.
+
+
+      Con los grupos de SQL sin servidor de Synapse, puede consultar el almacén analítico de Azure Cosmos DB; para ello, se crean previamente credenciales de SQL que almacenan las claves de cuenta y se hace referencia a ellas en la función OPENROWSET. Para más información, consulte el artículo [Consulta con grupos de SQL sin servidor en Azure Synapse Link](../synapse-analytics/sql/query-cosmos-db-analytical-store.md).
+- name: Tiempos de ejecución de Synapse
+  questions:
+  - question: >
+      ¿Cuáles son los tiempos de ejecución de Synapse admitidos actualmente para acceder al almacén analítico de Azure Cosmos DB?
+    answer: >
+      |Tiempo de ejecución de Azure Synapse |Compatibilidad actual |
+
+      |---------|---------|
+
+      |Grupos de Spark de Azure Synapse | Lectura, escritura (a través del almacén transaccional), tablas, vista temporal |
+
+      |Grupo de SQL sin servidor de Azure Synapse    | Lectura, vista |
+
+      |Instancia de Azure Synapse SQL aprovisionada   |  No disponible |
+  - question: >
+      ¿Las tablas de Spark en Azure Synapse se sincronizan con las tablas del grupo de SQL sin servidor de Azure Synapse de la misma forma que con Azure Data Lake?
+    answer: >
+      En este momento, esta característica no está disponible.
+  - question: >
+      ¿Puedo realizar un flujo estructurado de Spark desde el almacén analítico?
+    answer: >
+      En este momento, la compatibilidad con el flujo estructurado de Spark para Azure Cosmos DB está implementada mediante la funcionalidad de fuente de cambios del almacén transaccional y aún no se admite desde el almacén analítico.
+  - question: >
+      ¿Se admite el streaming?
+    answer: >
+      No se admite el streaming de datos del almacén analítico.
+- name: Azure Synapse Studio
+  questions:
+  - question: >
+      En Azure Synapse Studio, ¿cómo puedo reconocer si estoy conectado a un contenedor de Azure Cosmos DB con el almacén analítico habilitado?
+    answer: "Un contenedor de Azure Cosmos DB habilitado con el almacén analítico tiene el siguiente icono:\n\n:::image type=\"content\" source=\"./media/synapse-link-frequently-asked-questions/analytical-store-icon.png\" alt-text=\"Icono: contenedor de Azure Cosmos DB habilitado con el almacén analítico\":::\n\nUn contenedor de almacén transaccional se representará con el siguiente icono:\n\n:::image type=\"content\" source=\"./media/synapse-link-frequently-asked-questions/transactional-store-icon.png\" alt-text=\"Icono: contenedor de Azure Cosmos DB habilitado con el almacén transaccional\":::\n \n"
+  - question: >
+      ¿Cómo se pasan las credenciales de Azure Cosmos DB desde Azure Synapse Studio?
+    answer: >
+      En este momento, las credenciales de Azure Cosmos DB se pasan durante la creación del servicio que ha vinculado el usuario con acceso a las bases de datos de Azure Cosmos DB. El acceso a ese almacén está disponible para otros usuarios que tienen acceso al área de trabajo.
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\n* Obtener más información sobre las [ventajas de Azure Synapse Link](synapse-link.md#synapse-link-benefits).\n\n* Obtener más información sobre la [integración entre Azure Synapse Link y Azure Cosmos DB](synapse-link.md#synapse-link-integration).\n"

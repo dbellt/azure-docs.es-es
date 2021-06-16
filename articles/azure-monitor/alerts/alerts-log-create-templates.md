@@ -5,18 +5,18 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 560f26b712818327294791feb787b5fe7c9d7b82
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f31371c3d33354c4d8e6c849c9739eb9001c7641
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102036476"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111961780"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Creación de una alerta de registro con una plantilla de Resource Manager
 
 Las alertas de registro permiten a los usuarios usar una consulta de [Log Analytics](../logs/log-analytics-tutorial.md) para evaluar los registros de los recursos según una frecuencia establecida y activar una alerta en función de los resultados. Las reglas pueden desencadenar la ejecución de una o varias acciones mediante [grupos de acciones](./action-groups.md). [Obtenga más información sobre la funcionalidad y la terminología de las alertas de registro](./alerts-unified-log.md).
 
-En este artículo se explica cómo usar una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar [alertas de registro](./alerts-unified-log.md) en Azure Monitor. Las plantillas de Resource Manager permiten configurar alertas mediante programación de una forma coherente y reproducible en todos los entornos. Las alertas de registro se crean en el proveedor de recursos `Microsoft.Insights/scheduledQueryRules`. Consulte la referencia de API para la [API Reglas de consulta programadas](/rest/api/monitor/scheduledqueryrules/).
+En este artículo se explica cómo usar una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) para configurar [alertas de registro](./alerts-unified-log.md) en Azure Monitor. Las plantillas de Resource Manager permiten configurar alertas mediante programación de una forma coherente y reproducible en todos los entornos. Las alertas de registro se crean en el proveedor de recursos `Microsoft.Insights/scheduledQueryRules`. Consulte la referencia de API para la [API Reglas de consulta programadas](/rest/api/monitor/scheduledqueryrules/).
 
 Los pasos básicos son los siguientes:
 

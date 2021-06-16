@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/06/2020
-ms.openlocfilehash: b1551b4d9c28a693adb74436b6490ce7af62a977
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: ac2746c963c00ffd12a272b0c41322b0f9b9b24e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279859"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111961635"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Introducción: Automatización de la implementación para Azure Logic Apps mediante plantillas de Azure Resource Manager
 
@@ -30,9 +30,9 @@ En la aplicación lógica de ejemplo de este tema se usa un [desencadenador de O
 
 Para obtener más información sobre las plantillas de Resource Manager, consulte los temas siguientes:
 
-* [Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
-* [Azure Resource Manager template best practices](../azure-resource-manager/templates/template-best-practices.md) (Procedimientos recomendados de plantillas de Azure Resource Manager)
-* [Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube](../azure-resource-manager/templates/templates-cloud-consistency.md)
+* [Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/syntax.md)
+* [Azure Resource Manager template best practices](../azure-resource-manager/templates/best-practices.md) (Procedimientos recomendados de plantillas de Azure Resource Manager)
+* [Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube](../azure-resource-manager/templates/template-cloud-consistency.md)
 
 Para obtener información sobre los recursos de plantilla específicos de Logic Apps, las cuentas de integración, los artefactos de la cuenta de integración y los entornos del servicio de integración, vea [Tipos de recursos de Microsoft.Logic](/azure/templates/microsoft.logic/allversions).
 
@@ -47,7 +47,7 @@ En el caso de la API de REST de Logic Apps, comience con la [información genera
 
 ## <a name="template-structure"></a>Estructura de plantilla
 
-En el nivel superior, una plantilla de Resource Manager sigue esta estructura, que se describe detalladamente en el tema [Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md):
+En el nivel superior, una plantilla de Resource Manager sigue esta estructura, que se describe detalladamente en el tema [Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/syntax.md):
 
 ```json
 {
@@ -65,8 +65,8 @@ En el caso de una plantilla de aplicación lógica, principalmente debe trabajar
 
 | Atributo | Descripción |
 |-----------|-------------|
-| `parameters` | Declara los [parámetros de plantilla](../azure-resource-manager/templates/template-syntax.md#parameters) para aceptar los valores que se van a usar al crear y personalizar los recursos para la implementación en Azure. Por ejemplo, estos parámetros aceptan los valores del nombre y la ubicación de la aplicación lógica, las conexiones y otros recursos necesarios para la implementación. Puede almacenar estos valores de parámetros en un [archivo de parámetros](#template-parameter-files), que se describe más adelante en este tema. Para obtener información general, consulte la sección [Parámetros del artículo Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md#parameters). |
-| `resources` | Define los [recursos](../azure-resource-manager/templates/template-syntax.md#resources) que se crean o actualizan e implementan en un grupo de recursos de Azure, como la aplicación lógica, las conexiones, las cuentas de Azure Storage, etc. Para obtener información general, consulte la sección [Recursos del artículo Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md#resources). |
+| `parameters` | Declara los [parámetros de plantilla](../azure-resource-manager/templates/syntax.md#parameters) para aceptar los valores que se van a usar al crear y personalizar los recursos para la implementación en Azure. Por ejemplo, estos parámetros aceptan los valores del nombre y la ubicación de la aplicación lógica, las conexiones y otros recursos necesarios para la implementación. Puede almacenar estos valores de parámetros en un [archivo de parámetros](#template-parameter-files), que se describe más adelante en este tema. Para obtener información general, consulte la sección [Parámetros del artículo Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/syntax.md#parameters). |
+| `resources` | Define los [recursos](../azure-resource-manager/templates/syntax.md#resources) que se crean o actualizan e implementan en un grupo de recursos de Azure, como la aplicación lógica, las conexiones, las cuentas de Azure Storage, etc. Para obtener información general, consulte la sección [Recursos del artículo Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/syntax.md#resources). |
 |||
 
 La plantilla de la aplicación lógica usa este formato de nombre de archivo:
@@ -80,7 +80,7 @@ La plantilla de la aplicación lógica usa este formato de nombre de archivo:
 
 ## <a name="template-parameters"></a>Parámetros de plantilla
 
-Una plantilla de aplicación lógica tiene varios objetos `parameters` que existen en diferentes niveles y realizan diferentes funciones. Por ejemplo, en el nivel superior, puede declarar [parámetros de plantilla](../azure-resource-manager/templates/template-syntax.md#parameters) para los valores que se deben aceptar y usar en la implementación al crear e implementar recursos en Azure, por ejemplo:
+Una plantilla de aplicación lógica tiene varios objetos `parameters` que existen en diferentes niveles y realizan diferentes funciones. Por ejemplo, en el nivel superior, puede declarar [parámetros de plantilla](../azure-resource-manager/templates/syntax.md#parameters) para los valores que se deben aceptar y usar en la implementación al crear e implementar recursos en Azure, por ejemplo:
 
 * Su aplicación lógica
 * Conexiones que usa la lógica para acceder a otros servicios y sistemas a través de [conectores administrados](../connectors/apis-list.md)
@@ -88,7 +88,7 @@ Una plantilla de aplicación lógica tiene varios objetos `parameters` que exist
 
   Por ejemplo, si la aplicación lógica usa una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) para escenarios negocio a negocio (B2B), el objeto `parameters` de nivel superior de la plantilla declara el parámetro que acepta el identificador del recurso para esa cuenta de integración.
 
-A continuación, se muestra la estructura y la sintaxis generales de una definición de parámetro, que se describe detalladamente en la sección [Parámetros del artículo Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md#parameters):
+A continuación, se muestra la estructura y la sintaxis generales de una definición de parámetro, que se describe detalladamente en la sección [Parámetros del artículo Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/syntax.md#parameters):
 
 ```json
 "<parameter-name>": {
@@ -149,7 +149,7 @@ Excepto en el caso de los parámetros que controlan valores que son confidencial
 
 Para obtener más información sobre la protección de los parámetros de plantilla, vea estos temas:
 
-* [Recomendaciones de seguridad para parámetros de plantilla](../azure-resource-manager/templates/template-best-practices.md#parameters)
+* [Recomendaciones de seguridad para parámetros de plantilla](../azure-resource-manager/templates/best-practices.md#parameters)
 * [Mejora de la seguridad de los parámetros de plantilla](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 * [Pasar valores de parámetros seguros con Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
@@ -171,7 +171,7 @@ Estos son algunos procedimientos recomendados para definir parámetros:
 
 * Incluya el atributo `defaultValue`, que puede especificar valores vacíos, para todos los parámetros excepto los valores que sean confidenciales o que se deban proteger. Use siempre parámetros seguros para los nombres de usuario, las contraseñas y los secretos. Para ocultar o proteger los valores de parámetros confidenciales, siga las instrucciones de estos temas:
 
-  * [Recomendaciones de seguridad para parámetros de plantilla](../azure-resource-manager/templates/template-best-practices.md#parameters)
+  * [Recomendaciones de seguridad para parámetros de plantilla](../azure-resource-manager/templates/best-practices.md#parameters)
 
   * [Mejora de la seguridad de los parámetros de plantilla](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 
@@ -179,7 +179,7 @@ Estos son algunos procedimientos recomendados para definir parámetros:
 
 * Para diferenciar los nombres de los parámetros de plantilla de los nombres de los parámetros de la definición de flujo de trabajo, puede usar nombres de parámetros de plantilla descriptivos, por ejemplo: `TemplateFabrikamPassword`.
 
-Para obtener más procedimientos recomendados de plantillas, consulte [Procedimientos recomendados para parámetros de plantilla](../azure-resource-manager/templates/template-best-practices.md#parameters).
+Para obtener más procedimientos recomendados de plantillas, consulte [Procedimientos recomendados para parámetros de plantilla](../azure-resource-manager/templates/best-practices.md#parameters).
 
 <a name="template-parameter-files"></a>
 
@@ -275,8 +275,8 @@ Para revisar las definiciones de recurso de todos los recursos de un grupo de re
 
 Para obtener información general sobre los recursos de plantilla y sus atributos, consulte estos temas:
 
-* [Recursos en Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md#resources)
-* [Procedimientos recomendados para los recursos de plantilla](../azure-resource-manager/templates/template-best-practices.md#resources)
+* [Recursos en Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/syntax.md#resources)
+* [Procedimientos recomendados para los recursos de plantilla](../azure-resource-manager/templates/best-practices.md#resources)
 
 <a name="logic-app-resource-definition"></a>
 

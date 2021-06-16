@@ -3,13 +3,13 @@ title: Creación de un clúster de Service Fabric que ejecuta Windows en Azure
 description: En este tutorial, aprenderá a implementar un clúster de Azure Service Fabric con Windows en una instancia de Azure Virtual Network mediante PowerShell.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
-ms.openlocfilehash: a7390858e55a456ec5fb2f851be1a7443be97082
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 2c719569fc97121a935c3dcbd4945e50863ecf80
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86245065"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112082026"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutorial: Implementación de un clúster de Service Fabric con Windows una red virtual de Azure
 
@@ -145,8 +145,8 @@ El archivo de parámetros [azuredeploy.parameters.json][parameters] permite decl
 
 **Parámetro** | **Valor de ejemplo** | **Notas** 
 |---|---|---|
-|adminUserName|vmadmin| Nombre de usuario del administrador de las máquinas virtuales del clúster. [Requisitos de nombre de usuario para la máquina virtual](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm). |
-|adminPassword|Password#1234| Contraseña del administrador de las máquinas virtuales del clúster. [Requisitos de contraseña para la máquina virtual](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
+|adminUserName|vmadmin| Nombre de usuario del administrador de las máquinas virtuales del clúster. [Requisitos de nombre de usuario para la máquina virtual](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-). |
+|adminPassword|Password#1234| Contraseña del administrador de las máquinas virtuales del clúster. [Requisitos de contraseña para la máquina virtual](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).|
 |clusterName|mysfcluster123| Nombre del clúster. Solo puede contener letras y números. Puede tener entre 3 y 23 caracteres.|
 |ubicación|southcentralus| Ubicación del clúster. |
 |certificateThumbprint|| <p>El valor debe estar vacío si se va a crear un certificado autofirmado o a proporcionar un archivo de certificados.</p><p>Para usar un certificado existente cargado previamente en un almacén de claves, rellene el valor de huella digital SHA1 del certificado. Por ejemplo, "6190390162C988701DB5676EB81083EA608DCCF3".</p> |

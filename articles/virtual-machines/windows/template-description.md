@@ -7,12 +7,13 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 32b73be3faf6eedb92220725b292a3e69cf7f965
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 28262d66794d573d40e4e202d8b047e1d1fbefc7
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555999"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953797"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuales de una plantilla de Azure Resource Manager
 
@@ -163,7 +164,7 @@ Aproveche estas oportunidades para obtener las últimas versiones de API:
 
 ## <a name="parameters-and-variables"></a>Parámetros y variables
 
-Los [parámetros](../../azure-resource-manager/templates/template-syntax.md) facilitan la tarea de especificar valores para la plantilla cuando la ejecuta. Esta sección de parámetros se utiliza en el ejemplo:
+Los [parámetros](../../azure-resource-manager/templates/syntax.md) facilitan la tarea de especificar valores para la plantilla cuando la ejecuta. Esta sección de parámetros se utiliza en el ejemplo:
 
 ```json
 "parameters": {
@@ -175,7 +176,7 @@ Los [parámetros](../../azure-resource-manager/templates/template-syntax.md) fac
 
 Al implementar la plantilla de ejemplo, escriba valores para el nombre y la contraseña de la cuenta de administrador de cada máquina virtual y el número de máquinas virtuales que creará. Tiene la opción de especificar valores de parámetro en un archivo independiente que se administra con la plantilla, o bien proporcionarlos se le solicite.
 
-Las [variables](../../azure-resource-manager/templates/template-syntax.md) facilitan la tarea de establecer valores en la plantilla que se usan varias veces en ella o que cambian con el tiempo. Esta sección de variables se utiliza en el ejemplo:
+Las [variables](../../azure-resource-manager/templates/syntax.md) facilitan la tarea de establecer valores en la plantilla que se usan varias veces en ella o que cambian con el tiempo. Esta sección de variables se utiliza en el ejemplo:
 
 ```json
 "variables": { 
@@ -208,7 +209,7 @@ Las [variables](../../azure-resource-manager/templates/template-syntax.md) facil
 }, 
 ```
 
-Al implementar la plantilla de ejemplo, los valores de las variables se utilizan para el nombre y el identificador de la cuenta de almacenamiento creada anteriormente. También se usan variables para proporcionar los valores de la extensión de diagnóstico. Lea [Procedimientos recomendados para crear plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-best-practices.md) para ayudarlo a decidir cómo desea estructurar los parámetros y variables de la plantilla.
+Al implementar la plantilla de ejemplo, los valores de las variables se utilizan para el nombre y el identificador de la cuenta de almacenamiento creada anteriormente. También se usan variables para proporcionar los valores de la extensión de diagnóstico. Lea [Procedimientos recomendados para crear plantillas de Azure Resource Manager](../../azure-resource-manager/templates/best-practices.md) para ayudarlo a decidir cómo desea estructurar los parámetros y variables de la plantilla.
 
 ## <a name="resource-loops"></a>bucles de recursos
 
@@ -247,7 +248,7 @@ Tenga en cuenta que la creación de un bucle para un recurso de la plantilla pue
 
 ## <a name="dependencies"></a>Dependencias
 
-La mayoría de los recursos dependen de otros para que funcionen correctamente. Las máquinas virtuales deben estar asociadas con una red virtual y, para tal fin, necesita una interfaz de red. El elemento [dependsOn](../../azure-resource-manager/templates/define-resource-dependency.md) se utiliza para asegurarse de que la interfaz de red está lista para usarse antes de que se creen las máquinas virtuales:
+La mayoría de los recursos dependen de otros para que funcionen correctamente. Las máquinas virtuales deben estar asociadas con una red virtual y, para tal fin, necesita una interfaz de red. El elemento [dependsOn](../../azure-resource-manager/templates/resource-dependency.md) se utiliza para asegurarse de que la interfaz de red está lista para usarse antes de que se creen las máquinas virtuales:
 
 ```json
 "dependsOn": [
@@ -451,7 +452,7 @@ No pasa nada por usar la misma plantilla para crear o actualizar recursos existe
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Cree su propia plantilla con las [Creación de plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
+- Cree su propia plantilla con las [Creación de plantillas de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md).
 - Implemente la plantilla que creó mediante [Creación de una máquina virtual Windows con una plantilla de Resource Manager](ps-template.md).
 - Aprenda a administrar la máquina virtual que ha creado repasando el tema [Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell](tutorial-manage-vm.md).
 - Para información sobre la sintaxis de JSON y las propiedades de los tipos de recursos de las plantillas, consulte [Azure Resource Manager template reference](/azure/templates/) (Referencia de las plantillas de Azure Resource Manager).

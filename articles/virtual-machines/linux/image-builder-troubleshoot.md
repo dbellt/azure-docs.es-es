@@ -8,12 +8,13 @@ ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.openlocfilehash: f76c3e6c739ae4dd13355d350a01b878e4d4f360
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 85296a7b7de8e1bce03d39ab8c96c8444fe1dffb
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666203"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111440959"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Solución de problemas del servicio Azure Image Builder
 
@@ -327,7 +328,7 @@ Image Builder agotó el tiempo de espera para que la imagen se agregara y replic
 $runOutputName=<distributionRunOutput>
 az resource show \
     --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/$imageTemplateName/runOutputs/$runOutputName"  \
-    --api-version=2019-05-01-preview
+    --api-version=2020-02-14
 ```
 
 #### <a name="solution"></a>Solución
@@ -560,7 +561,7 @@ Puede haber algunos casos en los que necesite investigar las compilaciones corre
 ```text
 2020-05-05T18:28:24.9280196Z ##[section]Starting: Azure VM Image Builder Task
 2020-05-05T18:28:24.9609966Z ==============================================================================
-2020-05-05T18:28:24.9610739Z Task         : Azure VM Image Builder Test(Preview)
+2020-05-05T18:28:24.9610739Z Task         : Azure VM Image Builder Test
 2020-05-05T18:28:24.9611277Z Description  : Build images using Azure Image Builder resource provider.
 2020-05-05T18:28:24.9611608Z Version      : 1.0.18
 2020-05-05T18:28:24.9612003Z Author       : Microsoft Corporation

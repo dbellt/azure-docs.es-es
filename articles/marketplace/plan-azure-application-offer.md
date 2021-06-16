@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: c6dbab1b7fa1599add9fb48814a1138bf176c81d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 8120bcb030f5a1ff6948757d8f65e3a21d31898f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127468"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955398"
 ---
 # <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>Planeamiento de una oferta de Aplicación de Azure para el marketplace comercial
 
@@ -33,7 +33,7 @@ Para diseñar, compilar y probar ofertas de aplicaciones de Azure, se necesitan 
 
 Mientras prepara su oferta de Aplicación de Azure para el marketplace comercial, revise los siguientes recursos.
 
-- [Nociones sobre las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
+- [Nociones sobre las plantillas de Azure Resource Manager](../azure-resource-manager/templates/syntax.md)
 - Guías de inicio rápido:
     - [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/)
     - [Guía de procedimientos recomendados para plantillas de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
@@ -195,9 +195,9 @@ Especifique la audiencia preliminar mediante los identificadores de suscripción
 
 ## <a name="technical-configuration"></a>Configuración técnica
 
-En el caso de las aplicaciones administradas que emiten eventos de medición mediante las [API del servicio de medición de Marketplace](partner-center-portal/marketplace-metering-service-apis.md), debe proporcionar la identidad que usará el servicio al emitir dichos eventos.
+En el caso de las aplicaciones administradas que emiten eventos de medición mediante las [API del servicio de medición de Marketplace](marketplace-metering-service-apis.md), debe proporcionar la identidad que usará el servicio al emitir dichos eventos.
 
-Esta configuración es necesaria si quiere usar [eventos de uso de Batch](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-batch-usage-event). En caso de que quiera enviar [eventos de uso](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-single-usage-event), también puede emplear el [servicio de metadatos de instancia](../active-directory/managed-identities-azure-resources/overview.md) para obtener el [token de portador de JSON Web Token (JWT)](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token).
+Esta configuración es necesaria si quiere usar [eventos de uso de Batch](marketplace-metering-service-apis.md#metered-billing-batch-usage-event). En caso de que quiera enviar [eventos de uso](marketplace-metering-service-apis.md#metered-billing-single-usage-event), también puede emplear el [servicio de metadatos de instancia](../active-directory/managed-identities-azure-resources/overview.md) para obtener el [token de portador de JSON Web Token (JWT)](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token).
 
 - **Identificador de inquilino de Azure Active Directory** (obligatorio): En Azure Portal, debe [crear una aplicación de Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md) para que podamos validar que la conexión entre nuestros dos servicios está detrás de una comunicación autenticada. Para encontrar el [identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) de la aplicación de Azure Active Directory (Azure AD), vaya a la hoja [Registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) de Azure Active Directory. En la columna **Nombre para mostrar**, seleccione la aplicación. A continuación, busque **Propiedades** y, luego, el **identificador de directorio (inquilino)** (por ejemplo `50c464d3-4930-494c-963c-1e951d15360e`).
 - **Identificador de aplicación de Azure Active Directory** (obligatorio): También necesita su [identificador de la aplicación](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) y una clave de autenticación. Para encontrar el identificador de la aplicación, vaya a la hoja [Registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) en su instancia de Azure Active Directory. En la columna **Nombre para mostrar**, seleccione la aplicación y, a continuación, busque el **identificador de aplicación (cliente)** (por ejemplo, `50c464d3-4930-494c-963c-1e951d15360e`). Para buscar la clave de autenticación, vaya a **Configuración** y seleccione **Claves**. Deberá proporcionar una descripción y una duración y, después, se proporcionara un valor numérico.

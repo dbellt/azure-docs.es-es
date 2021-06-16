@@ -3,20 +3,20 @@ title: 'Adición de un conjunto de datos de referencia al entorno: Azure Time Se
 description: En este artículo se describe cómo agregar un conjunto de datos de referencia para aumentar los datos al entorno de Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
-ms.reviewer: jasonh, kfile
+author: esung22
+ms.author: elsung
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: d80d97a609aa3a464b9b114439fe7f4058e287c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 73d3067d22c90919a1f592e8822fbcb66d96b086
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96001837"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110791181"
 ---
 # <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>Creación de un conjunto de datos de referencia para el entorno de Azure Time Series Insights Gen1 mediante Azure Portal
 
@@ -41,7 +41,7 @@ Los datos de referencia no se combinan de manera retroactiva. Por lo tanto, solo
 
 1. Busque su entorno de Azure Time Series Insights existente. Seleccione **Todos los recursos** en el menú izquierdo de Azure Portal. Seleccione el entorno de Azure Time Series Insights.
 
-1. Seleccione la página **Información general**. Expanda la sección **Essentials** situada cerca de la parte superior de la página para buscar la **dirección URL del Explorador de Time Series Insights** y abra el vínculo.  
+1. Seleccione la página **Información general**. Expanda la sección **Essentials** situada cerca de la parte superior de la página para buscar la **dirección URL del Explorador de Time Series Insights** y abra el vínculo.
 
    [![Expandir la sección Información esencial](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 

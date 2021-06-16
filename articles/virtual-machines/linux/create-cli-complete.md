@@ -7,12 +7,12 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: ff86651d56abe090ca08c508a220362f9a011a3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 443109d3695d29f672b2094efb18d19c005cd067
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554707"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962479"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Creación de una máquina virtual completa de Linux con la CLI de Azure
 Para crear rápidamente una máquina virtual en Azure, puede usar un solo comando de la CLI de Azure que use valores predeterminados para crear los recursos de apoyo necesarios. Los recursos como una red virtual, una dirección IP pública y reglas de grupo de seguridad de red se crean automáticamente. Para tener más control del entorno en uso de producción, puede crear estos recursos antes de tiempo y luego agregarles las máquinas virtuales. Este artículo lo guía a lo largo del proceso de creación de una máquina virtual y de cada uno de los recursos de apoyo.
@@ -551,13 +551,13 @@ Para ver el sitio NGINX predeterminado en acción, abra el explorador web y escr
 ![Sitio NGINX predeterminado en la máquina virtual](media/create-cli-complete/nginx.png)
 
 ## <a name="export-as-a-template"></a>Exportar como plantilla
-¿Y si ahora quiere crear un entorno de desarrollo adicional con los mismos parámetros o un entorno de producción correspondiente? Resource Manager usa plantillas JSON que definen todos los parámetros de su entorno. Puede crear entornos enteros haciendo referencia a esta plantilla JSON. Puede [compilar plantillas JSON manualmente](../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/linux/toc.json) o exportar un entorno existente para que la plantilla JSON se cree automáticamente. Use [az group export](/cli/azure/group) para exportar su grupo de recursos de la siguiente manera:
+¿Y si ahora quiere crear un entorno de desarrollo adicional con los mismos parámetros o un entorno de producción correspondiente? Resource Manager usa plantillas JSON que definen todos los parámetros de su entorno. Puede crear entornos enteros haciendo referencia a esta plantilla JSON. Puede [compilar plantillas JSON manualmente](../../azure-resource-manager/templates/syntax.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o exportar un entorno existente para que la plantilla JSON se cree automáticamente. Use [az group export](/cli/azure/group) para exportar su grupo de recursos de la siguiente manera:
 
 ```azurecli
 az group export --name myResourceGroup > myResourceGroup.json
 ```
 
-Este comando crea el archivo `myResourceGroup.json` en el directorio de trabajo actual. Al crear un entorno a partir de esta plantilla, se le piden todos los nombres de recursos. Puede rellenar estos nombres en el archivo de plantilla si agrega el parámetro `--include-parameter-default-value` al comando `az group export`. Edite su plantilla JSON para especificar los nombres de recursos o [cree un archivo parameters.json](../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/linux/toc.json) que especifique los nombres de recursos.
+Este comando crea el archivo `myResourceGroup.json` en el directorio de trabajo actual. Al crear un entorno a partir de esta plantilla, se le piden todos los nombres de recursos. Puede rellenar estos nombres en el archivo de plantilla si agrega el parámetro `--include-parameter-default-value` al comando `az group export`. Edite su plantilla JSON para especificar los nombres de recursos o [cree un archivo parameters.json](../../azure-resource-manager/templates/syntax.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que especifique los nombres de recursos.
 
 Para crear un entorno desde una plantilla, use [az deployment group create](/cli/azure/deployment/group) como se indica a continuación:
 

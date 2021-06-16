@@ -4,19 +4,19 @@ description: Habilite las notificaciones por correo electrónico para la optimiz
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: performance
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
-author: danimir
-ms.author: danil
-ms.reviewer: wiassaf, sstein
+author: NikaKinska
+ms.author: nnikolic
+ms.reviewer: mathoma, wiassaf
 ms.date: 06/03/2019
-ms.openlocfilehash: a373a28a180b2a6c72f6a291b9d1437a2e88d9ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7216978845921e4b35c4cb3485379054cbf5cfff
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96500961"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591823"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notificaciones por correo electrónico para el ajuste automático
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -79,7 +79,7 @@ Para crear un nuevo runbook de Azure Automation, siga estos pasos:
 
 Siga estos pasos para cargar un script de PowerShell en el runbook creado:
 
-1. En el panel "**Editar runbook de PowerShell**", seleccione "**RUNBOOKS**" en el árbol de menú y expanda la vista hasta que vea el nombre del runbook (en este ejemplo, "**AutomaticTuningEmailAutomation**"). Seleccione este runbook.
+1. En el panel "**Editar runbook de PowerShell**&quot;, seleccione &quot;**RUNBOOKS**&quot; en el árbol de menú y expanda la vista hasta que vea el nombre del runbook (en este ejemplo, &quot;**AutomaticTuningEmailAutomation**"). Seleccione este runbook.
 1. En la primera línea del panel "Editar runbook de PowerShell" (comenzando por el número 1), copie y pegue el siguiente código de script de PowerShell. Este script de PowerShell se proporciona tal cual para ayudarle a comenzar. Modifíquelo para que se adapte a sus necesidades.
 
 En el encabezado del script de PowerShell proporcionado, es necesario reemplazar `<SUBSCRIPTION_ID_WITH_DATABASES>` por su identificador de suscripción de Azure. Para obtener información sobre cómo recuperar el identificador de la suscripción de Azure, consulte [Getting your Azure Subscription GUID](/archive/blogs/mschray/getting-your-azure-subscription-guid-new-portal) (Obtención del GUID de la suscripción a Azure).

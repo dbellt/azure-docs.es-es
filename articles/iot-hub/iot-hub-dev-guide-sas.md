@@ -16,12 +16,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: 27ab47be439b83af4297330c2b85fdc844bfcf3a
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 0724a1281475ffc9cbeaa4480bd45aa69f9d4857
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109490092"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967800"
 ---
 # <a name="control-access-to-iot-hub-using-shared-access-signatures-and-security-tokens"></a>Control del acceso a IoT Hub mediante firmas de acceso compartido y tokens de seguridad
 
@@ -282,7 +282,7 @@ El resultado, que concedería acceso para leer todas las identidades del disposi
 
 ### <a name="supported-x509-certificates"></a>Certificados X.509 compatibles
 
-Puede usar cualquier certificado X.509 para autenticar un dispositivo en IoT Hub, cargando ya sea una huella digital del certificado o una entidad de certificación (CA) a Azure IoT Azure. Para más información consulte [Autenticación de dispositivos mediante certificados de entidades de certificación X.509](iot-hub-x509ca-overview.md). Para más información sobre cómo cargar y comprobar una entidad de certificación con su centro de IoT, consulte [Configuración de la seguridad de X.509 en Azure IoT Hub](iot-hub-security-x509-get-started.md).
+Puede usar cualquier certificado X.509 para autenticar un dispositivo en IoT Hub, cargando ya sea una huella digital del certificado o una entidad de certificación (CA) a Azure IoT Azure. Para más información consulte [Autenticación de dispositivos mediante certificados de entidades de certificación X.509](iot-hub-x509ca-overview.md). Para más información sobre cómo cargar y comprobar una entidad de certificación con su centro de IoT, consulte [Configuración de la seguridad de X.509 en Azure IoT Hub](./tutorial-x509-scripts.md).
 
 ### <a name="use-sas-tokens-as-a-device"></a>Uso de tokens de SAS como dispositivo
 

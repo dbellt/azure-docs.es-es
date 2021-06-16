@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9d9ba7e3e898da8d5b7d1bb4fbc69554ee205147
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 56a2eff6a39f879de4e9d968eb470243014cb430
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028342"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982041"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión para Azure Active Directory multiinquilino mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -149,7 +149,7 @@ Para definir Azure AD como proveedor de notificaciones, agregue el elemento **Cl
     ```
 
 1. En el elemento **ClaimsProvider**, actualice el valor de **Domain** a un valor único que pueda usarse para distinguirlo de otros proveedores de identidades.
-1. En el elemento **TechnicalProfile**, actualice el valor de **DisplayName**, por ejemplo, `Contoso Employee`. Este valor se muestra en el botón de inicio de sesión de la página de inicio de sesión.
+1. En el elemento **TechnicalProfile**, actualice el valor de **DisplayName**, por ejemplo, `Multi-Tenant AAD`. Este valor se muestra en el botón de inicio de sesión de la página de inicio de sesión.
 1. Establezca **client_id** en el identificador de aplicación de la aplicación multiinquilino de Azure AD que registró anteriormente.
 1. En **CryptographicKeys**, actualice el valor de **StorageReferenceId** con el nombre de la clave de directiva que creó anteriormente. Por ejemplo, `B2C_1A_AADAppSecret`.
 

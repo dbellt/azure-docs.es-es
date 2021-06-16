@@ -6,12 +6,12 @@ manager: gwallace
 ms.topic: article
 ms.date: 02/03/2021
 ms.author: stevelas
-ms.openlocfilehash: 399bb001432759556cd0ba8bf15f7738dd4edb7c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: dbd64d939f823e8dc7b0cd6d76233b07fce462d9
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781494"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537408"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Inserción y extracción de un artefacto de OCI con un registro de contenedor de Azure
 
@@ -183,7 +183,7 @@ az acr build --registry myregistry --image builds/hello-world:v1 \
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información acerca de la [Biblioteca ORAS](https://github.com/deislabs/oras/tree/master/docs), incluido cómo configurar un manifiesto para un artefacto
+* Más información acerca de la [Biblioteca ORAS](https://github.com/deislabs/oras), incluido cómo configurar un manifiesto para un artefacto
 * Visite el repositorio [Artefactos de OCI](https://github.com/opencontainers/artifacts) para obtener información de referencia sobre los nuevos tipos de artefactos
 
 

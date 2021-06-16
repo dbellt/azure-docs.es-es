@@ -6,12 +6,12 @@ ms.date: 04/27/2021
 ms.topic: quickstart
 ms.author: jgao
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 90c7145e6761820dea11fa13fc883dc87bec999e
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 03ef6ce6dd8b203ebff1da0dba7fc5febd29c329
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108075130"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960264"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal
 
@@ -58,7 +58,7 @@ Muchos desarrolladores de plantillas experimentados usan este método para gener
 
     ![Generación de una plantilla desde el portal](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png)
 
-    El panel principal muestra la plantilla. Es un archivo JSON con seis elementos de nivel superior: `schema`, `contentVersion`, `parameters`, `variables`, `resources` y `output`. Para más información, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./template-syntax.md).
+    El panel principal muestra la plantilla. Es un archivo JSON con seis elementos de nivel superior: `schema`, `contentVersion`, `parameters`, `variables`, `resources` y `output`. Para más información, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./syntax.md).
 
     Hay nueve parámetros definidos. Uno de ellos se denomina **storageAccountName**. La segunda parte resaltada de la captura de pantalla anterior muestra cómo hacer referencia a este parámetro en la plantilla. En la sección siguiente, edite la plantilla para usar un nombre generado para la cuenta de almacenamiento.
 

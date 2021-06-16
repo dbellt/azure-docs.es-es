@@ -12,19 +12,19 @@ ms.date: 04/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: afb3b3d6a2828e17abbca54ab8bd716f06cb01f8
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 834afe8d0f0c5c53c2cb300d666dbcccbee46ec0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632752"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962415"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Administración de Azure AD B2C con Microsoft Graph
 
 Microsoft Graph permite administrar recursos en el directorio de Azure AD B2C. Se admiten las siguientes operaciones de Microsoft Graph API para la administración de recursos de Azure AD B2C, incluidos usuarios, proveedores de identidades, flujos de usuarios, directivas personalizadas y claves de directivas. Cada vínculo de las secciones siguientes se dirige a la página correspondiente dentro de la referencia de Microsoft Graph API para esa operación. 
 
 > [!NOTE]
-> También puede crear mediante programación un directorio de Azure AD B2C, junto con el recurso de Azure correspondiente vinculado a una suscripción de Azure. Esta funcionalidad no se expone a través de Microsoft Graph API, sino a través de la API REST de Azure. Para obtener más información, consulte [Inquilinos B2C: Creación](https://docs.microsoft.com/rest/api/activedirectory/b2ctenants/create).
+> También puede crear mediante programación un directorio de Azure AD B2C, junto con el recurso de Azure correspondiente vinculado a una suscripción de Azure. Esta funcionalidad no se expone a través de Microsoft Graph API, sino a través de la API REST de Azure. Para obtener más información, consulte [Inquilinos B2C: Creación](/rest/api/activedirectory/b2ctenants/create).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

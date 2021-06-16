@@ -1,17 +1,17 @@
 ---
 author: MashaMSFT
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: service-overview
 ms.topic: include
 ms.date: 03/10/2020
-ms.author: sstein
+ms.author: mathoma
 ms.reviewer: vanto
-ms.openlocfilehash: 0568860c387aa1239ec56005e404606272ae8275
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 60ae736d060030bfb535d3de917b4872517e1b5c
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107799973"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110690155"
 ---
 En este paso, se crea un [servidor de SQL Server lógico](../database/logical-servers.md) y una [base de datos única](../database/single-database-overview.md) que use los datos de ejemplo de AdventureWorksLT. Puede crear la base de datos mediante menús y pantallas de Azure Portal, o mediante un script de la CLI de Azure o de PowerShell en Azure Cloud Shell.
 

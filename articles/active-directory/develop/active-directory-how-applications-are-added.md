@@ -13,12 +13,12 @@ ms.date: 12/01/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: ac02638dfdef4867e93e277175df82be18be66a7
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 1abd8f23f54826e283f4e45aac8b4fb35dc0b144
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530086"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953643"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Cómo y por qué se agregan aplicaciones a Azure AD
 
@@ -74,7 +74,7 @@ Al igual que los objetos de aplicación, las entidades de servicio se pueden cre
   * Al suscribirse a Microsoft 365 o probar una versión de prueba, se crean una o más entidades de servicio en el directorio que representa los distintos servicios que se usan para ofrecer toda la funcionalidad asociada a Office 365.
   * Algunos servicios de Microsoft 365 como SharePoint crean entidades de servicio de forma continua para permitir una comunicación segura entre los componentes que incluyen los flujos de trabajo.
 * Cuando un administrador añade una aplicación desde la galería de aplicaciones (esto también creará un objeto de aplicación subyacente).
-* Al añadir una aplicación para usar el [Azure Active Directory Application Proxy](../manage-apps/application-proxy.md).
+* Al añadir una aplicación para usar el [Azure Active Directory Application Proxy](../app-proxy/application-proxy.md).
 * Al conectar una aplicación para inicio de sesión único utilizando SAML o inicio de sesión único (SSO) de contraseña.
 * Mediante programación con Microsoft Graph API o PowerShell
 

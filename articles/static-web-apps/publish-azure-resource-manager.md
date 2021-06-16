@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/10/2021
 ms.author: petender
-ms.openlocfilehash: 4d79e417e637894f2a41bd55b52fbbe55300a694
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 95b2bd71b59a8ef14274928428624fe52e923fe1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685412"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968896"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-using-an-arm-template"></a>Tutorial: Publicación de Azure Static Web Apps con una plantilla de ARM
 
@@ -31,10 +31,10 @@ En este tutorial, aprenderá a:
 - Un **editor de plantillas de ARM**: la revisión y edición de plantillas requiere un editor JSON. Visual Studio Code con la [extensión de herramientas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) es adecuado para editar plantillas de ARM. Para obtener instrucciones sobre cómo instalar y configurar Visual Studio Code, consulte [Inicio rápido: Creación de plantillas de ARM mediante Visual Studio Code](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md).
 
 - **CLI de Azure o Azure PowerShell**: la implementación de plantillas de ARM requiere una herramienta de línea de comandos. Para obtener instrucciones de instalación, consulte:
-  - [Instalación de la CLI de Azure en Windows](https://docs.microsoft.com/cli/azure/install-azure-cli-windows)
-  - [Instalación de la CLI de Azure en Linux](https://docs.microsoft.com/cli/azure/install-azure-cli-linux)
-  - [Instalación de la CLI de Azure en macOS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos)
-  - [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
+  - [Instalación de la CLI de Azure en Windows](/cli/azure/install-azure-cli-windows)
+  - [Instalación de la CLI de Azure en Linux](/cli/azure/install-azure-cli-linux)
+  - [Instalación de la CLI de Azure en macOS](/cli/azure/install-azure-cli-macos)
+  - [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="create-a-github-personal-access-token"></a>Creación de un token de acceso personal de GitHub
 

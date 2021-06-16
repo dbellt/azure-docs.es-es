@@ -7,16 +7,16 @@ ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
 ms.date: 05/05/2021
-ms.openlocfilehash: 9f0fd2b23fe363b3db353267908b2c466ba70b68
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 6b77ede348073dd09c0ba44bfe282d3bf546a092
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109488004"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958551"
 ---
 # <a name="whats-new-in-azure-database-for-mysql---single-server"></a>Novedades de Azure Database for MySQL: servidor único
 
-Azure Database for MySQL es un servicio en la nube de base de datos relacional de Microsoft. El servicio se basa en el motor de base de datos de [MySQL Community Edition](https://www.mysql.com/products/community/) (disponible con la licencia GPLv2) y admite las versiones 5.6, 5.7 y 8.0. [Azure Database for MySQL: servidor único](https://docs.microsoft.com/azure/mysql/overview#azure-database-for-mysql---single-server) es un modo de implementación que proporciona un servicio de base de datos totalmente administrado con unos requisitos mínimos para las personalizaciones de base de datos. La plataforma de servidor único está diseñada para administrar la mayoría de las funciones de administración de bases de datos, como aplicación de revisiones, copias de seguridad, alta disponibilidad y seguridad, todo ello sin que el usuario tenga que intervenir apenas en la configuración y el control.
+Azure Database for MySQL es un servicio en la nube de base de datos relacional de Microsoft. El servicio se basa en el motor de base de datos de [MySQL Community Edition](https://www.mysql.com/products/community/) (disponible con la licencia GPLv2) y admite las versiones 5.6, 5.7 y 8.0. [Azure Database for MySQL: servidor único](./overview.md#azure-database-for-mysql---single-server) es un modo de implementación que proporciona un servicio de base de datos totalmente administrado con unos requisitos mínimos para las personalizaciones de base de datos. La plataforma de servidor único está diseñada para administrar la mayoría de las funciones de administración de bases de datos, como aplicación de revisiones, copias de seguridad, alta disponibilidad y seguridad, todo ello sin que el usuario tenga que intervenir apenas en la configuración y el control.
 
 En este artículo se resumen las nuevas versiones y características de Azure Database for MySQL: servidor único a partir de enero de 2021. Las listas aparecen en orden cronológico inverso, con las actualizaciones más recientes en primer lugar.
 
@@ -49,5 +49,5 @@ Además, tenga en cuenta los siguientes puntos de contacto según corresponda:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre los [precios de Azure Database for MySQL](https://azure.microsoft.com/pricing/details/mysql/server/).
-- Examine la [documentación pública](https://docs.microsoft.com/azure/mysql/single-server/) de Azure Database for MySQL: servidor único.
-- Revise los detalles sobre la [solución de errores comunes](https://docs.microsoft.com/azure/mysql/howto-troubleshoot-common-errors).
+- Examine la [documentación pública](./single-server/index.yml) de Azure Database for MySQL: servidor único.
+- Revise los detalles sobre la [solución de errores comunes](./howto-troubleshoot-common-errors.md).

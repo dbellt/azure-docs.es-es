@@ -3,16 +3,16 @@ title: Copia de seguridad de blobs de Azure en una cuenta de almacenamiento medi
 description: Aprenda a hacer una copia de seguridad de todos los blobs de Azure de una cuenta de almacenamiento mediante Azure PowerShell.
 ms.topic: conceptual
 ms.date: 05/05/2021
-ms.openlocfilehash: ed657d40a5967431c9bf2017d47d0d3c13cd9908
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 55d33283360adae4894032bec648cfc973391f38
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108803141"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968689"
 ---
 # <a name="back-up-all-azure-blobs-in-a-storage-account-using-azure-powershell"></a>Copia de seguridad de todos los blobs de Azure de una cuenta de almacenamiento mediante Azure PowerShell
 
-En este artículo se describe cómo hacer una copia de seguridad de todos los [blobs de Azure](/azure/backup/blob-backup-overview) de una cuenta de almacenamiento mediante Azure PowerShell.
+En este artículo se describe cómo hacer una copia de seguridad de todos los [blobs de Azure](./blob-backup-overview.md) de una cuenta de almacenamiento mediante Azure PowerShell.
 
 En este artículo, aprenderá a:
 

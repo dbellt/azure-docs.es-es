@@ -4,12 +4,12 @@ description: En este artículo se describe cómo establecer la ubicación de los
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b2eba8e48a9b5ccc1ddb731690e99dcbbaa8f6fb
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 686975b73ee2ad0e487fad278f872e7d31753041
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321634"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960039"
 ---
 # <a name="set-resource-location-in-arm-template"></a>Establecimiento de la ubicación del recurso en la plantilla de Resource Manager
 
@@ -97,4 +97,4 @@ En el ejemplo siguiente se muestra una cuenta de almacenamiento que está implem
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para la lista completa de las funciones de plantilla disponibles, consulte [Funciones de plantilla de ARM](template-functions.md).
-* Para más información sobre los archivos de plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de ARM](template-syntax.md).
+* Para más información sobre los archivos de plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de ARM](./syntax.md).

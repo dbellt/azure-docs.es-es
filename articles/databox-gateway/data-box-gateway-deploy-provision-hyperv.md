@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/01/2021
+ms.date: 05/26/2021
 ms.author: alkohli
-ms.openlocfilehash: 2e54b8e58e8139c46639187957906790ffb0fe54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1852ed997faa3c2410f6938d2ab409940c2904b
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727692"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110577265"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Tutorial: Aprovisionamiento de Azure Data Box Gateway en Hyper-V
 
@@ -76,7 +76,7 @@ Para crear un dispositivo virtual, necesita:
 * Asegúrese de que el hardware subyacente (sistema de host) en el que está creando el dispositivo virtual pueda dedicar los siguientes recursos al dispositivo virtual:
 
   * Un mínimo de 4 procesadores virtuales.
-  * Al menos 8 GB de RAM.
+  * Al menos 8 GB de RAM. Se recomiendan encarecidamente al menos 16 GB de RAM.
   * Una interfaz de red conectada a la red capaz de enrutar el tráfico a Internet.
   * Un disco de sistema operativo de 250 GB.
   * Un disco virtual de 2 TB para datos del sistema.

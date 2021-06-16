@@ -3,16 +3,16 @@ title: Autenticación con una identidad administrada
 description: Proporcione acceso a las imágenes en el registro de contenedor privado mediante una identidad de Azure administrada que haya asignado el usuario o el sistema.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 213f49356fdc2444f8bc2cb4635e96015aff0a61
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 88952a032b9c4439620de05f181402f29639a5b2
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781548"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111440671"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Use la identidad administrada de Azure para autenticarse en Azure Container Registry 
 
-Use una [instancia de Managed Identities for Azure Resources](../active-directory/managed-identities-azure-resources/overview.md) para autenticarse en Azure Container Registry desde otro recurso de Azure, sin necesidad de proporcionar o administrar las credenciales del registro. Por ejemplo, configure una identidad administrada asignada por un usuario o por el sistema en una VM de Linux para acceder a las imágenes de contenedor desde el registro de contenedor tan fácilmente como cuando usa un registro público. O bien, configure un clúster de Azure Kubernetes Service para que use su [identidad administrada](../aks/use-managed-identity.md) para extraer imágenes de contenedor de Azure Container Registry para implementaciones de pod.
+Use una [instancia de Managed Identities for Azure Resources](../active-directory/managed-identities-azure-resources/overview.md) para autenticarse en Azure Container Registry desde otro recurso de Azure, sin necesidad de proporcionar o administrar las credenciales del registro. Por ejemplo, configure una identidad administrada asignada por un usuario o por el sistema en una VM de Linux para acceder a las imágenes de contenedor desde el registro de contenedor tan fácilmente como cuando usa un registro público. O bien, configure un clúster de Azure Kubernetes Service para que use su [identidad administrada](../aks/cluster-container-registry-integration.md) para extraer imágenes de contenedor de Azure Container Registry para implementaciones de pod.
 
 En este artículo, conocerá mejor las identidades administradas y aprenderá a realizar las siguientes tareas:
 

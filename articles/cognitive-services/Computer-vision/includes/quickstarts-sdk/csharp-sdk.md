@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 68e454f7b0a7063f8b25337474795a660ac0aa99
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 9c0eb795040e999f40ab05c2b6c20e0426327b76
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110487541"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112084101"
 ---
 <a name="HOLTop"></a>
 
@@ -95,9 +95,7 @@ En la clase **Program** de la aplicación, cree variables para la clave de suscr
 
 En el método `Main` de la aplicación, agregue llamadas para los métodos que se usan en este inicio rápido. Las creará más adelante.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_client)]
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extracttextinmain)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_main_calls)]
 
 > [!div class="nextstepaction"]
 > [He configurado el cliente](?success=set-up-client#object-model) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Section=set-up-client&product=computer-vision&page=csharp-sdk)
@@ -132,7 +130,7 @@ En un nuevo método de la clase **Program**, cree una instancia de un cliente co
 El servicio OCR puede leer texto visible de una imagen y convertirlo en una secuencia de caracteres. Para más información sobre el reconocimiento de texto, consulte la información general sobre el [reconocimiento óptico de caracteres (OCR)](../../overview-ocr.md). En el código de esta sección se usa la versión más reciente de la [versión 3.0 del SDK Computer Vision para lectura](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) y se define un método, `BatchReadFileUrl`, que usa el objeto de cliente para detectar y extraer texto en la imagen.
 
 > [!TIP]
-> También puede extraer texto de una imagen local. Consulte los métodos [ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient), como **ReadInStreamAsync**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs#L676) para escenarios relacionados con imágenes locales.
+> También puede extraer texto de una imagen local. Consulte los métodos [ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient), como **ReadInStreamAsync**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs#162) para escenarios relacionados con imágenes locales.
 
 ### <a name="set-up-test-image"></a>Configuración de una imagen de prueba
 

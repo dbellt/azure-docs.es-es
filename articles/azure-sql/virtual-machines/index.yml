@@ -6,16 +6,17 @@ metadata:
   description: Busque documentación sobre SQL Server instalado en máquinas virtuales de Azure, tanto en Windows como en Linux.
   services: virtual-machines-sql
   ms.service: virtual-machines-sql
+  ms.subservice: service-overview
   ms.topic: landing-page
   author: MashaMSFT
   ms.author: mathoma
   ms.date: 05/27/2020
-  ms.openlocfilehash: 5b93139b896c3b2868db8b9f03c8eb84df7ca834
-  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+  ms.openlocfilehash: a33f9268dce514c7b7d9522d4a1c58e57befa122
+  ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/19/2021
-  ms.locfileid: "110064385"
+  ms.lasthandoff: 05/29/2021
+  ms.locfileid: "110688239"
 landingContent:
 - title: SQL Server en máquina virtual de Azure
   linkLists:
@@ -137,7 +138,7 @@ landingContent:
       url: https://datamigration.microsoft.com/
     - text: Transact-SQL (T-SQL)
       url: /sql/t-sql/language-reference
-    - text: Azure CLI
+    - text: CLI de Azure
       url: /cli/azure/sql
     - text: PowerShell
       url: /powershell/module/az.sql

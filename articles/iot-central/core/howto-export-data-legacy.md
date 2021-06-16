@@ -7,12 +7,12 @@ ms.author: viviali
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: d4c099d29a843b4c354ffb218887dc7ffab51771
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a6a5a98b6989526908e464a314d271dd07c19d8
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98065446"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110586260"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>Exportación de datos de IoT a destinos en la nube mediante la exportación de datos (heredada)
 
@@ -30,7 +30,7 @@ En este artículo se describe cómo usar la característica de exportación de d
 > [!Note]
 > Cuando se activa la exportación de datos, solo se obtienen los datos a partir de ese momento. Actualmente, no se pueden recuperar los datos del tiempo durante el que la exportación de datos estaba desactivada. Para conservar más datos históricos, active la exportación de datos al principio.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Ser administrador en la aplicación de IoT Central o contar con permisos de exportación de datos.
 
@@ -555,7 +555,7 @@ En esta instantánea de ejemplo se muestra un mensaje que contiene los datos de 
 
 Si tiene una exportación de datos existente en la aplicación de versión preliminar con los flujos *Dispositivos* y *Plantillas de dispositivo* activados, actualice la exportación antes del **30 de junio de 2020**. Este requisito se aplica a las exportaciones a Azure Blob Storage, Azure Event Hubs y Azure Service Bus.
 
-A partir del 3 de febrero de 2020, todas las nuevas exportaciones en aplicaciones con Dispositivos y Plantillas de dispositivo habilitados tendrán el formato de datos descrito anteriormente. Todas las exportaciones creadas antes de esta fecha permanecen en el formato de datos antiguo hasta el 30 de junio de 2020, en esa fecha estas exportaciones se migrarán automáticamente al nuevo formato de datos. El nuevo formato de datos coincide con los objetos [dispositivo](/rest/api/iotcentral/devices/get), [propiedad del dispositivo](/rest/api/iotcentral/devices/getproperties), [propiedad de la nube del dispositivo](/rest/api/iotcentral/devices/getcloudproperties) y [plantilla de dispositivo](/rest/api/iotcentral/devicetemplates/get) en la API pública de IoT Central.
+A partir del 3 de febrero de 2020, todas las nuevas exportaciones en aplicaciones con Dispositivos y Plantillas de dispositivo habilitados tendrán el formato de datos descrito anteriormente. Todas las exportaciones creadas antes de esta fecha permanecen en el formato de datos antiguo hasta el 30 de junio de 2020, en esa fecha estas exportaciones se migrarán automáticamente al nuevo formato de datos. El nuevo formato de datos coincide con los objetos [dispositivo](/rest/api/iotcentral/2021-04-30preview/devices/get), [propiedad del dispositivo](/rest/api/iotcentral/2021-04-30preview/devices/getproperties), [propiedad de la nube del dispositivo](/rest/api/iotcentral/2021-04-30preview/devices/getcloudproperties) y [plantilla de dispositivo](/rest/api/iotcentral/2021-04-30preview/devicetemplates/get) en la API pública de IoT Central.
 
 En el caso de **Dispositivos**, las diferencias importantes entre el formato de datos anterior y el nuevo formato de datos incluyen:
 - Se quitó `@id` para el dispositivo, se cambió el nombre de `deviceId` a `id` 

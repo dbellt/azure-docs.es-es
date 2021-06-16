@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba3bdc3f58395f17911042c699a0aca3cbae92a2
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 06c42fef2abddc5f04a2d74f30df5fcf54e1b1b3
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108290639"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854421"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Guía de inicio rápido
 
@@ -202,7 +202,7 @@ Si ha reemplazado la configuración de las directivas [AuthNegotiateDelegateWhit
 
 #### <a name="google-chrome-macos-and-other-non-windows-platforms"></a>Google Chrome (macOS y otras plataformas que no son Windows)
 
-En el caso de Google Chrome para macOS y otras plataformas que no son de Windows, consulte la [lista de directivas del proyecto Chromium](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) para obtener información sobre cómo controlar la lista de permitidos para la dirección URL de Azure AD para la autenticación integrada.
+En el caso de Google Chrome para macOS y otras plataformas que no son de Windows, consulte la [lista de directivas del proyecto Chromium](https://chromeenterprise.google/policies/) para obtener información sobre cómo controlar la lista de permitidos para la dirección URL de Azure AD para la autenticación integrada.
 
 El uso de las extensiones de directiva de grupo de Active Directory de terceros para implementar la dirección URL de AD Azure de Firefox y Google Chrome para los usuarios de Mac está fuera del ámbito de este artículo.
 

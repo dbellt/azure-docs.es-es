@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 02/11/2021
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: b88b36ba8ec1d2d612adbbf19a6cf1e91fbb2cfd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5b03806b234e0f52453211bce0e468610c14a299
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100377761"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411222"
 ---
 # <a name="azure-arc-enabled-postgresql-hyperscale-server-group-placement"></a>Selección de la ubicación de un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
 
@@ -370,4 +370,4 @@ Existen varias maneras de conseguirlo:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Escalado horizontal del grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc mediante la adición de más nodos de trabajo](scale-out-postgresql-hyperscale-server-group.md)
+[Escalado horizontal del grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc mediante la adición de más nodos de trabajo](scale-out-in-postgresql-hyperscale-server-group.md)

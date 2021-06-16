@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: fecha'
 description: Aquí se describen las funciones que se usan en una plantilla de Azure Resource Manager (plantilla de ARM) para trabajar con fechas.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: abff5b86ad1e10042596b11f613cdb594e307209
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/11/2021
+ms.openlocfilehash: c6bf3adca5dde4947e2c22dd8468f1b045f77120
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889933"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959702"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funciones de cadena para plantillas de Resource Manager
 
@@ -16,8 +16,6 @@ Resource Manager ofrece las siguientes funciones para trabajar con fechas en la 
 
 * [dateTimeAdd](#datetimeadd)
 * [utcNow](#utcnow)
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## <a name="datetimeadd"></a>dateTimeAdd
 
@@ -40,8 +38,6 @@ Valor datetime resultado de sumar el valor de duración al valor base.
 ### <a name="examples"></a>Ejemplos
 
 En la plantilla de ejemplo siguiente se muestran distintas formas de sumar valores de hora.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -76,22 +72,6 @@ En la plantilla de ejemplo siguiente se muestran distintas formas de sumar valor
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param baseTime string = utcNow('u')
-
-var add3Years = dateTimeAdd(baseTime, 'P3Y')
-var subtract9Days = dateTimeAdd(baseTime, '-P9D')
-var add1Hour = dateTimeAdd(baseTime, 'PT1H')
-
-output add3YearsOutput string = add3Years
-output subtract9DaysOutput string = subtract9Days
-output add1HourOutput string = add1Hour
-```
-
----
-
 Cuando la plantilla anterior se implementa con una hora base de `2020-04-07 14:53:14Z`, la salida es:
 
 | Nombre | Tipo | Value |
@@ -101,8 +81,6 @@ Cuando la plantilla anterior se implementa con una hora base de `2020-04-07 14:5
 | add1HourOutput | String | 4/7/2020 3:53:14 PM |
 
 En la plantilla de ejemplo siguiente se muestra cómo establecer la hora de inicio de una programación de Automation.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -154,30 +132,6 @@ En la plantilla de ejemplo siguiente se muestra cómo establecer la hora de inic
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param omsAutomationAccountName string = 'demoAutomation'
-param scheduleName string = 'demSchedule1'
-param baseTime string = utcNow('u')
-
-var startTime = dateTimeAdd(baseTime, 'PT1H')
-
-...
-
-resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2015-10-31' = {
-  name: concat(omsAutomationAccountName, '/', scheduleName)
-  properties: {
-    description: 'Demo Scheduler'
-    startTime: startTime
-    interval: 1
-    frequency: 'Hour'
-  }
-}
-```
-
----
-
 ## <a name="utcnow"></a>utcNow
 
 `utcNow(format)`
@@ -205,8 +159,6 @@ El valor de fecha y hora UTC actual.
 ### <a name="examples"></a>Ejemplos
 
 La plantilla de ejemplo siguiente muestra formatos diferentes para el valor de fecha y hora.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -245,20 +197,6 @@ La plantilla de ejemplo siguiente muestra formatos diferentes para el valor de f
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param utcValue string = utcNow()
-param utcShortValue string = utcNow('d')
-param utcCustomValue string = utcNow('M d')
-
-output utcOutput string = utcValue
-output utcShortOutput string = utcShortValue
-output utcCustomOutput string = utcCustomValue
-```
-
----
-
 El resultado del ejemplo anterior varía para cada implementación, pero será similar a:
 
 | Nombre | Tipo | Value |
@@ -268,8 +206,6 @@ El resultado del ejemplo anterior varía para cada implementación, pero será s
 | utcCustomOutput | string | 3 5 |
 
 El ejemplo siguiente muestra cómo usar un valor de la función cuando se establece un valor de etiqueta.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -305,25 +241,6 @@ El ejemplo siguiente muestra cómo usar un valor de la función cuando se establ
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param utcShort string = utcNow('d')
-param rgName string
-
-resource myRg 'Microsoft.Resources/resourceGroups@2020-10-01' = {
-  name: rgName
-  location: 'westeurope'
-  tags: {
-    createdDate: utcShort
-  }
-}
-
-output utcShortOutput string = utcShort
-```
-
----
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener una descripción de las secciones de una plantilla de ARM, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para obtener una descripción de las secciones de una plantilla de ARM, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./syntax.md).

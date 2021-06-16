@@ -3,19 +3,19 @@ title: Diagnóstico de rendimiento en Hiperescala
 description: En este artículo se describe cómo solucionar los problemas de rendimiento de Hiperescala en Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: performance
 ms.custom: seo-lt-2019 sqldbrb=1
 ms.topic: troubleshooting
 author: denzilribeiro
 ms.author: denzilr
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 10/18/2019
-ms.openlocfilehash: 0f5edcb3a024336ce96adb015609c9faf3318b86
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 116212ff082a2d21e8609c41af82e8325c78156c
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107947112"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110704307"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnóstico de la solución de problemas de rendimiento de Hiperescala de SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

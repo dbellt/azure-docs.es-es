@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, sstein
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 05/10/2021
-ms.openlocfilehash: 39f684f2eb6f0c8d4c9089ae4d34c38cc51922be
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: ea50d8f4fd614d450685c7efa3004c8853eb8643
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685196"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966883"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -374,7 +374,7 @@ Al configurar un grupo de conmutación por error entre instancias administradas 
 - Las redes virtuales que se usan en las instancias de Instancia administrada de SQL deben estar conectadas mediante [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Si dos redes virtuales se conectan a través de una red local, asegúrese de que no haya ninguna regla de firewall bloqueando los puertos 5022 y 11000-11999. El emparejamiento de VNet global se admite con la limitación descrita en la nota siguiente.
 
    > [!IMPORTANT]
-   > [El 22 de septiembre de 2020 se anunció el emparejamiento de red virtual global para clústeres virtuales recién creados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Esto significa que el emparejamiento de red virtual global se admite en las instancias de SQL Managed Instance creadas en subredes vacías después de la fecha del anuncio, así como en todas las instancias administradas posteriores creadas en esas subredes. En el caso de todas las demás instancias de SQL Managed Instance, la compatibilidad con el emparejamiento se limita a las redes de la misma región, debido a las [restricciones del emparejamiento de red virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte también la sección correspondiente del artículo [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para más información. Para poder usar el emparejamiento de red virtual global en instancias de SQL Managed Instance desde clústeres virtuales creados antes de la fecha del anuncio, considere la posibilidad de configurar la [ventana de mantenimiento](https://docs.microsoft.com/azure/azure-sql/database/maintenance-window) en las instancias, ya que eso mueve las instancias a nuevos clústeres virtuales que admiten el emparejamiento de red virtual global.
+   > [El 22 de septiembre de 2020 se anunció el emparejamiento de red virtual global para clústeres virtuales recién creados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Esto significa que el emparejamiento de red virtual global se admite en las instancias de SQL Managed Instance creadas en subredes vacías después de la fecha del anuncio, así como en todas las instancias administradas posteriores creadas en esas subredes. En el caso de todas las demás instancias de SQL Managed Instance, la compatibilidad con el emparejamiento se limita a las redes de la misma región, debido a las [restricciones del emparejamiento de red virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte también la sección correspondiente del artículo [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para más información. Para poder usar el emparejamiento de red virtual global en instancias de SQL Managed Instance desde clústeres virtuales creados antes de la fecha del anuncio, considere la posibilidad de configurar la [ventana de mantenimiento](./maintenance-window.md) en las instancias, ya que eso mueve las instancias a nuevos clústeres virtuales que admiten el emparejamiento de red virtual global.
 
 - Las dos redes virtuales de Instancia administrada de SQL no pueden tener direcciones IP superpuestas.
 - Debe configurar sus grupos de seguridad de red (NSG) de forma que los puertos 5022 y el intervalo 11000~12000 estén abiertos a las conexiones entrantes y salientes de la subred de la otra instancia administrada. Esto es para permitir el tráfico de replicación entre las instancias.

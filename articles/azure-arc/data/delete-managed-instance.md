@@ -4,17 +4,17 @@ description: Eliminación de una instancia de SQL Managed Instance habilitada pa
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: rothja
-ms.author: jroth
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 416ba3305b1a118e05987c8c7b4499d1cf79ef5d
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: e9496b1782cb78cacb378b167386cd9fe950b15c
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109736311"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110495902"
 ---
 # <a name="delete-azure-arc-enabled-sql-managed-instance"></a>Eliminación de una instancia de SQL Managed Instance habilitada para Azure Arc
 En este artículo se describe cómo se puede eliminar una instancia creada de SQL Managed Instance habilitada para Azure Arc.

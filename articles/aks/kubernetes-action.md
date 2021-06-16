@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/06/2020
 ms.author: atulmal
 ms.custom: github-actions-azure
-ms.openlocfilehash: 2539591b7c425750263653d137f904758982ca62
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: a4fc4c6919cc1cf2ecdfd16a35fb43401ac4928f
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751894"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111891255"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>Acciones de GitHub para la implementación en el servicio Kubernetes
 
@@ -223,7 +223,7 @@ Cuando el clúster de Kubernetes, el registro de contenedor y el repositorio ya 
 > [Obtenga más información acerca de Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-start-here)
 
 > [!div class="nextstepaction"]
-> [Aprenda a crear varias canalizaciones en Acciones de GitHub con AKS](https://docs.microsoft.com/learn/modules/aks-deployment-pipeline-github-actions)
+> [Aprenda a crear varias canalizaciones en Acciones de GitHub con AKS](/learn/modules/aks-deployment-pipeline-github-actions)
 
 ### <a name="more-kubernetes-github-actions"></a>Más Acciones de GitHub para Kubernetes
 

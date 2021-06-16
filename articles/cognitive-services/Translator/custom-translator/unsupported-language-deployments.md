@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: lajanuar
-ms.openlocfilehash: fb31388647fc6022a2e6670baf7b3e73f345c36a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca2fab82dd08ea999186a430b78b6329c64ae816
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98898077"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111409602"
 ---
 # <a name="unsupported-language-deployments"></a>Implementaciones en lenguajes no compatibles
 
@@ -25,10 +25,10 @@ Con la próxima retirada de Microsoft Translator Hub, Microsoft anulará la impl
 
 Ahora tenemos un proceso que le permite implementar sus modelos no compatibles a través de Traductor personalizado.  Este proceso le permite continuar traduciendo contenido mediante la API V3 más reciente.  Estos modelos se hospedarán hasta que decida anular su implementación o el par de idiomas esté disponible en Traductor personalizado.  En este artículo se explica el proceso de implementación de modelos con pares de idiomas no compatibles.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para que sus modelos sean candidatos para la implementación, deben cumplir los siguientes criterios:
-* El proyecto que incluye el modelo debe haber migrado de la instancia de Hub a Traductor personalizado mediante la herramienta de migración.  [Aquí](how-to-migrate.md) encontrará el proceso de migración de proyectos y áreas de trabajo.
+* El proyecto que incluye el modelo debe haber migrado de la instancia de Hub a Traductor personalizado mediante la herramienta de migración.  
 * El modelo debe tener el estado Implementado al producirse la migración.  
 * El par de idiomas del modelo debe ser un par de idiomas no compatible en Traductor personalizado.  Los pares de idiomas en los que se admite un idioma, hacia o desde el inglés, pero el par en sí no incluye el inglés, son candidatos para las implementaciones de idiomas no compatibles.  Por ejemplo, un modelo de Hub para un par de idiomas de francés a alemán se considera un par de idiomas no compatible, aunque francés a inglés e inglés a alemán son pares de idiomas compatibles.
 

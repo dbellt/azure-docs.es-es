@@ -3,18 +3,18 @@ title: Funciones de plantillas
 description: Se describen las funciones que se van a usar en una plantilla de Azure Resource Manager para recuperar valores, trabajar con cadenas y valores numéricos y recuperar información de implementación.
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: a9ea21a57404f7de832fb307bdabeb47f8cf3f58
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 012e570a769e8ea969d0c527a71053f55ecdf5a9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220188"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959402"
 ---
 # <a name="arm-template-functions"></a>Funciones de plantilla de ARM
 
 En este artículo se describen todas las funciones que puede utilizar en una plantilla de Azure Resource Manager. Para obtener información sobre el uso de funciones en la plantilla, consulte la [sintaxis de la plantilla](template-expressions.md).
 
-Para crear sus propias funciones, consulte [Funciones definidas por el usuario](template-syntax.md#functions).
+Para crear sus propias funciones, consulte [Funciones definidas por el usuario](./syntax.md#functions).
 
 La mayoría de las funciones operan de la misma forma cuando se implementan en un grupo de recursos, en una suscripción, en un grupo de administración o en un inquilino. Hay algunas funciones que no pueden utilizarse en todos los ámbitos. Se indican en las listas siguientes.
 
@@ -36,7 +36,7 @@ La mayoría de las funciones operan de la misma forma cuando se implementan en u
 
 ## <a name="any-function"></a>Cualquier función
 
-La [función any](template-functions-any.md) está disponible en Bicep para ayudar a resolver problemas relacionados con las advertencias de tipos de datos.
+La [función any](../bicep/bicep-functions-any.md) está disponible en Bicep para ayudar a resolver problemas relacionados con las advertencias de tipos de datos.
 
 ## <a name="array-functions"></a>Funciones de matriz
 
@@ -253,7 +253,7 @@ El Administrador de recursos ofrece las siguientes funciones para trabajar con c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Puede encontrar una descripción de las secciones de una plantilla de Azure Resource Manager en [Nociones sobre la estructura y la sintaxis de las plantillas de Resource Manager](template-syntax.md).
+* Puede encontrar una descripción de las secciones de una plantilla de Azure Resource Manager en [Nociones sobre la estructura y la sintaxis de las plantillas de Resource Manager](./syntax.md).
 * Para combinar varias plantillas, consulte [Uso de plantillas vinculadas y anidadas al implementar recursos de Azure](linked-templates.md).
 * Para iterar un número especificado de veces al crear un tipo de recurso, consulte [Iteración de recursos en las plantillas de Resource Manager](copy-resources.md).
 * Para ver cómo implementar la plantilla que ha creado, consulte [Implementación de recursos con plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).

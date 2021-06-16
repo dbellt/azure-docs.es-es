@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: apimpm
-ms.openlocfilehash: 62f163b9ce649cd5ddb52b4325682570633dfb92
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 49dc71dac6d246907de3498ed0a39541a3caf522
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96183165"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111888435"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>CI/CD para API Management mediante plantillas de Azure Resource Manager
 
@@ -41,7 +41,7 @@ En este ejemplo, hay dos entornos de implementación: *Desarrollo* y *Producció
 * Los desarrolladores de API tienen acceso a la instancia de desarrollo y pueden usarla para desarrollar y probar sus API. 
 * Un equipo designado denominado *Publicadores de API* administra la instancia de producción.
 
-La clave de este enfoque propuesto es conservar todas las configuraciones de API Management en [plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). La organización debe mantener estas plantillas en un sistema de control de código fuente como Git. Como se muestra en la imagen, un repositorio del publicador contiene todas las configuraciones de la instancia de API Management de producción en una colección de plantillas:
+La clave de este enfoque propuesto es conservar todas las configuraciones de API Management en [plantillas de Azure Resource Manager](../azure-resource-manager/templates/syntax.md). La organización debe mantener estas plantillas en un sistema de control de código fuente como Git. Como se muestra en la imagen, un repositorio del publicador contiene todas las configuraciones de la instancia de API Management de producción en una colección de plantillas:
 
 |Plantilla  |Descripción  |
 |---------|---------|

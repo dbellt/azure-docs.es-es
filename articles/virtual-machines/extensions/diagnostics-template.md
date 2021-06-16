@@ -8,12 +8,12 @@ author: amjads1
 ms.author: amjads
 ms.collection: windows
 ms.date: 05/31/2017
-ms.openlocfilehash: 7759257f51cb00cd106af7e72e14c6660450cae9
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 50693e25b01d175c24931c5e2b298a00339fff33
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754360"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962493"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Uso de la supervisión y el diagnóstico con una máquina virtual Windows y plantillas de Azure Resource Manager
 La extensión Azure Diagnostics proporciona funcionalidades de supervisión y diagnóstico en una máquina virtual de Azure basada en Windows. Para habilitar estas funcionalidades en la máquina virtual, incluya la extensión como parte de la plantilla de Azure Resource Manager. Para obtener más información sobre cómo incluir cualquier extensión como parte de una plantilla de máquina virtual, consulte [Creación de plantillas del Administrador de recursos de Azure con extensiones de máquina virtual](../windows/template-description.md#extensions) . En este artículo se describe cómo agregar la extensión de Diagnósticos de Azure a una plantilla de máquina virtual de Windows.
@@ -172,4 +172,4 @@ Cada tabla WADMetrics contiene las columnas siguientes:
 ## <a name="next-steps"></a>Pasos siguientes
 * Para ver una plantilla de ejemplo de una máquina virtual Windows con la extensión de diagnósticos, consulte [vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-monitoring-diagnostics-extension).
 * Implemente la plantilla de Azure Resource Manager mediante [Azure PowerShell](../windows/ps-template.md) o la [línea de comandos de Azure](../linux/create-ssh-secured-vm-from-template.md).
-* Obtenga más información sobre la [creación de plantillas del Administrador de recursos de Azure](../../azure-resource-manager/templates/template-syntax.md)
+* Obtenga más información sobre la [creación de plantillas del Administrador de recursos de Azure](../../azure-resource-manager/templates/syntax.md)

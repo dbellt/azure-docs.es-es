@@ -8,12 +8,13 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 3f9b408cd6f6fbeb9123f8e2dc506b14fe0427a1
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c8457412a60d7dbe6e431fd7fad43c3e7511fe3a
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229709"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111809211"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Creación de una red virtual con una conexión VPN de sitio a sitio mediante PowerShell
 
@@ -263,5 +264,5 @@ Remove-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 `
 
 *  Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Virtual Machines](../index.yml) para más información.
 * Para más información acerca de BGP, consulte [Información general de BGP](vpn-gateway-bgp-overview.md) y [Configuración de BGP](vpn-gateway-bgp-resource-manager-ps.md).
-* Para obtener información acerca de cómo crear una conexión VPN de sitio a sitio mediante una plantilla de Azure Resource Manager, consulte [Create a Site-to-Site VPN Connection](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/) (Creación de una conexión VPN de sitio a sitio).
-* Para obtener información acerca de cómo crear una conexión VPN entre redes virtuales mediante una plantilla de Azure Resource Manager, consulte [Deploy HBase geo replication](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/) (Implementación de replicación geográfica de HBase).
+* Para obtener información acerca de cómo crear una conexión VPN de sitio a sitio mediante una plantilla de Azure Resource Manager, consulte [Create a Site-to-Site VPN Connection](https://azure.microsoft.com/resources/templates/site-to-site-vpn-create/) (Creación de una conexión VPN de sitio a sitio).
+* Para obtener información acerca de cómo crear una conexión VPN entre redes virtuales mediante una plantilla de Azure Resource Manager, consulte [Deploy HBase geo replication](https://azure.microsoft.com/resources/templates/hdinsight-hbase-replication-geo/) (Implementación de replicación geográfica de HBase).

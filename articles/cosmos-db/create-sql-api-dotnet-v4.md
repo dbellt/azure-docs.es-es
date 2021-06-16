@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/07/2021
 ms.custom: devx-track-dotnet, devx-track-azurecli
-ms.openlocfilehash: 0edab4ba20f5fa79c96ec733564dc01cfee75940
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 633a5e259cec7797e20c11a832b99becec742a27
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279701"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536212"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-preview-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Inicio rápido: Creación de una aplicación de consola mediante el SDK para .NET V4 (versión preliminar) para administrar los recursos de la cuenta de SQL API de Azure Cosmos DB.
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -93,10 +93,10 @@ La creación de la cuenta de Azure Cosmos tarda un rato;, una vez que la operaci
 
 ### <a name="create-a-new-net-app"></a><a id="create-dotnet-core-app"></a>Crear una nueva aplicación .NET
 
-Cree una nueva aplicación .NET en el IDE o editor que prefiera. Abra el símbolo del sistema de Windows o una ventana de Terminal desde el equipo local. Ejecutará todos los comandos de las secciones siguientes desde el símbolo del sistema o desde el terminal.  Ejecute el comando dotnet new para crear una nueva aplicación llamada `todo`. El parámetro --langVersion establece la propiedad LangVersion en el archivo de proyecto creado.
+Cree una nueva aplicación .NET en el IDE o editor que prefiera. Abra el símbolo del sistema de Windows o una ventana de Terminal desde el equipo local. Ejecutará todos los comandos de las secciones siguientes desde el símbolo del sistema o desde el terminal.  Ejecute el comando dotnet new para crear una nueva aplicación llamada `todo`. El parámetro `--langVersion` establece la propiedad LangVersion en el archivo de proyecto creado.
 
    ```bash
-   dotnet new console â€“langVersion:8 -n todo
+   dotnet new console --langVersion:8 -n todo
    ```
 
 Cambie el directorio a la carpeta de aplicaciones recién creada. Para compilar la aplicación:

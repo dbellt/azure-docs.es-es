@@ -1,18 +1,19 @@
 ---
 title: Definiciones de directivas integradas en Azure SQL Database
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure SQL Database e Instancia administrada de SQL. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 05/14/2021
+ms.date: 06/11/2021
 ms.topic: reference
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.service: sql-database
+ms.subservice: service-overview
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 2f3e13275a8c3b30d62f578f3034493086ea9266
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: b8b47c9a8885faff570d9e0d0071d6010d531073
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110071469"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112017800"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-sql-database--sql-managed-instance"></a>Definiciones integradas de Azure Policy para Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]

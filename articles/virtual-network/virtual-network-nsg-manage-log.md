@@ -10,12 +10,13 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: 0d171dee87a391c5e1d66db10363e6823ef387c1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b5cb8ffc7b006ce94dd809668b7e1cf8e44bd48a
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774168"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110678759"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>Registro de recursos de un grupo de seguridad de red
 
@@ -45,7 +46,7 @@ Para habilitar el registro de recursos se pueden usar [Azure Portal](#azure-port
 
 5. En **Configuración de diagnóstico**, especifique o seleccione los siguientes datos y, después, seleccione **Guardar**:
 
-    | Configuración                                                                                     | Value                                                          |
+    | Configuración                                                                                     | Valor                                                          |
     | ---------                                                                                   |---------                                                       |
     | Nombre                                                                                        | El nombre que prefiera.  Por ejemplo: *myNsgDiagnostics*      |
     | **Archivar en una cuenta de almacenamiento**, **Transmitir en secuencias a un centro de eventos** y **Enviar a Log Analytics** | Puede seleccionar tantos destinos como quiera. Para más información acerca de cada uno de ellos, consulte [Destinos de registro](#log-destinations).                                                                                                                                           |

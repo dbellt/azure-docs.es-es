@@ -3,12 +3,13 @@ title: Creación de una especificación de plantilla con plantillas vinculadas
 description: Aprenda a crear una especificación de plantilla con plantillas vinculadas.
 ms.topic: conceptual
 ms.date: 05/04/2021
-ms.openlocfilehash: 0a4d34016ce270c8921615868ef7019c33281905
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c4bcefadab5e9fcf19c06e3469ad077764355dad
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754062"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110696355"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates"></a>Tutorial: Creación de una especificación de plantilla con plantillas vinculadas
 

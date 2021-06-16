@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: b7fcf7f60b18d0d44ded67cb5b22bcdcdcd56a77
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 8a0dd8b20331d2f296767bc5628e901600f835e0
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059333"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078157"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutorial: Conexión de redes virtuales con emparejamiento de redes virtuales usando Azure Portal
 
@@ -45,7 +45,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 2. Seleccione **Redes** y **Red virtual**.
 3. En la pestaña **Fundamentos**, escriba o seleccione la siguiente información y acepte los valores predeterminados en las siguientes opciones:
 
-    |Configuración|Value|
+    |Configuración|Valor|
     |---|---|
     |Subscription| Seleccione su suscripción.|
     |Resource group| Haga clic en **Crear nuevo** y escriba *myResourceGroup*.|
@@ -57,7 +57,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
    
 5. Complete de nuevo los pasos del 1 al 5, con los cambios siguientes:
 
-    |Configuración|Value|
+    |Configuración|Valor|
     |---|---|
     |Nombre|myVirtualNetwork2|
     |Espacio de direcciones|10.1.0.0/16|
@@ -99,13 +99,13 @@ Cree una máquina virtual en cada red virtual para que puedan comunicarse entre 
 2. Seleccione **Compute** y, después, seleccione **Windows Server 2016 Datacenter**. Puede seleccionar otro sistema operativo, pero en los pasos restantes se supone que seleccionó **Windows Server 2016 Datacenter**. 
 3. Escriba o seleccione la siguiente información para **Aspectos básicos**, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Crear**:
 
-    |Configuración|Value|
+    |Configuración|Valor|
     |---|---|
     |Grupo de recursos| Seleccione **Usar existente** y después seleccione **myResourceGroup**.|
     |Nombre|myVm1|
     |Location| Seleccione **Este de EE. UU**.|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
-    |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
    
 4. Seleccione un tamaño de máquina virtual para la opción **Tamaño**.
 5. Seleccione los valores siguientes en **Redes**:
@@ -123,12 +123,14 @@ Cree una máquina virtual en cada red virtual para que puedan comunicarse entre 
 
 Complete de nuevo los pasos del 1 al 6, con los cambios siguientes:
 
-|Configuración|Value|
+|Configuración|Valor|
 |---|---|
 |Nombre | myVm2|
 |Virtual network | myVirtualNetwork2|
 
 Las máquinas virtuales tardan unos minutos en crearse. No siga con los pasos restantes hasta que se creen ambas máquinas virtuales.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="communicate-between-vms"></a>Comunicarse entre máquinas virtuales
 

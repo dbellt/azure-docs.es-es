@@ -17,12 +17,12 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73130c906d4d9f0da51db1b666e8562570cce40f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 37c731648c144d4b25896260e5cf276a97b9e731
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100571265"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965764"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registros de actividad de Azure AD en Azure Monitor
 
@@ -134,7 +134,7 @@ En esta sección se responden las preguntas más frecuentes y se abordan los pro
 
 **P: ¿Qué registros se incluyen?**
 
-**R.** : Los registros de actividad de inicio de sesión y los registros de auditoría se pueden enrutar mediante esta característica, aunque actualmente no se incluyen los eventos de auditoría relacionados con B2C. Para averiguar qué tipos de registros y qué registros basados en características se admiten en la actualidad, consulte el [esquema de registro de auditoría](reference-azure-monitor-audit-log-schema.md) y el [esquema de registro de inicio de sesión](reference-azure-monitor-sign-ins-log-schema.md). 
+**R.** : Los registros de actividad de inicio de sesión y los registros de auditoría se pueden enrutar mediante esta característica, aunque actualmente no se incluyen los eventos de auditoría relacionados con B2C. Para averiguar qué tipos de registros y qué registros basados en características se admiten en la actualidad, consulte el [esquema de registro de auditoría](./overview-reports.md) y el [esquema de registro de inicio de sesión](reference-azure-monitor-sign-ins-log-schema.md). 
 
 ---
 

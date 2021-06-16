@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b4d1041b9d330227fadf31f6afc1804174ea2ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea87a6729e6f8339ad92bc9d57e7152199349ac5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96340856"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965937"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Cómo proporciona Azure AD administración regulada por la nube para cargas de trabajo locales
 
@@ -59,7 +59,7 @@ Azure AD mejora la administración de las aplicaciones integradas en Active Dire
 
 * **Acceso remoto seguro y acceso condicional para aplicaciones locales**
 
-Para muchas organizaciones, el primer paso para administrar el acceso desde la nube para las aplicaciones web integradas en AD locales y basadas en Escritorio remoto consiste en implementar el [proxy de aplicación](../manage-apps/application-proxy.md) por delante de esas aplicaciones para proporcionar acceso remoto seguro.
+Para muchas organizaciones, el primer paso para administrar el acceso desde la nube para las aplicaciones web integradas en AD locales y basadas en Escritorio remoto consiste en implementar el [proxy de aplicación](../app-proxy/application-proxy.md) por delante de esas aplicaciones para proporcionar acceso remoto seguro.
 
 Después de un inicio de sesión único en Azure AD, los usuarios pueden acceder a las aplicaciones locales y en la nube mediante una dirección URL externa o un portal de aplicaciones interno. Por ejemplo, Application Proxy proporciona acceso remoto e inicio de sesión único para Escritorio remoto, SharePoint, y también aplicaciones como Tableau y Qlik, y de línea de negocio (LOB). Además, las directivas de acceso condicional pueden incluir que se muestren los [términos de uso](../conditional-access/terms-of-use.md) y [garantizar que el usuario los acepta](../conditional-access/require-tou.md) antes de poder acceder a una aplicación.
 

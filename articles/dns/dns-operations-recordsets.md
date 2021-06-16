@@ -8,16 +8,16 @@ ms.service: dns
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 ms.workload: infrastructure-services
 ms.date: 04/28/2021
 ms.author: rohink
-ms.openlocfilehash: 1b3e4df12a7b8a08d3f7edc8e63c9b6225a3e7bc
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 2aaa8ff93d0e334bf8b9104b4f82b0e35ccf36c1
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228089"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110705042"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Administración de conjuntos de registros y registros de DNS en Azure DNS mediante Azure PowerShell
 
@@ -385,7 +385,7 @@ Los cmdlets `New-AzDnsRecordSet`, `Set-AzDnsRecordSet` y `Remove-AzDnsRecordSet`
 
 Cada cmdlet pide confirmación si la variable de preferencia de PowerShell `$ConfirmPreference` tiene un valor de `Medium` o inferior. Dado que el valor predeterminado de `$ConfirmPreference` es `High`, estos mensajes no aparecen cuando se usa la configuración predeterminada de PowerShell.
 
-Puede invalidar el valor actual de `$ConfirmPreference` mediante el parámetro `-Confirm`. Si especifica `-Confirm` o `-Confirm:$True`, el cmdlet solicita confirmación antes de ejecutarse. Si especifica `-Confirm:$False`, el cmdlet no le pide una confirmación. 
+Puede invalidar el valor actual de `$ConfirmPreference` mediante el parámetro `-Confirm`. Si especifica `-Confirm` o `-Confirm:$True`, el cmdlet solicita confirmación antes de ejecutarse. Si especifica `-Confirm:$False`, el cmdlet no le pide la confirmación. 
 
 Para más información sobre `-Confirm` y `$ConfirmPreference`, consulte [About Preference Variables](/powershell/module/microsoft.powershell.core/about/about_preference_variables) (Acerca de las variables de preferencias).
 

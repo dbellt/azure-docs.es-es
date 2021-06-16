@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 4/23/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4977b56265f542f8f8ff13693abb468bc695a384
-ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
+ms.openlocfilehash: 12bab4b8099b074f79d0e5307780ec34178f13b8
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107992776"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968468"
 ---
 # <a name="modify-your-azure-file-sync-topology"></a>Modificación de la topología de Azure File Sync
 
@@ -44,7 +44,7 @@ Repita estos pasos para todos los grupos de sincronización del servicio de sinc
 
 En la actualidad, esto no se admite. 
 
-Si actualmente usa la unidad D y planea migrar a la nube, consulte [Conversión de la unidad D: de una máquina virtual en un disco de datos: Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/change-drive-letter).
+Si actualmente usa la unidad D y planea migrar a la nube, consulte [Conversión de la unidad D: de una máquina virtual en un disco de datos: Azure Virtual Machines](../../virtual-machines/windows/change-drive-letter.md).
 
 ## <a name="deprovision-all-server-endpoints-associated-with-a-registered-server"></a>Desaprovisionamiento de todos los puntos de conexión de servidor asociados a un servidor registrado
 
@@ -54,6 +54,3 @@ Vaya al recurso de servicio de sincronización de almacenamiento y vaya a la pes
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Desaprovisionamiento de un punto de conexión de servidor de Azure File Sync](./file-sync-deprovision-server-endpoint.md)
-
-
-

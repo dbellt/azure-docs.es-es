@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 315b505e9de853fbe4663eacdfe929149dbaa458
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 65f4bb6f50b6c09bc570b2832aa6d3aee3ac703f
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107873152"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111981753"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>Inicio rápido: Creación de un clúster de Azure Managed Instance for Apache Cassandra desde Azure Portal (versión preliminar)
  
@@ -100,7 +100,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="connecting-to-your-cluster"></a>Conectarse a los clúster
 
-Azure Managed Instance for Apache Cassandra no crea nodos con direcciones IP públicas, así que para conectarse al clúster de Cassandra recién creado, deberá crear otro recurso dentro de la red virtual. Puede ser una aplicación o una máquina virtual con la herramienta de consulta de código abierto de Apache, [CQLSH](https://cassandra.apache.org/doc/latest/tools/cqlsh.html), instalada. Puede usar una [plantilla](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/) para implementar una máquina virtual de Ubuntu. Cuando se implemente, use SSH para conectarse a la máquina e instale CQLSH con los siguientes comandos:
+Azure Managed Instance for Apache Cassandra no crea nodos con direcciones IP públicas, así que para conectarse al clúster de Cassandra recién creado, deberá crear otro recurso dentro de la red virtual. Puede ser una aplicación o una máquina virtual con la herramienta de consulta de código abierto de Apache, [CQLSH](https://cassandra.apache.org/doc/latest/tools/cqlsh.html), instalada. Puede usar una [plantilla](https://azure.microsoft.com/resources/templates/vm-simple-linux/) para implementar una máquina virtual de Ubuntu. Cuando se implemente, use SSH para conectarse a la máquina e instale CQLSH con los siguientes comandos:
 
 ```bash
 # Install default-jre and default-jdk

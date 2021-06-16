@@ -3,20 +3,20 @@ title: ¿Qué es Instancia administrada de Azure SQL?
 description: Obtenga información sobre cómo Azure SQL Managed Instance proporciona una compatibilidad cercana al 100 % con el motor de base de datos de SQL Server (Enterprise Edition) más reciente
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: service-overview
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: overview
 author: bonova
 ms.author: bonova
-ms.reviewer: sstein, vanto
+ms.reviewer: mathoma, vanto
 ms.date: 01/14/2021
-ms.openlocfilehash: 5d49a5b57ff4b59005461f2bb13451822723b039
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c0d199678aefbf2aa08f8fcbcb27376762dd39b5
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644987"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110707278"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>¿Qué es Instancia administrada de Azure SQL?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/10/2021
+ms.date: 06/09/2021
 ms.author: jeedes
-ms.openlocfilehash: 5dc580ec9e04145f59ece6bacd04c0c0cb0510ef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9e1baa944f055a0f9daa398f4e33862e8318235e
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104583705"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984165"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hcaptcha-enterprise"></a>Tutorial: Integración de inicio de sesión único (SSO) de Azure Active Directory con hCaptcha Enterprise
 
@@ -26,12 +26,15 @@ En este tutorial, aprenderá a integrar hCaptcha Enterprise con Azure Active Dir
 * Permitir que los usuarios inicien sesión automáticamente en hCaptcha Enterprise con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único (SSO) en hCaptcha Enterprise.
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 

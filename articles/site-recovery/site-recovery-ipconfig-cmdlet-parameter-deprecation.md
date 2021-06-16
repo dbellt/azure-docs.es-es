@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/30/2021
 ms.author: rishjai
-ms.openlocfilehash: 5c952f496a52da70f10e1de4d8a9e9164c8a9706
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 138dd9d576638cda52ca62e45cdb353920e9b00b
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108759012"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968549"
 ---
 # <a name="deprecation-of-ip-config-parameters-for-the-cmdlet-new-azrecoveryservicesasrvmnicconfig"></a>Desuso de parámetros IPConfig para el cmdlet New-AzRecoveryServicesAsrVMNicConfig
 
@@ -46,7 +46,7 @@ El cmdlet ya no aceptará estos parámetros.
  
 ## <a name="alternatives"></a>Alternativas 
 
-Como alternativa, se presenta un nuevo cmdlet [New-AzRecoveryServicesAsrVMNicIPConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/new-azrecoveryservicesasrvmnicipconfig) para configurar los valores de IPConfig para FO/TFO. 
+Como alternativa, se presenta un nuevo cmdlet [New-AzRecoveryServicesAsrVMNicIPConfig](/powershell/module/az.recoveryservices/new-azrecoveryservicesasrvmnicipconfig) para configurar los valores de IPConfig para FO/TFO. 
 
 
 ## <a name="remediation-steps"></a>Pasos para la corrección

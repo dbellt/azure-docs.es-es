@@ -4,13 +4,13 @@ description: Usar la solución del consorcio de prueba de autoridad de Ethereum 
 ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: 0ced84afc47c188dc8f5d911794a90cdbeeebd81
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.custom: contperf-fy21q3, devx-track-azurepowershell
+ms.openlocfilehash: 58615f1d57c5b97da555e894bcc33dcf98dee204
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108164928"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110705231"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Implementación de la solución Consorcio de prueba de autoridad de Ethereum en Azure
 
@@ -97,7 +97,7 @@ Dirección de correo electrónico | Recibirá una notificación por correo elect
 Nombre de usuario de máquina virtual | Nombre de usuario del administrador de cada una de las máquinas virtuales que se ha implementado | 1-64 caracteres alfanuméricos
 Tipo de autenticación | El método de autenticación en la máquina virtual. | Contraseña
 Contraseña | La contraseña de la cuenta de administrador para cada una de las máquinas virtuales implementadas. Inicialmente, todas las VM tienen la misma contraseña. Puede cambiar la contraseña después del aprovisionamiento. | De 12 a 72 caracteres 
-Suscripción | La suscripción en la que se va a implementar la red del consorcio. |
+Subscription | La suscripción en la que se va a implementar la red del consorcio. |
 Grupo de recursos| El grupo de recursos en el que se va a implementar la red del consorcio. | myResourceGroup
 Location | La región de Azure para el grupo de recursos. | Oeste de EE. UU. 2
 

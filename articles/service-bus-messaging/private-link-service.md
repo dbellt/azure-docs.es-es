@@ -5,12 +5,13 @@ author: spelluru
 ms.author: spelluru
 ms.date: 03/29/2021
 ms.topic: article
-ms.openlocfilehash: 833d7e9fb4d517b71aab5039ae9081407eed84cd
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: f735bb7803ccbccafe86df4426690f365f9c864b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105960544"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110688717"
 ---
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Permiso para acceder a los espacios de nombres de Azure Service Bus a través de puntos de conexión privados
 El servicio Azure Private Link le permite acceder a los servicios de Azure (por ejemplo, Azure Service Bus, Azure Storage y Azure Cosmos DB) y a los servicios de asociados o clientes hospedados por Azure mediante un **punto de conexión privado** de la red virtual.
@@ -31,7 +32,7 @@ Para más información, consulte [¿Qué es Azure Private Link?](../private-link
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Incorporación de un punto de conexión privado mediante Azure Portal
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 Para integrar un espacio de nombres de Service Bus con Azure Private Link, necesitará las siguientes entidades o permisos:
 
@@ -122,7 +123,7 @@ $namespaceName = "<NAMESPACE NAME>"
 $peConnectionName = "<PRIVATE ENDPOINT CONNECTION NAME>"
 
 # create resource group
-az group create -l $vnetLocation -n $rgName
+New-AzResourceGroup -Name $rgName -Location $vnetLocation 
 
 # create virtual network
 $virtualNetwork = New-AzVirtualNetwork `

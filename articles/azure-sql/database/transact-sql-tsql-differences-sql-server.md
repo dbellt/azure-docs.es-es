@@ -3,20 +3,20 @@ title: Resolución de diferencias de T-SQL durante la migración
 description: Instrucciones de Transact-SQL que no son totalmente compatibles con Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: migration
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: reference
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: mokabiru
+ms.author: mokabiru
+ms.reviewer: mathoma
 ms.date: 12/03/2018
-ms.openlocfilehash: 1e286b2329cb98d580bbf64071ff8767db304a00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 69e4e5ecd031026b9f1dfeec0ce34e6b2796cf2f
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96461875"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110707495"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolución de diferencias de Transact-SQL durante la migración a SQL Database
 

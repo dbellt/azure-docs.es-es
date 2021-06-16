@@ -5,15 +5,15 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 09/23/2020
+ms.date: 06/08/2021
 ms.custom: devx-track-java
 ms.author: anfeldma
-ms.openlocfilehash: 0b0bdd204b2aa322adeb7373911b90e742c71999
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8680494b4a328c51243829fcc7e16e3b3c17f44d
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019011"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111754968"
 ---
 # <a name="azure-cosmos-db-sql-api-java-sdk-v4-examples"></a>API de SQL de Azure Cosmos DB: Ejemplos de SDK para Java v4
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -125,7 +125,7 @@ El archivo de [ejemplos de CRUD de colección](https://github.com/Azure/azure-do
 
 ## <a name="autoscale-collection-examples"></a>Ejemplos de la colección de escalado automático
 
-Para obtener más información sobre el escalado automático antes de ejecutar estos ejemplos, eche un vistazo a estas instrucciones para habilitar el escalado automático en la [cuenta ](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-autoscale/) y en las [bases de datos y contenedores](./provision-throughput-autoscale.md).
+Para obtener más información sobre el escalado automático antes de ejecutar estos ejemplos, eche un vistazo a estas instrucciones para habilitar el escalado automático en la [cuenta ](https://azure.microsoft.com/resources/templates/cosmosdb-sql-autoscale/) y en las [bases de datos y contenedores](./provision-throughput-autoscale.md).
 
 El archivo de [ejemplos de CRUD de base de datos de escalado automático](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/autoscaledatabasecrud/sync/AutoscaleDatabaseCRUDQuickstart.java) muestra cómo realizar las siguientes tareas:
 

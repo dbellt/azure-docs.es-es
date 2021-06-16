@@ -3,20 +3,20 @@ title: 'PowerShell: Sincronización entre varias bases de datos en Azure SQL Dat
 description: Use un script de ejemplo de Azure PowerShell para sincronizar entre varias bases de datos de Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
-ms.custom: sqldbrb=1
+ms.subservice: sql-data-sync
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: MaraSteiu
+ms.author: masteiu
+ms.reviewer: mathoma
 ms.date: 03/12/2019
-ms.openlocfilehash: 3e6c7dd0a75a05f15fe6d59bbf5fa47b2940d86a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bf566c6c4de2fe01537dbcf401a332f926140aad
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96919924"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110691716"
 ---
 # <a name="use-powershell-to-sync-data-between-multiple-databases-in-azure-sql-database"></a>Uso de PowerShell para sincronizar datos entre varias bases de datos en Azure SQL Database
 

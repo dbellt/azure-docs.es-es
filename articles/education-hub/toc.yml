@@ -51,6 +51,6 @@
 - name: Recursos
   items:
     - name: Preguntas más frecuentes
-      href: azure-dev-tools-teaching/program-faq.md
+      href: azure-dev-tools-teaching/program-faq.yml
     - name: Soporte técnico
       href: azure-dev-tools-teaching/program-support.md

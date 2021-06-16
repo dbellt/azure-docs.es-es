@@ -3,12 +3,12 @@ title: Selección de tipos de disco administrado para nodos de clúster administ
 description: Obtenga información sobre cómo seleccionar los tipos de disco administrado para los nodos de clúster administrado de Service Fabric y cómo configurarlos en una plantilla de ARM.
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: 6e3f3c31f0db192122ec4becb07647deb3380dc0
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 054f2b68bfc2a8177e792824dd3c507bf6b4523b
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109689308"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111961041"
 ---
 # <a name="select-managed-disk-types-for-service-fabric-managed-cluster-nodes"></a>Selección de tipos de disco administrado para nodos de clúster administrados de Service Fabric
 
@@ -21,7 +21,7 @@ Los clústeres administrados de Azure Service Fabric admiten los siguientes tipo
     * Almacenamiento con redundancia local de HDD estándar. Recomendado para el acceso poco frecuente, no crítico y para copias de seguridad. 
 * SSD estándar *predeterminado*
     * Almacenamiento con redundancia local de SSD estándar. Recomendado para servidores web, aplicaciones empresariales que se usan poco y para el desarrollo/pruebas.
-* SSD prémium *Compatible con tamaños de máquina virtual específicos* para obtener más información, consulte [SSD prémium](https://docs.microsoft.com/azure/virtual-machines/disks-types#premium-ssd)
+* SSD prémium *Compatible con tamaños de máquina virtual específicos* para obtener más información, consulte [SSD prémium](../virtual-machines/disks-types.md#premium-ssd)
     * Almacenamiento con redundancia local de SSD prémium. Recomendado para las cargas de trabajo de producción y que requieren un alto rendimiento.
 
 >[!NOTE]

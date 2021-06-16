@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/05/2021
 ms.author: branim
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 712e6422060619e5567a74d6335320eff9ed8e66
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: b20ab4720f9f172ef9248d3314b25922896eb8bd
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107741439"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796936"
 ---
 # <a name="introduction-to-dynamic-node-tags"></a>Introducción a las etiquetas de nodo dinámicas
 Las etiquetas de nodo le permiten agregar y quitar etiquetas dinámicamente de los nodos para influir en la selección de ubicación de los servicios. El etiquetado de nodos es muy flexible y permite cambios en la selección de ubicación del servicio sin actualizaciones de aplicaciones ni de clústeres. Las etiquetas se pueden agregar o quitar de los nodos en cualquier momento, y los servicios pueden especificar requisitos para determinadas etiquetas cuando se crean. También es posible actualizar dinámicamente los requisitos de las etiquetas de un servicio mientras está en ejecución.
@@ -54,7 +54,7 @@ a través de ClusterConfig.json para las implementaciones independientes o Templ
     "name": "PlacementAndLoadBalancing",
     "parameters": [
       {
-          "name": " NodeTaggingEnabled ",
+          "name": "NodeTaggingEnabled",
           "value": "true"
       }
     ]

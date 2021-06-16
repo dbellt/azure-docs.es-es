@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 2bc2b12127af175d051f433f15ad4a9ffdee0467
-ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
+ms.openlocfilehash: ad79bbd166e12c24339e13f38b4e10ca9ea2b549
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109627787"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966618"
 ---
 # <a name="build-a-react-app-to-add-users-to-a-face-service"></a>Creación de una aplicación de React para agregar usuarios a un servicio de Face
 
@@ -88,7 +88,7 @@ Para ampliar la funcionalidad de la aplicación para abarcar la experiencia comp
 
 #### <a name="android"></a>[Android](#tab/android)
 
-En primer lugar, asegúrese de que la aplicación está lista para la implementación de producción: quite cualquier clave o secreto del código de la aplicación y asegúrese de que ha seguido los [procedimientos recomendados de seguridad](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp).
+En primer lugar, asegúrese de que la aplicación está lista para la implementación de producción: quite cualquier clave o secreto del código de la aplicación y asegúrese de que ha seguido los [procedimientos recomendados de seguridad](../cognitive-services-security.md?tabs=command-line%2ccsharp).
 
 Cuando todo esté listo para publicar la aplicación para producción, generará un archivo APK listo para la publicación, que es el formato de archivo de paquete para aplicaciones Android. Este archivo APK debe estar firmado con una clave privada. Con esta versión de lanzamiento, puede empezar a distribuir la aplicación directamente a sus dispositivos. 
 
@@ -98,7 +98,7 @@ Una vez creado un archivo APK firmado, consulte la documentación de <a href="ht
 
 #### <a name="ios"></a>[iOS](#tab/ios)
 
-En primer lugar, asegúrese de que la aplicación está lista para la implementación de producción: quite cualquier clave o secreto del código de la aplicación y asegúrese de que ha seguido los [procedimientos recomendados de seguridad](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp). Para prepararse para la distribución, deberá crear un icono de aplicación y una pantalla de inicio y configurar la información de implementación. Siga la [documentación de Xcode](https://developer.apple.com/documentation/Xcode/preparing_your_app_for_distribution) para preparar la aplicación para su distribución. 
+En primer lugar, asegúrese de que la aplicación está lista para la implementación de producción: quite cualquier clave o secreto del código de la aplicación y asegúrese de que ha seguido los [procedimientos recomendados de seguridad](../cognitive-services-security.md?tabs=command-line%2ccsharp). Para prepararse para la distribución, deberá crear un icono de aplicación y una pantalla de inicio y configurar la información de implementación. Siga la [documentación de Xcode](https://developer.apple.com/documentation/Xcode/preparing_your_app_for_distribution) para preparar la aplicación para su distribución. 
 
 Cuando esté listo para lanzar la aplicación para producción, compilará un archivo de la aplicación. Siga la [documentación de Xcode](https://developer.apple.com/documentation/Xcode/distributing_your_app_for_beta_testing_and_releases) sobre cómo crear una compilación de archivo y las opciones para distribuir la aplicación.  
 

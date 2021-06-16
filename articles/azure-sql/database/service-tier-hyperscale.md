@@ -3,20 +3,20 @@ title: ¿Qué es el nivel de servicio Hiperescala?
 description: En este artículo se describe el nivel de servicio Hiperescala en el modelo de compra basado en núcleo virtual en Azure SQL Database, y se explica la diferencia entre los niveles de servicio Uso general y Crítico para la empresa.
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
 ms.date: 3/31/2021
-ms.openlocfilehash: a32c839479b71f09663cc80f5b1a1b2af260ba0a
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: a3a3ca1e4a6161f12b5695ac96a3d9e562a13947
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124768"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110693345"
 ---
 # <a name="hyperscale-service-tier"></a>Nivel de servicio Hiperescala
 

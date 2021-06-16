@@ -4,25 +4,25 @@ titleSuffix: Azure Applied AI Services
 description: El servicio Azure Form Recognizer le permite identificar y extraer pares clave-valor y datos de tabla de los documentos de formulario, así como información importante de los recibos de ventas y las tarjetas de presentación.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: automated data processing, document processing, automated data entry, forms processing
-ms.openlocfilehash: fc87a621aa58d058efc2420c7baaa81fffdb69e6
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 1688cc686b11fd6a6edb129a7ac01a048ae88f4a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374092"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957504"
 ---
 # <a name="what-is-azure-form-recognizer"></a>¿Qué es Azure Form Recognizer?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Form Recognizer forma parte de [Azure Applied AI Services](https://aka.ms/applied-ai-services-hub), que le permite crear software de procesamiento de datos automatizado mediante tecnología de aprendizaje automático. Identifique y extraiga texto, pares clave-valor, marcas de selección, tablas y una estructura de sus documentos (el servicio genera datos estructurados que incluyen las relaciones del archivo original, rectángulos delimitadores, confianza, etc). Obtendrá rápidamente resultados precisos a la medida de su contenido específico sin necesidad de una intervención manual pesada o una amplia experiencia en ciencia de datos. Use Form Recognizer para automatizar la introducción de datos en las aplicaciones y mejorar las funcionalidades de búsqueda de documentos.
+Azure Form Recognizer forma parte de [Azure Applied AI Services](../../applied-ai-services/index.yml), que le permite crear software de procesamiento de datos automatizado mediante tecnología de aprendizaje automático. Identifique y extraiga texto, pares clave-valor, marcas de selección, tablas y una estructura de sus documentos (el servicio genera datos estructurados que incluyen las relaciones del archivo original, rectángulos delimitadores, confianza, etc). Obtendrá rápidamente resultados precisos a la medida de su contenido específico sin necesidad de una intervención manual pesada o una amplia experiencia en ciencia de datos. Use Form Recognizer para automatizar la introducción de datos en las aplicaciones y mejorar las funcionalidades de búsqueda de documentos.
 
 Form Recognizer consta de modelos de procesamiento de documentos personalizados, modelos pregenerados de facturas, recibos, tarjetas de identidad y de presentación, y el modelo de diseño. Puede llamar a los modelos de Form Recognizer mediante una API REST o los SDK de la biblioteca cliente, e integrarlos en su flujo de trabajo o aplicación.
 
@@ -31,7 +31,7 @@ Esta documentación contiene los siguientes tipos de artículos:
 * Los [**conceptos**](concept-layout.md) proporcionan explicaciones detalladas sobre la funcionalidad y las características del servicio.
 * Los [**inicios rápidos**](quickstarts/client-library.md) son instrucciones de inicio que le guiarán a la hora de hacer solicitudes al servicio.
 * Las [**guías de procedimientos**](build-training-data-set.md) contienen instrucciones para usar el servicio de una manera más específica o personalizada.
-* Los [**tutoriales**](tutorial-bulk-processing.md) son guías más largas que muestran cómo usar el servicio como un componente en soluciones empresariales más amplias.
+* Los [**tutoriales**](tutorial-ai-builder.md) son guías más largas que muestran cómo usar el servicio como un componente en soluciones empresariales más amplias.
 
 ## <a name="form-recognizer-features"></a>Características de Form Recognizer
 
