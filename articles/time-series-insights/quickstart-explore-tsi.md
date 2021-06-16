@@ -3,19 +3,20 @@ title: 'Inicio rápido: Explore el entorno de demo de Gen2 de Azure Time Series 
 description: Explore las características principales del entorno de demo de Azure Time Series Insights Gen2.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: shreyasharmamsft
+ms.author: shresha
+manager: cnovak
+ms.reviewer: orspodek
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 03/01/2021
-ms.openlocfilehash: 25340af243217313ce6d3f7205c102d4bcd350b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b109d363b495712efd96e2fa8e5684ad43980964
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101698117"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061135"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-gen2-demo-environment"></a>Inicio rápido: Exploración del entorno de demo de Azure Time Series Insights Gen2
 
@@ -32,7 +33,7 @@ En esta guía de inicio rápido, aprenderá a usar Azure Time Series Insights Ge
 
 El explorador de Azure Time Series Insights Gen2 muestra datos históricos y análisis de la causa raíz. Primeros pasos:
 
-1. Vaya al entorno de ejemplo  [Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples).  
+1. Vaya al entorno de ejemplo  [Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples).
 
 1. Si se le solicita, inicie sesión en el explorador de Azure Time Series Insights Gen2 con las credenciales de la cuenta de Azure.
 
@@ -124,7 +125,7 @@ Con Azure Time Series Insights Gen2 y los datos de telemetría de los sensores, 
 
     Dos de los sensores de voltaje están funcionando de forma comparable y dentro de los parámetros normales. Parece que el sensor **GridVoltagePhase3** es el culpable.
 
-1. Una vez agregados los datos estrechamente relacionados con el contexto, la caída de la fase 3 se evidencia más como la causa del problema. Ahora, tenemos un buen punto de partida sobre la causa de la advertencia. Ya estamos listos para remitir el asunto a nuestro equipo de mantenimiento.  
+1. Una vez agregados los datos estrechamente relacionados con el contexto, la caída de la fase 3 se evidencia más como la causa del problema. Ahora, tenemos un buen punto de partida sobre la causa de la advertencia. Ya estamos listos para remitir el asunto a nuestro equipo de mantenimiento.
 
     * Cambie la pantalla para superponer todos los sensores de **Generator System** en la misma escala del gráfico.
 

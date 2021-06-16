@@ -3,22 +3,22 @@ title: Problemas de Internet Explorer (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
 description: Uso de la biblioteca de autenticación de Microsoft para JavaScript (MSAL.js) con el explorador Internet Explorer.
 services: active-directory
-author: navyasric
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/16/2019
-ms.author: nacanuma
+ms.author: mtillman
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 73dd7877b399d34a009c9fe479550eb1bf6dc0f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eda2d61d7af1b56a2e0069e8726aa1e29800e19a
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99583983"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077129"
 ---
 # <a name="known-issues-on-internet-explorer-browsers-msaljs"></a>Problemas conocidos en los exploradores Internet Explorer (MSAL.js)
 

@@ -1,18 +1,18 @@
 ---
 title: Solución de problemas de instalación de inserción del servicio de movilidad con Azure Site Recovery
 description: Solución de problemas de errores de instalación del servicio de movilidad durante la habilitación de la replicación para recuperación ante desastres con Azure Site Recovery.
-author: Rajeswari-Mamilla
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: ramamill
-ms.date: 04/03/2020
-ms.openlocfilehash: 62c8240a4d2e50aa3b584f322baf7d2ee217c6d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: 021038710bb53134304c7bd307868fed46148e5c
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98127879"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110576543"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Solución de problemas de instalación de inserción del servicio de movilidad
 

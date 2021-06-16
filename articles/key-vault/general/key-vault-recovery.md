@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
 ms.date: 09/30/2020
-ms.openlocfilehash: 270f9d4637d5e16ff88991a4a9e5f1eb0a3f9e0e
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 45f56812f0d6645c9ac75ce62f9f0659acc358fe
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285365"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970065"
 ---
 # <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>Administración de la recuperación de Azure Key Vault con eliminación temporal y protección contra purga
 
@@ -22,7 +22,7 @@ Para más información sobre Key Vault, consulte
 - [Introducción a Azure Key Vault](overview.md)
 - [Introducción a las claves, secretos y certificados de Azure Key Vault](about-keys-secrets-certificates.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/dotnet).
 * [Módulo de PowerShell](/powershell/azure/install-az-ps).
@@ -35,7 +35,7 @@ Para más información sobre Key Vault, consulte
   |Microsoft.KeyVault/locations/deletedVaults/read|Ve las propiedades de un almacén de claves eliminado temporalmente|
   |Microsoft.KeyVault/locations/deletedVaults/purge/action|Purga un almacén de claves eliminado temporalmente|
   |Microsoft.KeyVault/locations/operationResults/read| Para comprobar el estado de purga del almacén|
-  |[Colaborador de almacén de claves](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor)|Para recuperar el almacén eliminado temporalmente|
+  |[Colaborador de almacén de claves](../../role-based-access-control/built-in-roles.md#key-vault-contributor)|Para recuperar el almacén eliminado temporalmente|
 
 
 ## <a name="what-are-soft-delete-and-purge-protection"></a>Qué es la eliminación temporal y la protección de purga

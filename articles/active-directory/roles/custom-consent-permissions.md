@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: rolyon
 ms.reviewer: psignoret
 ms.custom: it-pro
-ms.openlocfilehash: a7a26bfd979fd58ba0519aeba274b22ae502f8a8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 8795007a5a38d21985d8b31884c66342b3dda7ed
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085931"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792415"
 ---
 # <a name="app-consent-permissions-for-custom-roles-in-azure-active-directory"></a>Permisos para el consentimiento de aplicaciones para roles personalizados en Azure Active Directory
 
@@ -65,14 +65,15 @@ Para delegar la creación, actualización y eliminación de [directivas de conse
 
 ## <a name="full-list-of-permissions"></a>Lista completa de permisos
 
-Permiso | Descripción
----------- | -----------
-microsoft.directory/servicePrincipals/managePermissionGrantsForSelf.{id} | Permite conceder consentimiento a las aplicaciones en nombre propio (consentimiento del usuario), de acuerdo con la directiva de consentimiento de aplicaciones `{id}`.
-microsoft.directory/servicePrincipals/managePermissionGrantsForAll.{id} | Concede el permiso para dar consentimiento a las aplicaciones en nombre de todos (consentimiento del administrador para todo el inquilino), de acuerdo con la directiva de consentimiento de aplicaciones `{id}`.
-microsoft.directory/permissionGrantPolicies/standard/read | Permite leer las directivas de consentimiento de aplicaciones.
-microsoft.directory/permissionGrantPolicies/basic/update | Permite actualizar las propiedades básicas de las directivas de consentimiento de aplicaciones existentes.
-microsoft.directory/permissionGrantPolicies/create | Permite crear las directivas de consentimiento de aplicaciones.
-microsoft.directory/permissionGrantPolicies/delete | Permite eliminar las directivas de consentimiento de aplicaciones.
+> [!div class="mx-tableFixed"]
+> | Permiso | Descripción |
+> | ---------- | ----------- |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForSelf.{id} | Permite conceder consentimiento a las aplicaciones en nombre propio (consentimiento del usuario), de acuerdo con la directiva de consentimiento de aplicaciones `{id}`. |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.{id} | Concede el permiso para dar consentimiento a las aplicaciones en nombre de todos (consentimiento del administrador para todo el inquilino), de acuerdo con la directiva de consentimiento de aplicaciones `{id}`. |
+> | microsoft.directory/permissionGrantPolicies/standard/read | Permite leer las directivas de consentimiento de aplicaciones. |
+> | microsoft.directory/permissionGrantPolicies/basic/update | Permite actualizar las propiedades básicas de las directivas de consentimiento de aplicaciones existentes. |
+> | microsoft.directory/permissionGrantPolicies/create | Permite crear las directivas de consentimiento de aplicaciones. |
+> | microsoft.directory/permissionGrantPolicies/delete | Permite eliminar las directivas de consentimiento de aplicaciones. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

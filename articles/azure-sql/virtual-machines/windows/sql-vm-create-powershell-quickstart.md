@@ -14,12 +14,12 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 350df1aede076120fd14dc46da351835c894c5b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3a9090ace9fce69b0b9a1a445b498fc662f7ba3
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97356844"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079524"
 ---
 # <a name="quickstart-create-sql-server-on-a-windows-virtual-machine-with-azure-powershell"></a>Inicio rápido: Creación de un servidor con SQL Server en una máquina virtual Windows con Azure PowerShell
 
@@ -29,7 +29,7 @@ Este inicio rápido le ayuda a crear una máquina virtual con SQL Server con Azu
 
 > [!TIP]
 > - Esta guía de inicio rápido describe una manera de aprovisionar y conectarse a una máquina virtual de SQL rápidamente. Para más información sobre otras opciones de Azure PowerShell para crear máquinas virtuales de SQL, consulte la [guía de aprovisionamiento de máquinas virtuales de SQL Server con Azure PowerShell](create-sql-vm-powershell.md).
-> - Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](frequently-asked-questions-faq.md).
+> - Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](frequently-asked-questions-faq.yml).
 
 ## <a name="get-an-azure-subscription"></a><a id="subscription"></a> Obtener una suscripción de Azure
 

@@ -2,21 +2,21 @@
 title: Introducción a la integración de Azure Active Directory con las aplicaciones
 description: Este artículo es una guía de introducción a la integración de Azure Active Directory (AD) con aplicaciones locales y de nube.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/05/2021
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: asteen
-ms.openlocfilehash: 37916e5e356e7c5ad6e685ac0838363fe2579496
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 46528718533802b231c2f4347677b9f356e35096
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374988"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076481"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guía de introducción a la integración de Azure Active Directory con las aplicaciones
 

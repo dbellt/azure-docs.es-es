@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/04/2021
 ms.topic: how-to
-ms.openlocfilehash: 7170044af58a508ff5a43751cc376f8b8d498444
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8ea126637679974035d62cc415c4fd07f597d53f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102435552"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111961873"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usar Azure Pipelines para compilar e implementar soluciones HPC
 
@@ -22,7 +22,7 @@ En este artículo se explica cómo configurar procesos de CI/CD con [Azure Pipel
 
 Para realizar los pasos descritos en este artículo, se necesita una [organización de Azure DevOps](/azure/devops/organizations/accounts/create-organization). También debe [crear un proyecto en Azure DevOps](/azure/devops/organizations/projects/create-project).
 
-Resulta útil tener un conocimiento básico del [control de código fuente](/azure/devops/user-guide/source-control) y la [sintaxis de la plantilla de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) antes de empezar.
+Resulta útil tener un conocimiento básico del [control de código fuente](/azure/devops/user-guide/source-control) y la [sintaxis de la plantilla de Azure Resource Manager](../azure-resource-manager/templates/syntax.md) antes de empezar.
 
 ## <a name="create-an-azure-pipeline"></a>Crear una canalización de Azure Pipelines
 

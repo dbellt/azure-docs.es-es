@@ -7,18 +7,19 @@ author: MashaMSFT
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
+ms.subservice: service-overview
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bdb890ac70d60e7742c4818fef27d5959c2df801
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c5d3b5c1838883f3e12114f348c73bed246e0c2d
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142304"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079578"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Qué es SQL Server en Azure Virtual Machines (Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -132,7 +133,7 @@ Para obtener detalles, consulte:
 - [Creación de una máquina virtual de SQL Server](sql-vm-create-portal-quickstart.md)
 
 ## <a name="sql-server-vm-image-refresh-policy"></a><a id="lifecycle"></a> Directiva de actualización de imagen de máquina virtual de SQL Server
-Azure solo mantiene una imagen de máquina virtual para cada combinación admitida de sistema operativo, versión y edición. Esto significa que a lo largo del tiempo se actualizan las imágenes y las más antiguas se eliminan. Para más información, consulte la sección **Imágenes** de las [preguntas más frecuentes sobre máquinas virtuales de SQL Server](frequently-asked-questions-faq.md#images).
+Azure solo mantiene una imagen de máquina virtual para cada combinación admitida de sistema operativo, versión y edición. Esto significa que a lo largo del tiempo se actualizan las imágenes y las más antiguas se eliminan. Para más información, consulte la sección **Imágenes** de las [preguntas más frecuentes sobre máquinas virtuales de SQL Server](/azure/azure-sql/virtual-machines/windows/frequently-asked-questions-faq#images).
 
 ## <a name="customer-experience-improvement-program-ceip"></a>Programa para la mejora de la experiencia del usuario (CEIP)
 De manera predeterminada, el Programa para la mejora de la experiencia del cliente (CEIP) está habilitado. Esto permitirá enviar periódicamente informes a Microsoft para ayudar a mejorar SQL Server. No hay ninguna tarea de administración requerida relacionada con el CEIP, a menos que desee deshabilitarlo después del aprovisionamiento. Puede personalizar o deshabilitar el CEIP mediante la conexión a la máquina virtual a través del escritorio remoto. A continuación, ejecute la utilidad **Informes de uso y errores de SQL Server** . Siga las instrucciones para deshabilitar los informes. Para más información acerca de la recopilación de datos, vea la [declaración de privacidad de SQL Server](/sql/sql-server/sql-server-privacy).
@@ -161,7 +162,7 @@ Introducción a SQL Server en Azure Virtual Machines:
 
 Obtenga respuestas a las preguntas más habituales acerca de las máquinas virtuales con SQL Server:
 
-* [Preguntas más frecuentes sobre SQL Server en Azure Virtual Machines](frequently-asked-questions-faq.md)
+* [Preguntas más frecuentes sobre SQL Server en Azure Virtual Machines](frequently-asked-questions-faq.yml)
 
 Vista de arquitecturas de referencia para ejecutar aplicaciones de n niveles en SQL Server en IaaS
 

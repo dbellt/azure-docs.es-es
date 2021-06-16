@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/26/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7410793a429395b7f1b1e826c66cb2647eb77cd2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 33cfd226df9f7620bafe2e404cc43050f176de13
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110367716"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111892065"
 ---
 # <a name="app-service-networking-features"></a>Características de redes de App Service
 
@@ -298,7 +298,7 @@ Las aplicaciones de línea de negocio (LOB) son aplicaciones internas que normal
 
 Si ninguna de estas necesidades es aplicable, es mejor usar puntos de conexión privados. Con los puntos de conexión privados disponibles en App Service, puede exponer las aplicaciones de direcciones privadas de la red virtual. Se puede comunicar con el punto de conexión privado colocado en la red virtual a través de conexiones de ExpressRoute y VPN. 
 
-La configuración de puntos de conexión privados expondrá las aplicaciones de una dirección privada, pero tendrá que configurar DNS para comunicarse con esa dirección desde el entorno local. Para que esta configuración funcione, deberá reenviar la zona privada de Azure DNS que contiene los puntos de conexión privados a los servidores DNS locales. Las zonas privadas de Azure DNS no admiten el reenvío de zona, pero puede admitirlo mediante el uso de un servidor DNS para ese fin. La plantilla [Reenviador de DNS](https://azure.microsoft.com/resources/templates/301-dns-forwarder/) facilita el reenvío de la zona privada de Azure DNS a los servidores DNS locales.
+La configuración de puntos de conexión privados expondrá las aplicaciones de una dirección privada, pero tendrá que configurar DNS para comunicarse con esa dirección desde el entorno local. Para que esta configuración funcione, deberá reenviar la zona privada de Azure DNS que contiene los puntos de conexión privados a los servidores DNS locales. Las zonas privadas de Azure DNS no admiten el reenvío de zona, pero puede admitirlo mediante el uso de un servidor DNS para ese fin. La plantilla [Reenviador de DNS](https://azure.microsoft.com/resources/templates/dns-forwarder/) facilita el reenvío de la zona privada de Azure DNS a los servidores DNS locales.
 
 ## <a name="app-service-ports"></a>Puertos de App Service
 

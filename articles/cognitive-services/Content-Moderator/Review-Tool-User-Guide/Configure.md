@@ -10,14 +10,17 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 8812fd1e6c1efb2aa44c77573bc4b8f1c099834d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e3ed696bba0a2d739e87f465561c156d6752f23
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "92912028"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033948"
 ---
 # <a name="configure-the-review-tool"></a>Configuración de la herramienta de revisión
+
+[!INCLUDE [deprecation notice](../includes/tool-deprecation.md)]
+
 
 La [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com) presenta varias características importantes a las que puede acceder mediante el menú **Settings** (Configuración) del panel.
 

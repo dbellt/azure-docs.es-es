@@ -7,16 +7,16 @@ ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: tutorial
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewers: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 18a02b81e459217ccca53d48a08e35a706b071b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e6e9a3e47dd35916a1869d72a2267defe63ec44b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92793269"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110697477"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Notificación entre inquilinos mediante consultas distribuidas.
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

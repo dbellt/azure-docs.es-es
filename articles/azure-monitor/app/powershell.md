@@ -4,12 +4,12 @@ description: Automatice la creación y administración de recursos, alertas y pr
 ms.topic: conceptual
 ms.date: 05/02/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 60417e829297eb9a7ad4e244523c546dcaff053d
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: d629ef1bc7d2086f85bbb08105041a0457b133c5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108318610"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954882"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Administración de recursos de Application Insights mediante PowerShell
 
@@ -437,7 +437,7 @@ Para automatizar la creación de otros recursos de cualquier variante, cree un e
     `"apiVersion": "2015-05-01",`
 
 ### <a name="parameterize-the-template"></a>Parametrización de la plantilla
-Ahora, debe reemplazar los nombres específicos por parámetros. Para [parametrizar una plantilla](../../azure-resource-manager/templates/template-syntax.md), escriba expresiones mediante un [conjunto de funciones auxiliares](../../azure-resource-manager/templates/template-functions.md). 
+Ahora, debe reemplazar los nombres específicos por parámetros. Para [parametrizar una plantilla](../../azure-resource-manager/templates/syntax.md), escriba expresiones mediante un [conjunto de funciones auxiliares](../../azure-resource-manager/templates/template-functions.md). 
 
 No se puede parametrizar solo una parte de una cadena, así que use `concat()` para compilar las cadenas.
 

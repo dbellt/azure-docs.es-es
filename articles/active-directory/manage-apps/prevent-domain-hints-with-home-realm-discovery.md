@@ -2,21 +2,21 @@
 title: Evitación de la aceleración automática del inicio de sesión en Azure AD mediante la directiva de detección del dominio de inicio
 description: Obtenga información acerca de cómo evitar la aceleración automática de sugerencias de dominio en IDP federados.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: hirsin
-ms.openlocfilehash: b89e0e1c8bd8109fac8b4b7c05a845a3e234b617
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 3f5dbff31bedce2473e3849b4e12161e93f33c8a
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375557"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076877"
 ---
 # <a name="disable-auto-acceleration-to-a-federated-idp-during-user-sign-in-with-home-realm-discovery-policy"></a>Deshabilitación de la aceleración automática en un IDP federado durante el inicio de sesión de usuario con la directiva de detección del dominio de inicio
 
