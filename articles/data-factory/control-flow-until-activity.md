@@ -7,12 +7,13 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 56ed631c395c994e5a445318caf8464ec5f1f62f
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b69910daab3172a6c7ba2cd134cb9ed41ebaaa79
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906249"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110675011"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Actividad Until en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -55,7 +56,7 @@ name | Nombre de la actividad `Until`. | String | Sí
 type | Debe establecerse en **Until**. | String | Sí
 expresión | Expresión que debe evaluarse como "true" o "false" | Expresión.  | Sí
 timeout | El tiempo de espera del bucle Do-Until se agota transcurrido el tiempo especificado aquí. | String. `d.hh:mm:ss` (o) `hh:mm:ss`. El valor predeterminado es de 7 días. El valor máximo es 90 días. | No
-Actividades | Conjunto de actividades que se ejecutan hasta que la expresión se evalúa como `true`. | Matriz de actividades. |  Yes
+Actividades | Conjunto de actividades que se ejecutan hasta que la expresión se evalúa como `true`. | Matriz de actividades. |  Sí
 
 ## <a name="example-1"></a>Ejemplo 1
 

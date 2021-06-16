@@ -10,26 +10,25 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: bertong
-ms.openlocfilehash: 8fe8b853fe07af40603950a61c0dd2a1df74d14e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b618a2d33b812d964d48618b42421bdce109f28d
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644318"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111430228"
 ---
 Introducción a Azure Communication Services mediante el SDK de SMS de Communication Services para JavaScript para enviar mensajes SMS.
 
 Este inicio rápido supone un pequeño costo en su cuenta de Azure.
 
-<!--**TODO: update all these reference links as the resources go live**
-
-[API reference documentation](../../../references/overview.md) | [Library source code](https://github.com/Azure/azure-sdk-for-js-pr/tree/feature/communication/sdk/communication/communication-sms) | [Package (NPM)](https://www.npmjs.com/package/@azure/communication-sms) | [Samples](#todo-samples)-->
+> [!NOTE]
+> Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-sms)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Versiones de [Node.js](https://nodejs.org/), Active LTS y Maintenance LTS (se recomiendan 8.11.1 y 10.14.1).
-- Un recurso activo de Communication Services y una cadena de conexión. [Creación de un recurso de Communication Services](../../create-communication-resource.md).
+- Un recurso activo de Communication Services y una cadena de conexión. [Cree un recurso de Communication Services](../../create-communication-resource.md).
 - Un número de teléfono habilitado para SMS. [Obtención de un número de teléfono](../get-phone-number.md).
 
 ### <a name="prerequisite-check"></a>Comprobación de requisitos previos

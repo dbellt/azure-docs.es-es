@@ -3,12 +3,12 @@ title: Actualización de clústeres administrados de Azure Service Fabric
 description: Más información sobre las opciones para actualizar el clúster administrado de Azure Service Fabric
 ms.topic: how-to
 ms.date: 05/10/2021
-ms.openlocfilehash: c7096191e72d5645149bc1b1e28254a0c57a94b0
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 478b39a6222906c793d826ab69edeeaddbb096bf
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785284"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960993"
 ---
 # <a name="manage-service-fabric-managed-cluster-upgrades"></a>Administración de actualizaciones del clúster administrado de Service Fabric
 
@@ -63,7 +63,7 @@ Para cambiar el modo de actualización del clúster mediante una plantilla de Re
 
 Después de una implementación correcta de la plantilla, se aplicarán los cambios al modo de actualización del clúster. Si el clúster está en modo manual, la actualización del clúster se iniciará automáticamente.
 
-Las [directivas de mantenimiento del clúster](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction#health-policies) (una combinación del estado del nodo y el mantenimiento de todas las aplicaciones que se ejecutan en el clúster) se cumplen mientras dura la actualización. Si no se cumplen las directivas de mantenimiento del clúster, la actualización se revierte.
+Las [directivas de mantenimiento del clúster](./service-fabric-health-introduction.md#health-policies) (una combinación del estado del nodo y el mantenimiento de todas las aplicaciones que se ejecutan en el clúster) se cumplen mientras dura la actualización. Si no se cumplen las directivas de mantenimiento del clúster, la actualización se revierte.
 
 Una vez que se hayan solucionado los problemas que provocó la reversión, deberá iniciar la actualización de nuevo, siguiendo los mismos pasos que antes.
 

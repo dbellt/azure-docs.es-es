@@ -3,12 +3,13 @@ title: Habilitación de las sesiones de mensajes de Azure Service Bus | Microso
 description: En este artículo se explica cómo habilitar las sesiones de mensajes mediante Azure Portal, PowerShell, la CLI y los lenguajes de programación (C#, Java, Python y JavaScript).
 ms.topic: how-to
 ms.date: 04/19/2021
-ms.openlocfilehash: 53791bb7dc1dec9bdf6c2c4aa8dda14728c2c465
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0a39e601d675225feb7e82e1de81eee9d3887aeb
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107989151"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671433"
 ---
 # <a name="enable-message-sessions-for-an-azure-service-bus-queue-or-a-subscription"></a>Habilitación de las sesiones de mensajes para una cola o suscripción de Azure Service Bus
 Las sesiones de Azure Service Bus permiten la administración ordenada y conjunta de secuencias sin enlace de mensajes relacionados. Se pueden usar sesiones en patrones **FIFO (primero en entrar, primero en salir)** y de **solicitud-respuesta**. Para obtener más información, consulte [Sesiones de mensajes](message-sessions.md). En este artículo se muestran distintas formas de habilitar las sesiones para una cola o una suscripción de Service Bus. 

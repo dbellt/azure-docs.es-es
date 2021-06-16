@@ -4,12 +4,12 @@ description: En este artículo se describe la sintaxis JSON declarativa de las p
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0c010d71217dcae23348098355bf1752ffc43337
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 1232e7774a88bec089254397d0582cc52f450fdb
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108314902"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959820"
 ---
 # <a name="syntax-and-expressions-in-arm-templates"></a>Sintaxis y expresiones en las plantillas de ARM
 
@@ -134,4 +134,4 @@ Para establecer una propiedad en NULL, puede usar `null` o `[json('null')]`. La 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para la lista completa de las funciones de plantilla disponibles, consulte [Funciones de plantilla de ARM](template-functions.md).
-* Para más información sobre los archivos de plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de ARM](template-syntax.md).
+* Para más información sobre los archivos de plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de ARM](./syntax.md).

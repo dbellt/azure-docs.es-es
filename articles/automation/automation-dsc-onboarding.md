@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.custom: devx-track-azurepowershell
 manager: carmonm
-ms.openlocfilehash: d338c5f34d49663345582198ff53ba50a2919d7e
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: c310003bb7c9120211e3cf74e240e51d4a10b20c
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107829429"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111891777"
 ---
 # <a name="enable-azure-automation-state-configuration"></a>Habilitar Azure Automation State Configuration
 
@@ -47,7 +47,7 @@ Para habilitar una máquina virtual de Azure a State Configuration a través de 
 
 ### <a name="enable-a-vm-using-azure-resource-manager-templates"></a>Habilitación de una máquina virtual con plantillas de Azure Resource Manager
 
-Puede instalar y habilitar una máquina virtual para State Configuration con plantillas de Azure Resource Manager. Vea [Server managed by Desired State Configuration service](https://azure.microsoft.com/resources/templates/101-automation-configuration/) (Servidor administrado por el servicio Desired State Configuration) para obtener una plantilla de ejemplo que habilita una máquina virtual existente de State Configuration. Si administra un conjunto de escalado de máquinas virtuales, consulte la plantilla de ejemplo de [Configuración de un conjunto de escalado de máquinas virtuales administrado por Azure Automation](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
+Puede instalar y habilitar una máquina virtual para State Configuration con plantillas de Azure Resource Manager. Vea [Server managed by Desired State Configuration service](https://azure.microsoft.com/resources/templates/automation-configuration/) (Servidor administrado por el servicio Desired State Configuration) para obtener una plantilla de ejemplo que habilita una máquina virtual existente de State Configuration. Si administra un conjunto de escalado de máquinas virtuales, consulte la plantilla de ejemplo de [Configuración de un conjunto de escalado de máquinas virtuales administrado por Azure Automation](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
 
 ### <a name="enable-machines-using-powershell"></a>Habilitación de máquinas con PowerShell
 

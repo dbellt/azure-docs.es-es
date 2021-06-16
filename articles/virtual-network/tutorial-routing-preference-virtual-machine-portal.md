@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: mnayak
-ms.openlocfilehash: 0559d02ec603d12578fa46d9790d0711fde5e38b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 555fd1d3132ae44ed9abb158dee76af3f5761146
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670905"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112082161"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-the-azure-portal"></a>Configuración de la preferencia de enrutamiento de una VM mediante Azure Portal
 
@@ -35,11 +35,11 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Seleccione **Proceso** y, luego, **Máquina virtual de Windows Server 2016** u otro sistema operativo de su elección.
 3. Escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Aceptar**:
 
-    |Configuración|Value|
+    |Configuración|Valor|
     |---|---|
     |Nombre|myVM|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
-    |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     |Subscription| Seleccione su suscripción.|
     |Resource group| Seleccione **Usar existente** y, a continuación, **myResourceGroup**.|
     |Location| Seleccione **Este de EE. UU**.|
