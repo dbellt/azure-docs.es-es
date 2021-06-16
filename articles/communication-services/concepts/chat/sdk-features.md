@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 561855704d157f9ad826b5db83600a79d9437fc6
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 9fd77ec4f72555e2d326a07831abe2648a68fbaf
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107500692"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592059"
 ---
 # <a name="chat-sdk-overview"></a>Introducción al SDK de chat 
 
@@ -40,7 +40,7 @@ En la lista siguiente se presenta el conjunto de características que están dis
 |                   | Actualizar el contenido del mensaje enviado                                                                               | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |    
 |                   | Eliminar un mensaje enviado anteriormente                                                                                                      | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |    
 |                   | Confirmaciones de lectura de mensajes leídos por otros participantes de un chat                                        | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |   
-|                   | Recibir notificaciones cuando los participantes escriben activamente un mensaje en una conversación de chat                                         | ✔️   | ✔️   | ✔️    | ✔️    |  ✔️    | ✔️   | 
+|                   | Recibir notificaciones cuando los participantes escriben activamente un mensaje en una conversación de chat                                         | ✔️   | ❌    | ❌  | ❌  | ✔️  | ✔️  |   
 |                   | Obtener todos los mensajes de una conversación de chat                                                                        | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   | 
 |                   | Enviar emojis de Unicode como parte del contenido del mensaje                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
 |Notificaciones en tiempo real (habilitadas mediante un paquete de señalización propietario**)|  Los clientes de chat se pueden suscribir para obtener actualizaciones en tiempo real de los mensajes entrantes y otras operaciones que se producen en una conversación de chat. Para ver una lista de las actualizaciones admitidas para las notificaciones en tiempo real, consulte [Conceptos de chat](concepts.md#real-time-notifications).                                     | ✔️   | ❌    | ❌  | ❌  | ✔️  | ✔️  |   
