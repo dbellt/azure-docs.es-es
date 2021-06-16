@@ -3,12 +3,12 @@ title: Creación mediante programación de paneles de Azure
 description: Use un panel de Azure Portal como plantilla para crear paneles de Azure mediante programación. Incluye referencia JSON.
 ms.topic: how-to
 ms.date: 12/4/2020
-ms.openlocfilehash: 92848ac238ff11a90afc82713639b8abebf076ec
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: c0e8064abcac42235ff5086f047aa716ced271cf
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107878801"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966979"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creación mediante programación de paneles de Azure
 
@@ -75,7 +75,7 @@ La implementación basada en plantillas admite la parametrización y las plantil
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Creación mediante programación de un panel a partir de la plantilla mediante una implementación de plantilla
 
-Azure ofrece la capacidad de organizar la implementación de varios recursos. Cree una plantilla de implementación que exprese el conjunto de recursos que se va a implementar, así como las relaciones entre ellos.  El formato JSON de los recursos es el mismo que si estuviera creándolos uno a uno. La diferencia es que el lenguaje de plantilla agrega algunos conceptos como variables, parámetros, funciones básicas, etc. Esta sintaxis extendida solo se admite en el contexto de una implementación de plantilla. No funciona si se usa con las API imperativas descritas anteriormente. Para obtener más información, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
+Azure ofrece la capacidad de organizar la implementación de varios recursos. Cree una plantilla de implementación que exprese el conjunto de recursos que se va a implementar, así como las relaciones entre ellos.  El formato JSON de los recursos es el mismo que si estuviera creándolos uno a uno. La diferencia es que el lenguaje de plantilla agrega algunos conceptos como variables, parámetros, funciones básicas, etc. Esta sintaxis extendida solo se admite en el contexto de una implementación de plantilla. No funciona si se usa con las API imperativas descritas anteriormente. Para obtener más información, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/syntax.md).
 
 La parametrización se debe realizar mediante la sintaxis de parámetros de la plantilla.  Reemplace todas las instancias del identificador del recurso encontrado anteriormente como se muestra aquí.
 
