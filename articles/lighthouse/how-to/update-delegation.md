@@ -3,12 +3,12 @@ title: Actualización de una delegación
 description: Obtenga información sobre cómo actualizar una delegación para un cliente previamente incorporado a Azure Lighthouse.
 ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: f93dcda5eead60c22457d4e8be30f352ad8a8c81
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: bc52790c5652f9571e3a63023314ff8e97fb7e99
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785986"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965062"
 ---
 # <a name="update-a-delegation"></a>Actualización de una delegación
 
@@ -58,7 +58,7 @@ Una vez finalizada la implementación, [confirme que se realizó correctamente](
 
 ## <a name="updating-managed-service-offers"></a>Actualización de las ofertas de servicio administrado
 
-Si ha incorporado el cliente a través de una oferta de servicio administrado publicado en Azure Marketplace y desea actualizar las autorizaciones, puede actualizar la delegación. Para hacerlo, [publique una nueva versión de la oferta](../../marketplace/partner-center-portal/update-existing-offer.md) con las [autorizaciones](../../marketplace/plan-managed-service-offer.md) que quiere usar actualizadas en el plan de ese cliente. A continuación, el cliente podrá actualizar a la versión más reciente en el Azure Portal.
+Si ha incorporado el cliente a través de una oferta de servicio administrado publicado en Azure Marketplace y desea actualizar las autorizaciones, puede actualizar la delegación. Para hacerlo, [publique una nueva versión de la oferta](../../marketplace/update-existing-offer.md) con las [autorizaciones](../../marketplace/plan-managed-service-offer.md) que quiere usar actualizadas en el plan de ese cliente. A continuación, el cliente podrá actualizar a la versión más reciente en el Azure Portal.
 
 Si desea cambiar el inquilino de administración, tendrá que [crear y publicar una nueva oferta de servicio administrado](../../marketplace/plan-managed-service-offer.md) para que el cliente la acepte.
 

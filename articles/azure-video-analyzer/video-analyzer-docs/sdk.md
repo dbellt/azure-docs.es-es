@@ -5,12 +5,12 @@ author: bennage
 ms.author: christb
 ms.topic: reference
 ms.date: 05/14/2021
-ms.openlocfilehash: 480d3fbadbac6dcf7ec56f92e45e7c2e65653195
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 25e94b06fbc45d16ef198e2d77a653a407fcf1c9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388637"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954445"
 ---
 # <a name="azure-video-analyzer-sdks"></a>SDK de Azure Video Analyzer
 
@@ -18,7 +18,7 @@ Azure Video Analyzer incluye dos grupos de SDK. Los SDK de administración se us
 
 ## <a name="management-sdks"></a>SDK de administración
 
-Los SDK de administración permiten interactuar con los recursos expuestos por Azure Resource Manager. Puede crear una cuenta de Video Analyzer, generar tokens de aprovisionamiento para módulos perimetrales, administrar directivas de acceso para vídeos y mucho más. Los SDK se basan en una [API REST] subyacente.
+Los SDK de administración permiten interactuar con los recursos expuestos por Azure Resource Manager. Puede crear una cuenta de Video Analyzer, generar tokens de aprovisionamiento para módulos perimetrales, administrar directivas de acceso para vídeos y mucho más. Los SDK se basan en una [API REST](/rest/api/videoanalyzer/?branch=video) subyacente.
 
 Se admiten las siguientes plataformas:
 
@@ -38,6 +38,6 @@ Se admiten las siguientes plataformas:
 
 <!-- links -->
 [docs-direct-methods]: direct-methods.md
-[docs-iot-hub-sdks]: /azure/iot-hub/iot-hub-devguide-sdks
+[docs-iot-hub-sdks]: ../../iot-hub/iot-hub-devguide-sdks.md
 
 [REST API]: https://aka.ms/ava/api/rest

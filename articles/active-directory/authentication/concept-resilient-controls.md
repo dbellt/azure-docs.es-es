@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7e4d0c41990fcc23dd19b5682997f6381bfdb20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: db90d49034fb61c26bf4528045d2b3f54d7a30fc
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97937100"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963847"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crear una estrategia de administración de control de acceso resistente con Azure Active Directory
 
@@ -286,7 +286,7 @@ Si su organización usa directivas heredadas de MFA por usuario, puede considera
 
 * [Configuración de Servidor Azure Multi-Factor Authentication para aplicaciones web de IIS](./howto-mfaserver-iis.md)
 * [Administración de cuentas administrativas de acceso de emergencia en Azure AD](../roles/security-emergency-access.md)
-* [Inicio rápido: Configuración de ubicaciones con nombre en Azure Active Directory](../reports-monitoring/quickstart-configure-named-locations.md)
+* [Inicio rápido: Configuración de ubicaciones con nombre en Azure Active Directory](../conditional-access/location-condition.md)
   * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings)
 * [Planeamiento de la implementación de unión a Azure Active Directory híbrido](../devices/hybrid-azuread-join-plan.md)
 * [Guía de implementación de Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)

@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: how-to
 ms.date: 05/13/2021
-ms.openlocfilehash: 093dd29a4e9eda9157a49c6cc44144b5e8a4bbec
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 860e84bf8e2378d4a9c433df81c5adfb6741169e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369155"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953826"
 ---
 # <a name="estimate-storage-costs-for-workflows-in-single-tenant-azure-logic-apps"></a>Cálculo de los costos de almacenamiento de flujos de trabajo en Azure Logic Apps de inquilino único
 
-Azure Logic Apps usa [Azure Storage](/azure/storage/) en las operaciones de almacenamiento. Con el tradicional Azure Logic Apps *multiinquilino*, el uso y los costos de almacenamiento se asocian a la aplicación lógica. Ahora, con Azure Logic Apps *de inquilino único*, puede usar su propia cuenta de almacenamiento. Estos costos de almacenamiento se enumeran por separado en la factura de Azure. Esta funcionalidad le proporciona más flexibilidad y control sobre los datos de la aplicación lógica.
+Azure Logic Apps usa [Azure Storage](../storage/index.yml) en las operaciones de almacenamiento. Con el tradicional Azure Logic Apps *multiinquilino*, el uso y los costos de almacenamiento se asocian a la aplicación lógica. Ahora, con Azure Logic Apps *de inquilino único*, puede usar su propia cuenta de almacenamiento. Estos costos de almacenamiento se enumeran por separado en la factura de Azure. Esta funcionalidad le proporciona más flexibilidad y control sobre los datos de la aplicación lógica.
 
 > [!NOTE]
 > Este artículo se aplica a los flujos de trabajo en el entorno de Azure Logic Apps de inquilino único. Estos flujos de trabajo existen en la misma aplicación lógica y en un inquilino único que comparten el mismo almacenamiento. Para obtener más información, consulte [Entorno de servicio de integración de inquilino único o multiinquilino](single-tenant-overview-compare.md).

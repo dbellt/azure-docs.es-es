@@ -8,13 +8,13 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
 ms.date: 07/28/2020
-ms.custom: subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 7d93bd757a39247302a6bc09009a1a814425c32f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: subject-armqs, devx-track-azurepowershell
+ms.openlocfilehash: 879e4425d5cbda5cae01ea8acac0f8d6bed79cc7
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745374"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110695309"
 ---
 # <a name="quickstart-create-a-budget-with-an-arm-template"></a>Inicio rápido: Creación de un presupuesto con una plantilla de Resource Manager
 
@@ -22,11 +22,11 @@ Los presupuestos en Cost Management le ayudan a planear y dirigir la presentaci�
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure** . La plantilla se abrirá en Azure Portal.
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
 [![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcreate-budget%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -84,27 +84,27 @@ En la plantilla, se define un recurso de Azure:
 
    :::image type="content" source="./media/quick-create-budget-template/create-budget-using-template-portal.png" alt-text="Plantilla de Resource Manager, creación de presupuesto, implementación del portal" lightbox="./media/quick-create-budget-template/create-budget-using-template-portal.png" :::
    
-    * **Suscripción** : seleccione una suscripción de Azure.
-    * **Grupo de recursos** : si es necesario, seleccione un grupo de recursos existente o cree uno con la opción **Crear nuevo** .
-    * **Región** : seleccione una región de Azure. Por ejemplo, **Centro de EE. UU** .
+    * **Suscripción**: seleccione una suscripción de Azure.
+    * **Grupo de recursos**: si es necesario, seleccione un grupo de recursos existente o cree uno con la opción **Crear nuevo**.
+    * **Región**: seleccione una región de Azure. Por ejemplo, **Centro de EE. UU**.
     * **Budget Name** (Nombre del presupuesto): escriba un nombre para el presupuesto. Debe ser único dentro de un grupo de recursos. Solo se permiten caracteres alfanuméricos, guiones bajos y guiones.
-    * **Importe** : especifique la cantidad total de costo que se va a seguir con el presupuesto.
+    * **Importe**: especifique la cantidad total de costo que se va a seguir con el presupuesto.
     * **Time Grain** (Intervalo de agregación): especifique el tiempo que se incluye en un presupuesto. Los valores permitidos son Monthly (Mensual), Quarterly (Trimestral) o Annually (Anualmente). El presupuesto se restablece al final del intervalo de agregación.
     * **Start date** (Fecha de inicio): especifique la fecha de inicio con el primer día del mes en formato AAAA-MM-DD. La fecha de inicio futura no puede ser superior a de tres meses a partir de hoy. Puede especificar una fecha de inicio en el pasado con el período del intervalo de agregación.
     * **End Date** (Fecha de finalización): especifique la fecha de finalización del presupuesto en formato AAAA-MM-DD. 
     * **First Threshold** (Primer umbral): escriba un valor de umbral para la primera notificación. Se envía una notificación cuando el costo supera el umbral. Es siempre un porcentaje y debe estar entre 0 y 1000.
     * **Second Threshold** (Segundo umbral): escriba un valor de umbral para la segunda notificación. Se envía una notificación cuando el costo supera el umbral. Es siempre un porcentaje y debe estar entre 0 y 1000.
     * **Contact Roles** (Roles de contacto): escriba la lista de roles de contacto a los que se enviará la notificación de presupuesto cuando se supere el umbral. Los valores predeterminados son Owner (Propietario), Contributor (Colaborador) y Reader (Lector). El formato esperado es `["Owner","Contributor","Reader"]`.
-    * **Correos electrónicos de contacto** : escriba una lista de direcciones de correo electrónico a las que enviar la notificación de presupuesto cuando se supere el umbral. El formato esperado es `["user1@domain.com","user2@domain.com"]`.
+    * **Correos electrónicos de contacto**: escriba una lista de direcciones de correo electrónico a las que enviar la notificación de presupuesto cuando se supere el umbral. El formato esperado es `["user1@domain.com","user2@domain.com"]`.
     * **Contact Groups** (Grupos de contactos): escriba una lista de identificadores de recursos de los grupos de acciones, en forma de identificador URI completo de los recursos, a los que enviar la notificación del presupuesto cuando se supere el umbral. Acepta una matriz de cadenas. El formato esperado es `["action group resource ID1","action group resource ID2"]`. Si no desea usar grupos de acciones, escriba `[]`.
     * **Resource Group Filter Values** (Valores de filtro de grupo de recursos): introduzca una lista de nombres de grupo de recursos para filtrar. El formato esperado es `["Resource Group Name1","Resource Group Name2"]`. Si no desea aplicar un filtro, escriba `[]`. 
     * **Meter Category Filter Values** (Valores de filtro de categoría de medidor): introduzca una lista de categorías de medidor de servicios de Azure. El formato esperado es `["Meter Category1","Meter Category2"]`. Si no quiere aplicar un filtro, escriba `[]`.
    
 3. En función del tipo de suscripción de Azure, realice una de las siguientes acciones:
-   - Seleccione **Revisar + crear** .
-   - Lea los términos y condiciones, seleccione **Acepto los términos y condiciones indicados anteriormente** y, a continuación, seleccione **Comprar** .
+   - Seleccione **Revisar + crear**.
+   - Lea los términos y condiciones, seleccione **Acepto los términos y condiciones indicados anteriormente** y, a continuación, seleccione **Comprar**.
 
-4. Si seleccionó **Revisar y crear** , se validará la plantilla. Seleccione **Crear** .  
+4. Si seleccionó **Revisar y crear**, se validará la plantilla. Seleccione **Crear**.  
 
    ![Plantilla de Resource Manager, presupuesto, notificación de implementación del portal](./media/quick-create-budget-template/resource-manager-template-portal-deployment-notification.png)
 
@@ -112,7 +112,7 @@ Azure Portal se usa para implementar la plantilla. Además de Azure Portal, tamb
 
 ## <a name="validate-the-deployment"></a>Validación de la implementación
 
-Puede usar Azure Portal para comprobar que se crea el presupuesto. Para ello, vaya a **Administración de costos + facturación** > seleccione un ámbito > **Presupuestos** . O bien, utilice los siguientes scripts de la CLI de Azure o Azure PowerShell para ver el presupuesto.
+Puede usar Azure Portal para comprobar que se crea el presupuesto. Para ello, vaya a **Administración de costos + facturación** > seleccione un ámbito > **Presupuestos**. O bien, utilice los siguientes scripts de la CLI de Azure o Azure PowerShell para ver el presupuesto.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -134,7 +134,7 @@ Cuando ya no necesite un presupuesto, utilice cualquiera de los siguientes méto
 
 ### <a name="azure-portal"></a>Azure portal
 
-Vaya a **Administración de costos + facturación** > seleccione un ámbito de facturación > **Presupuestos** > seleccione un presupuesto > seleccione **Eliminar presupuesto** .
+Vaya a **Administración de costos + facturación** > seleccione un ámbito de facturación > **Presupuestos** > seleccione un presupuesto > seleccione **Eliminar presupuesto**.
 
 ### <a name="command-line"></a>Línea de comandos
 

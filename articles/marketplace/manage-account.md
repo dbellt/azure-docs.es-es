@@ -7,12 +7,12 @@ ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
 ms.date: 04/07/2021
-ms.openlocfilehash: 8edac35fd83ef5dbf122e7f0959564fa072fbadd
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: fa09a03a9ffda04e09bbd5708e97334304013078
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144932"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006588"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Administración de la cuenta de marketplace comercial en el Centro de partners
 
@@ -21,13 +21,13 @@ ms.locfileid: "108144932"
 - Propietario
 - Manager
 
-Después de [crear una cuenta del Centro de partners](./create-account.md), puede usar el [panel de marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) para administrar su cuenta y las ofertas.
+Después de [crear una cuenta del Centro de partners](./create-account.md), puede usar el [panel de marketplace comercial](https://go.microsoft.com/fwlink/?linkid=2165290) para administrar su cuenta y las ofertas.
 
 ## <a name="access-your-account-settings"></a>Acceso a la configuración de cuenta
 
-Si aún no lo ha hecho, usted (o el administrador de la organización) debe acceder a la [configuración de la cuenta](https://partner.microsoft.com/dashboard/account/management) correspondiente a la cuenta del Centro de partners.
+Si aún no lo ha hecho, usted (o el administrador de la organización) debe acceder a la [configuración de la cuenta](https://go.microsoft.com/fwlink/?linkid=2165291) correspondiente a la cuenta del Centro de partners.
 
-1. Inicie sesión en el [panel del marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace) en el Centro de partners con la cuenta a la que quiere acceder. Si tiene varias cuentas y ha iniciado sesión con otra, puede [cambiar de cuenta](switch-accounts.md).
+1. Inicie sesión en el [panel del marketplace comercial](https://go.microsoft.com/fwlink/?linkid=2165290) en el Centro de partners con la cuenta a la que quiere acceder. Si tiene varias cuentas y ha iniciado sesión con otra, puede [cambiar de cuenta](switch-accounts.md).
 1. En la parte superior derecha, seleccione **Configuración** (icono del engranaje) y, después, **Configuración del modelo de inquilino**.
 
     [ ![Captura de pantalla del menú de configuración de cuenta en el Centro de partners.](./media/manage-accounts/settings-account.png) ](./media/manage-accounts/settings-account.png#lightbox)
@@ -110,7 +110,7 @@ La página **Contratos** le permite ver una lista de los contratos de publicaci�
 
 Para acceder a la página Contratos:
 
-1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+1. Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. En la parte superior derecha, seleccione **Configuración** > **Configuración de la cuenta**.
 1. En **Configuración de la cuenta**, seleccione **Contratos**.
 
@@ -179,7 +179,7 @@ La configuración de administración de dispositivos solo se aplica a la publica
 
 ## <a name="create-a-billing-profile"></a>Creación de un perfil de facturación
 
-Si va a publicar una oferta de [Dynamics 365 for Customer Engagement y Power Apps](dynamics-365-customer-engage-offer-setup.md) o [Dynamics 365 for Operations](./partner-center-portal/create-new-operations-offer.md) tendrá que rellenar el *perfil de facturación*.
+Si va a publicar una oferta de [Dynamics 365 for Customer Engagement y Power Apps](dynamics-365-customer-engage-offer-setup.md) o [Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md) tendrá que rellenar el *perfil de facturación*.
 
 La dirección de facturación se rellena previamente a partir de la entidad legal y puede actualizarla más adelante. Los campos IMPUESTO y CIF son obligatorios para algunos países y opcionales para otros. No se puede editar el nombre del país o región y el nombre de la empresa.
 

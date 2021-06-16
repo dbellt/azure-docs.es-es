@@ -10,13 +10,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: juergent
-ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 8e2b757010aa79bd6d8a14b5e90ac95a199be75a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 717d98591fe5dc8326e6ee311c569bdca83eaa19
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110083123"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960956"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver
 
@@ -591,7 +591,7 @@ Se pueden asignar direcciones IP reservadas o fijas a las máquinas virtuales de
 
 
 ##### <a name="secondary-ip-addresses-for-sap-hostname-virtualization"></a>Direcciones IP secundarias para la virtualización del nombre de host de SAP
-La tarjeta de interfaz de red de cada máquina virtual de Azure puede tener varias direcciones IP asignadas; esta dirección IP secundaria que se puede usar para los nombres de host virtuales de SAP, se asigna a un registro A/PTR de DNS si es necesario. Las direcciones IP secundarias deben asignarse a la configuración IP de la vNIC de Azure según [este artículo](../../../virtual-network/virtual-network-multiple-ip-addresses-portal.md), y también configurarse dentro del sistema operativo, ya que las direcciones IP secundarias no se asignan mediante DHCP. Cada dirección IP secundaria debe ser de la misma subred a la que está enlazada la vNIC. [No se admite](/azure/load-balancer/load-balancer-multivip-overview#limitations) el uso de la dirección IP flotante de Azure Load Balancer para las configuraciones de IP secundarias, como los clústeres de Pacemaker; en este caso, la dirección IP del Load Balancer habilita los nombres de host virtuales de SAP. Consulte también la nota de SAP [962955](https://launchpad.support.sap.com/#/notes/962955) sobre las instrucciones generales del uso de nombres de host virtuales.
+La tarjeta de interfaz de red de cada máquina virtual de Azure puede tener varias direcciones IP asignadas; esta dirección IP secundaria que se puede usar para los nombres de host virtuales de SAP, se asigna a un registro A/PTR de DNS si es necesario. Las direcciones IP secundarias deben asignarse a la configuración IP de la vNIC de Azure según [este artículo](../../../virtual-network/virtual-network-multiple-ip-addresses-portal.md), y también configurarse dentro del sistema operativo, ya que las direcciones IP secundarias no se asignan mediante DHCP. Cada dirección IP secundaria debe ser de la misma subred a la que está enlazada la vNIC. [No se admite](../../../load-balancer/load-balancer-multivip-overview.md#limitations) el uso de la dirección IP flotante de Azure Load Balancer para las configuraciones de IP secundarias, como los clústeres de Pacemaker; en este caso, la dirección IP del Load Balancer habilita los nombres de host virtuales de SAP. Consulte también la nota de SAP [962955](https://launchpad.support.sap.com/#/notes/962955) sobre las instrucciones generales del uso de nombres de host virtuales.
 
 
 ##### <a name="multiple-nics-per-vm"></a>Varias NIC por máquina virtual

@@ -3,20 +3,20 @@ title: Solución de problemas de SQL Data Sync
 description: Obtenga información sobre cómo identificar y solucionar problemas comunes con SQL Data Sync en Azure.
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: sql-data-sync
 ms.custom: data sync, sqldbrb=1
 ms.devlang: ''
 ms.topic: troubleshooting
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: MaraSteiu
+ms.author: masteiu
+ms.reviewer: mathoma
 ms.date: 12/20/2018
-ms.openlocfilehash: 02eaec4c86c934e8d2638de1b60aa9267babf7a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfd6ec28769898c596746685b3a154f17f03bd02
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92790175"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110707730"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Solución de problemas de SQL Data Sync
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

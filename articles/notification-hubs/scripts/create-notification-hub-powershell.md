@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: dimazaid
-ms.openlocfilehash: 857210efdc5740defcde4187b7b04cce55215325
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c9dafcfb202f9c25cb66d904809bc7a543fe079e
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87071607"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110705871"
 ---
 # <a name="use-powershell-to-create-an-azure-notification-hub"></a>Uso de PowerShell para crear un centro de notificaciones de Azure
 
@@ -27,7 +28,7 @@ Este script de PowerShell de ejemplo crea un centro de notificaciones de Azure d
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * **Suscripción a Azure**: si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
