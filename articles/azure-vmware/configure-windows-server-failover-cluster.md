@@ -3,12 +3,12 @@ title: Configuración del clúster de conmutación por error de Windows Server 
 description: Obtenga información sobre cómo configurar el clúster de conmutación por error de Windows Server (WSFC) en vSAN de Azure VMware Solution con discos compartidos nativos.
 ms.topic: how-to
 ms.date: 05/04/2021
-ms.openlocfilehash: d74ae5d699f965c4899c6e21c78cd2dec720de4e
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: f2fc9e712d3f56aeddc6e66c12837794dceb9abe
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632320"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954504"
 ---
 # <a name="configure-windows-server-failover-cluster-on-azure-vmware-solution-vsan"></a>Configuración del clúster de conmutación por error de Windows Server en vSAN de Azure VMware Solution
 
@@ -165,5 +165,5 @@ Ahora que ha tratado la configuración de un WSFC en Azure VMware Solution, pued
 
 - Configurar el nuevo WSFC agregando más aplicaciones que requieran la funcionalidad de WSFC. Por ejemplo, SQL Server y ASCS de SAP.
 - Configurar una solución de copia de seguridad.
-  - [Configuración de Azure Backup Server para Azure VMware Solution](/azure/backup/backup-azure-microsoft-azure-backup?context=/azure/azure-vmware/context/context)
-  - [Soluciones de copia de seguridad para máquinas virtuales de Azure VMware Solution](/azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context)
+  - [Configuración de Azure Backup Server para Azure VMware Solution](../backup/backup-azure-microsoft-azure-backup.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext)
+  - [Soluciones de copia de seguridad para máquinas virtuales de Azure VMware Solution](../backup/backup-azure-backup-server-vmware.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext)

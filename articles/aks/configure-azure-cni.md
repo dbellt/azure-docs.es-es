@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 839aa012cedaaa6f5bd3d1edad60e3ea7278133b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: bdbc6956f9a32cbba369135652fb4ac03c581108
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775896"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559383"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configuración de redes de Azure CNI en Azure Kubernetes Service (AKS)
 
@@ -154,7 +154,18 @@ La siguiente captura de pantalla de Azure Portal muestra un ejemplo de la config
 > [!NOTE] 
 > La característica en vista previa (GB) está disponible actualmente en las siguientes regiones:
 >
+> * Este de EE. UU.
+> * Este de EE. UU. 2
+> * Centro-Norte de EE. UU
 > * Centro-Oeste de EE. UU.
+> * Oeste de EE. UU.
+> * Oeste de EE. UU. 2
+> * Centro de Canadá
+> * Este de Australia
+> * Sur de Reino Unido
+> * Norte de Europa
+> * Oeste de Europa
+> * Sudeste de Asia
 
 Un inconveniente de la CNI tradicional es el agotamiento de las direcciones IP Pod a medida que crece el clúster de AKS, de modo que se vuelve necesario recompilar todo el clúster en una subred más grande. La nueva funcionalidad de asignación dinámica de direcciones IP de Azure CNI soluciona este problema al asignar direcciones IP de pod de una subred independiente de la subred que hospeda el clúster de AKS.  Esto reporta las siguientes ventajas:
 

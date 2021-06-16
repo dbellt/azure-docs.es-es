@@ -4,12 +4,12 @@ description: Se describe cómo se resuelven las funciones de plantilla en implem
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c4a2caaa7b66e516a69cdb9d6c26baf7fd605e89
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: db2099c6c2405928a33f33bbba579c2280ad4877
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108314614"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959990"
 ---
 # <a name="arm-template-functions-in-deployment-scopes"></a>Funciones de plantilla de Resource Manager en ámbitos de implementación
 
@@ -139,6 +139,6 @@ El resultado del ejemplo anterior es:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para entender cómo definir parámetros en la plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para entender cómo definir parámetros en la plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./syntax.md).
 * Para obtener sugerencias para resolver los errores de implementación más comunes, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](common-deployment-errors.md).
 * Para más información sobre la implementación de una plantilla que requiere un token de SAS, vea [Implementación de una plantilla de Resource Manager privada con el token de SAS](secure-template-with-sas-token.md).

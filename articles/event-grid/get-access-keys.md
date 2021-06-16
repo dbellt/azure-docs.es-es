@@ -3,12 +3,13 @@ title: Obtención de la clave de acceso para un recurso de Event Grid
 description: En este artículo se describe cómo obtener una clave de acceso para un tema o dominio de Event Grid.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: cd60777b2e28b82d72f8f2bf93fe0be301e9e280
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6052c93dc91403fccaed62719b163c24486557c5
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775230"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110702524"
 ---
 # <a name="get-access-keys-for-event-grid-resources-topics-or-domains"></a>Obtención de claves de acceso para recursos de Event Grid (temas o dominios)
 Las claves de acceso se utilizan para autenticar los eventos de publicación de una aplicación en recursos de Azure Event Grid (temas y dominios). Se recomienda regenerar las claves periódicamente y almacenarlas de forma segura. Como se le proporcionan dos claves de acceso, puede mantener las conexiones con una mientras se regenera la otra.

@@ -4,12 +4,12 @@ description: Especifique que una implementación con errores debe revertir a una
 ms.topic: conceptual
 ms.date: 02/02/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7a0c4deef5956804aa74ad24f072bc46e5c2a8cd
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: d66df9cafdb64c216896a66b3283277930a63ed0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321508"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960074"
 ---
 # <a name="rollback-on-error-to-successful-deployment"></a>Revertir en caso de error a una implementación correcta
 
@@ -126,4 +126,4 @@ La implementación especificada debe haberse realizado correctamente.
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para comprender los modos completo e incremental, consulte [Modos de implementación de Azure Resource Manager](deployment-modes.md).
-- Para entender cómo definir parámetros en la plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+- Para entender cómo definir parámetros en la plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./syntax.md).

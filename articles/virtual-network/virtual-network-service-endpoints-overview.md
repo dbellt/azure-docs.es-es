@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 8926e99db926fc8182e98509c3deff0ccc3d1612
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b3db4e47a73cf7b7ad4e4645546d103c1a3c4fc
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99576674"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111812881"
 ---
 # <a name="virtual-network-service-endpoints"></a>Puntos de conexión de servicio de red virtual
 
@@ -152,4 +152,4 @@ Consulte las [preguntas más frecuentes acerca de los puntos de conexión de ser
 - [Establecimiento de una instancia de Azure Synapse Analytics a una red virtual](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Integración de servicios de Azure en redes virtuales](virtual-network-for-azure-services.md)
 - [Directivas de puntos de conexión de servicio de red virtual](./virtual-network-service-endpoint-policies-overview.md)
-- [Plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
+- [Plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/vnet-2subnets-service-endpoints-storage-integration)

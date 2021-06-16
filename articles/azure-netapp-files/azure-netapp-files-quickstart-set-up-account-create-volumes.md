@@ -8,12 +8,12 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: 77d5ce2cc903be51b7a38d6edc34bb8424c52ddb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 62bcd3703aac251a839928d205e0fd438b48250e
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107786106"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111892263"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Inicio rápido: Configuración de Azure NetApp Files y creación de un volumen de NFS
 
@@ -170,7 +170,7 @@ Para más información, consulte [Registro en Azure NetApp Files](azure-netapp-f
 
 En el siguiente fragmento de código se muestra cómo crear una cuenta de NetApp en una plantilla de Azure Resource Manager (plantilla de ARM), mediante el recurso [Microsoft.NetApp/netAppAccounts](/azure/templates/microsoft.netapp/netappaccounts). Para ejecutar el código, descargue la [plantilla de ARM completa](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) de nuestro repositorio de GitHub.
 
-:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="177-183":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.netapp/anf-nfs-volume/azuredeploy.json" range="177-183":::
 
 <!-- Block begins with "type": "Microsoft.NetApp/netAppAccounts", -->
 
@@ -244,7 +244,7 @@ En el siguiente fragmento de código se muestra cómo crear una cuenta de NetApp
 
 En el siguiente fragmento de código se muestra cómo crear un grupo de capacidad en una plantilla de Azure Resource Manager (plantilla de ARM), mediante el recurso [Microsoft.NetApp/netAppAccounts/capacityPools](/azure/templates/microsoft.netapp/netappaccounts/capacitypools). Para ejecutar el código, descargue la [plantilla de ARM completa](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) de nuestro repositorio de GitHub.
 
-:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="184-196":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.netapp/anf-nfs-volume/azuredeploy.json" range="184-196":::
 
 <!-- LN 185, block begins with  "type": "Microsoft.NetApp/netAppAccounts/capacityPools", -->
 
@@ -393,11 +393,11 @@ En el siguiente fragmento de código se muestra cómo crear un grupo de capacida
 
 En los fragmentos de código siguientes se muestra cómo configurar una red virtual y crear un volumen de Azure NetApp Files en una plantilla de Azure Resource Manager (plantilla de ARM). En la instalación de red virtual se usa el recurso [Microsoft.Network/virtualNetworks](/azure/templates/Microsoft.Network/virtualNetworks). En la creación de volúmenes se usa el recurso [Microsoft.NetApp/netAppAccounts/capacityPools/Volumes](/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes). Para ejecutar el código, descargue la [plantilla de ARM completa](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) de nuestro repositorio de GitHub.
 
-:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="148-176":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.netapp/anf-nfs-volume/azuredeploy.json" range="148-176":::
 
 <!-- Block begins with  "type": "Microsoft.Network/virtualNetworks", -->
 
-:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="197-229":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.netapp/anf-nfs-volume/azuredeploy.json" range="197-229":::
 
 <!-- Block begins with  "type": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes", -->
 

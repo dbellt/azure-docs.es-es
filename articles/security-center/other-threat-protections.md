@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 04/29/2021
 ms.author: memildin
-ms.openlocfilehash: cd9c2d5547c3b5e9468432539c2b07d18f6fd3ab
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8549734a643c97771681f2e90a1dad2e2c7ed7a3
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459917"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749154"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Protecciones adicionales contra amenazas en Azure Security Center
 Además de las [protecciones de Azure Defender](azure-defender.md) integradas, Azure Security Center también ofrece las siguientes funcionalidades de protección contra amenazas.
@@ -35,7 +35,7 @@ Para obtener una lista de las alertas de nivel de red de Azure, consulte la [tab
 >
 > 1. En el menú de Security Center, seleccione **Precios y configuración**.
 > 1. Seleccione la suscripción que desea cambiar.
-> 1. Seleccione **Detección de amenazas**.
+> 1. Seleccione **Integraciones**.
 > 1. Desactive la opción **Permita que Microsoft Cloud App Security acceda a sus datos** y seleccione **Guardar**.
 
 

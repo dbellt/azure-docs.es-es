@@ -8,25 +8,25 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/16/2021
-ms.openlocfilehash: 7d73bfa4b184cb2a3d1cad9a4b6f7fb918c9f953
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: f6e26d697c97b70770ec0445be8d72bda7269f4f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107989510"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111961436"
 ---
 # <a name="example-build-and-deploy-a-custom-skill-with-azure-machine-learning-designer"></a>Ejemplo: creación e implementación de una aptitud personalizada con el diseñador de Azure Machine Learning
 
-[Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-designer) es un lienzo interactivo fácil de usar para crear modelos de aprendizaje automático para tareas como la regresión y la clasificación. Invocar el modelo creado por el diseñador en una canalización de enriquecimiento de Cognitive Search requiere algunos pasos adicionales. En este ejemplo, creará un modelo de regresión simple para predecir el precio de un automóvil e invocará el punto de conexión de inferencia como una aptitud de AML. 
+[Azure Machine Learning](../machine-learning/concept-designer.md) es un lienzo interactivo fácil de usar para crear modelos de aprendizaje automático para tareas como la regresión y la clasificación. Invocar el modelo creado por el diseñador en una canalización de enriquecimiento de Cognitive Search requiere algunos pasos adicionales. En este ejemplo, creará un modelo de regresión simple para predecir el precio de un automóvil e invocará el punto de conexión de inferencia como una aptitud de AML. 
 
-Siga el tutorial [Regresión: predicción de precios de automóviles (avanzado)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/regression-automobile-price-prediction-compare-algorithms.md) en la página de documentación de [Conjuntos de datos y canalizaciones de ejemplo](https://docs.microsoft.com/azure/machine-learning/samples-designer) para crear un modelo que predice el precio de un automóvil dadas las distintas características.
+Siga el tutorial [Regresión: predicción de precios de automóviles (avanzado)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/regression-automobile-price-prediction-compare-algorithms.md) en la página de documentación de [Conjuntos de datos y canalizaciones de ejemplo](../machine-learning/concept-designer.md) para crear un modelo que predice el precio de un automóvil dadas las distintas características.
 
 > [!IMPORTANT] 
 > La implementación del modelo después del proceso de inferencia en tiempo real dará como resultado un punto de conexión válido, pero no uno que pueda usar con la aptitud de AML en Cognitive Search. 
 
 ## <a name="register-model-and-download-assets"></a>Registro del modelo y descarga de recursos
 
-Una vez que tenga un modelo entrenado,[regístrelo](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-model-designer) y siga los pasos para descargar todos los archivos de la carpeta `trained_model_outputs` o descargar solo los archivos `score.py` y `conda_env.yml` de la página de artefactos de modelos. Editará el script de puntuación antes de implementar el modelo como un punto de conexión de inferencia en tiempo real.
+Una vez que tenga un modelo entrenado,[regístrelo](../machine-learning/how-to-deploy-model-designer.md) y siga los pasos para descargar todos los archivos de la carpeta `trained_model_outputs` o descargar solo los archivos `score.py` y `conda_env.yml` de la página de artefactos de modelos. Editará el script de puntuación antes de implementar el modelo como un punto de conexión de inferencia en tiempo real.
 
 
 ## <a name="edit-the-scoring-script-for-use-with-cognitive-search"></a>Edición del script de puntuación para usarlo con Cognitive Search 
@@ -211,7 +211,7 @@ Seleccione el modelo y seleccione la acción `Deploy`. En el paso de implementac
 
 Para integrar el punto de conexión recién creado con Cognitive Search:
 1. Agregue un archivo JSON que contenga un único registro de automóvil a un contenedor de blobs.
-2. Configure una canalización de enriquecimiento con IA mediante el [flujo de trabajo de importación de datos](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob). No olvide seleccionar `JSON` como `parsing mode`.
+2. Configure una canalización de enriquecimiento con IA mediante el [flujo de trabajo de importación de datos](cognitive-search-quickstart-blob.md). No olvide seleccionar `JSON` como `parsing mode`.
 3. En la pestaña `Add Enrichments`, seleccione una sola aptitud `Extract people names` como marcador de posición.
 4. Agregue un nuevo campo al índice denominado `predicted_price` de tipo `Edm.Double` y establezca la propiedad Retrievable en true.
 5. Complete el proceso de importación de datos.

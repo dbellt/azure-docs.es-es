@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 1eb0bf2c0e214c3e076895903176d15ee792c70c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f362bc76a3361b511b08a3822c01730c200d37b1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101093053"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957039"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introducción para operadores de TI de Azure
 
@@ -280,7 +280,7 @@ Los mecanismos siguientes están disponibles para la automatización de una impl
 
 - **Vinculación de plantilla**: desde dentro de una plantilla de Resource Manager, puede vincular a otra plantilla. Esto permite la descomposición de la implementación en un conjunto de plantillas de propósito específico.
 
-Puede crear plantillas de Resource Manager en cualquier editor de texto. Sin embargo, el SDK de Azure para Visual Studio incluye herramientas para ayudarle. Con Visual Studio, puede agregar recursos a la plantilla mediante un asistente y, a continuación, implementar y depurar la plantilla directamente desde Visual Studio. Para más información, consulte [Creación de plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
+Puede crear plantillas de Resource Manager en cualquier editor de texto. Sin embargo, el SDK de Azure para Visual Studio incluye herramientas para ayudarle. Con Visual Studio, puede agregar recursos a la plantilla mediante un asistente y, a continuación, implementar y depurar la plantilla directamente desde Visual Studio. Para más información, consulte [Creación de plantillas de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md).
 
 Por último, puede convertir grupos de recursos existentes en una plantilla reutilizable desde Azure Portal. Esto puede resultar útil si desea crear una plantilla de implementación de un grupo de recursos existente o si simplemente desea examinar el JSON subyacente. Para exportar un grupo de recursos, seleccione el botón **Script de automatización** en la configuración del grupo de recursos.
 

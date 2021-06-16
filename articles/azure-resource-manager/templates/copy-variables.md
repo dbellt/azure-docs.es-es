@@ -3,12 +3,12 @@ title: Definición de varias instancias de una variable
 description: Utilice la operación de copia en una plantilla de Azure Resource Manager para realizar varias iteraciones al crear una variable.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: e1f6dfeb7b701b09ad1a9505d5dbcfddf2cd6b0b
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 5f6459335fa3f059a76128edde4ee7096790fe13
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385721"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957952"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Iteración de variables en las plantillas de ARM
 
@@ -326,5 +326,5 @@ En los ejemplos siguientes, se muestran escenarios comunes en los que se crean v
   - [Iteración de recursos en las plantillas de ARM](copy-resources.md)
   - [Iteración de propiedades en las plantillas de ARM](copy-properties.md)
   - [Iteración de salida en las plantillas de ARM](copy-outputs.md)
-- Si quiere conocer las secciones de una plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+- Si quiere obtener más información sobre las secciones de una plantilla, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./syntax.md).
 - Para información sobre cómo implementar una plantilla, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).

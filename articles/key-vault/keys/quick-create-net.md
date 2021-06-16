@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-azurepowershell
-ms.openlocfilehash: 5c1e4d64ba3359a07dddbbf89774e31815935230
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: dd2dfb5af2fffd4c9821e29502102ae08573da67
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107818429"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950506"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-net-sdk-v4"></a>Inicio rápido: Biblioteca cliente de Azure Key Vault para .NET (SDK v4)
 
@@ -34,26 +34,21 @@ Para más información sobre Key Vault y las claves, consulte:
 * [CLI de Azure](/cli/azure/install-azure-cli)
 * Un almacén de claves: puede crear uno mediante [Azure Portal](../general/quick-create-portal.md), la [CLI de Azure](../general/quick-create-cli.md) o [Azure PowerShell](../general/quick-create-powershell.md).
 
+En este inicio rápido se usa `dotnet` y la CLI de Azure.
+
 ## <a name="setup"></a>Configurar
 
-En este inicio rápido se usa la biblioteca de Azure Identity para autenticar al usuario en los servicios de Azure. Los desarrolladores también pueden usar Visual Studio o Visual Studio Code para autenticar sus llamadas. Para más información, consulte [Autenticación del cliente mediante la biblioteca cliente Azure Identity](/dotnet/api/overview/azure/identity-readme?#authenticate-the-client&preserve-view=true).
+En este inicio rápido se usa la biblioteca de identidades de Azure con la CLI de Azure para autenticar al usuario en los servicios de Azure. Los desarrolladores también pueden usar Visual Studio o Visual Studio Code para autenticar sus llamadas. Para más información, consulte [Autenticación del cliente mediante la biblioteca cliente Azure Identity](/dotnet/api/overview/azure/identity-readme?#authenticate-the-client&preserve-view=true).
 
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 1. Ejecute el comando `login`.
 
-    # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
     ```azurecli-interactive
     az login
     ```
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
-    
-    ```azurepowershell-interactive
-    Connect-AzAccount
-    ```
-    ---
 
-    Si la CLI de Azure o Azure PowerShell pueden abrir el explorador predeterminado, lo harán y cargarán una página de inicio de sesión de Azure.
+    Si la CLI puede abrir el explorador predeterminado, lo hará y cargará una página de inicio de sesión de Azure.
 
     En caso contrario, abra una página del explorador en [https://aka.ms/devicelogin](https://aka.ms/devicelogin) y escriba el código de autorización que se muestra en el terminal.
 
@@ -63,16 +58,9 @@ En este inicio rápido se usa la biblioteca de Azure Identity para autenticar al
 
 Cree una directiva de acceso para el almacén de claves que conceda permisos de clave a la cuenta de usuario.
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-```azurecli-interactive
+```console
 az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --key-permissions delete get list create purge
 ```
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
-
-```azurepowershell-interactive
-Set-AzKeyVaultAccessPolicy -VaultName <your-key-vault-name> -UserPrincipalName user@domain.com -PermissionsToSecrets delete,get,list,set,purge
-```
----
 
 ### <a name="create-new-net-console-app"></a>Creación de una aplicación de consola de .NET
 
@@ -119,7 +107,7 @@ Windows
 set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
-```azurepowershell
+```powershell
 $Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
@@ -146,9 +134,9 @@ using Azure.Security.KeyVault.Keys;
 
 ### <a name="authenticate-and-create-a-client"></a>Autenticación y creación de un cliente
 
-En este inicio rápido se emplea el usuario que ha iniciado sesión para autenticarlo en el almacén de claves, que es el método preferido para el desarrollo local. Para las aplicaciones implementadas en Azure, la identidad administrada debe asignarse a App Service o la máquina virtual. Para más información, consulte [Introducción a la identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+En este inicio rápido se emplea el usuario que ha iniciado sesión para autenticarlo en el almacén de claves, que es el método preferido para el desarrollo local. Para las aplicaciones implementadas en Azure, la identidad administrada debe asignarse a App Service o la máquina virtual. Para más información, consulte [Introducción a la identidad administrada](/azure/active-directory/managed-identities-azure-resources/overview).
 
-En el ejemplo siguiente, el nombre del almacén de claves se expande al URI del almacén de claves, con el formato "https://\<your-key-vault-name\>.vault.azure.net". En este ejemplo se usa la clase ["DefaultAzureCredential()"](/dotnet/api/azure.identity.defaultazurecredential) de la [biblioteca de identidades de Azure](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme), que permite usar el mismo código en entornos diferentes con distintas opciones para proporcionar la identidad. Para más información sobre la autenticación en el almacén de claves, consulte la [Guía del desarrollador](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+En el ejemplo siguiente, el nombre del almacén de claves se expande al URI del almacén de claves, con el formato "https://\<your-key-vault-name\>.vault.azure.net". En este ejemplo se usa la clase ["DefaultAzureCredential()"](/dotnet/api/azure.identity.defaultazurecredential) de la [biblioteca de identidades de Azure](/dotnet/api/overview/azure/identity-readme), que permite usar el mismo código en entornos diferentes con distintas opciones para proporcionar la identidad. Para más información sobre la autenticación en el almacén de claves, consulte la [Guía del desarrollador](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 ```csharp
 var keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
@@ -159,7 +147,7 @@ var client = new KeyClient(new Uri(kvUri), new DefaultAzureCredential());
 
 ### <a name="save-a-key"></a>Guardar una clave
 
-Para esta tarea, use el método [CreateKeyAsync](/dotnet/api/azure.security.keyvault.keys.keyclient.createkeyasync). Los parámetros del método aceptan un nombre de clave y el [tipo de clave](https://docs.microsoft.com/dotnet/api/azure.security.keyvault.keys.keytype).
+Para esta tarea, use el método [CreateKeyAsync](/dotnet/api/azure.security.keyvault.keys.keyclient.createkeyasync). Los parámetros del método aceptan un nombre de clave y el [tipo de clave](/dotnet/api/azure.security.keyvault.keys.keytype).
 
 ```csharp
 var key = await client.CreateKeyAsync("myKey", KeyType.Rsa);

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 01/14/2021
-ms.openlocfilehash: 467cc4a62cd044cb4ad264ec8643728e6db0b10c
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 8ce06a1279a71840dea90e199f5b9c3ee60bd3d3
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479821"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111541073"
 ---
 # <a name="introduction-to-listing-options"></a>Introducción a las opciones de lista
 
@@ -112,7 +112,7 @@ Puede cobrar una tarifa plana para estos tipos de oferta:
 
 Los siguientes tipos de oferta admiten precios basados en el uso:
 
-- Las ofertas de la aplicación de Azure (aplicación administrada) admiten la facturación de uso medido. Para más información, consulte [Facturación según uso de aplicaciones administradas](partner-center-portal/azure-app-metered-billing.md).
+- Las ofertas de la aplicación de Azure (aplicación administrada) admiten la facturación de uso medido. Para más información, consulte [Facturación según uso de aplicaciones administradas](marketplace-metering-service-apis.md).
 - Las ofertas de SaaS admiten la facturación de uso medido y los precios por usuario (por puesto). Para obtener más información sobre la facturación del uso medido, consulte [Facturación de uso medido para SaaS mediante el servicio de medición de Marketplace comercial](partner-center-portal/saas-metered-billing.md).
 - La máquina virtual de Azure ofrece soporte técnico para los niveles de precio por **núcleo**, **tamaño del núcleo** y **según el mercado y el tamaño del núcleo**. Estas opciones se calculan por hora y se facturan mensualmente.
 

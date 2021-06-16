@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 04/06/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 25880a60bd086afa84b0c3eaf901bfb987190f4a
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: d60e4964ca9ce4de4b4d8e5545875f5c47f0f809
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166350"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854403"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Linux
 
@@ -52,7 +52,7 @@ La característica Hybrid Runbook Worker admite las siguientes distribuciones. S
 * SUSE Linux Enterprise Server 12 y 15 (no se publicaron las versiones 13 y 14 de SUSE)
 
 > [!IMPORTANT]
-> Antes de habilitar la característica Update Management, que depende del rol Hybrid Runbook Worker del sistema, confirme las distribuciones que admite [aquí](update-management/overview.md#supported-operating-systems).
+> Antes de habilitar la característica Update Management, que depende del rol Hybrid Runbook Worker del sistema, confirme las distribuciones que admite [aquí](update-management/operating-system-requirements.md).
 
 ### <a name="minimum-requirements"></a>Requisitos mínimos
 
@@ -116,7 +116,7 @@ El procedimiento de importación se describe en detalle en [Importación de runb
 
 El runbook usa los parámetros siguientes.
 
-| Parámetro | Status | Descripción |
+| Parámetro | Estado | Descripción |
 | ------- | ----- | ----------- |
 | `Location` | Mandatory | La ubicación del área de trabajo de Log Analytics. |
 | `ResourceGroupName` | Mandatory | El grupo de recursos de la cuenta de Automation. |

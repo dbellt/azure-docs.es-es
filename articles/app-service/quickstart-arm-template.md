@@ -12,12 +12,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-arm-template-uiex
-ms.openlocfilehash: 1b462c8e102d65470b55eb6d5d4368917053c155
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: b74287a4324d7a82cf3f47a008a3809e3c5690be
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108074680"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111892623"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Inicio rápido: Creación de una aplicación de App Service mediante una plantilla de ARM
 
@@ -42,7 +42,7 @@ Use el botón siguiente para realizar la implementación en **Windows**:
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
 ::: zone pivot="platform-windows"
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows). Implementa un plan y una aplicación de App Service en Windows. Es compatible con las aplicaciones de .NET Core, .NET Framework, PHP, Node.js y HTML estático. Para Java, consulte [Creación de aplicaciones Java](./quickstart-java.md).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/app-service-docs-windows). Implementa un plan y una aplicación de App Service en Windows. Es compatible con las aplicaciones de .NET Core, .NET Framework, PHP, Node.js y HTML estático. Para Java, consulte [Creación de aplicaciones Java](./quickstart-java.md).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-windows/azuredeploy.json":::
 
@@ -63,7 +63,7 @@ Esta plantilla contiene varios parámetros que están predefinidos para su comod
 | repoUrl    | string  | " "                          | Repositorio de Git externo (opcional) |
 ::: zone-end
 ::: zone pivot="platform-linux"
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-app-service-docs-linux). Implementa un plan y una aplicación de App Service en Linux. Es compatible con todos los lenguajes de programación que se admiten en App Service.
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/app-service-docs-linux). Implementa un plan y una aplicación de App Service en Linux. Es compatible con todos los lenguajes de programación que se admiten en App Service.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-linux/azuredeploy.json":::
 
@@ -98,7 +98,7 @@ Ejecute el código siguiente para implementar una aplicación de .NET Framework 
 az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup \
 --parameters language=".net" helloWorld="true" webAppName="<app-name>" \
---template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsofot.web/app-service-docs-windows/azuredeploy.json"
+--template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/app-service-docs-windows/azuredeploy.json"
 ::: zone-end
 ::: zone pivot="platform-linux"
 Run the code below to create a Python app on Linux.

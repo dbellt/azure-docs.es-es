@@ -7,12 +7,13 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: c350ca6ce392804760d06790d0131654397ffab5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 973d84356c4757044f0e66f32fd0f5b96334daca
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110070380"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110680941"
 ---
 # <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Service Bus mediante una plantilla de Azure Resource Manager
 
@@ -60,7 +61,7 @@ Para crear un espacio de nombres de Service Bus mediante la implementación de u
 
 Lleva algunos minutos crear un centro de eventos.
 
-## <a name="verify-the-deployment"></a>Comprobar la implementación
+## <a name="verify-the-deployment"></a>Comprobación de la implementación
 
 Para ver el espacio de nombres de Service Bus implementación, puede abrir el grupo de recursos desde Azure Portal o usar el script de Azure PowerShell siguiente. Si Cloud Shell todavía está abierto, no es necesario copiar ni ejecutar la primera y la segunda líneas del script siguiente.
 

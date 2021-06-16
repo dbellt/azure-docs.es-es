@@ -1,18 +1,19 @@
 ---
 title: Configuración de la recuperación ante desastres de VMware mediante PowerShell en Azure Site Recovery
 description: Aprenda a configurar la replicación y la conmutación por error a Azure para la recuperación ante desastres de máquinas virtuales de VMware mediante PowerShell en Azure Site Recovery.
-author: sujayt
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
-ms.date: 01/10/2020
 ms.topic: conceptual
-ms.author: sutalasi
-ms.openlocfilehash: de25a3f9df04b09a7337dc889a688a171d98db28
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d7edf0df7818c380199c732336dbc796a6e5314d
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86129911"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110690600"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Aprenda a configurar la recuperación ante desastres de máquinas virtuales de VMware en Azure con PowerShell.
 

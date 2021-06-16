@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 04/10/2021
-ms.openlocfilehash: cee7993116e746c7b827faaf94724033501f1318
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 06/07/2021
+ms.openlocfilehash: ac9d0aaf4114e48fb128a5093c59781724e8fd9c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309057"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749064"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la asignación de instancias de Data Flow
 
@@ -141,9 +141,6 @@ Sin embargo, si la mayoría de los flujos de datos se ejecutan en paralelo, no s
 > [!NOTE]
 > El período de vida no está disponible cuando se usa el entorno de ejecución de integración de resolución automática.
  
-> [!NOTE]
-> La reutilización rápida de los clústeres existentes es una característica de Azure Integration Runtime que se encuentra actualmente en versión preliminar pública.
-
 ## <a name="optimizing-sources"></a>Optimización de orígenes
 
 En todos los orígenes, excepto Azure SQL Database, se recomienda mantener **Use current partitioning**  (Usar particiones actuales) como valor seleccionado. Cuando leen desde el resto de los sistemas de origen, los flujos de datos crean automáticamente particiones de los datos en función de su tamaño. Se crea una nueva partición aproximadamente por cada 128 MB de datos. A medida que aumenta el tamaño de los datos, aumenta el número de particiones.
@@ -308,9 +305,6 @@ Si los flujos de datos se ejecutan en paralelo, se recomienda no habilitar la pr
 ### <a name="execute-data-flows-sequentially"></a>Ejecución secuencial de flujos de datos
 
 Si ejecuta las actividades de flujo de datos en secuencia, se recomienda establecer un TTL en la configuración de Azure IR. ADF volverá a usar los recursos de proceso, lo que dará lugar a un tiempo de inicio de clúster más rápido. Cada actividad seguirá recibiendo un nuevo contexto de Spark aislado para cada ejecución. Para reducir aún más el tiempo entre las actividades secuenciales, seleccione la casilla "Quick re-use" (Reutilización rápida) en Azure IR para que ADF vuelva a usar el clúster existente.
-
-> [!NOTE]
-> La reutilización rápida de los clústeres existentes es una característica de Azure Integration Runtime que se encuentra actualmente en versión preliminar pública.
 
 ### <a name="overloading-a-single-data-flow"></a>Sobrecarga de un único flujo de datos
 

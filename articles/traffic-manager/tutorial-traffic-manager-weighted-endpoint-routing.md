@@ -7,12 +7,12 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/19/2020
 ms.author: duau
-ms.openlocfilehash: 20864d46ac93d5fcefec20028dd2a78ded142ba3
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 3abd5af39b3b66f3480c377d63f9bf269342fb0a
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067187"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081342"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Tutorial: Control del enrutamiento del tráfico con puntos de conexión ponderados mediante Traffic Manager
 
@@ -59,7 +59,7 @@ En esta sección, creará dos máquinas virtuales (*myIISVMEastUS* y *myIISVMWEu
    - **Detalles de instancia** > **Nombre de máquina virtual**: Escriba *myIISVMEastUS*.
    - **Detalles de instancia** > **Región**:  Seleccione **Este de EE. UU**.
    - **Cuenta de administrador** > **Nombre de usuario**:  Escriba un nombre de usuario de su elección.
-   - **Cuenta de administrador** > **Contraseña**:  Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - **Cuenta de administrador** > **Contraseña**:  Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).
    - **Reglas de puerto de entrada** > **Puertos de entrada públicos**: Seleccione **Permitir los puertos seleccionados**.
    - **Reglas de puerto de entrada** > **Seleccionar puertos de entrada**: Seleccione **RDP** y **HTTP** en el cuadro desplegable.
 
@@ -119,7 +119,7 @@ En esta sección, creará una máquina virtual (*myVMEastUS* y *myVMWestEurope*)
    - **Detalles de instancia** > **Nombre de máquina virtual**: Escriba *myVMEastUS*.
    - **Detalles de instancia** > **Región**:  Seleccione **Este de EE. UU**.
    - **Cuenta de administrador** > **Nombre de usuario**:  Escriba un nombre de usuario de su elección.
-   - **Cuenta de administrador** > **Contraseña**:  Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - **Cuenta de administrador** > **Contraseña**:  Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).
    - **Reglas de puerto de entrada** > **Puertos de entrada públicos**: Seleccione **Permitir los puertos seleccionados**.
    - **Reglas de puerto de entrada** > **Seleccionar puertos de entrada**: Seleccione **RDP** en el cuadro desplegable.
 
@@ -136,7 +136,7 @@ Cree un perfil de Traffic Manager basado en el método de enrutamiento **Pondera
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Perfil de Traffic Manager** > **Crear**.
 2. En **Crear perfil de Traffic Manager**, escriba o seleccione la siguiente información. Para las demás opciones, conserve los valores predeterminados y, a continuación, seleccione **Crear**.
 
-    | Configuración                 | Value                                              |
+    | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
     | Nombre                   | Escriba un nombre único en la zona trafficmanager.net. Se produce el nombre DNS trafficmanager.net, que se usa para acceder al perfil de Traffic Manager.                                   |
     | Método de enrutamiento          | Seleccione el método de enrutamiento **Ponderado**.                                       |
@@ -154,7 +154,7 @@ Agregue las dos máquinas virtuales que ejecutan los servidores IIS, myIISVMEast
 2. En **Perfil de Traffic Manager**, en la sección **Configuración**, seleccione **Puntos de conexión** > **Agregar**.
 3. Escriba o seleccione la siguiente información. Para las demás opciones, conserve los valores predeterminados y, a continuación, seleccione **Aceptar**.
 
-    | Configuración                 | Value                                              |
+    | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
     | Tipo                    | Escriba el punto de conexión de Azure.                                   |
     | Nombre           | Escriba **myEastUSEndpoint**.                                        |

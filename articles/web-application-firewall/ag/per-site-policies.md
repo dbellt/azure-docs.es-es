@@ -8,12 +8,13 @@ ms.service: web-application-firewall
 ms.date: 12/09/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: ef4337b187500695d9ef1c0b896d6ae8b5663ca6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 41e2ba20d8b88edcac203ea165b025458550c112
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96938858"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110668531"
 ---
 # <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Configuración de directivas de WAF por sitio mediante Azure PowerShell
 

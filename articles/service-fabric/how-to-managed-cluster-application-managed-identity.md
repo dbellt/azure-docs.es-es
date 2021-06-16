@@ -3,12 +3,12 @@ title: Configuración y uso de la identidad administrada de aplicación en nodos
 description: Aprenda a configurar y usar una identidad administrada de aplicación en un clúster administrado de Azure Service Fabric implementado con plantilla de ARM.
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: f3c76ae6418ddf2ca9da0ed620941c10b7061603
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 4e488f9ebb78208617ca59fdb88dbec454de10e1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109689291"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958284"
 ---
 # <a name="deploy-a-service-fabric-application-with-managed-identity"></a>Implementación de una aplicación de Service Fabric con identidad administrada
 
@@ -42,7 +42,7 @@ El recurso de aplicación admite la asignación de SystemAssigned o UserAssigned
 }
 
 ```
-[Referencia JSON completa](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2021-05-01/managedclusters/applications?tabs=json)
+[Referencia JSON completa](/azure/templates/microsoft.servicefabric/2021-05-01/managedclusters/applications?tabs=json)
 
 ## <a name="user-assigned-identity"></a>Identidad asignada por el usuario
 

@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: a7d87e2496158fec8ff33ab8586c845a6207f810
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: d89f2de555b17ddb5e77a85831f03be16a8a3f57
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816069"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950475"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Procedimientos recomendados de seguridad de Azure Service Fabric
 La implementación de una aplicación en Azure es un proceso rápido, sencillo y rentable. Antes de implementar la aplicación en la nube en producción, revise la lista de procedimientos recomendados y fundamentales para implementar clústeres seguros en la aplicación.
@@ -144,7 +144,7 @@ El protocolo HTTP no es seguro y está sujeto a ataques de interceptación. Los 
 Para más información sobre el uso de certificados SSL/TLS, consulte [Configuración de TLS para una aplicación en Azure](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
 
 ## <a name="use-network-isolation-and-security-with-azure-service-fabric"></a>Uso de aislamiento y seguridad de red con Azure Service Fabric
-Configure un clúster seguro de 3 tipos de nodo mediante la [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) como ejemplo. Controle el tráfico de red entrante y saliente mediante el uso de la plantilla y los grupos de seguridad de red.
+Configure un clúster seguro de 3 tipos de nodo mediante la [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) como ejemplo. Controle el tráfico de red entrante y saliente mediante el uso de la plantilla y los grupos de seguridad de red.
 
 La plantilla tiene un grupo de seguridad de red para cada uno de los conjuntos de escalado de máquinas virtuales a fin de controlar el tráfico dentro y fuera del conjunto. De forma predeterminada, las reglas se configuran para permitir todo el tráfico que necesitan los servicios del sistema y los puertos de la aplicación especificados en la plantilla. Revise esas reglas y realice los cambios que necesite, incluido agregar nuevas reglas para las aplicaciones.
 

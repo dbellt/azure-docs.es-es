@@ -33,6 +33,8 @@
           href: ../networking/working-remotely-support.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
         - name: Uso de Virtual WAN
           href: work-remotely-support.md
+    - name: Preguntas más frecuentes sobre Virtual WAN
+      href: virtual-wan-faq.md
     - name: Ubicaciones y asociados
       items:
         - name: Ubicaciones y asociados del centro de conectividad
@@ -194,13 +196,11 @@
     - name: REST
       href: /rest/api/azure
     - name: Azure CLI
-      href: /azure/virtual-wan/
+      href: ./index.yml
     - name: SDK de Python
       href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-network/10.0.0/azure.mgmt.network.v2019_02_01.operations.html#azure.mgmt.network.v2019_02_01.operations.VirtualWansOperations'
 - name: Recursos
   items:
-    - name: Preguntas más frecuentes
-      href: virtual-wan-faq.md
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/virtual-wan'
     - name: Límites del servicio y la suscripción

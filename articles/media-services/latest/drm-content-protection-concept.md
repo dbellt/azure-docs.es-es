@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 05/25/2021
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 84d3fd31f3da047b263a3e3a46761dfc4538e499
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 014084862f5dab95ee859315c52983cbcd96e678
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279551"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110793447"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Protección del contenido mediante el cifrado dinámico de Media Services
 
@@ -52,7 +52,7 @@ Para completar correctamente el sistema de protección de contenido, debe entend
 
 ### <a name="media-services-code"></a>Código de Media Services
   
-El [ejemplo de DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) muestra cómo implementar el sistema de varios DRM con Media Services v3 con .NET. También muestra cómo usar el servicio de entrega de claves o licencias de Media Services.
+El [ejemplo de DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs) muestra cómo implementar el sistema de varios DRM con Media Services v3 con .NET. También muestra cómo usar el servicio de entrega de claves o licencias de Media Services.
   
 Puede cifrar cada recurso con varios tipos de cifrado (AES-128, PlayReady, Widevine, FairPlay). Para ver lo que conviene combinar, consulte [Protocolos de streaming y tipos de cifrado](#streaming-protocols-and-encryption-types).
 
@@ -191,7 +191,7 @@ Al configurar la directiva de restricción de token, debe especificar los parám
 
 ### <a name="token-replay-prevention"></a>Prevención de reproducción de tokens
 
-La característica de *prevención de reproducción de tokens* permite a los clientes de Media Services establecer un límite en el número de veces que se puede usar el mismo token para solicitar una clave o una licencia. El cliente puede agregar una notificación de tipo `urn:microsoft:azure:mediaservices:maxuses` en el token, donde el valor es el número de veces que el token se puede usar para adquirir una licencia o una clave. Todas las solicitudes subsiguientes con el mismo token para la entrega de claves devolverán una respuesta no autorizada. Consulte cómo agregar la notificación en el [ejemplo de DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
+La característica de *prevención de reproducción de tokens* permite a los clientes de Media Services establecer un límite en el número de veces que se puede usar el mismo token para solicitar una clave o una licencia. El cliente puede agregar una notificación de tipo `urn:microsoft:azure:mediaservices:maxuses` en el token, donde el valor es el número de veces que el token se puede usar para adquirir una licencia o una clave. Todas las solicitudes subsiguientes con el mismo token para la entrega de claves devolverán una respuesta no autorizada. Consulte cómo agregar la notificación en el [ejemplo de DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L591).
  
 #### <a name="considerations"></a>Consideraciones
 

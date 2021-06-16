@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d003008ea5b0d2591574f6f488b0145ee6f08a5e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2636b4ee53784d1cc79002430774d0bb5c5c2aa5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100008135"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966243"
 ---
 # <a name="microsoft-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Uso compartido externo de Microsoft 365 y colaboración B2B de Azure Active Directory (Azure AD)
 
@@ -45,7 +45,7 @@ Para habilitarla, use la configuración "ShowPeoplePickerSuggestionsForGuestUser
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Qué es la colaboración B2B de Azure AD?](what-is-b2b.md)
-* [Incorporación de usuarios de colaboración B2B a un rol](add-guest-to-role.md)
+* [Incorporación de usuarios de colaboración B2B a un rol](./add-users-administrator.md)
 * [Delegación de las invitaciones de colaboración B2B](delegate-invitations.md)
 * [Grupos dinámicos y colaboración B2B](use-dynamic-groups.md)
 * [Solución de problemas de colaboración B2B de Azure Active Directory](troubleshoot.md)

@@ -4,12 +4,12 @@ description: Impida que los usuarios actualicen o eliminen recursos de Azure apl
 ms.topic: conceptual
 ms.date: 05/07/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 5d8af2529039aa6e9435243249d7724d996b119d
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 780957dec73177541e8677fb5f6551a6ad147797
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634804"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951441"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloqueo de recursos para impedir cambios inesperados
 
@@ -195,7 +195,7 @@ Para crear un grupo de recursos y bloquearlo, implemente la plantilla siguiente 
 
 # <a name="bicep"></a>[Bicep](#tab/bicep)
 
-El archivo Bicep principal crea un grupo de recursos y usa un [módulo](../templates/bicep-modules.md) para crear el bloqueo.
+El archivo Bicep principal crea un grupo de recursos y usa un [módulo](../bicep/modules.md) para crear el bloqueo.
 
 ```Bicep
 targetScope = 'subscription'

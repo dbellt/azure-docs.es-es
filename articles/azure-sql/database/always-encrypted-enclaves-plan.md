@@ -1,7 +1,6 @@
 ---
 title: Plan de atestación y enclaves de Intel SGX en Azure SQL Database
 description: Planee la implementación de Always Encrypted con enclaves seguros en Azure SQL Database.
-keywords: cifrar datos, cifrado sql, cifrado de base de datos, datos confidenciales, Always Encrypted, enclaves seguros, SGX, atestación
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,12 +10,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: 4448ce051b0c9e73865e8057cc4f224c9cbeb571
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ccf4d00aa48edfc5cbe8df894d7d1a28387ecff2
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98732751"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411598"
 ---
 # <a name="plan-for-intel-sgx-enclaves-and-attestation-in-azure-sql-database"></a>Plan de atestación y enclaves de Intel SGX en Azure SQL Database
 
@@ -29,13 +28,13 @@ ms.locfileid: "98732751"
 
 ## <a name="plan-for-intel-sgx-in-azure-sql-database"></a>Plan de Intel SGX en Azure SQL Database
 
-Intel SGX es una tecnología de entorno de ejecución de confianza basado en hardware. Intel SGX está disponible para las bases de datos que usan el [modelo de núcleo virtual](service-tiers-vcore.md) y la generación de hardware de [serie DC](service-tiers-vcore.md?#dc-series). Por lo tanto, para asegurarse de que puede usar Always Encrypted con enclaves seguros en la base de datos, debe seleccionar la generación de hardware de serie DC al crear la base de datos. También puede actualizar la base de datos existente para usar la generación de hardware de serie DC.
+Intel SGX es una tecnología de entorno de ejecución de confianza basado en hardware. Intel SGX está disponible para las bases de datos que usan el [modelo de núcleo virtual](service-tiers-sql-database-vcore.md) y la generación de hardware de [serie DC](service-tiers-sql-database-vcore.md?#dc-series). Por lo tanto, para asegurarse de que puede usar Always Encrypted con enclaves seguros en la base de datos, debe seleccionar la generación de hardware de serie DC al crear la base de datos. También puede actualizar la base de datos existente para usar la generación de hardware de serie DC.
 
 > [!NOTE]
 > Intel SGX no está disponible en las generaciones de hardware que no sean de serie DC. Por ejemplo, Intel SGX no está disponible para el hardware de Gen5 ni para las bases de datos que usan el [modelo de DTU](service-tiers-dtu.md).
 
 > [!IMPORTANT]
-> Antes de configurar la generación de hardware de serie DC para la base de datos, compruebe la disponibilidad regional de la serie DC y asegúrese de que comprende sus limitaciones de rendimiento. Para obtener información detallada, vea [Serie DC](service-tiers-vcore.md#dc-series).
+> Antes de configurar la generación de hardware de serie DC para la base de datos, compruebe la disponibilidad regional de la serie DC y asegúrese de que comprende sus limitaciones de rendimiento. Para obtener información detallada, vea [Serie DC](service-tiers-sql-database-vcore.md#dc-series).
 
 ## <a name="plan-for-attestation-in-azure-sql-database"></a>Plan de atestación en Azure SQL Database
 

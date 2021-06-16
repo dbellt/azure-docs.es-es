@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: c5a9386540f418c8f490ca146e250e780737e478
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 759bd7fb48134d2e0da4514a143d3ffb5d5336bb
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668060"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953775"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Ventaja para uso híbrido de Azure para Windows Server
 Para los clientes con Software Assurance, la ventaja para uso híbrido de Azure para Windows Server le permite usar las licencias de Windows Server locales y ejecutar máquinas virtuales de Windows en Azure a bajo costo. Puede usar la Ventaja híbrida de Azure para Windows Server para implementar nuevas máquinas virtuales con el SO Windows. En este artículo se recorren los pasos necesarios para implementar nuevas máquinas virtuales con la Ventaja híbrida de Azure para Windows Server y para actualizar las máquinas virtuales en funcionamiento existentes. Para obtener más información acerca de los ahorros de costos y la concesión de licencias de la ventaja para uso híbrido para Azure para Windows Server, vea la [página de concesión de licencias de la ventaja para uso híbrido de Azure para Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -67,7 +68,7 @@ az vm create \
 ```
 
 ### <a name="template"></a>Plantilla
-En las plantillas de Resource Manager, se debe especificar un parámetro `licenseType` adicional. Puede obtener más información sobre la [creación de plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
+En las plantillas de Resource Manager, se debe especificar un parámetro `licenseType` adicional. Puede obtener más información sobre la [creación de plantillas de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md).
 ```json
 "properties": {
     "licenseType": "Windows_Server",

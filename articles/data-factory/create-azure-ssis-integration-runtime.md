@@ -6,12 +6,13 @@ ms.topic: conceptual
 ms.date: 04/09/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: e4f60539e2eb524e95c76814f7527377630349e2
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c5727dafc9110ef35945f1d2bfc28db99ae1e23b
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285248"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110681163"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Crear una instancia de Integration Runtime de Azure SSIS en Azure Data Factory
 

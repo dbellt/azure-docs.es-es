@@ -3,21 +3,21 @@ title: 'Tutorial: Creación de una aplicación de página única de React que us
 titleSuffix: Microsoft identity platform
 description: En este tutorial, creará una aplicación de página única de React con la que los usuarios pueden iniciar sesión y usar el flujo de código de autenticación para obtener un token de acceso de la Plataforma de identidad de Microsoft y llamar a Microsoft Graph API.
 services: active-directory
-author: tnorling
+author: j-mantu
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 04/16/2021
-ms.author: thnorlin
+ms.author: jamesmantu
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 82a484964992809dc7e27744035ec19ed3a9e3db
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 1b8e822c72bdf2af8b20950944fb93686524b797
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109657399"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072350"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-react-single-page-app-spa-using-auth-code-flow"></a>Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de React mediante el flujo de código de autorización
 

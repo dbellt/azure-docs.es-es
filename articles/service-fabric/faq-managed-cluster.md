@@ -6,12 +6,12 @@ ms.author: pepogors
 author: peterpogorski
 ms.date: 5/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: 377e71c7fdf1f6750ae9529db2cf62fa329d18be
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: f79146e1271436e29dcd7f911c250cab58c28707
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684674"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956767"
 ---
 # <a name="service-fabric-managed-clusters-frequently-asked-questions"></a>Preguntas más frecuentes sobre los clústeres administrados de Service Fabric
 
@@ -67,7 +67,7 @@ Sí, los clústeres administrados de Service Fabric admiten tipos de nodo sin es
 
 ### <a name="can-i-select-between-automatic-and-manual-upgrades-for-my-cluster-runtime"></a>¿Puedo seleccionar entre actualizaciones automáticas y manuales del clúster en tiempo de ejecución?
 
-Sí, puede seleccionar entre actualizaciones automáticas y manuales. Para más información, consulte el artículo sobre las [actualizaciones de clústeres](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade).
+Sí, puede seleccionar entre actualizaciones automáticas y manuales. Para más información, consulte el artículo sobre las [actualizaciones de clústeres](./service-fabric-cluster-upgrade.md).
 
 ## <a name="applications"></a>Aplicaciones
 

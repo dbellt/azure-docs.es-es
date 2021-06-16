@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 12739d535e37c4d1de89e69237a0daddd9569217
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: b772112a238b4af4ff536a98e0a4105e7237c1af
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897476"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951953"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedimientos: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
@@ -79,7 +79,7 @@ Vamos a saltar directamente a la creación de la identidad. Si experimenta un pr
 1. Seleccione **Azure Active Directory**.
 1. Seleccione **App registrations** (Registros de aplicaciones).
 1. Seleccione **Nuevo registro**.
-1. Asigne un nombre a la aplicación. Seleccione un tipo de cuenta compatible, que determinará quién puede usar la aplicación. En **URI de redireccionamiento**, seleccione **Web** para indicar el tipo de aplicación que quiere crear. Escriba el URI al que se envía el token de acceso. No se pueden crear credenciales para una [aplicación nativa](../manage-apps/application-proxy-configure-native-client-application.md). No se puede usar ese tipo en una aplicación automatizada. Después de configurar los valores, seleccione **Registrar**.
+1. Asigne un nombre a la aplicación. Seleccione un tipo de cuenta compatible, que determinará quién puede usar la aplicación. En **URI de redireccionamiento**, seleccione **Web** para indicar el tipo de aplicación que quiere crear. Escriba el URI al que se envía el token de acceso. No se pueden crear credenciales para una [aplicación nativa](../app-proxy/application-proxy-configure-native-client-application.md). No se puede usar ese tipo en una aplicación automatizada. Después de configurar los valores, seleccione **Registrar**.
 
    ![Escriba un nombre para la aplicación](./media/howto-create-service-principal-portal/create-app.png)
 

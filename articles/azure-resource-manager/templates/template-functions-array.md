@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: matrices'
 description: Se describen las funciones que se usan en una plantilla de Azure Resource Manager para trabajar con matrices.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: 099fdf6d8ca5e4221ff3ea438978f20c14557c73
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.date: 05/11/2021
+ms.openlocfilehash: 62704fc3ac6b4198e35d09f9951b9239bd95ce5a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802835"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959738"
 ---
 # <a name="array-functions-for-arm-templates"></a>Funciones de matriz para plantillas de Resource Manager
 
@@ -32,8 +32,6 @@ Resource Manager proporciona varias funciones para trabajar con matrices en la p
 
 Para obtener una matriz de valores de cadena delimitada por un valor, consulte [split](template-functions-string.md#split).
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
-
 ## <a name="array"></a>array
 
 `array(convertToArray)`
@@ -53,8 +51,6 @@ Matriz .
 ### <a name="example"></a>Ejemplo
 
 En el ejemplo siguiente se muestra cómo utilizar la función de matriz con diferentes tipos.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -96,23 +92,6 @@ En el ejemplo siguiente se muestra cómo utilizar la función de matriz con dife
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param intToConvert int = 1
-param stringToConvert string = 'efgh'
-param objectToConvert object = {
-  'a': 'b'
-  'c': 'd'
-}
-
-output intOutput array = array(intToConvert)
-output stringOutput array = array(stringToConvert)
-output objectOutput array = array(objectToConvert)
-```
-
----
-
 La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Value |
@@ -143,8 +122,6 @@ Una cadena o matriz de valores concatenados.
 ### <a name="example"></a>Ejemplo
 
 En el ejemplo siguiente se muestra cómo combinar dos matrices.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -179,25 +156,6 @@ En el ejemplo siguiente se muestra cómo combinar dos matrices.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param firstArray array = [
-  '1-1'
-  '1-2'
-  '1-3'
-]
-param secondArray array = [
-  '2-1'
-  '2-2'
-  '2-3'
-]
-
-output return array = concat(firstArray, secondArray)
-```
-
----
-
 La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Value |
@@ -205,8 +163,6 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) siguiente se muestra cómo combinar dos valores de cadena y devolver una cadena concatenada.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -227,16 +183,6 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param prefix string = 'prefix'
-
-output concatOutput string = '${prefix}-${uniqueString(resourceGroup().id)}'
-```
-
----
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -264,8 +210,6 @@ Comprueba si una matriz contiene un valor, un objeto contiene una clave o una ca
 ### <a name="example"></a>Ejemplo
 
 En el ejemplo siguiente se muestra cómo utilizar contains con diferentes tipos:
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -320,31 +264,6 @@ En el ejemplo siguiente se muestra cómo utilizar contains con diferentes tipos:
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param stringToTest string = 'OneTwoThree'
-param objectToTest object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
-}
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-
-output stringTrue bool = contains(stringToTest, 'e')
-output stringFalse bool = contains(stringToTest, 'z')
-output objectTrue bool = contains(objectToTest, 'one')
-output objectFalse bool = contains(objectToTest, 'a')
-output arrayTrue bool = contains(arrayToTest, 'three')
-output arrayFalse bool = contains(arrayToTest, 'four')
-```
-
----
-
 La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Value |
@@ -360,7 +279,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 `createArray (arg1, arg2, arg3, ...)`
 
-Crea una matriz a partir de los parámetros. La función `createArray` no es compatible con Bicep.  Construya un literal de matriz mediante `[]`.
+Crea una matriz a partir de los parámetros.
 
 ### <a name="parameters"></a>Parámetros
 
@@ -375,8 +294,6 @@ Matriz . Cuando no se proporciona ningún parámetro, devuelve una matriz vacía
 ### <a name="example"></a>Ejemplo
 
 En el ejemplo siguiente se muestra cómo utilizar createArray con diferentes tipos:
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -423,13 +340,6 @@ En el ejemplo siguiente se muestra cómo utilizar createArray con diferentes tip
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-> [!NOTE]
-> `createArray()` no es compatible con Bicep.  Construya un literal de matriz mediante `[]`.
-
----
-
 La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Value |
@@ -459,8 +369,6 @@ Devuelve **True** si el valor está vacío; en caso contrario, **False**.
 ### <a name="example"></a>Ejemplo
 
 En el ejemplo siguiente se comprueba si una matriz, un objeto y una cadena están vacíos.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -499,20 +407,6 @@ En el ejemplo siguiente se comprueba si una matriz, un objeto y una cadena está
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testArray array = []
-param testObject object = {}
-param testString string = ''
-
-output arrayEmpty bool = empty(testArray)
-output objectEmpty bool = empty(testObject)
-output stringEmpty bool = empty(testString)
-```
-
----
-
 La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Value |
@@ -541,8 +435,6 @@ El tipo (cadena, entero, matriz u objeto) del primer elemento en una matriz o el
 
 En el ejemplo siguiente se muestra cómo utilizar la primera función con una matriz y una cadena.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -567,21 +459,6 @@ En el ejemplo siguiente se muestra cómo utilizar la primera función con una ma
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-
-output arrayOutput string = first(arrayToTest)
-output stringOutput string = first('One Two Three')
-```
-
----
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -611,8 +488,6 @@ Una matriz o un objeto con los elementos comunes.
 ### <a name="example"></a>Ejemplo
 
 En el ejemplo siguiente se muestra cómo utilizar la intersección con matrices y objetos:
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -659,38 +534,6 @@ En el ejemplo siguiente se muestra cómo utilizar la intersección con matrices 
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param firstObject object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
-}
-
-param secondObject object = {
-  'one': 'a'
-  'two': 'z'
-  'three': 'c'
-}
-
-param firstArray array = [
-  'one'
-  'two'
-  'three'
-]
-
-param secondArray array = [
-  'two'
-  'three'
-]
-
-output objectOutput object = intersection(firstObject, secondObject)
-output arrayOutput array = intersection(firstArray, secondArray)
-```
-
----
-
 La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Value |
@@ -718,8 +561,6 @@ El tipo (cadena, entero, matriz u objeto) del último elemento de una matriz o e
 
 En el ejemplo siguiente se muestra cómo utilizar la última función con una matriz y una cadena.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -744,21 +585,6 @@ En el ejemplo siguiente se muestra cómo utilizar la última función con una ma
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-
-output arrayOutput string = last(arrayToTest)
-output stringOutput string = last('One Two three')
-```
-
----
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -786,8 +612,6 @@ Un entero.
 ### <a name="example"></a>Ejemplo
 
 En el ejemplo siguiente se muestra cómo utilizar length con una matriz y una cadena:
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -837,32 +661,6 @@ En el ejemplo siguiente se muestra cómo utilizar length con una matriz y una ca
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-param stringToTest string = 'One Two Three'
-param objectToTest object = {
-  'propA': 'one'
-  'propB': 'two'
-  'propC': 'three'
-  'propD': {
-    'propD-1': 'sub'
-    'propD-2': 'sub'
-  }
-}
-
-output arrayLength int = length(arrayToTest)
-output stringLength int = length(stringToTest)
-output objectLength int = length(objectToTest)
-```
-
----
-
 La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Value |
@@ -873,21 +671,12 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Puede usar esta función con una matriz para especificar el número de iteraciones al crear recursos. En el ejemplo siguiente, el parámetro **siteNames** debería hacer referencia a una matriz de nombres que se usará al crear los sitios web.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 "copy": {
   "name": "websitescopy",
   "count": "[length(parameters('siteNames'))]"
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-> [!NOTE]
-> Los bucles no se han implementado todavía en Bicep.  Consulte [Bucles](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md).
-
----
 
 Para más información sobre el uso de esta función con una matriz, consulte [Iteración de recursos en las plantillas de Resource Manager](copy-resources.md).
 
@@ -910,8 +699,6 @@ Un entero que representa el valor máximo.
 ### <a name="example"></a>Ejemplo
 
 En el ejemplo siguiente se muestra cómo utilizar max con una matriz y una lista de enteros:
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -936,23 +723,6 @@ En el ejemplo siguiente se muestra cómo utilizar max con una matriz y una lista
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  0
-  3
-  2
-  5
-  4
-]
-
-output arrayOutput int = max(arrayToTest)
-output intOutput int = max(0,3,2,5,4)
-```
-
----
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -981,8 +751,6 @@ Un entero que representa el valor mínimo.
 
 En el ejemplo siguiente se muestra cómo utilizar min con una matriz y una lista de enteros:
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -1006,23 +774,6 @@ En el ejemplo siguiente se muestra cómo utilizar min con una matriz y una lista
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  0
-  3
-  2
-  5
-  4
-]
-
-output arrayOutput int = min(arrayToTest)
-output intOutput int = min(0,3,2,5,4)
-```
-
----
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -1052,8 +803,6 @@ Una matriz de enteros.
 
 En el ejemplo siguiente se muestra cómo utilizar la función range:
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -1077,17 +826,6 @@ En el ejemplo siguiente se muestra cómo utilizar la función range:
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param startingInt int = 5
-param numberOfElements int = 3
-
-output rangeOutput array = range(startingInt, numberOfElements)
-```
-
----
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -1115,8 +853,6 @@ Una matriz o cadena.
 ### <a name="example"></a>Ejemplo
 
 En el ejemplo siguiente se omite el número especificado de elementos de la matriz, y el número especificado de caracteres de la cadena.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -1158,24 +894,6 @@ En el ejemplo siguiente se omite el número especificado de elementos de la matr
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testArray array = [
-  'one'
-  'two'
-  'three'
-]
-param elementsToSkip int = 2
-param testString string = 'one two three'
-param charactersToSkip int = 4
-
-output arrayOutput array = skip(testArray, elementsToSkip)
-output stringOutput string = skip(testString, charactersToSkip)
-```
-
----
-
 La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Value |
@@ -1203,8 +921,6 @@ Una matriz o cadena.
 ### <a name="example"></a>Ejemplo
 
 En el ejemplo siguiente se toma el número especificado de elementos de la matriz y de caracteres de la cadena.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -1246,24 +962,6 @@ En el ejemplo siguiente se toma el número especificado de elementos de la matri
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testArray array = [
-  'one'
-  'two'
-  'three'
-]
-param elementsToTake int = 2
-param testString string = 'one two three'
-param charactersToTake int = 2
-
-output arrayOutput array = take(testArray, elementsToTake)
-output stringOutput string = take(testString, charactersToTake)
-```
-
----
-
 La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Value |
@@ -1292,8 +990,6 @@ Una matriz u objeto.
 ### <a name="example"></a>Ejemplo
 
 En el ejemplo siguiente se muestra cómo utilizar la unión con matrices y objetos:
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -1340,38 +1036,6 @@ En el ejemplo siguiente se muestra cómo utilizar la unión con matrices y objet
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param firstObject object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c1'
-}
-
-param secondObject object = {
-  'three': 'c2'
-  'four': 'd'
-  'five': 'e'
-}
-
-param firstArray array = [
-  'one'
-  'two'
-  'three'
-]
-
-param secondArray array = [
-  'three'
-  'four'
-]
-
-output objectOutput object = union(firstObject, secondObject)
-output arrayOutput array = union(firstArray, secondArray)
-```
-
----
-
 La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Value |
@@ -1381,4 +1045,4 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener una descripción de las secciones de una plantilla de ARM, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para obtener una descripción de las secciones de una plantilla de ARM, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./syntax.md).

@@ -3,17 +3,17 @@ title: 'Tutorial: Creación de una canalización con la actividad de copia media
 description: En este tutorial, creará una canalización de Azure Data Factory con una actividad de copia mediante Visual Studio.
 author: linda33wj
 ms.service: data-factory
-ms.custom: vs-azure
+ms.custom: vs-azure, devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c00c1fe59da5de8e4964fd6e7683b3cd980d0524
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 82025728f354b5522517e210071aeb4c7528d7cf
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108753522"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677725"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Creación de una canalización con la actividad de copia mediante Visual Studio
 > [!div class="op_single_selector"]

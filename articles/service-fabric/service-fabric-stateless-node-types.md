@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/16/2021
 ms.author: pepogors
-ms.openlocfilehash: 4847fd88a96e96788f8e6ebdb4ee3cfa7f15fbdc
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 8e6c3e27f38342028efd102efa32f3df90b2f88a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108135462"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950092"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types"></a>Implementación de un clúster de Azure Service Fabric con tipos de nodo sin estado
 Los tipos de nodo de Service Fabric incluyen suposiciones inherentes según las cuales se supone que en algún momento se agregarán servicios con estado en los nodos. Los tipos de nodos sin estado reducen las restricciones de esta suposición en cierto tipo de nodo, lo que permite que ese tipo de nodo use otras características, como operaciones de escalado horizontal más rápidas, compatibilidad con actualizaciones automáticas del sistema operativo en la durabilidad Bronze y un escalado horizontal a más de 100 nodos en un solo conjunto de escalado de máquina virtuales.
@@ -138,7 +138,7 @@ Para habilitar los tipos de nodo sin estado, debe configurar el recurso del conj
 ```
 
 ## <a name="configuring-stateless-node-types-with-multiple-availability-zones"></a>Configuración de tipos de nodo sin estado con varias zonas de disponibilidad
-Para configurar un tipo de nodo sin estado que abarque varias zonas de disponibilidad, siga la documentación que encontrará [aquí](/azure/service-fabric/service-fabric-cross-availability-zones#preview-enable-multiple-availability-zones-in-single-virtual-machine-scale-set) y realice los siguientes cambios:
+Para configurar un tipo de nodo sin estado que abarque varias zonas de disponibilidad, siga la documentación que encontrará [aquí](./service-fabric-cross-availability-zones.md#1-preview-enable-multiple-availability-zones-in-single-virtual-machine-scale-set) y realice los siguientes cambios:
 
 * Establezca **singlePlacementGroup** en **false** si es necesario habilitar varios grupos de selección de ubicación.
 * Establezca **upgradeMode** en **Rolling** y agregue una extensión de mantenimiento de aplicación o sondeos de estado tal y como se ha mencionado anteriormente.

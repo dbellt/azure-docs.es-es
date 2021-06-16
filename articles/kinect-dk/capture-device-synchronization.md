@@ -1,18 +1,18 @@
 ---
 title: Captura de la sincronización de dispositivos Azure Kinect
 description: Aprenda a sincronizar los dispositivos de captura Azure Kinect mediante el SDK del sensor Azure Kinect.
-author: xthexder
-ms.author: jawirth
+author: martinekuan
+ms.author: martinek
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, profundidad, rgb, interna, externa, sincronización, cadena margarita, desplazamiento de fase
-ms.openlocfilehash: ce0c72d3d708d5696a9775b3885f278f0c23cac1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2dc7408751fa7a7c721bf50ca1c0f6103b691e5a
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102034324"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111747102"
 ---
 # <a name="capture-azure-kinect-device-synchronization"></a>Captura de la sincronización de dispositivos Azure Kinect
 

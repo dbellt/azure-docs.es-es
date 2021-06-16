@@ -12,14 +12,16 @@ ms.date: 05/24/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: content moderator, moderación de contenido
-ms.openlocfilehash: 4ac8e8e70061708f5bb6aca9901ac0dd30af8323
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8b0645b93a7adcc583c010b9bb7524fcd77b7aac
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110454932"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033750"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Inicio rápido: Cómo familiarizarse con Content Moderator
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 En este tutorial, usará la herramienta de revisión en línea de Content Moderator para probar las funcionalidades básicas de Content Moderator sin tener que escribir ningún código. Si desea integrar este servicio a su aplicación de moderación de contenido más rápidamente, vea las otras guías de inicio rápido en la sección [Pasos siguientes](#next-steps).
 

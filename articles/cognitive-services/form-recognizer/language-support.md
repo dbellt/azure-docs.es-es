@@ -5,17 +5,17 @@ description: Conozca mejor los idiomas humanos que están disponibles con Form R
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 05/10/2021
 ms.author: lajanuar
-ms.openlocfilehash: c1a8303b0534cfe0398a7e40aa476d320dd61bc5
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: cdf67dcaa3a2bb8a21b380756332a85e00967d06
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110462877"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111887013"
 ---
 # <a name="language-support-for-form-recognizer"></a>Compatibilidad de idiomas con Form Recognizer
 

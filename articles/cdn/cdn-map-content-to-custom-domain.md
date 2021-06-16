@@ -9,13 +9,13 @@ ms.service: azure-cdn
 ms.topic: tutorial
 ms.date: 04/12/2021
 ms.author: yuajia
-ms.custom: mvc
-ms.openlocfilehash: 63ca8cc981f7a192c35f7d1889187ae84773ba08
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 3b64efab10a9d52209f04dfd43a43654eb55467a
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308003"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110706948"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-endpoint"></a>Tutorial: Adición de un dominio personalizado al punto de conexión
 
@@ -83,7 +83,7 @@ Para agregar un registro de alias para el punto de conexión de Azure CDN:
 
 4. En **Agregar conjunto de registros**, escriba o seleccione la siguiente información:
 
-    | Configuración | Value |
+    | Configuración | Valor |
     | ------- | ----- |
     | Nombre  | Escriba el alias que desea usar para el punto de conexión de CDN. Por ejemplo, **www**. |
     | Tipo  | Seleccione **CNAME.** . |

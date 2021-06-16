@@ -142,7 +142,7 @@
               href: traffic-analytics.md
               items:
                 - name: Preguntas más frecuentes
-                  href: traffic-analytics-faq.md
+                  href: traffic-analytics-faq.yml
                 - name: Esquema y agregación de datos
                   href: traffic-analytics-schema.md
                 - name: Actualización del esquema (agosto de 2019)
@@ -191,7 +191,7 @@
           href: resource-move.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/network/watcher
     - name: Azure PowerShell
       href: /powershell/module/az.network/#network_watcher
@@ -210,7 +210,7 @@
 - name: Recursos
   items:
     - name: Preguntas frecuentes acerca de Network Watcher
-      href: frequently-asked-questions.md
+      href: frequently-asked-questions.yml
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Página de preguntas y respuestas de Microsoft

@@ -3,12 +3,12 @@ title: Modos de implementación
 description: Descripción de cómo especificar si desea usar un modo de implementación completa o incremental con Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 3f1f74c0495e0d43671712281a35a7e74fd7d821
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7566a24297a31c3138228528be050be6c7cf11c8
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104888845"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963288"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementación de Azure Resource Manager
 
@@ -23,7 +23,7 @@ El modo predeterminado es el incremental.
 En el modo completo, Resource Manager **elimina** los recursos que existen en el grupo de recursos pero que no se especifican en la plantilla.
 
 > [!NOTE]
-> Use siempre la [operación what-if](template-deploy-what-if.md) antes de implementar una plantilla en el modo completo. What-if muestra qué recursos se crearán, eliminarán o modificarán. Use what-if para evitar la eliminación accidental de recursos.
+> Use siempre la [operación what-if](./deploy-what-if.md) antes de implementar una plantilla en el modo completo. What-if muestra qué recursos se crearán, eliminarán o modificarán. Use what-if para evitar la eliminación accidental de recursos.
 
 Si la plantilla incluye un recurso que no se ha implementado porque la [condición](conditional-resource-deployment.md) se evalúa como false, el resultado depende de la versión de API REST que use para implementar la plantilla. Si usa una versión anterior a 2019-05-10, el recurso **no se elimina**. Con 2019-05-10 o posterior, el recurso **se elimina**. Las versiones más recientes de Azure PowerShell y la CLI de Azure eliminan el recurso.
 
@@ -35,7 +35,7 @@ Hay algunas diferencias en la forma en que los diferentes tipos de recursos cont
 
 Por ejemplo, si el grupo de recursos contiene una zona DNS (tipo de recurso `Microsoft.Network/dnsZones`) y un registro CNAME (tipo de recurso `Microsoft.Network/dnsZones/CNAME`), la zona DNS es el recurso primario del registro CNAME. Si la implementación se realiza en modo completo y no se incluye la zona DNS en la plantilla, se eliminará tanto la zona DNS como el registro CNAME. Si se incluye la zona DNS en la plantilla, pero no se incluye el registro CNAME, el registro CNAME no se eliminará.
 
-Para ver una lista del modo en que los diferentes tipos de recursos administran las eliminaciones, consulte [Eliminación de recursos de Azure en implementaciones en modo completo](complete-mode-deletion.md).
+Para ver una lista del modo en que los diferentes tipos de recursos administran las eliminaciones, consulte [Eliminación de recursos de Azure en implementaciones en modo completo](./deployment-complete-mode-deletion.md).
 
 Si el grupo de recursos está [bloqueado](../management/lock-resources.md), el modo completo no elimina los recursos.
 
@@ -126,6 +126,6 @@ En el siguiente ejemplo se muestra un conjunto de plantillas vinculadas al modo 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener información sobre la creación de plantillas de Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de ARM](template-syntax.md).
+* Para obtener información sobre la creación de plantillas de Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de ARM](./syntax.md).
 * Para obtener información sobre la implementación de recursos, consulte [Implementación de recursos con plantillas de ARM y Azure PowerShell](deploy-powershell.md).
 * Para ver las operaciones de un proveedor de recursos, consulte [API de REST de Azure](/rest/api/).

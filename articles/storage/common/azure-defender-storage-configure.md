@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 03/30/2021
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: e2f044ab267365885260b031638572846184bc83
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8979943b271041087e3541760d983b94977a07c1
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063192"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111893973"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Configuración de Azure Defender para Storage
 
@@ -75,7 +76,7 @@ Azure Defender ya está habilitado para esta cuenta de almacenamiento.
 
 ### <a name="template"></a>[Plantilla](#tab/template)
 
-Use una plantilla de Azure Resource Manager para implementar una cuenta de Azure Storage con Azure Defender habilitado. Para más información, consulte [Storage account with Advanced Threat Protection](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/) (Cuenta de Storage con Advanced Threat Protection).
+Use una plantilla de Azure Resource Manager para implementar una cuenta de Azure Storage con Azure Defender habilitado. Para más información, consulte [Storage account with Advanced Threat Protection](https://azure.microsoft.com/resources/templates/storage-advanced-threat-protection-create/) (Cuenta de Storage con Advanced Threat Protection).
 
 ### <a name="azure-policy"></a>[Azure Policy](#tab/azure-policy)
 

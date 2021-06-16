@@ -7,13 +7,13 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
-ms.custom: ''
-ms.openlocfilehash: 14b1661792ca5276bd6ebfa4cee1c4b46f94764d
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 03ab6be5b05cb42951b666776942270e4b430195
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780453"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110691214"
 ---
 # <a name="apply-the-windows-azure-diagnostics-extension-in-cloud-services-extended-support"></a>Aplicación de la extensión de Windows Azure Diagnostics en Cloud Services (soporte extendido) 
 Puede supervisar las métricas de rendimiento claves de cualquier servicio en la nube. Cada rol de servicio en la nube recopila datos mínimos: uso de CPU, uso de red y uso de disco. Si el servicio en la nube tiene la extensión Microsoft.Azure.Diagnostics aplicada a un rol, este último puede recopilar puntos de datos adicionales. Para obtener más información, consulte [Introducción a las extensiones](extensions.md).

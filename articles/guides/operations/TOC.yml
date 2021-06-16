@@ -43,7 +43,7 @@
             - name: Equilibrio de carga de máquinas virtuales
               href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Creación de plantillas del Administrador de recursos de Azure
-              href: ../../azure-resource-manager/templates/template-syntax.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+              href: ../../azure-resource-manager/templates/syntax.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Copia de seguridad de máquinas virtuales a escala
               href: ../../backup/tutorial-backup-vm-at-scale.md
     - name: Guías de procedimientos

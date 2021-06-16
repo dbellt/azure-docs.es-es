@@ -43,7 +43,7 @@
 - name: Referencia
   items:
     - name: API DE REST
-      href: 'https://docs.microsoft.com/rest/api/webpubsub'
+      href: /rest/api/webpubsub
     - name: Subprotocolo WebSocket de PubSub
       href: 'https://azure.github.io/azure-webpubsub/references/pubsub-websocket-subprotocol'
     - name: CloudEvents de Web PubSub
@@ -61,6 +61,6 @@
     - name: Preguntas más frecuentes
       href: resource-faq.md
     - name: Preguntas y respuestas acerca de Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-web-pubsub.html'
+      href: /answers/topics/azure-web-pubsub.html
     - name: StackOverflow
       href: 'https://stackoverflow.com/questions/tagged/azure-web-pubsub'
