@@ -2,13 +2,13 @@
 title: Instalación del agente de Microsoft Azure Recovery Services (MARS)
 description: Aprenda a instalar el agente de Microsoft Azure Recovery Services (MARS) para realizar copias de seguridad de máquinas Windows.
 ms.topic: conceptual
-ms.date: 03/03/2020
-ms.openlocfilehash: 3ea48aaa6aad4a51463c4c028ead22f31163f810
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 06/04/2021
+ms.openlocfilehash: c52b65c06a4920020e4358c131870c0fe77b2584
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107519228"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970633"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Instalación del agente de MARS de Azure Backup
 
@@ -63,51 +63,7 @@ Para modificar el tipo de replicación de almacenamiento:
 
 ### <a name="verify-internet-access"></a>Comprobación del acceso a Internet
 
-Si la máquina tiene limitado el acceso a Internet, asegúrese de que su configuración de firewall en la máquina o el proxy está establecida para permitir las direcciones URL y direcciones IP:
-
-* URLs
-  * `www.msftncsi.com`
-  * `*.Microsoft.com`
-  * `*.WindowsAzure.com`
-  * `*.microsoftonline.com`
-  * `*.windows.net`
-  * `www.msftconnecttest.com`
-* Direcciones IP
-  * 20.190.128.0/18
-  * 40.126.0.0/18
-
-### <a name="use-azure-expressroute"></a>Uso de Azure ExpressRoute
-
-Puede realizar una copia de seguridad de los datos mediante Azure ExpressRoute con emparejamiento público (disponible para circuitos antiguos) y emparejamiento de Microsoft. La copia de seguridad por emparejamiento privado no se admite.
-
-Para usar el emparejamiento público, asegúrese primero de tener acceso a los siguientes dominios y direcciones:
-
-* `http://www.msftncsi.com/ncsi.txt`
-* `http://www.msftconnecttest.com/connecttest.txt`
-* `microsoft.com`
-* `.WindowsAzure.com`
-* `.microsoftonline.com`
-* `.windows.net`
-* Direcciones IP
-  * 20.190.128.0/18
-  * 40.126.0.0/18
-
-Para usar el emparejamiento de Microsoft, seleccione los siguientes servicios, regiones y los valores de comunidad correspondientes:
-
-* Azure Active Directory (12076:5060)
-* Región de Azure (según la ubicación del almacén de Recovery Services)
-* Azure Storage (según la ubicación del almacén de Recovery Services)
-
-Para más información, consulte los [requisitos de enrutamiento de ExpressRoute](../expressroute/expressroute-routing.md).
-
-> [!NOTE]
-> El emparejamiento público está en desuso para circuitos nuevos.
-
-Todas las direcciones URL e IP anteriores usan el protocolo HTTPS en el puerto 443.
-
-### <a name="private-endpoints"></a>Puntos de conexión privados
-
-[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
+[!INCLUDE [Configuring network connectivity](../../includes/backup-network-connectivity.md)]
 
 ## <a name="download-the-mars-agent"></a>Descarga del agente de MARS
 
