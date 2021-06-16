@@ -1,6 +1,0 @@
-- name: Azure Dev Spaces
-  href: ./index.yml
-  items:
-    - name: ¿Qué es Azure Dev Spaces?
-      expanded: true
-      href: about.md
