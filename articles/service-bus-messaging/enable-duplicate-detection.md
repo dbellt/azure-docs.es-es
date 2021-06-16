@@ -3,12 +3,13 @@ title: 'Habilitación de la detección de mensajes duplicados: Azure Service Bu
 description: En este artículo se explica cómo habilitar la detección de mensajes duplicados mediante Azure Portal, PowerShell, la CLI y los lenguajes de programación (C#, Java, Python y JavaScript).
 ms.topic: how-to
 ms.date: 04/19/2021
-ms.openlocfilehash: 1e299b86991a7785cc89f2e72227e7a8ced883d7
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 654d53bb324584d8b17d1e36efe20e5f25d54e39
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107989133"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671452"
 ---
 # <a name="enable-duplicate-message-detection-for-an-azure-service-bus-queue-or-a-topic"></a>Habilitación de la detección de mensajes duplicados para una cola o un tema de Azure Service Bus
 Cuando se habilita la detección de duplicados para una cola o un tema, Azure Service Bus conserva el historial de todos los mensajes enviados a la cola o al tema durante un período de tiempo configurado. Durante ese intervalo, la cola o el tema no almacenarán ningún mensaje duplicado. Al habilitar esta propiedad, se garantiza exactamente una entrega durante un intervalo de tiempo concreto definido por el usuario. Para obtener más información, consulte [Detección de duplicados](duplicate-detection.md). En este artículo se muestran las distintas formas de habilitar la detección de mensajes duplicados para una cola o un tema de Service Bus. 

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 06/01/2021
 ms.author: justinha
-ms.openlocfilehash: 5473ef46751d64fdbbf1d52f39c66f49d707e615
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 82329a6a8134eb0227c1d0e64c3141135768cd66
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102631394"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438511"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Conceptos de administración para cuentas de usuario, contraseñas y administración en Azure Active Directory Domain Services
 
@@ -78,11 +78,11 @@ Para obtener más información sobre los tipos de bosque de Azure AD DS, consult
 
 En Azure AD DS, el rendimiento y las características disponibles dependen de la SKU. Puede seleccionar la SKU al crear el dominio administrado y cambiarla después si los requisitos del negocio varían una vez implementado el dominio administrado. En la tabla siguiente, se incluyen las SKU disponibles y las diferencias entre ellas:
 
-| Nombre de SKU   | Número máximo de objetos | Frecuencia de copia de seguridad | Número máximo de relaciones de confianza entre bosques de salida |
-|------------|----------------------|------------------|----|
-| Estándar   | Sin límite            | Cada 5 días     | 0  |
-| Enterprise | Sin límite            | Cada 3 días     | 5  |
-| Premium    | Sin límite            | Diario            | 10 |
+| Nombre de SKU   | Número máximo de objetos | Frecuencia de copia de seguridad | 
+|------------|----------------------|------------------|
+| Estándar   | Sin límite            | Cada 5 días     |
+| Enterprise | Sin límite            | Cada 3 días     | 
+| Premium    | Sin límite            | Diario            | 
 
 Antes de utilizar estas SKU de Azure AD DS, se empleaba un modelo de facturación basado en el número de objetos (cuentas de usuario y de equipo) del dominio administrado. Este modelo de precios variables que se basaban en el número de objetos del dominio administrado ya no está disponible.
 
@@ -99,10 +99,6 @@ Si el negocio o la aplicación exigen cambios y necesita más capacidad de proce
 La frecuencia de copia de seguridad determina la asiduidad con la que se toma una instantánea del dominio administrado. Las copias de seguridad son un proceso automatizado administrado por la plataforma Azure. Si se produce un problema con el dominio administrado, el Soporte técnico de Azure puede ayudarle a restaurar el sistema desde la copia de seguridad. Como la sincronización es un proceso unidireccional que se realiza *desde* Azure AD, los problemas que se produzcan en el dominio administrado no afectarán a Azure AD ni a la funcionalidad y los entornos locales de AD DS.
 
 A medida que el nivel de SKU aumente, lo hará también la frecuencia con la que se realizan instantáneas de copia de seguridad. Analice los requisitos empresariales y el objetivo de punto de recuperación (RPO) para determinar la frecuencia de copia de seguridad necesaria para el dominio administrado. Si los requisitos del negocio o de la aplicación cambian y necesita hacer copias de seguridad con mayor frecuencia, puede cambiar a una SKU diferente.
-
-### <a name="outbound-forest-trusts"></a>Confianzas entre bosques de salida
-
-En la sección anterior, vimos las relaciones de confianza de bosques de salida unidireccionales entre un dominio administrado y un entorno de AD DS local. La SKU determina el número máximo de relaciones de confianza entre bosques que puede crear para un dominio administrado. Analice los requisitos del negocio y la aplicación para determinar cuántas relaciones de confianza necesita realmente y elija la SKU de Azure AD DS adecuada. Como siempre, si los requisitos del negocio cambian y necesita crear otras relaciones de confianza entre bosques, puede cambiar a una SKU diferente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

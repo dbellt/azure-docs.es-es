@@ -2,13 +2,13 @@
 title: Definición de varias instancias de una propiedad
 description: Use la operación de copia en una plantilla de Azure Resource Manager (plantilla de ARM) para realizar varias iteraciones cuando cree una propiedad en un recurso.
 ms.topic: conceptual
-ms.date: 04/01/2021
-ms.openlocfilehash: 3f6eeac8b32e0fb34b973e82557cc48bab532ffd
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.date: 05/07/2021
+ms.openlocfilehash: 1f5a93b8c0759a9baccb8c5d5bc7dab25b181791
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109736941"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954687"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteración de propiedades en las plantillas de ARM
 
@@ -19,8 +19,6 @@ Solo se puede usar el bucle de copia con recursos de nivel superior, incluso cua
 También puede usar el bucle de copia con [recursos](copy-resources.md), [variables](copy-variables.md) y [salidas](copy-outputs.md).
 
 ## <a name="syntax"></a>Sintaxis
-
-# <a name="json"></a>[JSON](#tab/json)
 
 Agregue el elemento `copy` a la sección de recursos de la plantilla para establecer el número de elementos de una propiedad. El elemento copy tiene el siguiente formato general:
 
@@ -40,36 +38,6 @@ La propiedad `count` especifica el número de iteraciones que desea realizar en 
 
 La propiedad `input` especifica las propiedades que desea repetir. Tiene que crear una matriz de elementos construida a partir del valor de la propiedad `input`.
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-Los bucles se pueden usar para declarar varias propiedades al:
-
-- Iterar una matriz:
-
-  ```bicep
-  <property-name>: [for <item> in <collection>: {
-    <properties>
-  }]
-  ```
-
-- Iterar los elementos de una matriz:
-
-  ```bicep
-  <property-name>: [for (<item>, <index>) in <collection>: {
-    <properties>
-  }]
-  ```
-
-- Usar el índice de bucle:
-
-  ```bicep
-  <property-name>: [for <index> in range(<start>, <stop>): {
-    <properties>
-  }]
-  ```
-
----
-
 ## <a name="copy-limits"></a>Límites de copia
 
 El valor de count no puede superar 800.
@@ -86,8 +54,6 @@ Las versiones anteriores de PowerShell, la CLI y API REST no admiten un valor de
 ## <a name="property-iteration"></a>Iteración de propiedades
 
 En el ejemplo siguiente se muestra cómo aplicar el bucle de copia a la propiedad `dataDisks` en una máquina virtual:
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -251,30 +217,6 @@ El elemento `copy` es una matriz, por lo que puede especificar más de una propi
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-@minValue(0)
-@maxValue(16)
-@description('The number of dataDisks to be returned in the output array.')
-param numberOfDataDisks int = 16
-
-resource vmName 'Microsoft.Compute/virtualMachines@2020-06-01' = {
-  ...
-  properties: {
-    storageProfile: {
-      ...
-      dataDisks: [for i in range(0, numberOfDataDisks): {
-        lun: i
-        createOption: 'Empty'
-        diskSizeGB: 1023
-      }]
-    }
-    ...
-  }
-}
-```
-
 La plantilla implementada se convierte en:
 
 ```json
@@ -304,11 +246,7 @@ La plantilla implementada se convierte en:
       ...
 ```
 
----
-
 Puede usar la iteración de recursos y propiedades conjuntamente. Haga referencia a la iteración de la propiedad por el nombre.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -342,30 +280,6 @@ Puede usar la iteración de recursos y propiedades conjuntamente. Haga referenci
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-resource vnetname_resource 'Microsoft.Network/virtualNetworks@2018-04-01' = [for i in range(0, 2): {
-  name: concat(vnetname, i)
-  location: resourceGroup().location
-  properties: {
-    addressSpace: {
-      addressPrefixes: [
-        addressPrefix
-      ]
-    }
-    subnets: [for j in range(0, 2): {
-      name: 'subnet-${j}'
-      properties: {
-        addressPrefix: subnetAddressPrefix[j]
-      }
-    }]
-  }
-}]
-```
-
----
-
 ## <a name="example-templates"></a>Plantillas de ejemplo
 
 En los ejemplos siguientes, se muestran escenarios comunes en los que se crean varios valores para una propiedad.
@@ -381,5 +295,5 @@ En los ejemplos siguientes, se muestran escenarios comunes en los que se crean v
   - [Iteración de recursos en las plantillas de ARM](copy-resources.md)
   - [Iteración de variables en las plantillas de ARM](copy-variables.md)
   - [Iteración de salida en las plantillas de ARM](copy-outputs.md)
-- Si quiere obtener más información sobre las secciones de una plantilla, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+- Si quiere obtener más información sobre las secciones de una plantilla, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./syntax.md).
 - Para información sobre cómo implementar una plantilla, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).

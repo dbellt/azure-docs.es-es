@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 21546286d8ca9f8b455b84801d2f706466912165
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 9877f50fe7bb06cb33a38f8ee89fa09ad12c0693
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137606"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110672484"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guía del desarrollador de PowerShell para Azure Functions
 
@@ -468,7 +468,7 @@ Es posible que quiera tener como destino una versión específica de un módulo 
 
 ```powershell
 @{
-    Az.Accounts = '1.9.5'
+    'Az.Accounts' = '1.9.5'
 }
 ```
 

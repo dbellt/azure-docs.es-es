@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 582a3303d5e43fff2390025bc35281c8ac916d84
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6bb8343ae6281120d8bfef549946f47d8658cbba
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110096371"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111890166"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Uso de puntos de conexión privados para una aplicación web de Azure
 
@@ -152,4 +152,4 @@ Estamos mejorando la característica Private Link y el punto de conexión privad
 [howtoguide4]: ../scripts/template-deploy-private-endpoint.md
 [howtoguide5]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-privateendpoint-vnet-injection
 [howtoguide6]: ../scripts/terraform-secure-backend-frontend.md
-[TiP]: https://docs.microsoft.com/azure/app-service/deploy-staging-slots#route-traffic
+[TiP]: ../deploy-staging-slots.md#route-traffic

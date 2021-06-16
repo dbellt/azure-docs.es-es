@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 066fd6f91b19da211a73ac12fb6dca94085399ac
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 04aa6f6a7f99eed32c12cf5459c7a7e49089ce6c
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256640"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962322"
 ---
 # <a name="tutorial-configure-ping-identity-with-azure-active-directory-b2c-for-secure-hybrid-access"></a>Tutorial: Configuración de Ping Identity con Azure Active Directory B2C para el acceso híbrido seguro
 
@@ -160,7 +160,7 @@ Siga estos pasos para crear una sesión web:
 
 7. En el campo **Secreto de cliente**, escriba la **Clave** que ha generado para la aplicación en Azure AD.
 
-8. Opcional: puede crear y usar notificaciones personalizadas con Microsoft Graph API. Si decide hacerlo, seleccione **Opciones avanzadas** y desactive las opciones **Request Profile** (Solicitar perfil) y **Refresh User Attributes** (Actualizar atributos de usuario). Para obtener más información sobre el uso de notificaciones personalizadas, vea [Uso de una notificación personalizada](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers.md).
+8. Opcional: puede crear y usar notificaciones personalizadas con Microsoft Graph API. Si decide hacerlo, seleccione **Opciones avanzadas** y desactive las opciones **Request Profile** (Solicitar perfil) y **Refresh User Attributes** (Actualizar atributos de usuario). Para obtener más información sobre el uso de notificaciones personalizadas, vea [Uso de una notificación personalizada](../active-directory/app-proxy/application-proxy-configure-single-sign-on-with-headers.md).
 
 9. Seleccione **Guardar**.
 

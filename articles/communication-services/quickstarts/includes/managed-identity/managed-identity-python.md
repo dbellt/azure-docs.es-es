@@ -1,11 +1,14 @@
 ---
-ms.openlocfilehash: 6a9628f3bd77e2e7001a5c8cf371259c18fa373c
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 84f8ca8ebb88c1f661683b16ff5e6bd90b177dbe
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107984346"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111430578"
 ---
+> [!NOTE]
+> Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/use-managed-Identity)
+
 ## <a name="setting-up"></a>Instalación
 
 ### <a name="create-a-new-python-application"></a>Creación de una nueva aplicación de Python

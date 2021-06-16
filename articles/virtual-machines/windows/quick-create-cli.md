@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 769b42133fb894c916ecaa3c42dd7de85206c765
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 651d644070f13933fadf4a2616e770a27c014c92
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556254"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112074888"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Inicio rápido: Creación de una máquina virtual Windows con la CLI de Azure
 
@@ -40,7 +40,7 @@ az group create --name myResourceGroup --location eastus
 
 Cree la máquina virtual con [az vm create](/cli/azure/vm). En el ejemplo siguiente se crea una máquina virtual denominada *myVM*. En este ejemplo se usa *azureuser* como nombre de un usuario administrativo. 
 
-Necesitará establecer una contraseña que cumpla los [requisitos de contraseña de las máquinas virtuales de Azure](./faq.md#what-are-the-password-requirements-when-creating-a-vm
+Necesitará establecer una contraseña que cumpla los [requisitos de contraseña de las máquinas virtuales de Azure](./faq.yml#what-are-the-password-requirements-when-creating-a-vm-
 ). Con el ejemplo siguiente, se le pedirá que escriba una contraseña en la línea de comandos. También puede agregar el parámetro `--admin-password` con un valor para la contraseña. El nombre de usuario y la contraseña se usarán más adelante cuando se conecte a la máquina virtual.
 
 ```azurecli-interactive
@@ -67,6 +67,8 @@ La creación de la máquina virtual y los recursos auxiliares tarda unos minutos
 ```
 
 Tenga en cuenta sus propios valores de `publicIpAddress` en la salida de la máquina virtual. Esta dirección se usa para acceder a la máquina virtual en los siguientes pasos.
+
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## <a name="open-port-80-for-web-traffic"></a>Apertura del puerto 80 para el tráfico web
 

@@ -7,18 +7,18 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 10/7/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a75aca174fd2fda6ccb4c12346a617e24814caf4
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 7c0fa91b62696729cba1895f69ee1f36eb661f17
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108318376"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111972021"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica con una plantilla de Resource Manager
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-En este artículo se explica cómo usar una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar [nuevas alertas de métrica](./alerts-metric-near-real-time.md) en Azure Monitor. Las plantillas de Resource Manager permiten configurar alertas mediante programación de una forma coherente y reproducible en todos los entornos. Las alertas de métrica más recientes están disponibles en [este conjunto de tipos de recursos](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+En este artículo se explica cómo usar una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) para configurar [nuevas alertas de métrica](./alerts-metric-near-real-time.md) en Azure Monitor. Las plantillas de Resource Manager permiten configurar alertas mediante programación de una forma coherente y reproducible en todos los entornos. Las alertas de métrica más recientes están disponibles en [este conjunto de tipos de recursos](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
 > Plantilla de recursos para la creación de alertas de métricas para el tipo de recurso: El área de trabajo de Azure Log Analytics (es decir, `Microsoft.OperationalInsights/workspaces`) requiere pasos adicionales. Para obtener más información, consulte el artículo sobre [Plantilla de recursos para las alertas de métricas de registros](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).

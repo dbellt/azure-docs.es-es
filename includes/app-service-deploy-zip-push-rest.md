@@ -4,12 +4,13 @@ ms.service: app-service
 ms.topic: include
 ms.date: 08/12/2019
 ms.author: cephalin
-ms.openlocfilehash: 92e39f128e90ba83a919388e217f0edc86f81770
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e32f6bd93d708c2fc58ac037160e8e6f98a32114
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96018463"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110721938"
 ---
 ## <a name="deploy-zip-file-with-rest-apis"></a><a name="rest"></a>Implementación de un archivo ZIP con las API REST 
 

@@ -17,12 +17,12 @@ ms.date: 03/10/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afb6a597d4fd58646f56e271cb6027fb46db1e26
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ff9a6c989446c2cee074485ba02fddd40cbfc83
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102634233"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953324"
 ---
 # <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Procedimientos: Integrar los registros de Azure Active Directory con Splunk mediante Azure Monitor
 
@@ -56,6 +56,6 @@ Para usar esta característica, necesita:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Interpretación del esquema de registros de auditoría en Azure Monitor](reference-azure-monitor-audit-log-schema.md)
+* [Interpretación del esquema de registros de auditoría en Azure Monitor](./overview-reports.md)
 * [Interpretación del esquema de registros de inicio de sesión en Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
 * [Preguntas frecuentes y problemas conocidos](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: 674f267d3d99dd22c1ae06b6d32587761d5983ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4638139b6cc57e18b11382341b291a13b6c558c0
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93124924"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540073"
 ---
 # <a name="azure-ad-and-transactable-saas-offers-in-the-commercial-marketplace"></a>Azure AD y ofertas de SaaS comercializable en el marketplace comercial
 
@@ -68,7 +68,7 @@ En esta tabla se describen los detalles de los pasos del proceso de administraci
 | Paso del proceso | Acción del editor | Recomendado o requerido para los editores |
 | ------------ | ------------- | ------------- |
 | 5. El editor administra la suscripción a la aplicación de SaaS a través de la API de cumplimiento de SaaS. | Gestione los cambios de suscripción y otras tareas de administración a través de las [API de cumplimiento de SaaS](./partner-center-portal/pc-saas-fulfillment-api-v2.md).<br><br>Este paso requiere un token de acceso, como se describe en el paso 3 del proceso. | Obligatorio |
-| 6. Cuando se usan precios medidos, el editor emite eventos de uso a la API del servicio de medición. | Si su aplicación de SaaS incluye la facturación basada en el uso, envíe notificaciones de uso a través de las [API del servicio de medición de Marketplace](./partner-center-portal/marketplace-metering-service-apis.md).<br><br>Este paso requiere un token de acceso, como se describe en el paso 3. | Necesario para la medición |
+| 6. Cuando se usan precios medidos, el editor emite eventos de uso a la API del servicio de medición. | Si su aplicación de SaaS incluye la facturación basada en el uso, envíe notificaciones de uso a través de las [API del servicio de medición de Marketplace](marketplace-metering-service-apis.md).<br><br>Este paso requiere un token de acceso, como se describe en el paso 3. | Necesario para la medición |
 ||||
 
 ## <a name="process-steps-for-user-management"></a>Pasos del proceso de administración de usuarios

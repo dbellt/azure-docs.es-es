@@ -3,12 +3,13 @@ title: Uso de PowerShell para administrar recursos de Azure Service Bus | Micros
 description: En este artículo se explica cómo usar el módulo de Azure PowerShell para crear y administrar entidades de Service Bus (espacios de nombres, colas, temas, suscripciones).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: b6439deb2b86c2ea5b50fe3bdbad89a0875b2acc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 5b5bb551584b0bb3d0cc84f408f1935e727ee50a
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88065750"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110663831"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use PowerShell para administrar recursos de Service Bus
 
@@ -18,7 +19,7 @@ Las entidades de Service Bus también se pueden administrar mediante plantillas 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar, tendrá que cumplir los siguientes requisitos previos:
 
@@ -26,7 +27,7 @@ Antes de empezar, tendrá que cumplir los siguientes requisitos previos:
 * Un equipo con Azure PowerShell. Para obtener instrucciones, consulte [Introducción a los cmdlets de Azure PowerShell](/powershell/azure/get-started-azureps).
 * Conocimientos generales sobre los scripts de PowerShell, paquetes de NuGet y .NET Framework.
 
-## <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 
 El primer paso es usar PowerShell para iniciar sesión en su cuenta de Azure y su suscripción de Azure. Siga las instrucciones descritas en [Introducción a los cmdlets de Azure PowerShell](/powershell/azure/get-started-azureps) para iniciar sesión en su cuenta de Azure y recuperar y tener acceso a los recursos de la suscripción.
 

@@ -2,14 +2,14 @@
 title: Creación y configuración de almacenes de Recovery Services
 description: En este artículo, aprenderá a crear y configurar almacenes de Recovery Services que almacenan las copias de seguridad y los puntos de recuperación. Aprenda a usar Restauración entre regiones para restaurar en una región secundaria.
 ms.topic: conceptual
-ms.date: 04/14/2021
+ms.date: 06/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 5e2983e473fac72d02f0fdbc8c307e96326ac0a6
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: b301ce0ab2f4b57a03e3ba24d672bb4102a1a997
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518582"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110794228"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Creación y configuración de un almacén de Recovery Services
 

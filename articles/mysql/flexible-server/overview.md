@@ -4,15 +4,15 @@ description: Obtenga más información acerca del servidor flexible de Azure Dat
 author: savjani
 ms.service: mysql
 ms.author: pariks
-ms.custom: mvc
+ms.custom: mvc, references_regions
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 2b1a66c5f277f4aa46a0a8befe3a92a39b04d296
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 4f36fae568619807754e838082af270037842bea
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229691"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111526297"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Servidor flexible (versión preliminar) de Azure Database for MySQL
 
@@ -148,8 +148,8 @@ Una de las ventajas de ejecutar una carga de trabajo en Azure es su alcance glob
 | Este de Australia | :heavy_check_mark: | :heavy_check_mark: |
 | Centro de Francia | :heavy_check_mark: | :x:|
 | Sur de Brasil | :heavy_check_mark: | :x: |
+| Norte de Suiza | :heavy_check_mark: | :x: |
 
-Estamos trabajando para agregar nuevas regiones pronto.
 
 ## <a name="contacts"></a>Contactos
 Para cualquier pregunta o sugerencia que pueda tener sobre el servidor flexible de Azure Database for MySQL, envíe un correo electrónico al equipo de Azure Database for MySQL ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Esta dirección de correo electrónico no es un alias de soporte técnico.

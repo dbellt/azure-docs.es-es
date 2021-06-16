@@ -3,12 +3,12 @@ title: Agentes de seguridad
 description: Introducción a la configuración, implementación y uso de los agentes del servicio de seguridad de Azure Defender para IoT en dispositivos de IoT.
 ms.topic: conceptual
 ms.date: 1/24/2021
-ms.openlocfilehash: a1d74de9824b9e825f87754da21070d4e7f1ee33
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 117572c8b5e2d42b24c1f3af9dbb0eab474647a9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104783496"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949162"
 ---
 # <a name="get-started-with-azure-defender-for-iot-device-micro-agents"></a>Introducción a los microagentes de dispositivo de Azure Defender para IoT
 
@@ -20,7 +20,7 @@ Use el flujo de trabajo a continuación para implementar y probar los agentes de
 
 1. [Habilite el servicio Defender para IoT en IoT Hub](quickstart-onboard-iot-hub.md).
 
-1. Si IoT Hub no tiene ningún dispositivo registrado, [registre uno nuevo](../iot-accelerators/iot-accelerators-device-simulation-overview.md).
+1. Si IoT Hub no tiene ningún dispositivo registrado, [registre uno nuevo](/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-overview).
 
 1. [Cree un módulo gemelo DefenderIotMicroAgent](quickstart-create-micro-agent-module-twin.md) para sus dispositivos.
 

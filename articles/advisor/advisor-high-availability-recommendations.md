@@ -3,12 +3,12 @@ title: Mejora de la confiabilidad de la aplicación con Advisor
 description: Use Azure Advisor para garantizar y mejorar la confiabilidad en las implementaciones de Azure críticas para la empresa.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: c96b47f1ee145129f4c14c6646f93abeb8a5aac9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d0c8902c41d50f4391a5431aba7a58faa917208
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579980"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111887553"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Mejora de la confiabilidad de la aplicación mediante el uso de Azure Advisor
 
@@ -96,7 +96,7 @@ Azure Advisor identifica cuentas de Azure Cosmos DB que usan versiones anteriore
 
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Actualización del conector de Spark de Azure Cosmos DB a la versión más reciente desde Maven
 
-Azure Advisor identifica cuentas de Azure Cosmos DB que usan versiones anteriores del conector de Spark de Azure Cosmos DB. Recomienda actualizar a la versión más reciente de Maven para disfrutar de las correcciones más recientes, mejoras de rendimiento y funcionalidades de características. [Más información sobre el conector de Spark de Azure Cosmos DB.](../cosmos-db/spark-connector.md)
+Azure Advisor identifica cuentas de Azure Cosmos DB que usan versiones anteriores del conector de Spark de Azure Cosmos DB. Recomienda actualizar a la versión más reciente de Maven para disfrutar de las correcciones más recientes, mejoras de rendimiento y funcionalidades de características. [Más información sobre el conector de Spark de Azure Cosmos DB.](../cosmos-db/create-sql-api-spark.md)
 
 ## <a name="consider-moving-to-kafka-21-on-hdinsight-40"></a>Considere la posibilidad de cambiar a Kafka 2.1 en HDInsight 4.0.
 

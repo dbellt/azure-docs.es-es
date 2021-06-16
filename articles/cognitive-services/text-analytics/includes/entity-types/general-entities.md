@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 01/15/2021
 ms.author: aahi
-ms.openlocfilehash: c1ff099dd6dffe06e9707ff23fffd57ae753ab64
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 36f05d2803d4ac347ef9dc8bf8e840e3f4a63cac
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99500429"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111761288"
 ---
 La característica NER para Text Analytics devuelve las siguientes categorías de entidad generales (no de identificación). Por ejemplo, al enviar solicitudes al punto de conexión `/entities/recognition/general`.
 
@@ -410,7 +410,7 @@ Este categoría contiene la entidad siguiente:
     :::column span="2":::
       **Idiomas de documento admitidos**
 
-      `en`  
+      `en` , `es`, `fr`, `de`, `it`, `pt-pt`, `pt-br` 
       
    :::column-end:::
 :::row-end:::

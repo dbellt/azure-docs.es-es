@@ -5,17 +5,17 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 04/12/2021
-ms.custom: devx-track-terraform
-ms.openlocfilehash: aadf1f4c9ab8fa20933256749bd8ce37a1258063
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.custom: devx-track-terraform, devx-track-azurepowershell
+ms.openlocfilehash: b1f40ff5175de88e101bfe8f22f9593502e7d6d0
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738813"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112005886"
 ---
 # <a name="azure-customer-usage-attribution"></a>Atribución del uso de Azure por parte de los clientes
 
-La atribución del uso por los clientes asocia el uso de los recursos de Azure en las suscripciones de cliente creadas al implementar la IP como asociado. La formación de estas asociaciones en sistemas internos de Microsoft aporta mayor visibilidad de la superficie de Azure que ejecuta el software. En las [ofertas de aplicación de Azure del marketplace comercial](#commercial-marketplace-azure-apps), esta funcionalidad de seguimiento le ayuda a mantenerse en consonancia con los equipos de ventas de Microsoft y obtener créditos por los programas de asociados de Microsoft. La atribución de uso por parte de los clientes no es aplicable a las [ofertas de máquinas virtuales de Azure en el marketplace comercial](./azure-vm-create.md). No es necesario que un anunciante del marketplace haga nada con las ofertas de máquinas virtuales para asegurarse de que se realiza un seguimiento de su consumo de Azure en las suscripciones de los clientes finales.
+La atribución del uso por los clientes asocia el uso de los recursos de Azure en las suscripciones de cliente creadas al implementar la IP como asociado. La formación de estas asociaciones en sistemas internos de Microsoft aporta mayor visibilidad de la superficie de Azure que ejecuta el software. En las [ofertas de aplicación de Azure del marketplace comercial](#commercial-marketplace-azure-apps), esta funcionalidad de seguimiento le ayuda a mantenerse en consonancia con los equipos de ventas de Microsoft y obtener créditos por los programas de asociados de Microsoft. La atribución de uso por parte de los clientes no es aplicable a las [ofertas de máquinas virtuales de Azure en el marketplace comercial](marketplace-virtual-machines.md). No es necesario que un anunciante del marketplace haga nada con las ofertas de máquinas virtuales para asegurarse de que se realiza un seguimiento de su consumo de Azure en las suscripciones de los clientes finales.
 
 La atribución de uso del cliente admite tres opciones de implementación:
 
@@ -32,7 +32,7 @@ Existen casos de uso secundarios de la atribución del uso por parte de los clie
 
 ## <a name="commercial-marketplace-azure-apps"></a>Aplicaciones de Azure del marketplace comercial
 
-El seguimiento del uso de Azure de las aplicaciones de Azure publicadas en el marketplace comercial es, en gran medida, automático. Al cargar una plantilla de Resource Manager como parte de la [configuración técnica del plan de la aplicación de Azure del marketplace](./create-new-azure-apps-offer-solution.md#define-the-technical-configuration), el Centro de partners agregará un identificador de seguimiento legible por Azure Resource Manager.
+El seguimiento del uso de Azure de las aplicaciones de Azure publicadas en el marketplace comercial es, en gran medida, automático. Al cargar una plantilla de Resource Manager como parte de la [configuración técnica del plan de la aplicación de Azure del marketplace](./azure-app-solution.md#define-the-technical-configuration), el Centro de partners agregará un identificador de seguimiento legible por Azure Resource Manager.
 
 Si usa las API de Azure Resource Manager, deberá agregar el identificador de seguimiento [según las instrucciones que se indican a continuación](#use-resource-manager-apis) para pasarlo a Azure Resource Manager a medida que el código implementa los recursos. Este identificador es visible en el Centro de partners en la página de configuración técnica del plan. 
 
@@ -41,7 +41,7 @@ Si usa las API de Azure Resource Manager, deberá agregar el identificador de se
 >
 >Al actualizar las ofertas, ya no es necesario agregar el tipo de recurso **Microsoft.Resources/deployments** en el archivo de plantilla principal.
 
-## <a name="other-use-cases"></a>Otros casos de uso 
+## <a name="other-use-cases"></a>Otros casos de uso
 
 Puede usar la atribución del uso por parte de los clientes para realizar un seguimiento del uso de Azure de las soluciones que no están disponibles en el marketplace comercial. Estas soluciones suelen residir en el repositorio de inicios rápidos o en los repositorios de GitHub privados, o pueden provenir de las interacciones de clientes 1:1 que crean una IP duradera (como una aplicación implementable y escalable).
 
@@ -65,9 +65,9 @@ Debe crear un GUID único para cada producto y canal de distribución. Puede opt
 
 Los GUID deben registrarse en el Centro de partners para que se puedan asociar a usted como asociado:
 
-1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard).
+1. Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165507).
 
-1. Regístrese como [publicador comercial de Marketplace](https://aka.ms/JoinMarketplace).
+1. Regístrese como [publicador comercial de Marketplace](https://go.microsoft.com/fwlink/?linkid=2165614).
 
 1. Seleccione **Configuración** (icono de engranaje) en la esquina superior derecha y, luego, **Configuración de cuenta**.
 
@@ -253,7 +253,7 @@ Descubra las opciones de soporte técnico en el Marketplace comercial en [Soport
 1. Escriba un título y una descripción detallada del problema.
 1. Seleccione **Submit** (Enviar).
 
-Vea instrucciones paso a paso con capturas de pantallas en [Uso de los servicios de preventas e implementación técnicos](https://aka.ms/TechConsultInstructions).
+Vea instrucciones paso a paso con capturas de pantallas en [Uso de los servicios de preventas e implementación técnicos](/partner-center/technical-benefits).
 
 Un asesor técnico para los asociados de Microsoft le contactará para programar una llamada y determinar sus necesidades.
 

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/25/2021
+ms.date: 05/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: dc8f8f7ced1c5915c2ea54390685806cfcdd257f
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: faf34a71289f81d3e08110e7cda46dc861faed14
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280316"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110797500"
 ---
 <!-- NOTE this file is temporary and a placeholder until the FAQ file update is completed. -->
 
@@ -113,7 +113,7 @@ Para más información, consulte [Protección del contenido mediante el cifrado 
 
 ### <a name="how-and-where-did-i-get-a-jwt-token-before-using-it-to-request-a-license-or-key"></a>¿Cómo y dónde obtuve un token JWT antes de usarlo para solicitar una licencia o clave?
 
-Para entornos de producción, deberá tener un servicio de token seguro (que es un servicio web), que emite un token JWT tras una solicitud HTTPS. Para la prueba, puede usar el código que se muestra en el método `GetTokenAsync` definido en [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+Para entornos de producción, deberá tener un servicio de token seguro (que es un servicio web), que emite un token JWT tras una solicitud HTTPS. Para la prueba, puede usar el código que se muestra en el método `GetTokenAsync` definido en [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 
 Una vez que se autentica un usuario, el reproductor solicita a STS dicho tipo de token y lo asigna como el valor del token. Puede usar la [API de Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/).
 
@@ -123,7 +123,7 @@ Para un ejemplo de cómo ejecutar STS, ya sea con un clave simétrica o asimétr
 
 El enfoque correcto consiste en usar el servicio de token seguro. Según el perfil de usuario, agregue en STS notificaciones distintas (por ejemplo, "Usuario premium", "Usuario básico", "Usuario de evaluación gratuita"). Con notificaciones distintas en un token JWT, el usuario puede ver diferentes contenidos. Para los distintos contenidos o activos, `ContentKeyPolicyRestriction` tendrá el valor de `RequiredClaims` correspondiente.
 
-Use las API de Azure Media Services para configurar la entrega de claves o licencias y cifrar los recursos (como se muestra en [este ejemplo](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
+Use las API de Azure Media Services para configurar la entrega de claves o licencias y cifrar los recursos (como se muestra en [este ejemplo](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithAES/Program.cs)).
 
 Para más información, consulte:
 

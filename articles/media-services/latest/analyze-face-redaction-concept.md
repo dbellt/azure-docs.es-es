@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/25/2021
 ms.author: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2f9eca1600ffe9270ac2f02db38c815e92498afe
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 977dcbed29f74e97de3e61842b1b559a05ad8fdb
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110086219"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955475"
 ---
 # <a name="find-and-redact-blur-faces-with-the-face-detector-preset"></a>Búsqueda y censura (desenfoque) de caras con el valor preestablecido de Face Detector
 
@@ -31,7 +31,7 @@ En este artículo se proporcionan detalles sobre el **Valor preestablecido de Fa
 
 ## <a name="compliance-privacy-and-security"></a>Cumplimiento, privacidad y seguridad
 
-Como recordatorio importante, debe cumplir todas las leyes aplicables en el uso del análisis en Azure Media Services. No debe usar Azure Media Services ni ningún otro servicio de Azure de forma que infrinja los derechos de los demás. Antes de cargar vídeos que incluyan datos biométricos en el servicio Azure Media Services para procesarlos y almacenarlos, debe tener todos los derechos apropiados (por ejemplo, todos los consentimientos adecuados) de las personas del vídeo. Para información sobre el cumplimiento, la privacidad y la seguridad de Azure Media Services, consulte [Términos de Azure Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). En lo que respecta a las obligaciones de privacidad de Microsoft y al control de los datos, consulte la [declaración de privacidad](https://privacy.microsoft.com/PrivacyStatement), los [Términos de los Servicios en Línea](https://www.microsoft.com/licensing/product-licensing/products) (OST) y el [anexo de procesamiento de datos](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA") de Microsoft. Puede encontrar información adicional sobre la privacidad, como la retención, eliminación o destrucción de los datos, en los términos de OST y [aquí](../video-indexer/faq.md). Al usar Azure Media Services, acepta las obligaciones de los Términos de Cognitive Services, OST, DPA y la declaración de privacidad.
+Como recordatorio importante, debe cumplir todas las leyes aplicables en el uso del análisis en Azure Media Services. No debe usar Azure Media Services ni ningún otro servicio de Azure de forma que infrinja los derechos de los demás. Antes de cargar vídeos que incluyan datos biométricos en el servicio Azure Media Services para procesarlos y almacenarlos, debe tener todos los derechos apropiados (por ejemplo, todos los consentimientos adecuados) de las personas del vídeo. Para información sobre el cumplimiento, la privacidad y la seguridad de Azure Media Services, consulte [Términos de Azure Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). En lo que respecta a las obligaciones de privacidad de Microsoft y al control de los datos, consulte la [declaración de privacidad](https://privacy.microsoft.com/PrivacyStatement), los [Términos de los Servicios en Línea](https://www.microsoft.com/licensing/product-licensing/products) (OST) y el [anexo de procesamiento de datos](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA") de Microsoft. Puede encontrar información adicional sobre la privacidad, como la retención, eliminación o destrucción de los datos, en los términos de OST y [aquí](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.md). Al usar Azure Media Services, acepta las obligaciones de los Términos de Cognitive Services, OST, DPA y la declaración de privacidad.
 
 ## <a name="face-redaction-modes"></a>Modos de censura de rostros
 

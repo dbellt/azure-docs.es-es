@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 02/15/2021
 ms.author: rolyon
 ms.custom: it-pro
-ms.openlocfilehash: d834f4ccd8dba26c895e0578f161813fc49332ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 469995a3211083dd592fa4b3f4ab8b145c7193a8
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100556295"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949287"
 ---
 # <a name="assign-azure-roles-to-external-guest-users-using-the-azure-portal"></a>Asignación de roles de Azure a usuarios invitados externos mediante Azure Portal
 
@@ -181,7 +181,7 @@ Los usuarios invitados tienen permisos de directorio restringidos. Por ejemplo, 
 
 ![El usuario invitado no puede examinar los usuarios de un directorio](./media/role-assignments-external-users/directory-no-users.png)
 
-Si un usuario invitado necesita privilegios adicionales en el directorio, puede asignar un rol de directorio al usuario invitado. Si realmente desea que un usuario invitado tenga acceso de lectura completo al directorio, puede agregar el usuario invitado al rol [Lectores de directorio](../active-directory/roles/permissions-reference.md) en Azure AD. Para más información, consulte [Concesión de permisos a los usuarios de organizaciones asociadas en el inquilino de Azure Active Directory](../active-directory/external-identities/add-guest-to-role.md).
+Si un usuario invitado necesita privilegios adicionales en el directorio, puede asignar un rol de directorio al usuario invitado. Si realmente desea que un usuario invitado tenga acceso de lectura completo al directorio, puede agregar el usuario invitado al rol [Lectores de directorio](../active-directory/roles/permissions-reference.md) en Azure AD. Para más información, consulte [Concesión de permisos a los usuarios de organizaciones asociadas en el inquilino de Azure Active Directory](../active-directory/external-identities/add-users-administrator.md).
 
 ![Asignar el rol Lectores de directorio](./media/role-assignments-external-users/directory-roles.png)
 
@@ -191,11 +191,11 @@ Los usuarios invitados tienen permisos de directorio restringidos. Incluso si un
 
 ![El usuario invitado no puede examinar las entidades de seguridad para asignar roles](./media/role-assignments-external-users/directory-no-browse.png)
 
-Si el usuario invitado conoce el nombre de inicio de sesión exacto de alguien del directorio, puede conceder acceso. Si realmente desea que un usuario invitado tenga acceso de lectura completo al directorio, puede agregar el usuario invitado al rol [Lectores de directorio](../active-directory/roles/permissions-reference.md) en Azure AD. Para más información, consulte [Concesión de permisos a los usuarios de organizaciones asociadas en el inquilino de Azure Active Directory](../active-directory/external-identities/add-guest-to-role.md).
+Si el usuario invitado conoce el nombre de inicio de sesión exacto de alguien del directorio, puede conceder acceso. Si realmente desea que un usuario invitado tenga acceso de lectura completo al directorio, puede agregar el usuario invitado al rol [Lectores de directorio](../active-directory/roles/permissions-reference.md) en Azure AD. Para más información, consulte [Concesión de permisos a los usuarios de organizaciones asociadas en el inquilino de Azure Active Directory](../active-directory/external-identities/add-users-administrator.md).
 
 ### <a name="guest-user-cannot-register-applications-or-create-service-principals"></a>El usuario invitado no puede registrar aplicaciones ni crear entidades de servicio
 
-Los usuarios invitados tienen permisos de directorio restringidos. Si un usuario invitado necesita poder registrar aplicaciones o crear entidades de servicio, puede agregar el usuario invitado al rol [Desarrollador de aplicaciones](../active-directory/roles/permissions-reference.md) en Azure AD. Para más información, consulte [Concesión de permisos a los usuarios de organizaciones asociadas en el inquilino de Azure Active Directory](../active-directory/external-identities/add-guest-to-role.md).
+Los usuarios invitados tienen permisos de directorio restringidos. Si un usuario invitado necesita poder registrar aplicaciones o crear entidades de servicio, puede agregar el usuario invitado al rol [Desarrollador de aplicaciones](../active-directory/roles/permissions-reference.md) en Azure AD. Para más información, consulte [Concesión de permisos a los usuarios de organizaciones asociadas en el inquilino de Azure Active Directory](../active-directory/external-identities/add-users-administrator.md).
 
 ![El usuario invitado no puede registrar aplicaciones](./media/role-assignments-external-users/directory-access-denied.png)
 

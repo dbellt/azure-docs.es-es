@@ -4,12 +4,12 @@ description: Describe cómo usar plantillas vinculadas en una plantilla de Azure
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 80fabe5f720182e51e731e0d4d833ed0e7ab9137
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 3ae1bcc6cc1c99bc89e2f8fbd2c8debf95418850
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751552"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951144"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
@@ -611,7 +611,7 @@ En el ejemplo siguiente se muestra cómo usar una dirección URL base para crear
 
 ```json
 "variables": {
-  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
+  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/application-workloads/postgre/postgresql-on-ubuntu/",
   "sharedTemplateUrl": "[uri(variables('templateBaseUrl'), 'shared-resources.json')]",
   "vmTemplateUrl": "[uri(variables('templateBaseUrl'), 'database-2disk-resources.json')]"
 }
@@ -894,6 +894,6 @@ En los ejemplos siguientes se muestran los usos más comunes de las plantillas v
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para realizar un tutorial, consulte [Tutorial: Implementación de una plantilla vinculada](./deployment-tutorial-linked-template.md).
-* Para información sobre cómo definir el orden de implementación de los recursos, consulte [Definición del orden de implementación de recursos en las plantillas de ARM](define-resource-dependency.md).
+* Para información sobre cómo definir el orden de implementación de los recursos, consulte [Definición del orden de implementación de recursos en las plantillas de ARM](./resource-dependency.md).
 * Para información sobre cómo definir un recurso y crear muchas instancias de este, consulte [Iteración de recursos en las plantillas de ARM](copy-resources.md).
 * Para los pasos de configuración de una plantilla en una cuenta de almacenamiento y la generación de un token de SAS, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md) o [Implementación de recursos con plantillas de ARM y la CLI de Azure](deploy-cli.md).

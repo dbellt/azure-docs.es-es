@@ -4,13 +4,13 @@ description: En esta guía de inicio rápido, creará su primera aplicación con
 ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: atsenthi
-ms.custom: mvc
-ms.openlocfilehash: 934b679813323fe144f935811eb613ab68b561db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 34144cf26c92dc8401f7e12526faa838784f119a
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87089624"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677359"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Inicio rápido: Implementación de contenedores de Windows en Service Fabric
 
@@ -30,7 +30,7 @@ En esta guía de inicio rápido, aprenderá a hacer lo siguiente:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una suscripción de Azure (puede crear una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * Un equipo de desarrollo en el que se ejecute:
@@ -152,7 +152,7 @@ Mientras el clúster está en ejecución, se siguen generando cargos. Considere 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido ha aprendido a:
+En este tutorial, ha aprendido a hacer lo siguiente:
 
 * Empaquetado de un contenedor de imagen de Docker
 * Configuración de la comunicación

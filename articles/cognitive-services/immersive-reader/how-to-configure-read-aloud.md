@@ -4,17 +4,17 @@ titleSuffix: Azure Applied AI Services
 description: En este artículo se muestra cómo configurar las distintas opciones de la lectura en voz alta.
 author: metanMSFT
 manager: guillasi
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: how-to
 ms.date: 06/29/2020
 ms.author: metang
-ms.openlocfilehash: 27b40631c5fdbe4f502a9e779e9a79d3050b3a3e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 2694525c406a40a4c133eb3199d2222542905ae6
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377786"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111893397"
 ---
 # <a name="how-to-configure-read-aloud"></a>Configuración de la lectura en voz alta
 

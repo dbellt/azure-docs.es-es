@@ -6,15 +6,16 @@ ms.subservice: migration-guide
 ms.custom: ''
 ms.devlang: ''
 ms.topic: how-to
-author: MashaMSFT
-ms.author: mathoma
+author: mokabiru
+ms.author: mokabiru
+ms.reviewer: cawrites
 ms.date: 03/19/2021
-ms.openlocfilehash: 741a47120b9410f91ef7f6de21879aab796e9a5e
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 37266c7a7692c59efdded9ba3fabe71458a5f674
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136735"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110788628"
 ---
 # <a name="migration-guide-access-to-azure-sql-database"></a>Guía de migración: de Access a Azure SQL Database
 
@@ -185,7 +186,7 @@ El equipo de ingeniería de datos SQL ha desarrollado estos recursos. El objetiv
 - Para más información sobre el marco y el ciclo de adopción de las migraciones en la nube, consulte:
    -  [Cloud Adoption Framework para Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Procedimientos recomendados para gestionar los costos y el tamaño de las cargas de trabajo migradas a Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
-   -  [Recursos de migración a la nube](https://azure.microsoft.com/migration/resources)
+   -  [Recursos de Migración a la nube](https://azure.microsoft.com/migration/resources)
 
 
 - Para evaluar la capa de acceso de la aplicación, consulte [Data Access Migration Toolkit (versión preliminar)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).

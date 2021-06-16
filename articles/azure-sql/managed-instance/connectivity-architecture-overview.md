@@ -4,7 +4,7 @@ titleSuffix: Azure SQL Managed Instance
 description: Obtenga información sobre la arquitectura de comunicación y conectividad de Azure SQL Managed Instance y sobre la forma en que los componentes dirigen el tráfico a una instancia administrada.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: service-overview
 ms.custom: fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 04/29/2021
-ms.openlocfilehash: 8a753d598c55653536284679f2848c24dd571f2a
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 259bd0128a4c5ce677e4d01f44b114aaba0cb977
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289379"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111889163"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitectura de conectividad de Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -178,5 +178,5 @@ Las siguientes características de red virtual *no se admiten* actualmente con S
 - Aprenda a crear una instancia administrada:
   - Desde [Azure Portal](instance-create-quickstart.md).
   - Mediante [PowerShell](scripts/create-configure-managed-instance-powershell.md).
-  - Mediante [una plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - Mediante [una plantilla de Azure Resource Manager (JumpBox con SSMS incluido)](https://azure.microsoft.com/resources/templates/201-sqlmi-new-vnet-w-jumpbox/).
+  - Mediante [una plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/sqlmi-new-vnet/).
+  - Mediante [una plantilla de Azure Resource Manager (JumpBox con SSMS incluido)](https://azure.microsoft.com/resources/templates/sqlmi-new-vnet-w-jumpbox/).

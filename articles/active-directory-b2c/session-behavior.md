@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/22/2021
+ms.date: 06/07/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 3898de5bf01ea03a5ad7f951a97da82a6a8c4b14
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 2e0af2e682799d4286a0d00daa2ce7e3805cf4ac
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107896232"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565255"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configuración del comportamiento de la sesión en Azure Active Directory B2C
 
@@ -243,16 +243,18 @@ Si desea cerrar la sesión del usuario de la aplicación, no basta con borrar la
 
 Después de una solicitud de cierre de sesión, Azure AD B2C hará lo siguiente:
 
-1. Invalidar la sesión basada en cookies de Azure AD B2C.
 ::: zone pivot="b2c-user-flow"
-2. Tratar de cerrar la sesión de los proveedores de identidades federados.
+1. Invalidar la sesión basada en cookies de Azure AD B2C.
+1. Tratar de cerrar la sesión de los proveedores de identidades federados.
 ::: zone-end
+
 ::: zone pivot="b2c-custom-policy"
-3. Tratar de cerrar la sesión de los proveedores de identidades federados:
+1. Invalidar la sesión basada en cookies de Azure AD B2C.
+1. Tratar de cerrar la sesión de los proveedores de identidades federados:
    - OpenID Connect: si el punto de conexión de configuración conocido del proveedor de identidades especifica una ubicación `end_session_endpoint`. La solicitud de cierre de sesión no pasa el parámetro `id_token_hint`. Si el proveedor de identidades federado requiere este parámetro, se producirá un error en la solicitud de cierre de sesión.
    - OAuth2: si los [metadatos del proveedor de identidades](oauth2-technical-profile.md#metadata) contienen la ubicación `end_session_endpoint`.
    - SAML: si los [metadatos del proveedor de identidades](identity-provider-generic-saml.md) contienen la ubicación `SingleLogoutService`.
-4. También puede cerrar la sesión de otras aplicaciones. Para obtener más información, consulte la sección [Cierre de sesión único](#single-sign-out).
+1. También puede cerrar la sesión de otras aplicaciones. Para obtener más información, consulte la sección [Cierre de sesión único](#single-sign-out).
 
 > [!NOTE]
 > Puede deshabilitar el cierre de sesión de los proveedores de identidades federados. Para ello, debe establecer los metadatos de perfil técnico del proveedor de identidades `SingleLogoutEnabled` en `false`.

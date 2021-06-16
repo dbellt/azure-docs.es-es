@@ -8,14 +8,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: de7d23689ae984ea0abece5edb03cf8a0c3a9be1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3477c8f1dbffb9f2c42c72c1b0bfc03c662ed24c
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670348"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412302"
 ---
 # <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Obtención de puntos de conexión y cadenas de conexión de formularios para el grupo de servidores de hiperescala de PostgreSQL habilitado para Arc
 
@@ -85,13 +85,8 @@ postgres=#
 > _Basic realm="Se requieren_ las credenciales para el inicio de sesión", Bearer error="invalid_token", error_description="El token ha caducado"'})_ Cuando ocurre esto, debe volver a conectarse con azdata, tal como se ha explicado anteriormente.
 
 ## <a name="from-cli-with-kubectl"></a>Desde la CLI con kubectl
-- Si el grupo de servidores es de la versión 12 de Postgres (valor predeterminado), el siguiente comando:
 ```console
-kubectl get postgresql-12/<server group name> -n <namespace name>
-```
-- Si el grupo de servidores es de la versión 11 de Postgres, el siguiente comando:
-```console
-kubectl get postgresql-11/<server group name> -n <namespace name>
+kubectl get postgresqls/<server group name> -n <namespace name>
 ```
 
 Estos comandos producirán una salida como la siguiente. Puede usar esa información para formar las cadenas de conexión:
@@ -153,7 +148,7 @@ host=192.168.1.121; dbname=postgres user=postgres password={your_password_here} 
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga información sobre el [escalado horizontal (adición de nodos de trabajo)](scale-out-postgresql-hyperscale-server-group.md) del grupo de servidores.
+- Obtenga información sobre el [escalado horizontal (adición de nodos de trabajo)](scale-out-in-postgresql-hyperscale-server-group.md) del grupo de servidores.
 - Obtenga información sobre [cómo escalar o reducir verticalmente (aumentar o reducir la memoria o los núcleos virtuales)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) el grupo de servidores.
 
 

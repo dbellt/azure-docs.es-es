@@ -12,12 +12,12 @@ ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: a950e2c282eb3f06d32f87b0d81724aca31710e5
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: da2ea074a717189c038705f95f77e538d1bd9680
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108186721"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962152"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicaciones con comodín en Application Proxy de Azure Active Directory
 
@@ -47,13 +47,13 @@ Aunque las direcciones URL internas y externas pueden usar dominios diferentes, 
 
 La creación de una aplicación comodín se basa en el mismo [flujo de publicación de aplicaciones](application-proxy-add-on-premises-application.md) que está disponible para las demás aplicaciones. La única diferencia es que se incluye un carácter comodín en las direcciones URL y, quizá, la configuración del inicio de sesión único.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para comenzar, asegúrese de que reúne estos requisitos.
 
 ### <a name="custom-domains"></a>Dominios personalizados
 
-Mientras que los[dominios personalizados](../manage-apps/application-proxy-configure-custom-domain.md) son opcionales para todas las demás aplicaciones, son un requisito previo para las aplicaciones con comodín. La creación de dominios personalizados requiere:
+Mientras que los[dominios personalizados](./application-proxy-configure-custom-domain.md) son opcionales para todas las demás aplicaciones, son un requisito previo para las aplicaciones con comodín. La creación de dominios personalizados requiere:
 
 1. La creación de un dominio comprobado en Azure.
 1. La carga de un certificado TLS/SSL con formato PFX para el proxy de aplicación.
@@ -122,7 +122,7 @@ La aplicación con comodín se representa con un solo icono en el [panel MyApps]
 
 ### <a name="kerberos-constrained-delegation"></a>Delegación limitada de Kerberos
 
-Para las aplicaciones que usan la [delegación restringida de Kerberos como método de inicio de sesión único](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md), puede que el nombre de entidad de seguridad de servicio que aparece para el método de inicio de sesión único también necesite un carácter comodín. Por ejemplo, el nombre de entidad de seguridad de servicio podría ser: `HTTP/*.adventure-works.com`. Debe tener los nombres de entidad de seguridad de servicio individuales configurados en los servidores back-end (por ejemplo, `HTTP/expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
+Para las aplicaciones que usan la [delegación restringida de Kerberos como método de inicio de sesión único](./application-proxy-configure-single-sign-on-with-kcd.md), puede que el nombre de entidad de seguridad de servicio que aparece para el método de inicio de sesión único también necesite un carácter comodín. Por ejemplo, el nombre de entidad de seguridad de servicio podría ser: `HTTP/*.adventure-works.com`. Debe tener los nombres de entidad de seguridad de servicio individuales configurados en los servidores back-end (por ejemplo, `HTTP/expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
 
 ## <a name="scenario-1-general-wildcard-application"></a>Escenario 1: aplicación con comodín general
 
@@ -199,5 +199,5 @@ Si tiene varias aplicaciones financieras publicadas y `finance.adventure-works.c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre los **dominios personalizados**, consulte [Uso de dominios personalizados en el proxy de la aplicación de Azure AD](../manage-apps/application-proxy-configure-custom-domain.md).
+- Para más información sobre los **dominios personalizados**, consulte [Uso de dominios personalizados en el proxy de la aplicación de Azure AD](./application-proxy-configure-custom-domain.md).
 - Para más información sobre la **publicación de aplicaciones**, consulte [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](application-proxy-add-on-premises-application.md).

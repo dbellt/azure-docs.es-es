@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: msjogarrig
 ms.author: jogarrig
 ms.date: 09/04/2020
-ms.openlocfilehash: 09badebab86da8e4fd8d35307aa6648a26e91821
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 73c8daf49ccdfeee1903a3c0ad823cdd3e52c141
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103232263"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111537863"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Guía de publicación de aplicaciones administradas de Azure
 
@@ -51,4 +51,4 @@ Si aún no lo ha hecho, aprenda a [Ampliar su negocio en la nube con Azure Marke
 Para registrarse y empezar a trabajar en el Centro de partners, haga lo siguiente:
 
 - [Inicie sesión en el Centro de partners](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para crear o completar la oferta.
-- Para obtener más información, consulte [Creación de una oferta de aplicaciones de Azure](./create-new-azure-apps-offer.md).
+- Para obtener más información, consulte [Creación de una oferta de aplicaciones de Azure](azure-app-offer-setup.md).

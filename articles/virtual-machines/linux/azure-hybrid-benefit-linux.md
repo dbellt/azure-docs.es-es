@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: d21d53476c82c089fd160462093e45a8da1609c7
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 5b81883b8c9556500ec6b6bd994d50a1f4202808
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229452"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949899"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Aplicación de la Ventaja híbrida de Azure en máquinas virtuales Linux
 
@@ -176,7 +176,7 @@ A fin de usar Ventaja híbrida de Azure para las máquinas virtuales de SLES y p
 
 ## <a name="azure-hybrid-benefit-on-reserved-instances"></a>Ventaja híbrida de Azure en instancias reservadas 
 
-Las reservas de Azure (Azure Reserved Virtual Machine Instances) le permitirán ahorrar dinero, ya que se compromete a planes de uno o tres años para varios productos. Obtenga más información sobre las [Instancias reservadas aquí](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations). La Ventaja híbrida de Azure está disponible para [Instancias reservadas de máquina virtual (RI)](https://review.docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). 
+Las reservas de Azure (Azure Reserved Virtual Machine Instances) le permitirán ahorrar dinero, ya que se compromete a planes de uno o tres años para varios productos. Obtenga más información sobre las [Instancias reservadas aquí](../../cost-management-billing/reservations/save-compute-costs-reservations.md). La Ventaja híbrida de Azure está disponible para [Instancias reservadas de máquina virtual (RI)](/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). 
 
 Esto significa que, si ha adquirido costos de proceso con una tarifa de descuento mediante RI, puede aplicar el beneficio de AHB en los costos de licencia de RHEL y SUSE. Los pasos para aplicar la ventaja AHB para una instancia de RI son exactamente iguales que los de una máquina virtual normal.
 ![AHB para RIs](./media/azure-hybrid-benefit/reserved-instances.png)
@@ -212,7 +212,7 @@ R: Sí, puede hacerlo. Puede usar el tipo de licencia `RHEL_BYOS` para las máqu
 
 *P: ¿Puedo usar la Ventaja híbrida de Azure en conjuntos de escalado de máquinas virtuales para RHEL y SLES?*
 
-R: Sí, la Ventaja híbrida de Azure en conjuntos de escalado de máquinas virtuales para RHEL y SLES está disponible para todos los usuarios. Puede obtener [más información sobre esta ventaja y cómo usarla aquí](https://docs.microsoft.com/azure/virtual-machine-scale-sets/azure-hybrid-benefit-linux). 
+R: Sí, la Ventaja híbrida de Azure en conjuntos de escalado de máquinas virtuales para RHEL y SLES está disponible para todos los usuarios. Puede obtener [más información sobre esta ventaja y cómo usarla aquí](../../virtual-machine-scale-sets/azure-hybrid-benefit-linux.md). 
 
 *P: ¿Puedo usar la Ventaja híbrida de Azure en instancias reservadas para RHEL y SLES?*
 
@@ -236,4 +236,4 @@ En esta sección se enumeran los problemas comunes que puede encontrar y los pas
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Aprenda a crear y actualizar máquinas virtuales y a agregar tipos de licencia (RHEL_BYOS, SLES_BYOS) para Ventaja híbrida de Azure con la CLI de Azure](/cli/azure/vm)
-* R: Sí, la Ventaja híbrida de Azure en conjuntos de escalado de máquinas virtuales para RHEL y SLES está disponible para todos los usuarios. Puede obtener [más información sobre esta ventaja y cómo usarla aquí](https://docs.microsoft.com/azure/virtual-machine-scale-sets/azure-hybrid-benefit-linux). 
+* R: Sí, la Ventaja híbrida de Azure en conjuntos de escalado de máquinas virtuales para RHEL y SLES está disponible para todos los usuarios. Puede obtener [más información sobre esta ventaja y cómo usarla aquí](../../virtual-machine-scale-sets/azure-hybrid-benefit-linux.md).

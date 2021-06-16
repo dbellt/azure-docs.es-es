@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs
+ms.custom: mvc, subject-armqs, devx-track-azurepowershell
 ms.date: 04/01/2021
-ms.openlocfilehash: 01fe3121173eb730584dadd1266b3217af2b5017
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: e141a33be0433e8d40af41c4624b4921321a6aae
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279557"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971611"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>Inicio rápido: Creación e implementación de un flujo de trabajo de aplicaciones lógicas mediante una plantilla de ARM
 
@@ -30,7 +30,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta de Azure gratuita](https:
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-En esta guía de inicio rápido se usa la plantilla [**Crear una aplicación lógica**](https://azure.microsoft.com/resources/templates/101-logic-app-create/), que puede encontrar en la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates), pero es demasiado larga para mostrarla aquí. En su lugar, puede revisar el ["archivo azuredeploy.json"](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json) de plantillas de inicio rápido en la galería de plantillas.
+En esta guía de inicio rápido se usa la plantilla [**Crear una aplicación lógica**](https://azure.microsoft.com/resources/templates/logic-app-create/), que puede encontrar en la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates), pero es demasiado larga para mostrarla aquí. En su lugar, puede revisar el ["archivo azuredeploy.json"](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json) de plantillas de inicio rápido en la galería de plantillas.
 
 La plantilla de inicio rápido crea un flujo de trabajo de aplicación lógica que usa el desencadenador de periodicidad, que se establece para ejecutarse cada hora, y una [acción HTTP *integrada*](../connectors/built-in.md), que llama a una dirección URL que devuelve el estado de Azure. Una acción integrada es nativa para la plataforma Azure Logic Apps.
 
@@ -64,7 +64,7 @@ Siga la opción que desea usar para implementar la plantilla de inicio rápido:
 
 1. En el portal, en la página **Creación de una aplicación lógica mediante una plantilla**, escriba o seleccione estos valores:
 
-   | Propiedad | Value | Descripción |
+   | Propiedad | Valor | Descripción |
    |----------|-------|-------------|
    | **Suscripción** | <*Azure-subscription-name*> | Nombre de la suscripción a Azure que se va a usar |
    | **Grupos de recursos** | <*nombre del grupo de recursos de Azure*> | Nombre de un grupo de recursos de Azure nuevo o existente. En este ejemplo se usa `Check-Azure-Status-RG`. |
@@ -167,7 +167,7 @@ Para más información, consulte los temas siguientes:
 
    Para más información, consulte [API de REST de Resource Manager: creación o actualización de implementaciones](/rest/api/resources/deployments/createorupdate).
 
-1. Para proporcionar los valores que se van a usar para la implementación, como la región de Azure y los vínculos a la plantilla de inicio rápido y al [archivo de parámetros](../azure-resource-manager/templates/template-parameters.md), que contiene los valores de la plantilla de inicio rápido que se va a usar en la implementación, siga esta sintaxis para el cuerpo de la solicitud que envía a la API de REST de Resource Manager:
+1. Para proporcionar los valores que se van a usar para la implementación, como la región de Azure y los vínculos a la plantilla de inicio rápido y al [archivo de parámetros](../azure-resource-manager/templates/parameters.md), que contiene los valores de la plantilla de inicio rápido que se va a usar en la implementación, siga esta sintaxis para el cuerpo de la solicitud que envía a la API de REST de Resource Manager:
 
    ```json
    {
@@ -186,7 +186,7 @@ Para más información, consulte los temas siguientes:
    }
    ```
 
-   | Propiedad | Value | Descripción |
+   | Propiedad | Valor | Descripción |
    |----------|-------|-------------|
    | `location`| <*Azure-region*> | Región de Azure que se usará para la implementación. En este ejemplo se usa `West US`. |
    | `templateLink` : `uri` | <*quickstart-template-URL*> | Ubicación URL de la plantilla de inicio rápido que se va a usar para la implementación: <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json`. |

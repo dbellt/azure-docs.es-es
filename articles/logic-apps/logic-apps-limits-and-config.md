@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rohithah, rarayudu, azla
 ms.topic: reference
 ms.date: 05/25/2021
-ms.openlocfilehash: 49f9a04351d243f4011b35370b99e30327446f5d
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 36f7f036552a747cf4f59e8ba7412d89bfb22228
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378187"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111439411"
 ---
 # <a name="limits-and-configuration-reference-for-azure-logic-apps"></a>Referencia de límites y configuración para Azure Logic Apps
 
@@ -281,7 +281,7 @@ En las tablas siguientes se muestran los valores para una única llamada entrant
 
 ### <a name="timeout-duration"></a>Duración del tiempo de espera
 
-De manera predeterminada, la acción HTTP y las acciones APIConnection siguen el [modelo de operación asincrónica estándar](/architecture/patterns/async-request-reply), mientras que la acción Response sigue el *modelo de operación sincrónica*. Algunas operaciones de conectores administrados hacen llamadas asincrónicas o escuchan las solicitudes de webhook, por lo que el tiempo de expiración de estas operaciones puede ser superior a los límites siguientes. Para obtener más información, revise la [página de referencia técnica de cada conector](/connectors/connector-reference/connector-reference-logicapps-connectors) y también la documentación sobre [desencadenadores y acciones de flujos de trabajo](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
+De manera predeterminada, la acción HTTP y las acciones APIConnection siguen el [modelo de operación asincrónica estándar](/azure/architecture/patterns/async-request-reply), mientras que la acción Response sigue el *modelo de operación sincrónica*. Algunas operaciones de conectores administrados hacen llamadas asincrónicas o escuchan las solicitudes de webhook, por lo que el tiempo de expiración de estas operaciones puede ser superior a los límites siguientes. Para obtener más información, revise la [página de referencia técnica de cada conector](/connectors/connector-reference/connector-reference-logicapps-connectors) y también la documentación sobre [desencadenadores y acciones de flujos de trabajo](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
 > [!NOTE]
 > Para el tipo de recurso **Logic Apps (estándar)** en el modelo de inquilino único, los flujos de trabajo sin estado solo pueden ejecutarse *de forma sincrónica*.

@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 8b24ee9f620b50056ceb466ef5bdc38da97682a9
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: b703d8bc5253d8f5daeded8211e36dc119188b08
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490750"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112027792"
 ---
 # <a name="react-plugin-for-application-insights-javascript-sdk"></a>Complemento React para el SDK de JavaScript de Application Insights
 
@@ -27,6 +27,7 @@ Instalación del paquete de npm:
 ```bash
 
 npm install @microsoft/applicationinsights-react-js
+npm install @microsoft/applicationinsights-web
 
 ```
 

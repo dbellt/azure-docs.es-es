@@ -5,17 +5,17 @@ description: Obtenga más información sobre las novedades del SDK de JavaScript
 services: cognitive-services
 author: dylankil
 manager: guillasi
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 10/12/2020
 ms.author: dylankil
-ms.openlocfilehash: 8aa1282234a324fae294274e7720c6138d9b059b
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 833066839b597e52c1aa0e965f959c2c81e4ab85
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110370777"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111887679"
 ---
 # <a name="immersive-reader-javascript-sdk-release-notes"></a>Notas de la versión del SDK de JavaScript para el Lector inmersivo
 

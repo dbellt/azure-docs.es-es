@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/11/2021
-ms.openlocfilehash: a1181af6bf7f8c734d7cb90c7e9bb28c22e00b08
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: d54432b482e952327083996b486ce27fc56a1c88
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517989"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949091"
 ---
 # <a name="how-to-index-data-available-through-cosmos-db-gremlin-api-using-an-indexer-preview"></a>Cómo indexar los datos disponibles mediante Gremlin API de Cosmos DB con un indexador (versión preliminar)
 
@@ -32,13 +32,13 @@ En este artículo se muestra cómo configurar Azure Cognitive Search para indexa
 
 ## <a name="get-started"></a>Primeros pasos
 
-Puede usar la [API REST en versión preliminar](https://docs.microsoft.com/rest/api/searchservice/index-preview) para indexar datos de Azure Cosmos DB que están disponibles mediante Gremlin API siguiendo un flujo de trabajo de tres partes común a todos los indexadores de Azure Cognitive Search: se crea un origen de datos, se crea un índice y se crea un indexador. En el proceso siguiente, la extracción de datos de Cosmos DB se inicia al enviar la solicitud Crear indexador.
+Puede usar la [API REST en versión preliminar](/rest/api/searchservice/index-preview) para indexar datos de Azure Cosmos DB que están disponibles mediante Gremlin API siguiendo un flujo de trabajo de tres partes común a todos los indexadores de Azure Cognitive Search: se crea un origen de datos, se crea un índice y se crea un indexador. En el proceso siguiente, la extracción de datos de Cosmos DB se inicia al enviar la solicitud Crear indexador.
 
 De forma predeterminada, el indexador de Gremlin API de Cosmos DB de Azure Cognitive Search hará que cada vértice del grafo sea un documento en el índice. Los bordes se omitirán. Como alternativa, puede establecer la consulta para indexar solo los bordes.
 
 ### <a name="step-1---assemble-inputs-for-the-request"></a>Paso 1: Ensamblado de las entradas de la solicitud
 
-Para cada solicitud, debe proporcionar el nombre del servicio y la clave de administrador de Azure Cognitive Search (en el encabezado POST). Puede usar [Postman](search-get-started-postman.md) o cualquier cliente de API REST para enviar solicitudes HTTPS a Azure Cognitive Search.
+Para cada solicitud, debe proporcionar el nombre del servicio y la clave de administrador de Azure Cognitive Search (en el encabezado POST). Puede usar [Postman](./search-get-started-rest.md) o cualquier cliente de API REST para enviar solicitudes HTTPS a Azure Cognitive Search.
 
 Copie y guarde los siguientes valores para usarlos en la solicitud:
 
@@ -178,7 +178,7 @@ Una vez creados el origen de datos y los índices, ya podrá crear el indizador:
 
 Este indexador comenzará a ejecutarse después de crearlo y solo lo hará una vez. Puede agregar el parámetro de programación opcional a la solicitud para establecer que el indexador se ejecute según una programación. Para más información sobre cómo definir las programaciones del indexador, consulte [Programación de indexadores para Azure Cognitive Search](search-howto-schedule-indexers.md).
 
-Para más información sobre la API Create Indexer, consulte [Crear indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Para más información sobre la API Create Indexer, consulte [Crear indexador](/rest/api/searchservice/create-indexer).
 
 <a name="DataDeletionDetectionPolicy"></a>
 

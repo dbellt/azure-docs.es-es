@@ -15,12 +15,13 @@ ms.workload: identity
 ms.date: 12/02/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 117f9a1c173f2083dd4621f4f3f41b6e83d1d46b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7f48d2bb799cb641389d0197fbfb9997c2c773d0
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96546699"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749586"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Creación, enumeración o eliminación de una identidad administrada asignada por el usuario usando llamadas a la API de REST
 

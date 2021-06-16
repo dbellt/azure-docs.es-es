@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
 ms.date: 09/02/2020
-ms.openlocfilehash: e97171e61814b832e78f7bd815d8d6f341a90840
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 21f8109fa1db49af8f2e84833466ed204d2f59fa
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91858179"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111536524"
 ---
 # <a name="plans-and-pricing-for-commercial-marketplace-offers"></a>Planes y precios de las ofertas del marketplace comercial
 
@@ -100,7 +100,7 @@ Si ya se ha establecido los precios del plan en dólares de Estados Unidos (USD)
 > [!IMPORTANT]
 > Una vez que la oferta se publica, no se puede cambiar. el modelo de precios elegido.
 
-Tanto las ofertas de SaaS de como las aplicaciones administradas de tarifa plana admiten la facturación medida mediante el servicio de medición de Marketplace. Este es un modelo de facturación basado en uso que le permite definir unidades no estándar, como el ancho de banda o los correos electrónicos, que los clientes pagarán en función de su consumo. Para más información acerca de la facturación medida en las [aplicaciones administradas](./partner-center-portal/azure-app-metered-billing.md) y en las [aplicaciones SaaS](./partner-center-portal/saas-metered-billing.md), consulte la documentación relacionada.
+Tanto las ofertas de SaaS de como las aplicaciones administradas de tarifa plana admiten la facturación medida mediante el servicio de medición de Marketplace. Este es un modelo de facturación basado en uso que le permite definir unidades no estándar, como el ancho de banda o los correos electrónicos, que los clientes pagarán en función de su consumo. Para más información acerca de la facturación medida en las [aplicaciones administradas](marketplace-metering-service-apis.md) y en las [aplicaciones SaaS](./partner-center-portal/saas-metered-billing.md), consulte la documentación relacionada.
 
 ## <a name="custom-prices"></a>Precios personalizado
 
@@ -166,5 +166,5 @@ Para obtener información sobre las suscripciones de clientes que actualmente pa
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para aprender a agregar o actualizar planes en una oferta existente, consulte [Actualización de una oferta existente en el marketplace comercial](./partner-center-portal/update-existing-offer.md).
+- Para aprender a agregar o actualizar planes en una oferta existente, consulte [Actualización de una oferta existente en el marketplace comercial](./update-existing-offer.md).
 - Para más información sobre las opciones de transacción y los modelos de precios asociados, consulte [Funcionalidades de transacción de marketplace comercial](./marketplace-commercial-transaction-capabilities-and-considerations.md).

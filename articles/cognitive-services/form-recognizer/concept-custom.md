@@ -5,17 +5,17 @@ description: 'Conozca los conceptos relacionados con los modelos personalizados 
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: lajanuar
-ms.openlocfilehash: 329176e40b1a8cf187a4b2154a26b1adbbca4233
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 60ead0dd0943a441a87b6298d27ba5533098300f
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374738"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111890661"
 ---
 # <a name="form-recognizer-custom-models"></a>Modelos personalizados de Form Recognizer
 

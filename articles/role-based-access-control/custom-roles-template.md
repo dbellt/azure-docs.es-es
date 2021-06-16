@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: 0626a9e36d05ac9cb51f62652dbe6f3133bbc6d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 230a772ba0edb95c2616ede1c4ea9deb4a1b0943
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101095902"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110696634"
 ---
 # <a name="create-or-update-azure-custom-roles-using-an-arm-template"></a>Creación o actualización de roles personalizados de Azure mediante una plantilla de ARM
 
