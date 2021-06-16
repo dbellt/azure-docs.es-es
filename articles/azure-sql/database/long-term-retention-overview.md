@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Obtenga información sobre cómo admiten Azure SQL Database y Azure SQL Managed Instance el almacenamiento de copias de seguridad de bases de datos completas durante un máximo de 10 años mediante la directiva de retención a largo plazo.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: shkale
+author: shkale-msft
 ms.author: shkale
-ms.reviewer: mathoma, sstein
+ms.reviewer: mathoma
 ms.date: 02/25/2021
-ms.openlocfilehash: b1ba3f98f39511bcebf94502ed749d7cba1fc71b
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: e49f6220a25a449221ccab70a7439722189378cd
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102184056"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110708492"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Retención a largo plazo: Azure SQL Database y Azure SQL Managed Instance
 

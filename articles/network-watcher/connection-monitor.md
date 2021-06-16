@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 4f9f3e2af9abc054d3b1d5ce2bd1f1b27f7bf958
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 188efd630f1b497815f86a9249d31e823f45a8ce
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066048"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081720"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: supervisar la comunicación de red entre dos máquinas virtuales mediante Azure Portal
 
@@ -55,11 +55,11 @@ Cree dos VM.
 2. Seleccione **Compute** y, a continuación, seleccione un sistema operativo. En este tutorial usaremos **Windows Server 2016 Datacenter**.
 3. Escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Aceptar**:
 
-    |Configuración|Value|
+    |Configuración|Valor|
     |---|---|
     |Nombre|myVm1|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
-    |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.yml?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     |Subscription| Seleccione su suscripción.|
     |Resource group| Haga clic en **Crear nuevo** y escriba **myResourceGroup**.|
     |Location| Seleccione **Este de EE. UU**.|
@@ -77,7 +77,7 @@ Cree dos VM.
 
 Complete los pasos de [Creación de la primera máquina virtual](#create-the-first-vm) nuevamente, con los siguientes cambios:
 
-|Paso|Configuración|Value|
+|Paso|Configuración|Valor|
 |---|---|---|
 | 1 | Seleccione una versión de **Ubuntu Server**. |                                                                         |
 | 3 | Nombre                                  | myVm2                                                                   |
@@ -97,7 +97,7 @@ Cree un monitor de conexión para supervisar la comunicación a través del puer
 4. Seleccione **+Agregar**.
 5. Escriba o seleccione la información para la conexión que desea supervisar y seleccione **Agregar**. En el ejemplo que se muestra en la imagen siguiente, la conexión supervisada va de la VM *myVm1* a *myVm2* a través del puerto 22:
 
-    | Configuración                  | Value               |
+    | Configuración                  | Valor               |
     | ---------                | ---------           |
     | Nombre                     | myVm1-myVm2(22)     |
     | Source                   |                     |
@@ -121,7 +121,7 @@ Cree un monitor de conexión para supervisar la comunicación a través del puer
 
     Tenga en cuenta la información siguiente:
 
-    | Elemento                     | Value                      | Detalles                                                     |
+    | Elemento                     | Valor                      | Detalles                                                     |
     | ---------                | ---------                  |--------                                                     |
     | Estado                   | Accesible                  | Le permite saber si el punto de conexión es accesible o no.|
     | AVG. ROUND-TRIP          | Le permite conocer el tiempo de ida y vuelta para hacer la conexión, en milisegundos. El monitor de conexión sondea la conexión cada 60 segundos, por lo que puede controlar la latencia a lo largo del tiempo.                                         |

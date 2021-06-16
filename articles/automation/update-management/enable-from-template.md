@@ -6,16 +6,16 @@ ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 09/18/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f6a32bdef2269e1235534ca99144a61c5ea023db
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 246c86b2e1f2e49af22d290ccb0a80f3e8c98c64
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110463378"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958215"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Habilitación de Update Management mediante una plantilla de Azure Resource Manager
 
-Puede usar una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para habilitar la característica de Update Management de Azure Automation en un grupo de recursos. En este artículo se proporciona una plantilla de ejemplo que automatiza lo siguiente:
+Puede usar una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) para habilitar la característica de Update Management de Azure Automation en un grupo de recursos. En este artículo se proporciona una plantilla de ejemplo que automatiza lo siguiente:
 
 * Automatiza la creación de un área de trabajo de Log Analytics en Azure Monitor.
 * Automatiza la creación de una cuenta de Azure Automation.
@@ -153,7 +153,7 @@ Si no está familiarizado con Azure Automation y Azure Monitor, es importante qu
             },
             "_artifactsLocation": {
                 "type": "string",
-                "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation/",
+                "defaultValue": "[deployment().properties.templateLink.uri]",
                 "metadata": {
                     "description": "URI to artifacts location"
                 }

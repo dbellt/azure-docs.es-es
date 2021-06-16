@@ -5,7 +5,7 @@
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/virtual-machines/windows/'
     - name: Preguntas más frecuentes
-      href: ../../../azure-sql/virtual-machines/windows/frequently-asked-questions-faq.md?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
+      href: /azure/azure-sql/virtual-machines/windows/frequently-asked-questions-faq?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
 - name: Introducción
   items:
     - name: Aprovisionamiento de una máquina virtual en Azure Portal

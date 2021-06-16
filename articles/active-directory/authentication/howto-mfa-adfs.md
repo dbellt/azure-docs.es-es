@@ -11,19 +11,19 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8c0628d9e2d0d89fcb84569d227f592b5ad0943
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: a1a41c2360438158adcee9a4198a5f956012a443
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285581"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952044"
 ---
 # <a name="securing-cloud-resources-with-azure-ad-multi-factor-authentication-and-ad-fs"></a>Protección de recursos en la nube con Azure AD Multi-Factor Authentication y AD FS
 
 Si su organización está federada con Azure Active Directory, use Azure AD Multi-Factor Authentication o los servicios de federación de Active Directory (AD FS) para proteger los recursos a los que se accede mediante Azure AD. Utilice los siguientes procedimientos para proteger recursos de Azure Active Directory mediante Azure AD Multi-Factor Authentication o Servicios de federación de Active Directory.
 
 >[!NOTE]
->Para proteger el recurso de Azure AD, se recomienda exigir MFA a través de una [directiva de acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa), establecer el valor de dominio SupportsMfa en $True y [emitir la notificación multipleauthn](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-adfs#secure-azure-ad-resources-using-ad-fs) cuando un usuario completa correctamente la verificación en dos pasos.
+>Para proteger el recurso de Azure AD, se recomienda exigir MFA a través de una [directiva de acceso condicional](../conditional-access/howto-conditional-access-policy-all-users-mfa.md), establecer el valor de dominio SupportsMfa en $True y [emitir la notificación multipleauthn](#secure-azure-ad-resources-using-ad-fs) cuando un usuario completa correctamente la verificación en dos pasos.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Protección de los recursos de Azure AD mediante AD FS
 

@@ -1,0 +1,319 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas más frecuentes
+  titleSuffix: Azure SQL Managed Instance
+  description: Preguntas frecuentes acerca de Instancia administrada de Azure SQL (P+F)
+  services: sql-database
+  ms.service: sql-managed-instance
+  ms.subservice: service-overview
+  ms.custom: sqldbrb=1
+  ms.devlang: 
+  ms.topic: conceptual
+  author: jovanpop-msft
+  ms.author: nnikolic
+  ms.reviewer: mathoma
+  ms.date: 09/21/2020
+  ms.openlocfilehash: 24b4c9ac701167c998caa215e724010a4f953ac3
+  ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111907946"
+title: Preguntas frecuentes acerca de Instancia administrada de Azure SQL (P+F)
+summary: >
+  [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
+
+
+  Este artículo contiene las preguntas más comunes sobre [Instancia administrada de Azure SQL](sql-managed-instance-paas-overview.md).
+sections:
+- name: Omitido
+  questions:
+  - question: >
+      Características admitidas
+    answer: >
+      ### <a name="where-can-i-find-a-list-of-features-supported-on-sql-managed-instance"></a>¿Dónde puedo encontrar una lista de las características que se admiten en Instancia administrada de SQL?
+
+
+      Para obtener una lista de las características admitidas en Instancia administrada de SQL, consulte [Características de Instancia administrada de Azure SQL](../database/features-comparison.md).
+
+
+      Para conocer las diferencias de sintaxis y comportamiento entre Instancia administrada de Azure SQL y SQL Server, consulte [Diferencias de T-SQL de SQL Server](transact-sql-tsql-differences-sql-server.md).
+  - question: >
+      Especificación técnica, límites de recursos y otras limitaciones
+    answer: "### <a name=\"where-can-i-find-technical-characteristics-and-resource-limits-for-sql-managed-instance\"></a>¿Dónde puedo encontrar las características técnicas y los límites de recursos de Instancia administrada de SQL?\n\nPara conocer las características disponibles para la generación de hardware, consulte las [diferencias técnicas en las generaciones de hardware](resource-limits.md#hardware-generation-characteristics).\nPara ver los niveles de servicio disponibles y sus características, consulte las [diferencias técnicas entre los niveles de servicio](resource-limits.md#service-tier-characteristics).\n\n### <a name=\"what-service-tier-am-i-eligible-for\"></a>¿A qué nivel de servicio puedo optar?\n\nCualquier cliente puede optar a cualquier nivel de servicio. Sin embargo, si quiere cambiar las licencias existentes por tarifas con descuento en Azure SQL Managed Instance mediante [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/), tenga en cuenta que los clientes de SQL Server Enterprise Edition con Software Assurance son aptos para los niveles de rendimiento [De uso general](../database/service-tier-general-purpose.md) o [Crítico para la empresa](../database/service-tier-business-critical.md) y los clientes de SQL Server Standard Edition con Software Assurance solo son válidos para el nivel de rendimiento De uso general. Para obtener más información, consulte los [derechos específicos de AHB](../azure-hybrid-benefit.md?tabs=azure-powershell#what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server).\n\n### <a name=\"what-subscription-types-are-supported-for-sql-managed-instance\"></a>¿Qué tipos de suscripción se admiten para SQL Managed Instance?\n\nPara ver la lista de tipos de suscripción admitidos, consulte [Tipos de suscripción admitidos](resource-limits.md#supported-subscription-types). \n\n### <a name=\"which-azure-regions-are-supported\"></a>¿Qué regiones de Azure se admiten?\n\nLas instancias administradas se pueden crear en la mayoría de las regiones de Azure. Consulte las [regiones admitidas para SQL Managed Instance](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Si necesita crear una instancia administrada en una región que no se admite actualmente, [envíe una solicitud de soporte técnico a través de Azure Portal](../database/quota-increase-request.md).\n\n### <a name=\"are-there-any-quota-limitations-for-sql-managed-instance-deployments\"></a>¿Hay alguna limitación de cuota para las implementaciones de SQL Managed Instance?\n\nInstancia administrada tiene dos límites predeterminados: límite en el número de subredes que puede usar y límite en el número de núcleos virtuales que puede aprovisionar. Los límites varían entre tipos de suscripción y regiones. Para ver la lista de limitaciones de recursos regionales por tipo de suscripción, consulte la tabla de [Limitaciones de recursos regionales](resource-limits.md#regional-resource-limitations). Estos son límites moderados que se pueden aumentar a petición. Si necesita aprovisionar más instancias administradas en sus regiones actuales, puede enviar una solicitud de soporte técnico para aumentar la cuota a través de Azure Portal. Para más información, consulte [Solicitud de aumentos de cuota para Azure SQL Database](../database/quota-increase-request.md).\n\n### <a name=\"can-i-increase-the-number-of-databases-limit-100-on-my-managed-instance-on-demand\"></a>¿Puedo aumentar el número del límite de bases de datos (100) en mi instancia administrada a petición?\n\nNo, y actualmente no hay ningún plan confirmado para aumentar el número de bases de datos en SQL Managed Instance. \n\n### <a name=\"where-can-i-migrate-if-i-have-more-than-8tb-of-data\"></a>¿Dónde puedo migrar si tengo más de 8 TB de datos?\nPuede considerar la posibilidad de migrar a otros tipos de Azure que se ajusten a su carga de trabajo: [Hiperescala de Azure SQL Database](../database/service-tier-hyperscale.md) o [SQL Server en Azure Virtual Machines](../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).\n\n### <a name=\"where-can-i-migrate-if-i-have-specific-hardware-requirements-such-as-larger-ram-to-vcore-ratio-or-more-cpus\"></a>¿Dónde puedo migrar si tengo requisitos de hardware específicos, como una RAM mayor a una proporción de núcleos virtuales o más CPU?\nPuede considerar la po0sibilidad de migrar a las opciones optimizadas de memoria o CPU de [SQL Server en Azure Virtual Machines](../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) o [Azure SQL Database](../database/sql-database-paas-overview.md).\n"
+  - question: >
+      Defectos y problemas conocidos
+    answer: >
+      ### <a name="where-can-i-find-known-issues-and-defects"></a>¿Dónde puedo encontrar soluciones a defectos y problemas conocidos?
+
+
+      Para ver los defectos y los problemas conocidos, consulte [Problemas conocidos](../database/doc-changes-updates-release-notes.md#known-issues).
+  - question: >
+      Nuevas características
+    answer: >
+      ### <a name="where-can-i-find-latest-features-and-the-features-in-public-preview"></a>¿Dónde puedo encontrar las características más recientes y las características en versión preliminar pública?
+
+
+      Para obtener características nuevas y en vista previa, consulte las [Notas de la versión](../database/doc-changes-updates-release-notes.md?tabs=managed-instance).
+  - question: >
+      Creación, actualización, eliminación o traslado de SQL Managed Instance
+    answer: "### <a name=\"how-can-i-provision-sql-managed-instance\"></a>¿Cómo puedo aprovisionar SQL Managed Instance?\n\nPuede aprovisionar una instancia desde [Azure Portal](instance-create-quickstart.md), [PowerShell](scripts/create-configure-managed-instance-powershell.md), la [CLI de Azure](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) y las [plantillas de ARM](/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).\n\n### <a name=\"can-i-provision-managed-instances-in-an-existing-subscription\"></a>¿Puedo aprovisionar instancias administradas en una suscripción existente?\n\nSí, puede aprovisionar una instancia administrada en una suscripción existente si esa suscripción pertenece a los [tipos de suscripción admitidos](resource-limits.md#supported-subscription-types).\n\n### <a name=\"why-couldnt-i-provision-a-managed-instance-in-the-subnet-which-name-starts-with-a-digit\"></a>¿Por qué no se pudo aprovisionar una instancia administrada en la subred cuyo nombre empieza por un dígito?\n\nSe trata de una limitación actual del componente subyacente que comprueba el nombre de la subred con respecto a la expresión regular ^[a-zA-Z_][^\\\\\\/\\:\\*\\?\\\"\\<\\>\\|\\`\\'\\^]*(?<![\\.\\s])$. Actualmente se admiten todos los nombres que pasan la expresión regular y son nombres de subred válidos.\n\n### <a name=\"how-can-i-scale-my-managed-instance\"></a>¿Cómo puedo escalar mi instancia administrada?\n\nPuede escalar la instancia administrada desde [Azure Portal](../database/service-tiers-vcore.md?tabs=azure-portal), [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), la [CLI de Azure](/cli/azure/sql/mi#az_sql_mi_update) o las [plantillas de ARM](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).\n\n### <a name=\"can-i-move-my-managed-instance-from-one-region-to-another\"></a>¿Puedo trasladar mi instancia administrada de una región a otra?\n\nSí, puede hacerlo. Para obtener instrucciones, consulte [Traslado de recursos entre regiones](../database/move-resources-across-regions.md).\n\n### <a name=\"how-can-i-delete-my-managed-instance\"></a>¿Cómo puedo eliminar mi instancia administrada?\n\nPuede eliminar instancias administradas desde Azure Portal, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance), la [CLI de Azure](/cli/azure/sql/mi#az_sql_mi_delete) o las [API REST de Resource Manager](/rest/api/sql/managedinstances/delete).\n\n### <a name=\"how-much-time-does-it-take-to-create-or-update-an-instance-or-to-restore-a-database\"></a>¿Cuánto tiempo se tarda en crear o actualizar una instancia, o en restaurar una base de datos?\n\nEl tiempo esperado para crear una instancia administrada o cambiar los niveles de servicio (núcleos virtuales, almacenamiento) depende de varios factores. Consulte [Operaciones de administración](sql-managed-instance-paas-overview.md#management-operations).\n \n"
+  - question: >
+      Convenciones de nomenclatura
+    answer: "### <a name=\"can-a-managed-instance-have-the-same-name-as-a-sql-server-on-premises-instance\"></a>¿Puede una instancia administrada tener el mismo nombre que una instancia de SQL Server local?\n\nNo se admite el cambio de nombre de la instancia administrada.\n\n### <a name=\"can-i-change-dns-zone-prefix\"></a>¿Puedo cambiar el prefijo de zona DNS?\n\nSí, se puede cambiar la zona DNS predeterminada *.database.windows.net* de la instancia administrada. \n\nPara usar otra zona DNS en lugar de la predeterminada, por ejemplo, *.contoso.com*, haga lo siguiente: \n- Use CliConfig para definir un alias. La herramienta no es más que un contenedor de la configuración del registro, por lo que también se puede hacer mediante una directiva de grupo o un script.\n- Use *CNAME* con la opción *TrustServerCertificate = true*.\n"
+  - question: >
+      Opciones de migración
+    answer: "### <a name=\"how-can-i-migrate-from-azure-sql-database-single-or-elastic-pool-to-sql-managed-instance\"></a>¿Cómo puedo realizar la migración de un grupo individual o elástico de Azure SQL Database a SQL Managed Instance?\n\nUna instancia administrada ofrece los mismos niveles de rendimiento por proceso y por tamaño de almacenamiento que otras opciones de implementación de Azure SQL Database. Si desea consolidar los datos en una sola instancia o simplemente necesita una característica admitida exclusivamente en una instancia administrada, puede migrar los datos mediante la funcionalidad de exportación e importación (BACPAC). Estas son otras maneras de considerar la migración de SQL Database a SQL Managed Instance: \n- Uso de un [origen de datos externo](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-129-using-data-source-external-from-azure-sql/ba-p/1443210)\n- Uso de [SQLPackage](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-migrate-azure-sql-database-to-azure-sql-managed-instance/ba-p/369182)\n- Uso de [BCP](https://medium.com/azure-sqldb-managed-instance/migrate-from-azure-sql-managed-instance-using-bcp-674c92efdca7)\n\n### <a name=\"how-can-i-migrate-my-instance-database-to-a-single-azure-sql-database\"></a>¿Cómo puedo migrar mi base de datos de instancia a una instancia individual de Azure SQL Database?\n\nUna opción es [exportar una base de datos a un archivo BACPAC](../database/database-export.md) y, a continuación, [importar dicho archivo](../database/database-import.md). Este enfoque es aconsejable si la base de datos tiene menos de 100 GB.\n\nLa [replicación transaccional](replication-two-instances-and-sql-server-configure-tutorial.md) se puede utilizar si todas las tablas de la base de datos tienen claves *principales* y no hay objetos OLTP en memoria en la base de datos.\n\nLas copias de seguridad nativas COPY_ONLY realizadas de una instancia administrada no se pueden restaurar en SQL Server, porque la instancia administrada tiene una versión superior de la base de datos en comparación con SQL Server. Para obtener más información, vea [Copias de seguridad de solo copia](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15).\n\n### <a name=\"how-can-i-migrate-my-sql-server-instance-to-sql-managed-instance\"></a>¿Cómo puedo migrar mi instancia de SQL Server a SQL Managed Instance?\n\nPara migrar la instancia de SQL Server, consulte [Migración de la instancia de SQL Server a Azure SQL Managed Instance](migrate-to-instance-from-sql-server.md).\n\n### <a name=\"how-can-i-migrate-from-other-platforms-to-sql-managed-instance\"></a>¿Cómo puedo migrar de otras plataformas a SQL Managed Instance?\n\nPara obtener información sobre la migración desde otras plataformas, vea [Guía de Azure Database Migration](https://datamigration.microsoft.com/).\n"
+  - question: "Cambio de generación de hardware \n"
+    answer: >
+      ### <a name="can-i-switch-my-managed-instance-hardware-generation-between-gen-4-and-gen-5-online"></a>¿Puedo cambiar la generación de hardware de mi instancia administrada entre Gen 4 y Gen 5 en línea?
+
+
+      La conmutación en línea automatizada entre Gen4 y Gen5 es posible si el hardware de Gen5 está disponible en la misma región en la que está aprovisionada la instancia administrada. En este caso, puede comprobar la [página Introducción al modelo de núcleos virtuales](../database/service-tiers-vcore.md), que explica cómo pasar de una generación de hardware a otra.
+
+
+      Se trata de una operación de larga duración, ya que la nueva instancia administrada se aprovisionará en segundo plano y en las bases de datos transferidas automáticamente entre la instancia antigua y la nueva, con una conmutación por error rápida al final del proceso.
+
+
+      Nota: El hardware de Gen4 está en proceso de eliminación gradual y ya no está disponible para implementaciones nuevas. Todas las nuevas bases de datos deben implementarse en hardware de Gen5. Tampoco se puede cambiar de Gen5 y a Gen4.
+  - question: "Rendimiento \n"
+    answer: "### <a name=\"how-can-i-compare-managed-instance-performance-to-sql-server-performance\"></a>¿Cómo puedo comparar el rendimiento de la Instancia administrada con el de SQL Server?\n\nPara obtener una comparación del rendimiento entre una instancia administrada y SQL Server, un buen punto de partida es leer los [procedimientos recomendados para la comparación de rendimiento entre la Instancia administrada de Azure SQL y SQL Server](https://techcommunity.microsoft.com/t5/azure-sql-database/the-best-practices-for-performance-comparison-between-azure-sql/ba-p/683210).\n\n### <a name=\"what-causes-performance-differences-between-managed-instance-and-sql-server\"></a>¿Cuáles son las causas de las diferencias de rendimiento entre la Instancia administrada y SQL Server?\n\nConsulte [Causas clave de las diferencias de rendimiento entre SQL Managed Instance y SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/). Para obtener más información sobre el impacto del tamaño del archivo de registro en el rendimiento de la Instancia administrada de uso general, consulte [Impacto del tamaño del archivo de registro en el nivel De uso general](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).\n\n### <a name=\"how-do-i-tune-performance-of-my-managed-instance\"></a>¿Cómo se optimiza el rendimiento de una instancia administrada?\n\nPuede optimizar el rendimiento de la instancia administrada con las opciones siguientes:\n- [Ajuste automático](../database/automatic-tuning-overview.md), que proporciona un alto rendimiento y cargas de trabajo estables gracias al ajuste continuo del rendimiento basado en la inteligencia artificial y el aprendizaje automático.\n-    [OLTP en memoria](../in-memory-oltp-overview.md), que mejora el rendimiento y la latencia en las cargas de trabajo de procesamiento transaccional y ofrece información empresarial más rápida. \n\nPara optimizar aún más el rendimiento, considere la posibilidad de aplicar algunos de los *procedimientos recomendados* del artículo [Ajuste de aplicaciones y bases de datos](../database/performance-guidance.md#tune-your-database).\nSi la carga de trabajo consta de muchas transacciones pequeñas, considere la posibilidad de [cambiar el tipo de conexión de proxy a modo de redirección](connection-types-overview.md#changing-connection-type) para obtener una latencia más baja y un rendimiento más alto.\n"
+  - question: >
+      Supervisión, métricas y alertas
+    answer: >
+      ### <a name="what-are-the-options-for-monitoring-and-alerting-for-my-managed-instance"></a>¿Cuáles son las opciones de supervisión y alerta de mi instancia administrada?
+
+
+      Para ver todas las opciones posibles de supervisión y alerta sobre el consumo y el rendimiento de SQL Managed Instance, consulte la [entrada de blog sobre opciones de supervisión de Azure SQL Managed Instance](https://techcommunity.microsoft.com/t5/azure-sql-database/monitoring-options-available-for-azure-sql-managed-instance/ba-p/1065416). Para ver la supervisión del rendimiento en tiempo real de SQL MI, consulte [Supervisión de rendimiento en tiempo real para la Instancia administrada de Azure SQL Database](/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
+
+
+      ### <a name="can-i-use-sql-profiler-for-performance-tracking"></a>¿Puedo usar SQL Profiler para el seguimiento del rendimiento?
+
+
+      Sí, se admite SQL Profiler o SQL Managed Instance. Para obtener más información, consulte [SQL Profiler](/sql/tools/sql-server-profiler/sql-server-profiler?preserve-view=true&view=sql-server-ver15).
+
+
+      ### <a name="are-database-advisor-and-query-performance-insight-supported-for-managed-instance-databases"></a>¿Database Advisor e Información de rendimiento de consultas son compatibles con las bases de datos de Instancia administrada?
+
+
+      No se admiten. Puede usar [DMV](../database/monitoring-with-dmvs.md) y [Almacén de consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?preserve-view=true&view=sql-server-ver15) junto con [SQL Profiler](/sql/tools/sql-server-profiler/sql-server-profiler?preserve-view=true&view=sql-server-ver15) y [XEvents](/sql/relational-databases/extended-events/extended-events?preserve-view=true&view=sql-server-ver15) para supervisar las bases de datos.
+
+
+      ### <a name="can-i-create-metric-alerts-on-sql-managed-instance"></a>¿Puedo crear alertas de métricas en SQL Managed Instance?
+
+
+      Sí. Para obtener instrucciones, consulte [Creación de alertas para SQL Managed Instance](alerts-create.md).
+
+
+      ### <a name="can-i-create-metric-alerts-on-a-database-in-managed-instance"></a>¿Puedo crear alertas de métricas en una base de datos de la instancia administrada?
+
+
+      No, las métricas de alertas están disponibles solo para la instancia administrada. Las métricas de alertas para bases de datos individuales de la instancia administrada no están disponibles.
+  - question: >
+      Tamaño de almacenamiento
+    answer: >
+      ### <a name="what-is-the-maximum-storage-size-for-sql-managed-instance"></a>¿Cuál es el tamaño máximo de almacenamiento de Instancia administrada de SQL?
+
+
+      El tamaño de almacenamiento de Instancia administrada de SQL depende del nivel de servicio seleccionado (De uso general o Crítico para la empresa). Para conocer las limitaciones de almacenamiento de estos niveles de servicio, consulte [Características de los niveles de servicio](../database/service-tiers-general-purpose-business-critical.md).
+
+
+      ### <a name="what-is-the-minimum-storage-size-available-for-a-managed-instance"></a>¿Cuál es el tamaño mínimo de almacenamiento disponible para una instancia administrada?
+
+
+      La cantidad mínima de almacenamiento disponible de una instancia es de 32 GB. El almacenamiento se puede agregar en incrementos de 32 GB hasta el tamaño de almacenamiento máximo. Los primeros 32 GB son gratis.
+
+
+      ### <a name="can-i-increase-storage-space-assigned-to-an-instance-independently-from-compute-resources"></a>¿Puedo aumentar el espacio de almacenamiento asignado a una instancia, independientemente de los recursos de proceso?
+
+
+      Sí, puede comprar el almacenamiento de complementos, independientemente del proceso que tenga, hasta cierto punto. Consulte *Tamaño máximo de almacenamiento reservado de instancia* en la [tabla](resource-limits.md#hardware-generation-characteristics).
+
+
+      ### <a name="how-can-i-optimize-my-storage-performance-in-general-purpose-service-tier"></a>¿Cómo puedo optimizar el rendimiento del almacenamiento en el nivel de servicio De uso general?
+
+
+      Para optimizar el rendimiento del almacenamiento, consulte [Procedimientos recomendados de almacenamiento en el nivel De uso general](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525).
+  - question: >
+      Copia de seguridad y restauración
+    answer: >
+      ### <a name="is-the-backup-storage-deducted-from-my-managed-instance-storage"></a>¿Se deduce el almacenamiento de copia de seguridad del almacenamiento de mi instancia administrada?
+
+
+      No, el almacenamiento de copia de seguridad no se deduce del espacio de almacenamiento de su instancia administrada. El almacenamiento de copia de seguridad es independiente del espacio de almacenamiento de la instancia y su tamaño no está limitado. El almacenamiento de copia de seguridad está limitado por el período de tiempo durante el que se conserva la copia de seguridad de las bases de datos de la instancia; se puede configurar en un total de 35 días. Para más información, consulte [Copias de seguridad automatizadas](../database/automated-backups-overview.md).
+
+
+      ### <a name="how-can-i-see-when-automated-backups-are-made-on-my-managed-instance"></a>¿Cómo puedo ver cuándo se realizan copias de seguridad automatizadas en mi instancia administrada?
+
+
+      Para hacer un seguimiento de cuándo se han realizado copias de seguridad automatizadas en la Instancia administrada, consulte [Cómo realizar un seguimiento de la copia de seguridad automatizada de una instancia de Azure SQL Managed Instance](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-128-how-to-track-the-automated-backup-for-an/ba-p/1442355).
+
+
+      ### <a name="is-on-demand-backup-supported"></a>¿Se admite la copia de seguridad a petición?
+
+
+      Sí, puede crear una copia de seguridad completa de solo copia en su instancia de Azure Blob Storage, pero solo se puede restaurar en la Instancia administrada. Para obtener información, vea [Copias de seguridad de solo copia](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15). Sin embargo, no es posible realizar copias de seguridad de solo copia si la base de datos está cifrada mediante TDE administrado por el servicio, ya que no se puede obtener acceso al certificado que se usa para el cifrado. En ese caso, use la característica de restauración a un momento dado para mover la base de datos a otra instancia de SQL Managed Instance o cambie a una clave administrada por el cliente.
+
+
+      ### <a name="is-native-restore-from-bak-files-to-managed-instance-supported"></a>¿La restauración nativa (desde archivos .bak) es compatible con la Instancia administrada?
+
+
+      Sí, se admite y está disponible para las versiones de SQL Server 2005 y posteriores.  Para usar la restauración nativa, cargue el archivo.bak en Azure Blob Storage y ejecute comandos T-SQL. Para obtener más información, vea [Restauración nativa desde la URL](./migrate-to-instance-from-sql-server.md#native-restore-from-url).
+  - question: >
+      Continuidad empresarial
+    answer: >
+      ### <a name="are-my-system-databases-replicated-to-the-secondary-instance-in-a-failover-group"></a>¿Las bases de datos del sistema no se replican en la instancia secundaria de un grupo de conmutación por error?
+
+
+      Las bases de datos del sistema no se replican en la instancia secundaria de un grupo de conmutación por error. Por lo tanto, los escenarios que dependen de objetos de las bases de datos del sistema serán imposibles en la instancia secundaria, a menos que los objetos se creen manualmente en la secundaria. Para solucionar el problema, consulte el artículo [Habilitación de escenarios que dependen de objetos de las bases de datos del sistema](../database/auto-failover-group-overview.md?tabs=azure-powershell#enable-scenarios-dependent-on-objects-from-the-system-databases).
+
+       
+  - question: "Requisitos de red \n"
+    answer: "### <a name=\"what-are-the-current-inboundoutbound-nsg-constraints-on-the-managed-instance-subnet\"></a>¿Cuáles son las restricciones de NSG entrantes o salientes actuales en la subred de instancia administrada?\n\nLas reglas NSG y UDR necesarias se documentan [aquí](connectivity-architecture-overview.md#mandatory-inbound-security-rules-with-service-aided-subnet-configuration), y el servicio las establece automáticamente.\nTenga en cuenta que estas reglas son solo las únicas que necesitamos para mantener el servicio. Para conectarse a la instancia administrada y usar diferentes características, deberá establecer reglas adicionales específicas de las características que necesita mantener.\n\n### <a name=\"how-can-i-set-inbound-nsg-rules-on-management-ports\"></a>¿Cómo se pueden establecer reglas de grupos de seguridad de red de entrada en los puertos de administración?\n\nSQL Managed Instance es responsable de establecer reglas en los puertos de administración. Esto se logra a través de la funcionalidad denominada [configuración de subred asistida por servicio](connectivity-architecture-overview.md#service-aided-subnet-configuration).\nEl objetivo es garantizar un flujo ininterrumpido del tráfico de administración con el fin de cumplir un contrato de nivel de servicio.\n\n### <a name=\"can-i-get-the-source-ip-ranges-that-are-used-for-the-inbound-management-traffic\"></a>¿Puedo obtener los intervalos de IP de origen que se usan para el tráfico de administración de entrada?\n\nSí. Puede analizar el tráfico que llega a través del grupo de seguridad de red mediante la [configuración de los registros de flujo de Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md#analyze-traffic-to-or-from-a-network-security-group).\n\n### <a name=\"can-i-set-nsg-to-control-access-to-the-data-endpoint-port-1433\"></a>¿Puedo establecer NSG para controlar el acceso al punto de conexión de datos (puerto 1433)?\n\nSí. Después de aprovisionar una instancia administrada, puede establecer un NSG que controle el acceso de entrada al puerto 1433. Es aconsejable limitar su intervalo de IP tanto como sea posible.\n\n### <a name=\"can-i-set-the-nva-or-on-premises-firewall-to-filter-the-outbound-management-traffic-based-on-fqdns\"></a>¿Puedo establecer la NVA o el firewall local para filtrar el tráfico de administración saliente en función de los FQDN?\n\nNo. No se admite por distintos motivos:\n-    El tráfico de enrutamiento que representa la respuesta a la solicitud de administración entrante sería asimétrico y podría no funcionar.\n-    El enrutamiento del tráfico que va al almacenamiento se vería afectado por las restricciones de rendimiento y la latencia, lo que nos impediría proporcionar la calidad y la disponibilidad esperadas del servicio.\n-    En función de la experiencia, estas configuraciones son propensas a errores y no se admiten.\n\n### <a name=\"can-i-set-the-nva-or-firewall-for-the-outbound-non-management-traffic\"></a>¿Puedo establecer la NVA o el firewall para el tráfico que no es de administración saliente?\n\nSí. La manera más sencilla de lograrlo es agregar la regla 0/0 a una UDR asociada a la subred de instancia administrada para enrutar el tráfico a través de la NVA.\n \n### <a name=\"how-many-ip-addresses-do-i-need-for-a-managed-instance\"></a>¿Cuántas direcciones IP necesito para un instancia administrada?\n\nLa subred debe tener un número de [direcciones IP](connectivity-architecture-overview.md#network-requirements) disponibles suficiente. Para determinar el tamaño de la subred de red virtual para SQL Managed Instance, consulte [Determinación del tamaño e intervalo de subred necesarios para Instancia administrada](./vnet-subnet-determine-size.md). \n\n### <a name=\"what-if-there-are-not-enough-ip-addresses-for-performing-instance-update-operation\"></a>¿Qué ocurre si no hay suficientes direcciones IP para realizar la operación de la instancia administrada?\n\nEn caso de que no haya suficientes [direcciones IP](connectivity-architecture-overview.md#network-requirements) en la subred en la que se ha aprovisionado la instancia administrada, tendrá que crear una nueva subred y una nueva instancia administrada dentro de esta. También se recomienda crear la nueva subred con más direcciones IP asignadas para que las operaciones de actualización futuras eviten situaciones similares. Una vez aprovisionada la nueva instancia, puede realizar manualmente una copia de seguridad de los datos y restaurarlos entre la instancia antigua y la nueva, o bien realizar una [restauración a un momento dado](point-in-time-restore.md?tabs=azure-powershell) entre las instancias.\n\n### <a name=\"do-i-need-an-empty-subnet-to-create-a-managed-instance\"></a>¿Necesito una subred vacía para crear una instancia administrada?\n\nNo. Puede usar una subred vacía o una subred que ya contenga instancias administradas. \n\n### <a name=\"can-i-change-the-subnet-address-range\"></a>¿Puedo cambiar el intervalo de direcciones de la subred?\n\nNo si esta contiene instancias administradas. Se trata de una limitación de la infraestructura de redes de Azure. Solo se permite [agregar espacio de direcciones adicional a una subred vacía](../../virtual-network/virtual-network-manage-subnet.md#change-subnet-settings). \n\n### <a name=\"can-i-move-my-managed-instance-to-another-subnet\"></a>¿Puedo transferir mi instancia administrada a otra subred?\n\nNo. Se trata de una limitación de diseño de instancia administrada actual. No obstante, puede aprovisionar una nueva instancia en otra subred y realizar manualmente una copia de seguridad de los datos y restaurarlos entre la instancia antigua y la nueva, o bien realizar una [restauración a un momento dado](point-in-time-restore.md?tabs=azure-powershell) entre las instancias.\n\n### <a name=\"do-i-need-an-empty-virtual-network-to-create-a-managed-instance\"></a>¿Necesito una red virtual vacía para crear una instancia administrada?\n\nNo es necesario. Puede [crear una red virtual para Azure SQL Managed Instance](./virtual-network-subnet-create-arm-template.md) o [configurar una red virtual existente para Azure SQL Managed Instance](./vnet-existing-add-subnet.md).\n\n### <a name=\"can-i-place-a-managed-instance-with-other-services-in-a-subnet\"></a>¿Puedo colocar un instancia administrada con otros servicios en una subred?\n\nNo. Actualmente no se admite la colocación de una instancia administrada en una subred que ya contiene otros tipos de recursos.\n"
+  - question: "Conectividad \n"
+    answer: "### <a name=\"can-i-connect-to-my-managed-instance-using-ip-address\"></a>¿Puedo establecer conexión con mi instancia administrada mediante la dirección IP?\n\nNo, no se admite. El nombre de host de la Instancia administrada se asigna al equilibrador de carga delante del clúster virtual de la Instancia administrada. Puesto que un clúster virtual puede hospedar varias instancias administradas, es posible que la conexión no se pueda enrutar a la instancia administrada adecuada sin especificar su nombre.\nPara más información sobre la arquitectura del clúster virtual de Instancia administrada de SQL, consulte [Arquitectura de conectividad del clúster virtual](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).\n\n### <a name=\"can-my-managed-instance-have-a-static-ip-address\"></a>¿Puede una instancia administrada tener una dirección IP estática?\n\nActualmente no se admite.\n\nEn situaciones poco frecuentes pero necesarias, es posible que tengamos que realizar una migración en línea de una instancia administrada a un nuevo clúster virtual. Si es necesaria, esta migración se debe a los cambios realizados en nuestra pila de tecnología destinados a mejorar la seguridad y confiabilidad del servicio. La migración a un nuevo clúster virtual provoca el cambio de dirección IP que está asignada al nombre de host de la instancia administrada. El servicio de instancia administrada no solicita compatibilidad con direcciones IP estáticas y se reserva el derecho a cambiar la dirección IP sin previo aviso como parte de los ciclos de mantenimiento regular.\n\nPor este motivo se desaconseja confiar en la inmutabilidad de la dirección IP, ya que podría provocar un tiempo de inactividad innecesario.\n\n### <a name=\"does-managed-instance-have-a-public-endpoint\"></a>¿La Instancia administrada tiene un punto de conexión público?\n\nSí. Tiene un punto de conexión público que, de forma predeterminada, solo se usa para la administración de servicios. Los clientes también puede habilitarlo para el acceso a datos. Para obtener más información, vea [Uso de SQL Managed Instance con puntos de conexión públicos](./public-endpoint-overview.md). Para configurar el punto de conexión público, vaya a [Configuración de un punto de conexión público en SQL Managed Instance](public-endpoint-configure.md).\n\n### <a name=\"how-does-managed-instance-control-access-to-the-public-endpoint\"></a>¿Cómo controla la Instancia administrada el acceso al punto de conexión público?\n\nLa Instancia administrada controla el acceso al punto de conexión público a nivel de la red y de la aplicación.\n\nLos servicios de administración e implementación se conectan a una instancia administrada mediante un [punto de conexión de administración](./connectivity-architecture-overview.md#management-endpoint) que se asigna a un equilibrador de carga externo. El tráfico se enruta a los nodos solo si se recibe en un conjunto predefinido de puertos que usan exclusivamente los componentes de administración de la instancia administrada. Un firewall integrado en los nodos se configura para permitir el tráfico solo desde intervalos IP de Microsoft. Los certificados autentican mutuamente toda la comunicación entre los componentes de administración y el plano de administración. Para obtener más información, consulte [Arquitectura de conectividad para SQL Managed Instance](./connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).\n\n### <a name=\"could-i-use-the-public-endpoint-to-access-the-data-in-managed-instance-databases\"></a>¿Puedo usar el punto de conexión público para acceder a los datos de las bases de datos de la Instancia administrada?\n\nSí. El cliente tendrá que habilitar el acceso a los datos del punto de conexión público desde [Azure Portal](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal) / [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell)/ARM y configurar un grupo de seguridad de red para bloquear el acceso al puerto de datos (número de puerto 3342). Para obtener más información, consulte [Configuración de un punto de conexión público en Azure SQL Managed Instance ](public-endpoint-configure.md) y [Uso de Azure SQL Managed Instance de forma segura con puntos de conexión públicos](public-endpoint-overview.md). \n\n### <a name=\"can-i-specify-a-custom-port-for-sql-data-endpoints\"></a>¿Se puede especificar un puerto personalizado para los puntos de conexión de datos SQL?\n\nNo, esta opción no está disponible.  En el caso de los puntos de conexión de datos privados, la Instancia administrada usa el número de puerto predeterminado 1433, mientras que para los públicos, usa el 3342.\n\n### <a name=\"what-is-the-recommended-way-to-connect-managed-instances-placed-in-different-regions\"></a>¿Cuál es la forma recomendada de conectar las instancias administradas ubicadas en diferentes regiones?\n\nLa mejor manera de hacerlo es mediante el emparejamiento del circuito de ExpressRoute. El emparejamiento global de redes virtuales es compatible con la limitación descrita en la nota siguiente.  \n\n> [!IMPORTANT]\n> [El 22/09/2020, anunciamos el emparejamiento global de redes virtuales para los clústeres virtuales recién creados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Esto significa que el emparejamiento de red virtual global se admite en las instancias de SQL Managed Instance creadas en subredes vacías después de la fecha del anuncio, así como en todas las instancias administradas posteriores creadas en esas subredes. En el caso de todas las demás instancias de SQL Managed Instance, la compatibilidad con el emparejamiento se limita a las redes de la misma región debido a las [restricciones del emparejamiento de red virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte también la sección correspondiente del artículo [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para más información. \n\nSi el emparejamiento del circuito de Express Route y de la red virtual global no es posible, la única opción es crear una conexión VPN de sitio a sitio ([Azure Portal](../../vpn-gateway/tutorial-site-to-site-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) y la [CLI de Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)).\n"
+  - question: "Mitigación de los riesgos de filtración de datos  \n"
+    answer: >
+      ### <a name="how-can-i-mitigate-data-exfiltration-risks"></a>¿Cómo se pueden mitigar los riesgos de filtración de datos?
+
+
+      Para mitigar los riesgos de filtración de datos, es aconsejable que los clientes apliquen un conjunto de valores y controles de seguridad:
+
+
+      - Activar el [cifrado de datos transparente (TDE)](../database/transparent-data-encryption-tde-overview.md) en todas las bases de datos.
+
+      - Desactivar Common Language Runtime (CLR). Se recomienda hacerlo también en el entorno local.
+
+      - Usar solo la autenticación de Azure Active Directory (Azure AD).
+
+      - Acceder a la instancia con una cuenta de DBA con pocos privilegios.
+
+      - Configurar el acceso del jumpbox de JIT para la cuenta de sysadmin.
+
+      - Activar la [auditoría de SQL](/sql/relational-databases/security/auditing/sql-server-audit-database-engine) e integrarla en los mecanismos de alerta.
+
+      - Active [Detección de amenazas](../database/threat-detection-configure.md) en el conjunto de [Azure Defender para SQL](../database/azure-defender-for-sql.md).
+  - question: >
+      DNS
+    answer: >
+      ### <a name="can-i-configure-a-custom-dns-for-sql-managed-instance"></a>¿Puedo configurar un DNS personalizado para SQL Managed Instance?
+
+
+      Sí. Consulte [Configuración de un DNS personalizado para Azure SQL Managed Instance](./custom-dns-configure.md).
+
+
+      ### <a name="can-i-do-dns-refresh"></a>¿Puedo actualizar DNS?
+
+
+      Sí. Consulte [Sincronización de la configuración de servidores DNS de red virtual en el clúster virtual de SQL Managed Instance](./synchronize-vnet-dns-servers-setting-on-virtual-cluster.md).
+  - question: >
+      Cambio de la zona horaria
+    answer: >
+      ### <a name="can-i-change-the-time-zone-for-an-existing-managed-instance"></a>¿Puedo cambiar la zona horaria de una instancia administrada existente?
+
+
+      La configuración de la zona horaria se puede establecer la primera vez que se aprovisiona una instancia administrada. No se admite el cambio de zona horaria de una instancia administrada existente. Para más información, consulte las [limitaciones de zona horaria](timezones-overview.md#limitations).
+
+
+      Las soluciones alternativas incluyen la creación de una nueva instancia administrada con la zona horaria adecuada, y la posterior realización de una copia de seguridad y una restauración de forma manual, o lo que recomendamos, realizar una [restauración a un momento dado entre instancias](/archive/blogs/sqlserverstorageengine/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance).
+  - question: >
+      Seguridad y cifrado de la base de datos
+    answer: "### <a name=\"is-the-sysadmin-server-role-available-for-sql-managed-instance\"></a>¿El rol de servidor sysadmin está disponible para SQL Managed Instance?\n\nSí, los clientes pueden crear inicios de sesión que sean miembros del rol sysadmin.  Los clientes que asumen el privilegio sysadmin también asumen la responsabilidad de operar la instancia, lo que puede afectar negativamente al compromiso del contrato de nivel de servicio. Para agregar el inicio de sesión al rol de servidor sysadmin, consulte [Autenticación de Azure AD](./aad-security-configure-tutorial.md#azure-ad-authentication).\n\n### <a name=\"is-transparent-data-encryption-supported-for-sql-managed-instance\"></a>¿El cifrado de datos es transparente para SQL Managed Instance?\n\nSi, el cifrado de datos transparente es compatible con SQL Managed Instance. Para obtener más información, consulte [Cifrado de datos transparente para SQL Managed Instance](../database/transparent-data-encryption-tde-overview.md?tabs=azure-portal).\n\n### <a name=\"can-i-leverage-the-bring-your-own-key-model-for-tde\"></a>¿Puedo aprovechar el modelo \"Bring Your Own Key\" para TDE?\n\nSí, el escenario de Azure Key Vault para BYOK está disponible para Azure SQL Managed Instance. Para obtener más información, consulte [Cifrado de datos transparente con una clave administrada por el cliente](../database/transparent-data-encryption-tde-overview.md?tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key).\n\n### <a name=\"can-i-migrate-an-encrypted-sql-server-database\"></a>¿Puedo migrar una base de datos de SQL Server cifrada?\n\nSí, puede hacerlo. Para migrar una base de datos de SQL Server cifrada, debe exportar e importar los certificados existentes en Instancia administrada y, después, realizar una copia de seguridad completa de la base de datos y restaurarla en Instancia administrada. \n\nTambién puede usar [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) para migrar las bases de datos cifradas de TDE.\n\n### <a name=\"how-can-i-configure-tde-protector-rotation-for-sql-managed-instance\"></a>¿Cómo puedo configurar la rotación del protector de TDE para SQL Managed Instance?\n\nPuede girar el protector de TDE de Instancia administrada mediante Azure Cloud Shell. Para obtener instrucciones, consulte [Cifrado de datos transparente en SQL Managed Instance con su propia clave desde Azure Key Vault](scripts/transparent-data-encryption-byok-powershell.md).\n\n### <a name=\"can-i-restore-my-encrypted-database-to-sql-managed-instance\"></a>¿Puedo restaurar mi base de datos cifrada en Instancia administrada de SQL?\n\nSí, no es preciso descifrar la base de datos para poder restaurarla en Instancia administrada de SQL. Tiene que especificar la clave o el certificado utilizados como un protector de clave de cifrado en el sistema de origen a SQL Managed Instance para poder leer los datos desde el archivo de copia de seguridad cifrado. Existen dos formas posibles de hacerlo:\n\n- *Cargar el protector de certificado en SQL Managed Instance*. Solo se puede hacer mediante PowerShell. El [script de ejemplo](./tde-certificate-migrate.md) describe todo el proceso.\n- *Cargar el protector de clave asimétrica en Azure Key Vault y apuntar SQL Managed Instance hacia este*. Este enfoque es similar al caso de uso del cifrado de datos transparente de Bring Your Own Key (BYOK), que también usa la integración de Key Vault para almacenar la clave de cifrado. Si no quiere usar la clave como protector de la clave de cifrado y solo quiere que esté disponible para SQL Managed Instance y así poder restaurar las bases de datos cifradas, siga las instrucciones para [configurar BYOK TDE](../database/transparent-data-encryption-tde-overview.md#manage-transparent-data-encryption) y no active la casilla **Hacer que la clave seleccionada sea el protector de TDE predeterminado**.\n\nUna vez que el protector de cifrado está disponible para Instancia administrada de SQL, puede continuar con el procedimiento de restauración de base de datos estándar.\n"
+  - question: >
+      Modelos de compra y ventajas
+    answer: "### <a name=\"what-purchasing-models-are-available-for-sql-managed-instance\"></a>¿Qué modelos de compra están disponibles para SQL Managed Instance?\n\nSQL Managed Instance ofrece el [modelo de compra basado en núcleo virtual](sql-managed-instance-paas-overview.md#vcore-based-purchasing-model).\n\n### <a name=\"what-cost-benefits-are-available-for-sql-managed-instance\"></a>¿Qué ventajas de costos están disponibles para SQL Managed Instance?\n\nPuede ahorrar costos con las ventajas de SQL Azure de las siguientes maneras:\n-    Maximice las inversiones existentes en licencias locales y ahorre hasta un 55 % con [Ventaja híbrida de Azure](../azure-hybrid-benefit.md?tabs=azure-powershell). \n-    Confirme una reserva de recursos de proceso y ahorre hasta un 33 % con [Ventaja de instancia reservada](../database/reserved-capacity-overview.md). Combínela con Ventaja híbrida de Azure para ahorrar hasta un 82 %. \n-    Ahorre hasta un 55 % en comparación con la lista de [Ventaja de precios para desarrollo/pruebas de Azure](https://azure.microsoft.com/pricing/dev-test/), que ofrece tarifas con descuento para las cargas de trabajo de desarrollo y pruebas en curso.\n\n### <a name=\"who-is-eligible-for-reserved-instance-benefit\"></a>¿Quién puede optar a la Ventaja de instancia reservada?\n\nPara poder beneficiarse de la Ventaja de instancia reservada, el tipo de suscripción debe ser un Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precios de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para más información sobre las reservas, consulte [Ventaja de instancia reservada](../database/reserved-capacity-overview.md). \n\n### <a name=\"is-it-possible-to-cancel-exchange-or-refund-reservations\"></a>¿Se pueden cancelar, intercambiar o reembolsar reservas?\n\nPuede cancelar, intercambiar o reembolsar reservas con ciertas limitaciones. Para más información, consulte [Autoservicio de intercambios y reembolsos de reservas de Azure](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).\n"
+  - question: >
+      Facturación de Instancia administrada y almacenamiento de copia de seguridad
+    answer: "### <a name=\"what-are-the-sql-managed-instance-pricing-options\"></a>¿Cuáles son las opciones de precios de SQL Managed Instance?\n\nPara explorar las opciones de precios de Instancia administrada, consulte la [página de precios](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).\n\n### <a name=\"how-can-i-track-billing-cost-for-my-managed-instance\"></a>¿Cómo puedo realizar un seguimiento del costo de facturación de mi instancia administrada?\n\nPuede hacerlo con la [solución Azure Cost Management](../../cost-management-billing/index.yml). Navegue a **Suscripciones** en [Azure Portal](https://portal.azure.com) y seleccione **Análisis de costos**. \n\nUse la opción **Costos acumulados** y luego filtre por **Tipo de recurso**, como `microsoft.sql/managedinstances`.\n\n### <a name=\"how-much-automated-backups-cost\"></a>¿Cuánto cuestan las copias de seguridad automatizadas?\n\nObtiene la misma cantidad de espacio de almacenamiento de copia de seguridad gratis que el espacio de almacenamiento de datos reservado adquirido, independientemente del período de retención de copia de seguridad establecido. Si el consumo del almacenamiento de copia de seguridad se encuentra dentro del espacio de almacenamiento de copia de seguridad asignado, las copias de seguridad automatizadas en la instancia administrada no tendrán ningún costo adicional para usted, por lo que serán gratuitas. Si se supera el uso del almacenamiento de copia de seguridad por encima del espacio disponible, se aplicará un costo de aproximadamente 0,20 USD a 0,24 USD por GB/mes en las regiones de EE. UU. Consulte la página de precios para obtener más información sobre su región. Para obtener más información, consulte la [explicación sobre el consumo del almacenamiento de copia de seguridad](https://techcommunity.microsoft.com/t5/azure-sql-database/backup-storage-consumption-on-managed-instance-explained/ba-p/1390923).\n\n### <a name=\"how-can-i-monitor-billing-cost-for-my-backup-storage-consumption\"></a>¿Cómo puedo supervisar el costo de facturación del consumo de almacenamiento de copia de seguridad?\n\nPuede supervisar el costo del almacenamiento de copia de seguridad a través de Azure Portal. Para obtener instrucciones, consulte [Supervisión de los costos de las copias de seguridad automatizadas](../database/automated-backups-overview.md?tabs=managed-instance#monitor-costs). \n\n### <a name=\"how-can-i-optimize-my-backup-storage-costs-on-the-managed-instance\"></a>¿Cómo puedo optimizar mis costos de almacenamiento de copia de seguridad en la instancia administrada?\n\nPara optimizar los costos de almacenamiento de copia de seguridad, consulte el artículo sobre la [optimización de la copia de seguridad en SQL Managed Instance](https://techcommunity.microsoft.com/t5/azure-sql-database/fine-tuning-backup-storage-costs-on-managed-instance/ba-p/1390935).\n"
+  - question: >
+      Casos de uso que permiten reducir costos
+    answer: >
+      ### <a name="where-can-i-find-use-cases-and-resulting-cost-savings-with-sql-managed-instance"></a>¿Dónde puedo encontrar casos de uso y el ahorro de costos resultante con Instancia administrada de SQL?
+
+
+      Casos prácticos de Instancia administrada de SQL:
+
+
+      - [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
+
+      - [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
+
+      - [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+
+      - [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
+
+
+      Existe también un estudio de Forrester en el que se explican en detalle los beneficios, costos y riesgos asociados a la implementación de Azure SQL Managed Instance: [The Total Economic Impact de la instancia administrada de Microsoft Azure SQL Database](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
+  - question: "Directiva de contraseñas \n"
+    answer: >
+      ### <a name="what-password-policies-are-applied-for-sql-managed-instance-sql-logins"></a>¿Qué directivas de contraseña se aplican a los inicios de sesión SQL de Instancia administrada de SQL?
+
+
+      La Directiva de contraseña de Instancia administrada de SQL para inicios de sesión de SQL hereda las directivas de la plataforma Azure que se aplican a las máquinas virtuales que forman el clúster virtual que contiene la instancia administrada. En este momento no es posible cambiar ninguno de estos valores, ya que estos se definen en Azure y los hereda la instancia administrada.
+
+       > [!IMPORTANT]
+       > La plataforma Azure puede cambiar los requisitos de directiva sin notificar a los servicios que dependen de esas directivas.
+
+      ### <a name="what-are-current-azure-platform-policies"></a>¿Cuáles son las directivas actuales de la plataforma Azure?
+
+
+      Cada inicio de sesión tiene que establecer su contraseña al iniciar sesión y cambiarla una vez que alcance la antigüedad máxima.
+
+
+      | **Directiva** | **Configuración de seguridad** |
+
+      | --- | --- |
+
+      | Antigüedad máxima de contraseña | 42 días |
+
+      | Antigüedad mínima de contraseña | 1 día |
+
+      | Longitud mínima de contraseña | 10 caracteres |
+
+      | La contraseña tiene que cumplir los requisitos de complejidad | habilitado |
+
+
+      ### <a name="is-it-possible-to-disable-password-complexity-and-expiration-in-sql-managed-instance-on-login-level"></a>¿Es posible deshabilitar la complejidad de la contraseña y la expiración en Instancia administrada de SQL en el nivel de inicio de sesión?
+
+
+      Sí, los campos CHECK_POLICY y CHECK_EXPIRATION se pueden controlar en el nivel de inicio de sesión. Puede comprobar la configuración actual ejecutando el siguiente comando de T-SQL:
+
+
+      ```sql
+
+      SELECT *
+
+      FROM sys.sql_logins
+
+      ```
+
+
+      Después, puede modificar valores de inicio de sesión especificados ejecutando:
+
+
+      ```sql
+
+      ALTER LOGIN <login_name> WITH CHECK_POLICY = OFF;
+
+      ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
+
+      ```
+
+
+      (reemplace "Test" por el nombre de inicio de sesión deseado y ajuste los valores de directiva y expiración)
+  - question: >
+      Actualizaciones del servicio
+    answer: "### <a name=\"what-is-the-root-ca-change-for-azure-sql-database--sql-managed-instance\"></a>¿Cuál es el cambio de CA raíz para Azure SQL Database y SQL Managed Instance?\n\nConsulte la [Rotación de certificados en Azure SQL Database y SQL Managed Instance](../updates/ssl-root-certificate-expiring.md). \n\n### <a name=\"what-is-a-planned-maintenance-event-for-sql-managed-instance\"></a>¿Qué es un evento de mantenimiento planeado para SQL Managed Instance?\n\nConsulte [Planeación de eventos de mantenimiento en SQL Managed Instance](../database/planned-maintenance.md). \n"
+  - question: >
+      Comentarios y soporte técnico de Azure
+    answer: >-
+      ### <a name="where-can-i-leave-my-ideas-for-sql-managed-instance-improvements"></a>¿Dónde puedo dejar mis ideas de mejora de SQL Managed Instance?
+
+
+      Puede votar por una nueva característica de Instancia administrada o someter una nueva idea de mejora a votación en el [Foro de comentarios de SQL Managed Instance](https://feedback.azure.com/forums/915676-sql-managed-instance). De este modo, puede contribuir al desarrollo del producto y ayudarnos a priorizar nuestras posibles mejoras.
+
+
+      ### <a name="how-can-i-create-azure-support-request"></a>¿Cómo puedo crear una solicitud de soporte técnico de Azure?
+
+
+      Para obtener información acerca de cómo crear una solicitud de soporte técnico de Azure, consulte [Creación de una solicitud de soporte técnico de Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md).

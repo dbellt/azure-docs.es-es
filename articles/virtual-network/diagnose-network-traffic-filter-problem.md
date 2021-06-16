@@ -15,12 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
-ms.openlocfilehash: d6835d06015923a70301c95370c76efbd0c2163e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d3180ba6e8c19714759563eb79a8488929efe940
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776742"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110675861"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnóstico de un problema de filtro del tráfico de red de una máquina virtual
 
@@ -168,7 +169,7 @@ La regla denominada **defaultSecurityRules/DenyAllInBound** es lo que impide la 
 
 Independientemente de que utilice Azure [Portal](#diagnose-using-azure-portal), [PowerShell](#diagnose-using-powershell) o la [CLI de Azure](#diagnose-using-azure-cli) para diagnosticar el problema que se presenta en el [escenario](#scenario) de este artículo, la solución consiste en crear una regla de seguridad de red con las siguientes propiedades:
 
-| Propiedad                | Value                                                                              |
+| Propiedad                | Valor                                                                              |
 |---------                |---------                                                                           |
 | Source                  | Any                                                                                |
 | Source port ranges      | Any                                                                                |

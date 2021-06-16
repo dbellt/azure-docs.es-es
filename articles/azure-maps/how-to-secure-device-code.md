@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 3833cbfd0802f334e482203d269984eb0e299797
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 50e3ce1ef83c33900895e6aa3e5fc925b2004d7d
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92895637"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110791354"
 ---
 # <a name="secure-an-input-constrained-device-with-azure-ad-and-azure-maps-rest-apis"></a>Protección de un dispositivo con restricciones de entrada con Azure AD y las API REST de Azure Maps
 
@@ -41,11 +41,11 @@ Cree la aplicación basada en el dispositivo en Azure AD para habilitar el inic
     > ![Agregar detalles del registro de aplicación para el nombre y el identificador URI de redirección](./media/azure-maps-authentication/devicecode-app-registration.png)
 
 3. Vaya a **Autenticación** y habilite **Tratar la aplicación como un cliente público**. Esto habilitará la autenticación de código de dispositivo con Azure AD.
-    
+
     > [!div class="mx-imgBorder"]
     > ![Habilitación del registro de aplicación como cliente público](./media/azure-maps-authentication/devicecode-public-client.png)
 
-4.  Para asignar permisos de API delegados a Azure Maps, vaya a la aplicación. A continuación, seleccione **Permisos de API** > **Agregar un permiso**. En **API usadas en mi organización**, busque y seleccione **Azure Maps**.
+4. Para asignar permisos de API delegados a Azure Maps, vaya a la aplicación. A continuación, seleccione **Permisos de API** > **Agregar un permiso**. En **API usadas en mi organización**, busque y seleccione **Azure Maps**.
 
     > [!div class="mx-imgBorder"]
     > ![Adición de permisos de API a la aplicación](./media/how-to-manage-authentication/app-permissions.png)
@@ -59,22 +59,25 @@ Cree la aplicación basada en el dispositivo en Azure AD para habilitar el inic
 
 7. Agregue el código del flujo de adquisición de tokens a la aplicación. Para obtener información detallada sobre la implementación, consulte [Flujo de código de dispositivo](../active-directory/develop/scenario-desktop-acquire-token.md#device-code-flow). Al adquirir los tokens, haga referencia al ámbito: `user_impersonation`, que se seleccionó en los pasos anteriores.
 
-> [!Tip]
-> Use la Biblioteca de autenticación de Microsoft (MSAL) para adquirir los tokens de acceso. Consulte las recomendaciones de [Aplicación de escritorio que llama a las API web: configuración del código](../active-directory/develop/scenario-desktop-app-configuration.md)
+    > [!Tip]
+    > Use la Biblioteca de autenticación de Microsoft (MSAL) para adquirir los tokens de acceso.
+    > Consulte las recomendaciones de [Aplicación de escritorio que llama a las API web: configuración del código](../active-directory/develop/scenario-desktop-app-configuration.md)
 
 8. Cree la solicitud HTTP con el token adquirido desde Azure AD y envíe la solicitud con un cliente HTTP válido.
 
 ### <a name="sample-request"></a>Solicitud de ejemplo
+
 El siguiente es un ejemplo de cuerpo de la solicitud para cargar una geovalla sencilla que se representa como una geometría circular mediante un punto central y un radio.
 
 ```http
-POST /mapData/upload?api-version=1.0&dataFormat=geojson
-Host: atlas.microsoft.com
+POST /mapData?api-version=2.0&dataFormat=geojson
+Host: us.atlas.microsoft.com
 x-ms-client-id: 30d7cc….9f55
 Authorization: Bearer eyJ0e….HNIVN
 ```
 
  El cuerpo de la solicitud de ejemplo siguiente está en formato GeoJSON:
+
 ```json
 {
     "type": "FeatureCollection",
@@ -92,23 +95,13 @@ Authorization: Bearer eyJ0e….HNIVN
 }
 ```
 
-### <a name="sample-response"></a>Respuesta de ejemplo:
+### <a name="sample-response-header"></a>Ejemplo de encabezado de respuesta
 
-Encabezados:
 ```http
-Location: https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0
-Access-Control-Expose-Headers: Location
+Operation-Location: https://us.atlas.microsoft.com/mapData/operations/{udid}?api-version=2.0
+Access-Control-Expose-Headers: Operation-Location
 ```
 
-Cuerpo:
-```json
-{
-  "operationId": "{operationId}",
-  "status": "Succeeded",
-  "created": "2020-01-02 1:02:03 AM +00:00",
-  "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{resourceId}?api-version=1.0"
-}
-```
 
 [!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 

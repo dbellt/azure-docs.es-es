@@ -3,16 +3,16 @@ title: Creación de una instancia de Database Migration Service (plantilla de Az
 description: Aprenda a crear una instancia de Database Migration Service mediante una plantilla de Azure Resource Manager (plantilla de ARM).
 author: MashaMSFT
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: dms
-ms.openlocfilehash: 8b448f04811ad254358990f6f37c4a02f1909d65
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: fad7f93e4ccaa31f17df79f4d512647607427f1c
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107952735"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006804"
 ---
 # <a name="quickstart-create-instance-of-azure-database-migration-service-using-arm-template"></a>Inicio rápido: Creación de una instancia de Azure Database Migration Service con una plantilla de ARM
 
@@ -33,7 +33,7 @@ La plantilla de Resource Manager de Azure Database Migration Service requiere:
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-azure-database-migration-simple-deploy/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/azure-database-migration-simple-deploy/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.datamigration/azure-database-migration-simple-deploy/azuredeploy.json":::
 

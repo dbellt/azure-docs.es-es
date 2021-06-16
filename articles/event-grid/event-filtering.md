@@ -3,12 +3,12 @@ title: Filtrado de eventos para Azure Event Grid
 description: Se describe cómo filtrar eventos al crear una suscripción de Azure Event Grid.
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: b5439b77b86d42d062cf9da66ce678f04f46f813
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 986e31c1213dc05862c95d87a0bc7733f7a2f9c1
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256096"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111372149"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Descripción del filtrado de eventos para suscripciones de Event Grid
 
@@ -63,7 +63,7 @@ Clave es el campo de datos de evento que se usa para filtrar. Puede ser uno de l
 - Number
 - Boolean
 - String
-- Matriz. Debe establecer la propiedad `enableAdvancedFilteringOnArrays` en true para usar esta característica. Actualmente, en Azure Portal no se puede habilitar esta característica. 
+- Matriz. Debe establecer la propiedad `enableAdvancedFilteringOnArrays` en true para usar esta característica. 
 
     ```json
     "filter":

@@ -8,12 +8,12 @@ author: amjads1
 ms.author: amjads
 ms.collection: windows
 ms.date: 12/05/2016
-ms.openlocfilehash: df1ae43b2c6a74448a6782a43fb86f8f4939b13a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d461be7d760e1e4fc99fe23a9fe2d5529237ebb3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560011"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949830"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exportación de grupos de recursos que contienen extensiones de VM
 
@@ -131,7 +131,7 @@ El recurso de extensión final tiene un aspecto similar al siguiente ejemplo JSO
 }
 ```
 
-Si utiliza parámetros de plantilla para proporcionar valores de propiedad, estos deben crearse. Al crear parámetros de plantilla para los valores de configuración protegida, asegúrese de usar el tipo de parámetro `SecureString` para que se protejan los valores confidenciales. Para más información sobre el uso de parámetros, consulte [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) (Creación de plantillas de Azure Resource Manager).
+Si utiliza parámetros de plantilla para proporcionar valores de propiedad, estos deben crearse. Al crear parámetros de plantilla para los valores de configuración protegida, asegúrese de usar el tipo de parámetro `SecureString` para que se protejan los valores confidenciales. Para más información sobre el uso de parámetros, consulte [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) (Creación de plantillas de Azure Resource Manager).
 
 En el ejemplo de la extensión `IaasDiagnostic`, se crearán los siguientes parámetros en la sección de parámetros de la plantilla de Resource Manager.
 

@@ -3,12 +3,13 @@ title: Incorporación de una identidad administrada a un tipo de nodo de clúste
 description: En este artículo se muestra cómo agregar una identidad administrada a un tipo de nodo de clúster administrado de Service Fabric
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: 9b83d0a7e68e162eb3231d4605755e74dc7f9fe4
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 221f97f6354c105c106343fe45c9e747d46e35fb
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685322"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671140"
 ---
 # <a name="add-a-managed-identity-to-a-service-fabric-managed-cluster-node-type"></a>Incorporación de una identidad administrada a un tipo de nodo de clúster administrado de Service Fabric
 

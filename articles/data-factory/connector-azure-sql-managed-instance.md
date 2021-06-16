@@ -7,12 +7,12 @@ ms.author: jianleishen
 author: jianleishen
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: 6313843cac97ec93fb538c1ddf8ca5477a4cce81
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: da1dbfc43aa8dccda8cca53b33923e2fee730d12
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109487464"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110789736"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure SQL Managed Instance mediante Azure Data Factory
 
@@ -638,8 +638,6 @@ En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para r
 
 Al transformar datos en el flujo de datos de asignación, puede leer y escribir en las tablas de Azure SQL Managed Instance. Para más información, vea la [transformación de origen](data-flow-source.md) y la [transformación de receptor](data-flow-sink.md) en Asignación de Data Flow.
 
-> [!NOTE]
-> El conector de Azure SQL Managed Instance en el flujo de datos de asignación está disponible actualmente como versión preliminar pública. Puede conectarse al punto de conexión público de SQL Managed Instance, pero todavía no al punto de conexión privado.
 
 ### <a name="source-transformation"></a>Transformación de origen
 

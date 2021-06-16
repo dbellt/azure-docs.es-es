@@ -3,12 +3,12 @@ title: Detección de movimiento y grabación de vídeo con Azure Video Analyzer
 description: En esta guía de inicio rápido se muestra cómo usar el módulo perimetral de Azure Video Analyzer para detectar movimiento en una secuencia de vídeo en directo y grabar vídeo en la cuenta de Video Analyzer.
 ms.topic: quickstart
 ms.date: 04/03/2021
-ms.openlocfilehash: 851310ff3b03730a1fc9adb4eaa7c0c3f9cf84f2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 9643ed3a7bbcc23757110033be1dbc3780ddafb5
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388527"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565939"
 ---
 # <a name="quickstart-detect-motion-record-video-to-video-analyzer"></a>Inicio rápido: Detección de movimiento y grabación de vídeo en Video Analyzer
 
@@ -986,6 +986,23 @@ En unos segundos, verá la siguiente respuesta en la ventana de salida.
 ```
 
 El código de estado 200 indica que la topología de canalización se ha eliminado correctamente.
+
+## <a name="playing-back-the-recording"></a>Reproducción de la grabación
+
+Para examinar el recurso de vídeo de Video Analyzer que se ha creado con la canalización en directo, inicie sesión en Azure Portal y vea el vídeo.
+1. Abra el explorador web y vaya a [Azure Portal](https://portal.azure.com/). Introduzca sus credenciales para iniciar sesión en el portal. La vista predeterminada es el panel del servicio.
+1. Busque la cuenta de Video Analyzer entre los recursos que tiene en la suscripción y abra el panel de cuentas.
+1. Seleccione **Vídeos** en la sección **Video Analyzer**.
+1. Encontrará un vídeo con el nombre `sample-motion-video-camera001`. Este es el nombre elegido en el archivo de topología de la canalización.
+1. Seleccione el vídeo.
+1. Se abrirá la página de detalles del vídeo y la reproducción se iniciará automáticamente.
+
+    <!--TODO: add image -- ![Video playback]() TODO: new screenshot is needed here -->
+
+
+> [!NOTE]
+> Puesto que el origen de vídeo era un contenedor que simula una fuente de cámara, las marcas de tiempo del vídeo son relativas a cuándo se activó y desactivó la canalización en directo.
+    
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

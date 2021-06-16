@@ -43,6 +43,8 @@
       items:
         - name: Seguridad de firmware
           href: firmware.md
+        - name: Integridad del código
+          href: code-integrity.md
         - name: Arranque seguro
           href: secure-boot.md
         - name: Atestación de host y de arranque medido

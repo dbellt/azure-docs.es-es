@@ -2,21 +2,21 @@
 title: Ejemplos de PowerShell para la administración de aplicaciones de Azure Active Directory
 description: Estos ejemplos de PowerShell se usan para las aplicaciones que administra en el inquilino de Azure Active Directory. Puede usar estos scripts de ejemplo para buscar información de expiración sobre secretos y certificados.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
 ms.date: 02/18/2021
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: mifarca
-ms.openlocfilehash: 6b6314935bfafc2fe6288c30619e1d01242a991d
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 6fac606877a36a5b571096342289cc0369cd50e4
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378829"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077435"
 ---
 # <a name="azure-active-directory-powershell-examples-for-application-management"></a>Ejemplos de PowerShell de Azure Active Directory para la administración de aplicaciones
 

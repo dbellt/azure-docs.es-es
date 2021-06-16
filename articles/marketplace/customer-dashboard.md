@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 3a26f7c63b639f9aeb6a8f526e77dacb37fb4d87
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 3d5016e1671bb52d4b819c10e7c52c12e5046b7e
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106068071"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111541167"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Panel Clientes de los análisis de marketplace comercial
 
@@ -80,7 +80,7 @@ En esta sección, encontrará la tendencia y el recuento de todos los clientes, 
 
 El gráfico **Clientes por pedidos o uso** tiene tres pestañas: Pedidos, Uso normalizado y Uso sin procesar. Seleccione la pestaña **Pedidos** para mostrar detalles de pedido.
 
-:::image type="content" source="./media/customer-dashboard/customers-by-orders-usage.png" alt-text="Muestra la pestaña Pedidos del widget Clientes por pedidos y uso en la página Clientes.":::
+:::image type=&quot;content&quot; source=&quot;./media/customer-dashboard/customers-by-orders-usage.png&quot; alt-text=&quot;Muestra la pestaña Pedidos del widget Clientes por pedidos y uso en la página Clientes.&quot;:::
 
 Tenga en cuenta lo siguiente:
 
@@ -175,10 +175,10 @@ Los filtros de la página Clientes se aplican a nivel de la página Clientes. Pu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información sobre los informes de análisis disponibles en marketplace comercial, consulte [Acceso a los informes de análisis de marketplace comercial en el Centro de partners](./partner-center-portal/analytics.md).
+- Para obtener más información sobre los informes de análisis disponibles en marketplace comercial, consulte [Acceso a los informes de análisis de marketplace comercial en el Centro de partners](analytics.md).
 - Para ver los gráficos, las tendencias y los valores de datos agregados que resumen la actividad de la oferta en el marketplace, consulte [Panel Resumen de los análisis de marketplace comercial](./summary-dashboard.md).
 - Para información sobre los pedidos en un formato gráfico que se pueda descargar, consulte [Panel Pedidos de los análisis de marketplace comercial](./orders-dashboard.md).
 - Para información sobre las métricas de uso y facturación de las ofertas de máquina virtual, consulte [Panel Uso de los análisis de marketplace comercial](./usage-dashboard.md).
-- Para obtener una lista de las solicitudes de descarga de los últimos 30 días, consulte [Panel Descargas de los análisis de marketplace comercial](./partner-center-portal/downloads-dashboard.md).
-- Para obtener una vista consolidada con los comentarios de los clientes sobre las ofertas de Azure Marketplace y Microsoft AppSource, consulte [Panel de análisis de calificaciones y opiniones en el Centro de partners](./partner-center-portal/ratings-reviews.md).
+- Para obtener una lista de las solicitudes de descarga de los últimos 30 días, consulte [Panel Descargas de los análisis de marketplace comercial](downloads-dashboard.md).
+- Para obtener una vista consolidada con los comentarios de los clientes sobre las ofertas de Azure Marketplace y Microsoft AppSource, consulte [Panel de análisis de calificaciones y opiniones en el Centro de partners](ratings-reviews.md).
 - Para ver las preguntas más frecuentes sobre los análisis de marketplace comercial y un diccionario completo de términos de datos, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](./analytics-faq.md).

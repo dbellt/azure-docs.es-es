@@ -12,12 +12,12 @@ ms.date: 04/30/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3fd14d08c2cb19bcd3f06e60b90620d4cdca6b56
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 3732f53c3a4e77a1a10363cb53d898e6edc661db
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108776811"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960438"
 ---
 # <a name="azure-active-directory-b2c-tls-and-cipher-suite-requirements"></a>Requisitos de TLS y del conjunto de cifrado de Azure Active Directory B2C
 
@@ -75,10 +75,6 @@ Para comprobar que los puntos de conexión cumplen los requisitos descritos en e
 Consulte también los artículos siguientes:
 
 - [Solución de problemas de aplicaciones que no admiten TLS 1.2](../cloud-services/applications-dont-support-tls-1-2.md)
-- [Conjuntos de cifrado en TLS/SSL (Schannel SSP)](https://docs.microsoft.com/windows/win32/secauthn/cipher-suites-in-schannel)
-- [Habilitación de TLS 1.2](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2)
-- [Solución del problema con TLS 1.0](https://docs.microsoft.com/security/engineering/solving-tls1-problem)
-
-
-
-
+- [Conjuntos de cifrado en TLS/SSL (Schannel SSP)](/windows/win32/secauthn/cipher-suites-in-schannel)
+- [Habilitación de TLS 1.2](/mem/configmgr/core/plan-design/security/enable-tls-1-2)
+- [Solución del problema con TLS 1.0](/security/engineering/solving-tls1-problem)

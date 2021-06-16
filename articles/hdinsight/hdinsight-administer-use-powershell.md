@@ -3,14 +3,14 @@ title: 'Administración de clústeres de Apache Hadoop con PowerShell: Azure HDI
 description: Vea cómo realizar tareas administrativas para clústeres de Apache Hadoop en HDInsight mediante Azure PowerShell.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurepowershell
 ms.date: 02/13/2020
-ms.openlocfilehash: c8581c2288eacb47fb9475a3b0a584434c8604f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bfd0c54e2f824973a8a0c5ff023cc8bcaa3ecc68
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98942810"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110696877"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Administración de clústeres de Apache Hadoop en HDInsight con Azure PowerShell
 

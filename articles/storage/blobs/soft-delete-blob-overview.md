@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/08/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: ef1ed584a609b2e4baa27111e47343df99146f5a
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 46cd1b2d695592b97f2fe27451fe48e6e2c7be19
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257507"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111410718"
 ---
 # <a name="soft-delete-for-blobs"></a>Eliminación temporal para blobs
 
@@ -113,7 +113,7 @@ En la tabla siguiente se describe el comportamiento esperado de las operaciones 
 | [Eliminación de la cuenta de almacenamiento](/rest/api/storagerp/storageaccounts/delete) | Sin cambios. Los contenedores y blobs de la cuenta eliminada no se pueden recuperar. | Sin cambios. Los contenedores y blobs de la cuenta eliminada no se pueden recuperar. |
 | [Delete Container](/rest/api/storageservices/delete-container) | Sin cambios. Los blobs del contenedor eliminado no se pueden recuperar. | Sin cambios. Los blobs del contenedor eliminado no se pueden recuperar. |
 | [Delete Blob](/rest/api/storageservices/delete-blob) | Si se usa para eliminar un blob, este se marca como eliminado temporalmente. <br /><br /> Si se usa para eliminar una instantánea de blob, esta se marca como eliminada temporalmente. | Si se usa para eliminar un blob, la versión actual se convierte en una versión anterior y se elimina la versión actual. No se crea ninguna versión nueva ni ninguna instantánea eliminada temporalmente.<br /><br /> Si se usa para eliminar la versión de un blob, esta se marca como eliminada temporalmente. |
-| [Undelete Blob](/rest/api/storageservices/delete-blob) | Restaura un blob y todas las instantáneas que se eliminaron durante el período de retención. | Restaura un blob y todas las versiones que se eliminaron durante el período de retención. |
+| [Undelete Blob](/rest/api/storageservices/undelete-blob) | Restaura un blob y todas las instantáneas que se eliminaron durante el período de retención. | Restaura un blob y todas las versiones que se eliminaron durante el período de retención. |
 | [Put Blob](/rest/api/storageservices/put-blob)<br />[Put Block List](/rest/api/storageservices/put-block-list)<br />[Copy Blob](/rest/api/storageservices/copy-blob)<br />[Copy Blob from URL](/rest/api/storageservices/copy-blob) | Si se llama en un blob activo, se genera automáticamente una instantánea del estado del blob antes de la operación. <br /><br /> Si se llama en un blob eliminado temporalmente, se genera una instantánea del estado anterior del blob solo si se está reemplazando por un blob del mismo tipo. Si el blob es de un tipo diferente, se eliminarán permanentemente todos los datos eliminados temporalmente. | Se genera automáticamente una nueva versión que captura el estado del blob antes de la operación. |
 | [Put Block](/rest/api/storageservices/put-block) | Si se utiliza para confirmar un bloque en un blob activo, no habrá cambio alguno.<br /><br />Si utiliza para confirmar un bloque en un blob que se ha eliminado temporalmente, se crea un nuevo blob y se genera automáticamente una instantánea para capturar el estado del blob eliminado temporalmente. | Sin cambios |
 | [Put Page](/rest/api/storageservices/put-page)<br />[Put Page from URL](/rest/api/storageservices/put-page-from-url) (Poner página de dirección URL) | Sin cambios. Los datos del blob en páginas que se sobrescriben o se borrar con esta operación no se guardan ni se pueden recuperar. | Sin cambios. Los datos del blob en páginas que se sobrescriben o se borrar con esta operación no se guardan ni se pueden recuperar. |

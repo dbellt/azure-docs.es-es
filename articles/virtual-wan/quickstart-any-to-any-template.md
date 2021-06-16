@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/02/2021
 ms.author: cherylmc
 ms.custom: subject-armqs
-ms.openlocfilehash: d31f490baec49e8e0b6fcf89caa8c19202fdf763
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8981d305fff1970b58b569d95c6f16e933b2ca10
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102431387"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111812899"
 ---
 # <a name="quickstart-create-an-any-to-any-configuration-using-an-arm-template"></a>Inicio rápido: Creación de una configuración universal mediante una plantilla de ARM
 
@@ -24,16 +24,16 @@ En este inicio rápido se describe cómo usar una plantilla de Azure Resource Ma
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f201-virtual-wan-with-all-gateways%2fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-all-gateways%2fazuredeploy.json)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 * Esta configuración requiere los datos del certificado de clave pública. En el artículo se proporcionan datos de ejemplo. Sin embargo, solo se proporcionan para cumplir los requisitos para crear una puerta de enlace de P2S de la plantilla. Una vez finalizada la plantilla e implementados los recursos, debe actualizar este campo con sus propios datos de certificado para que la configuración funcione. Consulte [Certificados de VPN del usuario](certificates-point-to-site.md#cer).
 
 ## <a name="review-the-template"></a><a name="review"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/201-virtual-wan-with-all-gateways). La plantilla de este artículo es demasiado larga para mostrarse aquí. Para ver la plantilla, consulte [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-virtual-wan-with-all-gateways/azuredeploy.json).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/virtual-wan-with-all-gateways). La plantilla de este artículo es demasiado larga para mostrarse aquí. Para ver la plantilla, consulte [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/virtual-wan-with-all-gateways/azuredeploy.json).
 
 En este inicio rápido creará una implementación de varios centros de conectividad de Azure Virtual WAN con todas las puertas de enlace y conexiones de red virtual. La lista de parámetros de entrada se ha reducido al mínimo a propósito. El esquema de direccionamiento IP se puede cambiar si se modifican las variables de la plantilla. El escenario se explica con más detalle en el artículo [Escenario: Universal](scenario-any-to-any.md).
 
@@ -75,7 +75,7 @@ Para implementar esta plantilla correctamente, en lugar de otros métodos debe u
 
 1. Haga clic en **Implementar en Azure**.
 
-   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f201-virtual-wan-with-all-gateways%2fazuredeploy.json)
+   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-all-gateways%2fazuredeploy.json)
 1. Para ver la plantilla, haga clic en **Editar plantilla**. En esta página puede ajustar algunos de los valores, como el espacio de direcciones o el nombre de determinados recursos. Haga clic en **Guardar** para guardar los cambios o en **Descartar**.
 1. En la página plantilla, escriba los valores. Para esta plantilla, se necesitan los datos del certificado público de punto a sitio. Si este artículo es para hacer un ejercicio, puede usar los siguientes datos de este archivo .cer como datos de ejemplo para ambos centros de conectividad. Con la plantilla en ejecución y la implementación completa, para usar la configuración de punto a sitio, debe reemplazar esta información con los [datos del certificado](certificates-point-to-site.md#cer) de clave pública para su propia implementación.
 

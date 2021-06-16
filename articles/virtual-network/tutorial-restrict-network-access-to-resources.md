@@ -15,12 +15,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/11/2020
 ms.author: kumud
-ms.openlocfilehash: 22494d292077f4b6018a4512b45b5fe2caa9c8ee
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 789816e37c3aaf9678fd9cb87ff6362442709498
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057208"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112082215"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutorial: Restricción del acceso de la red a los recursos de PaaS mediante puntos de conexión de servicio de red virtual mediante Azure Portal.
 
@@ -48,7 +48,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 2. Seleccione **Redes** y, después, **Redes virtuales**.
 3. Haga clic en **+ Agregar** y escriba la siguiente información: 
 
-   |Configuración|Value|
+   |Configuración|Valor|
    |----|----|
    |Subscription| Seleccione su suscripción.|
    |Resource group | Haga clic en **Crear nuevo** y escriba *myResourceGroup*.|
@@ -88,7 +88,7 @@ Los punto de conexión de servicio están habilitados por servicio, por subred. 
 
 3. En **Agregar subred**, escriba o seleccione los siguientes datos y haga clic en **Aceptar**:
 
-    |Configuración|Value|
+    |Configuración|Valor|
     |----|----|
     |Nombre| Privada |
     |Intervalo de direcciones| Deje el valor predeterminado|
@@ -109,7 +109,7 @@ De forma predeterminada, todas las instancias de máquina virtual pueden comunic
 3. En la página **Grupos de seguridad de red**, haga clic en **+ Agregar**.
 4. Escriba la siguiente información 
 
-    |Configuración|Value|
+    |Configuración|Valor|
     |----|----|
     |Subscription| Seleccione su suscripción.|
     |Resource group | Seleccione *myResourceGroup* en la lista.|
@@ -122,7 +122,7 @@ De forma predeterminada, todas las instancias de máquina virtual pueden comunic
 8. Seleccione **+Agregar**.
 9. Cree una regla que permita la comunicación saliente con el servicio Azure Storage. Especifique o seleccione los siguientes datos y haga clic en **Agregar**:
 
-    |Configuración|Value|
+    |Configuración|Valor|
     |----|----|
     |Source| Seleccione **VirtualNetwork** |
     |Source port ranges| * |
@@ -136,7 +136,7 @@ De forma predeterminada, todas las instancias de máquina virtual pueden comunic
 
 10. Cree otra regla de seguridad de salida que deniegue la comunicación a Internet. Esta regla invalida una regla predeterminada en todos los grupos de seguridad de red que permite la comunicación saliente de Internet. Repita los pasos 6 a 9 anteriores, pero use los siguientes valores:
 
-    |Configuración|Value|
+    |Configuración|Valor|
     |----|----|
     |Source| Seleccione **VirtualNetwork** |
     |Source port ranges| * |
@@ -152,7 +152,7 @@ De forma predeterminada, todas las instancias de máquina virtual pueden comunic
 12. En **Configuración**, seleccione **Reglas de seguridad de entrada**.
 13. Seleccione **+ Agregar** y use los siguientes valores:
 
-    |Configuración|Value|
+    |Configuración|Valor|
     |----|----|
     |Source| Any |
     |Source port ranges| * |
@@ -182,7 +182,7 @@ Los pasos que deben seguirse para restringir el acceso de la red a los recursos 
 3. Haga clic en **+ Agregar**.
 4. Escriba la siguiente información:
 
-    |Configuración|Value|
+    |Configuración|Valor|
     |----|----|
     |Subscription| Seleccione su suscripción.|
     |Resource group| Seleccione *myResourceGroup*.|
@@ -204,7 +204,7 @@ Los pasos que deben seguirse para restringir el acceso de la red a los recursos 
 1. Vaya a la página de información general de la cuenta de almacenamiento.
 2. Seleccione el icono de la aplicación **Recursos compartidos de archivos** y haga clic en **+ Recurso compartido de archivos**.
 
-    |Configuración|Value|
+    |Configuración|Valor|
     |----|----|
     |Nombre| my-file-share|
     |Quota| "Establecer en el máximo" |
@@ -223,7 +223,7 @@ De forma predeterminada, las cuentas de almacenamiento aceptan conexiones de red
 3. Seleccione **+ Agregar red virtual existente**.
 4. En **Agregar redes**, seleccione los siguientes valores y haga clic en **Agregar**:
 
-    |Configuración|Value|
+    |Configuración|Valor|
     |----|----|
     |Subscription| Seleccione su suscripción.|
     |Redes virtuales| **myVirtualNetwork**|
@@ -248,7 +248,7 @@ Para probar el acceso de la red a una cuenta de almacenamiento, implemente una m
 2. Seleccione **+ Agregar > Máquina virtual**. 
 3. Escriba la siguiente información:
 
-   |Configuración|Value|
+   |Configuración|Valor|
    |----|----|
    |Subscription| Seleccione su suscripción.|
    |Resource group| Seleccione **myResourceGroup, que se creó anteriormente.|
@@ -259,7 +259,7 @@ Para probar el acceso de la red a una cuenta de almacenamiento, implemente una m
    |Imagen | Windows Server 2019 Datacenter - Gen 1 |
    |Size | Seleccione el tamaño de la instancia de máquina virtual que desea usar |
    |Nombre de usuario|Escriba un nombre de usuario de su elección.|
-   |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+   |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
    |Puertos de entrada públicos | Permitir los puertos seleccionados |
    |Selección de puertos de entrada | Deje el valor predeterminado establecido en *RDP (3389)* |
 

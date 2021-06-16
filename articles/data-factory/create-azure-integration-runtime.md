@@ -6,12 +6,13 @@ ms.topic: conceptual
 ms.date: 06/09/2020
 author: lrtoyou1223
 ms.author: lle
-ms.openlocfilehash: 778942fe9e2705612b138a7ea1c8452064572caa
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b98f95c0cd3013af055b85e4dfe1405b2eaf3032
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109488616"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110681106"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Cómo crear y configurar una instancia de Azure Integration Runtime
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

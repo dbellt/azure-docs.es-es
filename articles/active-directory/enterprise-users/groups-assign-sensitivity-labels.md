@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 05/28/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a78cf9b7d78078030ac0db8bd2f0fddb93a8dda4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 29ecef79488fcf358f6b3529ec511ff198127247
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97881403"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110781741"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Asignación de etiquetas de confidencialidad a grupos de Microsoft 365 en Azure Active Directory
 
@@ -36,6 +36,7 @@ Para aplicar etiquetas publicadas a grupos, primero debe habilitar la caracterí
 1. Ejecute los comandos siguientes para prepararse para ejecutar los cmdlets.
 
     ```PowerShell
+    Install-Module AzureADPreview
     Import-Module AzureADPreview
     Connect-AzureAD
     ```

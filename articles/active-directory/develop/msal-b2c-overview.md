@@ -13,12 +13,12 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev devx-track-js
-ms.openlocfilehash: 383c9651d6552a327bc9e986d18fbc7832fc94f8
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: e11ed0d284e89a9e5f406aade2147b52d139f0ad
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108072196"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953539"
 ---
 # <a name="use-the-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Uso de la biblioteca de autenticación de Microsoft para JavaScript a fin de trabajar con Azure AD B2C
 
@@ -28,12 +28,12 @@ Al usar Azure AD B2C como un servicio de administración de identidades, puede p
 
 ## <a name="supported-app-types-and-scenarios"></a>Escenarios y tipos de aplicaciones admitidos
 
-MSAL.js permite que las [aplicaciones de página única](https://docs.microsoft.com/azure/active-directory-b2c/application-types#single-page-applications) inicien la sesión de los usuarios con Azure AD B2C mediante el [flujo de código de autorización con concesión de PKCE](https://docs.microsoft.com/azure/active-directory-b2c/authorization-code-flow). Con MSAL.js y Azure AD B2C:
+MSAL.js permite que las [aplicaciones de página única](../../active-directory-b2c/application-types.md#single-page-applications) inicien la sesión de los usuarios con Azure AD B2C mediante el [flujo de código de autorización con concesión de PKCE](../../active-directory-b2c/authorization-code-flow.md). Con MSAL.js y Azure AD B2C:
 
 - Los usuarios **pueden** autenticarse con sus identidades locales y sociales.
 - Los usuarios **pueden** tener autorización para acceder a los recursos protegidos de Azure AD B2C (pero no a los recursos protegidos de Azure AD).
-- Los usuarios **no pueden** obtener tokens para las API de Microsoft (por ejemplo, MS Graph API) mediante [permisos delegados](https://review.docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent?branch=master#permission-types).
-- Los usuarios con privilegios de administrador **pueden** obtener tokens para las API de Microsoft (por ejemplo, MS Graph API) mediante [permisos delegados](https://review.docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent?branch=master#permission-types).
+- Los usuarios **no pueden** obtener tokens para las API de Microsoft (por ejemplo, MS Graph API) mediante [permisos delegados](/azure/active-directory/develop/v2-permissions-and-consent#permission-types).
+- Los usuarios con privilegios de administrador **pueden** obtener tokens para las API de Microsoft (por ejemplo, MS Graph API) mediante [permisos delegados](/azure/active-directory/develop/v2-permissions-and-consent#permission-types).
 
 Para obtener más información, consulte [Trabajo con Azure AD B2C](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/working-with-b2c.md).
 

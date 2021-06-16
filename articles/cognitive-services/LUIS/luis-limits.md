@@ -4,13 +4,13 @@ description: En este artículo contiene los límites conocidos de Language Under
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 06/04/2020
-ms.openlocfilehash: 1f917087eb15d8c77356995299e27dfc1657cb5d
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.date: 05/26/2021
+ms.openlocfilehash: 00b218908242b27e7276a18a490250a0db34d57a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107497207"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954198"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Límites de las claves y el modelo de LUIS
 LUIS tiene varias áreas de límites. La primera es el [límite de modelo](#model-limits), que controla las intenciones, las entidades y las características de LUIS. La segunda área son los [límites de cuota](#key-limits) según el tipo de clave. Una tercera área de límites es la [combinación de teclas](#keyboard-controls), para controlar el sitio web de LUIS. Una cuarta área es la [asignación de regiones del mundo](luis-reference-regions.md) entre el sitio web de creación de LUIS y las API de [punto de conexión](luis-glossary.md#endpoint) de LUIS.
@@ -80,7 +80,6 @@ Use el elemento _kind_, `LUIS.Authoring`, al filtrar los recursos en Azure Porta
 
 |Recurso de creación|TPS de creación|
 |--|--|
-|Inicio|1 millón/mes, 5/segundo|
 |F0: nivel Gratis |1 millón/mes, 5/segundo|
 
 * TPS: transacciones por segundo
@@ -117,7 +116,7 @@ La [integración de voz](../speech-service/how-to-recognize-intents-from-speech-
 El acceso de inicio de sesión es válido durante **60 minutos**. Después de este tiempo, recibirá este error. Debe volver a iniciar sesión.
 
 [luis-get-started-create-app]: ./luis-get-started-create-app.md
-[batch-testing]: ./luis-concept-test.md#batch-testing
+[batch-testing]: ./luis-interactive-test.md#batch-testing
 [intents]: ./luis-concept-intent.md
 [phrase-list]: ./luis-concept-feature.md
 [utterances]: ./luis-concept-utterance.md

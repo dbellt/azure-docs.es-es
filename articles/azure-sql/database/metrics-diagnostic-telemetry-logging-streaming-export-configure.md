@@ -4,19 +4,19 @@ description: Aprenda a configurar la exportación de streaming de métricas y re
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: performance
-ms.custom: seoapril2019
+ms.custom: seoapril2019, devx-track-azurepowershell
 ms.devlang: sqldbrb=2
 ms.topic: how-to
-author: danimir
-ms.author: danil
-ms.reviewer: wiassaf, sstein
+author: AlainDormehlMSFT
+ms.author: aldorme
+ms.reviewer: mathoma, wiassaf
 ms.date: 04/06/2020
-ms.openlocfilehash: 1de2c1ff02c799d04f2ab2c81e83dda5001a531f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c719eb8cec894fda35dd81aa65668feedd72e65
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100592721"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590655"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Configuración de la exportación de streaming de los datos de telemetría de diagnóstico de Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -78,7 +78,7 @@ Esta telemetría de diagnóstico transmitida a uno de estos destinos se puede us
 
 Puede habilitar y administrar las métricas y los registros de datos de telemetría de diagnóstico usando uno de los métodos siguientes:
 
-- Portal de Azure
+- Azure portal
 - PowerShell
 - Azure CLI
 - API de REST de Azure Monitor

@@ -10,12 +10,13 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/24/2021
 ms.author: ambapat
-ms.openlocfilehash: f2faabd92a1ebdf9734119d12aea49042b03497a
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fc2db49b11f0a209c013527afde56c0830ac990c
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108162444"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111539240"
 ---
 # <a name="import-hsm-protected-keys-for-key-vault-ncipher"></a>Importación de claves protegidas con HSM para Key Vault (nCipher)
 
@@ -452,7 +453,7 @@ Cuando ejecute este comando, siga estas instrucciones:
 
 * El parámetro *protect* debe establecerse en el valor **module**, como se muestra. Esto crea una clave protegida por el módulo. El conjunto de herramientas BYOK no es compatible con claves protegidas con OCS.
 * Reemplace el valor de *contosokey* en **ident** y **plainname** por cualquier valor de cadena. Para minimizar gastos administrativos y reducir el riesgo de errores, se recomienda utilizar el mismo valor en ambos. El valor **ident** debe contener solo números, guiones y minúsculas.
-* En este ejemplo, pubexp se deja en blanco (valor predeterminado), pero puede especificar valores concretos. Para más información, vea la [documentación de nCipher](https://www.entrust.com/-/media/documentation/brochures/entrust-nshield-general-purpose-hsms-br-a4.pdf).
+* En este ejemplo, pubexp se deja en blanco (valor predeterminado), pero puede especificar valores concretos. Para más información, vea la [documentación de nCipher](https://go.ncipher.com/rs/104-QOX-775/images/nShield-family-br-A4.pdf).
 
 Este comando crea un archivo de clave con tokens en la carpeta %NFAST_KMDATA%\local cuyo nombre comienza por **key_simple_** , seguido del valor **ident** que se especificó en el comando. Por ejemplo: **key_simple_contosokey**. Este archivo contiene una clave cifrada.
 

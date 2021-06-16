@@ -103,7 +103,7 @@ additionalContent:
               text: Uso de un servicio de almacenamiento en caché de archivos completamente administrado (Azure HPC Cache)
             - url: ../avere-vfxt/avere-vfxt-overview.md
               text: Almacenamiento en caché de NAS local en Azure (Avere vFXT for Azure)
-            - url: ../fxt-edge-filer/fxt-overview.md
+            - url: ../fxt-edge-filer/overview.md
               text: Implementación de una aplicación de almacenamiento en caché local (Azure FXT Edge Filer)
     - title: Operaciones de datos
       items:
