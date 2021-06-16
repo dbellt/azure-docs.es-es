@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 03/29/2021
-ms.openlocfilehash: fc0d0b0a589ff5b8354a56a2f8c95062f4d2d9a9
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: d19a080ef596975dd3377207b84bade6ef0d3b12
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076156"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111537594"
 ---
 # <a name="what-is-spatial-analysis"></a>¿Qué es Spatial Analysis?
 
@@ -43,12 +43,6 @@ Las operaciones principales de Spatial Analysis se basan en una canalización qu
 
 ## <a name="get-started"></a>Introducción
 
-### <a name="public-preview-gating"></a>Acceso a la versión preliminar pública
-
-Para garantizar que Spatial Analysis se usa en los escenarios para los que se diseñó, esta tecnología está a disposición de aquellos clientes que pasen por un proceso de solicitud. Para obtener acceso a Spatial Analysis, deberá empezar por rellenar el formulario de admisión en línea. [Realice aquí la solicitud](https://aka.ms/csgate).
-
-El acceso a la versión preliminar pública de Spatial Analysis está sujeto a la exclusiva discreción de Microsoft en función de los criterios de idoneidad, el proceso de investigación y la disponibilidad para admitir un número limitado de clientes durante esta versión preliminar controlada. Para la versión preliminar pública, se buscan clientes que tengan una relación significativa con Microsoft y que estén interesados en trabajar con nosotros en los casos de uso recomendados y en escenarios adicionales que estén en consonancia con nuestros compromisos de inteligencia artificial.
-
 ### <a name="follow-a-quickstart"></a>Consulta de inicios rápidos
 
 Una vez que se le haya concedido acceso a Spatial Analysis, siga el [inicio rápido](spatial-analysis-container.md) para configurar el contenedor y empezar a analizar vídeo.
@@ -60,4 +54,4 @@ Para aprender a usar la tecnología de análisis espacial de forma responsable, 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Inicio rápido: Contenedor Spatial Analysis](spatial-analysis-container.md)''''''''''''
+> [Inicio rápido: Contenedor de análisis espacial](spatial-analysis-container.md)

@@ -3,22 +3,22 @@ title: Creación y administración de trabajos de Base de datos elástica (versi
 description: Ejecute scripts en muchas bases de datos con el agente de trabajo de Elastic Database mediante Transact-SQL (T-SQL).
 services: sql-database
 ms.service: sql-database
-ms.subservice: scale-out
+ms.subservice: elastic-jobs
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 dev_langs:
 - TSQL
 ms.topic: how-to
-ms.author: jaredmoo
-author: jaredmoo
-ms.reviewer: sstein
+author: srinia
+ms.author: srinia
+ms.reviewer: mathoma
 ms.date: 02/01/2021
-ms.openlocfilehash: 6af01e9508b8aefc67284b8af9f484b734d5e161
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 1e755f6b62c7adb1b980fa3ba0bec268c7547788
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750598"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110708801"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Use Transact-SQL (T-SQL) para crear y administrar trabajos de Base de datos elástica (versión preliminar)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

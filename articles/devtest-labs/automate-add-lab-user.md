@@ -3,12 +3,13 @@ title: Automatizar la adición de un usuario de laboratorio en Azure DevTest Lab
 description: En este artículo se muestra cómo automatizar la incorporación de un usuario a un laboratorio en Azure DevTest Labs mediante plantillas de Azure Resource Manager, PowerShell y la CLI.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 1168e00960c35e2ac1e4a660efba63d30c63a575
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 70f8e2740a53c7bb855d3796efa438e9c9ff0ffa
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727712"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965222"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatizar la adición de un usuario de laboratorio a un laboratorio en Azure DevTest Labs
 Azure DevTest Labs le permite crear rápidamente entornos de desarrollo y pruebas de autoservicio mediante Azure Portal. Pero si tiene varios equipos y varias instancias de DevTest Labs, automatizar el proceso de creación puede ahorrar tiempo. Las [plantillas de Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments) le permiten crear laboratorios, máquinas virtuales de laboratorio, imágenes personalizadas, fórmulas y agregar usuarios de forma automática. Este artículo se centra específicamente en la adición de usuarios a una instancia de DevTest Labs.
@@ -76,7 +77,7 @@ La siguiente plantilla de ejemplo de Resource Manager especifica un usuario que 
 
 ```
 
-Si va a asignar el rol en la misma plantilla que está creando el laboratorio, no olvide agregar una dependencia entre el recurso de asignación de roles y el laboratorio. Para obtener más información, consulte el artículo [Definición de dependencias en plantillas de Azure Resource Manager](../azure-resource-manager/templates/define-resource-dependency.md).
+Si va a asignar el rol en la misma plantilla que está creando el laboratorio, no olvide agregar una dependencia entre el recurso de asignación de roles y el laboratorio. Para obtener más información, consulte el artículo [Definición de dependencias en plantillas de Azure Resource Manager](../azure-resource-manager/templates/resource-dependency.md).
 
 ### <a name="role-assignment-resource-information"></a>Información sobre el recurso de asignación de roles
 El recurso de asignación de roles debe especificar el tipo y nombre.
@@ -195,4 +196,3 @@ Vea los artículos siguientes:
 - [Creación y administración de máquinas virtuales con DevTest Labs mediante la CLI de Azure](devtest-lab-vmcli.md)
 - [Crear una máquina virtual con DevTest Labs mediante Azure PowerShell](devtest-lab-vm-powershell.md)
 - [Usar herramientas de línea de comandos para iniciar y detener las máquinas virtuales de Azure DevTest Labs](use-command-line-start-stop-virtual-machines.md)
-

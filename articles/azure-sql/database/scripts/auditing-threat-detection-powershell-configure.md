@@ -4,19 +4,19 @@ description: Ejemplo de script de Azure PowerShell para configurar la auditoría
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: security, sqldbrb=1
+ms.custom: security, sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: sstein, vanto
 ms.date: 04/28/2020
-ms.openlocfilehash: 1dc4630e429641fad1ef9efa96bbfa920c6d8963
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 709cded3fe595d84b53dcfa8e8061642adf1d2c1
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91321546"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110667811"
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Uso de PowerShell para configurar la auditoría y Advanced Threat Protection en SQL Database
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]

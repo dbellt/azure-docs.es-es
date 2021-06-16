@@ -4,12 +4,12 @@ description: Aquí se describe cómo utilizar la propiedad del ámbito al implem
 ms.topic: conceptual
 ms.date: 01/13/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 0f24c37c69394358e87407245f5db41ce8b6de80
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 534011658502829df8fa23e44264c8ff2992d3cf
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752056"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960015"
 ---
 # <a name="setting-scope-for-extension-resources-in-arm-templates"></a>Establecimiento del ámbito de los recursos de extensión en las plantillas de Resource Manager
 
@@ -86,6 +86,6 @@ En el ejemplo siguiente se crea una cuenta de almacenamiento y se aplica un rol 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para entender cómo definir parámetros en la plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para entender cómo definir parámetros en la plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./syntax.md).
 * Para obtener sugerencias para resolver los errores de implementación más comunes, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](common-deployment-errors.md).
 * Para más información sobre la implementación de una plantilla que requiere un token de SAS, vea [Implementación de una plantilla de Resource Manager privada con el token de SAS](secure-template-with-sas-token.md).

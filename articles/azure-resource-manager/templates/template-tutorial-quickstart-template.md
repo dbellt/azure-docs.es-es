@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 46b32ae7aeb971c9391a69e3ca3d01f669774248
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 16c89a37ad232f356c4d7857bfb3c35f8c644acd
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97106910"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565921"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Tutorial: Uso de las plantillas de inicio rápido de Azure
 
@@ -35,7 +35,7 @@ Esta plantilla funciona para implementar cuentas de almacenamiento y planes de A
 
 1. Abra [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/).
 1. En **Buscar**, escriba _deploy linux web app_ (implementar aplicación web Linux).
-1. Seleccione el icono que tenga el título **Deploy a basic Linux web app** (Implementación de una aplicación web Linux básica). Si tiene problemas para encontrarla, este es el [vínculo directo](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
+1. Seleccione el icono que tenga el título **Deploy a basic Linux web app** (Implementación de una aplicación web Linux básica). Si tiene problemas para encontrarla, este es el [vínculo directo](https://azure.microsoft.com/en-us/resources/templates/webapp-basic-linux/).
 1. Seleccione **Explorar en GitHub**.
 1. Seleccione _azuredeploy.json_.
 1. Revise la plantilla. En particular, busque el recurso `Microsoft.Web/sites`.

@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 3/18/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: b6fcbf7d31e76965cfd8b2944b426dce94b8aa75
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: c912984879cac12a9ad9fe078056677dccb48cf7
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324516"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970134"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-azure-real-time-operating-system-rtos"></a>Tutorial de actualización de dispositivos para Azure IoT Hub mediante el sistema operativo en tiempo real (RTOS) de Azure
 
@@ -29,7 +29,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Acceso a IoT Hub. Se recomienda usar el nivel S1 (Estándar) o superior.
-* Una instancia de Device Update y una cuenta vinculada a IoT Hub. Si aún no lo ha hecho, siga la guía para [crear y vincular](/azure/iot-hub-device-update/create-device-update-account) una cuenta de Device Update.
+* Una instancia de Device Update y una cuenta vinculada a IoT Hub. Si aún no lo ha hecho, siga la guía para [crear y vincular](./create-device-update-account.md) una cuenta de Device Update.
 
 ## <a name="get-started"></a>Introducción
 

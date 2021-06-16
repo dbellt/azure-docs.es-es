@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 01/03/2021
 ms.author: rogarana
 ms.subservice: files
-ms.custom: contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: e82ac4e1fdb8e5f88c9d83924da50b1ff5c659cc
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 05a92cd9f2ce7d5e23896f3dd8109abde5be69ca
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777930"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110669917"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Habilitación de la autenticación de Azure Active Directory Domain Services en Azure Files
 

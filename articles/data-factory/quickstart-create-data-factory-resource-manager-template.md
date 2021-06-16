@@ -7,14 +7,14 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel, jingwang
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 05/10/2021
-ms.openlocfilehash: 6e99d0d78b87d68cf5b7a94d3b1b9f576ea4913f
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 1fa01b628bb8c630716d2051a644d1e2225530f9
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109753964"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111372080"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>Inicio rápido: Creación de una instancia de Azure Data Factory mediante una plantilla de Resource Manager
 
@@ -54,7 +54,7 @@ Guarde el archivo en la carpeta **C:\ADFv2QuickStartPSH**. (Si la carpeta no exi
 
 ## <a name="review-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-data-factory-v2-blob-to-blob-copy/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datafactory&pageNumber=1&sort=Popular).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.datafactory/data-factory-v2-blob-to-blob-copy/azuredeploy.json":::
 

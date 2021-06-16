@@ -3,20 +3,20 @@ title: 'PowerShell: Restauración de una copia de seguridad automática de una b
 description: Utilice un script de ejemplo de Azure PowerShell para restaurar una base de datos de SQL Database a un momento anterior a partir de copias de seguridad automáticas.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
-ms.custom: ''
+ms.subservice: backup-restore
+ms.custom: devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma
 ms.date: 03/27/2019
-ms.openlocfilehash: cc987efbf156c264d3e0c8df07335910e711c376
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bbb61031c960b1fd096a1875caeee235cdf50212
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94594114"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110708056"
 ---
 # <a name="use-powershell-to-restore-a-database-to-an-earlier-point-in-time"></a>Uso de PowerShell para restaurar una base de datos a un momento anterior
 

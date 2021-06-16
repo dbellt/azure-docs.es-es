@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 8779381425d4180cc7320f251de9c2cfdd1f0510
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: f264097ac340e5810c3f69e199a28b06d2a22972
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99223430"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110678377"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Administración de capturas de paquetes con Azure Network Watcher mediante PowerShell
 
@@ -58,7 +59,7 @@ En este artículo se da por hecho que tiene los siguientes recursos:
 $VM = Get-AzVM -ResourceGroupName testrg -Name VM1
 ```
 
-### <a name="step-2"></a>Paso 2
+### <a name="step-2"></a>Paso 2
 
 En el ejemplo siguiente se recupera la información de extensión necesaria para ejecutar el cmdlet `Set-AzVMExtension`. Este cmdlet instala el agente de captura de paquetes en la máquina virtual invitada.
 
@@ -131,7 +132,7 @@ El siguiente paso es recuperar la instancia de Network Watcher. Esta variable se
 $networkWatcher = Get-AzNetworkWatcher  | Where {$_.Location -eq "westcentralus" }
 ```
 
-### <a name="step-2"></a>Paso 2
+### <a name="step-2"></a>Paso 2
 
 Recupere una cuenta de almacenamiento. Esta cuenta de almacenamiento se utiliza para almacenar el archivo de captura de paquetes.
 
@@ -151,7 +152,7 @@ $filter2 = New-AzPacketCaptureFilterConfig -Protocol UDP
 > [!NOTE]
 > Se pueden definir varios filtros para una captura de paquetes.
 
-### <a name="step-4"></a>Paso 4
+### <a name="step-4"></a>Paso 4
 
 Ejecute el cmdlet `New-AzNetworkWatcherPacketCapture` para iniciar el proceso de captura de paquetes, pasando los valores necesarios recuperados en los pasos anteriores.
 ```powershell

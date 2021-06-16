@@ -2,22 +2,22 @@
 title: Configuración del flujo de trabajo de consentimiento del administrador en Azure Active Directory | Microsoft Docs
 description: Aprenda a configurar una manera para que los usuarios finales soliciten acceso a las aplicaciones que requieren el consentimiento del administrador.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/29/2019
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9811c3d1833a02ad3cbaf22b9f0b31fd2da5bb6d
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 633505f0a0419bc595ecafc706d41aa6600c63c1
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375192"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080676"
 ---
 # <a name="configure-the-admin-consent-workflow"></a>Configuración del flujo de trabajo de consentimiento del administrador
 

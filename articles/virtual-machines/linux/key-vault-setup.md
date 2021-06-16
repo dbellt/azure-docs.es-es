@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/24/2017
 ms.author: mimckitt
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0db14eacfc88d120690a24d8455429cf50a7956a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ea648f460207e469dbfbc8c32c78f0e44581df60
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108738078"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112027192"
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli"></a>Configuración de Key Vault para máquinas virtuales con la CLI de Azure
 
@@ -53,4 +53,4 @@ Al utilizar plantillas, debe configurar la propiedad `enabledForDeployment` como
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para otras opciones que puede configurar al crear un almacén de claves mediante plantillas, consulte [Create a key vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)(Creación de un almacén de claves).
+Para otras opciones que puede configurar al crear un almacén de claves mediante plantillas, consulte [Create a key vault](https://azure.microsoft.com/resources/templates/key-vault-create/)(Creación de un almacén de claves).

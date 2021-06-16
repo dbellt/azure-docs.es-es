@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/30/2021
 ms.author: b-juche
-ms.openlocfilehash: 43605f8dfdcac8fe545e5464c13d9a50ae8ed82c
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 14bbd15fec0015073eefbe2421d03a73fac45d75
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108294260"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968380"
 ---
 # <a name="monitor-the-capacity-of-a-volume"></a>Supervisión de la capacidad de un volumen  
 
@@ -56,7 +56,7 @@ En la siguiente instantánea se muestra la información sobre capacidad del volu
 El *espacio disponible* es preciso mediante el comando `df`. Sin embargo, el *espacio consumido o usado* será una estimación cuando se generen instantáneas en el volumen. La [capacidad de instantánea consumida](azure-netapp-files-cost-model.md#capacity-consumption-of-snapshots) cuenta para el espacio total consumido en el volumen. Para obtener el consumo de volumen absoluto, incluida la capacidad que usan las instantáneas, use las [métricas de Azure NetApp](azure-netapp-files-metrics.md#volumes) en Azure Portal. 
 
 ## <a name="using-azure-portal"></a>Uso de Azure Portal
-Azure NetApp Files aprovecha la funcionalidad de [Azure Monitor](/azure/azure-monitor/overview) estándar. Por lo tanto, puede usar Azure Monitor para supervisar volúmenes de Azure NetApp Files.  
+Azure NetApp Files aprovecha la funcionalidad de [Azure Monitor](../azure-monitor/overview.md) estándar. Por lo tanto, puede usar Azure Monitor para supervisar volúmenes de Azure NetApp Files.  
 
 ## <a name="using-azure-cli"></a>Uso de la CLI de Azure  
 

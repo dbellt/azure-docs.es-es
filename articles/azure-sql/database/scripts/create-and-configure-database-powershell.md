@@ -3,20 +3,20 @@ title: 'PowerShell: Crear una base de datos única'
 description: Utilice un script de ejemplo de Azure PowerShell para crear una base de datos única en Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
-ms.custom: sqldbrb=1
+ms.subservice: deployment-configuration
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 3666c1c2c6721d803266395f6b9875a6797a92f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e2aed815a8c3bd81df881dbb7a829e95d017e8c
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87040480"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110691769"
 ---
 # <a name="use-powershell-to-create-a-single-database-and-configure-a-server-level-firewall-rule"></a>Uso de PowerShell para crear una base de datos única y configurar una regla de firewall en el nivel de servidor
 

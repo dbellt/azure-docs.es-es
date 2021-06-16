@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.author: alexeyo
-ms.openlocfilehash: 0f4064e6baf6c6ce237371a2a725fbe023b1e9f2
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 20a82f26b02e5acc42e8ab29a213e10e4cd6859d
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108277703"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111439357"
 ---
 # <a name="speech-service-quotas-and-limits"></a>Cuotas y límites del servicio de voz
 
@@ -75,7 +75,6 @@ En la tabla siguiente, los parámetros sin la fila "Ajustable" **no** son ajusta
 | **Cuotas específicas de WebSocket**                                                  |                        |                 |
 | Longitud máxima de audio generada por turno                                             | 10 min                 | 10 min          |
 | Tamaño máximo de mensaje SSML por turno                                                 | 64 KB                  | 64 KB           |
-| **Límite de API REST**                                                             | 20 solicitudes por minuto | 300 solicitudes por minuto |
 
 
 <sup>3</sup> Para el plan de tarifa **Gratis (F0)** , consulte también las asignaciones mensuales en la [página de precios](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>

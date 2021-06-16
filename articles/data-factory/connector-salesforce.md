@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: d5524bdf4f2055387c39c7f9c381c874ec963cc9
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 852ee7ccff01d33a6fd186175d1f5304a7839315
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109486942"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110493861"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copia de datos desde y hacia Salesforce mediante Azure Data Factory
 
@@ -42,7 +42,7 @@ El conector de Salesforce se basa en la API REST/Bulk de Salesforce. De forma pr
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-El permiso API debe estar habilitado en Salesforce. Para más información, consulte [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/) (Procedimientos para habilitar el acceso de API en Salesforce mediante un conjunto de permisos)
+El permiso API debe estar habilitado en Salesforce.
 
 ## <a name="salesforce-request-limits"></a>Límites de solicitudes de Salesforce
 

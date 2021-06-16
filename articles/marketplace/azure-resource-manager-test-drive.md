@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
-ms.openlocfilehash: 2addf415c39691b4e662f304522a418aa8a778c2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0d9c849ce7454e2875c4f00e73cc3b3edc37ad7e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730378"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971574"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Versión de prueba de Azure Resource Manager
 
 Use este tipo si tiene una oferta en Azure Marketplace o AppSource, pero quiere crear una versión de prueba solo con recursos de Azure. Una plantilla de Azure Resource Manager (ARM) consiste en un contenedor codificado de recursos de Azure que el usuario diseña para que represente mejor su solución. La versión de prueba utiliza la plantilla de ARM proporcionada e implementa todos los recursos necesarios en un grupo de recursos. Es la única opción de versión de prueba para las ofertas de máquina virtual o de aplicación de Azure.
 
-Si no está familiarizado con el concepto de plantilla de ARM, lea [¿Qué es Azure Resource Manager?](../azure-resource-manager/management/overview.md) y [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) para comprender mejor cómo compilar y probar sus propias plantillas.
+Si no está familiarizado con el concepto de plantilla de ARM, lea [¿Qué es Azure Resource Manager?](../azure-resource-manager/management/overview.md) y [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/syntax.md) para comprender mejor cómo compilar y probar sus propias plantillas.
 
 Para obtener información sobre una versión de prueba **hospedada** o de **aplicación lógica**, vea [¿Qué es una versión de prueba?](what-is-test-drive.md)
 
