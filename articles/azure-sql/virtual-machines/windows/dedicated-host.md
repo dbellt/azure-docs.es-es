@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 957e458bf21eb4a95b1faba1daf0459271648310
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b1259843a1195301ff66e7c8d1ad7650f9ca686
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97358697"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078751"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Ejecución de VM con SQL Server en una instancia de Azure Dedicated Host 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -76,6 +76,6 @@ A. Los clientes pueden usar el valor de sus licencias actuales de Windows Server
 Para más información, consulte los siguientes artículos. 
 
 * [Introducción a SQL Server en máquinas virtuales Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Preguntas más frecuentes de SQL Server en máquinas virtuales Windows](frequently-asked-questions-faq.md)
+* [Preguntas más frecuentes de SQL Server en máquinas virtuales Windows](frequently-asked-questions-faq.yml)
 * [Orientación de precios de SQL Server para máquinas virtuales de Azure](pricing-guidance.md)
 * [Notas de la versión de SQL Server en Azure Virtual Machines](doc-changes-updates-release-notes.md)

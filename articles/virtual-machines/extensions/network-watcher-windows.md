@@ -8,12 +8,13 @@ author: amjads1
 ms.author: amjads
 ms.collection: windows
 ms.date: 02/14/2017
-ms.openlocfilehash: d336a39714712e5436086e22ad24fc942a7d850a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e701132c8d9f91efd3eeb0e1a0f8f1b95d0b2543
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102563547"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110669622"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual del agente de Network Watcher para Windows
 
@@ -24,7 +25,7 @@ ms.locfileid: "102563547"
 
 En este documento se especifican las plataformas compatibles y las opciones de implementación de la extensión de máquina virtual del agente de Network Watcher para Windows. La instalación del agente no interrumpe la máquina virtual ni requiere reiniciarla. Puede implementar la extensión en máquinas virtuales que implemente. Si la máquina virtual se ha implementado mediante un servicio de Azure, consulte la documentación del servicio para decidir si permite o no la instalación de extensiones en la máquina virtual.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 

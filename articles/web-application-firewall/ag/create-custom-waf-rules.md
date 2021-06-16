@@ -8,12 +8,13 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: b14bd60ab744be5a1735abc073f32f8ebc3e1ab1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8c6bc1d7d8fb98541a25c7e91f0e023e2941e559
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96301702"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110668498"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Creación y uso de reglas personalizadas de Firewall de aplicaciones web v2 en Application Gateway
 

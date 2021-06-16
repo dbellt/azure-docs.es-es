@@ -7,16 +7,16 @@ ms.subservice: scale-out
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: scoriani
+ms.author: scoriani
+ms.reviewer: mathoma
 ms.date: 01/03/2019
-ms.openlocfilehash: 91bcd998849c619a328a198c97bb8c977b9d8232
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 821d63ae48c2062578f7f75390dd47407bf70f9c
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92792232"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110708864"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Uso de la clase RecoveryManager para solucionar problemas de mapas de particiones
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

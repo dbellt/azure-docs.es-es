@@ -15,12 +15,12 @@ ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 789554121af1c83d9077e6153ca9db01477bde25
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0cd917ced00220d1251b5aa1118f4287623b9445
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97360159"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080046"
 ---
 # <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Traslado de una VM con SQL Server a otra región dentro de Azure con Azure Site Recovery
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -154,6 +154,6 @@ Para evitar los cargos de facturación, quite la VM con SQL Server del almacén
 Para más información, consulte los siguientes artículos. 
 
 * [Introducción a SQL Server en máquinas virtuales Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Preguntas más frecuentes para SQL Server en máquinas virtuales Windows](frequently-asked-questions-faq.md)
+* [Preguntas más frecuentes para SQL Server en máquinas virtuales Windows](frequently-asked-questions-faq.yml)
 * [Orientación de precios de SQL Server para máquinas virtuales Windows](pricing-guidance.md)
 * [SQL Server on a Windows VM release notes](doc-changes-updates-release-notes.md) (Notas de la versión de SQL Server en máquinas virtuales Windows)

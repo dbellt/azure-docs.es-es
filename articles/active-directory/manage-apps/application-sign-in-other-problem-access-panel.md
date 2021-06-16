@@ -2,22 +2,22 @@
 title: Solución de problemas al iniciar sesión en una aplicación desde Aplicaciones de Azure AD
 description: Solución de problemas al iniciar sesión en una aplicación desde Aplicaciones de Azure AD
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e0a1522c03e37db5f381bc800171c93b3ffe29b4
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 25a24897570437a2322e93926b386d3567e78e21
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289181"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080226"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Solución de problemas al iniciar sesión en una aplicación desde Aplicaciones de Azure AD
 

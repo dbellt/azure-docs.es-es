@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: d56f565dab1b83e0cf9572e6807577be32678fe7
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: b3ba1aefb02e8cfb139b1afc07e2c57e1d80fe94
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109839156"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080280"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>Inicio rápido: Creación de una máquina virtual Windows con una plantilla de Resource Manager
 
@@ -26,13 +26,13 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-windows%2fazuredeploy.json)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/vm-simple-windows/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json":::
 
@@ -61,7 +61,7 @@ En la plantilla se definen varios recursos:
     - **Grupo de recursos**: seleccione un grupo de recursos existente del menú desplegable, o bien seleccione **Crear nuevo**, escriba un nombre único para el grupo de recursos y, a continuación, haga clic en **Aceptar**.
     - **Ubicación**: seleccione una ubicación.  Por ejemplo, **Centro de EE. UU**.
     - **Nombre de usuario de administrador**: proporcione un nombre de usuario, como *usuarioAzure*.
-    - **Contraseña de administrador**: proporcione una contraseña para usarla en la cuenta de administrador. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+    - **Contraseña de administrador**: proporcione una contraseña para usarla en la cuenta de administrador. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
     - **DNS label prefix** (Prefijo de etiqueta DNS): escriba un identificador único para usarlo como parte de la etiqueta DNS.
     - **Windows OS version** (Versión del sistema operativo Windows): seleccione la versión de Windows que quiere ejecutar en la VM.
     - **Tamaño de VM**: seleccione el [tamaño](../sizes.md) que se usará para la VM.

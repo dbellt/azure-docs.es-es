@@ -5,19 +5,19 @@ description: Obtenga información sobre cómo rotar el protector de Cifrado de d
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 67bcd8597314530f26481ef840644ffbc056b033
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 9c43cb7bb60b758230664571fd7d7e592009fff2
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777570"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110667197"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector"></a>Rotación del protector de Cifrado de datos transparente (TDE)
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]

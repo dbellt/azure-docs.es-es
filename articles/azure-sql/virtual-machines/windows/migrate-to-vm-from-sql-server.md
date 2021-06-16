@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f6e9009040d2d02702f8a71c352716491d07d1f7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 719de6058ca683acc8fb0be9727271f5a7928531
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98704311"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080028"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-on-an-azure-virtual-machine"></a>Migre una base de datos de SQL Server a SQL Server en una máquina virtual de Azure
 
@@ -113,6 +113,6 @@ Use el [servicio Azure Import/Export](../../../import-export/storage-import-expo
 Para obtener más información, consulte [Introducción a SQL Server en máquinas virtuales de Azure](sql-server-on-azure-vm-iaas-what-is-overview.md).
 
 > [!TIP]
-> Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](frequently-asked-questions-faq.md).
+> Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](frequently-asked-questions-faq.yml).
 
 Para obtener instrucciones sobre cómo crear SQL Server en una máquina virtual de Azure a partir de una imagen capturada, consulte [Sugerencias y trucos para la "clonación" de máquinas virtuales de SQL Azure a partir de imágenes capturadas](/archive/blogs/psssql/tips-tricks-on-cloning-azure-sql-virtual-machines-from-captured-images) en el blog de CSS SQL Server Engineers.

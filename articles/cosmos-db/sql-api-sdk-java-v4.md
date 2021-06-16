@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 213580eeb9495ecbc949eeb648533eb069c3d581
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: c8b1297d69de920e29cba4dba14b3d5f79c01427
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108287147"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110535585"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Versión 4 del SDK de Java para la API SQL de Azure Cosmos DB: notas de la versión y recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -56,7 +56,7 @@ La versión 4 del SDK de Java de Azure Cosmos DB para Core (SQL) combina una A
 | Contenido | Vínculo |
 |---|---|
 |**Descarga del SDK**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
-|**Documentación de la API** | [Documentación de referencia de API](/java/api/overview/azure/cosmosdb/client) |
+|**Documentación de la API** | [Documentación de referencia de API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/latest/index.html) |
 |**Contribuya al SDK** | [Repositorio central del SDK de Azure para Java en GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos) | 
 |**Introducción** | [Inicio rápido: Creación de una aplicación Java para administrar los datos de SQL API de Azure Cosmos DB](./create-sql-api-java.md) <br> [Repositorio de GitHub con código de inicio rápido](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
 |**Ejemplos de código básicos** | [Azure Cosmos DB: ejemplos de Java para la API de SQL](sql-api-java-sdk-samples.md) <br> [Repositorio de GitHub con código de ejemplo](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)|

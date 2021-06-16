@@ -3,20 +3,20 @@ title: Introducción a las tablas temporales
 description: Obtenga información sobre cómo empezar a usar las tablas temporales de Azure SQL Database e Instancia administrada de Azure SQL.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: development
+ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: how-to
-author: bonova
-ms.author: bonova
-ms.reviewer: sstein
+author: MladjoA
+ms.author: mlandzic
+ms.reviewer: mathoma
 ms.date: 06/26/2019
-ms.openlocfilehash: ea037d12417c8fad9d80b77df69285ed2c8df31b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 43a2ca496ee9cb03ee76c293e3a980573a50753c
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91618665"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110691331"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database-and-azure-sql-managed-instance"></a>Introducción a las tablas temporales de Azure SQL Database y Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]

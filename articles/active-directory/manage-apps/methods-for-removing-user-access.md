@@ -2,20 +2,20 @@
 title: Eliminación del acceso de un usuario a una aplicación en Azure Active Directory
 description: Aprenda a quitar el acceso de un usuario a una aplicación en Azure Active Directory
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 11/02/2020
-ms.author: iangithinji
-ms.openlocfilehash: 958abc5f9be443d66037a6d9fe8d8779e6e37e0e
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.author: mtillman
+ms.openlocfilehash: bc6dc9120b0c1f31e3c8c92343513306b1760db1
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379594"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078607"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Cómo quitar el acceso de un usuario a una aplicación
 
