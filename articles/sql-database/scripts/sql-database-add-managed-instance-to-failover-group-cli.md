@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: carlrab
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 07/16/2019
-ms.openlocfilehash: f196db537ef0a64d14930ed6bc67696ee4614c23
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe24deb694a23e216ebcad430d87c62aa6cb2cfd
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86528917"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110698093"
 ---
 # <a name="use-cli-to-add-an-azure-sql-managed-instance-to-a-failover-group"></a>Uso de la CLI para agregar una instancia administrada de Azure SQL a un grupo de conmutación por error
 

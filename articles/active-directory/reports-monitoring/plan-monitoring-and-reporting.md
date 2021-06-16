@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd95f89510cbb591f05338e2bd076967982d8761
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 52166e8cf615c831f37b9122393af4039063f2b4
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109734044"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964624"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planeamiento de la implementación de la supervisión y los informes de Azure Active Directory
 
@@ -174,7 +174,7 @@ En función de las decisiones que haya tomado anteriormente mediante la guía de
 
 [Análisis de registros de actividad de Azure AD con registros de Azure Monitor](./howto-analyze-activity-logs-log-analytics.md)
 
-* [Interpretación del esquema de registros de auditoría en Azure Monitor](./reference-azure-monitor-audit-log-schema.md)
+* [Interpretación del esquema de registros de auditoría en Azure Monitor](./overview-reports.md)
 
 * [Interpretación del esquema de registros de inicio de sesión en Azure Monitor](./reference-azure-monitor-sign-ins-log-schema.md)
 

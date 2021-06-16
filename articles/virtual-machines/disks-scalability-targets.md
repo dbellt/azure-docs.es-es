@@ -3,16 +3,16 @@ title: Objetivos de escalabilidad y rendimiento para discos de máquinas virtual
 description: Obtenga información sobre los objetivos de escalabilidad y rendimiento para los discos de máquina virtual conectados a máquinas virtuales.
 author: roygara
 ms.author: rogarana
-ms.date: 01/15/2021
+ms.date: 06/02/2021
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: eec11ce53177ce7ecd10d1ce06cc60217293cb8e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2145ec105eabf681d9d89baab3361916f25bd039
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98574289"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028566"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks"></a>Objetivos de escalabilidad y rendimiento para discos de máquinas virtuales
 
@@ -22,7 +22,7 @@ Para más detalles, consulte los [tamaños de las máquinas virtuales](sizes.md)
 
 ## <a name="managed-virtual-machine-disks"></a>Discos de máquinas virtuales administrados
 
-Los tamaños marcados con un asterisco están actualmente en versión preliminar. Consulte nuestras [preguntas más frecuentes](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) para obtener información sobre en qué regiones están disponibles.
+Los tamaños marcados con un asterisco están actualmente en versión preliminar. Consulte nuestras [preguntas más frecuentes](/azure/virtual-machines/faq-for-disks#new-disk-sizes-managed-and-unmanaged) para obtener información sobre en qué regiones están disponibles.
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../../includes/azure-storage-limits-vm-disks-managed.md)]
 

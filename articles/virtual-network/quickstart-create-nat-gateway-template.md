@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: allensu
-ms.custom: subject-armqs
-ms.openlocfilehash: 13d419623bd6c2939ddfedd29f29527028ced74c
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.custom: subject-armqs, devx-track-azurepowershell
+ms.openlocfilehash: 2870592d7026a2bdf3cf2525f9e9401886843d9f
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109813261"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111811061"
 ---
 # <a name="quickstart-create-a-nat-gateway---arm-template"></a>Inicio rápido: Creación de una instancia de NAT Gateway: plantilla ARM
 
@@ -38,7 +38,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-nat-gateway-1-vm).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/nat-gateway-1-vm).
 
 Esta plantilla está configurada para crear lo siguiente:
 

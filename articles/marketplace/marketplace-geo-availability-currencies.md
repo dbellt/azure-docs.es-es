@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 03/08/2021
-ms.openlocfilehash: 77ed41299d9b4d8bc0ba3c6d2b998cb63258fd5c
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: c3e509a67eaf4bcc921032e762f54402f650ae3e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107887889"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971222"
 ---
 # <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>Disponibilidad geográfica y compatibilidad con monedas del marketplace comercial
 
@@ -196,14 +196,14 @@ Los precios individuales (que, según cómo se establecieron, pueden verse afect
 
 Para más información sobre cómo especificar el precio de tipos de oferta concretos, consulte estos artículos:
 
-- [Creación de una oferta de aplicación de Azure](create-new-azure-apps-offer.md)
+- [Creación de una oferta de aplicación de Azure](azure-app-offer-setup.md)
 - [Creación de una oferta de contenedor de Azure](azure-container-offer-setup.md)
 - [Creación de una oferta de máquina virtual de Azure](azure-vm-create.md)
 - [Creación de una oferta de servicios de consultoría](./create-consulting-service-offer.md)
 - [Creación de una oferta de Dynamics 365 for Customer Engagement y Power Apps](dynamics-365-customer-engage-offer-setup.md)
-- [Creación de una oferta de Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md)
-- [Creación de una oferta de Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md)
-- [Creación de una oferta de módulo de IoT Edge](partner-center-portal/azure-iot-edge-module-creation.md)
+- [Creación de una oferta de Dynamics 365 for Operations](dynamics-365-operations-offer-setup.md)
+- [Creación de una oferta de Dynamics 365 Business Central](dynamics-365-business-central-offer-setup.md)
+- [Creación de una oferta de módulo de IoT Edge](iot-edge-offer-setup.md)
 - [Creación de una oferta de servicio administrado](./plan-managed-service-offer.md)
-- [Creación de una aplicación Power BI](partner-center-portal/create-power-bi-app-offer.md)
+- [Creación de una aplicación Power BI](./power-bi-app-offer-setup.md)
 - [Creación de una oferta SaaS](./create-new-saas-offer.md)

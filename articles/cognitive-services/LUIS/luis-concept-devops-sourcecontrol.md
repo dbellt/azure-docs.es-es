@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 68d88ef667da9f22d3e3a17f10036693fcca0c3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b860510610330d6c5d60f41dccc9e82bc77685f5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98932514"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969435"
 ---
 # <a name="devops-practices-for-luis"></a>Prácticas de DevOps para LUIS
 
@@ -214,4 +214,4 @@ Cuando los cambios de la solicitud de incorporación de cambios se hayan combina
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtener información sobre las [pruebas de LUIS DevOps](luis-concept-devops-testing.md)
-* Obtener información sobre cómo [implementar DevOps para LUIS con GitHub](luis-how-to-devops-with-github.md)
+* Obtener información sobre cómo [implementar DevOps para LUIS con GitHub](./luis-concept-devops-automation.md)

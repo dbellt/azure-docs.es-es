@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: c3a821156074727d02ab36cf88f3e998756b8cc4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5b815914d4a34d50e2bb566097620ee29e15f957
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100389457"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677532"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Evitar las entradas DNS pendientes y la adquisición de subdominios
 
@@ -215,6 +215,6 @@ Para obtener más información sobre los servicios relacionados y las caracterí
 
 - [Impedir que los registros DNS queden pendientes con Azure DNS](../../dns/dns-alias.md#prevent-dangling-dns-records)
 
-- [Uso de un identificador de comprobación de dominio al agregar dominios personalizados en Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id)
+- [Uso de un identificador de comprobación de dominio al agregar dominios personalizados en Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md#3-get-a-domain-verification-id)
 
 - [Inicio rápido: Ejecutar la primera consulta de Resource Graph con Azure PowerShell](../../governance/resource-graph/first-query-powershell.md)

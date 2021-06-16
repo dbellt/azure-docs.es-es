@@ -2,22 +2,22 @@
 title: Descripción del inicio de sesión único (SSO) basado en OIDC para aplicaciones en Azure Active Directory
 description: Descripción del inicio de sesión único (SSO) basado en OIDC para aplicaciones en Azure Active Directory
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/19/2020
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: arajpathak7
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 990e0c09f8a49b83bc68d7123f5f8146a3551575
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 8c98449368a19f2bbc9d845539acc5b1c015ffac
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374546"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076229"
 ---
 # <a name="understand-oidc-based-single-sign-on"></a>Descripción del inicio de sesión único basado en OIDC
 En la [serie de guías de inicio rápido](view-applications-portal.md) sobre la administración de aplicaciones, aprendió a usar Azure AD como proveedor de identidades (IdP) para una aplicación. En este artículo se detallan más exhaustivamente las aplicaciones que usan el estándar OpenID Connect para implementar el inicio de sesión único. 

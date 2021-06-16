@@ -70,7 +70,7 @@
         - name: Inicio de sesión único basado en vínculo
           href: configure-linked-sign-on.md
         - name: Inicio de sesión único basado en encabezados (aplicaciones locales)
-          href: application-proxy-configure-single-sign-on-with-headers.md
+          href: ../app-proxy/application-proxy-configure-single-sign-on-with-headers.md
         - name: Inicio de sesión único con un solo clic
           href: one-click-sso-tutorial.md
     - name: Seguridad de la aplicación

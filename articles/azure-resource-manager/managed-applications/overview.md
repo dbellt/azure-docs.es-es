@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 65b8c21251f092311150a50480f5abecb1ad7c17
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c64cbbc1ac1260151ae14701ac3577036f19fa5f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96434573"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969633"
 ---
 # <a name="azure-managed-applications-overview"></a>Introducción a las aplicaciones administradas de Azure
 
@@ -49,7 +49,7 @@ Para más información sobre cómo publicar una aplicación administrada del cat
 
 Los proveedores que deseen facturar sus servicios pueden disponer de una aplicación administrada a través de Azure Marketplace. Después de que el proveedor publica una aplicación, esta está disponible para los usuarios de fuera de la organización. Con este método, los proveedores de servicios administrados (MSP), los fabricantes de software independientes (ISV) y los integradores del sistema (SIs) pueden ofrecer sus soluciones a todos los clientes de Azure.
 
-Para más información sobre cómo publicar una aplicación administrada en Azure Marketplace, consulte [Creación de la aplicación de Marketplace](../../marketplace/create-new-azure-apps-offer.md).
+Para más información sobre cómo publicar una aplicación administrada en Azure Marketplace, consulte [Creación de la aplicación de Marketplace](../../marketplace/azure-app-offer-setup.md).
 
 ## <a name="resource-groups-for-managed-applications"></a>Grupos de recursos para aplicaciones administradas
 
@@ -71,7 +71,7 @@ El consumidor tiene acceso total al grupo de recursos y lo utiliza para administ
 
 Este grupo de recursos contiene todos los recursos que requiere la aplicación administrada. Por ejemplo, este grupo de recursos contiene las máquinas virtuales, cuentas de almacenamiento y redes virtuales para la solución. El consumidor tiene acceso limitado a este grupo de recursos ya que no puede administrar los recursos individuales de la aplicación administrada. El acceso del editor a este grupo de recursos se corresponde con el rol especificado en la definición de la aplicación administrada. Por ejemplo, el editor puede solicitar el rol de propietario o colaborador para este grupo de recursos. El acceso es permanente o está limitado a un momento específico.
 
-Al publicar [la aplicación administrada en Marketplace](../../marketplace/create-new-azure-apps-offer.md), el editor puede conceder a los consumidores la capacidad de desempeñar acciones específicas en recursos del grupo de recursos administrado. Por ejemplo, el editor puede especificar que los consumidores puedan reiniciar máquinas virtuales. Se continuarán rechazando el resto de acciones que no sean de lectura. Los cambios en los recursos de un grupo de recursos administrado por un consumidor con acciones concedidas están sujetos a las asignaciones de [Azure Policy](../../governance/policy/overview.md) dentro del inquilino de los consumidores del ámbito para incluir el grupo de recursos administrados.
+Al publicar [la aplicación administrada en Marketplace](../../marketplace/azure-app-offer-setup.md), el editor puede conceder a los consumidores la capacidad de desempeñar acciones específicas en recursos del grupo de recursos administrado. Por ejemplo, el editor puede especificar que los consumidores puedan reiniciar máquinas virtuales. Se continuarán rechazando el resto de acciones que no sean de lectura. Los cambios en los recursos de un grupo de recursos administrado por un consumidor con acciones concedidas están sujetos a las asignaciones de [Azure Policy](../../governance/policy/overview.md) dentro del inquilino de los consumidores del ámbito para incluir el grupo de recursos administrados.
 
 Cuando el consumidor elimina la aplicación administrada, también se elimina el grupo de recursos administrados.
 

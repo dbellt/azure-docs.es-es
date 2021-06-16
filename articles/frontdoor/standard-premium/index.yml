@@ -10,12 +10,12 @@ metadata:
   author: duongau
   ms.author: duau
   ms.date: 02/18/2020
-  ms.openlocfilehash: 0fe35a2e83bb6737b1ff273390e5fb0c4db7bc6d
-  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.openlocfilehash: c345f74f688641fee550c622e83328689a79bb31
+  ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/03/2021
-  ms.locfileid: "101740331"
+  ms.lasthandoff: 06/11/2021
+  ms.locfileid: "112006876"
 landingContent:
 - title: Información sobre Azure Front Door Standard/Premium (versión preliminar)
   linkLists:
@@ -117,8 +117,6 @@ landingContent:
     links:
     - text: Problemas de enrutamiento comunes
       url: troubleshoot-route-issues.md
-    - text: Entidades de certificación permitidas
-      url: troubleshoot-allowed-certificate-authority.md
 - title: Información sobre Azure Front Door
   linkLists:
   - linkListType: overview

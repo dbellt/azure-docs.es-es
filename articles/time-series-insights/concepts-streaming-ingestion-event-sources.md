@@ -1,20 +1,21 @@
 ---
 title: 'Origen del evento de ingesta de streaming: Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Obtenga información sobre el streaming de datos en Azure Time Series Insights Gen2.
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: 499cb3c978a67f9ef71e6ad9dd03be9f05b45729
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: fa920138753d02da03284907b6ecd415046c0963
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726977"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110617645"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Orígenes de eventos de Azure Time Series Insights Gen2
 
@@ -29,7 +30,7 @@ Los eventos se deben enviar como JSON con codificación UTF8.
 
 El origen del evento es el vínculo entre el centro y el entorno de Azure Time Series Insights Gen2, y se crea un recurso de tipo independiente `Time Series Insights event source` en el grupo de recursos. Los recursos de IoT Hub o del Centro de eventos pueden residir en la misma suscripción de Azure que el entorno de Azure Time Series Insights Gen2 o una suscripción diferente. Sin embargo, es un procedimiento recomendado hospedar el entorno de Azure Time Series Insights y la instancia de IoT Hub o el Centro de eventos en la misma región de Azure.
 
-Puede usar [Azure Portal](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), la [CLI de Azure](https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/tsi/event-source), las [plantillas de Azure Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager-template.md) y la [API de REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) para crear, editar o quitar los orígenes de eventos del entorno.
+Puede usar [Azure Portal](./tutorial-set-up-environment.md#create-an-azure-time-series-insights-gen2-environment), la [CLI de Azure](/cli/azure/tsi/event-source), las [plantillas de Azure Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager-template.md) y la [API de REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) para crear, editar o quitar los orígenes de eventos del entorno.
 
 > [!WARNING]
 > No restrinja el acceso a través de una red de Internet pública a un centro u origen de eventos usado por Time Series Insights o, de lo contrario, se interrumpirá la conexión necesaria.

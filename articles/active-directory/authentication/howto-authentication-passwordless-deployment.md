@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d4ff717a49ba9c9b4d66e54e5eae1248af3fcea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b5bbe10c07897c1e33dc4c5a156bc5acd0d7779
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579372"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110584881"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planeamiento de una implementación de autenticación sin contraseña en Azure Active Directory
 
@@ -283,7 +283,7 @@ Aunque la autenticación sin contraseña es una característica ligera con un im
 Para ello, es necesario que el administrador inicie sesión en el portal de Azure Active Directory, seleccione los métodos de autenticación seguros que desee y cambie la opción Habilitar a **No**. Este proceso desactiva la funcionalidad sin contraseña para todos los usuarios.
 
 A los usuarios que ya han registrado dispositivos de seguridad FIDO2 se les pide que utilicen el dispositivo de seguridad en el siguiente inicio de sesión y, a continuación, se les muestra el siguiente error:
-
+  
 ![elija otra manera de iniciar sesión](./media/howto-authentication-passwordless-deployment/passwordless-choose-sign-in.png)
 
 ## <a name="deploy-and-troubleshoot-passwordless-authentication"></a>Implementación y solución de problemas de autenticación con contraseña

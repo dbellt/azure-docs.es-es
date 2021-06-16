@@ -2,21 +2,21 @@
 title: Administración de la asignación de usuarios para una aplicación en Azure Active Directory
 description: Aprenda a asignar y anular la asignación de usuarios y grupos para una aplicación mediante el uso de Azure Active Directory para la administración de identidades.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/21/2020
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: luleon
-ms.openlocfilehash: 097bf55cc7e5372749240c19afb09ba374d437af
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 1f0e9bb0e09657b23d1126d7364435340307dcf0
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107377979"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080730"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Administración de la asignación de usuarios para una aplicación en Azure Active Directory
 

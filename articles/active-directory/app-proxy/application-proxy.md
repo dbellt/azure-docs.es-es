@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 1b2887dd82d9c01cc5403f35dffa230feff385d7
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: f45dcde6368cefe0d8eb869bd042e36f364589cf
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108186715"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963876"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Acceso remoto a aplicaciones locales a través de Azure AD Application Proxy
 
@@ -35,10 +35,10 @@ Application Proxy es una característica de Azure AD que permite a los usuarios 
 
 Application Proxy funciona con:
 
-* Aplicaciones web que usan la [autenticación integrada de Windows](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md) para la autenticación.
-* Aplicaciones web que usan el acceso basado en formularios o [basado en encabezados](../manage-apps/application-proxy-configure-single-sign-on-with-headers.md).
+* Aplicaciones web que usan la [autenticación integrada de Windows](./application-proxy-configure-single-sign-on-with-kcd.md) para la autenticación.
+* Aplicaciones web que usan el acceso basado en formularios o [basado en encabezados](./application-proxy-configure-single-sign-on-with-headers.md).
 * API web que desea exponer a aplicaciones sofisticadas de diferentes dispositivos
-* Aplicaciones que se hospedan detrás de una [puerta de enlace de escritorio remoto](../manage-apps/application-proxy-integrate-with-remote-desktop-services.md).
+* Aplicaciones que se hospedan detrás de una [puerta de enlace de escritorio remoto](./application-proxy-integrate-with-remote-desktop-services.md).
 * Aplicaciones cliente enriquecidas que se integran con la biblioteca de autenticación de Microsoft (MSAL).
 
 Application Proxy admite el inicio de sesión único. Para más información sobre los métodos admitidos, consulte [Elección de un método de inicio de sesión único](../manage-apps/sso-options.md#choosing-a-single-sign-on-method).

@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial, devx-track-azurecli
-ms.openlocfilehash: 3d7b88007a27b05119ebe93217c64279c8c541ff
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: c36c2fd86252f41af0e722445dca78d870c255e2
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373411"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969888"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>Tutorial: Implementación de CI/CD con GitOps mediante clústeres de Kubernetes habilitados para Azure Arc
 
@@ -211,8 +211,8 @@ La canalización de CD usa el token de seguridad de la compilación en ejecució
 1. Para `<Project Name> Build Service (<Organization Name>)`, permita `Contribute`, `Contribute to pull requests` y `Create branch`.
 
 Para más información, consulte:
-- [Concesión de permisos de VC al servicio de compilación](https://docs.microsoft.com/azure/devops/pipelines/scripts/git-commands?view=azure-devops&tabs=yaml&preserve-view=true#version-control )
-- [Administración de permisos de cuenta de servicio de compilación](https://docs.microsoft.com/azure/devops/pipelines/process/access-tokens?view=azure-devops&tabs=yaml&preserve-view=true#manage-build-service-account-permissions)
+- [Concesión de permisos de VC al servicio de compilación](/azure/devops/pipelines/scripts/git-commands?preserve-view=true&tabs=yaml&view=azure-devops#version-control )
+- [Administración de permisos de cuenta de servicio de compilación](/azure/devops/pipelines/process/access-tokens?preserve-view=true&tabs=yaml&view=azure-devops#manage-build-service-account-permissions)
 
 
 ## <a name="deploy-the-dev-environment-for-the-first-time"></a>Implementación en el entorno de desarrollo por primera vez

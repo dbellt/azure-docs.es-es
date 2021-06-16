@@ -6,12 +6,12 @@ ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 717561614a3e42995bbce6746839fd9b7cbca37e
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 34006afd79ef2c1bb8a1f552a7f8f9905b95d72f
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834865"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075554"
 ---
 # <a name="set-up-continuous-deployment-with-chocolatey"></a>Configuración de la implementación continua con Chocolatey
 
@@ -81,7 +81,7 @@ Puede colocar su cuenta de Automation en cualquiera de las siguientes regiones (
 
 ## <a name="step-2-make-vm-extension-tweaks-to-the-resource-manager-template"></a>Paso 2: Realizar ajustes de la extensión de máquina virtual en la plantilla de Resource Manager
 
-Se proporcionan detalles sobre el registro de máquina virtual (con la extensión de máquina virtual de DSC de PowerShell) en esta [plantilla de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver).
+Se proporcionan detalles sobre el registro de máquina virtual (con la extensión de máquina virtual de DSC de PowerShell) en esta [plantilla de inicio rápido de Azure](https://azure.microsoft.com/blog/automating-vm-configuration-using-powershell-dsc-extension/).
 En este paso, se registra la nueva máquina virtual con el servidor de extracción en la lista de nodos de State Configuration. Parte de este registro es especificar la configuración del nodo que se aplica al nodo. Esta configuración de nodo no tiene que existir aún en el servidor de extracción, por lo que es correcto que sea el paso 4 en donde se realice esto por primera vez. Sin embargo, aquí en el paso 2 debe haber decidido el nombre del nodo y el nombre de la configuración. En este ejemplo de uso, el nodo es "isvbox" y la configuración es "ISVBoxConfig". Por tanto, el nombre de configuración del nodo (que se especificará en DeploymentTemplate.json) es "ISVBoxConfig.isvbox".
 
 ## <a name="step-3-add-required-dsc-resources-to-the-pull-server"></a>Paso 3: Agregar recursos de DSC necesarios al servidor de extracción

@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/19/2020
 ms.reviewer: ManojRaheja
 author: midesa
-ms.openlocfilehash: 9d2ddb263ac5c8459b2d15665da8243aed52e94a
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 5b7707354d7bf63671e21d1adbaebc2ef8d71d0e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109795616"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952251"
 ---
 # <a name="azure-data-explorer-kusto-connector-for-apache-spark"></a>Conector de Azure Data Explorer (Kusto) para Apache Spark
 El conector de Azure Data Explorer (Kusto) para Apache Spark está diseñado para transferir datos de forma eficaz entre clústeres de Kusto y Spark. Este conector está disponible en Python, Java y .NET. Está integrado en el entorno de ejecución de Apache Spark 2.4 para Azure Synapse.
@@ -78,7 +78,7 @@ df.write \
     .mode("Append") \
     .save()
 ```
-Además, también puede escribir datos por lotes proporcionando propiedades de ingesta adicionales. Para más información sobre las propiedades de ingesta admitidas, puede visitar el [material de referencia sobre las propiedades de ingesta de Kusto](https://docs.microsoft.com/azure/data-explorer/ingestion-properties).
+Además, también puede escribir datos por lotes proporcionando propiedades de ingesta adicionales. Para más información sobre las propiedades de ingesta admitidas, puede visitar el [material de referencia sobre las propiedades de ingesta de Kusto](/azure/data-explorer/ingestion-properties).
 
 
  ```python

@@ -4,12 +4,12 @@ description: Aprenda a iniciar y configurar el servicio de proxy inverso para un
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: f8a9025a50b2815f0e6030e7baf317b261c8c462
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1d8f290bf1cad13597376d1d7c27cfaa695f9511
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86256343"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956639"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Instalación y configuración del proxy inverso en Azure Service Fabric
 El proxy inverso es un servicio opcional de Azure Service Fabric que ayuda a los microservicios que se ejecutan en un clúster de Service Fabric a detectar otros servicios que tienen puntos de conexión HTTP y a comunicarse con ellos. Para más información, consulte [Proxy inverso en Azure Service Fabric](service-fabric-reverseproxy.md). Este artículo muestra cómo instalar y configurar el proxy inverso en el clúster. 
@@ -41,7 +41,7 @@ Para un clúster existente, puede exportar la plantilla de Resource Manager para
 
 Una vez que tenga una plantilla de Resource Manager, puede seguir estos pasos para habilitar el proxy inverso:
 
-1. Defina un puerto para el proxy inverso en la [sección de parámetros](../azure-resource-manager/templates/template-syntax.md) de la plantilla.
+1. Defina un puerto para el proxy inverso en la [sección de parámetros](../azure-resource-manager/templates/syntax.md) de la plantilla.
 
     ```json
     "SFReverseProxyPort": {
@@ -52,7 +52,7 @@ Una vez que tenga una plantilla de Resource Manager, puede seguir estos pasos pa
         }
     },
     ```
-2. Especifique el puerto para cada uno de los objetos nodetype de la sección [**Microsoft. ServiceFabric/clusters**](/azure/templates/microsoft.servicefabric/clusters) [tipo de recurso](../azure-resource-manager/templates/template-syntax.md).
+2. Especifique el puerto para cada uno de los objetos nodetype de la sección [**Microsoft. ServiceFabric/clusters**](/azure/templates/microsoft.servicefabric/clusters) [tipo de recurso](../azure-resource-manager/templates/syntax.md).
 
     El puerto se identifica con el nombre de parámetro reverseProxyEndpointPort.
 
@@ -74,7 +74,7 @@ Una vez que tenga una plantilla de Resource Manager, puede seguir estos pasos pa
         ...
     }
     ```
-3. Para configurar certificados TLS o SSL en el puerto del proxy inverso, agregue el certificado a la propiedad **reverseProxyCertificate** de la sección [Tipo de recurso](../azure-resource-manager/templates/template-syntax.md) de *Microsoft.ServiceFabric/clusters** .
+3. Para configurar certificados TLS o SSL en el puerto del proxy inverso, agregue el certificado a la propiedad **reverseProxyCertificate** de la sección [Tipo de recurso](../azure-resource-manager/templates/syntax.md) de *Microsoft.ServiceFabric/clusters** .
 
     ```json
     {
@@ -98,7 +98,7 @@ Una vez que tenga una plantilla de Resource Manager, puede seguir estos pasos pa
     ```
 
 ### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>Compatibilidad de un certificado de proxy inverso distinto del certificado de clúster
- Si el certificado de proxy inverso es distinto del certificado que protege el clúster, el certificado especificado anteriormente debe instalarse en la máquina virtual y agregarse a la lista de control de acceso (ACL) para que Service Fabric pueda acceder a él. Esto puede hacerse en la [**sección del** tipo de recurso](/azure/templates/microsoft.compute/virtualmachinescalesets) [Microsoft. Compute/virtualMachineScaleSets](../azure-resource-manager/templates/template-syntax.md). Para la instalación, agregue el certificado a osProfile. La sección de extensión de la plantilla puede actualizar el certificado en la ACL.
+ Si el certificado de proxy inverso es distinto del certificado que protege el clúster, el certificado especificado anteriormente debe instalarse en la máquina virtual y agregarse a la lista de control de acceso (ACL) para que Service Fabric pueda acceder a él. Esto puede hacerse en la [**sección del** tipo de recurso](/azure/templates/microsoft.compute/virtualmachinescalesets) [Microsoft. Compute/virtualMachineScaleSets](../azure-resource-manager/templates/syntax.md). Para la instalación, agregue el certificado a osProfile. La sección de extensión de la plantilla puede actualizar el certificado en la ACL.
 
   ```json
   {
@@ -252,7 +252,7 @@ Si desea exponer un proxy inverso públicamente para un clúster independiente, 
 
 ### <a name="expose-the-reverse-proxy-via-resource-manager-templates"></a>Exposición del proxy inverso mediante plantillas de Resource Manager
 
-El siguiente archivo JSON hace referencia a la misma plantilla que se usa en [Habilitación del proxy inverso mediante plantillas de Azure Resource Manager](#enable-reverse-proxy-via-azure-resource-manager-templates). Haga referencia a esa sección del documento para obtener información acerca de cómo crear una plantilla de Resource Manager o exportar una plantilla para un clúster existente.  Los cambios se realizan en la [**sección de cambios de recurso**](/azure/templates/microsoft.network/loadbalancers) [Microsoft. Network/loadBalancers](../azure-resource-manager/templates/template-syntax.md).
+El siguiente archivo JSON hace referencia a la misma plantilla que se usa en [Habilitación del proxy inverso mediante plantillas de Azure Resource Manager](#enable-reverse-proxy-via-azure-resource-manager-templates). Haga referencia a esa sección del documento para obtener información acerca de cómo crear una plantilla de Resource Manager o exportar una plantilla para un clúster existente.  Los cambios se realizan en la [**sección de cambios de recurso**](/azure/templates/microsoft.network/loadbalancers) [Microsoft. Network/loadBalancers](../azure-resource-manager/templates/syntax.md).
 
 ```json
 {

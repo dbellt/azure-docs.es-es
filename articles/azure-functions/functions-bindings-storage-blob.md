@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 4ec21086ee94610be1d9cf5da7b64c837b5311a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30bd445940187d3514dc4b7024d3dbb8f7d920b2
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100381535"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536731"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Introducción a los enlaces de Azure Blob Storage para Azure Functions
 
@@ -36,7 +36,7 @@ Para trabajar con el desencadenador y los enlaces, es necesario hacer referencia
 
 #### <a name="storage-extension-5x-and-higher"></a>Extensión de Storage 5.x y versiones posteriores
 
-Hay disponible una nueva versión de la extensión de enlaces de Storage en un [paquete NuGet en versión preliminar](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.2). Esta versión preliminar presenta la posibilidad de [conectarse con una identidad en lugar de un secreto](./functions-reference.md#configure-an-identity-based-connection). En el caso de las aplicaciones .NET, también cambian los tipos con los que se puede enlazar; así, los tipos `WindowsAzure.Storage` y `Microsoft.Azure.Storage` se reemplazan por otros más recientes de [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs).
+Hay disponible una nueva versión de la extensión de enlaces de Storage en un [paquete NuGet en versión preliminar](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.3). Esta versión preliminar presenta la posibilidad de [conectarse con una identidad en lugar de un secreto](./functions-reference.md#configure-an-identity-based-connection). En el caso de las aplicaciones .NET, también cambian los tipos con los que se puede enlazar; así, los tipos `WindowsAzure.Storage` y `Microsoft.Azure.Storage` se reemplazan por otros más recientes de [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs).
 
 > [!NOTE]
 > El paquete en versión preliminar no se incluye en un conjunto de extensiones y debe instalarse manualmente. En el caso de las aplicaciones .NET, agregue una referencia al paquete. Con el resto de tipos de aplicaciones, consulte [Actualización de las extensiones].

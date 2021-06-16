@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/19/2021
-ms.openlocfilehash: 7524b0fd496a87a281e5b9cd9f8ffcc8b54d6388
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: cfc866a7b7a63982377f8a2498b9538bd870e381
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108000928"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969124"
 ---
 # <a name="train-pytorch-model"></a>Entrenamiento del modelo de PyTorch
 
@@ -81,7 +81,7 @@ Haga clic en la pestaña "Métricas" de este módulo y consulte los grafos de m�
 
 ### <a name="how-to-enable-distributed-training"></a>Cómo habilitar el entrenamiento distribuido
 
-Para habilitar el entrenamiento distribuido para el módulo **Entrenamiento del modelo de PyTorch**, puede establecerlo desde **Configuración de ejecución** en el panel derecho del módulo. Solo se admite el **[clúster de proceso de AML](https://docs.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python)** para el entrenamiento distribuido.
+Para habilitar el entrenamiento distribuido para el módulo **Entrenamiento del modelo de PyTorch**, puede establecerlo desde **Configuración de ejecución** en el panel derecho del módulo. Solo se admite el **[clúster de proceso de AML](../how-to-create-attach-compute-cluster.md?tabs=python)** para el entrenamiento distribuido.
 
 > [!NOTE]
 > Se necesitan **varias GPU** para activar el entrenamiento distribuido porque el módulo Entrenamiento del modelo de PyTorch de back-end de NCCL necesita CUDA.
@@ -102,7 +102,7 @@ Para habilitar el entrenamiento distribuido para el módulo **Entrenamiento del 
 
     [![Captura de pantalla que muestra cómo comprobar un clúster de proceso](./media/module/compute-cluster-node.png)](./media/module/compute-cluster-node.png#lightbox)
 
-Puede obtener más información acerca del entrenamiento distribuido en Azure Machine Learning [aquí](https://docs.microsoft.com/azure/machine-learning/concept-distributed-training).
+Puede obtener más información acerca del entrenamiento distribuido en Azure Machine Learning [aquí](../concept-distributed-training.md).
 
 ### <a name="troubleshooting-for-distributed-training"></a>Solución de problemas de entrenamiento distribuido
 
@@ -151,7 +151,4 @@ Una vez completada la ejecución de la canalización, para usar el modelo para l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 
-
-
-
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning.

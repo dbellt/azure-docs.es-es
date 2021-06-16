@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/17/2021
-ms.openlocfilehash: 15235ddd1ae6bfe3166b523004bc8fe80a5b5be9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5d4b5f5264ad38ca3610840e6fd9a72c6bc5e0aa
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061469"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950971"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glosario de Language Understanding de conceptos y vocabulario común
 En el glosario de Language Understanding (LUIS) se explican los términos que pueden aparecer cuando se trabaja con el servicio LUIS.
@@ -295,7 +295,7 @@ El modelo devolverá el valor normalizado de la entidad cuando se vea cualquiera
 
 ## <a name="test"></a>Prueba
 
-La [prueba](luis-concept-test.md) de una aplicación LUIS significa ver predicciones de modelo.
+La [prueba](./luis-interactive-test.md) de una aplicación LUIS significa ver predicciones de modelo.
 
 ## <a name="timezone-offset"></a>Desplazamiento de zona horaria
 

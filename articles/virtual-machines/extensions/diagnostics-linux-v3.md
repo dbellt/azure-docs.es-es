@@ -8,12 +8,13 @@ author: amjads1
 ms.author: amjads
 ms.collection: linux
 ms.date: 12/13/2018
-ms.openlocfilehash: 121ea47322303ab06a9240cd4a80e61ad882954d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 20be29d428fe6eaf9e7e64b4536c5014641c5416
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138308"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962529"
 ---
 # <a name="use-linux-diagnostic-extension-30-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux 3.0 para supervisar métricas y registros
 
@@ -42,7 +43,7 @@ Puede habilitar esta extensión mediante cmdlets de Azure PowerShell, scripts de
 >[!NOTE]
 >Algunos componentes de la extensión de VM de LAD también se incluyen en la [extensión de VM de Log Analytics](./oms-linux.md). Gracias a esta arquitectura, se pueden producir conflictos si se crean instancias de las dos extensiones en la misma plantilla de ARM. 
 >
->Para evitar estos conflictos en tiempo de instalación, use la [`dependsOn`directiva](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) para asegurarse de que las extensiones se instalan de forma secuencial. Las extensiones se pueden instalar en cualquier orden.
+>Para evitar estos conflictos en tiempo de instalación, use la [`dependsOn`directiva](../../azure-resource-manager/templates/resource-dependency.md#dependson) para asegurarse de que las extensiones se instalan de forma secuencial. Las extensiones se pueden instalar en cualquier orden.
 
 Mediante estas instrucciones de instalación y una [configuración de ejemplo descargable](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) se configura LAD 3.0 para:
 

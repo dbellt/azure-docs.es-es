@@ -2,14 +2,14 @@
 title: Consideraciones de aplicación de revisiones de BareMetal para Oracle
 description: Obtenga información acerca de las consideraciones de aplicación de revisiones de kernel o sistema operativo correspondientes a BareMetal Infrastructure para Oracle.
 ms.topic: reference
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 04/14/2021
-ms.openlocfilehash: 5af713c776def8af558531c84013b221a8d30087
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 1c7a4a4f9e2395bbe29ab8bf27b18afb21f98917
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107558794"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578574"
 ---
 # <a name="patching-considerations-for-baremetal-for-oracle"></a>Consideraciones de aplicación de revisiones de BareMetal para Oracle
 

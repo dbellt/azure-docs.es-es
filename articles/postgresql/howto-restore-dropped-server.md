@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 04/26/2021
-ms.openlocfilehash: 0cfbf6fa6a329e2038120703e6fe29fca23bfa06
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 544bf2ff63b81842b942b645dc74a9f5ac838461
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108018039"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966277"
 ---
 # <a name="restore-a-dropped-azure-database-for-postgresql-server"></a>Restauración de un servidor descartado de Azure Database for PostgreSQL
 
@@ -37,7 +37,7 @@ Para restaurar un servidor descartado de Azure Database for PostgreSQL, necesita
 3. Seleccione el evento **Eliminar servidor PostgreSQL** y luego la pestaña **JSON**. Copie los atributos `resourceId` y `submissionTimestamp` en la salida JSON. ResourceId tiene el formato siguiente: `/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TargetResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/deletedserver`.
 
 
- 1. Vaya a la [página de creación de la API de REST del servidor PostgreSQL](https://docs.microsoft.com/rest/api/postgresql/singleserver/servers/create) y seleccione la pestaña **Probar** resaltada en verde. Inicie sesión con su cuenta de Azure.
+ 1. Vaya a la [página de creación de la API de REST del servidor PostgreSQL](/rest/api/postgresql/singleserver/servers/create) y seleccione la pestaña **Probar** resaltada en verde. Inicie sesión con su cuenta de Azure.
 
  2. Especifique las propiedades **resourceGroupName**, **serverName** (nombre del servidor eliminado) y **subscriptionId** en función del valor JSON del atributo resourceId capturado en el paso 3 anterior. La propiedad api-version está rellenada previamente y se puede dejar tal cual, como se muestra en la siguiente imagen.
 

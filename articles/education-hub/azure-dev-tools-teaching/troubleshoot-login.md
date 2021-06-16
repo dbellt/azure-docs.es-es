@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
-ms.openlocfilehash: 276ab2cc1d79235c00ce1bb50ff9b648bb1de6ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f6320b0af23dbb74f9ced7e0a9fe683861d6e96
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87095110"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111894981"
 ---
 # <a name="troubleshooting-student-login-issues"></a>Solución de problemas de inicio de sesión de alumnos
 El acceso a Azure Dev Tools for Teaching requiere que un usuario tenga una cuenta de Microsoft (MSA). Los alumnos se dirigirán automáticamente a la página para crear una cuenta MSA si la suya no lo es o no está vinculada a una. Si el dominio está asociado a Active Directory, todas las cuentas de ese dominio ya se consideran MSA.
@@ -51,6 +51,6 @@ La próxima vez que inicie sesión, puede usar su dirección de correo electrón
     :::image type="content" source="media/troubleshoot-accounts/manage-sign-in-add-email.png" alt-text="Administrar cómo inicia sesión en Microsoft." border="false":::
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [P+F](program-faq.md)
+- [P+F](program-faq.yml)
 
 - [Opciones de soporte técnico](program-support.md)

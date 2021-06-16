@@ -7,16 +7,15 @@ ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: tutorial
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: MashaMSFT
+ms.author: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: d2c1ddd1e0b5a080050e1ffeb28eded98dbfea3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5702cf97c1796e2f3e7b79f61ef76eb6084293d
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97652116"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110708389"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperación ante desastres para una aplicación SaaS multiinquilino mediante la replicación geográfica de las bases de datos
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

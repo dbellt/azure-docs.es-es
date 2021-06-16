@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: c2c09e1a30c9cef4d65b2d5443481c84ab779af8
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: ba266c5a4ec5ffb84ee02e9c1904423f01d333e5
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833839"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110670917"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Solución de problemas de dominio y certificado TLS/SSL en Azure App Service
 
@@ -109,7 +109,7 @@ En el dominio personalizado configurado falta un registro A o CNAME.
 
 **Solución para la causa 1**
 
-- Si agregó un registro A, asegúrese de que también se agregó un registro TXT. Para más información, consulte [Crear el registro A](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
+- Si agregó un registro A, asegúrese de que también se agregó un registro TXT. Para más información, consulte [Crear el registro A](./app-service-web-tutorial-custom-domain.md#4-create-the-dns-records).
 - Si no tiene que usar el dominio raíz de la aplicación, se recomienda usar un registro CNAME en lugar de un registro A.
 - No use un registro CNAME y un registro A para el mismo dominio. Este problema puede causar conflictos e impedir que se resuelva el dominio. 
 

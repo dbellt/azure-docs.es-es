@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 4853f485e4424c3c3263a18d27834d0f9ae94918
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 273dcea805e3b6ec78dfc4bd14be616f6109c097
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019659"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032076"
 ---
 # <a name="moving-azure-network-watcher-resources-across-regions"></a>Traslado de recursos de Azure Network Watcher entre regiones
 
@@ -30,4 +30,4 @@ Actualmente no se admite el traslado de recursos entre regiones para ningún rec
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Lea la [introducción a Network Watcher](./network-watcher-monitoring-overview.md).
-* Consulte las [Preguntas frecuentes de Network Watcher](./frequently-asked-questions.md).
+* Consulte las [Preguntas frecuentes de Network Watcher](./frequently-asked-questions.yml).

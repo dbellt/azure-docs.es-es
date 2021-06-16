@@ -5,16 +5,16 @@ author: j-patrick
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 03/20/2020
+ms.date: 06/08/2021
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e0e6e42fc5b257cb0dfaf9d6a47bbac9811a23a5
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 0eb80de6ad566005eba518efab863af254c3df78
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107886863"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750972"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Uso de identidades administradas asignadas por el sistema para acceder a datos de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -93,10 +93,10 @@ az role assignment create --assignee $principalId --role "DocumentDB Account Con
 
 Ahora tenemos una aplicación de funciones que tiene una identidad administrada asignada por el sistema con el rol **Colaborador de cuenta de DocumentDB** en los permisos de Azure Cosmos DB. El código de la aplicación de funciones siguiente obtendrá las claves de Azure Cosmos DB, creará un objeto CosmosClient, obtendrá la temperatura del acuario y, después, la guardará en Azure Cosmos DB.
 
-En este ejemplo se usa la [API List Keys](/rest/api/cosmos-db-resource-provider/2021-03-15/databaseaccounts/listkeys) para acceder a las claves de la cuenta de Azure Cosmos DB.
+En este ejemplo se usa la [API List Keys](/rest/api/cosmos-db-resource-provider/2021-04-15/databaseaccounts/listkeys) para acceder a las claves de la cuenta de Azure Cosmos DB.
 
 > [!IMPORTANT] 
-> Si quiere [asignar el rol Lector de cuentas de Cosmos DB](#grant-access-to-your-azure-cosmos-account), tendrá que usar la [List Read Only Keys API](/rest/api/cosmos-db-resource-provider/2021-03-15/databaseaccounts/listreadonlykeys). Esto solamente rellenará las claves de solo lectura.
+> Si quiere [asignar el rol Lector de cuentas de Cosmos DB](#grant-access-to-your-azure-cosmos-account), tendrá que usar la [List Read Only Keys API](/rest/api/cosmos-db-resource-provider/2021-04-15/databaseaccounts/listreadonlykeys). Esto solamente rellenará las claves de solo lectura.
 
 La API List Keys devuelve el objeto `DatabaseAccountListKeysResult`. Este tipo no está definido en las bibliotecas de C#. En el código siguiente se muestra la implementación de esta clase:  
 
@@ -160,6 +160,9 @@ namespace Monitor
         private static string containerName =
         "<container to store the temperature in>";
 
+        // HttpClient is intended to be instantiated once, rather than per-use.
+        static readonly HttpClient httpClient = new HttpClient();
+
         [FunctionName("FishTankTemperatureService")]
         public static async Task Run([TimerTrigger("0 * * * * *")]TimerInfo myTimer, ILogger log)
         {
@@ -174,8 +177,7 @@ namespace Monitor
             // Setup the List Keys API to get the Azure Cosmos DB keys.
             string endpoint = $"https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/listKeys?api-version=2019-12-12";
 
-            // Setup an HTTP Client and add the access token.
-            HttpClient httpClient = new HttpClient();
+            // Add the access token to request headers.
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
             // Post to the endpoint to get the keys result.

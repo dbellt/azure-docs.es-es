@@ -5,14 +5,14 @@ ms.service: data-factory
 ms.topic: article
 ms.author: sawinark
 author: swinarko
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 09/12/2017
-ms.openlocfilehash: 158e2db5261ce35713e1564cd24f0dd1d563ab78
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f037ef0050a6a9e93e0ae98cbfa1d2b9d68d5939
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100370213"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110665526"
 ---
 # <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>Script de PowerShell: implementación de Integration Runtime de SSIS de Azure
 

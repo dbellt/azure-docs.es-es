@@ -8,13 +8,13 @@ ms.service: virtual-network
 ms.subservice: nat
 ms.topic: tutorial
 ms.date: 03/09/2021
-ms.custom: template-tutorial
-ms.openlocfilehash: 884697cee84c05916fe19fb8f9435de86bda291e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: template-tutorial, devx-track-azurepowershell
+ms.openlocfilehash: 8984a6d887afd092c82bc3544a84af32a8245dbc
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102619888"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671641"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-powershell"></a>Tutorial: Creación de una puerta de enlace de NAT mediante Azure PowerShell
 

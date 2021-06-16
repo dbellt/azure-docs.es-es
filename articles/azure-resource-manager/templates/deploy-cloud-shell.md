@@ -3,12 +3,12 @@ title: Implementación de plantillas con Cloud Shell
 description: Use Azure Resource Manager y Azure Cloud Shell para implementar recursos en Azure. Los recursos se definen en una plantilla de Azure Resource Manager (plantilla de ARM).
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 7697eb0a6786a07546bb0de679df69d64da30b1b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: bd597c2cb29120e680493a99aac33f146940bc19
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742353"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957881"
 ---
 # <a name="deploy-arm-templates-from-azure-cloud-shell"></a>Implementación de plantillas de ARM desde Azure Cloud Shell
 
@@ -118,4 +118,4 @@ Para implementar una plantilla local, primero debe cargarla en la cuenta de alma
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener más información sobre los comandos de implementación, consulte [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](deploy-cli.md) e [Implementación de recursos con plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).
-- Para obtener una vista previa de los cambios antes de implementar una plantilla, consulte [Operación de hipotética de implementación de una plantilla de Resource Manager](template-deploy-what-if.md).
+- Para obtener una vista previa de los cambios antes de implementar una plantilla, consulte [Operación de hipotética de implementación de una plantilla de Resource Manager](./deploy-what-if.md).

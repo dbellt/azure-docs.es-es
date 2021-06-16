@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Managed Instance
 description: Información acerca de los grupos de Instancia administrada de Azure SQL (versión preliminar), una característica que proporciona una forma cómoda y rentable de migrar bases de datos de SQL Server más pequeñas a la nube a escala y administrar varias instancias administradas.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: service-overview
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: bonova
-ms.author: bonova
-ms.reviewer: sstein
+author: urosmil
+ms.author: urmilano
+ms.reviewer: mathoma
 ms.date: 09/05/2019
-ms.openlocfilehash: bc345509db1c2a14afb0ae781eccad8f77395c18
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b84ff58517d413be884b81b6498f5b626ba02016
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97347071"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110697250"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>¿Qué es un grupo de Instancia administrada de Azure SQL (versión preliminar)?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

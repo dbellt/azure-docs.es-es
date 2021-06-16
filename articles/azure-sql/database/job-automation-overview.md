@@ -13,12 +13,12 @@ author: williamdassafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 2/1/2021
-ms.openlocfilehash: 295889cf64d27761021dd09549a3366ea142516e
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 8d754d03811bf532d6be6b4695281e82ab8fb002
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752039"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111440455"
 ---
 # <a name="automate-management-tasks-using-elastic-jobs-preview"></a>Automatización de tareas de administración mediante Trabajos elásticos (versión preliminar)
 
@@ -54,9 +54,9 @@ Tenga en cuenta las siguientes tecnologías de programación de trabajos en dist
 
 Los trabajos elásticos pueden tener como destino [bases de datos de Azure SQL Database](sql-database-paas-overview.md), [grupos de bases de datos elásticas de Azure SQL Database](elastic-pool-overview.md) y bases de datos Azure SQL Database en [mapas de particiones](elastic-scale-shard-map-management.md).
 
-Para la automatización de trabajos de los scripts de T-SQL en SQL Server y Azure SQL Managed Instance, tenga en cuenta el servicio [Agente SQL](job-automation-managed-instances.md). 
+- Para la automatización de trabajos de los scripts de T-SQL en SQL Server y Azure SQL Managed Instance, tenga en cuenta el servicio [Agente SQL](../managed-instance/job-automation-managed-instance.md). 
 
-Para la automatización de trabajos de los scripts de T-SQL en Azure Synapse Analytics, tenga en cuenta las [canalizaciones con desencadenadores recurrentes](../../synapse-analytics/data-integration/concepts-data-factory-differences.md), que se [basan en Azure Data Factory](../../synapse-analytics/data-integration/concepts-data-factory-differences.md).
+- Para la automatización de trabajos de los scripts de T-SQL en Azure Synapse Analytics, tenga en cuenta las [canalizaciones con desencadenadores recurrentes](../../synapse-analytics/data-integration/concepts-data-factory-differences.md), que se [basan en Azure Data Factory](../../synapse-analytics/data-integration/concepts-data-factory-differences.md).
 
 Merece la pena tener en cuenta las diferencias entre el Agente SQL (disponible en SQL Server y como parte de SQL Managed Instance), y el agente de trabajos elásticos de base de datos (que puede ejecutar T-SQL en bases de datos Azure SQL Database o en bases de datos de SQL Server, Azure SQL Managed Instance y Azure Synapse Analytics).
 
@@ -159,7 +159,7 @@ El resultado de los pasos de un trabajo en cada base de datos de destino se regi
 
 #### <a name="job-history"></a>Historial de trabajos
 
-El historial de ejecución de trabajos elásticos se puede ver en la *base de datos de trabajos* mediante una [consulta en la tabla jobs.job_executions](elastic-jobs-tsql-create-manage.md#monitor-job-execution-status). Un trabajo de limpieza del sistema purga el historial de ejecución anterior a 45 días. Para eliminar el historial que tenga menos de 45 días de antigüedad, llame al procedimiento almacenado **sp_purge_history** en la *base de datos de trabajos*.
+El historial de ejecución de trabajos elásticos se puede ver en la *base de datos de trabajos* mediante una [consulta en la tabla jobs.job_executions](elastic-jobs-tsql-create-manage.md#monitor-job-execution-status). Un trabajo de limpieza del sistema purga el historial de ejecución anterior a 45 días. Para eliminar el historial que tenga menos de 45 días de antigüedad, llame al procedimiento almacenado `sp_purge_jobhistory` en la *base de datos de trabajos*.
 
 #### <a name="job-status"></a>Estado del trabajo
 

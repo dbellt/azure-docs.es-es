@@ -12,16 +12,18 @@ ms.date: 04/16/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: content moderator, azure content moderator, online moderator, content filtering software, content moderation service, content moderation
-ms.openlocfilehash: b0ff5a241a76cd49d104e4145df37515b43c4e27
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 931b57b35cfca94b35a2b5c267d4469d5ca5ec07
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726203"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031716"
 ---
 # <a name="what-is-azure-content-moderator"></a>¿Qué es Azure Content Moderator?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 Azure Content Moderator es un servicio de inteligencia artificial que le permite controlar el contenido que puede ser ofensivo, arriesgado o no deseable. Incluye el servicio de moderación de contenido basado en IA que examina el texto, la imagen y los vídeos, y aplica marcas de contenido automáticamente, así como la herramienta de revisión, un entorno de moderador en línea para un equipo de revisores humanos.
 

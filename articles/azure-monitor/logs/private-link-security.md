@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 83775a48e0be1dec50e9205bb1fa9ddb8fcf0087
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: cf1e471144ec901f82cae1217921ad0eac29b2ae
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743928"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953263"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Uso de Azure Private Link para conectar redes a Azure Monitor de forma segura
 
@@ -92,7 +92,7 @@ Como se muestra en [Restricciones y limitaciones](#restrictions-and-limitations)
 ![Diagrama de límites de AMPLS](./media/private-link-security/ampls-limits.png)
 
 > [!NOTE]
-> Si usa soluciones de Log Analytics que requieren una cuenta de Automation, como Update Management, Change Tracking o Inventario, también debe configurar una instancia de Private Link independiente para la cuenta de Automation. Para obtener más información, vea [Uso de Azure Private Link para conectar redes a Azure Automation de forma segura](https://docs.microsoft.com/azure/automation/how-to/private-link-security).
+> Si usa soluciones de Log Analytics que requieren una cuenta de Automation, como Update Management, Change Tracking o Inventario, también debe configurar una instancia de Private Link independiente para la cuenta de Automation. Para obtener más información, vea [Uso de Azure Private Link para conectar redes a Azure Automation de forma segura](../../automation/how-to/private-link-security.md).
 
 
 ## <a name="example-connection"></a>Conexión de ejemplo

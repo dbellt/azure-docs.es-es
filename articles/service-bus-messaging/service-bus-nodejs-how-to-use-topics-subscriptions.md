@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.custom:
 - devx-track-js
 - mode-api
-ms.openlocfilehash: e9d53c312f6e61d6384afc17dce023742ab6bd98
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 13664e2a465ae891666e9c296514dc18a14ed191
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743298"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950204"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-javascript"></a>Envíe mensajes a un tema de Azure Service Bus y reciba mensajes de las suscripciones a ese tema (JavaScript)
 En este tutorial aprenderá a usar el paquete [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) de un programa de JavaScript para enviar mensajes a un tema de Service Bus y recibirlos de una suscripción de Service Bus a ese tema.
@@ -209,6 +209,6 @@ En esta página, si selecciona una suscripción, irá a la página **Service Bus
 Consulte la documentación y los ejemplos siguientes: 
 
 - [Biblioteca cliente de Azure Service Bus para JavaScript](https://www.npmjs.com/package/@azure/service-bus)
-- [Ejemplos de JavaScript](https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/)
-- [Ejemplos de TypeScript](https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [Ejemplos de JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Ejemplos de TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
 - [Documentación de referencia de API](/javascript/api/overview/azure/service-bus)

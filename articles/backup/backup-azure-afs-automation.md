@@ -3,12 +3,13 @@ title: Copia de seguridad de un recurso compartido de archivos de Azure mediante
 description: En este artículo aprenderá a realizar copias de seguridad de un recurso compartido de Azure Files mediante el servicio Azure Backup y PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 948931764769bc967b88e7942b7e8384b0f93dff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 74478d98d63a18582d93c8cddb872ffb3c3774f8
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87077008"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110681493"
 ---
 # <a name="back-up-an-azure-file-share-by-using-powershell"></a>Copia de seguridad de un recurso compartido de archivos de Azure mediante PowerShell
 

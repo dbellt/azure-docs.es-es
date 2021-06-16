@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: b80100216003e91fde54b5e555bafb755c942810
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b686eac137a0531befea6fe42c31112c46b18cc9
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98682926"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028656"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Use Azure Portal para restringir el acceso de importación y exportación para discos administrados con Private Links
 
@@ -91,5 +91,5 @@ Ya ha completado la configuración de los vínculos privados que puede usar al i
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Preguntas más frecuentes sobre vínculos privados](./faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
+- [Preguntas más frecuentes sobre vínculos privados](/azure/virtual-machines/faq-for-disks#private-links-for-securely-exporting-and-importing-managed-disks)
 - [Exportación o copia de instantáneas administradas como VHD a una cuenta de almacenamiento en otra región con PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account)

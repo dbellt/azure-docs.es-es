@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 55cbc5db534dd1b05f91a24e0104b1f2dc110547
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c97294833ea04e4af559008cf55d3aef7230ef81
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90532993"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072242"
 ---
-# <a name="preview-maintenance-control-for-azure-virtual-machine-scale-sets"></a>Vista previa: Controles de seguridad para conjuntos de escalado de máquinas virtuales de Azure 
+# <a name="maintenance-control-for-azure-virtual-machine-scale-sets"></a>Vista previa: Controles de seguridad para conjuntos de escalado de máquinas virtuales de Azure 
 
 Administre [actualizaciones automáticas de imágenes del sistema operativo](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) para los conjuntos de escalado de máquinas virtuales mediante el control de mantenimiento.
 
@@ -26,11 +26,6 @@ Todo el flujo de trabajo se reduce a estos pasos:
 - Crear una configuración de mantenimiento.
 - Asociar un conjunto de escalado de máquinas virtuales a una configuración de mantenimiento.
 - Habilitar las actualizaciones automáticas del sistema operativo.
-
-> [!IMPORTANT]
-> El control de mantenimiento para las actualizaciones de imágenes del sistema operativo en conjuntos de escalado de máquinas virtuales de Azure se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## <a name="limitations"></a>Limitaciones
@@ -46,11 +41,11 @@ Todo el flujo de trabajo se reduce a estos pasos:
 Puede crear y administrar configuraciones de mantenimiento con cualquiera de estas opciones:
 
 - [Azure PowerShell](virtual-machine-scale-sets-maintenance-control-powershell.md)
+- [CLI de Azure](virtual-machine-scale-sets-maintenance-control-cli.md)
+- [Azure Portal](virtual-machine-scale-sets-maintenance-control-portal.md)
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-Aprenda a controlar cuándo se aplica el mantenimiento a las máquinas virtuales de Azure mediante el control de mantenimiento y PowerShell.
 
 > [!div class="nextstepaction"]
 > [Control de mantenimiento del conjunto de escalado de máquinas virtuales mediante PowerShell](virtual-machine-scale-sets-maintenance-control-powershell.md)

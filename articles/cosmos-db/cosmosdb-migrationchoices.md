@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2020
-ms.openlocfilehash: 3325960793a5a0d7bc48ca8030c675d7ebf0c026
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: db8164cc0d1216050bfd7f6cc071b3d47db452f1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106442599"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956311"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Opciones para migrar los datos locales o en la nube a Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -45,7 +45,7 @@ Los siguientes factores determinan la elección de la herramienta de migración:
 |---------|---------|---------|---------|---------|
 |Sin conexión|[Herramienta de migración de datos](import-data.md)| &bull;Archivos JSON/CSV<br/>&bull;API de SQL de Azure Cosmos DB<br/>&bull;MongoDB<br/>&bull;SQL Server<br/>&bull;Table Storage<br/>&bull;AWS DynamoDB<br/>&bull;Azure Blob Storage|&bull;API de SQL de Azure Cosmos DB<br/>&bull;Instancias de Table API de Azure Cosmos DB<br/>&bull;Archivos JSON |&bull; Fácil de configurar y admite varios orígenes. <br/>&bull; No es adecuada para grandes conjuntos de datos.|
 |Sin conexión|[Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)| &bull;Archivos JSON/CSV<br/>&bull;API de SQL de Azure Cosmos DB<br/>&bull;Azure Cosmos DB API para MongoDB<br/>&bull;MongoDB <br/>&bull;SQL Server<br/>&bull;Table Storage<br/>&bull;Azure Blob Storage <br/> <br/>Consulte el artículo [Azure Data Factory](../data-factory/connector-overview.md) para ver otros orígenes compatibles.|&bull;API de SQL de Azure Cosmos DB<br/>&bull;Azure Cosmos DB API para MongoDB<br/>&bull;Archivos JSON <br/><br/> Consulte el artículo [Azure Data Factory](../data-factory/connector-overview.md) para ver otros destinos compatibles. |&bull; Fácil de configurar y admite varios orígenes.<br/>&bull; Hace uso de la biblioteca BulkExecutor de Azure Cosmos DB. <br/>&bull; Adecuada para grandes conjuntos de datos. <br/>&bull; Faltan puntos de comprobación: significa que, si se produce un problema durante el transcurso de la migración, es necesario reiniciar todo el proceso de migración.<br/>&bull; Falta una cola de mensajes con problemas de entrega: significa que algunos archivos erróneos pueden detener todo el proceso de migración.|
-|Sin conexión|[Conector de Spark de Azure Cosmos DB](spark-connector.md)|API de SQL de Azure Cosmos DB. <br/><br/>Puede usar otros orígenes con conectores adicionales desde el ecosistema de Spark.| API de SQL de Azure Cosmos DB. <br/><br/>Puede usar otros destinos con conectores adicionales desde el ecosistema de Spark.| &bull; Hace uso de la biblioteca BulkExecutor de Azure Cosmos DB. <br/>&bull; Adecuada para grandes conjuntos de datos. <br/>&bull; Necesita una instalación personalizada de Spark. <br/>&bull; Spark es sensible a las incoherencias del esquema y esto puede ser un problema durante la migración. |
+|Sin conexión|[Conector de Spark de Azure Cosmos DB](./create-sql-api-spark.md)|API de SQL de Azure Cosmos DB. <br/><br/>Puede usar otros orígenes con conectores adicionales desde el ecosistema de Spark.| API de SQL de Azure Cosmos DB. <br/><br/>Puede usar otros destinos con conectores adicionales desde el ecosistema de Spark.| &bull; Hace uso de la biblioteca BulkExecutor de Azure Cosmos DB. <br/>&bull; Adecuada para grandes conjuntos de datos. <br/>&bull; Necesita una instalación personalizada de Spark. <br/>&bull; Spark es sensible a las incoherencias del esquema y esto puede ser un problema durante la migración. |
 |Sin conexión|[Herramienta personalizada con la biblioteca BulkExecutor de Cosmos DB](migrate-cosmosdb-data.md)| El origen depende del código personalizado | API de SQL de Azure Cosmos DB| &bull; Proporciona funcionalidades de punto de comprobación y de mensajes fallidos que aumenta la resistencia de la migración. <br/>&bull; Adecuada para conjuntos de datos de gran tamaño (+10 TB).  <br/>&bull; Requiere la instalación personalizada de esta herramienta para su ejecución como App Service. |
 |En línea|[Funciones + API de fuente de cambios de Cosmos DB](change-feed-functions.md)| API de SQL de Azure Cosmos DB | API de SQL de Azure Cosmos DB| &bull; Fácil de configurar. <br/>&bull; Solo funciona si el origen es un contenedor de Azure Cosmos DB. <br/>&bull; No es adecuada para grandes conjuntos de datos. <br/>&bull; No captura eliminaciones del contenedor de origen. |
 |En línea|[Servicio de migración personalizado con la fuente de cambios](https://github.com/Azure-Samples/azure-cosmosdb-live-data-migrator)| API de SQL de Azure Cosmos DB | API de SQL de Azure Cosmos DB| &bull; Proporciona seguimiento del progreso. <br/>&bull; Solo funciona si el origen es un contenedor de Azure Cosmos DB. <br/>&bull; Funciona también para conjuntos de datos de mayor tamaño.<br/>&bull; Requiere que el usuario configure una instancia de App Service para hospedar el procesador de la fuente de cambios. <br/>&bull; No captura eliminaciones del contenedor de origen.|
@@ -86,5 +86,5 @@ En el caso de las API que no sean SQL API, Mongo API y Cassandra API, se admi
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Puede aprender más si prueba las aplicaciones de ejemplo que usan la biblioteca BulkExecutor en [.NET](bulk-executor-dot-net.md) y [Java](bulk-executor-java.md). 
-* La biblioteca BulkExecutor está integrada en el conector de Spark a Cosmos DB; para más información, vea el artículo sobre el [conector de Spark a Azure Cosmos DB](spark-connector.md).  
+* La biblioteca BulkExecutor está integrada en el conector de Spark a Cosmos DB; para más información, vea el artículo sobre el [conector de Spark a Azure Cosmos DB](./create-sql-api-spark.md).  
 * Póngase en contacto con el equipo de producto de Azure Cosmos DB abriendo una incidencia de soporte técnico en el tipo de problema "Asesoramiento general" y en el subtipo "Grandes migraciones (TB+)" para obtener ayuda adicional con las migraciones a gran escala.

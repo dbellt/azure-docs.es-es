@@ -1,17 +1,19 @@
 ---
 title: Preparación de máquinas de origen para instalar Mobility Service a través de la instalación de inserción para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure | Microsoft Docs
 description: Aprenda a preparar el servidor para instalar el agente de Mobility Service a través de la instalación de inserción para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure con el servicio Azure Site Recovery.
-author: Rajeswari-Mamilla
+services: site-recovery
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/25/2019
-ms.author: ramamill
-ms.openlocfilehash: 78fddb5b4512883f8e78d6ed53f6e3dbbeba0e4f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: c48fe1f4c6d871506235d5bea743226bc1184fee
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90525004"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110576919"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparación de una máquina de origen para la instalación de inserción del agente de Mobility
 

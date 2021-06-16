@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas para Azure IoT Hub
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy en Azure IoT Hub. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 05/14/2021
+ms.date: 06/11/2021
 ms.topic: reference
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 0ec9ff6d57b140b3b48493fbc6ceca4058840574
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 90787f7f2af2f41ef44222d89a8b9feeaeb9cbe2
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110079939"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112020534"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-iot-hub"></a>Definiciones integradas de Azure Policy para Azure IoT Hub
 

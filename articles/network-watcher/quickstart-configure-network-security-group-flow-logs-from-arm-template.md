@@ -7,15 +7,13 @@ ms.author: damendo
 ms.date: 01/07/2021
 ms.topic: quickstart
 ms.service: network-watcher
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: 36a70cf01130e4156c21b01013cddcb706b32276
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
+ms.openlocfilehash: 9d541294ff20047f9041b58b3ce971c76adb6737
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108277721"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982689"
 ---
 # <a name="quickstart-configure-network-security-group-flow-logs-by-using-an-arm-template"></a>Inicio rápido: Configuración de registros de flujo de grupos de seguridad de red mediante una plantilla de Resource Manager
 
@@ -29,13 +27,13 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fnetworkwatcher-flowLogs-create%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-networkwatcher-flowlogs-create).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/networkwatcher-flowlogs-create).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/networkwatcher-flowLogs-create/azuredeploy.json":::
 
@@ -83,7 +81,7 @@ Para obtener información general completa de las propiedades del objeto de regi
 
 Si es la primera vez que utiliza plantillas de Resource Manager, consulte los artículos siguientes para más información sobre dichas plantillas:
 
-- [Implementación de recursos con las plantillas de ARM y Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template-or-bicep-file)
+- [Implementación de recursos con las plantillas de ARM y Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
 - [Tutorial: Creación e implementación de su primera plantilla de Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 El ejemplo siguiente es una plantilla completa. También es la versión más simple de la plantilla. El ejemplo contiene los parámetros mínimos que se pasan para configurar los registros de flujo del grupo de seguridad de red. Para más ejemplos, consulte el artículo de información general [Configuración de registros de flujo de NSG a partir de una plantilla de Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md).

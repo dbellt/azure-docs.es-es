@@ -13,12 +13,12 @@ ms.date: 03/29/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 3e3f729243f4bcd8f40ca681bd1c0d7675696e27
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1d2c2f3131c8ee8fb73dfd52df3d7545b52b0044
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110455155"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075158"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidad y flujo de código de autorización de OAuth 2.0
 
@@ -164,7 +164,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |`response_type`| Obligatorio | La adición de `id_token` indica al servidor que la aplicación desea un token de identificador en la respuesta del punto de conexión `/authorize`.  |
 |`scope`| Obligatorio | En el caso de los tokens de identificador, debe actualizarse para incluir los ámbitos de token de identificador `openid` y, opcionalmente, `profile` y `email`. |
 |`nonce`| Obligatorio|     Valor generado por la aplicación que se incluye en la solicitud y que se incluirá en el parámetro id_token resultante como una notificación. La aplicación puede comprobar este valor para mitigar los ataques de reproducción de token. Normalmente, el valor es una cadena única aleatoria que se puede usar para identificar el origen de la solicitud. |
-|`response_mode`| Recomendado | Especifica el método que debe usarse para enviar el token resultante de nuevo a la aplicación. Se establece de forma predeterminada en `query` solo para un código de autorización, pero en `fragment` si la solicitud incluye un parámetro id_token `response_type`.  Sin embargo, se recomienda que las aplicaciones usen `form_post`, especialmente cuando se usa `http:/localhost` como un URI de redirección. |
+|`response_mode`| Recomendado | Especifica el método que debe usarse para enviar el token resultante de nuevo a la aplicación. Se establece de forma predeterminada en `query` solo para un código de autorización, pero en `fragment` si la solicitud incluye un parámetro id_token `response_type`.  Sin embargo, se recomienda que las aplicaciones usen `form_post`, especialmente cuando se usa `http://localhost` como un URI de redirección. |
 
 El uso de `fragment` como modo de respuesta puede causar problemas para las aplicaciones web que leen el código de la redirección, ya que los exploradores no pasan el fragmento al servidor web.  En estas situaciones, las aplicaciones deben usar el modo de respuesta `form_post` para asegurarse de que todos los datos se envían al servidor. 
 

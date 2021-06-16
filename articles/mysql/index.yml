@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/03/2019
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: a9d05253ffbe452076e6a46d2f8a0f2d15ad1782
-  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+  ms.openlocfilehash: 94f0a30c070578a441940b701a7110f1b0bf76fe
+  ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/06/2021
-  ms.locfileid: "108770558"
+  ms.lasthandoff: 05/26/2021
+  ms.locfileid: "110464136"
 landingContent:
 - title: Acerca de Azure Database for MySQL
   linkLists:
@@ -101,7 +101,7 @@ landingContent:
     links:
     - text: Administración de un servidor único mediante Azure Portal
       url: howto-create-manage-server-portal.md
-    - text: Administración de un servidor flexible (versión preliminar) mediante Azure Portal
+    - text: Administración de Flexible Server (versión preliminar) mediante Azure Portal
       url: flexible-server/how-to-manage-server-portal.md
     - text: Migración mediante volcado y restauración
       url: concepts-migrate-dump-restore.md
@@ -109,10 +109,14 @@ landingContent:
       url: concepts-migrate-import-export.md
   - linkListType: how-to-guide
     links:
+    - text: Migración de RDS MySQL mediante MySQL Workbench
+      url: how-to-migrate-rds-mysql-workbench.md
     - text: Migración mediante Data Migration Service
       url: howto-migrate-online.md
     - text: Guía de migración de datos en Azure
       url: https://datamigration.microsoft.com/scenario/mysql-to-azuremysql?step=1
+    - text: Solución de errores comunes
+      url: howto-troubleshoot-common-errors.md
 - title: Desarrollo de aplicaciones
   linkLists:
   - linkListType: concept

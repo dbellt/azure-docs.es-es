@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 04/15/2021
 ms.author: jaysoni
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d2291bc88a90a703239764a2d5fda9b2889a7af7
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 83ad2e7a8f138451063eef1746555563970e125e
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319672"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110681818"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Solución de problemas de App Service en Application Gateway
 
@@ -92,7 +92,7 @@ La característica de dominio personalizado de App Service es otra solución par
 
 Puede seguir el método especificado para los problemas de discrepancias del dominio de cookies de redireccionamiento y ARRAffinity. Este método necesitará tener acceso a la zona DNS del dominio personalizado.
 
-**Paso 1**: establezca un dominio personalizado en App Service y compruebe la propiedad del dominio agregando los [registros DNS CNAME y TXT](../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id).
+**Paso 1**: establezca un dominio personalizado en App Service y compruebe la propiedad del dominio agregando los [registros DNS CNAME y TXT](../app-service/app-service-web-tutorial-custom-domain.md#3-get-a-domain-verification-id).
 Los registros tendrán un aspecto similar a:
 -  `www.contoso.com` IN CNAME `contoso.azurewebsite.net`
 -  `asuid.www.contoso.com` IN TXT "`<verification id string>`"

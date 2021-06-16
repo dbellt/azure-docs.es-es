@@ -3,12 +3,13 @@ title: Patrones de redes para Azure Service Fabric
 description: En este artículo se describen los patrones de redes comunes de Service Fabric y cómo crear un clúster con las características de red de Azure.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 20bd5e931307725016c3e2ad69dae91214b2caab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c95ded10463d1b5ab6f28373883db641283cdac1
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87421474"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110663676"
 ---
 # <a name="service-fabric-networking-patterns"></a>Patrones de redes de Service Fabric
 Puede integrar el clúster de Azure Service Fabric con otras características de red de Azure. En este artículo se muestra cómo crear clústeres que usan las siguientes características:

@@ -1,18 +1,18 @@
 ---
 title: 'Conexión con identidad administrada: Azure Database for MySQL'
 description: Obtenga información sobre la conexión y autenticación mediante identidad administrada para la autenticación con Azure Database for MySQL.
-author: sunilagarwal
-ms.author: sunila
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: c9c5c938650d1932349f17bde6b30c65718ef72a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e00bfd3e5597683c99df69a3fb8140d00847e4f6
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774690"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111572431"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Conexión con identidad administrada a Azure Database for MySQL
 

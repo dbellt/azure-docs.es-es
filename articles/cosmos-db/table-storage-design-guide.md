@@ -8,12 +8,12 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 271bcd12fea3a09a3a62570cee865292f7c413e6
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 4129b288f912f4b5d90d912ef8453ef195f37d36
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110064436"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007938"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guía de diseño de tablas de Azure Table Storage: Tablas escalables y eficaces
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -209,7 +209,7 @@ Estas son algunas directrices generales para diseñar consultas de Table Storage
 * La segunda mejor opción es una *consulta por rango*. Utiliza el `PartitionKey` y filtra en un intervalo de valores `RowKey` para devolver más de una entidad. El valor `PartitionKey` identifica una partición específica y los valores `RowKey` identifican un subconjunto de las entidades de esa partición. Por ejemplo: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
 * La tercera mejor opción es un *examen de partición*. Utiliza `PartitionKey` y filtra en función de otra propiedad que no sea clave y podría devolver más de una entidad. El valor `PartitionKey` identifica una partición específica y los valores de propiedad seleccionan un subconjunto de las entidades de esa partición. Por ejemplo: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
 * Un *recorrido de tabla* no incluye `PartitionKey` y es ineficaz, ya que busca en todas las particiones que componen la tabla todas las entidades coincidentes. Realiza un recorrido de tabla independientemente de si su filtro usa `RowKey`. Por ejemplo: `$filter=LastName eq 'Jones'`.  
-* Las consultas de Azure Table Storage que devuelven varias entidades las clasifican en orden `PartitionKey` y `RowKey`. Para evitar reordenar las entidades del cliente, seleccione un valor `RowKey` que defina el criterio de ordenación más común. Los resultados de consulta devueltos por la Table API de Azure en Azure Cosmos DB no se ordenan por clave de fila ni por clave de partición. Para obtener una lista detallada de las diferencias entre características, consulte las [diferencias entre Table API de Azure Cosmos DB y Azure Table Storage](/table-api-faq.yml#table-api-in-azure-cosmos-db-vs-azure-table-storage).
+* Las consultas de Azure Table Storage que devuelven varias entidades las clasifican en orden `PartitionKey` y `RowKey`. Para evitar reordenar las entidades del cliente, seleccione un valor `RowKey` que defina el criterio de ordenación más común. Los resultados de consulta devueltos por la Table API de Azure en Azure Cosmos DB no se ordenan por clave de fila ni por clave de partición. Para obtener una lista detallada de las diferencias entre características, consulte las [diferencias entre Table API de Azure Cosmos DB y Azure Table Storage](/cosmos-db/table-api-faq#table-api-in-azure-cosmos-db-vs-azure-table-storage).
 
 Al usar "**or**" para especificar un filtro basado en valores `RowKey`, se generará un examen de partición y no se tratará como una consulta por rango. Por lo tanto, evite las consultas que utilizan filtros como `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`.  
 

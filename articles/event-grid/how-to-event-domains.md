@@ -3,13 +3,13 @@ title: Publicación de eventos con dominios de eventos mediante Azure Event Grid
 description: Muestra cómo administrar grandes conjuntos de temas de Azure Event Grid y publicar eventos en ellos con dominios de eventos.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: e6861e89def10eec391bf302b1ddc726b38bb98c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: eb0c96f0a4f67de87de134a7f53e802c272331e5
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97109902"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110700639"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Administrar temas y publicar eventos con dominios de eventos
 

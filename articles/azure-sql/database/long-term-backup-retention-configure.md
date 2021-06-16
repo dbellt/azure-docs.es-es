@@ -4,19 +4,19 @@ description: Obtenga información sobre cómo almacenar y restaurar copias de se
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
-ms.custom: ''
+ms.custom: devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, sstein
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma
 ms.date: 12/16/2020
-ms.openlocfilehash: fad19d360f7c476ba71a9bbe00b58387b92f8ac4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d11a9cc597adb7bed4a1c1b235c6d7bf68457f78
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101690570"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110705571"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Administración de la retención de copias de seguridad a largo plazo de Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

@@ -2,22 +2,22 @@
 title: Administración de directivas de consentimiento de aplicaciones en Azure AD
 description: Obtenga información sobre cómo administrar las directivas de consentimiento de aplicaciones integradas y personalizadas para controlar el momento en que se puede conceder ese consentimiento.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/01/2020
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 44299fadd17d1acfa292dd88bd57c8be4a44be36
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 7678697225ebea0622c4557d7d56a06ec043f7a9
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375702"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112074762"
 ---
 # <a name="manage-app-consent-policies"></a>Administración de directivas de consentimiento de aplicaciones
 

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 06/09/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c091d1b25b8c8e166fa759dfc31421bc7b778232
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 2fdbdcfd847c33bc6d948d12b14f468233b4cf19
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109635236"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901500"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento
 
@@ -22,7 +22,7 @@ Microsoft se esfuerza por garantizar que los servicios de Azure siempre estén d
 
 Azure Storage admite la conmutación por error de la cuenta en cuentas de almacenamiento con redundancia geográfica. Con la conmutación por error de la cuenta, puede iniciar el proceso de conmutación por error de la cuenta de almacenamiento si el punto de conexión principal deja de estar disponible. La conmutación por error actualiza el punto de conexión secundario para convertirlo en el principal de la cuenta de almacenamiento. Una vez finalizada la conmutación por error, los clientes pueden empezar a escribir en el nuevo punto de conexión principal.
 
-La conmutación por error de la cuenta está disponible para los tipos de cuenta de uso general v1 y v2 y de Blob Storage con implementaciones de Azure Resource Manager. La conmutación por error de la cuenta se admite para todas las regiones públicas, pero no está disponible en las nubes soberanas o nacionales en este momento. La conmutación por error de la cuenta no se admite para las cuentas de almacenamiento con un espacio de nombres jerárquico habilitado.
+La conmutación por error de la cuenta está disponible para los tipos de cuenta de uso general v1 y v2 y de Blob Storage con implementaciones de Azure Resource Manager. La conmutación por error de la cuenta no se admite para las cuentas de almacenamiento con un espacio de nombres jerárquico habilitado.
 
 En este artículo se describen los conceptos y el proceso que implica la conmutación por error de una cuenta y se analiza cómo preparar la cuenta de almacenamiento para la recuperación con el menor impacto en el cliente. Para aprender a iniciar la conmutación por error de una cuenta en Azure Portal o PowerShell, consulte el artículo sobre la [iniciación de la conmutación por error de una cuenta](storage-initiate-account-failover.md).
 
@@ -157,7 +157,7 @@ Recuerde que los datos almacenados en un disco temporal se pierden cuando se apa
 Las siguientes características y servicios no son compatibles con la conmutación por error de una cuenta:
 
 - Azure File Sync no admite la conmutación por error de una cuenta de almacenamiento. No se debe realizar la conmutación por error de las cuentas de almacenamiento que contienen recursos compartidos de archivos de Azure y que se usan como puntos de conexión de nube en Azure File Sync. Si lo hace, la sincronización dejará de funcionar y también podría provocar una pérdida inesperada de datos en el caso de archivos recién organizados en capas.
-- Actualmente, no se admiten cuentas de almacenamiento que tengan habilitado el espacio de nombres jerárquico (como Data Lake Storage Gen2).
+- Actualmente, no se admiten cuentas de almacenamiento que tienen habilitado el espacio de nombres jerárquico (como Data Lake Storage Gen2).
 - No se puede conmutar por error una cuenta de almacenamiento que contiene blobs en bloques Premium. Las cuentas de almacenamiento que admiten los blobs en bloques Premium actualmente no admiten la redundancia geográfica.
 - No se puede conmutar por error una cuenta de almacenamiento que contenga contenedores habilitados por la [Directiva de inmutabilidad de gusanos](../blobs/storage-blob-immutable-storage.md). Las directivas de retención legal o retención basada en tiempo desbloqueada o bloqueada impiden la conmutación por error para mantener el cumplimiento.
 

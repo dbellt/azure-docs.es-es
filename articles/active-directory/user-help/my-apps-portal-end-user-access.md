@@ -12,12 +12,12 @@ ms.date: 03/26/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: e72667ab562a9e12d233f45dc50efc9b70d2141b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d65daffab7522c1ececb3383d1cf5184f906d8f9
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105642104"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111893019"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones
 
@@ -75,7 +75,7 @@ La **Extensión de inicio de sesión seguro de mis aplicaciones** le ayuda a:
 - Iniciar sesión directamente en las aplicaciones desde la página de inicio de sesión.
 - Iniciar cualquier aplicación mediante la característica de **búsqueda rápida**.
 - Consultar las últimas aplicaciones que utilizó en la sección **Usado recientemente**.
-- Usar direcciones URL internas de la empresa mientras se conecta de forma remota con [Application Proxy](../manage-apps/application-proxy.md).
+- Usar direcciones URL internas de la empresa mientras se conecta de forma remota con [Application Proxy](../app-proxy/application-proxy.md).
 
 ### <a name="to-download-and-install-the-extension"></a>Para descargar e instalar la extensión, realice el siguiente procedimiento:
 

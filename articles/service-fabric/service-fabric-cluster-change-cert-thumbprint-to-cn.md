@@ -3,12 +3,13 @@ title: Actualización de un clúster para usar el nombre común del certificado
 description: Obtenga información sobre cómo convertir en nombres comunes un certificado de clúster de Azure Service Fabric basado en huella digital.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: daf8d55e156f30b1f9e9ec5c50d60714e6f17884
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 88a2dc070dd1443e7d91f9d7e3f641c8e74f5a82
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308020"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671089"
 ---
 # <a name="convert-cluster-certificates-from-thumbprint-based-declarations-to-common-names"></a>Conversión de certificados de Azure basados en huella digital en nombres comunes
 

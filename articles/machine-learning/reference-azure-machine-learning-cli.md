@@ -9,15 +9,16 @@ ms.author: jordane
 author: jpe316
 ms.date: 04/02/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: f30cd528a329708a7478b1a4a343f7be3b9eac04
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 29b5e5b23fd8ad1b3912111ef1afef017ceced7c
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107877793"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592329"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Instalación y uso de la extensión de la CLI para Azure Machine Learning
 
+[!INCLUDE [cli-version-info](../../includes/machine-learning-cli-version-1-only.md)]
 
 La CLI de Azure Machine Learning es una extensión de la [CLI de Azure](/cli/azure/), una interfaz de la línea de comandos multiplataforma para la plataforma Azure. Esta extensión proporciona comandos para trabajar con Azure Machine Learning. Permite automatizar las actividades de aprendizaje automático. En esta lista se muestran algunas acciones de ejemplo que puede realizar con la extensión de la CLI:
 
@@ -29,7 +30,7 @@ La CLI de Azure Machine Learning es una extensión de la [CLI de Azure](/cli/azu
 
 La CLI no sustituye al SDK de Azure Machine Learning. Es una herramienta complementaria que está optimizada para administrar tareas con muchos parámetros y que están bien adaptadas para la automatización.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Para usar la CLI, debe tener una suscripción de Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -39,7 +40,7 @@ La CLI no sustituye al SDK de Azure Machine Learning. Es una herramienta complem
 
 ## <a name="full-reference-docs"></a>Documentos de referencia completos
 
-Busque los [documentos de referencia completos sobre la extensión azure-cli-ml de la CLI de Azure](/cli/azure/ml/).
+Busque los [documentos de referencia completos sobre la extensión azure-cli-ml de la CLI de Azure](/cli/azure/ml(v1)/).
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>Conexión de la CLI a una suscripción de Azure
 

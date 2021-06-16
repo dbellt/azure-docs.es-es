@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: stevestein
-ms.author: sstein
-ms.reviewer: carlrab
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma
 ms.date: 03/12/2019
-ms.openlocfilehash: 88032183825443aa3a3945530e2203e5500248a6
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 9ffb6674689d0f0cbfe0196fc66a9df55c6aedc0
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791326"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110694823"
 ---
 # <a name="use-cli-to-copy-a-database-in-azure-sql-database-to-a-new-server"></a>Uso de la CLI para copiar una base de datos de Azure SQL Database a un nuevo servidor
 

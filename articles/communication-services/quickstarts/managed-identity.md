@@ -6,16 +6,16 @@ services: azure-communication-services
 author: peiliu
 ms.service: azure-communication-services
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 05/27/2021
 ms.author: peiliu
 ms.reviewer: mikben
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: aedf54c8c958e96b2bbfa31652b4861ff452f75a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 3433aceb4bc9bda10c11602a7a45f28a5882f479
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307446"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110585751"
 ---
 # <a name="use-managed-identities"></a>Uso de identidades administradas
 Comience a trabajar con Azure Communication Services mediante identidades administradas. Los SDK de SMS e identidad de Communication Services admiten la autenticación de Azure Active Directory (Azure AD) con [identidades administradas para los recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
