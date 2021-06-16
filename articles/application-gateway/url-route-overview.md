@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: a9b2e8148586ec58ea6a7a033099e726920857b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e38f590628381710afec1d7bbf1ceb0daf9f77a2
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84987935"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032220"
 ---
 # <a name="url-path-based-routing-overview"></a>Información general del enrutamiento basado en URL
 
@@ -76,9 +76,9 @@ Las reglas de ruta de acceso no distinguen mayúsculas de minúsculas.
 |---------|---------|
 |`/images/*`     |sí|
 |`/images*`     |sí|
-|`/images/*.jpg`     |no|
-|`/*.jpg`     |no|
-|`/Repos/*/Comments/*`     |no|
+|`/images/*.jpg`     |No|
+|`/*.jpg`     |No|
+|`/Repos/*/Comments/*`     |No|
 |`/CurrentUser/Comments/*`     |sí|
 
 #### <a name="v2"></a>v2
@@ -89,12 +89,12 @@ Las reglas de ruta de acceso no distinguen mayúsculas de minúsculas.
 |---------|---------|
 |`/images/*`     |sí|
 |`/images*`     |sí|
-|`/images/*.jpg`     |no|
-|`/*.jpg`     |no|
-|`/Repos/*/Comments/*`     |no|
+|`/images/*.jpg`     |No|
+|`/*.jpg`     |No|
+|`/Repos/*/Comments/*`     |No|
 |`/CurrentUser/Comments/*`     |sí|
 
-Para obtener más información, puede consultar una [plantilla de Resource Manager que use el enrutamiento basado en URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) .
+Para obtener más información, puede consultar una [plantilla de Resource Manager que use el enrutamiento basado en URL](https://azure.microsoft.com/resources/templates/application-gateway-url-path-based-routing) .
 
 ## <a name="pathbasedrouting-rule"></a>Regla de PathBasedRouting
 

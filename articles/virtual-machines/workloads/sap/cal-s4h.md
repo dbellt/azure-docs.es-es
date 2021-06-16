@@ -1,18 +1,25 @@
 ---
 title: Implementación de SAP S/4 HANA o BW/4 HANA en una máquina virtual de Azure | Microsoft Docs
 description: Implementación de SAP S/4HANA o BW/4HANA en una máquina virtual de Azure
-author: hermanndms
 ms.service: virtual-machines-sap
+author: hobru
+manager: maordish
+editor: ''
+tags: azure-resource-manager
+keywords: ''
+ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
 ms.date: 09/15/2016
-ms.author: hermannd
-ms.reviewer: cynthn
-ms.openlocfilehash: 4b739efcf2695a5385351f531efb6201bbea1cd5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: hobruche
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: e9cbb7e03d77507e4671e2e10665bc245a095b0a
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101671945"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755401"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Implementación de SAP S/4HANA o BW/4HANA en Azure
 En este artículo se describe cómo implementar S/4HANA en Azure por medio de SAP Cloud Appliance Library (SAP CAL) 3.0. Para implementar otras soluciones basadas en SAP HANA, por ejemplo, BW/4HANA, siga los mismos pasos.

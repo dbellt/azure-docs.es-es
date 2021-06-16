@@ -16,12 +16,12 @@ ms.date: 04/16/2021
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e17fe0c0ca5f1399c78def37ea7640ba8dfa395e
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: db1878c2760cfcaa157d0ef233bb1931a5f310b3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988233"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970897"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planeamiento de una implementación de revisiones de acceso de Azure Active Directory
 
@@ -336,7 +336,7 @@ Vaya a [Usar las revisiones de acceso de Azure AD para administrar los usuarios
 
 ### <a name="review-guest-users-group-memberships"></a>Revisión de la pertenencia a grupos de usuarios invitados
 
-Vaya a [Administrar el acceso de invitado con revisiones de acceso de Azure AD](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews) para aprender a revisar el acceso de los usuarios invitados a pertenencias de grupo.
+Vaya a [Administrar el acceso de invitado con revisiones de acceso de Azure AD](./manage-guest-access-with-access-reviews.md) para aprender a revisar el acceso de los usuarios invitados a pertenencias de grupo.
 
 ### <a name="review-access-to-on-premises-groups"></a>Revisión del acceso a grupos locales
 

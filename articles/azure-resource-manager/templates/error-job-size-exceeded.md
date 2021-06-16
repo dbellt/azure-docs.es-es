@@ -3,12 +3,12 @@ title: Error de tamaño de trabajo superado
 description: Describe cómo solucionar errores cuando el tamaño o la plantilla de trabajo son demasiado grandes.
 ms.topic: troubleshooting
 ms.date: 03/23/2021
-ms.openlocfilehash: b39a0bba15e73bab1a85cbd9e36efebf82d6cf42
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 5d7333e8faf44b5c2c872448960eff34ff61daf2
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889372"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963260"
 ---
 # <a name="resolve-errors-for-job-size-exceeded"></a>Resolución de errores de tamaño de trabajo superado
 
@@ -56,4 +56,4 @@ Puede establecer otros recursos como dependientes de la plantilla vinculada y [o
 
 ## <a name="solution-2---reduce-name-size"></a>Solución 2: reducir el tamaño de los nombres
 
-Intente acortar la longitud de los nombres que utiliza para [parámetros](template-parameters.md), [variables](template-variables.md) y [salidas](template-outputs.md). Cuando estos valores se repiten a través de bucles de copia, un nombre largo se multiplica varias veces.
+Intente acortar la longitud de los nombres que utiliza para [parámetros](./parameters.md), [variables](./variables.md) y [salidas](./outputs.md). Cuando estos valores se repiten a través de bucles de copia, un nombre largo se multiplica varias veces.

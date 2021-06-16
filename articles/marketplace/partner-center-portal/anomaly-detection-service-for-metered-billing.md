@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: ac3e07c67ca82c2960de1c4341a714b33751bfc1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77159a099dcc28739457a10afef374502d117b5a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101092397"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971160"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Servicio de detección de anomalías para la facturación de uso medido
 
-El [servicio de medición de Marketplace](marketplace-metering-service-apis-faq.md), le permite crear ofertas en el programa comercial de Marketplace que se cobran conforme a unidades no estándar. Con la facturación de uso medido, puede enviar eventos de uso del cliente a Microsoft y nosotros prepararemos la facturación según ese uso.
+El [servicio de medición de Marketplace](../marketplace-metering-service-apis-faq.md), le permite crear ofertas en el programa comercial de Marketplace que se cobran conforme a unidades no estándar. Con la facturación de uso medido, puede enviar eventos de uso del cliente a Microsoft y nosotros prepararemos la facturación según ese uso.
 
 Unos datos de uso incorrectos pueden deberse a diversas causas como, por ejemplo, errores, configuraciones incorrectas en el seguimiento del consumo o fraude. Los datos de uso incorrectos pueden producir cargos incorrectos al cliente y conflictos de facturación.
 
@@ -82,5 +82,5 @@ Para ver más opciones de soporte técnico para editores, consulte [Soporte téc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre la [API del servicio de medición de Marketplace](marketplace-metering-service-apis.md).
+- Más información sobre la [API del servicio de medición de Marketplace](../marketplace-metering-service-apis.md).
 - [Administración de las anomalías de facturación de uso medido en el Centro de partners](../anomaly-detection.md)

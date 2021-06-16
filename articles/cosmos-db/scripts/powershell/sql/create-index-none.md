@@ -7,12 +7,13 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 05/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: b287bc851e560261d56ccda5d73d5319619146ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 93247ec99315c7026e11a49f7c4f1a0e45365e27
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98684045"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110679936"
 ---
 # <a name="create-a-container-with-indexing-turned-off-in-an-azure-cosmos-db-account-using-powershell"></a>Creación de un contenedor con la indexación desactivada en una cuenta de Azure Cosmos DB mediante PowerShell
 [!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]

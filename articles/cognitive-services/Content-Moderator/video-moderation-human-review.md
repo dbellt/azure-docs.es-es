@@ -10,14 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 05ece4d8ea24fb9da106ec3daa2cc1a63706dab9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 909cdc6ca8e0a33fdc969f867c084f1f3d20423e
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96853505"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031680"
 ---
 # <a name="video-moderation-with-the-review-tool"></a>Moderación de vídeo con la herramienta de revisión
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 Utilice la [moderación de vídeo](video-moderation-api.md) asistida por máquina de Content Moderator y la [herramienta de revisión](Review-Tool-User-Guide/human-in-the-loop.md) para moderar vídeos y transcripciones de contenido para adultos (explícito) y subido de tono (sugerente) a fin de obtener los mejores resultados para su negocio.
 

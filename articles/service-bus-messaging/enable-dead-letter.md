@@ -3,12 +3,13 @@ title: Habilitación de la cola de mensajes fallidos para las colas y las suscri
 description: En este artículo se explica cómo habilitar la cola de mensajes fallidos para las colas y las suscripciones mediante Azure Portal, PowerShell, la CLI y los lenguajes de programación (C#, Java, Python y JavaScript).
 ms.topic: how-to
 ms.date: 04/20/2021
-ms.openlocfilehash: 789f9221c224a70225849d05b736276b95ebfc11
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 13082574510a0668076b7191b6b973e5a1a7cd77
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107989277"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671484"
 ---
 # <a name="enable-dead-lettering-on-message-expiration-for-azure-service-bus-queues-and-subscriptions"></a>Habilitación de la cola de mensajes fallidos cuando expire un mensaje para las colas y las suscripciones de Azure Service Bus
 Las colas y suscripciones para temas de Azure Service Bus proporcionan una subcola secundaria, llamada cola de mensajes fallidos (DLQ). No es necesario crear explícitamente la cola de mensajes fallidos y no se puede eliminar ni administrar independientemente de la entidad principal. La finalidad de la cola de mensajes fallidos es mantener los mensajes que no se pueden entregar a ningún destinatario o los mensajes que no se pudieron procesar. Para más información, consulte [Introducción a las colas de mensajes fallidos de Service Bus](service-bus-dead-letter-queues.md). En este artículo se muestran las distintas formas de habilitar la cola de mensajes fallidos para las colas y las suscripciones de Service Bus. 
@@ -261,7 +262,7 @@ Para **crear una suscripción a un tema con la opción de cola de mensajes falli
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Pruebe los ejemplos en el lenguaje que prefiera para explorar las características de Azure Service Bus. 
+Pruebe los ejemplos en el lenguaje que prefiera para explorar las características de Azure Service Bus. 
 
 - [Ejemplos de la biblioteca cliente de Azure Service Bus para .NET (versión más reciente)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) 
 - [Ejemplos de la biblioteca cliente de Azure Service Bus para Java (versión más reciente)](/samples/azure/azure-sdk-for-java/servicebus-samples/)

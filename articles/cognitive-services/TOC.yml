@@ -28,6 +28,8 @@
       href: plan-manage-costs.md
     - name: Registro de diagnóstico
       href: diagnostic-logging.md
+    - name: Administrar recursos
+      href: manage-resources.md
     - name: Implementar
       items:
         - name: Contenedores
@@ -127,6 +129,8 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Actualizaciones de Azure
       href: 'https://azure.microsoft.com/updates/?query=cognitive%20services'
+    - name: Uso responsable de la inteligencia artificial
+      href: responsible-use-of-ai-overview.md
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Cumplimiento normativo

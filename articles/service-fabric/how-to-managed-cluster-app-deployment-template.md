@@ -3,12 +3,13 @@ title: Implementación de una aplicación de clúster administrado de Service Fa
 description: Implemente una aplicación en un clúster administrado de Azure Service Fabric mediante una plantilla de Azure Resource Manager.
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: 0712040032f0e7b33720df5bef1555652c27fbb0
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0f2561b182689467598f2c939589295d9af72e4d
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109735627"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671226"
 ---
 # <a name="deploy-a-service-fabric-managed-cluster-application-using-arm-template"></a>Implementación de una aplicación de clúster administrado de Service Fabric mediante una plantilla de ARM
 

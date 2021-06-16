@@ -7,12 +7,13 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: 369c7dab174f0269797b10635882a6821ade8311
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 2bca0b855f53c566ce4408b19d018e04038f5d63
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94952954"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110691298"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutorial: Creación de registros DNS en un dominio personalizado para una aplicación web 
 
@@ -70,12 +71,12 @@ En la página **Dominios personalizados**, copie la dirección IPv4 de la aplica
 
 ![Navegación en el portal a la aplicación de Azure](../app-service/./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-### <a name="create-the-a-record"></a>Crear el registro D
+### <a name="create-the-a-record&quot;></a>Crear el registro D
 
 ```azurepowershell
-New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
- -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 `
- -DnsRecords (New-AzDnsRecordConfig -IPv4Address "<your web app IP address>")
+New-AzDnsRecordSet -Name &quot;@&quot; -RecordType &quot;A&quot; -ZoneName &quot;contoso.com&quot; `
+ -ResourceGroupName &quot;MyAzureResourceGroup&quot; -Ttl 600 `
+ -DnsRecords (New-AzDnsRecordConfig -IPv4Address &quot;<your web app IP address>")
 ```
 
 ### <a name="create-the-txt-record"></a>Crear el registro TXT

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: a9a3e91681de2863af462827373bbce252f35de6
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 6b6883910c68f719478b9da6f141720592a4392a
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107898124"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060496"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Regeneración de las claves de acceso de la cuenta de almacenamiento
 
@@ -25,8 +25,7 @@ Obtenga información sobre cómo cambiar las claves de acceso de las cuentas de 
 Por motivos de seguridad, es posible que necesite cambiar las claves de acceso de una cuenta de Azure Storage. Cuando se regenera la clave de acceso, es necesario actualizar Azure Machine Learning para que use la nueva clave. Azure Machine Learning podría estar usando la cuenta de almacenamiento para el almacenamiento de modelos y como almacén de datos.
 
 > [!IMPORTANT]
-
-> Las credenciales que se registran en almacenes de datos se guardan en la instancia de Azure Key Vault asociada al área de trabajo. Si tiene habilitada la [eliminación temporal](../key-vault/general/soft-delete-overview.md) para Key Vault, en este artículo se incluyen instrucciones para actualizar las credenciales. Si anula el registro del almacén de información e intenta volver a registrarlo con el mismo nombre, esta acción producirá un error. Consulte [Activación de la eliminación temporal de un almacén de claves existente]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) para habilitar la eliminación temporal en este escenario.
+> Las credenciales que se registran en almacenes de datos se guardan en la instancia de Azure Key Vault asociada al área de trabajo. Si tiene habilitada la [eliminación temporal](../key-vault/general/soft-delete-overview.md) para Key Vault, en este artículo se incluyen instrucciones para actualizar las credenciales. Si anula el registro del almacén de información e intenta volver a registrarlo con el mismo nombre, esta acción producirá un error. Consulte [Activación de la eliminación temporal de un almacén de claves existente](/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) para habilitar la eliminación temporal en este escenario.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

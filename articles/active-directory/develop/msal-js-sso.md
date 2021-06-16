@@ -3,22 +3,22 @@ title: Inicio de sesión único (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
 description: Obtenga información sobre la creación de experiencias de inicio de sesión único mediante la biblioteca de autenticación de Microsoft para JavaScript (MSAL.js).
 services: active-directory
-author: navyasric
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/24/2019
-ms.author: nacanuma
+ms.author: mtillman
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 8080d4cf4c3f0091f7837b3fccead5474c42db55
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 86df7b35987fcc0081aca4e7e33f4da72f08e452
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "84690785"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077147"
 ---
 # <a name="single-sign-on-with-msaljs"></a>Inicio de sesión único con MASL.js
 

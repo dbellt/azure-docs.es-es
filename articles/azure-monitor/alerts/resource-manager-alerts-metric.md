@@ -6,16 +6,16 @@ ms.author: bwren
 services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
-ms.openlocfilehash: f41c6c8ab4e5b00c7281a75eeccb09a6e894764e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7e20f3ac1751035ab7f8ecc64d1d8ef375144d9a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102039417"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971956"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Ejemplos de plantillas de Azure Resource Manager para reglas de alertas de métrica en Azure Monitor
 
-En este artículo se proporcionan ejemplos de uso de las [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar las [reglas de alertas de métricas](../alerts/alerts-metric-near-real-time.md) en Azure Monitor. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
+En este artículo se proporcionan ejemplos de uso de las [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) para configurar las [reglas de alertas de métricas](../alerts/alerts-metric-near-real-time.md) en Azure Monitor. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 

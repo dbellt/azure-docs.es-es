@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 06/10/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: deeaed7b85c741b15931fdbca5cb6b2e276d7e65
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c1be64850cba80602c13e30c2545470767963251
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108737808"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963560"
 ---
 # <a name="federation-with-samlws-fed-identity-providers-for-guest-users-preview"></a>Federación con proveedores de identidades SAML o WS-Fed para usuarios invitados (versión preliminar)
 
 > [!NOTE]
 >- La *federación directa* de Azure Active Directory ahora se conoce como *federación con un proveedor de identidades (IdP) SAML o WS-Fed*.
->- La federación con un proveedor de identidades SAML o WS-Fed es una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>- La federación con un proveedor de identidades de SAML o WS-Fed es una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 En este artículo se indica cómo configurar una federación con cualquier organización cuyo proveedor de identidades (IdP) admita el protocolo SAML 2.0 o WS-Fed. Al configurar una federación con el proveedor de identidades de un asociado, los nuevos usuarios invitados de ese dominio pueden utilizar su propia cuenta de organización administrada por el proveedor de identidades para iniciar sesión con su inquilino de Azure AD y empezar a colaborar con usted. No es necesario que el usuario invitado cree otra cuenta de Azure AD.
 
@@ -122,7 +122,7 @@ A continuación, la organización asociada debe configurar su proveedor de ident
 Azure AD B2B se puede configurar para federarse con proveedores de identidades que usan el protocolo SAML con los requisitos específicos que se indican a continuación. Para más información sobre cómo configurar una confianza entre su proveedor de identidades SAML y Azure AD, consulte [Uso de un proveedor de identidades (IdP) de SAML 2.0 para el inicio de sesión único](../hybrid/how-to-connect-fed-saml-idp.md).  
 
 > [!NOTE]
-> El dominio de destino para la federación con un proveedor de identidades SAML o WS-Fed no debe ser comprobado por DNS en Azure AD. El dominio de la URL de autenticación debe coincidir con el dominio de destino o debe ser el dominio de un proveedor de identidades permitido. Consulte la sección [Limitaciones](#limitations) para obtener más información.
+> El dominio de destino para la federación con un proveedor de identidades SAML o WS-Fed no debe ser comprobado por DNS en Azure AD. Consulte la sección [Limitaciones](#limitations) para obtener más información.
 
 #### <a name="required-saml-20-attributes-and-claims"></a>Atributos y notificaciones de SAML 2.0 necesarios
 En las tablas siguientes se muestran los requisitos de los atributos y las notificaciones específicos que se deben configurar en el proveedor de identidades de terceros. Para configurar la federación, se deben recibir los siguientes atributos en la respuesta de SAML 2.0 del proveedor de identidades. Estos atributos se pueden configurar mediante la vinculación con el archivo XML del servicio de token de seguridad en línea o la introducción manual.
@@ -148,7 +148,7 @@ Las notificaciones necesarias para el token de SAML 2.0 emitido por el proveedo
 Se puede configurar Azure AD B2B para que funcione con proveedores de identidades que usan el protocolo WS-Fed con algunos requisitos específicos, que se indican a continuación. Actualmente, los dos proveedores de WS-Fed se han probado para determinar su compatibilidad con Azure AD e incluyen AD FS y Shibboleth. Para más información sobre cómo establecer la veracidad de un usuario de confianza entre un proveedor compatible con WS-Fed y Azure AD, consulte el documento "STS Integration Paper using WS Protocols" (Documento de integración con STS mediante protocolos WS) en los [documentos de compatibilidad del proveedor de identidades de Azure AD](https://www.microsoft.com/download/details.aspx?id=56843).
 
 > [!NOTE]
-> El dominio de destino para la federación no debe ser comprobado por DNS en Azure AD. El dominio de la URL de autenticación debe coincidir con el dominio de destino o con el dominio de un proveedor de identidades permitido. Consulte la sección [Limitaciones](#limitations) para obtener más información.
+> El dominio de destino para la federación no debe ser comprobado por DNS en Azure AD. Consulte la sección [Limitaciones](#limitations) para obtener más información.
 
 #### <a name="required-ws-fed-attributes-and-claims"></a>Atributos y notificaciones de WS-Fed necesarios
 

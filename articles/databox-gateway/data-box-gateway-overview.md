@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 03/15/2021
+ms.date: 05/26/2021
 ms.author: alkohli
-ms.openlocfilehash: 2adbefff2a0154268157c7d1735d83e70aa92ee8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a258240383905180a18830deb2488a7617c5fbee
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563596"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579180"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>¿Qué es Azure Data Box Gateway?
 
@@ -67,7 +67,7 @@ El dispositivo virtual Data Box Gateway tiene las siguientes especificaciones:
 | Especificaciones                                          | Descripción              |
 |---------------------------------------------------------|--------------------------|
 | Procesadores virtuales (núcleos)   | Cuatro como mínimo |
-| Memoria  |8 GB como mínimo|
+| Memoria  |Al menos 8 GB de RAM. Se recomiendan encarecidamente al menos 16 GB de RAM.|
 | Disponibilidad|Nodo único|
 | Discos|Disco del sistema operativo: 250 GB <br> Disco de datos: 2 TB como mínimo, con aprovisionamiento fino y debe estar basado en SSD|
 | Interfaces de red |Una o varias interfaces de red virtual|

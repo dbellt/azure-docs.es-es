@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 6464ad632251053ac481fbd1f6a3e1197aa470df
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: b8fc67076418678f6c53331dc6d0fbe0e7e7a0b1
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121309"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111410034"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-package-agent-on-ubuntu-server-1804-x64"></a>Tutorial sobre Device Update para Azure IoT Hub con el agente de paquetes en Ubuntu Server 18.04 (x64)
 
@@ -92,7 +92,7 @@ Como los pasos automatizados por el [script cloud-init](https://github.com/Azure
    > [!NOTE]
    > El agente de paquetes de Device Update no depende de IoT Edge. Sin embargo, se basa en el demonio del servicio de identidad de IoT que se instala con IoT Edge (1.2.0 y versiones posteriores) para obtener una identidad y conectarse a IoT Hub.
    >
-   > Aunque no se trata en este tutorial, el [demonio del servicio de identidad de IoT se puede instalar de forma independiente en dispositivos IoT basados en Linux](https://azure.github.io/iot-identity-service/packaging.html). La secuencia de instalación es importante. El agente de paquetes de Device Update debe instalarse _después_ del servicio de identidad de IoT. De lo contrario, el agente de paquetes no se registrará como componente autorizado para establecer una conexión a IoT Hub.
+   > Aunque no se trata en este tutorial, el [demonio del servicio de identidad de IoT se puede instalar de forma independiente en dispositivos IoT basados en Linux](https://azure.github.io/iot-identity-service/installation.html). La secuencia de instalación es importante. El agente de paquetes de Device Update debe instalarse _después_ del servicio de identidad de IoT. De lo contrario, el agente de paquetes no se registrará como componente autorizado para establecer una conexión a IoT Hub.
 
 1. A continuación, instale los paquetes .deb de Device Update Agent.
 

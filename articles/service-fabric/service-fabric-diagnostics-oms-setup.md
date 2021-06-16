@@ -3,12 +3,13 @@ title: Configuración de la supervisión con registros de Azure Monitor
 description: Aprenda a configurar registros de Azure Monitor para visualizar y analizar eventos con el fin de supervisar los clústeres de Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.openlocfilehash: 79dbc38f9d177bc3decf11673a68ce434f9a83bc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: efc10740a37032eb00a69b6e2cefa502d601350a
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625966"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677412"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configuración de registros de Azure Monitor para un clúster
 

@@ -46,7 +46,7 @@
     - name: Movimiento de datos entre orígenes locales y la nube
       href: data-factory-move-data-between-onprem-and-cloud.md
     - name: Preguntas más frecuentes
-      href: data-factory-faq.md
+      href: data-factory-faq.yml
 - name: Procedimientos
   items:
     - name: Mover datos
@@ -72,7 +72,7 @@
               href: data-factory-amazon-simple-storage-service-connector.md
             - name: Azure Blob Storage
               href: data-factory-azure-blob-connector.md
-            - name: "Azure Cosmos\_DB"
+            - name: Azure Cosmos DB
               href: data-factory-azure-documentdb-connector.md
             - name: Azure Data Lake Storage Gen1
               href: data-factory-azure-datalake-connector.md

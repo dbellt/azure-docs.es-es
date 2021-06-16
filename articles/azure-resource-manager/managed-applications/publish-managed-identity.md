@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
-ms.openlocfilehash: 277faa2d47df9fddd1762d90d9aa2fb5bf00d4df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 018995ed973679a617b409b82e076198a558eef7
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "82508143"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968774"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>Aplicación administrada de Azure con identidad administrada
 
@@ -46,7 +46,7 @@ Para crear una aplicación administrada con una identidad administrada se requie
 }
 ```
 
-Hay dos maneras comunes de crear una aplicación administrada con **identity**: [CreateUIDefinition.json](./create-uidefinition-overview.md) y [plantillas de Azure Resource Manager](../templates/template-syntax.md). Para escenarios simples de creación única, debe usarse CreateUIDefinition para habilitar la identidad administrada, ya que proporciona una experiencia enriquecida. Sin embargo, cuando se trabaja con sistemas avanzados o complejos que requieren implementaciones automatizadas o múltiples de aplicación administrada, pueden usarse plantillas.
+Hay dos maneras comunes de crear una aplicación administrada con **identity**: [CreateUIDefinition.json](./create-uidefinition-overview.md) y [plantillas de Azure Resource Manager](../templates/syntax.md). Para escenarios simples de creación única, debe usarse CreateUIDefinition para habilitar la identidad administrada, ya que proporciona una experiencia enriquecida. Sin embargo, cuando se trabaja con sistemas avanzados o complejos que requieren implementaciones automatizadas o múltiples de aplicación administrada, pueden usarse plantillas.
 
 ### <a name="using-createuidefinition"></a>Uso de CreateUIDefinition
 

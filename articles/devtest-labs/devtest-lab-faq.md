@@ -3,12 +3,13 @@ title: Preguntas más frecuentes sobre Azure DevTest Labs | Microsoft Docs
 description: En este artículo se responden algunas de las preguntas más frecuentes (P+F) relativas a Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 6abc2b0b950521d5ce7d4974c3535c5fbd64fba1
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 31106eb69e118e6f68fbb1a0eecfe4301839ee88
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108139010"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004248"
 ---
 # <a name="azure-devtest-labs-faq"></a>Preguntas más frecuentes sobre Azure DevTest Labs
 En este artículo se ofrecen respuestas a algunas de las preguntas más frecuentes sobre Azure DevTest Labs.
@@ -134,7 +135,7 @@ En última instancia, es necesario aplicar el mismo tipo de restricciones en tod
 ## <a name="lab-configuration"></a>Configuración del laboratorio
 
 ### <a name="how-do-i-create-a-lab-from-a-resource-manager-template"></a>¿Cómo se crea un laboratorio a partir de una plantilla de Resource Manager?
-Hemos ofrecido un [repositorio de GitHub de plantillas de Azure Resource Manager para laboratorios](https://azure.microsoft.com/resources/templates/101-dtl-create-lab) que se pueden implementar tal cual o modificar para crear plantillas personalizadas para los laboratorios. Cada plantilla tiene un vínculo para implementar el laboratorio tal cual está en su propia suscripción de Azure. O bien, puede personalizar la plantilla e [implementarla con PowerShell o la CLI de Azure](../azure-resource-manager/templates/deploy-powershell.md).
+Hemos ofrecido un [repositorio de GitHub de plantillas de Azure Resource Manager para laboratorios](https://azure.microsoft.com/resources/templates/dtl-create-lab) que se pueden implementar tal cual o modificar para crear plantillas personalizadas para los laboratorios. Cada plantilla tiene un vínculo para implementar el laboratorio tal cual está en su propia suscripción de Azure. O bien, puede personalizar la plantilla e [implementarla con PowerShell o la CLI de Azure](../azure-resource-manager/templates/deploy-powershell.md).
 
 
 ### <a name="can-i-have-all-virtual-machines-to-be-created-in-a-common-resource-group-instead-having-each-machine-in-its-own-resource-group"></a>¿Es posible tener todas las máquinas virtuales que se van a crear en un grupo de recursos común en lugar de tener cada máquina en su propio grupo de recursos?

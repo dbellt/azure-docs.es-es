@@ -8,12 +8,12 @@ ms.date: 04/06/2021
 author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 77f6b2ec71df63da1fe5ff52f948ded9502c5edb
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: bbc4df71d9aa04b362b7de9b179b335e4e12fd8c
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110076283"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971202"
 ---
 # <a name="add-and-manage-azure-ad-applications"></a>Agregar y administrar aplicaciones de Azure AD
 
@@ -41,7 +41,7 @@ Si desea conceder acceso al Centro de partners a una nueva cuenta de aplicación
 1. En la página **Usuarios** (en **Configuración de la cuenta**), seleccione **Agregar aplicaciones de Azure AD**.
 1. En la siguiente página, seleccione **New Azure AD application** (Nueva aplicación de Azure AD).
 1. Especifique la **URL de respuesta** de la nueva aplicación de Azure AD. Esta es la dirección URL en la que los usuarios pueden iniciar sesión y usar la aplicación de Azure AD (también se denomina a veces como URL de la aplicación o URL de inicio de sesión). La *URL de respuesta* no puede tener más de 256 caracteres y debe ser única dentro del directorio.
-1. Especifique el **URI de id. de aplicación** de la nueva aplicación de Azure AD. Se trata de un identificador lógico para la aplicación de Azure AD que se presenta cuando se envía una solicitud de inicio de sesión único a Azure AD. El *URI de id. de aplicación* debe ser exclusivo para cada aplicación de Azure AD del directorio. No puede tener más de 256 caracteres. Para más información sobre él, consulte [Integración de aplicaciones con Azure Active Directory](/azure/active-directory/develop/howto-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
+1. Especifique el **URI de id. de aplicación** de la nueva aplicación de Azure AD. Se trata de un identificador lógico para la aplicación de Azure AD que se presenta cuando se envía una solicitud de inicio de sesión único a Azure AD. El *URI de id. de aplicación* debe ser exclusivo para cada aplicación de Azure AD del directorio. No puede tener más de 256 caracteres. Para más información sobre él, consulte [Integración de aplicaciones con Azure Active Directory](../active-directory/develop/howto-modify-supported-accounts.md#change-the-application-registration-to-support-different-accounts).
 1. En la sección **Roles**, especifique los roles o permisos personalizados de la aplicación de Azure AD.
 1. Seleccione **Guardar**.
 

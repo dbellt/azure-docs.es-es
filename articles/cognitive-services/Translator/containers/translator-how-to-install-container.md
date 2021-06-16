@@ -12,12 +12,12 @@ ms.date: 05/25/2021
 ms.author: lajanuar
 recommendations: false
 keywords: entorno local, Docker, contenedor, identificar
-ms.openlocfilehash: 93cf53bb53c5a86ff6b4b073105c08c595fcf182
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 4cbc6e65eb72050726a0da5969aab07bf06358f2
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110480259"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111961718"
 ---
 # <a name="install-and-run-translator-containers-preview"></a>Instalación y ejecución de contenedores de Translator (versión preliminar)
 
@@ -277,4 +277,4 @@ En este artículo ha conocido conceptos y flujos de trabajo para la descarga, in
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Obtenga más información sobre contenedores de Azure Cognitive Services](/azure/cognitive-services/containers/index?context=/azure/cognitive-services/translator/context/context)
+> [Obtenga más información sobre contenedores de Azure Cognitive Services](../../containers/index.yml?context=%2fazure%2fcognitive-services%2ftranslator%2fcontext%2fcontext)

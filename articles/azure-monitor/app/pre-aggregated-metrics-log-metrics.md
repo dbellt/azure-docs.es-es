@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: acbe535d740eb527d165be1675f31e759851a987
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ce337c97aa7eca601e72122568c3205ca21457f
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101717832"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111372390"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métricas agregadas previamente y basadas en registros en Application Insights
 
@@ -47,7 +47,7 @@ Merece la pena mencionar que el punto de conexión de la colección agrega previ
 |------------------------------|-----------------------------------|----------------------------------------------|---------------------------------------|
 | .NET Core y .NET Framework | Compatible (V2.13.1+)| Compatible mediante [TrackMetric](api-custom-events-metrics.md#trackmetric)| Compatible (V2.7.2+) mediante [GetMetric](get-metric.md) |
 | Java                         | No compatible       | Compatible mediante [TrackMetric](api-custom-events-metrics.md#trackmetric)| No compatible                           |
-| Node.js                      | No compatible       | Compatible mediante [TrackMetric](api-custom-events-metrics.md#trackmetric)| No compatible                           |
+| Node.js                      | Se admite (V2.0.0+) | Compatible mediante [TrackMetric](api-custom-events-metrics.md#trackmetric)| No compatible                           |
 | Python                       | No compatible       | Compatible                                 | Se admite de forma parcial mediante [OpenCensus.stats](opencensus-python.md#metrics) |  
 
 > [!NOTE]

@@ -3,12 +3,13 @@ title: Habilitación del cifrado de disco para nodos de clústeres administrados
 description: Aprenda a habilitar el cifrado de discos en nodos de clústeres administrados de Azure Service Fabric en Windows mediante una plantilla de Resource Manager.
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: 10705027f376f53bedf7e5742162d58140f3a282
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 800ebb11c1d191ca68222b1fa473cebbca0e8912
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684980"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671329"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-managed-cluster-nodes"></a>Habilitación del cifrado de disco para nodos de clústeres administrados de Service Fabric
 

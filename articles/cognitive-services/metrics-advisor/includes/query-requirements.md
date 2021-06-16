@@ -4,17 +4,17 @@ titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 09/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 777e3261bd6f842861ed6622b78589eedaaf65d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c7d038153385c2d36d48f660a9a4e2bab29a3c45
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "92043222"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111894027"
 ---
 Dentro de la consulta, use el parámetro `@StartTime` para obtener datos de métricas para una sola marca de tiempo. El asesor de métricas reemplazará el parámetro por una cadena de formato `yyyy-MM-ddTHH:mm:ss` cuando ejecute la consulta.
 

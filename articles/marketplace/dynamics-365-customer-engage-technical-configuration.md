@@ -8,12 +8,12 @@ ms.custom: references_regions
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/29/2021
-ms.openlocfilehash: 06b08ec2a28af36299f583bc9f8aa5604c347593
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 51ef78575a6987c3ac1537f1bb9d35e98e294ab6
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319060"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971409"
 ---
 # <a name="set-up-dynamics-365-for-customer-engagement--power-apps-offer-technical-configuration"></a>Configuración técnica de una oferta de Dynamics 365 for Customer Engagement & Power Apps
 
@@ -47,7 +47,7 @@ Seleccione **+ Agregar región** para especificar las regiones geográficas en l
 
 De manera predeterminada, la **dirección URL de configuración de aplicación** que especificó anteriormente se usará para cada región. Si lo prefiere, puede especificar una dirección URL de configuración de aplicación independiente para una o varias regiones específicas.
 
-Seleccione **Guardar borrador** antes de pasar a la siguiente pestaña del menú de navegación izquierdo, **Venta conjunta con Microsoft**. Para obtener información sobre la configuración de la venta conjunta con Microsoft (opcional), vea [Información general sobre la venta conjunta de los equipos de ventas de Microsoft y los asociados](marketplace-co-sell.md). Si no va a configurar la venta conjunta o ha terminado, continúe con la sección **Pasos siguientes** a continuación.
+Seleccione **Guardar borrador** antes de pasar a la siguiente pestaña del menú de navegación izquierdo, **Venta conjunta con Microsoft**. Para obtener información sobre la configuración de la venta conjunta con Microsoft (opcional), vea [Información general sobre la venta conjunta de los equipos de ventas de Microsoft y los asociados](./co-sell-overview.md). Si no va a configurar la venta conjunta o ha terminado, continúe con la sección **Pasos siguientes** a continuación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,6 +7,8 @@
       href: what-are-applied-ai-services.md
     - name: ¿Por qué usar Applied AI Services?
       href: why-applied-ai-services.md
+    - name: Preguntas más frecuentes
+      href: faq.yml
 - name: Guías de inicio rápido
   items:
     - name: "Azure\_Form Recognizer"
@@ -18,9 +20,9 @@
     - name: Azure Cognitive Search
       href: ../search/search-get-started-portal.md
     - name: Azure Video Analyzer
-      href: 'https://aka.ms/video-analytics-qs'
+      href: ../azure-video-analyzer/video-analyzer-docs/detect-motion-emit-events-quickstart.md
     - name: Azure Bot Service
-      href: 'https://docs.microsoft.com/composer/quickstart-create-bot'
+      href: /composer/quickstart-create-bot
 - name: Recursos
   items:
     - name: Información destacada de asociados

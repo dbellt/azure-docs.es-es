@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aa91851787bbb0f5570a4f439f794ee352bf0625
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 56a306e56991500a6b1d5acab1ab38a3b4fa457f
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579695"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613306"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Creación de un inquilino de Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ Para que sus aplicaciones puedan interactuar con Azure Active Directory B2C (A
 > [!NOTE]
 > Se pueden crear hasta 20 inquilinos por suscripción. Este límite ayuda a proteger los recursos frente a amenazas, como ataques por denegación de servicio. Además, se aplica en Azure Portal y en la API de creación de inquilinos subyacente. Si necesita crear más de 20 inquilinos, póngase en contacto con el [Soporte técnico de Microsoft](support-options.md).
 > 
-> Si desea volver a utilizar el nombre de un inquilino que intentó eliminar anteriormente pero aparece el error "ya está en uso por otro directorio" al escribir el nombre de dominio, debe [seguir primero estos pasos para eliminar por completo el inquilino](./faq.md?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant). Se necesita al menos un rol de administrador de la suscripción. Para poder reutilizar el nombre de dominio, es posible que, después de eliminar el inquilino, también tenga que cerrar la sesión e iniciarla de nuevo.
+> Si desea volver a utilizar el nombre de un inquilino que intentó eliminar anteriormente pero aparece el error "ya está en uso por otro directorio" al escribir el nombre de dominio, debe [seguir primero estos pasos para eliminar por completo el inquilino](./faq.yml?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant-). Se necesita al menos un rol de administrador de la suscripción. Para poder reutilizar el nombre de dominio, es posible que, después de eliminar el inquilino, también tenga que cerrar la sesión e iniciarla de nuevo.
 
 En este artículo aprenderá a:
 
