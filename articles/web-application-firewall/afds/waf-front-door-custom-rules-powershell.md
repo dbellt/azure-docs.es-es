@@ -7,12 +7,13 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: victorh
-ms.openlocfilehash: 9a0e262db9f5c37189a589eefc451a88dd5ea8c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 7c58440d9483ab7403a08baa8bc0061758510162
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94563416"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110668786"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Configuración de una directiva del firewall de aplicaciones web con Azure PowerShell
 

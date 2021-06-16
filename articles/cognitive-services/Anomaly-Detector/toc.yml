@@ -60,10 +60,6 @@
       href: concepts/anomaly-detection-best-practices.md
     - name: Arquitectura de mantenimiento predictivo (multivariante)
       href: concepts/multivariate-architecture.md
-    - name: Detección de anomalías de Spectral Residual (SR) y Convolutional Neural Net (CNN)
-      href: 'https://arxiv.org/abs/1906.03821'
-    - name: Detección de anomalías de serie temporal multivariante a través de la red de atención de grafos
-      href: 'https://arxiv.org/abs/2009.02040'
 - name: Tutoriales
   items:
     - name: Visualización de anomalías como un lote mediante Power BI
@@ -110,3 +106,7 @@
           href: 'https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162'
         - name: Introducción al algoritmo SR-CNN
           href: 'https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798'
+        - name: Detección de anomalías de Spectral Residual (SR) y Convolutional Neural Net (CNN)
+          href: 'https://arxiv.org/abs/1906.03821'
+        - name: Detección de anomalías de serie temporal multivariante a través de la red de atención de grafos
+          href: 'https://arxiv.org/abs/2009.02040'

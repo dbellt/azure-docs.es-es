@@ -9,12 +9,13 @@ ms.date: 02/12/2021
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 6050cb576de40eefd975154a591178df59a4633b
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 83e6cfa8589e7ba2df4d6d8452496cf7680cf5c6
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632788"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110676290"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage
 

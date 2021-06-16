@@ -7,13 +7,13 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
-ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: b965a4b8ee83765de8eceeb9c2a27ecca558a3ea
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.custom: include file, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: fa16db2472daaa98f972460d691c07f700ec3447
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110165613"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110721855"
 ---
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -115,7 +115,7 @@ Use [az keyvault update](/cli/azure/keyvault#az_keyvault_update) para habilitar 
      Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -ResourceGroupName "MyResourceGroup" -EnabledForTemplateDeployment
      ```
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure portal
 
 1. Seleccione el almacén de claves, vaya a **Directivas de acceso** y **haga clic para mostrar las directivas de acceso avanzadas**.
 2. Active la casilla etiquetada **Habilitar el acceso a Azure Disk Encryption para el cifrado de volúmenes**.

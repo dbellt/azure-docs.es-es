@@ -5,18 +5,18 @@ description: En este inicio rápido, va a crear una aplicación Android desde ce
 services: cognitive-services
 author: dylankil
 manager: guillasi
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 09/14/2020
 ms.author: dylankil
 ms.custom: devx-track-js
-ms.openlocfilehash: ca3dfd31c4bb9003551a6c48ba758fb2804b37a9
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 951c18d2ceccddf0ca38a13d464792cfa2f81ec0
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376604"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111893678"
 ---
 [Lector inmersivo](https://www.onenote.com/learningtools) es una herramienta diseñada de manera inclusiva que implementa técnicas demostradas para mejorar la comprensión lectora de nuevos lectores, estudiantes de idiomas y personas con dificultades de aprendizaje, como la dislexia. Puede usar Lector inmersivo en sus aplicaciones para aislar el texto con el fin de mejorar la concentración, mostrar imágenes para palabras de uso frecuente, resaltar partes del texto, leer texto seleccionado en voz alta, traducir palabras y frases en tiempo real y mucho más.
 

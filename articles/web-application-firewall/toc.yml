@@ -64,11 +64,13 @@
         - name: Información general sobre la protección contra bots
           href: ./ag/bot-protection-overview.md
         - name: Preguntas más frecuentes
-          href: ./ag/application-gateway-waf-faq.md
+          href: ./ag/application-gateway-waf-faq.yml
     - name: Front Door
       items:
         - name: Ajuste
           href: ./afds/waf-front-door-tuning.md
+        - name: Reglas administradas
+          href: ./afds/waf-front-door-drs.md
         - name: Reglas personalizadas
           href: ./afds/waf-front-door-custom-rules.md
         - name: Listas de exclusión
@@ -78,7 +80,7 @@
         - name: Filtrado geográfico
           href: ./afds/waf-front-door-geo-filtering.md
         - name: Preguntas más frecuentes
-          href: ./afds/waf-faq.md
+          href: ./afds/waf-faq.yml
     - name: Seguridad
       items:
         - name: Línea de base de seguridad
@@ -95,7 +97,7 @@
           items:
             - name: Azure PowerShell
               href: ./ag/tutorial-restrict-web-traffic-powershell.md
-            - name: Azure CLI
+            - name: CLI de Azure
               href: ./ag/tutorial-restrict-web-traffic-cli.md
         - name: Directivas por sitio
           href: ./ag/per-site-policies.md
@@ -107,7 +109,7 @@
               href: ./ag/application-gateway-customize-waf-rules-portal.md
             - name: Azure PowerShell
               href: ./ag/application-gateway-customize-waf-rules-powershell.md
-            - name: Azure CLI
+            - name: CLI de Azure
               href: ./ag/application-gateway-customize-waf-rules-cli.md
         - name: 'Configuración de la regla personalizada de WAF V2: PowerShell'
           href: ./ag/configure-waf-custom-rules.md
@@ -184,7 +186,7 @@
 - name: Recursos
   items:
     - name: Creación de plantillas
-      href: ../azure-resource-manager/templates/template-syntax.md
+      href: ../azure-resource-manager/templates/syntax.md
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Plantillas de la comunidad

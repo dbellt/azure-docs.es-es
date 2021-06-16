@@ -7,12 +7,13 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8b4bd9ece5f010f1294356ad4673543834e5076a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 855ffcaf0a3e48e2b33973b230ca02cbf369e526
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94626918"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110669866"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Guía de inicio rápido: Creación y administración de un recurso compartido de archivos de Azure con Azure PowerShell 
 En esta guía se describen los conceptos básicos sobre cómo trabajar con [recursos compartidos de archivos de Azure](storage-files-introduction.md) con PowerShell. Los recursos compartidos de archivos de Azure son iguales a otros recursos compartidos de archivos, pero se almacenan en la nube y están respaldados por la plataforma Azure. Los recursos compartidos de archivos de Azure admiten el protocolo estándar del sector Bloque de mensajes del servidor (SMB), el protocolo Network File System (NFS) (versión preliminar) y permiten el uso compartido de archivos entre varias máquinas, aplicaciones e instancias. 

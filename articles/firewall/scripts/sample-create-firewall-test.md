@@ -8,12 +8,13 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 4158bc07373a2d0aa6fb6ceaf2dce62b50bb6bd7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: f17ad87e93bd0c3c1a30444544af34b6fb995979
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94658373"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110705976"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Creación de un entorno de prueba de Azure Firewall
 

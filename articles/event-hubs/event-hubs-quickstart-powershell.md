@@ -3,12 +3,13 @@ title: 'Inicio rápido: Creación de un centro de eventos con PowerShell: Azure 
 description: En esta guía de inicio rápido se describe cómo crear un centro de eventos mediante Azure PowerShell y, después, enviar y recibir eventos mediante el SDK de .NET Standard.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: be2761bedd3198d25cb279e6a8ff188db6a51de2
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 81181dd7b9167c76e167e781bc6aa6f277125953
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107873782"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110695903"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Guía de inicio rápido: Creación de un centro de eventos mediante Azure PowerShell
 

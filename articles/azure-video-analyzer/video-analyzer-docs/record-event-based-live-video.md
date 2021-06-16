@@ -3,12 +3,12 @@ title: 'Tutorial de grabación de vídeo basada en eventos en la nube y reproduc
 description: En este tutorial, obtendrá información sobre cómo usar Azure Video Analyzer para realizar una grabación de vídeo basada en eventos en la nube y reproducirla desde la nube.
 ms.topic: tutorial
 ms.date: 04/13/2021
-ms.openlocfilehash: 05c28fbc3b410f792d10adf7e59e43f070d7d57a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 6ecbaf794530e80837c2d2a5f9f3fca11e3c93ae
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110384269"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565669"
 ---
 # <a name="tutorial-event-based-video-recording-and-playback"></a>Tutorial: Grabación de vídeo basada en eventos y reproducción
 
@@ -77,8 +77,8 @@ Como se muestra en el diagrama, se usará un nodo de [origen RTSP](pipeline.md#r
 En este tutorial, aprenderá lo siguiente:
 
 1. Configure un entorno de desarrollo.
-1. Implementar los módulos perimetrales necesarios.
-1. Crear e implementar la canalización en directo.
+1. Implementará los módulos perimetrales necesarios.
+1. Creará e implementará la canalización en directo.
 1. Interpretará los resultados.
 1. Limpieza de recursos.
 
@@ -170,7 +170,7 @@ En unos 30 segundos, actualice Azure IoT Hub en la sección inferior izquierda d
 1. Luego, en los nodos **livePipelineSet** y **pipelineTopologyDelete**, compruebe que el valor de **topologyName** coincide con el valor de la propiedad **name** de la topología de canalización anterior:
 
     `"pipelineTopologyName" : "EVRtoVideosOnObjDetect"`
-1. Abra la [topología de canalización](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-hubMessage-videos/topology.json) en un explorador y vea que videoName está codificado de forma rígida como `sample-evr-video`. Para los fines de este tutorial, este valor es aceptable. En producción, tendría que asegurarse de que cada cámara RTSP única se graba en un recurso de vídeo con un nombre único.
+1. Abra la [topología de la canalización](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-hubMessage-videos/topology.json) en un explorador y vea que videoName está codificado de forma rígida como `sample-evr-video`. Para los fines de este tutorial, este valor es aceptable. En producción, tendría que asegurarse de que cada cámara RTSP única se graba en un recurso de vídeo con un nombre único.
 1. Para iniciar una sesión de depuración, seleccione F5. Verá algunos mensajes impresos en la ventana **TERMINAL**.
 1. El archivo operations.json comienza con llamadas a pipelineTopologyList y livePipelineList. Si ha limpiado los recursos después de los inicios rápidos o los tutoriales anteriores, esta acción devolverá listas vacías y entrará en pausa para que seleccione **Entrar**, como se muestra a continuación:
     ```
@@ -311,7 +311,7 @@ La sección subject de applicationProperties hace referencia al nodo receptor de
 
 ### <a name="recordingavailable-event"></a>Evento RecordingAvailable
 
-Como sugiere su nombre, el evento RecordingStarted se envía cuando se inicia la grabación, pero puede que los datos multimedia aún no se hayan cargado en el recurso de vídeo. Cuando el nodo receptor de vídeo ha cargado medios, emite un evento de tipo **Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingAvailable**:
+Como sugiere su nombre, el evento RecordingStarted se envía cuando se inicia la grabación, pero puede que los datos multimedia aún no se hayan cargado en el recurso de vídeo. Al cargar elementos multimedia el nodo receptor de vídeo, emite un evento de tipo **Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingAvailable**:
 
 ```
 [IoTHubMonitor] [[9:43:38 AM] Message received from [avasample-iot-edge-device/avaedge]:
@@ -334,7 +334,7 @@ Este evento indica que se han escrito suficientes datos en el recurso de vídeo 
 
 ### <a name="recordingstopped-event"></a>Evento RecordingStopped
 
-Al desactivar la canalización en directo, el nodo receptor de vídeo deja de grabar los elementos multimedia. y emite este evento del tipo **Microsoft.Media.Graph.Operational.RecordingStopped**:
+Al desactivar la canalización en directo, el nodo receptor de vídeo deja de grabar los elementos multimedia. y emite este evento de tipo **Microsoft.Media.Graph.Operational.RecordingStopped**:
 
 ```
 [IoTHubMonitor] [11:33:31 PM] Message received from [avasample-iot-edge-device/avaedge]:
@@ -355,23 +355,21 @@ Al desactivar la canalización en directo, el nodo receptor de vídeo deja de gr
 
 Este evento indica que se ha detenido la grabación. La sección subject de applicationProperties hace referencia al nodo receptor de vídeo en la canalización en directo, que generó este mensaje. La sección body contiene información sobre la ubicación de salida. En este caso, es el nombre del recurso de Video Analyzer en el que se graba el vídeo.
 
-## <a name="video-analyzer-video-resource"></a>Recurso de vídeo de Video Analyzer
+## <a name="playing-back-the-recording"></a>Reproducción de la grabación
 
 Para examinar el recurso de vídeo de Video Analyzer que se ha creado con la canalización en directo, inicie sesión en Azure Portal y vea el vídeo.
 1. Abra el explorador web y vaya a [Azure Portal](https://portal.azure.com/). Introduzca sus credenciales para iniciar sesión en el portal. La vista predeterminada es el panel del servicio.
 1. Busque la cuenta de Video Analyzer entre los recursos que tiene en la suscripción y abra el panel de cuentas.
 1. Seleccione **Vídeos** en la sección **Video Analyzer**.
-
-    <!--TODO: add image -- ![Video Analyzers videos]() ./media/event-based-video-recording-tutorial/videos.png -->
 1. Encontrará un vídeo con el nombre `sample-evr-video`. Este es el nombre elegido en el archivo de topología de la canalización.
 1. Seleccione el vídeo.
-1. En la página de detalles del vídeo, seleccione la opción de reproducción. <!-- TODO: fix this-->
+1. Se abrirá la página de detalles del vídeo y la reproducción se iniciará automáticamente.
 
     <!--TODO: add image -- ![Video playback]() TODO: new screenshot is needed here -->
 
 
 > [!NOTE]
-> Puesto que el origen de vídeo era un contenedor que simula una fuente de cámara, las marcas de tiempo del vídeo son relativas a cuándo activó y desactivó la canalización en directo.
+> Puesto que el origen de vídeo era un contenedor que simula una fuente de cámara, las marcas de tiempo del vídeo son relativas a cuándo se activó y desactivó la canalización en directo.
 > 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

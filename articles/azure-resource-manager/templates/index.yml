@@ -12,12 +12,12 @@ metadata:
   author: mumian
   ms.author: jgao
   ms.date: 03/03/2021
-  ms.openlocfilehash: 01f89fa12654a949c701d728e23f7ae79e0c69e7
-  ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+  ms.openlocfilehash: b3a8448145a101367a2000e5b16d0ff61b93a0d7
+  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/26/2021
-  ms.locfileid: "105611963"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111963217"
 landingContent:
 - title: Acerca de las plantillas de Resource Manager
   linkLists:
@@ -25,12 +25,10 @@ landingContent:
     links:
     - text: ¿Qué son las plantillas?
       url: overview.md
-    - text: ¿Qué es Bicep?
-      url: bicep-overview.md
   - linkListType: concept
     links:
     - text: Procedimientos recomendados
-      url: template-best-practices.md
+      url: ./best-practices.md
     - text: Preguntas más frecuentes
       url: frequently-asked-questions.md
     - text: Especificaciones de plantilla
@@ -49,8 +47,6 @@ landingContent:
     links:
     - text: 'Creación de plantillas JSON: VS Code'
       url: quickstart-create-templates-use-visual-studio-code.md
-    - text: 'Creación de plantillas Bicep: VS Code'
-      url: quickstart-create-bicep-use-visual-studio-code.md
     - text: 'Creación de plantillas JSON: portal'
       url: quickstart-create-templates-use-the-portal.md
     - text: Creación e implementación de especificaciones de plantillas
@@ -59,8 +55,6 @@ landingContent:
     links:
     - text: Tutoriales de plantillas para principiantes
       url: template-tutorial-create-first-template.md
-    - text: Tutoriales de Bicep para principiantes
-      url: bicep-tutorial-create-first-bicep.md
   - linkListType: learn
     links:
     - text: Implementación con plantillas de Resource Manager
@@ -78,17 +72,17 @@ landingContent:
     - text: Uso de las funciones
       url: template-functions.md
     - text: Definición de parámetros
-      url: template-parameters.md
+      url: ./parameters.md
     - text: Definición de variables
-      url: template-variables.md
+      url: ./variables.md
     - text: Definición de recursos
-      url: template-syntax.md#resources
+      url: ./syntax.md#resources
     - text: Definir las salidas
-      url: template-outputs.md
+      url: ./outputs.md
   - linkListType: reference
     links:
     - text: Sintaxis de un archivo de plantilla
-      url: template-syntax.md
+      url: ./syntax.md
     - text: Plantillas de inicio rápido de Azure
       url: https://azure.microsoft.com/resources/templates/
 - title: Implementación de plantillas
@@ -112,14 +106,14 @@ landingContent:
     - text: Cloud Shell
       url: deploy-cloud-shell.md
     - text: Implementación de tipo "y si"
-      url: template-deploy-what-if.md
+      url: ./deploy-what-if.md
 - title: Implementaciones con ámbitos
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Resource group
       url: deploy-to-resource-group.md
-    - text: Suscripción
+    - text: Subscription
       url: deploy-to-subscription.md
     - text: Grupo de administración
       url: deploy-to-management-group.md
@@ -139,7 +133,7 @@ landingContent:
       url: /rest/api/resources/
     - text: Azure PowerShell
       url: /powershell/module/az.resources
-    - text: Azure CLI
+    - text: CLI de Azure
       url: /cli/azure/resource
     - text: .NET
       url: /dotnet/api/microsoft.azure.management.resourcemanager

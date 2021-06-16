@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/24/2021
-ms.openlocfilehash: 9d728160413d470383f3eee78fc430aed0125ed7
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 05/31/2021
+ms.openlocfilehash: 0f92a5313622ffafe5ea5cbe2fdedc77d685b0ab
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905241"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792227"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Cómo conectar Azure Data Factory y Azure Purview
 
@@ -158,9 +158,13 @@ Además del linaje, se indica el esquema de recursos de datos (que se muestra en
 | Almacén de datos | Compatible |
 | ------------------- | ------------------- | 
 | Azure Blob Storage | Sí |
+| Azure Cosmos DB (SQL API) \* | Sí | 
 | Azure Data Lake Storage Gen1 | Sí |
 | Azure Data Lake Storage Gen2 | Sí |
+| Azure Database for MySQL \* | Sí | 
+| Azure Database for PostgreSQL \* | Sí |
 | Azure SQL Database \* | Sí |
+| Azure SQL Managed Instance \* | Sí | 
 | Azure Synapse Analytics \* | Sí |
 
 *\* Actualmente, Azure Purview no admite la consulta ni el procedimiento almacenado para el linaje o el examen. El linaje se limita a los orígenes de tabla y vista.*

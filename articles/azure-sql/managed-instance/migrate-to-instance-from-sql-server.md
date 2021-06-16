@@ -7,16 +7,16 @@ ms.subservice: migration
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: bonova
-ms.author: bonova
-ms.reviewer: ''
+author: danimir
+ms.author: danil
+ms.reviewer: cawrites
 ms.date: 07/11/2019
-ms.openlocfilehash: ccc6acfd27a1430a4f6a31886c06322c5c09e224
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4bb9b904fd07539ab1bb3f70fa4f7e862e54c2f2
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105628380"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110788833"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migración de una instancia de SQL Server a Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -43,7 +43,7 @@ En un nivel alto, el proceso de migración de la base de datos es parecido a est
 
 ## <a name="assess-sql-managed-instance-compatibility"></a>Evaluación de la compatibilidad de Instancia administrada de SQL
 
-En primer lugar, determine si Instancia administrada de SQL es compatible con los requisitos de base de datos de la aplicación. Instancia administrada de SQL se ha diseñado para poder migrar mediante lift-and-shift la mayoría de las aplicaciones existentes que usan SQL Server. Sin embargo, a veces podría necesitar características o funcionalidades que todavía no se admiten y el costo de implementar una solución alternativa es demasiado alto.
+En primer lugar, determine si Instancia administrada de SQL es compatible con los requisitos de base de datos de la aplicación. Instancia administrada de SQL se ha diseñado para poder migrar mediante lift-and-shit la mayoría de las aplicaciones existentes que usan SQL Server. Sin embargo, a veces podría necesitar características o funcionalidades que todavía no se admiten y el costo de implementar una solución alternativa es demasiado alto.
 
 Use [Data Migration Assistant](/sql/dma/dma-overview) para detectar posibles problemas de compatibilidad que afecten a la funcionalidad de la base de datos en Azure SQL Database. Si se ha notificado algún problema de bloqueo, quizá deba considerar una alternativa, como [SQL Server en VM de Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Estos son algunos ejemplos:
 

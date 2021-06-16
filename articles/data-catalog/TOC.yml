@@ -22,7 +22,7 @@
     - name: Adopción de Azure Data Catalog
       href: data-catalog-adopting-data-catalog.md
     - name: Preguntas más frecuentes
-      href: data-catalog-frequently-asked-questions.md
+      href: data-catalog-frequently-asked-questions.yml
 - name: Guías paso a paso
   items:
     - name: Registrar orígenes de datos

@@ -3,12 +3,13 @@ title: Implementación de una aplicación en un clúster administrado de Service
 description: En este tutorial, se conectará a un clúster administrado de Service Fabric e implementará una aplicación mediante PowerShell.
 ms.topic: tutorial
 ms.date: 5/10/2021
-ms.openlocfilehash: c51d753f3d0aa5d3c05c66fc45ae653f0bfa8e71
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: f9ee801bdddd43563794aee7420ee8ba54f4d1d7
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685430"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110672416"
 ---
 # <a name="tutorial-deploy-an-app-to-a-service-fabric-managed-cluster"></a>Tutorial: Implementación de una aplicación en un clúster administrado de Service Fabric
 

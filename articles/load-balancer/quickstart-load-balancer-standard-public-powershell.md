@@ -14,14 +14,13 @@ ms.service: load-balancer
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.custom:
-- mode-api
-ms.openlocfilehash: 0ddaf0eede59053cd8022fef24d37a37c6d7db5a
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: devx-track-azurepowershell - mode-api
+ms.openlocfilehash: c268fd8f14c1a78a6fa57b2c551cccd196087e90
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529579"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110704779"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Inicio rápido: Creación de un equilibrador de carga público para equilibrar la carga de las VM con Azure PowerShell
 

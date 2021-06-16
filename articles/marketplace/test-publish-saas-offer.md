@@ -8,12 +8,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 03/25/2021
-ms.openlocfilehash: aeab671c9283d64f9c1ca37cf184b80b1eca8f35
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7fed85abe42b0366ff2429ba923fc9a3cdf6190a
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045253"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111536416"
 ---
 # <a name="how-to-test-and-publish-a-saas-offer-to-the-commercial-marketplace"></a>Prueba y publicación de una oferta de SaaS en el marketplace comercial
 
@@ -53,13 +53,13 @@ Siga estos pasos para obtener una versión preliminar de la oferta.
 
 1. Para validar el flujo de compra y configuración de un extremo a otro, compre los planes de la oferta mientras está en versión preliminar. En primer lugar, informe a Microsoft con una [incidencia de soporte técnico](https://aka.ms/marketplacesupport) para asegurarse de que no se procesen cargos.
 
-1. Si su oferta de SaaS admite la [facturación de uso medido mediante el servicio de medición de marketplace comercial](./partner-center-portal/saas-metered-billing.md), revise y siga los procedimientos recomendados de prueba que se detallan en [API de facturación según uso de Marketplace](./partner-center-portal/marketplace-metering-service-apis.md#development-and-testing-best-practices).
+1. Si su oferta de SaaS admite la [facturación de uso medido mediante el servicio de medición de marketplace comercial](./partner-center-portal/saas-metered-billing.md), revise y siga los procedimientos recomendados de prueba que se detallan en [API de facturación según uso de Marketplace](marketplace-metering-service-apis.md#development-and-testing-best-practices).
 
 1. Revise y siga las instrucciones de prueba que se indican en [API de suministro de SaaS v2 en el marketplace comercial de Microsoft](./partner-center-portal/pc-saas-fulfillment-api-v2.md#development-and-testing) para que la oferta se integre correctamente con las API antes de publicarla.
 
 1. Si el paso de validación de la oferta generó advertencias, aparecerá un vínculo **Ver informe de validación** en la página **Información general de la oferta**. Asegúrese de revisar el informe y solucionar los problemas antes de seleccionar el botón **Publicar**. De lo contrario, probablemente se producirá un error en la certificación y se retrasará la publicación de la oferta.
 
-1. Si después obtener la versión preliminar de la oferta y probarla necesita realizar cambios, puede editarla y volver a enviarla para publicar una nueva versión preliminar. Para obtener más información, consulte [Actualización de una oferta existente en el marketplace comercial](./partner-center-portal/update-existing-offer.md).
+1. Si después obtener la versión preliminar de la oferta y probarla necesita realizar cambios, puede editarla y volver a enviarla para publicar una nueva versión preliminar. Para obtener más información, consulte [Actualización de una oferta existente en el marketplace comercial](update-existing-offer.md).
 
 ## <a name="publish-your-offer-live"></a>Publicación de la oferta
 
@@ -74,4 +74,4 @@ Después de finalizar estas comprobaciones de validación, la oferta estará act
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Acceso a los informes de análisis de marketplace comercial en el Centro de partners](./partner-center-portal/analytics.md)
+- [Acceso a los informes de análisis de marketplace comercial en el Centro de partners](analytics.md)

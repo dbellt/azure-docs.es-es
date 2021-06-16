@@ -3,19 +3,19 @@ title: Habilitación de la configuración de subred asistida por servicio para I
 description: Habilitación de la configuración de subred asistida por servicio para Instancia administrada de Azure SQL
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
-ms.custom: ''
+ms.subservice: deployment-configuration
+ms.custom: devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.date: 03/12/2020
-ms.openlocfilehash: 67b398194d9094cd99fccaa85ed0df3be362ce2b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 26f9dd2991f575669f580fc92cfc29259ca54be6
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91618036"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110707211"
 ---
 # <a name="enabling-service-aided-subnet-configuration-for-azure-sql-managed-instance"></a>Habilitación de la configuración de subred asistida por servicio para Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

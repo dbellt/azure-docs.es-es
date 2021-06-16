@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 08/08/2018
 ms.reviewer: jushiman
-ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: c5ddd5846be91e9fc99a251d6ad45ade8bde2937
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: d66c6fada13bf88083a6359f5fa3e7ca826a6266
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96016665"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110673709"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creación de un conjunto de escalado de máquinas virtuales que usa Zonas de disponibilidad
 

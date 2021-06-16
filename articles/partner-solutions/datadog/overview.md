@@ -4,14 +4,14 @@ description: Obtenga más información sobre el uso de Datadog en Azure Marketpl
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 02/19/2021
+ms.date: 05/28/2021
 ms.author: tomfitz
-ms.openlocfilehash: 2e5c55c4f9b30bb30be9bee84ea00971c70fdc84
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 71f8ff575673e1a722b94d5d62f8de1fe8263622
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101743954"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652381"
 ---
 # <a name="what-is-datadog"></a>¿Qué es Datadog?
 

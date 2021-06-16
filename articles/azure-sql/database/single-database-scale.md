@@ -4,19 +4,19 @@ description: En este artículo se describe cómo escalar los recursos de proceso
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: sqldbrb=1, references_regions
+ms.custom: sqldbrb=1, references_regions, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 04/09/2021
-ms.openlocfilehash: ae1b3cc41d709c28ba517d672eb98cb60a837a8d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 215936e1a3d9b4552747a67ed8d0de9edcc1e969
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779082"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110667144"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Escalar recursos de base de datos única en Azure SQL Database
 
@@ -62,7 +62,7 @@ La latencia estimada para cambiar el nivel de servicio, escalar el tamaño de pr
 |**Base de datos único básica,</br> estándar (S0-S1)**|&bull; &nbsp;Latencia de tiempo constante independientemente del espacio usado</br>&bull; &nbsp;Normalmente, menos de 5 minutos|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|
 |**Grupo elástico básico, </br>estándar (S2-S12) </br>base de datos única o grupo elástico de uso general**|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Para bases de datos únicas, latencia de tiempo constante independiente del espacio usado</br>&bull; &nbsp;Normalmente, menos de 5 minutos para bases de datos únicas</br>&bull; &nbsp;Para grupos elásticos, proporcional al número de bases de datos|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|
 |**Base de datos única o grupo elástico Premium o Crítico para la empresa**|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|
-|**Hiperescala**|N/D|N/A|N/D|&bull; &nbsp;Latencia de tiempo constante independientemente del espacio usado</br>&bull; &nbsp;Normalmente, menos de 2 minutos|
+|**Hiperescala**|N/D|N/D|N/D|&bull; &nbsp;Latencia de tiempo constante independientemente del espacio usado</br>&bull; &nbsp;Normalmente, menos de 2 minutos|
 
 > [!NOTE]
 > Además, en el caso de las bases de datos Estándar (S2-S12) y De uso general, la latencia para mover una base de datos dentro o fuera de un grupo elástico o entre grupos elásticos será proporcional al tamaño de la base de datos si esta usa almacenamiento de recursos compartidos de archivos Premium ([PFS](../../storage/files/storage-files-introduction.md)).

@@ -7,13 +7,13 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
-ms.custom: ''
-ms.openlocfilehash: 7f2710eccd7ac71213472a00633b9b855b38e9b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 624e428a5561280d6f223eff50e906192f7195b9
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99430299"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110705226"
 ---
 # <a name="create-a-new-azure-cloud-service-extended-support"></a>Creación de una instancia de Azure Cloud Services (soporte extendido)
 Estos ejemplos incluyen varias maneras de crear una implementación de Azure Cloud Services (soporte extendido).

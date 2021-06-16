@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 07/16/2019
-ms.openlocfilehash: a5814bfe3bd6ec2d97a068ea8ce71fa7ffea8ec0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d5563d81308d449ab6a4c711821e851fa3e33f41
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91323606"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110705840"
 ---
 # <a name="use-cli-to-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Use la CLI para agregar un grupo elástico de Azure SQL Database a un grupo de conmutación por error
 

@@ -4,12 +4,13 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 07/20/2020
 ms.author: msmbaldwin
-ms.openlocfilehash: 6d6c4a019e9b0b9bd4ed52990fa8b59e939026f1
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fe21da6b8cd2a3f7291ae4a27ef7de8040a2acd1
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "106073426"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110720502"
 ---
 En este inicio rápido se usa un almacén de claves de Azure creado previamente. Puede crear un almacén de claves siguiendo los pasos descritos en el [inicio rápido de CLI de Azure](../articles/key-vault/general/quick-create-cli.md), [inicio rápido de Azure PowerShell](../articles/key-vault/general/quick-create-powershell.md) o [inicio rápido de Azure Portal](../articles/key-vault/general/quick-create-portal.md). 
 

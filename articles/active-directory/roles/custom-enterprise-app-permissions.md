@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: bc3db3de91c9fbf059c56fb1f2770381265d82de
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 46d1a0029607767ac3d7c0abbfe3a318b04aebda
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090648"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110790807"
 ---
 # <a name="enterprise-application-permissions-for-custom-roles-in-azure-active-directory"></a>Permisos de aplicaciones empresariales para roles personalizados de Azure Active Directory
 
@@ -119,52 +119,53 @@ Para delegar la capacidad de autorización del acceso a la aplicación para el a
 
 ## <a name="full-list-of-permissions"></a>Lista completa de permisos
 
-Permiso | Descripción
----------- | -----------
-microsoft.directory/applicationPolicies/allProperties/read | Permite leer todas las propiedades de las directivas de aplicación.
-microsoft.directory/applicationPolicies/allProperties/update | Permite actualizar todas las propiedades de las directivas de aplicación.
-microsoft.directory/applicationPolicies/basic/update | Permite actualizar las propiedades estándar de las directivas de aplicación.
-microsoft.directory/applicationPolicies/create | Permite crear directivas de aplicación.
-microsoft.directory/applicationPolicies/createAsOwner | Permite crear directivas de aplicación. El creador se agrega como primer propietario.
-microsoft.directory/applicationPolicies/delete | Permite eliminar directivas de aplicación.
-microsoft.directory/applicationPolicies/owners/read | Permite leer propietarios en directivas de aplicación.
-microsoft.directory/applicationPolicies/owners/update | Permite actualizar la propiedad de propietario de las directivas de aplicación.
-microsoft.directory/applicationPolicies/policyAppliedTo/read | Permite leer las directivas de aplicación aplicadas a la lista de objetos.
-microsoft.directory/applicationPolicies/standard/read | Permite leer las propiedades estándar de las directivas de aplicación.
-microsoft.directory/servicePrincipals/allProperties/allTasks | Crea y elimina servicePrincipals, y lee y actualiza todas las propiedades en Azure Active Directory.
-microsoft.directory/servicePrincipals/allProperties/read | Permite leer todas las propiedades de servicePrincipals.
-microsoft.directory/servicePrincipals/allProperties/update | Permite actualizar todas las propiedades de servicePrincipals.
-microsoft.directory/servicePrincipals/appRoleAssignedTo/read | Permite leer las asignaciones de rol de la entidad de servicio.
-microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Permite actualizar las asignaciones de rol de la entidad de servicio.
-microsoft.directory/servicePrincipals/appRoleAssignments/read | Permite leer las asignaciones de rol asignadas a las entidades de servicio.
-microsoft.directory/servicePrincipals/audience/update | Permite actualizar las propiedades de audiencia en entidades de servicio.
-microsoft.directory/servicePrincipals/authentication/update | Permite actualizar las propiedades de autenticación en entidades de servicio.
-microsoft.directory/servicePrincipals/basic/update | Permite actualizar las propiedades básicas en entidades de servicio.
-microsoft.directory/servicePrincipals/create | Permite crear entidades de servicio.
-microsoft.directory/servicePrincipals/createAsOwner | Permite crear entidades de servicio. El creador se agrega como primer propietario.
-microsoft.directory/servicePrincipals/credentials/update | Permite actualizar las propiedades de credenciales en entidades de servicio.
-microsoft.directory/servicePrincipals/delete | Permite eliminar entidades de servicio.
-microsoft.directory/servicePrincipals/disable | Permite deshabilitar entidades de servicio.
-microsoft.directory/servicePrincipals/enable | Permite habilitar entidades de servicio.
-microsoft.directory/servicePrincipals/getPasswordSingleSignOnCredentials | Permite leer las credenciales de inicio de sesión único con contraseña de las entidades de servicio.
-microsoft.directory/servicePrincipals/managePasswordSingleSignOnCredentials | Permite administrar las credenciales de inicio de sesión único con contraseña de las entidades de servicio.
-microsoft.directory/servicePrincipals/oAuth2PermissionGrants/read | Permite leer concesiones de permisos delegados de las entidades de servicio.
-microsoft.directory/servicePrincipals/owners/read | Permite leer propietarios de las entidades de servicio.
-microsoft.directory/servicePrincipals/owners/update | Permite actualizar propietarios de las entidades de servicio.
-microsoft.directory/servicePrincipals/permissions/update |  
-microsoft.directory/servicePrincipals/policies/read | Permite leer directivas de las entidades de servicio.
-microsoft.directory/servicePrincipals/policies/update | Permite actualizar directivas de las entidades de servicio.
-microsoft.directory/servicePrincipals/standard/read | Permite leer las propiedades estándar de las entidades de servicio.
-microsoft.directory/servicePrincipals/synchronization/standard/read | Permite leer la configuración de aprovisionamiento asociada a la entidad de servicio.
-microsoft.directory/servicePrincipals/tag/update | Permite actualizar la propiedad de etiquetas de las entidades de servicio.
-microsoft.directory/applicationTemplates/instantiate | Cree una instancia de las aplicaciones de la galería a partir de plantillas de aplicación.
-microsoft.directory/auditLogs/allProperties/read | Permite leer registros de auditoría.
-microsoft.directory/signInReports/allProperties/read | Permite leer registros de inicio de sesión.
-microsoft.directory/applications/synchronization/standard/read | Permite leer la configuración de aprovisionamiento asociada al objeto de aplicación.
-microsoft.directory/servicePrincipals/synchronizationJobs/manage | Permite administrar todos los aspectos de la sincronización de trabajos para los recursos de la entidad de servicio.
-microsoft.directory/servicePrincipals/synchronization/standard/read | Permite leer la configuración de aprovisionamiento asociada a las entidades de servicio.
-microsoft.directory/servicePrincipals/synchronizationSchema/manage | Permite administrar todos los aspectos de la sincronización de esquemas de los recursos de la entidad de servicio.
-microsoft.directory/provisioningLogs/allProperties/read | Permite leer todas las propiedades de los registros de aprovisionamiento.
+> [!div class="mx-tableFixed"]
+> | Permiso | Descripción |
+> | ---------- | ----------- |
+> | microsoft.directory/applicationPolicies/allProperties/read | Permite leer todas las propiedades de las directivas de aplicación. |
+> | microsoft.directory/applicationPolicies/allProperties/update | Permite actualizar todas las propiedades de las directivas de aplicación. |
+> | microsoft.directory/applicationPolicies/basic/update | Permite actualizar las propiedades estándar de las directivas de aplicación. |
+> | microsoft.directory/applicationPolicies/create | Permite crear directivas de aplicación. |
+> | microsoft.directory/applicationPolicies/createAsOwner | Permite crear directivas de aplicación. El creador se agrega como primer propietario. |
+> | microsoft.directory/applicationPolicies/delete | Permite eliminar directivas de aplicación. |
+> | microsoft.directory/applicationPolicies/owners/read | Permite leer propietarios en directivas de aplicación. |
+> | microsoft.directory/applicationPolicies/owners/update | Permite actualizar la propiedad de propietario de las directivas de aplicación. |
+> | microsoft.directory/applicationPolicies/policyAppliedTo/read | Permite leer las directivas de aplicación aplicadas a la lista de objetos. |
+> | microsoft.directory/applicationPolicies/standard/read | Permite leer las propiedades estándar de las directivas de aplicación. |
+> | microsoft.directory/servicePrincipals/allProperties/allTasks | Crea y elimina servicePrincipals, y lee y actualiza todas las propiedades en Azure Active Directory. |
+> | microsoft.directory/servicePrincipals/allProperties/read | Permite leer todas las propiedades de servicePrincipals. |
+> | microsoft.directory/servicePrincipals/allProperties/update | Permite actualizar todas las propiedades de servicePrincipals. |
+> | microsoft.directory/servicePrincipals/appRoleAssignedTo/read | Permite leer las asignaciones de rol de la entidad de servicio. |
+> | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Permite actualizar las asignaciones de rol de la entidad de servicio. |
+> | microsoft.directory/servicePrincipals/appRoleAssignments/read | Permite leer las asignaciones de rol asignadas a las entidades de servicio. |
+> | microsoft.directory/servicePrincipals/audience/update | Permite actualizar las propiedades de audiencia en entidades de servicio. |
+> | microsoft.directory/servicePrincipals/authentication/update | Permite actualizar las propiedades de autenticación en entidades de servicio. |
+> | microsoft.directory/servicePrincipals/basic/update | Permite actualizar las propiedades básicas en entidades de servicio. |
+> | microsoft.directory/servicePrincipals/create | Permite crear entidades de servicio. |
+> | microsoft.directory/servicePrincipals/createAsOwner | Permite crear entidades de servicio. El creador se agrega como primer propietario. |
+> | microsoft.directory/servicePrincipals/credentials/update | Permite actualizar las propiedades de credenciales en entidades de servicio. |
+> | microsoft.directory/servicePrincipals/delete | Permite eliminar entidades de servicio. |
+> | microsoft.directory/servicePrincipals/disable | Permite deshabilitar entidades de servicio. |
+> | microsoft.directory/servicePrincipals/enable | Permite habilitar entidades de servicio. |
+> | microsoft.directory/servicePrincipals/getPasswordSingleSignOnCredentials | Permite leer las credenciales de inicio de sesión único con contraseña de las entidades de servicio. |
+> | microsoft.directory/servicePrincipals/managePasswordSingleSignOnCredentials | Permite administrar las credenciales de inicio de sesión único con contraseña de las entidades de servicio. |
+> | microsoft.directory/servicePrincipals/oAuth2PermissionGrants/read | Permite leer concesiones de permisos delegados de las entidades de servicio. |
+> | microsoft.directory/servicePrincipals/owners/read | Permite leer propietarios de las entidades de servicio. |
+> | microsoft.directory/servicePrincipals/owners/update | Permite actualizar propietarios de las entidades de servicio. |
+> | microsoft.directory/servicePrincipals/permissions/update |  |
+> | microsoft.directory/servicePrincipals/policies/read | Permite leer directivas de las entidades de servicio. |
+> | microsoft.directory/servicePrincipals/policies/update | Permite actualizar directivas de las entidades de servicio. |
+> | microsoft.directory/servicePrincipals/standard/read | Permite leer las propiedades estándar de las entidades de servicio. |
+> | microsoft.directory/servicePrincipals/synchronization/standard/read | Permite leer la configuración de aprovisionamiento asociada a la entidad de servicio. |
+> | microsoft.directory/servicePrincipals/tag/update | Permite actualizar la propiedad de etiquetas de las entidades de servicio. |
+> | microsoft.directory/applicationTemplates/instantiate | Cree una instancia de las aplicaciones de la galería a partir de plantillas de aplicación. |
+> | microsoft.directory/auditLogs/allProperties/read | Permite leer registros de auditoría. |
+> | microsoft.directory/signInReports/allProperties/read | Permite leer registros de inicio de sesión. |
+> | microsoft.directory/applications/synchronization/standard/read | Permite leer la configuración de aprovisionamiento asociada al objeto de aplicación. |
+> | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Permite administrar todos los aspectos de la sincronización de trabajos para los recursos de la entidad de servicio. |
+> | microsoft.directory/servicePrincipals/synchronization/standard/read | Permite leer la configuración de aprovisionamiento asociada a las entidades de servicio. |
+> | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Permite administrar todos los aspectos de la sincronización de esquemas de los recursos de la entidad de servicio. |
+> | microsoft.directory/provisioningLogs/allProperties/read | Permite leer todas las propiedades de los registros de aprovisionamiento. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,12 +3,13 @@ title: Incorporación y eliminación de tipos de nodo en un clúster administrad
 description: En este tutorial aprenderá a agregar y quitar tipos de nodos de un clúster administrado de Service Fabric.
 ms.topic: tutorial
 ms.date: 05/10/2021
-ms.openlocfilehash: 73e6f7676f398287b607deb80f490267a7665733
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0ce797c5f206378abe3691d895c58afa26282b0c
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685808"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677290"
 ---
 # <a name="tutorial-add-and-remove-node-types-from-a-service-fabric-managed-cluster"></a>Tutorial: Incorporación y eliminación de tipos de nodos en un clúster administrado de Service Fabric
 

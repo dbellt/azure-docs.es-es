@@ -3,14 +3,14 @@ title: Personalización de configuraciones de clúster de Azure HDInsight median
 description: Obtenga información sobre cómo personalizar la configuración del clúster de HDInsight mediante programación con .NET, PowerShell y plantillas de Resource Manager.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurepowershell
 ms.date: 04/01/2020
-ms.openlocfilehash: 55792cc1890702b904db00b7e3cb3ac3a78c63f1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 56f2a49d22fbe1a10f8b59429628c5bc68302f10
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104866529"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110701635"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalización de los clústeres de HDInsight con Bootstrap
 

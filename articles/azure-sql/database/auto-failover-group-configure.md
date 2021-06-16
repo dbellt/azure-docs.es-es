@@ -6,18 +6,18 @@ services: sql-database
 ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2, devx-track-azurecli
-ms.devlang: ''
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+ms.devlang: ''
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 08/14/2019
-ms.openlocfilehash: 1fb8cb39921d9da32e1d5b0b37ca58315e057de1
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: d117bd686152e9bb158d0376f52238f9492d1bb7
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891021"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110708969"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configuración de un grupo de conmutación por error para Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -196,7 +196,7 @@ Revierta el grupo de conmutación por error al servidor principal:
 
 Cree el grupo de conmutación por error y agregue un grupo elástico mediante Azure Portal o PowerShell.  
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 Tenga en cuenta los siguientes requisitos previos:
 

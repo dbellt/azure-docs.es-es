@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 04/21/2021
+ms.date: 06/01/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c18dd231a708030e3a454ab8708e3f0f11dbecf
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: e000a712e72498c21366b30b0c85e62f957c28c4
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107861830"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110784822"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Habilitación del autoservicio de restablecimiento de contraseña de Azure Active Directory para que los usuarios puedan desbloquear su cuenta o restablecer contraseñas
 
@@ -51,7 +51,7 @@ Para finalizar este tutorial, necesitará los siguientes recursos y privilegios:
 Azure AD permite habilitar el autoservicio de restablecimiento de contraseña para *Ninguno*, *Seleccionados* o *Todos* los usuarios. Esta capacidad para pormenorizar permite elegir un subconjunto de usuarios para probar el proceso de registro y el flujo de trabajo de SSPR. Cuando esté familiarizado con el proceso y haya llegado el momento de comunicar los requisitos con un conjunto más amplio de usuarios, podrá seleccionar un grupo de usuarios para habilitarlos en el autoservicio de restablecimiento de contraseña. O bien, podrá habilitar SSPR para todos los usuarios del inquilino de Azure AD.
 
 > [!NOTE]
-> Actualmente, solo se puede habilitar un grupo de Azure AD para SSPR mediante Azure Portal. Como parte de una implementación más amplia del autoservicio de restablecimiento de contraseña, Azure AD admite los grupos anidados. Asegúrese de que los usuarios de los grupos que elija tienen asignadas las licencias correspondientes. Actualmente no hay ningún proceso de validación de estos requisitos de licencia.
+> Actualmente, solo se puede habilitar un grupo de Azure AD para SSPR mediante Azure Portal. Como parte de una implementación más amplia del autoservicio de restablecimiento de contraseña, Azure AD admite los grupos anidados. 
 
 En este tutorial, configurará el autoservicio de restablecimiento de contraseña para un conjunto de usuarios de un grupo de prueba. Use *Grupo-prueba-SSPR* y proporcione su propio grupo de Azure AD según sea necesario:
 

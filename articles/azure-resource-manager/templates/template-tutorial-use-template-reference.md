@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 6f9a43638c3cf082a488726aea0877c1f92b934e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 9e5e64358a248f1796f30aafadc65a7d3b4bdbde
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108736764"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112027108"
 ---
 # <a name="tutorial-utilize-the-arm-template-reference"></a>Tutorial: Utilización de la referencia de la plantilla de Resource Manager
 
@@ -40,7 +40,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 ## <a name="open-a-quickstart-template"></a>Abra una plantilla de inicio rápido.
 
-[Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/) es un repositorio de plantillas de Azure Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla usada en esta guía de inicio rápido se denomina [Crear una cuenta de almacenamiento estándar](https://azure.microsoft.com/resources/templates/101-storage-account-create/). La plantilla define un recurso de la cuenta de almacenamiento de Azure.
+[Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/) es un repositorio de plantillas de Azure Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla usada en esta guía de inicio rápido se denomina [Crear una cuenta de almacenamiento estándar](https://azure.microsoft.com/resources/templates/storage-account-create/). La plantilla define un recurso de la cuenta de almacenamiento de Azure.
 
 1. En Visual Studio Code, seleccione **Archivo** > **Abrir archivo**.
 1. En **Nombre de archivo**, pegue el código URL siguiente:

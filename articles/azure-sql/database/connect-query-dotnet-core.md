@@ -4,20 +4,20 @@ description: En este tema se muestra cómo usar .NET Core para crear un programa
 titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: connect
 ms.custom: sqldbrb=2, devx-track-csharp
 ms.devlang: dotnet
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma
 ms.date: 05/29/2020
-ms.openlocfilehash: 221b69d428556b031efd3bd91e16d12cfeb71393
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: a49fdf8cafd6fc5637546439fffb65a090c83b4c
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107874808"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110699829"
 ---
 # <a name="quickstart-use-net-core-c-to-query-a-database"></a>Inicio rápido: Uso de .NET Core (C#) para consultar una base de datos
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi-asa.md)]

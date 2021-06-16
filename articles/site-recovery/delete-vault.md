@@ -7,12 +7,13 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: sideeksh
-ms.openlocfilehash: a33e04a24013d5450c98b91048fa418958d16886
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: f45504794b4e41ec23efd1f85f8b952e9f9cf3cb
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89426391"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110698319"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Eliminación de un almacén de Site Recovery Services
 

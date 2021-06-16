@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 4/15/2021
 ms.author: cavoeg
-ms.openlocfilehash: de99d6b5480a8e8262aba9d40826f69862630961
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 7248ae47d1ced0013559f14f5e5185f25b7d8083
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592985"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077864"
 ---
 # <a name="features"></a>Características
 
@@ -54,9 +54,9 @@ Entre las versiones anteriores también admitidas actualmente se incluye: `3.0.2
 
 
  **Nota 2**
-* Agrega compatibilidad con MVP para la búsqueda de FHIR encadenada y encadenada inversa en CosmosDB. 
+* Agrega compatibilidad con MVP para búsqueda FHIR encadenada e inversa en CosmosDB. 
 
-  En la Azure API for FHIR servidor de FHIR de código abierto con el respaldo de Cosmos, la búsqueda encadenada y la búsqueda encadenada inversa es una implementación de MVP. Para realizar búsquedas encadenadas en Cosmos DB, la implementación recorre la expresión de búsqueda y emite subconsediciones para resolver los recursos coincidentes. Esto se hace para cada nivel de la expresión. Si alguna consulta devuelve más de 100 resultados, se producirá un error. De forma predeterminada, la búsqueda encadenada está detrás de una marca de características. Para usar la búsqueda encadenada en Cosmos DB, use el encabezado `x-ms-enable-chained-search: true` . Para obtener más información, vea [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
+  En el Azure API for FHIR servidor FHIR de código abierto con el respaldo de Cosmos, la búsqueda encadenada y la búsqueda encadenada inversa es una implementación de MVP. Para realizar búsquedas encadenadas en Cosmos DB, la implementación recorre la expresión de búsqueda y emite subconsediciones para resolver los recursos coincidentes. Esto se hace para cada nivel de la expresión. Si alguna consulta devuelve más de 100 resultados, se producirá un error. De forma predeterminada, la búsqueda encadenada está detrás de una marca de característica. Para usar la búsqueda encadenada en Cosmos DB, use el encabezado `x-ms-enable-chained-search: true` . Para obtener más información, [vea PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
 
 ## <a name="extended-operations"></a>Operaciones extendidas
 
@@ -70,7 +70,7 @@ Todas las operaciones que se admiten y que extienden la API RESTful.
 | $convert-data          | Sí       | Sí       | Sí       |         |
 | $validate              | Sí       | Sí       | Sí       |         |
 | $member coincidencia          | Sí       | Sí       | Sí       |         |
-| $patient-everything    | No        | No        | Sí       |         |
+| $patient todo    | No        | No        | Sí       |         |
 
 ## <a name="persistence"></a>Persistencia
 
@@ -94,22 +94,9 @@ Actualmente, las acciones permitidas para un rol determinado se aplican *globalm
 
 * **Tamaño de los datos**: los datos y documentos deben ser ligeramente inferiores a 2 MB.
 
-* **Límite de** suscripción: de forma predeterminada, cada suscripción está limitada a un máximo de 10 instancias de servidor de FHIR. Si necesita más instancias por suscripción, abra una vale de soporte técnico y proporcione detalles sobre sus necesidades.
+* **Límite de** suscripciones: de forma predeterminada, cada suscripción está limitada a un máximo de 10 instancias de servidor de FHIR. Si necesita más instancias por suscripción, abra una vale de soporte técnico y proporcione detalles sobre sus necesidades.
 
-* **Conexiones simultáneas e** instancias: de forma predeterminada, tiene 15 conexiones simultáneas en dos instancias del clúster (para un total de 30 solicitudes simultáneas). Si necesita más solicitudes simultáneas, abra una vale de soporte técnico y proporcione detalles sobre sus necesidades.
-
-## <a name="performance-expectations"></a>Expectativas de rendimiento
-
-El rendimiento del sistema depende del número de RU, las conexiones simultáneas y el tipo de operaciones que se realizan (Put, Post, etc.). A continuación se muestran algunos intervalos generales de lo que puede esperar en función del número de RU configurado. En general, el rendimiento se escala de manera lineal con un aumento en RU:
-
-| N.º de RU | Recursos/segundo |    Almacenamiento máximo (GB)*    |
-|----------|---------------|--------|                 
-| 400      | 5-10          |     10   |
-| 1,000    | 100-150       |      25  |
-| 10 000   | 225-400       |      250  |
-| 100 000  | 2500-4000   |      2,500  |
-
-Nota: Por Cosmos DB, hay un requisito de un rendimiento mínimo de 40 RU/s por GB de almacenamiento. 
+* **Conexiones e instancias simultáneas:** de forma predeterminada, tiene 15 conexiones simultáneas en dos instancias del clúster (para un total de 30 solicitudes simultáneas). Si necesita más solicitudes simultáneas, abra una vale de soporte técnico y proporcione detalles sobre sus necesidades.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

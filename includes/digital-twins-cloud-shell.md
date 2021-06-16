@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
-ms.openlocfilehash: 127ce4aceff536ef8ce4d2a988a26070ef06b6ec
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5f11c78e6619c2581d04ebc8e97c683c43cf2e73
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078417"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110793010"
 ---
 Para empezar a trabajar con Azure Digital Twins en una ventana abierta de [Azure Cloud Shell](https://shell.azure.com), primero es necesario iniciar sesión y establecer el contexto de Shell en su suscripción para esta sesión. En Cloud Shell, ejecute estos comandos:
 
@@ -18,6 +18,7 @@ Para empezar a trabajar con Azure Digital Twins en una ventana abierta de [Azure
 az login
 az account set --subscription "<your-Azure-subscription-ID>"
 ```
+
 > [!TIP]
 > En el comando anterior, también puede utilizar el nombre de la suscripción en lugar del identificador. 
 

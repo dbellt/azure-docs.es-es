@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 68136a315e230cb4be9c35b2c78c317e7b3b0a2a
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 9ead752258596e9beb2bc112296d9275092ea8bb
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751354"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556827"
 ---
 # <a name="quickstart-create-ml-services-cluster-in-azure-hdinsight-using-arm-template"></a>Inicio rápido: Creación de un clúster de ML Services en Azure HDInsight mediante una plantilla de Resource Manager
 
@@ -28,7 +28,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/hdinsight-rserver/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.hdinsight/hdinsight-rserver/azuredeploy.json":::
 
@@ -47,7 +47,7 @@ En la plantilla se definen dos recursos de Azure:
 
     |Propiedad |Descripción |
     |---|---|
-    |Suscripción|En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster.|
+    |Subscription|En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster.|
     |Resource group|En la lista desplegable, seleccione el grupo de recursos existente o seleccione **Crear**.|
     |Location|El valor se rellenará automáticamente con la ubicación usada para el grupo de recursos.|
     |Cluster Name|Escriba un nombre único global. Use solo letras minúsculas y números para esta plantilla.|

@@ -1,21 +1,21 @@
 ---
 title: Supervisión de la referencia de datos de Azure Time Series Insights | Microsoft Docs
 description: Documentación de referencia para supervisar Azure Time Series Insights.
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: esung22
+ms.author: elsung
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
-ms.custom: lyrana
-ms.openlocfilehash: 20d376ee501edf16711617847c685dfd531f2c80
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 52f2ea8b88bb7f83a3a897d101030d134749fc1a
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504590"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792055"
 ---
 # <a name="monitoring-azure-time-series-insights-data-reference"></a>Supervisión de la referencia de datos de Azure Time Series Insights
 
@@ -25,7 +25,6 @@ Obtenga información sobre los datos y los recursos recopilados por Azure Monito
 
 En esta sección se indican todas las métricas de la plataforma recopiladas automáticamente de Azure Time Series Insights. Para ver una lista de todas las métricas compatibles con Azure Monitor (incluido Azure Time Series Insights), consulte [Métricas compatibles con Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 El proveedor de recursos de estas métricas es [Microsoft.TimeSeriesInsights/environments/eventsources](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironmentseventsources) y [Microsoft.TimeSeriesInsights/environments](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironments).
-
 
 ### <a name="ingress"></a>Entrada
 
@@ -55,6 +54,7 @@ En esta sección se enumeran los tipos de registros de recursos que se pueden re
 | Entrada | TSIIngress | La categoría Entrada realiza un seguimiento de los errores que se producen en la canalización de entrada. Esta categoría incluye los errores que se producen al recibir eventos (como errores de conexión a un origen de eventos) y al procesamiento eventos (como errores al analizar una carga de eventos). |
 
 ## <a name="schemas"></a>Esquemas
+
 Azure Time Series Insights usa los siguientes esquemas
 
 ### <a name="tsiingress-table"></a>Tabla TSIIngress

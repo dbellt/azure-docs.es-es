@@ -7,12 +7,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/27/2021
 ms.author: jingwang
-ms.openlocfilehash: 5b793e2316b11aa66038d16681c05056363ba4d7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 2741347a9f2c5a50e46cbc1d9a144d66d51f9563
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108741876"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110670659"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Inicio rápido: Creación de una factoría de datos y una canalización con SDK de .NET
 

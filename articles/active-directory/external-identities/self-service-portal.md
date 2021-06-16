@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a5b800e78448afcc970010535ba12b543d3cc74
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7914e370cdd2430e034d3830e9d9ae6d7547cf75
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96860514"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110614701"
 ---
 # <a name="self-service-for-azure-ad-b2b-collaboration-sign-up"></a>Autoservicio para el registro en la colaboración B2B de Azure AD
 
@@ -34,4 +34,4 @@ Las organizaciones pueden usar la [API del administrador de invitaciones de Micr
 
 * [¿Qué es la colaboración B2B de Azure AD?](what-is-b2b.md)
 * [Precios de identidades externas](external-identities-pricing.md)
-* [Preguntas frecuentes sobre la colaboración B2B de Azure Active Directory (P+F)](faq.md)
+* [Preguntas frecuentes sobre la colaboración B2B de Azure Active Directory (P+F)](faq.yml)

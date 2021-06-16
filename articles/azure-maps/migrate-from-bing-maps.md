@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 9bd0516889733a666bf15668cffd124dcc468f3e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4be7bc555578c4abeaa65c6433da3e285b9235b2
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100388964"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786572"
 ---
 # <a name="tutorial-migrate-from-bing-maps-to-azure-maps"></a>Tutorial: Migración de Mapas de Bing a Azure Maps
 
@@ -53,7 +53,7 @@ En la tabla siguiente se proporciona una lista general de las características d
 | Autosuggest                           | ✓                  |
 | Direcciones (incluido el camión)          | ✓                  |
 | Matriz de distancia                       | ✓                  |
-| Elevaciones                            | ✓ (vista previa)        |
+| Elevaciones                            | ✓      |
 | Imágenes: mapa estático                  | ✓                  |
 | Metadatos de imágenes                      | ✓                  |
 | Isócronas                            | ✓                  |

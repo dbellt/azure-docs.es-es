@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9abe306668a4b20e42e45c498bf85b540dfaaee5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8dc6ac712110210414f66446827569f51f396c1f
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94630199"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110669813"
 ---
 # <a name="configuring-dns-forwarding-for-azure-files"></a>Configuración del reenvío de DNS para Azure Files
 Azure Files le permite crear puntos de conexión privados para las cuentas de almacenamiento que contienen los recursos compartidos de archivos. Aunque son útiles para muchas aplicaciones diferentes, los puntos de conexión privados lo son especialmente para conectarse a los recursos compartidos de archivos de Azure desde la red local mediante una conexión VPN o ExpressRoute con emparejamiento privado. 

@@ -14,19 +14,21 @@ metadata:
   ms.date: 10/14/2019
   ms.author: erhopf
   ms.custom: contperf-fy21q2
-  ms.openlocfilehash: bef769bdb0533d6509badfd3f6bb8441996a67a4
-  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.openlocfilehash: 6517e29ebc025d94a8b85b754b60584aebd4c057
+  ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/25/2021
-  ms.locfileid: "110379395"
+  ms.lasthandoff: 05/26/2021
+  ms.locfileid: "110476916"
 landingContent:
 - title: Traductor
   linkLists:
   - linkListType: overview
     links:
-    - text: Traductor
+    - text: ¿Qué es Traductor?
       url: translator-info-overview.md
+    - text: Compatibilidad con idiomas
+      url: language-support.md
     - text: Traducción de documentos
       url: document-translation/overview.md
     - text: Custom Translator
@@ -39,27 +41,43 @@ landingContent:
       url: ./translator-how-to-signup.md
     - text: Preguntas más frecuentes
       url: https://www.microsoft.com/translator/faq.aspx
-- title: Introducción
+- title: Traducción del texto
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Inicio rápido
+    - text: Guía de inicio rápido
       url: quickstart-translator.md
-  - linkListType: tutorial
+  - linkListType: how-to-guide
     links:
-    - text: Creación de una aplicación de traducción de WPF, C#
-      url: tutorial-wpf-translation-csharp.md
-    - text: Creación de una aplicación de traducción de Flask, REST
-      url: tutorial-build-flask-app-translation-synthesis.md
+    - text: Creación de un recurso
+      url: translator-how-to-signup.md
+    - text: Evitar la traducción del contenido
+      url: prevent-translation.md
+    - text: Uso del diccionario dinámico
+      url: dynamic-dictionary.md
   - linkListType: reference
     links:
     - text: Referencia sobre Traductor (v3)
       url: reference/v3-0-reference.md
     - text: Límites de solicitud
       url: request-limits.md
-    - text: Compatibilidad con idiomas
-      url: language-support.md
-- title: Traducción personalizada
+- title: Traducción de documentos
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es la traducción de documentos?
+      url: document-translation/overview.md
+  - linkListType: quickstart
+    links:
+    - text: Guía de inicio rápido
+      url: document-translation/get-started-with-document-translation.md
+  - linkListType: reference
+    links:
+    - text: Referencia de Document Translation
+      url: document-translation/reference/get-supported-document-formats.md
+    - text: Inicio de traducción
+      url: document-translation/reference/start-translation.md
+- title: Custom Translator
   linkLists:
   - linkListType: quickstart
     links:
@@ -97,6 +115,8 @@ landingContent:
     links:
     - text: Ejemplos en GitHub
       url: https://aka.ms/TranslatorGitHub
+    - text: Cumplimiento y certificación
+      url: https://www.microsoft.com/translator/business/notrace/
     - text: Stack Overflow
       url: https://stackoverflow.com/questions/tagged/microsoft-translator
 - title: Ayuda y comentarios

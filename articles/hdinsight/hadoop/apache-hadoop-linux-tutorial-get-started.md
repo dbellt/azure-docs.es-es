@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 1e49800a4232c5894ba3ec7616e306470b34586f
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 4bb4932899ce2ef2b97fef928eb5fd50380029e7
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108277469"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111560463"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-arm-template"></a>Inicio rápido: Creación de un clúster de Apache Hadoop en Azure HDInsight mediante una plantilla de ARM
 
@@ -30,7 +30,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/hdinsight-linux-ssh-password/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.hdinsight/hdinsight-linux-ssh-password/azuredeploy.json":::
 
@@ -49,7 +49,7 @@ En la plantilla se definen dos recursos de Azure:
 
     |Propiedad  |Descripción  |
     |---------|---------|
-    |Suscripción|En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster.|
+    |Subscription|En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster.|
     |Resource group|En la lista desplegable, seleccione el grupo de recursos existente o seleccione **Crear**.|
     |Location|El valor se rellenará automáticamente con la ubicación usada para el grupo de recursos.|
     |Cluster Name|Escriba un nombre único global. Use solo letras minúsculas y números para esta plantilla.|

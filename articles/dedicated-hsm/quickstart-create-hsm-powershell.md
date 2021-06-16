@@ -8,15 +8,13 @@ ms.date: 11/13/2020
 ms.topic: quickstart
 ms.service: key-vault
 ms.devlang: azurepowershell
-ms.custom:
-- devx-track-azurepowershell
-- mode-api
-ms.openlocfilehash: d5b6d0399ceb98caf9bdd7bbd725e6d92af0eaa3
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: devx-track-azurepowershell - devx-track-azurepowershell - mode-api
+ms.openlocfilehash: 07c3e6124bf6c2494f944bf955533df2f8528e84
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537800"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110703776"
 ---
 # <a name="quickstart-create-an-azure-dedicated-hsm-with-azure-powershell"></a>Inicio rápido: Creación de una instancia de Azure Dedicated HSM con Azure PowerShell
 

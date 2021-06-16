@@ -63,7 +63,7 @@
       href: rule-hierarchy.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/network/firewall/policy
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewallpolicy
@@ -82,7 +82,7 @@
 - name: Recursos
   items:
     - name: Creación de plantillas
-      href: ../azure-resource-manager/templates/template-syntax.md
+      href: ../azure-resource-manager/templates/syntax.md
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Plantillas de la comunidad

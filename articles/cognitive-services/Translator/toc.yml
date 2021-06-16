@@ -142,8 +142,6 @@
           href: custom-translator/how-to-view-system-test-results.md
         - name: Administración de la configuración
           href: custom-translator/how-to-manage-settings.md
-        - name: Migración desde el centro
-          href: custom-translator/how-to-migrate.md
         - name: Implementaciones en lenguajes no compatibles
           href: custom-translator/unsupported-language-deployments.md
     - name: Conceptos

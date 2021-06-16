@@ -4,13 +4,13 @@ description: Vea cómo usar funciones definidas por el usuario (UDF) de Python d
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
-ms.openlocfilehash: 593b809813f949cd1d0bcc17e1d1b7255ea19130
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python, devx-track-azurepowershell
+ms.openlocfilehash: 6c6baef68efef2c2c3cea84a0a012c5ce2e99ad3
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98944273"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110705908"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Uso de funciones definidas por el usuario (UDF) de Python con Apache Hive y Apache Pig en HDInsight
 

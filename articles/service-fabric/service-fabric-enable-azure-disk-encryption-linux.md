@@ -3,12 +3,13 @@ title: Habilitar cifrado de discos para clústeres de Linux
 description: En este artículo se describe cómo habilitar el cifrado de disco para los nodos de un clúster de Azure Service Fabric en Linux mediante Azure Resource Manager y Azure Key Vault.
 ms.topic: article
 ms.date: 03/22/2019
-ms.openlocfilehash: c600d822d20b0e5a0ca613935b1dfa4be838fcec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 826ca54718625fb236f64587b63080cf16aafae4
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "78252826"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110663573"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-linux"></a>Habilitación del cifrado de disco para nodos de clústeres de Azure Service Fabric en Linux 
 > [!div class="op_single_selector"]

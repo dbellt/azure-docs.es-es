@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2020
 ms.author: allensu
-ms.openlocfilehash: 618ca8722cef1959fddc5dcd24e8e8bdbb1f620a
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ee916e4ee1993395eae18ccc74ca776e449e3bc5
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530044"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110704758"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Inicio rápido: Creación de un equilibrador de carga interno para equilibrar la carga de las máquinas virtuales mediante Azure PowerShell
 

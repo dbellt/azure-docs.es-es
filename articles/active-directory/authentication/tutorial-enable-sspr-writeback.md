@@ -11,16 +11,16 @@ author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 1572b0a9822f340887c512c5cc20448fe0729109
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e6d89bdfca268a02c1f58bdceb4e4485dc3851a6
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110461731"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438385"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Habilitación de la escritura diferida del autoservicio de restablecimiento de contraseña de Azure Active Directory en un entorno local
 
-Con el autoservicio de restablecimiento de contraseña de Azure Active Directory (Azure AD), los usuarios pueden actualizar sus contraseñas o desbloquear la cuenta mediante un explorador web. En un entorno híbrido en el que se conecta Azure AD a un entorno local de Active Directory Domain Services (AD DS), este escenario puede hacer que las contraseñas sean diferentes entre los dos directorios.
+Con el autoservicio de restablecimiento de contraseña de Azure Active Directory (Azure AD), los usuarios pueden actualizar sus contraseñas o desbloquear la cuenta mediante un explorador web. Se recomienda este vídeo sobre [cómo habilitar y configurar SSPR en Azure AD](https://www.youtube.com/watch?v=rA8TvhNcCvQ). En un entorno híbrido en el que se conecta Azure AD a un entorno local de Active Directory Domain Services (AD DS), este escenario puede hacer que las contraseñas sean diferentes entre los dos directorios.
 
 La escritura diferida de contraseñas se puede utilizar para sincronizar los cambios de contraseñas en Azure AD de vuelta al entorno local de AD DS. Azure AD Connect proporciona un mecanismo seguro para enviar los cambios de contraseñas de vuelta a un directorio local existente desde Azure AD.
 
