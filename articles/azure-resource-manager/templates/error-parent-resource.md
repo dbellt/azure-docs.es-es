@@ -3,12 +3,12 @@ title: Errores de recursos primarios
 description: Describe cómo resolver errores cuando se trabaja con un recurso primario en una plantilla de Resource Manager.
 ms.topic: troubleshooting
 ms.date: 08/01/2018
-ms.openlocfilehash: 474cb85d16382136e24e5502b87ba8a1a65488ef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 885bd319d322128784b53f781b2ceb5a42d292f5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84673667"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951099"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>Resolución de errores para recursos primarios
 
@@ -78,4 +78,4 @@ Para resolver este error cuando el recurso primario se implementó previamente e
 }
 ```
 
-Para más información consulte [Definición del orden de implementación de recursos en plantillas de Azure Resource Manager](define-resource-dependency.md).
+Para más información consulte [Definición del orden de implementación de recursos en plantillas de Azure Resource Manager](./resource-dependency.md).

@@ -3,12 +3,12 @@ title: Uso de secretos de aplicación en clústeres administrados de Service Fab
 description: Obtenga información sobre los secretos de aplicación de Azure Service Fabric y sobre cómo recopilar la información necesaria para su uso en clústeres administrados
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: e10a02c82e7f78e120863c89d53bb70e1234ec9e
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 820fb2a116ba5343a2f2126950a7f5d5896ddee3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109689387"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950116"
 ---
 # <a name="use-application-secrets-in-service-fabric-managed-clusters"></a>Uso de secretos de aplicación en clústeres administrados de Service Fabric
 
@@ -37,7 +37,7 @@ Como alternativa, también se admite [KeyVaultReference](service-fabric-keyvault
 Para crear un almacén de claves propio y configurar certificados, siga las instrucciones de Azure Key Vault mediante la [CLI de Azure, PowerShell, el portal, etc.][key-vault-certs]
 
 >[!NOTE]
-> El almacén de claves debe estar [habilitado para la implementación de plantillas](https://docs.microsoft.com/azure/key-vault/general/manage-with-cli2#bkmk_KVperCLI) de forma que el proveedor de recursos de proceso pueda obtener certificados de él e instalarlos en nodos de clústeres.
+> El almacén de claves debe estar [habilitado para la implementación de plantillas](../key-vault/general/manage-with-cli2.md#bkmk_KVperCLI) de forma que el proveedor de recursos de proceso pueda obtener certificados de él e instalarlos en nodos de clústeres.
 
 ## <a name="install-the-certificate-in-your-cluster"></a>Instalación del certificado en el clúster
 Este certificado debe instalarse en cada nodo del clúster y los clústeres administrados de Service Fabric lo facilitan. El servicio de clúster administrado puede insertar secretos específicos de la versión en los nodos para ayudar a instalar secretos que no cambien con frecuencia, como la instalación de una CA raíz privada en los nodos. Para la mayoría de las cargas de trabajo de producción se recomienda usar la [extensión KeyVault][key-vault-windows]. La extensión de máquina virtual de Key Vault proporciona actualización automática de certificados almacenados en un almacén de claves de Azure frente a una versión estática.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/29/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 8dbff6b53133bace6643b21c8faa706ef817f1de
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 215c8e2d2f758044898fa184bc10721996d84b5f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286283"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964742"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Alta disponibilidad y equilibrio de carga de los conectores y las aplicaciones de Application Proxy
 
@@ -91,6 +91,6 @@ Consulte la documentación del proveedor de software para conocer los requisitos
 
 - [Habilitación del proxy de la aplicación](application-proxy-add-on-premises-application.md)
 - [Habilitar el inicio de sesión único](application-proxy-configure-single-sign-on-with-kcd.md)
-- [Habilitar el acceso condicional](../manage-apps/application-proxy-integrate-with-sharepoint-server.md)
+- [Habilitar el acceso condicional](./application-proxy-integrate-with-sharepoint-server.md)
 - [Solucionar los problemas que tiene con el Proxy de aplicación](application-proxy-troubleshoot.md)
 - [Aprenda cómo la arquitectura de Azure AD admite alta disponibilidad](../fundamentals/active-directory-architecture.md)

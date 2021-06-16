@@ -2,13 +2,13 @@
 title: Implementación de varias instancias de recursos
 description: Use la operación de copia y las matrices de una plantilla de Azure Resource Manager (plantilla de ARM) para realizar varias iteraciones al implementar recursos.
 ms.topic: conceptual
-ms.date: 04/01/2021
-ms.openlocfilehash: 5ddb0cabf0acae1ffe9b9e77e6defa70f9cbd61b
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.date: 05/07/2021
+ms.openlocfilehash: 305a05f10683c879e9f002f02aa6d00edbb43d0a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479974"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954666"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iteración de recursos en las plantillas de ARM
 
@@ -19,8 +19,6 @@ También puede usar el bucle de copia con [propiedades](copy-properties.md), [va
 Si tiene que especificar si un recurso se implementa, consulte [Elemento condition](conditional-resource-deployment.md).
 
 ## <a name="syntax"></a>Sintaxis
-
-# <a name="json"></a>[JSON](#tab/json)
 
 Agregue el elemento `copy` a la sección de recursos de la plantilla para implementar varias instancias del recurso. El elemento `copy` tiene el siguiente formato general:
 
@@ -36,39 +34,6 @@ Agregue el elemento `copy` a la sección de recursos de la plantilla para implem
 La propiedad `name` es cualquier valor que identifique el bucle. La propiedad `count` especifica el número de iteraciones que desea realizar en el tipo de recurso.
 
 Utilice las propiedades `mode` y `batchSize` para especificar si los recursos van a implementarse simultáneamente o por orden. Estas propiedades se describen en el artículo [En serie o en paralelo](#serial-or-parallel).
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-Los bucles se pueden usar para declarar varios recursos al:
-
-- Iterar una matriz:
-
-  ```bicep
-  @batchSize(<number>)
-  resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <item> in <collection>: {
-    <resource-properties>
-  }]
-  ```
-
-- Iterar los elementos de una matriz:
-
-  ```bicep
-  @batchSize(<number>)
-  resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for (<item>, <index>) in <collection>: {
-    <resource-properties>
-  }]
-  ```
-
-- Usar el índice de bucle:
-
-  ```bicep
-  @batchSize(<number>)
-  resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <index> in range(<start>, <stop>): {
-    <resource-properties>
-  }]
-  ```
-
----
 
 ## <a name="copy-limits"></a>Límites de copia
 
@@ -88,8 +53,6 @@ Tenga cuidado al usar la [implementación de modo completo](deployment-modes.md)
 ## <a name="resource-iteration"></a>Iteración de recursos
 
 En el ejemplo siguiente, se crea el número de cuentas de almacenamiento especificado en el parámetro `storageCount`.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -131,7 +94,7 @@ Crea estos nombres:
 
 - storage0
 - storage1
-- storage2.
+- storage2
 
 Para desplazar el valor de índice, puede pasar un valor en la función `copyIndex()`. El número de iteraciones se sigue especificando en el elemento copy, pero el valor de `copyIndex` se desplaza el valor especificado. Así, en el ejemplo siguiente:
 
@@ -147,29 +110,7 @@ Crea estos nombres:
 
 La operación de copia es útil al trabajar con matrices, ya que puede iterar a través de cada elemento de la matriz. Use la función `length` en la matriz para especificar el número de iteraciones, y `copyIndex` para recuperar el índice actual de la matriz.
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param storageCount int = 2
-
-resource storage_id 'Microsoft.Storage/storageAccounts@2019-04-01' = [for i in range(0, storageCount): {
-  name: '${i}storage${uniqueString(resourceGroup().id)}'
-  location: resourceGroup().location
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'Storage'
-  properties: {}
-}]
-```
-
-Observe que el índice `i` se usa para crear el nombre del recurso de la cuenta de almacenamiento.
-
----
-
 En el ejemplo siguiente, se crea una cuenta de almacenamiento para cada uno de los nombres proporcionados en el parámetro.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -206,28 +147,6 @@ En el ejemplo siguiente, se crea una cuenta de almacenamiento para cada uno de l
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param storageNames array = [
-  'contoso'
-  'fabrikam'
-  'coho'
-]
-
-resource storageNames_id 'Microsoft.Storage/storageAccounts@2019-04-01' = [for name in storageNames: {
-  name: concat(name, uniqueString(resourceGroup().id))
-  location: resourceGroup().location
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'Storage'
-  properties: {}
-}]
-```
-
----
-
 Si desea devolver valores de los recursos implementados, puede usar [copy en la sección de salidas](copy-outputs.md).
 
 ## <a name="serial-or-parallel"></a>En serie o en paralelo
@@ -235,10 +154,6 @@ Si desea devolver valores de los recursos implementados, puede usar [copy en la 
 Resource Manager crea los recursos en paralelo de forma predeterminada. No se aplica ningún límite en el número de recursos implementados en paralelo, aparte del límite total de 800 recursos de la plantilla. No se garantiza el orden en el que se crean.
 
 Sin embargo, es posible que quiera especificar que los recursos se implementen en secuencia. Por ejemplo, al actualizar un entorno de producción, puede que quiera escalonar las actualizaciones para que solo una cantidad determinada se actualice al mismo tiempo.
-
-Por ejemplo, para implementar en serie dos cuentas de almacenamiento a la vez, use lo siguiente:
-
-# <a name="json"></a>[JSON](#tab/json)
 
 Para implementar en serie varias instancias de un recurso, establezca `mode` en el valor **serial** y `batchSize` en el número de instancias que se implementarán a la vez. Con mode establecido en serial, Resource Manager crea una dependencia en las instancias anteriores del bucle, por lo que no se inicia ningún lote hasta que se completa el lote anterior.
 
@@ -273,25 +188,6 @@ El valor de `batchSize` no puede superar el valor de `count` en el elemento copy
 
 La propiedad `mode` también acepta **parallel**, que es el valor predeterminado.
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-Para implementar en serie más de una instancia de un recurso, establezca el [decorador](./bicep-file.md#resource-and-module-decorators) `batchSize` en el número de instancias que se implementarán a la vez. Con mode establecido en serial, Resource Manager crea una dependencia en las instancias anteriores del bucle, por lo que no se inicia ningún lote hasta que se completa el lote anterior.
-
-```bicep
-@batchSize(2)
-resource storage_id 'Microsoft.Storage/storageAccounts@2019-04-01' = [for i in range(0, 4): {
-  name: '${i}storage${uniqueString(resourceGroup().id)}'
-  location: resourceGroup().location
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'Storage'
-  properties: {}
-}]
-```
-
----
-
 ## <a name="iteration-for-a-child-resource"></a>Iteración para un recurso secundario
 
 No puede usar un bucle copy en un recurso secundario. Para crear varias instancias de un recurso que se define normalmente como anidado dentro de otro recurso, debe crear dicho recurso como uno de nivel superior. La relación con el recurso principal se define a través de las propiedades type y name.
@@ -320,9 +216,7 @@ Para crear más de un conjunto de datos, muévalos fuera de la factoría de dato
 
 Para establecer una relación de principal-secundario con una instancia de la factoría de datos, proporcione un nombre para el conjunto de datos que incluya el nombre de recurso principal. Utilice el formato: `{parent-resource-name}/{child-resource-name}`.
 
-En el siguiente ejemplo se muestra la implementación:
-
-# <a name="json"></a>[JSON](#tab/json)
+En el siguiente ejemplo se muestra la implementación.
 
 ```json
 "resources": [
@@ -345,22 +239,6 @@ En el siguiente ejemplo se muestra la implementación:
 }]
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-resource dataFactoryName_resource 'Microsoft.DataFactory/factories@2018-06-01' = {
-  name: "exampleDataFactory"
-  ...
-}
-
-resource dataFactoryName_ArmtemplateTestDatasetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = [for i in range(0, 3): {
-  name: 'exampleDataFactory/exampleDataset${i}'
-  ...
-}
-```
-
----
-
 ## <a name="example-templates"></a>Plantillas de ejemplo
 
 En los ejemplos siguientes se muestran escenarios comunes para crear más de una instancia de un recurso o propiedad.
@@ -373,7 +251,7 @@ En los ejemplos siguientes se muestran escenarios comunes para crear más de una
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para establecer las dependencias de los recursos que se crean en un bucle de copia, consulte [Definición del orden de implementación de recursos en las plantillas de ARM](define-resource-dependency.md).
+- Para establecer las dependencias de los recursos que se crean en un bucle de copia, consulte [Definición del orden de implementación de recursos en las plantillas de ARM](./resource-dependency.md).
 - Para realizar un tutorial, consulte [Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager](template-tutorial-create-multiple-instances.md).
 - Para un módulo de Microsoft Learn que abarca la copia de recursos, consulte [Administración de implementaciones complejas en la nube mediante características avanzadas de la plantilla de ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 - Para otros usos del bucle de copia, consulte:

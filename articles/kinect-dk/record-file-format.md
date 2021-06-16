@@ -1,18 +1,18 @@
 ---
 title: Uso del formato de archivo de grabación del SDK del sensor de Azure Kinect
 description: Aprenda a usar el formato del archivo grabado del SDK del sensor de Azure Kinect.
-author: xthexder
-ms.author: jawirth
+author: martinekuan
+ms.author: martinek
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: reference
 keywords: kinect, azure, sensor, sdk, depth, rgb, record, playback, matroska, mkv
-ms.openlocfilehash: f4fa14b0841cb76b2ba191310ecbca312d29f805
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f45893d37d56e90fbb266c3b988b603f58a43d2
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97654598"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753456"
 ---
 # <a name="use-azure-kinect-sensor-sdk-to-record-file-format"></a>Uso del formato de archivo de grabación del SDK del sensor de Azure Kinect
 

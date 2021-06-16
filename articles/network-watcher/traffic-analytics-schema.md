@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 765a2728c5de49787a64fff723625e53e100e450
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5bc493197b6ae4e6bd969a837bb873cae38c0790
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98017789"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032022"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Esquema y agregación de datos en Análisis de tráfico
 
@@ -177,4 +177,4 @@ A continuación se proporcionan los campos en el esquema y su significado
 1. Algunos nombres de campo se anexan con \_s o \_d. NO significan el origen y el destino, sino que indican los tipos de datos de cadena y decimales respectivamente.
 
 ### <a name="next-steps"></a>Pasos siguientes
-Para obtener respuestas a las preguntas más frecuentes, consulte [Preguntas más frecuentes sobre Análisis de tráfico](traffic-analytics-faq.md). Para ver detalles sobre la funcionalidad, consulte la [documentación de Análisis de tráfico](traffic-analytics.md)
+Para obtener respuestas a las preguntas más frecuentes, consulte [Preguntas más frecuentes sobre Análisis de tráfico](traffic-analytics-faq.yml). Para ver detalles sobre la funcionalidad, consulte la [documentación de Análisis de tráfico](traffic-analytics.md)

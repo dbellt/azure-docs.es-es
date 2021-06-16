@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
-ms.openlocfilehash: 978afe3d15db15a2cbb1f136eb0c05343e20f6dd
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c2d8663fa9344ffc2a554b6d7bb1fe3f1614b5b2
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110083699"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951412"
 ---
 # <a name="reference-deployment-template-artifact"></a>Referencia: Artefacto de plantilla de implementación
 
-Este artículo es una referencia para un artefacto *mainTemplate.json* en Azure Managed Applications. Para más información sobre la creación de plantillas de implementación, consulte las [plantillas de Azure Resource Manager](../templates/template-syntax.md).
+Este artículo es una referencia para un artefacto *mainTemplate.json* en Azure Managed Applications. Para más información sobre la creación de plantillas de implementación, consulte las [plantillas de Azure Resource Manager](../templates/syntax.md).
 
 ## <a name="deployment-template"></a>Plantilla de implementación
 

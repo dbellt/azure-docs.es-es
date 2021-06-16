@@ -4,14 +4,13 @@ description: En este artículo se explica cómo solucionar problemas al usar una
 services: automation
 ms.subservice: ''
 ms.date: 04/28/2021
-ms.author: v-dturcaso
 ms.topic: troubleshooting
-ms.openlocfilehash: f42605b92093cf08a417690eae8324b9280e8ce6
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 719b20190194779b834eb3de996c0920d50ad313
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108230092"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110787360"
 ---
 # <a name="troubleshoot-azure-automation-managed-identity-issues-preview"></a>Solución de problemas de identidades administradas de Azure Automation (versión preliminar)
 

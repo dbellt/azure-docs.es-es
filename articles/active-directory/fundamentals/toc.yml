@@ -256,4 +256,4 @@
     - name: Obtención de soporte técnico para Azure Active Directory
       href: active-directory-troubleshooting-support-howto.md
     - name: P+F de Azure Active Directory
-      href: active-directory-faq.md
+      href: active-directory-faq.yml

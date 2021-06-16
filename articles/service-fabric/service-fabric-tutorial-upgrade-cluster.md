@@ -3,13 +3,13 @@ title: Actualización del entorno de ejecución de Service Fabric en Azure
 description: En este tutorial, aprenderá a utilizar PowerShell para actualizar el runtime de un clúster de Service Fabric hospedado en Azure.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
-ms.openlocfilehash: 23b3aabf8e991e512ef9a5c07d725c3084ea7f83
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 7745a4c1cf316a1c8ed38f6a54ca765550c9c81c
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86244742"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110664952"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutorial: Actualización del runtime de un clúster de Service Fabric en Azure
 

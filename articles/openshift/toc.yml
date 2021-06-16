@@ -24,6 +24,8 @@
       items:
         - name: Creación de un clúster privado de ARO
           href: howto-create-private-cluster-4x.md
+        - name: Configuración de DNS personalizado
+          href: howto-custom-dns.md
         - name: Configuración del reenvío de DNS
           href: dns-forwarding.md
         - name: Restricción del tráfico de salida

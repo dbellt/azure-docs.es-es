@@ -10,12 +10,12 @@ ms.service: security
 ms.subservice: security-develop
 services: azure
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.openlocfilehash: 9e5246edd2d6490e823bacbdfff0f60ef553878b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ee4e8f3abad2a4da924e42f81004c86691a1bc8a
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729140"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792517"
 ---
 # <a name="design-secure-applications-on-azure"></a>Diseño de aplicaciones seguras en Azure
 En esta serie de artículos se presentan las actividades y controles de seguridad que hay que tener en cuenta al diseñar aplicaciones para la nube. Se abarcan los recursos de entrenamiento junto con los conceptos y preguntas de seguridad que se han de tener en cuenta durante las fases de diseño y requisitos del [ciclo de vida de desarrollo de seguridad (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) de Microsoft. El objetivo es ayudarle a definir actividades y servicios de Azure que pueden usarse para diseñar una aplicación más segura.
@@ -223,7 +223,7 @@ Asegúrese de que la aplicación aplica [privilegios mínimos](/windows-server/i
 
 #### <a name="implement-just-in-time-access"></a>Implementación de acceso Just-In-Time
 
-Implemente acceso *Just-In-Time* (JIT) para reducir aún más el tiempo de exposición de los privilegios. Utilice [Azure AD Privileged Identity Management](../../active-directory/roles/security-planning.md#stage-3-take-control-of-admin-activity) para:
+Implemente acceso *Just-In-Time* (JIT) para reducir aún más el tiempo de exposición de los privilegios. Utilice [Azure AD Privileged Identity Management](../../active-directory/roles/security-planning.md#stage-3-take-control-of-administrator-activity) para:
 
 - Conceder a los usuarios los permisos que requieren solo cuando sean necesarios.
 - Asignar roles para una duración reducida con confianza de que los privilegios se revocan automáticamente.

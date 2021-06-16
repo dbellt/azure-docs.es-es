@@ -5,15 +5,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 03/25/2021
-ms.openlocfilehash: dafb7335ef211cb9173ec2fb4565243d603d35fe
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: c82a46fa249bd55207e3fc20fbe991c0d7d24bf9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107730213"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958150"
 ---
 # <a name="resource-manager-template-samples-for-sql-insights"></a>Ejemplos de plantilla de Resource Manager para SQL Insights
-En este artículo se incluyen [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de ejemplo para permitir que SQL Insights supervise SQL en Azure.  Consulte la [documentación de SQL Insights](sql-insights-overview.md) para obtener más información sobre la oferta y las versiones admitidas de SQL. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
+En este artículo se incluyen [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) de ejemplo para permitir que SQL Insights supervise SQL en Azure.  Consulte la [documentación de SQL Insights](sql-insights-overview.md) para obtener más información sobre la oferta y las versiones admitidas de SQL. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 

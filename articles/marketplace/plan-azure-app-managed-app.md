@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 694f501efc565ed498c1c8d8e2e38326277e8605
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a34bdfe55d2200176d6f6c7fde389c19dc26cfa5
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96621423"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111536474"
 ---
 # <a name="plan-an-azure-managed-application-for-an-azure-application-offer"></a>Planeamiento de una aplicación administrada de Azure para una oferta de Aplicación de Azure
 
@@ -81,7 +81,7 @@ Los planes privados no son compatibles con las suscripciones de Azure establecid
 
 Debe proporcionar el precio mensual de cada plan. El precio se suma a cualquier infraestructura de Azure o costos de software de pago por uso en los que incurren los recursos implementados por esta solución.
 
-Además del precio por mes, también puede establecer precios por el consumo de unidades no estándar mediante la [facturación de uso medido](partner-center-portal/azure-app-metered-billing.md). Si lo desea, puede establecer el precio por mes en cero y cobrar exclusivamente con la facturación de uso medido.
+Además del precio por mes, también puede establecer precios por el consumo de unidades no estándar mediante la [facturación de uso medido](marketplace-metering-service-apis.md). Si lo desea, puede establecer el precio por mes en cero y cobrar exclusivamente con la facturación de uso medido.
 
 Los precios establecidos en USD (USD = dólares de Estados Unidos) se convierten a la moneda local de todos los mercados seleccionados con los tipos de cambio actuales en el momento de guardarlos. Sin embargo, puede elegir establecer los precios de los clientes para cada mercado.
 
@@ -137,4 +137,4 @@ Para cada tipo de directiva que agregue, debe asociar la SKU de directiva están
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Creación de una oferta de Aplicación de Azure en el marketplace comercial](create-new-azure-apps-offer.md)
+- [Creación de una oferta de aplicación de Azure](azure-app-offer-setup.md)

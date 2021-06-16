@@ -299,7 +299,7 @@
       items:
         - name: Visualización de métricas de clúster
           href: view-metrics.md
-        - name: Azure Monitor para contenedores
+        - name: Container Insights
           href: ../azure-monitor/containers/container-insights-overview.md
           maintainContext: true
         - name: Visualización de los registros de componentes del plano de control

@@ -2,21 +2,21 @@
 title: Descripción del inicio de sesión vinculado en Azure Active Directory
 description: Comprenda el inicio de sesión vinculado en Azure Active Directory.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/30/2020
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 6ed6f6b69326157573ea043457dbc8d8a3079146
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 026e2cbc49bea93f326cc7c86b0b7e113bfd754c
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374581"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076265"
 ---
 # <a name="understand-linked-sign-on"></a>Descripción del inicio de sesión vinculado
 

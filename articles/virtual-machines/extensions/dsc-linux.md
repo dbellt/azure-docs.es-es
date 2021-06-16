@@ -8,12 +8,13 @@ author: mgoedtel
 ms.author: magoedte
 ms.collection: linux
 ms.date: 06/12/2018
-ms.openlocfilehash: 3a9478f93a2a6f8e31be39a58a18e0e394b9d5c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 664d087f93d72c146908c6f708f527a8147d7e28
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560113"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949876"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensión de DSC para Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -285,7 +286,7 @@ Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Reso
 
 La plantilla de Resource Manager de ejemplo es [201-dsc-linux-azure-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-azure-storage-on-ubuntu) y [201-dsc-linux-public-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-public-storage-on-ubuntu).
 
-Para más información sobre la plantilla de Resource Manager, consulte [Creación de plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
+Para más información sobre la plantilla de Resource Manager, consulte [Creación de plantillas de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md).
 
 ## <a name="azure-cli-deployment"></a>Implementación de la CLI de Azure
 

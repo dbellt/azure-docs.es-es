@@ -9,12 +9,13 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 114be810ea50f984c3211291691b4c4dd45ac2c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: da4ec6ee670f9256a03b50fdc29cc62f74cd5913
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93395247"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110704605"
 ---
 # <a name="back-up-and-restore-databases-in-azure-sql-edge"></a>Copia de seguridad y restauración de bases de datos en Azure SQL Edge 
 

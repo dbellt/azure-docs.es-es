@@ -13,21 +13,21 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fed78d7d2250d749ced7fe343689df76329b60d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f610df25c4c184bda54bf1463e388461d036dfe6
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98724667"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965902"
 ---
 # <a name="build-resilience-in-application-access-with-application-proxy"></a>Aumento de la resistencia en el acceso a las aplicaciones con Application Proxy
 
 Application Proxy es una característica de Azure AD que permite a los usuarios acceder a aplicaciones web locales desde un cliente remoto. Application Proxy incluye el servicio Application Proxy en la nube y los conectores de Application Proxy, que se ejecutan en un servidor local. 
 
-Los usuarios acceden a los recursos locales mediante una dirección URL publicada a través de Application Proxy. Se les redirige a la página de inicio de sesión de Azure AD. A continuación, el servicio Application Proxy de Azure AD envía un token al conector de Application Proxy en la red corporativa, que pasa el token a Active Directory local. El usuario autenticado puede acceder al recurso local. En el diagrama siguiente, se muestran [conectores](../manage-apps/application-proxy-connectors.md) en un [grupo de conectores](../manage-apps/application-proxy-connector-groups.md).
+Los usuarios acceden a los recursos locales mediante una dirección URL publicada a través de Application Proxy. Se les redirige a la página de inicio de sesión de Azure AD. A continuación, el servicio Application Proxy de Azure AD envía un token al conector de Application Proxy en la red corporativa, que pasa el token a Active Directory local. El usuario autenticado puede acceder al recurso local. En el diagrama siguiente, se muestran [conectores](../app-proxy/application-proxy-connectors.md) en un [grupo de conectores](../app-proxy/application-proxy-connector-groups.md).
 
 > [!IMPORTANT]
-> Al publicar las aplicaciones a través de Application Proxy, debe implementar [planeamiento de capacidad y la redundancia adecuada para los conectores de Application Proxy](../manage-apps/application-proxy-connectors.md#capacity-planning).
+> Al publicar las aplicaciones a través de Application Proxy, debe implementar [planeamiento de capacidad y la redundancia adecuada para los conectores de Application Proxy](../app-proxy/application-proxy-connectors.md#capacity-planning).
 
 ![Diagrama de la arquitectura de la aplicación](./media/resilience-on-prem-access/admin-resilience-app-proxy.png))
 
@@ -35,11 +35,11 @@ Los usuarios acceden a los recursos locales mediante una dirección URL publicad
 
 Para implementar el acceso remoto con Application Proxy de Azure AD, consulte los siguientes recursos.
 
-* [Planeación de la implementación de un proxy de aplicación](../manage-apps/application-proxy-deployment-plan.md)
+* [Planeación de la implementación de un proxy de aplicación](../app-proxy/application-proxy-deployment-plan.md)
 
-* [Procedimientos recomendados de alta disponibilidad y equilibrio de carga](../manage-apps/application-proxy-high-availability-load-balancing.md)
+* [Procedimientos recomendados de alta disponibilidad y equilibrio de carga](../app-proxy/application-proxy-high-availability-load-balancing.md)
 
-* [Configuración de los servidores proxy](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
+* [Configuración de los servidores proxy](../app-proxy/application-proxy-configure-connectors-with-proxy-servers.md)
 
 * [Diseño de una estrategia de control de acceso resistente](../authentication/concept-resilient-controls.md)
 

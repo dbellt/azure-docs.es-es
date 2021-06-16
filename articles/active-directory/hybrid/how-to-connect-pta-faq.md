@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75f797c40a276323cea9983c5340d2d854160c83
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ebf9f490bd746115d4cdf095538063a2ab8e018
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97368484"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958263"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticación de paso a través de Azure Active Directory: Preguntas más frecuentes
 
@@ -50,7 +50,7 @@ No. La autenticación de paso a través _no_ realiza una conmutación automátic
 
 Cuando se usa Azure AD Connect para cambiar el método de inicio de sesión de sincronización de hash de contraseña a la autenticación de paso a través, esta última se convierte en el método principal de inicio de sesión de los usuarios en dominios administrados. Tenga en cuenta que los hash de contraseña de todos los usuarios que anteriormente se han sincronizado mediante la sincronización de hash de contraseña siguen almacenados en Azure AD.
 
-## <a name="can-i-install-an-azure-ad-application-proxy-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>¿Puedo instalar un conector del [proxy de aplicación de Azure AD](../manage-apps/application-proxy.md) en el mismo servidor que un agente de autenticación de paso a través?
+## <a name="can-i-install-an-azure-ad-application-proxy-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>¿Puedo instalar un conector del [proxy de aplicación de Azure AD](../app-proxy/application-proxy.md) en el mismo servidor que un agente de autenticación de paso a través?
 
 Sí. Esta configuración es compatible con las nuevas versiones del agente de autenticación de paso a través (versiones 1.5.193.0 o posteriores).
 

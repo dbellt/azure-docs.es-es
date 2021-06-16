@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 9ae0ca07d0aad72a38ee4eccbefbdb826da9627b
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 0759a3fce2d056bbe5d9234e25b45525874faf4e
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373040"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110670571"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Protección de un nombre DNS personalizado con un enlace TLS/SSL en Azure App Service
 
@@ -100,9 +100,9 @@ Puede realizar dos cambios:
 
 - De manera predeterminada, la aplicación usa una dirección IP pública compartida. Cuando se enlaza un certificado con SSL de IP, App Service crea una dirección IP dedicada nueva para la aplicación. Si asignó un registro D a la aplicación, actualice el registro de dominio con esta nueva dirección IP dedicada.
 
-    La página **Dominio personalizado** de la aplicación se actualiza con la nueva dirección IP dedicada. [Copie esta dirección IP](app-service-web-tutorial-custom-domain.md#info) y luego [reasigne el registro D](app-service-web-tutorial-custom-domain.md#map-an-a-record) a esta nueva dirección IP.
+    La página **Dominio personalizado** de la aplicación se actualiza con la nueva dirección IP dedicada. [Copie esta dirección IP](app-service-web-tutorial-custom-domain.md#info) y luego [reasigne el registro D](app-service-web-tutorial-custom-domain.md#4-create-the-dns-records) a esta nueva dirección IP.
 
-- Si tiene un enlace SNI SSL para `<app-name>.azurewebsites.net`, [reasigne la asignación CNAME](app-service-web-tutorial-custom-domain.md#map-a-cname-record) para que apunte a `sni.<app-name>.azurewebsites.net` en su lugar (agregue el prefijo `sni`).
+- Si tiene un enlace SNI SSL para `<app-name>.azurewebsites.net`, [reasigne la asignación CNAME](app-service-web-tutorial-custom-domain.md#4-create-the-dns-records) para que apunte a `sni.<app-name>.azurewebsites.net` en su lugar (agregue el prefijo `sni`).
 
 ## <a name="test-https"></a>Probar HTTPS
 

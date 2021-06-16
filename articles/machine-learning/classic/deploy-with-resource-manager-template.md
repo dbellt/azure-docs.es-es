@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-azurepowershell
 ms.date: 02/05/2018
-ms.openlocfilehash: ee0bee4857d410781561e6f7f6a7eae0509d1138
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c81397fb7729e6ce55da6fa7c8121de43c96130
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100520041"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956049"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Implementación del área de trabajo de Azure Machine Learning Studio (clásico) mediante Azure Resource Manager
 
@@ -142,7 +142,7 @@ Una vez aprovisionada el área de trabajo, también puede automatizar muchas tar
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre la [creación de plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
+* Obtenga más información sobre la [creación de plantillas de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md).
 * Eche un vistazo al [repositorio de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates).
 * Vea este vídeo acerca de [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
 * Consulte la [ayuda de referencia de plantillas de Resource Manager](/azure/templates/microsoft.machinelearning/allversions).

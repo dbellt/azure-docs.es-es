@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 02/04/2021
+ms.date: 05/26/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 614a13a140453e3c7ed55a7fc0f9173626ad2f2f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cefa6fab5bbd140f8540ebb78f66706beeffd530
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99627729"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578297"
 ---
 1. Seleccione **Conectar sitios de VPN** para abrir la página **Conectar sitios**.
 
-    ![Captura de pantalla que muestra el panel de Sitios conectados del centro de conectividad virtual listo para una clave precompartida y la configuración asociada.](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "conectar")
+   :::image type="content" source="./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png" alt-text="Captura de pantalla que muestra el panel de Sitios conectados del centro de conectividad virtual listo para una clave precompartida y la configuración asociada." border="false":::
 
    Rellene los siguientes campos:
 
@@ -28,7 +28,7 @@ ms.locfileid: "99627729"
 2. Seleccione **Conectar**.
 3. Después de unos minutos, en el sitio aparecerá la conexión y el estado de conectividad.
 
-   ![Instantánea en la que se muestra una conexión entre sitios y el estado de conectividad.](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
+   :::image type="content" source="./media/virtual-wan-tutorial-connect-vpn-site-include/status.png" alt-text="Instantánea en la que se muestra una conexión entre sitios y el estado de conectividad." lightbox="./media/virtual-wan-tutorial-connect-vpn-site-include/status.png"border="false":::
 
    **Estado de la conexión:** este es el estado del recurso de Azure de la conexión que conecta el sitio de VPN con la puerta de enlace de VPN del centro de conectividad de Azure. Una vez que esta operación de plano de control se realiza correctamente, la puerta de enlace de VPN de Azure y el dispositivo VPN local procederán a establecer la conectividad.
 

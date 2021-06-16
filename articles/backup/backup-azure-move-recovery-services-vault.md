@@ -4,12 +4,12 @@ description: Instrucciones sobre cómo mover el almacén de Recovery Services en
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: e2f1c13f4c4a299fb1c1af1a59f1c53eef29496a
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 239294f1744da9f040ac62435e6930b60f6bc357
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325254"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954367"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Traslado del almacén de Recovery Services entre suscripciones y grupos de recursos de Azure
 
@@ -23,7 +23,7 @@ Se admiten todas las regiones públicas y soberanas, excepto el Centro de Franci
 
 - Durante el traslado de almacén entre grupos de recursos, los grupos de recursos de origen y destino están bloqueados para evitar las operaciones de escritura y eliminación. Para más información, consulte este [artículo](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Solo la suscripción del administrador tiene los permisos para mover un almacén.
-- Para trasladar almacenes entre suscripciones, la suscripción de destino debe existir en el mismo inquilino que la suscripción de origen y su estado debe estar habilitado. Para trasladar un almacén a un directorio de Azure AD diferente, consulte [Transferencia de una suscripción a otro directorio](../role-based-access-control/transfer-subscription.md) y [Preguntas frecuentes del almacén de Recovery Services](/azure/backup/backup-azure-backup-faq#recovery-services-vault).
+- Para trasladar almacenes entre suscripciones, la suscripción de destino debe existir en el mismo inquilino que la suscripción de origen y su estado debe estar habilitado. Para trasladar un almacén a un directorio de Azure AD diferente, consulte [Transferencia de una suscripción a otro directorio](../role-based-access-control/transfer-subscription.md) y [Preguntas frecuentes del almacén de Recovery Services](/azure/backup/backup-azure-backup-faq.yml#recovery-services-vault).
 - Debe tener permiso para realizar operaciones de escritura en el grupo de recursos de destino.
 - El traslado del almacén solo cambia el grupo de recursos. El almacén de Recovery Services existirá en la misma ubicación y no se puede cambiar.
 - Solo puede trasladar un almacén de Recovery Services por región cada vez.

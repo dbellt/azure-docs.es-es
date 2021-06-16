@@ -2,18 +2,18 @@
 title: Cálculo del recuento de blobs y su tamaño mediante el inventario de Azure Storage
 description: Obtenga información sobre cómo calcular el recuento de blobs y su tamaño total por contenedor.
 services: storage
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 03/10/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: e752d40ce2f237c2ab08bac2e71133cd06ec40e4
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 8365c4873165b5a8040bc3def5743eca435cb7e9
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277188"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110653943"
 ---
 # <a name="calculate-blob-count-and-total-size-per-container-using-azure-storage-inventory"></a>Cálculo del recuento de blobs y su tamaño total por contenedor mediante el inventario de Azure Storage
 

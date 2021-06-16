@@ -5,15 +5,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 2ee447b1e5f72ce916808a5832f999eea493994c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4474e5c1d37150b0b65c89be3cd69f3a67eba672
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102046846"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964278"
 ---
 # <a name="resource-manager-template-samples-for-vm-insights"></a>Ejemplos de plantillas de Resource Manager para VM Insights
-Este artículo incluye ejemplos de [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para habilitar VM Insights en máquinas virtuales. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
+Este artículo incluye ejemplos de [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) para habilitar VM Insights en máquinas virtuales. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 

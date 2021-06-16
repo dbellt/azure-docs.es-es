@@ -2,13 +2,13 @@
 title: Copia de seguridad de varias máquinas virtuales con SQL Server desde el almacén
 description: En este artículo, aprenderá a realizar copias de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure con Azure Backup desde el almacén de Recovery Services.
 ms.topic: conceptual
-ms.date: 04/07/2021
-ms.openlocfilehash: c03b833be6c5e4c352125f31ad8c5ed072674b49
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.date: 05/28/2021
+ms.openlocfilehash: 3a6792fe5146df9babc906edec1fc12aa4b3e1cb
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258476"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110672329"
 ---
 # <a name="back-up-multiple-sql-server-vms-from-the-recovery-services-vault"></a>Copia de seguridad de varias VM con SQL Server desde el almacén de Recovery Services
 
@@ -87,7 +87,7 @@ También puede usar los siguientes FQDN para permitir el acceso a los servicios 
 | Servicio    | Nombres de dominio a los que se va a acceder                             | Puertos
 | -------------- | ------------------------------------------------------------ | ---
 | Azure Backup  | `*.backup.windowsazure.com`                             | 443
-| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` | 443
+| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` | 443
 | Azure AD      | Permitir el acceso a los FQDN conforme a las secciones 56 y 59 según [este artículo](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) | Según corresponda
 
 #### <a name="use-an-http-proxy-server-to-route-traffic"></a>Empleo de un servidor proxy HTTP para enrutar el tráfico

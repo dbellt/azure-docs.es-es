@@ -8,12 +8,12 @@ ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 73e4edd25946f71cfb6d14a379d5b004343cc4e3
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: a0b9c96fcd54ab89d5d454b206ece6fce8f0e34e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110367244"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969251"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutorial: Entrenamiento e implementación de un modelo de Azure Machine Learning
 
@@ -45,7 +45,7 @@ Este artículo forma parte de un tutorial sobre el uso de Machine Learning en Io
 Se usa Machine Learning Studio para hospedar tanto los dos cuadernos de Jupyter Notebook como los archivos auxiliares. A continuación, se crea y configura un proyecto de Machine Learning. Si no ha usado Jupyter o Machine Learning Studio, aquí tiene dos documentos introductorios:
 
 * **Jupyter Notebook**: [Uso de cuadernos de Jupyter Notebook en Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support)
-* **Azure Machine Learning**: [Introducción a Azure Machine Learning en cuadernos de Jupyter Notebook](../machine-learning/tutorial-1st-experiment-sdk-setup.md)
+* **Azure Machine Learning**: [Introducción a Azure Machine Learning en cuadernos de Jupyter Notebook](../machine-learning/quickstart-create-resources.md)
 
 > [!NOTE]
 > Una vez configurado el servicio, se puede acceder a Azure Machine Learning desde cualquier máquina. Durante el proceso de configuración, debe usar la máquina virtual de desarrollo que tiene todos los archivos que necesitará.

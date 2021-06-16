@@ -2,18 +2,18 @@
 title: Métricas de supervisión para Azure Front Door Estándar y Premium
 description: En este artículo se describen las métricas de supervisión de Azure Front Door Estándar y Premium.
 services: frontdoor
-author: duau
+author: duongau
 manager: KumudD
 ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: yuajia
-ms.openlocfilehash: 72388eb8006ff1b9628db5066dc63e6a0811f3d5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a22e3825764f8b727802a1d78f2e02011cf7660a
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557333"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110793531"
 ---
 # <a name="real-time-monitoring-in-azure-front-door-standardpremium"></a>Supervisión en tiempo real en Azure Front Door Estándar y Premium
 
@@ -39,7 +39,7 @@ Puede configurar alertas para cada métrica, como un umbral para 4XXErrorRate o 
 | ------------- | ------------- | ------------- |
 | Proporción de aciertos de bytes | Porcentaje de salida de la memoria caché de AFD calculado con respecto a la salida total. </br> **Proporción de aciertos de bytes** = (salida desde el perímetro - salida desde el origen)/salida desde el perímetro. </br> **Escenarios excluidos en el cálculo de la proporción de aciertos de bytes**:</br> 1. No se configura ninguna caché explícitamente a través del motor de reglas o del comportamiento del almacenamiento en caché de cadenas de consulta. </br> 2. Se configura la directiva de control de caché con una caché privada o sin almacén. </br>3. La proporción de aciertos de bytes puede ser baja si la mayor parte del tráfico se reenvía al origen en lugar de servirse desde el almacenamiento en caché en función de sus configuraciones o escenarios. | Punto de conexión |
 | RequestCount | El número de solicitudes de cliente que atiende CDN. | Punto de conexión, país del cliente, región del cliente, estado HTTP, grupo de estado HTTP |
-| ResponseSize | Número de solicitudes de cliente que ha atendido AFD. |Punto de conexión, país del cliente, región del cliente, estado HTTP, grupo de estado HTTP |
+| ResponseSize | Número de bytes enviados como respuestas de Front Door a los clientes. |Punto de conexión, país del cliente, región del cliente, estado HTTP, grupo de estado HTTP |
 | TotalLatency | El tiempo total desde la solicitud de cliente recibida por CDN **hasta el último byte de respuesta enviado desde CDN al cliente**. |Punto de conexión, país del cliente, región del cliente, estado HTTP, grupo de estado HTTP |
 | RequestSize | Número de bytes enviados como solicitudes de clientes a AFD. | Punto de conexión, país del cliente, región del cliente, estado HTTP, grupo de estado HTTP |
 | 4XX % ErrorRate | Porcentaje de todas las solicitudes de cliente para las que el código de estado de la respuesta es 4XX. | Punto de conexión, país del cliente, región del cliente |

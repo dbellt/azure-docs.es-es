@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: dadec45a23191763ad803560f1362c61917c95c5
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 7b72fd3c47e6f3013c0f9eb39707a1e55c78cac0
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756672"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110789014"
 ---
 # <a name="change-iot-central-application-settings"></a>Cambiar la configuración de la aplicación de IoT Central
 
@@ -25,7 +25,7 @@ Para tener acceso a la sección **Administración** y poder usarla, debe dispone
 
 En la página **Configuración de la aplicación** puede cambiar el nombre y la dirección URL de la aplicación, después, seleccione **Guardar**.
 
-![Página Configuración de la aplicación](media/howto-administer/image0-a.png)
+![Página Configuración de la aplicación](media/howto-administer/image-a.png)
 
 Si el administrador crea un tema personalizado para la aplicación, esta página incluye una opción para ocultar el **nombre de la aplicación** en la interfaz de usuario. Esta opción resulta útil si el logotipo de la aplicación en el tema personalizado incluye el nombre de la aplicación. Para más información, consulte [Personalización de la interfaz de usuario de Azure IoT Central](./howto-customize-ui.md).
 

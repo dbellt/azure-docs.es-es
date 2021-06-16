@@ -3,13 +3,13 @@ title: Escalado de un clúster de Service Fabric en Azure
 description: En este tutorial, aprenderá a escalar y reducir horizontalmente un clúster de Service Fabric en Azure y a limpiar los recursos sobrantes.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
-ms.openlocfilehash: 3072caa1bacf31b1c02ab7ca8720d190736ad3ff
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: a885c062bab8c334ee7bfee1c78e0b64154b0775
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108287273"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110664953"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Escalado de un clúster de Service Fabric en Azure
 

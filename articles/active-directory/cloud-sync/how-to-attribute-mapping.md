@@ -11,12 +11,12 @@ ms.date: 04/30/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d097260dc7e84804df30895babd5977a191e293d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: e861a1adc2dead2ee7c4397b9fb09aae202aaf94
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108737954"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963697"
 ---
 # <a name="attribute-mapping-in-azure-ad-connect-cloud-sync"></a>Asignación de atributos de sincronización en la nube de Azure AD Connect
 
@@ -40,7 +40,7 @@ Con la asignación de atributos, puede controlar cómo se rellenan los atributos
 Además de estos tipos básicos, las asignaciones de atributos personalizadas admiten el concepto de una asignación de valor *predeterminada* opcional. La asignación de valor predeterminada garantiza que un atributo de destino se rellene con un valor si no hay ningún valor en Azure AD ni en el objeto de destino. La configuración más habitual consiste en dejarlo en blanco.
 
 ## <a name="schema-updates-and-mappings"></a>Actualizaciones y asignaciones de esquemas
-La sincronización en la nube actualizará ocasionalmente el esquema y la lista de atributos predeterminados que se[sincronizan.](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized?context=/azure/active-directory/cloud-provisioning/context/cp-context)  Estas asignaciones de atributos predeterminados estarán disponibles para las nuevas instalaciones, pero no se agregarán automáticamente a las instalaciones existentes.  Para agregar estas asignaciones, puede seguir los pasos que se indican a continuación.
+La sincronización en la nube actualizará ocasionalmente el esquema y la lista de atributos predeterminados que se[sincronizan.](../hybrid/reference-connect-sync-attributes-synchronized.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context)  Estas asignaciones de atributos predeterminados estarán disponibles para las nuevas instalaciones, pero no se agregarán automáticamente a las instalaciones existentes.  Para agregar estas asignaciones, puede seguir los pasos que se indican a continuación.
 
 
   1. Haga clic en "Agregar asignación de atributos".

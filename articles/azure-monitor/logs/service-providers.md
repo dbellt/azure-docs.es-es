@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 5e84f59253c85495bfccb289b3c40229304c0f49
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: d2e0dcb7d973a4e4b2b6f4438aab5f08187ae44b
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790170"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953113"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Registros de Azure Monitor para proveedores de servicios
 
@@ -88,4 +88,4 @@ Hay dos opciones para implementar registros en una ubicación central:
 
 * Genere informes de resumen con [Power BI](../visualize/powerbi.md).
 
-* Incorpore clientes a la [administración de recursos delegados de Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
+* Incorpore clientes a la [administración de recursos delegados de Azure](../../lighthouse/concepts/architecture.md).

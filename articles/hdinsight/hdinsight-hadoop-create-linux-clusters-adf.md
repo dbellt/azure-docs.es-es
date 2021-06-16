@@ -3,14 +3,14 @@ title: 'Tutorial: Clústeres a petición en Azure HDInsight con Data Factory'
 description: 'Tutorial: Aprenda a crear clústeres de Apache Hadoop a petición en HDInsight mediante Azure Data Factory.'
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: seoapr2020
+ms.custom: seoapr2020, devx-track-azurepowershell
 ms.date: 04/24/2020
-ms.openlocfilehash: c61ad4d26c4a03889d9ac80332335543ec4140b7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3cf8b53cdabbd9360c3e57e5e633327dd4e8a4ad
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104868988"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110698493"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Creación de clústeres de Apache Hadoop a petición en HDInsight mediante Azure Data Factory
 
@@ -189,7 +189,7 @@ En este artículo, se configura la actividad de Hive para crear un clúster Hado
 
 3. Escriba o seleccione los siguientes valores del icono **Nueva factoría de datos**:
 
-    |Propiedad  |Value  |
+    |Propiedad  |Valor  |
     |---------|---------|
     |Nombre | Escriba un nombre para la factoría de datos. Este nombre debe ser único globalmente.|
     |Versión | Déjela en **V2**. |
@@ -231,7 +231,7 @@ En esta sección, puede crear dos servicios vinculados dentro de su factoría de
 
 4. Proporcione los siguientes valores del servicio vinculado de almacenamiento:
 
-    |Propiedad |Value |
+    |Propiedad |Valor |
     |---|---|
     |Nombre |Escriba `HDIStorageLinkedService`.|
     |Suscripción de Azure |Seleccione la suscripción en la lista desplegable.|
@@ -253,7 +253,7 @@ En esta sección, puede crear dos servicios vinculados dentro de su factoría de
 
 4. En la ventana **Nuevo servicio vinculado**, escriba los siguientes valores y deje el resto como valor predeterminado:
 
-    | Propiedad | Value |
+    | Propiedad | Valor |
     | --- | --- |
     | Nombre | Escriba `HDInsightLinkedService`.|
     | Tipo | Seleccione **HDInsight a petición**. |

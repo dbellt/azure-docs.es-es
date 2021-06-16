@@ -9,15 +9,15 @@ manager: arthiaga
 ms.reviewer: arthiaga
 ms.service: dms
 ms.workload: data-services
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 04/11/2021
-ms.openlocfilehash: f01f718bca7d6fc8c6226f682289ef46068aa126
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: eea4a539c8a2b17a9a6280a8f847e68542d1a8d5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125848"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950636"
 ---
 # <a name="migrate-mysql-to-azure-database-for-mysql-offline-with-powershell--azure-database-migration-service"></a>Migración de MySQL a Azure Database for MySQL sin conexión con PowerShell y Azure Database Migration Service
 
@@ -31,7 +31,8 @@ En este artículo, va a migrar una base de datos de MySQL restaurada a una insta
 > Los servicios Amazon Relational Database Service (RDS) para MySQL y Amazon Aurora (basado en MySQL) también se admiten como orígenes de la migración.
 
 > [!IMPORTANT]
-> El escenario de migración en línea "de MySQL a Azure Database for MySQL" se va a sustituir por un escenario de migración sin conexión en paralelo y de alto rendimiento el 1 de junio de 2021. En el caso de las migraciones en línea, puede usar esta nueva oferta junto con la [replicación de datos](../mysql/concepts-data-in-replication.md). Como alternativa, use herramientas de código abierto, como [MyDumper/MyLoader](https://centminmod.com/mydumper.html), con replicación de datos en las migraciones en línea. 
+> Para las migraciones en línea, puede usar herramientas de código abierto, como [MyDumper/MyLoader](https://centminmod.com/mydumper.html), con [replicación de datos de entrada](../mysql/concepts-data-in-replication.md).
+
 
 El artículo ayuda a automatizar el escenario en el que los nombres de la base de datos de origen y de destino pueden ser iguales o diferentes y como parte de la migración es necesario migrar todas o algunas de las tablas de la base de datos de destino que tengan el mismo nombre y la misma estructura de tabla. Aunque en los artículos se da por supuesto que el origen es una instancia de base de datos de MySQL y el destino es Azure Database for MySQL, se puede usar para migrar de una instancia de Azure Database for MySQL a otra simplemente cambiando el nombre y las credenciales del servidor de origen. También se admite la migración desde servidores MySQL de una versión inferior (v5.6 y versiones posteriores) a versiones posteriores.
 
@@ -53,7 +54,7 @@ Para completar estos pasos, necesitará lo siguiente:
 
 * Disponga de una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free).
 * Disponer de una base de datos de MySQL local con la versión 5.6 o posterior. Si no la tiene, descargue e instale [MySQL Community Edition](https://dev.mysql.com/downloads/mysql/) 5.6 o posterior.
-* [Creación de una instancia en Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Consulte el artículo [Inicio rápido: Uso de MySQL Workbench para conectarse y consultar datos en Azure Database for MySQL](../mysql/connect-workbench.md) para más información sobre cómo conectarse y crear una base de datos mediante la aplicación Workbench. La versión de Azure Database for MySQL debe ser igual o superior a la versión local de MySQL. Por ejemplo, MySQL 5.7 admite la migración a Azure Database for MySQL 5.7 o la actualización a la versión 8.  
+* [Creación de una instancia en Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Consulte el artículo [Uso de MySQL Workbench para conectarse y consultar datos en Azure Database for MySQL](../mysql/connect-workbench.md) y obtenga más información sobre cómo conectarse y crear una base de datos mediante la aplicación Workbench. La versión de Azure Database for MySQL debe ser igual o superior a la versión local de MySQL. Por ejemplo, MySQL 5.7 admite la migración a Azure Database for MySQL 5.7 o la actualización a la versión 8.  
 * Cree una instancia de Microsoft Azure Virtual Network para Azure Database Migration Service con el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local mediante [ExpressRoute](../expressroute/expressroute-introduction.md) o [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Para más información sobre la creación de una red virtual, consulte la documentación de [Virtual Network](../virtual-network/index.yml)y, especialmente, los artículos de inicio rápido con detalles paso a paso.
 
     > [!NOTE]

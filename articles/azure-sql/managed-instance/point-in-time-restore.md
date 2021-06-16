@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Managed Instance
 description: Restaure una base de datos en una Instancia administrada de Azure SQL a un momento dado anterior.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
-ms.custom: ''
+ms.subservice: backup-restore
+ms.custom: devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein, mathoma
+author: Misliplavo
+ms.author: mlazic
+ms.reviewer: mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 4c116b378c72d87641157fc453d65e46be9f43ec
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a70c55cdf19205aa9d0d933d3ba383e57536c312
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107787175"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110691514"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Restauración de una base de datos en una Instancia administrada de Azure SQL a un momento dado anterior
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

@@ -4,20 +4,20 @@ description: Cómo usar PHP para crear un programa que se conecta a una base de 
 titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: connect
 ms.devlang: php
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
-ms.reviewer: v-masebo
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma, v-masebo
 ms.date: 05/29/2020
 ms.custom: sqldbrb=2
-ms.openlocfilehash: e0ad8e9e71a0ee2c23412d535fe79955edb39ba8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a250e26f9919c24913dd6c5cf7672df596a0493c
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99576657"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110706323"
 ---
 # <a name="quickstart-use-php-to-query-a-database-in-azure-sql-database"></a>Inicio rápido: Uso de PHP para consultar una base de datos de Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

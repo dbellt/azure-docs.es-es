@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.service: partner-services
 ms.date: 01/15/2021
 ms.author: tomfitz
-ms.openlocfilehash: eea96f9a445fcfd1af5d23db1e01d1a7440fceea
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 6fbd6b72c17b8483f9fdb5bc227625fd92009594
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137082"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952617"
 ---
 # <a name="what-is-apache-kafka-for-confluent-cloud"></a>¿Qué es Apache Kafka para Confluent Cloud?
 
@@ -21,7 +21,7 @@ Para reducir la carga de la administración multiplataforma, Microsoft se ha aso
 
 Anteriormente, tenía que adquirir la oferta de Confluent Cloud en Marketplace y configurar por separado la cuenta en Confluent Cloud. Para administrar las configuraciones y los recursos, tenía que navegar entre los portales de Azure y Confluent Cloud.
 
-Ahora se aprovisionan los recursos de Confluent Cloud a través de un proveedor de recursos denominado **Microsoft.Confluent**. Puede crear y administrar recursos de la organización Confluent Cloud a través de [Azure Portal](https://portal.azure.com/), la [CLI de Azure](/cli/azure/) o los [SDK de Azure](/azure/#languages-and-tools). Confluent Cloud posee y ejecuta la aplicación de software como servicio (SaaS), incluidos los entornos, los clústeres, los temas, las claves de API y los conectores administrados.
+Ahora se aprovisionan los recursos de Confluent Cloud a través de un proveedor de recursos denominado **Microsoft.Confluent**. Puede crear y administrar recursos de la organización Confluent Cloud a través de [Azure Portal](https://portal.azure.com/), la [CLI de Azure](/cli/azure/) o los [SDK de Azure](/azure/index.yml#languages-and-tools). Confluent Cloud posee y ejecuta la aplicación de software como servicio (SaaS), incluidos los entornos, los clústeres, los temas, las claves de API y los conectores administrados.
 
 ## <a name="capabilities"></a>Funcionalidades
 
