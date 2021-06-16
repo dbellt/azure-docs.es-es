@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.author: jgao
 ms.date: 04/26/2021
-ms.openlocfilehash: 732606c24b116edb3f89f9f60db2bd5621d90e63
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 85cf5d527e608fc7a5af6728d0443f83d3f33d5c
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108277415"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112005335"
 ---
 # <a name="quickstart-create-an-azure-ddos-protection-standard-using-arm-template"></a>Inicio rápido: Creación de una instancia de Azure DDoS Protection Estándar mediante la plantilla de ARM
 
@@ -29,13 +29,13 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fcreate-and-enable-ddos-protection-plans%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-create-and-enable-ddos-protection-plans).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/create-and-enable-ddos-protection-plans).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/create-and-enable-ddos-protection-plans/azuredeploy.json":::
 

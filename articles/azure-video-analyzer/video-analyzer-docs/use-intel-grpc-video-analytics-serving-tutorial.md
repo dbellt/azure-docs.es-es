@@ -4,12 +4,12 @@ description: En este tutorial se muestra cómo usar la extensión de inteligenci
 ms.topic: tutorial
 ms.service: azure-video-analyzer
 ms.date: 05/18/2021
-ms.openlocfilehash: e06acecfd65686d90afa4727dd611bcfa2877c51
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 9f3a313b1dc99fd86bc2ee764a78a151e8d88f96
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110465720"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111440565"
 ---
 # <a name="tutorial-analyze-live-video-with-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutorial: análisis de vídeo en directo con la extensión de inteligencia artificial de Edge Intel OpenVINO™ DL Streamer 
 
@@ -119,7 +119,7 @@ Si abre la [topología de canalización](https://raw.githubusercontent.com/Azure
 1. Edite el archivo *operations.json*:
     * Cambie el vínculo a la topología de la canalización en directo:
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json"`
+        `"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json"`
 
     * En `pipelineTopologySet`, edite el nombre de la topología de la canalización en directo para que coincida con el valor del vínculo anterior:
 
@@ -312,7 +312,7 @@ Seguimiento:
 
      * Una llamada a `livePipelineActivate` que activa la canalización y el flujo de vídeo.
 1. La salida de la ventana **TERMINAL** se pone en pausa tras el mensaje `Press Enter to continue`. No seleccione Entrar todavía. Desplácese hacia arriba para ver las cargas de la respuesta JSON para los métodos directos que ha invocado.
-1. Cambie a la ventana **SALIDA** de Visual Studio Code. Verá los mensajes que el módulo Video Analyzer está enviando al centro de IoT. En la siguiente sección de este tutorial se analizan estos mensajes.
+1. Cambie a la ventana **SALIDA** de Visual Studio Code. Verá los mensajes que el módulo de Video Analyzer está enviando al centro de IoT. En la siguiente sección de este tutorial se analizan estos mensajes.
 1. La canalización en directo continúa ejecutándose y se imprimen los resultados. El simulador RTSP sigue recorriendo el vídeo de origen. Para detener la canalización en directo, vuelva a la ventana **TERMINAL** y seleccione Entrar. 
 
     La siguiente serie de llamadas limpia los recursos:

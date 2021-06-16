@@ -4,12 +4,12 @@ description: 'Inicio rápido: Aprenda a crear un panel en Azure Portal mediante 
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 12/4/2020
-ms.openlocfilehash: 76d4e3b9c1c906dd91a7355af2c7cb957ef6ac95
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: aa9d5f1c7ab20de9a2f815ce5b2639582d5f2bed
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891741"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081612"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-azure-cli"></a>Inicio rápido: Creación de un panel de Azure Portal con la CLI de Azure
 
@@ -47,7 +47,7 @@ az vm create --resource-group myResourceGroup --name SimpleWinVM --image win2016
 > La contraseña debe ser compleja.
 > Debe ser un nombre de usuario y una contraseña nuevos,
 > no la cuenta que se usa para iniciar sesión en Azure, por ejemplo.
-> Para más información, consulte los [requisitos de nombre de usuario](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm) y los [requisitos de contraseña](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+> Para más información, consulte los [requisitos de nombre de usuario](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-) y los [requisitos de contraseña](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
 La implementación se inicia; esta operación normalmente tarda unos minutos en completarse.
 Una vez finalizada la implementación, pase a la sección siguiente.

@@ -4,16 +4,16 @@ description: Aprenda a utilizar Azure Queue Storage para crear y eliminar colas
 author: twooley
 ms.author: twooley
 ms.reviewer: dineshm
-ms.date: 12/08/2016
+ms.date: 06/08/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 257b435f0136884e8568f4201794a7ce5cf0c209
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 7850e7fef034fd618c86400e17ddaa319c45005a
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275862"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081000"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Procedimiento para usar Queue Storage desde Ruby
 
@@ -42,7 +42,7 @@ Para usar Azure Storage, tendrá que descargar y usar el paquete Ruby Azure, que
 ### <a name="use-rubygems-to-obtain-the-package"></a>Uso de RubyGems para obtener el paquete
 
 1. Use una interfaz de línea de comandos como PowerShell (Windows), Terminal (Mac) o Bash (Unix).
-2. Escriba `gem install Azure` en la ventana de comandos para instalar la gema y las dependencias.
+2. Escriba `gem install azure` en la ventana de comandos para instalar la gema y las dependencias.
 
 ### <a name="import-the-package"></a>Importación del paquete
 

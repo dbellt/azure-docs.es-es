@@ -6,21 +6,23 @@ documentationcenter: ''
 author: barclayn
 manager: daveba
 editor: ''
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/26/2020
+ms.date: 05/20/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd4cccdfc3a2cf8dd3827776028a7738ae769673
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ROBOTS: NOINDEX
+ms.openlocfilehash: 72a9cfe6142b4c82cd122068e096776c19c4e392
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98184837"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080910"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Creación, enumeración, eliminación o asignación de un rol a una identidad administrada asignada por el usuario mediante Azure Portal
 
@@ -74,16 +76,9 @@ La eliminación de una identidad asignada por el usuario no la quita de ninguna 
 
 Para asignar un rol a una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Administrador de acceso de usuario](../../role-based-access-control/built-in-roles.md#user-access-administrator).
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure para enumerar las identidades administradas asignadas por el usuario.
-2. En el cuadro de búsqueda, escriba *Identidades administradas* y en Servicios, haga clic en **Identidades administradas**.
-3. Se devuelve una lista de las identidades administradas asignadas por el usuario de la suscripción.  Seleccione la identidad administrada asignada por el usuario a la que desea asignar un rol.
-4. Seleccione **Control de acceso (IAM)** y después **Agregar asignación de rol**.
+Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
-   ![Inicio de Identidad administrada asignada por el usuario](./media/how-to-manage-ua-identity-portal/assign-role-screenshot1.png)
+## <a name="next-steps"></a>Pasos siguientes
 
-5. En la hoja Agregar asignación de roles, configure los siguientes valores y después, haga clic en **Guardar**:
-   - **Rol**: el rol que se va a asignar
-   - **Asignar acceso a**: el recurso al que se asigna la identidad administrada asignada por el usuario
-   - **Seleccionar**: el miembro al que se asigna acceso
-   
-   ![IAM de identidad administrada asignada por el usuario](./media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)
+- [Asignación de un acceso de identidad administrada a un recurso mediante la CLI de Azure](howto-assign-access-cli.md)
+- [Asignación de un acceso de identidad administrada a un recurso mediante PowerShell](howto-assign-access-powershell.md)

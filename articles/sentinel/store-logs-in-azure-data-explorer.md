@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/25/2021
 ms.author: bagol
-ms.openlocfilehash: 12a6ae76b1eb4dced661b811d8f6e9030f74b4f1
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: 584f108ea534b8703b941d91b7d03b6275ea6134
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108795733"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958353"
 ---
 # <a name="integrate-azure-data-explorer-for-long-term-log-retention"></a>Integración con Azure Data Explorer para conservar registros a largo plazo
 
@@ -39,7 +39,7 @@ Azure Sentinel proporciona funcionalidades completas de SIEM y SOAR, implementac
 
 Si solo necesita acceder ocasionalmente a tablas específicas, como para las investigaciones o auditorías periódicas, podría llegar a la conclusión de que conservar los datos en Azure Sentinel ya no es rentable. En este punto, se recomienda almacenar datos en Azure Data Explorer, lo que cuesta menos, pero permite explorar usando las mismas consultas KQL que se ejecutan en Azure Sentinel.
 
-Puede acceder a los datos de Azure Data Explorer directamente desde Azure Sentinel mediante la [característica de proxy de Azure Data Explorer en Log Analytics](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy). Para ello, use consultas entre clústeres en la búsqueda de registros o en los libros.
+Puede acceder a los datos de Azure Data Explorer directamente desde Azure Sentinel mediante la [característica de proxy de Azure Data Explorer en Log Analytics](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md). Para ello, use consultas entre clústeres en la búsqueda de registros o en los libros.
 
 > [!IMPORTANT]
 > Las funcionalidades principales de SIEM, incluidas las reglas de análisis, UEBA y el gráfico de investigación, no admiten los datos almacenados en Azure Data Explorer.
@@ -55,7 +55,7 @@ Es posible que desee conservar los datos *con valor de seguridad* en Azure Senti
 También puede configurar todos los datos, *independientemente de su valor de seguridad,* para que se envíen a Azure Data Explorer al mismo tiempo, donde puede almacenar los datos durante más tiempo. Aunque el envío de datos a Azure Sentinel y Azure Data Explorer al mismo produce alguna duplicación, el ahorro de costos puede ser significativo a medida que se reducen los costos de retención de Azure Sentinel.
 
 > [!TIP]
-> Esta opción también permite poner en correlación los datos distribuidos entre almacenes de datos (como enriquecer los datos de seguridad almacenados en Azure Sentinel con los datos operativos o almacenados a largo plazo almacenados en Azure Data Explorer). Para obtener más información, consulte [Consulta entre recursos en Azure Data Explorer mediante Azure Monitor](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy).
+> Esta opción también permite poner en correlación los datos distribuidos entre almacenes de datos (como enriquecer los datos de seguridad almacenados en Azure Sentinel con los datos operativos o almacenados a largo plazo almacenados en Azure Data Explorer). Para obtener más información, consulte [Consulta entre recursos en Azure Data Explorer mediante Azure Monitor](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md).
 >
 
 En la imagen siguiente se muestra cómo puede conservar todos los datos en Azure Data Explorer, al tiempo que se envían solo los datos de seguridad a Azure Sentinel para su uso diario.
@@ -82,7 +82,7 @@ Al configurar los datos para la exportación, tenga en cuenta lo siguiente:
 |---------|---------|
 |**Ámbito de los datos exportados**     |  Una vez configurada la exportación para una tabla específica, se exportan todos los datos enviados a esa tabla, sin excepción. No se puede exportar un subconjunto filtrado de los datos ni limitar la exportación a eventos específicos.       |
 |**Requisitos de ubicación**     |   Tanto el área de trabajo de Azure Monitor y de Azure Sentinel como la ubicación de destino (una cuenta de Azure Storage o un centro de eventos) deben encontrarse en la misma región geográfica.      |
-|**Tablas admitidas**     | No todas las tablas se pueden exportar, como es el caso de las tablas de registros personalizadas. <br><br>Para obtener más información, consulte [Exportación de datos del área de trabajo de Log Analytics en Azure Monitor](/azure/azure-monitor/logs/logs-data-export) y la [lista de tablas admitidas](/azure/azure-monitor/logs/logs-data-export#supported-tables).         |
+|**Tablas admitidas**     | No todas las tablas se pueden exportar, como es el caso de las tablas de registros personalizadas. <br><br>Para obtener más información, consulte [Exportación de datos del área de trabajo de Log Analytics en Azure Monitor](../azure-monitor/logs/logs-data-export.md) y la [lista de tablas admitidas](../azure-monitor/logs/logs-data-export.md#supported-tables).         |
 |     |         |
 
 ### <a name="data-export-methods-and-procedures"></a>Métodos y procedimientos de exportación de datos
@@ -104,9 +104,9 @@ En la imagen siguiente se muestra un flujo de ejemplo de datos exportados a un c
 La arquitectura que se muestra en la imagen anterior proporciona toda la experiencia SIEM de Azure Sentinel (como la administración de incidentes, las investigaciones visuales, la búsqueda de amenazas, las visualizaciones avanzadas, UEBA, etc.) para los datos a los que se debe acceder con frecuencia, cada *X* meses. Al mismo tiempo, esta arquitectura también permite consultar datos a largo plazo accediendo a ellos directamente en Azure Data Explorer o mediante Azure Sentinel gracias a la característica de proxy de Azure Data Explorer. Las consultas al almacenamiento de datos a largo plazo de Azure Data Explorer se pueden portar sin cambios de Azure Sentinel a Azure Data Explorer.
 
 > [!NOTE]
-> Al exportar varias tablas de datos a Azure Data Explorer mediante centros de eventos, tenga en cuenta que la exportación de datos de Log Analytics tiene limitaciones en lo que respecta al número máximo de centros de eventos por espacio de nombres. Para obtener más información sobre la exportación de datos, consulte [Exportación de datos del área de trabajo de Log Analytics en Azure Monitor](/azure/azure-monitor/logs/logs-data-export?tabs=portal).
+> Al exportar varias tablas de datos a Azure Data Explorer mediante centros de eventos, tenga en cuenta que la exportación de datos de Log Analytics tiene limitaciones en lo que respecta al número máximo de centros de eventos por espacio de nombres. Para obtener más información sobre la exportación de datos, consulte [Exportación de datos del área de trabajo de Log Analytics en Azure Monitor](../azure-monitor/logs/logs-data-export.md?tabs=portal).
 >
-> Para la mayoría de los clientes, se recomienda usar el nivel estándar de Event Hubs. Dependiendo del número de tablas que necesite exportar y la cantidad de tráfico a esas tablas, puede que tenga que usar el nivel Dedicado de Event Hubs. Para obtener más información, consulte la [documentación de Event Hubs](/azure/event-hubs/event-hubs-quotas).
+> Para la mayoría de los clientes, se recomienda usar el nivel estándar de Event Hubs. Dependiendo del número de tablas que necesite exportar y la cantidad de tráfico a esas tablas, puede que tenga que usar el nivel Dedicado de Event Hubs. Para obtener más información, consulte la [documentación de Event Hubs](../event-hubs/event-hubs-quotas.md).
 >
 
 > [!TIP]
@@ -115,7 +115,7 @@ La arquitectura que se muestra en la imagen anterior proporciona toda la experie
 
 **Para exportar datos a Azure Data Explorer mediante centro de eventos**:
 
-1. **Configure la exportación de datos de Log Analytics a un centro de eventos**. Para obtener más información, consulte [Exportación de datos del área de trabajo de Log Analytics en Azure Monitor](/azure/azure-monitor/platform/logs-data-export).
+1. **Configure la exportación de datos de Log Analytics a un centro de eventos**. Para obtener más información, consulte [Exportación de datos del área de trabajo de Log Analytics en Azure Monitor](../azure-monitor/logs/logs-data-export.md).
 
 1. **Cree de un clúster y de la base de datos de Azure Data Explorer**. Para más información, consulte:
 
@@ -171,7 +171,7 @@ En la imagen siguiente se muestra un flujo de ejemplo de datos exportados a Azur
 
 **Para exportar datos a Azure Data Explorer mediante Azure Storage y Azure Data Factory**:
 
-1. **Configure la exportación de datos de Log Analytics a un centro de eventos**. Para obtener más información, consulte [Exportación de datos del área de trabajo de Log Analytics en Azure Monitor](/azure/azure-monitor/logs/logs-data-export?tabs=portal#enable-data-export).
+1. **Configure la exportación de datos de Log Analytics a un centro de eventos**. Para obtener más información, consulte [Exportación de datos del área de trabajo de Log Analytics en Azure Monitor](../azure-monitor/logs/logs-data-export.md?tabs=portal#enable-data-export).
 
 1. **Cree de un clúster y de la base de datos de Azure Data Explorer**. Para más información, consulte:
 

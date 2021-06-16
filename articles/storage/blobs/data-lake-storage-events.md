@@ -9,12 +9,12 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f5fa4ad357e937fed7df5be24a1fc78409a0259b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12337e9c6d42ee140367c26cd160fd0a5fd595d3
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100516403"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902310"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Tutorial: Implementación del patrón de captura de Data Lake para actualizar una tabla de Databricks Delta
 
@@ -35,7 +35,7 @@ Crearemos esta solución en orden inverso, empezando por el área de trabajo de 
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-* Cree una cuenta de almacenamiento que tenga un espacio de nombres jerárquico (Azure Data Lake Storage Gen2). En este tutorial se usa una cuenta de almacenamiento denominada `contosoorders`. Asegúrese de que la cuenta de usuario tiene asignado el rol [Colaborador de datos de Storage Blob](../common/storage-auth-aad-rbac-portal.md).
+* Cree una cuenta de almacenamiento que tenga un espacio de nombres jerárquico (Azure Data Lake Storage Gen2). En este tutorial se usa una cuenta de almacenamiento denominada `contosoorders`. Asegúrese de que la cuenta de usuario tiene asignado el rol [Colaborador de datos de Storage Blob](assign-azure-role-data-access.md).
 
    Consulte [Creación de una cuenta de almacenamiento para su uso con Azure Data Lake Storage Gen2 habilitado](create-data-lake-storage-account.md).
 

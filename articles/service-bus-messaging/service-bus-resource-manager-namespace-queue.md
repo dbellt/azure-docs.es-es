@@ -4,18 +4,18 @@ description: 'Inicio rápido: Creación de un espacio de nombres de Service Bus 
 documentationcenter: .net
 author: spelluru
 ms.author: spelluru
-ms.date: 06/23/2020
+ms.date: 06/08/2021
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: b64dd4d26150043277152b6cb4ad5391a7af5647
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 3f9260aa8d86e8b9cc449d193fc403f74d500946
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278549"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111961246"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-arm-template"></a>Inicio rápido: Creación de una cola y un espacio de nombres de Service Bus con una plantilla de ARM
 
@@ -27,13 +27,13 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.servicebus%2Fservicebus-create-queue%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/201-servicebus-create-queue).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/servicebus-create-queue/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.servicebus/servicebus-create-queue/azuredeploy.json":::
 
@@ -91,7 +91,7 @@ Vea los siguientes artículos para aprender a administrar estos recursos:
 * [Administración de Service Bus con PowerShell](service-bus-manage-with-ps.md)
 * [Administración de recursos de Service Bus con el Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/syntax.md
 [Service Bus namespace and queue template]: https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.servicebus/servicebus-create-queue/azuredeploy.json/
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 [Learn more about Service Bus queues]: service-bus-queues-topics-subscriptions.md

@@ -9,15 +9,15 @@ ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 05/10/2021
 ms.author: allensu
-ms.openlocfilehash: 01aef74b5a4242f5d9b3213c447116e5c4b382ac
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: ee199aaf13763f735607943eb51b848aecde54ff
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751696"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112005544"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint---arm-template"></a>Inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN: plantilla de ARM
 
@@ -35,7 +35,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-cdn-with-custom-origin/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/cdn-with-custom-origin/).
 
 Esta plantilla está configurada para crear lo siguiente:
 

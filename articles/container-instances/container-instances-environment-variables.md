@@ -3,12 +3,13 @@ title: Establecimiento de variables de entorno en instancias de contenedor
 description: Aprenda a establecer variables de entorno en los contenedores que ejecuta en Azure Container Instances.
 ms.topic: article
 ms.date: 04/17/2019
-ms.openlocfilehash: 9d95ee3d64460aa5e11f450c9e582cdc0de4f0ae
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 55a653baa6304ad830df52d0e303366edc8ae4e0
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790804"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110698752"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Establecimiento de variables de entorno en instancias de contenedor
 

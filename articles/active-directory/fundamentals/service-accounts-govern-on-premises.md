@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50ba13a49d8e08b70ebf8a8bb12dfe92d8a35bb7
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: e02755f748cffcf7c523ce3b9c6fc651d2b1b02f
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108206591"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438925"
 ---
 # <a name="govern-on-premises-service-accounts"></a>Control de las cuentas de servicio locales
 
@@ -59,7 +59,7 @@ En el caso de las cuentas de usuario que se usan como cuentas de servicio, apliq
 
 *  **LogonWorkstations**: restrinja los permisos de donde la cuenta de servicio puede iniciar sesión. Si se ejecuta localmente en una máquina y solo tiene acceso a los recursos de esa máquina, restrinja el inicio de sesión en cualquier otra parte.
 
-* [**No puede cambiar la contraseña**](/powershell/module/addsadministration/set-aduser): impida que la cuenta de servicio cambie su propia contraseña; para ello, establezca el parámetro en false.
+* [**No puede cambiar la contraseña**](/powershell/module/activedirectory/set-aduser): impida que la cuenta de servicio cambie su propia contraseña; para ello, establezca el parámetro en false.
  
 ## <a name="build-a-lifecycle-management-process"></a>Creación de un proceso de administración del ciclo de vida
 
@@ -181,7 +181,7 @@ Después de quitar todos los permisos, quite la cuenta de la manera siguiente:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la protección de las cuentas de servicio, consulte los artículos siguientes:
+Para obtener más información sobre la protección de las cuentas de servicio, consulte los artículos siguientes:
 
 * [Introducción a las cuentas de servicio locales](service-accounts-on-premises.md)  
 * [Protección de cuentas de servicio administradas de grupo](service-accounts-group-managed.md)  

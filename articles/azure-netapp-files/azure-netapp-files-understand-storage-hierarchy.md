@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 435d74e771a9d887c87c9d10e6b525ac77cf97e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd96a8c2002bc22a0e4ef2c5a19fa06bf10b5565
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91278335"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071900"
 ---
 # <a name="storage-hierarchy-of-azure-netapp-files"></a>Jerarquía de almacenamiento de Azure NetApp Files
 
@@ -63,9 +63,6 @@ El tipo de QoS es un atributo de un grupo de capacidad. Azure NetApp Files propo
     El rendimiento máximo asignado a un volumen depende del nivel de servicio del grupo de capacidad y de la cuota de tamaño del volumen. Para ver un ejemplo de cálculo, consulte [Niveles de servicio para Azure NetApp Files](azure-netapp-files-service-levels.md).
 
 - Tipo de QoS <a name="manual_qos_type"></a>*manual*  
-
-     > [!IMPORTANT] 
-     > El uso del tipo de QoS manual para un grupo de capacidad requiere el registro.  Consulte [Administración de un grupo de capacidad de QoS manual](manage-manual-qos-capacity-pool.md).  
 
     Tiene la opción de usar el tipo de QoS manual para un grupo de capacidad.
 

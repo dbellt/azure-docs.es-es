@@ -5,12 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: aec23c28e075dd38fa65f1315f9abd9e21cdc9cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 636b6d7a15e80e725cadbfb07ed1dd0c5ef0347e
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104951477"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111888687"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Aprovisionamiento e implementación predecibles de microservicios en Azure
 En este tutorial se explica cómo aprovisionar e implementar una aplicación formada por [microservicios](https://en.wikipedia.org/wiki/Microservices) en [Azure App Service](https://azure.microsoft.com/services/app-service/) como una sola unidad y de forma predecible con plantillas de grupo de recursos JSON y scripting de PowerShell. 
@@ -29,7 +29,7 @@ En el tutorial, implementará una aplicación que incluye:
 En este tutorial, utilizará las siguientes herramientas. Habida cuenta de que no se trata de un tema dedicado íntegramente a las herramientas, voy a presentar un escenario de un extremo a otro y a dar solo una breve introducción acerca de cada una, además de indicar dónde se puede encontrar más información al respecto. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Plantillas del Administrador de recursos de Azure (JSON)
-Cada vez que crea una aplicación en Azure App Service (por ejemplo, Azure Resource Manager usa una plantilla JSON para crear el grupo de recursos completo con los recursos del componente). Una plantilla compleja de [Azure Marketplace](../marketplace/index.yml) puede incluir la base de datos, cuentas de almacenamiento, el plan de App Service, la propia aplicación, las reglas de alertas, la configuración de la aplicación, configuración de escalado automático, etc., y todas estas plantillas están disponibles en PowerShell. Para obtener más información sobre las plantillas del Administrador de recursos de Azure, consulte [Creación de plantillas de Administrador de recursos de Azure](../azure-resource-manager/templates/template-syntax.md)
+Cada vez que crea una aplicación en Azure App Service (por ejemplo, Azure Resource Manager usa una plantilla JSON para crear el grupo de recursos completo con los recursos del componente). Una plantilla compleja de [Azure Marketplace](../marketplace/index.yml) puede incluir la base de datos, cuentas de almacenamiento, el plan de App Service, la propia aplicación, las reglas de alertas, la configuración de la aplicación, configuración de escalado automático, etc., y todas estas plantillas están disponibles en PowerShell. Para obtener más información sobre las plantillas del Administrador de recursos de Azure, consulte [Creación de plantillas de Administrador de recursos de Azure](../azure-resource-manager/templates/syntax.md)
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>SDK de Azure 2.6 para Visual Studio
 El SDK más reciente contiene mejoras en la compatibilidad de la plantilla del Administrador de recursos en el editor de JSON. Puede utilizar esto para crear rápidamente una plantilla de grupo de recursos desde el principio o abrir una plantilla existente de JSON (por ejemplo, una plantilla descargada de la Galería) para modificarla, rellenar el archivo de parámetros e incluso implementar el grupo de recursos directamente desde una solución de grupo de recursos de Azure.
@@ -250,8 +250,8 @@ En las operaciones de desarrollo, la repetibilidad y previsión son claves para 
 <a name="resources"></a>
 
 ## <a name="more-resources"></a>Más recursos
-* [Idioma de la plantilla del Administrador de recursos de Azure](../azure-resource-manager/templates/template-syntax.md)
-* [Creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/templates/template-syntax.md)
+* [Idioma de la plantilla del Administrador de recursos de Azure](../azure-resource-manager/templates/syntax.md)
+* [Creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/templates/syntax.md)
 * [Funciones de la plantilla del Administrador de recursos de Azure](../azure-resource-manager/templates/template-functions.md)
 * [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](../azure-resource-manager/templates/deploy-powershell.md)
 * [Uso de Azure PowerShell con Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md)

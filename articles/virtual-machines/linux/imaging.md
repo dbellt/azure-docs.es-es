@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: a77c2bc69418b821933c0b62674500f7a32e40a5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 048afc8997f4e2b3f1d9a9cf6aea67be63c659ee
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102565213"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112027150"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Creación y uso de imágenes de Linux en Azure
 
@@ -26,7 +26,7 @@ En este artículo se describirán los requisitos y los distintos aspectos de las
 ## <a name="difference-between-managed-disks-and-images"></a>Diferencia entre discos administrados e imágenes
 
 
-Azure permite llevar un disco duro virtual a la plataforma, con el fin de usarlo como [disco administrado](../faq-for-disks.md#managed-disks) o como origen de una imagen. 
+Azure permite llevar un disco duro virtual a la plataforma, con el fin de usarlo como [disco administrado](/azure/virtual-machines/faq-for-disks#managed-disks) o como origen de una imagen. 
 
 Los discos administrados de Azure son discos duros virtuales únicos. Puede tomar un disco duro virtual existente y crear un disco administrado a partir de él, o bien crear un disco administrado vacío desde cero. Puede crear máquinas virtuales a partir de discos administrados. Para ello, debe conectar el disco a la máquina virtual, pero solo puede usar un disco duro virtual con una máquina virtual. No puede modificar las propiedades del sistema operativo, Azure solo intentará encender la máquina virtual y empezar a usar ese disco. 
 

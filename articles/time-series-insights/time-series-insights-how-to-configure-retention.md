@@ -3,19 +3,20 @@ title: Configuración de la retención en el entorno, Azure Time Series Insights
 description: Obtenga información sobre cómo configurar la retención en el entorno de Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: esung22
+ms.author: elsung
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 468b4f7ca7b0af4abc32df5d9ef64a74154d3de1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0189fdbd37be97d841d8a0ea80c83fa2e2c32d0
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91569406"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112063475"
 ---
 # <a name="configuring-retention-in-azure-time-series-insights-gen1"></a>Configuración de la retención en Azure Time Series Insights Gen1
 
@@ -33,7 +34,7 @@ Cada entorno de Azure Time Series Insights tiene una opción adicional de **Comp
 - **Purgar datos antiguos** (valor predeterminado)
 - **Pausar entradas**
 
-Para obtener información detallada para comprender mejor estas opciones de configuración, consulte [Descripción de la retención de datos en Azure Time Series Insights](time-series-insights-concepts-retention.md).  
+Para obtener información detallada para comprender mejor estas opciones de configuración, consulte [Descripción de la retención de datos en Azure Time Series Insights](time-series-insights-concepts-retention.md).
 
 ## <a name="configure-data-retention"></a>Configuración de la retención de datos
 

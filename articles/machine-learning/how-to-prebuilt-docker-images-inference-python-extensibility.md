@@ -11,12 +11,12 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: 688c0fd03573737ee97084025251c9082a8cb915
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 8af27f876f1c325cf99214e36f680e012e86c98d
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110383036"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536332"
 ---
 # <a name="python-package-extensibility-for-prebuilt-docker-images-preview"></a>Extensibilidad de paquetes de Python para imágenes de Docker precompiladas (versión preliminar)
 
@@ -155,7 +155,7 @@ Estos son algunos de los aspectos que pueden provocar este problema:
     | Solución  | Cree un archivo `requirements.txt` que instale los paquetes especificados cuando se inicie el contenedor. | Cree un entorno de Python local con todas las dependencias. Monte este directorio en el contenedor en tiempo de ejecución. |
     | Instalación del paquete           | Sin instalación adicional (suponiendo que pip ya esté instalado)                                                                                                          | Instalación de entorno virtual o entorno de Conda.                                                                                   |
     | Configuración del entorno virtual              | No se requiere ninguna configuración adicional del entorno virtual, ya que los usuarios pueden extraer el entorno de usuario local actual con pip freeze según sea necesario para crear `requirements.txt`. | Es necesario para configurar un entorno virtual limpio, puede realizar pasos adicionales en función del entorno local del usuario actual.                        |
-    | Depuración                  | Servidor fácil de configurar y depurar, ya que las dependencias se muestran claramente. | Un entorno virtual no limpio podría causar problemas al depurar el servidor. Por ejemplo, puede que no esté claro si los errores proceden del entorno o del código de usuario. |
+    | [Depuración](how-to-inference-server-http.md)                 | Servidor fácil de configurar y depurar, ya que las dependencias se muestran claramente. | Un entorno virtual no limpio podría causar problemas al depurar el servidor. Por ejemplo, puede que no esté claro si los errores proceden del entorno o del código de usuario. |
     | Coherencia durante el escalado horizontal | No es coherente, ya que depende de los paquetes PyPi externos y de los usuarios que anclan sus dependencias. Estas descargas externas podrían ser no confiables.                                 | Se basa únicamente en el entorno de usuario, por lo que no hay problemas de coherencia.                                                                             |
 
 * ¿Por qué mi archivo `requirements.txt` y el directorio de dependencias montadas no se encuentran en el contenedor?

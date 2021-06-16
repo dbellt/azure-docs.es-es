@@ -10,14 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 9f74fdc9cd30e1dfbd4df6c94842a9dccb435ef4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7cb539b79e4c1fb5b40c0218c87ef6f18dd3fd77
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "92913660"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031734"
 ---
 # <a name="export-or-delete-user-data-in-content-moderator"></a>Exportación o eliminación de datos de usuario en Content Moderator
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 Content Moderator recopila los datos del usuario para prestar el servicio, pero los clientes tienen control total sobre la visualización, la exportación y la eliminación de sus datos mediante la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) y las [API de moderación y revisión](./api-reference.md).
 

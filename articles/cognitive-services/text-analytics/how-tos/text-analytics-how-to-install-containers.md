@@ -9,22 +9,21 @@ ms.custom: seodec18, cog-serv-seo-aug-2020, devx-track-azurecli
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 06/02/2021
 ms.author: aahi
 keywords: local, Docker, contenedor, análisis de sentimiento, procesamiento de lenguaje natural
-ms.openlocfilehash: 09d0da5aa811f694657ae6a0b8059bf55bcbf657
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 103f6ce9c614646f96129f9579a35655756bb794
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108290261"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968198"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalación y ejecución de contenedores de Text Analytics
 
 > [!NOTE]
 > * El contenedor de Análisis de sentimiento y la detección de idioma ya están disponibles con carácter general. El contenedor de extracción de frases clave está disponible como versión preliminar pública no validada.
 > * La vinculación de entidades y NER no están disponibles actualmente como contenedor.
-> * El acceso al Text Analytics para el contenedor de estado requiere un [formulario de solicitud](https://aka.ms/csgate). Actualmente, no se le facturará por su uso.
 > * Es posible que las ubicaciones de las imágenes de contenedor hayan cambiado recientemente. Lea este artículo para ver la ubicación actualizada de este contenedor.
 
 Los contenedores permiten ejecutar las API Text Analytics en su propio entorno y son ideales para sus requisitos específicos de seguridad y gobernanza de datos. Los contenedores de Text Analytics proporcionan un procesamiento avanzado de lenguaje natural sobre texto sin formato, e incluye tres funciones principales: análisis de sentimiento, extracción de frases clave y detección de idioma. 

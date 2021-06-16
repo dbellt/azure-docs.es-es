@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 75defcf88128e1b100e403d74f76577525f0bdeb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7561a836f593515cc4d05706ff7834591e19aaf9
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105642130"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081306"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Creación y administración de Private Link para el servidor único de Azure Database for PostgreSQL con el portal
 
@@ -66,7 +66,7 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
     | Size | Deje el valor predeterminado **Estándar DS1 v2**. |
     | **CUENTA DE ADMINISTRADOR** |  |
     | Nombre de usuario | Escriba un nombre de usuario de su elección. |
-    | Contraseña | Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Contraseña | Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     | Confirm Password | Vuelva a escribir la contraseña. |
     | **REGLAS DE PUERTO DE ENTRADA** |  |
     | Puertos de entrada públicos | Deje el valor predeterminado **Ninguno**. |

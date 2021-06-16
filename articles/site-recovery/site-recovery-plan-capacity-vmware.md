@@ -1,18 +1,18 @@
 ---
 title: Planeamiento de la capacidad para la recuperación ante desastres de VMware con Azure Site Recovery
 description: Este artículo puede ayudarle a planear la capacidad y el escalado cuando configure la recuperación ante desastres de máquinas virtuales de VMware en Azure con Azure Site Recovery.
-author: nsoneji
-manager: garavd
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
-ms.date: 4/9/2019
 ms.topic: conceptual
-ms.author: ramamill
-ms.openlocfilehash: 4b86d0c189bcf0687a703f2338188df2090feaf0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: 9a8706ee361ea7cb34b1e843b3bdd29ce381d48e
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92368033"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110577367"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planeamiento de la capacidad y escalado para la recuperación ante desastres de VMware en Azure
 

@@ -3,12 +3,13 @@ title: Habilitación de la creación de particiones en las colas y los temas de 
 description: En este artículo se explica cómo habilitar la creación de particiones en las colas y los temas de Azure Service Bus mediante Azure Portal, PowerShell, la CLI y los lenguajes de programación (C#, Java, Python y JavaScript).
 ms.topic: how-to
 ms.date: 04/19/2021
-ms.openlocfilehash: ac77dfc2e72d1d83c4424c05da40c5adba1e8e9d
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 786a78cfa86c67ba32675fcee2b03c4e3817fbf6
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076696"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671398"
 ---
 # <a name="enable-partitioning-for-an-azure-service-bus-queue-or-a-topic"></a>Habilitación de la creación de particiones para una cola o un tema de Azure Service Bus
 Las particiones de Service Bus permiten que las colas y temas, o entidades de mensajería, se dividan entre varios agentes de mensajes y almacenes de mensajería. Las particiones significan que el rendimiento general de una entidad particionada ya no está limitado por el rendimiento de un solo agente o almacén de mensajería. Además, una interrupción temporal de un almacén de mensajería no hace que una cola o tema con particiones deje de estar disponible. Las colas y los temas con particiones pueden contener todas las características avanzadas de Service Bus, como la compatibilidad con transacciones y sesiones. Para obtener más información, consulte [Temas y colas con particiones](service-bus-partitioning.md). En este artículo se muestran las distintas formas de habilitar la detección de mensajes duplicados para una cola o un tema de Service Bus. 

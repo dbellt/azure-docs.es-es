@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 17f3440df4fa88995f2148680aba926207a0e46b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 16902a8733c4b4d423deb47c5a8980284d8e690e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561269"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964086"
 ---
 # <a name="configure-auto-provisioning-for-agents-and-extensions-from-azure-security-center"></a>Configuración del aprovisionamiento automático de agentes y extensiones desde Azure Security Center
 
@@ -86,9 +86,9 @@ Para habilitar el aprovisionamiento automático del agente de Log Analytics:
         > [!TIP]
         > Si tiene preguntas relacionadas con las áreas de trabajo predeterminadas, consulte:
         >
-        > - [¿Se me facturan los registros de Azure Monitor en las áreas de trabajo que creada Security Center?](faq-data-collection-agents.md#am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center)
-        > - [¿Dónde se crea el área de trabajo Log Analytics predeterminada?](faq-data-collection-agents.md#where-is-the-default-log-analytics-workspace-created)
-        > - [¿Puedo eliminar las áreas de trabajo predeterminadas creadas por Security Center?](faq-data-collection-agents.md#can-i-delete-the-default-workspaces-created-by-security-center)
+        > - [¿Se me facturan los registros de Azure Monitor en las áreas de trabajo que creada Security Center?](/azure/security-center/faq-data-collection-agents.yml#am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center)
+        > - [¿Dónde se crea el área de trabajo Log Analytics predeterminada?](/azure/security-center/faq-data-collection-agents.yml#where-is-the-default-log-analytics-workspace-created)
+        > - [¿Puedo eliminar las áreas de trabajo predeterminadas creadas por Security Center?](/azure/security-center/faq-data-collection-agents.yml#can-i-delete-the-default-workspaces-created-by-security-center)
 
     - **Conexión de máquinas virtuales de Azure a un área de trabajo diferente**: en la lista desplegable, seleccione el área de trabajo donde se van a almacenar los datos recopilados. La lista desplegable incluye todas las áreas de trabajo de todas las suscripciones. Puede usar esta opción para recopilar datos de máquinas virtuales que se ejecutan en distintas suscripciones y almacenarlos en el área de trabajo seleccionada.  
 
@@ -181,7 +181,7 @@ A continuación se muestra un desglose completo de los identificadores de evento
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
 
 > [!NOTE]
-> - Si se usa un objeto de directiva de grupo (GPO), se recomienda habilitar el evento 4688 de creación de procesos de las directivas de auditoría y el campo *CommandLine* del evento 4688. Para más información acerca del evento 4688 de creación de procesos, consulte las [preguntas más frecuentes](faq-data-collection-agents.md#what-happens-when-data-collection-is-enabled) acerca de Security Center. Para más información acerca de estas directivas de auditoría, consulte [Recomendaciones de la directiva de auditoría](/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
+> - Si se usa un objeto de directiva de grupo (GPO), se recomienda habilitar el evento 4688 de creación de procesos de las directivas de auditoría y el campo *CommandLine* del evento 4688. Para más información acerca del evento 4688 de creación de procesos, consulte las [preguntas más frecuentes](/azure/security-center/faq-data-collection-agents.yml#what-happens-when-data-collection-is-enabled) acerca de Security Center. Para más información acerca de estas directivas de auditoría, consulte [Recomendaciones de la directiva de auditoría](/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
 > -  Para habilitar la recopilación de datos para [Controles de aplicación adaptables](security-center-adaptive-application.md), Security Center configura una directiva de AppLocker local en el modo de auditoría que permite todas las aplicaciones. Con esto, AppLocker generará eventos que luego Security Center recopilará y aprovechará. Es importante tener en cuenta que esta directiva no se configurará en las máquinas en las que ya se haya configurado una directiva de AppLocker. 
 > - Para recopilar Windows Filtering Platform [Event ID 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156), tiene que habilitar [Auditar conexión de Plataforma de filtrado](/windows/security/threat-protection/auditing/audit-filtering-platform-connection) (Auditpol /set /subcategory:"Filtering Platform Connection" /Success:Enable)
 >
@@ -249,7 +249,7 @@ Si el área de trabajo configurada es un área de trabajo de usuario (no el áre
 - **Está presente una extensión de máquina virtual existente**:
     - Cuando se instala Monitoring Agent como una extensión, la configuración de extensión permite enviar informes a una sola área de trabajo. Security Center no invalida las conexiones existentes con áreas de trabajo de usuario. Security Center almacenará datos de seguridad de la máquina virtual en el área de trabajo que ya está conectada, siempre que se haya instalado en ella la solución "Security" o "SecurityCenterFree". Durante este proceso, Security Center puede actualizar la versión de extensión a la versión más reciente.
     - Para ver el área de trabajo, a la que la extensión existente está enviando datos, ejecute la prueba de [Validación de la conectividad con Azure Security Center](/archive/blogs/yuridiogenes/validating-connectivity-with-azure-security-center). También puede abrir las áreas de trabajo de Log Analytics, seleccionar un área de trabajo, seleccionar la máquina virtual y examinar la conexión del agente de Log Analytics.
-    - Si tiene un entorno donde esté instalado el agente de Log Analytics en estaciones de trabajo de cliente y esté informando a un área de trabajo de Log Analytics existente, revise la lista de [sistemas operativos compatibles con Azure Security Center](security-center-os-coverage.md) para asegurarse de que el sistema operativo es compatible. Para más información, consulte [Clientes existentes de análisis de registros](./faq-azure-monitor-logs.md).
+    - Si tiene un entorno donde esté instalado el agente de Log Analytics en estaciones de trabajo de cliente y esté informando a un área de trabajo de Log Analytics existente, revise la lista de [sistemas operativos compatibles con Azure Security Center](security-center-os-coverage.md) para asegurarse de que el sistema operativo es compatible. Para más información, consulte [Clientes existentes de análisis de registros](./faq-azure-monitor-logs.yml).
  
 
 ## <a name="disable-auto-provisioning"></a>Deshabilitar aprovisionamiento automático <a name="offprovisioning"></a>
@@ -271,7 +271,7 @@ Para desactivar el aprovisionamiento automático de un agente:
 
 
 > [!NOTE]
->  La deshabilitación del aprovisionamiento automático no quita el agente de Log Analytics de las máquinas virtuales de Azure en las que se aprovisionó el agente. Para más información acerca de cómo quitar la extensión de OMS, consulte [¿Cómo quito extensiones OMS instaladas por Security Center?](faq-data-collection-agents.md#remove-oms).
+>  La deshabilitación del aprovisionamiento automático no quita el agente de Log Analytics de las máquinas virtuales de Azure en las que se aprovisionó el agente. Para más información acerca de cómo quitar la extensión de OMS, consulte [¿Cómo quito extensiones OMS instaladas por Security Center?](/azure/security-center/faq-data-collection-agents.yml#remove-oms).
 >
 
 

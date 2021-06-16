@@ -1,16 +1,19 @@
 ---
 title: Automatización del servicio Mobility para la recuperación ante desastres de la instalación en Azure Site Recovery
 description: Cómo instalar automáticamente el servicio Mobility para la recuperación ante desastres de VMware/servidor físico con Azure Site Recovery.
-author: Rajeswari-Mamilla
+services: site-recovery
+author: Sharmistha-Rai
+manager: gaggupta
+ms.service: site-recovery
 ms.topic: how-to
-ms.date: 2/5/2020
-ms.author: ramamill
-ms.openlocfilehash: 2159ab8c2639f0f87fd53e8559dad518a3daa663
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: edab60c800aee772ed95980515e8d381c96a2bb6
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92544824"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110576713"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatización de la instalación del servicio Mobility
 
@@ -31,7 +34,7 @@ La instalación y actualización automatizadas proporcionan una solución si:
 - Tiene que escalar las instalaciones del agente a muchos servidores de forma simultánea.
 - Quiere programar las instalaciones y las actualizaciones durante las ventanas de mantenimiento planeado.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para automatizar la instalación, necesita los siguientes elementos:
 

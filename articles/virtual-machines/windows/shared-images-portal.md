@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
-ms.openlocfilehash: e28a1412fa417b9f15ab7a6f79305d07ca6d9fec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ef48e6eaef441026457e584a302eb3fe515c0a6
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556101"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079416"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Creación de una instancia de Azure Shared Image Gallery mediante el portal
 
@@ -48,7 +48,7 @@ Ahora puede crear una o varias máquinas virtuales. En este ejemplo se crea una 
 1. En **Opciones de disponibilidad**, deje el valor predeterminado *No se requiere redundancia de la infraestructura*.
 1. El valor de **Imagen** se completa automáticamente con la versión de imagen `latest` si el inicio se realizó desde la página para la definición de la imagen.
 1. En **Tamaño**, elija un tamaño de máquina virtual en la lista de tamaños disponibles y, después, elija **Seleccionar**.
-1. En **Cuenta de administrador**, si la imagen estaba generalizada, debe proporcionar un nombre de usuario, como *azureuser* y una contraseña. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm). Si la imagen estaba especializada, los campos de nombre de usuario y contraseña se atenuarán porque se usan el nombre de usuario y la contraseña de la máquina virtual de origen.
+1. En **Cuenta de administrador**, si la imagen estaba generalizada, debe proporcionar un nombre de usuario, como *azureuser* y una contraseña. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](faq.yml#what-are-the-password-requirements-when-creating-a-vm-). Si la imagen estaba especializada, los campos de nombre de usuario y contraseña se atenuarán porque se usan el nombre de usuario y la contraseña de la máquina virtual de origen.
 1. Si quiere permitir el acceso remoto a la VM, en **Puertos de entrada públicos**, elija **Permitir puertos seleccionados** y, a continuación, seleccione **SSH (3389)** en la lista desplegable. Si no desea permitir el acceso remoto a la máquina virtual, deje **Ninguno** seleccionado en **Puertos de entrada públicos**.
 1. Cuando haya terminado, seleccione el botón **Revisar y crear** situado en la parte inferior de la página.
 1. Una vez que la máquina virtual haya superado la validación, seleccione **Crear** en la parte inferior de la página para iniciar la implementación.
@@ -64,9 +64,9 @@ Si desea eliminar recursos individuales, deberá eliminarlos en el orden inverso
 
 Puede crear también recursos de galería de imágenes compartidas con plantillas. Hay varias plantillas de Inicio rápido de Azure disponibles: 
 
-- [Creación de una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/101-sig-create/)
-- [Creación de una definición de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
-- [Creación de una versión de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [Creación de una máquina virtual a partir de la versión de la imagen](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [Creación de una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-create/)
+- [Creación de una definición de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [Creación de una versión de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- [Creación de una máquina virtual a partir de la versión de la imagen](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 Para más información sobre las galerías de imágenes compartidas, consulte la [Introducción](../shared-image-galleries.md). Si encuentra problemas, consulte [Solución de problemas de galerías de imágenes compartidas](../troubleshooting-shared-images.md).

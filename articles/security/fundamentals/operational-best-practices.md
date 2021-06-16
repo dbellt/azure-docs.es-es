@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 6634a536828b3c19d771d135fdb3a1224d3dfdf3
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: e6bfa172624ba65c161abcba6dfd97b557fb8d91
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717430"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950457"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedimientos recomendados de seguridad operativa de Azure
 En este artículo se proporciona un conjunto de procedimientos recomendados operativos para proteger los datos, aplicaciones y otros recursos en Azure.
@@ -144,9 +144,9 @@ A continuación se ofrecen procedimientos recomendados para la supervisión de r
 Use los siguientes procedimientos recomendados de DevOps para garantizar que la empresa y los equipos sean productivos y eficientes.
 
 **Procedimiento recomendado**: automatizar la compilación e implementación de servicios.  
-**Detalles**: [Infraestructura como código](/azure/devops/learn/what-is-infrastructure-as-code) es un conjunto de técnicas y procedimientos que ayudan a los profesionales de TI a eliminar la carga que supone la compilación y administración cotidianas de una infraestructura modular. Permite a los profesionales de TI compilar y mantener sus entornos de servidores modernos de forma similar a como los desarrolladores de software compilan y mantienen el código de las aplicaciones.
+**Detalles**: [Infraestructura como código](/devops/deliver/what-is-infrastructure-as-code) es un conjunto de técnicas y procedimientos que ayudan a los profesionales de TI a eliminar la carga que supone la compilación y administración cotidianas de una infraestructura modular. Permite a los profesionales de TI compilar y mantener sus entornos de servidores modernos de forma similar a como los desarrolladores de software compilan y mantienen el código de las aplicaciones.
 
-Puede usar [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para aprovisionar las aplicaciones mediante una plantilla declarativa. En una plantilla, puede implementar varios servicios junto con sus dependencias. Use la misma plantilla para implementar la aplicación de forma repetida durante cada fase de su ciclo de vida.
+Puede usar [Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) para aprovisionar las aplicaciones mediante una plantilla declarativa. En una plantilla, puede implementar varios servicios junto con sus dependencias. Use la misma plantilla para implementar la aplicación de forma repetida durante cada fase de su ciclo de vida.
 
 **Procedimiento recomendado**: compilar e implementar automáticamente en aplicaciones web o servicios en la nube de Azure.  
 **Detalles**: Puede configurar Azure DevOps Projects para que se [compile e implemente de forma automática](/azure/devops/pipelines/index) en aplicaciones web de Azure o en servicios en la nube. Azure DevOps implementa automáticamente los archivos binarios después de realizar una compilación en Azure tras cada comprobación de código. El proceso de compilación del paquete es equivalente al comando Package de Visual Studio y los pasos de publicación son equivalentes al comando Publish de Visual Studio.

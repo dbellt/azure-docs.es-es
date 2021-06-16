@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 2/16/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b93fdcc125075786c237ab1eb7bfac8cf2e551f6
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: ad3946dcd850a4a3d05f4d28882d08408e39b707
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108179175"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964703"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>Acceso híbrido seguro: Protección de aplicaciones heredadas con Azure Active Directory
 
@@ -32,13 +32,13 @@ Puede salvar la brecha y fortalecer su postura de seguridad en todas las aplicac
 
 ## <a name="secure-hybrid-access-sha-through-azure-ad-application-proxy"></a>Acceso híbrido seguro (SHA) a través de Azure AD Application Proxy
   
-Con [Application Proxy](../app-proxy/what-is-application-proxy.md), puede proporcionar [acceso remoto seguro](../app-proxy/application-proxy.md) a sus aplicaciones web locales. Los usuarios no necesitan usar una VPN. Los usuarios se benefician al conectarse fácilmente a sus aplicaciones desde cualquier dispositivo después de un [inicio de sesión único](add-application-portal-setup-sso.md). Application Proxy proporciona acceso remoto como servicio y permite [publicar fácilmente sus aplicaciones locales](../app-proxy/application-proxy-add-on-premises-application.md) a usuarios ajenos a la red corporativa. Ayuda a escalar la administración del acceso a la nube sin necesidad de modificar las aplicaciones locales. [Planee una implementación de Azure AD Application Proxy](application-proxy-deployment-plan.md) como el siguiente paso.
+Con [Application Proxy](../app-proxy/what-is-application-proxy.md), puede proporcionar [acceso remoto seguro](../app-proxy/application-proxy.md) a sus aplicaciones web locales. Los usuarios no necesitan usar una VPN. Los usuarios se benefician al conectarse fácilmente a sus aplicaciones desde cualquier dispositivo después de un [inicio de sesión único](add-application-portal-setup-sso.md). Application Proxy proporciona acceso remoto como servicio y permite [publicar fácilmente sus aplicaciones locales](../app-proxy/application-proxy-add-on-premises-application.md) a usuarios ajenos a la red corporativa. Ayuda a escalar la administración del acceso a la nube sin necesidad de modificar las aplicaciones locales. [Planee una implementación de Azure AD Application Proxy](../app-proxy/application-proxy-deployment-plan.md) como el siguiente paso.
 
 ## <a name="azure-ad-partner-integrations"></a>Integraciones de asociados de Azure AD
 
 ### <a name="sha-through-networking-and-delivery-controllers"></a>SHA mediante los controladores de red y entrega
 
-Además de [Azure AD Application Proxy](./what-is-application-proxy.md), para permitirle usar el [marco de confianza cero](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/), Microsoft se asocia con proveedores externos. Puede usar las redes y los controladores de entrega existentes, así como proteger fácilmente las aplicaciones heredadas que son críticas para los procesos empresariales pero que no se pudieron proteger antes de Azure AD. Es probable que ya tenga todo lo que necesita para empezar a proteger estas aplicaciones.
+Además de [Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md), para permitirle usar el [marco de confianza cero](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/), Microsoft se asocia con proveedores externos. Puede usar las redes y los controladores de entrega existentes, así como proteger fácilmente las aplicaciones heredadas que son críticas para los procesos empresariales pero que no se pudieron proteger antes de Azure AD. Es probable que ya tenga todo lo que necesita para empezar a proteger estas aplicaciones.
 
 ![La imagen muestra el acceso híbrido seguro con los asociados de red y el proxy de aplicación](./media/secure-hybrid-access/secure-hybrid-access.png)
 

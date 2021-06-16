@@ -3,20 +3,20 @@ title: 'Inicio rápido: Creación de una instancia de Azure SQL Managed Instance
 description: En este inicio rápido, creará una instancia administrada, un entorno de red y una máquina virtual cliente para el acceso mediante Azure Portal.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: deployment-configuration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: danimir
-ms.author: danil
-ms.reviewer: sstein
+author: urosmil
+ms.author: urmilano
+ms.reviewer: mathoma
 ms.date: 1/29/2021
-ms.openlocfilehash: d356cad1b4754875574e19be732fdf6481c61e22
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77b43cfe781499c408f1952aed532ddb12c621e5
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101691219"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112082350"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance"></a>Inicio rápido: Creación de una instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -58,7 +58,7 @@ Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.m
    | **Nombre de la instancia administrada** | Cualquier nombre válido.|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming).|
    | **Región** |La región en la que desea crear la instancia administrada.|Para obtener información sobre las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).|
    | **Inicio de sesión de administrador de la instancia administrada** | Cualquier nombre de usuario válido. | Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming). No utilice "serveradmin", ya es un rol de nivel de servidor reservado.|
-   | **Contraseña** | Cualquier contraseña válida.| La contraseña debe tener al menos 16 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
+   | **Contraseña** | Cualquier contraseña válida.| La contraseña debe tener al menos 16 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).|
 
 - Seleccione **Configurar instancia administrada**  para cambiar el tamaño de los recursos de almacenamiento y de proceso, así como para revisar los planes de tarifa. Utilice los controles deslizantes o cuadros de texto para especificar la cantidad de almacenamiento y el número de núcleos virtuales. Cuando haya terminado, seleccione **Aplicar** para guardar las opciones que haya elegido. 
 

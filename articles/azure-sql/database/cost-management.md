@@ -1,18 +1,19 @@
 ---
-title: Planeamiento y administración de los costos de Azure SQL Database
+title: Planificación y administración de costos
 description: Aprenda a planear y administrar los costos de Azure SQL Database mediante el análisis de costos de Azure Portal.
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.custom: subject-cost-optimization
 ms.service: sql-database
+ms.subservice: service-overview
 ms.topic: how-to
 ms.date: 01/15/2021
-ms.openlocfilehash: 56cf30d89460df8ac50d258bd8b29cf4e7236690
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e43d9b85bc50772ad75e974e11d0e7332e271b29
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98734637"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408918"
 ---
 # <a name="plan-and-manage-costs-for-azure-sql-database"></a>Planeamiento y administración de los costos de Azure SQL Database
 
@@ -38,7 +39,7 @@ Azure SQL Database admite dos modelos de compra: núcleo virtual y DTU. La forma
 
 ### <a name="provisioned-or-serverless"></a>Aprovisionado o sin servidor
 
-En el modelo de compra de núcleo virtual, Azure SQL Database también admite dos tipos de niveles de proceso: rendimiento aprovisionado y sin servidor. La forma en que se cobra por cada nivel de proceso varía, por lo que es importante comprender lo que se adapta mejor a su carga de trabajo al planear y considerar los costos. Para obtener más información, consulte [Información general del modelo de núcleo virtual: Niveles de proceso](service-tiers-vcore.md#compute-tiers).
+En el modelo de compra de núcleo virtual, Azure SQL Database también admite dos tipos de niveles de proceso: rendimiento aprovisionado y sin servidor. La forma en que se cobra por cada nivel de proceso varía, por lo que es importante comprender lo que se adapta mejor a su carga de trabajo al planear y considerar los costos. Para obtener más información, consulte [Información general del modelo de núcleo virtual: Niveles de proceso](service-tiers-sql-database-vcore.md#compute-tiers).
 
 En el nivel de proceso aprovisionado del modelo de compra basado en núcleo virtual, puede intercambiar sus licencias existentes por tarifas con descuento. Para obtener más información, consulte [Ventaja híbrida de Azure (AHB)](../azure-hybrid-benefit.md).
 

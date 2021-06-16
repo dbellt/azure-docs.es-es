@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 6f073777930b4d026d826d2c3586e0886f906206
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3099ff7525e07a2361a63382eea0d3dc6e689ee7
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102503086"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956831"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedimientos de seguridad recomendados para cargas de trabajo de IaaS de Azure
 En este artículo se describen los procedimientos recomendados de seguridad para máquinas virtuales y sistemas operativos.
@@ -43,7 +43,7 @@ El primer paso para proteger la máquina virtual es garantizar que solo los usua
 Si su organización tiene varias suscripciones, podría necesitar una manera de administrar el acceso, las directivas y el cumplimiento de esas suscripciones de forma eficaz. Los [grupos de administración de Azure](../../governance/management-groups/overview.md) proporcionan un nivel de ámbito por encima de las suscripciones. Las suscripciones se organizan en grupos de administración (contenedores) y aplican sus condiciones de gobernanza a dichos grupos. Todas las suscripciones dentro de un grupo de administración heredan automáticamente las condiciones que se aplican al grupo. Los grupos de administración proporcionan capacidad de administración de nivel empresarial a gran escala con independencia del tipo de suscripciones que tenga.
 
 **Procedimiento recomendado**: Reducción de la variabilidad en la configuración e implementación de máquinas virtuales.   
-**Detalles**: Use plantillas de [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para reforzar las opciones de implementación y facilitar la comprensión y la realización de inventario de las máquinas virtuales de su entorno.
+**Detalles**: Use plantillas de [Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) para reforzar las opciones de implementación y facilitar la comprensión y la realización de inventario de las máquinas virtuales de su entorno.
 
 **Procedimiento recomendado**: Protección del acceso con privilegios.   
 **Detalles**: Use un [enfoque de privilegios mínimos](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) y roles integrados de Azure para permitir que los usuarios configuren las máquinas virtuales y accedan a ellas.
@@ -99,7 +99,7 @@ Si usa Windows Update, deje habilitada la configuración automática de Windows 
 **Detalles**: Busque e instale las actualizaciones de Windows como primer paso de cada implementación. Es especialmente importante aplicar esta medida al implementar imágenes que proceden de usted o de su propia biblioteca. Aunque las imágenes de Azure Marketplace se actualizan automáticamente de forma predeterminada, puede producirse un intervalo de tiempo (hasta unas cuantas semanas) después de una versión pública.
 
 **Procedimiento recomendado**: Volver a implementar periódicamente las máquinas virtuales para forzar una nueva versión del sistema operativo.   
-**Detalles**: Defina la máquina virtual con una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para poder implementarla fácilmente. El uso de una plantilla le ofrece una máquina virtual segura y revisada cuando la necesite.
+**Detalles**: Defina la máquina virtual con una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) para poder implementarla fácilmente. El uso de una plantilla le ofrece una máquina virtual segura y revisada cuando la necesite.
 
 **Procedimiento recomendado**: Aplique rápidamente las actualizaciones de seguridad a las máquinas virtuales.   
 **Detalles**: Habilite Azure Security Center (nivel Gratis o Estándar) para [detectar si faltan actualizaciones de seguridad y aplicarlas](../../security-center/asset-inventory.md).

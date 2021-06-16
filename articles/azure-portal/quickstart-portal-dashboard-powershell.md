@@ -4,12 +4,12 @@ description: Aprenda a crear un panel en Azure Portal mediante Azure PowerShell.
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.date: 03/25/2021
-ms.openlocfilehash: cd001a8259c54f1d86aab5983da1413c8163008c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7828dd6ba43cebeef158e897dd8f2a5fb54d8d83
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557452"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077743"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-powershell"></a>Inicio rápido: Creación de un panel en Azure Portal con PowerShell
 
@@ -77,7 +77,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 
 El panel que se crea en la siguiente parte de este inicio rápido requiere que haya una máquina virtual. Cree una máquina virtual siguiendo estos pasos.
 
-Almacene las credenciales de inicio de sesión de la máquina virtual en una variable. La contraseña debe ser compleja. Se trata de un nombre de usuario y una contraseña nuevos; no es, por ejemplo, la cuenta que usa para iniciar sesión en Azure. Para más información, consulte los [requisitos de nombre de usuario](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm) y los [requisitos de contraseña](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+Almacene las credenciales de inicio de sesión de la máquina virtual en una variable. La contraseña debe ser compleja. Se trata de un nombre de usuario y una contraseña nuevos; no es, por ejemplo, la cuenta que usa para iniciar sesión en Azure. Para más información, consulte los [requisitos de nombre de usuario](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-) y los [requisitos de contraseña](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
 ```azurepowershell-interactive
 $Cred = Get-Credential

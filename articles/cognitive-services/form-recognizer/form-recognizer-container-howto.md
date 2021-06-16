@@ -4,18 +4,18 @@ titleSuffix: Azure Applied AI Services
 description: En este artículo se explica cómo usar el contenedor de Azure Form Recognizer para analizar datos de formularios y tablas.
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 059d780b9d9e31d01b1d1999971af77d982e3b92
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: b97a7783c7e114d62bef8753db8164fc33ecb4c3
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374584"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111890767"
 ---
 # <a name="install-and-run-form-recognizer-containers-retiring"></a>Instalación y ejecución de contenedores de Form Recognizer (en retirada)
 
@@ -31,7 +31,7 @@ Para reducir la complejidad e integrar fácilmente un modelo de Form Recognizer 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de utilizar los contenedores de Form Recognizer, debe cumplir los siguientes requisitos previos:
 

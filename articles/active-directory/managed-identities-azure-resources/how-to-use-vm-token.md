@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/12/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ee7739d9dbfd34190dc1e856b98fdd21be15743
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 0db83f9f2f5e7f93686506ec0f7f94153ef3501e
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364947"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080496"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Cómo usar identidades administradas de recursos de Azure en una máquina virtual de Azure para adquirir un token de acceso 
 
@@ -236,7 +236,7 @@ func main() {
       fmt.Println("Error creating URL: ", err)
       return 
     }
-    msi_parameters := url.Values{}
+    msi_parameters := msi_endpoint.Query()
     msi_parameters.Add("resource", "https://management.azure.com/")
     msi_endpoint.RawQuery = msi_parameters.Encode()
     req, err := http.NewRequest("GET", msi_endpoint.String(), nil)

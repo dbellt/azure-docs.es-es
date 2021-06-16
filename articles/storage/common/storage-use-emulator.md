@@ -7,12 +7,13 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: 909de4b6782a0cd03b7c7d7c72bfa50e5541b6d7
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 812694ef96e60a9cc52dd9ab94408e3f90fd6d93
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277137"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677238"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Uso del Emulador de Azure Storage para desarrollo y pruebas
 

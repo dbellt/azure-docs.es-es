@@ -4,12 +4,12 @@ description: Disponibilidad de recursos de proceso y memoria para el servicio Az
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2bf5735c1e50ae31f70b68d7b926e82badeb3933
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 26d1bf74656c63f4957df1129746a3f8fd33c554
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108015994"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959106"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidad de recursos para Azure Container Instances en las regiones de Azure
 
@@ -34,23 +34,26 @@ Están disponibles las siguientes regiones y recursos máximos para los grupos d
 | Este de Australia | 4 | 16 | 4 | 16 | 50 | No aplicable |
 | Sur de Brasil | 4 | 16 | 2 | 8 | 50 | No aplicable |
 | Centro de Canadá | 4 | 16 | 4 | 16 | 50 | No aplicable |
+| Este de Canadá | 4 | 16 | 4 | 16 | 50 | No aplicable |
 | Centro de la India | 4 | 16 | 4 | 4 | 50 | V100 |
 | Centro de EE. UU. | 4 | 16 | 4 | 16 | 50 | No aplicable |
 | Este de Asia | 4 | 16 | 4 | 16 | 50 | No aplicable |
 | Este de EE. UU. | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | Este de EE. UU. 2 | 4 | 16 | 4 | 16 | 50 | No aplicable |
 | Centro de Francia | 4 | 16 | 4 | 16 | 50 | No aplicable |
-| Centro-oeste de Alemania | 3 | 16 | No aplicable | No aplicable | 50 | No aplicable |
+| Centro-oeste de Alemania | 4 | 16 | No aplicable | No aplicable | 50 | No aplicable |
 | Japón Oriental | 2 | 8 | 4 | 16 | 50 | No aplicable |
+| Japón Occidental | 4 | 16 | No aplicable | No aplicable | 50 | No aplicable |
 | Centro de Corea del Sur | 4 | 16 | No aplicable | No aplicable | 50 | No aplicable |
 | Centro-Norte de EE. UU | 2 | 3,5 | 4 | 16 | 50 | K80, P100, V100 |
 | Norte de Europa | 4 | 16 | 4 | 16 | 50 | K80 |
 | Centro-sur de EE. UU. | 4 | 16 | 4 | 16 | 50 | V100 |
 | Sudeste de Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 |
 | Sur de la India | 4 | 16 | No aplicable | No aplicable | 50 | K80 |
-| Norte de Suiza | 3 | 16 | No aplicable | No aplicable | 50 | No aplicable |
+| Norte de Suiza | 4 | 16 | No aplicable | No aplicable | 50 | No aplicable |
 | Sur de Reino Unido | 4 | 16 | 4 | 16 | 50 | No aplicable |
-| Norte de Emiratos Árabes Unidos | 3 | 16 | No aplicable | No aplicable | 50 | No aplicable |
+| Oeste de Reino Unido | 4 | 16 | 4 | 16 | 50 | No aplicable |
+| Norte de Emiratos Árabes Unidos | 4 | 16 | No aplicable | No aplicable | 50 | No aplicable |
 | Centro-Oeste de EE. UU.| 4 | 16 | 4 | 16 | 50 | No aplicable |
 | Oeste de Europa | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | Oeste de EE. UU. | 4 | 16 | 4 | 16 | 50 | No aplicable |

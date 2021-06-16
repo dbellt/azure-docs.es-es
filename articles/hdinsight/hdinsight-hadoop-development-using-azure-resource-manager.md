@@ -2,15 +2,15 @@
 title: Migración a herramientas de Azure Resource Manager para HDInsight
 description: Migración a las herramientas de desarrollo de Azure Resource Manager para clústeres de HDInsight
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 02/21/2018
-ms.openlocfilehash: 3794d2b552bcbcc91ce463d57bd6837fc6978640
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 0824703e6fb9a7301324a6039ae8fe656c8102e0
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108074158"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110701583"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migración a las herramientas de desarrollo basadas en Azure Resource Manager para clústeres de HDInsight
 

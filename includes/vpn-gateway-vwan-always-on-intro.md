@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 05/26/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e40f421c0fa45d772cd333dac51fe2bdf2779f48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1345df8991acba09feb65eb11e9eadc21b9c7af4
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91829239"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579704"
 ---
 Always On es una nueva característica del cliente VPN de Windows 10 que ofrece la posibilidad de mantener una conexión VPN. Con Always On, el perfil activo de VPN se puede conectar automáticamente y permanecer conectado según los desencadenadores como, por ejemplo, en los inicios de sesión de los usuarios, los cambios en el estado de la red o la activación de la pantalla del dispositivo.
 

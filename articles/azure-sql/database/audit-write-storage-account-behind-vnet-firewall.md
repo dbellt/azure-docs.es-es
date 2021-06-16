@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 908c9f1d05c83eaa58f77b79a32d956898c35076
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e0bb7949e6f528925eb66c1148662720b144e06
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93348260"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060361"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Escritura de auditorías en una cuenta de almacenamiento detrás de una red virtual y un firewall
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -33,7 +33,7 @@ Consulte el artículo [¿Qué es Azure Virtual Network?](../../virtual-network/v
 
 Para obtener más información sobre cómo crear una red virtual, vea [Inicio rápido: Creación de una red virtual mediante Azure Portal](../../virtual-network/quick-create-portal.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para que una auditoría escriba eventos en una cuenta de almacenamiento detrás de un firewall o una red virtual, se necesitan los siguientes requisitos previos:
 
@@ -154,7 +154,7 @@ Puede configurar la auditoría para escribir los eventos de base de datos en una
 > [!IMPORTANT]
 > Para usar una cuenta de almacenamiento detrás de la red virtual y el firewall, debe establecer el parámetro **isStorageBehindVnet** en True.
 
-- [Implementación de un servidor de Azure SQL Server con la auditoría habilitada para escribir los registros de auditoría en un almacenamiento de blobs](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
+- [Implementación de un servidor de Azure SQL Server con la auditoría habilitada para escribir los registros de auditoría en un almacenamiento de blobs](https://azure.microsoft.com/resources/templates/sql-auditing-server-policy-to-blob-storage/)
 
 > [!NOTE]
 > El ejemplo vinculado se encuentra en un repositorio público externo y se proporcionan "tal cual", sin ninguna garantía y no se admite en los programas o servicios de soporte técnico de Microsoft.

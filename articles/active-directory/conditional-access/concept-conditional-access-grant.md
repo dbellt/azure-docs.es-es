@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bce54bb845e3085d654e3980123ef5c8a856fd98
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 70cc20b51587a70e8a124b6f3b5d047ff827db83
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530192"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112034596"
 ---
 # <a name="conditional-access-grant"></a>Acceso condicional: Conceder
 
@@ -74,7 +74,7 @@ Las organizaciones pueden requerir que los intentos de acceso a las aplicaciones
 
 Con el fin de aprovechar este control de concesión, el acceso condicional requiere que el dispositivo esté registrado en Azure Active Directory, lo que requiere el uso de una aplicación de agente. La aplicación de agente puede ser Microsoft Authenticator para iOS, o bien Microsoft Authenticator o el portal de empresa de Microsoft para dispositivos Android. Si no hay ninguna aplicación de agente instalada en el dispositivo cuando el usuario intenta autenticarse, se le redirigirá a la tienda de aplicaciones adecuada para que instale la aplicación de agente necesaria.
 
-Esta configuración se aplica a las siguientes aplicaciones de iOS y Android:
+Se ha confirmado que las siguientes aplicaciones cliente admiten esta configuración:
 
 - Microsoft Azure Information Protection
 - Microsoft Bookings
@@ -86,6 +86,7 @@ Esta configuración se aplica a las siguientes aplicaciones de iOS y Android:
 - Microsoft Invoicing
 - Microsoft Kaizala
 - Microsoft Launcher
+- Microsoft Lists
 - Microsoft Office
 - Microsoft OneDrive
 - Microsoft OneNote

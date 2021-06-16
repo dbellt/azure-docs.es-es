@@ -3,20 +3,20 @@ title: Ejemplo de CLI para restaurar una instancia de Azure SQL Database a parti
 description: Script de ejemplo de la CLI de Azure para restaurar una base de datos de Instancia administrada de Azure SQL Database a partir de una copia de seguridad con redundancia geográfica.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma
 ms.date: 07/03/2019
-ms.openlocfilehash: 5468cfc733b037f6287e8536c8c85994f0840161
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c0655ae56422ce29d145814b2cf4686684ae95b1
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86231262"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110698109"
 ---
 # <a name="use-cli-to-restore-a-managed-instance-database-to-another-geo-region"></a>Uso de la CLI para restaurar una base de datos de Instancia administrada de SQL Database en otra región con replicación geográfica
 

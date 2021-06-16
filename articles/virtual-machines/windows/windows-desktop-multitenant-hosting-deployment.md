@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 2/2/2021
 ms.author: mimckitt
-ms.custom: rybaker, chmimckitt
-ms.openlocfilehash: bb86ba6867ad796ef0f5eeb1357a6df9e93e9f9e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: rybaker, chmimckitt, devx-track-azurepowershell
+ms.openlocfilehash: 9a2b93a951b9aa2056ee547d8d74c90eb7d96f71
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555778"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111983841"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Implementación de Windows 10 en Azure con derechos de hospedaje multiinquilino 
 Para los clientes con Windows 10 Enterprise E3/E5 por usuario o con acceso a escritorios virtuales de Windows por usuario (licencias de suscripción de usuarios o licencias de suscripción de usuario de complemento), los derechos de hospedaje multiinquilino de Windows 10 le permiten llevar sus licencias de Windows 10 a la nube y ejecutar máquinas virtuales de Windows 10 en Azure sin pagar por otra licencia. Los derechos de hospedaje multiinquilino solo están disponibles para Windows 10 (versión 1703 o posterior).
@@ -54,7 +54,6 @@ rs4-pro                     Windows-10 MicrosoftWindowsDesktop eastus
 rs4-pron                    Windows-10 MicrosoftWindowsDesktop eastus   
 rs5-enterprise              Windows-10 MicrosoftWindowsDesktop eastus   
 rs5-enterprisen             Windows-10 MicrosoftWindowsDesktop eastus   
-rs5-pro                     Windows-10 MicrosoftWindowsDesktop eastus   
 rs5-pron                    Windows-10 MicrosoftWindowsDesktop eastus  
 ```
 
@@ -90,7 +89,7 @@ Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.
 ```
 
 
-**Implementación mediante la plantilla de Azure Resource Manager**: dentro de las plantillas de Resource Manager, se puede especificar un parámetro adicional para `licenseType`. En [Creación de plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md), puede encontrar más información al respecto. Una vez que haya cargado el VHD en Azure, edite la plantilla de Resource Manager para incluir el tipo de licencia como parte del proveedor de procesos e impleméntela de la forma habitual:
+**Implementación mediante la plantilla de Azure Resource Manager**: dentro de las plantillas de Resource Manager, se puede especificar un parámetro adicional para `licenseType`. En [Creación de plantillas de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md), puede encontrar más información al respecto. Una vez que haya cargado el VHD en Azure, edite la plantilla de Resource Manager para incluir el tipo de licencia como parte del proveedor de procesos e impleméntela de la forma habitual:
 ```json
 "properties": {
     "licenseType": "Windows_Client",

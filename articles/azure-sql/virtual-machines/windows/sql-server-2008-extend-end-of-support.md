@@ -14,12 +14,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4c25adc16d14b4a5fb72ae0103ca05b193b40499
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 297bb5b3aa464cede71e204133df3e856bb9ba1f
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359173"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079668"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Ampliar la compatibilidad de SQL Server 2008 y SQL Server 2008 R2 con Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -90,7 +90,7 @@ Introducción a SQL Server en Azure Virtual Machines:
 
 Obtenga respuestas a las preguntas más habituales acerca de las máquinas virtuales con SQL Server:
 
-* [Preguntas más frecuentes para SQL Server en Azure Virtual Machines](frequently-asked-questions-faq.md)
+* [Preguntas más frecuentes para SQL Server en Azure Virtual Machines](frequently-asked-questions-faq.yml)
 
 Obtenga más información sobre las opciones de fin del soporte y las actualizaciones de seguridad ampliadas:
 

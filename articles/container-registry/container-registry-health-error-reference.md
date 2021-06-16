@@ -3,18 +3,18 @@ title: Referencia de errores para las comprobaciones de estado del registro
 description: Códigos de error y posibles soluciones de los problemas encontrados tras la ejecución del comando az acr para el diagnóstico de comprobación de mantenimiento en Azure Container Registry
 ms.topic: article
 ms.date: 01/25/2021
-ms.openlocfilehash: f9716c29093ae58518bc86ec06af40522d49047c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 12cdd1e75a51097bab3830cdd0e6567e53f91dce
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773448"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537425"
 ---
 # <a name="health-check-error-reference"></a>Referencia de errores de la comprobación de mantenimiento
 
 A continuación se indican los detalles de los códigos de error que devuelve el comando [az acr para la comprobación de mantenimiento][az-acr-check-health]. Para cada error, se enumeran posibles soluciones.
 
-Para información sobre la ejecución de `az acr check-healh`, consulte [Comprobación del mantenimiento de un registro de contenedor de Azure](container-registry-check-health.md).
+Para información sobre la ejecución de `az acr check-health`, consulte [Comprobación del mantenimiento de un registro de contenedor de Azure](container-registry-check-health.md).
 
 ## <a name="docker_command_error"></a>DOCKER_COMMAND_ERROR
 

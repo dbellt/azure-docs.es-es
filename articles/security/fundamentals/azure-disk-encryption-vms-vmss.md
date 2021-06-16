@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 21194bf2fe76a7eb0ee034d4a502c20ee3032dd9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d99f4872d6d5de6fb171f5cf298e5a17fb9da445
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87543680"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112062035"
 ---
 # <a name="azure-disk-encryption-for-virtual-machines-and-virtual-machine-scale-sets"></a>Azure Disk Encryption para máquinas virtuales y conjuntos de escalado de máquinas virtuales
 
@@ -33,7 +33,7 @@ En los siguientes artículos se proporcionan instrucciones para el cifrado de m�
 - [Creación y configuración de un almacén de claves para Azure Disk Encryption](../../virtual-machines/linux/disk-encryption-key-vault.md)
 - [Scripts de ejemplo de Azure Disk Encryption](../../virtual-machines/linux/disk-encryption-sample-scripts.md)
 - [Solución de problemas de Azure Disk Encryption](../../virtual-machines/linux/disk-encryption-troubleshooting.md)
-- [Preguntas frecuentes sobre Azure Disk Encryption](../../virtual-machines/linux/disk-encryption-faq.md)
+- [Preguntas frecuentes sobre Azure Disk Encryption](../../virtual-machines/linux/disk-encryption-faq.yml)
 
 ### <a name="azure-disk-encryption-with-azure-ad-previous-version"></a>Azure Disk Encryption con Azure AD (versión anterior)
 
@@ -56,7 +56,7 @@ En los siguientes artículos se proporcionan instrucciones para el cifrado de m�
 - [Creación y configuración de un almacén de claves para Azure Disk Encryption](../../virtual-machines/windows/disk-encryption-key-vault.md)
 - [Scripts de ejemplo de Azure Disk Encryption](../../virtual-machines/windows/disk-encryption-sample-scripts.md)
 - [Solución de problemas de Azure Disk Encryption](../../virtual-machines/windows/disk-encryption-troubleshooting.md)
-- [Preguntas frecuentes sobre Azure Disk Encryption](../../virtual-machines/windows/disk-encryption-faq.md)
+- [Preguntas frecuentes sobre Azure Disk Encryption](../../virtual-machines/windows/disk-encryption-faq.yml)
 
 ### <a name="azure-disk-encryption-with-azure-ad-previous-version"></a>Azure Disk Encryption con Azure AD (versión anterior)
 

@@ -1,18 +1,18 @@
 ---
 title: Creación de una clasificación personalizada y una regla de clasificación (versión preliminar)
 description: Descubra cómo crear clasificaciones personalizadas para definir en Azure Purview los tipos de datos únicos del patrimonio de datos de su organización.
-author: animukherjee
+author: anmuk601
 ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 3/24/2021
-ms.openlocfilehash: 7d6baee49250509e50cdeeea8cf8ca6cec5b362d
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: e54535449ddf9605bc483b9a309a717b22d8398d
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222177"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071504"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Clasificaciones personalizadas en Azure Purview
 
@@ -48,7 +48,7 @@ Para que el nombre sea corto, el sistema crea el nombre descriptivo en función 
 
 - Menos los dos últimos, todos los segmentos del espacio de nombres se recortan.
 
-- El uso de mayúsculas y minúsculas se ajusta para que la primera letra de cada palabra esté en mayúsculas. Todas las demás letras se convierten a minúsculas.
+- El uso de mayúsculas y minúsculas se ajusta para que la primera letra de cada palabra esté en mayúsculas.
 
 - Todos los guiones bajos (\_) se reemplazan por espacios.
 

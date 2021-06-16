@@ -8,20 +8,16 @@ ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 08379e66c97d34eea53410190475e90e156a58e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f213976d0e61706b2d8a9c8465be1ff0a4065b2e
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96903350"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031896"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>Guía de referencia del esquema de StylesObject para Azure Maps dinámico
 
-> [!IMPORTANT]
-> Los servicios de Creator de Azure Maps se encuentran actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
- `StylesObject` es una matriz de objetos `StyleObject` que representa los estilos del conjunto de estados. Use el [servicio Feature State](/rest/api/maps/featurestate) de Creator de Azure Maps (versión preliminar) para aplicar los estilos del conjunto de estados a las características de los datos de mapas de interiores. Una vez que haya creado los estilos del conjunto de estados y los haya asociado con las características del mapa de interiores, puede usarlos para crear mapas de interiores dinámicos. Para más información sobre la creación de mapas de interiores dinámicos, consulte [Implementación de estilos dinámicos para mapas de interiores de Creator](indoor-map-dynamic-styling.md).
+ `StylesObject` es una matriz de objetos `StyleObject` que representa los estilos del conjunto de estados. Use la [característica Servicio de estado](/rest/api/maps/v2/feature-state) de Azure Maps Creator para aplicar los estilos del conjunto de estados a las características de los datos de mapas de interiores. Una vez que haya creado los estilos del conjunto de estados y los haya asociado con las características del mapa de interiores, puede usarlos para crear mapas de interiores dinámicos. Para más información sobre la creación de mapas de interiores dinámicos, consulte [Implementación de estilos dinámicos para mapas de interiores de Creator](indoor-map-dynamic-styling.md).
 
 ## <a name="styleobject"></a>StyleObject
 

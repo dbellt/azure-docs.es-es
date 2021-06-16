@@ -4,12 +4,12 @@ description: Implemente recursos en Azure con una plantilla de Azure Resource Ma
 ms.topic: conceptual
 ms.date: 08/25/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 1c3dd78d8c9c0819c69b12ccb9199acd7a4a626e
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: d8a173c719c239d72c57febbe54688f079a601bb
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752038"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959972"
 ---
 # <a name="deploy-private-arm-template-with-sas-token"></a>Implementación de una plantilla de Resource Manager privada con el token de SAS
 
@@ -147,4 +147,4 @@ Para obtener un ejemplo del uso de un token de SAS con plantillas vinculadas, co
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una introducción a la implementación de plantillas, vea [Implementación de recursos con plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).
-* Para definir parámetros de plantilla, consulte [Creación de plantillas](template-syntax.md#parameters).
+* Para definir parámetros de plantilla, consulte [Creación de plantillas](./syntax.md#parameters).

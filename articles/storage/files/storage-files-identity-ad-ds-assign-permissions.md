@@ -7,12 +7,13 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: af88f0b3403fb80acbb7dacebe293ac583e35799
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 84f14a43cb66ef724bd055a6c1b126b9317a5989
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91716040"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110666712"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Parte 2: Asignación de permisos de nivel de recurso compartido a una identidad
 

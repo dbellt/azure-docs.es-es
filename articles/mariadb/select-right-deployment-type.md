@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: d8885e374142b3d916803fc472ae18351ca6d470
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e99d94fbd4ab91c2ba51ca7922873b8338f7da85
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664525"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033309"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Selección de la opción adecuada del servidor MariaDB en Azure
 
@@ -41,7 +41,7 @@ Las principales diferencias entre estas opciones se mencionan en la siguiente ta
 | Escenarios híbridos | Con la [replicación de datos de entrada](concepts-data-in-replication.md), puede sincronizar los datos de un servidor MariaDB externo con el servicio Azure Database for MariaDB. El servidor externo puede ser local, de máquinas virtuales o un servicio de base de datos hospedado por otros proveedores de nube.<br/><br/> Con la característica de [réplica de lectura](concepts-read-replicas.md) puede replicar los datos de un servidor de origen de Azure Database for MariaDB en hasta cinco servidores de réplica de solo lectura. Las réplicas están dentro de la misma región de Azure o en varias regiones. Las réplicas de solo lectura se actualizan de forma asincrónica mediante la tecnología de replicación binlog.<br/><br/>La replicación de lectura entre regiones se encuentra actualmente en versión preliminar pública.| Administrado por los clientes
 | Copia de seguridad y restauración | Crea automáticamente [copias de seguridad del servidor](concepts-backup.md#backups) y las almacena en el almacenamiento con redundancia local o con redundancia geográfica configurado por el usuario. El servicio realiza copias de seguridad completas, diferenciales y del registro de transacciones. | Administrado por los clientes |
 | Supervisión de las operaciones de base de datos | Ofrece a los clientes la capacidad de [definir alertas](concepts-monitoring.md) en la operación de base de datos y realizar acciones al alcanzar los umbrales. | Administrado por los clientes |
-| Protección contra amenazas avanzada | Proporciona [Advanced Threat Protection](howto-database-threat-protection-portal.md). Esta protección detecta actividades anómalas que indiquen intentos inusuales y potencialmente perjudiciales de acceder a sus bases de datos o aprovechar sus vulnerabilidades.<br/><br/>Advanced Threat Protection está actualmente en versión preliminar pública.| Los clientes deben compilar esta protección por sí mismos.
+| Protección contra amenazas avanzada | Proporciona Advanced Threat Protection. Esta protección detecta actividades anómalas que indiquen intentos inusuales y potencialmente perjudiciales de acceder a sus bases de datos o aprovechar sus vulnerabilidades.<br/><br/>Advanced Threat Protection está actualmente en versión preliminar pública.| Los clientes deben compilar esta protección por sí mismos.
 | Recuperación ante desastres | Almacena copias de seguridad automatizadas en el [almacenamiento con redundancia geográfica o con redundancia local](howto-restore-server-portal.md) configurado por el usuario. Las copias de seguridad pueden restaurar también un servidor a un momento dado. El período de retención es de 7 a 35 días. La restauración se realiza mediante Azure Portal. | Totalmente administradas por los clientes. Las responsabilidades incluyen, entre otras tareas, la programación, la prueba, el archivado, el almacenamiento y la retención. Una opción adicional es usar el almacén de Recovery Services para realizar la copia de seguridad de máquinas virtuales de Azure y bases de datos en máquinas virtuales. Esta opción se encuentra en versión preliminar. |
 | Recomendaciones de rendimiento | Proporciona a los clientes [recomendaciones de rendimiento](https://techcommunity.microsoft.com/t5/Azure-Database-for-MariaDB/Azure-brings-intelligence-and-high-performance-to-Azure-Database/ba-p/769110) basadas en archivos de registro de uso generados por el sistema. Las recomendaciones ayudan a optimizar las cargas de trabajo.<br/><br/>Las recomendaciones de rendimiento se encuentran actualmente en versión preliminar pública. | Administrado por los clientes |
 

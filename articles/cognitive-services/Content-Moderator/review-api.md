@@ -10,14 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 43c39c40af6e02861211a8666fefa57c34072f32
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c43cc081316a26065143640a29cebdb90177ebc7
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96905203"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031644"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Revisiones, flujos de trabajo y trabajos de moderación de contenido
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 Content Moderator combina la moderación automática con funcionalidades de intervención humana en bucle para crear un proceso de moderación óptimo para escenarios del mundo real. Lo hace mediante la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com) basada en a nube. En esta guía, aprenderá los conceptos básicos de la herramienta de revisión: revisiones, flujos de trabajo y trabajos.
 

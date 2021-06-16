@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/12/2021
 ms.author: lajanuar
-ms.openlocfilehash: 431e42e422ecbaeb0e404928a505cf90180f6dd7
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 090e00bbf9ca86115f286b8f24955f33c7230bf3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379343"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969414"
 ---
 # <a name="translator-30-translate"></a>Traductor 3.0: Translate
 
@@ -50,9 +50,9 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
 
 | Parámetro de consulta | Descripción |
 | --- | --- |
-| desde | _Parámetro opcional_.  <br>Especifica el idioma del texto de entrada. Busque los idiomas que están disponibles desde los que realizar la traducción mediante la busca de [idiomas admitidos](../reference/v3-0-languages.md) con el ámbito `translation`. Si no se ha especificado el parámetro `from`, se aplica la detección de idioma automática para determinar el idioma de origen.  <br>  <br>Debe usar el parámetro `from` en lugar de la detección automática cuando use la característica de [diccionario dinámico](/azure/cognitive-services/translator/dynamic-dictionary). |
+| desde | _Parámetro opcional_.  <br>Especifica el idioma del texto de entrada. Busque los idiomas que están disponibles desde los que realizar la traducción mediante la busca de [idiomas admitidos](../reference/v3-0-languages.md) con el ámbito `translation`. Si no se ha especificado el parámetro `from`, se aplica la detección de idioma automática para determinar el idioma de origen.  <br>  <br>Debe usar el parámetro `from` en lugar de la detección automática cuando use la característica de [diccionario dinámico](../dynamic-dictionary.md). |
 | textType | _Parámetro opcional_.  <br>Define si el texto que se está traduciendo es texto sin formato o texto HTML. El código HTML debe ser un elemento completo y bien formado. Los valores posibles son `plain` (valor predeterminado) o `html`. |
-| category | _Parámetro opcional_.  <br>Una cadena que especifica la categoría (dominio) de la traducción. Este parámetro se utiliza para obtener las traducciones de un sistema personalizado creado con [Custom Translator](../customization.md). Agregue el identificador de categoría de los [detalles del proyecto](/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details) de Traductor personalizado a este parámetro para usar el sistema personalizado implementado. El valor predeterminado es `general`. |
+| category | _Parámetro opcional_.  <br>Una cadena que especifica la categoría (dominio) de la traducción. Este parámetro se utiliza para obtener las traducciones de un sistema personalizado creado con [Custom Translator](../customization.md). Agregue el identificador de categoría de los [detalles del proyecto](../custom-translator/how-to-create-project.md#view-project-details) de Traductor personalizado a este parámetro para usar el sistema personalizado implementado. El valor predeterminado es `general`. |
 | profanityAction | _Parámetro opcional_.  <br>Especifica cómo se deben tratar las palabras soeces en las traducciones. Los valores posibles son `NoAction` (valor predeterminado), `Marked` o `Deleted`. Para entender las maneras de tratar las palabras soeces, consulte [Control de palabras soeces](#handle-profanity). |
 | profanityMarker | _Parámetro opcional_.  <br>Especifica cómo deben marcarse las palabras soeces en las traducciones. Los valores posibles son `Asterisk` (valor predeterminado) o `Tag`. Para entender las maneras de tratar las palabras soeces, consulte [Control de palabras soeces](#handle-profanity). |
 | includeAlignment | _Parámetro opcional_.  <br>Especifica si se debe incluir la proyección de la alineación del texto de origen en el texto traducido. Los valores posibles son `true` o `false` (valor predeterminado). |
@@ -66,7 +66,7 @@ Los encabezados de solicitud incluyen lo siguiente:
 
 | encabezados | Descripción |
 | --- | --- |
-| Encabezados de autenticación | _Encabezado de solicitud obligatorio_.  <br>Consulte las [opciones disponibles para la autenticación](/azure/cognitive-services/translator/reference/v3-0-reference#authentication). |
+| Encabezados de autenticación | _Encabezado de solicitud obligatorio_.  <br>Consulte las [opciones disponibles para la autenticación](./v3-0-reference.md#authentication). |
 | Content-Type | _Encabezado de solicitud obligatorio_.  <br>Especifica el tipo de contenido de la carga.  <br>El valor aceptado es `application/json; charset=UTF-8`. |
 | Content-Length | _Encabezado de solicitud obligatorio_.  <br>Longitud del cuerpo de la solicitud. |
 | X-ClientTraceId | _Opcional_.  <br>GUID generado por el cliente para identificar de forma única la solicitud. Puede omitir este encabezado si incluye el id. de seguimiento en la cadena de la consulta mediante un parámetro de consulta denominado `ClientTraceId`. |

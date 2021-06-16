@@ -10,12 +10,12 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 04/21/2021
-ms.openlocfilehash: 5a31531a0d98a1dae4122f661001aa5eca887e6b
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: afb0d487d43b2a04aa298d9ec4249a6855d06544
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279881"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967757"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning
 
@@ -26,7 +26,7 @@ En este artículo aprenderá varias formas de crear un área de trabajo de Azure
 
 Para obtener más información, consulte [Implementación de una aplicación con la plantilla de Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una **suscripción de Azure**. Si no tiene una ya, pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -74,7 +74,7 @@ La plantilla de ejemplo tiene dos parámetros **necesarios**:
 
 Para más información sobre las plantillas, consulte los siguientes artículos:
 
-* [Creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/templates/template-syntax.md)
+* [Creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/templates/syntax.md)
 * [Implementación de una aplicación con las plantillas de Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md)
 * [Tipos de recurso de Microsoft.MachineLearningServices](/azure/templates/microsoft.machinelearningservices/allversions)
 

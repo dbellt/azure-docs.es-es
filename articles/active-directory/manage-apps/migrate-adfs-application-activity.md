@@ -2,21 +2,21 @@
 title: Uso del informe de actividades para trasladar aplicaciones de AD FS a Azure Active Directory | Microsoft Docs
 description: El informe de actividades de aplicaciones de Servicios de federación de Active Directory (AD FS) permite migrar rápidamente aplicaciones de AD FS a Azure Active Directory (Azure AD). Esta herramienta de migración para AD FS identifica la compatibilidad con Azure AD y proporciona instrucciones de migración.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 01/14/2019
-ms.author: iangithinji
+ms.author: mtillman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b9265a61b0879078332b8ccc2d10e711b4ac8f1
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 5baf0ea07369ad8029c0f556ced16de1f2209dbc
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107377427"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079236"
 ---
 # <a name="use-the-ad-fs-application-activity-report-to-migrate-applications-to-azure-ad"></a>Use el informe de actividades de aplicaciones de AD FS para migrar aplicaciones a Azure AD
 
@@ -31,7 +31,7 @@ El informe de actividades de aplicaciones de AD FS de Azure Portal permite ide
 
 Los datos de actividad de aplicaciones de AD FS están disponibles para los usuarios que tienen asignados cualquiera de estos roles de administrador: administrador global, lector de informes, lector de seguridad, administrador de aplicaciones o administrador de aplicaciones en la nube.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * En estos momentos, su organización debe usar AD FS para acceder a las aplicaciones.
 * Azure AD Connect Health debe estar habilitado en el inquilino de Azure AD.

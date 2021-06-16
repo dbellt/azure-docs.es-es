@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: b24ea79737c9e1f64abb7f62807352dbd9573695
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 04a86b0e8ebae2349d8c53470cca043ea5f87a87
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98018078"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967978"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migre cientos de terabytes de datos a Azure Cosmos DB 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -23,7 +23,7 @@ Antes de migrar toda la carga de trabajo a Azure Cosmos DB, puede migrar un subc
 
 ## <a name="tools-for-data-migration"></a>Herramientas para la migración de datos 
 
-En la actualidad, las estrategias de migración de Azure Cosmos DB difieren en función de la elección de la API y el tamaño de los datos. Para migrar conjuntos de datos más pequeños, para validar el modelado de datos, el rendimiento de las consultas, la elección de la clave de partición, etc., puede elegir la [herramienta de migración de datos](import-data.md) o el [conector de Azure Cosmos DB de Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). Si está familiarizado con Spark, también puede usar el [conector de Spark a Azure Cosmos DB](spark-connector.md) para migrar los datos.
+En la actualidad, las estrategias de migración de Azure Cosmos DB difieren en función de la elección de la API y el tamaño de los datos. Para migrar conjuntos de datos más pequeños, para validar el modelado de datos, el rendimiento de las consultas, la elección de la clave de partición, etc., puede elegir la [herramienta de migración de datos](import-data.md) o el [conector de Azure Cosmos DB de Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). Si está familiarizado con Spark, también puede usar el [conector de Spark a Azure Cosmos DB](./create-sql-api-spark.md) para migrar los datos.
 
 ## <a name="challenges-for-large-scale-migrations"></a>Desafíos para migraciones a gran escala 
 
@@ -146,5 +146,5 @@ Una vez completada la migración, puede validar que el número de documentos en 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Puede aprender más si prueba las aplicaciones de ejemplo que usan la biblioteca BulkExecutor en [.NET](bulk-executor-dot-net.md) y [Java](bulk-executor-java.md). 
-* La biblioteca BulkExecutor está integrada en el conector de Spark a Cosmos DB; para más información, vea el artículo sobre el [conector de Spark a Azure Cosmos DB](spark-connector.md).  
+* La biblioteca BulkExecutor está integrada en el conector de Spark a Cosmos DB; para más información, vea el artículo sobre el [conector de Spark a Azure Cosmos DB](./create-sql-api-spark.md).  
 * Póngase en contacto con el equipo de producto de Azure Cosmos DB abriendo una incidencia de soporte técnico en el tipo de problema "Asesoramiento general" y en el subtipo "Grandes migraciones (TB+)" para obtener ayuda adicional con las migraciones a gran escala.

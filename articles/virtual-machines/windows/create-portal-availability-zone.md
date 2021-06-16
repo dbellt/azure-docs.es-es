@@ -9,12 +9,12 @@ ms.date: 5/10/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 3abbe547b8788d468c2273f037d52c9d61e3f9ce
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: f1c37751e8f633c6d7dfab88b9dbe524626483a8
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752957"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079182"
 ---
 # <a name="create-a-virtual-machine-in-an-availability-zone-using-the-azure-portal"></a>Creación de una máquina virtual en una zona de disponibilidad con Azure Portal
 
@@ -28,7 +28,7 @@ Para usar una zona de disponibilidad, cree la máquina virtual [en una región d
 
 1. Haga clic en **Crear un recurso** > **Proceso** > **Máquina virtual**. 
 
-3. Escriba la información de la máquina virtual. El nombre de usuario y la contraseña se usarán para iniciar sesión en la máquina virtual. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm). 
+3. Escriba la información de la máquina virtual. El nombre de usuario y la contraseña se usarán para iniciar sesión en la máquina virtual. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](faq.yml#what-are-the-password-requirements-when-creating-a-vm-). 
 
 4. Elija una ubicación que admita zonas de disponibilidad, como Este de EE. UU. 2. 
 

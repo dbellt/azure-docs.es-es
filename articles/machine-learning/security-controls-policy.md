@@ -1,18 +1,18 @@
 ---
 title: Controles de cumplimiento normativo de Azure Policy para Azure Machine Learning
 description: En este artículo se muestran los controles de cumplimiento normativo de Azure Policy disponibles para Azure Machine Learning. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 05/14/2021
+ms.date: 06/11/2021
 ms.topic: sample
 author: BlackMist
 ms.author: larryfr
 ms.service: machine-learning
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: e5889a43c71480daf53dab12e24d671b9700c17d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 1fac0e7e7bdbb770b99ac6f8465ce33dbcbefb6d
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078044"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033425"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-machine-learning"></a>Controles de cumplimiento normativo de Azure Policy para Azure Machine Learning
 

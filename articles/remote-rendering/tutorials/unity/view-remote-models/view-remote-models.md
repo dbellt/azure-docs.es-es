@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ae84d62f8f028158450b1127abc81c5dc4416502
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 4cded3a765cf42e17890a2f0181d38ea918fee33
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315388"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408504"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutorial: Visualización de un modelo representado de forma remota
 
@@ -574,11 +574,21 @@ public async void InitializeSessionService()
     if (ARRCredentialGetter == null)
         ARRCredentialGetter = GetDevelopmentCredentials;
 
-    var accountInfo = await ARRCredentialGetter.Invoke();
+    var sessionConfiguration = await ARRCredentialGetter.Invoke();
 
     ARRSessionService.OnSessionStatusChanged += OnRemoteSessionStatusChanged;
 
-    ARRSessionService.Initialize(accountInfo);
+    try
+    {
+        ARRSessionService.Initialize(sessionConfiguration);
+    }
+    catch (ArgumentException argumentException)
+    {
+        NotificationBar.Message("InitializeSessionService failed: SessionConfiguration is invalid.");
+        Debug.LogError(argumentException.Message);
+        CurrentCoordinatorState = RemoteRenderingState.NotAuthorized;
+        return;
+    }
 
     CurrentCoordinatorState = RemoteRenderingState.NoSession;
 }
@@ -752,18 +762,6 @@ El método **LoadModel** está diseñado para aceptar una ruta de acceso de mode
             modelGameObject.name = parent.name + "_Entity";
         }
 
-    #if UNITY_WSA
-        //Anchor the model in the world, prefer anchoring parent if there is one
-        if (parent != null)
-        {
-            parent.gameObject.AddComponent<WorldAnchor>();
-        }
-        else
-        {
-            modelGameObject.AddComponent<WorldAnchor>();
-        }
-    #endif
-
         //Load a model that will be parented to the entity
         var loadModelParams = new LoadModelFromSasOptions(modelPath, modelEntity);
         var loadModelAsync = ARRSessionService.CurrentActiveSession.Connection.LoadModelFromSasAsync(loadModelParams, progress);
@@ -777,7 +775,6 @@ El código anterior está realizando los pasos siguientes:
 1. Crear una [entidad remota](../../../concepts/entities.md)
 1. Crear un elemento GameObject local para representar la entidad remota
 1. Configurar el elemento GameObject local para sincronizar su estado (es decir, transformarlo) con la entidad remota con cada fotograma
-1. Establecer un nombre y agregar un objeto [**WorldAnchor**](https://docs.unity3d.com/550/Documentation/ScriptReference/VR.WSA.WorldAnchor.html) para ayudar a la estabilización
 1. Cargar los datos del modelo de Blob Storage en la entidad remota
 1. Devolver la entidad primaria, para hacer referencia a ella posteriormente
 

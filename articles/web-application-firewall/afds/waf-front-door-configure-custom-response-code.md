@@ -7,12 +7,13 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 06/10/2020
 ms.author: victorh
-ms.openlocfilehash: c764193e92884ac2431cac8f2d6592e173e59e19
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8ec105a5545a207ebee343ea6af5fb26995b25b5
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632302"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671812"
 ---
 # <a name="configure-a-custom-response-for-azure-web-application-firewall-waf"></a>Configuración de una respuesta personalizada para el Firewall de aplicaciones web de Azure (WAF)
 

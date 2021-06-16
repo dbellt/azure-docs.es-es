@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Managed Instance
 description: Conéctese a Instancia administrada de Azure SQL mediante SQL Server Management Studio desde una máquina virtual de Azure.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: connect
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein, srbozovi, bonova
+author: zoran-rilak-msft
+ms.author: zoranrilak
+ms.reviewer: mathoma, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: a1f496d59fa626dc8750493591128f7363afa40d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f8a708caf410ab53da6f9c2e77325307506ea9de
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91620263"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076031"
 ---
 # <a name="quickstart-configure-an-azure-vm-to-connect-to-azure-sql-managed-instance"></a>Inicio rápido: Configuración de una VM de Azure para la conexión a Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -85,7 +85,7 @@ La forma más fácil de crear una máquina virtual cliente con todas las herrami
    | **Ubicación** | Ubicación del grupo de recursos | Este valor se rellena según el grupo de recursos seleccionado. |
    | **Nombre de la máquina virtual**  | Cualquier nombre válido | Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming).|
    |**Nombre de usuario administrador**|Cualquier nombre de usuario válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming). No utilice "serveradmin", ya es un rol de nivel de servidor reservado.<br>Use este nombre de usuario cada vez que [se conecte a la máquina virtual](#connect-to-the-virtual-machine).|
-   |**Contraseña**|Cualquier contraseña válida|La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Use esta contraseña cada vez que [se conecte a la máquina virtual](#connect-to-the-virtual-machine).|
+   |**Contraseña**|Cualquier contraseña válida|La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).<br>Use esta contraseña cada vez que [se conecte a la máquina virtual](#connect-to-the-virtual-machine).|
    | **Tamaño de máquina virtual** | Cualquier tamaño válido | El valor predeterminado de esta plantilla de **Standard_B2s** es suficiente para esta guía de inicio rápido. |
    | **Ubicación**|[resourceGroup().location].| No cambie este valor. |
    | **Nombre de la red virtual**|Red virtual en la que creó la Instancia administrada|

@@ -4,19 +4,19 @@ titleSuffix: Azure Applied AI Services
 description: En este inicio rápido, utilizará la herramienta de etiquetado de ejemplo Form Recognizer para etiquetar manualmente documentos de formularios. A continuación, entrenará un modelo personalizado de procesamiento de documentos con los documentos etiquetados y lo empleará para extraer pares clave-valor.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 05/14/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-may-2021
 keywords: procesamiento de documentos
-ms.openlocfilehash: af803b92945be059f604a3890a90d3aa36e5781e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b30dbd58e0a9c440f51386052529850d9ce9adc4
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475160"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111894081"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -148,11 +148,11 @@ Configure los valores del proyecto y rellene los campos con los valores siguient
 * **Token de seguridad**: algunos valores de configuración del proyecto pueden incluir valores confidenciales, como claves de API u otros secretos compartidos. Cada proyecto generará un token de seguridad que se puede usar para cifrar o descifrar los valores de configuración confidenciales del proyecto. Puede buscar los tokens de seguridad en la configuración de la aplicación. Para ello, seleccione el icono de engranaje situado en la esquina inferior de la barra de navegación izquierda.
 
 * **Conexión de origen**: la herramienta de etiquetado de ejemplo se conecta a un origen (los formularios originales cargados) y a un destino (las etiquetas creadas y los datos de salida). Las conexiones se pueden configurar y compartir entre proyectos. Usan un modelo extensible de proveedores, por lo que puede agregar fácilmente nuevos proveedores de origen y destino. Cree una conexión y haga clic en el botón **Agregar conexión**. Rellene los campos con los siguientes valores:
-   * **Nombre para mostrar**: el nombre para mostrar de la conexión.
-   * **Descripción**: la descripción del proyecto.
-   * **Dirección URL de SAS**: la dirección URL de la firma de acceso compartido (SAS) del contenedor de Azure Blob Storage.
+  * **Nombre para mostrar**: el nombre para mostrar de la conexión.
+  * **Descripción**: la descripción del proyecto.
+  * **Dirección URL de SAS**: la dirección URL de la firma de acceso compartido (SAS) del contenedor de Azure Blob Storage.
 
-   [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+  * [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
 
    :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="Ubicación de SAS.":::
 
@@ -217,13 +217,15 @@ Elija el icono Train (Entrenar) en el panel izquierdo para abrir la página de e
 * **Precisión media**: el promedio de precisión del modelo. Puede mejorar la precisión del modelo si etiqueta más formularios y vuelve a realizar el entrenamiento para crear otro modelo. Se recomienda empezar por etiquetar cinco formularios y realizar un análisis y pruebas de los resultados; después, si es necesario, agregar más formularios.
 * La lista de etiquetas y la precisión estimada por etiqueta.
 
-    :::image type="content" source="../media/label-tool/custom-2.jpg" alt-text="Vista de entrenamiento.":::
+    :::image type="content" source="../media/label-tool/custom-3.jpg" alt-text="Herramienta de vista de entrenamiento.":::
+
+    
 
 #### <a name="analyze-a-custom-form"></a>Análisis de un formulario personalizado
 
 Seleccione el icono de análisis (bombilla) de la izquierda para probar el modelo. Seleccione el origen "Archivo local". Busque un archivo en el conjunto de datos de ejemplo que descomprimió en la carpeta de prueba y selecciónelo. A continuación, elija el botón **Ejecutar análisis** para obtener las predicciones de pares clave-valor, texto y tablas del formulario. La herramienta aplicará etiquetas en los cuadros de límite e informará de la confianza de cada etiqueta.
 
-:::image type="content" source="../media/label-tool/custom-3.jpg" alt-text="Herramienta de vista de entrenamiento.":::
+   :::image type="content" source="../media/label-tool/custom-2.jpg" alt-text="Vista de entrenamiento.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

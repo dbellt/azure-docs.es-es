@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/30/2021
-ms.openlocfilehash: c0af6f3045a686f9ef73b7761b41e869d3ce9d6f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5d81b8321fe574be39a23a99521521516b86cfbb
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108766392"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971266"
 ---
 # <a name="plan-a-microsoft-dynamics-365-offer"></a>Planeamiento de una oferta de Microsoft Dynamics 365
 
 En este artículo se explican las distintas opciones y características de una oferta de Dynamics 365 en el marketplace comercial de Microsoft AppSource. AppSource incluye ofertas que se basan en Microsoft 365, Dynamics 365, Power BI, Power Apps y Power BI.
 
-Antes de empezar, cree una cuenta de marketplace comercial en el [Centro de partners](./partner-center-portal/create-account.md) y asegúrese de que esté inscrita en el programa del marketplace comercial. Además, revise las [directrices y el proceso de publicación](/office/dev/store/submit-to-appsource-via-partner-center).
+Antes de empezar, cree una cuenta de marketplace comercial en el [Centro de partners](./create-account.md) y asegúrese de que esté inscrita en el programa del marketplace comercial. Además, revise las [directrices y el proceso de publicación](/office/dev/store/submit-to-appsource-via-partner-center).
 
 ## <a name="licensing-options"></a>Opciones de licencia
 
@@ -77,7 +77,7 @@ Para facilitar la creación de la oferta, prepare estos elementos con antelació
 
 ## <a name="additional-sales-opportunities"></a>Oportunidades de venta adicionales
 
-Puede optar por participar en los canales de marketing y ventas respaldados por Microsoft. Al crear la oferta en el Centro de partners, verá dos pestañas hacia el final del proceso para **realizar una venta conjunta con Microsoft**. esta opción permite que los equipos de ventas de Microsoft consideren la solución idónea para la venta conjunta de IP al evaluar las necesidades de los clientes. Consulte [Opción de venta conjunta en el Centro de partners](commercial-marketplace-co-sell.md) para información detallada sobre cómo preparar la oferta para la evaluación.
+Puede optar por participar en los canales de marketing y ventas respaldados por Microsoft. Al crear la oferta en el Centro de partners, verá dos pestañas hacia el final del proceso para **realizar una venta conjunta con Microsoft**. esta opción permite que los equipos de ventas de Microsoft consideren la solución idónea para la venta conjunta de IP al evaluar las necesidades de los clientes. Consulte [Opción de venta conjunta en el Centro de partners](./co-sell-configure.md) para información detallada sobre cómo preparar la oferta para la evaluación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -85,8 +85,8 @@ Después de analizar los elementos de planeamiento descritos anteriormente, sele
 
 | Guía de publicación    | Notas  |
 | :------------------- | :-------------------|
-| [Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md) | Al realizar la compilación para Enterprise Edition, revise primero el [proceso y las directrices de publicación](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source) adicionales. |
-| [Dynamics 365 for Business Central](partner-center-portal/create-new-business-central-offer.md) |   |
+| [Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md) | Al realizar la compilación para Enterprise Edition, revise primero el [proceso y las directrices de publicación](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source) adicionales. |
+| [Dynamics 365 for Business Central](dynamics-365-business-central-offer-setup.md) |   |
 | [Dynamics 365 for Customer Engagement y Power Apps](dynamics-365-customer-engage-offer-setup.md) | En primer lugar, revise [estos procesos y directrices de publicación](/dynamics365/customer-engagement/developer/publish-app-appsource) adicionales. |
-| [Power BI](/azure/marketplace/partner-center-portal/create-power-bi-app-offer) | En primer lugar, revise [estos procesos y directrices de publicación](/power-bi/developer/office-store) adicionales. |
+| [Power BI](./power-bi-app-offer-setup.md) | En primer lugar, revise [estos procesos y directrices de publicación](/power-bi/developer/office-store) adicionales. |
 |||

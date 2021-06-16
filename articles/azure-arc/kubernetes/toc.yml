@@ -54,6 +54,8 @@
           href: ../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json
         - name: Directivas de control de admisión mediante Azure Policy
           href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
+        - name: Implementación de Open Service Mesh habilitado para Arc
+          href: tutorial-arc-enabled-open-service-mesh.md
         - name: Conexión segura a un clúster desde cualquier lugar
           href: cluster-connect.md
         - name: "Uso del control de acceso basado en roles de Azure\_AD para comprobaciones de autorización"

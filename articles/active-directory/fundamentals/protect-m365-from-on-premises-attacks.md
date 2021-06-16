@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6d548f4d792d8980e2aa5040b09530eaf7868c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5cee69fbd2cb829a7ec90179e94098e307e5a094
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102609913"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968529"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Protección de Microsoft 365 contra ataques locales
 
@@ -187,7 +187,7 @@ Use las funcionalidades de Azure AD para administrar dispositivos de forma segu
 
 * **Aplicaciones heredadas** 
 
-   * Puede habilitar la autenticación, la autorización y el acceso remoto a las aplicaciones heredadas que no admitan la autenticación moderna. Use [Application Proxy de Azure AD](../manage-apps/application-proxy.md). También puede habilitarlas a través de una solución de controlador de entrega de aplicaciones o de red mediante [integraciones de asociados de acceso híbrido seguro](../manage-apps/secure-hybrid-access.md).   
+   * Puede habilitar la autenticación, la autorización y el acceso remoto a las aplicaciones heredadas que no admitan la autenticación moderna. Use [Application Proxy de Azure AD](../app-proxy/application-proxy.md). También puede habilitarlas a través de una solución de controlador de entrega de aplicaciones o de red mediante [integraciones de asociados de acceso híbrido seguro](../manage-apps/secure-hybrid-access.md).   
 
    * Elija un proveedor de VPN que admita la autenticación moderna. Integre la autenticación en Azure AD. En caso de que sea un riesgo local, puede usar Azure AD para deshabilitar o bloquear el acceso deshabilitando la VPN.
 
@@ -222,7 +222,7 @@ Supervise los siguientes escenarios clave, además de los escenarios específico
 
     Supervise todos los [eventos de riesgo de Azure AD](../identity-protection/overview-identity-protection.md#risk-detection-and-remediation) en busca de actividad sospechosa. [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) se integra de forma nativa con Azure Security Center.
 
-    Defina las [ubicaciones con nombre](../reports-monitoring/quickstart-configure-named-locations.md) de red para evitar detecciones ruidosas en las señales basadas en la ubicación. 
+    Defina las [ubicaciones con nombre](../conditional-access/location-condition.md) de red para evitar detecciones ruidosas en las señales basadas en la ubicación. 
 *  **Alertas de análisis de comportamiento de usuarios y entidades (UEBA)** 
 
     Use UEBA para obtener conclusiones sobre la detección de anomalías.

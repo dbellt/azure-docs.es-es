@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/10/2017
-ms.openlocfilehash: 09fb738a499d6016c3aead0d33436f034bc5d339
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2705364fb60e0de02ae9c119228a93be8313f5eb
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728409"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984849"
 ---
 # <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Configuración de recuperación ante desastres entre regiones para cuentas de integración: Azure Logic Apps
 
@@ -79,7 +79,7 @@ Para revertir a una región primaria si está disponible, siga estos pasos:
 La continuidad empresarial de los documentos EDI X12 se basa en los números de control:
 
 > [!TIP]
-> También puede usar la [plantilla de inicio rápido de X12](https://azure.microsoft.com/resources/templates/201-logic-app-b2b-disaster-recovery-replication/) para crear aplicaciones lógicas. La creación de cuentas de integración primaria y secundaria es un requisito previo para usar la plantilla. La plantilla ayuda a crear dos aplicaciones lógicas, una para números de control recibidos y otra para números de control generados. Las acciones y los desencadenadores respectivos se crean en las aplicaciones lógicas, conectando el desencadenador a la cuenta de integración primaria y la acción a la cuenta de integración secundaria.
+> También puede usar la [plantilla de inicio rápido de X12](https://azure.microsoft.com/resources/templates/logic-app-b2b-disaster-recovery-replication/) para crear aplicaciones lógicas. La creación de cuentas de integración primaria y secundaria es un requisito previo para usar la plantilla. La plantilla ayuda a crear dos aplicaciones lógicas, una para números de control recibidos y otra para números de control generados. Las acciones y los desencadenadores respectivos se crean en las aplicaciones lógicas, conectando el desencadenador a la cuenta de integración primaria y la acción a la cuenta de integración secundaria.
 
 **Requisitos previos**
 

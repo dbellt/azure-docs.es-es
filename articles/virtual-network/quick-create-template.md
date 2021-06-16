@@ -6,15 +6,15 @@ services: virtual-network
 author: KumudD
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 05/11/2021
+ms.date: 06/09/2021
 ms.author: kumud
-ms.custom: ''
-ms.openlocfilehash: 28513132e75797adaafc7de32d94379b92f298ee
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a686eacf8e3caa162cfca765e60d2268fe2066e7
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752434"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078085"
 ---
 # <a name="quickstart-create-a-virtual-network---resource-manager-template"></a>Inicio rápido: Creación de una red virtual: plantilla de Resource Manager
 
@@ -25,7 +25,7 @@ En este inicio rápido aprenderá a crear una red virtual con dos subredes media
 
 También se puede completar este inicio rápido mediante [Azure Portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md) o la [CLI de Azure](quick-create-cli.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -33,7 +33,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/vnet-two-subnets/azuredeploy.json).
 
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/vnet-two-subnets/azuredeploy.json" range="001-96" highlight="56-92":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/vnet-two-subnets/azuredeploy.json" range="001-98" highlight="56-97":::
 
 En la plantilla se han definido los siguientes recursos de Azure:
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks): cree una red virtual de Azure.
@@ -45,7 +45,7 @@ Implementación de la plantilla de Resource Manager en Azure:
 
 1. Seleccione **Implementar en Azure** para iniciar sesión en Azure y abrir la plantilla. La plantilla crea una red virtual con dos subredes.
 
-   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-virtual-network-2vms-create%2Fazuredeploy.json)
+   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fvnet-two-subnets%2Fazuredeploy.json)
 
 2. En el portal, en la página **Create a Virtual Network with two Subnets** (Crear una red virtual con dos subredes), escriba o seleccione los valores siguientes:
    - **Grupo de recursos**: seleccione **Crear nuevo**, escriba un nombre para el grupo de recursos y seleccione **Aceptar**.

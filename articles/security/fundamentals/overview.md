@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: TomSh
-ms.openlocfilehash: b5f9df4e6f682b5d1e9e3cd35affe6e4191e3d53
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 413e8387e6e6e1c1386aa9477aebe37b2488c098
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047786"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950562"
 ---
 # <a name="introduction-to-azure-security"></a>Introducción a la seguridad de Azure
 
@@ -363,7 +363,7 @@ Microsoft utiliza varias tecnologías y procedimientos recomendados de seguridad
 
 - [Azure Active Directory unido](../../active-directory/devices/overview.md) permite extender las funcionalidades de nube a dispositivos Windows 10 para la administración centralizada. Permite que los usuarios se conecten a la nube corporativa o de la organización a través de Azure Active Directory y simplifica el acceso a aplicaciones y recursos.
 
-- La característica [Proxy de la aplicación de Azure Active Directory](../../active-directory/manage-apps/application-proxy.md) proporciona inicio de sesión único (SSO) y acceso remoto seguro para aplicaciones web hospedadas de forma local.
+- La característica [Proxy de la aplicación de Azure Active Directory](../../active-directory/app-proxy/application-proxy.md) proporciona inicio de sesión único (SSO) y acceso remoto seguro para aplicaciones web hospedadas de forma local.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

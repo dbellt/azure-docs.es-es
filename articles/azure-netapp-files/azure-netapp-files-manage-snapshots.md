@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/20/2021
+ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: a18c53d972fbb38dc0b0e557d14b2fbffbff15fa
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: b0cc4deebac60fcf0ac4df20b112b8f69da05414
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102174366"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072116"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Administración de instantáneas mediante Azure NetApp Files
 
@@ -49,26 +49,6 @@ Puede crear instantáneas de volumen a petición.
 ## <a name="manage-snapshot-policies"></a>Administración de directivas de instantánea
 
 Puede programar la realización automática de instantáneas de volumen mediante el uso de directivas de instantánea. También puede modificar una directiva de instantánea según sea necesario o eliminar una directiva de instantánea que ya no necesite.  
-
-### <a name="register-the-feature"></a>Registrar la característica
-
-La característica **directiva de instantánea** está actualmente en la versión preliminar. Si usa esta característica por primera vez, debe registrarla primero. 
-
-1. Registre la característica: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
-    ```
-
-2. Compruebe el estado del registro de la característica: 
-
-    > [!NOTE]
-    > **RegistrationState** puede estar en el estado `Registering` hasta 60 minutos antes de cambiar a `Registered`. Espere hasta que el estado sea **Registrado** antes de continuar.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
-    ```
-También puede usar los comandos de la [CLI de Azure](/cli/azure/feature) `az feature register` y `az feature show` para registrar la característica y mostrar el estado del registro. 
 
 ### <a name="create-a-snapshot-policy"></a>Creación de una directiva de instantánea 
 

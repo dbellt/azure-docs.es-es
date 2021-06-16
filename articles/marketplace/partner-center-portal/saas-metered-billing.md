@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 9f72d54fda8f66c2fce35f0520b51406aa276bb0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c84f48d7a41a43b1425663b2ceed9ba74276f3f9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92892760"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955609"
 ---
 # <a name="metered-billing-for-saas-using-the-commercial-marketplace-metering-service"></a>Facturación según uso mediante el servicio de medición de marketplace comercial
 
@@ -26,7 +26,7 @@ Para que una oferta de SaaS utilice la facturación según uso, primero tiene qu
 - Integrarse con las [API de suministro de SaaS](./pc-saas-fulfillment-api-v2.md) para que los clientes puedan aprovisionar y conectarse a su oferta.  
 - Configurarse para el modelo de precios de **tarifa plana** al cobrar a los clientes por su servicio.  Las dimensiones son una extensión opcional del modelo de precios de tarifa plana. 
 
-Luego, la oferta SaaS se puede integrar con las [API del servicio de medición del marketplace comercial](./marketplace-metering-service-apis.md) para informar a Microsoft de los eventos que se pueden facturar.
+Luego, la oferta SaaS se puede integrar con las [API del servicio de medición del marketplace comercial](../marketplace-metering-service-apis.md) para informar a Microsoft de los eventos que se pueden facturar.
 
 >[!Note]
 >El servicio de medición de Marketplace solo está disponible para el modelo de facturación de tarifa plana y no se aplica al modelo de facturación de usuario.
@@ -41,7 +41,7 @@ Es importante comprender la jerarquía de las ofertas a la hora de definir la of
 - Dentro de cada plan configurado para un modelo de facturación de tarifa plana, se incluye al menos una cuota periódica (que puede ser de 0 USD):
     - Cuota **mensual** periódica: cuota mensual de tarifa plana que se paga por adelantado con una periodicidad mensual cuando el usuario compra el plan.
     - Cuota **anual** periódica: cuota anual de tarifa plana que se paga por adelantado con una periodicidad anual cuando el usuario compra el plan.
-- Además de las tarifas periódicas, un plan de tarifa plana también puede incluir dimensiones opcionales personalizadas que se utilizan para cobrar a los clientes por el uso por encima del límite que no esté incluido en la tarifa plana.  Cada dimensión representa una unidad facturable que el servicio comunicará a Microsoft mediante la [API del servicio de medición del marketplace comercial](./marketplace-metering-service-apis.md).
+- Además de las tarifas periódicas, un plan de tarifa plana también puede incluir dimensiones opcionales personalizadas que se utilizan para cobrar a los clientes por el uso por encima del límite que no esté incluido en la tarifa plana.  Cada dimensión representa una unidad facturable que el servicio comunicará a Microsoft mediante la [API del servicio de medición del marketplace comercial](../marketplace-metering-service-apis.md).
 
 ## <a name="sample-offer"></a>Oferta de ejemplo
 
@@ -67,7 +67,7 @@ Por ejemplo, Contoso es un editor con un servicio SaaS llamado Contoso Notificat
 
     [![Precios del plan Enterprise](./media/saas-enterprise-pricing.png "Haga clic para una vista ampliada")](./media/saas-enterprise-pricing.png)
 
-En función del plan seleccionado, un cliente de Azure que compre una suscripción a una oferta de SaaS de CNS podrá enviar la cantidad de mensajes de texto y correos electrónicos incluida en el período de suscripción (mes o año, tal y como aparece en los detalles de la suscripción: startDate y endDate).  Contoso mide el uso hasta la cantidad incluida en base sin enviar eventos de uso a Microsoft. Cuando los clientes consumen más de la cantidad incluida, no tienen que cambiar de plan ni hacer nada diferente.  Contoso medirá todo uso por encima del límite de la cantidad incluida y comenzará a emitir eventos de uso a Microsoft para cobrar el uso adicional mediante la [API del servicio de medición del marketplace comercial](./marketplace-metering-service-apis.md).  Microsoft, a su vez, cobrará al cliente el uso por encima del límite que especifique el editor en las dimensiones personalizadas. La facturación del uso por encima del límite se realiza en el siguiente ciclo de facturación (mensualmente, pero puede ser trimestral o antes para algunos clientes).  En el caso de un plan de tarifa plana mensual, se realizará la facturación por uso por encima del límite para cada mes en el que se haya producido dicho exceso de uso.  En el caso de un plan de tarifa plana anual, una vez que se consume la cantidad incluida en base por año, todo el uso adicional emitido por el medidor personalizado se facturará como uso por encima del límite durante cada ciclo de facturación (mensualmente) hasta el final del plazo anual de la suscripción.
+En función del plan seleccionado, un cliente de Azure que compre una suscripción a una oferta de SaaS de CNS podrá enviar la cantidad de mensajes de texto y correos electrónicos incluida en el período de suscripción (mes o año, tal y como aparece en los detalles de la suscripción: startDate y endDate).  Contoso mide el uso hasta la cantidad incluida en base sin enviar eventos de uso a Microsoft. Cuando los clientes consumen más de la cantidad incluida, no tienen que cambiar de plan ni hacer nada diferente.  Contoso medirá todo uso por encima del límite de la cantidad incluida y comenzará a emitir eventos de uso a Microsoft para cobrar el uso adicional mediante la [API del servicio de medición del marketplace comercial](../marketplace-metering-service-apis.md).  Microsoft, a su vez, cobrará al cliente el uso por encima del límite que especifique el editor en las dimensiones personalizadas. La facturación del uso por encima del límite se realiza en el siguiente ciclo de facturación (mensualmente, pero puede ser trimestral o antes para algunos clientes).  En el caso de un plan de tarifa plana mensual, se realizará la facturación por uso por encima del límite para cada mes en el que se haya producido dicho exceso de uso.  En el caso de un plan de tarifa plana anual, una vez que se consume la cantidad incluida en base por año, todo el uso adicional emitido por el medidor personalizado se facturará como uso por encima del límite durante cada ciclo de facturación (mensualmente) hasta el final del plazo anual de la suscripción.
 
 ## <a name="billing-dimensions"></a>Dimensiones de facturación
 
@@ -157,4 +157,4 @@ Para conocer las opciones de soporte técnico del publicador y abrir una inciden
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [API del servicio de medición de Marketplace](./marketplace-metering-service-apis.md)
+- [API del servicio de medición de Marketplace](../marketplace-metering-service-apis.md)

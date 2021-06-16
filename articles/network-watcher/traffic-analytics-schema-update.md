@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: d7c4f1853ff8dcb9249ab6ec4f536e1f8cfa10e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b96275653c46f587d5b910bd020d494f4b3fe99f
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98018231"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032040"
 ---
 # <a name="sample-queries-with-new-fields-in-the-traffic-analytics-schema-august-2019-schema-update"></a>Consultas de ejemplo con nuevos campos en el esquema de Análisis de tráfico (actualización del esquema de agosto de 2019)
 
@@ -122,5 +122,5 @@ En función de las condiciones, sabemos cuál de los cuatro campos se rellenará
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener respuestas a las preguntas más frecuentes, consulte [Preguntas más frecuentes de Análisis de tráfico](traffic-analytics-faq.md).
+- Para obtener respuestas a las preguntas más frecuentes, consulte [Preguntas más frecuentes de Análisis de tráfico](traffic-analytics-faq.yml).
 - Para ver detalles acerca de la funcionalidad, consulte la [documentación de Análisis de tráfico](traffic-analytics.md).

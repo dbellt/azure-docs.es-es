@@ -3,12 +3,12 @@ title: Creación e implementación de proyectos de grupos de recursos de Visual 
 description: Use Visual Studio para crear un proyecto del grupo de recursos de Azure e implementar los recursos en Azure.
 ms.topic: conceptual
 ms.date: 04/12/2021
-ms.openlocfilehash: 4c0e19042506e0cf1772398b0a02b81f0245b1c7
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 71474578853523245b4859680b739254702afde6
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107306983"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958110"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creación e implementación de grupos de recursos de Azure mediante Visual Studio
 
@@ -51,7 +51,7 @@ En esta sección, va a crear un proyecto de Grupo de recursos de Azure con una p
 
 ## <a name="customize-resource-manager-template"></a>Personalización de la plantilla de Resource Manager
 
-Puede personalizar un proyecto de implementación si modifica la plantilla de Resource Manager que describen los recursos que desea implementar. Para más información sobre los elementos de la plantilla de Resource Manager, consulte [Creación de plantillas de Azure Resource Manager](template-syntax.md).
+Puede personalizar un proyecto de implementación si modifica la plantilla de Resource Manager que describen los recursos que desea implementar. Para más información sobre los elementos de la plantilla de Resource Manager, consulte [Creación de plantillas de Azure Resource Manager](./syntax.md).
 
 1. Para trabajar en la plantilla, abra **WebSite.json**.
 

@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 05d136093bd509e8c23ce8622423216326b0f1f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 11d9b2c4825df76bad8e7c860c9edae3b60233ea
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102623227"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110574920"
 ---
 ## <a name="add-to-your-functions-app"></a>Adición a la aplicación de Functions
 
@@ -31,7 +31,7 @@ Para trabajar con el desencadenador y los enlaces, es necesario hacer referencia
 
 ### <a name="event-hubs-extension-5x-and-higher"></a>Extensión 5.x y superior de Event Hubs
 
-Hay disponible una nueva versión de la extensión de enlaces de Event Hubs en un [paquete NuGet en versión preliminar](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/5.0.0-beta.1). Esta versión preliminar presenta la posibilidad de [conectarse con una identidad en lugar de un secreto](../articles/azure-functions/functions-reference.md#configure-an-identity-based-connection). En el caso de las aplicaciones .NET, también cambian los tipos con los que se puede enlazar; así, los tipos `Microsoft.Azure.EventHubs` se reemplazan por otros tipos más recientes de [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs).
+Hay disponible una nueva versión de la extensión de enlaces de Event Hubs en un [paquete NuGet en versión preliminar](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/5.0.0-beta.4). Esta versión preliminar presenta la posibilidad de [conectarse con una identidad en lugar de un secreto](../articles/azure-functions/functions-reference.md#configure-an-identity-based-connection). En el caso de las aplicaciones .NET, también cambian los tipos con los que se puede enlazar; así, los tipos `Microsoft.Azure.EventHubs` se reemplazan por otros tipos más recientes de [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs).
 
 > [!NOTE]
 > El paquete en versión preliminar no se incluye en un conjunto de extensiones y debe instalarse manualmente. En el caso de las aplicaciones .NET, agregue una referencia al paquete. Con el resto de tipos de aplicaciones, consulte [Actualización de las extensiones].

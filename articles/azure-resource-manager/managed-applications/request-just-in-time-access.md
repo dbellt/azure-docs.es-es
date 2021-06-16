@@ -5,12 +5,12 @@ author: MSEvanhi
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: evanhi
-ms.openlocfilehash: b7c067ca82ea7fbe7eb9c0f3d50b7fe75dfb47df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae7c4e61107518676b2cc8308904816d075ecf7e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100377370"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951486"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Habilitación y solicitud de acceso Just-In-Time para Azure Managed Applications
 
@@ -72,7 +72,7 @@ Al crear la oferta en el Centro de partners, asegúrese de habilitar el acceso J
 
 1. Inicie sesión en el portal de Marketplace comercial del [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 
-1. Para obtener instrucciones sobre cómo crear una nueva aplicación administrada, siga los pasos descritos en [Creación de una oferta de aplicación de Azure](../../marketplace/create-new-azure-apps-offer.md).
+1. Para obtener instrucciones sobre cómo crear una nueva aplicación administrada, siga los pasos descritos en [Creación de una oferta de aplicación de Azure](../../marketplace/azure-app-offer-setup.md).
 
 1. En la página **Configuración técnica**, seleccione la casilla **Habilitar acceso Just-In-Time (JIT)** .
 

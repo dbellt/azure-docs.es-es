@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: b397115f6e84b414d9224134b7b6999228064407
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: aebadcbb37a91b1a908054738fc901c6e7e54ac1
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373251"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004482"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Creación de un clúster de proceso de Azure Machine Learning
 
@@ -106,7 +106,7 @@ Para obtener información sobre cómo crear un clúster de proceso en Studio, co
 
  ## <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a> Reducción del costo del clúster de proceso
 
-También puede optar por usar [VM de prioridad baja](concept-plan-manage-cost.md#low-pri-vm) para ejecutar algunas cargas de trabajo o todas ellas. Estas máquinas virtuales no tienen una disponibilidad garantizada y se pueden reemplazar mientras están en uso. Tendrá que reiniciar un trabajo que se ha cambiado. 
+También puede optar por usar [VM de prioridad baja](how-to-manage-optimize-cost.md#low-pri-vm) para ejecutar algunas cargas de trabajo o todas ellas. Estas máquinas virtuales no tienen una disponibilidad garantizada y se pueden reemplazar mientras están en uso. Tendrá que reiniciar un trabajo que se ha cambiado. 
 
 Use cualquiera de estas formas para especificar una VM de prioridad baja:
     

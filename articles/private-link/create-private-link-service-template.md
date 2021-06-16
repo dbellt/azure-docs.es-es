@@ -5,15 +5,15 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 05/29/2020
 ms.author: allensu
-ms.openlocfilehash: c1b66fcd8f4810e55de49bbc6fd085a60a64812f
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: 56f540e103cc3392cc4e73777dd49d5d7faf266d
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109815025"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984615"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-an-arm-template"></a>Inicio rápido: Creación de un servicio de Private Link mediante una plantilla de ARM
 
@@ -35,7 +35,7 @@ Necesita una cuenta de Azure con una suscripción activa. [Cree una cuenta gratu
 
 Esta plantilla crea un servicio Private Link.
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-privatelink-service/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/privatelink-service/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/privatelink-service/azuredeploy.json":::
 

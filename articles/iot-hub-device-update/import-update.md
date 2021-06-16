@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 4/19/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: ebfeee2828b3a36f9cf47891f8aea6d889db85bd
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 025ab1ddd9a7b14ac75df762c54fe48e4f665e29
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107763584"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970150"
 ---
 # <a name="add-an-update-to-device-update-for-iot-hub"></a>Adición de una actualización a Device Update for IoT Hub
 Aprenda a agregar una nueva actualización en Device Update for IoT Hub.
@@ -122,7 +122,7 @@ Ejemplo:
 ## <a name="import-an-update"></a>Importación de una actualización
 
 > [!NOTE]
-> En las siguientes instrucciones se muestra cómo importar una actualización a través de la interfaz de usuario de Azure Portal. También puede usar las [API de actualización de dispositivos para IOT Hub](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) para importar una actualización. 
+> En las siguientes instrucciones se muestra cómo importar una actualización a través de la interfaz de usuario de Azure Portal. También puede usar las [API de actualización de dispositivos para IOT Hub](/rest/api/deviceupdate/updates) para importar una actualización. 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a su instancia de IoT Hub con Device Update.
 

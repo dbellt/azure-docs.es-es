@@ -18,12 +18,12 @@ ms.workload: na
 ms.date: 07/13/2020
 ms.author: magoedte
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d1c67c5ed59b66b8fce84ccff1c01f2dc28b22f0
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 217927c3445f600aff5fa3e271a6ed2c2eb1c3cd
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071872"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075518"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introducción al controlador de extensiones de configuración de estado deseado de Azure
 
@@ -66,7 +66,7 @@ La instalación de WMF requiere un reinicio. Después del reinicio, la extensió
 
 ### <a name="default-configuration-script"></a>Script de configuración predeterminada
 
-La extensión DSC de Azure incluye un script de configuración predeterminada diseñado para utilizarse al incorporar una máquina virtual al servicio DSC de Azure Automation. Los parámetros del script se alinean con las propiedades configurables del [administrador de configuración local](/powershell/scripting/dsc/managing-nodes/metaConfig). Para los parámetros de script, consulte [Script de configuración predeterminada](dsc-template.md#default-configuration-script) en [Extensión Desired State Configuration con plantillas de Azure Resource Manager](dsc-template.md). Para el script completo, consulte la [plantilla de inicio rápido de Azure en GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+La extensión DSC de Azure incluye un script de configuración predeterminada diseñado para utilizarse al incorporar una máquina virtual al servicio DSC de Azure Automation. Los parámetros del script se alinean con las propiedades configurables del [administrador de configuración local](/powershell/scripting/dsc/managing-nodes/metaConfig). Para los parámetros de script, consulte [Script de configuración predeterminada](dsc-template.md#default-configuration-script) en [Extensión Desired State Configuration con plantillas de Azure Resource Manager](dsc-template.md). Para el script completo, consulte la [plantilla de inicio rápido de Azure en GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/azmgmt-demo/nestedtemplates/scripts/UpdateLCMforAAPull.zip).
 
 ## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>Información para el registro con el servicio State Configuration (DSC) de Azure Automation
 

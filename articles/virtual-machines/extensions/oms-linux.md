@@ -8,12 +8,12 @@ author: amjads1
 ms.author: amjads
 ms.collection: linux
 ms.date: 02/18/2020
-ms.openlocfilehash: 3ac6937d83bd2d21fefc09878408a54aa0eb41f1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d30aee396eb3e8e5c56896e048210f5f7d47ef87
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102559093"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949852"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de Log Analytics para Linux
 
@@ -26,7 +26,7 @@ Los registros de Azure Monitor proporcionan funcionalidades de supervisión, gen
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="operating-system"></a>Sistema operativo
 
@@ -113,7 +113,7 @@ El siguiente JSON muestra el esquema para la extensión del agente de Log Analyt
 ## <a name="template-deployment"></a>Implementación de plantilla
 
 >[!NOTE]
->Algunos componentes de la extensión de máquina virtual de Log Analytics también se incluyen en la [extensión de máquina virtual de diagnóstico](./diagnostics-linux.md). Debido a esta arquitectura, se pueden producir conflictos si se crean instancias de las dos extensiones en la misma plantilla de ARM. Para evitar estos conflictos en tiempo de instalación, use la [directiva `dependsOn`](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) para asegurarse de que las extensiones se instalan de forma secuencial. Las extensiones se pueden instalar en cualquier orden.
+>Algunos componentes de la extensión de máquina virtual de Log Analytics también se incluyen en la [extensión de máquina virtual de diagnóstico](./diagnostics-linux.md). Debido a esta arquitectura, se pueden producir conflictos si se crean instancias de las dos extensiones en la misma plantilla de ARM. Para evitar estos conflictos en tiempo de instalación, use la [directiva `dependsOn`](../../azure-resource-manager/templates/resource-dependency.md#dependson) para asegurarse de que las extensiones se instalan de forma secuencial. Las extensiones se pueden instalar en cualquier orden.
 
 Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. Las plantillas resultan ideales cuando se implementan una o varias máquinas virtuales que requieren configuración tras la implementación, como por ejemplo, su incorporación a los registros de Azure Monitor. Puede encontrar una plantilla de Resource Manager de ejemplo que incluye la extensión de máquina virtual del agente de Log Analytics en la [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 

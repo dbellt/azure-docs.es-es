@@ -2,22 +2,22 @@
 title: Configuración de la aceleración automática de inicio de sesión mediante la detección del dominio de inicio
 description: Aprenda a configurar la directiva de detección del dominio de inicio para la autenticación de Azure Active Directory para los usuarios federados, incluidas sugerencias de dominio y aceleración automática.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.author: iangithinji
+ms.author: mtillman
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4dc415d4ce7b32c1581618c7a351110af8edaa3
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 2729ec3ca445fa53503a1968e1fee639bd990f6b
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108160770"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081504"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configuración del comportamiento de inicio de sesión de Azure Active Directory de una aplicación mediante una directiva de detección del dominio de inicio
 
@@ -166,7 +166,7 @@ Usaremos los cmdlets de PowerShell de Azure AD para desplazarse por algunos esce
 
 - Enumerar las aplicaciones para las que se configura una directiva.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 En los ejemplos siguientes, podrá crear, actualizar, vincular y eliminar directivas en las entidades de servicio de aplicación en Azure AD.
 

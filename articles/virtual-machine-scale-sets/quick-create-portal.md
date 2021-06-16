@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 4ed0932e82751a5ded4bfc9d234bfcd16fa5b9e0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f9a5c8e95b5230b5689a63a74bb31324c083e28a
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935454"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078301"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales en Azure Portal
 
@@ -61,7 +61,7 @@ Puede implementar un conjunto de escalado con una imagen de Windows Server o Lin
 1. En **Región**, seleccione una región cercana a su área.
 1. Seleccione una imagen de Marketplace para **imagen**. En este ejemplo, hemos elegido *Ubuntu Server 18.04 LTS*.
 1. Escriba el nombre de usuario que quiera y seleccione el tipo de autenticación que desee.
-   - La **contraseña** debe tener 12 caracteres como mínimo y reunir, al menos, tres de los cuatro requisitos de complejidad siguientes: contener al menos una minúscula, una mayúscula, un número y un carácter especial. Para más información, consulte la sección acerca de los [requisitos de nombre de usuario y contraseña](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
+   - La **contraseña** debe tener 12 caracteres como mínimo y reunir, al menos, tres de los cuatro requisitos de complejidad siguientes: contener al menos una minúscula, una mayúscula, un número y un carácter especial. Para más información, consulte la sección acerca de los [requisitos de nombre de usuario y contraseña](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
    - Si selecciona una imagen de disco del sistema operativo Linux, puede elegir su **clave pública SSH** en su lugar. Proporcione solo su clave pública, como *~/.ssh/id_rsa.pub*. Puede usar Azure Cloud Shell del portal para [crear y utilizar claves SSH](../virtual-machines/linux/mac-create-ssh-keys.md).
    
     :::image type="content" source="./media/virtual-machine-scale-sets-create-portal/quick-create-scale-set.png" alt-text="La imagen muestra cómo crear opciones para conjuntos de escalado en Azure Portal.":::

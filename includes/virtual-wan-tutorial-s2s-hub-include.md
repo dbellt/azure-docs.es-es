@@ -5,20 +5,20 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 02/04/2021
+ms.date: 05/26/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f469664c716ecef6b82de2befa40b33f253e229f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ab341181db71a8df5dde27311e9169f9477c70f8
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99627730"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578291"
 ---
 1. Busque la red de WAN virtual que ha creado. En la página de la red WAN virtual, en la sección **Conectividad**, seleccione **Centros de conectividad**.
 2. En la página **Centros de conectividad**, seleccione **+ Nuevo centro de conectividad** para abrir la página **Crear centro de conectividad virtual**.
 
-    ![Captura de pantalla que muestra el panel Crear centro de conectividad virtual con la pestaña Aspectos básicos seleccionada.](./media/virtual-wan-tutorial-hub-include/basics.png "Aspectos básicos")
+   :::image type="content" source="./media/virtual-wan-tutorial-hub-include/basics.png" alt-text="Captura de pantalla que muestra el panel Crear centro de conectividad virtual con la pestaña Aspectos básicos seleccionada." border="false":::
 3. En la página **Crear centro de conectividad virtual**, en la pestaña **Aspectos básicos** rellene los siguientes campos:
 
    * **Región** (anteriormente se conocía como "ubicación")
@@ -26,7 +26,7 @@ ms.locfileid: "99627730"
    * **Espacio de direcciones privadas del centro de conectividad**: el espacio de direcciones mínimo para crear un centro de conectividad es /24. Si usa cualquier valor comprendido entre /25 y /32, se producirá un error durante el proceso de creación. No es necesario planear explícitamente el espacio de direcciones de subred para los servicios del centro de conectividad virtual. Como Azure Virtual WAN es un servicio administrado, crea las subredes adecuadas en el centro de conectividad virtual para las diferentes puertas de enlace y servicios (por ejemplo, puertas de enlace de VPN, puertas de enlace de ExpressRoute, puertas de enlace de VPN de punto a sitio del usuario, firewall, enrutamiento, etc.).
 4. Seleccione **Siguiente: De sitio a sitio**.
 
-    ![Captura de pantalla que muestra el panel Crear centro de conectividad virtual con Site to site (De sitio a sitio) seleccionado.](./media/virtual-wan-tutorial-hub-include/site-to-site.png "De sitio a sitio")
+   :::image type="content" source="./media/virtual-wan-tutorial-hub-include/site-to-site.png" alt-text="Captura de pantalla que muestra el panel Crear centro de conectividad virtual con Site to site (De sitio a sitio) seleccionado." border="false":::
 
 5. En la pestaña **De sitio a sitio**, rellene los siguientes campos:
 

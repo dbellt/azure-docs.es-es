@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: bd948814b4b647bcc3fbfe58b090b1e794504232
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: fc1927ddf867ab9bfd5b288d57f2c5c9e59b0295
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363638"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957256"
 ---
 # <a name="azure-cosmos-db-apache-spark-2-oltp-connector-for-core-sql-api-release-notes-and-resources"></a>API del conector OLTP de Apache Spark 2 para Azure Cosmos DB para Core (SQL): notas de la versión y recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "107363638"
 > * [SDK de .NET Core v2](sql-api-sdk-dotnet-core.md)
 > * [SDK de fuente de cambios de .NET, versión 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [SDK de Java v4](sql-api-sdk-java-v4.md)
+> * [SDK para Java v4](sql-api-sdk-java-v4.md)
 > * [Versión 2 del SDK de Java asincrónico](sql-api-sdk-async-java.md)
 > * [SDK de Java v2 sincrónico](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
@@ -62,7 +62,7 @@ Este conector se puede usar con [Azure Databricks](https://azure.microsoft.com/s
 | **Descarga del SDK** | [Descarga del archivo .jar más reciente](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG), [Maven](https://search.maven.org/search?q=a:azure-cosmosdb-spark_2.4.0_2.11) |
 |**Documentación de la API** | [Referencia del conector de Spark]() |
 |**Contribuciones al SDK** | [Conector de Apache Spark para Azure Cosmos DB en GitHub](https://github.com/Azure/azure-cosmosdb-spark) | 
-|**Introducción** | [Aceleración de análisis de macrodatos mediante el conector de Apache Spark a Azure Cosmos DB](./spark-connector.md#bk_working_with_connector) <br> [Uso del flujo estructurado de Apache Spark con Apache Kafka y Azure Cosmos DB](../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) | 
+|**Introducción** | [Aceleración de análisis de macrodatos mediante el conector de Apache Spark a Azure Cosmos DB](./create-sql-api-spark.md) <br> [Uso del flujo estructurado de Apache Spark con Apache Kafka y Azure Cosmos DB](../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) | 
 
 ## <a name="release-history"></a>Historial de versiones
 

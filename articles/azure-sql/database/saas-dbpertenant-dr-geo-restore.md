@@ -7,16 +7,15 @@ ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: tutorial
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: MashaMSFT
+ms.author: mathoma
 ms.date: 01/14/2019
-ms.openlocfilehash: 3fe6095595f5270b18536e6ef46afe4a0a5b3268
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cedcd6514f8a5708f8828cb14c6a19da34cb2c15
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97607718"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110708261"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Uso de la restauración geográfica para recuperar una aplicación SaaS multiinquilino a partir de copias de seguridad de base de datos
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

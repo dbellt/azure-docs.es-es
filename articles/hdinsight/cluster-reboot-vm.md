@@ -1,16 +1,16 @@
 ---
 title: Reinicio de máquinas virtuales para los clústeres de Azure HDInsight
 description: Obtenga información sobre cómo reiniciar las máquinas virtuales que no responden para los clústeres de Azure HDInsight.
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurepowershell
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/22/2020
-ms.openlocfilehash: a61735dba60860459d007eb54d4655f41d5ae51a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b3f356d5a7b0919b6aa44cbe6653625c9e96f3f1
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98946862"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110688610"
 ---
 # <a name="reboot-vms-for-hdinsight-clusters"></a>Reinicio de máquinas virtuales para los clústeres de HDInsight
 

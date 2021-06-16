@@ -17,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: fdff3f6144f7099f3f61cfe57186357e17136e9f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a80770013d373dbbd1ca672fbd2153731b604f5c
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103225496"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079560"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>Automatización de la administración con la extensión del Agente de IaaS de SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -72,7 +72,7 @@ En la siguiente tabla se detallan estas ventajas:
 | Característica | Descripción |
 | --- | --- |
 | **Administración de portal** | Desbloquea la [administración en el portal](manage-sql-vm-portal.md), lo que permite ver todas las VM con SQL Server en un solo lugar, así como habilitar y deshabilitar características específicas de SQL directamente desde el portal. <br/> Modo de administración: Ligero y completo.|  
-| **Copia de seguridad automatizada** |Automatiza la programación de copias de seguridad de todas las bases de datos para la instancia predeterminada o una instancia con nombre [instalada de forma correcta](frequently-asked-questions-faq.md#administration) de SQL Server en la máquina virtual. Para más información, consulte [Automated Backup para SQL Server en Azure Virtual Machines (Resource Manager)](automated-backup-sql-2014.md). <br/> Modo de administración: Completo|
+| **Copia de seguridad automatizada** |Automatiza la programación de copias de seguridad de todas las bases de datos para la instancia predeterminada o una instancia con nombre [instalada de forma correcta](/azure/azure-sql/virtual-machines/windows/frequently-asked-questions-faq#administration) de SQL Server en la máquina virtual. Para más información, consulte [Automated Backup para SQL Server en Azure Virtual Machines (Resource Manager)](automated-backup-sql-2014.md). <br/> Modo de administración: Completo|
 | **Aplicación de revisión automatizada** |Configura una ventana de mantenimiento durante la cual pueden tener lugar actualizaciones de seguridad importantes de Windows y SQL Server en la VM, de forma que pueda evitar las actualizaciones durante las horas punta de la carga de trabajo. Para más información, consulte [Automated Patching para SQL Server en Azure Virtual Machines (Resource Manager)](automated-patching.md). <br/> Modo de administración: Completo|
 | **Integración de Azure Key Vault** |Permite instalar y configurar automáticamente Azure Key Vault en la máquina virtual SQL Server. Para más información, consulte [Configurar la integración de Azure Key Vault para SQL Server en Azure Virtual Machines (Resource Manager)](azure-key-vault-integration-configure.md). <br/> Modo de administración: Completo|
 | **Visualización del uso del disco en el portal** | Permite ver una representación gráfica del uso del disco por parte de los archivos de datos de SQL en Azure Portal.  <br/> Modo de administración: Completo | 
@@ -173,4 +173,4 @@ Para instalar la extensión de IaaS de SQL Server en SQL Server en las VM de Azu
 
 Para obtener más información sobre cómo ejecutar SQL Server en Azure Virtual Machines, consulte [¿Qué es SQL Server en Azure Virtual Machines?](sql-server-on-azure-vm-iaas-what-is-overview.md).
 
-Para más información, consulte las [preguntas más frecuentes](frequently-asked-questions-faq.md). 
+Para más información, consulte las [preguntas más frecuentes](frequently-asked-questions-faq.yml). 

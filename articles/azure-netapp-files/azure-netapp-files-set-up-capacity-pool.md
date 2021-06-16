@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 2b52ad50854092cddd7b9e79cbeebd4a83017081
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e49a68ee4c4e4f60d8af6919e4eaec33ac0086aa
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91325424"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071918"
 ---
 # <a name="set-up-a-capacity-pool"></a>Configuración de un grupo de capacidad
 
@@ -60,7 +60,6 @@ Debe haber creado ya una cuenta de NetApp.
 
      > [!IMPORTANT] 
      > Establezca **Tipo de QoS** en **Manual** si es permanente. No se puede convertir un grupo de capacidad de QoS manual para que use el QoS automático. Sin embargo, puede convertir un grupo de capacidad de QoS automático para que utilice QoS manual. Vea [Cambio de un grupo de capacidad para usar QoS manual](manage-manual-qos-capacity-pool.md#change-to-qos).   
-     > El uso del tipo de QoS manual para un grupo de capacidad requiere el registro. Consulte [Administración de un grupo de capacidad de QoS manual](manage-manual-qos-capacity-pool.md#register-the-feature). 
 
     ![Nuevo grupo de capacidad](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 

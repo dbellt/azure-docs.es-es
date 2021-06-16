@@ -2,23 +2,23 @@
 title: Planificación de una implementación de inicio de sesión único de Azure Active Directory
 description: Guía para ayudarle a planear, implementar y administrar el inicio de sesión único en la organización.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/10/2020
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 3f395eaf21dce0077c1239ef2251973aeb5faa70
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: ef1daed862a67c5219d7ec243985340a8a20ea01
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375617"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076967"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planeación de una implementación de inicio de sesión único
 

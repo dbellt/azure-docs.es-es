@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Managed Instance
 description: Aprenda a usar la replicación transaccional de SQL Server con Azure SQL Managed Instance (versión preliminar).
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: data-movement
+ms.subservice: replication
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: ferno-ms
+ms.author: ferno
+ms.reviewer: mathoma
 ms.date: 05/10/2020
-ms.openlocfilehash: 23c9650a4bb53257e369e87e7a03681f94ed9cae
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: bad663dd0101a4e42f761256bf5fb9d32ac09320
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684332"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110693948"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replicación transaccional con Azure SQL Managed Instance (versión preliminar)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

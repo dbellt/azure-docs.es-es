@@ -3,12 +3,13 @@ title: Creación de un clúster mediante el nombre común del certificado
 description: Obtenga información acerca de cómo crear un clúster de Service Fabric mediante un nombre común del certificado de una plantilla.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: c852b40d35f936753d3c16420159676da239b6c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 06567c5a828e855f90c828751d82c5dd4fac0d02
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86246442"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110680924"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Implementar un clúster de Service Fabric que utiliza un nombre común del certificado en lugar de una huella digital
 No hay dos certificados que puedan tener la misma huella digital, lo que dificulta la sustitución o administración del certificado de clúster. Sin embargo, varios certificados pueden tener el mismo nombre o asunto común.  Si un clúster usa nombres comunes del certificado, se simplificará considerablemente la administración de certificados. En este artículo se describe cómo implementar un clúster de Service Fabric para que use un nombre común del certificado en lugar de la huella digital del certificado.

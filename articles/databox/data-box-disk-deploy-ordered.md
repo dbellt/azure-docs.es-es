@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 06/10/2021
 ms.author: alkohli
-ms.openlocfilehash: 04ae2589e8abfab4826f2286d5f00869c24442f5
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: bb6f7cc8331d242459d5af515919db13277a5f5e
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057973"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985749"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Solicitud de Azure Data Box Disk
 
@@ -27,7 +27,7 @@ En este tutorial se describe cómo se puede solicitar Azure Data Box Disk. En es
 > * Seguimiento del pedido
 > * Cancelar el pedido
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de implementar, complete los siguientes requisitos previos de configuración para el servicio Data Box y para Data Box Disk.
 
@@ -62,7 +62,7 @@ Realice los pasos siguientes para realizar el pedido de Data Box Disk.
 
     ![Seleccione la opción Data Box Disk](media/data-box-disk-deploy-ordered/select-data-box-sku-1.png)
 
-    |Configuración|Value|
+    |Configuración|Valor|
     |---|---|
     |Subscription|Seleccione la suscripción para la que se habilita el servicio Data Box.<br> La suscripción está vinculada a la cuenta de facturación. |
     |Tipo de transferencia| Importar en Azure|
@@ -75,7 +75,7 @@ Realice los pasos siguientes para realizar el pedido de Data Box Disk.
 
 5. En **Order** (Pedido), especifique el valor de **Order details** (Detalles del pedido). Escriba o seleccione la siguiente información.
 
-    |Configuración|Value|
+    |Configuración|Valor|
     |---|---|
     |Nombre|Especifique un nombre descriptivo para hacer un seguimiento del pedido.<br> El nombre puede tener entre 3 y 24 caracteres que pueden ser letras, números y guiones. <br> El nombre debe empezar y terminar con una letra o un número. |
     |Resource group| Uso uno existente o cree uno nuevo. <br> Un grupo de recursos es un contenedor lógico para los recursos que se pueden administrar o implementar conjuntamente. |
@@ -90,7 +90,7 @@ Realice los pasos siguientes para realizar el pedido de Data Box Disk.
 
     Si usa Data Box Disk para crear discos administrados desde los discos duros virtuales locales, también deberá proporcionar la siguiente información:
 
-    |Configuración  |Value  |
+    |Configuración  |Valor  |
     |---------|---------|
     |Resource group     | Cree un grupo de recursos si pretende crear discos administrados desde los discos duros virtuales locales. Use un grupo de recursos existentes solo si se creó para la solicitud de Data Box Disk para discos administrados realizada por el servicio Data Box. <br> Solo se admite un grupo de recursos.|
 

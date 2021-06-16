@@ -1,14 +1,14 @@
 ---
 title: Matriz de compatibilidad para el agente de MARS
 description: En este artículo se resume la compatibilidad con Azure Backup al realizar copias de seguridad de máquinas que ejecutan el agente de Microsoft Azure Recovery Services (MARS).
-ms.date: 04/09/2021
+ms.date: 06/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: 20bca0e9ca9dfd735501e68bd0e5a6d69d2ef68e
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: 068a5391130f569a2d56fa9bd605356036e7737f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107576506"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952980"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de compatibilidad para la copia de seguridad con el agente de Microsoft Azure Recovery Services (MARS)
 
@@ -50,77 +50,7 @@ Cambios de ubicación | Puede cambiar la ubicación de la caché al detener el m
 
 ## <a name="networking-and-access-support"></a>Compatibilidad con redes y acceso
 
-### <a name="url-and-ip-access"></a>Acceso a direcciones URL e IP
-
-El agente de MARS necesita acceder a estas direcciones URL:
-
-- `http://www.msftncsi.com/ncsi.txt`
-- *.Microsoft.com
-- *.WindowsAzure.com
-- *.MicrosoftOnline.com
-- *.Windows.net
-- `www.msftconnecttest.com`
-
-Y a estas direcciones IP:
-
-- 20.190.128.0/18
-- 40.126.0.0/18
-
-El acceso a todas las direcciones URL y direcciones IP enumeradas anteriormente usa el protocolo HTTPS en el puerto 443.
-
-Cuando se realiza una copia de seguridad de archivos y carpetas de máquinas virtuales de Azure con el agente de MARS, la red virtual de Azure también debe configurarse para permitir el acceso. Si emplea grupos de seguridad de red (NSG), use la etiqueta de servicio de *AzureBackup* para permitir el acceso de salida a Azure Backup. Además de la etiqueta de Azure Backup, también debe permitir la conectividad para la autenticación y la transferencia de datos mediante la creación de [reglas de NSG](../virtual-network/network-security-groups-overview.md#service-tags) similares para Azure AD (*AzureActiveDirectory*) y Azure Storage (*Storage*). En los pasos siguientes se describe el proceso para crear una regla para la etiqueta de Azure Backup:
-
-1. En **Todos los servicios**, vaya a **Grupos de seguridad de red** y seleccione el grupo de seguridad de red.
-2. En **Configuración**, seleccione **Reglas de seguridad de salida**.
-3. Seleccione **Agregar**. Escriba todos los detalles necesarios para crear una nueva regla, como se explica en [Configuración de reglas de seguridad](../virtual-network/manage-network-security-group.md#security-rule-settings). Asegúrese de que la opción **Destino** esté establecida en *Etiqueta de servicio* y de que **Etiqueta de servicio de destino** esté establecido en *AzureBackup*.
-4. Seleccione **Agregar** para guardar la regla de seguridad de salida recién creada.
-
-Puede crear reglas de seguridad de salida de NSG para Azure Storage y Azure AD de forma similar. Para más información sobre las etiquetas de servicio, consulte [este artículo](../virtual-network/service-tags-overview.md).
-
-### <a name="azure-expressroute-support"></a>Compatibilidad con Azure ExpressRoute
-
-Puede realizar una copia de seguridad de los datos mediante Azure ExpressRoute con emparejamiento público (disponible para circuitos antiguos) y emparejamiento de Microsoft. La copia de seguridad por emparejamiento privado no se admite.
-
-Con el emparejamiento público: asegúrese de tener acceso a los siguientes dominios y direcciones:
-
-* URLs
-  * `www.msftncsi.com`
-  * `*.Microsoft.com`
-  * `*.WindowsAzure.com`
-  * `*.microsoftonline.com`
-  * `*.windows.net`
-  * `www.msftconnecttest.com`
-* Direcciones IP
-  * 20.190.128.0/18
-  * 40.126.0.0/18
-
-Con el emparejamiento de Microsoft, seleccione los siguientes servicios o regiones y los valores de comunidad correspondientes:
-
-- Azure Backup (según la ubicación del almacén de Recovery Services)
-- Azure Active Directory (12076:5060)
-- Azure Storage (según la ubicación del almacén de Recovery Services)
-
-Para más información, consulte los [requisitos de enrutamiento de ExpressRoute](../expressroute/expressroute-routing.md#bgp).
-
->[!NOTE]
->El emparejamiento público está en desuso para circuitos nuevos.
-
-### <a name="private-endpoint-support"></a>Compatibilidad con el punto de conexión privado
-
-Ahora puede usar puntos de conexión privados para realizar copias de seguridad de los datos de los servidores al almacén de Recovery Services. Como Azure Active Directory no es compatible actualmente con puntos de conexión privados, las direcciones IP y los FQDN necesarios para Azure Active Directory tendrán que permitir el acceso de salida por separado.
-
-Al usar el agente de MARS para realizar una copia de seguridad de los recursos locales, asegúrese de que la red local (que contiene los recursos de los que se va a realizar la copia de seguridad) está emparejada con la red virtual de Azure que contiene un punto de conexión privado para el almacén. Después, puede continuar con la instalación del agente de MARS y configurar la copia de seguridad. Sin embargo, debe asegurarse de que toda la comunicación para la copia de seguridad se produzca solo a través de la red emparejada.
-
-Si quita los puntos de conexión privados del almacén después de haber registrado un agente de MARS, deberá volver a registrar el contenedor con el almacén. No es necesario detener la protección de los mismos.
-
-Obtenga más información sobre los [puntos de conexión privados para Azure Backup](private-endpoints.md).
-
-### <a name="throttling-support"></a>Limitaciones de compatibilidad
-
-**Característica** | **Detalles**
---- | ---
-Control del ancho de banda | Compatible. En el agente de MARS, use **Cambiar propiedades** para ajustar el ancho de banda.
-Limitación de la red | No está disponible para las máquinas de copia de seguridad que ejecutan Windows Server 2008 R2, Windows Server 2008 SP2 o Windows 7.
+[!INCLUDE [Configuring network connectivity](../../includes/backup-network-connectivity.md)]
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 

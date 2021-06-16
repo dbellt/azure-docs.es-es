@@ -8,12 +8,13 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/24/2017
 ms.author: mimckitt
-ms.openlocfilehash: 124ab121186ff7c9047515f2ee1ff51cee1114b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d2bede9932798a5aed5d919faae78e9a21809c50
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102557495"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028008"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-using-azure-powershell"></a>Configuración de Key Vault para máquinas virtuales mediante Azure PowerShell
 
@@ -74,4 +75,4 @@ Al utilizar plantillas, deberá establecer la propiedad `enabledForDeployment` e
 }
 ```
 
-Para otras opciones que puede configurar al crear un almacén de claves mediante plantillas, consulte [Create a key vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)(Creación de un almacén de claves).
+Para otras opciones que puede configurar al crear un almacén de claves mediante plantillas, consulte [Create a key vault](https://azure.microsoft.com/resources/templates/key-vault-create/)(Creación de un almacén de claves).
