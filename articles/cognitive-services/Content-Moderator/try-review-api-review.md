@@ -10,14 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: pafarley
-ms.openlocfilehash: 479c7c455f07d098edd327196803e85df24dfb6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d697cf4c04753427d161196b3efb7e5e055e32ac
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96905162"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033732"
 ---
 # <a name="create-human-reviews-api-console"></a>Creación de revisiones humanas (consola de API)
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 Las [revisiones](./review-api.md#reviews) almacenan y muestran el contenido que habrán de evaluar moderadores humanos. Cuando un usuario completa una revisión, los resultados se envían a un punto de conexión de devolución de llamada especificado. En esta guía, aprenderá a configurar las revisiones mediante API REST de revisión a través de la consola de API. Una vez que comprenda la estructura de las API, podrá migrar fácilmente estas llamadas a cualquier plataforma compatible con REST.
 

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8edceb31a0cdde36c987076e91350116a4f81255
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: cf76427df2c1802ed49dc5ff848059d88ba9658e
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104782408"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111558555"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desarrollo de aplicaciones seguras en Azure
 
@@ -36,7 +36,7 @@ Suponga que su aplicación se usará de maneras inesperadas. Este pensamiento le
 
 ### <a name="perform-code-reviews"></a>Realización de revisiones de código
 
-Antes de insertar el código en el repositorio, realice [revisiones de código](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) para aumentar la calidad general del código y reducir el riesgo de que se produzcan errores. Puede usar [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs) para administrar el proceso de revisión de código.
+Antes de insertar el código en el repositorio, realice revisiones de código para aumentar la calidad general del código y reducir el riesgo de que se produzcan errores. Puede usar [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs) para administrar el proceso de revisión de código.
 
 ### <a name="perform-static-code-analysis"></a>Realización de análisis de código estático
 

@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: f59d1e297ba4d7607d7abd07a78da4784f55d20f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9e9fc80ea47aafb107c8497e304354c58fe7db96
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96023234"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111903840"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Transferencia de pequeños conjuntos de datos con ancho de banda de red de bajo a moderado
  
@@ -49,9 +49,9 @@ Las opciones recomendadas en este escenario son las siguientes:
 
 En la siguiente tabla se resumen las diferencias de las funcionalidades clave.
 
-| Característica | Explorador de Azure Storage | Azure Portal | AzCopy<br>Azure PowerShell<br>Azure CLI | API REST o SDK de Azure Storage |
+| Característica | Explorador de Azure Storage | Azure portal | AzCopy<br>Azure PowerShell<br>Azure CLI | API REST o SDK de Azure Storage |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
-| Disponibilidad | Descargar e instalar <br>Herramientas independientes | Herramientas de exploración de Azure Portal basadas en la web | Texto de línea de comandos |Interfaces programables en. NET, Java, Python, JavaScript, C++, Go, Ruby y PHP |
+| Disponibilidad | Descarga e instalación <br>Herramientas independientes | Herramientas de exploración de Azure Portal basadas en la web | Texto de línea de comandos |Interfaces programables en. NET, Java, Python, JavaScript, C++, Go, Ruby y PHP |
 | Interfaz gráfica | Sí | Sí | No | No |
 | Plataformas compatibles | Windows, Mac, Linux | Basadas en web |Windows, Mac, Linux |Todas las plataformas |
 | Operaciones de Blob Storage permitidas<br>para blobs y carpetas | Cargar<br>Descargar<br>Administrar | Cargar<br>Descargar<br>Administrar |Cargar<br>Descargar<br>Administrar | Sí, es personalizable |
@@ -63,5 +63,5 @@ En la siguiente tabla se resumen las diferencias de las funcionalidades clave.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Aprenda a [transferir datos con el Explorador de Azure Storage](../../machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer.md).
+- Aprenda a [transferir datos con el Explorador de Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 - [Transferir datos con AzCopy](./storage-use-azcopy-v10.md)

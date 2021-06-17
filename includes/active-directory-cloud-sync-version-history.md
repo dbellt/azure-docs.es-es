@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: 1beac7a75bc8ddfbdec046d381ee95b23b1575ca
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5208f497fc5423cd0e9c2343af2a5757088399b1
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108792331"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111449894"
 ---
-En este artículo se enumeran las versiones y las características del agente de aprovisionamiento de Azure Active Directory Connect que se han publicado. El equipo de Azure AD actualiza periódicamente el agente de aprovisionamiento con nuevas características y funciones. El agente de aprovisionamiento se actualiza de forma automática cuando se publica una nueva versión. 
+En este artículo se enumeran las versiones y las características del agente de aprovisionamiento de Azure Active Directory Connect que se han publicado. El equipo de Azure AD actualiza periódicamente el agente de aprovisionamiento con nuevas características y funciones. 
 
 Microsoft proporciona soporte técnico directo para la versión más reciente del agente y una versión anterior.
 
@@ -113,5 +113,4 @@ Microsoft proporciona soporte técnico directo para la versión más reciente de
 ### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
 
 * Se ha renovado la arquitectura del conector y el agente de aprovisionamiento para mejorar el rendimiento, la estabilidad y la confiabilidad. 
-* Se ha simplificado la configuración del agente de aprovisionamiento simplificado mediante el Asistente para la instalación basada en la interfaz de usuario 
-* Se ha agregado la compatibilidad para las actualizaciones automáticas del agente.
+* Se ha simplificado la configuración del agente de aprovisionamiento simplificado mediante el Asistente para la instalación basada en la interfaz de usuario

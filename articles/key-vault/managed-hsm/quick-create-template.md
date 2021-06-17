@@ -14,12 +14,12 @@ ms.custom:
 - mvc
 - devx-track-azurecli
 - mode-arm
-ms.openlocfilehash: 33c262c61d50b45663a627e40ea186f1f0dcde41
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 5934c20c2c7749b75b05bdb80b6d9dee85d6d3c1
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532965"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007020"
 ---
 # <a name="quickstart-create-an-key-vault-managed-hsm-using-an-azure-resource-manager-template"></a>Inicio rápido: Creación de un HSM administrado de Key Vault mediante una plantilla de Azure Resource Manager
 
@@ -51,7 +51,7 @@ Para más información sobre las opciones de inicio de sesión mediante la CLI, 
 
 ## <a name="create-a-manage-hsm"></a>Creación de una instancia de Managed HSM
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-managed-hsm-create/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/managed-hsm-create/).
 
 El recurso de Azure definido en la plantilla:
 
@@ -73,7 +73,7 @@ También puede necesitar su identificador de inquilino. Para encontrarla, use el
 
 1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea un almacén de claves y un secreto.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-managed-hsm-create%2Fazuredeploy.json"><img src="../media/deploy-to-azure.svg" alt="deploy to azure"/></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2F%2Fmaster%2Fquickstarts%2Fmicrosoft.keyvault%2Fmanaged-hsm-create%2Fazuredeploy.json"><img src="../media/deploy-to-azure.svg" alt="deploy to azure"/></a>
 
 2. Seleccione o escriba los siguientes valores.
 
