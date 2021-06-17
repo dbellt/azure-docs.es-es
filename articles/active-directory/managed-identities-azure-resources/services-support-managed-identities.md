@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: e5bf54426f3aeedbeeaae7ff4a232e46a1ebf3e3
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 886e0ffb2ba9d367c5f0bb89ec1f48b5fbf7ef5a
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110064655"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061279"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servicios que admiten identidades administradas para recursos de Azure
 
@@ -35,7 +35,7 @@ Los siguientes servicios de Azure admiten identidades administradas para recurso
 Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | Asignado por el sistema | ![Disponible][check] | ![Disponible][check] | No disponible | ![Disponible][check] |
-| Asignado por el usuario | Vista previa | Vista previa | No disponible | Vista previa |
+| Asignado por el usuario | ![Disponible][check] | ![Disponible][check] | No disponible | ![Disponible][check] |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure API Management (en las regiones donde esté disponible):
 
@@ -136,15 +136,6 @@ Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilida
 | --- | :-: | :-: | :-: | :-: |
 | Asignado por el sistema | ![Disponible][check] | ![Disponible][check] | No disponible | ![Disponible][check] |
 | Asignado por el usuario | No disponible | No disponible | No disponible | No disponible |
-
-
-### <a name="azure-communication-services"></a>Azure Communication Services
-
-Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
-| --- | :-: | :-: | :-: | :-: |
-| Asignado por el sistema | ![Disponible][check] | No disponible | No disponible | No disponible |
-| Asignado por el usuario | ![Disponible][check] | No disponible | No disponible | No disponible |
-
 
 ### <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -461,25 +452,18 @@ Consulte la siguiente lista para configurar el acceso a Azure Resource Manager:
 | Nube | Id. de recurso | Estado |
 |--------|------------|:-:|
 | Azure Global | `https://eventhubs.azure.net` | ![Disponible][check] |
-| Azure Government |  | No disponible |
-| Azure Alemania |   | No disponible |
-| Azure China 21Vianet |  | No disponible |
+| Azure Government | `https://eventhubs.azure.net` | ![Disponible][check] |
+| Azure Alemania | `https://eventhubs.azure.net` | ![Disponible][check] |
+| Azure China 21Vianet | `https://eventhubs.azure.net` | ![Disponible][check] |
 
 ### <a name="azure-service-bus"></a>Azure Service Bus
 
 | Nube | Id. de recurso | Estado |
 |--------|------------|:-:|
 | Azure Global | `https://servicebus.azure.net`  | ![Disponible][check] |
-| Azure Government |  | ![Disponible][check] |
-| Azure Alemania |   | No disponible |
-| Azure China 21Vianet |  | No disponible |
-
-
-
-
-
-
-
+| Azure Government | `https://servicebus.azure.net`  | ![Disponible][check] |
+| Azure Alemania |  `https://servicebus.azure.net`  | ![Disponible][check] |
+| Azure China 21Vianet | `https://servicebus.azure.net`  | ![Disponible][check] |
 
 
 ### <a name="azure-storage-blobs-and-queues"></a>Colas y blobs de Azure Storage
@@ -499,6 +483,14 @@ Consulte la siguiente lista para configurar el acceso a Azure Resource Manager:
 | Azure Government | `https://*.asazure.usgovcloudapi.net` | ![Disponible][check] |
 | Azure Alemania | `https://*.asazure.cloudapi.de` | ![Disponible][check] |
 | Azure China 21Vianet | `https://*.asazure.chinacloudapi.cn` | ![Disponible][check] |
+
+### <a name="azure-communication-services"></a>Azure Communication Services
+
+Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Asignado por el sistema | ![Disponible][check] | No disponible | No disponible | No disponible |
+| Asignado por el usuario | ![Disponible][check] | No disponible | No disponible | No disponible |
+
 
 > [!Note]
 > Microsoft Power BI también [admite identidades administradas](../../stream-analytics/powerbi-output-managed-identity.md).

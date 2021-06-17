@@ -7,12 +7,13 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: article
 ms.date: 07/07/2019
-ms.openlocfilehash: 24091bafac7ad5c558b975d52064f12715b3d622
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8ce2a315512af65147fa2354c5895bcff94710cf
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92221407"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110697163"
 ---
 # <a name="use-powershell-to-accept-a-data-share-invitation"></a>Uso de PowerShell para aceptar una invitación de un recurso compartido de datos
 

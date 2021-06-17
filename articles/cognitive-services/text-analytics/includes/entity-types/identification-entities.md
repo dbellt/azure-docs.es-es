@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 03/11/2021
+ms.date: 04/16/2021
 ms.author: aahi
-ms.openlocfilehash: a74c0cad971389168d643c9504f5bb809438a1ea
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 6c13134ded2ef276520835880f9dda331232709a
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106097769"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111761497"
 ---
 ### <a name="financial-account-identification"></a>Identificación de cuenta financiera
 
@@ -235,6 +235,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `AUDriversLicenseNumber` al parámetro `pii-categories`. `AUDriversLicenseNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Idiomas de documento admitidos**
@@ -287,6 +288,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `AUDriversLicense` al parámetro `pii-categories`. `AUDriversLicense` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -304,6 +306,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `AUMedicalAccountNumber` al parámetro `pii-categories`. `AUMedicalAccountNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -361,6 +364,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `BENationalNumber` al parámetro `pii-categories`. `BENationalNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Idiomas de documento admitidos**
@@ -404,6 +408,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `BRLegalEntityNumber` al parámetro `pii-categories`. `BRLegalEntityNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Idiomas de documento admitidos**
@@ -422,6 +427,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `BRCPFNumber` al parámetro `pii-categories`. `BRCPFNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -439,6 +445,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `BRNationalIDRG` al parámetro `pii-categories`. `BRNationalIDRG` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -460,7 +467,8 @@ Las entidades siguientes se agrupan y enumeran por país:
         **Detalles**
 
         Para obtener esta categoría de entidad, agregue `CABankAccountNumber` al parámetro `pii-categories`. `CABankAccountNumber` se devolverá en la respuesta de la API si se detecta.
-      
+    
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Idiomas de documento admitidos**
@@ -480,6 +488,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `CADriversLicenseNumber` al parámetro `pii-categories`. `CADriversLicenseNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
 
     :::column span="":::
@@ -500,6 +509,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `CAHealthServiceNumber` al parámetro `pii-categories`. `CAHealthServiceNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
 
     :::column span="":::
@@ -534,6 +544,8 @@ Las entidades siguientes se agrupan y enumeran por país:
     :::column span="2":::
 
         Para obtener esta categoría de entidad, agregue `CAPersonalHealthIdentification` al parámetro `pii-categories`. `CAPersonalHealthIdentification` se devolverá en la respuesta de la API si se detecta.
+
+        También se devuelve con `domain=phi`.
       
     :::column-end:::
     :::column span="":::
@@ -552,6 +564,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `CASocialInsuranceNumber` al parámetro `pii-categories`. `CASocialInsuranceNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -574,6 +587,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `CLIdentityCardNumber` al parámetro `pii-categories`. `CLIdentityCardNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Idiomas de documento admitidos**
@@ -597,6 +611,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `CNResidentIdentityCardNumber` al parámetro `pii-categories`. `CNResidentIdentityCardNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Idiomas de documento admitidos**
@@ -621,6 +636,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `EUDebitCardNumber` al parámetro `pii-categories`. `EUDebitCardNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Idiomas de documento admitidos**
@@ -639,6 +655,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `EUDriversLicenseNumber` al parámetro `pii-categories`. `EUDriversLicenseNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -673,6 +690,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `EUNationalIdentificationNumber` al parámetro `pii-categories`. `EUNationalIdentificationNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -707,6 +725,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `EUSocialSecurityNumber` al parámetro `pii-categories`. `EUSocialSecurityNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -746,6 +765,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `FRDriversLicenseNumber` al parámetro `pii-categories`. `FRDriversLicenseNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Idiomas de documento admitidos**
@@ -781,6 +801,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `FRNationalID` al parámetro `pii-categories`. `FRNationalID` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -815,6 +836,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `FRSocialSecurityNumber` al parámetro `pii-categories`. `FRSocialSecurityNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -871,6 +893,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `DEDriversLicenseNumber` al parámetro `pii-categories`. `DEDriversLicenseNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Idiomas de documento admitidos**
@@ -889,6 +912,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `DEIdentityCardNumber` al parámetro `pii-categories`. `DEIdentityCardNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -963,6 +987,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `HKIdentityCardNumber` al parámetro `pii-categories`. `HKIdentityCardNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Idiomas de documento admitidos**
@@ -1043,6 +1068,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `INPermanentAccount` al parámetro `pii-categories`. `INPermanentAccount` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Idiomas de documento admitidos**
@@ -1062,6 +1088,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `INUniqueIdentificationNumber` al parámetro `pii-categories`. `INUniqueIdentificationNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1086,6 +1113,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `IDIdentityCardNumber` al parámetro `pii-categories`. `IDIdentityCardNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Idiomas de documento admitidos**
@@ -1109,6 +1137,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `IEPersonalPublicServiceNumber` al parámetro `pii-categories`. `IEPersonalPublicServiceNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Idiomas de documento admitidos**
@@ -1167,7 +1196,8 @@ Las entidades siguientes se agrupan y enumeran por país:
     :::column span="2":::
 
         Para obtener esta categoría de entidad, agregue `ILBankAccountNumber` al parámetro `pii-categories`. `ILBankAccountNumber` se devolverá en la respuesta de la API si se detecta.
-      
+    
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1190,6 +1220,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `ITDriversLicenseNumber` al parámetro `pii-categories`. `ITDriversLicenseNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Idiomas de documento admitidos**
@@ -1248,6 +1279,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `JPBankAccountNumber` al parámetro `pii-categories`. `JPBankAccountNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Idiomas de documento admitidos**
@@ -1266,6 +1298,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `JPDriversLicenseNumber` al parámetro `pii-categories`. `JPDriversLicenseNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1317,6 +1350,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `ITValueAddedTaxNumber` al parámetro `pii-categories`. `ITValueAddedTaxNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1334,6 +1368,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `JPResidenceCardNumber` al parámetro `pii-categories`. `JPResidenceCardNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1351,6 +1386,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `JPSocialInsuranceNumber` al parámetro `pii-categories`. `JPSocialInsuranceNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1523,6 +1559,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `NZMinistryOfHealthNumber` al parámetro `pii-categories`. `NZMinistryOfHealthNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1563,6 +1600,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `PHUnifiedMultiPurposeIDNumber` al parámetro `pii-categories`. `PHUnifiedMultiPurposeIDNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Idiomas de documento admitidos**
@@ -1585,7 +1623,8 @@ Las entidades siguientes se agrupan y enumeran por país:
         **Detalles**
 
         Para obtener esta categoría de entidad, agregue `PTCitizenCardNumber` al parámetro `pii-categories`. `PTCitizenCardNumber` se devolverá en la respuesta de la API si se detecta.
-      
+          
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Idiomas de documento admitidos**
@@ -1604,6 +1643,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `PTTaxIdentificationNumber` al parámetro `pii-categories`. `PTTaxIdentificationNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1650,6 +1690,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `ZAIdentificationNumber` al parámetro `pii-categories`. `ZAIdentificationNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Idiomas de documento admitidos**
@@ -1674,6 +1715,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `KRResidentRegistrationNumber` al parámetro `pii-categories`. `KRResidentRegistrationNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Idiomas de documento admitidos**
@@ -1715,6 +1757,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `ESSocialSecurityNumber` al parámetro `pii-categories`. `ESSocialSecurityNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1778,6 +1821,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `TWNationalID` al parámetro `pii-categories`. `TWNationalID` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Idiomas de documento admitidos**
@@ -1796,6 +1840,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `TWResidentCertificate` al parámetro `pii-categories`. `TWResidentCertificate` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1835,6 +1880,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `UKDriversLicenseNumber` al parámetro `pii-categories`. `UKDriversLicenseNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Idiomas de documento admitidos**
@@ -1854,6 +1900,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `UKNationalInsuranceNumber` al parámetro `pii-categories`. `UKNationalInsuranceNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1871,6 +1918,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `UKNationalHealthNumber` al parámetro `pii-categories`. `UKNationalHealthNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1888,6 +1936,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `UKNationalInsuranceNumber` al parámetro `pii-categories`. `UKNationalInsuranceNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1945,6 +1994,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `USSocialSecurityNumber` al parámetro `pii-categories`. `USSocialSecurityNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Idiomas de documento admitidos**
@@ -1963,6 +2013,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `USDriversLicenseNumber` al parámetro `pii-categories`. `USDriversLicenseNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -2014,6 +2065,7 @@ Las entidades siguientes se agrupan y enumeran por país:
 
         Para obtener esta categoría de entidad, agregue `DrugEnforcementAgencyNumber` al parámetro `pii-categories`. `DrugEnforcementAgencyNumber` se devolverá en la respuesta de la API si se detecta.
       
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -2030,7 +2082,8 @@ Las entidades siguientes se agrupan y enumeran por país:
     :::column span="2":::
 
         Para obtener esta categoría de entidad, agregue `USBankAccountNumber` al parámetro `pii-categories`. `USBankAccountNumber` se devolverá en la respuesta de la API si se detecta.
-      
+        
+        También se devuelve con `domain=phi`.
     :::column-end:::
     :::column span="":::
 

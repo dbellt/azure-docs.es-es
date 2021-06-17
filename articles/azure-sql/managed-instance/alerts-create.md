@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: how-to
-author: danimir
-ms.author: danil
-ms.reviewer: wiassaf, sstein
+author: urosmil
+ms.author: urmilano
+ms.reviewer: mathoma, wiassaf
 ms.date: 05/04/2020
-ms.openlocfilehash: d37465223000399aa42895626c48426ddadc0c72
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b596b6e9702d0518bb1103088e718529ad7929e
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100592713"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111593065"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Creación de alertas para Instancia administrada de Azure SQL mediante Azure Portal
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

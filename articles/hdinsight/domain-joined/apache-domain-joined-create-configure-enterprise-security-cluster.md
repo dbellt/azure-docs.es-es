@@ -5,12 +5,13 @@ services: hdinsight
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/10/2019
-ms.openlocfilehash: 3e6a5742d2dc8079c36f2d9f39a827f8db99cd67
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8ea27e16dc08ccaf475ccc33f08c575ff45f8124
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104867175"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110692464"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Creación y configuración de clústeres de Enterprise Security Package en Azure HDInsight
 
@@ -40,7 +41,7 @@ En esta sección, usará una plantilla de implementación rápida de Azure para 
 1. Inicie sesión en la suscripción de Azure.
 1. En la página **Crear una máquina virtual de Azure con un nuevo bosque de AD**, proporcione la siguiente información:
 
-    |Propiedad | Value |
+    |Propiedad | Valor |
     |---|---|
     |Subscription|Seleccione la suscripción en la que desea implementar los recursos.|
     |Resource group|Seleccione **Crear nuevo** y escriba el nombre `OnPremADVRG`.|
@@ -348,7 +349,7 @@ Compruebe que el certificado está instalado en el almacén **Personal** del equ
    1. En **Configuración**, seleccione **Reglas de seguridad de entrada** > **Agregar**.
    1. En la página **Agregar regla de seguridad de entrada**, especifique las siguientes propiedades y seleccione **Agregar**:
 
-      | Propiedad | Value |
+      | Propiedad | Valor |
       |---|---|
       | Source | Any |
       | Source port ranges | * |

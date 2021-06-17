@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/29/2021
 ms.author: rohink
-ms.openlocfilehash: 6db63f564d481dd57d1bdbf090678616989f83e1
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ae3343a4b441ff47621d4ad5a6252768e2d5ef63
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317080"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110705009"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Alojamiento de zonas de búsqueda inversa DNS en Azure DNS
 

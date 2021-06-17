@@ -3,19 +3,19 @@ title: Telemetría y registro de contenedores de análisis espacial
 titleSuffix: Azure Cognitive Services
 description: El análisis espacial proporciona a cada contenedor una configuración común de información, registro y seguridad del marco de trabajo de configuración.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/12/2021
-ms.author: aahi
-ms.openlocfilehash: 901e857a346b0955726c5755e23595efefbc2ca1
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.date: 06/08/2021
+ms.author: pafarley
+ms.openlocfilehash: 08afa72507bb5689dbd1a003cb776958d6e63f1d
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589506"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746454"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetría y solución de problemas
 
@@ -301,14 +301,6 @@ En la tabla siguiente se muestran los atributos de la respuesta de la consulta.
 Compruebe las líneas, las horas y los tamaños del registro de captura, y si la configuración es correcta, reemplace ***DoPost*** por `true` y eso insertará los registros con los mismos filtros en los destinos. 
 
 Puede exportar registros desde la instancia de Azure Blob Storage al solucionar problemas. 
-
-## <a name="common-issues"></a>Problemas comunes
-
-Si ve el siguiente mensaje en los registros del módulo, es posible que se deba aprobar su suscripción de Azure: 
-
-"El contenedor no tiene un estado válido. Error de validación de la suscripción con el estado 'No coincidente'. La clave de API no está pensada para el tipo de contenedor especificado".
-
-Para obtener más información, consulte [Solicitud de aprobación para ejecutar el contenedor](spatial-analysis-container.md#request-approval-to-run-the-container).
 
 ## <a name="troubleshooting-the-azure-stack-edge-device"></a>Solución de problemas del dispositivo de Azure Stack Edge
 

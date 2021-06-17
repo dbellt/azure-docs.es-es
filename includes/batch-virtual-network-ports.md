@@ -10,15 +10,15 @@ ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.date: 04/23/2021
+ms.date: 06/09/2021
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 3100e84255f95b2154f7e8d0ce47024546383da4
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: 694bf49db5a77e09d421b94797166bae2fe16685
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107990479"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111903092"
 ---
 ### <a name="general-requirements"></a>Requisitos generales
 
@@ -61,7 +61,7 @@ La subred debe permitir la comunicación de entrada desde el servicio Batch para
 
 #### <a name="network-security-groups-specifying-subnet-level-rules"></a>Grupos de seguridad de red: especificación de grupos de nivel de subred
 
-No es preciso que especifique grupos de seguridad de red en el nivel de subred de la red virtual, ya que Batch configura los suyos propios (véase a continuación). Si tiene un grupo de seguridad de red asociado a la subred en la que se implementan los nodos de ejecución de Batch o si desea aplicar reglas de NSG personalizadas que reemplacen a las reglas aplicadas de forma predeterminada, debe configurar el grupo de seguridad de red, como mínimo, con las reglas de seguridad de entrada y de salida que se muestran en las tablas siguientes.
+Si tiene un grupo de seguridad de red asociado a la subred en la que se implementan los nodos de ejecución de Batch o si desea aplicar reglas de NSG personalizadas que reemplacen a las reglas aplicadas de forma predeterminada, debe configurar el grupo de seguridad de red, como mínimo, con las reglas de seguridad de entrada y de salida que se muestran en las tablas siguientes.
 
 Configure el tráfico de entrada en los puertos 3389 (Windows) o 22 (Linux) solo si necesita permitir el acceso remoto a los nodos de ejecución del grupo desde orígenes externos. Si requiere que las tareas con varias instancias sean compatibles con ciertos runtimes de MPI, es posible que necesite habilitar las reglas del puerto 22 en Linux. Para que se puedan usar los nodos de ejecución del grupo no es obligatorio permitir el tráfico en estos puertos.
 
