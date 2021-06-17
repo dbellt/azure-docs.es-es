@@ -1,11 +1,14 @@
 ---
-ms.openlocfilehash: 956c92c5c020f892b8148e9d43d403b1099fbdba
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 6fbd65b75ebb061b8012d4841ed03f331777e6ef
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106113277"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111429454"
 ---
+> [!NOTE]
+> Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/phone-numbers-quickstart)
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -73,7 +76,7 @@ const phoneNumbersClient = new PhoneNumbersClient(connectionString);
 
 ### <a name="search-for-available-phone-numbers"></a>Búsqueda de los números de teléfono disponibles
 
-Para adquirir números de teléfono, primero debe buscar los que están disponibles. Para buscar números de teléfono, proporcione el código de área, el tipo de asignación, las [funcionalidades de número de teléfono](../../../concepts/telephony-sms/plan-solution.md#phone-number-capabilities-in-azure-communication-services), el [tipo de número de teléfono](../../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services) y la cantidad. Tenga en cuenta que para el tipo de número de teléfono gratuito, el código de área es opcional.
+Para adquirir números de teléfono, primero debe buscar los que están disponibles. Para buscar números de teléfono, proporcione el código de área, el tipo de asignación, las [funcionalidades del número de teléfono](../../../concepts/telephony-sms/plan-solution.md#phone-number-capabilities-in-azure-communication-services), el [tipo de número de teléfono](../../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services) y la cantidad. Tenga en cuenta que para el tipo de número de teléfono gratuito, el código de área es opcional.
 
 Agregue el siguiente fragmento de código a la función `main`:
 
@@ -98,7 +101,7 @@ const searchRequest = {
 const searchPoller = await phoneNumbersClient.beginSearchAvailablePhoneNumbers(searchRequest);
 
 // The search is underway. Wait to receive searchId.
-const { searchId, phoneNumbers } = searchPoller.pollUntilDone();
+const { searchId, phoneNumbers } = await searchPoller.pollUntilDone();
 const phoneNumber = phoneNumbers[0];
 
 console.log(`Found phone number: ${phoneNumber}`);
@@ -107,7 +110,7 @@ console.log(`searchId: ${searchId}`);
 
 ### <a name="purchase-phone-number"></a>Compra de un número de teléfono
 
-El resultado de la búsqueda de números de teléfono es `PhoneNumberSearchResult`. Contiene `searchId`, que se puede pasar a la API de compra de números para obtener los números de la búsqueda. Tenga en cuenta que, al llamar a la API de compra de números de teléfono, se realizará un cargo a su cuenta de Azure.
+El resultado de la búsqueda de números de teléfono es `PhoneNumberSearchResult`. Este valor contiene el valor de `searchId`, que se puede pasar a la API de compra de números de para obtener los números en la búsqueda. Tenga en cuenta que, al llamar a la API de compra de números de teléfono, se realizará un cargo a su cuenta de Azure.
 
 Agregue el siguiente fragmento de código a la función `main`:
 
@@ -159,15 +162,15 @@ Una vez comprado, puede recuperar el número del cliente. Agregue el código sig
  */
 
 const { capabilities } = await phoneNumbersClient.getPurchasedPhoneNumber(phoneNumber);
-console.log(`These capabilities: ${capabilities}, should be the same as these: ${updateRequest}.`);
+console.log("These capabilities:", capabilities, "should be the same as these:", updateRequest, ".");
 ```
 
 También puede recuperar todos los números de teléfono comprados.
 
 ```javascript
-const phoneNumbers = await phoneNumbersClient.listPurchasedPhoneNumbers();
+const purchasedPhoneNumbers = await phoneNumbersClient.listPurchasedPhoneNumbers();
 
-for await (const purchasedPhoneNumber of phoneNumbers) {
+for await (const purchasedPhoneNumber of purchasedPhoneNumbers) {
   console.log(`Phone number: ${purchasedPhoneNumber.phoneNumber}, country code: ${purchasedPhoneNumber.countryCode}.`);
 }
 ```
@@ -181,7 +184,7 @@ Ahora puede descartar el número de teléfono comprado. Agregue el siguiente fra
  * Release Purchased Phone Number
  */
 
-const releasePoller = await client.beginReleasePhoneNumber(phoneNumber);
+const releasePoller = await phoneNumbersClient.beginReleasePhoneNumber(phoneNumber);
 
 // Release is underway.
 await releasePoller.pollUntilDone();

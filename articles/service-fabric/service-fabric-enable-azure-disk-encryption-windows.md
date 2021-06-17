@@ -3,12 +3,13 @@ title: Habilitación del cifrado de discos para clústeres de Windows
 description: En este artículo se describe cómo habilitar el cifrado de disco para los nodos de un clúster de Azure Service Fabric mediante Azure Key Vault en Azure Resource Manager.
 ms.topic: article
 ms.date: 03/22/2019
-ms.openlocfilehash: b08cdb63aa6f334c5a6f7c230b1624d232206c3b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b86366931d4bacaf8a947f4e2d2853c99c41ea33
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "78251814"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110670952"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Habilitación del cifrado de disco para nodos de clústeres de Azure Service Fabric en Windows 
 > [!div class="op_single_selector"]

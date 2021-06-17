@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: be042a0ec076538cf0f0d155667acea6f1ae19cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 261f198542a7030f327dc8be055f5db0cb64f957
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91710488"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952443"
 ---
 # <a name="security-in-azure-database-for-postgresql---single-server"></a>Seguridad en Azure Database for PostgreSQL con un único servidor
 
@@ -50,7 +50,7 @@ También se puede conectar al servidor a través de la [autenticación de Azure�
 
 ## <a name="threat-protection"></a>Protección contra amenazas
 
-Puede optar por usar [Advanced Threat Protection](concepts-data-access-and-security-threat-protection.md), que detecta actividades anómalas que indican intentos poco habituales y posiblemente dañinos de acceder a sus servidores o de aprovechar sus vulnerabilidades.
+Puede optar por usar [Advanced Threat Protection](../security-center/defender-for-databases-introduction.md), que detecta actividades anómalas que indican intentos poco habituales y posiblemente dañinos de acceder a sus servidores o de aprovechar sus vulnerabilidades.
 
 Existe un [registro de auditoría](concepts-audit.md) disponible para realizar un seguimiento de las actividades en las bases de datos. 
 

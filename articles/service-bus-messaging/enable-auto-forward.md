@@ -3,12 +3,13 @@ title: Habilitación del reenvío automático para las colas y las suscripciones
 description: En este artículo se explica cómo habilitar el reenvío automático para las colas y las suscripciones mediante Azure Portal, PowerShell, la CLI y los lenguajes de programación (C#, Java, Python y JavaScript).
 ms.topic: how-to
 ms.date: 04/19/2021
-ms.openlocfilehash: 0271ac825c192fcfe9db4a4b6378a47c62dc9903
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: da5af50941263c54a08de27df43fc85b5bd75b4a
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988125"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671501"
 ---
 # <a name="enable-auto-forwarding-for-azure-service-bus-queues-and-subscriptions"></a>Habilitación del reenvío automático para las colas y las suscripciones de Azure Service Bus
 La característica de reenvío automático de Service Bus permite encadenar una cola o suscripción a otra cola u otro tema que formen parte del mismo espacio de nombres. Cuando el reenvío automático está habilitado, Service Bus elimina automáticamente los mensajes que se colocan en la primera cola o suscripción (origen) y los coloca en la segunda cola o en el segundo tema (destino). Todavía se puede enviar un mensaje a la entidad de destino directamente. Para obtener más información, consulte [Encadenamiento de entidades de Service Bus con reenvío automático](service-bus-auto-forwarding.md). En este artículo se muestran las distintas formas de habilitar el reenvío automático para las colas y las suscripciones de Service Bus. 

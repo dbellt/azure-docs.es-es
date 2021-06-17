@@ -2,13 +2,13 @@
 title: Definición de varias instancias de un valor de salida
 description: Use la operación de copia en una plantilla de Azure Resource Manager (plantilla de ARM) para realizar varias iteraciones al devolver un valor desde una implementación.
 ms.topic: conceptual
-ms.date: 04/01/2021
-ms.openlocfilehash: 49050f4c0a494bbfb470b64704a09d8738a727f7
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.date: 05/07/2021
+ms.openlocfilehash: 880ed42afdbb2082821c216a50da438ec45bd680
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385741"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954681"
 ---
 # <a name="output-iteration-in-arm-templates"></a>Iteración de salida en las plantillas de ARM
 
@@ -17,8 +17,6 @@ En este artículo se muestra cómo crear más de un valor para una salida en la 
 También puede usar el bucle de copia con [recursos](copy-resources.md), [propiedades de un recurso](copy-properties.md) y [variables](copy-variables.md).
 
 ## <a name="syntax"></a>Sintaxis
-
-# <a name="json"></a>[JSON](#tab/json)
 
 Agregue el elemento `copy` a la sección de salida de la plantilla para devolver el número de elementos. El elemento copy tiene el siguiente formato general:
 
@@ -32,37 +30,6 @@ Agregue el elemento `copy` a la sección de salida de la plantilla para devolver
 La propiedad `count` especifica el número de iteraciones que quiere para el valor de salida.
 
 La propiedad `input` especifica las propiedades que desea repetir. Tiene que crear una matriz de elementos construida a partir del valor de la propiedad `input`. Puede tratarse de una propiedad única (como una cadena) o de un objeto con varias propiedades.
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-Los bucles se pueden usar para devolver un número de elementos durante la implementación al:
-
-- Iterar una matriz:
-
-  ```bicep
-  output <output-name> array = [for <item> in <collection>: {
-    <properties>
-  }]
-
-  ```
-
-- Iterar los elementos de una matriz:
-
-  ```bicep
-  output <output-name> array = [for <item>, <index> in <collection>: {
-    <properties>
-  }]
-  ```
-
-- Usar el índice de bucle:
-
-  ```bicep
-  output <output-name> array = [for <index> in range(<start>, <stop>): {
-    <properties>
-  }]
-  ```
-
----
 
 ## <a name="copy-limits"></a>Límites de copia
 
@@ -80,8 +47,6 @@ Las versiones anteriores de PowerShell, la CLI y API REST no admiten un valor de
 ## <a name="outputs-iteration"></a>Iteración de salidas
 
 En el ejemplo siguiente se crea un número variable de cuentas de almacenamiento y se devuelve un punto de conexión para cada cuenta de almacenamiento:
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -125,28 +90,6 @@ En el ejemplo siguiente se crea un número variable de cuentas de almacenamiento
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param storageCount int = 2
-
-var baseName_var = 'storage${uniqueString(resourceGroup().id)}'
-
-resource baseName 'Microsoft.Storage/storageAccounts@2019-04-01' = [for i in range(0, storageCount): {
-  name: '${i}${baseName_var}'
-  location: resourceGroup().location
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'Storage'
-  properties: {}
-}]
-
-output storageEndpoints array = [for i in range(0, storageCount): reference(${i}${baseName_var}).primaryEndpoints.blob]
-```
-
----
-
 La plantilla anterior devuelve una matriz con los siguientes valores:
 
 ```json
@@ -157,8 +100,6 @@ La plantilla anterior devuelve una matriz con los siguientes valores:
 ```
 
 En el ejemplo siguiente se devuelven tres propiedades de las nuevas cuentas de almacenamiento.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -206,32 +147,6 @@ En el ejemplo siguiente se devuelven tres propiedades de las nuevas cuentas de a
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param storageCount int = 2
-
-var baseName_var = 'storage${uniqueString(resourceGroup().id)}'
-
-resource baseName 'Microsoft.Storage/storageAccounts@2019-04-01' = [for i in range(0, storageCount): {
-  name: '${i}${baseName_var}'
-  location: resourceGroup().location
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'Storage'
-  properties: {}
-}]
-
-output storageInfo array = [for i in range(0, storageCount): {
-  id: reference(concat(i, baseName_var), '2019-04-01', 'Full').resourceId
-  blobEndpoint: reference(concat(i, baseName_var)).primaryEndpoints.blob
-  status: reference(concat(i, baseName_var)).statusOfPrimary
-}]
-```
-
----
-
 El ejemplo anterior devuelve una matriz con los valores siguientes:
 
 ```json
@@ -256,5 +171,5 @@ El ejemplo anterior devuelve una matriz con los valores siguientes:
   - [Iteración de recursos en las plantillas de ARM](copy-resources.md)
   - [Iteración de propiedades en las plantillas de ARM](copy-properties.md)
   - [Iteración de variables en las plantillas de ARM](copy-variables.md)
-- Si quiere obtener más información sobre las secciones de una plantilla, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+- Si quiere obtener más información sobre las secciones de una plantilla, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./syntax.md).
 - Para información sobre cómo implementar una plantilla, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).
