@@ -15,12 +15,12 @@ ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7d936a795d22f533ee43c6eb0a59835790a1bffb
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 4a6671b19cf4af84891cb1aeb3d81da54de64983
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132006"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078894"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Uso de Azure Portal para aprovisionar una máquina virtual Windows con SQL Server
 
@@ -31,7 +31,7 @@ En esta guía se describen las opciones disponibles para usar Azure Portal en el
 Use esta guía para crear su propia VM con SQL Server. O bien úsela como referencia para las opciones disponibles en Azure Portal.
 
 > [!TIP]
-> Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](frequently-asked-questions-faq.md).
+> Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](frequently-asked-questions-faq.yml).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -86,7 +86,7 @@ En la pestaña **Básico**, especifique la siguiente información:
 > [!IMPORTANT]
 > El costo mensual estimado que se muestra en la ventana **Elegir un tamaño** no incluye los costos de licencias de SQL Server. Esta estimación es el costo solo de la máquina virtual. Para las ediciones Express y Developer de SQL Server, esta estimación es el costo total estimado. Para conocer el costo de otras ediciones, consulte la [página de precios de máquinas virtuales Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) y seleccione la edición de destino de SQL Server. Consulte también [Orientación de precios de SQL Server para máquinas virtuales de Azure](pricing-guidance.md) y [Tamaños de las máquinas virtuales](../../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-* En **Cuenta de administrador**, especifique un nombre de usuario y una contraseña. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+* En **Cuenta de administrador**, especifique un nombre de usuario y una contraseña. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../../../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
    ![Cuenta de administrador](./media/create-sql-vm-portal/basics-administrator-account.png)
 
@@ -285,4 +285,4 @@ En las secciones siguientes se muestra cómo conectarse a la instancia de VM con
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre el uso de SQL Server en Azure, consulte Ia página sobre [SQL Server en Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md) y las [Preguntas más frecuentes](frequently-asked-questions-faq.md).
+Para más información sobre el uso de SQL Server en Azure, consulte Ia página sobre [SQL Server en Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md) y las [Preguntas más frecuentes](frequently-asked-questions-faq.yml).

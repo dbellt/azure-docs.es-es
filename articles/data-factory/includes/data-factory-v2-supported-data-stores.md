@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/18/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 46f03b56ad7fd2a57720962a624ee03f86c246fc
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: adbf8c229c598557ff4a91c3f8e120d92a5801c0
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110093650"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746180"
 ---
 | Category | Almacén de datos | Se admite como origen | Se admite como receptor | Compatible con [IR de Azure](../concepts-integration-runtime.md#azure-integration-runtime) | Compatible con [IR autohospedado](../concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -62,8 +62,8 @@ ms.locfileid: "110093650"
 | &nbsp; |[Vertica](../connector-vertica.md) |✓ | |✓ |✓  |
 | **NoSQL** |[Cassandra](../connector-cassandra.md) |✓ | |✓ |✓  |
 | &nbsp; |[Couchbase (versión preliminar)](../connector-couchbase.md) |✓ | |✓ |✓  |
-| &nbsp; |[MongoDB](../connector-mongodb.md) |✓ | |✓ |✓  |
-| &nbsp; |[MongoDB Atlas](../connector-mongodb-atlas.md) |✓ | |✓ |✓  |
+| &nbsp; |[MongoDB](../connector-mongodb.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[MongoDB Atlas](../connector-mongodb-atlas.md) |✓ |✓ |✓ |✓  |
 | **Archivo** |[Amazon S3](../connector-amazon-simple-storage-service.md) |✓ | |✓ |✓  |
 | &nbsp; |[Almacenamiento compatible con Amazon S3](../connector-amazon-s3-compatible-storage.md) |✓ | |✓ |✓  |
 | &nbsp; |[Sistema de archivos](../connector-file-system.md) |✓ |✓ |✓ |✓  |

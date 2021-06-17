@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: 222197249f9fa8c4a30a0361633229c1d6cc473a
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: ed77dcad9e9e6568cc38fd3510d9b5a9a0624c11
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517593"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963639"
 ---
 # <a name="sign-in-to-azure-ad-with-email-as-an-alternate-login-id-preview"></a>Inicio de sesión en Azure AD mediante el correo electrónico como Id. de inicio de sesión alternativo (versión preliminar)
 
@@ -40,7 +40,7 @@ Esto es lo que necesita saber sobre el correo electrónico como Id. de inicio de
 
 * La característica está disponible en la edición Azure AD Free y superiores.
 * La característica habilita el inicio de sesión con *proxyAddresses* de dominio comprobadas de usuarios de Azure AD autenticados para la nube.
-* Cuando un usuario inicia sesión con un correo electrónico que no es UPN, las notificaciones `unique_name` y `preferred_username` (si están presentes) del [Token de identificador](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) tienen el valor del correo electrónico que no es UPN.
+* Cuando un usuario inicia sesión con un correo electrónico que no es UPN, las notificaciones `unique_name` y `preferred_username` (si están presentes) del [Token de identificador](../develop/id-tokens.md) tienen el valor del correo electrónico que no es UPN.
 * Hay dos opciones para configurar la característica:
     * [Directiva de detección del dominio de inicio (HRD)](#enable-user-sign-in-with-an-email-address): use esta opción para habilitar la característica para todo el inquilino. Se necesitan privilegios de administrador global.
     * [Directiva de lanzamiento preconfigurado](#enable-staged-rollout-to-test-user-sign-in-with-an-email-address): use esta opción para probar la característica con grupos de Azure AD específicos. Se necesitan privilegios de administrador global.
@@ -93,8 +93,8 @@ Un enfoque diferente consiste en sincronizar los UPN de Azure AD y AD local co
 
 | Opción | Descripción |
 |---|---|
-| [Id. de inicio de sesión alternativo para AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) | Habilite el inicio de sesión con un atributo alternativo (como Mail) para los usuarios de AD FS. |
-| [Id. de inicio de sesión alternativo de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-userprincipalname#alternate-login-id) | Sincronice un atributo alternativo (como Mail) como UPN de Azure AD. |
+| [Id. de inicio de sesión alternativo para AD FS](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) | Habilite el inicio de sesión con un atributo alternativo (como Mail) para los usuarios de AD FS. |
+| [Id. de inicio de sesión alternativo de Azure AD Connect](../hybrid/plan-connect-userprincipalname.md#alternate-login-id) | Sincronice un atributo alternativo (como Mail) como UPN de Azure AD. |
 | Correo electrónico como Id. de inicio de sesión alternativo | Habilite el inicio de sesión con *proxyAddresses* de dominio comprobadas para los usuarios de Azure AD. |
 
 ## <a name="synchronize-sign-in-email-addresses-to-azure-ad"></a>Sincronizar las direcciones de correo electrónico de inicio de sesión con Azure AD
@@ -227,7 +227,7 @@ Con la directiva aplicada, puede tardar hasta una hora en propagarse para que lo
 ## <a name="enable-staged-rollout-to-test-user-sign-in-with-an-email-address"></a>Habilitación del lanzamiento preconfigurado para probar el inicio de sesión de usuario con una dirección de correo electrónico  
 
 > [!NOTE]
->Esta opción de configuración usa la directiva de lanzamiento preconfigurado. Para obtener más información, vea [Tipo de recurso featureRolloutPolicy](https://docs.microsoft.com/graph/api/resources/featurerolloutpolicy?view=graph-rest-1.0&preserve-view=true).
+>Esta opción de configuración usa la directiva de lanzamiento preconfigurado. Para obtener más información, vea [Tipo de recurso featureRolloutPolicy](/graph/api/resources/featurerolloutpolicy?preserve-view=true&view=graph-rest-1.0).
 
 La directiva de lanzamiento preconfigurado permite a los administradores de inquilinos habilitar características para grupos de Azure AD específicos. Se recomienda que los administradores de inquilinos usen esta característica para probar el inicio de sesión de usuario con una dirección de correo electrónico. Cuando los administradores están listos para implementar esta característica en todo el inquilino, deben usar la [directiva de HDR](#enable-user-sign-in-with-an-email-address).  
 

@@ -10,26 +10,25 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: peiliu
-ms.openlocfilehash: 5fd209c612f90e3912e244daf60d20edf30a08c6
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 177c433fcc1fb990a610405c8343340314816966
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106112930"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111430369"
 ---
 Para empezar a usar Azure Communication Services, utilice el SDK de SMS de Communication Services para C# para enviar mensajes SMS.
 
 Este inicio rápido supone un pequeño costo en su cuenta de Azure.
 
-<!--**TODO: update all these reference links as the resources go live**
-
-[API reference documentation](../../../references/overview.md) | [Library source code](https://github.com/Azure/azure-sdk-for-net-pr/tree/feature/communication/sdk/communication/Azure.Communication.Sms#todo-update-to-public) | [Package (NuGet)](#todo-nuget) | [Samples](#todo-samples)-->
+> [!NOTE]
+> Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendSMS)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - La versión más reciente del [SDK de .NET Core](https://dotnet.microsoft.com/download/dotnet-core) para su sistema operativo.
-- Un recurso activo de Communication Services y una cadena de conexión. [Creación de un recurso de Communication Services](../../create-communication-resource.md).
+- Un recurso activo de Communication Services y una cadena de conexión. [Cree un recurso de Communication Services](../../create-communication-resource.md).
 - Un número de teléfono habilitado para SMS. [Obtención de un número de teléfono](../get-phone-number.md).
 
 ### <a name="prerequisite-check"></a>Comprobación de requisitos previos

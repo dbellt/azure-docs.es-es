@@ -10,14 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 79749533d636f4b73ff3bef6b12d9e842ac485ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 210ed6e3a73721a7b4b4508071dc98e0bfd27498
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96905182"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031662"
 ---
 # <a name="define-and-use-moderation-workflows-api-console"></a>Definición y uso de los flujos de trabajo de moderación (consola de API)
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 Los flujos de trabajo son filtros personalizados basados en la nube que puede usar para controlar el contenido de forma más eficaz. Los flujos de trabajo pueden conectarse a diversos servicios para filtrar el contenido de maneras diferentes y luego realizar la acción apropiada. En esta guía se le muestra cómo usar las API de REST de flujo de trabajo, a través de la consola de API, para crear y usar flujos de trabajo. Una vez que comprenda la estructura de las API, podrá migrar fácilmente estas llamadas a cualquier plataforma compatible con REST.
 

@@ -2,14 +2,14 @@
 title: Ejecución de trabajos de un extremo a otro mediante plantillas
 description: Con solo los comandos de CLI, puede crear un grupo, cargar datos de entrada, crear trabajos y tareas asociadas y descargar los datos de salida resultantes.
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 06/14/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 845a32c2feda5a5a3b8d44d237c62db94cae1779
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad7882276c53f6bee8fa32592ad474f47697c27a
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91848728"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078373"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Uso de plantillas y transferencia de archivos de la CLI de Azure Batch
 
@@ -18,7 +18,7 @@ Con una extensión de Batch para la CLI de Azure, es posible ejecutar trabajos d
 Cree y use archivos de plantilla JSON con la CLI de Azure para crear grupos, trabajos y tareas de Batch. Use comandos de la CLI para cargar fácilmente archivos de entrada de trabajos en la cuenta de almacenamiento asociada con la cuenta de Batch, y descargue archivos de salida de trabajos.
 
 > [!NOTE]
-> Los archivos JSON no admiten la misma funcionalidad que las [plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Están diseñados para que tengan el formato del cuerpo de la solicitud de REST sin procesar. La extensión de la CLI no cambia ningún comando existente, pero tiene una opción de plantilla similar que agrega funcionalidad de plantilla de Azure Resource Manager parcial. Consulte [Extensiones de la CLI de Azure Batch para Windows, Mac y Linux](https://github.com/Azure/azure-batch-cli-extensions).
+> Los archivos JSON no admiten la misma funcionalidad que las [plantillas de Azure Resource Manager](../azure-resource-manager/templates/syntax.md). Están diseñados para que tengan el formato del cuerpo de la solicitud de REST sin procesar. La extensión de la CLI no cambia ningún comando existente, pero tiene una opción de plantilla similar que agrega funcionalidad de plantilla de Azure Resource Manager parcial. Consulte [Extensiones de la CLI de Azure Batch para Windows, Mac y Linux](https://github.com/Azure/azure-batch-cli-extensions).
 
 ## <a name="overview"></a>Información general
 
@@ -121,7 +121,7 @@ El siguiente es un ejemplo de una plantilla que crea un grupo de máquinas virtu
             "vmSize": "STANDARD_D3_V2",
             "targetDedicatedNodes": "[parameters('nodeCount')]",
             "enableAutoScale": false,
-            "taskSlotsPerNode": 1,
+            "maxTasksPerNode": 1,
             "packageReferences": [
                 {
                     "type": "aptPackage",
