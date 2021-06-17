@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/22/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7db7accec4b87f7bc8c3e38b409902fd4439851f
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 8d7238aea62b3532461cd40404b683e18227386f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108018716"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950982"
 ---
 # <a name="use-the-persondirectory-structure"></a>Uso de la estructura de PersonDirectory
 
@@ -353,7 +353,7 @@ HttpResponseMessage response;
 // Request body
 var body = new Dictionary<string, object>();
 body.Add("faceIds", new List<string>{"{guid1}", "{guid2}", …});
-body.Add("personIds", "['*']");
+body.Add("personIds", new List<string>{"{guid1}", "{guid2}", …});
 byte[] byteData = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(body));
 
 using (var content = new ByteArrayContent(byteData))
@@ -398,4 +398,4 @@ La respuesta contendrá un valor booleano que indicará si el servicio considera
 
 En esta guía, ha aprendido a usar la estructura **PersonDirectory** para almacenar datos de caras y personas para la aplicación de Face. A continuación, aprenderá los procedimientos recomendados para agregar los datos faciales de los usuarios.
 
-* [Procedimientos recomendados para agregar usuarios](https://docs.microsoft.com/azure/cognitive-services/face/enrollment-overview)
+* [Procedimientos recomendados para agregar usuarios](../enrollment-overview.md)

@@ -2,8 +2,8 @@
 title: 'Depuración del inicio de sesión único basado en SAML: Azure Active Directory'
 description: Depure el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory.
 services: active-directory
-ms.author: iangithinji
-author: iantheninja
+ms.author: mtillman
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 02/18/2019
 ms.reviewer: luleon, hirsin, paulgarn
-ms.openlocfilehash: aa86bbcec0dc6523ae701e5237f2c55d14db38e4
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 8391d52a17f897c0526c49ec39d408792d2e3699
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374325"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075959"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depuración del inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory
 

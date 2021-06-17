@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/02/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 52b9bee1d43c0f136889a6a54277d4bb45dd4a45
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 76ee3371134c66d6dcc5b4b07436e5c30a15f144
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101750947"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111449823"
 ---
 Puede optar por administrar el cifrado en el nivel de cada disco administrado, con sus propias claves. El cifrado del lado servidor de discos administrados con claves administradas por el cliente ofrece una experiencia integrada con Azure Key Vault. Puede importar [las claves RSA](../articles/key-vault/keys/hsm-protected-keys.md) a su instancia de Key Vault o generar nuevas claves RSA en Azure Key Vault. 
 
@@ -23,9 +23,7 @@ Azure Managed Disks controla el cifrado y descifrado de forma totalmente trans
 
 Tiene que conceder acceso a los discos administrados en su instancia de Key Vault para usar sus propias claves para cifrar y descifrar la clave DEK. Esto le permite controlar completamente los datos y las claves. Puede deshabilitar las claves o revocar el acceso a los discos administrados en cualquier momento. También puede auditar el uso de la clave de cifrado con la supervisión de Azure Key Vault para asegurarse de que solo los discos administrados u otros servicios de Azure de confianza tengan acceso a las claves.
 
-Para unidades SSD prémium, SSD estándar y HDD estándar: Al deshabilitar o eliminar la clave, se apagarán automáticamente todas las VM con discos que utilicen esa clave. Posteriormente, las VM no se podrán usar a menos que se vuelva a habilitar la clave o se les asigne una nueva.    
-
-En el caso de los discos Ultra, al deshabilitar o eliminar una clave, las VM con discos Ultra que la usen no se apagarán automáticamente. Una vez que desasigne y reinicie las VM, los discos dejarán de usar la clave y las VM no volverán a conectarse. Para volver a conectar las VM, debe asignar una nueva clave o habilitar la existente.    
+Al deshabilitar o eliminar la clave, se apagarán automáticamente todas las VM con discos que utilicen esa clave. Posteriormente, las VM no se podrán usar a menos que se vuelva a habilitar la clave o se les asigne una nueva.    
 
 En el siguiente diagrama se muestra cómo los discos administrados utilizan Azure Active Directory y Azure Key Vault para realizar solicitudes con la clave administrada por el cliente:
 

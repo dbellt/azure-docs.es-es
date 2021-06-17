@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/09/2021
+ms.date: 06/03/2021
 ms.author: alkohli
-ms.openlocfilehash: f4f7e5f69e6b496395b74dbdcd58b3ada0a7f349
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: a68394b5db25565b44db0347a685d6cd67540170
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285223"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985713"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Seguridad y protección de datos para Azure Stack Edge Pro R y Azure Stack Edge Mini R
 
@@ -51,7 +51,7 @@ El dispositivo resistente es un dispositivo local que ayuda a transformar los da
     - En el caso del software del dispositivo, los registros de firewall predeterminados se recopilan para el tráfico entrante y saliente del dispositivo. Estos registros se incluyen en el paquete de registros.
     - En el caso del hardware del dispositivo, todos los eventos de chasis del dispositivo como, por ejemplo, la apertura o el cierre del chasis del dispositivo, se registran en el dispositivo.
 
-    Para obtener más información sobre los registros específicos que contienen los eventos de intrusión de hardware y software y cómo obtener los registros, vaya a [Recopilación de los registros de seguridad avanzada](azure-stack-edge-gpu-troubleshoot.md).
+    Para obtener más información sobre los registros específicos que contienen los eventos de intrusión de hardware y software y cómo obtener los registros, vaya a [Recopilación de los registros de seguridad avanzada](azure-stack-edge-gpu-troubleshoot.md#gather-advanced-security-logs).
 
 
 ### <a name="protect-the-device-via-activation-key"></a>Protege el dispositivo con una clave de activación

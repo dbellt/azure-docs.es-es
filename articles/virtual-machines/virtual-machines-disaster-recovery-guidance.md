@@ -3,16 +3,17 @@ title: Interrupciones del servicio de Azure
 description: Obtenga información sobre qué hacer si se produce una interrupción del servicio de Azure que afecta a las máquinas virtuales de Azure.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: ''
 ms.topic: conceptual
-ms.date: 05/31/2017
+ms.date: 05/28/2021
 ms.author: cynthn
 ms.reviewer: ''
-ms.openlocfilehash: 5c6036a65fa449986f5c085202fefa752e3a414a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f6473340baf29861c9f10ac4244deed413310b88
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98701040"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111853107"
 ---
 # <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>Qué hacer si se produce una interrupción del servicio de Azure que afecta a las VM de Azure
 

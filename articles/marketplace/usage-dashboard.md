@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/28/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: ef0e3745d6a45353ef286101bcb5fef1923ce12b
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: fca763f307c8ae1437009b282e460fc249c40b60
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108206752"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540966"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Panel de uso de los análisis de marketplace comercial
 
@@ -194,10 +194,10 @@ Si tiene varias ofertas que usan medidores personalizados, el informe de uso de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información sobre los informes de análisis disponibles en marketplace comercial, consulte [Acceso a los informes de análisis de marketplace comercial en el Centro de partners](./partner-center-portal/analytics.md).
+- Para obtener más información sobre los informes de análisis disponibles en marketplace comercial, consulte [Acceso a los informes de análisis de marketplace comercial en el Centro de partners](analytics.md).
 - Para ver los gráficos, las tendencias y los valores de datos agregados que resuman la actividad de la oferta en el marketplace, consulte [Panel Resumen de los análisis de marketplace comercial](./summary-dashboard.md).
 - Para obtener información sobre los pedidos en un formato gráfico que se pueda descargar, consulte [Panel de pedidos de los análisis de marketplace comercial](./orders-dashboard.md).
 - Para información sobre las métricas de uso y facturación de las ofertas de máquina virtual, consulte [Panel Uso de los análisis de marketplace comercial](usage-dashboard.md).
-- Para obtener una lista de las solicitudes de descarga de los últimos 30 días, consulte [Panel Descargas de los análisis de marketplace comercial](./partner-center-portal/downloads-dashboard.md).
-- Para obtener una vista consolidada con los comentarios de los clientes sobre las ofertas de Azure Marketplace y Microsoft AppSource, consulte [Panel de análisis de calificaciones y opiniones en el Centro de partners](./partner-center-portal/ratings-reviews.md).
+- Para obtener una lista de las solicitudes de descarga de los últimos 30 días, consulte [Panel Descargas de los análisis de marketplace comercial](downloads-dashboard.md).
+- Para obtener una vista consolidada con los comentarios de los clientes sobre las ofertas de Azure Marketplace y Microsoft AppSource, consulte [Panel de análisis de calificaciones y opiniones en el Centro de partners](ratings-reviews.md).
 - Para ver las preguntas más frecuentes sobre los análisis de marketplace comercial y un diccionario completo de términos de datos, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](./analytics-faq.md).

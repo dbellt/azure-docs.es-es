@@ -2,13 +2,13 @@
 title: Copia de seguridad de una base de datos de SAP HANA a Azure con Azure Backup
 description: En este artículo, aprenderá a realizar copias de seguridad de una base de datos de SAP HANA en máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: ab4b192c63697b398314f78518eaf8f90f17c452
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.date: 05/28/2021
+ms.openlocfilehash: 9267a3a27823249116e74c6aba9321cfdfd0e338
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108277613"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110681354"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -84,7 +84,7 @@ También puede usar los siguientes FQDN para permitir el acceso a los servicios 
 | Servicio    | Nombres de dominio a los que se va a acceder                             |
 | -------------- | ------------------------------------------------------------ |
 | Azure Backup  | `*.backup.windowsazure.com`                             |
-| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
+| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` |
 | Azure AD      | Permitir el acceso a los FQDN conforme a las secciones 56 y 59 según [este artículo](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
 
 #### <a name="use-an-http-proxy-server-to-route-traffic"></a>Empleo de un servidor proxy HTTP para enrutar el tráfico

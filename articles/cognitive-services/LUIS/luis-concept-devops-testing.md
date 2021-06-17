@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: cd2fd8dc8c10864089b198db1ca1089f994a3ffb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a6f146fac4e2989e03382ef4879b305410fab6d8
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98788458"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969393"
 ---
 # <a name="testing-for-luis-devops"></a>Pruebas de DevOps de LUIS
 
@@ -25,7 +25,7 @@ Las pruebas son una parte fundamental de los [flujos de trabajo de CI/CD](luis-c
 En los flujos de trabajo de integración continua se deben realizar dos tipos diferentes de pruebas para una aplicación de LUIS:
 
 - **Pruebas unitarias**: pruebas relativamente simples que comprueban la funcionalidad clave de la aplicación de LUIS. Una prueba unitaria se supera cuando se devuelven la intención esperada y las entidades esperadas para una expresión de prueba determinada. Se deben superar todas las pruebas unitarias para que la ejecución de prueba se complete correctamente.  
-Este tipo de pruebas son similares a las [pruebas interactivas](./luis-concept-test.md) que puede realizar en el [portal de LUIS](https://www.luis.ai/).
+Este tipo de pruebas son similares a las [pruebas interactivas](./luis-interactive-test.md) que puede realizar en el [portal de LUIS](https://www.luis.ai/).
 
 - **Pruebas por lotes**: las pruebas por lotes son una prueba completa sobre el modelo entrenado actual para medir su rendimiento. A diferencia de las pruebas unitarias, las pruebas por lotes no consisten en superar o no superar. La expectativa con las pruebas por lotes no es que todas las pruebas devuelvan la intención esperada y las entidades esperadas. En su lugar, una prueba por lotes ayuda a ver la precisión de cada intención y entidad de la aplicación y ayuda a comparar a lo largo del tiempo a medida que se realizan mejoras.  
 Estas pruebas son del mismo tipo que las [pruebas por lotes](./luis-how-to-batch-test.md) que puede realizar de forma interactiva en el portal de LUIS.
@@ -91,7 +91,7 @@ Los conjuntos de pruebas por lotes deben contener un gran número de casos de pr
 
 El portal de LUIS ofrece características para ayudar con las pruebas interactivas:
 
-* Las [**pruebas interactivas**](./luis-concept-test.md) le permiten enviar una expresión de ejemplo y obtener una respuesta de las intenciones y las entidades reconocidas por LUIS. Se comprueba que la prueba se ha realizado correctamente mediante una inspección visual.
+* Las [**pruebas interactivas**](./luis-interactive-test.md) le permiten enviar una expresión de ejemplo y obtener una respuesta de las intenciones y las entidades reconocidas por LUIS. Se comprueba que la prueba se ha realizado correctamente mediante una inspección visual.
 
 * Las [**pruebas por lotes**](./luis-how-to-batch-test.md) utilizan un archivo de pruebas por lotes como entrada para validar la versión entrenada actual con el fin de medir la precisión de su predicción. Una prueba por lotes ayuda a ver la precisión de cada intención y entidad en la versión activa, mostrando los resultados en un gráfico.
 
@@ -136,4 +136,4 @@ Si desea deshabilitar el entrenamiento no determinista para aquellas versiones d
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga información sobre la [implementación de flujos de trabajo de CI/CD](luis-concept-devops-automation.md).
-* Obtenga información sobre cómo [implementar DevOps para LUIS con GitHub](luis-how-to-devops-with-github.md).
+* Obtenga información sobre cómo [implementar DevOps para LUIS con GitHub](./luis-concept-devops-automation.md).

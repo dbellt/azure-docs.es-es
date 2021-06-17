@@ -5,14 +5,14 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 02/11/2021
-ms.openlocfilehash: 33e074da8c9e028916552e45be0dfb9634a1d173
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 40e48cade82f8ffc808303dd43cb0d5f9ff5fe86
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108277829"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984435"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Inicio rápido: Uso de una plantilla de Resource Manager para crear una instancia de Azure Database for PostgreSQL: un solo servidor
 
@@ -46,7 +46,7 @@ Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](ht
 
 Cree un servidor de Azure Database for PostgreSQL con un conjunto configurado de recursos de proceso y almacenamiento. Para más información, consulte [Planes de tarifa en Azure Database for PostgreSQL: un solo servidor](concepts-pricing-tiers.md). Cree el servidor dentro en un [grupo de recursos de Azure](../azure-resource-manager/management/overview.md).
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-managed-postgresql-with-vnet/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/managed-postgresql-with-vnet/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.dbforpostgresql/managed-postgresql-with-vnet/azuredeploy.json":::
 

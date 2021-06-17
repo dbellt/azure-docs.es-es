@@ -3,21 +3,21 @@ title: Escenario de aplicación de una sola página de JavaScript
 titleSuffix: Microsoft identity platform
 description: Aprenda a compilar una aplicación de página única (información general del escenario) mediante la plataforma de identidad de Microsoft.
 services: active-directory
-author: navyasric
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: nacanuma
+ms.author: mtillman
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 64dfd35d387e5907792440ec40522d976706db22
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 687b904175b5bd26a15b157aae3307ec40fdad42
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105966867"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075266"
 ---
 # <a name="scenario-single-page-application"></a>Escenario: Aplicación de una sola página
 
