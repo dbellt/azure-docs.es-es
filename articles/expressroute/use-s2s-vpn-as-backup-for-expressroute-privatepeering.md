@@ -7,12 +7,13 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: duau
-ms.openlocfilehash: 752edea8078cf55fc3965bdc7aa9e1b4269dee34
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 024d755b842a156ae52021dc9d44bd31e60088b9
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92207927"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110694987"
 ---
 # <a name="using-s2s-vpn-as-a-backup-for-expressroute-private-peering"></a>Uso de VPN S2S como copia de seguridad para el emparejamiento privado de ExpressRoute
 
