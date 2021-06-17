@@ -1,0 +1,97 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas más frecuentes (P+F) acerca de Azure Network Watcher | Microsoft Docs
+  description: Este artículo contiene respuestas a algunas preguntas frecuentes sobre el servicio Azure Network Watcher.
+  services: network-watcher
+  documentationcenter: na
+  author: damendo
+  manager: 
+  editor: 
+  ms.service: network-watcher
+  ms.devlang: na
+  ms.topic: article
+  ms.tgt_pltfrm: na
+  ms.workload: infrastructure-services
+  ms.date: 01/07/2021
+  ms.author: damendo
+  ms.openlocfilehash: 51dc55bbf9a101a5edbe94367dc68c9ba945cfe2
+  ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 06/11/2021
+  ms.locfileid: "112034923"
+title: Preguntas más frecuentes (P+F) sobre Azure Network Watcher
+summary: >
+  El servicio [Azure Network Watcher](./network-watcher-monitoring-overview.md) proporciona un conjunto de herramientas para supervisar, diagnosticar, ver las métricas y habilitar o deshabilitar registros de recursos en una red virtual de Azure. En este artículo se responde a preguntas habituales sobre el servicio.
+sections:
+- name: General
+  questions:
+  - question: >
+      ¿Qué es Network Watcher?
+    answer: >
+      Network Watcher está diseñado para supervisar y reparar el estado de la red de los componentes de IaaS (infraestructura como servicio), que incluye máquinas virtuales, redes virtuales, puertas de enlace de aplicaciones, equilibradores de carga y otros recursos de una red virtual de Azure. No es una solución para supervisar la infraestructura de PaaS (plataforma como servicio) u obtener análisis web/móviles.
+  - question: >
+      ¿Qué herramientas proporciona Network Watcher?
+    answer: "Network Watcher proporciona tres conjuntos principales de funcionalidades\n* Supervisión\n  * [Vista de la topología](./view-network-topology.md) muestra los recursos de la red virtual y las relaciones entre ellos.\n  * [Monitor de conexión](./connection-monitor.md) permite supervisar la conectividad y la latencia entre una máquina virtual y otro recurso de red.\n  * [Network Performance Monitor](../azure-monitor/insights/network-performance-monitor.md) permite supervisar la conectividad y las latencias en las arquitecturas de red híbrida, los circuitos de Express Route y los puntos de conexión de servicio/aplicación.  \n* Diagnóstico\n  * [Comprobación del flujo de IP](./network-watcher-ip-flow-verify-overview.md) permite detectar problemas de filtrado del tráfico a nivel de máquina virtual.\n  * [Próximo salto](./network-watcher-next-hop-overview.md) ayuda a comprobar las rutas de tráfico y a detectar problemas de enrutamiento.\n  * [Solución de problemas de conexión](./network-watcher-connectivity-portal.md) permite la supervisión puntual de la conectividad y la latencia entre una máquina virtual y otro recurso de red.\n  * [Captura de paquetes](./network-watcher-packet-capture-overview.md) permite capturar todo el tráfico de una máquina virtual de la red virtual.\n  * [Solución de problemas de VPN](./network-watcher-troubleshoot-overview.md) ejecuta varias comprobaciones de diagnóstico en las puertas de enlace de VPN y las conexiones para ayudar a depurar problemas.\n* Registro\n  * [Registro de flujo de NSG ](./network-watcher-nsg-flow-logging-overview.md) permite registrar todo el tráfico de los [grupos de seguridad de red](../virtual-network/network-security-groups-overview.md)\n  * [Análisis de tráfico](./traffic-analytics.md) procesa los datos del registro de flujo del registro de flujo de NSG para que pueda visualizar, consultar, analizar y comprender el tráfico.\n\n\nPara información más detallada, consulte la [página de información general de Network Watcher](./network-watcher-monitoring-overview.md).\n"
+  - question: >
+      ¿Cómo son los precios de Network Watcher?
+    answer: >
+      Visite la [página de precios](https://azure.microsoft.com/pricing/details/network-watcher/) para conocer los componentes de Network Watcher y sus precios.
+  - question: >
+      ¿Qué regiones Network Watcher admiten o están disponibles en?
+    answer: >
+      Puede ver la última disponibilidad regional en la [página de disponibilidad del servicio de Azure](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
+  - question: >
+      ¿Qué permisos se necesitan para usar Network Watcher?
+    answer: >
+      Consulte la lista en [Permisos de control de acceso basado en roles necesarios para usar las funcionalidades de Network Watcher](./required-rbac-permissions.md). Para implementar recursos, necesita permisos de colaborador para NetworkWatcherRG (consulte a continuación).
+  - question: >
+      ¿Cómo puedo habilitar Network Watcher?
+    answer: >
+      El servicio Network Watcher se [habilita automáticamente](https://azure.microsoft.com/updates/azure-network-watcher-will-be-enabled-by-default-for-subscriptions-containing-virtual-networks/) para cada suscripción.
+  - question: >
+      ¿Qué es el modelo de implementación de Network Watcher?
+    answer: >
+      El recurso primario de Network Watcher se implementa con una instancia única en todas las regiones. Formato de nombre: NetworkWatcher_NombreDeRegión. Ejemplo: NetworkWatcher_centralus es el recurso de Network Watcher para la región "Central US" (Centro de EE. UU.).
+  - question: >
+      ¿Qué es NetworkWatcherRG?
+    answer: >
+      Los recursos de Network Watcher se encuentran en el grupo de recursos oculto **NetworkWatcherRG** que se crea automáticamente. Por ejemplo, el recurso Registros de flujo de NSG es un recurso secundario de Network Watcher y está habilitado en NetworkWatcherRG.
+  - question: "¿Por qué es necesario instalar la extensión Network Watcher? \n"
+    answer: "La extensión Network Watcher es necesaria para cualquier característica que necesite generar o interceptar el tráfico de una máquina virtual. \n"
+  - question: >
+      ¿Qué características requiere la extensión Network Watcher?
+    answer: >
+      La características de captura de paquetes, solución de problemas de conexión y monitor de conexión necesitan que la extensión Network Watcher esté presente.
+  - question: >
+      ¿Cuáles son los límites de recursos en Network Watcher?
+    answer: "Consulte la página de [límites de servicio](../azure-resource-manager/management/azure-subscription-service-limits.md#network-watcher-limits) para conocer todos los límites.  \n"
+  - question: "¿Por qué solo se permite una instancia Network Watcher por región? \n"
+    answer: >
+      Network Watcher solo debe habilitarse una vez para que funcionen las características de la suscripción; no se trata de un límite de servicio.
+  - question: "¿Cómo puedo administrar el recurso de Network Watcher? \n"
+    answer: "El recurso de Network Watcher representa el servicio back-end para Network Watcher y está totalmente administrado por Azure. Los clientes no tienen que administrarlo. No se admiten operaciones como Move en el recurso. Sin embargo, [se puede eliminar el recurso](./network-watcher-create.md#delete-a-network-watcher-in-the-portal). \n"
+- name: Disponibilidad y redundancia del servicio
+  questions:
+  - question: "¿Es resistente a las zonas el servicio Network Watcher? \n"
+    answer: "Sí. El servicio Network Watcher es resistente a las zonas de manera predeterminada. \n"
+  - question: "¿Cómo se configura el servicio Network Watcher para que sea resistente a las zonas? \n"
+    answer: "No es necesaria ninguna configuración de parte del cliente para habilitar la resistencia de zonas. La resistencia de zonas para los recursos de Network Watcher está disponible de manera predeterminada y la administra el propio servicio. \n"
+- name: Registro de flujo de NSG
+  questions:
+  - question: >
+      ¿Qué hace Registro de flujo de NSG?
+    answer: >
+      Los recursos de red de Azure se pueden combinar y administrar mediante [grupos de seguridad de red](../virtual-network/network-security-groups-overview.md). Registro de flujo de NSG permite registrar información de flujo de una tupla de 5 sobre todo el tráfico de los grupos de seguridad de red. Los registros de flujo sin procesar se escriben en una cuenta de Azure Storage desde donde se pueden procesar, analizar, consultar o exportar según sea necesario.
+  - question: >
+      ¿Cómo se usan los registros de flujo de grupo de seguridad de red en una cuenta de Storage con un firewall?
+    answer: "Para usar una cuenta de Storage con un firewall, debe especificar una excepción para que los Servicios de Microsoft de confianza accedan a la cuenta de almacenamiento:\n\n* Para ir a la cuenta de almacenamiento, escriba el nombre de la misma en la búsqueda global del portal o en la [página de cuentas de almacenamiento](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)\n* En la sección **CONFIGURACIÓN**, seleccione **Firewalls y redes virtuales**.\n* En \"Permitir el acceso desde\", seleccione **Redes seleccionadas**. Después, en **Excepciones**, active la casilla situada junto a **\"Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento\"** \n* Si ya está seleccionada, no hay que hacer ningún cambio.  \n* Busque el grupo de seguridad de red de destino en la [página de introducción a los registros de flujo de NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) y habilite los registros de flujo de NSG con la cuenta de almacenamiento anterior seleccionada.\n\nPuede comprobar los registros de almacenamiento después de unos minutos; verá una marca de tiempo actualizada o un nuevo archivo JSON.\n"
+  - question: >
+      ¿Cómo se usan los registros de flujo de grupo de seguridad de red con una cuenta de Storage detrás de un punto de conexión de servicio?
+    answer: >
+      Los registros de flujo de NSG son compatibles con los puntos de conexión de servicio sin necesidad de ninguna configuración adicional. Consulte [el tutorial de sobre cómo habilitar puntos de conexión de servicio](../virtual-network/tutorial-restrict-network-access-to-resources.md#enable-a-service-endpoint) en su red virtual.
+  - question: >
+      ¿Cuál es la diferencia entre la versión 1 y la versión 2 de los registros de flujo?
+    answer: >
+      La versión 2 de los registros de flujo presenta el concepto de *estado del flujo* y almacena información sobre los bytes y los paquetes transmitidos. [Más información](./network-watcher-nsg-flow-logging-overview.md#log-format).
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\n - Vaya a la [página de información general de documentación](./index.yml) para algunos tutoriales para empezar a trabajar con Network Watcher."
