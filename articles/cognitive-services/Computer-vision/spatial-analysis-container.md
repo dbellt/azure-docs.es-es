@@ -3,19 +3,19 @@ title: 'Instalación y ejecución del contenedor de análisis espacial: Computer
 titleSuffix: Azure Cognitive Services
 description: El contenedor de análisis espacial permite detectar personas y distancias.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/12/2021
-ms.author: aahi
-ms.openlocfilehash: d257a77940b460bf8be64e3f8376353a859365f7
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.date: 06/08/2021
+ms.author: pafarley
+ms.openlocfilehash: 15ef67fb452b4302cc848b88b3dab89d46fb8793
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284726"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746472"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instalación y ejecución del contenedor de análisis espacial (versión preliminar)
 
@@ -26,7 +26,6 @@ El contenedor de análisis espacial permite analizar vídeo en streaming en tiem
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services)
 * Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="cree un recurso de Computer Vision"  target="_blank">creación de un recurso de Computer Vision </a> para el nivel Estándar S1 en Azure Portal con el fin de obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
     * Necesitará la clave y el punto de conexión del recurso que se crea para ejecutar el contenedor de análisis espacial. Los usará más adelante.
-
 
 ### <a name="spatial-analysis-container-requirements"></a>Requisitos del contenedor de análisis espacial
 
@@ -70,21 +69,6 @@ En nuestro ejemplo, usaremos una [máquina virtual de la serie NC](../../virtua
 |--|--|
 | Cámara | El contenedor de análisis espacial no está asociado a una marca de cámara específica. Los requisitos del dispositivo de cámara son los siguientes: debe admitir el Protocolo de streaming en tiempo real (RTSP) y codificación H.264, debe ser accesible para el equipo host y debe admitir streaming con una resolución de 15 FPS y 1080p. |
 | SO Linux | [Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/) debe estar instalado en el equipo host.  |
-
-
-## <a name="request-approval-to-run-the-container"></a>Solicitud de aprobación para ejecutar el contenedor
-
-Rellene y envíe el [formulario de solicitud](https://aka.ms/csgate) para solicitar aprobación para ejecutar el contenedor.
-
-El formulario solicita información acerca del usuario y de su empresa, así como del escenario de usuario para el que se va a usar el contenedor. Después de enviar el formulario, el equipo de Azure Cognitive Services lo revisará y le informará la decisión por correo electrónico.
-
-> [!IMPORTANT]
-> * En el formulario, debe usar una dirección de correo electrónico asociada a un identificador de suscripción de Azure.
-> * El recurso de Computer Vision que se usa para ejecutar el contenedor se debe haber creado con el identificador de la suscripción de Azure aprobada.
-
-Una vez aprobado, podrá ejecutar el contenedor después de descargarlo de Microsoft Container Registry (MCR) que se describe más adelante en el artículo.
-
-No podrá ejecutar el contenedor si su suscripción de Azure no se ha aprobado.
 
 ## <a name="set-up-the-host-computer"></a>Configuración del equipo host
 

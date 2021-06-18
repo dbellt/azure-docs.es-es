@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 9d160738208bcef7b066567137a3c3a9738c26a5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 485f0a19c5cb87b358f1723664425619b5d2c6aa
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727015"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111903318"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migración de Azure Data Lake Storage de Gen1 a Gen2
 
@@ -81,7 +81,7 @@ Migre los datos, las cargas de trabajo y las aplicaciones con el patrón que pre
    
 6. Busque referencias del identificador URI que contengan la cadena `adl://` en los archivos de código o en los cuadernos de Databricks, archivos HQL de Apache Hive o cualquier otro archivo que se use como parte de las cargas de trabajo. Sustituya estas referencias por el [identificador URI con formato de Gen2](data-lake-storage-introduction-abfs-uri.md) de la nueva cuenta de almacenamiento. Por ejemplo: el identificador URI de Gen1: `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` podría convertirse en `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile`. 
 
-7. Configure la seguridad en su cuenta para que incluya [roles de Azure](../common/storage-auth-aad-rbac-portal.md), [seguridad de nivel de archivo y carpeta](data-lake-storage-access-control.md), así como [redes virtuales y firewalls de Azure Storage](../common/storage-network-security.md).
+7. Configure la seguridad en su cuenta para que incluya [roles de Azure](assign-azure-role-data-access.md), [seguridad de nivel de archivo y carpeta](data-lake-storage-access-control.md), así como [redes virtuales y firewalls de Azure Storage](../common/storage-network-security.md).
 
 ### <a name="step-4-cutover-from-gen1-to-gen2"></a>Paso 4: Paso de Gen1 a Gen2
 

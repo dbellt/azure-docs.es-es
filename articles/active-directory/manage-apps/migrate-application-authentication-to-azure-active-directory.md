@@ -2,22 +2,22 @@
 title: Migración de la autenticación de las aplicaciones a Azure Active Directory
 description: En estas notas del producto se proporcionan detalles sobre la planificación y ventajas de migrar la autenticación de la aplicación a Azure AD.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 02/05/2021
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 736f21927b6a76be5f5d849099db465fcc9835cf
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 6a70392c6236591d803b4c3823677ba6788072ff
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108318970"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077003"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Migración de la autenticación de las aplicaciones a Azure Active Directory
 

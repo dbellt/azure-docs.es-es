@@ -8,13 +8,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: quickstart
 ms.date: 06/01/2020
-ms.custom: subject-armqs
-ms.openlocfilehash: 48573b8a9571fc6eb5ab54a0759a7f4e1b243755
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.custom: subject-armqs, devx-track-azurepowershell
+ms.openlocfilehash: 30ede8a3aa719a213066eac567000c6602f7c36c
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107948282"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590133"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Inicio rápido: Creación de una instancia de Azure Cosmos DB y un contenedor mediante una plantilla de Resource Manager
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -37,7 +37,7 @@ Una suscripción a Azure o una cuenta de evaluación gratuita de Azure Cosmos DB
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/cosmosdb-sql/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.documentdb/cosmosdb-sql/azuredeploy.json":::
 

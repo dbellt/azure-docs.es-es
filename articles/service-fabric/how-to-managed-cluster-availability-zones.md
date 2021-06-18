@@ -3,12 +3,12 @@ title: Implementación de un clúster administrado de Service Fabric en zonas de
 description: Aprenda a implementar un clúster administrado de Service Fabric en zonas de disponibilidad y a configurarlo en una plantilla de ARM.
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: 9e971516ca8f841129973297b808e28c2f2ed2ed
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 5278ea170e0a60907813b9a79b151dde44ab4a12
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109689350"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956790"
 ---
 # <a name="deploy-a-service-fabric-managed-cluster-across-availability-zones"></a>Implementación de un clúster administrado de Service Fabric en zonas de disponibilidad
 
@@ -49,7 +49,7 @@ Lista de nodos de ejemplo que muestra los formatos FD/UD en las zonas de extensi
 **Escenario de una zona que no funciona**: cuando una zona deja de funcionar, todos los nodos de esa zona aparecerán como inactivos. Las réplicas de servicio en estos nodos también estarán inactivas. Dado que hay réplicas en las otras zonas, el servicio sigue teniendo capacidad de respuesta con las réplicas principales que conmutan por error a las zonas que funcionan. Los servicios aparecerán en estado de advertencia, ya que el número de réplicas de destino no se ha alcanzado y el número de VM todavía es mayor que el tamaño mínimo de réplica de destino definido. Como resultado, el equilibrador de carga de Service Fabric abrirá réplicas en las zonas en funcionamiento para que coincidan con el número de réplicas de destino configurado. En este momento, los servicios aparecerán en buen estado. Cuando la zona que estaba inactiva vuelva a funcionar, el equilibrador de carga volverá a distribuir todas las réplicas de servicio uniformemente en todas las zonas.
 
 ## <a name="networking-configuration"></a>Configuración de redes
-Para más información, consulte [Configuración de la red para clústeres administrados de Service Fabric](https://docs.microsoft.com/azure/service-fabric/how-to-managed-cluster-networking).
+Para más información, consulte [Configuración de la red para clústeres administrados de Service Fabric](./how-to-managed-cluster-networking.md).
 
 ## <a name="enabling-a-zone-resilient-azure-service-fabric-managed-cluster"></a>Habilitación de un clúster administrado de Azure Service Fabric resistente a zona
 Para habilitar un clúster administrado de Azure Service Fabric resistente a zona, debe incluir lo siguiente en la definición de recursos del clúster administrado.

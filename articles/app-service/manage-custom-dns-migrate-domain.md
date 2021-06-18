@@ -6,12 +6,12 @@ ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
 ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: e1b50675bef0f883ff617b3098a742d3491b3c13
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4fac7f204b682f474dfc9d29ba09ee28bf79f9de
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89484312"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110663934"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migración de un nombre de DNS activo a Azure App Service
 
@@ -40,7 +40,7 @@ Cuando finalmente migre el nombre DNS personalizado del sitio antiguo a la aplic
 
 ### <a name="get-domain-verification-id"></a>Obtención del identificador de comprobación de dominio
 
-Para obtener el identificador de comprobación de dominio de la aplicación, siga los pasos descritos en [Obtención del identificador de comprobación de dominio](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id).
+Para obtener el identificador de comprobación de dominio de la aplicación, siga los pasos descritos en [Obtención del identificador de comprobación de dominio](app-service-web-tutorial-custom-domain.md#3-get-a-domain-verification-id).
 
 ### <a name="create-domain-verification-record"></a>Creación de un registro de comprobación de dominio
 
@@ -48,9 +48,9 @@ Para comprobar la propiedad del dominio, agregue un registro TXT para la comprob
 
 | Ejemplo de registro DNS | Host TXT | Valor TXT |
 | - | - | - |
-| \@ (raíz) | _asuid_ | [Identificador de comprobación de dominio para la aplicación](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
-| www (sub) | _asuid.www_ | [Identificador de comprobación de dominio para la aplicación](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
-| \* (comodín) | _asuid_ | [Identificador de comprobación de dominio para la aplicación](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
+| \@ (raíz) | _asuid_ | [Identificador de comprobación de dominio para la aplicación](app-service-web-tutorial-custom-domain.md#3-get-a-domain-verification-id) |
+| www (sub) | _asuid.www_ | [Identificador de comprobación de dominio para la aplicación](app-service-web-tutorial-custom-domain.md#3-get-a-domain-verification-id) |
+| \* (comodín) | _asuid_ | [Identificador de comprobación de dominio para la aplicación](app-service-web-tutorial-custom-domain.md#3-get-a-domain-verification-id) |
 
 En la página de registros DNS, tenga en cuenta el tipo de registro del nombre DNS que desee migrar. App Service es compatible con las asignaciones de CNAME y registros A.
 

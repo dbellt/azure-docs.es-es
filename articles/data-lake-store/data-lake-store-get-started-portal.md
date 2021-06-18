@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 428ed96c3223e644b0c78712723231a5fabbdc77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6b13c507f32271e4707cf4c4506bcf8e1f6e633
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91578587"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007557"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Introducción a Azure Data Lake Storage Gen1 con Azure Portal
 
@@ -74,9 +74,9 @@ Si utiliza las claves de Azure Key Vault para configurar el cifrado de la cuenta
 
 > [!NOTE]
 > También puede crear una cuenta de Data Lake Storage Gen1 con plantillas de Azure Resource Manager. Estas plantillas son accesibles desde las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?term=data+lake+store):
-> * Sin cifrado de datos: [Implementación de la cuenta de Azure Data Lake Storage Gen1 sin cifrado de datos](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
-> * Con cifrado de datos mediante Data Lake Storage Gen1: [Implementación de la cuenta de Azure Data Lake Storage Gen1 con cifrado (Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
-> * Con cifrado de datos mediante Azure Key Vault: [Implementación de la cuenta de Azure Data Lake Storage Gen1 con cifrado (Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
+> * Sin cifrado de datos: [Implementación de la cuenta de Azure Data Lake Storage Gen1 sin cifrado de datos](https://azure.microsoft.com/resources/templates/data-lake-store-no-encryption/).
+> * Con cifrado de datos mediante Data Lake Storage Gen1: [Implementación de la cuenta de Azure Data Lake Storage Gen1 con cifrado (Data Lake)](https://azure.microsoft.com/resources/templates/data-lake-store-encryption-adls/).
+> * Con cifrado de datos mediante Azure Key Vault: [Implementación de la cuenta de Azure Data Lake Storage Gen1 con cifrado (Key Vault)](https://azure.microsoft.com/resources/templates/data-lake-store-encryption-key-vault/).
 >
 >
 

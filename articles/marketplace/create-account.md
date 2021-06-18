@@ -8,12 +8,12 @@ author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
 ms.date: 04/06/2021
-ms.openlocfilehash: 2b3516d5f573f13655963b678a2f164c460fd140
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: fcef5fee62c9937538a2aba6cba8629a8a04b043
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133158"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004914"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Creación de una cuenta de Marketplace comercial en el Centro de partners
 
@@ -45,7 +45,7 @@ Use este método si no está familiarizado con el Centro de partners y no está 
 
 #### <a name="register-on-the-partner-center-enrollment-page"></a>Registrarse en la página de inscripción del Centro de partners
 
-Revise la información de la página de inscripción de [Bienvenida al Centro de partners de Microsoft](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) y regístrese para obtener una cuenta.
+Revise la información de la página de inscripción de [Bienvenida al Centro de partners de Microsoft](https://go.microsoft.com/fwlink/?linkid=2165529) y regístrese para obtener una cuenta.
 
 #### <a name="sign-in-with-a-work-account"></a>Iniciar sesión con una cuenta profesional
 
@@ -80,7 +80,7 @@ A continuación, podrá asignar los roles y permisos de usuario adecuados a los 
 
 **Inscripción en el marketplace comercial**
 
-1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/) con la cuenta de Microsoft Partner Network.
+1. Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165507) con la cuenta de Microsoft Partner Network.
 
     >[!NOTE]
     > Debe tener un rol de **administrador de cuenta** o **administrador global** para iniciar sesión en Microsoft Partner Network.
@@ -115,7 +115,7 @@ Ha creado una cuenta del marketplace comercial en el Centro de partners. Vaya a 
 
 Al registrarse en el programa del marketplace comercial con la misma cuenta que en el programa de desarrolladores, puede ver las inscripciones existentes en los programas en el panel izquierdo del Centro de partners.
 
-1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/) con la cuenta existente.
+1. Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165507) con la cuenta existente.
 1. En la parte superior derecha, seleccione **Configuración** > **Configuración de la cuenta** > **Programas**.
 1. En **Marketplace comercial**, seleccione **Introducción** y escriba su dirección de correo electrónico del trabajo.
 1. Rellene los detalles en la página del **perfil de publicador**.
@@ -134,7 +134,7 @@ Ha creado una cuenta del marketplace comercial en el Centro de partners. Para ob
 
 Si tenía una cuenta de Cloud Partner Portal, la hemos trasladado al Centro de partners. No necesita crear una cuenta nueva del Centro de partners. Debe haber recibido un vínculo personalizado a su nueva cuenta del Centro de partners por correo electrónico y en una notificación de banner tras iniciar sesión en su cuenta de Cloud Partner Portal existente.
 
-Una vez seleccionado el vínculo personalizado y habilitada la nueva cuenta del Centro de partners, puede volver a su cuenta desde el [panel de información del marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) en el Centro de partners.
+Una vez seleccionado el vínculo personalizado y habilitada la nueva cuenta del Centro de partners, puede volver a su cuenta desde el [panel de información del marketplace comercial](https://go.microsoft.com/fwlink/?linkid=2165290) en el Centro de partners.
 
 El contrato de publicación y la información de perfil de empresa se trasladan a la nueva cuenta del Centro de partners, junto con cualquier información de perfil de pago de cuenta, permisos y cuentas de usuario configurados previamente, así como ofertas activas asociadas con su cuenta de Cloud Partner Portal.
 

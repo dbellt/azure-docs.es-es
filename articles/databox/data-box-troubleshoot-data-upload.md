@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: troubleshooting
 ms.date: 05/10/2021
 ms.author: alkohli
-ms.openlocfilehash: 7ede9b952a27c8ed0df2c24598fc65187036e5dc
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: bd54b662e48ef6f66ea2bfef10863e2d7627289f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790494"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966439"
 ---
 # <a name="review-copy-errors-in-uploads-from-azure-data-box-and-azure-data-box-heavy-devices"></a>Revisión de los errores de copia en las cargas desde dispositivos Azure Data Box y Azure Data Box Heavy
 
@@ -110,7 +110,7 @@ Pueden producirse otros errores de API de REST durante las cargas de datos. Para
 
 **Descripción del error:** si un contenedor de Blob Storage está configurado como Escribir una vez, leer muchas (WORM), se producirá un error en la carga de los blobs que ya están almacenados en el contenedor.
 
-**Seguimiento:** no se puede corregir este error en la carga actual. La carga se ha completado con errores. Antes de realizar una transferencia de red o iniciar un nuevo pedido de importación, asegúrese de que los blobs indicados no forman parte de un contenedor de almacenamiento inmutable. Para más información, consulte [Almacenamiento de datos de blobs críticos para la empresa con almacenamiento inmutable](/azure/storage/blobs/storage-blob-immutable-storage).
+**Seguimiento:** no se puede corregir este error en la carga actual. La carga se ha completado con errores. Antes de realizar una transferencia de red o iniciar un nuevo pedido de importación, asegúrese de que los blobs indicados no forman parte de un contenedor de almacenamiento inmutable. Para más información, consulte [Almacenamiento de datos de blobs críticos para la empresa con almacenamiento inmutable](../storage/blobs/storage-blob-immutable-storage.md).
 
 
 ### <a name="the-total-provisioned-capacity-of-the-shares-cannot-exceed-the-account-maximum-size-limit"></a>La capacidad total aprovisionada de los recursos compartidos no puede superar el límite de tamaño máximo de la cuenta.
@@ -142,7 +142,7 @@ Pueden producirse otros errores de API de REST durante las cargas de datos. Para
 
 **Descripción del error:** la importación de datos a un blob en la nube producirá un error si el blob de destino tiene una concesión activa.
 
-**Seguimiento:** no se puede corregir este error en la carga actual. La carga se ha completado con errores. Antes de realizar una transferencia de red o iniciar un nuevo pedido de importación, asegúrese de que los blobs enumerados no tienen una concesión activa. Para más información, vea [Simultaneidad pesimista para blobs](/azure/storage/blobs/concurrency-manage?tabs=dotnet#pessimistic-concurrency-for-blobs).
+**Seguimiento:** no se puede corregir este error en la carga actual. La carga se ha completado con errores. Antes de realizar una transferencia de red o iniciar un nuevo pedido de importación, asegúrese de que los blobs enumerados no tienen una concesión activa. Para más información, vea [Simultaneidad pesimista para blobs](../storage/blobs/concurrency-manage.md?tabs=dotnet#pessimistic-concurrency-for-blobs).
 
 
 ### <a name="the-size-of-the-blob-being-imported-is-invalid-the-blob-size-is-blob-size-bytes-supported-sizes-are-between-20971520-bytes-and-8192-gib"></a>El tamaño del blob que se quiere importar no es válido. El tamaño del blob es de `<blob-size>` bytes. Los tamaños admitidos se encuentran entre 20971520 bytes y 8192 GiB.

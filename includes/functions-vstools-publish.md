@@ -1,19 +1,15 @@
 ---
-title: archivo de inclusión
-description: archivo de inclusión
-services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
 ms.date: 09/30/2020
 ms.author: glenga
-ms.custom: include file
-ms.openlocfilehash: 5b537b88052ce4042e346732f3dc63aaec6621cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9cbab70d37c689967c7129b3205a9194e9de9ade
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100529729"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "111350916"
 ---
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Publicar**, en **Destino**, seleccione **Azure** y, a continuación, seleccione **Siguiente**.
 
@@ -25,7 +21,7 @@ ms.locfileid: "100529729"
 
 1. Crear una nueva instancia con los valores especificados en la tabla siguiente:
 
-    | Configuración      | Value  | Descripción                                |
+    | Configuración      | Valor  | Descripción                                |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nombre** | Nombre único globalmente | Nombre que identifica de forma única la nueva aplicación de función. Acepte este nombre o escriba uno nuevo. Los caracteres válidos son `a-z`, `0-9` y `-`. |
     | **Suscripción** | Su suscripción | La suscripción de Azure que se va a usar. Acepte esta suscripción o seleccione una nueva en la lista desplegable. |
