@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 4aed956fc7052f844080b830aa4cc3b2a07235a1
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: e48296b696d26bcf30424280f1cbd3fc6aaa9640
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799401"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958976"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casos de uso comunes de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -67,7 +67,7 @@ Azure Cosmos DB se suele utilizar en el abastecimiento de eventos para mejorar l
 
 :::image type="content" source="./media/use-cases/event-sourcing.png" alt-text="Arquitectura de referencia para la ordenación de las canalizaciones de Azure Cosmos DB" border="false":::
 
-Además, los datos almacenados en Azure Cosmos DB pueden integrarse con HDInsight para el análisis de macrodatos a través de trabajos de Apache Spark. Para detalles sobre el conector de Spark para Azure Cosmos DB, consulte [Ejecución de un trabajo de Spark con Cosmos DB y HDInsight](spark-connector.md).
+Además, los datos almacenados en Azure Cosmos DB pueden integrarse con HDInsight para el análisis de macrodatos a través de trabajos de Apache Spark. Para detalles sobre el conector de Spark para Azure Cosmos DB, consulte [Ejecución de un trabajo de Spark con Cosmos DB y HDInsight](./create-sql-api-spark.md).
 
 ## <a name="gaming"></a>Juegos
 El nivel de base de datos es un componente fundamental de las aplicaciones de juegos. Los juegos modernos realizan el procesamiento de los elementos grafos en los clientes de consola o dispositivos móviles, pero utilizan la nube para ofrecer contenido personalizado y a medida, como estadísticas dentro del juego, integración con las redes sociales y los marcadores de puntuaciones. A menudo, los juegos requieren latencias de un solo milisegundo para que las lecturas y escrituras proporcionen una experiencia de juego atractiva. Una base de datos de un juego debe ser rápida y capaz de manejar los picos masivos en la velocidad de las solicitudes cuando se inicia un nuevo juego y se actualizan las características.

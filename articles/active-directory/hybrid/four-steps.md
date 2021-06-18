@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 795f5ede382e561ee810e54e1f8897c5d806e8b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eabb6e657db7ea39bf0fb746bb596f496bc5efaf
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94412381"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958317"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Cuatro pasos para establecer las bases de una identidad segura con Azure Active Directory
 
@@ -65,7 +65,7 @@ Para más información, consulte las notas del producto [Migrating Your Applicat
 
 ### <a name="enable-secure-remote-access-to-apps"></a>Habilitación del acceso remoto seguro a las aplicaciones
 
-[Azure AD Application Proxy](../manage-apps/what-is-application-proxy.md) ofrece a las organizaciones una solución sencilla para publicar aplicaciones locales en la nube destinadas a usuarios remotos que necesitan tener acceso a aplicaciones internas de forma segura. Después de un inicio de sesión único en Azure AD, los usuarios pueden acceder a aplicaciones locales y en la nube mediante direcciones URL externas o un portal de aplicaciones interno.
+[Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md) ofrece a las organizaciones una solución sencilla para publicar aplicaciones locales en la nube destinadas a usuarios remotos que necesitan tener acceso a aplicaciones internas de forma segura. Después de un inicio de sesión único en Azure AD, los usuarios pueden acceder a aplicaciones locales y en la nube mediante direcciones URL externas o un portal de aplicaciones interno.
 
 Azure AD Application Proxy ofrece las siguientes ventajas:
 

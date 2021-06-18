@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
-ms.openlocfilehash: 401124ed4b2794d891ca224ba3dc1c78edcae8d5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 5ae401e0593eedfedfde1c657da66d9b423d810f
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783420"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060568"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>Adición o eliminación de una delegación de subred
 
@@ -36,7 +37,7 @@ En esta sección, creará una red virtual y la subred que posteriormente delegar
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Red virtual**.
 1. En **Creación de una red virtual**, escriba o seleccione esta información:
 
-    | Configuración | Value |
+    | Configuración | Valor |
     | ------- | ----- |
     | Nombre | Escriba *MyVirtualNetwork*. |
     | Espacio de direcciones | Escriba *10.0.0.0/16*. |
@@ -59,16 +60,14 @@ El rol [Colaborador de la red ](../role-based-access-control/built-in-roles.md?t
 En esta sección, delegará la subred que creó en la sección anterior en un servicio de Azure.
 
 1. En la barra de búsqueda del portal, escriba *myVirtualNetwork*. Cuando aparezca la opción **myVirtualNetwork** en los resultados de la búsqueda, selecciónela.
-2. En los resultados de la búsqueda, seleccione *myVirtualNetwork*.
-3. Seleccione **Subredes** en **CONFIGURACIÓN** y, después, seleccione **mySubnet**.
-4. En la página *mySubnet*, en la lista **Subnet delegation** (Delegación de subred), seleccione uno de los servicios enumerados en **Delegate subnet to a service** (Delegar subred en un servicio) (por ejemplo, **Microsoft. DBforPostgreSQL/serversv2**).  
+2. Seleccione **Subredes** en **CONFIGURACIÓN** y, después, seleccione **mySubnet**.
+3. En la página *mySubnet*, en la lista **Subnet delegation** (Delegación de subred), seleccione uno de los servicios enumerados en **Delegate subnet to a service** (Delegar subred en un servicio) (por ejemplo, **Microsoft. DBforPostgreSQL/serversv2**).  
 
 ### <a name="remove-subnet-delegation-from-an-azure-service"></a>Eliminación de la delegación de subred de un servicio de Azure
 
 1. En la barra de búsqueda del portal, escriba *myVirtualNetwork*. Cuando aparezca la opción **myVirtualNetwork** en los resultados de la búsqueda, selecciónela.
-2. En los resultados de la búsqueda, seleccione *myVirtualNetwork*.
-3. Seleccione **Subredes** en **CONFIGURACIÓN** y, después, seleccione **mySubnet**.
-4. En la página *mySubnet*, en la lista **Subnet delegation** (Delegación de subred), seleccione **None** (Ninguno) en los servicios enumerados en **Delegate subnet to a service** (Delegar subred en un servicio). 
+2. Seleccione **Subredes** en **CONFIGURACIÓN** y, después, seleccione **mySubnet**.
+3. En la página *mySubnet*, en la lista **Subnet delegation** (Delegación de subred), seleccione **None** (Ninguno) en los servicios enumerados en **Delegate subnet to a service** (Delegar subred en un servicio). 
 
 ## <a name="azure-cli"></a>Azure CLI
 

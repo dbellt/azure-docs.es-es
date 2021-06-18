@@ -6,12 +6,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 2110bd812827ab4ff47f170a74a71f90df061833
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 8a67cb97487e1082aed976712ded5383008531b1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129664"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957119"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
 
@@ -274,7 +274,7 @@ Estas implementaciones se desarrollan usando una plantilla de Azure Resource Man
 
 > **Cuándo se debe usar**: las plantillas de Resource Manager se usan cuando se desea una implementación basada en plantillas de la aplicación que se pueda administrar mediante programación con las API REST, la CLI de Azure y Azure PowerShell.
 >
-> **Introducción**: para empezar a trabajar con plantillas, consulte cómo [crear plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
+> **Introducción**: para empezar a trabajar con plantillas, consulte cómo [crear plantillas de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md).
 
 ## <a name="understanding-accounts-subscriptions-and-billing"></a>Descripción de las cuentas, suscripciones y facturación
 
