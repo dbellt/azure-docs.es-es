@@ -1,20 +1,21 @@
 ---
 title: 'Reglas de acoplamiento y escape de JSON: Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Aprenda sobre el acoplamiento, el escape y el control de matrices de JSON en Azure Time Series Insights Gen2.
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: esung22
+ms.author: elsung
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/21/2021
-ms.openlocfilehash: b0ce3d2bdcb79fec4c032f44171ef6c91de47b9e
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 4816d506db5631398932ad602c9ac9e0c5e87b1c
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505440"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110797483"
 ---
 # <a name="json-flattening-escaping-and-array-handling"></a>Acoplamiento de JSON, escape y control de matrices
 

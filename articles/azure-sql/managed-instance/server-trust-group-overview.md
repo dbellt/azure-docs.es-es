@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Managed Instance
 description: Obtenga información sobre el grupo de confianza del servidor y cómo administrar la confianza entre instancias de Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: service-overview
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: sasapopo
 ms.author: sasapopo
-ms.reviewer: sstein, bonova
+ms.reviewer: mathoma
 ms.date: 10/08/2020
-ms.openlocfilehash: e1f732c29d977ff421496809f149ee722c766072
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: f66050545c2c30c592b41cb21c30394316c80711
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517431"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110692724"
 ---
 # <a name="use-server-trust-groups-to-set-up-and-manage-trust-between-sql-managed-instances"></a>Uso de grupos de confianza de servidor para configurar y administrar la confianza entre instancias de SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -30,7 +30,7 @@ Un [grupo de confianza del servidor](/azure/templates/microsoft.sql/allversions)
 
 ## <a name="server-trust-group-setup"></a>Configuración de un grupo de confianza del servidor
 
-El grupo de confianza del servidor se puede configurar mediante [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservertrustgroup) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/sql/stg). En la siguiente sección se describe la configuración del grupo de confianza del servidor mediante Azure Portal.
+El grupo de confianza del servidor se puede configurar mediante [Azure PowerShell](/powershell/module/az.sql/new-azsqlservertrustgroup) o la [CLI de Azure](/cli/azure/sql/stg). En la siguiente sección se describe la configuración del grupo de confianza del servidor mediante Azure Portal.
 
 1. Vaya a [Azure Portal](https://portal.azure.com/).
 

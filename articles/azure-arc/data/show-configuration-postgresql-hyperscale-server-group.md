@@ -8,14 +8,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: a268cd6b2fa3da6846554e3d1b170298abec7f18
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12631adea948c6a59f935ba409dcc925268c6319
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93279408"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412266"
 ---
 # <a name="show-the-configuration-of-an-arc-enabled-postgresql-hyperscale-server-group"></a>Visualización de la configuración de un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
 
@@ -362,7 +362,7 @@ Devuelve la siguiente salida en un formato y contenido muy similar al devuelto p
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Obtenga información sobre los conceptos de Hiperescala de PostgreSQL habilitada para Azure Arc](concepts-distributed-postgres-hyperscale.md).
-- [Obtenga información acerca de cómo escalar horizontalmente (agregar nodos de trabajo) un grupo de servidores](scale-out-postgresql-hyperscale-server-group.md).
+- [Obtenga información acerca de cómo escalar horizontalmente (agregar nodos de trabajo) un grupo de servidores](scale-out-in-postgresql-hyperscale-server-group.md).
 - [Obtenga información acerca de cómo escalar o reducir verticalmente (aumentar o reducir la memoria y/o los núcleos virtuales) de un grupo de servidores](scale-up-down-postgresql-hyperscale-server-group-using-cli.md).
 - [Obtenga información sobre la configuración de almacenamiento](storage-configuration.md).
 - [Consulte cómo supervisar una instancia de base de datos](monitor-grafana-kibana.md)
