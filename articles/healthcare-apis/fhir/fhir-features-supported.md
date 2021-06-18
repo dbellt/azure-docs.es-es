@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 6/16/2021
 ms.author: cavoeg
-ms.openlocfilehash: 1a417d452a7db67cbcf392bb44233f9117f3f8e6
-ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
+ms.openlocfilehash: cec3b32fc2c56769cf910cf9317e45648cc59174
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 06/17/2021
-ms.locfileid: "112321322"
+ms.locfileid: "112295748"
 ---
 # <a name="features"></a>Características
 
@@ -70,7 +70,7 @@ Todas las operaciones que se admiten y que extienden la API RESTful.
 | $convert-data          | Sí       | Sí       | Sí       |         |
 | $validate              | Sí       | Sí       | Sí       |         |
 | $member coincidencia          | Sí       | Sí       | Sí       |         |
-| $patient todo    | Sí       | No        | Sí       |         |
+| $patient todo    | No        | No        | Sí       |         |
 
 ## <a name="persistence"></a>Persistencia
 

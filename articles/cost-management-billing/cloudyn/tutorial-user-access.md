@@ -10,14 +10,14 @@ ms.subservice: cloudyn
 ms.custom: seodec18
 ms.reviewer: benshy
 ROBOTS: NOINDEX
-ms.openlocfilehash: a3c10d95a57ea81f269af8f8f1cad49fc1c1b845
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: af1318ac30a0d72947dec5f7b6d61f2019ce03b2
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131265"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756084"
 ---
-# <a name="tutorial-assign-access-to-cloudyn-data"></a>Tutorial: Asignación del acceso a los datos de Cloudyn
+# <a name="tutorial-assign-access-to-cloudyn-data"></a>Tutorial: Asignación del acceso a datos de Cloudyn
 
 El acceso a los datos de Cloudyn se proporciona mediante la administración de la identidad o del usuario. Las cuentas de usuario de Cloudyn determinan el acceso a las *entidades* y las funciones administrativas. Existen dos tipos de acceso: administrador y usuario. A menos que lo modifique el usuario, el acceso de administrador permite un uso no restringido de todas las funciones del portal de Cloudyn, incluida la administración de usuarios y listas de destinatarios, y el acceso a la entidad raíz para todos los datos de la entidad. Con el acceso de usuario se pretende que los usuarios finales puedan ver y crear informes mediante el acceso que tienen a los datos de entidad.
 
@@ -78,7 +78,7 @@ No puede eliminarse a sí mismo como usuario.
 
 ## <a name="delete-or-export-personal-data"></a>Eliminar o exportar datos personales
 
-Si desea eliminar o exportar datos personales de Cloudyn, deberá crear una incidencia de soporte técnico. Una vez creada la incidencia de soporte técnico, esta actúa como una solicitud formal: una solicitud de los titulares de los datos. Microsoft actúa con rapidez para eliminar la cuenta y cualquier dato personal o del cliente. Para más información sobre cómo puede solicitar que se eliminen o exporten sus datos, consulte [Data Subject Requests of Cloudyn Data](https://www.cloudyn.com/cloudyn-gdpr-requests) (Solicitud de los titulares de datos de Cloudyn).
+Si desea eliminar o exportar datos personales de Cloudyn, deberá crear una incidencia de soporte técnico. Una vez creada la incidencia de soporte técnico, esta actúa como una solicitud formal: una solicitud de los titulares de los datos. Microsoft actúa con rapidez para eliminar la cuenta y cualquier dato personal o del cliente.
 
 ## <a name="create-and-manage-entities"></a>Crear y administrar entidades
 
@@ -112,7 +112,7 @@ Los niveles de acceso de entidades junto con un acceso de usuario le permiten de
 
 Para crear una jerarquía de entidades de costo, debe tener una cuenta con Enterprise o Enterprise + cost allocation (Empresa o Empresa + Asignación de costos).
 
-En el portal de Cloudyn, haga clic en el símbolo de engranaje en la esquina superior derecha y seleccione **Cloud Accounts** (Cuentas en la nube). El árbol de **entidades** se muestra en el panel izquierdo. Si es necesario, expanda el árbol de entidades para que pueda ver la entidad que desea asociar a una cuenta.  Las cuentas de proveedor de servicios en la nube se muestran en pestañas en el panel derecho. Seleccione una pestaña y, a continuación, haga clic en una cuenta o suscripción y arrástrela a la entidad y colóquela. El cuadro **Mover** le informa de que la cuenta se movió correctamente. Haga clic en **OK**.
+En el portal de Cloudyn, haga clic en el símbolo de engranaje en la esquina superior derecha y seleccione **Cloud Accounts** (Cuentas en la nube). El árbol de **entidades** se muestra en el panel izquierdo. Si es necesario, expanda el árbol de entidades para que pueda ver la entidad que desea asociar a una cuenta.  Las cuentas de proveedor de servicios en la nube se muestran en pestañas en el panel derecho. Seleccione una pestaña y, a continuación, haga clic en una cuenta o suscripción y arrástrela a la entidad y colóquela. El cuadro **Mover** le informa de que la cuenta se movió correctamente. Haga clic en **Aceptar**.
 
 También puede asociar varias cuentas a una entidad. Seleccione las cuentas y, después, haga clic en **Mover**. En el cuadro Mover cuentas, seleccione la entidad a la que desea mover la cuenta y, a continuación, haga clic en **Guardar**. El cuadro Mover cuentas le pide que confirme que desea mover las cuentas. Haga clic en **Sí** y, luego, en **Aceptar**.
 

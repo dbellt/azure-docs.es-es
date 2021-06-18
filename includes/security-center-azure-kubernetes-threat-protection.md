@@ -4,12 +4,12 @@ ms.author: memildin
 manager: rkarlin
 ms.date: 04/07/2021
 ms.topic: include
-ms.openlocfilehash: 73886b966676af75cc74484ccdc0632f080b041a
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: d14274c43c3241a4c091ee004747c1ad8e12968b
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029157"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111896884"
 ---
 Azure Defender proporciona protección contra amenazas en tiempo real para los entornos en contenedores y genera alertas de actividades sospechosas. Puede usar esta información para corregir problemas de seguridad y mejorar la seguridad de los contenedores rápidamente.
 
@@ -32,7 +32,7 @@ Azure Defender proporciona protección contra amenazas en diferentes niveles:
     >[!NOTE]
     > Azure Defender genera alertas de seguridad para las acciones e implementaciones que se producen después de habilitar el plan de Defender para Kubernetes en la suscripción. 
 
-    Para obtener una lista de las alertas del nivel de clúster de AKS, consulte la [tabla de referencia de alertas](../articles/security-center/alerts-reference.md#alerts-akscluster).
+    Para obtener una lista de las alertas del nivel de clúster de AKS, consulte la [tabla de referencia de alertas](../articles/security-center/alerts-reference.md#alerts-k8scluster).
 
 Además, nuestro equipo global de investigadores de seguridad supervisa constantemente el panorama de las amenazas. Agregan alertas específicas del contenedor y vulnerabilidades a medida que se detectan.
 

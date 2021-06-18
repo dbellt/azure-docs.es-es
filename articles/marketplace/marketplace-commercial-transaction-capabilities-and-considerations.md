@@ -4,15 +4,15 @@ description: En este artículo se describen las consideraciones de precios, fact
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/14/2021
+ms.date: 04/06/2021
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: da0a216842ddbd10728f3ff4c3b0eee2df200ee7
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: f68b940dfdb8c166102f1b4c8957f5233aa83ea4
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633436"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007776"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transacción de marketplace comercial
 
@@ -51,7 +51,7 @@ La opción de publicación de transacción se admite actualmente para los siguie
 
 ### <a name="metered-billing"></a>Facturación de uso medido
 
-El _servicio de medición de Marketplace_ le permite especificar cargos de pago por uso (basados en el consumo) además de cargos mensuales o anuales incluidos en el contrato (derecho). Puede aplicar costos de uso por las dimensiones del servicio de medición de Marketplace que especifique, como el ancho de banda, los vales o los correos electrónicos procesados. Para más información sobre la facturación de uso medido para ofertas de SaaS, consulte [Facturación de uso medido para SaaS mediante el servicio de medición de Marketplace comercial](./partner-center-portal/saas-metered-billing.md). Para más información sobre la facturación de uso medido para ofertas de Aplicación de Azure, consulte [Facturación según uso de aplicaciones administradas](./partner-center-portal/azure-app-metered-billing.md).
+El _servicio de medición de Marketplace_ le permite especificar cargos de pago por uso (basados en el consumo) además de cargos mensuales o anuales incluidos en el contrato (derecho). Puede aplicar costos de uso por las dimensiones del servicio de medición de Marketplace que especifique, como el ancho de banda, los vales o los correos electrónicos procesados. Para más información sobre la facturación de uso medido para ofertas de SaaS, consulte [Facturación de uso medido para SaaS mediante el servicio de medición de Marketplace comercial](./partner-center-portal/saas-metered-billing.md). Para más información sobre la facturación de uso medido para ofertas de Aplicación de Azure, consulte [Facturación según uso de aplicaciones administradas](marketplace-metering-service-apis.md).
 
 ### <a name="billing-infrastructure-costs"></a>Costos de infraestructura de facturación
 
@@ -67,13 +67,13 @@ En función de la opción de transacción usada, los cargos de suscripción son 
 - **Traiga su propia licencia** (BYOL): si se incluye una oferta en el Marketplace comercial, los cargos aplicables por las licencias de software se administran directamente entre el publicador y el cliente. Microsoft solo carga las tarifas de uso de la infraestructura de Azure aplicables a la cuenta de suscripción de Azure del cliente.
 - **Precios de suscripción**: las cuotas de licencia de software se presentan como cuotas de suscripción periódicas mensuales o anuales que se facturan como tarifa plana o por puesto. Las cuotas de suscripción periódicas no se prorratean por cancelaciones del cliente a mitad del período o por la falta de uso de los servicios. Las cuotas de suscripción periódicas se pueden prorratear si el cliente cambia a una versión superior o inferior de su suscripción a mitad del período.
 - **Precios basados en el uso**: en el caso de ofertas de máquinas virtuales de Azure, se factura a los clientes en función del alcance de su uso de la oferta. Si son imágenes de máquina virtual, a los clientes se les cobra una tarifa por hora de Azure Marketplace, establecida por el publicador, por el uso de las máquinas virtuales implementadas a partir de las imágenes. La tarifa por horas puede ser uniforme o variar según los distintos tamaños de máquina virtual. Las horas parciales se cobran por minuto. Los planes se facturan mensualmente.
-- **Precios de uso medido**: con las ofertas de aplicaciones de Azure y SaaS, los publicadores pueden usar el [servicio de medición de Marketplace](./partner-center-portal/marketplace-metering-service-apis.md) para facturar el consumo según las dimensiones personalizadas de los medidores que configuren. Estos cambios se suman a los cargos mensuales o anuales incluidos en el contrato (derecho). Algunos ejemplos de dimensiones de medidores personalizadas son el ancho de banda, los vales o los correos electrónicos procesados. Los publicadores pueden definir una o más dimensiones de uso medido para cada plan, con un máximo de 30 por oferta. Los publicadores son responsables de hacer un seguimiento del uso individual de los clientes, con cada medidor definido en la oferta. Los eventos se deben notificar a Microsoft en el plazo de una hora. Microsoft cobra a los clientes en función de la información de uso notificada por los anunciantes para el período de facturación aplicable.
+- **Precios de uso medido**: con las ofertas de aplicaciones de Azure y SaaS, los publicadores pueden usar el [servicio de medición de Marketplace](marketplace-metering-service-apis.md) para facturar el consumo según las dimensiones personalizadas de los medidores que configuren. Estos cambios se suman a los cargos mensuales o anuales incluidos en el contrato (derecho). Algunos ejemplos de dimensiones de medidores personalizadas son el ancho de banda, los vales o los correos electrónicos procesados. Los publicadores pueden definir una o más dimensiones de uso medido para cada plan, con un máximo de 30 por oferta. Los publicadores son responsables de hacer un seguimiento del uso individual de los clientes, con cada medidor definido en la oferta. Los eventos se deben notificar a Microsoft en el plazo de una hora. Microsoft cobra a los clientes en función de la información de uso notificada por los anunciantes para el período de facturación aplicable.
 - **Evaluación gratuita**: no se cobra por las licencias de software que cubren un período de 30 días a seis meses, en función del tipo de oferta. Si los publicadores proporcionan una evaluación gratuita en varios planes dentro de la misma oferta, los clientes pueden cambiar a una versión de evaluación gratuita de otro plan, pero el período de prueba no se reinicia. En el caso de ofertas de máquina virtual, se cobra a los clientes los costos de la infraestructura de Azure por el uso de la oferta durante un período de prueba. Tras la expiración del período de prueba, se cobra automáticamente a los clientes el último plan que probaron según las tarifas estándar, a menos que lo cancelen antes del final del período de prueba.
 
 > [!NOTE]
 > Las ofertas que se facturan según el uso nos on aptas para reembolsos una vez que se ha usado la solución.
 
-Los editores que quieran cambiar las tarifas de uso asociadas a una oferta deben quitar primero la oferta (o el plan específico dentro de esta) del marketplace comercial. La eliminación debe realizarse de acuerdo con los requisitos del [contrato para editores de Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560). Luego, el editor puede publicar una nueva oferta (o plan dentro de una oferta) que incluya las nuevas cuotas de uso. Para obtener información sobre cómo quitar una oferta o un plan, consulte [Desuso de una oferta o plan](./partner-center-portal/update-existing-offer.md#deprecate-an-offer-or-plan) ("desuso" antiguamente era "detención de la venta").
+Los editores que quieran cambiar las tarifas de uso asociadas a una oferta deben quitar primero la oferta (o el plan específico dentro de esta) del marketplace comercial. La eliminación debe realizarse de acuerdo con los requisitos del [contrato para editores de Microsoft](/legal/marketplace/msft-publisher-agreement). Luego, el editor puede publicar una nueva oferta (o plan dentro de una oferta) que incluya las nuevas cuotas de uso. Para información sobre cómo quitar una oferta o plan, consulte [Detención de la venta de una oferta o un plan](./update-existing-offer.md#stop-selling-an-offer-or-plan).
 
 ### <a name="free-contact-me-and-bring-your-own-license-byol-pricing"></a>Precios de Gratis, Ponerse en contacto conmigo y traiga su propia licencia (BYOL)
 
@@ -178,7 +178,7 @@ Normalmente, los clientes compran con contrato Enterprise o mediante contrato de
 
 #### <a name="billing-questions-and-support"></a>Soporte técnico y preguntas sobre facturación
 
-Para más información y conocer las directivas legales, consulte el [contrato para editores de Microsoft](/legal/marketplace/msft-publisher-agreement). Para obtener ayuda si tiene preguntas sobre facturación, póngase en contacto con el [equipo de soporte técnico para publicadores de Marketplace comercial](https://aka.ms/marketplacepublishersupport).
+Para más información y conocer las directivas legales, consulte el [contrato para editores de Microsoft](/legal/marketplace/msft-publisher-agreement). Para obtener ayuda si tiene preguntas sobre facturación, póngase en contacto con el [equipo de soporte técnico para publicadores de Marketplace comercial](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 ## <a name="transact-requirements"></a>Requisitos de las transacciones
 
