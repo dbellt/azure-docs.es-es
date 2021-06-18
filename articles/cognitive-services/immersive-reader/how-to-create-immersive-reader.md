@@ -5,17 +5,17 @@ description: En este artículo se mostrará cómo crear un nuevo recurso de Lect
 services: cognitive-services
 author: rwaller
 manager: guillasi
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 56d7c56e77382dcf2b06c2ab79c712b42796e67e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d40c0cbf80fd62cc18fb534de1c95ff215dbf578
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377752"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111893433"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Creación de un recurso del Lector inmersivo y configuración de la autenticación de Azure Active Directory
 

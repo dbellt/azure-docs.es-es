@@ -6,12 +6,12 @@ ms.author: philmea
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 02/11/2021
-ms.openlocfilehash: 7c8aa496d44ba72c5a8d62631108b8e332dd4fbf
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: 2e8a503731cc8e3774b898241140ef1bfaa72619
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108795823"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591212"
 ---
 # <a name="overview-of-azure-iot-device-sdks"></a>Información general sobre los SDK de dispositivo IoT de Azure
 
@@ -165,5 +165,5 @@ IoT Hub Device Provisioning Service (DPS) es un servicio auxiliar para IoT Hub q
 
 * [Inicio rápido: Envío de datos de telemetría a IoT Central](quickstart-send-telemetry-central.md)
 * [Inicio rápido: Envío de datos de telemetría a IoT Hub](quickstart-send-telemetry-iot-hub.md)
-* [Introducción al desarrollo insertado](quickstart-device-development.md)
+* [Inicio rápido: Conexión de un kit de desarrollo MXCHIP AZ3166 a IoT Central](quickstart-devkit-mxchip-az3166.md)
 * Más información sobre las [ventajas de desarrollar con los SDK de Azure IoT](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/).
