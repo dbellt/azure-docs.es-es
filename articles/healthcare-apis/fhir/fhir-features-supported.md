@@ -6,14 +6,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 4/15/2021
+ms.date: 6/16/2021
 ms.author: cavoeg
-ms.openlocfilehash: 7248ae47d1ced0013559f14f5e5185f25b7d8083
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 1a417d452a7db67cbcf392bb44233f9117f3f8e6
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077864"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112321322"
 ---
 # <a name="features"></a>Características
 
@@ -70,7 +70,7 @@ Todas las operaciones que se admiten y que extienden la API RESTful.
 | $convert-data          | Sí       | Sí       | Sí       |         |
 | $validate              | Sí       | Sí       | Sí       |         |
 | $member coincidencia          | Sí       | Sí       | Sí       |         |
-| $patient todo    | No        | No        | Sí       |         |
+| $patient todo    | Sí       | No        | Sí       |         |
 
 ## <a name="persistence"></a>Persistencia
 

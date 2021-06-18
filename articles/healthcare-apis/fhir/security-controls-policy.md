@@ -4,20 +4,20 @@ description: Enumera Azure Policy controles de cumplimiento normativo disponible
 ms.date: 06/11/2021
 ms.topic: sample
 author: matjazl
-ms.author: matjazl
+ms.author: chrupa
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 3a84576dd5bb640987bfaf1f7aa9334d5260ad62
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 83a92ec2962152461a7b9d606bfac23a1d9b6349
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112026291"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299022"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-api-for-fhir"></a>Azure Policy de cumplimiento normativo para Azure API for FHIR
 
-[Cumplimiento normativo de Azure Policy](../../governance/policy/concepts/regulatory-compliance.md) proporciona definiciones de iniciativas creadas y administradas por Microsoft, conocidas como _integraciones_, para los **dominios de cumplimiento** y los **controles de seguridad** relativos a distintos estándares de cumplimiento. En esta página se enumeran **los dominios de cumplimiento** y los controles **de** seguridad para Azure API for FHIR. Para que los recursos de Azure sean compatibles con el estándar específico, puede asignar las integraciones a un **control de seguridad** de manera individual.
+[Cumplimiento normativo de Azure Policy](../../governance/policy/concepts/regulatory-compliance.md) proporciona definiciones de iniciativas creadas y administradas por Microsoft, conocidas como _integraciones_, para los **dominios de cumplimiento** y los **controles de seguridad** relativos a distintos estándares de cumplimiento. En esta página se enumeran **los dominios de cumplimiento** y los controles de **seguridad** para Azure API for FHIR. Para que los recursos de Azure sean compatibles con el estándar específico, puede asignar las integraciones a un **control de seguridad** de manera individual.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../../includes/policy/standards/intro-warning.md)]
 

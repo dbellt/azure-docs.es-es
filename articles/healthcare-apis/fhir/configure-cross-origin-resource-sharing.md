@@ -2,17 +2,17 @@
 title: Configuración del uso compartido de recursos entre orígenes en Azure API for FHIR
 description: En este artículo se describe cómo configurar el uso compartido de recursos entre orígenes en Azure API for FHIR.
 author: matjazl
-ms.author: matjazl
+ms.author: zxue
 ms.date: 3/11/2019
 ms.topic: reference
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.openlocfilehash: dc4c034b0821f1fe5ecb940591fca77d61edc3ce
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 3ce1f914afab2a46ab734c270b00e2c7938dc80b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103019888"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112283922"
 ---
 # <a name="configure-cross-origin-resource-sharing-in-azure-api-for-fhir"></a>Configuración del uso compartido de recursos entre orígenes en Azure API for FHIR
 

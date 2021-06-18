@@ -7,13 +7,13 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: matjazl
-ms.openlocfilehash: 3624812cf9119c270c30cf5a7cbebb57030a5113
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.author: cavoeg
+ms.openlocfilehash: 559803a45fc42129d55739ec1d1feba20de41536
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020105"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299148"
 ---
 # <a name="register-a-public-client-application-in-azure-active-directory"></a>Registro de una aplicación cliente pública en Azure Active Directory
 

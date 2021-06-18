@@ -6,13 +6,13 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
-ms.author: matjazl
-ms.openlocfilehash: 096e4e3ecbcedaec674e074a2baccbb336e03c94
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.author: zxue
+ms.openlocfilehash: 1b081f230f562a333bbc014fb4583cc37a556d50
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020523"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112283976"
 ---
 # <a name="configure-local-rbac-for-fhir"></a>Configuración de RBAC local para FHIR 
 
