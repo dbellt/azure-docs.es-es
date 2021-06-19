@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 5/03/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: dd0f86af30c88a7c7e1d1eb9cec9a5f31505496a
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: 4576cad94cd26f0b2892dca5aeddd8861c5abf09
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108795607"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540123"
 ---
 # <a name="manage-metered-billing-anomalies-in-partner-center"></a>Administración de las anomalías de facturación de uso medido en el Centro de partners
 
@@ -83,5 +83,5 @@ Después de marcar un uso por encima del límite como anomalía o reconocer un m
 
 ## <a name="see-also"></a>Consulte también
 - [Facturación según uso mediante el servicio de medición de marketplace comercial](./partner-center-portal/saas-metered-billing.md)
-- [Facturación según uso de aplicaciones administradas](./partner-center-portal/azure-app-metered-billing.md)
+- [Facturación según uso de aplicaciones administradas](marketplace-metering-service-apis.md)
 - [Servicio de detección de anomalías para la facturación según uso](./partner-center-portal/anomaly-detection-service-for-metered-billing.md)

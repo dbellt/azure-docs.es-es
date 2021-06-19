@@ -6,15 +6,13 @@ ms.author: pariks
 ms.date: 05/14/2020
 ms.topic: quickstart
 ms.service: mariadb
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: a125f1aeacda48fdf8acfeb443527d6e2bf70e5c
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
+ms.openlocfilehash: b068df529dfad3cfa4d07eb57560028b0b70afb0
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108277793"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556359"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mariadb-server"></a>Inicio rápido: Uso de una plantilla de Resource Manager para crear un servidor de Azure Database for MariaDB
 
@@ -26,7 +24,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.dbformariadb%2Fmanaged-mariadb-with-vnet%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -48,7 +46,7 @@ Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](ht
 
 Se crea un servidor de Azure Database for MariaDB con un conjunto definido de recursos de proceso y almacenamiento. Para más información, consulte el artículo sobre los [planes de tarifa de Azure Database for MariaDB](concepts-pricing-tiers.md). Cree el servidor dentro en un [grupo de recursos de Azure](../azure-resource-manager/management/overview.md).
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-managed-mariadb-with-vnet/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/managed-mariadb-with-vnet/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.dbformariadb/managed-mariadb-with-vnet/azuredeploy.json":::
 

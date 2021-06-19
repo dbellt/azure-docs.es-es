@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 12/03/2018
+ms.date: 05/27/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 72ddd0b6cd6c3e12417d3698c403f89312b531f4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ed9dec7a6c8f1f5080839fb55efb35f2afd4fece
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "67186136"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110658156"
 ---
 Las preguntas más frecuentes sobre red virtual a red virtual se aplican a las conexiones de VPN Gateway. Para más información sobre el emparejamiento de redes virtuales, consulte [Emparejamiento de redes virtuales](../articles/virtual-network/virtual-network-peering-overview.md).
 

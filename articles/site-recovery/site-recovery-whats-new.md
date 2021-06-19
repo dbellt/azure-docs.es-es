@@ -3,12 +3,12 @@ title: Novedades de Azure Site Recovery
 description: Proporciona un resumen de las nuevas características y las actualizaciones más recientes en el servicio Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: a960a62a8262128d775b0fe386a72e5ec613b7f1
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 23cc7c98b4d45adf9507ef857bda1c605eb6d558
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897638"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112026784"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novedades de Site Recovery
 
@@ -618,7 +618,7 @@ Las características que se agregaron este mes se resumen en la tabla.
 
 **Característica** | **Detalles**
 --- | ---
-**Soporte técnico de Linux** | Se agregó compatibilidad para RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> Ahora se admiten las máquinas virtuales Linux que usan el estilo de partición de tabla de particiones de GUID (GPT) en el modo de compatibilidad BIOS heredado. Revise las [preguntas más frecuentes de VM de Azure](../virtual-machines/faq-for-disks.md) para obtener más información.
+**Soporte técnico de Linux** | Se agregó compatibilidad para RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> Ahora se admiten las máquinas virtuales Linux que usan el estilo de partición de tabla de particiones de GUID (GPT) en el modo de compatibilidad BIOS heredado. Revise las [preguntas más frecuentes de VM de Azure](../virtual-machines/faq-for-disks.yml) para obtener más información.
 **Recuperación ante desastres para VM después de la migración** | Compatibilidad para habilitar la recuperación ante desastres en una región secundaria para una VM de VMware local migrada a Azure, sin necesidad de desinstalar el servicio Mobility en la VM antes de habilitar la replicación.
 **Windows Server 2008** | Compatibilidad para migrar máquinas que ejecutan Windows Server 2008 R2/2008 de 64 bits y 32 bits.<br/><br/> Solo migración (conmutación por error y replicación). No se admite la conmutación por recuperación.
 

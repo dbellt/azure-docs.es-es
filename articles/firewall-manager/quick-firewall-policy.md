@@ -7,15 +7,13 @@ ms.author: victorh
 ms.date: 02/17/2021
 ms.topic: quickstart
 ms.service: firewall-manager
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: 65a1e966fcc6082d4034cd9fe4ee45c057496825
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
+ms.openlocfilehash: 9ce29e4ae856ce73b046fe4b4138fe85d48b0a03
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109786220"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112005012"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-a-firewall-policy---arm-template"></a>Inicio rápido: Creación de una instancia de Azure Firewall y una directiva de firewall: plantilla de Azure Resource Manager
 
@@ -33,9 +31,9 @@ Para obtener información sobre los grupos de IP, consulte [Grupos de IP Groups 
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups%2Fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -43,7 +41,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 Esta plantilla crea una red virtual de centro, junto con los recursos necesarios para admitir el escenario.
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-azurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/azurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/azurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups/azuredeploy.json":::
 
@@ -62,7 +60,7 @@ Implementación de la plantilla de Resource Manager en Azure:
 
 1. Seleccione **Implementar en Azure** para iniciar sesión en Azure y abrir la plantilla. La plantilla crea una instancia de Azure Firewall, una WAN virtual y un centro virtual, la infraestructura de red y dos máquinas virtuales.
 
-   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups%2Fazuredeploy.json)
+   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups%2Fazuredeploy.json)
 
 2. En el portal, en la página **Create a Firewall and FirewallPolicy with Rules and Ipgroups** (Crear una instancia de Azure Firewall y una directiva de firewall con reglas y grupos de IP), escriba o seleccione los valores siguientes:
    - Suscripción: seleccione una de las suscripciones existentes.

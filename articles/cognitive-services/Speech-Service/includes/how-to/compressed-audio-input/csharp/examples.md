@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9739256cbe3381224913048904763a6e28da2eab
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 1ad4ffc070f03095ad80d2a57065f91be10e99fe
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109805195"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111993521"
 ---
-Para configurar el SDK de Voz para que acepte entradas de audio comprimidas, cree `PullAudioInputStream` o `PushAudioInputStream`. A continuación, cree un objeto `AudioConfig` a partir de una instancia de la clase de secuencia, especificando el formato de compresión de la secuencia. Busque fragmentos de código de ejemplo relacionados en [Acerca de Audio Input Stream API del SDK de Voz](/azure/cognitive-services/speech-service/how-to-use-audio-input-streams).
+Para configurar el SDK de Voz para que acepte entradas de audio comprimidas, cree `PullAudioInputStream` o `PushAudioInputStream`. A continuación, cree un objeto `AudioConfig` a partir de una instancia de la clase de secuencia, especificando el formato de compresión de la secuencia. Busque fragmentos de código de ejemplo relacionados en [Acerca de Audio Input Stream API del SDK de Voz](../../../../how-to-use-audio-input-streams.md).
 
 Supongamos que tiene una clase de flujo de entrada llamada `pushStream` y que usa OPUS/OGG. El aspecto del código sería el siguiente:
 

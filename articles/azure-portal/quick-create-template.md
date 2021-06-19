@@ -4,12 +4,12 @@ description: Aprenda a crear un panel de Azure Portal mediante una plantilla de 
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/15/2021
-ms.openlocfilehash: 3cb6069b13246e561de85c7a392283a5c243f1a4
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 0a1da860c4263f25e04e68253d0eed96254bed3a
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517791"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077725"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>Inicio rápido: Creación de un panel en el Azure Portal mediante una plantilla de ARM
 
@@ -21,7 +21,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.portal%2Fazure-portal-dashboard%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 - Una máquina virtual existente.
@@ -55,13 +55,13 @@ El panel que se crea en la siguiente parte de este inicio rápido requiere que h
         -Location "East US" 
     ```
 
-1. Escriba un nombre de usuario y una contraseña para la máquina virtual. Se trata de un nombre de usuario y una contraseña nuevos; no es, por ejemplo, la cuenta que usa para iniciar sesión en Azure. Para más información, consulte los [requisitos de nombre de usuario](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm) y los [requisitos de contraseña](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+1. Escriba un nombre de usuario y una contraseña para la máquina virtual. Se trata de un nombre de usuario y una contraseña nuevos; no es, por ejemplo, la cuenta que usa para iniciar sesión en Azure. Para más información, consulte los [requisitos de nombre de usuario](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-) y los [requisitos de contraseña](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
     Ahora se inicia la implementación de la máquina virtual y normalmente tarda unos minutos en completarse. Una vez finalizada la implementación, pase a la sección siguiente.
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-azure-portal-dashboard/). La plantilla de este artículo es demasiado larga para mostrarse aquí. Para ver la plantilla, consulte [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.portal/azure-portal-dashboard/azuredeploy.json). En la plantilla se define un recurso de Azure, [Microsoft.portal/dashboards](/azure/templates/microsoft.portal/dashboards). Cree un panel en Azure Portal.
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/azure-portal-dashboard/). La plantilla de este artículo es demasiado larga para mostrarse aquí. Para ver la plantilla, consulte [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.portal/azure-portal-dashboard/azuredeploy.json). En la plantilla se define un recurso de Azure, [Microsoft.portal/dashboards](/azure/templates/microsoft.portal/dashboards). Cree un panel en Azure Portal.
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 

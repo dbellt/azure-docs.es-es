@@ -4,17 +4,17 @@ description: Obtenga información acerca de cómo Azure Cosmos DB proporciona ci
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 06/08/2021
 ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: 23d95e02c74918de711b18c7580c3774b19c6227
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 4e44184960a09b9e764b76b7a009281bb959d212
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229457"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757974"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Advanced Threat Protection para Azure Cosmos DB (versión preliminar)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -75,7 +75,7 @@ Use los siguientes cmdlets de PowerShell:
 # <a name="arm-template"></a>[Plantilla ARM](#tab/arm-template)
 
 Use una plantilla de Azure Resource Manager (ARM) para configurar Cosmos DB con Advanced Threat Protection habilitada.
-Para más información, consulte [Creación de una cuenta de Cosmos DB con Advanced Threat Protection](https://azure.microsoft.com/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/).
+Para más información, consulte [Creación de una cuenta de Cosmos DB con Advanced Threat Protection](https://azure.microsoft.com/resources/templates/cosmosdb-advanced-threat-protection-create-account/).
 
 # <a name="azure-policy"></a>[Azure Policy](#tab/azure-policy)
 
