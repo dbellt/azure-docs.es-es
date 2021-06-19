@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 4/23/2021
 ms.author: cavoeg
-ms.openlocfilehash: 905d9381ac93e38575e9d0ff5c6f5571122b2990
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b4ede817b3babfb9221ac8fa982acc0322c9d7b2
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110476654"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112379679"
 ---
 # <a name="running-a-reindex-job"></a>Ejecución de un trabajo de reindexación
 
@@ -169,7 +169,7 @@ La siguiente información se muestra en el resultado del trabajo de reindexació
 
 * **progress:** se ha completado el porcentaje de trabajos de reindexación. Es igual a resourcesSuccessfullyReindexed/totalResourcesToReindex x 100.
 
-* **status:** se mostrará si el trabajo de reindexación se pone en cola, se ejecuta, se completa, se produce un error o se cancela.
+* **status:** se mostrará si el trabajo de reindexación está en cola, en ejecución, completo, con errores o cancelado.
 
 * **resources:** muestra todos los tipos de recursos afectados por el trabajo de reindexación.
 
@@ -181,7 +181,7 @@ Si necesita cancelar un trabajo de reindexación, use una llamada de eliminació
 
 ## <a name="performance-considerations"></a>Consideraciones de rendimiento
 
-Un trabajo de reindexación puede ser muy intensivo en el rendimiento. Hemos implementado algunos controles de limitación para ayudarle a administrar cómo se ejecutará un trabajo de reindexación en la base de datos.
+Un trabajo de reindexación puede ser bastante intensivo en el rendimiento. Hemos implementado algunos controles de limitación para ayudarle a administrar cómo se ejecutará un trabajo de reindexación en la base de datos.
 
 > [!NOTE]
 > No es raro en grandes conjuntos de datos que un trabajo de reindexación se ejecute durante días. En el caso de una base de datos con 30 000 000 millones de recursos, hemos observado que se tardaron entre 4 y 5 días en volver a indexar toda la base de datos en 100 000 RU.
@@ -190,10 +190,10 @@ A continuación se muestra una tabla en la que se delinea los parámetros dispon
 
 | **Parámetro**                     | **Descripción**              | **Valor predeterminado**        | **Intervalo recomendado**           |
 | --------------------------------- | ---------------------------- | ------------------ | ------------------------------- |
-| QueryDelayIntervalInMilliseconds  | Este es el retraso entre cada lote de recursos que se va a iniciar durante el trabajo de reindexación. | 500 MS (.5 segundos) | De 50 a 5000: 50 acelerará el trabajo de reindexación y 5000 lo ralentizará desde el valor predeterminado. |
+| QueryDelayIntervalInMilliseconds  | Este es el retraso entre cada lote de recursos que se va a iniciar durante el trabajo de reindexación. | 500 MS (,5 segundos) | De 50 a 5000: 50 acelerará el trabajo de reindexación y 5000 lo ralentizará desde el valor predeterminado. |
 | MaximumResourcesPerQuery  | Este es el número máximo de recursos incluidos en el lote de recursos que se van a volver a indexar.  | 100 | 1-500 |
-| MaximumConcurreny  | Este es el número de lotes que se realizan a la vez.  | 1 | 1-5 |
-| targetDataStoreUsagePercentrage | Esto le permite especificar qué porcentaje del almacén de datos se va a usar para el trabajo de reindexación. Por ejemplo, podría especificar el 50 % y eso garantizaría que, como máximo, el trabajo de reindexación usaría el 50 % de las RU disponibles en Cosmos DB.  | No existe, lo que significa que se puede usar hasta el 100 %. | 1-100 |
+| MaximumConcurrency  | Este es el número de lotes que se realizan a la vez.  | 1 | 1-5 |
+| targetDataStoreUsagePercentage | Esto le permite especificar qué porcentaje del almacén de datos se va a usar para el trabajo de reindexación. Por ejemplo, podría especificar el 50 % y eso garantizaría que, como máximo, el trabajo de reindexación usaría el 50 % de las RU disponibles en Cosmos DB.  | No existe, lo que significa que se puede usar hasta el 100 %. | 1-100 |
 
 Si desea usar cualquiera de los parámetros anteriores, puede pasarlos al recurso Parámetros al iniciar el trabajo de reindexación.
 
