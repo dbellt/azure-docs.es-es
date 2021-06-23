@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.openlocfilehash: 47b006932aace3149dd94e136e334c1b6e5bfcef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ff8376eea2eca459b93adbf46b81dbeb7639d40
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98762686"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954330"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Entrenamiento de la versión activa de la aplicación de LUIS
 
 El entrenamiento es el proceso de enseñar a la aplicación Language Understanding (LUIS) para mejorar su comprensión del lenguaje natural. Entrene la aplicación de LUIS después de realizar actualizaciones en el modelo, como la adición, la edición, el etiquetado o la eliminación de entidades, intenciones o expresiones.
 
-El entrenamiento y la [prueba](luis-concept-test.md) de una aplicación es un proceso iterativo. Tras entrenar la aplicación de LUIS, pruébela con expresiones de ejemplo para ver si las entidades e intenciones se reconocen correctamente. En caso contrario, realice actualizaciones en la aplicación de LUIS, entrénela y pruébela de nuevo.
+El entrenamiento y la [prueba](./luis-interactive-test.md) de una aplicación es un proceso iterativo. Tras entrenar la aplicación de LUIS, pruébela con expresiones de ejemplo para ver si las entidades e intenciones se reconocen correctamente. En caso contrario, realice actualizaciones en la aplicación de LUIS, entrénela y pruébela de nuevo.
 
 El entrenamiento se aplica a la versión activa en el portal de LUIS.
 
@@ -44,7 +44,7 @@ El entrenamiento usa un pequeño porcentaje de muestreo negativo. En su lugar, p
 
 ### <a name="using-the-luis-portal"></a>Mediante el portal de LUIS
 
-Inicie sesión en el [portal de LUIS](https://www.luis.ai/) y haga clic en la aplicación. Seleccione **Administrar** en la parte superior de la pantalla y, a continuación, seleccione **Configuración** y habilite o deshabilite la opción **Use non-deterministic training** (Usar aprendizaje no determinista). Cuando está deshabilitada, el aprendizaje usará todos los datos disponibles.
+Inicie sesión en el [portal de LUIS](https://www.luis.ai/) y haga clic en la aplicación. Seleccione **Administrar** en la parte superior de la pantalla y, después, seleccione **Configuración** y habilite o deshabilite la opción **Use non-deterministic training** (Usar aprendizaje no determinista). Cuando está deshabilitada, el aprendizaje usará todos los datos disponibles.
 
 ![Botón para habilitar o deshabilitar el aprendizaje no determinista](./media/non-determinstic-training.png)
 
