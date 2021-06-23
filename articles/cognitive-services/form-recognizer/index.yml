@@ -1,44 +1,44 @@
 ### YamlMime:Landing
-title: Documentación de Form Recognizer
-summary: Azure Form Recognizer es un servicio cognitivo que utiliza tecnología de aprendizaje automático para identificar y extraer pares clave-valor, así como datos de tablas de los documentos de formularios. A continuación, genera datos estructurados que incluyen las relaciones del fichero original. El aprendizaje sin supervisión permite que el modelo conozca tanto el diseño como los datos de los campos sin necesidad de un etiquetado manual de los datos o de una codificación intensiva. El aprendizaje supervisado también se puede realizar con datos etiquetados manualmente. Los modelos entrenados con datos etiquetados pueden funcionar mejor y pueden trabajar con documentos más complicados.
+title: Documentación de Azure Form Recognizer
+summary: Azure Form Recognizer forma parte de Azure Applied AI Services y utiliza la tecnología de aprendizaje automático para identificar y extraer tanto pares clave-valor como datos de tablas de documentos de formulario. A continuación, genera datos estructurados que incluyen las relaciones del fichero original. El aprendizaje sin supervisión permite que el modelo conozca tanto el diseño como los datos de los campos sin necesidad de un etiquetado manual de los datos o de una codificación intensiva. El aprendizaje supervisado también se puede realizar con datos etiquetados de forma manual. Los modelos entrenados con datos etiquetados no solo funcionan mejor, sino que también pueden trabajar con documentos más complicados.
 metadata:
-  title: 'Documentación de Form Recognizer: inicios rápidos, tutoriales, referencia de API - Azure Cognitive Services | Microsoft Docs'
-  description: Azure Form Recognizer es un servicio cognitivo que utiliza tecnología de aprendizaje automático para identificar y extraer pares clave-valor, así como datos de tablas de los documentos de formularios. A continuación, genera datos estructurados que incluyen las relaciones del fichero original. El aprendizaje sin supervisión permite que el modelo conozca tanto el diseño como los datos de los campos sin necesidad de un etiquetado manual de los datos o de una codificación intensiva. El aprendizaje supervisado también se puede realizar con datos etiquetados manualmente. Los modelos entrenados con datos etiquetados no solo pueden funcionar mejor, sino que también pueden trabajar con documentos más complicados.
+  title: 'Documentación de Form Recognizer: inicios rápidos, tutoriales, referencia de API (Azure Applied AI Services) | Microsoft Docs'
+  description: Azure Form Recognizer forma parte de Azure Applied AI Services y utiliza la tecnología de aprendizaje automático para identificar y extraer tanto pares clave-valor como datos de tablas de documentos de formulario. A continuación, genera datos estructurados que incluyen las relaciones del fichero original. El aprendizaje sin supervisión permite que el modelo conozca tanto el diseño como los datos de los campos sin necesidad de un etiquetado manual de los datos o de una codificación intensiva. El aprendizaje supervisado también se puede realizar con datos etiquetados manualmente. Los modelos entrenados con datos etiquetados no solo pueden funcionar mejor, sino que también pueden trabajar con documentos más complicados.
   services: cognitive-services
-  ms.service: cognitive-services
+  ms.service: applied-ai-services
   ms.subservice: forms-recognizer
   ms.topic: landing-page
   author: laujan
   ms.author: lajanuar
   ms.date: 09/05/2019
-  ms.openlocfilehash: 2d38f9dd270bb3c3ffb304206edbefe6ab4db165
-  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.openlocfilehash: 89a45403d198be46a7ce10f92a92f7b207488eee
+  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/25/2021
-  ms.locfileid: "110374482"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111962829"
 landingContent:
-- title: Acerca de Form Recognizer
+- title: Acerca de Azure Form Recognizer
   linkLists:
   - linkListType: overview
     links:
-    - text: ¿Qué es Form Recognizer?
+    - text: ¿Qué es Azure Form Recognizer?
       url: overview.md
     - text: ¿Qué es Azure Applied AI Services?
-      url: https://aka.ms/applied-ai-services-hub
+      url: ../../applied-ai-services/index.yml
   - linkListType: whats-new
     links:
-    - text: Novedades en Form Recognizer
+    - text: Novedades en Azure Form Recognizer
       url: whats-new.md
   - linkListType: video
     links:
-    - text: Extracción de datos de documentos y formularios
+    - text: Extracción de datos de documentos y formularios con OCR y Form Recognizer
       url: https://channel9.msdn.com/Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer
     - text: Automatización de procesos con tecnología de inteligencia artificial
       url: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
     - text: Características y actualizaciones más novedosas
       url: https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Form-Recognizer
-- title: Extracción de datos del diseño del formulario
+- title: Extracción del diseño y la estructura de los documentos
   linkLists:
   - linkListType: concept
     links:
@@ -56,9 +56,9 @@ landingContent:
       url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-layout
     - text: Uso de la API REST (cURL)
       url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-layout
-  - linkListType: deploy
+  - linkListType: get-started
     links:
-    - text: Probar Form Recognizer
+    - text: Prueba de Form Recognizer (diseño)
       url: https://fott-2-1.azurewebsites.net/layout-analyze
 - title: Extracción de datos de las confirmaciones
   linkLists:
@@ -78,6 +78,10 @@ landingContent:
       url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-receipts
     - text: Uso de la API REST (cURL)
       url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-receipts
+  - linkListType: get-started
+    links:
+    - text: Prueba de Form Recognizer (analizar recibo)
+      url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
 - title: Extracción de datos de tarjetas de presentación
   linkLists:
   - linkListType: concept
@@ -96,6 +100,10 @@ landingContent:
       url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-business-cards
     - text: Uso de la API REST (cURL)
       url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-business-cards
+  - linkListType: get-started
+    links:
+    - text: Prueba de Form Recognizer (analizar tarjeta de presentación)
+      url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
 - title: Extracción de datos de facturas
   linkLists:
   - linkListType: concept
@@ -114,16 +122,16 @@ landingContent:
       url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-invoices
     - text: Uso de la API REST (cURL)
       url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-invoices
-  - linkListType: deploy
+  - linkListType: get-started
     links:
-    - text: Probar Form Recognizer
+    - text: Prueba de Form Recognizer (analizar factura)
       url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
 - title: Extracción de datos de documentos de identidad
   linkLists:
   - linkListType: concept
     links:
     - text: Documentos de identidad
-      url: concept-invoices.md
+      url: concept-identification-cards.md
   - linkListType: quickstart
     links:
     - text: Uso del SDK de .NET
@@ -136,6 +144,10 @@ landingContent:
       url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-identity-documents
     - text: Uso de la API REST (cURL)
       url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-identity-documents
+  - linkListType: get-started
+    links:
+    - text: Prueba de Form Recognizer (analizar identificador)
+      url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
 - title: Comunidad tecnológica de Microsoft
   linkLists:
   - linkListType: reference
@@ -168,13 +180,9 @@ landingContent:
       url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#train-a-custom-model
     - text: Uso de la API REST (cURL)
       url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#train-a-custom-model
-  - linkListType: tutorial
+  - linkListType: get-started
     links:
-    - text: Extracción de datos de formularios en masa
-      url: tutorial-bulk-processing.md
-  - linkListType: deploy
-    links:
-    - text: Probar Form Recognizer
+    - text: Try Form Recognizer (entrenar un modelo)
       url: https://fott-2-1.azurewebsites.net/
 - title: Análisis de formularios con un modelo personalizado
   linkLists:
@@ -190,17 +198,21 @@ landingContent:
       url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
     - text: Uso de la API REST (cURL)
       url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+  - linkListType: get-started
+    links:
+    - text: Prueba de Form Recognizer (analizar un formulario personalizado)
+      url: https://fott-2-1.azurewebsites.net/
 - title: Primeros pasos con la herramienta de etiquetado
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Uso de la herramienta de etiquetado
       url: label-tool.md
-- title: API y bibliotecas cliente
+- title: API REST y bibliotecas de cliente
   linkLists:
   - linkListType: reference
     links:
-    - text: API v2.1 de Form Recognizer
+    - text: Azure Form Recognizer API v2.1
       url: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
     - text: .NET SDK
       url: /dotnet/api/overview/azure/ai.formrecognizer-readme

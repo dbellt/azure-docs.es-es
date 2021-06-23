@@ -85,14 +85,20 @@
       items:
         - name: Problemas de enrutamiento
           href: troubleshoot-route-issues.md
-        - name: Entidades de certificación permitidas
-          href: troubleshoot-allowed-certificate-authority.md
         - name: Compresión
           href: troubleshoot-compression.md
         - name: Uso compartido de recursos entre orígenes
           href: troubleshoot-cross-origin-resources.md
+        - name: Entidades de certificación permitidas
+          href: 'https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT'
 - name: Referencia
   items:
+    - name: Ubicaciones perimetrales de Azure Front Door
+      items:
+        - name: Ubicaciones perimetrales por región
+          href: edge-locations.md
+        - name: Ubicaciones perimetrales por abreviatura
+          href: edge-locations-by-abbreviation.md
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.cdn
     - name: API DE REST

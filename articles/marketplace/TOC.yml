@@ -21,8 +21,6 @@
           href: manage-tenants.md
         - name: Búsqueda o creación de una cuenta profesional de empresa
           href: company-work-accounts.md
-        - name: Migración de cuentas de CPP al Centro de partners
-          href: account-migration-from-cpp-to-pc.md
         - name: Notificación a Microsoft
           href: submit-legal-notice.md
     - name: Administrar usuarios
@@ -39,7 +37,7 @@
   items:
     - name: Opciones de publicación
       href: determine-your-listing-type.md
-    - name: Funcionalidades de transacción
+    - name: Transacciones en Marketplace comercial
       href: marketplace-commercial-transaction-capabilities-and-considerations.md
     - name: Administración de licencias
       href: third-party-license.md
@@ -85,12 +83,14 @@
           href: cloud-solution-providers.md
         - name: Guía de incorporación de programas de conexión
           href: business-applications-isv-program.md
-        - name: Ventaja del compromiso de consumo de Azure
-          href: azure-consumption-commitment-benefit.md
+        - name: Inscripción al compromiso de consumo de Azure
+          href: azure-consumption-commitment-enrollment.md
+        - name: Soluciones preferidas
+          href: /marketplace/appsource-overview#microsoft-preferred-solutions
         - name: Soluciones integradas
           href: integrated-solutions-for-publishers.md
     - name: Activación de Marketplace Rewards
-      href: partner-center-portal/marketplace-rewards.md
+      href: marketplace-rewards.md
     - name: Recepción del pago
       items:
         - name: Recepción del pago
@@ -111,115 +111,121 @@
   items:
     - name: Guía de publicación por tipo de oferta
       href: publisher-guide-by-offer-type.md
-    - name: Ofertas de la aplicación de Azure
+    - name: Oferta de aplicación de Azure
       items:
-        - name: Planeamiento de ofertas de aplicaciones de Azure
+        - name: Planeación de la oferta
           items:
-            - name: Planeamiento de una oferta de aplicación de Azure
+            - name: Planeación de la oferta
               href: plan-azure-application-offer.md
             - name: Planeamiento de una plantilla de soluciones
               href: plan-azure-app-solution-template.md
             - name: Planeamiento de una aplicación administrada
               href: plan-azure-app-managed-app.md
-        - name: Creación y publicación de una oferta de aplicación de Azure
+        - name: Crear la oferta
           items:
-            - name: Creación de una oferta de aplicación de Azure
-              href: create-new-azure-apps-offer.md
-            - name: Configuración de las propiedades de las ofertas de aplicaciones de Azure
-              href: create-new-azure-apps-offer-properties.md
-            - name: Configuración de la lista de ofertas de aplicaciones de Azure
-              href: create-new-azure-apps-offer-listing.md
-            - name: Adición de un público en la versión preliminar
-              href: create-new-azure-apps-offer-preview.md
-            - name: Adición de detalles técnicos
-              href: create-new-azure-apps-offer-technical.md
-            - name: Creación de planes
-              href: create-new-azure-apps-offer-plans.md
-            - name: Creación de un plan de un plantilla de solución
-              href: create-new-azure-apps-offer-solution.md
-            - name: Creación de un plan de una aplicación administrada
-              href: create-new-azure-apps-offer-managed.md
-            - name: Prueba y publicación de una oferta de aplicación de Azure
-              href: create-new-azure-apps-offer-test-publish.md
-        - name: Comercialización de una oferta de aplicación de Azure
-          href: create-new-azure-apps-offer-marketing.md
-        - name: Facturación medida de la aplicación de Azure
-          href: partner-center-portal/azure-app-metered-billing.md
+            - name: Crear la oferta
+              href: azure-app-offer-setup.md
+            - name: Propiedades
+              href: azure-app-properties.md
+            - name: Descripción de la oferta
+              href: azure-app-offer-listing.md
+            - name: Público preliminar
+              href: azure-app-preview.md
+            - name: Detalles técnicos
+              href: azure-app-technical-configuration.md
+            - name: Planes
+              items:
+                - name: Creación de un plan
+                  href: azure-app-plans.md
+                - name: Plan de plantilla de solución
+                  href: azure-app-solution.md
+                - name: Plan de aplicación administrada
+                  href: azure-app-managed.md
+        - name: Prueba y publicación
+          href: azure-app-test-publish.md
+        - name: Comercialización de una oferta
+          href: azure-app-marketing.md
+        - name: Facturación de uso medido
+          href: marketplace-metering-service-apis.md
         - name: Administración de los comentarios de revisión
-          href: partner-center-portal/azure-apps-review-feedback.md
-        - name: API de aplicación de Azure
-          href: partner-center-portal/azure-app-apis.md
+          href: azure-app-review-feedback.md
+        - name: API de aplicaciones
+          href: azure-app-apis.md
     - name: Oferta de Azure Container
       items:
         - name: Planeación de la oferta
-          href: marketplace-containers.md
-        - name: Preparación de recursos técnicos
-          href: azure-container-technical-assets.md
-        - name: Crear la oferta
-          href: azure-container-offer-setup.md
-        - name: Propiedades
-          href: azure-container-properties.md
-        - name: Descripción de la oferta
-          href: azure-container-offer-listing.md
-        - name: Público preliminar
-          href: azure-container-preview-audience.md
-        - name: Creación y edición de planes
           items:
-            - name: Información general del plan
-              href: azure-container-plan-overview.md
-            - name: Configuración del plan
-              href: azure-container-plan-setup.md
-            - name: Lista del plan
-              href: azure-container-plan-listing.md
-            - name: Disponibilidad del plan
-              href: azure-container-plan-availability.md
-            - name: Planeamiento de la configuración técnica
-              href: azure-container-plan-technical-configuration.md
+            - name: Planeación de la oferta
+              href: marketplace-containers.md
+            - name: Preparación de recursos técnicos
+              href: azure-container-technical-assets.md
+        - name: Crear la oferta
+          items:
+            - name: Crear la oferta
+              href: azure-container-offer-setup.md
+            - name: Propiedades
+              href: azure-container-properties.md
+            - name: Descripción de la oferta
+              href: azure-container-offer-listing.md
+            - name: Público preliminar
+              href: azure-container-preview-audience.md
+            - name: Planes
+              items:
+                - name: Información general del plan
+                  href: azure-container-plan-overview.md
+                - name: Configuración del plan
+                  href: azure-container-plan-setup.md
+                - name: Lista del plan
+                  href: azure-container-plan-listing.md
+                - name: Disponibilidad del plan
+                  href: azure-container-plan-availability.md
+                - name: Planeamiento de la configuración técnica
+                  href: azure-container-plan-technical-configuration.md
     - name: Ofertas de máquina virtual de Azure
       items:
-        - name: Planificación de una oferta de máquina virtual
+        - name: Planeación de la oferta
           href: marketplace-virtual-machines.md
-        - name: Creación y publicación de una oferta de máquina virtual
+        - name: Crear la oferta
           items:
-            - name: Creación de una oferta de máquina virtual
+            - name: Crear la oferta
               href: azure-vm-create.md
-            - name: Configuración de las propiedades de una oferta de máquina virtual
+            - name: Propiedades
               href: azure-vm-create-properties.md
-            - name: Configuración de un listado de ofertas de máquina virtual
+            - name: Descripción de la oferta
               href: azure-vm-create-listing.md
-            - name: Adición de un público en la versión preliminar
+            - name: Público preliminar
               href: azure-vm-create-preview.md
-            - name: Creación de planes de máquina virtual
+            - name: Planes
               href: azure-vm-create-plans.md
-            - name: Revender mediante los CSP
-              href: azure-vm-create-resell-csp.md
-            - name: Creación de recursos técnicos de máquina virtual
-              items:
-                - name: Creación de una máquina virtual a partir de una base aprobada
-                  href: azure-vm-create-using-approved-base.md
-                - name: Creación de una máquina virtual mediante su propia imagen
-                  href: azure-vm-create-using-own-image.md
-                - name: Prueba de una imagen de máquina virtual
-                  href: azure-vm-image-test.md
-                - name: Obtención del identificador URI de SAS
-                  href: azure-vm-get-sas-uri.md
-                - name: Mensajes de error de SAS
-                  href: azure-vm-sas-failure-messages.md
-                - name: Preguntas frecuentes sobre la creación de una máquina virtual
-                  href: azure-vm-create-faq.md
-                - name: Solución de problemas de certificación de máquina virtual
-                  href: azure-vm-create-certification-faq.md
-    - name: Servicios de consultoría
+        - name: Revender mediante los CSP
+          href: azure-vm-create-resell-csp.md
+        - name: Creación de recursos técnicos
+          items:
+            - name: Creación de una máquina virtual a partir de una base aprobada
+              href: azure-vm-create-using-approved-base.md
+            - name: Creación de una máquina virtual mediante su propia imagen
+              href: azure-vm-create-using-own-image.md
+            - name: Prueba de una imagen de máquina virtual
+              href: azure-vm-image-test.md
+            - name: Obtención del identificador URI de SAS
+              href: azure-vm-get-sas-uri.md
+            - name: Mensajes de error de SAS
+              href: azure-vm-sas-failure-messages.md
+            - name: Preguntas frecuentes sobre la creación de una máquina virtual
+              href: azure-vm-create-faq.md
+            - name: Solución de problemas de certificación de máquina virtual
+              href: azure-vm-create-certification-faq.md
+    - name: Oferta de servicios de consultoría
       items:
-        - name: Planificación de una oferta de servicios de consultoría
+        - name: Planeación de la oferta
           href: plan-consulting-service-offer.md
-        - name: Creación de una oferta de servicios de consultoría
+        - name: Crear la oferta
           href: create-consulting-service-offer.md
-        - name: Configuración de las propiedades de los servicios de consultoría
+        - name: Propiedades
           href: create-consulting-service-offer-properties.md
-        - name: Configuración del listado de los servicios de consultoría
+        - name: Descripción de la oferta
           href: create-consulting-service-offer-listing.md
-        - name: Configuración de precios y disponibilidad
+        - name: Precios y disponibilidad
           href: create-consulting-service-pricing-availability.md
     - name: "Ofertas de Dynamics\_365"
       items:
@@ -241,24 +247,68 @@
               href: dynamics-365-customer-engage-technical-configuration.md
             - name: Contenido complementario
               href: dynamics-365-customer-engage-supplemental-content.md
-            - name: Revisión y publicación
-              href: dynamics-365-customer-engage-review-publish.md
         - name: Creación de una oferta para Operations
           items:
-            - name: Creación de una oferta de Dynamics 365 for Operations
-              href: partner-center-portal/create-new-operations-offer.md
+            - name: Crear la oferta
+              href: dynamics-365-operations-offer-setup.md
+            - name: Propiedades
+              href: dynamics-365-operations-properties.md
+            - name: Descripción de la oferta
+              href: dynamics-365-operations-offer-listing.md
+            - name: Disponibilidad
+              href: dynamics-365-operations-availability.md
+            - name: Configuración técnica
+              href: dynamics-365-operations-technical-configuration.md
+            - name: Contenido complementario
+              href: dynamics-365-operations-supplemental-content.md
             - name: Validación funcional
-              href: dynamics-365-finance-operations-functional-validation.md
+              href: dynamics-365-operations-validation.md
         - name: Creación de una oferta para Business Central
-          href: partner-center-portal/create-new-business-central-offer.md
-    - name: Ofertas del módulo de IoT Edge
+          items:
+            - name: Crear la oferta
+              href: dynamics-365-business-central-offer-setup.md
+            - name: Propiedades
+              href: dynamics-365-business-central-properties.md
+            - name: Descripción de la oferta
+              href: dynamics-365-business-central-offer-listing.md
+            - name: Disponibilidad
+              href: dynamics-365-business-central-availability.md
+            - name: Configuración técnica
+              href: dynamics-365-business-central-technical-configuration.md
+            - name: Contenido complementario
+              href: dynamics-365-business-central-supplemental-content.md
+        - name: Revisión y publicación
+          href: dynamics-365-review-publish.md
+    - name: Oferta del módulo de IoT Edge
       items:
-        - name: Planificación de una oferta de un módulo de IoT Edge
-          href: iot-edge-module.md
-        - name: Creación de una oferta de módulo de IoT Edge
-          href: partner-center-portal/azure-iot-edge-module-creation.md
-        - name: Preparación de recursos técnicos del módulo de IoT Edge
-          href: partner-center-portal/create-iot-edge-module-asset.md
+        - name: Planeación de la oferta
+          items:
+            - name: Planeación de la oferta
+              href: marketplace-iot-edge.md
+            - name: Preparación de recursos técnicos
+              href: iot-edge-technical-asset.md
+        - name: Crear la oferta
+          items:
+            - name: Crear la oferta
+              href: iot-edge-offer-setup.md
+            - name: Propiedades
+              href: iot-edge-properties.md
+            - name: Descripción de la oferta
+              href: iot-edge-offer-listing.md
+            - name: Público preliminar
+              href: iot-edge-preview-audience.md
+            - name: Creación de planes
+              items:
+                - name: Información general del plan
+                  href: iot-edge-plan-overview.md
+                - name: Configuración del plan
+                  href: iot-edge-plan-setup.md
+                - name: Lista del plan
+                  href: iot-edge-plan-listing.md
+                - name: Disponibilidad del plan
+                  href: iot-edge-plan-availability.md
+                - name: Planeamiento de la configuración técnica
+                  href: iot-edge-plan-technical-configuration.md
     - name: Ofertas de servicio administrado
       items:
         - name: Planeamiento de una oferta de servicio administrado
@@ -273,13 +323,23 @@
           href: create-managed-service-offer-plans.md
     - name: Ofertas de la aplicación Power BI
       items:
-        - name: "Planificación de una oferta de aplicación de Power\_BI"
-          href: partner-center-portal/create-power-bi-app-overview.md
-        - name: "Creación de una oferta de aplicación de Power\_BI"
-          href: partner-center-portal/create-power-bi-app-offer.md
+        - name: Planeación de la oferta
+          href: marketplace-power-bi.md
+        - name: Crear la oferta
+          items:
+            - name: Configuración de la oferta
+              href: power-bi-app-offer-setup.md
+            - name: Propiedades
+              href: power-bi-app-properties.md
+            - name: Descripción de la oferta
+              href: power-bi-app-offer-listing.md
+            - name: Configuración técnica
+              href: power-bi-app-technical-configuration.md
+            - name: Contenido complementario
+              href: power-bi-app-supplemental-content.md
     - name: Ofertas de SaaS
       items:
-        - name: Planificación de una oferta de SaaS
+        - name: Planeación de la oferta
           href: plan-saas-offer.md
         - name: "Autenticación de Azure\_AD para SaaS"
           items:
@@ -291,30 +351,30 @@
               href: azure-ad-free-or-trial-landing-page.md
         - name: Facturación según uso de SaaS
           href: partner-center-portal/saas-metered-billing.md
-        - name: Creación y publicación de una oferta de SaaS
+        - name: Crear la oferta
           items:
-            - name: Creación de una oferta SaaS
+            - name: Crear la oferta
               href: create-new-saas-offer.md
-            - name: Configuración de las propiedades de una oferta de SaaS
+            - name: Propiedades
               href: create-new-saas-offer-properties.md
-            - name: Configuración del listado de una oferta de SaaS
+            - name: Descripción de la oferta
               href: create-new-saas-offer-listing.md
-            - name: Adición de un público en la versión preliminar
+            - name: Público preliminar
               href: create-new-saas-offer-preview.md
-            - name: Adición de detalles técnicos
+            - name: Detalles técnicos
               href: create-new-saas-offer-technical.md
-            - name: Creación de planes
+            - name: Planes
               href: create-new-saas-offer-plans.md
-            - name: Crea una oferta de prueba
+            - name: Creación de una oferta de SaaS de prueba
               href: create-saas-dev-test-offer.md
-            - name: Prueba y publicación de una oferta de SaaS
+            - name: Prueba y publicación
               href: test-publish-saas-offer.md
-        - name: Venta de una oferta de SaaS
+        - name: Comercialización de una oferta
           href: create-new-saas-offer-marketing.md
     - name: Revisión y publicación de ofertas
       href: review-publish-offer.md
     - name: Actualización de oferta existente
-      href: partner-center-portal/update-existing-offer.md
+      href: update-existing-offer.md
 - name: Venta y comercialización de ofertas
   items:
     - name: Procedimientos recomendados de marketing
@@ -342,7 +402,7 @@
 - name: Datos y análisis
   items:
     - name: Análisis de Marketplace comercial
-      href: partner-center-portal/analytics.md
+      href: analytics.md
     - name: Panel Resumen
       href: summary-dashboard.md
     - name: Panel Pedidos
@@ -354,9 +414,9 @@
     - name: Panel de información de Marketplace
       href: insights-dashboard.md
     - name: Panel Descargas
-      href: partner-center-portal/downloads-dashboard.md
+      href: downloads-dashboard.md
     - name: Panel de calificaciones y reseñas
-      href: partner-center-portal/ratings-reviews.md
+      href: ratings-reviews.md
     - name: Acceso mediante programación al análisis
       items:
         - name: Introducción
@@ -456,11 +516,11 @@
         - name: Servicio de detección de anomalías
           href: partner-center-portal/anomaly-detection-service-for-metered-billing.md
         - name: Estrategias de autenticación
-          href: partner-center-portal/marketplace-metering-service-authentication.md
+          href: marketplace-metering-service-authentication.md
         - name: API del servicio de medición de Marketplace
-          href: partner-center-portal/marketplace-metering-service-apis.md
+          href: marketplace-metering-service-apis.md
         - name: Preguntas más frecuentes sobre las API del servicio de medición de Marketplace
-          href: partner-center-portal/marketplace-metering-service-apis-faq.md
+          href: marketplace-metering-service-apis-faq.md
     - name: API de suministro de SaaS
       items:
         - name: Introducción a API de suministro de SaaS

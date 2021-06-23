@@ -31,7 +31,7 @@
           displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
         - name: Selección de un dispositivo de entrada de micrófono específico
           href: how-to-select-audio-input-devices.md
-        - name: Uso de detección automática de idioma de origen
+        - name: Uso de la identificación del idioma
           href: how-to-automatic-language-detection.md
         - name: Uso de la API de transcripciones de Azure Batch
           href: batch-transcription.md
@@ -57,6 +57,16 @@
               href: how-to-custom-speech-human-labeled-transcriptions.md
             - name: Ciclo de vida del modelo y punto de conexión
               href: how-to-custom-speech-model-and-endpoint-lifecycle.md
+    - name: Uso responsable de la inteligencia artificial
+      items:
+        - name: Valoración de la pronunciación
+          items:
+            - name: Nota de transparencia
+              items:
+                - name: Casos de uso de la valoración de la pronunciación
+                  href: /legal/cognitive-services/speech-service/pronunciation-assessment/transparency-note-pronunciation-assessment?context=/azure/cognitive-services/speech-service/context/context
+                - name: Características y limitaciones
+                  href: /legal/cognitive-services/speech-service/pronunciation-assessment/characteristics-and-limitations-pronunciation-assessment?context=/azure/cognitive-services/speech-service/context/context
     - name: Tutoriales
       items:
         - name: Mejora de la precisión con modelos de inquilino
@@ -110,6 +120,8 @@
       items:
         - name: Mejora de síntesis con SSML
           href: speech-synthesis-markup.md
+        - name: Menor latencia de síntesis de voz mediante el SDK de Voz
+          href: how-to-lower-speech-synthesis-latency.md
         - name: Síntesis de voz con Long Audio API
           href: long-audio-api.md
         - name: Obtención de eventos de postura facial para la sincronización de labios
@@ -192,9 +204,6 @@
           href: regions.md#speech-to-text-text-to-speech-and-translation
         - name: Conjuntos fonéticos de SSML
           href: speech-ssml-phonetic-sets.md
-        - name: Preguntas más frecuentes sobre la conversión de texto a voz
-          displayName: 'FAQ,TTS FAQ,SS FAQ,frequently asked questions'
-          href: faq-text-to-speech.md
 - name: Traducción de voz
   items:
     - name: Documentación de traducción de voz

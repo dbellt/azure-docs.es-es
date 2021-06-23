@@ -102,7 +102,7 @@
             - name: Azure portal
               href: howto-server-parameters.md
               displayName: server parameters
-            - name: Azure CLI
+            - name: CLI de Azure
               href: howto-configure-server-parameters-using-cli.md
               displayName: 'server parameters, cli'
             - name: Azure PowerShell
@@ -116,36 +116,140 @@
             - name: Creación de alertas basadas en métricas
               href: howto-alert-on-metric.md
               displayName: 'debug, monitor, alerts, metrics'
-    - name: Desarrollo de aplicaciones
+    - name: Conceptos
       items:
-        - name: Compatibilidad de controladores y herramientas
-          href: concepts-compatibility.md
-          displayName: 'drivers, tools'
-        - name: Diseño de una base de datos
+        - name: Desarrollo de aplicaciones
           items:
-            - name: Azure portal
-              href: tutorial-design-database-using-portal.md
-            - name: Azure CLI
-              href: tutorial-design-database-using-cli.md
-            - name: Azure PowerShell
-              href: tutorial-design-database-using-powershell.md
-            - name: Plantilla del Administrador de recursos de Azure
-              href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
-        - name: Compilación de una aplicación web PHP con MySQL
-          items:
-            - name: WordPress en contenedores con MySQL
-              href: ../app-service/tutorial-multi-container-app.md
-              maintainContext: true
-            - name: PHP con MySQL
-              href: ../app-service/tutorial-php-mysql-app.md
-              maintainContext: true
-        - name: Resistencia de conexión
-          items:
-            - name: Conceptos
+            - name: Compatibilidad de controladores y herramientas
+              href: concepts-compatibility.md
+              displayName: 'drivers, tools'
+            - name: Resistencia de la conexión
               href: concepts-connectivity.md
               displayName: 'connection, resiliency'
-            - name: 'Ejemplo: configuración de la agrupación de conexiones de Java'
-              href: sample-scripts-java-connection-pooling.md
+        - name: Redes
+          items:
+            - name: Puntos de conexión de servicio de red virtual
+              href: concepts-data-access-and-security-vnet.md
+            - name: Private Link
+              href: concepts-data-access-security-private-link.md
+        - name: Seguridad
+          items:
+            - name: Introducción a la seguridad
+              href: concepts-security.md
+            - name: Línea de base de seguridad
+              href: /security/benchmark/azure/baselines/mysql-security-baseline?toc=/azure/mysql/TOC.json
+            - name: Autenticación de Azure AD
+              href: concepts-azure-ad-authentication.md
+            - name: Seguridad de red (cifrado en movimiento)
+              items:
+                - name: Configuración de SSL
+                  href: concepts-ssl-connection-security.md
+            - name: Advanced Threat Protection
+              items:
+                - name: Protección contra amenazas con Azure Defender
+                  href: ../security-center/defender-for-databases-introduction.md
+            - name: Cifrado en reposo
+              items:
+                - name: Cifrado de datos
+                  href: concepts-data-encryption-mysql.md
+                - name: Cifrado doble de infraestructura
+                  href: concepts-infrastructure-double-encryption.md
+            - name: Auditoría de servidor
+              items:
+                - name: Conceptos
+                  href: concepts-audit-logs.md
+                  displayName: 'monitor, alerts, audit log'
+            - name: Cumplimiento normativo
+              href: ./security-controls-policy.md
+              displayName: 'regulatory, compliance, standards, domains'
+        - name: Alta disponibilidad
+          items:
+            - name: Introducción a la continuidad empresarial
+              displayName: 'backup, restore, backups, restores, georestore, geo-restore, outage'
+              href: concepts-business-continuity.md
+            - name: Alta disponibilidad
+              href: concepts-high-availability.md
+              displayName: 'backup, restore,high availability'
+        - name: Servidor de administración
+          items:
+            - name: Servidores
+              href: concepts-servers.md
+            - name: Limitaciones del servidor
+              href: concepts-limits.md
+            - name: Parámetros del servidor
+              href: concepts-server-parameters.md
+              displayName: server parameters
+        - name: Copia de seguridad y restauración
+          href: concepts-backup.md
+          displayName: 'backup, restore, backups, restores, georestore, geo-restore, outage'
+        - name: Replicación
+          items:
+            - name: Replicación de datos internos
+              href: concepts-data-in-replication.md
+              displayName: 'replication, read replica'
+            - name: Réplicas de lectura
+              href: concepts-read-replicas.md
+              displayName: 'replication, read replica'
+        - name: Mantenimiento del servicio
+          items:
+            - name: Mantenimiento planeado
+              href: concepts-planned-maintenance-notification.md
+            - name: Mantenimiento de la puerta de enlace
+              href: concepts-connectivity-architecture.md
+            - name: El certificado raíz de SSL va a expirar
+              href: concepts-certificate-rotation.md
+        - name: Supervisión y ajuste
+          items:
+            - name: Información general de la supervisión
+              href: concepts-monitoring.md
+              displayName: 'monitor, alerts, audit log, slow query log'
+            - name: Registros de consultas lentos
+              href: concepts-server-logs.md
+              displayName: 'monitor, slow query log, alert'
+            - name: Almacén de consultas
+              href: concepts-query-store.md
+              displayName: 'performance, query store'
+            - name: Información de rendimiento de consultas
+              href: concepts-query-performance-insight.md
+              displayName: query performance insights
+            - name: Recomendaciones de rendimiento
+              href: concepts-performance-recommendations.md
+              displayName: recommendation
+            - name: Recomendaciones de Azure Advisor
+              href: concepts-azure-advisor-recommendations.md
+        - name: Prácticas recomendadas
+          items:
+            - name: Procedimientos recomendados de la supervisión
+              href: concept-monitoring-best-practices.md
+            - name: Procedimientos recomendados de rendimiento
+              href: concept-performance-best-practices.md
+            - name: Procedimientos recomendados para el desarrollo de aplicaciones
+              href: app-development-best-practices.md
+              displayName: application
+            - name: Procedimientos recomendados operativos
+              href: concept-operation-excellence-best-practices.md
+    - name: Tutoriales
+      items:
+        - name: Desarrollo de aplicaciones
+          items:
+            - name: Diseño de una base de datos
+              items:
+                - name: Azure portal
+                  href: tutorial-design-database-using-portal.md
+                - name: CLI de Azure
+                  href: tutorial-design-database-using-cli.md
+                - name: Azure PowerShell
+                  href: tutorial-design-database-using-powershell.md
+                - name: Plantilla del Administrador de recursos de Azure
+                  href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
+            - name: Compilación de una aplicación web PHP con MySQL
+              items:
+                - name: WordPress en contenedores con MySQL
+                  href: ../app-service/tutorial-multi-container-app.md
+                  maintainContext: true
+                - name: PHP con MySQL
+                  href: ../app-service/tutorial-php-mysql-app.md
+                  maintainContext: true
             - name: Conexión con redirección
               href: howto-redirection.md
               displayName: 'development, redirection , php'
@@ -153,244 +257,137 @@
           items:
             - name: Acciones de GitHub
               href: quickstart-mysql-github-actions.md
-    - name: Redes
-      items:
-        - name: Puntos de conexión de servicio de red virtual
+        - name: Redes
           items:
-            - name: Conceptos
-              href: concepts-data-access-and-security-vnet.md
             - name: Configuración de puntos de conexión de servicio de red virtual mediante Azure Portal
               href: howto-manage-vnet-using-portal.md
               displayName: 'vnet, virtual network, service endpoint'
             - name: Configuración de puntos de conexión de servicio de red virtual mediante la CLI de Azure
               href: howto-manage-vnet-using-cli.md
               displayName: 'vnet, virtual network, service endpoint'
-        - name: Private Link
-          items:
-            - name: Conceptos
-              href: concepts-data-access-security-private-link.md
             - name: Configuración de Private Link mediante Azure Portal
               href: howto-configure-privatelink-portal.md
               displayName: 'private link, private endpoint'
             - name: Configuración de Private Link mediante la CLI de Azure
               href: howto-configure-privatelink-cli.md
               displayName: 'private link, private endpoint'
-    - name: Seguridad
-      items:
-        - name: Introducción a la seguridad
-          href: concepts-security.md
-        - name: Línea de base de seguridad
-          href: /security/benchmark/azure/baselines/mysql-security-baseline?toc=/azure/mysql/TOC.json
-        - name: Authentication
+        - name: Seguridad
           items:
-            - name: Autenticación de Azure AD
-              href: concepts-azure-ad-authentication.md
             - name: "Configuración de la integración de Azure\_AD"
               href: howto-configure-sign-in-azure-ad-authentication.md
               displayName: active directory
             - name: Conexión con identidad administrada
               href: howto-connect-with-managed-identity.md
               displayName: 'managed identity, msi'
-        - name: Seguridad de red (cifrado en movimiento)
-          items:
-            - name: Configuración de SSL
-              href: concepts-ssl-connection-security.md
             - name: Configuración de TLS
               href: howto-tls-configurations.md
               displayName: 'TLS, security, development'
-            - name: Advanced Threat Protection
-              items:
-                - name: Conceptos
-                  href: concepts-data-access-and-security-threat-protection.md
-                - name: Configuración de Advanced Threat Protection mediante Azure Portal
-                  href: howto-database-threat-protection-portal.md
-                  displayName: 'atp, advanced thread, security'
-        - name: Cifrado en reposo
-          items:
-            - name: Cifrado de datos
-              items:
-                - name: Conceptos
-                  href: concepts-data-encryption-mysql.md
-                - name: Configuración del cifrado con claves administradas por el cliente mediante Azure Portal
-                  href: howto-data-encryption-portal.md
-                  displayName: 'encryption, security'
-                - name: Configuración del cifrado con claves administradas por el cliente mediante la CLI de Azure
-                  href: howto-data-encryption-cli.md
-                  displayName: 'encryption, security'
-                - name: Validación del cifrado de datos
-                  href: howto-data-encryption-validation.md
-                  displayName: 'encryption, security'
-            - name: Cifrado doble de infraestructura
-              items:
-                - name: Conceptos
-                  href: concepts-infrastructure-double-encryption.md
-                - name: Configuración de cifrado doble de infraestructura
-                  href: howto-double-encryption.md
-                  displayName: 'infrastructure encryption, security'
-        - name: Denegación del acceso a una red pública
-          items:
-            - name: Uso de Azure Portal
+            - name: Denegación del acceso a una red pública
               href: howto-deny-public-network-access.md
               displayName: 'security, public access'
-        - name: Auditoría de servidor
-          items:
-            - name: Conceptos
-              href: concepts-audit-logs.md
-              displayName: 'monitor, alerts, audit log'
+            - name: Configuración del cifrado con claves administradas por el cliente mediante Azure Portal
+              href: howto-data-encryption-portal.md
+              displayName: 'encryption, security'
+            - name: Configuración del cifrado con claves administradas por el cliente mediante la CLI de Azure
+              href: howto-data-encryption-cli.md
+              displayName: 'encryption, security'
+            - name: Validación del cifrado de datos
+              href: howto-data-encryption-validation.md
+              displayName: 'encryption, security'
+            - name: Configuración de cifrado doble de infraestructura
+              href: howto-double-encryption.md
+              displayName: 'infrastructure encryption, security'
             - name: Configuración de registros de auditoría mediante Azure Portal
               href: howto-configure-audit-logs-portal.md
               displayName: 'debug, audit log'
             - name: Configuración de registros de auditoría mediante la CLI de Azure
               href: howto-configure-audit-logs-cli.md
               displayName: 'debug, audit log'
-        - name: Cumplimiento normativo
-          href: ./security-controls-policy.md
-          displayName: 'regulatory, compliance, standards, domains'
-    - name: Alta disponibilidad
-      items:
-        - name: Introducción a la continuidad empresarial
-          displayName: 'backup, restore, backups, restores, georestore, geo-restore, outage'
-          href: concepts-business-continuity.md
-        - name: Alta disponibilidad
-          href: concepts-high-availability.md
-          displayName: 'backup, restore,high availability'
-    - name: Servidor de administración
-      items:
-        - name: Servidores
-          href: concepts-servers.md
-        - name: Limitaciones del servidor
-          href: concepts-limits.md
-        - name: Parámetros del servidor
-          href: concepts-server-parameters.md
-          displayName: server parameters
-        - name: Administración y escalado de un servidor
+        - name: Servidor de administración
           items:
-            - name: Azure portal
-              href: howto-create-manage-server-portal.md
-              displayName: 'manage, reset password, scale'
-            - name: Azure CLI
-              href: how-to-manage-single-server-cli.md
-              displayName: 'manage, reset password, scale'
-        - name: Detención o inicio de servidor
-          items:
+            - name: Administración y escalado de un servidor
+              items:
+                - name: Uso de Azure Portal
+                  href: howto-create-manage-server-portal.md
+                  displayName: 'manage, reset password, scale'
+                - name: Uso de la CLI de Azure
+                  href: how-to-manage-single-server-cli.md
+                  displayName: 'manage, reset password, scale'
             - name: Detención o inicio de servidor MySQL
               href: how-to-stop-start-server.md
-        - name: Actualización de versión principal
-          href: how-to-major-version-upgrade.md
-        - name: Almacenamiento de crecimiento automático
-          items:
-            - name: Uso de Azure Portal
-              href: howto-auto-grow-storage-portal.md
-              displayName: 'storage, business continuity , downtime, portal'
-            - name: Uso de la CLI de Azure
-              href: howto-auto-grow-storage-cli.md
-              displayName: 'storage, business continuity , downtime, cli'
-            - name: Uso de Azure PowerShell
-              href: howto-auto-grow-storage-powershell.md
-              displayName: 'storage, business continuity , downtime, powershell'
-        - name: Reinicio del servidor
-          items:
-            - name: Uso de Azure Portal
-              href: howto-restart-server-portal.md
-              displayName: restart
-            - name: Uso de la CLI de Azure
-              href: howto-restart-server-cli.md
-              displayName: restart
-            - name: Uso de Azure PowerShell
-              href: howto-restart-server-powershell.md
-              displayName: restart
-        - name: Movimiento de servidores entre regiones
-          items:
-            - name: Uso de Azure Portal
+            - name: Actualización de versión principal
+              href: how-to-major-version-upgrade.md
+            - name: Almacenamiento de crecimiento automático
+              items:
+                - name: Uso de Azure Portal
+                  href: howto-auto-grow-storage-portal.md
+                  displayName: 'storage, business continuity , downtime, portal'
+                - name: Uso de la CLI de Azure
+                  href: howto-auto-grow-storage-cli.md
+                  displayName: 'storage, business continuity , downtime, cli'
+                - name: Uso de Azure PowerShell
+                  href: howto-auto-grow-storage-powershell.md
+                  displayName: 'storage, business continuity , downtime, powershell'
+            - name: Reinicio del servidor
+              items:
+                - name: Uso de Azure Portal
+                  href: howto-restart-server-portal.md
+                  displayName: restart
+                - name: Uso de la CLI de Azure
+                  href: howto-restart-server-cli.md
+                  displayName: restart
+                - name: Uso de Azure PowerShell
+                  href: howto-restart-server-powershell.md
+                  displayName: restart
+            - name: Movimiento de servidores entre regiones
               href: howto-move-regions-portal.md
               displayName: move servers across regions
-    - name: Copia de seguridad y restauración
-      items:
-        - name: Copias de seguridad
-          href: concepts-backup.md
-          displayName: 'backup, restore, backups, restores, georestore, geo-restore, outage'
-        - name: Restauración de un servidor
+        - name: Copia de seguridad y restauración
           items:
-            - name: Uso de Azure Portal
-              href: howto-restore-server-portal.md
-              displayName: 'restore server,backup'
-            - name: Uso de la CLI de Azure
-              href: howto-restore-server-cli.md
-              displayName: 'restore server, backup'
-            - name: Uso de Azure PowerShell
-              href: howto-restore-server-powershell.md
-              displayName: 'restore server, backup, geo-restore powershell'
-        - name: Restauración de un servidor eliminado
-          href: howto-restore-dropped-server.md
-          displayName: 'restore server,dropped, recover'
-    - name: Replicación
-      items:
-        - name: Replicación de datos internos
-          href: concepts-data-in-replication.md
-          displayName: 'replication, read replica'
-        - name: Configuración de la replicación de datos internos
-          href: howto-data-in-replication.md
-          displayName: 'data-in replication, replica, failover'
-        - name: Réplicas de lectura
+            - name: Restauración de un servidor
+              items:
+                - name: Uso de Azure Portal
+                  href: howto-restore-server-portal.md
+                  displayName: 'restore server,backup'
+                - name: Uso de la CLI de Azure
+                  href: howto-restore-server-cli.md
+                  displayName: 'restore server, backup'
+                - name: Uso de Azure PowerShell
+                  href: howto-restore-server-powershell.md
+                  displayName: 'restore server, backup, geo-restore powershell'
+            - name: Restauración de un servidor eliminado
+              href: howto-restore-dropped-server.md
+              displayName: 'restore server,dropped, recover'
+        - name: Replicación
           items:
-            - name: Conceptos
-              href: concepts-read-replicas.md
-              displayName: 'replication, read replica'
-            - name: Creación de réplicas de lectura mediante Azure Portal
-              href: howto-read-replicas-portal.md
+            - name: Configuración de la replicación de datos internos
+              href: howto-data-in-replication.md
               displayName: 'data-in replication, replica, failover'
-            - name: Creación de réplicas de lectura mediante la CLI de Azure o API REST
-              href: howto-read-replicas-cli.md
-              displayName: 'data-in replication, replica, failover'
-            - name: Creación de réplicas de lectura mediante Azure PowerShell
-              href: howto-read-replicas-powershell.md
-              displayName: 'data-in replication, replica, failover'
-    - name: Mantenimiento del servicio
-      items:
-        - name: Mantenimiento planeado
-          href: concepts-planned-maintenance-notification.md
-        - name: Mantenimiento de la puerta de enlace
-          href: concepts-connectivity-architecture.md
-        - name: El certificado raíz de SSL va a expirar
-          href: concepts-certificate-rotation.md
-    - name: Supervisión y ajuste
-      items:
-        - name: Información general de la supervisión
-          href: concepts-monitoring.md
-          displayName: 'monitor, alerts, audit log, slow query log'
-        - name: Registros de consultas lentos
+            - name: Creación de réplicas de lectura
+              items:
+                - name: Uso de Azure Portal
+                  href: howto-read-replicas-portal.md
+                  displayName: 'data-in replication, replica, failover'
+                - name: Uso de la CLI de Azure y API REST
+                  href: howto-read-replicas-cli.md
+                  displayName: 'data-in replication, replica, failover'
+                - name: Uso de Azure PowerShell
+                  href: howto-read-replicas-powershell.md
+                  displayName: 'data-in replication, replica, failover'
+        - name: Supervisión y ajuste
           items:
-            - name: Conceptos
-              href: concepts-server-logs.md
-              displayName: 'monitor, slow query log, alert'
-            - name: Configuración de registros de consultas lentos mediante Azure Portal
-              href: howto-configure-server-logs-in-portal.md
-              displayName: 'debug, slow query log , performance'
-            - name: Configuración de registros de consultas lentos mediante la CLI de Azure
-              href: howto-configure-server-logs-in-cli.md
-              displayName: 'debug, slow query log , performance'
-        - name: Almacén de consultas
-          href: concepts-query-store.md
-          displayName: 'performance, query store'
-        - name: Información de rendimiento de consultas
-          href: concepts-query-performance-insight.md
-          displayName: query performance insights
-        - name: Recomendaciones de rendimiento
-          href: concepts-performance-recommendations.md
-          displayName: recommendation
-        - name: Recomendaciones de Azure Advisor
-          href: concepts-azure-advisor-recommendations.md
-    - name: Prácticas recomendadas
+            - name: Configuración de registros de consultas lentas
+              items:
+                - name: Uso de Azure Portal
+                  href: howto-configure-server-logs-in-portal.md
+                  displayName: 'debug, slow query log , performance'
+                - name: Uso de la CLI de Azure
+                  href: howto-configure-server-logs-in-cli.md
+                  displayName: 'debug, slow query log , performance'
+    - name: Ejemplos
       items:
-        - name: Procedimientos recomendados de la supervisión
-          href: concept-monitoring-best-practices.md
-        - name: Procedimientos recomendados de rendimiento
-          href: concept-performance-best-practices.md
-        - name: Procedimientos recomendados para el desarrollo de aplicaciones
-          href: app-development-best-practices.md
-          displayName: application
-        - name: Procedimientos recomendados operativos
-          href: concept-operation-excellence-best-practices.md
+        - name: Configuración de la agrupación de conexiones de Java
+          href: sample-scripts-java-connection-pooling.md
 - name: Servidor flexible (versión preliminar)
   items:
     - name: Documentación de servidor flexible
@@ -442,111 +439,147 @@
           displayName: users
         - name: Servidor de supervisión
           href: flexible-server/how-to-alert-on-metric.md
-    - name: Desarrollo de aplicaciones
+    - name: Conceptos
       items:
-        - name: WordPress en Azure Kubernetes
-          href: flexible-server/tutorial-deploy-wordpress-on-aks.md
-        - name: Compilación de una aplicación PHP (Laravel) con una base de datos
-          href: flexible-server/tutorial-php-database-app.md
-        - name: Conexión con una aplicación web privada
-          href: flexible-server/tutorial-webapp-server-vnet.md
-    - name: Servidor de administración
-      items:
-        - name: Conceptos
-          href: flexible-server/concept-servers.md
-        - name: Parámetros del servidor
-          href: flexible-server/concepts-server-parameters.md
-        - name: Limitaciones
-          href: flexible-server/concepts-limitations.md
-        - name: Administración de un servicio
+        - name: Servidor de administración
           items:
-            - name: Azure portal
-              href: flexible-server/how-to-manage-server-portal.md
-            - name: Azure CLI
-              href: flexible-server/how-to-manage-server-cli.md
-        - name: Detención e inicio de un servidor mediante Azure Portal
-          href: flexible-server/how-to-stop-start-server-portal.md
-        - name: Reinicio de un servidor mediante Azure Portal
-          href: flexible-server/how-to-restart-server-portal.md
-        - name: 'Inicio, detención o reinicio con la CLI de Azure'
-          href: flexible-server/how-to-restart-stop-start-server-cli.md
-    - name: Redes
-      items:
-        - name: Conceptos
-          href: flexible-server/concepts-networking.md
-          displayName: 'virtual network, IP address, public access'
-        - name: Acceso privado (integración con red virtual)
+            - name: Servidores
+              href: flexible-server/concept-servers.md
+            - name: Parámetros del servidor
+              href: flexible-server/concepts-server-parameters.md
+            - name: Limitaciones
+              href: flexible-server/concepts-limitations.md
+        - name: Redes
           items:
-            - name: Configuración de acceso privado mediante Azure Portal
-              href: flexible-server/how-to-manage-virtual-network-portal.md
-            - name: Configuración de acceso privado mediante la CLI de Azure
-              href: flexible-server/how-to-manage-virtual-network-cli.md
-        - name: Acceso público (direcciones IP permitidas)
+            - name: Conceptos de redes
+              href: flexible-server/concepts-networking.md
+              displayName: 'virtual network, IP address, public access'
+        - name: Mantenimiento del servicio
           items:
-            - name: Configuración de acceso público mediante Azure Portal
-              href: flexible-server/how-to-manage-firewall-portal.md
-            - name: Configuración de acceso público mediante la CLI de Azure
-              href: flexible-server/how-to-manage-firewall-cli.md
-    - name: Mantenimiento del servicio
-      items:
-        - name: Mantenimiento programado
-          href: flexible-server/concepts-maintenance.md
-        - name: Configuración del mantenimiento programado mediante Azure Portal
-          href: flexible-server/how-to-maintenance-portal.md
-    - name: Alta disponibilidad
-      items:
-        - name: Información general sobre la continuidad empresarial
-          href: flexible-server/concepts-business-continuity.md
+            - name: Mantenimiento programado
+              href: flexible-server/concepts-maintenance.md
         - name: Alta disponibilidad
-          href: flexible-server/concepts-high-availability.md
-        - name: Configuración de alta disponibilidad mediante Azure Portal
-          href: flexible-server/how-to-configure-high-availability.md
-        - name: Configuración de alta disponibilidad con la CLI de Azure
-          href: flexible-server/how-to-configure-high-availability-cli.md
-    - name: Supervisión y registros
-      items:
-        - name: Conceptos
-          href: flexible-server/concepts-monitoring.md
-        - name: Registros de consultas lentas
           items:
-            - name: Conceptos
+            - name: Información general sobre la continuidad empresarial
+              href: flexible-server/concepts-business-continuity.md
+            - name: Alta disponibilidad
+              href: flexible-server/concepts-high-availability.md
+        - name: Supervisión y registros
+          items:
+            - name: Información general de la supervisión
+              href: flexible-server/concepts-monitoring.md
+            - name: Registros de consultas lentas
               href: flexible-server/concepts-slow-query-logs.md
-            - name: Configuración de registros de consultas lentas mediante Azure Portal
-              href: flexible-server/how-to-configure-slow-query-logs-portal.md
-            - name: Configuración de registros de consultas lentas con la CLI de Azure
-              href: flexible-server/how-to-configure-slow-query-log-cli.md
-        - name: Registros de auditoría
-          items:
-            - name: Conceptos
+            - name: Registros de auditoría
               href: flexible-server/concepts-audit-logs.md
-            - name: Configuración de registros de auditoría
-              href: flexible-server/how-to-configure-audit-logs-portal.md
-            - name: Configuración de registros de auditoría con la CLI de Azure
-              href: flexible-server/how-to-configure-audit-log-cli.md
-    - name: Replicación
-      items:
-        - name: Réplicas de lectura
-          href: flexible-server/concepts-read-replicas.md
-        - name: Creación de réplicas de lectura
+        - name: Replicación
           items:
-            - name: Creación de réplicas de lectura mediante Azure Portal
-              href: flexible-server/how-to-read-replicas-portal.md
-            - name: Creación de réplicas de lectura mediante la CLI de Azure
-              href: flexible-server/how-to-read-replicas-cli.md
-    - name: Copia de seguridad y restauración
+            - name: Replicación de datos internos
+              href: flexible-server/concepts-data-in-replication.md
+              displayName: 'replication, read replica'
+            - name: Réplicas de lectura
+              href: flexible-server/concepts-read-replicas.md
+        - name: Copia de seguridad y restauración
+          items:
+            - name: Conceptos de copia de seguridad y restauración
+              href: flexible-server/concepts-backup-restore.md
+    - name: Tutoriales
       items:
-        - name: Conceptos
-          href: flexible-server/concepts-backup-restore.md
-        - name: Restauración de un servidor mediante Azure Portal
-          href: flexible-server/how-to-restore-server-portal.md
-        - name: Restauración de un servidor mediante la CLI de Azure
-          href: flexible-server/how-to-restore-server-cli.md
-    - name: Solucionar problemas
-      items:
-        - name: Solución de errores de conexión
-          href: flexible-server/how-to-troubleshoot-common-connection-issues.md
+        - name: Desarrollo de aplicaciones
+          items:
+            - name: WordPress en Azure Kubernetes
+              href: flexible-server/tutorial-deploy-wordpress-on-aks.md
+            - name: Compilación de una aplicación PHP (Laravel) con una base de datos
+              href: flexible-server/tutorial-php-database-app.md
+            - name: Conexión con una aplicación web privada
+              href: flexible-server/tutorial-webapp-server-vnet.md
+        - name: Servidor de administración
+          items:
+            - name: Administración de un servicio
+              items:
+                - name: Azure portal
+                  href: flexible-server/how-to-manage-server-portal.md
+                - name: CLI de Azure
+                  href: flexible-server/how-to-manage-server-cli.md
+            - name: Detención o inicio de servidor
+              items:
+                - name: Azure portal
+                  href: flexible-server/how-to-stop-start-server-portal.md
+                - name: CLI de Azure
+                  href: flexible-server/how-to-restart-stop-start-server-cli.md
+            - name: Reinicio del servidor
+              items:
+                - name: Azure portal
+                  href: flexible-server/how-to-restart-server-portal.md
+                - name: CLI de Azure
+                  href: flexible-server/how-to-restart-stop-start-server-cli.md
+        - name: Redes
+          items:
+            - name: Configuración acceso privado (integración con red virtual)
+              items:
+                - name: Azure portal
+                  href: flexible-server/how-to-manage-virtual-network-portal.md
+                - name: CLI de Azure
+                  href: flexible-server/how-to-manage-virtual-network-cli.md
+            - name: Configuración del acceso público (direcciones IP permitidas)
+              items:
+                - name: Azure portal
+                  href: flexible-server/how-to-manage-firewall-portal.md
+                - name: CLI de Azure
+                  href: flexible-server/how-to-manage-firewall-cli.md
+        - name: Mantenimiento del servicio
+          items:
+            - name: Configuración del mantenimiento programado mediante Azure Portal
+              href: flexible-server/how-to-maintenance-portal.md
+        - name: Alta disponibilidad
+          items:
+            - name: Configuración de alta disponibilidad con redundancia de zona
+              items:
+                - name: Azure portal
+                  href: flexible-server/how-to-configure-high-availability.md
+                - name: CLI de Azure
+                  href: flexible-server/how-to-configure-high-availability-cli.md
+        - name: Supervisión y registros
+          items:
+            - name: Configuración del registro de consultas lentas
+              items:
+                - name: Azure portal
+                  href: flexible-server/how-to-configure-slow-query-logs-portal.md
+                - name: CLI de Azure
+                  href: flexible-server/how-to-configure-slow-query-log-cli.md
+            - name: Configuración de registros de auditoría
+              items:
+                - name: Azure portal
+                  href: flexible-server/how-to-configure-audit-logs-portal.md
+                - name: CLI de Azure
+                  href: flexible-server/how-to-configure-audit-log-cli.md
+        - name: Replicación
+          items:
+            - name: Configuración de la replicación de datos internos
+              href: flexible-server/how-to-data-in-replication.md
+              displayName: 'data-in replication, replica, failover'
+            - name: Creación de réplicas de lectura
+              items:
+                - name: Azure portal
+                  href: flexible-server/how-to-read-replicas-portal.md
+                - name: CLI de Azure
+                  href: flexible-server/how-to-read-replicas-cli.md
+        - name: Copia de seguridad y restauración
+          items:
+            - name: Restauración de un servidor
+              items:
+                - name: Azure portal
+                  href: flexible-server/how-to-restore-server-portal.md
+                - name: CLI de Azure
+                  href: flexible-server/how-to-restore-server-cli.md
+        - name: Solucionar problemas
+          items:
+            - name: Solución de errores de conexión
+              href: flexible-server/how-to-troubleshoot-common-connection-issues.md
 - name: Migración
   items:
+    - name: Migración de datos de un entorno local de MySQL a Azure Database for MySQL >
+      href: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
     - name: Migración de datos con mysqldump o phpmyadmin
       href: concepts-migrate-dump-restore.md
       displayName: 'migrate, mysqldump'
@@ -555,6 +588,9 @@
       displayName: 'migrate, dbforge'
     - name: Migración de datos con MySQL Workbench
       href: concepts-migrate-import-export.md
+      displayName: 'import , migrate, export'
+    - name: Migración de datos de RDS MySQL con MySQL Workbench
+      href: how-to-migrate-rds-mysql-workbench.md
       displayName: 'import , migrate, export'
     - name: Migración con tiempo de inactividad mínimo a Azure Database for PostgreSQL con un único servidor
       href: howto-migrate-online.md
