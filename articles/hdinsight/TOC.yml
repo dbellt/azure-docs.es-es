@@ -278,7 +278,7 @@
               href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
     - name: Referencia
       items:
-        - name: Azure CLI
+        - name: CLI de Azure
           href: /cli/azure/hdinsight
         - name: Azure PowerShell
           href: /powershell/module/az.hdinsight
@@ -304,6 +304,8 @@
       items:
         - name: Lanzamientos
           items:
+            - name: "Actualización de Ubuntu\_18.04"
+              href: ./hdinsight-ubuntu-1804-qa.md
             - name: "Novedades de HDInsight\_4.0"
               href: ./hdinsight-version-release.md
             - name: Notas de la versión
@@ -677,7 +679,7 @@
                   href: ./hdinsight-apache-spark-with-kafka.md
                 - name: Uso de Apache Kafka con Azure Container Service
                   href: ./kafka/apache-kafka-azure-container-services.md
-        - name: Administrar
+        - name: Administración
           items:
             - name: Uso de Apache Kafka en una red virtual
               href: ./kafka/apache-kafka-connect-vpn-gateway.md
@@ -730,7 +732,7 @@
               href: ./hbase/apache-hbase-using-phoenix-query-server-rest-sdk.md
             - name: Carga masiva de datos en Apache Phoenix mediante psql
               href: ./hbase/apache-hbase-phoenix-psql.md
-        - name: Administrar
+        - name: Administración
           items:
             - name: Escrituras aceleradas
               href: ./hbase/apache-hbase-accelerated-writes.md
@@ -835,6 +837,8 @@
               href: ./hadoop/apache-hadoop-hive-java-udf.md
             - name: Consulta Hive con PowerShell y ODBC
               href: ./interactive-query/apache-hive-query-odbc-driver-powershell.md
+            - name: Habilitación de la característica Workload Management de Hive LLAP
+              href: ./interactive-query/hive-workload-management.md
         - name: Administrar
           items:
             - name: Copia de tablas de Hive en cuentas de almacenamiento
@@ -879,6 +883,14 @@
               href: ./interactive-query/interactive-query-troubleshoot-hive-logs-diskspace-full-headnodes.md
             - name: Opciones de seguridad de Hive
               href: ./interactive-query/hdinsight-security-options-for-hive.md
+            - name: Workload Management de Apache Hive LLAP
+              href: ./interactive-query/troubleshoot-workload-management-issues.md
+            - name: "Guía para la solución de problemas de HDInsight\_3.6\_a\_4.0: Hive"
+              href: ./interactive-query/interactive-query-troubleshoot-migrate-36-to-40.md
+    - name: Referencia
+      items:
+        - name: Comandos de Workload Management de Hive LLAP
+          href: ./interactive-query/workload-management-commands.md
 - name: Machine Learning Services
   items:
     - name: Información general
@@ -908,7 +920,7 @@
               href: ./r-server/r-server-compute-contexts.md
             - name: ScaleR y SparkR
               href: ./hdinsight-hadoop-r-scaler-sparkr.md
-        - name: Administrar
+        - name: Administración
           items:
             - name: Administración de clústeres de Machine Learning Services
               href: ./r-server/r-server-hdinsight-manage.md

@@ -170,6 +170,8 @@
               href: automation-linux-hrw-install.md
             - name: Ejecución de runbooks en Hybrid Runbook Worker
               href: automation-hrw-run-runbooks.md
+            - name: Uso de Azure Policy para aplicar la ejecución de un trabajo
+              href: enforce-job-execution-hybrid-worker.md
             - name: Solución de incidencias de Hybrid Runbook Worker
               href: troubleshoot/hybrid-runbook-worker.md
         - name: Uso de la integración del control de código fuente
@@ -272,8 +274,12 @@
           href: update-management/overview.md
         - name: Regiones admitidas para el área de trabajo de Log Analytics vinculada
           href: how-to/region-mappings.md
+        - name: Planeamiento de la implementación
+          href: update-management/plan-deployment.md
         - name: Habilitar
           items:
+            - name: Requisitos previos del sistema
+              href: update-management/operating-system-requirements.md
             - name: Habilitar el uso de la plantilla de Azure Resource Manager
               href: update-management/enable-from-template.md
             - name: Habilitar desde Azure Portal

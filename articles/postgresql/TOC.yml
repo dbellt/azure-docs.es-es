@@ -32,6 +32,8 @@
     - name: Directiva de control de versiones
       href: concepts-version-policy.md
       displayName: 'version, postgresql'
+    - name: Actualizaciones de versiones principales
+      href: how-to-upgrade-using-dump-and-restore.md
     - name: Limitaciones y problemas conocidos
       href: concepts-known-issues-limitations.md
       displayName: 'issues, limitations, postgresql'
@@ -103,7 +105,7 @@
             - name: Azure portal
               href: tutorial-design-database-using-azure-portal.md
               displayName: design database
-            - name: Azure CLI
+            - name: CLI de Azure
               href: tutorial-design-database-using-azure-cli.md
             - name: Azure PowerShell
               href: tutorial-design-database-using-powershell.md
@@ -148,8 +150,8 @@
             - name: Arquitectura de conectividad
               href: concepts-connectivity-architecture.md
               displayName: 'security, architecture'
-            - name: Protección contra amenazas avanzada
-              href: concepts-data-access-and-security-threat-protection.md
+            - name: Protección contra amenazas con Azure Defender
+              href: ../security-center/defender-for-databases-introduction.md
               displayName: 'security, advanced threat protection'
             - name: Autenticación de Azure AD
               href: concepts-aad-authentication.md
@@ -242,14 +244,14 @@
             - name: Azure portal
               href: howto-create-manage-server-portal.md
               displayName: 'scale server, reset password'
-            - name: Azure CLI
+            - name: CLI de Azure
               href: how-to-manage-server-cli.md
               displayName: 'scale server, reset password'
         - name: Reinicio del servidor
           items:
             - name: Azure portal
               href: howto-restart-server-portal.md
-            - name: Azure CLI
+            - name: CLI de Azure
               href: howto-restart-server-cli.md
             - name: Azure PowerShell
               href: howto-restart-server-powershell.md
@@ -269,7 +271,7 @@
             - name: Azure portal
               href: howto-restore-server-portal.md
               displayName: 'restore, georestore, geo-restore, outage'
-            - name: Azure CLI
+            - name: CLI de Azure
               href: howto-restore-server-cli.md
               displayName: 'restore, georestore, geo-restore, outage'
             - name: Azure PowerShell
@@ -313,7 +315,7 @@
             - name: Azure portal
               href: howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
-            - name: Azure CLI
+            - name: CLI de Azure
               href: howto-configure-server-parameters-using-cli.md
               displayName: 'application development, server parameters'
             - name: Azure PowerShell
@@ -324,7 +326,7 @@
             - name: Azure portal
               href: howto-auto-grow-storage-portal.md
               displayName: 'business continuity, scale , storage'
-            - name: Azure CLI
+            - name: CLI de Azure
               href: howto-auto-grow-storage-cli.md
               displayName: 'business continuity, scale , storage'
             - name: Azure PowerShell
@@ -335,7 +337,7 @@
             - name: Azure portal
               href: howto-configure-server-logs-in-portal.md
               displayName: 'access logs, monitor'
-            - name: Azure CLI
+            - name: CLI de Azure
               href: howto-configure-server-logs-using-cli.md
               displayName: 'access logs, monitor'
         - name: Supervisión
@@ -351,11 +353,6 @@
             - name: Solución de problemas de cifrado de datos
               href: howto-data-encryption-troubleshoot.md
               displayName: 'debug, security, encryption'
-        - name: Protección contra amenazas avanzada
-          items:
-            - name: Azure portal
-              href: howto-database-threat-protection-portal.md
-              displayName: 'advanced thread, security'
         - name: Virtual network
           items:
             - name: Azure portal
@@ -408,8 +405,6 @@
           items:
             - name: Azure portal
               href: howto-move-regions-portal.md
-        - name: Actualizaciones de versiones principales
-          href: how-to-upgrade-using-dump-and-restore.md
 - name: Servidor flexible (versión preliminar)
   expanded: true
   items:
@@ -472,6 +467,8 @@
           href: flexible-server/concepts-maintenance.md
         - name: Agrupación de conexiones (PgBouncer)
           href: flexible-server/concepts-pgbouncer.md
+        - name: Parámetros del servidor
+          href: flexible-server/concepts-server-parameters.md
         - name: Continuidad empresarial
           items:
             - name: Información general sobre la continuidad empresarial
@@ -551,21 +548,29 @@
           items:
             - name: Azure portal
               href: flexible-server/how-to-restart-server-portal.md
+            - name: CLI de Azure
+              href: flexible-server/how-to-restart-server-cli.md
         - name: Restauración de un servidor
           items:
             - name: Azure portal
               href: flexible-server/how-to-restore-server-portal.md
+            - name: CLI de Azure
+              href: flexible-server/how-to-restore-server-cli.md
         - name: Detención o inicio de un servidor
           items:
             - name: Azure portal
               href: flexible-server/how-to-stop-start-server-portal.md
+            - name: CLI de Azure
+              href: flexible-server/how-to-stop-start-server-cli.md
         - name: Administración de la alta disponibilidad
           items:
             - name: Portal de Azure
               href: flexible-server/how-to-manage-high-availability-portal.md
+            - name: CLI de Azure
+              href: flexible-server/how-to-configure-high-availability-cli.md
         - name: Supervisión
           items:
-            - name: Creación de alertas basadas en métricas
+            - name: Creación de alertas en métricas mediante Azure Portal
               href: flexible-server/howto-alert-on-metrics.md
             - name: Configuración y acceso a los registros
               href: flexible-server/howto-configure-and-access-logs.md
@@ -709,6 +714,9 @@
             - name: Solución de problemas de conexión
               href: howto-hyperscale-troubleshoot-common-connection-issues.md
               displayName: 'connection errors, hyperscale'
+            - name: Solución de problemas del acceso de solo lectura
+              href: howto-hyperscale-troubleshoot-read-only.md
+              displayName: 'read-only, hyperscale'
             - name: Consultas de diagnóstico útiles
               href: howto-hyperscale-useful-diagnostic-queries.md
     - name: Referencia de API

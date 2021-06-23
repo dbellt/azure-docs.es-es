@@ -230,6 +230,8 @@
               href: azure-stack-edge-gpu-virtual-machine-overview.md
             - name: Visualización de máquinas virtuales admitidas
               href: azure-stack-edge-gpu-virtual-machine-sizes.md
+            - name: Visualización de perfiles de API compatibles
+              href: azure-stack-edge-profiles-azure-resource-manager-versions.md
             - name: Crear imagen de máquina virtual
               items:
                 - name: Imagen personalizada de máquina virtual de Azure
@@ -239,7 +241,9 @@
                 - name: Imagen generalizada desde ISO
                   href: azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md
                 - name: Uso de una imagen especializada
-                  href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md
+                  href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md
+                - name: Uso de imágenes de Azure Marketplace
+                  href: azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md
             - name: Implementar máquinas virtuales
               items:
                 - name: Mediante el Portal de Azure
@@ -268,6 +272,8 @@
                   href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
                 - name: Instalar la extensión de script personalizado
                   href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
+                - name: Instalación de la extensión de GPU
+                  href: azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md
                 - name: Copia de seguridad de discos de máquina virtual
                   href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
                 - name: Solución de problemas
@@ -275,7 +281,11 @@
                     - name: Conexión a la consola de la máquina virtual
                       href: azure-stack-edge-gpu-connect-virtual-machine-console.md
                     - name: Carga de imagen de máquina virtual
-                      href: azure-stack-edge-troubleshoot-virtual-machine-image-upload.md
+                      href: azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md
+                    - name: Implementación de la máquina virtual
+                      href: azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md
+                    - name: Problemas de extensiones de GPU
+                      href: azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md
         - name: Administración de certificados
           items:
             - name: Requisitos
@@ -334,12 +344,18 @@
               href: azure-stack-edge-gpu-enable-azure-monitor.md
         - name: Solución de problemas
           items:
-            - name: Problemas del dispositivo
-              href: azure-stack-edge-gpu-troubleshoot.md
             - name: Problemas de ordenación
               href: azure-stack-edge-troubleshoot-ordering.md
             - name: Problemas de activación
               href: azure-stack-edge-gpu-troubleshoot-activation.md
+            - name: Registros y diagnósticos de dispositivos
+              href: azure-stack-edge-gpu-troubleshoot.md
+            - name: Problemas de Azure Resource Manager
+              href: azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md
+            - name: Problemas de blobs
+              href: azure-stack-edge-gpu-troubleshoot-blob-storage.md
+            - name: Problemas de IoT Edge
+              href: azure-stack-edge-gpu-troubleshoot-iot-edge.md
             - name: Ponerse en contacto con el servicio de soporte técnico de Microsoft
               href: azure-stack-edge-contact-microsoft-support.md
     - name: Notas de la versión compartidas
@@ -426,6 +442,8 @@
                   href: azure-stack-edge-troubleshoot.md
                 - name: Problemas de ordenación
                   href: azure-stack-edge-troubleshoot-ordering.md
+                - name: IoT Edge
+                  href: azure-stack-edge-troubleshoot-iot-edge.md
                 - name: Ponerse en contacto con el servicio de soporte técnico de Microsoft
                   href: azure-stack-edge-contact-microsoft-support.md
         - name: Supervisión

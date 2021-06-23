@@ -104,6 +104,8 @@
           href: import-soap-api.md
         - name: Importación de API de SOAP y conversión en REST
           href: restify-soap-api.md
+        - name: Importación de WebSocket API
+          href: websocket-api.md
         - name: Importación de una instancia de Web App
           href: import-app-service-as-api.md
         - name: Importación de una instancia de Function App
@@ -318,7 +320,7 @@
           href: diagnose-solve-problems.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/apim
     - name: Azure PowerShell
       href: /powershell/module/az.apimanagement/
@@ -339,18 +341,20 @@
       href: api-management-faq.md
     - name: Precios
       href: 'https://aka.ms/apimpricing'
+    - name: Actualizaciones del producto
+      href: 'https://aka.ms/apimupdates'
+    - name: Notas de la versión
+      href: 'https://aka.ms/apim/releases'
     - name: Disponibilidad regional
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Plan de desarrollo
-      href: 'https://aka.ms/apimroadmap'
-    - name: Solicitudes de características
-      href: 'https://aka.ms/apimwish'
     - name: Vídeos
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=api-management'
+      href: 'https://azure.microsoft.com/documentation/videos/index/?service=api-management'
     - name: Página de preguntas y respuestas de Microsoft
       href: /answers/topics/azure-api-management.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-api-management'
+    - name: Recursos adicionales
+      href: 'https://aka.ms/apimlove'
     - name: Guía de diseño de una API
       href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
     - name: Guía de implementación de API

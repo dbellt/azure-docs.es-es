@@ -23,6 +23,12 @@
           href: quickstart-deploy-apps.md
         - name: 'Uso de registros, métricas y seguimiento'
           href: quickstart-logs-metrics-tracing.md
+        - name: Integración con Azure Database for MySQL
+          href: quickstart-integrate-azure-database-mysql.md
+        - name: Aprovisionamiento
+          items:
+            - name: Aprovisionamiento mediante plantillas de Resource Manager
+              href: quickstart-deploy-infrastructure-vnet.md
 - name: Tutoriales
   items:
     - name: Alertas y grupos de acciones
@@ -119,6 +125,8 @@
           href: how-to-circuit-breaker-metrics.md
         - name: Registro de aplicaciones estructurado
           href: structured-app-log.md
+        - name: Agente In-Process Java de New Relic
+          href: how-to-new-relic-monitor.md
     - name: Red
       items:
         - name: Implementación de Azure Spring Cloud en una red virtual

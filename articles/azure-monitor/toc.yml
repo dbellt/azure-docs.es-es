@@ -211,7 +211,7 @@
               items:
                 - name: Azure portal
                   href: logs/quick-create-workspace.md
-                - name: Azure CLI
+                - name: CLI de Azure
                   href: logs/quick-create-workspace-cli.md
                 - name: PowerShell
                   href: logs/powershell-workspace-configuration.md
@@ -240,8 +240,12 @@
               href: logs/log-analytics-tutorial.md
             - name: Ámbito de la consulta
               href: logs/scope.md
-            - name: Consultas de ejemplo
-              href: logs/example-queries.md
+            - name: Guardado de consultas
+              href: logs/save-query.md
+            - name: Uso de consultas
+              href: logs/queries.md
+            - name: Paquetes de consulta
+              href: logs/query-packs.md
         - name: Consultas de registros
           items:
             - name: Información general
@@ -370,6 +374,9 @@
             - name: Recopilación de datos
               displayname: 'data collection rule,Azure Monitor agent'
               href: agents/data-collection-rule-azure-monitor-agent.md
+            - name: Implementación a escala
+              displayname: Deploy Azure Monitor agent at scale
+              href: deploy-scale.md#azure-monitor-agent-preview
             - name: Preguntas más frecuentes
               displayname: Azure Monitor agent FAQ
               href: faq.md#azure-monitor-agent-preview
@@ -625,27 +632,29 @@
           href: ./faq.md
         - name: Supervisión basada en código
           items:
-            - name: ASP.NET Core
+            - name: .NET
               items:
-                - name: Supervisión de aplicaciones de ASP.NET Core
-                  displayname: 'Core, .NET Core, services.add, dotnetcore, c#, csharp'
-                  href: app/asp-net-core.md
-                - name: ILogger
-                  displayname: 'ilogger, logging, log'
-                  href: app/ilogger.md
-            - name: ASP.NET
-              items:
-                - name: Supervisión de aplicaciones de ASP.NET
-                  displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
-                  href: app/asp-net.md
-                - name: Solución de problemas de ASP.NET
-                  href: app/asp-net-troubleshoot-no-data.md
-            - name: Aplicaciones que no son HTTP ni están en segundo plano
-              displayname: 'console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host'
-              href: app/worker-service.md
-            - name: Consola de .NET
-              displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
-              href: app/console.md
+                - name: ASP.NET Core
+                  items:
+                    - name: Supervisión de aplicaciones de ASP.NET Core
+                      displayname: 'Core, .NET Core, services.add, dotnetcore, c#, csharp'
+                      href: app/asp-net-core.md
+                    - name: ILogger
+                      displayname: 'ilogger, logging, log'
+                      href: app/ilogger.md
+                - name: ASP.NET
+                  items:
+                    - name: Supervisión de aplicaciones de ASP.NET
+                      displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
+                      href: app/asp-net.md
+                    - name: Solución de problemas de ASP.NET
+                      href: app/asp-net-troubleshoot-no-data.md
+                - name: Aplicaciones que no son HTTP ni están en segundo plano
+                  displayname: 'console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host'
+                  href: app/worker-service.md
+                - name: Consola de .NET
+                  displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
+                  href: app/console.md
             - name: Java
               items:
                 - name: Aplicaciones web
@@ -867,6 +876,8 @@
         - name: Detección inteligente
           href: app/proactive-diagnostics.md
           items:
+            - name: Actualización a alertas
+              href: alerts/alerts-smart-detections-migration.md
             - name: Anomalías de error
               href: app/proactive-failure-diagnostics.md
             - name: Anomalías de rendimiento
@@ -1073,6 +1084,8 @@
               href: containers/container-insights-azure-redhat-setup.md
             - name: 'Habilitación para Red Hat OpenShift en Azure, versión 4'
               href: containers/container-insights-azure-redhat4-setup.md
+            - name: Habilitación con Azure Policy
+              href: containers/container-insights-enable-aks-policy.md
             - name: Asignaciones de regiones
               href: containers/container-insights-region-mapping.md
         - name: Supervisión del rendimiento
@@ -1135,6 +1148,8 @@
           href: insights/cosmosdb-insights-overview.md
         - name: Azure Data Explorer (versión preliminar)
           href: insights/data-explorer.md
+        - name: Área de trabajo de Log Analytics
+          href: logs/log-analytics-workspace-insights-overview.md
         - name: Redes
           href: insights/network-insights-overview.md
         - name: Key Vault
@@ -1194,7 +1209,7 @@
                         - name: Precios
                           href: insights/network-performance-monitor-pricing-faq.md
                         - name: Preguntas más frecuentes
-                          href: insights/network-performance-monitor-faq.md
+                          href: insights/network-performance-monitor-faq.yml
                 - name: Office 365
                   href: insights/solution-office-365.md
                 - name: Solución Service Map
