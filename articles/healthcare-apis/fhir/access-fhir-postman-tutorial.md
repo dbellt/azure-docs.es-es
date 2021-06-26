@@ -1,6 +1,6 @@
 ---
 title: 'Servidor FHIR con Postman en Azure: Azure API for FHIR'
-description: En este tutorial, se le guía por los pasos necesarios para usar Postman para acceder a un servidor de FHIR. Postman es útil para depurar aplicaciones que tienen acceso a las API.
+description: En este tutorial, recorreremos los pasos necesarios para usar Postman para acceder a un servidor de FHIR. Postman es útil para depurar aplicaciones que tienen acceso a las API.
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -9,25 +9,25 @@ ms.reviewer: dseven
 ms.author: cavoeg
 author: matjazl
 ms.date: 03/26/2021
-ms.openlocfilehash: 72e5711ca813378e291d48bdaaa5803693d91482
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 764a33d7dbdcde005e8ab62824ab6c7c87e1fcb2
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112284030"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112969682"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Acceso a Azure API for FHIR con Postman
 
-Una aplicación cliente puede acceder a la Azure API for FHIR mediante una [API REST](https://www.hl7.org/fhir/http.html). Para enviar solicitudes, ver respuestas y depurar la aplicación a medida que se compila, use la herramienta de pruebas de API que prefiera. En este tutorial, le guíamos por los pasos para acceder al servidor de FHIR mediante [Postman](https://www.getpostman.com/). 
+Una aplicación cliente puede acceder a la Azure API for FHIR mediante una [API REST](https://www.hl7.org/fhir/http.html). Para enviar solicitudes, ver respuestas y depurar la aplicación a medida que se compila, use la herramienta de pruebas de API que prefiera. En este tutorial, le guíaremos por los pasos para acceder al servidor de FHIR mediante [Postman](https://www.getpostman.com/). 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Un punto de conexión de FHIR en Azure. 
 
-  Para implementar el Azure API for FHIR (un servicio administrado), puede usar el Azure Portal [,](fhir-paas-portal-quickstart.md) [PowerShell](fhir-paas-powershell-quickstart.md) [o CLI de Azure](fhir-paas-cli-quickstart.md).
+  Para implementar el Azure API for FHIR (un servicio administrado), puede usar el Azure Portal [,](fhir-paas-portal-quickstart.md) [PowerShell](fhir-paas-powershell-quickstart.md)o [CLI de Azure](fhir-paas-cli-quickstart.md).
 
-- Aplicación cliente [confidencial registrada para](register-confidential-azure-ad-client-app.md) acceder al servicio FHIR.
-- Ha concedido permisos a la aplicación cliente confidencial, por ejemplo, "Colaborador de datos de FHIR", para acceder al servicio FHIR. Para más información, consulte [Configuración de RBAC de Azure para FHIR.](./configure-azure-rbac.md)
+- Una aplicación [cliente confidencial registrada para](register-confidential-azure-ad-client-app.md) acceder al servicio FHIR.
+- Ha concedido permisos a la aplicación cliente confidencial y a su cuenta de usuario, por ejemplo, "Colaborador de datos de FHIR", para acceder al servicio FHIR. Para más información, consulte [Configuración de Azure RBAC para FHIR.](./configure-azure-rbac.md)
 - Postman instalado. 
     
   Para obtener más información sobre Postman, vea [Introducción a Postman.](https://www.getpostman.com)
@@ -42,7 +42,7 @@ Para usar Postman, se requieren los siguientes parámetros de autenticación:
 
 - Configurado que `audience` suele ser la dirección URL del servidor de FHIR, por ejemplo, o `https://<FHIR-SERVER-NAME>.azurehealthcareapis.com` `https://azurehealthcareapis.com` .
 
-- Identificador `client_id` de aplicación o de la aplicación cliente confidencial que se [usa](register-confidential-azure-ad-client-app.md) para acceder al servicio FHIR.
+- Identificador `client_id` de aplicación o de la aplicación cliente confidencial que [se](register-confidential-azure-ad-client-app.md) usa para acceder al servicio FHIR.
 
 - Secreto `client_secret` de aplicación o de la aplicación cliente confidencial.
 
@@ -56,7 +56,7 @@ Abra Postman y, a continuación, **seleccione GET** para realizar una solicitud 
 
 La dirección URL de metadatos para Azure API for FHIR es `https://MYACCOUNT.azurehealthcareapis.com/metadata`. 
 
-En este ejemplo, la dirección URL del servidor de FHIR es y la instrucción de funcionalidad `https://fhirdocsmsft.azurewebsites.net` del servidor está disponible en `https://fhirdocsmsft.azurewebsites.net/metadata` . Este punto de conexión es accesible sin autenticación.
+En este ejemplo, la dirección URL del servidor de FHIR es `https://fhirdocsmsft.azurewebsites.net` y la instrucción de funcionalidad del servidor está disponible en `https://fhirdocsmsft.azurewebsites.net/metadata` . Este punto de conexión es accesible sin autenticación.
 
 Si intenta acceder a recursos restringidos, se produce una respuesta "Error de autenticación".
 
@@ -85,20 +85,20 @@ En el **cuadro de diálogo Obtener nuevo token** de acceso, escriba los detalles
 | Id. de cliente             | `XXXXXXXX-XXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                           | Identificador de aplicación             |
 | Secreto del cliente         | `XXXXXXXX`                                                                                                      | Clave de cliente secreta          |
 | Ámbito | `<Leave Blank>` | No se usa el ámbito; por lo tanto, se puede dejar en blanco.  
-| Estado                 | `1234`     | [El](https://learning.postman.com/docs/sending-requests/authorization/) estado es un valor opaco para evitar la falsificación de solicitud entre sitios. Es opcional y puede tomar un valor arbitrario como "1234".                           |
+| Estado                 | `1234`     | [El](https://learning.postman.com/docs/sending-requests/authorization/) estado es un valor opaco para evitar la falsificación de solicitudes entre sitios. Es opcional y puede tomar un valor arbitrario como "1234".                           |
 | Autenticación de clientes | Enviar credenciales de cliente en el cuerpo                                                                                 |                 
 
-Seleccione **Solicitar token para** guiarse por el flujo Azure Active Directory autenticación y se devolverá un token a Postman. Si se produce un error de autenticación, consulte la consola de Postman para obtener más detalles. **Nota:** En la cinta de opciones, seleccione **Ver** y, a continuación, **seleccione Mostrar consola de Postman.** El método abreviado de teclado para la consola de Postman **es Alt-Ctrl+C.**
+Seleccione **Solicitar token** para guiarse por el flujo Azure Active Directory autenticación y se devolverá un token a Postman. Si se produce un error de autenticación, consulte la consola de Postman para obtener más detalles. **Nota:** En la cinta de opciones, seleccione **Ver** y, a continuación, **seleccione Mostrar consola de Postman.** El método abreviado de teclado para la consola de Postman **es Alt-Ctrl+C.**
 
-Desplácese hacia abajo para ver la pantalla de token devuelta y, a continuación, **seleccione Usar token.**
+Desplácese hacia abajo para ver la pantalla del token devuelto y, a continuación, **seleccione Usar token.**
 
 ![Usar token](media/tutorial-postman/postman-use-token.png)
 
-Consulte el campo **Token de** acceso para ver el token recién rellenado. Si selecciona Enviar **para** repetir la búsqueda `Patient` de recursos, se devuelve **un** `200 OK` estado. Un estado devuelto `200 OK` indica una solicitud HTTP correcta.
+Consulte el campo **Token de** acceso para ver el token recién rellenado. Si selecciona Enviar **para** repetir la búsqueda `Patient` de recursos, se devuelve un **estado.** `200 OK` Un estado devuelto `200 OK` indica una solicitud HTTP correcta.
 
 ![200 OK](media/tutorial-postman/postman-200-OK.png)
 
-En el *ejemplo de búsqueda de* pacientes, no hay ningún paciente en la base de datos de modo que el resultado de la búsqueda esté vacío.
+En el *ejemplo de búsqueda de* pacientes, no hay ningún paciente en la base de datos de forma que el resultado de la búsqueda esté vacío.
 
 Puede inspeccionar el token de acceso mediante una herramienta como [jwt.ms](https://jwt.ms). A continuación se muestra un ejemplo del contenido.
 
@@ -122,13 +122,13 @@ Puede inspeccionar el token de acceso mediante una herramienta como [jwt.ms](htt
 }
 ```
 
-En situaciones de solución de problemas, un buen punto de partida es validar que tiene la audiencia correcta (notificación `aud`). Si el token es del emisor correcto (notificación) y tiene la audiencia correcta (notificación), pero todavía no puede acceder a la API de FHIR, es probable que el usuario o la entidad de servicio (notificación) no tenga acceso al plano de datos de `iss` `aud` `oid` FHIR. Se recomienda usar el [control de acceso basado en rol de Azure (RBAC de Azure)](configure-azure-rbac.md) para asignar roles de plano de datos a los usuarios. Si usa un inquilino externo de Azure Active Directory secundario para el plano de datos, deberá configurar RBAC local para las asignaciones [de FHIR.](configure-local-rbac.md)
+En situaciones de solución de problemas, un buen punto de partida es validar que tiene la audiencia correcta (notificación `aud`). Si el token es del emisor correcto (notificación) y tiene la audiencia correcta (notificación), pero sigue sin poder acceder a la API de FHIR, es probable que el usuario o la entidad de servicio (notificación) no tenga acceso al plano de `iss` `aud` datos de `oid` FHIR. Se recomienda usar el control de acceso basado en [rol de Azure (RBAC de Azure)](configure-azure-rbac.md) para asignar roles de plano de datos a los usuarios. Si usa un inquilino externo de Azure Active Directory secundario para el plano de datos, deberá configurar rbac local para las asignaciones [de FHIR.](configure-local-rbac.md)
 
 También es posible obtener un token para el Azure API for FHIR [mediante el CLI de Azure](get-healthcare-apis-access-token-cli.md). Si usa un token obtenido con el CLI de Azure, debe usar el tipo de autorización *Bearer Token*. Pegue el token directamente.
 
 ## <a name="inserting-a-patient"></a>Inserción de un paciente
 
-Con un token de acceso válido, ahora puede insertar un nuevo paciente. En Postman, cambie el método **seleccionando Publicar** y agregue el siguiente documento JSON en el cuerpo de la solicitud.
+Con un token de acceso válido, ahora puede insertar un nuevo paciente. En Postman, cambie el método **seleccionando Publicar** y, a continuación, agregue el siguiente documento JSON en el cuerpo de la solicitud.
 
 [!code-json[](../samples/sample-patient.json)]
 
@@ -142,7 +142,7 @@ Si repite la búsqueda de pacientes, ahora debería ver el registro de pacientes
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha accedido al Azure API for FHIR mediante Postman. Para obtener más información sobre las características Azure API for FHIR, vea
+En este tutorial, ha accedido a la Azure API for FHIR mediante Postman. Para obtener más información sobre las características Azure API for FHIR, consulte
  
 >[!div class="nextstepaction"]
 >[Características compatibles](fhir-features-supported.md)
