@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: how-to
 ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 831c6df3f50bfff9b411660d9efc4cd78ee5e8d9
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 08d572970cc96eeb28b831293b82ab6ab3257cce
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020635"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112991224"
 ---
 # <a name="display-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>Visualización y configuración de las métricas de Azure IoT Connector for FHIR (versión preliminar) 
 
@@ -76,6 +76,6 @@ Tener acceso a las métricas del plano de datos es fundamental para las tareas d
 Obtenga respuestas a las preguntas más frecuentes sobre el conector de Azure IoT para FHIR.
 
 >[!div class="nextstepaction"]
->[P+F del conector de Azure IoT para FHIR](fhir-faq.md)
+>[P+F del conector de Azure IoT para FHIR](fhir-faq.yml)
 
 *En Azure Portal, el conector de Azure IoT para FHIR se conoce como conector de IoT (versión preliminar). FHIR es una marca registrada de HL7 y se usa con el permiso de HL7. 
