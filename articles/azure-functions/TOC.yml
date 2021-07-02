@@ -58,8 +58,10 @@
         - name: "Azure\_Arc (versión preliminar)"
           items:
             - name: Publicación de proyecto de código
+              displayName: 'Arc, container, Kubernetes'
               href: create-first-function-arc-cli.md
             - name: Publicación de contenedor de Linux
+              displayName: 'Arc, container, Kubernetes'
               href: create-first-function-arc-custom-container.md
     - name: Conectar con una base de datos
       items:
@@ -280,7 +282,7 @@
           items:
             - name: Desencadenador HTTP
               items:
-                - name: Portal de Azure
+                - name: Azure portal
                   href: functions-create-function-app-portal.md
                 - name: Línea de comandos
                   href: ./create-first-function-cli-csharp.md
@@ -352,6 +354,8 @@
           href: functions-manually-run-non-http.md
         - name: Traslado de dependencias a aplicaciones de funciones
           href: bring-dependency-to-functions.md
+        - name: Desarrollo de extensiones de trabajo de Python
+          href: develop-python-worker-extensions.md
     - name: Implementación
       items:
         - name: Implementación continua

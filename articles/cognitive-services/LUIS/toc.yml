@@ -18,8 +18,6 @@
   items:
     - name: Uso del portal de LUIS
       href: luis-get-started-create-app.md
-    - name: Uso del explorador
-      href: luis-get-started-get-intent-from-browser.md
     - name: Uso de las bibliotecas cliente y de la API REST
       href: client-libraries-rest-api.md
 - name: Ejemplos
@@ -82,18 +80,14 @@
       href: luis-get-started-get-intent-from-browser.md
     - name: Migrar
       items:
-        - name: Información general
-          href: migration.md
-        - name: Migración desde una entidad compuesta
-          href: migrate-from-composite-entity.md
-        - name: Migración al recurso de creación
-          href: luis-migration-authoring.md
-        - name: Migración a la API V3
-          href: luis-migration-api-v3.md
         - name: Migración a las API de creación V3
           href: luis-migration-authoring-entities.md
         - name: Migración a las API de predicción V3
           href: luis-migration-api-v3.md
+        - name: Migración desde una entidad compuesta
+          href: migrate-from-composite-entity.md
+        - name: Migración al recurso de creación
+          href: luis-migration-authoring.md
         - name: Migrar a las API V2
           href: luis-migration-api-v1-to-v2.md
     - name: Administración de aplicaciones
@@ -171,10 +165,6 @@
       items:
         - name: Revisar las expresiones de punto de conexión
           href: luis-concept-review-endpoint-utterances.md
-    - name: Prueba
-      items:
-        - name: Pruebas interactivas
-          href: luis-concept-test.md
     - name: Administración de datos
       items:
         - name: 'datos, recopilación'
@@ -196,14 +186,12 @@
       displayName: import
     - name: Aplicación de prácticas de DevOps con LUIS
       items:
-        - name: Uso de DevOps
-          href: luis-how-to-devops-with-github.md
+        - name: Flujos de trabajo de integración continua y entrega continua (CI/CD)
+          href: luis-concept-devops-automation.md
         - name: Control de código fuente y estrategias de ramificación para LUIS
           href: luis-concept-devops-sourcecontrol.md
         - name: Pruebas de DevOps
           href: luis-concept-devops-testing.md
-        - name: Flujos de trabajo de CI/CD
-          href: luis-concept-devops-automation.md
 - name: Tutoriales
   items:
     - name: Compilación de una aplicación que se puede descomponer
@@ -356,8 +344,6 @@
           items:
             - name: Entidad de aprendizaje automático
               href: reference-entity-machine-learned-entity.md
-            - name: Entidad compuesta
-              href: reference-entity-composite.md
             - name: Entidad de lista
               href: reference-entity-list.md
             - name: Entidad Pattern.any
