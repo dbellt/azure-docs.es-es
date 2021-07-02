@@ -1,12 +1,12 @@
-- name: Windows Virtual Desktop
+- name: Azure Virtual Desktop
   href: index.yml
 - name: Información general
   items:
-    - name: ¿Qué es Windows Virtual Desktop?
+    - name: ¿Qué es Azure Virtual Desktop?
       href: overview.md
     - name: Novedades
       href: whats-new.md
-    - name: Documentación de Windows Virtual Desktop (clásico)
+    - name: Documentación de Azure Virtual Desktop (clásico)
       href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutoriales
   items:
@@ -22,7 +22,7 @@
   items:
     - name: Migración manual
       href: manual-migration.md
-    - name: Conexión a recursos de Windows Virtual Desktop
+    - name: Conexión a recursos de Azure Virtual Desktop
       items:
         - name: Conexión con el cliente de Escritorio de Windows
           href: connect-windows-7-10.md
@@ -76,7 +76,7 @@
           href: configure-host-pool-load-balancing.md
         - name: Tipo de asignación de escritorio personal
           href: configure-host-pool-personal-desktop-assignment-type.md
-    - name: Uso de la licencia de Windows Virtual Desktop
+    - name: Uso de la licencia de Azure Virtual Desktop
       href: apply-windows-license.md
     - name: Personalización de una imagen de host de sesión
       items:
@@ -109,9 +109,11 @@
         - name: Configuración de la herramienta MSIXMGR
           href: app-attach-msixmgr.md
     - name: Uso de Microsoft Teams
-      href: teams-on-wvd.md
+      href: teams-on-avd.md
     - name: Configuración de Azure AD Multi-Factor Authentication
       href: set-up-mfa.md
+    - name: "Configuración del inicio de sesión único de AD\_FS"
+      href: configure-adfs-sso.md
     - name: Configuración de actualizaciones automáticas
       href: configure-automatic-updates.md
     - name: Instalación de paquetes de idioma
@@ -120,7 +122,7 @@
       href: azure-advisor.md
     - name: Resolver recomendaciones
       href: azure-advisor-recommendations.md
-    - name: Uso de Azure Monitor para Windows Virtual Desktop
+    - name: Uso de Azure Monitor para Azure Virtual Desktop
       href: azure-monitor.md
     - name: Configuración de un plan de recuperación ante desastres
       href: disaster-recovery.md
@@ -140,9 +142,9 @@
       href: rbac.md
     - name: Autenticación
       href: authentication.md
-    - name: Entorno de Windows Virtual Desktop
+    - name: Entorno de Azure Virtual Desktop
       href: environment-setup.md
-    - name: Agente de Windows Virtual Desktop
+    - name: Agente de Azure Virtual Desktop
       href: agent-overview.md
     - name: Conectividad de red
       items:
@@ -160,7 +162,7 @@
           href: proxy-server-support.md
         - name: Determinación de la latencia de la conexión del usuario
           href: connection-latency.md
-    - name: Acceso delegado en Windows Virtual Desktop
+    - name: Acceso delegado en Azure Virtual Desktop
       href: delegated-access-virtual-desktop.md
     - name: Métodos de equilibrio de carga para un grupo host
       href: host-pool-load-balancing.md
@@ -168,7 +170,7 @@
       href: fslogix-containers-azure-files.md
     - name: Opciones de almacenamiento para contenedores del perfil de FSLogix
       href: store-fslogix-profile.md
-    - name: Preguntas frecuentes acerca de Windows Virtual Desktop
+    - name: Preguntas frecuentes de Azure Virtual Desktop
       href: faq.md
     - name: "Preguntas frecuentes sobre la sesión múltiple de Windows\_10\_Enterprise"
       href: windows-10-multisession-faq.yml
@@ -200,11 +202,11 @@
       href: troubleshoot-vm-configuration.md
     - name: Conexiones de servicios de Escritorio remoto
       href: troubleshoot-service-connection.md
-    - name: Agente de Windows Virtual Desktop
+    - name: Agente de Azure Virtual Desktop
       href: troubleshoot-agent.md
     - name: Problemas de los clientes de Escritorio remoto
       href: troubleshoot-client.md
-    - name: "PowerShell para Windows\_Virtual\_Desktop"
+    - name: PowerShell para Azure Virtual Desktop
       href: troubleshoot-powershell.md
     - name: Diagnóstico de problemas de rendimiento de los gráficos
       href: remotefx-graphics-performance-counters.md
