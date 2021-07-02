@@ -86,6 +86,8 @@
       href: samples.md
     - name: PowerShell
       href: samples-powershell.md
+    - name: Introducción al ejemplo de React Native UWP
+      href: uwp-react.md
 - name: Conceptos
   items:
     - name: Seguridad de la capa de transporte (TLS)
@@ -168,7 +170,7 @@
 - name: Recursos
   items:
     - name: Preguntas más frecuentes
-      href: notification-hubs-push-notification-faq.md
+      href: notification-hubs-push-notification-faq.yml
     - name: Migración de Google GCM a FCM
       href: notification-hubs-gcm-to-fcm.md
     - name: SDK

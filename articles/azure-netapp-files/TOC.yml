@@ -33,8 +33,14 @@
           href: performance-impact-kerberos.md
         - name: Rendimiento de Oracle Database en volúmenes individuales de Azure NetApp Files
           href: performance-oracle-single-volumes.md
-        - name: Preguntas frecuentes sobre el rendimiento de SMB
-          href: azure-netapp-files-smb-performance.md
+        - name: Referencia de rendimiento para Azure NetApp Files
+          items:
+            - name: Procedimientos recomendados de opciones de montaje de NFS de Linux
+              href: performance-linux-mount-options.md
+            - name: Procedimientos recomendados de simultaneidad de Linux
+              href: performance-linux-concurrency-session-slots.md
+            - name: Procedimientos recomendados de rendimiento de SMB
+              href: azure-netapp-files-smb-performance.md
     - name: Modelo de costo de Azure NetApp Files
       href: azure-netapp-files-cost-model.md
     - name: Descripción de la cuota de volumen
@@ -69,6 +75,8 @@
       href: azure-netapp-files-faqs.md
     - name: ¿Qué es la herramienta Azure Application Consistent Snapshot?
       href: azacsnap-introduction.md
+    - name: Complementos del servicio Storage
+      href: storage-service-add-ons.md
     - name: Qué significa cambiar a la cuota máxima de volumen
       href: volume-hard-quota-guidelines.md
 - name: Guías paso a paso

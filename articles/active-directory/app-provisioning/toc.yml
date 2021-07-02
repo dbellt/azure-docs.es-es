@@ -18,6 +18,8 @@
       href: customize-application-attributes.md
     - name: Tutoriales de aprovisionamiento específicos de aplicaciones
       href: /azure/active-directory/saas-apps
+    - name: Conector SQL genérico del host del conector ECMA de Azure AD
+      href: tutorial-ecma-sql-connector.md
 - name: Conceptos
   expanded: true
   items:
@@ -29,6 +31,10 @@
       href: plan-cloud-hr-provision.md
     - name: Descripción del registro con Azure Monitor
       href: application-provisioning-log-analytics.md
+    - name: Arquitectura de aprovisionamiento de aplicaciones locales
+      href: on-premises-application-provisioning-architecture.md
+    - name: Descripción del generador de expresiones
+      href: expression-builder.md
 - name: Guías paso a paso
   expanded: true
   items:
@@ -53,7 +59,7 @@
         - name: Aprovisionamiento de informes
           href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: Automatización de la configuración mediante MS Graph
-      href: /graph/application-provisioning-configure-api
+      href: application-provisioning-configuration-api.md
     - name: Solución de problemas de aprovisionamiento de aplicaciones
       items:
         - name: Problemas conocidos
@@ -66,8 +72,24 @@
           href: application-provisioning-config-problem-no-users-provisioned.md
         - name: Falta atributo de origen
           href: user-provisioning-sync-attributes-for-mapping.md
+        - name: Solución de problemas del host del conector ECMA
+          href: on-premises-ecma-troubleshoot.md
         - name: Registros de aprovisionamiento
           href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+    - name: Aprovisionamiento de aplicaciones locales
+      items:
+        - name: Requisitos previos del host del conector ECMA
+          href: on-premises-ecma-prerequisites.md
+        - name: Instalación del host del conector ECMA
+          href: on-premises-ecma-install.md
+        - name: Configuración del host del conector ECMA
+          href: on-premises-ecma-configure.md
+        - name: Configuración genérica del conector SQL
+          href: on-premises-sql-connector-configure.md
+        - name: Aprovisionamiento de aplicaciones locales para aplicaciones habilitadas para SCIM
+          href: on-premises-scim-provisioning.md
+        - name: Migración del conector desde la sincronización de MIM
+          href: on-premises-migrate-microsoft-identity-manager.md
 - name: Referencia
   items:
     - name: "Compatibilidad del protocolo SCIM\_2.0"

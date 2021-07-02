@@ -130,6 +130,12 @@ conceptualContent:
         - url: ./big-data/samples-python.md
           itemType: reference
           text: Ejemplos de Python
+    - title: Uso responsable de la inteligencia artificial
+      summary: Azure Cognitive Services proporciona información e instrucciones sobre cómo usar de forma responsable nuestros servicios de inteligencia artificial en sus aplicaciones.
+      links:
+        - url: responsible-use-of-ai-overview.md
+          itemType: overview
+          text: Uso responsable de la inteligencia artificial
 additionalContent:
   sections:
     - title: Recursos adicionales

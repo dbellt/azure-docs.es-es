@@ -37,22 +37,6 @@
           href: quickstart-control-device-python.md
         - name: Android
           href: quickstart-control-device-android.md
-    - name: Comunicación mediante flujos de dispositivos (versión preliminar)
-      items:
-        - name: .NET
-          href: quickstart-device-streams-echo-csharp.md
-        - name: Node.js
-          href: quickstart-device-streams-echo-nodejs.md
-        - name: C
-          href: quickstart-device-streams-echo-c.md
-    - name: SSH o RDP mediante flujos de dispositivos (versión preliminar)
-      items:
-        - name: .NET
-          href: quickstart-device-streams-proxy-csharp.md
-        - name: Node.js
-          href: quickstart-device-streams-proxy-nodejs.md
-        - name: C
-          href: quickstart-device-streams-proxy-c.md
     - name: Enrutamiento automático de mensajes mediante una plantilla de Resource Manager
       displayName: Resource Manager
       href: horizontal-arm-route-messages.md
@@ -128,8 +112,6 @@
       href: iot-hub-event-grid-routing-comparison.md
     - name: Procedimientos recomendados de configuración de dispositivos
       href: iot-hub-configuration-best-practices.md
-    - name: Compatibilidad de plataformas de SDK de IoT de Azure
-      href: iot-hub-device-sdk-platform-support.md
     - name: Introducción a los flujos de dispositivos de IoT Hub (versión preliminar)
       href: iot-hub-device-streams-overview.md
     - name: Guía del desarrollador
@@ -187,8 +169,16 @@
           href: iot-hub-devguide-quotas-throttling.md
         - name: Ejemplos de precios
           href: iot-hub-devguide-pricing.md
-        - name: SDK de dispositivos y servicios
-          href: iot-hub-devguide-sdks.md
+        - name: SDK de IoT Hub
+          items:
+            - name: Información general sobre el SDK
+              href: iot-hub-devguide-sdks.md
+            - name: Compatibilidad con la plataforma del SDK
+              href: iot-hub-device-sdk-platform-support.md
+            - name: Desarrollo sin el SDK
+              href: iot-hub-devguide-no-sdk.md
+            - name: Administración de conectividad y mensajería de confianza
+              href: iot-hub-reliability-features-in-sdks.md
         - name: Soporte para MQTT
           href: iot-hub-mqtt-support.md
         - name: "Compatibilidad con MQTT\_5 (versión preliminar)"
@@ -227,10 +217,7 @@
     - name: Desarrollar
       items:
         - name: Uso de los SDK de dispositivos y servicios
-          href: iot-hub-devguide-sdks.md
           items:
-            - name: Compatibilidad de plataformas de SDK de IoT de Azure
-              href: iot-hub-device-sdk-platform-support.md
             - name: Uso del SDK de dispositivo IoT para C
               href: iot-hub-device-sdk-c-intro.md
               items:
@@ -244,12 +231,8 @@
               href: iot-hub-devguide-develop-for-constrained-devices.md
             - name: Desarrollo para dispositivos móviles
               href: iot-hub-how-to-develop-for-mobile-devices.md
-            - name: Administración de conectividad y mensajería de confianza
-              href: iot-hub-reliability-features-in-sdks.md
             - name: Desarrollo para la plataforma Android Things
               href: iot-hub-how-to-android-things.md
-        - name: Desarrollo sin un SDK de Azure IoT
-          href: iot-hub-devguide-no-sdk.md
         - name: Consulta de datos de Avro desde una ruta de concentrador
           href: iot-hub-query-avro-data.md
         - name: Envío de mensajes de nube a dispositivo
@@ -462,7 +445,7 @@
               href: iot-hub-troubleshoot-error-504101-gatewaytimeout.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/azure-cli-reference-for-IoT
     - name: Azure PowerShell
       href: /powershell/module/az.iothub#iothub
@@ -542,7 +525,7 @@
         - name: SDK de servicio de IoT
           href: ./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
         - name: SDK de dispositivo IoT
-          href: ./iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
+          href: ../iot-develop/about-iot-sdks.md
     - name: Ejemplos de Azure IoT
       items:
         - name: C# (.NET)
