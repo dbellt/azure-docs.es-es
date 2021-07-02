@@ -6,15 +6,15 @@ metadata:
   description: Aprenda a usar Azure Purview para que su organización pueda encontrar, conocer y consumir orígenes de datos. Los tutoriales, la referencia de la API REST y otra documentación muestran cómo planear y configurar el repositorio de datos en el que los consumidores puedan detectar los orígenes de datos disponibles y adquirir los conocimientos aportados por expertos en la materia.
   ms.service: purview
   ms.topic: landing-page
-  author: JasonWHowell
-  ms.author: jasonh
-  ms.date: 11/29/2020
-  ms.openlocfilehash: c9e9a32ca5c77082186f15a0eae3f3430347a02b
-  ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+  author: whhender
+  ms.author: whhender
+  ms.date: 06/09/2021
+  ms.openlocfilehash: 8db36ffb5f1d081e0e4dbb2cd6dbca02c7ddf726
+  ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 01/28/2021
-  ms.locfileid: "98926923"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111904020"
 landingContent:
 - title: Acerca de Azure Purview
   linkLists:
@@ -24,12 +24,16 @@ landingContent:
       url: overview.md
   - linkListType: concept
     links:
+    - text: Uso de Purview Studio
+      url: use-purview-studio.md
     - text: Procedimientos recomendados de implementación
       url: deployment-best-practices.md
     - text: Permisos de Data Catalog
       url: catalog-permissions.md
     - text: Tipos de archivo y orígenes de datos admitidos
       url: sources-and-scans.md
+    - text: Linaje de datos
+      url: concept-data-lineage.md
 - title: Introducción
   linkLists:
   - linkListType: quickstart
@@ -40,8 +44,6 @@ landingContent:
       url: create-catalog-powershell.md
   - linkListType: tutorial
     links:
-    - text: Descarga de Starter Kit
-      url: https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip
     - text: Ejecución de Starter Kit y examen de datos
       url: tutorial-scan-data.md
     - text: Desplazamiento por la página principal de Purview y búsqueda
@@ -52,42 +54,42 @@ landingContent:
       url: tutorial-schemas-and-classifications.md
     - text: Creación de términos del glosario
       url: tutorial-import-create-glossary-terms.md
-- title: Examen de orígenes de datos de Azure
+- title: Registro y examen de orígenes de datos de Azure
   linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Ejecución de Starter Kit y examen de datos
-      url: tutorial-scan-data.md
   - linkListType: how-to-guide
     links:
+    - text: Examen de varios orígenes de Azure
+      url: register-scan-azure-multiple-sources.md
     - text: Examen de Azure SQL Database
       url: register-scan-azure-sql-database.md
     - text: Examen de Azure Data Lake Storage Gen 2
       url: register-scan-adls-gen2.md
-    - text: Examen de Azure Cosmos DB
-      url: register-scan-azure-cosmos-database.md
-    - text: Inquilino de Power BI
+    - text: Examen del área de trabajo de Azure Synapse
+      url: register-scan-synapse-workspace.md
+    - text: Examen de un Inquilino de Power BI
       url: register-scan-power-bi-tenant.md
-    - text: Registro y examen de Azure Blob Storage
+    - text: Examen de un grupo de SQL dedicado de Azure (antes denominado SQL DW)
+      url: register-scan-azure-synapse-analytics.md
+    - text: Examen de Azure Blob Storage
       url: register-scan-azure-blob-storage-source.md
-- title: Examen de orígenes de datos que no sean de Azure
+  - linkListType: tutorial
+    links:
+    - text: Incorporación de orígenes de Azure a escala
+      url: tutorial-data-sources-readiness.md
+- title: Detección de datos
   linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Examen y linaje
+      url: tutorial-browse-and-view-lineage.md
   - linkListType: how-to-guide
     links:
-    - text: Examen de SQL Server local
-      url: register-scan-on-premises-sql-server.md
-- title: Reconocimiento del estado de sus datos
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Visualización de información de recursos
-      url: asset-insights.md
-    - text: Visualización de información de glosarios
-      url: glossary-insights.md
-    - text: Visualización de información de exámenes
-      url: scan-insights.md
-    - text: Visualización de información de la clasificación
-      url: classification-insights.md
+    - text: Uso de características de linaje de datos
+      url: catalog-lineage-user-guide.md
+    - text: Examen por tipo de recurso
+      url: how-to-browse-catalog.md
+    - text: Buscar recursos, términos, anotaciones y contactos
+      url: how-to-search-catalog.md
 - title: Mantenimiento de datos
   linkLists:
   - linkListType: tutorial
@@ -102,15 +104,29 @@ landingContent:
       url: create-a-custom-classification-and-classification-rule.md
     - text: Creación, importación y exportación de glosarios
       url: how-to-create-import-export-glossary.md
-- title: Detección de datos
+    - text: Recursos de edición masiva
+      url: how-to-bulk-edit-assets.md
+- title: Examen de orígenes de datos que no sean de Azure
   linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Examen y linaje
-      url: tutorial-browse-and-view-lineage.md
   - linkListType: how-to-guide
     links:
-    - text: Examen por tipo de recurso
-      url: how-to-browse-catalog.md
-    - text: Buscar recursos, términos, anotaciones y contactos
-      url: how-to-search-catalog.md
+    - text: Examen de SQL Server local
+      url: register-scan-on-premises-sql-server.md
+    - text: Examen de Amazon S3
+      url: register-scan-amazon-s3.md
+    - text: Examen de Oracle
+      url: register-scan-oracle-source.md
+    - text: Examen de base de datos de metastore de Hive
+      url: register-scan-hive-metastore-source.md
+- title: Reconocimiento del estado de sus datos
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Visualización de información de la etiqueta de confidencialidad
+      url: sensitivity-insights.md
+    - text: Visualización de información de recursos
+      url: asset-insights.md
+    - text: Visualización de información de la clasificación
+      url: classification-insights.md
+    - text: Visualización de información de glosarios
+      url: glossary-insights.md
