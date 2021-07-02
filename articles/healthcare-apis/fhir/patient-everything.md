@@ -8,14 +8,14 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 06/04/2021
 ms.author: cavoeg
-ms.openlocfilehash: 480a909b5349d973f2d9803e1440827d94923ee6
-ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
+ms.openlocfilehash: ad7da9305d9bde65f7c393295b806957414a05d8
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112322789"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113135616"
 ---
-# <a name="patient-everything-in-fhir"></a>Patient-everything in FHIR
+# <a name="patient-everything-in-fhir"></a>Patient-everything en FHIR
 
 La [$patient todo](https://www.hl7.org/fhir/patient-operation-everything.html) se usa para proporcionar a un paciente acceso a todo su registro o para que un proveedor u otro usuario realice una descarga masiva de datos. Esta operación se usa para devolver toda la información relacionada con uno o varios pacientes descritos en el recurso o contexto en el que se invoca esta operación.  
 
@@ -30,10 +30,6 @@ El Azure API for FHIR valida que puede encontrar el paciente que coincide con el
 *  Recursos a los que hace referencia directamente el recurso Patient (excepto el vínculo) 
 *  Recursos en el [compartimiento de pacientes](https://www.hl7.org/fhir/compartmentdefinition-patient.html)
 *  [Recursos de dispositivo](https://www.hl7.org/fhir/device.html) que hacen referencia al recurso Patient. Esto se limita a 100 dispositivos. Si el paciente tiene más de 100 dispositivos vinculados a ellos, solo se devolverán 100. 
-
- 
-> [!Note]
-> Falta compatibilidad con la instrucción de funcionalidad del servidor de FHIR para $patient todo, cuyo seguimiento se realiza aquí: Problema [1989.](https://github.com/microsoft/fhir-server/issues/1989) 
 
 
 ## <a name="patient-everything-parameters"></a>Parámetros patient-everything

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 6/16/2021
 ms.author: cavoeg
-ms.openlocfilehash: cec3b32fc2c56769cf910cf9317e45648cc59174
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 3e2d0c051ff882e43b04b2aea4357e78d79e67dc
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112295748"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113135958"
 ---
 # <a name="features"></a>Características
 
@@ -56,7 +56,7 @@ Entre las versiones anteriores también admitidas actualmente se incluye: `3.0.2
  **Nota 2**
 * Agrega compatibilidad con MVP para búsqueda FHIR encadenada e inversa en CosmosDB. 
 
-  En el Azure API for FHIR servidor FHIR de código abierto con el respaldo de Cosmos, la búsqueda encadenada y la búsqueda encadenada inversa es una implementación de MVP. Para realizar búsquedas encadenadas en Cosmos DB, la implementación recorre la expresión de búsqueda y emite subconsediciones para resolver los recursos coincidentes. Esto se hace para cada nivel de la expresión. Si alguna consulta devuelve más de 100 resultados, se producirá un error. De forma predeterminada, la búsqueda encadenada está detrás de una marca de característica. Para usar la búsqueda encadenada en Cosmos DB, use el encabezado `x-ms-enable-chained-search: true` . Para obtener más información, [vea PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
+  En el Azure API for FHIR servidor FHIR de código abierto con el respaldo de Cosmos, la búsqueda encadenada y la búsqueda encadenada inversa es una implementación de MVP. Para realizar búsquedas encadenadas en Cosmos DB, la implementación recorre la expresión de búsqueda y emite subconsediciones para resolver los recursos coincidentes. Esto se hace para cada nivel de la expresión. Si alguna consulta devuelve más de 100 resultados, se producirá un error. De forma predeterminada, la búsqueda encadenada está detrás de una marca de característica. Para usar la búsqueda encadenada en Cosmos base de datos, use el encabezado `x-ms-enable-chained-search: true` . Para obtener más información, vea [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
 
 ## <a name="extended-operations"></a>Operaciones extendidas
 
@@ -70,7 +70,7 @@ Todas las operaciones que se admiten y que extienden la API RESTful.
 | $convert-data          | Sí       | Sí       | Sí       |         |
 | $validate              | Sí       | Sí       | Sí       |         |
 | $member coincidencia          | Sí       | Sí       | Sí       |         |
-| $patient todo    | No        | No        | Sí       |         |
+| $patient todo    | Sí       | Sí       | Sí       |         |
 
 ## <a name="persistence"></a>Persistencia
 
