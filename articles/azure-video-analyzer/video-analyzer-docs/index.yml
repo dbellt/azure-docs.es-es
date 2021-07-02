@@ -11,12 +11,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 03/11/2021
-  ms.openlocfilehash: 9b4418aa8ff0d0cf3fb6d43d52d5b8991f403515
-  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.openlocfilehash: 5971849d941151cbcfae09d156b23520c502495b
+  ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/25/2021
-  ms.locfileid: "110383489"
+  ms.lasthandoff: 05/28/2021
+  ms.locfileid: "110615118"
 landingContent:
 - title: Introducción a Video Analyzer
   linkLists:
@@ -28,8 +28,10 @@ landingContent:
       url: ../video-analyzer-for-media-docs/video-indexer-overview.md
   - linkListType: quickstart
     links:
-    - text: Introducción a Azure Video Analyzer
+    - text: Introducción al uso de una plantilla de Resource Manager
       url: get-started-detect-motion-emit-events.md
+    - text: Introducción al uso del portal
+      url: get-started-detect-motion-emit-events-portal.md
 - title: Grabación de vídeo basada en eventos
   linkLists:
   - linkListType: concept

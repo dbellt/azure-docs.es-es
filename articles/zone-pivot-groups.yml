@@ -392,10 +392,10 @@ groups:
   pivots:
   - id: development-environment-vscode
     title: Visual Studio Code
-  - id: development-environment-cli
-    title: Línea de comandos
   - id: development-environment-vs
     title: Visual Studio
+  - id: development-environment-cli
+    title: Línea de comandos
 - id: bring-third-party-dependency-programming-functions
   title: Lenguajes de programación
   prompt: Selección de un lenguaje de programación
@@ -793,8 +793,8 @@ groups:
   - id: programming-language-python
     title: Python
 - id: app-service-ide
-  title: Experiencia de desarrollo
-  prompt: Elección de una experiencia de desarrollo
+  title: Entorno de desarrollo
+  prompt: Elección de un entorno de desarrollo
   pivots:
   - id: development-environment-vs
     title: Visual Studio
@@ -879,7 +879,7 @@ groups:
   - id: platform-azp
     title: Azure portal
   - id: platform-azcli
-    title: Azure CLI
+    title: CLI de Azure
   - id: platform-net
     title: .NET
   - id: platform-powershell
@@ -1027,7 +1027,7 @@ groups:
   - id: platform-azp
     title: Azure portal
   - id: platform-azcli
-    title: Azure CLI
+    title: CLI de Azure
   - id: platform-net
     title: .NET
 - id: acs-plat-azp-arm-net-python-go-powershell
@@ -1200,10 +1200,54 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
+- id: facility-ontology-schema
+  title: Facility Ontology para Creator
+  prompt: Elección de una versión de Facility Ontology
+  pivots:
+  - id: facility-ontology-v1
+    title: Facility Ontology 1.0
+  - id: facility-ontology-v2
+    title: Facility Ontology 2.0
+- id: how-to-troubleshoot-monitoring-and-faq-zpg
+  title: Preguntas frecuentes sobre Azure Monitor para IoT Edge
+  prompt: Elija un tema
+  pivots:
+  - id: metrics-collection
+    title: Recopilación de métricas
+  - id: custom-metrics
+    title: Métricas personalizadas
+  - id: alerts
+    title: Alertas
+  - id: workbooks
+    title: Workbooks
+- id: identity-mi-methods
+  title: Métodos de identidades administradas
+  prompt: Elegir una opción.
+  pivots:
+  - id: identity-mi-methods-azp
+    title: Azure portal
+  - id: identity-mi-methods-azcli
+    title: CLI de Azure
+  - id: identity-mi-methods-powershell
+    title: PowerShell
+  - id: identity-mi-methods-arm
+    title: Resource Manager
+  - id: identity-mi-methods-rest
+    title: REST
+- id: identity-mi-method-sub
+  title: Subconjunto de método de identidades administradas
+  prompt: Elegir una opción.
+  pivots:
+  - id: identity-mi-methods-sub-azp
+    title: Azure portal
+  - id: identity-mi-methods-sub-azcli
+    title: CLI de Azure
+  - id: identity-mi-methods-sub-powershell
+    title: PowerShell
 metadata:
-  ms.openlocfilehash: adcb769a1cf52dc86ee60349463caa078fb31a4b
-  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.openlocfilehash: 0a7eb15f89dccdc97443a2c14107aa7bdb6fdba4
+  ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/25/2021
-  ms.locfileid: "110373534"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111902238"

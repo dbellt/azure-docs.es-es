@@ -51,6 +51,8 @@
       href: private-link-service-overview.md
     - name: Integración de DNS de punto de conexión privado
       href: private-endpoint-dns.md
+    - name: Permisos de RBAC
+      href: rbac-permissions.md
     - name: Seguridad
       items:
         - name: Línea de base de seguridad
@@ -73,7 +75,7 @@
           href: troubleshoot-private-link-connectivity.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/network
     - name: Azure PowerShell
       href: /powershell/module/az.network

@@ -154,6 +154,8 @@
           href: howto-password-ban-bad-on-premises-faq.yml
         - name: Historial de versiones del agente
           href: howto-password-ban-bad-on-premises-agent-versions.md
+    - name: Desplazamiento de la configuración de Microsoft Authenticator (versión preliminar)
+      href: how-to-nudge-authenticator-app.md
     - name: Uso de un pase de acceso temporal (versión preliminar)
       href: howto-authentication-temporary-access-pass.md
     - name: Uso de autenticación basada en SMS

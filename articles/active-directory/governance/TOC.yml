@@ -106,6 +106,8 @@
       items:
         - name: Planeamiento de la implementación de las revisiones del acceso
           href: deploy-access-reviews.md
+        - name: Creación de un informe del historial de revisiones de acceso
+          href: access-reviews-downloadable-review-history.md
         - name: Paquetes de acceso
           items:
             - name: Creación de una revisión de acceso
@@ -144,6 +146,6 @@
   expanded: true
   items:
     - name: 'Revisiones de acceso: Graph API'
-      href: /graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true
+      href: /graph/api/resources/accessreviewsv2-root?view=graph-rest-beta
     - name: 'Administración de derechos: Graph API'
-      href: /graph/api/resources/entitlementmanagement-root?view=graph-rest-beta&preserve-view=true
+      href: /graph/api/resources/entitlementmanagement-root?view=graph-rest-beta

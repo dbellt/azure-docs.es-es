@@ -4,14 +4,10 @@
   items:
     - name: ¿Qué son las plantillas de Resource Manager?
       href: overview.md
-    - name: Introducción a Bicep
-      href: bicep-overview.md
 - name: Guías de inicio rápido
   items:
     - name: "Creación de plantillas JSON: VS\_Code"
       href: quickstart-create-templates-use-visual-studio-code.md
-    - name: "Creación de plantillas Bicep: VS\_Code"
-      href: quickstart-create-bicep-use-visual-studio-code.md
     - name: 'Creación de plantillas JSON: portal'
       href: quickstart-create-templates-use-the-portal.md
     - name: Creación de especificaciones de plantillas
@@ -40,38 +36,6 @@
           href: template-tutorial-add-tags.md
         - name: '10: uso de un archivo de parámetros'
           href: template-tutorial-use-parameter-file.md
-    - name: Bicep para principiantes
-      items:
-        - name: '1: creación de la primera plantilla'
-          displayName: Bicep
-          href: bicep-tutorial-create-first-bicep.md
-        - name: 2. Incorporación de parámetros
-          displayName: Bicep
-          href: bicep-tutorial-add-parameters.md
-        - name: 3. Incorporación de funciones de plantilla
-          displayName: Bicep
-          href: bicep-tutorial-add-functions.md
-        - name: 4. Incorporación de variables
-          displayName: Bicep
-          href: bicep-tutorial-add-variables.md
-        - name: 5. Incorporación de salidas
-          displayName: Bicep
-          href: bicep-tutorial-add-outputs.md
-        - name: 6. Uso de plantillas exportadas
-          displayName: Bicep
-          href: bicep-tutorial-export-template.md
-        - name: 7. Uso de plantillas de inicio rápido
-          displayName: Bicep
-          href: bicep-tutorial-quickstart-template.md
-        - name: 8. Incorporación de etiquetas
-          displayName: Bicep
-          href: bicep-tutorial-add-tags.md
-        - name: 9. Uso de archivos de parámetros
-          displayName: Bicep
-          href: bicep-tutorial-use-parameter-file.md
-        - name: 10. Incorporación de módulos
-          displayName: Bicep
-          href: bicep-tutorial-add-modules.md
     - name: Implementación
       items:
         - name: '1: implementación de una plantilla local'
@@ -325,45 +289,34 @@
 - name: Conceptos
   items:
     - name: Procedimientos recomendados para plantillas
-      href: template-best-practices.md
-    - name: Bicep
-      items:
-        - name: Instalación de Bicep
-          href: bicep-install.md
-        - name: Conversión entre JSON y Bicep
-          href: bicep-decompile.md
-        - name: Comparación entre JSON y Bicep
-          href: compare-template-syntax.md
+      href: best-practices.md
     - name: Tipos de datos
       href: data-types.md
     - name: Preguntas más frecuentes
       href: frequently-asked-questions.md
     - name: Plantillas para mantener la coherencia en la nube
-      href: templates-cloud-consistency.md
+      href: template-cloud-consistency.md
     - name: Modos de implementación
       href: deployment-modes.md
     - name: Eliminaciones del historial de implementación
       href: deployment-history-deletions.md
-    - name: Eliminación del modo completo
-      href: complete-mode-deletion.md
+    - name: Eliminación del modo completo de la implementación
+      href: deployment-complete-mode-deletion.md
 - name: Procedimientos
   items:
     - name: Crear plantillas
       items:
         - name: Estructura JSON
           displayName: 'parameters,variables,resources,outputs,condition'
-          href: template-syntax.md
-        - name: Estructura de Bicep
-          displayName: 'parameters,variables,resources,outputs,condition'
-          href: bicep-file.md
+          href: syntax.md
         - name: Escritura de expresiones de plantilla
           href: template-expressions.md
         - name: Parámetros
-          href: template-parameters.md
+          href: parameters.md
         - name: variables
-          href: template-variables.md
+          href: variables.md
         - name: Funciones definidas por el usuario
-          href: template-user-defined-functions.md
+          href: user-defined-functions.md
         - name: Recursos
           items:
             - name: Declaración de recursos
@@ -373,13 +326,13 @@
             - name: Implementación condicional
               href: conditional-resource-deployment.md
             - name: Establecimiento de dependencias de recursos
-              href: define-resource-dependency.md
+              href: resource-dependency.md
             - name: Establecimiento de la ubicación del recurso
               href: resource-location.md
             - name: Uso de extensiones de plantilla
-              href: add-resource-extensions.md
+              href: resource-extensions.md
         - name: Salidas
-          href: template-outputs.md
+          href: outputs.md
         - name: Script de implementación
           displayName: custom script
           href: deployment-script-template.md
@@ -390,8 +343,6 @@
             - name: Modularización de plantillas
               displayName: 'linked templates, nested templates'
               href: linked-templates.md
-            - name: Módulos de Bicep
-              href: bicep-modules.md
         - name: Creación de varias instancias
           items:
             - name: Recursos
@@ -430,7 +381,7 @@
           items:
             - name: Resource group
               href: deploy-to-resource-group.md
-            - name: Suscripción
+            - name: Subscription
               href: deploy-to-subscription.md
             - name: Grupo de administración
               href: deploy-to-management-group.md
@@ -441,7 +392,7 @@
             - name: Funciones en ámbitos
               href: scope-functions.md
         - name: Implementación de tipo "y si"
-          href: template-deploy-what-if.md
+          href: deploy-what-if.md
         - name: Nueva implementación si se produce un error
           displayName: rollback
           href: rollback-on-error.md
@@ -467,7 +418,7 @@
         - name: Creación e implementación de especificaciones de plantillas
           href: template-specs.md
         - name: Conversión de la galería de plantillas del portal
-          href: convert-to-template-spec.md
+          href: template-spec-convert.md
     - name: CI/CD
       items:
         - name: Plantillas de Resource Manager con canalizaciones
@@ -530,8 +481,6 @@
       items:
         - name: Todas las funciones
           href: template-functions.md
-        - name: Cualquier función (Bicep)
-          href: template-functions-any.md
         - name: Funciones de matriz
           href: template-functions-array.md
         - name: Funciones de comparación
@@ -550,21 +499,11 @@
           href: template-functions-resource.md
         - name: Funciones de cadena
           href: template-functions-string.md
-    - name: Operadores de Bicep
-      items:
-        - name: Todos los operadores
-          href: bicep-operators.md
-        - name: Operadores de comparación
-          href: bicep-operators-comparison.md
-        - name: Operadores lógicos
-          href: bicep-operators-logical.md
-        - name: Operadores numéricos
-          href: bicep-operators-numeric.md
     - name: REST
       href: /rest/api/resources/
     - name: Azure PowerShell
       href: /powershell/module/az.resources
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/resource
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.resourcemanager

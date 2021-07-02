@@ -220,7 +220,7 @@
               href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
             - name: Creación de suscripciones a MPA mediante programación
               href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
-            - name: 'Creación de suscripciones mediante programación: API de la versión preliminar'
+            - name: 'Creación de suscripciones mediante programación: API heredadas'
               href: manage/programmatically-create-subscription-preview.md
         - name: Administración de suscripciones al Contrato Enterprise
           items:
