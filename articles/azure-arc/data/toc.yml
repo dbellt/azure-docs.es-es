@@ -140,8 +140,8 @@
               items:
                 - name: Mostrar configuración
                   href: show-configuration-postgresql-hyperscale-server-group.md
-                - name: 'Escalado horizontal: agregar nodos de trabajo'
-                  href: scale-out-postgresql-hyperscale-server-group.md
+                - name: Escalado | reducción horizontal de nodos de trabajo
+                  href: scale-out-in-postgresql-hyperscale-server-group.md
                 - name: Escalado | reducción vertical de la memoria y los núcleos virtuales
                   href: scale-up-down-postgresql-hyperscale-server-group-using-cli.md
                 - name: Configuración de parámetros del servidor

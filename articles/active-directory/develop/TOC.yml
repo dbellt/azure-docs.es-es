@@ -23,12 +23,10 @@
     - name: Aplicación de página única (SPA)
       items:
         - name: Angular
-          href: quickstart-v2-angular.md
-        - name: 'Angular: flujo de código de autenticación'
           href: quickstart-v2-javascript-auth-code-angular.md
         - name: JavaScript
           href: quickstart-v2-javascript-auth-code.md
-        - name: 'React: flujo de código de autenticación'
+        - name: React
           href: quickstart-v2-javascript-auth-code-react.md
     - name: Aplicación web
       items:
@@ -81,8 +79,6 @@
     - name: Aplicación de página única (SPA)
       items:
         - name: Angular
-          href: tutorial-v2-angular.md
-        - name: 'Angular: flujo de código de autenticación'
           href: tutorial-v2-angular-auth-code.md
         - name: WebAssembly de Blazor
           href: tutorial-blazor-webassembly.md
@@ -148,13 +144,18 @@
       href: app-objects-and-service-principals.md
     - name: Procedimientos recomendados de la plataforma de identidad
       href: identity-platform-integration-checklist.md
+    - name: Seguridad de la aplicación
+      displayName: 'least privilege, secure app configuration, conditional access'
+      items:
+        - name: Procedimientos recomendados para el acceso con menos privilegios para las aplicaciones
+          href: secure-least-privileged-access.md
+        - name: Acceso condicional
+          href: v2-conditional-access-dev-guide.md
+        - name: Contexto de autenticación
+          href: developer-guide-conditional-access-authentication-context.md
     - name: Permisos y consentimiento
       displayName: Scopes
       href: v2-permissions-and-consent.md
-    - name: Acceso condicional
-      href: v2-conditional-access-dev-guide.md
-    - name: Contexto de autenticación
-      href: developer-guide-conditional-access-authentication-context.md
     - name: Aprovisionamiento automático de usuarios (SCIM)
       href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
 - name: Instrucciones
@@ -617,6 +618,8 @@
               href: id-tokens.md
             - name: Tokens de acceso
               href: access-tokens.md
+            - name: Tokens de actualización
+              href: refresh-tokens.md
             - name: Configuración de la vigencia de los tokens
               href: active-directory-configurable-token-lifetimes.md
             - name: Punto de conexión de UserInfo

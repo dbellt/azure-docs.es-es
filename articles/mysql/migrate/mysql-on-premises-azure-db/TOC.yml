@@ -1,0 +1,40 @@
+- name: Migración de MySQL en el entorno local a Azure Database for MySQL
+  items:
+    - name: Información general
+      items:
+        - name: Introducción
+          href: 01-mysql-migration-guide-intro.md
+        - name: Caso de uso representativo
+          href: 02-representative-use-case.md
+    - name: Anterior a la migración
+      items:
+        - name: Evaluación
+          href: 03-assessment.md
+        - name: Planificación
+          href: 04-planning.md
+        - name: Métodos de migración
+          href: 05-migration-methods.md
+        - name: Test Plans
+          href: 06-test-plans.md
+        - name: Líneas base de rendimiento
+          href: 07-performance-baselines.md
+    - name: Migración de datos
+      items:
+        - name: Migración de datos
+          href: 08-data-migration.md
+        - name: Migración de datos con MySQL Workbench
+          href: 09-data-migration-with-mysql-workbench.md
+    - name: Administración posterior a la migración
+      items:
+        - name: Administración posterior a la migración
+          href: 10-post-migration-management.md
+        - name: Optimization
+          href: 11-optimization.md
+        - name: Continuidad empresarial y recuperación ante desastres (BCDR)
+          href: 12-business-continuity-and-disaster-recovery.md
+        - name: Seguridad
+          href: 13-security.md
+        - name: Resumen
+          href: 14-summary.md
+        - name: Apéndice
+          href: 15-appendix.md

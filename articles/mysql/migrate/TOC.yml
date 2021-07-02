@@ -1,0 +1,46 @@
+- name: Migración de MySQL en el entorno local a Azure Database for MySQL
+  items:
+    - name: Información general
+      items:
+        - name: Introducción
+          href: index.md
+        - name: Caso de uso representativo
+          href: representative-use-case.md
+    - name: Anterior a la migración
+      items:
+        - name: Evaluación
+          href: assessment.md
+        - name: Planificación
+          href: planning.md
+        - name: Métodos de migración
+          href: migration-methods.md
+        - name: Test Plans
+          href: test-plans.md
+        - name: Líneas base de rendimiento
+          href: performance-baselines.md
+    - name: Migración de datos
+      items:
+        - name: Migración de datos
+          href: data-migration.md
+        - name: Migración de datos con MySQL Workbench
+          href: data-migration-with-mysql-workbench.md
+    - name: Administración posterior a la migración
+      items:
+        - name: Administración posterior a la migración
+          href: post-migration-management.md
+        - name: Optimization
+          href: optimization.md
+        - name: Continuidad empresarial y recuperación ante desastres (BCDR)
+          href: business-continuity-and-disaster-recovery.md
+        - name: Seguridad
+          href: security.md
+        - name: Resumen
+          href: summary.md
+    - name: Apéndice
+      items:
+        - name: 'Apéndice A: Configuración del entorno'
+          href: appendix-a-environment-setup.md
+        - name: 'Apéndice B: Plantillas de ARM'
+          href: appendix-b-arm-templates.md
+        - name: "Apéndice C: Parámetros de servidor predeterminados. MySQL\_5.5 y Azure Database for MySQL"
+          href: appendix-c-default-server-parameters-mysql-55-and-azure-database-for-mysql.md
