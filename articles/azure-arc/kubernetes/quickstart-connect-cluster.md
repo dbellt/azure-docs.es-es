@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/25/2021
 ms.custom: template-quickstart, references_regions, devx-track-azurecli
 keywords: Kubernetes, Arc, Azure, cluster
-ms.openlocfilehash: 6221de7a9cffe5ba4d2e1ed8cc8e47c372b6b578
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: a15a841e24d1464741c115684ed639609576a314
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373725"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796585"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>Inicio rápido: conexión de un clúster de Kubernetes existente a Azure Arc 
 
@@ -59,11 +59,11 @@ En este inicio rápido, conocerá las ventajas de Kubernetes habilitado para Azu
   
 | Punto de conexión (DNS) | Descripción |  
 | ----------------- | ------------- |  
-| `https://management.azure.com`                                                                                 | Necesario para que el agente se conecte a Azure y registre el clúster.                                                        |  
-| `https://<region>.dp.kubernetesconfiguration.azure.com` | Punto de conexión de plano de datos para que el agente inserte información de la configuración de estado y recuperación de cambios.                                      |  
-| `https://login.microsoftonline.com`                                                                            | Necesario para capturar y actualizar tokens de Azure Resource Manager.                                                                                    |  
-| `https://mcr.microsoft.com`                                                                            | Necesario para extraer imágenes de contenedor para agentes de Azure Arc.                                                                  |  
-| `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`, `https://wcus.his.arc.azure.com`, `https://scus.his.arc.azure.com`, `https://sea.his.arc.azure.com`, `https://uks.his.arc.azure.com`, `https://wus2.his.arc.azure.com`, `https://ae.his.arc.azure.com`, `https://eus2.his.arc.azure.com`, `https://ne.his.arc.azure.com` |  Se requiere para extraer certificados de Managed Service Identity (MSI) asignados por el sistema.                                                                  |
+| `https://management.azure.com` (para la nube de Azure), `https://management.usgovcloudapi.net` (para Azure US Government) | Necesario para que el agente se conecte a Azure y registre el clúster. |  
+| `https://<region>.dp.kubernetesconfiguration.azure.com` (para la nube de Azure), `https://<region>.dp.kubernetesconfiguration.azure.us` (para Azure US Government) | Punto de conexión de plano de datos para que el agente inserte información de la configuración de estado y recuperación de cambios. |  
+| `https://login.microsoftonline.com` (para la nube de Azure), `https://login.microsoftonline.us` (para Azure US Government) | Necesario para capturar y actualizar tokens de Azure Resource Manager. |  
+| `https://mcr.microsoft.com` | Necesario para extraer imágenes de contenedor para agentes de Azure Arc.                                                                  |  
+| `https://<region-code>.his.arc.azure.com` (para la nube de Azure), `https://usgv.his.arc.azure.us` (para Azure US Government) |  Se requiere para extraer certificados de Managed Service Identity (MSI) asignados por el sistema. Asignación de `<region-code>` para las regiones de nube de Azure: `eus` (Este de EE. UU.), `weu` (Oeste de Europa), `wcus` (Centro-oeste de EE. UU.), `scus` (Centro-sur de EE. UU.), `sea` (Sudeste de Asia), `uks` (Sur de Reino Unido), `wus2` (Oeste de EE. UU. 2), `ae` (Este de Australia), `eus2` (Este de EE. UU. 2), `ne` (Norte de Europa) y `fc` (Centro de Francia). |
 
 ## <a name="1-register-providers-for-azure-arc-enabled-kubernetes"></a>1. Registro de proveedores en Kubernetes habilitado para Azure Arc
 
@@ -142,14 +142,14 @@ Helm release deployment succeeded
 > El comando anterior sin el parámetro location especificado crea el recurso de Kubernetes habilitado para Azure Arc en la misma ubicación que el grupo de recursos. Para crear el recurso de Kubernetes habilitado para Azure Arc en una ubicación diferente, especifique `--location <region>` o `-l <region>` al ejecutar el comando `az connectedk8s connect`.
 
 > [!NOTE]
-> Si ha iniciado sesión en la CLI de Azure mediante una entidad de servicio, se requieren [permisos adicionales](troubleshooting.md#enable-custom-locations-using-service-principal) en la entidad de servicio para habilitar la característica de ubicación personalizada al conectar el clúster a Azure Arc.
+> Si ha iniciado sesión en la CLI de Azure mediante una entidad de servicio, es necesario establecer un [parámetro adicional](troubleshooting.md#enable-custom-locations-using-service-principal) para habilitar la característica de ubicación personalizada en el clúster.
 
 ## <a name="4-verify-cluster-connection"></a>4. Comprobación de la conexión del clúster
 
 Ejecute el siguiente comando:  
 
 ```azurecli-interactive
-az connectedk8s list -resource-group AzureArcTest -output table
+az connectedk8s list --resource-group AzureArcTest --output table
 ```
 
 Salida:

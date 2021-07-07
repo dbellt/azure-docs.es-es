@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 12/15/2020
+ms.date: 05/24/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: image recognition, image identifier, image recognition app, custom vision
-ms.openlocfilehash: 12877f2d43f9b8f864871e5a5ab050aa0eeb61e2
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: e245c4882a06d5053e8781a48469d104bcaced23
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814608"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110454793"
 ---
 # <a name="what-is-custom-vision"></a>¿Qué es Custom Vision?
 

@@ -9,108 +9,80 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/15/2019
+ms.date: 06/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 786c6309f685af6b8e42108c490ce86c7844bc81
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a3848f29f9f8b12981b84a5ac025f0a73e6f21f1
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92443237"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112063049"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Tutorial: Integración de Azure Active Directory con Hosted Graphite
 
-En este tutorial, aprenderá a integrar Hosted Graphite con Azure Active Directory (Azure AD).
-La integración de Hosted Graphite con Azure AD proporciona las siguientes ventajas:
+En este tutorial, aprenderá a integrar Hosted Graphite con Azure Active Directory (Azure AD). Cuando integra Hosted Graphite con Azure AD, puede:
 
-* Puede controlar en Azure AD quién tiene acceso a Hosted Graphite.
-* Puede habilitar a los usuarios para que inicien sesión automáticamente en Hosted Graphite (inicio de sesión único) con sus cuentas de Azure AD.
-* Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Controlar en Azure AD quién tiene acceso a Hosted Graphite.
+* Permitir que los usuarios inicien sesión automáticamente en Hosted Graphite con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="prerequisites"></a>Prerequisites
+Para empezar, necesita los siguientes elementos:
 
-Para configurar la integración de Azure AD con Hosted Graphite, necesita los siguientes elementos:
-
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Una suscripción habilitada para el inicio de sesión único en Hosted Graphite
+* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
+* Una suscripción habilitada para el inicio de sesión único en Hosted Graphite.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Hosted Graphite admite el inicio de sesión único iniciado por **SP e IDP**
-* Hosted Graphite admite el aprovisionamiento de usuarios **Just-In-Time**
+* Hosted Graphite admite el inicio de sesión único iniciado por **SP e IDP**.
+* Hosted Graphite admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-## <a name="adding-hosted-graphite-from-the-gallery"></a>Adición de Hosted Graphite desde la galería
+## <a name="add-hosted-graphite-from-the-gallery"></a>Adición de Hosted Graphite desde la galería
 
 Para configurar la integración de Hosted Graphite en Azure AD, deberá agregar Hosted Graphite desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Hosted Graphite desde la galería, realice los pasos siguientes:**
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **Hosted Graphite** en el cuadro de búsqueda.
+1. Seleccione **Hosted Graphite** en el panel de resultados y, luego, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-sso-for-hosted-graphite"></a>Configuración y prueba del inicio de sesión único de Azure AD para Hosted Graphite
 
-    ![Botón Azure Active Directory](common/select-azuread.png)
+Configure y pruebe el inicio de sesión único de Azure AD con Hosted Graphite mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Hosted Graphite.
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
+Para configurar y probar el inicio de sesión único de Azure AD con Hosted Graphite, realice los pasos siguientes:
 
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+1. **[Configuración del inicio de sesión único de Hosted Graphite](#configure-hosted-graphite-sso)** : para configurar los valores de Inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba de Hosted Graphite](#create-hosted-graphite-test-user)** : para tener un homólogo de B.Simon en Hosted Graphite que esté vinculado a la representación del usuario en Azure AD.
+1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
-    ![Botón Nueva aplicación](common/add-new-app.png)
+Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-4. En el cuadro de búsqueda, escriba **Hosted Graphite**, seleccione **Hosted Graphite** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+1. En Azure Portal, en la página de integración de aplicaciones de **Hosted Graphite**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
-     ![Hosted Graphite en la lista de resultados](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
-
-En esta sección configurará y probará el inicio de sesión único de Azure AD con Hosted Graphite con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Hosted Graphite.
-
-Para configurar y probar el inicio de sesión único de Azure AD con Hosted Graphite, es preciso completar los siguientes bloques de creación:
-
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Hosted Graphite](#configure-hosted-graphite-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Hosted Graphite](#create-hosted-graphite-test-user)** : para tener un homólogo de Britta Simon en Hosted Graphite que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
-
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
-
-Para configurar el inicio de sesión único de Azure AD con Hosted Graphite, realice los pasos siguientes:
-
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Hosted Graphite**, seleccione **Inicio de sesión único**.
-
-    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
-
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
-
-    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
-
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
-
-    ![Edición de la configuración básica de SAML](common/edit-urls.png)
+   ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
 
-    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://www.hostedgraphite.com/metadata/<USER_ID>`
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://www.hostedgraphite.com/metadata/<user id>`
-
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://www.hostedgraphite.com/complete/saml/<user id>`
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://www.hostedgraphite.com/complete/saml/<USER_ID>`
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
-
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.hostedgraphite.com/login/saml/<user id>/`
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.hostedgraphite.com/login/saml/<USER_ID>/`
 
     > [!NOTE]
     > Tenga en cuenta que estos no son valores reales. Tiene que actualizarlos con el identificador, la dirección URL de respuesta y la URL de inicio de sesión reales. Para obtener estos valores, puede ir a Acceso -> Configuración de SAML en la aplicación o ponerse en contacto con el [equipo de soporte técnico de Hosted Graphite](mailto:help@hostedgraphite.com).
@@ -123,106 +95,79 @@ Para configurar el inicio de sesión único de Azure AD con Hosted Graphite, rea
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-    a. URL de inicio de sesión
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
-    b. Identificador de Azure AD
+En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-    c. URL de cierre de sesión
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Crear**.
 
-### <a name="configure-hosted-graphite-single-sign-on"></a>Configuración del inicio de sesión único de Hosted Graphite
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, va a conceder a B.Simon acceso a Hosted Graphite mediante el inicio de sesión único de Azure.
+
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **Hosted Graphite**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+## <a name="configure-hosted-graphite-sso"></a>Configuración del inicio de sesión único de Hosted Graphite
 
 1. Inicie la sesión en el inquilino de Hosted Graphite como administrador.
 
 2. Vaya a la **página de configuración de SAML** en la barra lateral (**Acceso -> Configuración de SAML**).
 
-    ![Captura de pantalla que muestra el menú Access (Acceso) con SAML Setup (Configuración de SAML) seleccionado.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
+    ![Captura de pantalla que muestra el menú Access (Acceso) con SAML Setup (Configuración de SAML) seleccionado.](./media/hostedgraphite-tutorial/setup.png)
 
-3. Confirme que estos identificadores URI coinciden con la configuración realizada en la sección **Configuración básica de SAML** de Azure Portal.
+3. Confirme que estas direcciones URL coinciden con la configuración realizada en la sección **Configuración básica de SAML** de Azure Portal.
 
-    ![Captura de pantalla que muestra Configuración básica de SAML.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
+    ![Captura de pantalla que muestra Configuración básica de SAML.](./media/hostedgraphite-tutorial/configuration.png)
 
 4. En los cuadros de texto **Entity or Issuer ID** (Identificador de entidad o de emisor) y **SSO Login URL** (Dirección URL de inicio de sesión de SSO), pegue el valor de **Identificador de Azure AD** y **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
-    ![Captura de pantalla que muestra entradas para el proveedor de identidades.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
+    ![Captura de pantalla que muestra entradas para el proveedor de identidades.](./media/hostedgraphite-tutorial/integration.png)
 
 5. Seleccione **Read-only** (Solo lectura) en **Default User Role** (Rol de usuario predeterminado).
 
-    ![Captura de pantalla que muestra el rol de usuario predeterminado, que es Read-only (Solo lectura).](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
+    ![Captura de pantalla que muestra el rol de usuario predeterminado, que es Read-only (Solo lectura).](./media/hostedgraphite-tutorial/role.png)
 
 6. Abra el certificado codificado en base 64 descargado de Azure Portal en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado X.509**.
 
-    ![Captura de pantalla que muestra el certificado X punto 509.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
+    ![Captura de pantalla que muestra el certificado X punto 509.](./media/hostedgraphite-tutorial/certificate.png)
 
 7. Haga clic en el botón **Guardar** .
-
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-
-El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
-
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
-
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
-
-2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-
-    ![Botón Nuevo usuario](common/new-user.png)
-
-3. En las propiedades Usuario, siga estos pasos.
-
-    ![Cuadro de diálogo Usuario](common/user-properties.png)
-
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
-  
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
-    Por ejemplo: BrittaSimon@contoso.com
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
-
-    d. Haga clic en **Crear**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Hosted Graphite.
-
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Hosted Graphite**.
-
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
-
-2. En la lista de aplicaciones, seleccione **Hosted Graphite**.
-
-    ![El vínculo Hosted Graphite en la lista de aplicaciones](common/all-applications.png)
-
-3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
-
-    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
-4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
-
-    ![Panel Agregar asignación](common/add-assign-user.png)
-
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-
-6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-
-7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ### <a name="create-hosted-graphite-test-user"></a>Creación de un usuario de prueba de Hosted Graphite
 
 En esta sección se creará un usuario llamado Britta Simon en Hosted Graphite. Hosted Graphite admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario no existe aún en Hosted Graphite, se crea uno nuevo después de la autenticación.
 
 > [!NOTE]
-> Si necesita crear un usuario manualmente, es preciso que se ponga contacto con el equipo de soporte técnico de Hosted Graphite a través de <mailto:help@hostedgraphite.com>.
+> Si necesita crear un usuario manualmente, es preciso que se ponga contacto con el [equipo de soporte técnico de Hosted Graphite](<mailto:help@hostedgraphite.com>).
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+## <a name="test-sso"></a>Prueba de SSO
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Al hacer clic en el icono de Hosted Graphite en el panel de acceso, se debería iniciar sesión automáticamente en la instancia de Hosted Graphite para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Hosted Graphite, desde donde puede poner en marcha el flujo de inicio de sesión.  
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* Vaya directamente a la dirección URL de inicio de sesión de Hosted Graphite e inicie el flujo de inicio de sesión desde allí.
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Iniciado por IDP:
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+* Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Hosted Graphite para la que configuró el inicio de sesión único. 
+
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Hosted Graphite en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de Hosted Graphite para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Una vez que se ha configurado Hosted Graphite, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

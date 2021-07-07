@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/02/2020
+ms.date: 05/26/2021
 ms.author: jeedes
-ms.openlocfilehash: d6b23213d9d986c62a227b3e182a22896d128222
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5de617feb34db1ada91423d8f3cb3ed235f15151
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92442548"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111570101"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hrworks-single-sign-on"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con HRworks Single Sign-On
 
@@ -25,8 +25,6 @@ En este tutorial, aprenderá a integrar HRworks Single Sign-On con Azure Active
 * Controlar en Azure AD quién tiene acceso a HRworks Single Sign-On.
 * Permitir que los usuarios inicien sesión automáticamente en HRworks Single Sign-On con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
-
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -39,45 +37,48 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* HRworks Single Sign-On admite el inicio de sesión único iniciado por **SP**
+* HRworks Single Sign-On admite el inicio de sesión único iniciado por **SP**.
 
-## <a name="adding-hrworks-single-sign-on-from-the-gallery"></a>Incorporación de HRworks Single Sign-On desde la galería
+> [!NOTE]
+> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
+
+## <a name="add-hrworks-single-sign-on-from-the-gallery"></a>Incorporación de HRworks Single Sign-On desde la galería
 
 Para configurar la integración de HRworks Single Sign-On en Azure AD, será preciso que agregue HRworks Single Sign-On desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **HRworks Single Sign-On** en el cuadro de búsqueda.
 1. Seleccione **HRworks Single Sign-On** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-hrworks-single-sign-on"></a>Configuración y prueba del inicio de sesión único de Azure AD en HRworks Single Sign-On
+## <a name="configure-and-test-azure-ad-sso-for-hrworks-single-sign-on"></a>Configuración y prueba del inicio de sesión único de Azure AD para HRworks Single Sign-On
 
 Configure y pruebe el inicio de sesión único de Azure AD con HRworks Single Sign-On mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de HRworks Single Sign-On.
 
-Para configurar y probar el inicio de sesión único de Azure AD con HRworks Single Sign-On, complete los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con HRworks Single Sign-On, siga estos siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-    * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de HRworks Single Sign-On](#configure-hrworks-single-sign-on-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
-    * **[Creación de un usuario de prueba de HRworks Single Sign-On](#create-hrworks-single-sign-on-test-user)** , para tener un homólogo de B.Simon en HRworks Single Sign-On que esté vinculado a la representación del usuario en Azure AD.
+    1. **[Creación de un usuario de prueba de HRworks Single Sign-On](#create-hrworks-single-sign-on-test-user)** , para tener un homólogo de B.Simon en HRworks Single Sign-On que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **HRworks Single Sign-On**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de la aplicación **HRworks Single Sign-On**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://login.hrworks.de/?companyId=<companyId>&directssologin=true`
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://login.hrworks.de/?companyId=<COMPANY_ID>&directssologin=true`
 
     > [!NOTE]
     > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de HRworks Single Sign-On](mailto:nadja.sommerfeld@hrworks.de) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -109,15 +110,9 @@ En esta sección, va a conceder a B.Simon acceso a HRworks Single Sign-On utiliz
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **HRworks Single Sign-On**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ## <a name="configure-hrworks-single-sign-on-sso"></a>Configuración del inicio de sesión único de HRworks Single Sign-On
@@ -134,7 +129,7 @@ En esta sección, va a conceder a B.Simon acceso a HRworks Single Sign-On utiliz
 
 1. Haga clic en **Administrador** > **Datos básicos** > **Seguridad** > **Inicio de sesión único** en el lado izquierdo de la barra de menús y realice los pasos siguientes:
 
-    ![Configurar inicio de sesión único](./media/hrworks-single-sign-on-tutorial/configure01.png)
+    ![Configurar inicio de sesión único](./media/hrworks-single-sign-on-tutorial/configure.png)
 
     a. Seleccione la casilla **Utilizar inicio de sesión único (SSO)** .
 
@@ -156,28 +151,26 @@ Para permitir que los usuarios de Azure AD inicien sesión en HRworks Single Sig
 
 1. Haga clic en **Administrator** (Administrador) > **Persons** (Personas) > **Persons** (Personas) > **New person** (Nueva persona) en el lado izquierdo de la barra de menús.
 
-     ![Captura de pantalla que muestra la página de H R Works con las opciones Persons (Personas) y New person (Nueva persona) seleccionadas.](./media/hrworks-single-sign-on-tutorial/configure02.png)
+     ![Captura de pantalla que muestra la página de H R Works con las opciones Persons (Personas) y New person (Nueva persona) seleccionadas.](./media/hrworks-single-sign-on-tutorial/persons.png)
 
 1. En el menú emergente, haga clic en **Next** (Siguiente).
 
-    ![Captura de pantalla que muestra una lista de países que puede elegir para la persona.](./media/hrworks-single-sign-on-tutorial/configure03.png)
+    ![Captura de pantalla que muestra una lista de países que puede elegir para la persona.](./media/hrworks-single-sign-on-tutorial/new-person.png)
 
 1. En el elemento emergente **Create new person with country for legal terms** (Crear nueva persona con un país para condiciones legales), rellene los detalles correspondientes **First name** (Nombre), **Last name** (Apellidos) y haga clic en **Create** (Crear).
 
-    ![Captura de pantalla que muestra cuadros de texto en los que puede especificar el nombre y el apellido de la persona.](./media/hrworks-single-sign-on-tutorial/configure04.png)
+    ![Captura de pantalla que muestra cuadros de texto en los que puede especificar el nombre y el apellido de la persona.](./media/hrworks-single-sign-on-tutorial/create-person.png)
 
 ## <a name="test-sso"></a>Prueba de SSO
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Al hacer clic en el icono de HRworks Single Sign-On en el panel de acceso, debería iniciar sesión automáticamente en la versión de HRworks Single Sign-On para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de HRworks Single Sign-On, donde puede iniciar el flujo de inicio de sesión. 
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Vaya directamente a la dirección URL de inicio de sesión de HRworks Single Sign-On e inicie el flujo de inicio de sesión desde allí.
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de HRworks Single Sign-On en Aplicaciones, se le redirigirá a la URL de inicio de sesión de HRworks Single Sign-On. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
-
-- [Pruebe HRworks Single Sign-On con Azure AD](https://aad.portal.azure.com/)
+Una vez que haya configurado HRworks Single Sign-On, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

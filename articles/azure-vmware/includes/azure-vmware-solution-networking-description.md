@@ -2,13 +2,13 @@
 title: Redes y conectividad de Azure VMware Solution
 description: Descripción de redes y conectividad de Azure VMware Solution.
 ms.topic: include
-ms.date: 03/13/2021
-ms.openlocfilehash: 96dd93f1db5dc3ddcbb883313e19c6aed8a256da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/28/2021
+ms.openlocfilehash: 66ea12565aa84661a4019e5685a5544792591b0c
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103462596"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "111350779"
 ---
 <!-- Used in introduction.md and concepts-networking.md -->
 
@@ -18,5 +18,7 @@ Cuando se implementa una nube privada, se crean redes privadas para la administr
 
 Global Reach de ExpressRoute se usa para conectar las nubes privadas a entornos locales. La conexión requiere una red virtual con un circuito ExpressRoute en el entorno local en su suscripción.
 
-Las máquinas virtuales (VM) implementadas en la nube privada son accesibles a través de Internet mediante la funcionalidad de IP pública de Azure Virtual WAN.  De forma predeterminada, el acceso a Internet está deshabilitado para las nuevas nubes privadas. Para más información, consulte [Uso de la funcionalidad de IP pública en Azure VMware Solution](../public-ip-usage.md).
+Las máquinas virtuales (VM) implementadas en la nube privada son accesibles a través de Internet mediante la funcionalidad de IP pública de Azure Virtual WAN.  De forma predeterminada, el acceso a Internet está deshabilitado para las nuevas nubes privadas. Para más información, consulte [Habilitación del acceso a la red pública de Internet en Azure VMware Solution](../enable-public-internet-access.md).
+
+
 

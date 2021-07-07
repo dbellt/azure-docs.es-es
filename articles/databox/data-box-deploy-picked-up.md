@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/02/2021
+ms.date: 05/07/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 267094ea6a7295a65b93fb7700c97e4280da341d
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 86609d42a7c8f0e78df6b3a0019d97c951b5d378
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539118"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736234"
 ---
 ::: zone target="docs"
 
@@ -344,14 +344,14 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ::: zone target="docs"
 
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
+[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload.md)]
 
 ::: zone-end
 -->
 
 ## <a name="self-managed"></a>[Autoadministrado](#tab/in-selfmanaged)
 
-Si usa Data Box en la Administración Pública de EE. UU., Japón, Singapur, Corea, India, Sudáfrica, Reino Unido, Oeste de Europa o Australia, y ha seleccionado el envío autoadministrado al crear el pedido, siga estas instrucciones.
+Si usa Data Box en la Administración Pública de EE. UU., Japón, Singapur, Corea, India, Sudáfrica, Reino Unido, Oeste de Europa, Australia o Brasil, y ha seleccionado el envío autoadministrado al crear el pedido, siga estas instrucciones.
 
 1. Anote el código de autorización que se muestra en la página **Preparación para el envío** de la interfaz de usuario web local de Data Box una vez que el paso se complete correctamente.
 2. Apague el dispositivo y quite los cables. Enrolle y coloque de forma segura el cable de alimentación que se suministró junto con el dispositivo en la parte posterior del mismo.
@@ -363,8 +363,12 @@ Si usa Data Box en la Administración Pública de EE. UU., Japón, Singapur, Co
     Body:
         1. Order name  
         2. Authorization code available after Prepare to Ship has completed [Yes/No]  
-        3. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+        3. Contact name of the person dropping off. You will need to display a government-approved ID during the drop off.
     ```
+
+   > [!NOTE]
+   > - La información necesaria para la devolución puede variar según la región. 
+   > - Si va a devolver una instancia de Data Box en Brasil, consulte [Uso del envío autoadministrado para Azure Data Box](data-box-portal-customer-managed-shipping.md) para obtener instrucciones detalladas. 
 
 ::: zone target="chromeless"
 
@@ -387,4 +391,3 @@ Una vez que se completa la carga en Azure, Data Box elimina los datos de los dis
 [!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
-

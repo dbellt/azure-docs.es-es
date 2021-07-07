@@ -5,15 +5,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/11/2020
-ms.openlocfilehash: ec44c54a00c8532ed082b6e5f9e9cb9ce84f64b5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5b6e83909d3a8ccd224169e1571def422c7456c4
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033034"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006336"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Ejemplos de plantillas de Resource Manager para la configuración de diagnóstico en Azure Monitor
-Este artículo incluye [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de ejemplos para crear una configuración de diagnóstico en Azure Monitor. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
+Este artículo incluye [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) de ejemplos para crear una configuración de diagnóstico en Azure Monitor. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
 
 Para crear una configuración de diagnóstico para un recurso de Azure, agregue a la plantilla un recurso de tipo `<resource namespace>/providers/diagnosticSettings`. Este artículo ofrece ejemplos de algunos tipos de recursos, pero se puede utilizar el mismo patrón con otros tipos de recursos. La recopilación de registros y métricas que están permitidos variará en función de cada tipo de recurso.
 
@@ -344,6 +344,207 @@ En el ejemplo siguiente se crea una configuración de diagnóstico para una base
         "value": "my-eventhub"
       }
   }
+}
+```
+
+## <a name="diagnostic-setting-for-azure-sql-managed-instance"></a>Configuración de diagnóstico de la instancia administrada de Azure SQL
+En el ejemplo siguiente se crea una configuración de diagnóstico para una instancia administrada de Azure SQL mediante la adición de un recurso de tipo `microsoft.sql/managedInstances/providers/diagnosticSettings` a la plantilla.
+
+### <a name="template-file"></a>Archivo de plantilla
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sqlManagedInstanceName": {
+            "type": "string",
+            "value": "MyInstanceName"
+        },
+        "diagnosticSettingName": {
+            "type": "string",
+            "value": "Send to all locations"
+        },
+        "diagnosticWorkspaceId": {
+            "type": "string",
+            "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MyResourceGroup/providers/microsoft.operationalinsights/workspaces/MyWorkspace"
+        },
+        "storageAccountId": {
+            "type": "string",
+            "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+        },
+        "eventHubAuthorizationRuleId": {
+            "type": "string",
+            "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.EventHub/namespaces/MyNameSpace/authorizationrules/RootManageSharedAccessKey"
+        },
+        "eventHubName": {
+            "type": "string",
+            "value": "myEventhub"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.sql/managedInstances/providers/diagnosticSettings",
+            "apiVersion": "2017-05-01-preview",
+            "name": "[concat(parameters('sqlManagedInstanceName'),'/microsoft.insights/', parameters('diagnosticSettingName'))]",
+            "dependsOn": [],
+            "properties": {
+                "workspaceId": "[parameters('diagnosticWorkspaceId')]",
+                "storageAccountId": "[parameters('storageAccountId')]",
+                "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+                "eventHubName": "[parameters('eventHubName')]",
+                "logs": [
+                    {
+                        "category": "ResourceUsageStats",
+                        "enabled": true
+                    },
+                    {
+                        "category": "DevOpsOperationsAudit",
+                        "enabled": true
+                    },
+                    {
+                        "category": "SQLSecurityAuditEvents",
+                        "enabled": true
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+### <a name="parameter-file"></a>Archivo de parámetros
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sqlManagedInstanceName": {
+            "value": "MyInstanceName"
+        },
+        "diagnosticSettingName": {
+            "value": "Send to all locations"
+        },
+        "diagnosticWorkspaceId": {
+            "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MyResourceGroup/providers/microsoft.operationalinsights/workspaces/MyWorkspace"
+        },
+        "storageAccountId": {
+            "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+        },
+        "eventHubAuthorizationRuleId": {
+            "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.EventHub/namespaces/MyNameSpace/authorizationrules/RootManageSharedAccessKey"
+        },
+        "eventHubName": {
+            "value": "myEventhub"
+        }
+    }
+}
+```
+
+## <a name="diagnostic-setting-for-azure-sql-managed-database"></a>Configuración de diagnóstico de la base de datos administrada de Azure SQL
+En el ejemplo siguiente se crea una configuración de diagnóstico para una base de datos administrada de Azure SQL mediante la adición de un recurso de tipo `microsoft.sql/managedInstances/databases/providers/diagnosticSettings` a la plantilla.
+
+### <a name="template-file"></a>Archivo de plantilla
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sqlManagedInstanceName": {
+            "type": "string",
+            "value": "MyInstanceName"
+        },
+        "sqlManagedDatabaseName": {
+            "type": "string",
+            "value": "MyManagedDatabaseName"
+        },
+        "diagnosticSettingName": {
+            "type": "string",
+            "value": "Send to all locations"
+        },
+        "diagnosticWorkspaceId": {
+            "type": "string",
+            "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MyResourceGroup/providers/microsoft.operationalinsights/workspaces/MyWorkspace"
+        },
+        "storageAccountId": {
+            "type": "string",
+            "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+        },
+        "eventHubAuthorizationRuleId": {
+            "type": "string",
+            "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.EventHub/namespaces/MyNameSpace/authorizationrules/RootManageSharedAccessKey"
+        },
+        "eventHubName": {
+            "type": "string",
+            "value": "myEventhub"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.sql/managedInstances/databases/providers/diagnosticSettings",
+            "apiVersion": "2017-05-01-preview",
+            "name": "[concat(parameters('sqlManagedInstanceName'),'/',parameters('sqlManagedDbName'),'/microsoft.insights/', parameters('diagnosticSettingName'))]",
+            "dependsOn": [],
+            "properties": {
+                "workspaceId": "[parameters('diagnosticWorkspaceId')]",
+                "storageAccountId": "[parameters('storageAccountId')]",
+                "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+                "eventHubName": "[parameters('eventHubName')]",
+                "logs": [
+                    {
+                        "category": "SQLInsights",
+                        "enabled": true
+                    },
+                    {
+                        "category": "QueryStoreRuntimeStatistics",
+                        "enabled": true
+                    },
+                    {
+                        "category": "QueryStoreWaitStatistics",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Errors",
+                        "enabled": true
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+### <a name="parameter-file"></a>Archivo de parámetros
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sqlManagedInstanceName": {
+            "value": "MyInstanceName"
+        },
+        "sqlManagedDbName": {
+            "value": "MyManagedDatabaseName"
+        },
+        "diagnosticSettingName": {
+            "value": "Send to all locations"
+        },
+        "diagnosticWorkspaceId": {
+            "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MyResourceGroup/providers/microsoft.operationalinsights/workspaces/MyWorkspace"
+        },
+        "storageAccountId": {
+            "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+        },
+        "eventHubAuthorizationRuleId": {
+            "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.EventHub/namespaces/MyNameSpace/authorizationrules/RootManageSharedAccessKey"
+        },
+        "eventHubName": {
+            "value": "myEventhub"
+        }
+    }
 }
 ```
 

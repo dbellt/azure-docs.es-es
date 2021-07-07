@@ -5,13 +5,13 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 03/02/2021
-ms.openlocfilehash: fd0d5c5b73ae1fb1eae7f38a22913018555ebe11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/02/2021
+ms.openlocfilehash: 257055110bffac10c92d87820bcfadff2b208b3b
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101747869"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538042"
 ---
 # <a name="quickstart-deploy-a-managed-apache-spark-cluster-preview-with-azure-databricks"></a>Inicio rápido: implementación de un clúster de Apache Spark administrado (versión preliminar) con Azure Databricks
 
@@ -80,9 +80,9 @@ Siga estos pasos para crear un clúster de Azure Databricks en una red virtual q
 1. En el panel **Nuevo clúster**, acepte los valores predeterminados para todos los campos distintos a los campos siguientes:
 
    * **Nombre del clúster**: escriba un nombre para el clúster.
-   * **Versión de Databricks Runtime** : seleccione Scala 2.11 o una versión anterior que sea compatible con el conector de Cassandra.
+   * **Versión de Databricks Runtime:** se recomienda seleccionar Databricks Runtime versión 7.5 o posterior, para la compatibilidad con Spark 3.x. 
 
-    :::image type="content" source="./media/deploy-cluster-databricks/spark-cluster.png" alt-text="Seleccione la versión de Databricks Runtime y el clúster de Spark." border="true":::
+    :::image type="content" source="../cosmos-db/media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Seleccione la versión de Databricks Runtime y el clúster de Spark." border="true":::
 
 1. Expanda **Opciones avanzadas** y agregue la configuración siguiente. Asegúrese de reemplazar las direcciones IP y las credenciales del nodo:
 
@@ -94,9 +94,9 @@ Siga estos pasos para crear un clúster de Azure Databricks en una red virtual q
     spark.cassandra.connection.ssl.enabled true
     ```
 
-1. En la pestaña **Bibliotecas**, instale la versión más reciente del conector de Spark para Cassandra (*spark-cassandra-connector*) y reinicie el clúster:
+1. Agregue la biblioteca de conectores de Cassandra de Apache Spark a su clúster para conectarse a los puntos de conexión nativos y de Cassandra de Azure Cosmos DB. En el clúster, seleccione **Libraries** > **Install New** > **Maven** (Bibliotecas > Instalar nueva > Maven) y, después, agregue `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0` en las coordenadas de Maven.
 
-    :::image type="content" source="./media/deploy-cluster-databricks/connector.png" alt-text="Instalación del conector de Cassandra." border="true":::
+:::image type="content" source="../cosmos-db/media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages.png" alt-text="Captura de pantalla que muestra la búsqueda de paquetes Maven en Databricks":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

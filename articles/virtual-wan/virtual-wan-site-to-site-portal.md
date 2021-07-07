@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Creación de conexiones de sitio a sitio mediante Azure Virtual WAN'
-description: En este tutorial, aprenda a usar Azure Virtual WAN para crear una conexión VPN de sitio a sitio a Azure.
+description: Aprenda a usar Azure Virtual WAN para crear una conexión VPN de sitio a sitio en Azure.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 03/05/2021
+ms.date: 05/26/2021
 ms.author: cherylmc
-ms.openlocfilehash: 365952beca96b91d312eab209c5332fca2d4842b
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 2752d437800840181062f7a9c07d37620e06677a
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061883"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578313"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Creación de una conexión de sitio a sitio mediante Azure Virtual WAN
 
@@ -34,7 +34,7 @@ En este tutorial, aprenderá a:
 > Si tiene muchos sitios, normalmente usará un [asociado de Virtual WAN](https://aka.ms/virtualwan) para crear esta configuración. De todas formas, puede crear esta configuración usted mismo si está familiarizado con las redes y tiene experiencia en la configuración de su propio dispositivo VPN.
 >
 
-![Diagrama de Virtual WAN](./media/virtual-wan-about/virtualwan.png)
+:::image type="content" source="./media/virtual-wan-about/virtualwan.png" alt-text="La captura de pantalla muestra un diagrama de redes para Virtual WAN.":::
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -233,7 +233,7 @@ En la página **Editar VPN Gateway**, puede ver los valores siguientes:
 * Dirección IP de BGP predeterminada de VPN Gateway (la asigna Azure).
 * Opción de configuración para la dirección IP de BGP personalizada: Este campo está reservado para APIPA (direcciones IP privadas automáticas). Azure admite IP de BGP en los intervalos 169.254.21.* y 169.254.22.*. Azure acepta conexiones BGP en estos intervalos, pero marcará la conexión con la IP de BGP predeterminada.
 
-   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Ver configuración" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
+   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="La captura de pantalla muestra la página Editar VPN Gateway con el botón Editar resaltado." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpieza de recursos
 

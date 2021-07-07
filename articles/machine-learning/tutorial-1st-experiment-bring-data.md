@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Uso de sus propios datos'
+title: 'Tutorial: Carga de datos y entrenamiento de un modelo'
 titleSuffix: Azure Machine Learning
-description: En la parte 3 de la serie de introducción de Azure Machine Learning, se explica cómo puede usar sus propios datos en una ejecución de entrenamiento remoto.
+description: Cómo cargar y usar sus propios datos en una ejecución de entrenamiento remota. Esta es la tercera parte de una serie introductoria de tres partes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,27 +10,23 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/29/2021
-ms.custom: tracking-python, contperf-fy21q3
-ms.openlocfilehash: 2b6659e533edac33e992c2648140760888a6b32c
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.custom: tracking-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: dbbd71a40419ee3472b01be11c101567e6945634
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785590"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028224"
 ---
-# <a name="tutorial-use-your-own-data-part-3-of-3"></a>Tutorial: Uso de sus propios datos (Parte 3 de 3)
+# <a name="tutorial-upload-data-and-train-a-model-part-3-of-3"></a>Tutorial: Carga de datos y entrenamiento de un modelo (parte 3 de 3)
 
-En este tutorial se muestra cómo cargar y usar sus propios datos para entrenar modelos de Machine Learning en Azure Machine Learning.
+En este tutorial se muestra cómo cargar y usar sus propios datos para entrenar modelos de Machine Learning en Azure Machine Learning. Esta es la *parte 3 de una serie de tutoriales de tres partes*.  
 
-Este tutorial es la *parte 3 de una serie de tutoriales de tres partes*, donde aprenderá los aspectos básicos de Azure Machine Learning y completará tareas de aprendizaje automático basadas en trabajos de Azure. Este tutorial se basa en el trabajo que realizó en la [parte 1: Ejecución de "Hola mundo"](tutorial-1st-experiment-hello-world.md) y la [parte 2: Entrenamiento de un modelo](tutorial-1st-experiment-sdk-train.md).
-
-En la [parte 2: Entrenamiento de un modelo](tutorial-1st-experiment-sdk-train.md), los datos se descargaron utilizando el método `torchvision.datasets.CIFAR10` integrado de la API de PyTorch. Sin embargo, en muchos casos querrá usar sus propios datos en una ejecución de entrenamiento remota. En este artículo se muestra el flujo de trabajo que puede usar para trabajar con sus propios datos en Azure Machine Learning.
+En la [parte 2: Entrenar un modelo](tutorial-1st-experiment-sdk-train.md), entrenó un modelo en la nube con datos de ejemplo de `PyTorch`.  También descargó los datos a través del método `torchvision.datasets.CIFAR10` en la API de PyTorch. En este tutorial, usará los datos descargados para aprender el flujo de trabajo para operar con sus propios datos en Azure Machine Learning.
 
 En este tutorial, hizo lo siguiente:
 
 > [!div class="checklist"]
-> * Configurar un script de entrenamiento para usar datos en un directorio local.
-> * Probar el script de entrenamiento localmente.
 > * Cargar datos en Azure.
 > * Crear un script de control.
 > * Comprender los nuevos conceptos de Azure Machine Learning (pasar parámetros, conjuntos de datos y almacenes de datos).
@@ -176,7 +172,7 @@ Para ejecutar este script en Azure Machine Learning, es necesario que los datos 
 >[!NOTE] 
 > Azure Machine Learning permite conectar otros almacenes de datos basados en la nube que almacenan los datos. Para más información, vea la [documentación de los almacenes de datos](./concept-data.md).  
 
-1. Cree un nuevo script de control de Python llamado *upload-data.py* en la carpeta **get-started**:
+1. Cree un nuevo script de control de Python en la carpeta **get-started** (asegúrese de que esté en **get-started**, *no* en la carpeta **/src**).  Asigne al script el nombre *upload-data.py* y copie este código en el archivo:
     
     ```python
     # upload-data.py
@@ -250,6 +246,9 @@ if __name__ == "__main__":
     print("")
     print(aml_url)
 ```
+
+> [!TIP]
+> Si usó un nombre diferente al crear el clúster de proceso, asegúrese de ajustar también el nombre en el código `compute_target='cpu-cluster'`.
 
 ### <a name="understand-the-code-changes"></a>Comprensión de los cambios de código
 

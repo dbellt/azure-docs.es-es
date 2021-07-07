@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 06/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 3d784979876857e94c1e09ffc5b7bef11c0a0d04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ef286e9e760c6a18b69eb8724c1317e6a872b2c
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98735977"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111569152"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bamboo"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con EasySSO for Bamboo
 
@@ -40,7 +40,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * EasySSO for Bamboo admite el inicio de sesión único iniciado por **SP e IDP**.
 * EasySSO for Bamboo admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-## <a name="adding-easysso-for-bamboo-from-the-gallery"></a>Adición de EasySSO for Bamboo desde la galería
+## <a name="add-easysso-for-bamboo-from-the-gallery"></a>Adición de EasySSO for Bamboo desde la galería
 
 Para configurar la integración de EasySSO for Bamboo en Azure AD, deberá agregar EasySSO for Bamboo desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -50,7 +50,6 @@ Para configurar la integración de EasySSO for Bamboo en Azure AD, deberá agre
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **EasySSO for Bamboo** en el cuadro de búsqueda.
 1. Seleccione **EasySSO for Bamboo** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-easysso-for-bamboo"></a>Configuración y prueba del inicio de sesión único de Azure AD para EasySSO for Bamboo
 
@@ -71,19 +70,19 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de la aplicación **EasySSO for Bamboo**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<server-base-url>/plugins/servlet/easysso/saml`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<SERVER_BASE_URL>/plugins/servlet/easysso/saml`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<server-base-url>/plugins/servlet/easysso/saml`
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<SERVER_BASE_URL>/plugins/servlet/easysso/saml`
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<server-base-url>/login.jsp`
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SERVER_BASE_URL>/login.jsp`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de EasySSO](mailto:support@techtime.co.nz) para obtener estos valores en caso de duda. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -129,9 +128,7 @@ En esta sección va a permitir que B.Simon acceda a EasySSO for Bamboo mediante 
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **EasySSO for Bamboo**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
@@ -191,7 +188,7 @@ En esta sección se crea una usuaria llamada Britta Simon en Bamboo. EasySSO for
 
 Sin embargo, si no desea habilitar el aprovisionamiento automático de usuarios en el primer inicio de sesión del usuario, los usuarios deben existir en los directorios de usuarios de back-end para que la instancia de Bamboo los utilice, como LDAP o Atlassian Crowd.
 
-![Aprovisionamiento de usuarios](./media/easysso-for-bamboo-tutorial/bamboo-admin-6.png)
+![Aprovisionamiento de usuarios](./media/easysso-for-bamboo-tutorial/admin.png)
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
@@ -209,7 +206,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 En este escenario se supone que ha habilitado el **botón de inicio de sesión de SAML** en **Look & Feel** (Apariencia y aspecto) en la página de configuración de EasySSO de Bamboo (consulte más arriba). Abra la dirección URL de inicio de sesión de Bamboo en el modo incógnito del explorador para evitar interferencias con las sesiones existentes. Haga clic en el **botón de inicio de sesión de SAML** y se le redirigirá al flujo de autenticación de usuarios de Azure AD. Una vez completada correctamente, se le redirigirá de nuevo a la instancia de Bamboo como usuario autenticado mediante SAML.
 
-Existe la posibilidad de que aparezca la siguiente pantalla después de que se le redirija de nuevo desde Azure AD
+Existe la posibilidad de que aparezca la siguiente pantalla después de que se le redirija de nuevo desde Azure AD.
 
 ![Pantalla de error de EasySSO](./media/easysso-for-bamboo-tutorial/bamboo-admin-8.png)
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 26aefab9b4637c3f3f6b0f0d1195068e2cd770ab
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: 76f8c8819bf67405023980a6fd0e48f997926938
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001831"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111896533"
 ---
 <!-- All needs updating -->
 Como operador de la aplicación de Azure IoT Central, puede:
@@ -58,7 +58,7 @@ Para personalizar cómo se muestran las propiedades de escritura **Target Temper
 
 1. Seleccione **Guardar**.
 
-Los componentes del termostato del modelo **Thermostat Controller** (Controlador del termostato) incluyen la propiedad de escritura **Target Temperature**; la plantilla de dispositivo incluye la propiedad de nube **Customer Name**. Cree una vista que pueda usar el operador para editar estas propiedades:
+Los componentes del termostato del modelo **Thermostat Controller** (Controlador del termostato) incluyen la propiedad grabable **Target Temperature**; la plantilla de dispositivo incluye la propiedad en la nube **Customer Name**. Cree una vista que pueda usar el operador para editar estas propiedades:
 
 1. Seleccione **Views** (Vistas) y el icono **Editing device and cloud data** (Edición de los datos del dispositivo y de la nube).
 
@@ -78,7 +78,7 @@ Seleccione **Publish** (Publicar) en la plantilla del dispositivo **Thermostat**
 
 Ahora los operadores podrán usar la vista **Properties** (Propiedades) para actualizar los valores de propiedad y llamar a comandos denominados **Get thermostat1 status report** y **Get thermostat2 status report** en la página de comandos del dispositivo:
 
-* Actualizar los valores de las propiedades con posibilidad de escritura en la página **Properties** (Propiedades):
+* Actualice los valores de la propiedad grabable en la página **Properties** (Propiedades):
 
     :::image type="content" source="media/iot-central-monitor-thermostat/update-properties.png" alt-text="Actualización de las propiedades del dispositivo.":::
 

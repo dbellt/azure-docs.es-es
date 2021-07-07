@@ -1,27 +1,27 @@
 ---
-title: Grupo de hosts de Windows Virtual Desktop en Azure Portal
-description: Creación de un grupo de hosts de Windows Virtual Desktop con Azure Portal.
+title: Grupo de hosts de Azure Virtual Desktop en Azure Portal
+description: Creación de un grupo de hosts de Azure Virtual Desktop con Azure Portal.
 author: Heidilohr
 ms.topic: tutorial
 ms.custom: references_regions
 ms.date: 03/10/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 1003ab20f839469235d6bd7949ec3b2df4dd4f25
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 96e5fbf825c0550001ae9b0a38517e753b3a8d0f
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447988"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756264"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Creación de un grupo de hosts con Azure Portal
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop con objetos de Windows Virtual Desktop de Azure Resource Manager. Si usa Windows Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Cualquier objeto que cree con Windows Virtual Desktop (clásico) no se puede administrar con Azure Portal.
+>Este contenido se aplica a Azure Virtual Desktop con objetos de Azure Resource Manager. Si usa Azure Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Cualquier objeto que cree con Azure Virtual Desktop (clásico) no se puede administrar con Azure Portal.
 
-Los grupos de hosts son una colección de una o varias máquinas virtuales (VM) idénticas en entornos de Windows Virtual Desktop. Cada grupo de hosts puede contener un grupo de aplicaciones con las que los usuarios pueden interactuar igual que harían en un equipo de escritorio físico.
+Los grupos de hosts son una colección de una o varias máquinas virtuales (VM) idénticas en entornos de Azure Virtual Desktop. Cada grupo de hosts puede contener un grupo de aplicaciones con las que los usuarios pueden interactuar igual que harían en un equipo de escritorio físico.
 
-Este artículo le guía en el proceso de configuración para crear un grupo de hosts para un entorno de Windows Virtual Desktop mediante Azure Portal. El método que se ofrece proporciona una interfaz de usuario basada en explorador para crear un grupo de hosts en Windows Virtual Desktop, crear un grupo de recursos con máquinas virtuales en una suscripción de Azure, unir esas máquinas virtuales al dominio de Azure Active Directory (AD) y registrar las máquinas virtuales en Windows Virtual Desktop.
+Este artículo le guía en el proceso de configuración para crear un grupo de hosts en un entorno de Azure Virtual Desktop mediante Azure Portal. El método que se ofrece proporciona una interfaz de usuario basada en explorador para crear un grupo de hosts en Azure Virtual Desktop, crear un grupo de recursos con máquinas virtuales en una suscripción de Azure, unir esas máquinas virtuales al dominio de Azure Active Directory (AD) y registrar las máquinas virtuales en Azure Virtual Desktop.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -30,7 +30,7 @@ Deberá especificar los siguientes parámetros para crear un grupo de hosts:
 - El nombre de la imagen de máquina virtual
 - Configuración de VM
 - Las propiedades de proceso y red
-- Las propiedades del grupo de hosts de Windows Virtual Desktop
+- Las propiedades del grupo de hosts de Azure Virtual Desktop
 
 También deberá saber lo siguiente:
 
@@ -39,7 +39,7 @@ También deberá saber lo siguiente:
 
 Asegúrese también de que ha registrado el proveedor de recursos Microsoft.DesktopVirtualization. Si aún no lo ha hecho, vaya a **Suscripciones**, seleccione el nombre de la suscripción y, a continuación, **Proveedores de recursos**. Busque DesktopVirtualization, seleccione Microsoft.DesktopVirtualization y, a continuación, seleccione Registrar.
 
-Cuando se crea un grupo de hosts de Windows Virtual Desktop con la plantilla de Azure Resource Manager, se puede crear una máquina virtual desde una imagen de Azure Gallery, una imagen administrada o una imagen no administrada. Para obtener más información sobre cómo crear imágenes de máquina virtual, vea [Preparación de un VHD o un VHDX de Windows para cargar en Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) y [Creación de una imagen administrada de una máquina virtual generalizada en Azure](../virtual-machines/windows/capture-image-resource.md).
+Al crear un grupo de hosts de Azure Virtual Desktop con la plantilla de Azure Resource Manager, puede crear una máquina virtual desde la galería de Azure, una imagen administrada o una imagen no administrada. Para obtener más información sobre cómo crear imágenes de máquina virtual, vea [Preparación de un VHD o un VHDX de Windows para cargar en Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) y [Creación de una imagen administrada de una máquina virtual generalizada en Azure](../virtual-machines/windows/capture-image-resource.md).
 
 Si aún no tiene una suscripción a Azure, asegúrese de [crear una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar a seguir estas instrucciones.
 
@@ -52,9 +52,9 @@ Para empezar a crear el grupo de hosts:
    >[!NOTE]
    > Si va a iniciar sesión en el portal de US Gov, vaya a [https://portal.azure.us/](https://portal.azure.us/) en su lugar.
 
-2. Escriba **Windows Virtual Desktop** en la barra de búsqueda y, luego, busque y seleccione **Windows Virtual Desktop** en Servicios.
+2. Escriba **Azure Virtual Desktop** en la barra de búsqueda y, luego, busque y seleccione **Azure Virtual Desktop** en Servicios.
 
-3. En la página de información general de **Windows Virtual Desktop**, seleccione **Create a host pool** (Crear un grupo de hosts).
+3. En la página de información general de **Azure Virtual Desktop**, seleccione **Create a host pool** (Crear un grupo de hosts).
 
 4. En la pestaña **Basics** (Aspectos básicos), seleccione la suscripción correcta en los detalles del proyecto.
 
@@ -208,7 +208,7 @@ Si prefiere utilizar un proceso automatizado, [descargue nuestra plantilla de Az
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha creado un grupo de hosts, puede rellenarlo con programas de RemoteApp. Para más información sobre cómo administrar aplicaciones en Windows Virtual Desktop, avance al siguiente tutorial:
+Ahora que ha creado un grupo de hosts, puede rellenarlo con programas de RemoteApp. Para más información sobre cómo administrar aplicaciones en Azure Virtual Desktop, avance al siguiente tutorial:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Administración de grupos de aplicaciones](./manage-app-groups.md)

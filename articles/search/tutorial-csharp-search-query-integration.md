@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 04/23/2021
 ms.custom: devx-track-csharp
 ms.devlang: dotnet
-ms.openlocfilehash: 0f4f2b2c87f295aa98257521c420902a4e7302f7
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: d548822bb7140c25884a44a45725ff09f16ac0e5
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108163596"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109848130"
 ---
 # <a name="4---net-search-integration-cheat-sheet"></a>4\. Hoja de información rápida de integración de funcionalidad de búsqueda de .NET
 
@@ -79,7 +79,7 @@ El proveedor de sugerencias de búsqueda, `sg`, se define en el [archivo de esqu
 
 ## <a name="client-suggestions-from-the-catalog"></a>Cliente: sugerencias del catálogo
 
-Se llama a la función de Suggest API en la aplicación React en `\src\components\SearchBar\SearchBar.js` como parte de la inicialización de componentes:
+Se llama a la API de función Suggest en la aplicación React en `\src\components\SearchBar\SearchBar.js` como parte de la inicialización de componentes:
 
 :::code language="javascript" source="~/azure-search-dotnet-samples/search-website/src/components/SearchBar/SearchBar.js" highlight="52-60" :::
 

@@ -4,17 +4,17 @@ description: Aprenda a implementar un sitio estático en Azure Static Web Apps c
 services: static-web-apps
 author: craigshoemaker
 ms.author: cshoe
-ms.date: 09/03/2020
+ms.date: 05/07/2021
 ms.topic: quickstart
 ms.service: static-web-apps
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 78af2290a2e71d349303d3913f8a40510eb9c6a0
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: ce4c37091fc56398c9986396d56e2cc66f9b1d8a
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531585"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109813957"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>Inicio rápido: creación del primer sitio estático en Azure Portal
 
@@ -33,64 +33,64 @@ Si no tiene ninguna suscripción a Azure, [cree una cuenta de evaluación gratui
 
 Ahora que se ha creado el repositorio, puede crear una aplicación web estática desde Azure Portal.
 
-1. Vaya a [Azure Portal](https://portal.azure.com).
-1. Seleccione **Crear un recurso**
-1. Busque **Static Web Apps**.
-1. Seleccione **Static Web Apps (Preview)** (Static Web Apps [versión preliminar]).
-1. Seleccione **Crear**
+1. Acceda a [Azure Portal](https://portal.azure.com).
+1. Seleccione **Crear un recurso**.
+1. Busque **Static Web Apps**.
+1. Seleccione **Static Web Apps**.
+1. Seleccione **Crear**.
 
 En la sección _Aspectos básicos_, configure la nueva aplicación y vincúlela a un repositorio de GitHub.
 
-:::image type="content" source="media/getting-started-portal/basics-tab.png" alt-text="Sección Aspectos básicos":::
+:::image type="content" source="media/getting-started-portal/quickstart-portal-basics.png" alt-text="Sección Aspectos básicos":::
 
-1. Seleccione su _suscripción a Azure_.
-1. Seleccione o cree un nuevo _grupo de recursos_.
-1. Asigne el nombre **my-first-static-web-app** a la aplicación.
-      1. Los caracteres válidos son `a-z` (no distingue mayúsculas de minúsculas), `0-9` y `-`.
-1. Seleccione la _región_ más cercana a la suya.
-1. Seleccione la _SKU_ **gratis**.
-1. Seleccione el botón **Sign-in with GitHub** (Iniciar sesión con GitHub) y autentíquese con GitHub
+1. Seleccione la _suscripción de Azure_.
+1. Junto a _Grupo de recursos_, seleccione el vínculo **Crear nuevo**.
+1. Escriba **static-web-apps-test** en el cuadro de texto.
+1. En _Detalles de la aplicación web estática_, escriba **my-first-static-web-app** en el cuadro de texto.
+1. En _Azure Functions and staging details_ (Azure Functions y detalles de almacenamiento provisional), seleccione la región más cercana.
+1. En _Detalles de implementación_, seleccione **GitHub**.
+1. Seleccione el botón **Sign-in with GitHub** (Iniciar sesión con GitHub) y autentíquese con GitHub.
 
 Tras iniciar sesión con GitHub, escriba la información del repositorio.
 
-:::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="Detalles del repositorio":::
+:::image type="content" source="media/getting-started-portal/quickstart-portal-source-control.png" alt-text="Detalles del repositorio":::
 
-1. Seleccione su _organización_ preferida.
+1. Seleccione el nombre de _Organización_ preferida.
 1. Seleccione **my-first-web-static-app** en el menú desplegable _Repositorio_.
 1. Seleccione **main** en el menú desplegable _Rama_.
 
-> [!NOTE]
-> Si no ve ningún repositorio, es posible que deba autorizar Azure Static Web Apps en GitHub. Vaya al repositorio de GitHub y, a continuación, a **Configuración > Aplicaciones > Aplicaciones de OAuth autorizadas**, seleccione **Azure Static Web Apps** y, después, **Conceder**. En el caso de los repositorios de la organización, debe ser propietario de la organización para conceder los permisos.
+   > [!NOTE]
+   > Si no ve ningún repositorio, es posible que deba autorizar Azure Static Web Apps en GitHub. Vaya al repositorio de GitHub y, a continuación, a **Configuración > Aplicaciones > Aplicaciones de OAuth autorizadas**, seleccione **Azure Static Web Apps** y, después, **Conceder**. En el caso de los repositorios de la organización, debe ser propietario de la organización para conceder los permisos.
 
 1. En la sección _Build Details_ (Detalles de la compilación), agregue los detalles de configuración específicos del marco de front-end que prefiera.
 
     # <a name="no-framework"></a>[Ningún marco](#tab/vanilla-javascript)
 
-    1. Seleccione **Custom** (Personalizado) en la lista desplegable _Build Presets_ (Valores preestablecidos de compilación).
-    1. Deje el valor predeterminado en el cuadro _App location_ (Ubicación de la aplicación).
-    1. Borre el valor predeterminado del cuadro _Ubicación de la API_.
-    1. Deje el cuadro _App artifact location_ (Ubicación del artefacto de la aplicación) en blanco.
+    1. Seleccione **Personalizado** en la lista desplegable _Valores preestablecidos de compilación_.
+    1. Conserve el valor predeterminado en el cuadro _Ubicación de la aplicación_.
+    1. Deje en blanco el cuadro _Ubicación de la aplicación_.
+    1. Deje en blanco el cuadro _Ubicación del artefacto de la aplicación_.
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
-    1. Seleccione **Angular** en la lista desplegable _Build Presets_ (Valores preestablecidos de compilación).
-    1. Deje el valor predeterminado en el cuadro _App location_ (Ubicación de la aplicación).
-    1. Borre el valor predeterminado del cuadro _Ubicación de la API_.
-    1. Escriba **dist/angular-basic** en el cuadro _App artifact location_ (Ubicación del artefacto de la aplicación).
+    1. Seleccione **Angular** en la lista desplegable _Valores preestablecidos de compilación_.
+    1. Conserve el valor predeterminado en el cuadro _Ubicación de la aplicación_.
+    1. Deje en blanco el cuadro _Ubicación de la aplicación_.
+    1. Escriba **dist/angular-basic** en el cuadro _Ubicación del artefacto de la aplicación_.
 
     # <a name="react"></a>[React](#tab/react)
 
-    1. Seleccione **React** en la lista desplegable _Build Presets_ (Valores preestablecidos de compilación).
-    1. Deje el valor predeterminado en el cuadro _App location_ (Ubicación de la aplicación).
-    1. Borre el valor predeterminado del cuadro _Ubicación de la API_.
-    1. Escriba **build** en el cuadro _App artifact location_ (Ubicación del artefacto de la aplicación).
+    1. Seleccione **React** en la lista desplegable _Valores preestablecidos de compilación_.
+    1. Conserve el valor predeterminado en el cuadro _Ubicación de la aplicación_.
+    1. Deje en blanco el cuadro _Ubicación de la aplicación_.
+    1. Escriba **build** en el cuadro _Ubicación del artefacto de la aplicación_.
 
     # <a name="vue"></a>[Vue](#tab/vue)
 
-    1. Seleccione **Vue.js** en la lista desplegable _Build Presets_ (Valores preestablecidos de compilación).
-    1. Deje el valor predeterminado en el cuadro _App location_ (Ubicación de la aplicación).
-    1. Borre el valor predeterminado del cuadro _Ubicación de la API_.
-    1. Deje el valor predeterminado en el cuadro _App artifact location_ (Ubicación del artefacto de la aplicación).
+    1. Seleccione **Vue.js** en la lista desplegable _Valores preestablecidos de compilación_.
+    1. Conserve el valor predeterminado en el cuadro _Ubicación de la aplicación_.
+    1. Deje en blanco el cuadro _Ubicación de la aplicación_.
+    1. Deje el valor predeterminado en el cuadro _Ubicación del artefacto de la aplicación_.
 
     ---
 

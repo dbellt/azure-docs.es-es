@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e0299a6fc7de0592397c20ec5c434fc2ebbcb28d
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 20c6b7286ca769de97e0b694a3b9bf37583678bc
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108206518"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110070919"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Inicio rápido: Compilación de una aplicación web .NET mediante la API de Azure Cosmos DB para MongoDB 
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -33,7 +33,8 @@ En este inicio rápido se muestra cómo crear una cuenta de Cosmos con la [API d
 
 ## <a name="prerequisites-to-run-the-sample-app"></a>Requisitos previos para ejecutar la aplicación de ejemplo
 
-Para ejecutar el ejemplo, necesitará [Visual Studio](https://www.visualstudio.com/downloads/) y una cuenta de Azure Cosmos DB válida.
+* [Visual Studio](https://www.visualstudio.com/downloads/)
+* Una cuenta de Azure Cosmos DB.
 
 Si no tiene Visual Studio, descargue [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) con la carga de trabajo **ASP.NET y desarrollo web** instalada con el programa de instalación.
 
@@ -48,35 +49,33 @@ El ejemplo que se describe en este artículo es compatible con la versión 2.6.1
 
 ## <a name="clone-the-sample-app"></a>Clonación de la aplicación de ejemplo
 
-En primer lugar, descargue la aplicación de ejemplo de GitHub. 
+Ejecute los siguientes comandos en una ventana de comandos habilitada para GitHub, como [Git Bash](https://git-scm.com/downloads):
 
-1. Abra un símbolo del sistema, cree una carpeta nueva denominada ejemplos de GIT y, después, cierre el símbolo del sistema.
+```bash
+mkdir "C:\git-samples"
+cd "C:\git-samples"
+git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started.git
+```
 
-    ```bash
-    mkdir "C:\git-samples"
-    ```
+Los comandos anteriores:
 
-2. Abra una ventana de terminal de Git, como git bash y utilice el comando `cd` para cambiar a la nueva carpeta para instalar la aplicación de ejemplo.
-
-    ```bash
-    cd "C:\git-samples"
-    ```
-
-3. Ejecute el comando siguiente para clonar el repositorio de ejemplo. Este comando crea una copia de la aplicación de ejemplo en el equipo. 
-
-    ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started.git
-    ```
+1. Cree el directorio *C:\git-samples* para el ejemplo. Elija una carpeta adecuada para el sistema operativo.
+1. Cambie el directorio actual a la carpeta *C:\git-samples*.
+1. Clone el ejemplo en la carpeta *C:\git-samples*.
 
 Si no desea usar git, también puede [descargar el proyecto como un archivo ZIP](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started/archive/master.zip).
 
 ## <a name="review-the-code"></a>Revisión del código
 
-Este paso es opcional. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, puede revisar los siguientes fragmentos de código. En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-string). 
+1. En Visual Studio, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y, después, haga clic en **Administrar paquetes NuGet**.
+1. En el cuadro **Examinar** de NuGet, escriba *MongoDB.Driver*.
+1. En los resultados, instale la biblioteca **MongoDB.Driver**. De este modo, se instalan el paquete de MongoDB.Driver y todas las dependencias.
 
-Los fragmentos de código siguientes se han tomado del archivo Dal.cs en el directorio DAL.
+Los pasos siguientes son opcionales. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, revise los siguientes fragmentos de código. En caso contrario, vaya directamente a [Actualización de la cadena de conexión](#update-the-connection-string).
 
-* Inicialice el cliente.
+Los fragmentos de código siguientes son del archivo *DAL/Dal.cs*.
+
+* El código siguiente inicializa el cliente:
 
     ```cs
         MongoClientSettings settings = new MongoClientSettings();
@@ -93,7 +92,7 @@ Los fragmentos de código siguientes se han tomado del archivo Dal.cs en el dire
         MongoClient client = new MongoClient(settings);
     ```
 
-* Recupere la base de datos y la colección.
+* El código siguiente recupera la base de datos y la colección:
 
     ```cs
     private string dbName = "Tasks";
@@ -103,13 +102,13 @@ Los fragmentos de código siguientes se han tomado del archivo Dal.cs en el dire
     var todoTaskCollection = database.GetCollection<MyTask>(collectionName);
     ```
 
-* Recupere todos los documentos.
+* El código siguiente recupera todos los documentos:
 
     ```cs
     collection.Find(new BsonDocument()).ToList();
     ```
 
-Cree una tarea e insértela en la colección.
+El código siguiente crea una tarea y la inserta en la colección:
 
    ```csharp
     public void CreateTask(MyTask task)
@@ -125,36 +124,38 @@ Cree una tarea e insértela en la colección.
         }
     }
    ```
-   De forma similar, puede actualizar y eliminar los documentos mediante los métodos [collection.UpdateOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.updateOne/index.html) y [collection.DeleteOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.deleteOne/index.html). 
+   De forma similar, puede actualizar y eliminar los documentos mediante los métodos [collection.UpdateOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.updateOne/index.html) y [collection.DeleteOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.deleteOne/index.html).
 
-## <a name="update-your-connection-string"></a>Actualización de la cadena de conexión
+## <a name="update-the-connection-string"></a>Actualización de la cadena de conexión
 
-Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación.
+En Azure Portal, copie la información de la cadena de conexión:
 
-1. En [Azure Portal](https://portal.azure.com/), en la cuenta de Cosmos, en el panel de navegación izquierdo, haga clic en **Cadena de conexión** y en **Claves de lectura y escritura**. Deberá usar los botones de copia del lado derecho de la pantalla para copiar el nombre de usuario, la contraseña y el host en el archivo Dal.cs en el paso siguiente.
+1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de Cosmos; en el panel de navegación izquierdo, haga clic en **Cadena de conexión** y, a continuación, en **Claves de lectura y escritura**. Deberá usar los botones de copia del lado derecho de la pantalla para copiar el nombre de usuario, la contraseña y el host en el archivo Dal.cs en el paso siguiente.
 
-2. Abra el archivo **Dal.cs** en el directorio **DAL**. 
+2. Abra el archivo *DAL/Dal.cs*.
 
-3. Copie el valor del **nombre de usuario** del portal (con el botón de copia) y conviértalo en el valor del **nombre de usuario** en el archivo **Dal.cs**. 
+3. Copie el valor del **nombre de usuario** del portal (con el botón de copia) y conviértalo en el valor del **nombre de usuario** en el archivo **Dal.cs**.
 
-4. Después, copie el valor del **host** del portal y conviértalo en el valor del **host** en el archivo **Dal.cs**. 
+4. Copie el valor del **host** del portal y conviértalo en el valor del **host** en el archivo **Dal.cs**.
 
-5. Por último, copie el valor de la **contraseña** del portal y conviértalo en el valor de la **contraseña** en el archivo **Dal.cs**. 
+5. Copie el valor de la **contraseña** del portal y conviértalo en el valor de la **contraseña** en el archivo **Dal.cs**.
 
-Ya ha actualizado la aplicación con toda la información que necesita para comunicarse con Cosmos DB. 
-    
+<!-- TODO Store PW correctly-->
+> [!WARNING]
+> Nunca compruebe las contraseñas u otros datos confidenciales en el código fuente.
+
+Ya ha actualizado la aplicación con toda la información que necesita para comunicarse con Cosmos DB.
+
 ## <a name="run-the-web-app"></a>Ejecución de la aplicación web
 
-1. En Visual Studio, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y, después, haga clic en **Administrar paquetes NuGet**. 
+1. Pulse en CTRL+F5 para ejecutar la aplicación. El explorador predeterminado se inicia con la aplicación. 
+1. Haga clic en **Crear** en el explorador y cree algunas tareas en la aplicación de lista de tareas.
 
-2. En el cuadro **Examinar** de NuGet, escriba *MongoDB.Driver*.
-
-3. En los resultados, instale la biblioteca **MongoDB.Driver**. De este modo, se instalan el paquete de MongoDB.Driver y todas las dependencias.
-
-4. Haga clic en CTRL + F5 para ejecutar la aplicación. La aplicación se muestra en el explorador. 
-
-5. Haga clic en **Crear** en el explorador y cree algunas tareas en la aplicación de lista de tareas.
-
+<!-- 
+## Deploy the app to Azure 
+1. In VS, right click .. publish
+2. This is so easy, why is this critical step missed?
+-->
 ## <a name="review-slas-in-the-azure-portal"></a>Revisión de los SLA en Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]

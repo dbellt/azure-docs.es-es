@@ -4,17 +4,17 @@ titleSuffix: Azure Applied AI Services
 description: En esta guía se muestra cómo usar una función de Azure para desencadenar el procesamiento de documentos que se han cargado en un contenedor de Azure Blob Storage.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 03/19/2021
 ms.author: lajanuar
-ms.openlocfilehash: 6a8f3cf5b98361f96df26da923ff6bff7a604d23
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: c458740f3b8b321631b4c9e8fec5d30e8286eb6e
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374005"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111893487"
 ---
 # <a name="tutorial-use-an-azure-function-to-process-stored-documents"></a>Tutorial: Uso de una instancia de Azure Functions para procesar documentos almacenados
 
@@ -166,7 +166,7 @@ El siguiente bloque de código llama a la API de [análisis de diseño](https://
 > [!IMPORTANT]
 > Vaya a Azure Portal. Si el recurso de Form Recognizer que ha creado en la sección **Requisitos previos** se ha implementado correctamente, haga clic en el botón **Ir al recurso** en **Pasos siguientes**. Puede encontrar su clave y punto de conexión en la página de **clave y punto de conexión** del recurso, en **Administración de recursos**. 
 >
-> Recuerde quitar la clave del código cuando haya terminado y no hacerla nunca pública. En el caso de producción, considere la posibilidad de usar alguna forma segura de almacenar las credenciales, y acceder a ellas. Para más información, consulte el artículo sobre la [seguridad de Cognitive Services](../cognitive-services-security.md).
+> Recuerde quitar la clave del código cuando haya terminado y no hacerla nunca pública. En producción, use métodos seguros para almacenar y acceder a sus credenciales. Para más información, consulte el artículo sobre la [seguridad de Cognitive Services](../cognitive-services-security.md).
 
 A continuación, agregue el código para consultar al servicio y obtener los datos devueltos. 
 

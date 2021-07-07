@@ -12,12 +12,12 @@ ms.date: 02/16/2021
 ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: d63399d0f492f85a4a2d57a595a6d8ef5b606d92
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 52ed294146edbd70f21af4f706ad68f3aa6662dc
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599526"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110076823"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>¿Qué es Anomaly Detector API?
 
@@ -56,16 +56,7 @@ Para ejecutar la demostración, debe crear un recurso de Anomaly Detector y obte
 
 Para saber cómo llamar a Anomaly Detector API, pruebe este [cuaderno](https://aka.ms/adNotebook). En esta instancia de Jupyter Notebook se muestra cómo enviar una solicitud de API y visualizar el resultado.
 
-Para ejecutar el cuaderno, haga lo siguiente:
-
-1. Obtenga una clave de suscripción válida de Anomaly Detector API y un punto de conexión de API. En la siguiente sección se proporcionan instrucciones para registrarse.
-1. Inicie sesión y seleccione la opción de clonación en la esquina superior derecha.
-1. Desactive la opción "público" en el cuadro de diálogo antes de completar la operación de clonación, ya que si no lo hace, el cuaderno, incluidas las claves de suscripción, será público.
-1. Seleccione **Run on Free Compute** (Ejecutar en un proceso gratuito).
-1. Seleccione uno de los cuadernos.
-1. Agregue su clave de suscripción válida de Anomaly Detector API a la variable `subscription_key`.
-1. Cambie la variable `endpoint` por el punto de conexión. Por ejemplo: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
-1. En la barra de menús superior, seleccione **Cell** (Celda) y, luego, en **Run All** (Ejecutar todo).
+Para ejecutar el cuaderno, debe obtener una **clave de suscripción** de Anomaly Detector API y un **punto de conexión de API**. En el cuaderno, agregue la clave de suscripción de Anomaly Detector API válida a la variable `subscription_key` y cambie la variable `endpoint` al punto de conexión.
 
 ## <a name="workflow"></a>Flujo de trabajo
 

@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Inicio de sesión de usuarios y llamada a Microsoft Graph en una aplicación de escritorio de la Plataforma universal de Windows | Azure'
+title: 'Inicio rápido: Inicio de sesión de usuarios y llamada a Microsoft Graph en una aplicación de escritorio de Windows | Azure'
 description: En este inicio rápido, conocerá la forma en que una aplicación .NET de escritorio de Windows (XAML) puede obtener un token de acceso y llamar a una API protegida por la plataforma de identidad de Microsoft.
 services: active-directory
 author: jmprieur
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: eb5bf0bc6e211d83d2de2eb8d327ee6b2d577721
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 29ec031fe462e44c1f00d383d667c45b0b16f60b
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075022"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536557"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de escritorio de Windows
 

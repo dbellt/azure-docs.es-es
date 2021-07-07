@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/05/2020
 ms.author: v-jawe
-ms.openlocfilehash: 3873a15c6a56d6ee4944cc596f447c966c275950
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: a44cbbf110ac2789b03b411f074f068451c70e2c
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108313639"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109858060"
 ---
 ## <a name="quickstart-face-client-library-for-javascript"></a>Inicio rápido: Biblioteca cliente de Face para JavaScript
 
@@ -213,10 +213,10 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha aprendido a usar la biblioteca cliente de Face para JavaScript para realizar tareas básicas de reconocimiento facial. A continuación, consulte la documentación de referencia para más información sobre la biblioteca.
+En este inicio rápido, ha aprendido a usar la biblioteca cliente de Face para JavaScript para realizar tareas básicas de reconocimiento facial. A continuación, obtenga información sobre los diferentes modelos de detección de caras y cómo especificar el modelo adecuado para su caso de uso.
 
 > [!div class="nextstepaction"]
-> [Referencia de Face API (JavaScript)](/javascript/api/@azure/cognitiveservices-face/)
+> [Especificación de una versión del modelo de detección de caras](../../Face-API-How-to-Topics/specify-detection-model.md)
 
 * [¿Qué es el servicio Face?](../../overview.md)
 * El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/Face/sdk_quickstart.js).

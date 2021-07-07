@@ -7,12 +7,13 @@ ms.author: askaur
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: ba3a589c5d0f09f24950bd3fee8edc7f4dcd4601
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+zone_pivot_groups: acs-web-ios
+ms.openlocfilehash: 196c35d78b18241a808d4f941dd51d0f08a5b722
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169069"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110080302"
 ---
 # <a name="quickstart-join-your-chat-app-to-a-teams-meeting"></a>Inicio rápido: Incorporación de una aplicación de chat a una reunión de Teams
 
@@ -21,20 +22,15 @@ ms.locfileid: "106169069"
 > [!IMPORTANT]
 > Para habilitar o deshabilitar la [interoperabilidad de los inquilinos de equipos](../../concepts/teams-interop.md), complete [este formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
 
-Comience a usar Azure Communication Services mediante la conexión de la solución de chat a Microsoft Teams con el SDK para JavaScript. 
+Comience a usar Azure Communication Services mediante la conexión de la solución de chat a Microsoft Teams. 
 
-## <a name="prerequisites"></a>Requisitos previos 
+::: zone pivot="platform-web"
+[!INCLUDE [Teams interop with JavaScript SDK](./includes/meeting-interop-javascript.md)]
+::: zone-end
 
-1. Una  [implementación de Teams](/deployoffice/teams-install). 
-2. Una [aplicación de chat](./get-started.md) activa. 
-
-## <a name="enable-teams-interoperability"></a>Habilitación de la interoperabilidad de Teams 
-
-Cualquier usuario de Communication Services que se una a una reunión de Teams como invitado solo puede acceder al chat cuando se haya unido a la llamada de la reunión de Teams. Consulte la documentación de la [interoperabilidad de Teams](../voice-video-calling/get-started-teams-interop.md) para aprender a agregar un usuario de Communication Services a una llamada de reunión de Teams.
-
-Para usar esta característica debe ser miembro de la organización propietaria de ambas entidades.
-
-[!INCLUDE [Join Teams meetings](./includes/meeting-interop-javascript.md)]
+::: zone pivot="platform-ios"
+[!INCLUDE [Teams interop with iOS SDK](./includes/meeting-interop-swift.md)]
+::: zone-end
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/17/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 1b844eb66a287e103e453e242bec407b2f3a38e6
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 94c1bc1b5dc61ac30d2adfb1bc42e13128de054d
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788416"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113105549"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Instalación de Azure Percept DK e implementación del primer modelo de inteligencia artificial
 
@@ -64,7 +64,7 @@ Para comprobar si la cuenta de Azure tiene los roles de "propietario" o "colabor
     > [!WARNING]
     > Mientras está conectado al punto de acceso Wi-Fi de Azure Percept DK, el equipo host perderá temporalmente su conexión a Internet. Se interrumpirán las llamadas de videoconferencia en curso, las transmisiones web u otras experiencias que necesiten la red.
 
-1. Una vez conectado al punto de acceso Wi-Fi del kit de desarrollo, el equipo host iniciará automáticamente la experiencia de instalación en una nueva ventana del explorador; y **your.new.device/** se mostrará en la barra de direcciones. Si la pestaña no se abre automáticamente, inicie la experiencia de instalación. Para ello, vaya a [http://10.1.1.1](http://10.1.1.1). Asegúrese de que el explorador haya iniciado sesión con las credenciales de la cuenta de Azure que va a usar con Azure Percept.
+1. Una vez conectado al punto de acceso Wi-Fi del kit de desarrollo, el equipo host iniciará automáticamente la experiencia de instalación en una nueva ventana del explorador; y **your.new.device/** se mostrará en la barra de direcciones. Si la pestaña no se abre automáticamente, inicie la experiencia de instalación. Para ello, vaya a [http://10.1.1.1](http://10.1.1.1) en un explorador web. Asegúrese de que el explorador haya iniciado sesión con las credenciales de la cuenta de Azure que va a usar con Azure Percept.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-01-welcome.png" alt-text="Página de bienvenida.":::
 
@@ -148,7 +148,7 @@ Para comprobar si la cuenta de Azure tiene los roles de "propietario" o "colabor
 1. Cuando vea la página **Device setup complete!** (Se completó la instalación del dispositivo), el kit de desarrollo se habrá vinculado correctamente a la instancia de IoT Hub y habrá descargado el software necesario. El kit de desarrollo se desconectará automáticamente del punto de acceso Wi-Fi que genera estas dos notificaciones:
 
     > [!NOTE]
-    > Los contenedores de IoT Edge que se configuran como parte de este proceso usan certificados que expirarán a los 90 días. Los certificados se pueden volver a generar automáticamente. Para ello, solo hay que reiniciar IoT Edge. Para más información, consulte [Administración de certificados en un dispositivo IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-manage-device-certificates).
+    > Los contenedores de IoT Edge que se configuran como parte de este proceso usan certificados que expirarán a los 90 días. Los certificados se pueden volver a generar automáticamente. Para ello, solo hay que reiniciar IoT Edge. Para más información, consulte [Administración de certificados en un dispositivo IoT Edge](../iot-edge/how-to-manage-device-certificates.md).
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-19-0-warning.png" alt-text="Advertencia de desconexión de la experiencia de instalación.":::
 
@@ -170,7 +170,7 @@ Para comprobar si la cuenta de Azure tiene los roles de "propietario" o "colabor
 
 1. Haga clic en **Ver el flujo del dispositivo**. Si esta es la primera vez que ve la secuencia de vídeo del dispositivo, observará una notificación de que se está implementando un nuevo modelo en la esquina superior derecha. Esta operación puede tardar unos minutos.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/portal-03-1-start-video-stream.png" alt-text="Ver la secuencia de vídeo.":::
+    :::image type="content" source="./media/quickstart-percept-dk-setup/view-stream.png" alt-text="Ver la secuencia de vídeo.":::
 
     Una vez implementado el modelo, recibirá otra notificación con un vínculo **View stream** (Ver secuencia). Haga clic en el vínculo para ver la secuencia de vídeo de la cámara de Azure Percept Vision en una nueva ventana del explorador. El kit de desarrollo está precargado con un modelo de IA que detecta automáticamente muchos objetos comunes.
 
@@ -178,7 +178,7 @@ Para comprobar si la cuenta de Azure tiene los roles de "propietario" o "colabor
 
 1. Azure Percept Studio también incluye una serie de modelos de IA de ejemplo. Para implementar un modelo de ejemplo en el kit de desarrollo, vuelva a la página del dispositivo y haga clic en **Deploy a sample model** (Implementar un modelo de ejemplo).
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/portal-04-explore-prebuilt.png" alt-text="Exploración de modelos pregenerados.":::
+    :::image type="content" source="./media/quickstart-percept-dk-setup/deploy-sample-model.png" alt-text="Exploración de modelos pregenerados.":::
 
 1. Seleccione un modelo de ejemplo de la biblioteca y haga clic en **Deploy to Device** (Implementar en el dispositivo).
 

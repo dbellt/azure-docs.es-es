@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: include
 ms.date: 03/11/2021
-ms.openlocfilehash: 72e3c56b4f8fdaeec94bff60be45aadfb9b09e76
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: e147d6f954009f8ed4267f8b947438e2e60da0b4
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108167076"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110487219"
 ---
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -21,11 +21,13 @@ Inicie sesión en Azure Portal en [https://portal.azure.com/](https://portal.azu
 
 La aplicación se conectará a una instancia de servicio de Web PubSub en Azure.
 
-1. Seleccione el botón Nuevo de la esquina superior izquierda en Azure Portal. En la pantalla "Nuevo", escriba *Web PubSub* en el cuadro de búsqueda y presione Entrar.
+1. Seleccione el botón Nuevo de la esquina superior izquierda en Azure Portal. En la pantalla "Nuevo", escriba *Web PubSub* en el cuadro de búsqueda y presione Entrar. (También puede buscar Azure Web PubSub en la categoría `Web`).
 
-1. Seleccione **Web PubSub** en los resultados de la búsqueda y, después, haga clic en **Crear**.
+:::image type="content" source="../media/create-instance-portal/search-web-pubsub-in-portal.png" alt-text="Captura de pantalla de la búsqueda de Azure Web PubSub en el portal.":::
 
-1. Escriba la siguiente configuración.
+2. Seleccione **Web PubSub** en los resultados de la búsqueda y, después, haga clic en **Crear**.
+
+3. Escriba la siguiente configuración.
 
     | Configuración      | Valor sugerido  | Descripción                                        |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -36,4 +38,4 @@ La aplicación se conectará a una instancia de servicio de Web PubSub en Azure.
     | **Plan de tarifa** | Gratuito | Pruebe el servicio Azure Web PubSub de forma gratuita. |
     | **Recuento de unidades** |  No aplicable | El recuento de unidades especifica cuántas conexiones puede aceptar la instancia de servicio de Web PubSub. Solo es configurable en el nivel Estándar. |
 
-1. Seleccione **Crear** para empezar a implementar la instancia de servicio de Web PubSub.
+4. Seleccione **Crear** para empezar a implementar la instancia de servicio de Web PubSub.

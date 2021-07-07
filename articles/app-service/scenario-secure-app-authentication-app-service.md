@@ -11,12 +11,12 @@ ms.date: 04/02/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-ms.openlocfilehash: b17cb6906a37d2cab4383fac18400b35dc8adb2f
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: a99b017bf619bb7b3312f71a156b4d535b4067b3
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106223215"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110075869"
 ---
 # <a name="tutorial-add-authentication-to-your-web-app-running-on-azure-app-service"></a>Tutorial: Incorporación de la autenticación a una aplicación web que se ejecuta en Azure App Service
 
@@ -68,6 +68,10 @@ En la parte inferior de la página **Agregar un proveedor de identidades**, haga
 :::image type="content" alt-text="Captura de pantalla que muestra la configuración de la autenticación." source="./media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
 
 Ahora tiene una aplicación que está protegida por la autenticación y la autorización de App Service.
+
+> [!NOTE]
+> Para permitir cuentas de otros inquilinos, cambie el "URL del emisor" a "https://login.microsoftonline.com/common/v2.0" editando el "Proveedor de identidades" en la hoja "Autenticación".
+>
 
 ## <a name="verify-limited-access-to-the-web-app"></a>Comprobación del acceso limitado a la aplicación web
 

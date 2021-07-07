@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 3ab861caca0ef6f58c2c1bc722412774deb725ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da1760def8f2c036854839787b1051e8f52358d0
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98936687"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109809659"
 ---
 # <a name="tutorial-prerequisites-for-using-cognitive-services-in-azure-synapse-analytics"></a>Tutorial: Requisitos previos para el uso de Cognitive Services en Azure Synapse
 
@@ -65,17 +65,17 @@ Puede crear un recurso de [Anomaly Detector](https://ms.portal.azure.com/#create
    ![Captura de pantalla que muestra las selecciones para crear un secreto.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00d.png)
 
    > [!IMPORTANT]
-   > Asegúrese de memorizar o anotar este nombre de secreto. Lo usará más adelante para conectarse a Cognitive Services desde Azure Synapse Studio.
+   > Asegúrese de memorizar o anotar este nombre de secreto. Lo usará más adelante para conectarse a Cognitive Services desde Synapse Studio.
 
 ## <a name="create-an-azure-key-vault-linked-service-in-azure-synapse"></a>Creación de un servicio vinculado de Azure Key Vault en Azure Synapse
 
-1. Abra el área de trabajo en Azure Synapse Studio. 
+1. Abra el área de trabajo en Synapse Studio. 
 2. Vaya a **Administrar** > **Servicios vinculados**. Cree un servicio vinculado de **Azure Key Vault**. Para ello, apunte al almacén de claves que acaba de crear. 
 3. Seleccione el botón **Probar conexión** para comprobar la conexión. Si el color de la conexión es verde, seleccione **Crear** y, a continuación, **Publicar todo** para guardar el cambio.
 
 ![Captura de pantalla que muestra Azure Key Vault como un nuevo servicio vinculado.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00e.png)
 
-Ya puede continuar con uno de los tutoriales para usar la experiencia de Azure Cognitive Services en Azure Synapse Studio.
+Ya puede continuar con uno de los tutoriales para usar la experiencia de Azure Cognitive Services en Synapse Studio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

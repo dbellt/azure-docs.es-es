@@ -6,15 +6,15 @@ author: nmurav
 manager: jken
 services: azure-communication-services
 ms.author: nmurav
-ms.date: 3/23/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c7ec360d961c0960dc941c48626c3aeb3f7367ec
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 377d6783fb73c2d03f7e4dde7b352abe1eaef993
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289019"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113110806"
 ---
 # <a name="ensure-high-quality-media-in-azure-communication-services"></a>Garantía de multimedia de alta calidad en Azure Communication Services
 
@@ -47,7 +47,7 @@ A continuación se muestran los requisitos de ancho de banda de los SDK de JavaS
 |500 kbps|Vídeollamadas grupales con una resolución de 360 puntos a 30 fps|
 |1,2 MBps|Vídeollamadas grupales de alta definición con una resolución de 720 puntos a 30 fps| 
 
-A continuación, se muestran los requisitos de ancho de banda para los SDK de iOS y Android nativos:
+A continuación, se muestran los requisitos de ancho de banda para los SDK de Windows, Android e iOS nativos:
 
 |Ancho de banda|Escenarios|
 |:--|:--|

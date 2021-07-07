@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Configuración de la plataforma para usar C++ en macOS con el SDK de Voz: servicio de voz'
+title: 'Inicio rápido: configuración de la plataforma para usar C++ en macOS con el SDK de Voz: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Use esta guía para configurar la plataforma para usar C++ en macOS con el SDK del servicio de voz.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
-ms.openlocfilehash: 3ad8eb9564c4d8343a0763cc2f6f5061ee602b72
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ed1e979d6334dbef580eb4e686363bfbaffac222
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188376"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110165742"
 ---
 En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para C++ en macOS 10.13 y versiones superiores.
 
@@ -53,8 +53,6 @@ macOS 10.13 y versiones superiores
    ```
 
    La lista de directorios debe contener los archivos de licencia y aviso de otro fabricante, así como un directorio `MicrosoftCognitiveServicesSpeech.framework`.
-
-Ahora puede continuar con la sección [Pasos siguientes](#next-steps).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

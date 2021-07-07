@@ -3,18 +3,18 @@ title: Introducción a Azure Cost Management para los asociados
 description: En este artículo se explica cómo los asociados usan las características de Azure Cost Management y cómo permiten a sus clientes el acceso a Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/27/2021
+ms.date: 06/01/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 40c683d98a13bf4810ec4575af3fba5ae64961f0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 7278211ee47ec4a291a7934fee4b56fae0d8dfc4
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946991"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110790387"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introducción a Azure Cost Management para los asociados
 
@@ -99,7 +99,7 @@ Los asociados pueden usar el ámbito para conciliar las facturas. Además, usan 
 
 - Una factura filtrada específica
 - Customer
-- Suscripción
+- Subscription
 - Resource group
 - Recurso
 - Servicio de Azure
@@ -110,7 +110,13 @@ Los asociados pueden usar el ámbito para conciliar las facturas. Además, usan 
 
 Los asociados usan el ámbito para administrar los costos relacionados con los clientes que se incorporan al contrato de cliente de Microsoft. El ámbito permite a los partners ver los costos antes de los impuestos de un cliente específico en una moneda de facturación. También se pueden ver los costos antes de los impuestos de una suscripción, un grupos de recursos o un recurso específicos.
 
-El ámbito del cliente no incluye a los clientes que se encuentran en la oferta de CSP actual. El ámbito solo incluye a los clientes que tienen un contrato de cliente de Microsoft. Los costos de derechos, no los del uso de Azure, de la oferta de CSP actual están disponibles en los ámbitos de la cuenta de facturación y del perfil de facturación cuando se aplica el filtro de cliente. Los presupuestos establecidos en este ámbito se encuentran en la moneda de facturación.
+El ámbito del cliente no incluye a los clientes que se encuentran en la oferta de CSP actual. El ámbito solo incluye a los clientes que tienen un contrato de cliente de Microsoft.
+
+Los costos de derechos, no los del uso de Azure, de la oferta de CSP actual están disponibles en los ámbitos de la cuenta de facturación y del perfil de facturación cuando se aplica el filtro de cliente. Los presupuestos establecidos en este ámbito se encuentran en la moneda de facturación.
+
+Para ver los costos en el ámbito del cliente, en el inquilino del asociado, vaya a Análisis de costos, seleccione el selector de ámbitos y, luego, elija el cliente específico en la lista de ámbitos. Este es un ejemplo para el cliente de *servicios de Contoso*.
+
+:::image type="content" source="./media/get-started-partners/customer-scope.png" alt-text="Captura de pantalla que muestra la selección de un ámbito de cliente." lightbox="./media/get-started-partners/customer-scope.png" :::
 
 ## <a name="partner-access-to-billing-scopes-in-cost-management"></a>Acceso de los asociados a los ámbitos de facturación en Cost Management
 

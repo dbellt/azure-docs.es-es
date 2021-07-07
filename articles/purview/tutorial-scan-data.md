@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 16692ac75f0ab6df0c8ee1bebef393848ca066b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb11033e0f4fcff171825d579e62e071f66b1cea
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676551"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745896"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Tutorial: Examen de datos con Azure Purview (versión preliminar)
 
@@ -192,7 +192,7 @@ Cuando se crea la cuenta, se crea automáticamente una identidad administrada co
 
 ### <a name="scan-your-data-sources"></a>Examen de los orígenes de datos
 
-1. Vaya al recurso de Azure Purview en [Azure Portal](https://portal.azure.com) y seleccione *Abrir Purview Studio*. Se le dirigirá automáticamente a la página principal de Purview Studio.
+1. En [Azure Portal](https://portal.azure.com), busque y seleccione el nombre de la instancia de Azure Purview que creó como requisito previo y, después, seleccione *Open Purview Studio* (Abrir Purview Studio). Se le dirigirá automáticamente a la página principal de Purview Studio.
 
 1. Seleccione **Sources** (Orígenes) en la página web del catálogo y seleccione **Register** (Registrar). Después, seleccione **Azure Blob Storage** y **Continue** (Continuar).
 

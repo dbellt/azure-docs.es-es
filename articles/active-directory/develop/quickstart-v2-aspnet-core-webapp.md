@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Incorporación del inicio de sesión con Microsoft a una aplicación web de ASP.NET Core | Azure'
+title: 'Inicio rápido: Incorporación del inicio de sesión con Microsoft Identity a una aplicación web de ASP.NET Core | Azure'
 titleSuffix: Microsoft identity platform
 description: En este inicio rápido, aprenderá cómo una aplicación implementa el inicio de sesión de Microsoft en una aplicación web de ASP.NET mediante OpenID Connect.
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: e7296b04e3e912e96ac8c2ed77b44288324c262f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb58a86aad4e0298f12c917d475520ee44501c00
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104578709"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110494430"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Inicio rápido: Adición del inicio de sesión con Microsoft a una aplicación web de ASP.NET Core
 

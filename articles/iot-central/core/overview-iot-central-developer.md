@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 7cb52dba88d94ed52baa8272c7f20fed4bcde0fd
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 90e1b951cd3990df3615cdcf33a4d659f693b5ee
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787552"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064889"
 ---
 # <a name="iot-central-device-development-guide"></a>Guía de desarrollo de dispositivos IoT Central
 
@@ -77,6 +77,8 @@ Los protocolos de comunicación que un dispositivo puede usar para conectarse a 
 ## <a name="implement-the-device"></a>Implementación del dispositivo
 
 Una plantilla de dispositivo IoT Central incluye un _modelo_ que especifica los comportamientos que debe implementar un dispositivo de ese tipo. Estos comportamientos incluyen telemetría, propiedades y comandos.
+
+Para más información sobre los procedimientos recomendados para editar un modelo, consulte [Edición de una plantilla de dispositivo existente](howto-edit-device-template.md).
 
 > [!TIP]
 > Puede exportar el modelo desde IoT Central como un archivo JSON de [lenguaje de definición de Digital Twins (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl).

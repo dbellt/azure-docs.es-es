@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 10/01/2020
+ms.date: 05/17/2021
 ms.author: trbye
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-twenty-four
 keywords: texto a voz
-ms.openlocfilehash: 7a41c4d9c1074b376da3de556caf63ced0bc84ec
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 33e19816d219e2be3dae367c5b30da349e2eb879
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428241"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110085498"
 ---
 # <a name="get-started-with-text-to-speech"></a>Introducción a la conversión de texto a voz
 
@@ -28,6 +28,10 @@ ms.locfileid: "102428241"
 
 ::: zone pivot="programming-language-cpp"
 [!INCLUDE [C++ Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-cpp.md)]
+::: zone-end
+
+::: zone pivot="programming-language-go"
+[!INCLUDE [C++ Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-go.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
@@ -56,9 +60,11 @@ ms.locfileid: "102428241"
 
 ## <a name="get-position-information"></a>Obtención de información de posición
 
-Es posible que el proyecto necesite saber cuándo se habla de una palabra mediante la conversión de voz en texto para que pueda llevar a cabo acciones específicas en función de ese tiempo. Por ejemplo, si desea resaltar palabras a medida que se pronuncian, debe saber qué resaltar, cuándo hacerlo y durante cuánto tiempo se debe resaltar.
+Es posible que el proyecto necesite saber cuándo se pronuncia una palabra mediante la conversión de texto a voz para que pueda llevar a cabo acciones específicas en función de ese tiempo.
+Por ejemplo, si desea resaltar palabras a medida que se pronuncian, debe saber qué resaltar, cuándo hacerlo y durante cuánto tiempo se debe resaltar.
 
-Para ello, puede usar el evento `WordBoundary` disponible en `SpeechSynthesizer`. Este evento se desencadena al principio de cada nueva palabra oral y proporcionará un desfase de tiempo dentro del flujo hablado, así como un desplazamiento de texto dentro del indicador de entrada.
+Para ello, puede usar el evento `WordBoundary` disponible en `SpeechSynthesizer`.
+Este evento se desencadena al principio de cada nuevo texto oral y proporcionará un desfase de tiempo dentro del flujo hablado, así como un desplazamiento de texto dentro del indicador de entrada.
 
 * `AudioOffset` informa del tiempo transcurrido del audio de salida entre el inicio de la síntesis y el inicio de la siguiente palabra. Se mide en unidades de centenares de nanosegundos (SNP)y 10 000 SNP equivalen a 1 milisegundo.
 * `WordOffset` notifica la posición de un carácter en la cadena de entrada (texto original o [SSML](speech-synthesis-markup.md)) inmediatamente antes de la palabra que se va a pronunciar.

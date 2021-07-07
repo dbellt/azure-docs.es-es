@@ -3,17 +3,17 @@ title: Instancias reservadas de máquinas virtuales de Azure EA
 description: En este artículo se resume la forma en que las reservas de Azure para las instancias reservadas de máquinas virtuales pueden ayudarle a ahorrar dinero en la inscripción de su empresa.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2020
+ms.date: 05/17/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 6303a94cec9efc01815b6dc6c697abdfe0f84227
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 0378e05d8d606d04b90ca20aa3e0399132e9f0ef
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220907"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095849"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instancias reservadas de máquinas virtuales de Azure EA
 
@@ -43,6 +43,14 @@ Los clientes que tengan Contrato Enterprise pueden ver los datos de uso y costos
 Para obtener más información sobre los costos de reserva y el uso, vea [Obtención del uso y los costos de reservas de Contrato Enterprise](../reservations/understand-reserved-instance-usage-ea.md).
 
 Para obtener información sobre los precios, consulte [Precios de máquinas virtuales Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) o [Precios de máquinas virtuales Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
+
+### <a name="reservation-prices"></a>Precios de reserva
+
+Los descuentos de reserva que su organización pueda haber negociado no se muestran en la hoja de precios del portal de EA. Anteriormente, los precios con descuento estaban disponibles en el portal de EA, pero esa funcionalidad se quitó. Si ha negociado precios de reserva reducidos, actualmente la única manera de obtener una lista de ellos es crear una [solicitud de soporte técnico de Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+Los precios de las reservas no son necesariamente los mismos entre los precios de minoristas y EA. Podrían ser iguales, pero si ha negociado un descuento, los precios diferirán.
+
+Los precios que se muestran en la [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/) y en la [API de precios de minoristas](/rest/api/cost-management/retail-prices/azure-retail-prices) son los mismos. Consultar la API es la mejor manera de ver todos los precios a la vez.
 
 ## <a name="reserved-instances-api-support"></a>Soporte técnico de la API de instancias reservadas
 

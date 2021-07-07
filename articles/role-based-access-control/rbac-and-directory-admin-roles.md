@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/31/2021
+ms.date: 05/20/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: bd5533f4bc8420ee6d8900e8a17dfe7099d7945f
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: d339f058e94f27c26b4d5ae9bfcce4c66f279554
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107204"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110463675"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Roles de administrador de la suscripción clásica, roles de Azure y roles de Azure AD
 
@@ -44,13 +44,13 @@ Administrador de cuenta, administrador de servicios y coadministrador son las tr
 
 | Administrador de suscripciones clásicas | Límite | Permisos | Notas |
 | --- | --- | --- | --- |
-| Administrador de cuenta | 1 por cuenta de Azure | <ul><li>Administración de la facturación en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)</li><li>Administrar todas las suscripciones en una cuenta</li><li>Crear nuevas suscripciones</li><li>Cancelar suscripciones</li><li>Cambiar la facturación de una suscripción</li><li>Cambiar el administrador de servicios</li></ul> | Desde un punto de vista conceptual, el propietario de la facturación de la suscripción. |
+| Administrador de cuenta | 1 por cuenta de Azure | <ul><li>Puede acceder a [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) y administrar la facturación.</li><li>Administración de la facturación de todas las suscripciones de la cuenta</li><li>Crear nuevas suscripciones</li><li>Cancelar suscripciones</li><li>Cambiar la facturación de una suscripción</li><li>Cambiar el administrador de servicios</li><li>No se pueden cancelar suscripciones a menos que tengan el rol Administrador de servicios o Propietario de la suscripción.</li></ul> | Desde un punto de vista conceptual, el propietario de la facturación de la suscripción. |
 | Administrador de servicios | 1 por cada suscripción de Azure | <ul><li>Administrar servicios en [Azure Portal](https://portal.azure.com)</li><li>Cancelación de la suscripción</li><li>Asignar a usuarios al rol de coadministrador</li></ul> | De forma predeterminada, en una nueva suscripción, el administrador de cuenta es también el administrador de servicios.<br>El administrador de servicios tiene el acceso equivalente a un usuario al que se le asigna el rol de propietario en el ámbito de la suscripción.<br>El administrador de servicios tiene permiso total de acceso a Azure Portal. |
 | Coadministrador | 200 por suscripción | <ul><li>Mismos privilegios de acceso que el administrador de servicios, pero no puede cambiar la asociación de suscripciones a directorios de Azure</li><li>Asignar usuarios al rol de coadministrador, pero no puede cambiar el administrador de servicios</li></ul> | El coadministrador tiene el acceso equivalente a un usuario al que se le asigna el rol de propietario en el ámbito de la suscripción. |
 
 En Azure Portal, puede administrar coadministradores o ver el administrador de servicios mediante la pestaña **Administradores clásicos**.
 
-![Administradores clásicos de la suscripción de Azure en Azure Portal](./media/rbac-and-directory-admin-roles/subscription-view-classic-administrators.png)
+![Administradores clásicos de la suscripción de Azure en Azure Portal](./media/shared/classic-administrators.png)
 
 En Azure Portal, puede ver o cambiar el administrador de servicios o ver el administrador de cuenta en la hoja de propiedades de la suscripción.
 
@@ -85,11 +85,11 @@ Azure RBAC solo es compatible con Azure Portal y con las API de Azure Resource M
 
 En Azure Portal, las asignaciones de roles mediante Azure RBAC aparecen en la hoja **Control de acceso (IAM)** . Esta hoja se puede encontrar en todo el portal, como en grupos de administración, suscripciones, grupos de recursos y distintos recursos.
 
-![Hoja de control de acceso (IAM) en Azure Portal](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
+![Hoja de control de acceso (IAM) en Azure Portal](./media/shared/sub-role-assignments.png)
 
 Al hacer clic en la pestaña **Roles**, verá la lista de roles integrados y personalizados.
 
-![Roles integrados en Azure Portal](./media/rbac-and-directory-admin-roles/roles-list.png)
+![Roles integrados en Azure Portal](./media/shared/roles-list.png)
 
 Para más información, consulte [Asignación de roles de Azure mediante Azure Portal](role-assignments-portal.md).
 

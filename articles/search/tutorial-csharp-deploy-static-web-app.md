@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 04/23/2021
 ms.custom: devx-track-csharp
 ms.devlang: .NET
-ms.openlocfilehash: 800d89f22d54b185111f7385ebe07771f228d8cf
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: d38259b55c490d06885ea9fce4094fabcee68a37
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107981993"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469895"
 ---
 # <a name="3---deploy-the-search-enabled-net-website"></a>3 - Implementación del sitio web habilitado para búsquedas de .NET
 
@@ -30,20 +30,25 @@ La aplicación web estática extrae la información y los archivos para la imple
 
     :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-create-static-web-app-resource-advanced.png" alt-text="Haga clic con el botón derecho en el nombre de la suscripción y seleccione **Create Static Web App (Advanced)** [(Crear aplicación web estática (avanzada)]":::.
 
+1. Si ve una ventana emergente en VS Code que le pregunta desde qué rama quiere realizar la implementación, seleccione la rama predeterminada, normalmente **maestra** o **principal**. 
+
+    Esta configuración significa que solo los cambios que se confirman en esa rama se implementan en la aplicación web estática. 
+
+1. Si ve una ventana emergente que le pide que confirme los cambios, no lo haga. Los secretos del paso de importación masiva no se deben confirmar en el repositorio. 
+
+    Para revertir los cambios, en VS Code, seleccione el icono Control de código fuente de la barra de actividad, elija cada archivo modificado en la lista Cambios y seleccione el icono **Descartar cambios**.
+
 1. Siga los mensajes para proporcionar la siguiente información:
 
     |Prompt|Entrar|
     |--|--|
-    |¿Cómo desea crear una aplicación web estática?|Usar el repositorio de GitHub existente|
-    |Elija la organización|Seleccione su _propio_ alias de GitHub como la organización.|
-    |Selección del repositorio|Seleccione **azure-search-dotnet-samples** en la lista. |
-    |Elija la rama del repositorio|Seleccione **master** (maestra) en la lista. |
     |Escriba el nombre de la nueva aplicación web estática.|Cree un nombre único para el recurso. Por ejemplo, puede anteponer su nombre al nombre del repositorio, como en `joansmith-azure-search-dotnet-samples`. |
     |Seleccione un grupo de recursos para los nuevos recursos.|Utilice el grupo de recursos que ha creado para este tutorial.|
+    |Seleccionar una SKU| En este tutorial, seleccione la SKU gratuita.|
     |Elija el valor preestablecido de compilación para configurar la estructura predeterminada del proyecto.|Seleccionar **Personalizado**|
-    |Seleccione la ubicación del código de la aplicación.|`search-website`|
-    |Seleccione la ubicación del código de Azure Functions.|`search-website/api`|
-    |Escriba la ruta de la salida de la compilación...|build|
+    |Seleccione la ubicación del código de la aplicación.|`search-website`<br><br>Esta es la ruta de acceso, desde la raíz del repositorio hasta la aplicación web estática de Azure. |
+    |Seleccione la ubicación del código de Azure Functions.|`search-website/api`<br><br>Esta es la ruta de acceso, desde la raíz del repositorio hasta la aplicación de funciones de Azure. |
+    |Escriba la ruta de la salida de la compilación...|`build`<br><br>Esta es la ruta de acceso, desde la aplicación web estática de Azure hasta los archivos generados.|
     |Seleccione una ubicación para los nuevos recursos.|Seleccione una región cercana.|
 
 1. Una vez creado el recurso, seleccione **Open Actions in GitHub** (Abrir acciones en GitHub) en las notificaciones. Se abrirá una ventana del explorador que apunta al repositorio bifurcado. 
