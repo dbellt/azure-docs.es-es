@@ -1,6 +1,6 @@
 ---
 title: Solución de problemas de inicio de sesión en la suscripción a Azure
-description: Ayuda a resolver problemas que no permiten iniciar sesión en Azure Portal o en el Centro de cuentas de Azure.
+description: Ayuda a resolver problemas que no permiten iniciar sesión en Azure Portal.
 services: cost-management-billing
 author: v-miegge
 manager: dcscontentpm
@@ -8,18 +8,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 08/20/2020
+ms.date: 05/13/2021
 ms.author: v-miegge
-ms.openlocfilehash: 915b4fb289b6af6f4aac84d8bfa4d491a7f77efe
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 009a29a4e296c8aa03163dd954cd242eec040027
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050477"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470753"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Solución de problemas de inicio de sesión en la suscripción a Azure
 
-Esta guía ayuda a resolver problemas que no permiten iniciar sesión en Azure Portal o en el Centro de cuentas de Azure.
+Esta guía ayuda a resolver problemas que no permiten iniciar sesión en Azure Portal.
 
 > [!NOTE]
 > Si tiene problemas para registrar una nueva cuenta de Azure, consulte [Solución de problemas al registrar una suscripción en Azure](./troubleshoot-azure-sign-up.md).
@@ -61,20 +61,12 @@ Para solucionar este problema, pruebe uno de los métodos siguientes:
 
 Este problema se produce si ha seleccionado el directorio equivocado o si la cuenta no tiene permisos suficientes.
 
-**Escenario 1:** recibe el error al iniciar sesión en [Azure Portal](https://portal.azure.com/)
+**Escenario 1:** recibe el error al iniciar sesión en [Azure Portal](https://portal.azure.com/).
 
 Para corregir este problema:
 
 - Compruebe que ha seleccionado el directorio correcto de Azure. Para ello, seleccione la cuenta pertinente en la esquina superior derecha.
 - Si ha seleccionado el directorio correcto de Azure, pero el mensaje de error no desaparece, [agregue la cuenta como propietario](./add-change-subscription-administrator.md).
-
-**Escenario 2:** recibe el error al iniciar sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions)
-
-Compruebe si la cuenta que ha usado es el administrador de cuentas. Para comprobar quién es el administrador de cuentas, siga estos pasos:
-
-1.  Inicie sesión en la [vista de suscripciones de Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1.  Seleccione la suscripción que quiera comprobar y, a continuación, seleccione **Configuración**.
-1.  Seleccione **Propiedades**. El administrador de cuentas de la suscripción se muestra en el cuadro **Administrador de cuentas** .
 
 ## <a name="additional-help-resources"></a>Más recursos de ayuda
 

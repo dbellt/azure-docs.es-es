@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: mvc, devx-track-azurepowershell
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 7f29ba5291ab80ef4a4d323e23741c333796c7a8
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 3234c21e9cff55decfc35fd5b6f8d0feee6a3577
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110691155"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112280214"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Inicio rápido: Creación de un clúster de Apache Kafka en Azure HDInsight mediante PowerShell
 
@@ -18,7 +18,7 @@ ms.locfileid: "110691155"
 
 En esta guía de inicio rápido, aprenderá a crear un clúster de [Apache Kafka](https://kafka.apache.org) con Azure PowerShell. También aprenderá a usar las utilidades incluidas para enviar y recibir mensajes con Kafka.
 
-[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../includes/hdinsight-delete-cluster-warning.md)]
 
 Solo los recursos dentro de la misma red virtual pueden tener acceso a la API de Kafka. En esta guía de inicio rápido, tendrá acceso al clúster directamente mediante SSH. Para conectar otros servicios, redes o máquinas virtuales con Kafka, primero debe crear una red virtual y, a continuación, crear los recursos dentro de la red. Para más información, consulte el documento [Conexión a Kafka en HDInsight mediante una instancia de Azure Virtual Network](apache-kafka-connect-vpn-gateway.md).
 

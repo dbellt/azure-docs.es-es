@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 583124e9e3ca657ee13e4726eda981ae26022856
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 6c9d2e82e048a8693175974d6ef664d67e9deac8
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138524"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652659"
 ---
 # <a name="tutorial-map-an-existing-custom-domain-to-azure-spring-cloud"></a>Tutorial: Asignación de un dominio personalizado existente a Azure Spring Cloud
 
@@ -89,7 +89,7 @@ Para cargar el certificado en el almacén de claves:
 1. En el menú superior, haga clic en **Generar o importar**.
 1. En el cuadro de diálogo **Crear un certificado** en **Método de creación de certificados**, seleccione `Import`.
 1. En **Cargar archivo de certificado**, vaya a la ubicación del certificado y selecciónela.
-1. En **Contraseña**, escriba la clave privada del certificado.
+1. En **Contraseña**, si va a cargar un archivo de certificado protegido mediante contraseña, especifique aquí la contraseña. De lo contrario, déjelo en blanco. Una vez que el archivo de certificado se haya importado correctamente, Key Vault quitará esa contraseña.
 1. Haga clic en **Crear**.
 
     ![Importación del certificado 1](./media/custom-dns-tutorial/import-certificate-a.png)

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: bcb37c624f53d961020de022569a621ca1dfaba1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 8ec795e7ad54d2101573d857fa52b5aaad0ed71d
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789004"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032400"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>Inicio rápido: Configuración de IoT Hub Device Provisioning Service (DPS) con una plantilla de Resource Manager
 
@@ -25,7 +25,7 @@ En este inicio rápido se usa [Azure Portal](../azure-resource-manager/templates
 
 Si su entorno cumple los requisitos previos y ya está familiarizado con el uso de plantillas de Resource Manager, al seleccionar el botón **Implementar en Azure** que aparece a continuación se abrirá la plantilla para la implementación en Azure Portal.
 
-[![Información general de implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-iothub-device-provisioning%2fazuredeploy.json)
+[![Información general de implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2Fquickstarts%2Fmicrosoft.devices%2Fiothub-device-provisioning%2fazuredeploy.json)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -34,12 +34,12 @@ Si su entorno cumple los requisitos previos y ya está familiarizado con el uso 
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-iothub-device-provisioning/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/iothub-device-provisioning/).
 
 > [!NOTE]
 > Actualmente no se pueden crear inscripciones con nuevos recursos de DPS mediante plantillas de ARM. Se trata de una petición común y comprensible que se está considerando implementar.
 
-:::code language="json" source="~/quickstart-templates/101-iothub-device-provisioning/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.devices/iothub-device-provisioning/azuredeploy.json":::
 
 En la plantilla anterior se definen dos recursos de Azure:
 
@@ -53,7 +53,7 @@ En la plantilla anterior se definen dos recursos de Azure:
 
 1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir la plantilla para la implementación. La plantilla crea un centro de IoT y un recurso de DPS. El centro se vinculará en el recurso de DPS.
 
-    [![Pasos de implementación en Azure en el portal](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-iothub-device-provisioning%2fazuredeploy.json)
+    [![Pasos de implementación en Azure en el portal](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2Fquickstarts%2Fmicrosoft.devices%2Fiothub-device-provisioning%2fazuredeploy.json)
 
 2. Seleccione o escriba los siguientes valores y, a continuación, elija **Revisar y crear**.
 
@@ -114,7 +114,7 @@ Inicie sesión en la cuenta de Azure y seleccione su suscripción.
     ```azurecli-interactive
     read -p "Enter a project name that is used for generating resource names:" projectName &&
     read -p "Enter the location (i.e. centralus):" location &&
-    templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-iothub-device-provisioning/azuredeploy.json" &&
+    templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.devices/iothub-device-provisioning/azuredeploy.json" &&
     resourceGroupName="${projectName}rg" &&
     az group create --name $resourceGroupName --location "$location" &&
     az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri &&

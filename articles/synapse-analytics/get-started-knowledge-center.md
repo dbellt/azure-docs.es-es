@@ -10,25 +10,25 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 04/04/2021
-ms.openlocfilehash: f36d5deb93f141bb7467a50d4b5dba7f3df1ea92
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: ba6023ccc1582650e74da483aeefc48d2a305bef
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517017"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111554759"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Exploración del Centro de conocimientos de Synapse
 
-En este tutorial, aprenderá a usar el Centro de conocimientos de Synapse Studio.
+En este tutorial, aprenderá a usar el **Centro de conocimientos** de Synapse Studio.
 
-## <a name="finding-to-the-knowledge-center"></a>Búsqueda en el Centro de conocimientos
+## <a name="finding-the-knowledge-center"></a>Búsqueda del Centro de conocimientos
 
-Hay dos formas de buscar el Centro de conocimientos en Synapse Studio:
+Hay dos formas de buscar el **Centro de conocimientos** en Synapse Studio:
 
   1. En el centro de conectividad de inicio, cerca de la parte superior derecha de la página, haga clic en **Obtener información**.
-  2. En la barra de menú de la parte superior, haga clic en **?** y, a continuación, en **Centro de conocimientos**.
+  2. En la barra de menú de la parte superior, haga clic en **?** y luego en el **Centro de conocimientos**.
 
-Elija cualquier método y abra el **Centro de conocimientos**.
+Elija cualquiera de los métodos y abra el **Centro de conocimientos**.
 
 ## <a name="exploring-the-knowledge-center"></a>Exploración del Centro de conocimientos
 
@@ -53,7 +53,7 @@ En esta sección, hay tres elementos:
 
 ## <a name="gallery-a-collection-of-sample-datasets-and-sample-code"></a>Galería: recopilación de conjuntos de datos de ejemplo y código de ejemplo
 
-1. Vaya al **Centro de conocimiento** y haga clic en **Examinar la galería**.
+1. Vaya al **Centro de conocimientos** y haga clic en **Examinar la galería**.
 1. Seleccione la pestaña **Scripts de SQL** en la parte superior.
 1. Seleccione el ejemplo de ingesta de datos **Carga de conjuntos de datos de taxis de Nueva York** y haga clic en **Continuar**.
 1. En **Grupo de SQL**, elija **Seleccionar un grupo existente**, seleccione **SQLPOOL1** y, a continuación, seleccione la base de datos **SQLPOOL1** que creó anteriormente.

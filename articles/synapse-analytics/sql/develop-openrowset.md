@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: be412f4dd2413cfe5562f895489aed10b9a9a80f
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 1a39b963fa88866e02e9813c68d1b6504d3e98c7
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378691"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956537"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Uso de OPENROWSET con un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -90,7 +90,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 <bulk_options> ::=  
 [ , FIELDTERMINATOR = 'char' ]    
 [ , ROWTERMINATOR = 'char' ] 
-[ , ESCAPE_CHAR = 'char' ] 
+[ , ESCAPECHAR = 'char' ] 
 [ , FIRSTROW = 'first_row' ]     
 [ , FIELDQUOTE = 'quote_characters' ]
 [ , DATA_COMPRESSION = 'data_compression_method' ]
@@ -189,11 +189,11 @@ ROWTERMINATOR ="row_terminator"
 
 Especifica el terminador de fila que se va a usar. Si no se especifica ningún terminador de fila, se usará uno de los terminadores predeterminados. Los terminadores predeterminados para PARSER_VERSION = "1.0" son \r\n, \n y \r. Los terminadores predeterminados para PARSER_VERSION = "2.0" son \r\n y \n.
 
-ESCAPE_CHAR = "char"
+ESCAPECHAR = 'char'
 
 Especifica el carácter del archivo que se usa como carácter de escape de sí mismo y de todos los valores de delimitador del archivo. Si el carácter de escape va seguido de un valor distinto de sí mismo o de cualquiera de los valores de delimitador, se quita al leer el valor. 
 
-El parámetro ESCAPE_CHAR se aplicará independientemente de que FIELDQUOTE esté habilitado o no. No se utilizará como carácter de escape el carácter de comillas. El carácter de comillas se debe escapar con otro carácter de comillas. El carácter de comillas solo puede aparecer dentro del valor de la columna si el valor se encapsula entre caracteres de comillas.
+El parámetro ESCAPECHAR se aplicará independientemente de que FIELDQUOTE esté habilitado o no. No se utilizará como carácter de escape el carácter de comillas. El carácter de comillas se debe escapar con otro carácter de comillas. El carácter de comillas solo puede aparecer dentro del valor de la columna si el valor se encapsula entre caracteres de comillas.
 
 FIRSTROW = "first_row" 
 
@@ -420,5 +420,4 @@ AS [r]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver más ejemplos, consulte el [inicio rápido del almacenamiento de datos de consulta](query-data-storage.md) para aprender a usar `OPENROWSET` para leer los formatos de archivo [CSV](query-single-csv-file.md),[PARQUET](query-parquet-files.md), [DELTA LAKE](query-delta-lake-format.md) y [JSON](query-json-files.md). Consulte los [procedimientos recomendados](best-practices-sql-on-demand.md) para lograr un rendimiento óptimo. También puede obtener información sobre cómo guardar los resultados de la consulta en Azure Storage mediante [CETAS](develop-tables-cetas.md).
-
+Para ver más ejemplos, consulte el [inicio rápido del almacenamiento de datos de consulta](query-data-storage.md) para aprender a usar `OPENROWSET` para leer los formatos de archivo [CSV](query-single-csv-file.md),[PARQUET](query-parquet-files.md), [DELTA LAKE](query-delta-lake-format.md) y [JSON](query-json-files.md). Consulte los [procedimientos recomendados](./best-practices-serverless-sql-pool.md) para lograr un rendimiento óptimo. También puede obtener información sobre cómo guardar los resultados de la consulta en Azure Storage mediante [CETAS](develop-tables-cetas.md).

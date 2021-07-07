@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: fc45296fe3541d5388505a52a7e3f0856b4b1825
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 3387e5d1fd64771b8be012b421da4b32007155f0
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108791687"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109858119"
 ---
 Comience a usar el reconocimiento facial con la biblioteca cliente de Face para .NET. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. El servicio Face le proporciona acceso a algoritmos avanzados para detectar y reconocer rostros humanas en imágenes.
 
@@ -261,10 +261,10 @@ Reemplace el método de eliminación por el código siguiente:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha aprendido a usar la biblioteca cliente de Face para .NET para realizar tareas básicas de reconocimiento facial. A continuación, consulte la documentación de referencia para más información sobre la biblioteca.
+En este inicio rápido, ha aprendido a usar la biblioteca cliente de Face para .NET para realizar tareas básicas de reconocimiento facial. A continuación, obtenga información sobre los diferentes modelos de detección de caras y cómo especificar el modelo adecuado para su caso de uso.
 
 > [!div class="nextstepaction"]
-> [Referencia de Face API (.NET)](/dotnet/api/overview/azure/cognitiveservices/client/faceapi)
+> [Especificación de una versión del modelo de detección de caras](../../Face-API-How-to-Topics/specify-detection-model.md)
 
 * [¿Qué es el servicio Face?](../../overview.md)
 * El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/Face/FaceQuickstart.cs).

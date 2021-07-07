@@ -3,14 +3,14 @@ title: 'Tutorial de Kubernetes en Azure: Implementación de una aplicación'
 description: En este tutorial de Azure Kubernetes Service (AKS), implemente una aplicación con varios contenedores en el clúster mediante una imagen personalizada que se almacena en Azure Container Registry.
 services: container-service
 ms.topic: tutorial
-ms.date: 01/12/2021
-ms.custom: mvc
-ms.openlocfilehash: a0de097a545a831e39a671fe4cf5eadcd336ce24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/24/2021
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 9632b3cb2e0e3b46cb024df0cc6dddd6829aed05
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98250186"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110697939"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Ejecución de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -31,17 +31,37 @@ En tutoriales anteriores se empaquetó una aplicación en una imagen de contened
 
 Para completar este tutorial, necesita el archivo de manifiesto de Kubernetes `azure-vote-all-in-one-redis.yaml` creado previamente. Este archivo se descargó con el código fuente de la aplicación en un tutorial anterior. Confirme que ha clonado el repositorio y que ha cambiado los directorios en el repositorio clonado. Si no ha realizado estos pasos, pero quiere continuar, comience con el [Tutorial 1: Creación de imágenes de contenedor][aks-tutorial-prepare-app].
 
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
 Para realizar este tutorial es necesario ejecutar la versión 2.0.53, o superior, de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Para realizar este tutorial es preciso ejecutar la versión 5.9.0 de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-InstalledModule -Name Az` para encontrar la versión. Si necesita instalarla o actualizarla, consulte el artículo sobre la [instalación de Azure PowerShell][azure-powershell-install].
+
+---
 
 ## <a name="update-the-manifest-file"></a>Actualización del archivo de manifiesto
 
 En estos tutoriales, una instancia de Azure Container Registry (ACR) almacena la imagen del contenedor de la aplicación de ejemplo. Para implementar la aplicación, debe actualizar el nombre de la imagen en el archivo de manifiesto de Kubernetes para incluir el nombre del servidor de inicio de sesión de ACR.
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Para obtener el nombre del servidor de inicio de sesión de ACR se usa el comando [az acr list][az-acr-list], como se muestra a continuación:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Obtenga el nombre del servidor de inicio de sesión de ACR mediante el cmdlet [Get-AzContainerRegistry][get-azcontainerregistry] como se muestra a continuación:
+
+```azurepowershell
+(Get-AzContainerRegistry -ResourceGroupName myResourceGroup -Name <acrName>).LoginServer
+```
+
+---
 
 El archivo de manifiesto de ejemplo del repositorio git clonado en el primer tutorial usa el nombre de servidor de inicio de sesión *microsoft*. Asegúrese de que está en el directorio clonaod *azure-voting-app-redis* y abra el archivo de manifiesto con un editor de texto, como `vi`:
 
@@ -140,3 +160,5 @@ Pase al siguiente tutorial para aprender a escalar una aplicación Kubernetes y 
 [azure-cli-install]: /cli/azure/install-azure-cli
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [kubernetes-service]: concepts-network.md#services
+[azure-powershell-install]: /powershell/azure/install-az-ps
+[get-azcontainerregistry]: /powershell/module/az.containerregistry/get-azcontainerregistry

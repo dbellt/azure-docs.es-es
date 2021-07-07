@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 98a151c9f740c3ab2f1471f98c7fab83cc848a28
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4ad66b5a5116e650983dd72ffe4875d89c390ced
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102438411"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110540530"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workplace by Facebook para el aprovisionamiento automático de usuarios
 
-En este tutorial, se describen los pasos que debe realizar en Workplace by Facebook y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando se configura, Azure AD aprovisiona y desaprovisiona automáticamente usuarios y grupos en [Workplace by Facebook](https://work.workplace.com/) mediante el servicio de aprovisionamiento de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
+En este tutorial, se describen los pasos que debe realizar en Workplace by Facebook y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando se configura, Azure AD aprovisiona y desaprovisiona automáticamente usuarios en [Workplace by Facebook](https://work.workplace.com/) mediante el servicio de aprovisionamiento de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## <a name="capabilities-supported"></a>Funcionalidades admitidas
 > [!div class="checklist"]
@@ -56,9 +56,9 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 ## <a name="step-2-configure-workplace-by-facebook-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de Workplace by Facebook para admitir el aprovisionamiento con Azure AD
 
-Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir qué usuarios o grupos de Azure AD representan a los usuarios que necesitan acceso a la aplicación Workplace by Facebook. Una vez decidido, puede asignar estos usuarios a la aplicación Workplace by Facebook siguiendo estas instrucciones:
+Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir qué usuarios de Azure AD representan a los usuarios que necesitan acceso a la aplicación Workplace by Facebook. Una vez decidido, puede asignar estos usuarios a la aplicación Workplace by Facebook siguiendo estas instrucciones:
 
-*   Se recomienda asignar un único usuario de Azure AD a Workplace by Facebook para probar la configuración de aprovisionamiento. Más tarde, se pueden asignar otros usuarios o grupos.
+*   Se recomienda asignar un único usuario de Azure AD a Workplace by Facebook para probar la configuración de aprovisionamiento. Más tarde, se pueden asignar otros usuarios.
 
 *   Al asignar a un usuario a Workplace by Facebook, debe seleccionar un rol de usuario válido. El rol "Acceso predeterminado" no funciona para realizar el aprovisionamiento.
 
@@ -68,11 +68,14 @@ Agregue Workplace by Facebook desde la galería de aplicaciones de Azure AD par
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Paso 4. Determinar quién estará en el ámbito de aprovisionamiento 
 
-El servicio de aprovisionamiento de Azure AD le permite definir quién se aprovisionará, en función de la asignación a la aplicación y de los atributos del usuario o grupo. Si elige el ámbito del que se aprovisionará en la aplicación en función de la asignación, puede usar los pasos [siguientes](../manage-apps/assign-user-or-group-access-portal.md) para asignar usuarios y grupos a la aplicación. Si elige el ámbito del que se aprovisionará en función únicamente de los atributos del usuario o grupo, puede usar un filtro de ámbito, tal como se describe [aquí](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+El servicio de aprovisionamiento de Azure AD le permite definir quién se aprovisionará, en función de la asignación a la aplicación y de los atributos del usuario o grupo. Si elige delimitar quién se aprovisionará en la aplicación en función de la asignación, puede usar los [pasos](../manage-apps/assign-user-or-group-access-portal.md) siguientes para asignar usuarios a la aplicación. Si elige el ámbito del que se aprovisionará en función únicamente de los atributos del usuario o grupo, puede usar un filtro de ámbito, tal como se describe [aquí](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Al asignar usuarios y grupos a Workplace by Facebook, debe seleccionar un rol que no sea **de acceso predeterminado**. Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](../develop/howto-add-app-roles-in-azure-ad-apps.md) para agregar roles adicionales. 
+* Al asignar usuarios a Workplace by Facebook, debe seleccionar un rol que no sea **Acceso predeterminado**. Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](../develop/howto-add-app-roles-in-azure-ad-apps.md) para agregar roles adicionales. 
 
-* Empiece por algo pequeño. Pruebe con un pequeño conjunto de usuarios y grupos antes de implementarlo en todos. Cuando el ámbito del aprovisionamiento se define en los usuarios y grupos asignados, puede controlarlo asignando uno o dos usuarios o grupos a la aplicación. Cuando el ámbito se establece en todos los usuarios y grupos, puede especificar un [filtro de ámbito basado en atributos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+* Empiece por algo pequeño. Pruebe con un pequeño conjunto de usuarios antes de implementarlo en todos. Cuando el ámbito del aprovisionamiento se define en los usuarios asignados, puede controlarlo asignando uno o dos usuarios a la aplicación. Cuando el ámbito se establece en todos los usuarios y grupos, puede especificar un [filtro de ámbito basado en atributos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+
+## <a name="step-5-configure-automatic-user-provisioning-to-workplace-by-facebook"></a>Paso 5. Configuración del aprovisionamiento automático de usuarios en Workplace by Facebook
+Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de Azure AD a fin de crear, actualizar y deshabilitar usuarios en la aplicación de Workplace by Facebook App en función de las asignaciones de usuarios de Azure AD.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones**.
 
@@ -145,7 +148,7 @@ El servicio de aprovisionamiento de Azure AD le permite definir quién se aprov
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Workplace by Facebook.
+12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios que desea que se aprovisionen en Workplace by Facebook.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
@@ -153,7 +156,7 @@ El servicio de aprovisionamiento de Azure AD le permite definir quién se aprov
 
     ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
-Esta operación inicia el ciclo de sincronización inicial de todos los usuarios y grupos definidos en **Ámbito** en la sección **Configuración**. El ciclo de sincronización inicial tarda más tiempo en realizarse que los ciclos posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. 
+Esta operación inicia el ciclo de sincronización inicial de todos los usuarios definidos en **Ámbito** en la sección **Configuración**. El ciclo de sincronización inicial tarda más tiempo en realizarse que los ciclos posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Paso 6. Supervisión de la implementación
 Una vez configurado el aprovisionamiento, use los recursos siguientes para supervisar la implementación:

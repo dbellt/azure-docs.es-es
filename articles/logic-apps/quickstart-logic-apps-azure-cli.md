@@ -1,20 +1,20 @@
 ---
-title: 'Inicio rápido: Creación y administración de flujos de trabajo con Azure Logic Apps multiinquilino y la CLI de Azure'
-description: Con la CLI, cree flujos de trabajo de aplicación lógica con Azure Logic Apps multiinquilino y administre la lógica con operaciones como list, show (get), update y delete.
+title: 'Inicio rápido: Creación y administración de flujos de trabajo con la CLI de Azure en Azure Logic Apps multiinquilino'
+description: Con la CLI, cree y administre flujos de trabajo de aplicaciones lógicas en instancias de Azure Logic Apps multiinquilino.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli, contperf-fy21q2
 ms.date: 05/25/2021
-ms.openlocfilehash: 4a848b560fd0302690f1e52661b165182082dd9b
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 533a3001068c2bfa6a6902e486d6a1acf468d246
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375936"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110617267"
 ---
-# <a name="quickstart-create-and-manage-workflows-in-multi-tenant-azure-logic-apps-using-the-azure-cli"></a>Inicio rápido: Creación y administración de flujos de trabajo en Azure Logic Apps multiinquilino con la CLI de Azure
+# <a name="quickstart-create-and-manage-workflows-using-azure-cli-in-multi-tenant-azure-logic-apps"></a>Inicio rápido: Creación y administración de flujos de trabajo mediante la CLI de Azure en instancias de Azure Logic Apps multiinquilino
 
 En este inicio rápido se muestra cómo crear y administrar aplicaciones lógicas mediante la [extensión Logic Apps de la CLI de Azure](/cli/azure/logic) (`az logic`). Desde la línea de comandos, puede crear una aplicación lógica mediante el archivo JSON en una definición del flujo de trabajo de una aplicación lógica. Después, para administrar la aplicación lógica, es preciso ejecutar operaciones como `list`, `show` (`get`), `update` y `delete` también desde la línea de comandos.
 

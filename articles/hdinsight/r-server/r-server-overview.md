@@ -3,16 +3,18 @@ title: Introducción a ML Services en Azure HDInsight
 description: Aprenda a usar ML Services en HDInsight para crear aplicaciones para al análisis de macrodatos.
 ms.service: hdinsight
 ms.topic: overview
-ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 87f4181e820b1c6ecdeb0fda85a88e80db248dd2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0baf100d7d3a3e6a0667ed00176fa533eafe6d57
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943917"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112295964"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>¿Qué es ML Services en Azure HDInsight?
+
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
 
 Microsoft Machine Learning Server está disponible como opción de implementación al crear clústeres de HDInsight en Azure. El tipo de clúster que proporciona esta opción se denomina **ML Services**. Esta funcionalidad proporciona acceso a petición a métodos de análisis adaptables y distribuidos en HDInsight.
 

@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 55955f883425651749809da951832484f098aeaf
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 9b93ac2973fdf45c5ec395cf30490a820848bad9
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256130"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112027174"
 ---
 # <a name="what-is-azure-maps"></a>¿Qué es Azure Maps?
 
 Azure Maps es una colección de servicios geoespaciales y SDK que emplea datos de mapas recientes para proporcionar contexto geográfico a las aplicaciones web y móviles. Azure Maps ofrece:
 
 * API REST para representar vectores y mapas de trama en varios estilos y en imágenes de satélite.
-* Servicio Creator (versión preliminar) para crear y representar mapas basados en los datos de mapas de interiores privados.
+* Servicios de creador para crear y representar mapas basados en los datos de mapas de interiores privados.
 * Servicio Search para buscar direcciones, lugares y puntos de interés en todo el mundo.
 * Varias opciones de enrutamiento: punto a punto, multipunto, optimización multipunto, mapas isócronos, vehículo eléctrico, vehículo comercial, con capa de tráfico y enrutamiento de matrices.
 * Vista de flujo de tráfico y vista de incidentes para las aplicaciones que requieren información sobre el tráfico en tiempo real.
 * Servicio Mobility (versión preliminar) para solicitar información sobre el transporte público y planear rutas mediante la combinación de diferentes modos de viaje y llegadas en tiempo real.
 * Servicios Time Zone y Geolocation (versión preliminar).
-* Servicio Elevation (versión preliminar) con el modelo de elevación digital.
+* Servicios Elevation con el modelo de elevación digital
 * Servicios de geovalla y almacenamiento de datos de mapas, con información de ubicación hospedada en Azure.
 * Inteligencia de ubicación mediante análisis geoespacial.
 
@@ -59,9 +59,9 @@ Use Android SDK de Azure Maps para crear aplicaciones de mapas móviles.
 
 Azure Maps consta de los siguientes servicios que pueden proporcionar contexto geográfico a las aplicaciones de Azure.
 
-### <a name="data-service-preview"></a>Servicio Data (versión preliminar)
+### <a name="data-service"></a>Servicio de datos
 
-Los datos son imprescindibles en los mapas. Use el servicio Data para cargar y almacenar datos geoespaciales y usarlos con operaciones espaciales o composición de imágenes.  Acercar los datos de los clientes al servicio Azure Maps reducirá la latencia, aumentará la productividad y creará escenarios en sus aplicaciones. Para más información sobre este servicio, consulte la [documentación del servicio Data](/rest/api/maps/data).
+Los datos son imprescindibles en los mapas. Use el servicio Data para cargar y almacenar datos geoespaciales y usarlos con operaciones espaciales o composición de imágenes.  Acercar los datos de los clientes al servicio Azure Maps reducirá la latencia, aumentará la productividad y creará escenarios en sus aplicaciones. Para más información sobre este servicio, consulte la [documentación del servicio Data](/rest/api/maps/data-v2).
 
 ### <a name="geolocation-service-preview"></a>Servicio Geolocation (versión preliminar)
 
@@ -179,29 +179,29 @@ La [API Get Map Tile V2](/rest/api/maps/renderv2/getmaptilepreview) permite sol
 
 ![Ejemplo de mapa con mosaicos de radar meteorológicos en tiempo real](media/about-azure-maps/intro_weather.png)
 
-### <a name="maps-creator-service-preview"></a>Servicio Maps Creator (versión preliminar) 
+### <a name="maps-creator-service"></a>Servicio Maps Creator
 
 El servicio Maps Creator es un conjunto de servicios web que los desarrolladores pueden usar para crear aplicaciones con características de mapa basadas en datos de mapas de interiores.
 
 Maps Creator proporciona tres servicios básicos:
 
-* [Servicio de conjunto de datos](/rest/api/maps/dataset). Use el servicio de conjunto de datos para crear un conjunto de datos a partir de los datos de un paquete de dibujo convertido. Para obtener información sobre los requisitos de los paquetes de dibujo, consulte Requisitos de los paquetes de dibujo.
+* [Servicio de conjunto de datos](/rest/api/maps/v2/dataset). Use el servicio de conjunto de datos para crear un conjunto de datos a partir de los datos de un paquete de dibujo convertido. Para información sobre los requisitos de los paquetes de dibujo, consulte al respecto.
 
-* [Servicio Conversion](/rest/api/maps/dataset). Use el servicio Conversion para convertir un archivo de diseño DWG en datos del paquete de dibujo para mapas de interiores.
+* [Servicio Conversion](/rest/api/maps/v2/dataset). Use el servicio Conversion para convertir un archivo de diseño DWG en datos del paquete de dibujo para mapas de interiores.
 
-* [Servicio de conjunto de mosaicos](/rest/api/maps/tileset). Use el servicio de conjunto de mosaicos para crear una representación basada en vectores de un conjunto de datos. Las aplicaciones pueden utilizar un conjunto de mosaicos para presentar una vista visual basada en mosaicos del conjunto de datos.
+* [Servicio de conjunto de mosaicos](/rest/api/maps/v2/tileset). Use el servicio de conjunto de mosaicos para crear una representación basada en vectores de un conjunto de datos. Las aplicaciones pueden utilizar un conjunto de mosaicos para presentar una vista visual basada en mosaicos del conjunto de datos.
 
-* [Servicio Feature State](/rest/api/maps/featurestate). Use el servicio Feature State para admitir el estilo de mapa dinámico. El estilo de mapa dinámico permite a las aplicaciones reflejar eventos en tiempo real en espacios que los sistemas IoT hayan proporcionado.
+* [Servicio Feature State](/rest/api/maps/v2/feature-state). Use el servicio Feature State para admitir el estilo de mapa dinámico. El estilo de mapa dinámico permite a las aplicaciones reflejar eventos en tiempo real en espacios que los sistemas IoT hayan proporcionado.
 
-* [Servicio WFS](/rest/api/maps/featurestate). Use el servicio WFS para consultar los datos de mapas de interiores. El servicio WFS sigue los estándares de la [API Open Geospatial Consortium](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html) para consultar un único conjunto de datos.
+* [Servicio WFS](/rest/api/maps/v2/feature-state). Use el servicio WFS para consultar los datos de mapas de interiores. El servicio WFS sigue los estándares de la [API Open Geospatial Consortium](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html) para consultar un único conjunto de datos.
 
-### <a name="elevation-service-preview"></a>Servicio Elevation (versión preliminar)
+### <a name="elevation-service"></a>Servicio de elevación
 
 El servicio Elevation de Azure Maps es un servicio web que los desarrolladores pueden usar para recuperar datos de elevación desde cualquier parte de la superficie terrestre.
 
 El servicio Elevation permite recuperar datos de elevación en dos formatos:
 
-* **Formato de trama GeoTIFF**. Use [Get Map Tile API de Render V2](/rest/api/maps/renderv2) para recuperar datos de elevación en formato de mosaico.
+* **Formato de trama GeoTIFF**. Use [Render V2-Get Map Tile API](/rest/api/maps/renderv2) para recuperar datos de elevación en formato de mosaico.
 
 * **Formato GeoJSON**. Use [Elevation API](/rest/api/maps/elevation) para solicitar datos de elevación muestreados a lo largo de rutas de acceso, dentro de un rectángulo delimitador definido o en coordenadas específicas. 
 

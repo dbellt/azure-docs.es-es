@@ -7,19 +7,19 @@ ms.service: mysql
 ms.custom: mvc, devx-track-azurecli
 ms.topic: quickstart
 ms.date: 03/01/2021
-ms.openlocfilehash: 5abc71a4df8dd27e80a7590d53159be95d46e441
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 3d24c6443dfa4c2e4eab1f247e075b34e891c1b6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107883857"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470259"
 ---
 # <a name="quickstart-connect-and-query-with-azure-cli--with-azure-database-for-mysql---flexible-server"></a>Inicio rápido: Conexión y consulta mediante la CLI de Azure a Azure Database for MySQL Servidor flexible
 
 > [!IMPORTANT]
 > Actualmente, Azure Database for MySQL: servidor flexible se encuentra en versión preliminar pública.
 
-En este inicio rápido se muestra cómo puede conectarse a una instancia de Azure Database for MySQL Servidor flexible mediante la CLI de Azure con el comando ```az mysql flexible-server connect```. Este comando permite probar la conectividad con el servidor de base de datos y ejecutar consultas directamente en el servidor.  También puede usar ejecutar el comando en modo interactivo para ejecutar varias consultas.
+En este inicio rápido se muestra cómo puede conectarse a un servidor flexible de Azure Database for MySQL mediante la CLI de Azure con ```az mysql flexible-server connect``` y ejecutar una consulta única o un archivo SQL con el comando ```az mysql flexible-server execute```. Este comando permite probar la conectividad con el servidor de base de datos y ejecutar consultas. También puede ejecutar varias consultas mediante el modo interactivo. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -77,39 +77,6 @@ Si se produjo un error en la conexión, pruebe estas soluciones:
 - Compruebe si ha configurado una regla de firewall para la máquina cliente.
 - Compruebe si ha configurado el servidor con acceso privado en redes virtuales y asegúrese de que la máquina cliente se encuentre en la misma red virtual.
 
-## <a name="run-single-query"></a>Ejecución de una sola consulta
-Ejecute el siguiente comando para ejecutar una consulta única con el argumento ```--querytext```, ```-q```.
-
-```azurecli
-az mysql flexible-server connect -n <server-name> -u <username> -p "<password>" -d <database-name> --querytext "<query text>"
-```
-
-**Ejemplo**:
-```azurecli
-az mysql flexible-server connect -n mysqldemoserver1 -u dbuser -p "dbpassword" -d newdatabase -q "select * from table1;" --output table
-```
-
-Verá una salida como la que se muestra a continuación:
-
-```output
-Command group 'mysql flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
-Successfully connected to mysqldemoserver1.
-Ran Database Query: 'select * from table1;'
-Retrieving first 30 rows of query output, if applicable.
-Closed the connection to mysqldemoserver1
-Local context is turned on. Its information is saved in working directory C:\Users\sumuth. You can run `az local-context off` to turn it off.
-Your preference of  are now saved to local context. To learn more, type in `az local-context --help`
-Txt    Val
------  -----
-test   200
-test   200
-test   200
-test   200
-test   200
-test   200
-test   200
-```
-
 ## <a name="run-multiple-queries-using-interactive-mode"></a>Ejecución de varias consultas mediante el modo interactivo
 Puede ejecutar varias consultas mediante el modo **interactivo**. Para habilitar el modo interactivo, ejecute el siguiente comando.
 
@@ -153,6 +120,59 @@ Local context is turned on. Its information is saved in working directory C:\myd
 Your preference of  are now saved to local context. To learn more, type in `az local-context --help`
 ```
 
+## <a name="run-single-query"></a>Ejecución de una sola consulta
+Ejecute el siguiente comando para ejecutar una consulta única con el argumento ```--querytext```, ```-q```.
+
+```azurecli
+az mysql flexible-server execute -n <server-name> -u <username> -p "<password>" -d <database-name> --querytext "<query text>"
+```
+
+**Ejemplo**:
+```azurecli
+az mysql flexible-server execute -n mysqldemoserver1 -u dbuser -p "dbpassword" -d newdatabase -q "select * from table1;" --output table
+```
+
+Verá una salida como la que se muestra a continuación:
+
+```output
+Command group 'mysql flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
+Successfully connected to mysqldemoserver1.
+Ran Database Query: 'select * from table1;'
+Retrieving first 30 rows of query output, if applicable.
+Closed the connection to mysqldemoserver1
+Local context is turned on. Its information is saved in working directory C:\Users\sumuth. You can run `az local-context off` to turn it off.
+Your preference of  are now saved to local context. To learn more, type in `az local-context --help`
+Txt    Val
+-----  -----
+test   200
+test   200
+test   200
+test   200
+test   200
+test   200
+test   200
+```
+
+## <a name="run-sql-file"></a>Ejecutar archivo SQL
+Puede ejecutar un archivo SQL con el comando mediante el argumento ```--file-path```, ```-q```.
+
+```azurecli
+az mysql flexible-server execute -n <server-name> -u <username> -p "<password>" -d <database-name> --file-path "<file-path>"
+```
+
+**Ejemplo**: 
+```azurecli
+az mysql flexible-server execute -n mysqldemoserver -u dbuser -p "dbpassword" -d flexibleserverdb -f "./test.sql"
+```
+
+Verá una salida como la que se muestra a continuación:
+
+```output
+Command group 'mysql flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
+Running sql file '.\test.sql'...
+Successfully executed the file.
+Closed the connection to mysqldemoserver.
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

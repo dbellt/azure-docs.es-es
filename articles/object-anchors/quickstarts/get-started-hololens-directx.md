@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 02/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: b5db9f3766bdd7d754f49403665a371f9d10afd7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 05c131abf23ac060db24b19b6affbeb5e632468b
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047616"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004770"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-cwinrt-and-directx"></a>Inicio rápido: Creación de una aplicación HoloLens con Azure Object Anchors en C++/WinRT y DirectX
 
@@ -92,3 +92,6 @@ La aplicación alinea estrechamente un modelo 3D con su homólogo físico. Para
 
 > [!div class="nextstepaction"]
 > [P+F](../faq.md)
+
+> [!div class="nextstepaction"]
+> [SDK de conversión](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)

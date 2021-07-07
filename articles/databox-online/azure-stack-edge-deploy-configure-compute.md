@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Filtrado y análisis de los datos con proceso en Azure Stack Edge Pro | Microsoft Docs'
-description: Aprenda a configurar el rol de proceso en Azure Stack Edge Pro y a usarlo para transformar los datos antes de enviarlos a Azure.
+title: Tutorial de filtrado y análisis de los datos en Azure Stack Edge Pro FPGA con proceso
+description: Aprenda a configurar el rol de proceso en Azure Stack Edge Pro FPGA y a usarlo para transformar los datos antes de enviarlos a Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 01/06/2021
 ms.author: alkohli
-ms.openlocfilehash: e521305f517a697c8d71c692f2581f2cce380980
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: d059fdb0eb273459a22a5be66408445d216c757a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106058806"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474862"
 ---
-# <a name="tutorial-transform-the-data-with-azure-stack-edge-pro"></a>Tutorial: Transformación de datos con Azure Stack Edge Pro
+# <a name="tutorial-transform-the-data-with-azure-stack-edge-pro-fpga"></a>Tutorial: Transformación de datos con Azure Stack Edge Pro FPGA
 
-En este tutorial se describe cómo configurar un rol de proceso en un dispositivo de Azure Stack Edge Pro. Una vez configurado el rol de proceso, Azure Stack Edge Pro puede transformar los datos antes de enviarlos a Azure.
+En este tutorial, se describe cómo configurar un rol de proceso en un dispositivo Azure Stack Edge Pro FPGA. Una vez configurado el rol de proceso, Azure Stack Edge Pro FPGA puede transformar los datos antes de enviarlos a Azure.
 
 Este procedimiento tarda aproximadamente entre 10 y 15 minutos en completarse.
 
@@ -30,16 +30,16 @@ En este tutorial, aprenderá a:
 > * Comprobar la transformación y la transferencia de los datos
 
  
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-Antes de configurar un rol de proceso en el dispositivo de Azure Stack Edge Pro, asegúrese de que:
+Antes de configurar un rol de proceso en el dispositivo Azure Stack Edge Pro FPGA, asegúrese de que:
 
-- Ha activado el dispositivo físico de Azure Stack Edge Pro tal como se describe en [Conexión, configuración y activación de Azure Stack Edge Pro](azure-stack-edge-deploy-connect-setup-activate.md).
+- Ha activado el dispositivo Azure Stack Edge Pro FPGA tal y como se describe en [Tutorial: Conexión, configuración y activación de Azure Stack Edge Pro FPGA](azure-stack-edge-deploy-connect-setup-activate.md).
 
 
 ## <a name="configure-compute"></a>Configurar el proceso
 
-Para configurar el proceso en Azure Stack Edge Pro, creará un recurso de IoT Hub.
+Para configurar el proceso en Azure Stack Edge Pro FPGA, creará un recurso de IoT Hub.
 
 1. En la instancia de Azure Portal del recurso de Azure Stack Edge, vaya a **Información general**. En el panel derecho, seleccione **IoT Edge**.
 
@@ -52,7 +52,7 @@ Para configurar el proceso en Azure Stack Edge Pro, creará un recurso de IoT Hu
 1. En la hoja **Create IoT Edge service** (Crear servicio IoT Edge), escriba lo siguiente:
 
    
-    |Campo  |Value  |
+    |Campo  |Valor  |
     |---------|---------|
     |Suscripción     |Seleccione una suscripción para el recurso de IoT Hub. Puede emplear la misma suscripción que usa el recurso de Azure Stack Edge.         |
     |Resource group     |Seleccione un grupo de recursos para el recurso de IoT Hub. Puede emplear el mismo grupo de recursos que usa el recurso de Azure Stack Edge.         |
@@ -105,17 +105,17 @@ En este tutorial, se realizará una implementación sencilla con dos recursos co
 
 ## <a name="add-a-module"></a>Agregar un módulo
 
-Puede agregar un módulo personalizado o uno creado previamente. No hay módulos personalizados en este dispositivo perimetral. Para aprender a crear un módulo personalizado, vaya a [Desarrollo de un módulo C# para un dispositivo de Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md).
+Puede agregar un módulo personalizado o uno creado previamente. No hay módulos personalizados en este dispositivo perimetral. Para aprender a crear un módulo personalizado, vaya a [Desarrollo de un módulo IoT Edge en C# para mover archivos con Azure Stack Edge Pro FPGA](azure-stack-edge-create-iot-edge-module.md).
 
-En esta sección, agregará un módulo personalizado al dispositivo de IoT Edge que creó en [Desarrollo de un módulo C# para Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md). Este módulo personalizado toma los archivos de un recurso compartido local perimetral del dispositivo perimetral y los mueve a un recurso compartido perimetral (nube) del dispositivo. A continuación, el recurso compartido en la nube inserta los archivos en la cuenta de Azure Storage asociada con este.
+En esta sección, agregará un módulo personalizado al dispositivo IoT Edge que creó en [Desarrollo de un módulo IoT Edge en C# para mover archivos con Azure Stack Edge Pro FPGA](azure-stack-edge-create-iot-edge-module.md). Este módulo personalizado toma los archivos de un recurso compartido local perimetral del dispositivo perimetral y los mueve a un recurso compartido perimetral (nube) del dispositivo. A continuación, el recurso compartido en la nube inserta los archivos en la cuenta de Azure Storage asociada con este.
 
 1. Vaya a **IoT Edge > Módulos**. Seleccione **+ Agregar módulo** en la barra de comandos del dispositivo.
 2. En la hoja **Configurar y agregar módulo**, escriba los valores siguientes:
 
     
-    |Campo  |Value  |
+    |Campo  |Valor  |
     |---------|---------|
-    |Nombre     | Un nombre único para el módulo. Este módulo es un contenedor de Docker que puede implementar en el dispositivo de IoT Edge asociado a Azure Stack Edge Pro.        |
+    |Nombre     | Un nombre único para el módulo. Este módulo es un contenedor de Docker que puede implementar en el dispositivo IoT Edge asociado al dispositivo Azure Stack Edge Pro FPGA.        |
     |URI de imagen     | El URI de la imagen de contenedor correspondiente del módulo.        |
     |Credenciales necesarias     | Si está activada, se usa el nombre de usuario y la contraseña para recuperar los módulos con una dirección URL coincidente.        |
     |Recurso compartido de entrada     | Seleccione un recurso compartido de entrada. En este caso, el recurso compartido local perimetral es el recurso compartido de entrada. El módulo que se usa aquí mueve los archivos desde el recurso compartido local perimetral hasta un recurso compartido perimetral donde se cargan en la nube.        |
@@ -169,7 +169,7 @@ En este tutorial, ha aprendido a:
 > * Agregar un módulo de proceso
 > * Comprobar la transformación y la transferencia de los datos
 
-Para aprender a administrar el dispositivo de Azure Stack Edge Pro, consulte:
+Para aprender a administrar el dispositivo Azure Stack Edge Pro FPGA, consulte:
 
 > [!div class="nextstepaction"]
-> [Uso de la interfaz de usuario web local para administrar Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md).
+> [Administración del acceso, el encendido y el modo de conectividad de Azure Stack Edge Pro FPGA](azure-stack-edge-manage-access-power-connectivity-mode.md)

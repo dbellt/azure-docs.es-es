@@ -3,19 +3,19 @@ title: 'Inicio rápido: Implementación de una aplicación web de ASP.NET'
 description: Aprenda a ejecutar aplicaciones web en Azure App Service mediante la implementación de la primera aplicación web de ASP.NET.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 03/30/2021
+ms.date: 06/08/2021
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1
 zone_pivot_groups: app-service-ide
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-dotnetcore-uiex
-ms.openlocfilehash: 482bf6d29fbc1e982ee4d17099d82915ff3a0241
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 3b3abdf40d5aa9d56421361237432ddf08c0c016
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762468"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746544"
 ---
 <!-- NOTES:
 
@@ -39,10 +39,7 @@ target cross-platform with .NET Core 3.1 or .NET 5.0.
 
 En este inicio rápido, aprenderá a crear e implementar su primera aplicación web de ASP.NET en [Azure App Service](overview.md). App Service admite varias versiones de aplicaciones .NET y proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones. Las aplicaciones web de ASP.NET son multiplataforma y se pueden hospedar tanto en Linux como en Windows. Cuando termine, tendrá un grupo de recursos de Azure que consta de un plan de hospedaje de App Service y una aplicación web implementada.
 
-> [!TIP]
-> .NET Core 3.1 es la versión actual del soporte técnico a largo plazo (LTS) de .NET. Para más información, consulte la [directiva de soporte técnico de .NET](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
-
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 :::zone target="docs" pivot="development-environment-vs"
 
@@ -110,12 +107,15 @@ En este inicio rápido, aprenderá a crear e implementar su primera aplicación 
 
 ## <a name="create-an-aspnet-web-app"></a>Creación de una aplicación web de ASP.NET
 
+> [!TIP]
+> .NET Core 3.1 es la versión actual del soporte técnico a largo plazo (LTS) de .NET. Para más información, consulte la [directiva de soporte técnico de .NET](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+
 :::zone target="docs" pivot="development-environment-vs"
 
 ### <a name="net-core-31"></a>[.NET Core 3.1](#tab/netcore31)
 
 1. Abra Visual Studio y seleccione **Crear un proyecto**.
-1. En **Crear un proyecto**, busque y elija **Aplicación web ASP.NET Core** y, después, seleccione **Siguiente**.
+1. En **Crear un proyecto**, busque y elija **Aplicación web ASP.NET Core** y, después, seleccione **Siguiente**.
 1. En **Configurar el nuevo proyecto**, asigne a la aplicación el nombre _MyFirstAzureWebApp_ y seleccione **Siguiente**.
 
    :::image type="content" source="media/quickstart-dotnet/configure-webapp-net.png" alt-text="Configurar una aplicación de ASP.NET Core 3.1" border="true":::
@@ -132,7 +132,7 @@ En este inicio rápido, aprenderá a crear e implementar su primera aplicación 
 ### <a name="net-50"></a>[.NET 5.0](#tab/net50)
 
 1. Abra Visual Studio y seleccione **Crear un proyecto**.
-1. En **Crear un proyecto**, busque y elija **Aplicación web ASP.NET Core** y, después, seleccione **Siguiente**.
+1. En **Crear un proyecto**, busque y elija **Aplicación web ASP.NET Core** y, después, seleccione **Siguiente**.
 1. En **Configurar el nuevo proyecto**, asigne a la aplicación el nombre _MyFirstAzureWebApp_ y seleccione **Siguiente**.
 
    :::image type="content" source="media/quickstart-dotnet/configure-webapp-net.png" alt-text="Visual Studio: configuración de una aplicación web de ASP.NET 5.0." border="true":::

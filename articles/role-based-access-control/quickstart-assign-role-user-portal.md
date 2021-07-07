@@ -11,14 +11,15 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/22/2019
+ms.date: 06/07/2021
 ms.author: rolyon
-ms.openlocfilehash: fcba9cad208c2ac170f91cc06a6db22e271f2a70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 5df6b591cc7ba3795104957b9cd11de814e2472a
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100559324"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591933"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-the-azure-portal"></a>Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante Azure Portal
 
@@ -40,55 +41,54 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 1. En la lista de navegación, haga clic en **Grupos de recursos**.
 
-1. Haga clic en **Agregar** para abrir la hoja **Grupo de recursos**.
+1. Haga clic en **Nuevo** para abrir la página **Crear un grupo de recursos**.
 
-   ![Adición de un grupo de recursos nuevo](./media/quickstart-assign-role-user-portal/resource-group.png)
+   ![Página Crear un grupo de recursos.](./media/quickstart-assign-role-user-portal/resource-group.png)
 
-1. En **Nombre del grupo de recursos**, escriba **rbac-resource-group**.
+1. Seleccione una suscripción.
 
-1. Seleccione una suscripción y una ubicación.
+1. En el campo del nombre del **Grupo de recursos**, escriba **example-group**, o cualquier otro nombre.
 
-1. Haga clic en **Crear** para crear el grupo de recursos.
+1. Haga clic en **Revisar y crear** y, después, **Crear** para crear el grupo de recursos.
 
 1. Haga clic en **Actualizar** para actualizar la lista de grupos de recursos.
 
    El grupo de recursos nuevo aparece en la lista de grupos de recursos.
 
-   ![Lista de grupos de recursos](./media/quickstart-assign-role-user-portal/resource-group-list.png)
-
 ## <a name="grant-access"></a>Conceder acceso
 
 En RBAC de Azure, es preciso asignar un rol de Azure para conceder acceso.
 
-1. En la lista de **Grupos de recursos**, haga clic en el nuevo grupo de recursos **rbac-resource-group**.
+1. En la lista de **Grupos de recursos**, abra el grupo de recursos **example-group** nuevo.
 
-1. Haga clic en **Control de acceso (IAM).**
+1. En el menú de navegación, haga clic **en Control de acceso (IAM)** .
 
 1. Haga clic en la pestaña **Asignaciones de roles** para ver la lista actual de asignaciones de roles.
 
-   ![Hoja Control de acceso (IAM) para un grupo de recursos](./media/quickstart-assign-role-user-portal/access-control.png)
+   ![Página Control de acceso (IAM) de un grupo de recursos.](./media/shared/rg-role-assignments.png)
 
-1. Haga clic en **Agregar** > **Agregar asignación de roles** para abrir el panel Agregar asignación de roles.
+
+1. Haga clic en **Agregar** > **Agregar asignación de roles (versión preliminar)** .
 
    Si no tiene permisos para asignar roles, la opción Agregar asignación de roles se deshabilitará.
 
-   ![Menú Agregar asignación de roles](./media/shared/add-role-assignment-menu.png)
+   ![Página Control de acceso (IAM) con el menú Agregar asignación de roles abierto.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
 
-    Se abre el panel Agregar asignación de roles.
+1. En la pestaña **Rol**, seleccione el rol **Colaborador de la máquina virtual**.
 
-   ![Panel Agregar asignación de roles](./media/quickstart-assign-role-user-portal/add-role-assignment.png)
+    ![Página Agregar asignación de roles con la pestaña Rol seleccionada.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
 
-1. En la lista desplegable **Rol**, seleccione **Colaborador de la máquina virtual**.
+1. En la pestaña **Miembros**, selecciónese usted mismo o seleccione otro usuario.
 
-1. En la lista **Seleccionar**, se puede seleccionar a usted mismo o a otro usuario.
+1. En la pestaña **Revisión y asignación**, revise la configuración de la asignación de roles.
 
-1. Haga clic en **Guardar** para asignar el rol.
+1. Haga clic en **Revisión y asignación** para asignar el rol.
 
-   Transcurridos unos instantes, se asigna el rol Colaborador de la máquina virtual al usuario en el ámbito del grupo de recursos rbac-resource-group.
+   Transcurridos unos instantes, se asigna el rol Colaborador de la máquina virtual al usuario en el ámbito del grupo de recursos example-group.
 
-   ![Asignación del rol Colaborador de la máquina virtual](./media/quickstart-assign-role-user-portal/vm-contributor-assignment.png)
+   ![Asignación del rol Colaborador de la máquina virtual.](./media/quickstart-assign-role-user-portal/vm-contributor-assignment.png)
 
-## <a name="remove-access"></a>Quitar acceso
+## <a name="remove-access"></a>Eliminación de acceso
 
 En Azure RBAC, para quitar el acceso hay que quitar una asignación de roles.
 
@@ -96,7 +96,7 @@ En Azure RBAC, para quitar el acceso hay que quitar una asignación de roles.
 
 1. Haga clic en **Quitar**.
 
-   ![Mensaje de eliminación de asignación de roles](./media/quickstart-assign-role-user-portal/remove-role-assignment.png)
+   ![Mensaje de eliminación de asignaciones de roles.](./media/quickstart-assign-role-user-portal/remove-role-assignment.png)
 
 1. En el mensaje de eliminación de asignación de roles que aparece, haga clic en **Sí**.
 
@@ -104,15 +104,11 @@ En Azure RBAC, para quitar el acceso hay que quitar una asignación de roles.
 
 1. En la lista de navegación, haga clic en **Grupos de recursos**.
 
-1. Haga clic en **rbac-resource-group** para abrir el grupo de recursos.
+1. Haga clic en **example-group** para abrir el grupo de recursos.
 
 1. Haga clic en **Eliminar grupo de recursos** para eliminar el grupo de recursos.
 
-   ![Eliminación de un grupo de recursos](./media/quickstart-assign-role-user-portal/delete-resource-group.png)
-
-1. En la hoja **¿Está seguro de que desea eliminar?** , escriba el nombre del grupo de recursos: **rbac-resource-group**.
-
-1. Haga clic en **Eliminar** para eliminar el grupo de recursos.
+1. En el panel **¿Está seguro de que desea eliminar?** , escriba el nombre del grupo de recursos y haga clic en **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

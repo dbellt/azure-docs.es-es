@@ -5,14 +5,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/23/2021
+ms.date: 05/14/2021
 ms.author: aahi
-ms.openlocfilehash: 74a5cad377f94d869655952d093e1b54708c1163
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 1144d6d8387817d76ba9969b0c56936301b85c30
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107948387"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110096090"
 ---
 1. Vaya a la pestaña **Administrar** de la aplicación.
 2. En el panel de navegación izquierdo, seleccione **Recursos de Azure**.
@@ -20,7 +20,7 @@ ms.locfileid: "107948387"
 
     :::image type="image" alt-text="Incorporación de un recurso de predicción desde el portal" source="../media/add-prediction-resource-portal.png" lightbox="../media/add-prediction-resource-portal.png":::
   
-    Si ya tiene un recurso de predicción, agréguelo directamente. En caso contrario, seleccione **Crear un nuevo recurso de predicción**.
+    Si ya tiene un recurso de predicción, agréguelo. De lo contrario, seleccione **Create a new prediction resource** (Crear un nuevo recurso de predicción).
   
     :::image type="image" alt-text="Incorporación de un recurso de predicción desde el portal 2" source="../media/add-prediction-resource-portal-2.png" lightbox="../media/add-prediction-resource-portal-2.png":::
   

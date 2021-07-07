@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/04/2021
+ms.date: 06/11/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: e447d0b3328419ea4ca2509100ab9c4ba6bcf098
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: fa767fb934536ff42f15a295fe3270059450f94a
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108762254"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112019687"
 ---
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -18,6 +18,7 @@ ms.locfileid: "108762254"
 |[Auditoría de máquinas virtuales sin la recuperación ante desastres configurada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0015ea4d-51ff-4ce3-8d8c-f3f8f0179a56) |Audita las máquinas virtuales que no tienen configurada la recuperación ante desastres. Para más información sobre la recuperación ante desastres, visite [https://aka.ms/asr-doc](https://aka.ms/asr-doc). |auditIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/RecoveryServices_DisasterRecovery_Audit.json) |
 |[Auditar las máquinas virtuales que no utilizan discos administrados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F06a78e20-9358-41c9-923c-fb736d382a4d) |Esta directiva audita las máquinas virtuales que no utilizan discos administrados. |auditoría |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMRequireManagedDisk_Audit.json) |
 |[Configurar la recuperación ante desastres en máquinas virtuales mediante la habilitación de la replicación.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac34a73f-9fa5-4067-9247-a3ecae514468) |Las máquinas virtuales sin configuraciones de recuperación ante desastres pueden verse afectadas por interrupciones. Si la máquina virtual aún no tiene configurada la recuperación ante desastres, esta se iniciará al habilitar la replicación mediante configuraciones predeterminadas para facilitar la continuidad empresarial. Para más información sobre la recuperación ante desastres, visite [https://aka.ms/asr-doc](https://aka.ms/asr-doc). |DeployIfNotExists, Disabled |[1.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/AzureSiteRecovery-Replication-Policy.json) |
+|[Configuración de los recursos de acceso de disco para usar zonas DNS privadas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbc05b96c-0b36-4ca9-82f0-5c53f96ce05a) |Use zonas DNS privadas para invalidar la resolución DNS de un punto de conexión privado. Una zona DNS privada vincula a la red virtual para resolver en el disco administrado. Más información en: [https://aka.ms/disksprivatelinksdoc](https://aka.ms/disksprivatelinksdoc). |DeployIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/DiskAccesses_PrivateDnsZones_DeployIfNotExist.json) |
 |[Configurar recursos de acceso al disco con puntos de conexión privados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F582bd7a6-a5f6-4dc6-b9dc-9cb81fe0d4c5) |Los puntos de conexión privados conectan las redes virtuales a los servicios de Azure sin una dirección IP pública en el origen o el destino. Al asignación puntos de conexión privados a los recursos de acceso al disco, podrá reducir el riesgo de pérdida de datos. Más información sobre los vínculos privados en [https://aka.ms/disksprivatelinksdoc](https://aka.ms/disksprivatelinksdoc). |DeployIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/DiskAccesses_PrivateEndpoints_DeployIfNotExists.json) |
 |[Configurar discos administrados para deshabilitar el acceso a la red pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8426280e-b5be-43d9-979e-653d12a08638) |Deshabilite el acceso a la red pública para el recurso de disco administrado para que no sea accesible a través de Internet de acceso público. Esto puede reducir los riesgos de pérdida de datos. Más información en: [https://aka.ms/disksprivatelinksdoc](https://aka.ms/disksprivatelinksdoc). |Modificar, Deshabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/AddDiskAccessToDisk_Modify.json) |
 |[Implementar la extensión IaaSAntimalware predeterminada de Microsoft para Windows Server](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2835b622-407b-4114-9198-6f7064cbe0dc) |Esta directiva implementa una extensión de Microsoft IaaSAntimalware con una configuración predeterminada cuando una VM no está configurada con la extensión de antimalware. |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMAntimalwareExtension_Deploy.json) |

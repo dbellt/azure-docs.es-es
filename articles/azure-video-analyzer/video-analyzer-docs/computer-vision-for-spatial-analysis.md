@@ -6,12 +6,12 @@ ms.author: juliako
 ms.service: azure-video-analyzer
 ms.topic: tutorial
 ms.date: 04/01/2021
-ms.openlocfilehash: d54983e25abc769a75923e59c483a4cf9495770f
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 82edf5b282f7b68a7d4d1d7909cfe653a65c175b
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110384248"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746576"
 ---
 # <a name="tutorial-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Tutorial: Vídeo en directo con Computer Vision para análisis espacial (versión preliminar)
 
@@ -145,16 +145,7 @@ Necesitará esta clave y el URI del punto de conexión en los archivos de manifi
 1. Clone el repositorio desde esta ubicación: [https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp](https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp).
 1. En Visual Studio Code, abra la carpeta en que se ha descargado.
 1. En Visual Studio Code, vaya a la carpeta src/cloud-to-device-console-app/operations.json. Allí, cree un archivo y asígnele el nombre *appsettings.json*. Este archivo contendrá la configuración necesaria para ejecutar el programa.
-1. Obtenga `IotHubConnectionString` desde el dispositivo perimetral siguiendo estos pasos:
-
-   - Vaya a su centro de IoT en Azure Portal y haga clic en `Shared access policies` en el panel de navegación izquierdo.
-   - Haga clic en `iothubowner` para obtener las claves de acceso compartido.
-   - Copie el valor de `Connection String – primary key` y péguelo en el cuadro de entrada de VSCode.
-
-     La cadena de conexión tendrá el siguiente aspecto: <br/>`HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx`
-
-1. Copie el contenido siguiente en el archivo. Asegúrese de reemplazar las variables.
-
+1. Copie el contenido del archivo appsettings.json de Azure Portal. El texto debería ser similar al siguiente código.
    ```json
    {
      "IoThubConnectionString": "HostName=<IoTHubName>.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=<SharedAccessKey>",
@@ -164,7 +155,7 @@ Necesitará esta clave y el URI del punto de conexión en los archivos de manifi
    ```
 
 1. Vaya a la carpeta src/edge y cree un archivo llamado .env.
-1. Copie el contenido del archivo env de Azure Portal. El texto debería ser similar al siguiente código.
+1. Copie el contenido del archivo env.txt de Azure Portal. El texto debería ser similar al siguiente código.
 
    ```env
    SUBSCRIPTION_ID="<Subscription ID>"
@@ -198,7 +189,7 @@ Hay algunas cosas a las que debe prestar atención en el archivo de la plantilla
 1. `IpcMode` en createOptions de los módulos `avaedge` y `spatialanalysis` debe ser igual y estar establecido en **host**.
 1. Para que el simulador RTSP funcione, asegúrese de que ha configurado los límites del volumen al usar un dispositivo de Azure Stack Edge.
 
-   1. [Conéctese al recurso compartido de SMB](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) y copie el [archivo de vídeo con el hueco de la escalera de ejemplo](https://lvamedia.blob.core.windows.net/public/2018-03-05.10-27-03.10-30-01.admin.G329.mp4) en el recurso compartido local.
+   1. [Conéctese al recurso compartido de SMB](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) y copie el [archivo de vídeo con el hueco de la escalera de ejemplo](https://lvamedia.blob.core.windows.net/public/2018-03-05.10-27-03.10-30-01.admin.G329.mkv) en el recurso compartido local.
 
       > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWDRJd]
 
@@ -295,7 +286,7 @@ En operations.json:
   {
       "opName": "pipelineTopologySet",
       "opParams": {
-          "topologyUrl": "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json"
+          "pipelineTopologyUrl": "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json"
       }
   },
   ```
@@ -313,7 +304,7 @@ En operations.json:
               "parameters": [
                   {
                       "name": "rtspUrl",
-                      "value": " rtsp://rtspsim:554/media/stairwell.mkv"
+                      "value": " rtsp://rtspsim:554/media/2018-03-05.10-27-03.10-30-01.admin.G329.mkv"
                   },
                   {
                       "name": "rtspUserName",
@@ -381,7 +372,7 @@ En operations.json:
       ],
   ```
 
-Ejecute una sesión de depuración y siga las instrucciones de **TERMINAL**; se establecerá la topología, se establecerá pipelineTopology y livePipeline, se activará livePipeline y, por último, se eliminarán los recursos.
+Para ejecutar una sesión de depuración, seleccione F5 y siga las instrucciones de **TERMINAL**; se establecerá la topología, se establecerá pipelineTopology y livePipeline, se activará livePipeline y, por último, se eliminarán los recursos.
 
 ## <a name="interpret-results"></a>Interpretación de los resultados
 
@@ -725,12 +716,26 @@ Salida de ejemplo para personZoneEvent (desde la operación `SpatialAnalysisPers
 
 </details>
 
-## <a name="video-player"></a>Reproductor de vídeo
+## <a name="playing-back-the-recording"></a>Reproducción de la grabación
 
-Puede usar un reproductor de vídeo para ver el vídeo generado, incluidas las inferencias (rectángulos delimitadores), como se muestra a continuación:
+Para examinar el recurso de vídeo de Video Analyzer que se ha creado con la canalización en directo, inicie sesión en Azure Portal y vea el vídeo.
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/spatial-analysis/inference.png" alt-text="Rectángulos delimitadores":::
+1. Abra el explorador web y vaya a [Azure Portal](https://portal.azure.com/). Introduzca sus credenciales para iniciar sesión en el portal. La vista predeterminada es el panel del servicio.
+1. Busque la cuenta de Video Analyzer entre los recursos que tiene en la suscripción y abra el panel de cuentas.
+1. Seleccione **Vídeos** en la lista **Instancias de Video Analyzer**.
+1. Encontrará un vídeo con el nombre `personcount`. Este es el nombre elegido en el archivo de topología de la canalización.
+1. Seleccione el vídeo.
+1. En la página de detalles del vídeo, haga clic en el icono **Reproducir**
+
+   > [!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/spatial-analysis/sa-video-playback.png" alt-text="Captura de pantalla de la reproducción de vídeo":::
+   
+1. Para ver los metadatos de inferencia como rectángulos de selección en el vídeo, haga clic en el icono del **rectángulo de selección**
+   > [!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/record-stream-inference-data-with-video/bounding-box.png" alt-text="Icono del rectángulo de selección":::
+
+> [!NOTE]
+> Puesto que el origen del vídeo era un contenedor que simula una fuente de cámara, las marcas de tiempo del vídeo son relativas a cuándo activó y desactivó la canalización en directo.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

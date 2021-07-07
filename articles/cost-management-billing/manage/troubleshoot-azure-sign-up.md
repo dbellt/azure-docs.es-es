@@ -1,6 +1,6 @@
 ---
-title: Solución de problemas al registrar una cuenta nueva en Azure Portal o en el centro de cuentas de Azure
-description: Resolución de problemas al intentar registrar una nueva cuenta en el centro de cuentas de Microsoft Azure Portal.
+title: Solución de problemas al registrar una cuenta nueva en Azure Portal
+description: Resolución de problemas al intentar registrar una nueva cuenta en Microsoft Azure Portal.
 services: cost-management-billing
 author: v-miegge
 manager: dcscontentpm
@@ -8,18 +8,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 01/28/2021
+ms.date: 05/13/2021
 ms.author: v-miegge
-ms.openlocfilehash: 015e6058236190a04df152573621f0e57030d23b
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 6e9c3d09c5dbf9ddae779f585425f8317b41ab46
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054168"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467522"
 ---
-# <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Solución de problemas al registrar una cuenta nueva en Azure Portal o en el centro de cuentas de Azure
+# <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal"></a>Solución de problemas al registrar una cuenta nueva en Azure Portal
 
-Puede surgir algún problema al intentar registrar una nueva cuenta en Microsoft Azure Portal o en el Centro de cuentas de Azure. Esta guía breve le ayudará en el proceso de registro y trata algunos problemas comunes en cada paso.
+Puede surgir algún problema al intentar registrar una nueva cuenta en Microsoft Azure Portal. Esta guía breve le ayudará en el proceso de registro y trata algunos problemas comunes en cada paso.
 
 > [!NOTE]
 > Si ya tiene una cuenta existente y busca instrucciones para solucionar problemas de inicio de sesión, consulte [Solución de problemas de inicio de sesión en la suscripción de Azure](./troubleshoot-sign-in-issue.md).
@@ -28,7 +28,7 @@ Puede surgir algún problema al intentar registrar una nueva cuenta en Microsoft
 
 Antes de comenzar, compruebe lo siguiente:
 
-- La información de perfil de cuenta de Azure (que incluye la dirección de correo electrónico de contacto, la dirección postal y el número de teléfono) es correcta.
+- La información del perfil de Azure (que incluye la dirección de correo electrónico de contacto, la dirección postal y el número de teléfono) es correcta.
 - La información de la tarjeta de crédito es correcta.
 - No tiene ninguna cuenta Microsoft con la misma información.
 
@@ -45,7 +45,14 @@ En este tutorial se proporcionan ejemplos de la información correcta para regis
 
 ## <a name="about-you"></a>Acerca de usted
 
-![Acerca de usted](./media/troubleshoot-azure-sign-up/1.png)
+Al registrarse inicialmente en Azure, tendrá que proporcionar información sobre usted mismo, por ejemplo:
+
+- Su país o región
+- Nombre
+- Apellido
+- Dirección de correo electrónico
+- Número de teléfono
+- Información de tarjeta de crédito
  
 ### <a name="common-issues-and-solutions"></a>Problemas comunes y soluciones
 
@@ -53,9 +60,9 @@ En este tutorial se proporcionan ejemplos de la información correcta para regis
 
 Para solucionar este error, siga estos pasos:
 
-1.  Inicie sesión en el [Centro de cuentas de Azure](https://account.azure.com/Profile) con la credencial de administrador de cuenta.
-1.  Seleccione **Editar detalles**.
-1.  Asegúrese de que todos los campos de dirección están completados y son válidos.
+1. Inicie sesión en el [centro de cuentas de Microsoft](https://account.microsoft.com/).
+1. En la parte superior de la página, seleccione **Your info** (Su información).
+1. Compruebe que los detalles de facturación y envío se han completado y son válidos.
 1.  Cuando se registre para obtener una suscripción de Azure, compruebe que la dirección de facturación del registro de la tarjeta de crédito coincide con la de los datos bancarios.
 
 Si sigue recibiendo el mensaje, pruebe a usar otro explorador para registrarse.

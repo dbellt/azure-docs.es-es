@@ -8,12 +8,12 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 1c4d04e25bf8f7d981c998baafb468f04b66eaf1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b197d91893cc419913ace60fe30beca88484bfd2
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879905"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590961"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introducción a Azure Data Lake Storage Gen2
 

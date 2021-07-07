@@ -5,21 +5,21 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 02/11/2021
+ms.date: 05/26/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 708baa83ca919adcc374be36c229ce3ff30da384
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3652fbeee10f8ddad538446087f399ca625f6b07
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100362980"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578306"
 ---
 1. En la página del portal de la WAN virtual, en la sección **Conectividad**, seleccione **Sitios VPN** para abrir la página de sitios VPN.
 1. En la página **Sitios de VPN**, haga clic en **+Crear sitio**.
 1. Dentro de la página **Crear un sitio VPN**, en la pestaña **Aspectos básicos** rellene los campos siguientes:
 
-   :::image type="content" source="./media/virtual-wan-tutorial-site-include/site-basics.png" alt-text="Pestaña Aspectos básicos" lightbox="./media/virtual-wan-tutorial-site-include/site-basics.png":::
+   :::image type="content" source="./media/virtual-wan-tutorial-site-include/site-basics.png" alt-text="La captura de pantalla muestra la página Crear un sitio VPN con la pestaña Aspectos básicos abierta." lightbox="./media/virtual-wan-tutorial-site-include/site-basics.png":::
 
     * **Región**: anteriormente se conocía como ubicación. Se trata de la ubicación en la que desea crear este recurso de sitio.
     * **Nombre**: el nombre que desee usar para hacer referencia a su sitio local.
@@ -31,7 +31,7 @@ ms.locfileid: "100362980"
       >
 1. Seleccione **Vínculos** para agregar información sobre los vínculos físicos en la rama. Si tiene un dispositivo CPE de asociado de Virtual WAN, consulte con su asociado para ver si esta información se intercambia con Azure como parte de la configuración de carga de información de la sucursal desde sus sistemas.
 
-   :::image type="content" source="./media/virtual-wan-tutorial-site-include/site-links.png" alt-text="Pestaña Vínculos" lightbox="./media/virtual-wan-tutorial-site-include/site-links.png":::
+   :::image type="content" source="./media/virtual-wan-tutorial-site-include/site-links.png" alt-text="La captura de pantalla muestra la página Crear un sitio VPN con la pestaña Vínculos abierta." lightbox="./media/virtual-wan-tutorial-site-include/site-links.png":::
 
    * **Nombre del vínculo**: el nombre que quiera proporcionar para el vínculo físico en el sitio VPN. Ejemplo: mylink1.
    * **Velocidad del vínculo**: esta es la velocidad del dispositivo VPN en la ubicación de la rama. Ejemplo: 50, que significa que 50 Mbps es la velocidad del dispositivo VPN en el sitio de la rama.
@@ -49,4 +49,4 @@ ms.locfileid: "100362980"
 1. Una vez que haya terminado de rellenar los campos, seleccione **Revisar y crear** para comprobar y crear el sitio.
 1. Vaya hasta el centro de conectividad virtual que desee y anule la selección de la **Asociación de concentrador** para conectar el sitio VPN al centro.
 
-   :::image type="content" source="./media/virtual-wan-tutorial-site-include/connect.png" alt-text="Conectarse a este centro de conectividad" lightbox="./media/virtual-wan-tutorial-site-include/connect.png":::.
+   :::image type="content" source="./media/virtual-wan-tutorial-site-include/connect.png" alt-text="La captura de pantalla muestra Conectarse a este centro." lightbox="./media/virtual-wan-tutorial-site-include/connect.png":::

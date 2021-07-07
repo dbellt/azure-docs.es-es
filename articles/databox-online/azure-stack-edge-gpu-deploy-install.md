@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 06/04/2021
 ms.author: alkohli
-ms.openlocfilehash: a415dba4bb4fd5b95e98ae7c104cae92db27f34c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 406e31320e8f7d0d95bfef44f620505989b3ae9f
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060166"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746706"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Tutorial: Instalación de Azure Stack Edge Pro con GPU
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a:
 > * Montaje en bastidor del dispositivo
 > * Cableado del dispositivo
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Los requisitos previos para instalar un dispositivo físico son los siguientes:
 
@@ -85,7 +85,7 @@ El dispositivo debe instalarse en un bastidor estándar de 19 pulgadas. Use el s
 > Los dispositivos de Azure Stack Edge Pro tienen que estar montados en un bastidor para funcionar correctamente.
 
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 - Antes de comenzar, lea las instrucciones de seguridad en el folleto sobre la seguridad, el entorno y las normativas. Este folleto se envió junto con el dispositivo.
 - Comience la instalación de los raíles en el espacio asignado más próximo a la parte inferior del armario del bastidor.
@@ -163,7 +163,7 @@ Antes de empezar el cableado del dispositivo, necesita lo siguiente:
 - El dispositivo físico de Azure Stack Edge Pro, desempaquetado y montado en el bastidor.
 - Dos cables de alimentación.
 - Al menos un cable de red RJ-45 de 1-GbE cable para conectarse a la interfaz de administración de red. Hay dos interfaces de red de 1-GbE, uno de administración y otro de datos, en el dispositivo.
-- Un cable de cobre SFP+ de 25 GbE para cada interfaz de red de datos que se va a configurar. Al menos una interfaz de red de datos de entre los PUERTOS 2, 3, 4, 5 o 6, debe estar conectada a Internet (para la conectividad a Azure).  
+- Un cable de cobre SFP+ de 25/10 GbE para cada interfaz de red de datos que se va a configurar. Al menos una interfaz de red de datos de entre los PUERTOS 2, 3, 4, 5 o 6, debe estar conectada a Internet (para la conectividad a Azure).  
 - Acceso a dos unidades de distribución de energía (recomendable).
 - Al menos un conmutador de red de 1 GbE para conectar una interfaz de red de 1 GbE a Internet para los datos. La interfaz de usuario web local no será accesible si el conmutador conectado no es de al menos 1 GbE. Si usa la interfaz de 25/10 GbE para los datos, necesitará un conmutador de 25 GbE o 10 GbE.
 
@@ -188,12 +188,12 @@ En el dispositivo de Azure Stack Edge Pro:
 - El backplane tiene dos tarjetas de red correspondientes a los seis puertos:
 
     - **Adaptador personalizado Microsoft `Qlogic` Cavium 25 G NDC**: puertos 1 a 4.
-    - **Mellanox dual port 25G ConnectX-4 channel network adapter**: puerto 5 y puerto 6.
+    - **Adaptador de red de 4 canales, doble puerto 25G ConnectX de Mellanox**: puertos 5 y 6.
 
-Para una lista completa de cables, enchufes y transceptores para estas tarjetas de red, vaya a:
+Para una lista completa de cables, enchufes y transceptores compatibles para estas tarjetas de adaptador de red, consulte:
 
 - [Matriz de interoperabilidad del adaptador `Qlogic` Cavium 25 G NDC](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
-- [Productos compatibles con Mellanox dual port 25G ConnectX-4 channel network adapter](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
+- Cables y módulos de 25 GbE y 10 GbE en [Productos compatibles con el adaptador de red de 4 canales, doble puerto 25G ConnectX de Mellanox](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
 
  
 Realice los pasos siguientes para realizar el cableado de los cables de alimentación y de red del dispositivo.

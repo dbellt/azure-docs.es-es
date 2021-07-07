@@ -7,14 +7,14 @@ metadata:
   ms.reviewer: adwise
   ms.service: cost-management-billing
   ms.topic: conceptual
-  ms.date: 04/15/2021
+  ms.date: 05/21/2021
   ms.author: banders
-  ms.openlocfilehash: 4d56dcf2d6aed950723170f542a45f5ab5a9e405
-  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+  ms.openlocfilehash: 36dff080da94b899680222eb1dd7c7955f1e093b
+  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/06/2021
-  ms.locfileid: "108765618"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111962743"
 title: Preguntas frecuentes sobre Azure Cost Management + Billing
 summary: ''
 sections:
@@ -32,15 +32,18 @@ sections:
   - question: ¿Por qué me llega el cargo? Tengo una cuenta de Azure gratuita.
     answer: >
       Los servicios gratuitos tienen límites. Lo más probable es que haya superado los límites de las cuentas gratuitas. Consulte [Evitar cargos en su cuenta gratuita de Azure](manage/avoid-charges-free-account.md).
-  - question: Descripción de mi cuenta
+  - question: ¿Cómo puedo entender mi factura y conciliar los cargos?
     answer: >
-      Si compró su suscripción de Azure a través del sitio web de Azure, consulte [Examen de la factura de una suscripción individual a Azure](understand/review-individual-bill.md).
+      Si compró su suscripción de Azure en el sitio web de Azure, consulte el tutorial [Examen de la factura de una suscripción individual a Azure](understand/review-individual-bill.md). En el tutorial se explica cómo se relacionan los cargos de la factura con los servicios que ha usado.
   - question: ¿Cómo ver rápidamente los cargos?
     answer: >
       Consulte [Exploración y análisis de costos con el análisis de costos](costs/quick-acm-cost-analysis.md).
   - question: Tengo cargos inesperados. ¿Cómo sé a qué corresponden?
     answer: >
       Consulte [Análisis de cargos inesperados](understand/analyze-unexpected-charges.md).
+  - question: ¿Cómo puedo cambiar la información de facturación?
+    answer: >
+      Vea [Cambio de la información de facturación](manage/change-azure-account-profile.md).
   - question: ¿Cómo cancelo mi suscripción de Azure?
     answer: >
       Consulte [Cancelación de una suscripción de Azure](manage/cancel-azure-subscription.md).
@@ -95,10 +98,10 @@ sections:
       Sí, puede usar [Power BI Desktop para conectarse a los datos de Cost Management](/power-bi/connect-data/desktop-connect-azure-cost-management), o bien puede usar la [aplicación Azure Cost Management para Power BI para Contrato Enterprise (EA)](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md).
   - question: ¿Cuáles son los tipos de oferta que se admiten en Cost Management?
     answer: >
-      Consulte [Ofertas compatibles de Microsoft Azure](/azure/cost-management-billing/costs/understand-cost-mgt-data#supported-microsoft-azure-offers).
+      Consulte [Ofertas compatibles de Microsoft Azure](./costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers).
   - question: ¿Cuándo puedo ver mis datos de costo y uso en Azure Cost Management?
     answer: >
-      Consulte [Retención y actualizaciones de datos de uso y costos](/azure/cost-management-billing/costs/understand-cost-mgt-data#cost-and-usage-data-updates-and-retention).
+      Consulte [Retención y actualizaciones de datos de uso y costos](./costs/understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention).
   - question: ¿Toda la información relacionada con los costos se puede encontrar en Azure Cost Management?
     answer: >
       Consulte [Costos incluidos en Cost Management](costs/understand-cost-mgt-data.md#costs-included-in-cost-management).
@@ -140,7 +143,7 @@ sections:
     answer: >
       Hay dos formas de ver el ahorro.
 
-      -  Los clientes de EA pueden usar Azure Cost Management Power BI App for EA para ver el [informe sobre el ahorro de RI](/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app#reports-available-with-the-app.md).
+      -  Los clientes de EA pueden usar Azure Cost Management Power BI App for EA para ver el [informe sobre el ahorro de RI](./costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md#reports-available-with-the-app).
 
       -  Use el archivo de datos Uso y cargos para [determinar manualmente el ahorro de la reserva](reservations/understand-reserved-instance-usage-ea.md#determine-reservation-savings).
   - question: ¿Cómo ver se ve si una reserva está infrautilizada?
@@ -151,7 +154,7 @@ sections:
       Para más información, consulte [Contracargo de costos de Reserva de Azure](reservations/charge-back-usage.md?toc=/azure/cost-management-billing/reservations/toc.json).
   - question: ¿Cómo puedo ver los cargos en los que incurren las máquinas virtuales de acceso puntual?
     answer: >
-      Consulte [Visualización de los cargos de máquinas virtuales de acceso puntual](/azure/cost-management-billing/costs/cost-analysis-common-uses#view-your-spot-vm-charges).
+      Consulte [Visualización de los cargos de máquinas virtuales de acceso puntual](./costs/cost-analysis-common-uses.md#view-your-spot-vm-charges).
   - question: ¿Cómo se obtiene un informe de los detalles de una reserva?
     answer: >
       Lea la documentación de la API para [generar un informe de los detalles de una reserva](/rest/api/cost-management/generatereservationdetailsreport).
@@ -298,7 +301,7 @@ sections:
 
       - Cuenta
 
-      - Suscripción
+      - Subscription
 
 
       En función de sus necesidades, puede usar el mismo centro de costos para realizar un seguimiento del uso y los costos asociados a un centro de costos en particular.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/26/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 6f77bac93b7bb5e3319409c01e328c73cd08a9a0
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: d9520f3a6c6ffadf7186b0b3c5c83fe872711316
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106058959"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007794"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configuración de HTTPS en un dominio personalizado de Azure CDN
 
@@ -104,13 +104,16 @@ Para habilitar HTTPS en un dominio personalizado, siga estos pasos:
 > Esta opción solo está disponible con los perfiles **Azure CDN de Microsoft** y **Azure CDN de Verizon**. 
 >
  
-Puede usar su propio certificado para habilitar la característica HTTPS. Este proceso se realiza a través de una integración con Azure Key Vault, lo cual permite almacenar de forma segura los certificados. Azure CDN usa este mecanismo de seguridad para obtener el certificado y requiere algunos pasos adicionales. Cuando cree el certificado TLS/SSL, debe usar una entidad de certificación (CA) permitida. Si no lo hace, si usa una entidad de certificación no permitida, la solicitud se rechazará. Para ver una lista de las entidades de certificación permitidas, consulte [Allowed certificate authorities for enabling custom HTTPS on Azure CDN](cdn-troubleshoot-allowed-ca.md) (Autoridades de certificación permitidas para habilitar HTTPS personalizado en Azure CDN). En el caso de **Azure CDN de Verizon**, se aceptará cualquier entidad de certificación válida. 
+Puede usar su propio certificado para habilitar la característica HTTPS. Este proceso se realiza a través de una integración con Azure Key Vault, lo cual permite almacenar de forma segura los certificados. Azure Front Door usa este mecanismo de seguridad para obtener el certificado y requiere algunos pasos adicionales. Al crear el certificado TLS/SSL, tiene que crear una cadena de certificados completa con una entidad de certificación (CA) permitida que forme parte de la [lista de CA de confianza de Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). Si usa una CA no permitida, la solicitud se rechazará.  Si se presenta un certificado sin una cadena completa, no se garantiza que las solicitudes que involucran ese certificado funcionen según lo previsto. En el caso de Azure CDN de Verizon, se aceptará cualquier entidad de certificación válida.
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Preparación de la cuenta y el certificado de Azure Key Vault
  
 1. Azure Key Vault: tiene que tener una cuenta de Azure Key Vault ejecutándose en la misma suscripción que el perfil de Azure CDN y los puntos de conexión de CDN para los que quiera habilitar HTTPS personalizado. Cree una cuenta de Azure Key Vault si no tiene una.
  
 2. Certificados de Azure Key Vault: Si tiene un certificado, cárguelo directamente en su cuenta de Azure Key Vault. Si no tiene un certificado, cree uno nuevo directamente mediante Azure Key Vault.
+
+> [!NOTE]
+> El certificado debe tener una cadena de certificados completa con certificados de hoja e intermedios, y la CA raíz debe formar parte de la [lista de CA de confianza de Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
 
 ### <a name="register-azure-cdn"></a>Registro de Azure CDN
 
@@ -146,21 +149,20 @@ Conceda permisos de Azure CDN para acceder a los certificados (secretos) de su c
 
 2. En la página **Agregar directiva de acceso**, seleccione **Ninguna seleccionada** junto a **Seleccionar la entidad de seguridad**. En la página **Entidad de seguridad**, escriba **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**. Seleccione **Microsoft.AzureFrontdoor-Cdn**.  Elija **Seleccionar**:
 
-2. En **Seleccionar la entidad de seguridad**, busque **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** y elija **Microsoft.AzureFrontDoor-Cdn**. Elija **Seleccionar**.
+3. En **Seleccionar la entidad de seguridad**, busque **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** y elija **Microsoft.AzureFrontDoor-Cdn**. Elija **Seleccionar**.
 
     :::image type="content" source="./media/cdn-custom-ssl/cdn-access-policy-settings.png" alt-text="Selección de la entidad de servicio de Azure CDN" border="true":::
     
-3. Seleccione **Permisos de certificado**. Active las casillas de **Get** y **List** para permitir que CDN pueda obtener y enumerar los certificados.
+4. Seleccione **Permisos de certificado**. Active las casillas de **Get** y **List** para permitir que CDN pueda obtener y enumerar los certificados.
 
-4. Seleccione **Permisos de secretos**. Active las casillas de **Get** y **List** para permitir que CDN pueda obtener y enumerar los secretos:
+5. Seleccione **Permisos de secretos**. Active las casillas de **Get** y **List** para permitir que CDN pueda obtener y enumerar los secretos:
 
     :::image type="content" source="./media/cdn-custom-ssl/cdn-vault-permissions.png" alt-text="Selección de permisos de CDN en el almacén de claves" border="true":::
 
-5. Seleccione **Agregar**. 
+6. Seleccione **Agregar**. 
 
 > [!NOTE]
-> Azure CDN puede acceder ahora a este almacén de claves y a los certificados (secretos) almacenados en él. Todas las instancias de la red CDN creadas en esta suscripción tendrán acceso a los certificados de este almacén de claves. 
-
+> Azure CDN puede acceder ahora a este almacén de claves y a los certificados (secretos) almacenados en él. Todas las instancias de la red CDN creadas en esta suscripción tendrán acceso a los certificados de este almacén de claves.
  
 ### <a name="select-the-certificate-for-azure-cdn-to-deploy"></a>Selección del certificado de Azure CDN que se va a implementar
  

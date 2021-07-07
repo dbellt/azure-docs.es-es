@@ -1,34 +1,42 @@
 ---
-title: 'Inicio rápido: Creación de la primera función de Azure mediante Visual Studio'
-description: En este inicio rápido, aprenderá a crear y publicar una función de Azure de desencadenador HTTP mediante Visual Studio.
+title: 'Inicio rápido: Creación de la primera función de C# en Azure mediante Visual Studio'
+description: En este inicio rápido, aprenderá a usar Visual Studio para crear y publicar una función de C# desencadenada por HTTP en Azure Functions que se ejecuta en .NET Core 3.1.
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
-ms.date: 09/30/2020
-ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
+ms.date: 05/18/2021
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f, contperf-fy21q3-portal
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./functions-create-your-first-function-visual-studio-uiex
-ms.openlocfilehash: d691ee60f624f75c89e44e905e5343bf9c71fd4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b76d9cf86a1bb00ea73c396ce1e563374a834f89
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101701422"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459476"
 ---
-# <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Inicio rápido: Creación de la primera función de Azure mediante Visual Studio
+# <a name="quickstart-create-your-first-c-function-in-azure-using-visual-studio"></a>Inicio rápido: Creación de la primera función de C# en Azure mediante Visual Studio
 
-En este artículo se usa Visual Studio para crear una función basada en biblioteca de clases de C# que responde a solicitudes HTTP. Después de probar el código localmente, se implementa en el entorno sin servidor de Azure Functions.  
+Azure Functions permite ejecutar el código de C# en un entorno sin servidor en Azure. 
 
+En este artículo aprenderá a:
+
+> [!div class="checklist"]
+> * Use Visual Studio para crear un proyecto de biblioteca de clases de C# (.NET Core 3.1).
+> * Cree una función que responda a solicitudes HTTP. 
+> * Ejecute el código localmente para comprobar el comportamiento de la función.
+> * Implemente el proyecto de código en Azure Functions. 
+ 
 Este inicio rápido supone un pequeño costo en su cuenta de Azure.
+ 
+El proyecto creado se ejecuta en .NET Core 3.1. Si en su lugar desea crear un proyecto que se ejecute en .NET 5.0, consulte [Desarrollo y publicación de funciones de .NET 5 mediante Azure Functions](dotnet-isolated-process-developer-howtos.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-Para completar este tutorial, instale antes [Visual Studio 2019](https://azure.microsoft.com/downloads/). Asegúrese de seleccionar la carga de trabajo de **desarrollo de Azure** durante la instalación. Si desea crear un proyecto de Azure Functions con Visual Studio 2017, debe instalar antes las [herramientas de Azure Functions más recientes](functions-develop-vs.md#check-your-tools-version).
++ [Visual Studio 2019](https://azure.microsoft.com/downloads/). Asegúrese de seleccionar la carga de trabajo de **desarrollo de Azure** durante la instalación. 
 
-![Instale Visual Studio con la carga de trabajo de desarrollo de Azure.](media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
-
-Si no tiene una [suscripción a Azure](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), cree una [cuenta gratuita](https://azure.microsoft.com/free/dotnet/) antes de empezar.
++ [Suscripción de Azure](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). Si aún no tiene ninguna cuenta, cree una [gratuita](https://azure.microsoft.com/free/dotnet/) antes de empezar.
 
 ## <a name="create-a-function-app-project"></a>Creación de un proyecto de aplicación de función
 
@@ -42,10 +50,14 @@ El atributo del método `FunctionName` establece el nombre de la función que, d
 
 1. En el **Explorador de archivos**, haga clic con el botón derecho en el archivo Function1.cs y cambie su nombre a `HttpExample.cs`.
 
-1. En el código, cambie el nombre de la clase Function1 a "HttpExample".
+1. En el código, cambie el nombre de la clase Function1 a `HttpExample`.
 
 1. En el método `HttpTrigger` denominado `Run`, cambie el nombre del atributo del método `FunctionName` a `HttpExample`.
 
+La definición de la función ahora debe parecerse al código siguiente:
+
+:::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs" range="13-18"::: 
+ 
 Ahora que ha cambiado el nombre de la función, puede probarla en el equipo local.
 
 ## <a name="run-the-function-locally"></a>Ejecución local de la función

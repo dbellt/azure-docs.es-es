@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Uso de un grupo de SQL sin servidor para analizar Azure Open Datasets en Azure Synapse Studio'
-description: Este tutorial le mostrará cómo realizar con facilidad el análisis de datos exploratorios mediante la combinación de diferentes instancias de Azure Open Datasets con un grupo de SQL sin servidor y visualizar los resultados en Azure Synapse Studio.
+title: 'Tutorial: Uso de un grupo de SQL sin servidor para analizar Azure Open Datasets en Synapse Studio'
+description: Este tutorial le mostrará cómo realizar con facilidad el análisis de datos exploratorios mediante la combinación de diferentes instancias de Azure Open Datasets con un grupo de SQL sin servidor y visualizar los resultados en Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 11/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 91f9bab7ca85275f914b8421cb4eb7517396ff8a
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: eed38a5dfeafee6a951ea745f3fa12ba11a36699
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685016"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109813729"
 ---
 # <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool"></a>Tutorial: Exploración y análisis de lagos de datos con un grupo de SQL sin servidor
 

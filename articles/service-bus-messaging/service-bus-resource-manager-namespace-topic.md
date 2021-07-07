@@ -10,12 +10,12 @@ ms.tgt_pltfrm: dotnet
 ms.custom:
 - devx-track-azurepowershell
 - mode-arm
-ms.openlocfilehash: d70890b3a83fcff969e9c4e8cbfba392eb9cbce4
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 6574dbcbf424151536d524f30c0fd56ba0f8403b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111961206"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112281168"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Inicio rápido: Creación de un espacio de nombres de Service Bus con un tema y una suscripción mediante una plantilla de Azure Resource Manager
 
@@ -157,7 +157,7 @@ Ahora que ha creado e implementado recursos con Azure Resource Manager, estos ar
 * [Administración de recursos de Service Bus con el Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/syntax.md
-[Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+[Azure Quickstart Templates]: https://azure.microsoft.com/resources/templates/?term=service+bus
 [Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/management/manage-resources-powershell.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/management/manage-resources-cli.md

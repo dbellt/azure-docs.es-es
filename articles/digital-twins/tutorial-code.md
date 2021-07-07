@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 1cfed11eec3758586519eeb33b396a41b768e693
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 68afdb1c0ab74f5d05fd13a9fe8868cb9e2ac4aa
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075508"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460265"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Programación con las API de Azure Digital Twins
 
@@ -80,7 +80,7 @@ Para empezar, abra el archivo *Program.cs* en cualquier editor de código. Verá
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/tutorial-code/starter-template.png" alt-text="Un fragmento de código de ejemplo. Hay una instrucción &quot;using System;&quot;, un espacio de nombres denominado DigitalTwinsCodeTutorial; una clase en el espacio de nombres denominada Program; y un método Main en la clase con una firma estándar de &quot;static void Main(string[] args)&quot;. El método Main contiene una instrucción print con Hola mundo." lightbox="media/tutorial-code/starter-template.png":::
+        :::image type="content" source="media/tutorial-code/starter-template.png" alt-text="Captura de pantalla de un fragmento de código de ejemplo en un editor de código." lightbox="media/tutorial-code/starter-template.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -180,7 +180,7 @@ Para evitar que el programa se bloquee, puede agregar código de excepción alre
 
 Si ahora ejecuta el programa con `dotnet run` en la ventana de comandos, verá que recibe un código de error. La salida del código de creación del modelo muestra este error:
 
-:::image type="content" source= "media/tutorial-code/model-error.png" alt-text="Salida del programa, que muestra el mensaje &quot;409:Service request failed. Status: 409 (Conflict).&quot; [409: error de solicitud de servivio. Estado: 409 (conflicto)], seguido de una impresión del error que indica que dtmi:example: SampleModel;1 ya existe":::
+:::image type="content" source= "media/tutorial-code/model-error.png" alt-text="Captura de pantalla de una consola que muestra la salida del programa, que produce un error &quot;409: Error en la solicitud de servicio. Estado: 409 (conflicto)&quot;.":::
 
 A partir de este punto, en el tutorial se encapsulan todas las llamadas a los métodos de servicio de los controladores try/catch.
 
@@ -228,7 +228,7 @@ Luego, agregue el siguiente código al final del método `Main` para llamar al c
 
 En la ventana de comandos, ejecute el programa con `dotnet run`. Debería ver una relación de todas las relaciones que ha creado en una instrucción de salida similares a esta:
 
-:::image type="content" source= "media/tutorial-code/list-relationships.png" alt-text="Salida del programa, que muestra el mensaje &quot;Twin sampleTwin-0 is connected to: contains->sampleTwin-1, -contains->sampleTwin-2&quot;" lightbox="media/tutorial-code/list-relationships.png":::
+:::image type="content" source= "media/tutorial-code/list-relationships.png" alt-text="Captura de pantalla de una consola que muestra la salida del programa, que genera un mensaje que enumera las relaciones gemelas." lightbox="media/tutorial-code/list-relationships.png":::
 
 ### <a name="query-digital-twins"></a>Consulta de los gemelos digitales
 

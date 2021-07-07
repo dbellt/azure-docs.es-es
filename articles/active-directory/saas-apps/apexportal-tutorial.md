@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/03/2020
+ms.date: 05/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 41b1d9b4d0ae9e2a05fc59eae499eb8929770ab3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6450c68c60a499fb8d3c49dab78bc35cd681e3ae
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92458139"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078623"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-apex-portal"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Apex Portal
 
@@ -26,9 +26,7 @@ En este tutorial, aprenderá a integrar Apex Portal con Azure Active Directory 
 * Permitir que los usuarios inicien sesión automáticamente en Apex Portal con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -39,40 +37,40 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Apex Portal admite inicio de sesión único iniciado por **IDP**
-* Apex Portal admite el aprovisionamiento de usuarios **Just-In-Time**
+* Apex Portal admite inicio de sesión único iniciado por **IDP**.
+* Apex Portal admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-## <a name="adding-apex-portal-from-the-gallery"></a>Adición de Apex Portal desde la galería
+## <a name="add-apex-portal-from-the-gallery"></a>Incorporación de Apex Portal desde la galería
 
 Para configurar la integración de Apex Portal en Azure AD, deberá agregar esta solución desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Apex Portal** en el cuadro de búsqueda.
 1. Seleccione **Apex Portal** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-apex-portal"></a>Configuración y prueba del inicio de sesión único de Azure AD para Apex Portal
+## <a name="configure-and-test-azure-ad-sso-for-apex-portal"></a>Configuración y prueba del inicio de sesión único de Azure AD para Apex Portal
 
 Configure y pruebe el inicio de sesión único de Azure AD con Apex Portal mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Apex Portal.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Apex Portal, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Apex Portal, realice los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-    * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Apex Portal](#configure-apex-portal-sso)**: para configurar los valores de inicio de sesión único en la aplicación.
-    * **[Creación de un usuario de prueba de Apex Portal](#create-apex-portal-test-user)**: para tener un homólogo de B.Simon en Apex Portal vinculado a la representación del usuario en Azure AD.
+    1. **[Creación de un usuario de prueba de Apex Portal](#create-apex-portal-test-user)**: para tener un homólogo de B.Simon en Apex Portal vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Apex Portal**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de aplicaciones de **Apex Portal**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -125,15 +123,9 @@ En esta sección, va a conceder a B.Simon acceso a Apex Portal mediante el inici
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **Apex Portal**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ## <a name="configure-apex-portal-sso"></a>Configuración del inicio de sesión único de Apex Portal
@@ -149,16 +141,12 @@ En esta sección se crea un usuario llamado Britta Simon en Apex Portal. Apex Po
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
-Al hacer clic en el icono de Apex Portal del panel de acceso, debe iniciar sesión automáticamente en la aplicación Apex Portal para la que configurara el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Haga clic en Probar esta aplicación en Azure Portal; debería iniciar sesión automáticamente en la instancia de Apex Portal para la que ha configurado el inicio de sesión único.
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Apex Portal en Mis aplicaciones, debe iniciar sesión automáticamente en la instancia de Apex Portal para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
-
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
-
-- [Pruebe Apex Portal con Azure AD](https://aad.portal.azure.com/).
+Una vez configurado Apex Portal, puede aplicar el control de sesión, que protege a su organización, en tiempo real, frente a la exfiltración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

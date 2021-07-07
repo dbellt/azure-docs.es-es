@@ -1,5 +1,5 @@
 ---
-title: Registro de exámenes de configuración y origen de SAP ECC (versión preliminar) en Azure Purview
+title: Registro de exámenes de configuración y origen de SAP ECC en Azure Purview
 description: En este artículo se describe cómo registrar un origen de SAP ECC en Azure Purview y cómo configurar un examen.
 author: chandrakavya
 ms.author: kchandra
@@ -7,14 +7,14 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: bc35f79bae0cd75b24b119e951f27b289ebef704
-ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
+ms.openlocfilehash: c4126a99b38021ea7399bb486b8942423f0a809c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108007365"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067121"
 ---
-# <a name="register-and-scan-sap-ecc-source-preview"></a>Registro y examen de un origen de SAP ECC (versión preliminar)
+# <a name="register-and-scan-sap-ecc-source"></a>Registro y examen de un origen de SAP ECC
 
 En este artículo se describe cómo registrar un origen de SAP ECC en Purview y cómo configurar un examen.
 

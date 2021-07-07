@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 01/29/2021
+ms.date: 05/24/2021
 ms.author: aahi
-ms.openlocfilehash: 1cc17306265e6e8ba2e7fb3f570d0017b006b84f
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: d648acb3ff9a1f7c2076a4b7c1fcf9755a9ea05d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284692"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465200"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migración a los contenedores OCR de Read v3.x
 
@@ -35,7 +35,7 @@ El contenedor de Read v3.2 emplea la versión 3 de la API Computer Vision y ti
 * `/vision/v3.2-preview.1/read/analyze`
 * `/vision/v3.2-preview.1/read/syncAnalyze`
 
-Consulte la [guía de migración de la API REST Computer Vision v3](./upgrade-api-versions.md) para más información sobre cómo actualizar las aplicaciones para que usen la versión 3 de la API Read basada en la nube. Esta información también se aplica al contenedor. Tenga en cuenta que las operaciones de sincronización solo se admiten en contenedores.
+Consulte la [guía de migración de la API REST Computer Vision v3](./upgrade-api-versions.md) para más información sobre cómo actualizar las aplicaciones para que usen la versión 3 de la API Read basada en la nube. Esta información también se aplica al contenedor. Las operaciones de sincronización solo se admiten en contenedores.
 
 ## <a name="memory-requirements"></a>Requisitos de memoria
 
@@ -69,7 +69,7 @@ En la versión 3.x del contenedor, no se admite actualmente RabbitMQ. Las implem
 | Colas de Azure | `Queue:Azure:ConnectionString={AzureStorageConnectionString}` | Producción |
 | RabbitMQ    | No disponible | Producción |
 
-Para agregar redundancia, el contenedor de Read v3.x emplea un temporizador de visibilidad para que las solicitudes se puedan procesar correctamente en caso de bloqueo, cuando se ejecuten en una instalación de varios contenedores. 
+Para agregar redundancia, el contenedor de Read v3.x emplea un temporizador de visibilidad para garantizar que las solicitudes se puedan procesar correctamente si se produce un bloqueo, cuando se ejecuten en una instalación de varios contenedores. 
 
 Establezca el temporizador con `Queue:Azure:QueueVisibilityTimeoutInMilliseconds`, que establece el tiempo que un mensaje es invisible cuando otro trabajo lo procesa. Para evitar que las páginas se procesen de forma redundante, se recomienda establecer el período de tiempo de espera en 120 segundos. El valor predeterminado es 30 segundos.
 

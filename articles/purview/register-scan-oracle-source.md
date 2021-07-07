@@ -1,5 +1,5 @@
 ---
-title: Registro de un origen de Oracle y configuración de los exámenes (versión preliminar) en Azure Purview
+title: Registro de un origen de Oracle y configuración de los exámenes en Azure Purview
 description: En este artículo se explica cómo registrar un origen de Oracle en Azure Purview y cómo configurar un examen.
 author: chandrakavya
 ms.author: kchandra
@@ -7,14 +7,14 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 40c5e0ff2c2301607f5a548ff05c742c5c5a948d
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: dadf457c2fc3f617e2473a853e802fe863709ac5
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107517069"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072296"
 ---
-# <a name="register-and-scan-oracle-source-preview"></a>Registro y examen de un origen de Oracle (versión preliminar)
+# <a name="register-and-scan-oracle-source"></a>Registro y examen de un origen de Oracle
 
 En este artículo se explica cómo registrar una base de datos de Oracle en Purview y cómo configurar un examen.
 
@@ -132,8 +132,13 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
     No se acepta el empleo de NOT ni de caracteres especiales.
 
 6.  **Driver location** (Ubicación del controlador): especifique la ruta de acceso a la ubicación del controlador JDBC en la máquina virtual donde se ejecuta el entorno de ejecución de integración autohospedado. Debe ser la ruta de acceso a la ubicación válida de la carpeta JAR.
+    > [!Note]
+    > Todas las cuentas de la máquina virtual deben poder acceder al controlador. No lo instale en una cuenta de usuario.
 
 7.  **Maximum memory available** (Memoria máxima disponible): memoria máxima (en GB) disponible en la máquina virtual del cliente que van a usar los procesos de examen. Depende del tamaño del origen de SAP S/4HANA que se va a examinar.
+
+    > [!Note] 
+    > Como regla general, especifique 1 GB de memoria por cada 1000 tablas.
 
     :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="Examen de Oracle" border="true":::
 

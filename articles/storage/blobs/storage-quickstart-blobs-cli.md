@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 04f793f78cef938c31e7a30aad5569a54eb461a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dae51f8c343fa5adcf724cd3ef6db1c8a4058cf7
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "104613114"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111900726"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Inicio rápido: Creación, descarga y enumeración de blobs mediante la CLI de Azure
 
@@ -70,7 +70,7 @@ az storage account create \
 
 Los blobs siempre se cargan en un contenedor. Puede organizar los grupos de blobs en contenedores de una forma similar a la que organiza los archivos en carpetas en el equipo. Cree un contenedor para almacenar blobs con el comando [az storage container create](/cli/azure/storage/container).
 
-En el ejemplo siguiente se usa la cuenta de Azure AD para autorizar la operación de creación del contenedor. Antes de crear el contenedor, asígnese a sí mismo el rol [Colaborador de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Aunque sea el propietario de la cuenta, necesita permisos explícitos para realizar operaciones de datos en la cuenta de almacenamiento. Para más información sobre la asignación de roles de Azure, consulte [Uso de la CLI de Azure para asignar un rol de Azure para el acceso](../common/storage-auth-aad-rbac-cli.md?toc=/azure/storage/blobs/toc.json).  
+En el ejemplo siguiente se usa la cuenta de Azure AD para autorizar la operación de creación del contenedor. Antes de crear el contenedor, asígnese a sí mismo el rol [Colaborador de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Aunque sea el propietario de la cuenta, necesita permisos explícitos para realizar operaciones de datos en la cuenta de almacenamiento. Para más información sobre la asignación de roles de Azure, consulte [Asignación de roles de Azure para el acceso a datos de blobs](assign-azure-role-data-access.md).  
 
 No olvide reemplazar los valores del marcador de posición entre corchetes angulares por sus propios valores:
 

@@ -1,29 +1,26 @@
 ---
 title: Creación de usuarios de Azure AD mediante entidades de servicio
-description: Este tutorial le guiará en la creación de un usuario de Azure AD con una aplicación de Azure AD (entidades de servicio) en Azure SQL Database y Azure Synapse Analytics.
+description: Este tutorial le guiará en la creación de un usuario de Azure AD con una aplicación de Azure AD (entidades de servicio) en Azure SQL Database.
 ms.service: sql-database
 ms.subservice: security
-ms.custom: azure-synapse
 ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 02/11/2021
-ms.openlocfilehash: 13e049d3e7e0c87bd0a214a92491e10d652a3619
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/10/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c1c0754175283dd9087429586e61739c8c779e49
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100380617"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110662443"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Tutorial: Creación de usuarios de Azure AD mediante aplicaciones de Azure AD
 
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-> [!NOTE]
-> Este artículo está en **versión preliminar pública**. Para más información, consulte [Entidad de servicio de Azure Active Directory con Azure SQL](authentication-aad-service-principal.md). En este artículo se usa Azure SQL Database para mostrar los pasos del tutorial necesarios, pero se pueden aplicar de forma similar a [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
-
-Este artículo le guía por el proceso de creación de usuarios de Azure AD en Azure SQL Database, mediante entidades de servicio de Azure (aplicaciones de Azure AD). Esta funcionalidad ya existe en Azure SQL Managed Instance, pero ahora se está introduciendo en Azure SQL Database y en Azure Synapse Analytics. Para admitir este escenario, se debe generar una identidad de Azure AD y asignarla al servidor lógico de Azure SQL.
+Este artículo le guía por el proceso de creación de usuarios de Azure AD en Azure SQL Database, mediante entidades de servicio de Azure (aplicaciones de Azure AD). Esta funcionalidad ya existe en Azure SQL Managed Instance, pero ahora se está introduciendo en Azure SQL Database. Para admitir este escenario, se debe generar una identidad de Azure AD y asignarla al servidor lógico de Azure SQL.
 
 Para más información sobre la autenticación de Azure AD para Azure SQL, consulte el artículo [Uso de la autenticación de Azure Active Directory](authentication-aad-overview.md).
 
@@ -38,7 +35,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Una implementación previa de [Azure SQL Database](single-database-create-quickstart.md) o de [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Suponemos que tiene una base de datos SQL Database en funcionamiento para este tutorial.
+- Una implementación de [Azure SQL Database](single-database-create-quickstart.md) existente. Suponemos que tiene una base de datos SQL Database en funcionamiento para este tutorial.
 - Acceso a una instancia de Azure Active Directory existente.
 - Se necesita el módulo [Az.Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) o posterior cuando se usa PowerShell para configurar una aplicación de Azure AD individual como administrador de Azure AD para Azure SQL. Asegúrese de que ha actualizado al módulo más reciente.
 
@@ -159,13 +156,7 @@ Para más información sobre un enfoque similar para establecer el permiso **Lec
 
 ## <a name="create-a-service-principal-an-azure-ad-application-in-azure-ad"></a>Crear una entidad de servicio (una aplicación de Azure AD) en Azure AD
 
-1. Siga esta guía para [registrar la aplicación y establecer los permisos](active-directory-interactive-connect-azure-sql-db.md#register-your-app-and-set-permissions).
-
-    Asegúrese de agregar los **permisos de la aplicación** así como los **permisos delegados**.
-
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="Captura de pantalla que muestra la página de Registros de aplicaciones de Azure Active Directory. Se resalta una aplicación con el nombre para mostrar AppSP.":::
-
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="api-permissions":::
+1. Siga esta guía para [registrar la aplicación](active-directory-interactive-connect-azure-sql-db.md#register-your-app-and-set-permissions).
 
 2. También tendrá que crear un secreto de cliente para iniciar sesión. Siga esta guía para [cargar un certificado o crear un secreto para iniciar sesión](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
@@ -176,17 +167,6 @@ Para más información sobre un enfoque similar para establecer el permiso **Lec
 En este tutorial, se usará *AppSP* como entidad de servicio principal y *myapp* como usuario de la entidad de servicio secundaria que se creará en Azure SQL mediante *AppSP*. Tendrá que crear dos aplicaciones, *AppSP* y *myapp*.
 
 Para más información sobre cómo crear una aplicación de Azure AD, consulte cómo [usar el portal para crear una aplicación de Azure AD y una entidad de servicio que puedan acceder a los recursos](../../active-directory/develop/howto-create-service-principal-portal.md).
-
-### <a name="permissions-required-to-set-or-unset-the-azure-ad-admin"></a>Permisos necesarios para establecer o anular el administrador de Azure AD
-
-Para que la entidad de servicio establezca o anule un administrador de Azure AD para Azure SQL, es necesario un permiso de API adicional. El permiso de API de aplicación [Directory.Read.All](/graph/permissions-reference#application-permissions-18) se deberá agregar a la aplicación en Azure AD.
-
-:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Permisos de Directory.Reader.All en Azure AD":::
-
-La entidad de servicio también necesitará el rol de [**colaborador de SQL Server**](../../role-based-access-control/built-in-roles.md#sql-server-contributor) para SQL Database, o el rol de [**colaborador de SQL Managed Instance**](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) para SQL Managed Instance.
-
-> [!NOTE]
-> Aunque Azure AD Graph API está en desuso, el permiso **Directory.Reader.All** se sigue aplicando a este tutorial. Con Microsoft Graph API no ocurre lo mismo.
 
 ## <a name="create-the-service-principal-user-in-azure-sql-database"></a>Cree el usuario de la entidad de servicio en Azure SQL Database
 
@@ -270,7 +250,7 @@ Una vez creada una entidad de servicio en Azure AD, cree el usuario en SQL Dat
     $conn.Close()
     ``` 
 
-    Como alternativa, puede usar el ejemplo de código del blog, [Autenticación de entidades de servicio de Azure AD en una base de datos SQL: ejemplo de código](https://techcommunity.microsoft.com/t5/azure-sql-database/azure-ad-service-principal-authentication-to-sql-db-code-sample/ba-p/481467). Modifique el script para ejecutar una instrucción DDL `CREATE USER [myapp] FROM EXTERNAL PROVIDER`. El mismo script se puede usar para crear un grupo de usuarios normales de Azure AD en SQL Database.
+    Como alternativa, puede usar el ejemplo de código del blog, [Autenticación de entidades de servicio de Azure AD en una base de datos SQL: ejemplo de código](https://techcommunity.microsoft.com/t5/azure-sql-database/azure-ad-service-principal-authentication-to-sql-db-code-sample/ba-p/481467). Modifique el script para ejecutar una instrucción DDL `CREATE USER [myapp] FROM EXTERNAL PROVIDER`. El mismo script se puede usar para crear un usuario, o un grupo de usuarios, normales de Azure AD en SQL Database.
 
     
 2. Compruebe si el usuario *myapp* existe en la base de datos; para ello, ejecute el comando siguiente:

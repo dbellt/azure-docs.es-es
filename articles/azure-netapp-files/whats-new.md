@@ -12,20 +12,42 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 05/06/2021
+ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: c1c0545d333a27c9a7d78f0363dc00a905bd4aa6
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 768b2f4a9b993e4824fbcebe7a96d7f62a90c934
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109481866"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078319"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novedades de Azure NetApp Files
 
 Azure NetApp Files se actualiza periódicamente. En este artículo se proporciona un resumen de las nuevas características y mejoras más recientes. 
 
-## <a name="may-2021"></a>Mayo de 2021
+## <a name="june-2021"></a>Junio de 2021
+
+* [Complementos del servicio de almacenamiento de Azure NetApp Files](storage-service-add-ons.md)
+
+    La nueva opción de menú de **complementos del servicio de almacenamiento de Azure NetApp Files** proporciona un "panel de inicio" de Azure Portal para complementos de ecosistemas de terceros compatibles con el servicio de almacenamiento de Azure NetApp Files. Con esta nueva opción de menú del portal, puede entrar en una página de aterrizaje haciendo clic en un icono de complemento para acceder rápidamente al complemento.  
+
+    Los **complementos de NetApp** son la primera categoría de complementos que se presentan en **Storage service add-ons** (Complementos del servicio de almacenamiento). Esta categoría proporcionan acceso a **NetApp Cloud Compliance**. Al hacer clic en **NetApp Cloud Compliance**, se abre un nuevo explorador que le dirige a la página de instalación del complemento. 
+
+* Características ahora disponibles con carácter general (GA)   
+
+    Las siguientes características de Azure NetApp Files ahora están disponibles con carácter general. Ya no es necesario registrarlas antes de usarlas:
+    * [Directiva de instantáneas](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)
+    * [Grupo de capacidad de QoS manual](manual-qos-capacity-pool-introduction.md)
+
+* [Compatibilidad de AD compartido en varias cuentas con una instancia de Active Directory por región y suscripción](create-active-directory-connections.md#shared_ad) (versión preliminar)   
+
+    Hasta la fecha, Azure NetApp Files solo admite una única instancia de Active Directory (AD) por región, donde solo se podía configurar una única cuenta de NetApp para acceder a AD. La nueva característica de **AD compartido** permite que todas las cuentas de NetApp compartan una conexión de AD creada por una de las cuentas de NetApp que pertenecen a la misma suscripción y a la misma región. Por ejemplo, con esta característica, todas las cuentas de NetApp de la misma suscripción y región pueden usar la configuración común de AD para crear un volumen SMB, un volumen Kerberos NFSv4.1 o un volumen de protocolo dual. Cuando se use esta característica, la conexión de AD será visible en todas las cuentas de NetApp que estén en la misma suscripción y región.
+
+## <a name="may-2021"></a>Mayo de 2021 
+
+* La herramienta de instantáneas coherentes con la aplicación [(AzAcSnap)](azacsnap-introduction.md) de Azure NetApp Files ya está disponible con carácter general. 
+
+    AzAcSnap es una herramienta de línea de comandos que permite simplificar la protección de datos para bases de datos de terceros (SAP HANA) en entornos de Linux (por ejemplo, SUSE y RHEL). Consulte las [notas de la versión de AzAcSnap](azacsnap-release-notes.md) para conocer los cambios más recientes sobre la herramienta.   
 
 * [Compatibilidad con etiquetas de facturación del grupo de capacidad](manage-billing-tags.md)   
 
@@ -122,7 +144,7 @@ Azure NetApp Files se actualiza periódicamente. En este artículo se proporcion
 
     Azure NetApp Files admite ahora la firma LDAP para proteger las búsquedas de LDAP entre el servicio Azure NetApp Files y los controladores de dominio de Active Directory Domain Services especificados por el usuario. Esta funcionalidad actualmente está en su versión preliminar.
 
-* [Cifrado AES para la autenticación de AD](azure-netapp-files-create-volumes-smb.md) (versión preliminar)
+* [Cifrado AES para la autenticación de AD](create-active-directory-connections.md#create-an-active-directory-connection) (versión preliminar)
 
     Azure NetApp Files admite ahora el cifrado AES en la conexión LDAP con el controlador de dominio para permitir este tipo de cifrado en un volumen SMB. Esta funcionalidad actualmente está en su versión preliminar. 
 

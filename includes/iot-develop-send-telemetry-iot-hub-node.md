@@ -7,20 +7,20 @@ ms.topic: include
 ms.date: 05/05/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 9544e662fde8f39303ea8bbafd7556d9e3b5af07
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 501b1383bbc4fb3e20a675b3dca7186d0fe4548e
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109518320"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112039902"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 - Si no tiene una suscripción de Azure, [cree una gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de comenzar.
 - [Git](https://git-scm.com/downloads).
 - [Node.js](https://nodejs.org), versión 10 o posterior. Para comprobar la versión de Node, ejecute `node --version`.
 - CLI de Azure. Tiene dos opciones para ejecutar comandos de la CLI de Azure en este inicio rápido:
-    - Use Azure Cloud Shell, un shell interactivo que ejecuta comandos de la CLI en el explorador. Esta opción se recomienda porque no es necesario instalar nada. Si usa Cloud Shell por primera vez, inicie sesión en [Azure Portal](https://portal.azure.com). Siga los pasos descritos en el [inicio rápido de Cloud Shell](/azure/cloud-shell/quickstart) para **iniciar Cloud Shell** y **seleccionar el entorno Bash**.
-    - Opcionalmente, ejecute la CLI de Azure en su equipo local. El inicio rápido requiere la versión 2.0.76, o posterior, de la CLI de Azure. Ejecute `az --version` para comprobar la versión. Siga los pasos descritos en [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli) para instalar o actualizar la CLI de Azure, ejecutarla e iniciar sesión. Si se le solicita, instale las extensiones de la CLI de Azure la primera vez que la use.
+    - Use Azure Cloud Shell, un shell interactivo que ejecuta comandos de la CLI en el explorador. Esta opción se recomienda porque no es necesario instalar nada. Si usa Cloud Shell por primera vez, inicie sesión en [Azure Portal](https://portal.azure.com). Siga los pasos descritos en el [inicio rápido de Cloud Shell](../articles/cloud-shell/quickstart.md) para **iniciar Cloud Shell** y **seleccionar el entorno Bash**.
+    - Opcionalmente, ejecute la CLI de Azure en su equipo local. Si la CLI de Azure ya está instalada, ejecute `az upgrade` para actualizar la CLI y las extensiones a la versión actual. Para instalar la CLI de Azure, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [iot-hub-include-create-hub-cli](iot-hub-include-create-hub-cli.md)]
 

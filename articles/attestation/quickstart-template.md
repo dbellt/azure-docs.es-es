@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.author: mbaldwin
 ms.date: 05/20/2021
-ms.openlocfilehash: 2aa4c1b95677dd2257751fd27270d927d700bdb6
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 47c3bc90cbcb9dac75fdf139351ba3ff0871571e
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750562"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111748020"
 ---
 # <a name="quickstart-create-an-azure-attestation-provider-with-an-arm-template"></a>Inicio rápido: Creación de un proveedor de Azure Attestation con una plantilla de Resource Manager
 
@@ -23,7 +23,7 @@ ms.locfileid: "109750562"
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementar en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.attestation%2Fattestation-provider-create%2Fazuredeploy.json)
+[![Implementación en Azure 1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.attestation%2Fattestation-provider-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -31,7 +31,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-attestation-provider-create).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/attestation-provider-create/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.attestation/attestation-provider-create/azuredeploy.json":::
 
@@ -43,7 +43,7 @@ Recursos de Azure definidos en la plantilla:
 
 1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir la plantilla.
 
-    [![Implementar en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.attestation%2Fattestation-provider-create%2Fazuredeploy.json)
+    [![Implementación en Azure 2](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.attestation%2Fattestation-provider-create%2Fazuredeploy.json)
 
 1. Seleccione o escriba los siguientes valores.
 

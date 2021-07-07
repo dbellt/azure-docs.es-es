@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/09/2020
 ms.author: masoucou
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1b9106fe52b62bd5f2cdc7bfdf5c2d0baf388b62
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 84cde8fa52dc9bdb961fb4814491f6bbe18c2ef6
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108206320"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112235311"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Inicio rápido: Creación de una aplicación Xamarin.Forms con el SDL de .NET y la API de Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -45,7 +45,7 @@ Si prefiere trabajar en un equipo Mac, descargue [Visual Studio para Mac](https:
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 El ejemplo que se describe en este artículo es compatible con la versión 2.6.1 de MongoDB.Driver.
 
@@ -195,11 +195,11 @@ Ya ha actualizado la aplicación con toda la información que necesita para comu
 
 ## <a name="review-slas-in-the-azure-portal"></a>Revisión de los SLA en Azure Portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

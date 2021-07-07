@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/18/2020
-ms.openlocfilehash: 6af9b8f97d622ae10cfdbcaa8ca50abb42ec7332
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 69b9fa867159e5bd475d37194422a4fd21bfe9ab
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94889061"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111557256"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Creación de un almacén de conocimiento mediante REST y Postman
 
 Un almacén de conocimiento contiene la salida de una canalización de enriquecimiento de Azure Cognitive Search para su posterior análisis o procesamiento de nivel inferior. Una canalización enriquecida de inteligencia artificial acepta archivos de imagen o de texto no estructurados, los indexa mediante Azure Cognitive Search, aplica los enriquecimientos de inteligencia artificial de Cognitive Services (como el análisis de imágenes y el procesamiento de lenguaje natural) y guarda los resultados en un almacén de conocimiento en Azure Storage. Puede usar herramientas como Power BI o el Explorador de Storage de Azure Portal para explorar el almacén de conocimiento.
 
-En este artículo se usa la interfaz de API REST para ingerir, indexar y aplicar los enriquecimientos de inteligencia artificial a un conjunto de reseñas sobre hoteles. Las reseñas sobre hoteles se importan en Azure Blob Storage. Los resultados se guardan como almacén de información en Azure Table Storage.
+En este artículo se usa la interfaz de API REST para ingerir, indexar y aplicar los enriquecimientos de inteligencia artificial a un conjunto de reseñas sobre hoteles. Las reseñas sobre hoteles se importan en Azure Blob Storage. Los resultados se guardan como almacén de conocimiento en Azure Table Storage.
 
 Después de crear el almacén de conocimiento, puede aprender a acceder a este mediante el [Explorador de Storage](knowledge-store-view-storage-explorer.md) o [Power BI](knowledge-store-connect-power-bi.md).
 
@@ -30,7 +30,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="create-services-and-load-data"></a>Creación de servicios y carga de datos
 
-En este inicio rápido, se usa Azure Cognitive Search, Azure Blob Storage y [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) para la inteligencia artificial. 
+Este inicio rápido utiliza Azure Cognitive Search, Azure Blob Storage y [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) para la inteligencia artificial. 
 
 Dado que la carga de trabajo es tan pequeña, Cognitive Services se aprovecha en segundo plano para proporcionar el procesamiento gratuito de hasta 20 transacciones al día. Como el conjunto de datos es tan pequeño, puede omitir la creación o asociación de un recurso de Cognitive Services.
 

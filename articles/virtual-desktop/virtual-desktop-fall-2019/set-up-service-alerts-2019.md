@@ -1,24 +1,24 @@
 ---
-title: 'Configuración de las alertas de servicio para Windows Virtual Desktop (clásico): Azure'
-description: Configuración de Azure Service Health para recibir notificaciones del servicio de Windows Virtual Desktop (clásico).
+title: 'Configuración de las alertas de servicio para Azure Virtual Desktop (clásico): Azure'
+description: Configuración de Azure Service Health para recibir notificaciones del servicio de Azure Virtual Desktop (clásico).
 author: Heidilohr
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: aac22dfb95cc099a5d1243e120834415dfa61a4b
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 452dd8ce28589d473b730e1215e86c67fa490e48
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444265"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751746"
 ---
-# <a name="tutorial-set-up-service-alerts-for-windows-virtual-desktop-classic"></a>Tutorial: Configuración de las alertas de servicio para Windows Virtual Desktop (clásico)
+# <a name="tutorial-set-up-service-alerts-for-azure-virtual-desktop-classic"></a>Tutorial: Configuración de las alertas de servicio para Azure Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../set-up-service-alerts.md).
+>Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Virtual Desktop para Azure Resource Manager. Si está intentando administrar objetos de Azure Virtual Desktop para Azure Resource Manager, consulte [este artículo](../set-up-service-alerts.md).
 
-Puede usar Azure Service Health para supervisar los problemas del servicio y los avisos de estado de Windows Virtual Desktop. Azure Service Health puede notificarlo con distintos tipos de alertas (por ejemplo, por correo electrónico o SMS), ayudarlo a entender el impacto de un problema y mantenerlo actualizado con respecto a la resolución del problema. Azure Service Health también puede ayudarlo a mitigar el tiempo de inactividad y preparar el mantenimiento planeado y los cambios que podrían afectar la disponibilidad de los recursos.
+Puede usar Azure Service Health para supervisar los problemas del servicio y los avisos de estado de Azure Virtual Desktop. Azure Service Health puede notificarlo con distintos tipos de alertas (por ejemplo, por correo electrónico o SMS), ayudarlo a entender el impacto de un problema y mantenerlo actualizado con respecto a la resolución del problema. Azure Service Health también puede ayudarlo a mitigar el tiempo de inactividad y preparar el mantenimiento planeado y los cambios que podrían afectar la disponibilidad de los recursos.
 
 En este tutorial, aprenderá a:
 
@@ -29,7 +29,7 @@ Para más información sobre Azure Service Health, consulte la [documentación s
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- [Tutorial: Creación de un inquilino en Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
+- [Tutorial: Creación de un inquilino en Azure Virtual Desktop](tenant-setup-azure-active-directory.md)
 - [Tutorial: Creación de entidades de servicio y asignaciones de roles con PowerShell](create-service-principal-role-powershell.md)
 - [Tutorial: Creación de un grupo host con Azure Marketplace](create-host-pools-azure-marketplace-2019.md)
 
@@ -41,7 +41,7 @@ En esta sección se muestra cómo configurar Azure Service Health y cómo establ
 
 Se recomienda crear alertas de servicio para los tipos de eventos de estado siguientes:
 
-- **Problema de servicio:** reciba notificaciones sobre los problemas importantes que afectan la conectividad de los usuarios con el servicio o la capacidad de administrar el inquilino de Windows Virtual Desktop.
+- **Problema de servicio:** reciba notificaciones sobre los problemas importantes que afectan a la conectividad de los usuarios en el servicio o la capacidad de administrar el inquilino de Azure Virtual Desktop.
 - **Aviso de estado:** reciba las notificaciones que requiere su atención. Estos son algunos ejemplos de este tipo de notificación:
     - Máquinas virtuales (VM) no configuradas de manera segura con el puerto 3389 abierto.
     - Funcionalidad en desuso.
@@ -56,7 +56,7 @@ Para configurar las alertas de servicio:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, aprendió a configurar y usar Azure Service Health para supervisar los problemas del servicio y los avisos de estado de Windows Virtual Desktop. Para información sobre el inicio de sesión en Windows Virtual Desktop, continúe con los procedimientos de conexión a Windows Virtual Desktop.
+En este tutorial, aprendió a configurar y usar Azure Service Health para supervisar los problemas del servicio y los avisos de estado de Azure Virtual Desktop. Para más información sobre el inicio de sesión en Azure Virtual Desktop, continúe con los procedimientos de conexión a Azure Virtual Desktop.
 
 > [!div class="nextstepaction"]
 > [Conexión al cliente de Escritorio remoto en Windows 7 y Windows 10](connect-windows-7-10-2019.md)

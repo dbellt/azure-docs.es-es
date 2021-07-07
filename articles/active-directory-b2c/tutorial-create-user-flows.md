@@ -7,18 +7,18 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/26/2021
+ms.date: 06/07/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: fa1250189c5ba11426ac993bed8fde398ae37ea2
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: fb04dbe5cdfab523e8af9a057cc4477f58b1b525
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001473"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565345"
 ---
-# <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Creación de flujos de usuario en Azure Active Directory B2C
+# <a name="tutorial-create-user-flows-and-custom-policies-in-azure-active-directory-b2c"></a>Tutorial: Creación de flujos de usuario y directivas personalizadas en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -46,13 +46,13 @@ Las [directivas personalizadas](custom-policy-overview.md) son archivos de confi
 
 ::: zone pivot="b2c-user-flow"
 - Si todavía no tiene uno, [cree un inquilino de Azure AD B2C](tutorial-create-tenant.md) vinculado a la suscripción de Azure.
-- [Registre la aplicación](tutorial-register-applications.md) en el inquilino que ha creado para que pueda comunicarse con Azure AD B2C.
+- [Registre una aplicación web](tutorial-register-applications.md) y [habilite la concesión implícita del token de identificador](tutorial-register-applications.md#enable-id-token-implicit-grant).
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
 
 - Si todavía no tiene uno, [cree un inquilino de Azure AD B2C](tutorial-create-tenant.md) vinculado a la suscripción de Azure.
-- [Registre la aplicación](tutorial-register-applications.md) en el inquilino que ha creado para que pueda comunicarse con Azure AD B2C.
+- [Registre una aplicación web](tutorial-register-applications.md) y [habilite la concesión implícita del token de identificador](tutorial-register-applications.md#enable-id-token-implicit-grant).
 - [Cree una aplicación de Facebook](identity-provider-facebook.md#create-a-facebook-application). Omita los requisitos previos y el restablecimiento de los pasos descritos en el artículo [Configuración del registro y el inicio de sesión con una cuenta de Facebook](identity-provider-facebook.md). Aunque no se requiere una aplicación de Facebook para el uso de directivas personalizadas, se usa en este tutorial para demostrar la habilitación del inicio de sesión social en una directiva personalizada.
 
 ::: zone-end
@@ -327,7 +327,9 @@ Como se mencionó en [Requisitos previos](#prerequisites), *no* se requiere Face
 1. En **Directivas personalizadas**, seleccione **B2C_1A_signup_signin**.
 1. Seleccione **Ejecutar ahora** y elija Facebook para iniciar sesión con Facebook y probar la directiva personalizada.
 
+
 ::: zone-end
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo, ha aprendido cómo:
@@ -341,3 +343,5 @@ A continuación, obtenga información sobre cómo usar Azure AD B2C para inicia
 
 > [!div class="nextstepaction"]
 > [Tutorial: Habilitación de la autenticación en una aplicación web mediante Azure Active Directory B2C >](tutorial-web-app-dotnet.md)
+
+También puede obtener más información en la [serie de profundización en la arquitectura de Azure AD B2C](https://www.youtube.com/playlist?list=PLOPotgzC07IKXXCTZcrpuLWbVe3y51kfm).

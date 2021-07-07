@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 06/09/2021
 ms.author: jeedes
-ms.openlocfilehash: 6dcd5612bd2c5957ae0a397c3463dbb42445a754
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d10ff0f9ca4fde80557341c0b5d29b3f7c26c970
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104956050"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982843"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-solarwinds-service-desk-previously-samanage"></a>Tutorial: Integración de Azure Active Directory con SolarWinds Service Desk (anteriormente Samanage)
 
@@ -26,12 +26,15 @@ En este tutorial, aprenderá a integrar SolarWinds con Azure Active Directory (A
 * Permitir que los usuarios inicien sesión automáticamente en SolarWinds con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único (SSO) en SolarWinds.
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -134,7 +137,7 @@ En esta sección, va a conceder a B. Simon acceso a SolarWinds para que pueda u
  
     a. Haga clic en **Enable Single Sign-On with SAML**(Habilitar inicio de sesión único con SAML).  
  
-    b. En el cuadro de texto **Identity Provider URL** (URL del proveedor de identidades), pegue el valor de **Azure Ad Identifier** (Identificador de Azure AD) que copió de Azure Portal.    
+    b. En el cuadro de texto **Identity Provider URL** (Dirección URL del proveedor de identidades), escriba el valor como se muestra a continuación: `https://YourAccountName.samanage.com`.
  
     c. Confirme que **Login URL** (URL de inicio de sesión) coincide con el valor de **Dirección URL de inicio de sesión** de la sección **Configuración básica de SAML** de Azure Portal.
  

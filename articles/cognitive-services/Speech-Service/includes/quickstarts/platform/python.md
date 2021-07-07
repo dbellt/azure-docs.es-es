@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: trbye
-ms.openlocfilehash: 4f542970db5cf7015df4e0f276fccd8782d7beee
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: c14c27046f28f0ee9ead40b8e652699cd5ed32bd
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105152820"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110165750"
 ---
 En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para Python. Si desea simplemente que el nombre del paquete comience por su cuenta, ejecute `pip install azure-cognitiveservices-speech`.
 
@@ -24,31 +24,10 @@ En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-ser
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- En Windows, necesita [Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) para su plataforma. Durante la primera instalación es posible que deba reiniciar.
+- En Windows, necesita [Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) para su plataforma. Durante la primera instalación es posible que deba reiniciar.
 
-- Las plataformas Linux admitidas requerirán la instalación de determinadas bibliotecas (`libssl` para la compatibilidad con la capa de sockets seguros y `libasound2` para la compatibilidad con el audio). Consulte a continuación su distribución para saber cuáles son los comandos necesarios para instalar las versiones correctas de estas bibliotecas.
+- En Linux, consulte los [requisitos del sistema y las instrucciones de configuración](~/articles/cognitive-services/speech-service/speech-sdk.md#get-the-speech-sdk).
 
-  - En Ubuntu y Debian, ejecute los siguientes comandos para instalar los paquetes requeridos:
-
-    ```sh
-    sudo apt-get update
-    sudo apt-get install build-essential libssl1.0.0 libasound2
-    ```
-
-    Si libssl 1.0.0 no está disponible, instale libssl 1.0. x (donde x es mayor que 0) o libssl 1.1.
-
-  - En RHEL o CentOS, ejecute los siguientes comandos para instalar los paquetes necesarios:
-
-    ```sh
-    sudo yum update
-    sudo yum install alsa-lib openssl python3
-    ```
-
-> [!NOTE]
-> - En RHEL/CentOS 7, siga las instrucciones sobre [cómo configurar RHEL/CentOS 7 para el SDK de voz](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
-> - En RHEL/CentOS 8, siga las instrucciones sobre [cómo configurar OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
-
-- En Windows, necesita [Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para su plataforma. Tenga en cuenta que si es la primera vez que instala este paquete, puede que deba reiniciar Windows antes de seguir con esta guía.
 - Y, por último, necesitará [Python, versiones 3.6 a 3.9](https://www.python.org/downloads/). Para comprobar la instalación, abra un símbolo del sistema y escriba el comando `python --version` y compruebe el resultado. Si está instalado correctamente, obtendrá la respuesta "Python 3.8.8" o similar.
 
 ## <a name="install-the-speech-sdk-from-pypi"></a>Instalación del SDK de Voz desde PyPI
