@@ -29,6 +29,8 @@
       href: hsm-protected-keys-byok.md
     - name: Copia de seguridad y restauración
       href: backup-restore.md
+    - name: Administración de la recuperación con eliminación temporal y protección contra purga
+      href: recovery.md
 - name: Conceptos
   items:
     - name: Dominio de seguridad
@@ -39,11 +41,13 @@
       href: access-control.md
     - name: Roles integrados de RBAC local
       href: built-in-roles.md
+    - name: Eliminación flexible de HSM administrado
+      href: soft-delete-overview.md
 - name: Referencia
   items:
     - name: Azure PowerShell
       href: /powershell/azure#key_vault
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/keyvault
     - name: .NET
       href: /dotnet/api/overview/azure/key-vault

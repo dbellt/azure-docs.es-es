@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: 996523d507f0a4f2850e936df39a38769bc47cde
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2f372e72b423db17e1c11907b4a41d65c9fba2fd
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101091302"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950790"
 ---
 # <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Tutorial: Migración/actualización de una instancia de Azure DB para PostgreSQL: servidor único en línea que usa DMS a través de Azure Portal
 
@@ -40,9 +40,9 @@ En este tutorial, aprenderá a:
 > Para disfrutar de una experiencia de migración óptima, Microsoft recomienda crear una instancia de Azure Database Migration Service en la misma región de Azure que la base de datos de destino. Si los datos se transfieren entre diferentes regiones o ubicaciones geográficas, el proceso de migración puede verse afectado y pueden producirse errores.
 
 > [!IMPORTANT]
-> La migración desde Azure Database for PostgreSQL es compatible con la versión 10 y versiones posteriores de PostgreSQL. También puede usar este tutorial para migrar de una instancia de Azure Database for PostgreSQL a otra o a una instancia de Hiperescala (Citus).
+> La migración desde Azure Database for PostgreSQL es compatible con la versión 9.x y versiones posteriores de PostgreSQL. También puede usar este tutorial para migrar de una instancia de Azure Database for PostgreSQL a otra o a una instancia de Hiperescala (Citus). Tenga en cuenta que la migración desde PostgreSQL 9.5 y 9.6 requiere [privilegios de replicación lógica adicionales](#run-the-migration) en la instancia de origen. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesita:
 

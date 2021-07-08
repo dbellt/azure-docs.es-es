@@ -4,16 +4,16 @@ titleSuffix: Azure App Configuration
 description: Aprenda a crear un almacén de Azure App Configuration mediante una plantilla de Azure Resource Manager.
 author: GrantMeStrength
 ms.author: jken
-ms.date: 10/16/2020
+ms.date: 06/09/2021
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
-ms.openlocfilehash: 2bdd989f79a8a24e47698e187bfc45559e873237
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 15e0bc45bc4fea645ff0ccf7b17110ce4361a9a0
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108763980"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111983427"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>Inicio rápido: Creación de un almacén de Azure App Configuration mediante una plantilla de Resource Manager
 
@@ -27,22 +27,22 @@ En este inicio rápido se describe cómo:
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.appconfiguration%2Fapp-configuration-store-kv%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-app-configuration-store-kv/). Crea un almacén de App Configuration con dos pares clave-valor dentro. Luego, utiliza la función `reference` para generar los valores de los dos recursos de clave-valor. La lectura del valor de la clave de esta manera permite que se use en otros lugares de la plantilla.
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/app-configuration-store-kv/). Crea un almacén de App Configuration con dos pares clave-valor dentro. Luego, utiliza la función `reference` para generar los valores de los dos recursos de clave-valor. La lectura del valor de la clave de esta manera permite que se use en otros lugares de la plantilla.
 
 En el inicio rápido se usa el elemento `copy` para crear varias instancias del recurso de clave-valor. Para más información sobre el elemento `copy`, consulte [Iteración de recursos en las plantillas de Resource Manager](../azure-resource-manager/templates/copy-resources.md).
 
 > [!IMPORTANT]
 > Esta plantilla requiere la versión `2020-07-01-preview` o posterior del proveedor de recursos de App Configuration. Esta versión utiliza la función `reference` para leer los pares clave-valor. La función `listKeyValue` que se usó para leer los pares clave-valor en la versión anterior no está disponible a partir de la versión `2020-07-01-preview`.
 
-:::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.appconfiguration/app-configuration-store-kv/azuredeploy.json":::
 
 En la plantilla se definen dos recursos de Azure:
 
@@ -67,18 +67,21 @@ En la plantilla se definen dos recursos de Azure:
 > az appconfig update -g MyResourceGroup -n MyAppConfiguration --enable-public-network true
 > ```
 
+> [!NOTE]
+> Existe una limitación por la que el acceso a datos de clave-valor dentro de una plantilla de ARM está deshabilitado si la autenticación con clave de acceso está deshabilitada. Para más información, consulte cómo [deshabilitar la autenticación de clave de acceso](./howto-disable-access-key-authentication.md#limitations).
+
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
 Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea un almacén de App Configuration con dos pares clave-valor dentro.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.appconfiguration%2Fapp-configuration-store-kv%2Fazuredeploy.json)
 
 También puede implementar la plantilla con el siguiente cmdlet de PowerShell. Los pares clave-valor estarán en la salida de la consola de PowerShell.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-configuration-store-kv/azuredeploy.json"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.appconfiguration/app-configuration-store-kv/azuredeploy.json"
 
 $resourceGroupName = "${projectName}rg"
 
@@ -110,5 +113,5 @@ Write-Host "Press [ENTER] to continue..."
 
 Para obtener información sobre cómo agregar la marca de características y la referencia de Key Vault a un almacén de App Configuration, consulte los siguientes ejemplos de plantilla de ARM.
 
-- [101-app-configuration-store-ff](https://azure.microsoft.com/resources/templates/101-app-configuration-store-ff/)
-- [101-app-configuration-store-keyvaultref](https://azure.microsoft.com/resources/templates/101-app-configuration-store-keyvaultref/)
+- [app-configuration-store-ff](https://azure.microsoft.com/resources/templates/app-configuration-store-ff/)
+- [app-configuration-store-keyvaultref](https://azure.microsoft.com/resources/templates/app-configuration-store-keyvaultref/)

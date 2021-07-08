@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: f453370530359bc967316957b717f40904f6e392
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 18746da524c4b045471031af2330d9daba4bfcc0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125992"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949344"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Solución de problemas del servicio Azure Dedicated HSM
 
@@ -52,11 +52,11 @@ La razón principal por la que se producen errores en la implementación es olvi
 
 ### <a name="hsm-deployment-race-condition"></a>Condición de carrera de la implementación de HSM
 
-La plantilla de ARM estándar proporcionada para la implementación tiene recursos relacionados con HSM y la puerta de enlace de ExpressRoute. Los recursos de red son una dependencia para la implementación correcta de HSM y el tiempo puede ser crucial.  En ocasiones, hemos detectado errores de implementación relacionados con problemas de dependencias y volver a ejecutar la implementación a menudo resuelve el problema. Si no es así, eliminar los recursos y volver a implementarlos suele solucionar el problema. Después de intentar esto, si sigue detectando el problema, genere una solicitud de soporte técnico en Azure Portal; para ello, seleccione el tipo de problema "Problemas al configurar la instalación en Azure".
+La plantilla de ARM estándar proporcionada para la implementación tiene recursos relacionados con HSM y la [puerta de enlace de ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md). Los recursos de red son una dependencia para la implementación correcta de HSM y el tiempo puede ser crucial.  En ocasiones, hemos detectado errores de implementación relacionados con problemas de dependencias y volver a ejecutar la implementación a menudo resuelve el problema. Si no es así, eliminar los recursos y volver a implementarlos suele solucionar el problema. Después de intentar esto, si sigue detectando el problema, genere una solicitud de soporte técnico en Azure Portal; para ello, seleccione el tipo de problema "Problemas al configurar la instalación en Azure".
 
 ### <a name="hsm-deployment-using-terraform"></a>Implementación de HSM con Terraform
 
-Algunos clientes han usado Terraform como un entorno de automatización en lugar de plantillas de ARM como las que se proporcionan al registrarse para este servicio. Los HSM no se pueden implementar de esta manera, pero es posible para los recursos de redes dependientes. Terraform tiene un módulo para llamar a una plantilla de ARM mínima que solo tiene la implementación de HSM.  En esta situación, se debe tener cuidado para asegurarse de que los recursos de redes, como la puerta de enlace de ExpressRoute necesaria, se implementan completamente antes de implementar los HSM. El siguiente comando de la CLI se puede usar para probar una implementación completada e integrarla según sea necesario. Reemplace los marcadores de corchetes angulares por su nombre específico. Debería buscar un resultado de "provisioningState is Succeeded" (estado de aprovisionamiento correcto).
+Algunos clientes han usado Terraform como un entorno de automatización en lugar de plantillas de ARM como las que se proporcionan al registrarse para este servicio. Los HSM no se pueden implementar de esta manera, pero es posible para los recursos de redes dependientes. Terraform tiene un módulo para llamar a una plantilla de ARM mínima que solo tiene la implementación de HSM.  En esta situación, se debe tener cuidado para asegurarse de que los recursos de redes, como la [puerta de enlace de ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) necesaria, se implementan completamente antes de implementar los HSM. El siguiente comando de la CLI se puede usar para probar una implementación completada e integrarla según sea necesario. Reemplace los marcadores de corchetes angulares por su nombre específico. Debería buscar un resultado de "provisioningState is Succeeded" (estado de aprovisionamiento correcto).
 
 ```azurecli
 az resource show --ids /subscriptions/<subid>/resourceGroups/<myresourcegroup>/providers/Microsoft.Network/virtualNetworkGateways/<myergateway>
@@ -79,7 +79,7 @@ La implementación de Dedicated HSM tiene una dependencia en los recursos de red
 
 ### <a name="provisioning-expressroute"></a>Aprovisionamiento de ExpressRoute
 
-Dedicated HSM usa la puerta de enlace de ExpressRoute como "túnel" para la comunicación entre el espacio de direcciones IP privado del cliente y el HSM físico en un centro de datos de Azure.  Teniendo en cuenta que hay una restricción de una puerta de enlace por red virtual, los clientes que requieren conexión a sus recursos locales mediante ExpressRoute tendrán que usar otra red virtual para esa conexión.  
+Dedicated HSM usa la [puerta de enlace de ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) como "túnel" para la comunicación entre el espacio de direcciones IP privado del cliente y el HSM físico en un centro de datos de Azure.  Teniendo en cuenta que hay una restricción de una puerta de enlace por red virtual, los clientes que requieren conexión a sus recursos locales mediante ExpressRoute tendrán que usar otra red virtual para esa conexión.  
 
 ### <a name="hsm-private-ip-address"></a>Dirección IP privada del HSM
 
@@ -116,7 +116,7 @@ El software y la documentación de los dispositivos [HSM Thales Luna 7](https:/
 
 ### <a name="hsm-networking-configuration"></a>Configuración de redes de HSM
 
-Tenga cuidado al configurar las redes en el HSM.  El HSM tiene una conexión mediante la puerta de enlace de ExpressRoute desde el espacio de direcciones IP privadas del cliente directamente al HSM.  Este canal de comunicación es solo para la comunicación con el cliente y Microsoft no tiene acceso. Si el HSM está configurado de forma que esta ruta de acceso de red se vea afectada, se elimina toda la comunicación con el HSM.  En esta situación, la única opción es generar una solicitud de soporte técnico de Microsoft mediante Azure Portal para solicitar que se restablezca el dispositivo. Este procedimiento de restablecimiento vuelve a establecer el HSM en su estado inicial y se pierde toda la configuración y el material de claves.  La configuración se debe volver a crear y, cuando el dispositivo se una al grupo de alta disponibilidad, se replicará el material de claves.  
+Tenga cuidado al configurar las redes en el HSM.  El HSM tiene una conexión mediante la [puerta de enlace de ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) desde el espacio de direcciones IP privadas del cliente directamente al HSM.  Este canal de comunicación es solo para la comunicación con el cliente y Microsoft no tiene acceso. Si el HSM está configurado de forma que esta ruta de acceso de red se vea afectada, se elimina toda la comunicación con el HSM.  En esta situación, la única opción es generar una solicitud de soporte técnico de Microsoft mediante Azure Portal para solicitar que se restablezca el dispositivo. Este procedimiento de restablecimiento vuelve a establecer el HSM en su estado inicial y se pierde toda la configuración y el material de claves.  La configuración se debe volver a crear y, cuando el dispositivo se una al grupo de alta disponibilidad, se replicará el material de claves.  
 
 ### <a name="hsm-device-reboot"></a>Reinicio del dispositivo HSM
 

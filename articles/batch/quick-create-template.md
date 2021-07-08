@@ -1,21 +1,23 @@
 ---
 title: 'Inicio rápido de Azure: creación de una cuenta de Batch (plantilla de Azure Resource Manager)'
 description: En este inicio rápido se muestra cómo crear una cuenta de Batch mediante una plantilla de Resource Manager.
-ms.date: 08/17/2020
+ms.date: 05/25/2021
 ms.topic: quickstart
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: ae481d6dd9a21281c2026eb9a3609094a09ad475
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: d28a60fd3476877bf79fa8ea542db074c565fc89
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109838400"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112005688"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>Inicio rápido: Creación de una cuenta de Batch mediante una plantilla de ARM
 
-Para crear recursos de proceso (grupos de nodos de proceso) y trabajos de Batch se necesita una cuenta de Batch. Puede vincular una cuenta de Azure Storage con su cuenta de Batch, lo que resulta útil para implementar aplicaciones y almacenar datos de entrada y salida para la mayoría de las cargas de trabajo del mundo real. En este inicio rápido se muestra cómo usar una plantilla de Azure Resource Manager para crear una cuenta de Batch, incluido el almacenamiento. Tras completar esta guía de inicio rápido, entenderá los conceptos clave del servicio Batch y estará listo para probar dicho servicio con cargas de trabajo más realistas y a mayor escala.
+Comience a usar Azure Batch mediante una plantilla de Azure Resource Manager (plantilla de ARM) para crear una cuenta de Batch, incluido el almacenamiento. Para crear recursos de proceso (grupos de nodos de proceso) y trabajos de Batch se necesita una cuenta de Batch. Puede vincular una cuenta de Azure Storage con su cuenta de Batch, lo que resulta útil para implementar aplicaciones y almacenar datos de entrada y salida para la mayoría de las cargas de trabajo del mundo real.
+
+Tras completar este inicio rápido, conocerá los conceptos clave del servicio Batch y estará listo para probar dicho servicio con cargas de trabajo más realistas y a mayor escala.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -23,7 +25,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.batch%2Fbatchaccount-with-storage%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Debe contar con una suscripción de Azure activa.
 
@@ -31,7 +33,7 @@ Debe contar con una suscripción de Azure activa.
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-batchaccount-with-storage/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/batchaccount-with-storage/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.batch/batchaccount-with-storage/azuredeploy.json":::
 
@@ -48,7 +50,7 @@ En la plantilla se definen dos recursos de Azure:
 
 1. Seleccione o escriba los siguientes valores.
 
-   ![Plantilla de Resource Manager, creación de una cuenta de Batch, portal de implementación](media/quick-create-template/batch-template.png)
+   :::image type="content" source="media/quick-create-template/batch-template.png" alt-text="Plantilla de Resource Manager, creación de una cuenta de Batch, portal de implementación":::
 
    - **Suscripción**: seleccione una suscripción de Azure.
    - **Grupo de recursos**: seleccione **Crear nuevo**, escriba un nombre único para el grupo de recursos y, a continuación, haga clic en **Aceptar**.
@@ -56,9 +58,8 @@ En la plantilla se definen dos recursos de Azure:
    - **Nombre de la cuenta de Batch**: Deje el valor predeterminado.
    - **Storage Accountsku** (SKU de la cuenta de almacenamiento): seleccione un tipo de cuenta de almacenamiento. Por ejemplo, **Standard_LRS**.
    - **Ubicación**: deje el valor predeterminado para que los recursos estén en la misma ubicación que el grupo de recursos.
-   - Acepto los términos y condiciones indicados anteriormente: **Seleccionar**.
 
-1. Seleccione **Comprar**.
+1. Seleccione **Revisar y crear** y, luego, **Crear**.
 
 Transcurridos unos minutos, verá una notificación que dice que la cuenta de Batch se ha creado correctamente.
 
@@ -70,7 +71,7 @@ Para validar la implementación en Azure Portal, vaya al grupo de recursos que h
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si tiene pensado seguir trabajando con otros [tutoriales](./tutorial-parallel-dotnet.md), considere la posibilidad de dejar estos recursos activos. O bien, si ya no los necesita, puede [eliminar el grupo de recursos](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group), que también eliminará la cuenta de Batch y la cuenta de almacenamiento que ha creado.
+Si tiene pensado continuar con otros [tutoriales](./tutorial-parallel-dotnet.md), considere la posibilidad de dejar estos recursos activos. O bien, si ya no los necesita, puede [eliminar el grupo de recursos](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group), que también eliminará la cuenta de Batch y la cuenta de almacenamiento que ha creado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/06/2020
+ms.date: 06/01/2021
 ms.author: justinha
-ms.openlocfilehash: 4d03edac98329d7c47b8bfafbf4d30cfca18863c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f6e226ff022788c3409be4004c11db6bdad36876
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96618236"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438529"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain-with-advanced-configuration-options"></a>Tutorial: Creación y configuración de un dominio administrado de Azure Active Directory Domain Services con opciones de configuración avanzada
 
@@ -95,7 +95,7 @@ Complete los campos de la ventana *Datos básicos* de Azure Portal para crear un
     >
     > No es necesario realizar ninguna configuración para que Azure AD DS se distribuya entre zonas. La plataforma Azure controla automáticamente la distribución en zonas de los recursos. Para más información y consulta de la disponibilidad en las regiones, consulte [¿Qué son las zonas de disponibilidad en Azure?][availability-zones]
 
-1. La **SKU** determina el rendimiento, la frecuencia de la copia de seguridad y el número máximo de confianzas de bosque que se pueden crear. Puede cambiar la SKU una vez creado el dominio administrado si cambian sus necesidades o requisitos empresariales. Para más información, consulte [Conceptos de las SKU de Azure AD DS][concepts-sku].
+1. La **SKU** determina el rendimiento y la frecuencia de copia de seguridad. Puede cambiar la SKU una vez creado el dominio administrado si cambian sus necesidades o requisitos empresariales. Para más información, consulte [Conceptos de las SKU de Azure AD DS][concepts-sku].
 
     Para este tutorial, seleccione la SKU *Estándar*.
 1. Un *bosque* es una construcción lógica que Active Directory Domain Services utiliza para agrupar uno o más dominios. De forma predeterminada, un dominio administrado se crea como un bosque de *usuarios*. Este tipo de bosque sincroniza todos los objetos de Azure AD, incluidas las cuentas de usuario creadas en un entorno de AD DS local.

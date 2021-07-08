@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: 0330ea419b92d4e2e85c01e2770ec0d92987c4d2
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 0383b76a08c5c56c27bfbc7f83bf786b4b452849
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107115"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796713"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-using-dms"></a>Migración de SQL Server a Azure SQL Database mediante DMS
 
@@ -276,7 +276,7 @@ Después de crear el servicio, búsquelo en Azure Portal, ábralo y cree un proy
 
      ![Buscar una instancia de Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-instance-search.png)
 
-4. En la pantalla **New migration project** (Nuevo proyecto de migración), especifique un nombre para el proyecto; en el cuadro de texto **Source server type** (Tipo de servidor de origen), seleccione **SQL Server**; en el cuadro de texto **Target server type** (Tipo de servidor de destino), seleccione **Azure SQL Database** y, para **Choose Migration activity type** (Elegir tipo de actividad de migración), seleccione **Data migration** (Migración de datos).
+4. En la pantalla **Nuevo proyecto de migración**, especifique el nombre del proyecto; en el cuadro de texto **Tipo de servidor de origen**, seleccione **SQL Server**; en el cuadro de texto **Tipo de servidor de destino**, seleccione **Azure SQL Database** y en **Elegir tipo de actividad de migración**, seleccione **Migración de datos**.
 
     ![Creación de un proyecto de Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-create-project-2.png)
 

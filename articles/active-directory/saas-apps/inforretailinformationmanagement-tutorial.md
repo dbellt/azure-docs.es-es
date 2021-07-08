@@ -9,112 +9,85 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/16/2019
+ms.date: 06/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 1b23ee92fb691af6152d16c94dad59f0751810fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: edd999c2f0195254d940a2e6ea9a16740d466b74
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92460192"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112062935"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Tutorial: Integración de Azure Active Directory con Infor Retail – Information Management
 
-En este tutorial, aprenderá a integrar Infor Retail – Information Management con Azure Active Directory (Azure AD).
-La integración de Infor Retail – Information Management con Azure AD proporciona las siguientes ventajas:
+En este tutorial, aprenderá a integrar Infor Retail – Information Management con Azure Active Directory (Azure AD). Al integrar Infor Retail – Information Management con Azure AD, podrá:
 
-* Puede controlar en Azure AD quién tiene acceso a Infor Retail – Information Management.
-* Puede permitir que los usuarios inicien sesión automáticamente en Infor Retail – Information Management (inicio de sesión único) con sus cuentas de Azure AD.
-* Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Controlar en Azure AD quién tiene acceso a Infor Retail – Information Management.
+* Permitir que los usuarios inicien sesión automáticamente en Infor Retail – Information Management con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Infor Retail – Information Management, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/)
-* Suscripción de Infor Retail – Information Management con el inicio de sesión único habilitado
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/).
+* Suscripción de Infor Retail – Information Management con el inicio de sesión único habilitado.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Infor Retail – Information Management admite el inicio de sesión único iniciado por **SP e IDP**
+* Infor Retail – Information Management admite el inicio de sesión único iniciado por **SP e IDP**.
 
-## <a name="adding-infor-retail--information-management-from-the-gallery"></a>Incorporación de Infor Retail – Information Management desde la galería
+## <a name="add-infor-retail--information-management-from-the-gallery"></a>Incorporación de Infor Retail – Information Management desde la galería
 
 Para configurar la integración de Infor Retail – Information Management en Azure AD, debe agregar Infor Retail – Information Management de la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Infor Retail – Information Management desde la galería, realice los pasos siguientes:**
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **Infor Retail – Information Management** en el cuadro de búsqueda.
+1. Seleccione **Infor Retail – Information Management** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-sso-for-infor-retail--information-management"></a>Configuración y prueba del inicio de sesión único de Azure AD para Infor Retail – Information Management
 
-    ![Botón Azure Active Directory](common/select-azuread.png)
+Configure y pruebe el inicio de sesión único de Azure AD con Infor Retail – Information Management mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario correspondiente de Infor Retail – Information Management.
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
+Para configurar y probar el inicio de sesión único de Azure AD con Infor Retail – Information Management, siga estos pasos:
 
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+1. **[Configuración del inicio de sesión único de Infor Retail – Information Management](#configure-infor-retail-information-management-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba de Infor Retail – Information Management](#create-infor-retail-information-management-test-user)** : para tener un homólogo de B.Simon en Infor Retail – Information Management que esté vinculado a la representación del usuario en Azure AD.
+1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
-    ![Botón Nueva aplicación](common/add-new-app.png)
+Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-4. En el cuadro de búsqueda, escriba **Infor Retail – Information Management**, seleccione **Infor Retail – Information Management** en el panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
+1. En Azure Portal, en la página de integración de aplicaciones de **Infor Retail – Information Management**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
-    ![Infor Retail – Information Management en la lista de resultados](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
-
-En esta sección, se configura y se prueba el inicio de sesión único de Azure AD con Infor Retail – Information Management con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Infor Retail – Information Management.
-
-Para configurar y probar el inicio de sesión único de Azure AD con Infor Retail – Information Management, es preciso completar los siguientes bloques de creación:
-
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Infor Retail – Information Management](#configure-infor-retail--information-management-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Infor Retail – Information Management](#create-infor-retail--information-management-test-user)** : para tener un homólogo de Britta Simon en Infor Retail – Information Management que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
-
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
-
-Para configurar el inicio de sesión único de Azure AD con Infor Retail – Information Management, realice los pasos siguientes:
-
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Infor Retail – Information Management**, seleccione **Inicio de sesión único**.
-
-    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
-
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
-
-    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
-
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
-
-    ![Edición de la configuración básica de SAML](common/edit-urls.png)
+   ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
-
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente:
-    
-    ```http
-    https://<company name>.mingle.infor.com
-    http://<company name>.mingledev.infor.com
-    ```
+     
+    | URL del identificador |
+    |----|
+    |`https://<COMPANY_NAME>.mingle.infor.com`|
+    |`http://<COMPANY_NAME>.mingledev.infor.com`|
+    |
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<company name>.mingle.infor.com/sp/ACS.saml2`
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<COMPANY_NAME>.mingle.infor.com/sp/ACS.saml2`
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
-
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<company name>.mingle.infor.com/<company code>`
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<COMPANY_NAME>.mingle.infor.com/<COMPANY_CODE>`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Para obtener estos valores, póngase en contacto con el [equipo de soporte técnico de Infor Retail – Information Management](mailto:innovate@infor.com). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -127,80 +100,54 @@ Para configurar el inicio de sesión único de Azure AD con Infor Retail – Inf
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-    a. URL de inicio de sesión
-
-    b. Identificador de Azure AD
-
-    c. URL de cierre de sesión
-
-### <a name="configure-infor-retail--information-management-single-sign-on"></a>Configuración del inicio de sesión único de Infor Retail – Information Management
-
-Para configurar el inicio de sesión único en **Infor Retail – Information Management**, necesita enviar el archivo **XML de metadatos** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Infor Retail – Information Management](mailto:innovate@infor.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
-
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
-El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
+En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
-
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
-
-2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-
-    ![Botón Nuevo usuario](common/new-user.png)
-
-3. En las propiedades Usuario, siga estos pasos.
-
-    ![Cuadro de diálogo Usuario](common/user-properties.png)
-
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
-  
-    b. En el campo **Nombre de usuario**, escriba `brittasimon@yourcompanydomain.extension`. Por ejemplo: BrittaSimon@contoso.com
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
-
-    d. Haga clic en **Crear**.
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Infor Retail – Information Management.
+En esta sección, habilitará a B.Simon para que use el inicio de sesión único de Azure concediéndole acceso a Infor Retail – Information Management.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** e **Infor Retail – Information Management**.
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **Infor Retail – Information Management**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+## <a name="configure-infor-retail-information-management-sso"></a>Configuración del inicio de sesión único de Infor Retail – Information Management
 
-2. En la lista de aplicaciones, seleccione **Infor Retail – Information Management**.
+Para configurar el inicio de sesión único en **Infor Retail – Information Management**, necesita enviar el archivo **XML de metadatos** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Infor Retail – Information Management](mailto:innovate@infor.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
-    ![Vínculo a Infor Retail – Information Management en la lista de aplicaciones](common/all-applications.png)
-
-3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
-
-    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
-4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
-
-    ![Panel Agregar asignación](common/add-assign-user.png)
-
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-
-6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-
-7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
-
-### <a name="create-infor-retail--information-management-test-user"></a>Creación de un usuario de prueba de Infor Retail – Information Management
+### <a name="create-infor-retail-information-management-test-user"></a>Creación de un usuario de prueba de Infor Retail – Information Management
 
 En esta sección, creará un usuario llamado Britta Simon en Infor Retail – Information Management. Trabaje con el [equipo de soporte técnico de Infor Retail – Information Management](mailto:innovate@infor.com) para agregar los usuarios a la plataforma de Infor Retail – Information Management. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+## <a name="test-sso"></a>Prueba de SSO
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Si hace clic en el icono de Infor Retail – Information Management en el panel de acceso, debería iniciar sesión automáticamente en la instancia de Infor Retail – Information Management para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la URL de inicio de sesión de Infor Retail – Information Management, desde donde podrá poner en marcha el flujo de inicio de sesión.  
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* Vaya directamente a la URL de inicio de sesión de Infor Retail – Information Management y comience el flujo de inicio de sesión desde allí.
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Iniciado por IDP:
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+* Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Infor Retail – Information Management para la que ha configurado el inicio de sesión único. 
+
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Infor Retail – Information Management en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de Infor Retail – Information Management para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Una vez que configure Infor Retail – Information Management puede aplicar el control de sesión, que protege la información confidencial de la organización de la filtración y la infiltración en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

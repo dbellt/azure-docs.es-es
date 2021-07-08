@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 05/09/2021
+ms.date: 06/13/2021
 ms.author: memildin
-ms.openlocfilehash: ed9ea3abf984f537ab693ccbadb90e2ba091f52d
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: a490a08946a7357af41cce04051ef01765c8fbe5
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109683576"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112062251"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Próximos cambios importantes en Azure Security Center
 
@@ -28,47 +28,11 @@ Si busca las notas de la versión más recientes, puede encontrarlas en [Novedad
 
 | Cambio planeado                                                                                                                                                        | Fecha estimada del cambio |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [Dos recomendaciones del control de seguridad "Aplicar actualizaciones del sistema" entran en desuso](#two-recommendations-from-apply-system-updates-security-control-being-deprecated) | Abril de 2021                |
-| [El prefijo de las alertas de Kubernetes cambia de "AKS_" a "K8s_"](#prefix-for-kubernetes-alerts-changing-from-aks_-to-k8s_)                                               | Junio de 2021                 |
 | [La implementación heredada de ISO 27001 se está reemplazando por la nueva ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)          | Junio de 2021                 |
-| [Las recomendaciones de AWS se lanzarán para disponibilidad general (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)                     | **Agosto** de 2021           |
-| [Mejoras en la recomendación de clasificación de datos de SQL](#enhancements-to-sql-data-classification-recommendation)                                                     | Segundo trimestre de 2021                   |
+| [Mejoras en la recomendación de clasificación de datos de SQL](#enhancements-to-sql-data-classification-recommendation)                                                     | Tercer trimestre de 2021                   |
+| [Habilitación del control de seguridad de Azure Defender para incluirse en la puntuación de seguridad](#enable-azure-defender-security-control-to-be-included-in-secure-score)                       | Tercer trimestre de 2021                   |
 |                                                                                                                                                                       |                           |
 
-
-### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Dos recomendaciones del control de seguridad "Aplicar actualizaciones del sistema" entran en desuso
-
-**Fecha estimada del cambio:** abril de 2021
-
-Las dos recomendaciones siguientes están en desuso:
-
-- **La versión del sistema operativo debe actualizarse en los roles del servicio en la nube**: de manera predeterminada, Azure actualiza periódicamente el sistema operativo invitado a la imagen compatible más reciente dentro de la familia de sistema operativo que ha especificado en la configuración del servicio (.cscfg), como Windows Server 2016.
-- Los **servicios de Kubernetes deben actualizarse a una versión de Kubernetes no vulnerable**: las evaluaciones de esta recomendación no son tan amplias como nos gustaría. La versión actual de esta recomendación se reemplazará finalmente por una versión mejorada que se ajuste más a las necesidades de seguridad de los clientes.
-
-
-### <a name="prefix-for-kubernetes-alerts-changing-from-aks_-to-k8s_"></a>El prefijo de las alertas de Kubernetes cambia de "AKS_" a "K8s_"
-
-**Fecha estimada del cambio:** junio de 2021
-
-Azure Defender para Kubernetes se amplió recientemente para proteger los clústeres de Kubernetes hospedados en entornos locales y de varias nubes. Puede encontrar más información en [Uso de Azure Defender para Kubernetes para proteger implementaciones de Kubernetes híbridas y de varias nubes (en versión preliminar)](release-notes.md#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-in-preview).
-
-Para reflejar el hecho de que las alertas de seguridad proporcionadas por Azure Defender para Kubernetes ya no están restringidas a los clústeres de Azure Kubernetes Service, el prefijo de los tipos de alerta va a cambiar de "AKS_" a "K8s_". Cuando sea necesario, los nombres y las descripciones también se actualizarán. Por ejemplo, esta alerta:
-
-|Alerta (tipo de alerta)|Descripción|
-|----|----|
-|Se ha detectado la herramienta de pruebas de penetración de Kubernetes.<br>(**AKS** _PenTestToolsKubeHunter)|El análisis del registro de auditoría de Kubernetes ha detectado el uso de la herramienta de pruebas de penetración de Kubernetes en el clúster de **AKS**. Aunque este comportamiento puede ser legítimo, los atacantes podrían usar estas herramientas públicas con fines malintencionados.
-|||
-
-se convertirá en:
-
-|Alerta (tipo de alerta)|Descripción|
-|----|----|
-|Se ha detectado la herramienta de pruebas de penetración de Kubernetes.<br>(**K8s** _PenTestToolsKubeHunter)|El análisis del registro de auditoría de Kubernetes ha detectado el uso de la herramienta de pruebas de penetración de Kubernetes en el clúster de **Kubernetes**. Aunque este comportamiento puede ser legítimo, los atacantes podrían usar estas herramientas públicas con fines malintencionados.|
-|||
-
-Las reglas de supresión que hacen referencia a las alertas que comienzan por "AKS_" se convertirán automáticamente. Si ha configurado exportaciones de SIEM o scripts de automatización personalizados que hacen referencia a las alertas de Kubernetes por tipo de alerta, deberá actualizarlos con los nuevos tipos de alerta.
-
-Para ver una lista completa de las alertas de Kubernetes, consulte [Alertas de clústeres de Kubernetes](alerts-reference.md#alerts-akscluster).
 
 ### <a name="legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013"></a>La implementación heredada de ISO 27001 se está reemplazando por la nueva ISO 27001:2013
 
@@ -76,29 +40,25 @@ La implementación heredada de ISO 27001 se eliminará del panel de cumplimiento
 
 :::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="Panel de cumplimiento normativo de Security Center que muestra el mensaje sobre la eliminación de la implementación heredada de ISO 27001." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
 
-### <a name="recommendations-from-aws-will-be-released-for-general-availability-ga"></a>Las recomendaciones de AWS se lanzarán para disponibilidad general (GA)
-
-**Fecha estimada del cambio:** agosto de 2021
-
-Azure Security Center protege las cargas de trabajo de Azure, Amazon Web Services (AWS) y Google Cloud Platform (GCP).
-
-Las recomendaciones que provienen de AWS Security Hub han estado en versión preliminar desde que se introdujeron los conectores en la nube. Las recomendaciones marcadas como **Versión preliminar** no se incluyen en los cálculos de la puntuación segura, sino que deben corregirse siempre que sea posible, de modo que cuando el período de versión preliminar finalice, contribuyan a la puntuación.
-
-Con este cambio, dos conjuntos de recomendaciones de AWS pasarán a disponibilidad general:
-
-- [Controles de PCI DSS de Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-pci-controls.html)
-- [Controles del banco de pruebas de CIS AWS Foundations de Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cis-controls.html)
-
-Cuando se encuentren en versión de disponibilidad general y las evaluaciones se ejecuten en los recursos de AWS, los resultados afectarán a la puntuación segura combinada para todos los recursos de nube híbrida y multinube.
-
-
-
 ### <a name="enhancements-to-sql-data-classification-recommendation"></a>Mejoras en la recomendación de clasificación de datos de SQL
 
-**Fecha estimada del cambio:** Segundo trimestre de 2021
+**Fecha estimada del cambio:** tercer trimestre de 2021
 
 La recomendación **Los datos confidenciales de las bases de datos SQL deben clasificarse** del control de seguridad **Aplicación de la clasificación de datos** se reemplazará por una nueva versión que esté más alineada con la estrategia de clasificación de datos de Microsoft. Como consecuencia, el identificador de la recomendación también cambiará (actualmente es b0df6f56-862d-4730-8597-38c0fd4ebd59).
 
+### <a name="enable-azure-defender-security-control-to-be-included-in-secure-score"></a>Habilitación del control de seguridad de Azure Defender para incluirse en la puntuación de seguridad
+
+**Fecha estimada del cambio:** tercer trimestre de 2021
+
+Las recomendaciones de protección de Security Center se agrupan en controles de seguridad. Cada control es un grupo lógico de recomendaciones de seguridad relacionadas y refleja una superficie de ataque vulnerable. La contribución de cada control de seguridad a la puntuación de seguridad general se muestra claramente en la página de recomendaciones, así como en la lista de controles de [Controles de seguridad y sus recomendaciones](secure-score-security-controls.md#security-controls-and-their-recommendations).
+
+Desde su introducción, el control **Habilitar Azure Defender** ha tenido una puntuación máxima posible de 0 puntos. **Con este cambio, el control contribuye a su puntuación segura**.
+
+Al habilitar Azure Defender, ampliará las funcionalidades del modo gratuito de Security Center a las cargas de trabajo que se ejecutan en nubes privadas y otras nubes públicas, lo que ofrece una administración de seguridad unificada y protección frente amenazas en todas sus cargas de trabajo de nube híbrida. Algunas de las características principales de Azure Defender son: licencias integradas de Microsoft Defender para punto de conexión para los servidores, examen de vulnerabilidades para máquinas virtuales y registros de contenedor, alertas de seguridad basadas en análisis avanzado del comportamiento y aprendizaje automático, y características de seguridad de contenedores. Para más información, consulte [Azure Security Center gratuito frente a Azure Defender habilitado](security-center-pricing.md).
+
+Con este cambio, la puntuación segura de las suscripciones que no están protegidas por Azure Defender se verán afectadas. Se recomienda habilitar Azure Defender antes de que se produzca este cambio para que las puntuaciones no se vean afectadas. 
+
+Obtenga más información en [Inicio rápido: habilitación de Azure Defender](enable-azure-defender.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

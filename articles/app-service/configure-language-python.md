@@ -2,15 +2,15 @@
 title: Configuración de aplicaciones de Python para Linux
 description: Aprenda a configurar el contenedor de Python en el que se ejecutan las aplicaciones web, mediante Azure Portal y la CLI de Azure.
 ms.topic: quickstart
-ms.date: 03/16/2021
+ms.date: 06/11/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 605d1e0f67ac959d2c7325e04e2fd10d9d2419be
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: db1650c61ae9e70955fd945527ff049e2663a174
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107829501"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112018070"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configuración de una aplicación de Python en Linux para Azure App Service
 

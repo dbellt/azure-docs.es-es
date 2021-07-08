@@ -9,12 +9,13 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4419c9d64eac6eb468c5eb4414a3c9b844d7d8a7
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a93e63207bbbe9a2ac65823b3c22773f6cd97cf8
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108181731"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110676862"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Control del acceso a la cuenta de almacenamiento del grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -102,18 +103,19 @@ Puede usar las siguientes combinaciones de tipos de autorización y almacenamien
 
 \* El token de SAS y la identidad de Azure AD se pueden usar para tener acceso a un almacenamiento que no esté protegido con el firewall.
 
+## <a name="firewall-protected-storage"></a>Almacenamiento protegido por firewall
 
-### <a name="querying-firewall-protected-storage"></a>Consulta del almacenamiento protegido por firewall
-
+Puede configurar cuentas de almacenamiento para permitir el acceso a un grupo de SQL sin servidor específico mediante la creación de una [regla de instancia de recursos](../../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-from-azure-resource-instances-preview).
 Al acceder al almacenamiento protegido con firewall, solo se puede usar **Identidad de usuario** o **Identidad administrada**.
 
 > [!NOTE]
 > La característica de firewall de Azure Storage está en versión preliminar pública y está disponible en todas las regiones de la nube pública. 
 
-#### <a name="user-identity"></a>Identidad del usuario
+
+### <a name="user-identity"></a>[Identidad de usuario](#tab/user-identity)
 
 Para acceder a una solución de almacenamiento que está protegido por el firewall por medio de una identidad de usuario, puede usar la interfaz de usuario de Azure Portal o el módulo Az.Storage de PowerShell.
-#### <a name="configuration-via-azure-portal"></a>Configuración mediante Azure Portal
+### <a name="configuration-via-azure-portal"></a>Configuración mediante Azure Portal
 
 1. Busque su cuenta de almacenamiento en Azure Portal.
 1. Vaya a Redes en la sección Configuración.
@@ -122,7 +124,7 @@ Para acceder a una solución de almacenamiento que está protegido por el firewa
 1. Seleccione el nombre del área de trabajo como un nombre de instancia.
 1. Haga clic en Guardar.
 
-#### <a name="configuration-via-powershell"></a>Configuración mediante PowerShell
+### <a name="configuration-via-powershell"></a>Configuración mediante PowerShell
 
 Siga estos pasos para configurar el firewall de la cuenta de almacenamiento y agregar una excepción para el área de trabajo de Synapse.
 
@@ -189,8 +191,19 @@ Siga estos pasos para configurar el firewall de la cuenta de almacenamiento y ag
         }
     ```
 
-#### <a name="managed-identity"></a>Identidad administrada
+### <a name="shared-access-signature"></a>[Firma de acceso compartido](#tab/shared-access-signature)
+
+Las firmas de acceso compartido no se pueden usar para acceder al almacenamiento protegido por el firewall.
+
+### <a name="managed-identity"></a>[Identidad administrada](#tab/managed-identity)
+
 Debe establecer [Permitir servicios de Microsoft de confianza…](../../storage/common/storage-network-security.md#trusted-microsoft-services) y [asignar un rol de Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) de manera explícita a la [identidad administrada asignada por el sistema](../../active-directory/managed-identities-azure-resources/overview.md) para esa instancia del recurso. En ese caso, el ámbito de acceso de la instancia corresponde al rol de Azure que se asigna a la identidad administrada.
+
+### <a name="anonymous-access"></a>[Acceso anónimo](#tab/public-access)
+
+No se puede acceder al almacenamiento protegido por el firewall mediante el acceso anónimo.
+
+---
 
 ## <a name="credentials"></a>Credenciales
 

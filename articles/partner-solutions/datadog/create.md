@@ -3,49 +3,24 @@ title: 'Creación de Datadog: soluciones para asociados de Azure'
 description: En este artículo se describe cómo usar Azure Portal para crear una instancia de Datadog.
 ms.service: partner-services
 ms.topic: quickstart
-ms.date: 05/05/2021
+ms.date: 05/28/2021
 author: tfitzmac
 ms.author: tomfitz
 ms.custom: references_regions
-ms.openlocfilehash: 3d9c364c1367986f4ebe47cc00b4cb8b2434b90c
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 6b2737877ecc550540761bfb704aee98f6e7c2f4
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517467"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110655262"
 ---
-# <a name="quickstart-get-started-with-datadog"></a>Inicio rápido: Introducción a Datadog
+# <a name="quickstart-get-started-with-datadog-by-creating-new-instance"></a>Inicio rápido: Introducción a Datadog mediante la creación de una instancia
 
-En este inicio rápido, creará una instancia de Datadog. Puede crear una organización de Datadog o un vínculo a una organización de Datadog existente. Azure solo vincula a organizaciones de Datadog existentes en **US3**.
+En esta guía de inicio rápido, creará una instancia de Datadog. Puede crear una organización de Datadog o un [vínculo a una organización de Datadog existente](link-to-existing-organization.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure Datadog, debe tener acceso de **propietario** en la suscripción de Azure. Asegúrese de que tiene el acceso adecuado antes de iniciar el programa de instalación.
-
-Para usar la característica de inicio de sesión único de Lenguaje de marcado de aserción de seguridad dentro del recurso Datadog, debe configurar una aplicación empresarial. Para agregar una aplicación empresarial, se necesita uno de estos roles: Administrador global, Administrador de aplicaciones en la nube, Administrador de aplicaciones o propietario de la entidad de servicio.
-
-Siga estos pasos para configurar la aplicación empresarial:
-
-1. Vaya al [Portal de Azure](https://portal.azure.com). Seleccione **Azure Active Directory**.
-1. En el panel izquierdo, seleccione **Aplicaciones empresariales**.
-1. Select **Nueva aplicación**.
-1. En **Agregar desde la galería**, busque *Datadog*. Seleccione el resultado de la búsqueda y, después, seleccione **Agregar**.
-
-   :::image type="content" source="media/create/datadog-azure-ad-app-gallery.png" alt-text="Aplicación Datadog en la galería empresarial de AAD." border="true":::
-
-1. Una vez creada la aplicación, vaya a las propiedades del panel lateral. En **¿Asignación de usuarios?** , seleccione **No** y, después, **Guardar**.
-
-   :::image type="content" source="media/create/user-assignment-required.png" alt-text="Establecer las propiedades de la aplicación Datadog" border="true":::
-
-1. Vaya a **Inicio de sesión único** en el panel lateral. Luego, seleccione **SAML**.
-
-   :::image type="content" source="media/create/saml-sso.png" alt-text="Autenticación SAML" border="true":::.
-
-1. Seleccione **Sí** cuando se le pregunte si desea **guardar la configuración de inicio de sesión único**.
-
-   :::image type="content" source="media/create/save-sso.png" alt-text="Guardar el inicio de sesión único para la aplicación Datadog" border="true":::
-
-1. La configuración del inicio de sesión único ahora está completa.
+Antes de crear la primera instancia de Datadog en Azure, [configure el entorno](prerequisites.md). Estos pasos deben completarse antes de continuar con los pasos siguientes de este inicio rápido.
 
 ## <a name="find-offer"></a>Búsqueda de la oferta
 
@@ -61,9 +36,15 @@ Use Azure Portal para encontrar Datadog.
 
 1. En la pantalla de información general del plan, seleccione **Configurar + suscribir**.
 
-   :::image type="content" source="media/create/datadog-app.png" alt-text="Aplicación Datadog en Azure Marketplace.":::
+   :::image type="content" source="media/create/datadog-app-2.png" alt-text="Aplicación Datadog en Azure Marketplace.":::
 
 ## <a name="create-a-datadog-resource-in-azure"></a>Creación de un recurso Datadog en Azure.
+
+El portal muestra una selección que le pregunta si desea crear una organización de Datadog o vincular una suscripción de Azure a una organización de Datadog existente.
+
+Si va a crear una nueva organización de Datadog, seleccione **Crear** en **Crear una organización de Datadog**.
+
+:::image type="content" source="media/create/datadog-create-link-selection.png" alt-text="Creación o vinculación de una organización de Datadog" border="true":::
 
 El portal muestra un formulario para crear el recurso Datadog.
 
@@ -77,25 +58,8 @@ Especifique los valores siguientes.
 | Resource group | Especifique si desea crear un nuevo grupo de recursos o utilizar uno existente. Un [grupo de recursos](../../azure-resource-manager/management/overview.md#resource-groups) es un contenedor que almacena los recursos relacionados de una solución de Azure. |
 | Nombre del recurso | Especifique un nombre para el recurso Datadog. Este nombre será el de la nueva organización de Datadog cuando se cree. |
 | Location | Seleccione Oeste de EE. UU. 2. Actualmente, la única región admitida es Oeste de EE. UU. 2. |
-| Organización de Datadog | Para crear una organización de Datadog, seleccione **Nuevo**. Para establecer un vínculo a una organización de Datadog existente, seleccione **Existente**. |
 | Plan de precios | Al crear una organización, selecciónelo en la lista de planes de Datadog disponibles. |
 | Período de facturación | Mensual. |
-
-Si va a crear una vinculación con una organización de Datadog existente, consulte la sección siguiente. En caso contrario, seleccione **Siguiente: Métricas y registros** y omita la sección siguiente.
-
-## <a name="link-to-existing-datadog-organization"></a>Vínculo a un organización de Datadog existente
-
-Puede vincular el nuevo recurso de Datadog en Azure a una organización de Datadog existente en **US3**.
-
-Seleccione **Existente** en Organización de datos y, después, seleccione **Link to Datadog org** (Vincular a organización de Datadog).
-
-:::image type="content" source="media/create/link-to-existing.png" alt-text="Vincular a una organización de Datadog existente." border="true":::
-
-El vínculo abre una ventana de autenticación de Datadog. Inicie sesión en Datadog.
-
-De forma predeterminada, Azure vincula la organización de Datadog actual con el recurso de Datadog. Si desea vincular a otra organización, seleccione la organización adecuada en la ventana de autenticación, como se muestra a continuación.
-
-:::image type="content" source="media/create/select-datadog-organization.png" alt-text="Seleccionar la organización de Datadog adecuada para vincular" border="true":::
 
 ## <a name="configure-metrics-and-logs"></a>Configuración de métricas y registros
 
@@ -136,10 +100,6 @@ Una vez que haya completado la configuración de métricas y registros, seleccio
 ## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
 
 Si su organización usa Azure Active Directory como proveedor de identidades, puede establecer el inicio de sesión único desde Azure Portal a Datadog. Si su organización usa otro proveedor de identidades o no desea establecer el inicio de sesión único en este momento, puede omitir esta sección.
-
-Si va a vincular el recurso Datadog a una organización de Datadog existente, no puede configurar el inicio de sesión único en este paso. En su lugar, configure el inicio de sesión único después de crear el recurso Datadog. Para más información, consulte la sección sobre la [reconfiguración del inicio de sesión único](manage.md#reconfigure-single-sign-on).
-
-:::image type="content" source="media/create/linking-sso.png" alt-text="Inicio de sesión único para establecer una vinculación con una organización de Datadog existente." border="true":::
 
 Para establecer el inicio de sesión único a través de Azure Active Directory, active la casilla **Habilitar inicio de sesión único a través de Azure Active Directory**.
 

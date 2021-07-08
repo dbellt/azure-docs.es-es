@@ -9,16 +9,18 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 05/16/2021
 ms.author: Zhchia
-ms.openlocfilehash: 94de0ca0a5393c891e567e558cbbadd0ca1f453b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84024ad57af3ca650c69bfda0eda672aee313793
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97832087"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109814665"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Tutorial: Configuración de Oracle Cloud Infrastructure Console para el aprovisionamiento automático de usuarios
+> [!NOTE]
+> No se admite la integración con Oracle Cloud Infrastructure Console u Oracle IDCS con una aplicación BYOA o personalizada. Se admite el uso de la aplicación de la galería tal como se describe en este tutorial. La aplicación de la galería se ha personalizado para que funcione con el servidor SCIM de Oracle. 
 
 En este tutorial, se describen los pasos que debe realizar en Oracle Cloud Infrastructure Console y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando se configura, Azure AD aprovisiona y anula el aprovisionamiento automáticamente de usuarios y grupos en [Oracle Cloud Infrastructure Console](https://www.oracle.com/cloud/free/?source=:ow:o:p:nav:0916BCButton&intcmp=:ow:o:p:nav:0916BCButton) mediante el servicio de aprovisionamiento de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
 

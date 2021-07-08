@@ -8,14 +8,14 @@ ms.author: delegenz
 ms.devlang: javascript
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 02/02/2021
+ms.date: 06/11/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 7d31201f9d1a4519538aba3ac57ddfd340d936d1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3ca078bd712d711f4c8883360eb121287662a16
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99509408"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112018358"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search mediante el SDK de JavaScript
 > [!div class="op_single_selector"]
@@ -607,9 +607,8 @@ Si está usando un servicio gratuito, recuerde que está limitado a tres índice
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido de JavaScript, ha realizado una serie de tareas para crear un índice, cargar documentos en él y ejecutar consultas. 
+En este inicio rápido de JavaScript, ha realizado una serie de tareas para crear un índice, cargar documentos en él y ejecutar consultas. Para seguir aprendiendo, pruebe el siguiente tutorial y el ejemplo como trampolín para probar los proveedores de sugerencias (escritura anticipada o autocompletar consultas), los filtros y la navegación por facetas. 
 
-Si ya tiene conocimientos sobre Azure Cognitive Search, puede usar este ejemplo como trampolín para probar proveedores de sugerencias (escritura automática o autocompletar consultas), filtros y navegación por facetas. Si es la primera vez que usa Azure Cognitive Search, le recomendamos que vea otros tutoriales para comprender mejor lo que puede crear. Visite nuestra [página de documentación](https://azure.microsoft.com/documentation/services/search/) para encontrar más recursos. 
++ [Tutorial: Incorporación de funcionalidad de búsqueda a las aplicaciones web](tutorial-csharp-overview.md)
 
-> [!div class="nextstepaction"]
-> [Creación de un front-end de React para Azure Cognitive Search](https://github.com/dereklegenzoff/azure-search-react-template)
++ [Ejemplo: Creación de un front-end de React para Azure Cognitive Search](https://github.com/dereklegenzoff/azure-search-react-template)

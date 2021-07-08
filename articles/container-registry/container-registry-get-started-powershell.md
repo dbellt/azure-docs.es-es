@@ -1,18 +1,15 @@
 ---
 title: 'Inicio rápido: Creación de un registro (PowerShell)'
 description: Aprenda rápidamente a crear un registro privado de Docker en Azure Container Registry con PowerShell
-ms.date: 01/22/2019
+ms.date: 06/03/2021
 ms.topic: quickstart
-ms.custom:
-- mvc
-- devx-track-azurepowershell
-- mode-api
-ms.openlocfilehash: bd9b93e22081c43dfa3fd934f13da3713120aadb
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: devx-track-azurepowershell - mvc - devx-track-azurepowershell - mode-api
+ms.openlocfilehash: 794b82817ce092fac34512c0faec097ecab53dc5
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537390"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111439951"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Inicio rápido: Creación de un registro de contenedor privado con Azure PowerShell
 
@@ -58,23 +55,16 @@ En este inicio rápido se crea un registro *Básico*, que es una opción rentabl
 
 ## <a name="log-in-to-registry"></a>Iniciar sesión en el registro
 
-Antes de insertar y extraer imágenes de contenedor, debe iniciar sesión en el registro. Para hacer que este inicio rápido sea breve, habilite el usuario administrador en el registro con el comando [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential]. En escenarios de producción, debe usar un [método de autenticación](container-registry-authentication.md) alternativo para el acceso al registro, como una entidad de servicio. 
+Antes de insertar y extraer imágenes del contenedor, debe iniciar sesión en el registro con el cmdlet [Connect-AzContainerRegistry][connect-azcontainerregistry]. En el ejemplo siguiente se usan las mismas credenciales con las que inició sesión al autenticarse en Azure con el cmdlet `Connect-AzAccount`.
+
+> [!NOTE]
+> En el ejemplo siguiente, el valor de `$registry.Name` es el nombre del recurso, no el nombre completo del registro.
 
 ```powershell
-$creds = Get-AzContainerRegistryCredential -Registry $registry
-```
-
-A continuación, ejecute el comando [docker login][docker-login] para iniciar sesión:
-
-```powershell
-$creds.Password | docker login $registry.LoginServer -u $creds.Username --password-stdin
+Connect-AzContainerRegistry -Name $registry.Name
 ```
 
 El comando devolverá `Login Succeeded` una vez completado.
-
-> [!TIP]
-> La CLI de Azure proporciona el comando `az acr login`, una manera cómoda de iniciar sesión en un registro de contenedor con su [identidad individual](container-registry-authentication.md#individual-login-with-azure-ad) sin pasar credenciales de Docker.
-
 
 [!INCLUDE [container-registry-quickstart-docker-push](../../includes/container-registry-quickstart-docker-push.md)]
 
@@ -108,7 +98,6 @@ En este inicio rápido, ha creado una instancia de Azure Container Registry con 
 
 <!-- Links - internal -->
 [Connect-AzAccount]: /powershell/module/az.accounts/connect-azaccount
-[Get-AzContainerRegistryCredential]: /powershell/module/az.containerregistry/get-azcontainerregistrycredential
 [Get-Module]: /powershell/module/microsoft.powershell.core/get-module
 [New-AzContainerRegistry]: /powershell/module/az.containerregistry/New-AzContainerRegistry
 [New-AzResourceGroup]: /powershell/module/az.resources/new-azresourcegroup
@@ -116,3 +105,4 @@ En este inicio rápido, ha creado una instancia de Azure Container Registry con 
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 [container-registry-skus]: container-registry-skus.md
 [container-registry-tutorial-prepare-registry]: container-registry-tutorial-prepare-registry.md
+[connect-azcontainerregistry]: /powershell/module/az.containerregistry/connect-azcontainerregistry

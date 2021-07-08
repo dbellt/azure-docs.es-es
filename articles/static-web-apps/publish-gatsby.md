@@ -5,17 +5,17 @@ services: static-web-apps
 author: aaronpowell
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 05/08/2020
+ms.date: 05/10/2021
 ms.author: aapowell
 ms.custom: devx-track-js
-ms.openlocfilehash: 4430ed34858077b13b4fec69756c1c7e9f3ef7ac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c6a68b8db40aa07c251cabab28217143105aab1
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652384"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109814521"
 ---
-# <a name="tutorial-publish-a-gatsby-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicación de un sitio de Gatsby en Azure Static Web Apps (versión preliminar)
+# <a name="tutorial-publish-a-gatsby-site-to-azure-static-web-apps"></a>Tutorial: Publicación de un sitio de Gatsby en Azure Static Web Apps
 
 En este artículo se muestra cómo crear e implementar una aplicación web de [Gatsby](https://gatsbyjs.org) en [Azure Static Web Apps](overview.md). El resultado final es un nuevo sitio de Static Web Apps (con las Acciones de GitHub asociadas) que le da control sobre cómo se compila y publica la aplicación.
 
@@ -29,7 +29,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. En caso de no tener una, puede [crear una cuenta gratuita](https://azure.microsoft.com/free/).
 - Una cuenta de GitHub. En caso de no tener una, puede [crear una cuenta gratuita](https://github.com/join).
@@ -85,54 +85,38 @@ En los pasos siguientes se muestra cómo crear una aplicación de sitio estátic
 ### <a name="create-the-application"></a>Creación de la aplicación
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
-1. Haga clic en **Crear un recurso**.
+1. Seleccione **Crear un recurso**
 1. Busque **Static Web Apps**.
-1. Haga clic en **Static Web Apps (Preview)** (Static Web Apps [versión preliminar]).
-1. Haga clic en **Crear**
+1. Seleccione **Static Web Apps**.
+1. Seleccione **Crear**
+1. En la pestaña _Datos básicos_, especifique los valores siguientes.
 
-   :::image type="content" source="./media/publish-gatsby/create-in-portal.png" alt-text="Creación de una aplicación de Static Web Apps (versión preliminar) en el portal":::
+    | Propiedad | Valor |
+    | --- | --- |
+    | _Suscripción_ | El nombre de la suscripción de Azure. |
+    | _Grupos de recursos_ | **my-gatsby-group**  |
+    | _Nombre_ | **my-gatsby-app** |
+    | _Tipo de plan_ | **Gratis** |
+    | _Región para la API y los entornos de ensayo de Azure Functions_ | Seleccione la región más cercana a la suya. |
+    | _Origen_ | **GitHub** |
 
-1. En _Suscripción_, acepte la suscripción que aparece o seleccione otra en la lista desplegable.
+1. Seleccione **Iniciar sesión con GitHub** y autentíquese con GitHub.
 
-1. En _Grupo de recursos_, seleccione **Nuevo**. En _Nuevo nombre de grupo de recursos_, escriba **gatsby-static-web-app** y seleccione **Aceptar**.
+1. Escriba los siguientes valores de GitHub.
 
-1. Después, un nombre para la aplicación en el cuadro **Nombre**. Los caracteres válidos incluyen `a-z`, `A-Z`, `0-9` y `-`.
+    | Propiedad | Valor |
+    | --- | --- |
+    | _Organización_ | Seleccione la organización de GitHub que quiera. |
+    | _Repositorio_ | Seleccione **gatsby-static-web-app**. |
+    | _Rama_ | Seleccione **main** (principal). |
 
-1. En _Región_, seleccione una región cercana disponible.
-
-1. En _SKU_, seleccione **Gratis**.
-
-   :::image type="content" source="./media/publish-gatsby/basic-app-details.png" alt-text="Detalles rellenados":::
-
-1. Haga clic en el botón **Iniciar sesión con GitHub**.
-
-1. Seleccione la **Organización** en la que creó el repositorio.
-
-1. Seleccione **gatsby-static-web-app** como _Repositorio_.
-
-1. En _Rama_, seleccione **principal**.
-
-   :::image type="content" source="./media/publish-gatsby/completed-github-info.png" alt-text="Información de GitHub completada":::
-
-### <a name="build"></a>Build
-
-A continuación, agregue los valores de configuración que el proceso de compilación usa para compilar la aplicación.
-
-1. Haga clic en el botón **Siguiente: Compilar >** para editar la configuración de compilación.
-
-1. Para configurar las opciones del paso en las Acciones de GitHub, establezca la _Ubicación de la aplicación_ en **/** .
-
-1. Establezca _Ubicación del artefacto de la aplicación_ en **public**.
-
-   No es necesario un valor para _Ubicación de la API_, ya que por el momento no está implementando una API.
-
-   :::image type="content" source="./media/publish-gatsby/build-details.png" alt-text="Configuración de la compilación":::
+1. En la sección _Detalles de la compilación_, seleccione **Gatsby** en la lista desplegable _Valores preestablecidos de compilación_ y conserve los valores predeterminados.
 
 ### <a name="review-and-create"></a>Revisar y crear
 
-1. Haga clic en el botón **Revisar y crear** para comprobar que todos los detalles sean correctos.
+1. Seleccione el botón **Revisar y crear** para comprobar que todos los detalles sean correctos.
 
-1. Haga clic en **Crear** para comenzar la creación de la aplicación de Static Web Apps de App Service y aprovisionar una Acción de GitHub para la implementación.
+1. Seleccione **Crear** para comenzar la creación de la aplicación web estática de App Service y aprovisionar una Acción de GitHub para la implementación.
 
 1. Cuando se complete la implementación, haga clic en **Ir al recurso**.
 

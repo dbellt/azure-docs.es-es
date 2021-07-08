@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: duau
-ms.openlocfilehash: 90676b134d06af7ef088b2041116b17022da2700
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: a94821f5254526fa13f9e87e62803581c46127d2
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110230"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538665"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Tutorial: Conexión de una red virtual a un circuito ExpressRoute mediante la CLI
 
@@ -45,6 +45,8 @@ En este tutorial, obtendrá información sobre cómo:
 * Es posible vincular hasta 10 redes virtuales a un circuito ExpressRoute estándar. Todas las redes virtuales deben pertenecer a la misma región geopolítica al utilizar un circuito de ExpressRoute estándar. 
 * Una única red virtual se puede vincular a 16 circuitos ExpressRoute como máximo. Use el procedimiento siguiente para crear un nuevo objeto de conexión para cada circuito ExpressRoute al que quiere conectarse. Los circuitos ExpressRoute pueden estar en la misma suscripción, en suscripciones diferentes o en una combinación de ambas.
 * Si habilita el complemento prémium de ExpressRoute, puede vincular redes virtuales fuera de la región geopolítica del circuito ExpressRoute. El complemento Premium también le permitirá conectar más de 10 redes virtuales al circuito ExpressRoute en función del ancho de banda elegido. Consulte las [preguntas más frecuentes](expressroute-faqs.md) para obtener más detalles sobre el complemento premium.
+
+* Para crear la conexión desde el circuito ExpressRoute hasta la puerta de enlace de red virtual de ExpressRoute de destino, el número de espacios de direcciones anunciados desde las redes virtuales locales o emparejadas debe ser igual o menor que **200**. Una vez creada correctamente la conexión, puede agregar hasta un máximo de 1000 espacios de direcciones adicionales a las redes virtuales locales o emparejadas.
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Conexión de una red virtual en la misma suscripción a un circuito
 

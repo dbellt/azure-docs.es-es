@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: a9bfb4beea2c2bec1b819d228215cfff65e37fe4
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 88674255c98559a06c33bd5030aefba9184ada58
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110264"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538743"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Tutorial: Conexión de una red virtual con un circuito de ExpressRoute mediante el portal
 
@@ -48,6 +48,8 @@ En este tutorial, obtendrá información sobre cómo:
 * Una única red virtual se puede vincular a 16 circuitos ExpressRoute como máximo. Use el procedimiento siguiente para crear un nuevo objeto de conexión para cada circuito ExpressRoute al que quiere conectarse. Los circuitos ExpressRoute pueden estar en la misma suscripción, en suscripciones diferentes o en una combinación de ambas.
 
 * Si habilita el complemento prémium de ExpressRoute, puede vincular redes virtuales fuera de la región geopolítica del circuito ExpressRoute. El complemento Premium también le permitirá conectar más de 10 redes virtuales al circuito ExpressRoute en función del ancho de banda elegido. Consulte las [preguntas más frecuentes](expressroute-faqs.md) para obtener más detalles sobre el complemento premium.
+
+* Para crear la conexión desde el circuito ExpressRoute hasta la puerta de enlace de red virtual de ExpressRoute de destino, el número de espacios de direcciones anunciados desde las redes virtuales locales o emparejadas debe ser igual o menor que **200**. Una vez creada correctamente la conexión, puede agregar hasta un máximo de 1000 espacios de direcciones adicionales a las redes virtuales locales o emparejadas.
 
 * Puede [ver un vídeo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit) antes de comenzar para entender mejor los pasos.
 

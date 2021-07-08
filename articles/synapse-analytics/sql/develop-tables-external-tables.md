@@ -9,28 +9,28 @@ ms.subservice: sql
 ms.date: 04/26/2021
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 41825ceed38203c88ddfc28eca9a738663b9d7e6
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: fad0da60ab19a8614e25a56701c5ee2d1a80548c
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378673"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111410520"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Uso de tablas externas con Synapse SQL
 
 Una tabla externa apunta a datos ubicados en Hadoop, Azure Storage Blob o Azure Data Lake Storage. Las tablas externas se usan para leer datos de archivos de Azure Storage o escribir datos en ellos. Con Synapse SQL se pueden usar tablas externas para leer datos externos mediante un grupo de SQL dedicado o un grupo de SQL sin servidor.
 
 En función del tipo de origen de datos externo, puede usar dos tipos de tablas externas:
-- Tablas externas de Hadoop, que puede usar para leer y exportar datos en varios formatos de datos, como CSV, Parquet y ORC. Las tablas externas de Hadoop están disponibles en los grupos de Synapse SQL dedicados, pero no en los grupos de SQL sin servidor.
-- Tablas externas nativas, que puede usar para leer y exportar datos en varios formatos de datos, como CSV y Parquet. Las tablas externas nativas están disponibles en los grupos de Synapse SQL sin servidor, y están disponibles en versión preliminar en grupos de Synapse SQL dedicados.
+- Tablas externas de Hadoop, que puede usar para leer y exportar datos en varios formatos de datos, como CSV, Parquet y ORC. Las tablas externas de Hadoop están disponibles en los grupos de SQL dedicados, pero no en los grupos de SQL sin servidor.
+- Tablas externas nativas, que puede usar para leer y exportar datos en varios formatos de datos, como CSV y Parquet. Las tablas externas nativas están disponibles en los grupos de SQL sin servidor, y están disponibles en versión preliminar en grupos de Synapse SQL dedicados.
 
 Las principales diferencias entre Hadoop y las tablas externas nativas se presentan en la tabla siguiente:
 
 | Tipo de tabla externa | Hadoop | Nativa |
 | --- | --- | --- |
-| Grupo de SQL dedicado | Disponible | Las tablas Parquet están disponibles en **versión preliminar validada**; póngase en contacto con el responsable técnico de cuentas o el arquitecto de soluciones en la nube de Microsoft para comprobar si su grupo dedicado puede unirse a la versión preliminar. |
+| Grupo de SQL dedicado | Disponible | Las tablas Parquet están disponibles en **versión preliminar validada**; póngase en contacto con el responsable técnico de cuentas o el arquitecto de soluciones en la nube de Microsoft para comprobar si puede agregar su grupo de SQL dedicado a la versión preliminar validada. |
 | Grupo de SQL sin servidor | No disponible | Disponible |
-| Formatos compatibles | Delimitado/CSV, Parquet, ORC, Hive RC y RC | Grupo sin servidor: delimitado/CSV, Parquet y Delta Lake (versión preliminar)<br/>Grupo dedicado: Parquet |
+| Formatos compatibles | Delimitado/CSV, Parquet, ORC, Hive RC y RC | Grupo de SQL sin servidor: delimitado/CSV, Parquet y Delta Lake (versión preliminar)<br/>Grupo de SQL dedicado: Parquet |
 | Eliminación de particiones de carpetas | No | Solo para las tablas con particiones sincronizadas desde grupos de Apache Spark en el área de trabajo de Synapse a grupos de SQL sin servidor |
 | Formato personalizado para la ubicación | Yes | Sí, con caracteres comodín como `/year=*/month=*/day=*` |
 | Examen recursivo de carpetas | No | Solo en grupos de SQL sin servidor cuando se especifica `/**` al final de la ruta de acceso de ubicación |
@@ -64,7 +64,7 @@ Para crear tablas externas en grupos de Synapse SQL, siga estos pasos:
 El usuario debe tener permiso `SELECT` en una tabla externa para leer los datos.
 Las tablas externas acceden al almacenamiento de Azure subyacente mediante la credencial con ámbito de base de datos definida en el origen de datos mediante las siguientes reglas:
 - El origen de datos sin credenciales permite que las tablas externas accedan a archivos disponibles públicamente en Azure Storage.
-- El origen de datos puede tener credenciales que permitan a las tablas externas acceder solo a los archivos de Azure Storage mediante el token de SAS o la identidad administrada del área de trabajo. En el artículo sobre el [desarrollo del control de acceso al almacenamiento de archivos](develop-storage-files-storage-access-control.md#examples).
+- El origen de datos puede tener una credencial que permita a las tablas externas acceder solo a los archivos de Azure Storage mediante el token de SAS o la identidad administrada del área de trabajo. Para consultar ejemplos, consulte el artículo sobre el [desarrollo del control de acceso al almacenamiento de archivos](develop-storage-files-storage-access-control.md#examples).
 
 ## <a name="create-external-data-source"></a>CREATE EXTERNAL DATA SOURCE
 

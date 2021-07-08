@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/26/2021
+ms.date: 06/10/2021
 ms.author: duau
-ms.openlocfilehash: 4291a7d46c723f799cf9d09ca0e7a3f6d614971f
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 7f2a5faebb56cfb12a62a8bdae4e6b7e56e88b57
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389747"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004716"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configuración de HTTPS en un dominio personalizado de Front Door
 
@@ -75,7 +75,7 @@ Para habilitar HTTPS en un dominio personalizado, siga estos pasos:
 
 ### <a name="option-2-use-your-own-certificate"></a>Opción 2: Usar su propio certificado
 
-Puede usar su propio certificado para habilitar la característica HTTPS. Este proceso se realiza a través de una integración con Azure Key Vault, lo cual permite almacenar de forma segura los certificados. Azure Front Door usa este mecanismo de seguridad para obtener el certificado y requiere algunos pasos adicionales. Cuando cree el certificado TLS/SSL, debe usar una entidad de certificación (CA) permitida. Si no lo hace, si usa una entidad de certificación no permitida, la solicitud se rechazará. Para ver una lista de las entidades de certificación permitidas, consulte [Allowed certificate authorities for enabling custom HTTPS on Azure Front Door](front-door-troubleshoot-allowed-ca.md) (Autoridades de certificación permitidas para habilitar HTTPS personalizado en Azure Front Door).
+Puede usar su propio certificado para habilitar la característica HTTPS. Este proceso se realiza a través de una integración con Azure Key Vault, lo cual permite almacenar de forma segura los certificados. Azure Front Door usa este mecanismo de seguridad para obtener el certificado y requiere algunos pasos adicionales. Al crear el certificado TLS/SSL, tiene que crear una cadena de certificados completa con una entidad de certificación (CA) permitida que forme parte de la [lista de CA de confianza de Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). Si usa una CA no permitida, la solicitud se rechazará.  Si se presenta un certificado sin una cadena completa, no se garantiza que las solicitudes que involucran ese certificado funcionen según lo previsto.
 
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Preparación de la cuenta y el certificado de Azure Key Vault
  
@@ -87,7 +87,7 @@ Puede usar su propio certificado para habilitar la característica HTTPS. Este p
 2. Certificados de Azure Key Vault: si ya tiene un certificado, puede cargarlo directamente en la cuenta de Azure Key Vault o puede crear uno nuevo directamente mediante Azure Key Vault a partir de una de las entidades de certificación asociadas con la que se integra Azure Key Vault. Cargue el certificado como un objeto de **certificado** en lugar de como un **secreto**.
 
 > [!NOTE]
-> Para su propio certificado TLS/SSL, Front Door no admite certificados con algoritmos de criptografía de EC.
+> Para su propio certificado TLS/SSL, Front Door no admite certificados con algoritmos de criptografía de EC. El certificado debe tener una cadena de certificados completa con certificados de hoja e intermedios, y la CA raíz debe formar parte de la [lista de CA de confianza de Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
 
 #### <a name="register-azure-front-door"></a>Registro en Azure Front Door
 
@@ -209,7 +209,7 @@ En la tabla siguiente se muestra el progreso de la operación que se produce cua
 | | La solicitud de validación de la propiedad del dominio ha expirado (el cliente probablemente no respondió dentro del plazo de 6 días). HTTPS no se habilitará en el dominio. * |
 | | El cliente rechazó la solicitud de validación de la propiedad del dominio. HTTPS no se habilitará en el dominio. * |
 | 3 Aprovisionamiento del certificado | La entidad de certificación está emitiendo actualmente el certificado necesario para habilitar HTTPS en el dominio. |
-| | El certificado se ha emitido y actualmente se está implementando en Front Door. Este proceso puede tardar hasta 1 hora. |
+| | El certificado se ha emitido y actualmente se está implementando en Front Door. Este proceso puede tardar de varios minutos a una hora en completarse. |
 | | El certificado se ha implementado correctamente en Front Door. |
 | 4 Finalizado | Se habilitó correctamente HTTPS en el dominio. |
 

@@ -2,21 +2,21 @@
 title: Traslado de la autenticación de las aplicaciones de AD FS a Azure Active Directory
 description: Obtenga información acerca de cómo usar Azure Active Directory para reemplazar los Servicios de federación de Active Directory (AD FS), lo que proporciona a los usuarios un inicio de sesión único para todas las aplicaciones.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 03/01/2021
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: baselden
-ms.openlocfilehash: 4e9bedc63a3b1d53222c732b6611d132249b07c6
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 616550188687823438187e1e09c90d5d3c6c6835
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108320806"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078822"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Traslado de la autenticación de las aplicaciones de los Servicios de federación de Active Directory (AD FS) a Azure Active Directory
 
@@ -326,7 +326,7 @@ Especifique las reglas de MFA en función de la ubicación de un usuario en Azur
 
 1. Cree una [directiva de acceso condicional nueva](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 1. Establezca las **Asignaciones** en **Todos los usuarios**.
-1. [Configure ubicaciones con nombre en Azure AD](../reports-monitoring/quickstart-configure-named-locations.md). De lo contrario, se confía en la federación desde dentro de la red corporativa.
+1. [Configure ubicaciones con nombre en Azure AD](../conditional-access/location-condition.md). De lo contrario, se confía en la federación desde dentro de la red corporativa.
 1. Configure las **Reglas de condiciones** para especificar las ubicaciones para las que quiere aplicar MFA.
 
     ![Captura de pantalla que muestra el panel Ubicaciones para las reglas de condiciones.](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
@@ -365,7 +365,7 @@ En esta tabla, se enumeran algunas opciones Permitir y Excepto y cómo se asigna
 
 | Opción | ¿Cómo se configura la opción Permitir en Azure AD?| ¿Cómo se configura la opción Excepto en Azure AD? |
 | - | - | - |
-| Desde una red específica| Se asigna a [Ubicación con nombre](../reports-monitoring/quickstart-configure-named-locations.md) en Azure AD| Use la opción **Excluir** para las [ubicaciones de confianza](../conditional-access/location-condition.md) |
+| Desde una red específica| Se asigna a [Ubicación con nombre](../conditional-access/location-condition.md) en Azure AD| Use la opción **Excluir** para las [ubicaciones de confianza](../conditional-access/location-condition.md) |
 | Desde grupos específicos| [Establezca una asignación de usuario o grupos](assign-user-or-group-access-portal.md)| Use la opción **Excluir** en Usuarios y Grupos |
 | Desde dispositivos con un nivel de confianza específico| Establezca esta opción desde el control **Estado del dispositivo** en Asignaciones -> Condiciones| Use la opción **Excluir** en la condición de estado del dispositivo e incluya **Todos los dispositivos** |
 | Con notificaciones específicas en la solicitud| No se puede migrar esta configuración| No se puede migrar esta configuración |

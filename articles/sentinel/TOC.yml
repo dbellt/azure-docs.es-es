@@ -25,10 +25,12 @@
       href: tutorial-respond-threats-playbook.md
     - name: Creación de consultas KQL (módulo de Learn)
       href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
-    - name: Implementación de la solución Azure Sentinel para SAP
-      href: sap-deploy-solution.md
+    - name: Crear un informe de Power BI en Azure Sentinel
+      href: powerbi.md
 - name: Conceptos
   items:
+    - name: Descripción y administración de costos y facturación
+      href: azure-sentinel-billing.md
     - name: Clasificación de datos mediante entidades
       href: entities-in-azure-sentinel.md
     - name: Administración del acceso
@@ -116,7 +118,7 @@
               href: connect-asc-iot.md
             - name: Servidor de nombres de dominio
               href: connect-dns.md
-            - name: "Dynamics\_365 (nuevo)"
+            - name: Dynamics 365
               href: connect-dynamics-365.md
             - name: "Microsoft\_365\_Defender"
               href: connect-microsoft-365-defender.md
@@ -130,7 +132,7 @@
                   href: connect-azure-atp.md
                 - name: "Microsoft Defender para Office\_365 (anteriormente Office\_365 ATP)"
                   href: connect-office-365-advanced-threat-protection.md
-            - name: "Office\_365 (ahora con Teams)"
+            - name: Office 365 (incluye Teams)
               href: connect-office-365.md
             - name: Firewall de Windows
               href: connect-windows-firewall.md
@@ -278,14 +280,24 @@
           href: connect-azure-stack.md
         - name: Supervisión del estado del conector de datos
           href: monitor-data-connector-health.md
-    - name: Implementación de soluciones
+    - name: Reglas de análisis
       items:
-        - name: Detección e implementación de soluciones
-          href: sentinel-solutions-deploy.md
-        - name: 'Avanzado: implementación local del conector de datos de SAP'
-          href: sap-solution-deploy-alternate.md
-    - name: Uso de reglas de anomalías de SOC-ML
-      href: work-with-anomaly-rules.md
+        - name: Enriquecimiento de alertas
+          items:
+            - name: Asignación de campos de datos a entidades
+              href: map-data-fields-to-entities.md
+            - name: Mostrar detalles personalizados en alertas
+              href: surface-custom-details-in-alerts.md
+            - name: Personalización de detalles de alerta
+              href: customize-alert-details.md
+        - name: Exportación e importación de reglas de análisis
+          href: import-export-analytics-rules.md
+        - name: Creación de incidentes a partir de alertas
+          href: create-incidents-from-alerts.md
+        - name: Uso de reglas de anomalías de SOC-ML
+          href: work-with-anomaly-rules.md
+    - name: Detección e implementación de soluciones
+      href: sentinel-solutions-deploy.md
     - name: Creación de actividades de entidad personalizadas
       href: customize-entity-activities.md
     - name: Uso del análisis de comportamiento de usuarios y entidades
@@ -294,18 +306,12 @@
           href: enable-entity-behavior-analytics.md
         - name: Investigación con UEBA
           href: investigate-with-ueba.md
-    - name: Asignación de campos de datos a entidades
-      href: map-data-fields-to-entities.md
     - name: Administración de varios inquilinos (MSSP)
       href: multiple-tenants-service-providers.md
     - name: Trabajo con incidentes en varias áreas de trabajo
       href: multiple-workspace-view.md
     - name: Configuración de claves administradas por el cliente (CMK)
       href: customer-managed-keys.md
-    - name: Mostrar detalles personalizados en alertas
-      href: surface-custom-details-in-alerts.md
-    - name: Creación de incidentes a partir de alertas
-      href: create-incidents-from-alerts.md
     - name: "Colaboración en Microsoft\_Teams"
       href: collaborate-in-microsoft-teams.md
     - name: Mejora en la administración de SOC con métricas de incidentes
@@ -325,12 +331,26 @@
           href: livestream.md
     - name: Eliminación de Azure Sentinel
       href: offboard.md
+- name: Integración de SAP y Azure Sentinel
+  items:
+    - name: Implementación de la supervisión de amenazas continua de SAP
+      href: sap-deploy-solution.md
+    - name: Requisitos de implementación
+      href: sap-solution-detailed-requirements.md
+    - name: Registros de SAP disponibles
+      href: sap-solution-log-reference.md
+    - name: 'Libros, reglas y listas de reproducción de SAP'
+      href: sap-solution-security-content.md
+    - name: Implementación local del conector de datos de SAP
+      href: sap-solution-deploy-alternate.md
 - name: Referencia
   items:
     - name: Principales libros de Azure Sentinel
       href: top-workbooks.md
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/sentinel
+    - name: PowerShell para Azure Sentinel
+      href: /powershell/module/az.securityinsights/
     - name: Roles RBAC de Azure
       items:
         - name: Todos los roles de Azure
@@ -367,14 +387,6 @@
       href: cef-name-mapping.md
     - name: "Alertas de MCAS no incorporadas a Microsoft\_365 Defender"
       href: microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md
-    - name: Referencias de la solución de SAP
-      items:
-        - name: Requisitos detallados de la solución de SAP
-          href: sap-solution-detailed-requirements.md
-        - name: Registros de SAP disponibles
-          href: sap-solution-log-reference.md
-        - name: Referencia de contenido de seguridad de la solución de SAP
-          href: sap-solution-security-content.md
 - name: Recursos
   items:
     - name: Recursos útiles
@@ -386,6 +398,6 @@
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/azure-sentinel/'
     - name: Disponibilidad de las características para nubes de la Administración Pública de Estados Unidos
-      href: /azure/security/fundamentals/feature-availability
+      href: ../security/fundamentals/feature-availability.md
     - name: Novedades (con una antigüedad superior a seis meses) archivadas
       href: whats-new-archive.md

@@ -6,14 +6,14 @@ author: amitbapat
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 06/01/2021
 ms.author: ambapat
-ms.openlocfilehash: 01e96922d9c0c47eaf4d430e92eafcd9d0964e13
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a9594157349754c7178f3c73cfe9529ad478de4a
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557231"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411024"
 ---
 # <a name="managed-hsm-local-rbac-built-in-roles"></a>Roles integrados de RBAC local de Managed HSM
 
@@ -28,7 +28,7 @@ El RBAC local de HSM administrado tiene varios roles integrados. Puede asignar e
 |Managed HSM Crypto User|Concede permisos para realizar todas las operaciones de administración de claves, excepto la purga o recuperación de claves eliminadas, y la exportación de claves.|21dbd100-6940-42c2-9190-5d6cb909625b|
 |Managed HSM Policy Administrator| Concede permiso para crear y eliminar asignaciones de roles.|4bd23610-cdcf-4971-bdee-bdc562cc28e4|
 |Managed HSM Crypto Auditor|Concede permiso de lectura para leer (pero no usar) los atributos clave.|2c18b078-7c48-4d3a-af88-5a3a1b3f82b3|
-|Managed HSM Crypto Service Encryption| Concede permiso para usar una clave para el cifrado del servicio. |33413926-3206-4cdd-b39a-83574fe37a17|
+|Usuario de cifrado del servicio de criptografía de HSM administrado| Concede permiso para usar una clave para el cifrado del servicio. |33413926-3206-4cdd-b39a-83574fe37a17|
 |Managed HSM Backup| Concede permiso para realizar una copia de seguridad de HSM completa o de clave única.|7b127d3c-77bd-4e3e-bbe0-dbb8971fa7f8|
 
 ## <a name="permitted-operations"></a>Operaciones permitidas

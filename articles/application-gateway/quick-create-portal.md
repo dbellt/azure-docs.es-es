@@ -5,18 +5,18 @@ description: En esta guía de inicio rápido, obtendrá información sobre cómo
 services: application-gateway
 author: vhorne
 ms.author: victorh
-ms.date: 01/19/2021
+ms.date: 06/14/2021
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom:
 - mvc
 - mode-portal
-ms.openlocfilehash: 92e966f5a9c4a21a6a55862ad582f0238802720f
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: a1c826470a7fb9daf3b311c6e7fff02a21fc5b25
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538569"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072278"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Inicio rápido: Dirección del tráfico web con Azure Application Gateway: Azure Portal
 
@@ -24,11 +24,13 @@ En este inicio rápido, usará Azure Portal para crear una puerta de enlace de 
 
 La puerta de enlace de aplicaciones dirige el tráfico web de la aplicación a recursos específicos de un grupo de back-end. Se asignan escuchas a los puertos, se crean reglas y se agregan recursos a un grupo de back-end. Para simplificar, en este artículo se usa una configuración sencilla con una dirección IP de front-end pública, una escucha básica que hospede un único sitio en la puerta de enlace de aplicaciones, una regla de enrutamiento de solicitudes básica y dos máquinas virtuales que se usan con el grupo de back-end.
 
+:::image type="content" source="media/quick-create-portal/application-gateway-qs-resources.png" alt-text="Recursos de Application Gateway":::
+
 Este inicio rápido también se puede completar con [Azure PowerShell](quick-create-powershell.md) o la [CLI de Azure](quick-create-cli.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

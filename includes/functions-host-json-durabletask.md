@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: d1b2cbefe64add5048d4e3c7946277b1461a5434
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e0605b5a882dcfa09b2435476a37d116f8c47286
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105607101"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "111350845"
 ---
 Configuración de [Durable Functions](../articles/azure-functions/durable/durable-functions-overview.md).
 
@@ -103,7 +103,7 @@ Los nombres de la central de tareas deben empezar por una letra y estar formados
 |---------|---------|----------|
 |hubName|DurableFunctionsHub|Se pueden usar nombres de [central de tareas](../articles/azure-functions/durable/durable-functions-task-hubs.md) alternativos para aislar varias aplicaciones de Durable Functions unas de otras, incluso si usan el mismo back-end de almacenamiento.|
 |controlQueueBatchSize|32|El número de mensajes que se van a extraer a la vez de la cola de control.|
-|controlQueueBufferThreshold| **Plan de consumo**: 32 <br> **Plan dedicado/Premium**: 256 |Número de mensajes de la cola de control que se pueden almacenar en búfer en la memoria a la vez, momento en que el distribuidor esperará para quitar cualquier mensaje adicional de la cola.|
+|controlQueueBufferThreshold| **Plan de consumo para Python**: 32 <br> **Plan de consumo para JavaScript y C#** : 128 <br> **Plan dedicado/Premium**: 256 |Número de mensajes de la cola de control que se pueden almacenar en búfer en la memoria a la vez, momento en que el distribuidor esperará para quitar cualquier mensaje adicional de la cola.|
 |partitionCount |4|El recuento de particiones para la cola de control. Puede ser un entero positivo comprendido entre 1 y 16.|
 |controlQueueVisibilityTimeout |5 minutos|El tiempo de espera de visibilidad de los mensajes de la cola de control quitados de la cola.|
 |workItemQueueVisibilityTimeout |5 minutos|El tiempo de espera de visibilidad de los mensajes de la cola de elementos de trabajo quitados de la cola.|

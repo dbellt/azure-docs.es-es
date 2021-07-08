@@ -3,12 +3,12 @@ title: 'Inicio rápido: Creación de una aplicación de funciones en Azure Arc e
 description: Para empezar a trabajar con Azure Functions en Azure Arc, implemente su primera aplicación de funciones en un contenedor de Linux personalizado.
 ms.topic: quickstart
 ms.date: 05/11/2021
-ms.openlocfilehash: 073ec52bc1b48ad285140a56fb4514ed315097e3
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 28079b9a7821350736647d49815c541f6a79d119
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386624"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111525667"
 ---
 # <a name="create-your-first-function-on-azure-arc-using-a-custom-container-preview"></a>Creación de la primera función en Azure Arc mediante un contenedor personalizado (versión preliminar)
 
@@ -24,7 +24,7 @@ En el equipo local:
 # <a name="c"></a>[C\#](#tab/csharp)
 
 + [SDK de .NET Core 3.1](https://dotnet.microsoft.com/download)
-+ [Azure Functions Core Tools](functions-run-local.md#v2), versión 3.x.
++ [Azure Functions Core Tools](functions-run-local.md#v2), versión 3.0.3245 o superior.
 + [CLI de Azure](/cli/azure/install-azure-cli), versión 2.4 o posterior.
 + [Docker](https://docs.docker.com/install/)  
 + [Identificador de Docker](https://hub.docker.com/signup)
@@ -32,7 +32,7 @@ En el equipo local:
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 + [Node.js](https://nodejs.org/), versión 12. También se admite la versión 10 de Node.js.
-+ [Azure Functions Core Tools](functions-run-local.md#v2), versión 3.x.
++ [Azure Functions Core Tools](functions-run-local.md#v2), versión 3.0.3245 o superior.
 + [CLI de Azure](/cli/azure/install-azure-cli), versión 2.4 o posterior.
 + [Docker](https://docs.docker.com/install/)  
 + [Identificador de Docker](https://hub.docker.com/signup)
@@ -40,7 +40,7 @@ En el equipo local:
 # <a name="python"></a>[Python](#tab/python)
 
 + [Versiones de Python compatibles con Azure Functions](supported-languages.md#languages-by-runtime-version)
-+ [Azure Functions Core Tools](functions-run-local.md#v2), versión 3.x.
++ [Azure Functions Core Tools](functions-run-local.md#v2), versión 3.0.3245 o superior.
 + [CLI de Azure](/cli/azure/install-azure-cli), versión 2.4 o posterior.
 + [Docker](https://docs.docker.com/install/)  
 + [Identificador de Docker](https://hub.docker.com/signup)
@@ -93,7 +93,7 @@ En Azure Functions, un proyecto de función es el contexto de una o varias funci
     ```
     ---
 
-    La opción `--docker` genera un archivo `Dockerfile` para el proyecto que permite definir un contenedor personalizado adecuado para su uso con Azure Functions y el entorno de ejecución seleccionado. 
+    La opción `--docker` genera un archivo `Dockerfile` para el proyecto que permite definir un contenedor personalizado adecuado para su uso con Azure Functions y el entorno de ejecución seleccionado.
 
 1. Vaya a la carpeta del proyecto:
 
@@ -101,7 +101,9 @@ En Azure Functions, un proyecto de función es el contexto de una o varias funci
     cd LocalFunctionProj
     ```
 
-    Esta carpeta contiene varios archivos del proyecto, incluidos los archivos de configuración [local.settings.json](functions-run-local.md#local-settings-file) y [host.json](functions-host-json.md). De forma predeterminada, el archivo *local.settings.json* se ha excluido del control de código fuente en el archivo *.gitignore*. Esta exclusión se debe a que el archivo puede contener secretos que se descargan de Azure.
+    Esta carpeta contiene el archivo Dockerfile y otros archivos del proyecto, incluidos los archivos de configuración [local.settings.json](functions-run-local.md#local-settings-file) y [host.json](functions-host-json.md). De forma predeterminada, el archivo *local.settings.json* se ha excluido del control de código fuente en el archivo *.gitignore*. Esta exclusión se debe a que el archivo puede contener secretos que se descargan de Azure.
+
+1. Abra el `Dockerfile` generado y busque la etiqueta `3.0` de la imagen base. Si hay una etiqueta `3.0`, reemplácela por una etiqueta `3.0.15885`. Por ejemplo, en una aplicación de JavaScript, el archivo de Docker debe modificarse para que contenga `FROM mcr.microsoft.com/azure-functions/node:3.0.15885`. Esta versión de la imagen base admite la implementación en un clúster de Kubernetes habilitado para Azure Arc. 
 
 1. Agregue una función al proyecto mediante el comando siguiente, donde el argumento `--name` es el nombre único de la función (HttpExample) y el argumento `--template` especifica el desencadenador de esta (HTTP).
 

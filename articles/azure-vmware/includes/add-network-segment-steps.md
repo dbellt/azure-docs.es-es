@@ -3,12 +3,12 @@ title: Adición de un segmento de red de NSX-T
 description: Pasos para agregar un segmento de red de NSX-T para Azure VMware Solution.
 ms.topic: include
 ms.date: 03/13/2021
-ms.openlocfilehash: 477533887629a88f72426a33ed38278636e72fef
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 10b04c8000b8ef440a2a729be671630b4382f3a8
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110064472"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110794961"
 ---
 <!-- Used in configure-dhcp-azure-vmware-solution.md and tutorial-nsx-t-network-segment.md -->
 
@@ -24,7 +24,7 @@ ms.locfileid: "110064472"
 
    :::image type="content" source="../media/nsxt/nsxt-create-segment-specs.png" alt-text="Establezca el nombre del segmento, la puerta de enlace conectada y el tipo y la zona de transporte; a continuación, seleccione Set Subnet (Establecer subred).":::
 
-1. Escriba la dirección IP de la puerta de enlace y, a continuación, seleccione **Add** (Agregar). 
+1. Escriba la dirección IP de la puerta de enlace y, luego, seleccione **Add** (Agregar). 
 
    >[!IMPORTANT]
    >La dirección IP debe estar en un bloque de direcciones RFC1918 que no se superponga, lo que garantiza la conexión a las máquinas virtuales en el nuevo segmento.

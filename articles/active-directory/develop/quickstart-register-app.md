@@ -8,16 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 05/04/2021
+ms.date: 06/14/2021
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
-ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 48d214dfc256a1ed8b770df2ff54646de17b80fe
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 546e7bafe34352ff8968ce1df7cd3386f60eae59
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748752"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075500"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft
 
@@ -31,6 +30,10 @@ La plataforma de identidad de Microsoft realiza la administración de identidade
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure que tenga una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- La cuenta de Azure debe tener permiso para administrar aplicaciones en Azure Active Directory (Azure AD). Cualquiera de los siguientes roles de Azure AD incluye los permisos necesarios:
+  - [Administrador de aplicaciones](../roles/permissions-reference.md#application-administrator)
+  - [Desarrollador de aplicaciones](../roles/permissions-reference.md#application-developer)
+  - [Administrador de aplicaciones en la nube](../roles/permissions-reference.md#cloud-application-administrator)
 - Finalización del inicio rápido [Configuración de un inquilino](quickstart-create-new-tenant.md).
 
 ## <a name="register-an-application"></a>Registro de una aplicación
@@ -113,7 +116,7 @@ Puede agregar certificados y secretos de cliente (una cadena) como credenciales 
 
 ### <a name="add-a-certificate"></a>Incorporación de un certificado
 
-Un certificado, que a veces se denomina _clave pública_, es el tipo de credenciales recomendado. Proporciona más garantía que un secreto de cliente. Para más información sobre el uso de un certificado como método de autenticación en la aplicación, consulte [Credenciales de certificado para la autenticación de aplicaciones en la plataforma de identidad de Microsoft](active-directory-certificate-credentials.md).
+Un certificado, que a veces se denomina _clave pública_, es el tipo de credencial recomendado porque se considera más seguro que los secretos de cliente. Para más información sobre el uso de un certificado como método de autenticación en la aplicación, consulte [Credenciales de certificado para la autenticación de aplicaciones en la plataforma de identidad de Microsoft](active-directory-certificate-credentials.md).
 
 1. En Azure Portal, seleccione la aplicación en **Registros de aplicaciones**.
 1. Seleccione **Certificados y secretos** > **Cargar certificado**.
@@ -122,18 +125,20 @@ Un certificado, que a veces se denomina _clave pública_, es el tipo de credenci
 
 ### <a name="add-a-client-secret"></a>Agregar un secreto de cliente
 
-El secreto de cliente también se conoce como _contraseña de la aplicación_. Es un valor de cadena que la aplicación puede usar en lugar de un certificado para la identidad. El secreto de cliente es el más fácil de usar de los dos tipos de credenciales. A menudo se usa durante el desarrollo, pero se considera menos seguro que un certificado. Use certificados cuando las aplicaciones se ejecuten en el entorno de producción.
+El secreto de cliente, a veces denominado _contraseña de aplicación_, es un valor de cadena que la aplicación puede usar en lugar de un certificado a fin de identificarse.
 
-Para más información sobre las recomendaciones de seguridad de aplicaciones, consulte [Procedimientos recomendados y recomendaciones de la plataforma de identidad de Microsoft](identity-platform-integration-checklist.md#security).
+Los secretos de cliente se consideran menos seguros que las credenciales de certificado. Los desarrolladores de aplicaciones a veces usan secretos de cliente durante el desarrollo de aplicaciones locales debido a su facilidad de uso. Sin embargo, debe usar credenciales de certificado para cualquier aplicación que se ejecute en producción.
 
 1. En Azure Portal, seleccione la aplicación en **Registros de aplicaciones**.
 1. Seleccione **Certificados y secretos** > **Nuevo secreto de cliente**.
 1. Agregue una descripción para el secreto de cliente.
-1. Seleccione una duración.
+1. Seleccione una expiración para el secreto o especifique una duración personalizada.
+    - La duración del secreto de cliente se limita a dos años (24 meses) o menos. No se puede especificar una duración personalizada superior a 24 meses.
+    - Microsoft recomienda establecer un valor de expiración de menos de 12 meses.
 1. Seleccione **Agregar**.
 1. _Registre el valor del secreto_ para su uso en el código de la aplicación cliente. Este valor secreto no se _volverá a mostrar_ una vez que abandone esta página.
 
-Por motivos de seguridad, Microsoft limita la creación de secretos de cliente para más de 24 meses y recomienda establecerlo en un valor inferior a 12 meses.
+Para obtener las recomendaciones de seguridad de aplicaciones, consulte [Procedimientos recomendados y recomendaciones de la plataforma de identidad de Microsoft](identity-platform-integration-checklist.md#security).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

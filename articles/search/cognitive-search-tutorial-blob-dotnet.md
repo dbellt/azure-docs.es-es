@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 01/23/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6cbfa01788f1897264b4197798aa5879cf724db3
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 93b5d7059c1d19b3e5130a8e6d360655fa210aba
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104770961"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555959"
 ---
 # <a name="tutorial-use-net-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Contenido de blobs de Azure con capacidad de búsqueda y generado mediante inteligencia artificial con el SDK de .NET
 
-Si tiene texto no estructurado o imágenes en Azure Blob Storage, una [canalización de enriquecimiento con IA](cognitive-search-concept-intro.md) puede extraer la información y crear contenido en escenarios de búsqueda de texto completo o minería de conocimiento. 
+Si tiene imágenes o texto no estructurado en Azure Blob Storage, una [canalización de enriquecimiento con IA](cognitive-search-concept-intro.md) puede extraer la información y crear contenido en escenarios de búsqueda de texto completo o minería de conocimientos. 
 
 En este tutorial, aprenderá a:
 
@@ -60,7 +60,7 @@ Si lo desea, puede descargar el código fuente de este tutorial. El código fuen
 
 ## <a name="1---create-services"></a>1: Creación de servicios
 
-En este tutorial se usa Azure Cognitive Search en la indexación y las consultas, Cognitive Services en el back-end para el enriquecimiento de inteligencia artificial y Azure Blob Storage en la provisión de datos. Este tutorial permanece por debajo de la asignación gratuita de 20 transacciones por indexador al día en Cognitive Services, por lo que los únicos servicios que tiene que crear son la búsqueda y el almacenamiento.
+En este tutorial se usa Azure Cognitive Search para la indexación y las consultas, Cognitive Services en el back-end para el enriquecimiento con IA y Azure Blob Storage para proporcionar los datos. Este tutorial permanece por debajo de la asignación gratuita de 20 transacciones por indexador al día en Cognitive Services, por lo que los únicos servicios que tiene que crear son la búsqueda y el almacenamiento.
 
 Si es posible, cree los dos en la misma región y grupo de recursos para la proximidad y la capacidad de administración. En la práctica, la cuenta de Azure Storage puede estar en cualquier región.
 
@@ -297,7 +297,7 @@ En esta sección, definirá un conjunto de pasos de enriquecimiento que quiere a
 
 * [División de texto](cognitive-search-skill-textsplit.md) para dividir contenido grande en fragmentos más pequeños antes de llamar a la aptitud de extracción de frases clave y a la aptitud de reconocimiento de entidades. La extracción de frases clave y el reconocimiento de entidades aceptan entradas de 50 000 caracteres, o menos. Algunos de los archivos de ejemplo deben dividirse para no superar este límite.
 
-* [Reconocimiento de entidades](cognitive-search-skill-entity-recognition.md) para extraer los nombres de las organizaciones del contenido del contenedor de blobs.
+* [Reconocimiento de entidades](cognitive-search-skill-entity-recognition-v3.md) para extraer los nombres de las organizaciones del contenido del contenedor de blobs.
 
 * [Extracción de frases clave](cognitive-search-skill-keyphrases.md) para extraer las frases clave principales.
 

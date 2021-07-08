@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 682394329205d74859c1af0c0a68a37539da7872
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68669418a62daad2c2c5d1b9f44f66c1a5b7ebb8
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98881034"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111904092"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Tutorial: Migración de datos locales a un almacenamiento en la nube con AzCopy
 
@@ -56,13 +56,13 @@ Descargue el archivo ejecutable AzCopy V10.
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
-- [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
+- [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
 Coloque el archivo AzCopy en cualquier lugar en el equipo. Agregue la ubicación del archivo a la variable de la ruta de acceso del sistema para que pueda hacer referencia a este archivo ejecutable desde cualquier carpeta del equipo.
 
 ## <a name="authenticate-with-azure-ad"></a>Autenticación mediante Azure Active Directory
 
-En primer lugar, asigne el rol de [Colaborador de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) a su identidad. Consulte [Uso de Azure Portal para asignar un rol de Azure para el acceso a datos de blobs y colas](./storage-auth-aad-rbac-portal.md).
+En primer lugar, asigne el rol de [Colaborador de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) a su identidad. Consulte [Asignación de un rol de Azure para acceder a datos de blobs](../blobs/assign-azure-role-data-access.md).
 
 A continuación, abra un símbolo del sistema, escriba el siguiente comando y presione la tecla ENTRAR.
 

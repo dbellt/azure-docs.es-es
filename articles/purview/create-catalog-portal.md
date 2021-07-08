@@ -9,12 +9,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 158eed6d287fa384023defbb20a7a1c39ea3d838
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 7c75e550c1987302559fb07e3785686244d128a0
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728597"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060991"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Inicio rápido: Creación de una cuenta de Azure Purview en Azure Portal
 
@@ -87,7 +87,7 @@ En este inicio rápido, creará una cuenta de Azure Purview.
 
     1. [Cree una asignación de directiva](../governance/policy/assign-policy-portal.md) mediante la directiva personalizada creada.
 
-        [ ![Captura de pantalla que muestra cómo crear una asignación de directiva](./media/create-catalog-portal/policy-assignment.png)](./media/create-catalog-portal/policy-assignment.png#lightbox)
+       :::image type="content" source="./media/create-catalog-portal/policy-assignment.png" alt-text="Captura de pantalla que muestra cómo crear una asignación de directiva" lightbox="./media/create-catalog-portal/policy-assignment.png":::
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -125,8 +125,12 @@ Si fuera necesario, siga estos pasos para configurar una suscripción para que A
     1. Seleccione un **grupo de recursos**.
     1. Escriba un **nombre de cuenta de Purview** para el catálogo. No se permiten espacios ni símbolos.
     1. Elija un valor en **Location** (Ubicación) y, después, seleccione **Next: Configuration** (Siguiente: Configuración).
-1. En la pestaña **Configuration** (Configuración) seleccione el **tamaño de plataforma** que desee, los valores permitidos son 4 unidades de capacidad (CU) y 16 CU. Seleccione **Siguiente: Etiquetas**.
-1. En la pestaña **Tags** (Etiquetas), puede agregar una o varias etiquetas. Estas etiquetas solo se usan en Azure Portal, no en Azure Purview. 
+1. En la pestaña **Configuration** (Configuración) seleccione el **tamaño de plataforma** que desee, los valores permitidos son 4 unidades de capacidad (CU) y 16 CU. Opcionalmente, proporcione otro nombre para el grupo de recursos administrado de Azure Purview. Seleccione **Siguiente: Etiquetas**.
+
+    > [!Note] 
+    > El [grupo de recursos administrado](create-catalog-portal.md#azure-purview-managed-resources) contendrá una cuenta de almacenamiento administrada y un espacio de nombres de EventHub dedicado y usado por la cuenta de Azure Purview.
+
+3. En la pestaña **Tags** (Etiquetas), puede agregar una o varias etiquetas. Estas etiquetas solo se usan en Azure Portal, no en Azure Purview. 
 
     > [!Note] 
     > Si tiene **Azure Policy** y necesita agregar una excepción, como se hace en **Requisitos previos**, debe agregar la etiqueta correcta. Por ejemplo, puede agregar la etiqueta `resourceBypass`: :::image type="content" source="./media/create-catalog-portal/add-purview-tag.png" alt-text="Agregar una etiqueta a la cuenta de Purview.":::
@@ -167,6 +171,13 @@ Si al hacer clic en Agregar aparecen dos opciones y aparecen ambas marcadas (des
 1. En **Select** (Seleccionar), escriba el nombre del usuario, grupo de Azure Active Directory o entidad de servicio que desee asignar y haga clic en su nombre en el panel de resultados.
 
 1. Haga clic en **Guardar**.
+
+## <a name="azure-purview-managed-resources"></a>Recursos administrados de Azure Purview
+Durante la implementación de una cuenta de Azure Purview, también se implementa un nuevo grupo de recursos administrado con una nueva cuenta de Azure Storage y un nuevo espacio de nombres de EventHub junto con la cuenta de Azure Purview dentro de la suscripción de Azure. Mientras tiene lugar la implementación, tiene la opción de elegir una convención de nomenclatura diferente para el grupo de recursos administrado.
+
+Estos recursos son esenciales para el funcionamiento de la cuenta de Azure Purview y se usan para contener datos temporales hasta que la información se ingiere en el catálogo de datos de Azure Purview. 
+
+Una asignación de denegación se agrega automáticamente al grupo de recursos administrado para todas las entidades de seguridad, siendo la identidad administrada de Azure Purview la única exclusión para permitir que Azure Purview administre los recursos (cuenta de almacenamiento, espacio de nombres del centro de eventos) dentro del grupo de recursos; por lo tanto, no puede quitar ni modificar el grupo de recursos administrado, los recursos administrados o su contenido en el plano de datos. Sin embargo, el grupo de recursos administrado y su contenido se eliminarán automáticamente cuando se elimine la cuenta de Purview. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

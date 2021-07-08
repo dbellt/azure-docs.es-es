@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/27/2020
+ms.date: 06/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 383b49a7363fdca9327d419f5bed092d489a95d5
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 7f2658261e89ab82c59cdb9b3491766e95491c92
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104951817"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985242"
 ---
 # <a name="tutorial-integrate-wandera-radar-admin-with-azure-active-directory"></a>Tutorial: Integración de Wandera RADAR Admin con Azure Active Directory
 
@@ -26,9 +26,7 @@ En este tutorial, aprenderá a integrar Wandera RADAR Admin con Azure Active D
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Wandera RADAR Admin con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -39,57 +37,57 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* El Wandera RADAR Admin admite el inicio de sesión único iniciado por el **proveedor de identidades**.
-* Una vez que ha configurado Wandera RADAR Admin, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Wandera RADAR Admin admite el inicio de sesión único iniciado por **IDP**.
 
-## <a name="adding-wandera-radar-admin-from-the-gallery"></a>Adición de Wandera RADAR Admin desde la galería
+> [!NOTE]
+> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
+
+## <a name="add-wandera-radar-admin-from-the-gallery"></a>Adición de Wandera RADAR Admin desde la galería
 
 Para configurar la integración de Wandera RADAR Admin en Azure AD, es preciso agregarlo desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Wandera RADAR Admin** en el cuadro de búsqueda.
 1. Seleccione **Wandera RADAR Admin** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-
-## <a name="configure-and-test-azure-ad-sso"></a>Configuración y prueba del inicio de sesión único de Azure AD
+## <a name="configure-and-test-azure-ad-sso-for-wandera-radar-admin"></a>Configuración y prueba del inicio de sesión único de Azure AD para Wandera RADAR Admin
 
 Configure y pruebe el inicio de sesión único de Azure AD con Wandera RADAR Admin mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de Wandera RADAR Admin.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Wandera RADAR Admin, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Wandera RADAR Admin, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-   * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-   * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+   1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+   1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Wandera RADAR Admin](#configure-wandera-radar-admin-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
-   * **[Creación de un usuario de prueba de Wandera RADAR Admin](#create-wandera-radar-admin-test-user)** , para tener un homólogo de B.Simon en Wandera RADAR Admin que esté vinculado a la representación del usuario en Azure AD.
+   1. **[Creación de un usuario de prueba de Wandera RADAR Admin](#create-wandera-radar-admin-test-user)** , para tener un homólogo de B.Simon en Wandera RADAR Admin que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Wandera RADAR Admin**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de la aplicación **Wandera RADAR Admin**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, seleccione **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://radar.wandera.com/saml/acs/<tenant id>`
+    En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://radar.wandera.com/saml/acs/<TENANT_ID>`
 
     > [!NOTE]
     > Este valor no es real. Actualícelo con la dirección URL de respuesta real. Póngase en contacto con el [equipo de soporte técnico al cliente de Wandera RADAR Admin](https://www.wandera.com/about-wandera/contact/#supportsection) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal. Reemplace cuidadosamente la parte <tenant id> de la dirección URL anterior por el identificador de inquilino mostrado en la página **Configuración** > **Administración** > **Inicio de sesión único** de su cuenta de Wandera.
-
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Certificado de firma de SAML** y modificar la configuración.
+1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono con forma de lápiz para abrir el cuadro de diálogo **Certificado de firma de SAML** y editar la configuración.
 
     ![Opción de firma](common/signing-option.png)
 
@@ -120,15 +118,9 @@ En esta sección, va a permitir que B.Simon acceda a Wandera RADAR Admin mediant
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **Wandera RADAR Admin**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ## <a name="configure-wandera-radar-admin-sso"></a>Configuración del inicio de sesión único de Wandera RADAR Admin
@@ -145,7 +137,7 @@ En esta sección, va a permitir que B.Simon acceda a Wandera RADAR Admin mediant
 
 4. En la esquina superior derecha de la página, haga clic en **Configuración** > **Administración** > **Inicio de sesión único** y, a continuación, active la opción **Habilitar SAML 2.0** para realizar los pasos siguientes.
 
-    ![Configuración de Wandera RADAR Admin](./media/wandera-tutorial/config01.png)
+    ![Configuración de Wandera RADAR Admin](./media/wandera-tutorial/configure.png)
 
     a. Haga clic en **O bien escriba manualmente los campos requeridos**.
 
@@ -161,14 +153,12 @@ En esta sección, creará un usuario llamado B.Simon en Wandera RADAR Admin. Tra
 
 ## <a name="test-sso"></a>Prueba de SSO
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
-Al hacer clic en el icono de Wandera RADAR Admin en el panel de acceso, debería iniciar sesión automáticamente en la versión de Wandera RADAR Admin para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Haga clic en Probar esta aplicación en Azure Portal; debería iniciar sesión automáticamente en la instancia de Wandera RADAR Admin para la que configuró el inicio de sesión único.
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Wandera RADAR Admin en Aplicaciones, debería iniciar sesión automáticamente en la instancia de Wandera RADAR Admin para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+Una vez que ha configurado Wandera RADAR Admin, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

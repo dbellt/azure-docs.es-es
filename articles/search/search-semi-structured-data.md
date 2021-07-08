@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 01/25/2021
-ms.openlocfilehash: a7a010e3c60d6b96947597878fcd870e9845b2b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a17356495eea160134f80d57527a814b8fda4ee
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98746143"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111560301"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Tutorial: Indexación de blobs JSON de Azure Storage con REST
 
-Azure Cognitive Search puede indexar documentos y matrices JSON en Azure Blob Storage mediante un [indexador](search-indexer-overview.md) que sabe cómo leer datos semiestructurados. Los datos semiestructurados contienen etiquetas o marcas que separan el contenido dentro de los datos. Dividen la diferencia entre datos no estructurados, que se deben indexar completamente, y datos estructurados formalmente que se ajustan a un modelo de datos, como un esquema de base de datos relacional, que se pueden indexar por campo.
+Azure Cognitive Search puede indexar documentos y matrices JSON en Azure Blob Storage mediante un [indexador](search-indexer-overview.md) que sabe leer datos semiestructurados. Los datos semiestructurados contienen etiquetas o marcas que separan el contenido dentro de los datos. Dividen la diferencia entre datos no estructurados, que se deben indexar completamente, y datos estructurados formalmente que se ajustan a un modelo de datos, como un esquema de base de datos relacional, que se pueden indexar por campo.
 
 En este tutorial se usa Postman y las [API REST de Search](/rest/api/searchservice/) para realizar las siguientes tareas:
 
@@ -44,7 +44,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="1---create-services"></a>1: Creación de servicios
 
-En este tutorial se usa Azure Cognitive Search en la indexación y las consultas y Azure Blob Storage en la provisión de datos. 
+En este tutorial se usa Azure Cognitive Search en la indexación y en las consultas, y Azure Blob Storage para proporcionar los datos. 
 
 Si es posible, cree los dos en la misma región y grupo de recursos para la proximidad y la capacidad de administración. En la práctica, la cuenta de Azure Storage puede estar en cualquier región.
 
@@ -88,7 +88,7 @@ Una vez finalizada la carga, los archivos deberían aparecer en su propia subcar
 
 El siguiente recurso es Azure Cognitive Search, que se puede [crear en el portal](search-create-service-portal.md). Puede usar el nivel Gratis para completar este tutorial. 
 
-Al igual que con Azure Blob Storage dedique un momento a recopilar la clave de acceso. Además, cuando empiece a estructurar las solicitudes, deberá proporcionar el punto de conexión y la clave de la API de administración que se usan para autenticar cada solicitud.
+Al igual que con Azure Blob Storage, dedique un momento a recopilar la clave de acceso. Además, cuando empiece a estructurar las solicitudes, deberá proporcionar el punto de conexión y la clave de la API de administración que se usan para autenticar cada solicitud.
 
 ### <a name="get-a-key-and-url"></a>Obtención de una clave y una dirección URL
 

@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 81005a3032355f566aef2a6794cf2ec5038b0dd8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c9ff33fa1600043aaae8b8ffc6c1f9dc5252bd65
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98737123"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111420813"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Copia de seguridad de una máquina virtual en Azure con PowerShell
 
@@ -149,6 +149,10 @@ Ejecute un trabajo de copia de seguridad a petición de la siguiente manera:
     ```
 
 2. Si el estado del trabajo es **Completed**, la máquina virtual está protegida y se ha almacenado un punto de recuperación completa.
+
+## <a name="manage-vm-backups"></a>Administrar copias de seguridad de máquina virtual
+
+Si quiere realizar más acciones, como cambiar la directiva, editar la directiva, etc. consulte la [sección de administración de copias de seguridad de máquinas virtuales](backup-azure-vms-automation.md#manage-azure-vm-backups).
 
 ## <a name="clean-up-the-deployment"></a>Limpieza de la implementación
 

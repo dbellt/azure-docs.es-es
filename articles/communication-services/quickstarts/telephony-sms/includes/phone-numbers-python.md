@@ -1,11 +1,14 @@
 ---
-ms.openlocfilehash: e62aed02a0ad5f26ec8fd0a79de5e91269386095
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 61648bc0eab3aba4806cf4594e6fe222ac77f93f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450505"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111993592"
 ---
+> [!NOTE]
+> Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/phone-numbers-quickstart)
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -53,6 +56,8 @@ pip install azure-identity
 ```
 
 La creación de un objeto `DefaultAzureCredential` requiere que tenga `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET` y `AZURE_TENANT_ID` ya establecidos como variables de entorno con sus valores correspondientes en la aplicación de Azure AD registrada.
+
+Para obtener información rápida sobre cómo obtener estas variables de entorno, puede seguir el inicio rápido [Configuración de identidades administradas desde la CLI](../../managed-identity-from-cli.md).
 
 Una vez que haya instalado la biblioteca `azure-identity`, podemos seguir con la autenticación del cliente.
 
@@ -111,7 +116,7 @@ try:
         calling = PhoneNumberCapabilityType.INBOUND,
         sms = PhoneNumberCapabilityType.INBOUND_OUTBOUND
     )
-    search_poller = self.phone_number_client.begin_search_available_phone_numbers(
+    search_poller = phone_numbers_client.begin_search_available_phone_numbers(
         "US",
         PhoneNumberType.TOLL_FREE,
         PhoneNumberAssignmentType.APPLICATION,
@@ -226,5 +231,5 @@ print('Status of the operation: ' + release_poller.status())
 Desde un símbolo del sistema de la consola, vaya al directorio que contiene el archivo phone_numbers_sample.py y ejecute el siguiente comando de Python para ejecutar la aplicación.
 
 ```console
-./phone_numbers_sample.py
+python phone_numbers_sample.py
 ```

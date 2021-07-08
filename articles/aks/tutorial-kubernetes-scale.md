@@ -3,14 +3,14 @@ title: 'Tutorial de Kubernetes en Azure: escalado de una aplicación'
 description: En este tutorial de Azure Kubernetes Service (AKS), obtendrá información sobre cómo escalar los nodos y los pods de Kubernetes e implementar el escalado horizontal automático de pods.
 services: container-service
 ms.topic: tutorial
-ms.date: 01/12/2021
-ms.custom: mvc
-ms.openlocfilehash: a268d39ec514fc7b88b555221ece7dc044ca49ba
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/24/2021
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 0c577a316e5034e4a21599b0806be534c5f6888a
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767518"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110697792"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Escalado de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,15 @@ En tutoriales posteriores, la aplicación Azure Vote se actualiza a una nueva ve
 
 En los tutoriales anteriores se empaquetó una aplicación en una imagen de contenedor. Esta imagen se cargó en Azure Container Registry y el usuario creó un clúster de AKS. Luego la aplicación se implementó en el clúster de AKS. Si no ha realizado estos pasos, pero quiere continuar, comience con el [Tutorial 1: Creación de imágenes de contenedor][aks-tutorial-prepare-app].
 
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
 Para realizar este tutorial es necesario ejecutar la versión 2.0.53, o superior, de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Para realizar este tutorial es preciso ejecutar la versión 5.9.0 de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-InstalledModule -Name Az` para encontrar la versión. Si necesita instalarla o actualizarla, consulte el artículo sobre la [instalación de Azure PowerShell][azure-powershell-install].
+
+---
 
 ## <a name="manually-scale-pods"></a>Escalado manual de pods
 
@@ -67,15 +75,27 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Escalado automático de pods
 
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
 Kubernetes admite el [escalado horizontal automático de pods][kubernetes-hpa] para ajustar el número de pods en una implementación en función del uso de la CPU o de otras métricas de selección. El [servidor de medición][metrics-server] se usa para proporcionar utilización de recursos a Kubernetes y se implementa automáticamente en clústeres de Azure Kubernetes Service de la versión 1.10 o posteriores. Para ver la versión del clúster de Azure Kubernetes Service, use el comando [az aks show][az-aks-show], tal y como se muestra en el ejemplo siguiente:
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion --output table
 ```
 
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Kubernetes admite el [escalado horizontal automático de pods][kubernetes-hpa] para ajustar el número de pods en una implementación en función del uso de la CPU o de otras métricas de selección. El [servidor de medición][metrics-server] se usa para proporcionar utilización de recursos a Kubernetes y se implementa automáticamente en clústeres de Azure Kubernetes Service de la versión 1.10 o posteriores. Para ver la versión del clúster de Azure Kubernetes Service, use el cmdlet [Get-AzAksCluster][get-azakscluster], como se muestra en el ejemplo siguiente:
+
+```azurepowershell
+(Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster).KubernetesVersion
+```
+
+---
+
 > [!NOTE]
 > Si la versión del clúster de Azure Kubernetes Service es anterior a *1.10*, el servidor de métricas no se instala automáticamente. Los manifiestos de instalación del servidor de medición están disponibles como un recurso `components.yaml` en las versiones del servidor de medición, lo que significa que puede instalarlos a través de una dirección URL. Para más información sobre estas definiciones de YAML, consulte la sección de [implementación][metrics-server-github] del archivo Léame.
-> 
+>
 > Instalación de ejemplo:
 > ```console
 > kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
@@ -152,6 +172,8 @@ Si creó el clúster de Kubernetes mediante los comandos en el tutorial anterior
 
 En el ejemplo siguiente, el número de nodos aumenta a tres en el clúster de Kubernetes denominado *myAKSCluster*. El comando tarda unos minutos en completarse.
 
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
 ```azurecli
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 ```
@@ -173,6 +195,43 @@ Cuando el clúster se escaló correctamente, el resultado es similar al ejemplo 
     "vnetSubnetId": null
   }
 ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster | Set-AzAksCluster -NodeCount 3
+```
+
+Cuando el clúster se escaló correctamente, el resultado es similar al ejemplo siguiente:
+
+```output
+ProvisioningState       : Succeeded
+MaxAgentPools           : 100
+KubernetesVersion       : 1.19.9
+DnsPrefix               : myAKSCluster
+Fqdn                    : myakscluster-000a0aa0.hcp.eastus.azmk8s.io
+PrivateFQDN             :
+AgentPoolProfiles       : {default}
+WindowsProfile          : Microsoft.Azure.Commands.Aks.Models.PSManagedClusterWindowsProfile
+AddonProfiles           : {}
+NodeResourceGroup       : MC_myresourcegroup_myAKSCluster_eastus
+EnableRBAC              : True
+EnablePodSecurityPolicy :
+NetworkProfile          : Microsoft.Azure.Commands.Aks.Models.PSContainerServiceNetworkProfile
+AadProfile              :
+ApiServerAccessProfile  :
+Identity                :
+LinuxProfile            : Microsoft.Azure.Commands.Aks.Models.PSContainerServiceLinuxProfile
+ServicePrincipalProfile : Microsoft.Azure.Commands.Aks.Models.PSContainerServiceServicePrincipalProfile
+Id                      : /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myresourcegroup/providers/Micros
+                          oft.ContainerService/managedClusters/myAKSCluster
+Name                    : myAKSCluster
+Type                    : Microsoft.ContainerService/ManagedClusters
+Location                : eastus
+Tags                    : {}
+```
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -202,3 +261,5 @@ Vaya al siguiente tutorial para aprender a actualizar la aplicación en Kubernet
 [az-aks-scale]: /cli/azure/aks#az_aks_scale
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az_aks_show
+[azure-powershell-install]: /powershell/azure/install-az-ps
+[get-azakscluster]: /powershell/module/az.aks/get-azakscluster
