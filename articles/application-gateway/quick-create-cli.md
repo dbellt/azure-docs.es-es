@@ -6,21 +6,24 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 01/19/2021
+ms.date: 06/14/2021
 ms.author: victorh
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 1a691d8ab212dd436b0dc9f7aafbc19a406b12b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 15eb4025ecb6cc4a65d2cf4d72d0f50e8c0bd019
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98601789"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072314"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Inicio rápido: Dirección del tráfico web con Azure Application Gateway: CLI de Azure
 
 En este inicio rápido, usará la CLI de Azure para crear una puerta de enlace de aplicaciones. Luego, lo probará para asegurarse de que funciona correctamente. 
 
 La puerta de enlace de aplicaciones dirige el tráfico web de la aplicación a recursos específicos de un grupo de back-end. Se asignan escuchas a los puertos, se crean reglas y se agregan recursos a un grupo de back-end. Para simplificar, en este artículo se usa una configuración sencilla con una dirección IP de front-end pública, un cliente de escucha básico para hospedar un único sitio en la puerta de enlace de aplicaciones, una regla de enrutamiento de solicitudes básica y dos máquinas virtuales del grupo de back-end.
+
+:::image type="content" source="media/quick-create-portal/application-gateway-qs-resources.png" alt-text="recursos de Application Gateway":::
+
 
 Este inicio rápido también puede completar mediante [Azure PowerShell](quick-create-powershell.md) o [Azure Portal](quick-create-portal.md).
 
@@ -51,14 +54,14 @@ az network vnet create \
   --name myVNet \
   --resource-group myResourceGroupAG \
   --location eastus \
-  --address-prefix 10.0.0.0/16 \
+  --address-prefix 10.21.0.0/16 \
   --subnet-name myAGSubnet \
-  --subnet-prefix 10.0.1.0/24
+  --subnet-prefix 10.21.0.0/24
 az network vnet subnet create \
   --name myBackendSubnet \
   --resource-group myResourceGroupAG \
   --vnet-name myVNet   \
-  --address-prefix 10.0.2.0/24
+  --address-prefix 10.21.1.0/24
 az network public-ip create \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \

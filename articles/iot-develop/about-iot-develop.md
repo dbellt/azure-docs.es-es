@@ -6,12 +6,12 @@ ms.author: rywinter
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 01/11/2021
-ms.openlocfilehash: 38c21ff71971868f6597856c4048ec179faf4e01
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 7b23569b07893ebbecf86336a40e52cd8627851a
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108759443"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590079"
 ---
 # <a name="what-is-azure-iot-device-and-application-development"></a>¿Qué es el desarrollo de aplicaciones y dispositivos Azure IoT?
 
@@ -73,6 +73,5 @@ Un paso importante en el proceso de desarrollo es elegir el conjunto de opciones
 Para más información sobre cómo seleccionar una plataforma de aplicaciones y herramientas, consulte [Introducción: opciones de conexión para desarrolladores de dispositivos Azure IoT](concepts-overview-connection-options.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Seleccione la series de inicio rápido que sea más importante para el rol de desarrollo. En estos artículos se muestran los aspectos básicos de la creación de una aplicación Azure IoT para hospedar dispositivos, del uso de un SDK, de la conexión de un dispositivo y del envío de datos de telemetría.  
-- Para el desarrollo de aplicaciones de dispositivos: [Inicio rápido: Envío de datos de telemetría desde un dispositivo a Azure IoT Central](quickstart-send-telemetry-central.md)
-- Para el desarrollo de dispositivos insertados: [Introducción al desarrollo de dispositivos insertados Azure IoT](quickstart-device-development.md)
+Seleccione una de las series de inicio rápido de desarrollo insertado o desarrollo de aplicaciones que sea más importante para su rol de desarrollo. En estos artículos se muestran los aspectos básicos de la creación de una aplicación Azure IoT para hospedar dispositivos, del uso de un SDK, de la conexión de un dispositivo y del envío de datos de telemetría.  
+- [Desarrollo de dispositivos de Azure IoT](index.yml)

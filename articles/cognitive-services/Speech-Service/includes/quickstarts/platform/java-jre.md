@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.custom: devx-track-java
 ms.author: erhopf
-ms.openlocfilehash: c58132cfa422eae39fd5f4030afb2ff004c0e71d
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: d5780c6ad924e8a6517837dff23e3a4e7ae4d0e1
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100551644"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111546480"
 ---
 En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para Java 8 JRE de 64 bits. Si desea simplemente que el nombre del paquete comience por su cuenta, el SDK de Java no está disponible en el repositorio central de Maven. Si usa Gradle o un archivo de dependencia `pom.xml`, debe agregar un repositorio personalizado que apunte a `https://csspeechstorage.blob.core.windows.net/maven/` (consulte la siguiente información sobre el nombre del paquete).
 
@@ -34,34 +34,31 @@ En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-ser
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- En Windows, necesita [Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) para su plataforma. Durante la primera instalación es posible que deba reiniciar.
-
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) o [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 - [IDE de Java para Eclipse](https://www.eclipse.org/downloads/) (es necesario tener ya instalado Java)
-- Las plataformas Linux admitidas requerirán la instalación de determinadas bibliotecas (`libssl` para la compatibilidad con la capa de sockets seguros y `libasound2` para la compatibilidad con el audio). Consulte a continuación su distribución para saber cuáles son los comandos necesarios para instalar las versiones correctas de estas bibliotecas.
 
-  - En Ubuntu y Debian, ejecute los siguientes comandos para instalar los paquetes requeridos:
+- En Windows, necesita [Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) para su plataforma. Durante la primera instalación es posible que deba reiniciar.
 
-    ```sh
-    sudo apt-get update
-    sudo apt-get install build-essential libssl1.0.0 libasound2
-    ```
+- En Linux, consulte los [requisitos del sistema y las instrucciones de configuración](~/articles/cognitive-services/speech-service/speech-sdk.md#get-the-speech-sdk).
 
-    Si libssl 1.0.0 no está disponible, instale libssl 1.0. x (donde x es mayor que 0) o libssl 1.1.
+## <a name="gradle-config"></a>Configuración de Gradle
 
-  - En RHEL o CentOS, ejecute los siguientes comandos para instalar los paquetes necesarios:
+Las configuraciones de Gradle requieren un repositorio personalizado y una referencia explícita a la extensión `.jar` de las dependencias. 
 
-    ```sh
-    sudo yum update
-    sudo yum install alsa-lib java-1.8.0-openjdk-devel openssl
-    ```
+```groovy
+// build.gradle
 
-> [!NOTE]
-> - En RHEL/CentOS 7, siga las instrucciones sobre [cómo configurar RHEL/CentOS 7 para el SDK de voz](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
-> - En RHEL/CentOS 8, siga las instrucciones sobre [cómo configurar OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+repositories {
+    maven {
+        url "https://csspeechstorage.blob.core.windows.net/maven/"
+    }
+}
 
-- En Windows, necesita [Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para su plataforma. Tenga en cuenta que si es la primera vez que instala este paquete, puede que deba reiniciar Windows antes de seguir con esta guía.
+dependencies {
+    implementation group: 'com.microsoft.cognitiveservices.speech', name: 'client-sdk', version: "1.17.0", ext: "jar"
+}
+```
 
 ## <a name="create-an-eclipse-project-and-install-the-speech-sdk"></a>Creación de un proyecto de Eclipse e instalación del SDK de Voz
 

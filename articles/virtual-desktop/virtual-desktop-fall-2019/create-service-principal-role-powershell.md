@@ -1,35 +1,35 @@
 ---
-title: 'Asignación de roles para entidades de servicio de Windows Virtual Desktop (clásico): Azure'
-description: Creación de entidades de servicio y asignación de roles con PowerShell en la versión preliminar de Windows Virtual Desktop (clásico).
+title: 'Asignación de roles para entidades de servicio de Azure Virtual Desktop (clásico): Azure'
+description: Creación de entidades de servicio y asignación de roles con PowerShell en la versión preliminar de Azure Virtual Desktop (clásico).
 author: Heidilohr
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 535ee2dace742a57877c9673e77bee64fd81c456
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: eacb82408c2981375e599cf29c67b016ba0f3b41
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445047"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749856"
 ---
-# <a name="tutorial-create-service-principals-and-role-assignments-with-powershell-in-windows-virtual-desktop-classic"></a>Tutorial: Creación de entidades de servicio y asignaciones de roles con PowerShell en Windows Virtual Desktop (clásico)
+# <a name="tutorial-create-service-principals-and-role-assignments-with-powershell-in-azure-virtual-desktop-classic"></a>Tutorial: Creación de entidades de servicio y asignaciones de roles con PowerShell en Azure Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager.
+>Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Virtual Desktop para Azure Resource Manager.
 
-Las entidades de servicio son identidades que puede crear en Azure Active Directory para asignar roles y permisos para un propósito específico. En Windows Virtual Desktop puede crear una entidad de servicio para:
+Las entidades de servicio son identidades que puede crear en Azure Active Directory para asignar roles y permisos para un propósito específico. En Azure Virtual Desktop puede crear una entidad de servicio para:
 
-- Automatizar tareas de administración específicas de Windows Virtual Desktop.
-- Usarla como credenciales en lugar de los usuarios necesarios para la autenticación multifactor al ejecutar cualquier plantilla de Azure Resource Manager para Windows Virtual Desktop.
+- Automatizar tareas de administración específicas de Azure Virtual Desktop.
+- Usarla como credenciales en lugar de los usuarios necesarios para la autenticación multifactor al ejecutar cualquier plantilla de Azure Resource Manager para Azure Virtual Desktop.
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Cree una entidad de servicio en Azure Active Directory.
-> * Crear una asignación de roles en Windows Virtual Desktop.
-> * Iniciar sesión en Windows Virtual Desktop con la entidad de servicio.
+> * Crear una asignación de roles en Azure Virtual Desktop.
+> * Iniciar sesión en Azure Virtual Desktop con la entidad de servicio.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -41,7 +41,7 @@ Para poder crear entidades de servicio y asignaciones de roles, necesita hacer t
     Install-Module AzureAD
     ```
 
-2. [Descargue e importe el módulo de PowerShell para Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/).
+2. [Descargue e importe el módulo de PowerShell para Azure Virtual Desktop](/powershell/windows-virtual-desktop/overview/).
 
 3. Seguir todas las instrucciones de este artículo en la misma sesión de PowerShell. Es posible que el proceso no funcione si interrumpe la sesión de PowerShell al cerrar la ventana y volver a abrirla más adelante.
 
@@ -79,13 +79,13 @@ Estas son las tres credenciales que debe anotar y los cmdlets que necesita para 
     $svcPrincipal.AppId
     ```
 
-## <a name="create-a-role-assignment-in-windows-virtual-desktop"></a>Creación de una asignación de roles en Windows Virtual Desktop
+## <a name="create-a-role-assignment-in-azure-virtual-desktop"></a>Creación de una asignación de roles en Azure Virtual Desktop
 
-A continuación debe crear una asignación de roles para que la entidad de servicio pueda iniciar sesión en Windows Virtual Desktop. Asegúrese de que iniciar sesión con una cuenta que tenga permisos para crear la asignación de roles.
+A continuación debe crear una asignación de roles para que la entidad de servicio pueda iniciar sesión en Azure Virtual Desktop. Asegúrese de que iniciar sesión con una cuenta que tenga permisos para crear la asignación de roles.
 
-En primer lugar y, si aún no lo ha hecho, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/) que se usará en la sesión de PowerShell.
+En primer lugar y, si aún no lo ha hecho, descargue e importe el [módulo de PowerShell para Azure Virtual Desktop](/powershell/windows-virtual-desktop/overview/) que se usará en la sesión de PowerShell.
 
-Ejecute los siguientes cmdlets de PowerShell para conectarse a Windows Virtual Desktop y mostrar los inquilinos.
+Ejecute los siguientes cmdlets de PowerShell para conectarse a Azure Virtual Desktop y mostrar los inquilinos.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -95,24 +95,24 @@ Get-RdsTenant
 Cuando encuentre el nombre del inquilino para el que desea crear una asignación de roles, úselo en el siguiente cmdlet:
 
 ```powershell
-$myTenantName = "<Windows Virtual Desktop Tenant Name>"
+$myTenantName = "<Azure Virtual Desktop Tenant Name>"
 New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
 ```
 
 ## <a name="sign-in-with-the-service-principal"></a>Inicio de sesión con la entidad de servicio
 
-Después de crear una asignación de roles para la entidad de servicio, asegúrese de que esta puede iniciar sesión en Windows Virtual Desktop mediante la ejecución del siguiente cmdlet:
+Después de crear una asignación de roles para la entidad de servicio, asegúrese de que esta puede iniciar sesión en Azure Virtual Desktop mediante la ejecución del siguiente cmdlet:
 
 ```powershell
 $creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $creds -ServicePrincipal -AadTenantId $aadContext.TenantId.Guid
 ```
 
-Una vez iniciada la sesión, pruebe algunos cmdlets de PowerShell en Windows Virtual Desktop con la entidad de servicio para asegurarse de que todo funciona.
+Una vez iniciada la sesión, pruebe algunos cmdlets de PowerShell en Azure Virtual Desktop con la entidad de servicio para asegurarse de que todo funciona.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que ha creado la entidad de servicio y le ha asignado un rol en el inquilino de Windows Virtual Desktop, puede usarla para crear un grupo host. Para más información acerca de los grupos host, continúe con el tutorial de creación de un grupo host en Windows Virtual Desktop.
+Una vez que ha creado la entidad de servicio y le ha asignado un rol en el inquilino de Azure Virtual Desktop, puede usarla para crear un grupo host. Para más información acerca de los grupos host, continúe con el tutorial de creación de un grupo host en Azure Virtual Desktop.
 
  > [!div class="nextstepaction"]
  > [Creación de un grupo host con Azure Marketplace](create-host-pools-azure-marketplace-2019.md)

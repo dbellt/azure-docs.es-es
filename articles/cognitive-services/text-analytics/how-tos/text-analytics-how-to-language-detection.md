@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 04/02/2021
+ms.date: 06/10/2021
 ms.author: aahi
-ms.openlocfilehash: b1af48aa2aad3daa37a3ca4073d44574b5b05e6c
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c9ff3bdc7e7076846ffb44239bf5654512f88eea
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742128"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967964"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Ejemplo: Detectar idioma con Text Analytics
 
@@ -303,3 +303,4 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo de la detecc
 * [Información general de Text Analytics](../overview.md)
 * [Uso de la biblioteca cliente de Text Analytics](../quickstarts/client-libraries-rest-api.md)
 * [Novedades](../whats-new.md)
+* [Versiones del modelo](../concepts/model-versioning.md)

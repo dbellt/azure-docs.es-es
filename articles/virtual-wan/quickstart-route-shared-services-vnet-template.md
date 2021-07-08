@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido: Enrutamiento a servicios compartidos mediante una plantilla de ARM'
 titleSuffix: Azure Virtual WAN
-description: Este inicio rápido muestra cómo configurar rutas para acceder a una red virtual de servicios compartidos con una carga de trabajo a la que desea que accedan cada red virtual y rama mediante una plantilla de Azure Resource Manager (ARM).
+description: Aprenda a configurar rutas para acceder a una red virtual de servicios compartidos con una carga de trabajo a la que quiere que accedan cada red virtual y rama mediante una plantilla de Azure Resource Manager (ARM).
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/05/2021
 ms.author: cherylmc
 ms.custom: subject-armqs
-ms.openlocfilehash: c954db5c75f1cf32833ec5ecb270ef3c4b57c10b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: ff23bf626fe252547d3449cfe318c073e9cc9b6c
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110093185"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112026316"
 ---
 # <a name="quickstart-route-to-shared-services-vnets-using-an-arm-template"></a>Inicio rápido: Enrutamiento a redes virtuales de servicios compartidos mediante una plantilla de ARM
 
@@ -26,14 +26,14 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-route-tables%2fazuredeploy.json)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 * Esta configuración requiere los datos del certificado de clave pública. En el artículo se proporcionan datos de ejemplo. Sin embargo, solo se proporcionan para cumplir los requisitos para crear una puerta de enlace de P2S de la plantilla. Una vez finalizada la plantilla e implementados los recursos, debe actualizar este campo con sus propios datos de certificado para que la configuración funcione. Consulte [Certificados de VPN del usuario](certificates-point-to-site.md#cer).
 
 ## <a name="review-the-template"></a><a name="review"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templatesvirtual-wan-with-route-tables). La plantilla de este artículo es demasiado larga para mostrarse aquí. Para ver la plantilla, consulte [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/virtual-wan-with-route-tables/azuredeploy.json).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/virtual-wan-with-route-tables). La plantilla de este artículo es demasiado larga para mostrarse aquí. Para ver la plantilla, consulte [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/virtual-wan-with-route-tables/azuredeploy.json).
 
 En este inicio rápido creará una implementación de varios centros de conectividad de Azure Virtual WAN con todas las puertas de enlace y conexiones de red virtual. La lista de parámetros de entrada se ha reducido al mínimo a propósito. El esquema de direccionamiento IP se puede cambiar si se modifican las variables de la plantilla. El escenario se explica con más detalle en el artículo [Escenario: Enrutamiento a redes virtuales de servicios compartidos](scenario-shared-services-vnet.md).
 

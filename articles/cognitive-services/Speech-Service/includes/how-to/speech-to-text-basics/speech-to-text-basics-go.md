@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/15/2020
 ms.author: trbye
-ms.openlocfilehash: bced384e8ba88fb83499e78c4e0d60e811ae32df
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 618074d696804171ee5e05655c1e15557789fac9
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99214168"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110165986"
 ---
 Una de las características principales del servicio de voz es la capacidad para reconocer y transcribir la voz humana (que a menudo se denomina "conversión de voz en texto"). En este inicio rápido, aprenderá a usar el SDK de voz en sus aplicaciones y productos para realizar una conversión de voz en texto de alta calidad.
 
@@ -99,7 +99,7 @@ func main() {
 }
 ```
 
-Ejecute los siguientes comandos para crear un archivo go.mod que vincule a los componentes hospedados en Github.
+Ejecute los siguientes comandos para crear un archivo go.mod que vincule a los componentes hospedados en GitHub.
 
 ```cmd
 go mod init quickstart
@@ -179,7 +179,7 @@ func main() {
 }
 ```
 
-Ejecute los siguientes comandos para crear un archivo go.mod que vincule a los componentes hospedados en Github.
+Ejecute los siguientes comandos para crear un archivo go.mod que vincule a los componentes hospedados en GitHub.
 
 ```cmd
 go mod init quickstart

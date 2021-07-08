@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial de clasificación de imágenes: Entrenamiento de modelos'
+title: 'Tutorial: Entrenamiento de un ejemplo de Jupyter Notebook'
 titleSuffix: Azure Machine Learning
-description: Use Azure Machine Learning para entrenar un modelo de clasificación de imágenes con scikit-learn en un cuaderno de Jupyter Notebook en Python. Este tutorial es la primera parte de una serie de dos.
+description: Use Azure Machine Learning para entrenar un modelo de clasificación de imágenes con scikit-learn en un cuaderno de Jupyter Notebook en Python basado en la nube. Este tutorial es la primera parte de una serie de dos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,15 +9,15 @@ ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.date: 04/26/2021
-ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 41f7870bdab36de69251bb1274472ec16d05d0a5
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.custom: seodec18, devx-track-python, contperf-fy21q4
+ms.openlocfilehash: 544b3ac4702f8ecaa66735f8e0b836cc6f004f42
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773870"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028260"
 ---
-# <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutorial: Entrenamiento de modelos de clasificación de imágenes con los datos MNIST y scikit-learn 
+# <a name="tutorial-train-an-image-classification-model-with-an-example-jupyter-notebook"></a>Tutorial: Entrenamiento de un modelo de clasificación de imágenes con un ejemplo de Jupyter Notebook 
 
 En este tutorial, entrenará un modelo de aprendizaje automático en los recursos de proceso remotos. Usará el flujo de trabajo de entrenamiento e implementación de Azure Machine Learning en un cuaderno de Jupyter Notebook en Python.  A continuación, puede utilizar el cuaderno como plantilla para entrenar su propio modelo de Machine Learning con sus propios datos. Este tutorial es la **primera de dos partes**.  
 
@@ -77,7 +77,7 @@ Complete la configuración del experimento siguiente y ejecute los pasos de Azur
 
 ### <a name="open-the-cloned-notebook"></a><a name="open"></a> Apertura del cuaderno clonado
 
-1. Abra la carpeta **tutorials** que se acaba de cerrar en la sección **User files** (Archivos de usuario).
+1. Abra la carpeta **tutorials** que se acaba de clonar en la sección **User files**.
 
     > [!IMPORTANT]
     > Verá los cuadernos en la carpeta **samples**, pero no puede ejecutar cuadernos desde aquí. Para ejecutar un cuaderno, asegúrese de que abre la versión clonada de este en la sección **User Files** (Archivos de usuario).
@@ -124,7 +124,7 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 
 ### <a name="connect-to-a-workspace"></a>Conexión a un área de trabajo
 
-Cree un objeto de área de trabajo desde el área de trabajo existente. `Workspace.from_config()` lee el archivo **config.json** y carga los detalles en un objeto denominado `ws`:
+Cree un objeto de área de trabajo desde el área de trabajo existente. `Workspace.from_config()` lee el archivo **config.json** y carga los detalles en un objeto denominado `ws`.  La instancia de proceso tiene una copia de este archivo guardada en el directorio raíz.  Si ejecuta el código en otro lugar, tendrá que [crear el archivo](how-to-configure-environment.md#workspace).
 
 ```python
 # load workspace configuration from the config.json file in the current folder.

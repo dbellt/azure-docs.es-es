@@ -4,17 +4,17 @@ titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 11/09/2020
 ms.author: mbullwin
-ms.openlocfilehash: b6bea3fdc47bfbb74c18161a400d59453540b14d
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: cfcf01bd95452002591c657019c59491d3e20bc2
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106081008"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111894525"
 ---
 [Documentación de referencia](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-metricsadvisor/latest/azure.ai.metricsadvisor.html) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/metricsadvisor/azure-ai-metricsadvisor/README.md) | [Paquete (PiPy)](https://pypi.org/project/azure-ai-metricsadvisor/) | [Ejemplos](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/metricsadvisor/azure-ai-metricsadvisor/samples/README.md)
 
@@ -248,7 +248,7 @@ return detection_config
 
 ## <a name="create-a-hook"></a>Creación de un enlace
 
-En un método nuevo, cree instrucciones de importación como las del ejemplo siguiente. Cree un cliente con sus claves y su punto de conexión, y use `client.create_hook()` para crear un enlace. Escriba una descripción, una lista de correos electrónicos a los que enviar la alerta y un vínculo externo para recibir la alerta.  
+En un método nuevo, cree instrucciones de importación como las del ejemplo siguiente. Cree un cliente con sus claves y su punto de conexión, y use `client.create_hook()` para crear un enlace. Escriba una descripción, la lista de direcciones de correo electrónico a los que se enviará la alerta y el vínculo externo que aparecerá en la alerta.
 
 ```python
 def sample_create_hook():
@@ -267,7 +267,7 @@ hook = client.create_hook(
         name="email hook",
         description="my email hook",
         emails_to_alert=["alertme@alertme.com"],
-        external_link="https://example.com/handleAlerts", # you must enter a valid webhook url to post the alert payload
+        external_link="https://example.com/handleAlerts"   #A customized field configured by users, which will be displayed in the anomaly alert. It's usually been used to link to a troubleshooting guide to help further diagnose the issue.
     )
 )
 ```

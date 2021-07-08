@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 10/26/2020
+ms.date: 05/17/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: ef04c964f0037fcf36fe376084df75ffa0034957
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 013a59c703d5275278e905314357f32acc211f93
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027567"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067769"
 ---
 # <a name="tutorial-review-your-individual-azure-subscription-bill"></a>Tutorial: Examen de la factura de una suscripción individual a Azure
 
@@ -122,13 +122,13 @@ Los costos que aparecen en el análisis de costos deben coincidir exactamente co
 
 ![Cargos de uso de la factura](./media/review-individual-bill/invoice-usage-charges.png)
 
-## <a name="external-marketplace-services-are-billed-separately"></a>Los servicios de Marketplace externos se facturan por separado
+## <a name="external-marketplace-services"></a>Servicios de externos de Marketplace
 
 <a name="external"></a>
 
 Los servicios externos, o cargos de Azure Marketplace, son para aquellos recursos creados por proveedores de software de otros fabricantes. Estos recursos están disponibles para su uso desde Azure Marketplace. Por ejemplo, un firewall Barracuda es un recurso de Azure Marketplace que ofrecen otros fabricantes. Todos los cargos por el firewall y sus medidores correspondientes aparecerán como cargos por servicios externos.
 
-Los servicios externos se facturan por separado. Los cargos no se muestran en la factura de Azure.
+Los cargos por servicios externos aparecen en una factura independiente.
 
 ### <a name="resources-are-billed-by-usage-meters"></a>Los recursos se facturan por medidores de uso
 
@@ -142,11 +142,11 @@ Por ejemplo, una sola máquina virtual creada en Azure puede tener los siguiente
 - Horas de dirección IP
 - Transferencia de datos de entrada
 - Transferencia de datos de salida
-- Disco administrado estándar
+- Disco administrado Estándar
 - Operaciones de disco administrado estándar
-- E/S estándar: Disco
-- E/S estándar: Lectura de blob en bloques
-- E/S estándar: Escritura de blob en bloques
+- E/S estándar: disco
+- E/S estándar: lectura de blobs en bloques
+- E/S estándar: escritura de blobs en bloques
 - E/S estándar: Eliminación de blob en bloques
 
 Cuando se crea la máquina virtual, cada medidor comienza a emitir registros de uso. Este uso y el precio del medidor se registra en el sistema de medición de Azure.

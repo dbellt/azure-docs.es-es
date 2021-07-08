@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 47b4f36aec9a906317a9704a7d73bf66385d9e88
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a095cee6b2af93358b0e76c39cfc0c04ad454fa
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552123"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408054"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Tutorial: Inicio de sesión de usuarios y llamada a una API protegida desde una aplicación WebAssembly de Blazor
 
@@ -40,7 +40,7 @@ También hay disponible un [tutorial para Blazor Server](tutorial-blazor-server.
 Todas las aplicaciones que utilizan Azure Active Directory (Azure AD) para la autenticación deben registrarse con Azure AD. Siga las instrucciones de [Registro de una aplicación](quickstart-register-app.md) con estas especificaciones:
 
 - Para la opción **Tipos de cuenta admitidos**, seleccione **Solo las cuentas de este directorio organizativo**.
-- Deje la lista desplegable **URI de redirección** establecida en **web** y escriba `https://localhost:5001/authentication/login-callback`. El puerto predeterminado de una aplicación que se ejecuta en Kestrel es 5001. Si la aplicación está disponible en un puerto diferente, especifique el número de puerto en lugar de `5001`.
+- En la lista desplegable **URI de redirección**, seleccione **Aplicación de página única (SPA)** y escriba `https://localhost:5001/authentication/login-callback`. El puerto predeterminado de una aplicación que se ejecuta en Kestrel es 5001. Si la aplicación está disponible en un puerto diferente, especifique el número de puerto en lugar de `5001`.
 
 Una vez que se haya registrado, en **Administrar**, seleccione **Autenticación** > **Implicit grant and hybrid flows** (Concesión implícita y flujos híbridos). Seleccione **Tokens de acceso** y **Tokens de id.** , y haga clic en **Guardar**.
 

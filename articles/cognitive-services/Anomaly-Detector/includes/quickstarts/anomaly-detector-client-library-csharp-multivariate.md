@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2021
 ms.author: mbullwin
-ms.openlocfilehash: 632352e707927cccfb9ccc541ed4b9bd38e2c9c6
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 8f8b51607d9b7b97560393b904195646552dbeb6
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108333514"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110164627"
 ---
-Comience a usar la biblioteca cliente multivariante de Anomaly Detector para .NET. Siga estos pasos para instalar el paquete y empezar a usar los algoritmos proporcionados por el servicio. Las nuevas API de detección de anomalías multivariante permiten a los desarrolladores integrar fácilmente inteligencia artificial avanzada para detectar anomalías de grupos de métricas, sin necesidad de tener conocimientos de aprendizaje automático ni usar datos etiquetados. Las dependencias y correlaciones entre distintas señales se consideran automáticamente como factores clave. De este modo, podrá proteger de forma proactiva los sistemas complejos frente a errores.
+Comience a usar la biblioteca cliente multivariante de Anomaly Detector para C#. Siga estos pasos para instalar el paquete y empezar a usar los algoritmos proporcionados por el servicio. Las nuevas API de detección de anomalías multivariante permiten a los desarrolladores integrar fácilmente inteligencia artificial avanzada para detectar anomalías de grupos de métricas, sin necesidad de tener conocimientos de aprendizaje automático ni usar datos etiquetados. Las dependencias y correlaciones entre distintas señales se consideran automáticamente como factores clave. De este modo, podrá proteger de forma proactiva los sistemas complejos frente a errores.
 
-Utilice la biblioteca cliente multivariante de Anomaly Detector para .NET con el fin de:
+Utilice la biblioteca cliente multivariante de Anomaly Detector para C# con el fin de:
 
 * Detectar anomalías de nivel del sistema para un grupo de series temporales.
 * Cuando una serie temporal individual no ofrece demasiada información y se deben examinar todas las señales para detectar un problema.
@@ -88,6 +88,9 @@ using NUnit.Framework;
 
 En el método `main()` de la aplicación, cree variables para el punto de conexión del recurso de Azure, la clave de API y un origen de datos personalizado.
 
+> [!NOTE]
+> Siempre tendrá la opción de usar una de estas dos claves. Esto es para permitir la rotación de claves segura. Para este inicio rápido, use la primera clave. 
+
 ```csharp
 string endpoint = "YOUR_API_KEY";
 string apiKey =  "YOUR_ENDPOINT";
@@ -96,7 +99,7 @@ string datasource = "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS
 
 Para usar las API multivariantes de Anomaly Detector, primero debe entrenar sus propios modelos. Los datos de entrenamiento son un conjunto de varias series temporales que cumplen los siguientes requisitos:
 
-Cada serie temporal debe ser un archivo CSV con dos columnas (solo dos) y "timestamp" y "value" (todo en minúsculas) como fila de encabezado. Los valores de "timestamp" deben cumplir la norma ISO 8601; los de "value" pueden ser números enteros o decimales con cualquier número de posiciones decimales. Por ejemplo:
+Cada serie temporal debe ser un archivo CSV con dos columnas (solo dos), "timestamp" y "value" (todo en minúsculas) como fila de encabezado. Los valores de "timestamp" deben cumplir la norma ISO 8601; los de "value" pueden ser números enteros o decimales con cualquier número de posiciones decimales. Por ejemplo:
 
 |timestamp | value|
 |-------|-------|
@@ -229,6 +232,9 @@ private async Task<DetectionResult> detectAsync(AnomalyDetectorClient client, st
 
 ## <a name="export-model"></a>Exportación de un modelo
 
+> [!NOTE]
+> El comando de exportación está diseñado para permitir la ejecución de modelos multivariados de Anomaly Detector en un entorno en contenedor. Actualmente, no se admite para el multivariado, pero se agregará una compatibilidad en el futuro.
+
 Para exportar el modelo que ha entrenado anteriormente, cree un `private async Task` denominado `exportAysnc`. Usará `ExportModelAsync` y pasará el identificador del modelo al modelo que desea exportar.
 
 ```csharp
@@ -348,7 +354,14 @@ Ejecute la aplicación con el comando `dotnet run` desde el directorio de la apl
 ```dotnetcli
 dotnet run
 ```
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede eliminar el recurso o grupo de recursos. Al eliminar el grupo de recursos, también se elimina cualquier otro recurso que esté asociado a dicho grupo.
+
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [CLI de Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Procedimientos recomendados multivariante de Anomaly Detector](../../concepts/best-practices-multivariate.md)
+* [¿Qué es Anomaly Detector API?](../../overview-multivariate.md)
+* [Procedimientos recomendados cuando se usa Anomaly Detector API.](../../concepts/best-practices-multivariate.md) 

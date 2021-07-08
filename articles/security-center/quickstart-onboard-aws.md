@@ -7,12 +7,12 @@ ms.date: 01/24/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 2ad3ab8c39d9f9a29e74bd139fb5ddd1e5faeff9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 563d8f3035eb889a2b9d25d563ef57373e4e3aff
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98755151"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537181"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Conexión de las cuentas de AWS a Azure Security Center
 
@@ -183,7 +183,7 @@ Para ver todas las recomendaciones activas de los recursos por tipo de recurso, 
 :::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="Filtro de tipo de recurso de la página de inventario de recursos que muestra las opciones de AWS"::: 
 
 
-## <a name="aws-in-security-center-faq"></a>Preguntas frecuentes sobre AWS en Security Center
+## <a name="faq---aws-in-security-center"></a>Preguntas frecuentes sobre AWS en Security Center
 
 ### <a name="what-operating-systems-for-my-ec2-instances-are-supported"></a>¿Qué sistemas operativos son compatibles con las instancias de EC2?
 

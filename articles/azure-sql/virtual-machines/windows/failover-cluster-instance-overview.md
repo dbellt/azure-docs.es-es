@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 82c5cbc2b938ef8cd27a17da394b467a7f5ba8aa
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 030aadf55f692b19109582fb85320023159005a3
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108755610"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111569429"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,7 +27,7 @@ En este artículo se presentan las diferencias de características cuando se tra
 
 ## <a name="overview"></a>Información general
 
-SQL Server en VM de Azure usa la funcionalidad de clústeres de conmutación por error de Windows Server (WSFC) para proporcionar una alta disponibilidad local mediante redundancia en el nivel de instancia de servidor: una instancia de clúster de conmutación por error (FCI). Una FCI es una instancia única de SQL Server que se instala en los nodos WSFC (o solo en el clúster) y, posiblemente, en varias subredes. En la red, una FCI parece ser una instancia de SQL Server que se ejecuta en un único equipo. Pero la FCI proporciona conmutación por error de un nodo de WSFC a otro si el nodo actual deja de estar disponible.
+SQL Server en VM de Azure usa la funcionalidad de [clústeres de conmutación por error de Windows Server (WSFC)](hadr-windows-server-failover-cluster-overview.md) para proporcionar una alta disponibilidad local mediante redundancia en el nivel de instancia de servidor: una instancia de clúster de conmutación por error (FCI). Una FCI es una instancia única de SQL Server que se instala en los nodos WSFC (o solo en el clúster) y, posiblemente, en varias subredes. En la red, una FCI parece ser una única instancia de SQL Server que se ejecuta en un único equipo. Pero la FCI proporciona conmutación por error de un nodo de WSFC a otro si el nodo actual deja de estar disponible.
 
 El resto del artículo se centra en las diferencias de las instancias de clúster de conmutación por error cuando se usan con SQL Server en VM de Azure. Para más información acerca de la tecnología de clústeres de conmutación por error, consulte: 
 
@@ -148,9 +148,11 @@ Para las soluciones de almacenamiento compartido y de replicación de datos de a
 
 ## <a name="connectivity"></a>Conectividad
 
-Las instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines usan un [nombre de red distribuida (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md) o un [nombre de red virtual (VNN) con Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) para enrutar el tráfico a la instancia de SQL Server, independientemente del nodo que posea actualmente los recursos en clúster. Hay consideraciones adicionales cuando se usan ciertas características y el nombre de red distribuida con una FCI de SQL Server. Consulte [Interoperabilidad de DNN con FCI de SQL Server](failover-cluster-instance-dnn-interoperability.md) para más información. 
+Puede configurar un nombre de red virtual o un nombre de red distribuida para una instancia de clúster de conmutación por error. [Revise las diferencias entre los dos](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn) y, a continuación, implemente un [nombre de red distribuida](failover-cluster-instance-distributed-network-name-dnn-configure.md) o un [nombre de red virtual](failover-cluster-instance-vnn-azure-load-balancer-configure.md) para la instancia de clúster de conmutación por error.
 
-Para más información sobre las opciones de conectividad de clústeres, consulte [Enrutamiento de conexiones de HADR a SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md#connectivity). 
+Se recomienda el nombre de red distribuida, si es posible, ya que la conmutación por error es más rápida, y se eliminan la sobrecarga y el costo de administrar el equilibrador de carga. 
+
+La mayoría de las características de SQL Server funcionan de manera transparente con las FCI cuando se usa el DNN, pero hay determinadas características que pueden exigir una consideración especial. Para más información, consulte [Interoperabilidad de FCI con DNN](failover-cluster-instance-dnn-interoperability.md). 
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -176,7 +178,9 @@ En Azure Virtual Machines, MSDTC no se admite para Windows Server 2016 ni vers
 
 Revise los [procedimientos recomendados de configuración de clústeres](hadr-cluster-best-practices.md) y, después, puede [preparar la VM con SQL Server para la FCI](failover-cluster-instance-prepare-vm.md). 
 
-Para más información, consulte: 
 
-- [Tecnologías de clúster de Windows](/windows-server/failover-clustering/failover-clustering-overview)   
-- [Instancias del clúster de conmutación por error de SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+Para obtener más información, consulte:
+
+- [Clúster de conmutación por error de Windows Server con SQL Server en VM de Azure](hadr-windows-server-failover-cluster-overview.md)
+- [Información general de las instancias de clúster de conmutación por error](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+

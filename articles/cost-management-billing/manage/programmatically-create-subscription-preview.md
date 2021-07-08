@@ -1,24 +1,24 @@
 ---
-title: Creación de suscripciones de Azure mediante programación con las versiones preliminares de las API
-description: Aprenda a crear suscripciones adicionales de Azure mediante programación mediante versiones preliminares de la API REST, la CLI de Azure y Azure PowerShell.
+title: Creación de suscripciones de Azure mediante programación con las API heredadas
+description: Aprenda a crear suscripciones adicionales de Azure mediante programación mediante versiones heredadas de la API REST, la CLI de Azure y Azure PowerShell.
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 06/09/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: d3247a86795b9661196c3264c60b06e7c61d6e23
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: edf57ec72d056f58eaca624b4c91b27a82ad9daf
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107877917"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902063"
 ---
-# <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>Creación de suscripciones de Azure mediante programación con las versiones preliminares de las API
+# <a name="programmatically-create-azure-subscriptions-with-legacy-apis"></a>Creación de suscripciones de Azure mediante programación con las API heredadas
 
-Este artículo le ayuda a crear mediante programación suscripciones de Azure con nuestra API en versión preliminar más antigua. En este artículo, se ofrece información sobre cómo crear suscripciones mediante programación con Azure Resource Manager.
+Este artículo le ayuda a crear mediante programación suscripciones de Azure con nuestra API en versión preliminar heredada. En este artículo, se ofrece información sobre cómo crear suscripciones mediante programación con Azure Resource Manager.
 
 Tenemos nuevos artículos sobre la versión más reciente de la API que se usan con los diferentes tipos de suscripción de los contratos de Azure:
 

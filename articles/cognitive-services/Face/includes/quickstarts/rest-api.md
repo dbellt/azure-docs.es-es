@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 12/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 6e3827ca9f729f1fa231a58a11c829b1ee8a4f44
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 87871be12310782abe172fe308782825ba8e09d0
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108791707"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109858156"
 ---
 Comience a usar el reconocimiento facial mediante Face REST API. El servicio Face le proporciona acceso a algoritmos avanzados para detectar y reconocer rostros humanas en imágenes.
 
@@ -227,9 +227,9 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha aprendido a usar la biblioteca cliente de Face REST API para realizar tareas básicas de reconocimiento facial. A continuación, consulte la documentación de referencia para más información sobre la biblioteca.
+En este inicio rápido, ha aprendido a usar la biblioteca cliente de Face REST API para realizar tareas básicas de reconocimiento facial. A continuación, obtenga información sobre los diferentes modelos de detección de caras y cómo especificar el modelo adecuado para su caso de uso.
 
 > [!div class="nextstepaction"]
-> [Referencia de Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Especificación de una versión del modelo de detección de caras](../../Face-API-How-to-Topics/specify-detection-model.md)
 
 * [¿Qué es el servicio Face?](../../overview.md)

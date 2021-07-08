@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 01/15/2021
+ms.date: 05/25/2021
 ms.custom: designer
-ms.openlocfilehash: 1846b5478c824caa954b85ea6346d773f46b279c
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 73cc893815cf591812c95c8d8b092a4b58697917
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315676"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457655"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implementación de un modelo de Machine Learning con el diseñador
 
@@ -56,8 +56,8 @@ Para implementar la canalización, antes debe convertir la canalización de entr
     * Se agregan los módulos **Web Service Input** (Entrada de servicio web) y **Web Service Output** (Salida de servicio web). Estos módulos muestran dónde entran los datos del usuario en la canalización y dónde se devuelven.
 
     > [!NOTE]
-    > De forma predeterminada, la **entrada de servicio web** esperará el mismo esquema de datos que los datos de entrenamiento usados para crear la canalización predictiva. En este escenario, el precio se incluye en el esquema. Sin embargo, este no se usa como factor durante la predicción.
-    >
+    > De forma predeterminada, la **entrada del servicio web** esperará el mismo esquema de datos que los datos de salida del módulo que se conecta al mismo puerto de bajada que ellos. En este ejemplo, la **entrada del servicio web** y los **datos de precios de automóviles (sin procesar)** se conectan al mismo módulo de bajada, por lo que la **entrada de servicio web** espera el mismo esquema de datos que los **datos de precios de automóviles (sin procesar)** y la columna de variable de destino `price` se incluye en el esquema.
+    > Sin embargo, al puntuar los datos, normalmente no conocerá los valores de las variables de destino. En tal caso, puede quitar la columna de variable de destino de la canalización de inferencia mediante el módulo **Seleccionar columnas de conjunto de datos**. Asegúrese de que la salida de **Seleccionar columnas de conjunto de datos** que quita la columna de variable de destino está conectada al mismo puerto que la salida del módulo **Entrada del servicio web**.
 
 1. Seleccione **Enviar** y use el mismo destino de proceso y el mismo experimento que usó en la parte 1.
 

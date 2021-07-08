@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.custom:
 - devx-track-js
 - mode-api
-ms.openlocfilehash: d2c861757b72f630f88d62ba50723ed1b6fc25ed
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: fb84dd12dd8e7a5b60d77e7a4895ae5b5d67cde6
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110462359"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652279"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-javascript"></a>Envío de mensajes a las colas de Azure Service Bus (JavaScript) y recepción desde allí
 En este tutorial aprenderá a usar el paquete [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) de un programa de JavaScript para enviar mensajes a una cola de Service Bus, y recibirlos de ella.
@@ -37,7 +37,7 @@ npm install @azure/service-bus
 El código de ejemplo siguiente muestra cómo enviar un mensaje a una cola.
 
 1. Abra el editor que prefiera, como [Visual Studio Code](https://code.visualstudio.com/).
-2. Cree un archivo denominado `send.js` y pegue en él el código siguiente. Este código enviará un mensaje a la cola. El mensaje tiene etiqueta (Scientist [Científico]) y cuerpo (Einstein).
+2. Cree un archivo denominado `send.js` y pegue en él el código siguiente. Este código envía los nombres de los científicos como mensajes a la cola.
 
     ```javascript
     const { ServiceBusClient } = require("@azure/service-bus");
@@ -208,6 +208,6 @@ Seleccione la cola en esta página **Información general** para ir a la página
 Consulte la documentación y los ejemplos siguientes: 
 
 - [Biblioteca cliente de Azure Service Bus para JavaScript](https://www.npmjs.com/package/@azure/service-bus)
-- [Ejemplos de JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
-- [Ejemplos de TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [Ejemplos de JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/v7/javascript)
+- [Ejemplos de TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/v7/typescript)
 - [Documentación de referencia de API](/javascript/api/overview/azure/service-bus)

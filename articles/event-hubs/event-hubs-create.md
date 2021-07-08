@@ -3,12 +3,12 @@ title: 'Guía de inicio rápido de Azure: Creación de un centro de eventos medi
 description: En este inicio rápido aprenderá a crear un centro de eventos de Azure mediante Azure Portal.
 ms.topic: quickstart
 ms.date: 05/25/2021
-ms.openlocfilehash: 32a669c08976f1626617b7d17558e2733fa784a5
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 6a483981f1461c738f087c6f9401006319fd0135
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375118"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110617146"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Inicio rápido: Creación de un centro de eventos mediante Azure Portal
 Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información sobre Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).
@@ -55,7 +55,7 @@ Un espacio de nombres de Event Hubs proporciona un único contenedor donde podr�
    1. Escriba el **nombre** del espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.  
    1. Seleccione una **ubicación** para el espacio de nombres.
    1. Elija **Básico** como **plan de tarifa**. Para conocer las diferencias entre los niveles, consulte los artículos [Cuotas y límites](event-hubs-quotas.md), [Event Hubs Prémium](event-hubs-premium-overview.md) y [Event Hubs dedicado](event-hubs-dedicated-overview.md). 
-   1. Deje las **unidades de rendimiento** (para el nivel estándar) o las **unidades de procesamiento** (para el nivel Prémium) tal como están. Las unidades de procesamiento son unidades de capacidad adquiridas previamente. Para información sobre las unidades de rendimiento o las unidades de procesamiento, consulte [Escalabilidad de Event Hubs](event-hubs-scalability.md).  
+   1. Deje las **unidades de rendimiento** (para el nivel estándar) o las **unidades de procesamiento** (para el nivel Prémium) tal como están. Para información sobre las unidades de rendimiento o las unidades de procesamiento, consulte [Escalabilidad de Event Hubs](event-hubs-scalability.md).  
    1. En la parte inferior de la página, seleccione **Revisar y crear**.
       
       ![Creación de un espacio de nombres del centro de eventos](./media/event-hubs-quickstart-portal/create-event-hub1.png)

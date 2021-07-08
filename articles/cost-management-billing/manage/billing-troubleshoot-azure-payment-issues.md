@@ -1,24 +1,24 @@
 ---
 title: Solución de problemas de pago de Azure
-description: Resolución de un problema al actualizar la cuenta de información de pago en el Centro de cuentas o en Microsoft Azure Portal.
+description: Resolución de un problema al actualizar la cuenta de información de pago en Microsoft Azure Portal.
 author: v-miegge
 ms.reviewerr: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 08/20/2020
+ms.date: 05/13/2021
 ms.author: jaserano
-ms.openlocfilehash: 77ca8e8425326cec31fce345600bdd0174ab5f4e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 54aba8ecb56d3c96628c424522ca606a0b04273a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131860"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110481178"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>Solución de problemas de pago de Azure
 
-Puede experimentar problemas o errores al intentar actualizar la cuenta de información de pago en Microsoft Azure Portal o en el centro de cuentas de Azure.
+Puede experimentar problemas o errores al intentar actualizar la cuenta de información de pago en Microsoft Azure Portal.
 
 Para resolver el problema, seleccione a continuación el tema que más se asemeje al error.
 
@@ -30,7 +30,7 @@ Para solucionar problemas relacionados con el rechazo de la tarjeta de crédito,
 
 Es posible que esté usando un identificador de correo electrónico diferente del que usa en las suscripciones.
 
-Para solucionar este problema, vea [Error de inicio de sesión No se encontraron suscripciones en Azure Portal o en el Centro de cuentas de Azure](no-subscriptions-found.md).
+Para solucionar este problema, vea [Error de inicio de sesión No se encontraron suscripciones en Azure Portal](no-subscriptions-found.md).
 
 ## <a name="unable-to-use-a-virtual-or-prepaid-credit-or-debit-card-as-a-payment-method"></a>No se pueden usar tarjetas de crédito o débito virtuales o de prepago como método de pago.
 
@@ -55,7 +55,7 @@ Esto sucede cuando hay un saldo pendiente. Liquide los saldos pendientes antes d
 
 ## <a name="unable-to-make-payment-for-a-subscription"></a>No se puede realizar el pago de una suscripción
 
-Si recibe los mensajes de error *El pago está vencido. Hay un problema con el método de pago* o *Lo sentimos, no se puede guardar la información. Cierre el explorador y vuelva a intentarlo*, podría deberse a que hay un pago pendiente en la tarjeta porque su entidad financiera denegó la tarjeta.
+Si recibe el mensaje de error: *El pago está vencido. Hay un problema con el método de pago* o *Lo sentimos, no se puede guardar la información. Cierre el explorador e inténtelo de nuevo.* significa que hay un pago pendiente en la tarjeta porque la entidad financiera la denegó.
 
 Confirme que la tarjeta de crédito tiene saldo suficiente para satisfacer un pago. Si no es así, use otra tarjeta para realizar el pago o póngase en contacto con la institución financiera para resolver el problema.
 

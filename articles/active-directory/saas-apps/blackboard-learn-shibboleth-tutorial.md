@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/19/2021
+ms.date: 06/04/2021
 ms.author: jeedes
-ms.openlocfilehash: b1b3f265d0e1fcad2953292c5227c2630c6df229
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 099ca4681dcbcc31962a56c08f5599a96c00bcb6
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649918"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112008118"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn---shibboleth"></a>Tutorial: Integración de Azure Active Directory con Blackboard Learn - Shibboleth
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Blackboard Learn - Shibboleth con Azure 
 * Permitir que los usuarios inicien sesión automáticamente en Blackboard Learn - Shibboleth con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
  
@@ -37,7 +37,7 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Blackboard Learn - Shibboleth admite el inicio de sesión único iniciado por **SP**
+* Blackboard Learn - Shibboleth admite el inicio de sesión único iniciado por **SP**.
 
 ## <a name="add-blackboard-learn---shibboleth-from-the-gallery"></a>Adición de Blackboard Learn - Shibboleth desde la galería
 
@@ -63,7 +63,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Blackboard
     1. **[Creación de un usuario de prueba en Blackboard Learn - Shibboleth](#create-blackboard-learn---shibboleth-test-user)** : para tener un homólogo de B.Simon en Blackboard Learn - Shibboleth que esté vinculado a la representación de ella en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
@@ -121,15 +121,15 @@ En esta sección, le concederá a B.Simon acceso a Blackboard Learn - Shibboleth
 1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="configure-blackboard-learn---shibboleth-sso"></a>Configuración del inicio de sesión único en Blackboard Learn - Shibboleth
+## <a name="configure-blackboard-learn---shibboleth-sso"></a>Configuración del inicio de sesión único en Blackboard Learn - Shibboleth
 
-Para configurar el inicio de sesión único en **Blackboard Learn - Shibboleth**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Blackboard Learn - Shibboleth](https://www.blackboard.com/forms/contact-us_form.aspx). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único de Blackboard Learn - Shibboleth, consulte este [documento](https://help.blackboard.com/Learn/Administrator/SaaS/Authentication/Implement_Authentication/SAML_Authentication_Provider_Type).
 
 ### <a name="create-blackboard-learn---shibboleth-test-user"></a>Creación de un usuario de prueba en Blackboard Learn - Shibboleth
 
 En esta sección, creará un usuario llamado Britta Simon en Blackboard Learn - Shibboleth. Trabaje con el [equipo de soporte técnico de Blackboard Learn - Shibboleth](https://www.blackboard.com/forms/contact-us_form.aspx) para agregar los usuarios a la plataforma de Blackboard Learn - Shibboleth. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
-### <a name="test-sso"></a>Prueba de SSO
+## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 

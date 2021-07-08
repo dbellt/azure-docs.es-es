@@ -5,18 +5,18 @@ ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 9371ebfbb89e30b53183ad364514b5bba904c56b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0f999b5c3a1efcf151876e3f2c1e285260edb8a3
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108761568"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110535071"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Definición y asignación de un plano técnico en el portal:
 
 Cuando aprenda a crear y asignar planos técnicos podrá definir patrones comunes para desarrollar configuraciones reutilizables y de implementación rápida basadas en plantillas de Azure Resource Manager, directivas, seguridad, etc. En este tutorial, aprenderá a usar planos técnicos de Azure Blueprints para realizar algunas de las tareas más comunes relacionadas con la creación, publicación y asignación de planos técnicos en toda la organización. Estas tareas incluyen:
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
 
@@ -63,11 +63,11 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
 
    1. Cambie **Tipo** a **Integrado**. En **Búsqueda**, escriba **Etiqueta**.
 
-   1. Para que se produzca el filtrado, debe quitar el foco de **Búsqueda**. Seleccione **Append tag and its default value to resource groups** (Anexar una etiqueta y su valor predeterminado a los grupos de recursos).
+   1. Para que se produzca el filtrado, debe quitar el foco de **Búsqueda**. Seleccione **Anexar la etiqueta y su valor predeterminado a los grupos de recursos**.
 
    1. Seleccione **Agregar** para agregar este artefacto al plano técnico.
 
-1. Seleccione la fila de la asignación de directiva **Append tag and its default value to resource groups** (Anexar una etiqueta y su valor predeterminado a los grupos de recursos).
+1. Seleccione la fila de la asignación de directiva **Anexar la etiqueta y su valor predeterminado a los grupos de recursos**.
 
 1. La ventana para proporcionar parámetros al artefacto como parte de la definición del plano técnico se abre y permite establecer los parámetros para todas las asignaciones (parámetros estáticos) basadas en este plano técnico, en lugar de durante la asignación (parámetros dinámicos). Este ejemplo usa parámetros dinámicos durante la asignación del plano técnico, así que deje los valores predeterminados y seleccione **Cancelar**.
 
