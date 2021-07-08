@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/28/2021
 ms.author: trbye
-ms.openlocfilehash: e0a2646dad0be024573c8d02bf4e2749eaeb20c2
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 4157deb7a9f7aa2bb48346619cae258a1927361c
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227997"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854709"
 ---
 # <a name="get-started-with-the-azure-speech-cli"></a>Introducción a la CLI de Voz de Azure
 
@@ -138,5 +138,6 @@ spx help translate
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* [Instalación de GStreamer para usar la CLI de Voz con MP3 y otros formatos](./how-to-use-codec-compressed-audio-input-streams.md)
 * [Opciones de configuración de la CLI de Voz](./spx-data-store-configuration.md)
 * [Operaciones por lotes con la CLI de Voz](./spx-batch-operations.md)

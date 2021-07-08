@@ -14,20 +14,16 @@ ms.topic: tutorial
 ms.date: 09/1/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 083bd56b2b211d11206a277bf31eea797b37cdb9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6a80a4d17fd5bf9584a6aaa8b50802f5a4ec5a6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99979936"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110468890"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Uso de la configuración dinámica en una aplicación de ASP.NET Core
 
-ASP.NET Core dispone de un sistema de configuración conectable que puede leer datos de configuración de diversos orígenes. Es capaz de controlar los cambios de forma dinámica sin hacer que una aplicación se reinicie. ASP.NET Core admite el enlace de valores de configuración a clases .NET fuertemente tipadas. Estas clases las inserta en el código mediante los diversos patrones `IOptions<T>`. Uno de estos patrones, en concreto `IOptionsSnapshot<T>`, recarga automáticamente la configuración de la aplicación cuando cambian los datos subyacentes. Puede insertar `IOptionsSnapshot<T>` en controladores de la aplicación para acceder a la configuración más reciente almacenada en Azure App Configuration.
-
-También puede configurar la biblioteca cliente de ASP.NET Core de App Configuration para que actualice dinámicamente un conjunto de ajustes de configuración mediante un middleware. Los valores de la configuración se actualizan con el almacén de configuración cada vez que la aplicación web recibe solicitudes.
-
-App Configuration almacena en caché cada configuración para evitar demasiadas llamadas al almacén de configuración. La operación de actualización espera hasta que el valor de una opción almacenada en la caché expira y, después, actualiza ese valor, incluso aunque este haya cambiado ya en el almacén de configuración. El tiempo de expiración predeterminado de la memoria caché es de 30 segundos. Puede reemplazar este tiempo de expiración si es necesario.
+ASP.NET Core dispone de un sistema de configuración conectable que puede leer datos de configuración de diversos orígenes. Es capaz de controlar los cambios de forma dinámica sin hacer que una aplicación se reinicie. ASP.NET Core admite el enlace de valores de configuración a clases .NET fuertemente tipadas. Las inserta en el código mediante `IOptionsSnapshot<T>`, que vuelve a cargar automáticamente la configuración de la aplicación cuando cambian los datos subyacentes.
 
 Este tutorial le muestra cómo puede implementar las actualizaciones de configuración dinámica en el código. Se basa en la aplicación web que se introdujo en los inicios rápidos. Antes de continuar, finalice primero el tutorial [Creación de una aplicación ASP.NET Core con Azure App Configuration](./quickstart-aspnet-core-app.md).
 
@@ -49,14 +45,14 @@ Antes de continuar, finalice primero el tutorial [Creación de una aplicación A
 
 ## <a name="add-a-sentinel-key"></a>Adición de una clave de Sentinel
 
-Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha cambiado la configuración. La aplicación supervisa la clave de Sentinel en busca de cambios. Cuando se detecta un cambio, se actualizan todos los valores de configuración. Este enfoque reduce el número total de solicitudes que realiza la aplicación a App Configuration, en comparación con la supervisión de todas las claves en busca de cambios.
+Una *clave de Sentinel* es una clave especial que se actualiza después de completar el cambio de todas las demás claves. La aplicación supervisa la clave de Sentinel. Cuando se detecta un cambio, la aplicación actualiza todos los valores de configuración. Este enfoque ayuda a garantizar la coherencia de la configuración en la aplicación y reduce el número total de solicitudes realizadas a App Configuration, en comparación con la supervisión de los cambios en todas las claves.
 
 1. En Azure Portal, seleccione **Explorador de configuración > Crear > Clave-valor**.
 1. En **Clave**, escriba *TestApp:Settings:Sentinel*. En **Valor**, escriba 1. Deje **Etiqueta** y **Tipo de contenido** en blanco.
 1. Seleccione **Aplicar**.
 
 > [!NOTE]
-> Si no está utilizando una clave de Sentinel, deberá registrar manualmente cada clave que quiera ver.
+> Si no utiliza una clave de Sentinel, deberá registrar manualmente cada clave que quiera ver.
 
 ## <a name="reload-data-from-app-configuration"></a>Recarga de datos de App Configuration
 
@@ -133,16 +129,14 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
     ```
     ---
 
-    El método `ConfigureRefresh` se utiliza para especificar la configuración usada para actualizar los datos de configuración con el almacén de App Configuration cuando se desencadena una operación de actualización. El parámetro `refreshAll` del método `Register` indica que se deben actualizar todos los valores de configuración si cambia la clave de Sentinel.
-
-    Además, el método `SetCacheExpiration` reemplaza el tiempo de expiración predeterminado de la memoria caché (30 segundos) y especifica un tiempo de 5 minutos en su lugar. Esto reduce el número de solicitudes que se realiza a App Configuration.
+    En el método `ConfigureRefresh`, puede registrar las claves en el almacén de App Configuration que desea supervisar para detectar los cambios. El parámetro `refreshAll` del método `Register` indica que se deben actualizar todos los valores de configuración si cambia la clave registrada. El método `SetCacheExpiration` especifica el tiempo mínimo que debe transcurrir antes de que se realice una nueva solicitud a App Configuration para comprobar si hay cambios de configuración. En este ejemplo, se reemplaza el tiempo de expiración predeterminado de 30 segundos y especifica un tiempo de 5 minutos en su lugar. Esto reduce el número posible de solicitudes realizadas al almacén de App Configuration.
 
     > [!NOTE]
-    > Puede que desee reducir el tiempo de expiración de la memoria caché con fines de prueba.
+    > Puede que desee reducir el tiempo de expiración de la actualización de la memoria caché con fines de prueba.
 
-    Para desencadenar realmente una operación de actualización, es necesario configurar un middleware de actualización para que la aplicación actualice los datos de configuración cuando se produzca cualquier cambio. Puede ver cómo hacerlo en un paso posterior.
+    Para desencadenar realmente una actualización de la configuración, usará el middleware de App Configuration. Puede ver cómo hacerlo en un paso posterior.
 
-2. Agregue el archivo *Settings.cs* al directorio Controllers que define e implementa una nueva clase `Settings`. Reemplace el espacio de nombres por el nombre del proyecto. 
+1. Agregue el archivo *Settings.cs* al directorio Controllers que define e implementa una nueva clase `Settings`. Reemplace el espacio de nombres por el nombre del proyecto. 
 
     ```csharp
     namespace TestAppConfig
@@ -157,7 +151,7 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
     }
     ```
 
-3. Abra *Startup.cs* y use `IServiceCollection.Configure<T>` en el método `ConfigureServices` para enlazar los datos de configuración a la clase `Settings`.
+1. Abra *Startup.cs* y actualice el método `ConfigureServices`. Llame a `Configure<Settings>` para enlazar datos de configuración a la clase `Settings`. Llame a `AddAzureAppConfiguration` para agregar los componentes de App Configuration a la colección de servicios de la aplicación.
 
     #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
 
@@ -190,11 +184,8 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
     }
     ```
     ---
-    > [!Tip]
-    > Para obtener más información sobre el patrón de opciones al leer valores de configuración, consulte [Patrón de opciones en ASP.NET Core](/aspnet/core/fundamentals/configuration/options).
 
-4. Actualice el método `Configure` para agregar un middleware `UseAzureAppConfiguration` que permita actualizar los valores de la configuración mientras que la aplicación web de ASP.NET Core sigue recibiendo solicitudes.
-
+1. Actualice el método `Configure` y agregue una llamada a `UseAzureAppConfiguration`. Esto permite a la aplicación usar el middleware de App Configuration para controlar automáticamente las actualizaciones de configuración.
 
     #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
 
@@ -284,10 +275,11 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
     ```
     ---
     
-    El middleware utiliza la configuración de actualización especificada en el método `AddAzureAppConfiguration` de `Program.cs` para desencadenar una actualización para cada solicitud recibida por la aplicación web de ASP.NET Core. Para cada solicitud, se desencadena una operación de actualización y la biblioteca cliente comprueba si el valor en caché de los ajustes de configuración registrados ha expirado. Si ha expirado, se actualiza.
-
     > [!NOTE]
-    > Para asegurarse de que la configuración se ha actualizado, agregue el middleware tan pronto como sea posible a la canalización de solicitudes para que no se vea cortocircuitada por otro middleware en la aplicación.
+    > El middleware de App Configuration supervisa la clave de Sentinel o cualquier otra clave que haya registrado para la actualización en la llamada a `ConfigureRefresh` del paso anterior. El middleware se desencadena en cada solicitud entrante a la aplicación. Sin embargo, el middleware solo enviará solicitudes para comprobar el valor de App Configuration cuando haya transcurrido el tiempo de expiración de la caché establecido. Cuando se detecta un cambio, se actualizará toda la configuración, si se usa la clave de Sentinel, o solo se actualizarán los valores de las claves registradas.
+    > - Si se produce un error en una solicitud de detección de cambios de App Configuration, la aplicación seguirá utilizando la configuración almacenada en la caché. Se realizará otra comprobación cuando el tiempo de expiración de la caché configurado haya transcurrido de nuevo y haya nuevas solicitudes entrantes a la aplicación.
+    > - La actualización de la configuración se produce de forma asincrónica con respecto al procesamiento de las solicitudes entrantes de la aplicación. No bloqueará ni ralentizará la solicitud entrante que desencadenó la actualización. Es posible que no se actualicen los valores de configuración de la solicitud que desencadenó la actualización, pero sí lo harán las solicitudes posteriores.
+    > - Para asegurarse de que el middleware se desencadena, llame a `app.UseAzureAppConfiguration()` tan pronto como sea adecuado en la canalización de solicitudes para que otro middleware no provoque un cortocircuito en la aplicación.
 
 ## <a name="use-the-latest-configuration-data"></a>Uso de los datos de configuración más recientes
 
@@ -299,9 +291,9 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
 
 2. Actualice la clase `HomeController` para recibir `Settings` mediante la inserción de dependencias y asegúrese de usar sus valores.
 
- #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
+    #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
 
-```csharp
+    ```csharp
     public class HomeController : Controller
     {
         private readonly Settings _settings;
@@ -325,10 +317,10 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
 
         // ...
     }
-```
-#### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
+    ```
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
-```csharp
+    ```csharp
     public class HomeController : Controller
     {
         private readonly Settings _settings;
@@ -352,10 +344,10 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
 
         // ...
     }
-```
-#### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+    ```
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
-```csharp
+    ```csharp
     public class HomeController : Controller
     {
         private readonly Settings _settings;
@@ -374,10 +366,10 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
             return View();
         }
     }
-```
----
-
-
+    ```
+    ---
+    > [!Tip]
+    > Para obtener más información sobre el patrón de opciones al leer valores de configuración, consulte [Patrón de opciones en ASP.NET Core](/aspnet/core/fundamentals/configuration/options).
 
 3. Abra el archivo *Index.cshtml* en el directorio Views > Home, y sustituya su contenido por el siguiente script:
 
@@ -422,7 +414,7 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Todos los recursos** y seleccione la instancia de almacén de App Configuration que creó en el inicio rápido.
 
-1. Seleccione **Explorador de configuración** y actualice los valores de las claves siguientes:
+1. Seleccione **Explorador de configuración** y actualice los valores de las claves siguientes. No olvide actualizar la clave de Sentinel al final.
 
     | Clave | Value |
     |---|---|
@@ -431,7 +423,7 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
     | TestApp:Settings:Message | Datos de Azure App Configuration: ahora con actualizaciones directas |
     | TestApp:Settings:Sentinel | 2 |
 
-1. Actualice la página del explorador para ver los nuevos valores de configuración. Es posible que necesite actualizar el explorador más de una vez para que se reflejen los cambios o que tenga que cambiar la frecuencia de actualización automática para que sea inferior a 5 minutos. 
+1. Actualice la página del explorador para ver los nuevos valores de configuración. Es posible que necesite actualizar el explorador más de una vez para que se reflejen los cambios o que tenga que cambiar el tiempo de expiración de la caché para que sea inferior a 5 minutos. 
 
     ![Inicio local de la aplicación de inicio rápido actualizada](./media/quickstarts/aspnet-core-app-launch-local-after.png)
 

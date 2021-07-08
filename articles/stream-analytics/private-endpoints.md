@@ -6,19 +6,19 @@ ms.author: sidram
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/22/2020
-ms.openlocfilehash: 9939130782594c03a497d98ce6cd9b33b28eadec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/20/2021
+ms.openlocfilehash: 1741c48d98e18053bbb87f46f0223a3fd12d6091
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101718410"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476602"
 ---
 # <a name="create-and-delete-managed-private-endpoints-in-an-azure-stream-analytics-cluster"></a>Creación y eliminación de puntos de conexión privados administrados en un clúster de Azure Stream Analytics
 
 Puede conectar los trabajos de Azure Stream Analytics que se ejecutan en un clúster a los recursos de entrada y salida subyacentes de un firewall o una instancia de Azure Virtual Network (red virtual). En primer lugar, cree un punto de conexión privado administrado para un recurso, como un centro de eventos de Azure o una instancia de Azure SQL Database, en el clúster de Stream Analytics. A continuación, apruebe la conexión del punto de conexión privado de la entrada o la salida.
 
-Una vez aprobada la conexión, cualquier trabajo que se ejecute en el clúster de Stream Analytics puede acceder al recurso mediante el punto de conexión privado. En este artículo se muestra cómo crear y eliminar puntos de conexión privados en un clúster de Stream Analytics. Puede crear puntos de conexión privados para Azure SQL Database, Azure Storage, Azure Data Lake Storage Gen2, Azure Event Hubs y Azure Service Bus. Pronto se agregarán puntos de conexión privados para otros servicios. 
+Una vez aprobada la conexión, cualquier trabajo que se ejecute en el clúster de Stream Analytics puede acceder al recurso mediante el punto de conexión privado. En este artículo se muestra cómo crear y eliminar puntos de conexión privados en un clúster de Stream Analytics. Puede crear puntos de conexión privados para Azure SQL Database, Azure Synapse SQL Database, Azure Cosmos DB, Azure Storage, Azure Data Lake Storage Gen2, Azure Event Hubs, Azure IoT Hub y Azure Service Bus.
 
 ## <a name="create-managed-private-endpoint-in-stream-analytics-cluster"></a>Creación de un punto de conexión privado administrado en el clúster de Stream Analytics
 
@@ -30,7 +30,7 @@ En esta sección, aprenderá a crear un punto de conexión privado en un clúste
 
 1. Seleccione **Nuevo** y escriba la información siguiente para elegir el recurso al que quiere acceder de forma segura a través de un punto de conexión privado.
 
-   |Configuración|Value|
+   |Configuración|Valor|
    |---|---|
    |Nombre|Escriba cualquier nombre para su punto de conexión privado. Si el nombre ya existe, cree uno único.|
    |Método de conexión|Seleccione **Conectarse a un recurso de Azure en mi directorio**.<br><br>Puede elegir uno de los recursos para conectarse a él de forma segura mediante el punto de conexión privado o puede conectarse al recurso de otra persona mediante un identificador del recurso o un alias que le comparta dicha persona.|

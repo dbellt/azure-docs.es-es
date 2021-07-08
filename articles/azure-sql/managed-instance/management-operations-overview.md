@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Managed Instance
 description: Más información sobre la duración de las operaciones de administración de Azure SQL Managed Instance y los procedimientos recomendados.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: deployment-configuration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: overview
 author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, MashaMSFT
-ms.date: 07/10/2020
-ms.openlocfilehash: bd66c10bb1d6316bbe90e7ba4092d79c6a43a75d
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.date: 06/08/2021
+ms.openlocfilehash: 9a4df35d102b3304a65ad7c9a5c750bd70d3d64c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285301"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745860"
 ---
 # <a name="overview-of-azure-sql-managed-instance-management-operations"></a>Introducción a las operaciones de administración de Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -125,7 +125,7 @@ Las operaciones de administración constan de varios pasos. Con la [introducció
 |Limpieza de instancias de SQL antiguas |Proceso de eliminación de instancias antiguas de SQL del clúster virtual |
 
 > [!NOTE]
-> Como resultado del escalado de las instancias, el clúster virtual subyacente pasará por el proceso de liberar capacidad no usada y de una posible desfragmentación de la capacidad, lo que podría afectar a las instancias que no participaron en las operaciones de creación y escalado. 
+> Una vez completado el escalado de instancias, el clúster virtual subyacente pasará por el proceso de liberar la capacidad no utilizada y la posible desfragmentación de la capacidad, lo que podría afectar a las instancias de la misma subred que no participaron en la operación de escalado, lo que provocaría su conmutación por error. 
 
 
 ## <a name="management-operations-cross-impact"></a>Impacto de las operaciones de administración

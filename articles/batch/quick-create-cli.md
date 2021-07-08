@@ -2,14 +2,14 @@
 title: 'Inicio rápido: Ejecución del primer trabajo de Batch con la CLI de Azure'
 description: En este inicio rápido se muestra cómo crear una cuenta de Batch y a ejecutar un trabajo de Batch con la CLI de Azure.
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 05/25/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 8d3005233320a7ba0d00f186944a0a8c0c456647
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: eba9bf9fd290c4483fc9caa0efa4f05adbeb08ef
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765312"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476148"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Inicio rápido: Ejecución del primer trabajo de Batch con la CLI de Azure
 
@@ -72,7 +72,7 @@ az batch account login \
 
 ## <a name="create-a-pool-of-compute-nodes"></a>Creación de un grupo de nodos de proceso
 
-Ahora que tiene una cuenta de Batch, cree un grupo de ejemplo de nodos de proceso de Linux mediante el comando [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create). En el ejemplo siguiente se crea un grupo denominado *mypool* de dos nodos de tamaño *Standard_A1_v2* que ejecutan Ubuntu 16.04 LTS. El tamaño del nodo que se sugiere ofrece un buen equilibrio entre rendimiento y costo para este ejemplo rápido.
+Ahora que tiene una cuenta de Batch, cree un grupo de ejemplo de nodos de proceso de Linux mediante el comando [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create). En el ejemplo siguiente se crea un grupo denominado *mypool* de dos nodos *Standard_A1_v2* que ejecutan Ubuntu 16.04 LTS. El tamaño del nodo que se sugiere ofrece un buen equilibrio entre rendimiento y costo para este ejemplo rápido.
  
 ```azurecli-interactive
 az batch pool create \

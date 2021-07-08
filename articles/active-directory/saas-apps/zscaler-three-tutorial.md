@@ -9,42 +9,42 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 05/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 089a47632fe173edd233545ff096ff5226c02511
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: d30b4e60ef93b8dccc7e9ed4966eeb7d9570df43
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108803195"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110096998"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-three"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Zscaler Three
 
 En este tutorial, aprenderá a integrar Zscaler Three con Azure Active Directory (Azure AD). Al integrar Zscaler Three con Azure AD, puede hacer lo siguiente:
 
-- Controlar en Azure AD quién tiene acceso a Zscaler Three.
-- Permitir que los usuarios inicien sesión automáticamente en Zscaler Three con sus cuentas de Azure AD.
-- Administrar las cuentas desde una ubicación central (Azure Portal).
+* Controlar en Azure AD quién tiene acceso a Zscaler Three.
+* Permitir que los usuarios inicien sesión automáticamente en Zscaler Three con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
-- Una suscripción habilitada para el inicio de sesión único (SSO) en Zscaler Three.
+* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
+* Una suscripción habilitada para el inicio de sesión único (SSO) en Zscaler Three.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-- Zscaler Three admite inicio de sesión único iniciado por **SP**
+* Zscaler Three admite inicio de sesión único iniciado por **SP**.
 
-- Zscaler Three admite aprovisionamiento de usuarios **Just-In-Time**
+* Zscaler Three admite el aprovisionamiento de usuarios **Just-In-Time**.
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
 
-## <a name="adding-zscaler-three-from-the-gallery"></a>Incorporación de Zscaler Three desde la galería
+## <a name="add-zscaler-three-from-the-gallery"></a>Incorporación de Zscaler Three desde la galería
 
 Para configurar la integración de Zscaler Three en Azure AD, deberá agregar Zscaler Three desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -80,7 +80,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-   En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://login.zscalerthree.net/sfc_sso`
+   En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://login.zscalerthree.net/sfc_sso`
 
 1. La aplicación Zscaler Three espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
@@ -121,17 +121,11 @@ En esta sección va a permitir que B. Simon acceda a Zscaler Three mediante el 
 
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **Zscaler Three**.
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione el usuario, como **Britta Simon**, en la lista y luego haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-
-   ![Captura de pantalla que muestra el cuadro de diálogo Usuarios y grupos, donde puede seleccionar un usuario.](./media/zscaler-three-tutorial/tutorial_zscalerthree_users.png)
-
-1. En el cuadro de diálogo **Seleccionar rol**, elija el rol de usuario adecuado de la lista y, luego, haga clic en el botón **Seleccionar** situado en la parte inferior de la pantalla.
-
-   ![Captura de pantalla que muestra el cuadro de diálogo Seleccionar rol, donde puede elegir un rol de usuario.](./media/zscaler-three-tutorial/tutorial_zscalerthree_roles.png)
-
-1. En el cuadro de diálogo **Agregar asignación**, seleccione el botón **Asignar**.
-
-   ![Captura de pantalla que muestra el cuadro de diálogo Agregar asignación, donde puede seleccionar Asignar.](./media/zscaler-three-tutorial/tutorial_zscalerthree_assign.png)
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ## <a name="configure-zscaler-three-sso"></a>Configuración del inicio de sesión único de Zscaler Three
 
@@ -147,7 +141,7 @@ En esta sección va a permitir que B. Simon acceda a Zscaler Three mediante el 
 
 4. Vaya a **Administración > Autenticación > Configuración de autenticación** y realice los siguientes pasos:
 
-   ![Captura de pantalla que muestra el sitio de Zscaler One con los pasos descritos.](./media/zscaler-three-tutorial/ic800206.png "Administración")
+   ![Captura de pantalla que muestra el sitio de Zscaler One con los pasos descritos.](./media/zscaler-three-tutorial/settings.png "Administración")
 
    a. En Tipo de autenticación, elija **SAML**.
 
@@ -155,7 +149,7 @@ En esta sección va a permitir que B. Simon acceda a Zscaler Three mediante el 
 
 5. En la ventana **Editar SAML**, realice los pasos siguientes y haga clic en Guardar.
 
-   ![Administración de usuarios y autenticación](./media/zscaler-three-tutorial/ic800208.png "Manage Users & Authentication")
+   ![Administración de usuarios y autenticación](./media/zscaler-three-tutorial/authentication.png "Manage Users & Authentication")
 
    a. En el cuadro de texto **Dirección URL del portal de SAML**, pegue la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
@@ -175,7 +169,7 @@ En esta sección va a permitir que B. Simon acceda a Zscaler Three mediante el 
 
 6. En la página del cuadro de diálogo **Configurar autenticación de usuario** , realice los pasos siguientes:
 
-   ![Captura de pantalla que muestra el cuadro de diálogo Configure User Authentication (Configurar autenticación de usuario) con la opción Activate (Activar) seleccionada.](./media/zscaler-three-tutorial/ic800207.png)
+   ![Captura de pantalla que muestra el cuadro de diálogo Configure User Authentication (Configurar autenticación de usuario) con la opción Activate (Activar) seleccionada.](./media/zscaler-three-tutorial/user.png)
 
    a. Mantenga el puntero sobre el menú **Activación** situado cerca de la parte inferior izquierda.
 
@@ -189,17 +183,17 @@ En esta sección va a permitir que B. Simon acceda a Zscaler Three mediante el 
 
 2. Seleccione **Opciones de Internet** en el menú **Herramientas** para abrir el diálogo **Opciones de Internet**.
 
-   ![Opciones de Internet](./media/zscaler-three-tutorial/ic769492.png &quot;Opciones de Internet")
+   ![Opciones de Internet](./media/zscaler-three-tutorial/tools.png &quot;Opciones de Internet")
 
 3. Haga clic en la pestaña **Conexiones** .
 
-   ![Conexiones](./media/zscaler-three-tutorial/ic769493.png "Conexiones")
+   ![Conexiones](./media/zscaler-three-tutorial/setup.png "Conexiones")
 
 4. Haga clic en **Configuración de LAN** para abrir el diálogo **Configuración de LAN**.
 
 5. En la sección del servidor proxy, lleve a cabo estos pasos:
 
-   ![Servidor proxy](./media/zscaler-three-tutorial/ic769494.png "Servidor proxy")
+   ![Servidor proxy](./media/zscaler-three-tutorial/server.png "Servidor proxy")
 
    a. Seleccione **Usar un servidor proxy para la LAN**.
 
@@ -222,13 +216,13 @@ En esta sección se crea un usuario llamado B. Simon en Zscaler Three. Zscaler 
 
 ## <a name="test-sso"></a>Prueba de SSO
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-- Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Zscaler Three, donde puede iniciar el flujo de inicio de sesión.
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Zscaler Three, donde puede iniciar el flujo de inicio de sesión. 
 
-- Vaya directamente a la dirección URL de inicio de sesión de Zscaler Three e inicie el flujo de inicio de sesión desde allí.
+* Vaya directamente a la dirección URL de inicio de sesión de Zscaler Three e inicie el flujo de inicio de sesión desde allí.
 
-- Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Zscaler Three en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Zscaler Three en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

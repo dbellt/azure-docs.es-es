@@ -1,24 +1,24 @@
 ---
-title: 'Administración de grupos de aplicaciones para Windows Virtual Desktop: Azure Portal'
-description: Cómo administrar grupos de aplicaciones de Windows Virtual Desktop con Azure Portal.
+title: 'Administración de grupos de aplicaciones de Azure Virtual Desktop: Azure Portal'
+description: Cómo administrar grupos de aplicaciones de Azure Virtual Desktop con Azure Portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 10/09/2020
+ms.date: 05/28/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 65ca13cba07230a7bf606a398e28761aced14857
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 3c28654f70599a67060a94b8bb93397fc51c527e
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446016"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753348"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Tutorial: Administración de grupos de aplicaciones con Azure Portal
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa Windows Virtual Desktop (clásico) sin objetos para Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
+>Este contenido se aplica a Azure Virtual Desktop con objetos de Azure Resource Manager. Si usa Azure Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
 
-El grupo de aplicaciones predeterminado creado para un nuevo grupo host de Windows Virtual Desktop también publica el escritorio completo. Además, puede crear uno o varios grupos de aplicaciones de RemoteApp para el grupo host. Siga este tutorial para crear un grupo de aplicaciones de RemoteApp y publicar aplicaciones individuales de menú Inicio.
+El grupo de aplicaciones predeterminado creado para un nuevo grupo de hosts de Azure Virtual Desktop también publica el escritorio completo. Además, puede crear uno o varios grupos de aplicaciones de RemoteApp para el grupo host. Siga este tutorial para crear un grupo de aplicaciones de RemoteApp y publicar aplicaciones individuales de menú Inicio.
 
 En este tutorial, aprenderá a:
 
@@ -35,7 +35,7 @@ Si ya ha creado un grupo de hosts y máquinas virtuales de host de sesión media
     >[!NOTE]
     > Si va a iniciar sesión en el portal de US Gov, vaya a [https://portal.azure.us/](https://portal.azure.us/) en su lugar.
 
-2.  Busque y seleccione **Windows Virtual Desktop**.
+2.  Busque y seleccione **Azure Virtual Desktop**.
 
 3. Puede agregar un grupo de aplicaciones directamente o puede agregarlo desde un grupo de hosts existente. Elija una de las siguientes opciones:
 
@@ -124,7 +124,31 @@ El proceso de implementación realizará las siguientes tareas automáticamente:
 - Crear un vínculo a una plantilla de Azure Resource Manager (basada en la configuración) que pueda descargar y guardar para más adelante.
 
 >[!IMPORTANT]
->Solo se pueden crear grupos de 200 aplicaciones para cada inquilino de Azure Active Directory. Hemos establecido este límite debido a las limitaciones del servicio para recuperar fuentes para nuestros usuarios. El límite no se aplica a los grupos de aplicaciones creados en Windows Virtual Desktop (versión clásica).
+>Solo se pueden crear grupos de 200 aplicaciones para cada inquilino de Azure Active Directory. Hemos establecido este límite debido a las limitaciones del servicio para recuperar fuentes para nuestros usuarios. El límite no se aplica a los grupos de aplicaciones creados en Azure Virtual Desktop (clásico).
+
+## <a name="edit-or-remove-an-app"></a>Edición o eliminación de una aplicación
+
+Para editar o quitar una aplicación de un grupo de aplicaciones:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+   
+   >[!NOTE]
+   >Si va a iniciar sesión en el portal de US Gov, vaya a [https://portal.azure.us/](https://portal.azure.us) en su lugar.
+
+2. Busque y seleccione **Azure Virtual Desktop**.
+
+3. Puede agregar un grupo de aplicaciones directamente o desde un grupo de hosts existente con una de las siguientes opciones:
+
+    - Para agregar un nuevo grupo de aplicaciones directamente, seleccione **Grupos de aplicaciones** en el menú del lado izquierdo de la página y, luego, elija el grupo de aplicaciones que quiere editar.
+    - Para editar un grupo de aplicaciones en un grupo de hosts existente, seleccione sucesivamente **Grupos de hosts** en el menú del lado izquierdo de la pantalla, el nombre del grupo de hosts y, luego, **Grupos de aplicaciones** en el menú que aparece en el lado izquierdo de la pantalla. A continuación, elija el grupo de aplicaciones que quiere editar.
+
+4. Seleccione **Aplicaciones** en el menú del lado izquierdo de la página.
+
+5. Si quiere quitar una aplicación, active la casilla situada junto a la aplicación y, luego, seleccione **Quitar** en el menú de la parte superior de la página.
+
+6. Si quiere editar los detalles de una aplicación, seleccione el nombre de la aplicación. Se abrirá el menú de edición.
+
+7. Cuando haya terminado de realizar cambios, seleccione **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

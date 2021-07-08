@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 05/20/2021
 ms.author: banders
-ms.openlocfilehash: b20134cbfb85c2dcaef1227e6390c8c6047ad5be
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: b0c7f1ee4daea871cfdc9e92908cd287a49997da
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109397"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110481091"
 ---
 # <a name="cancel-your-azure-subscription"></a>Cancelación de su suscripción de Azure
 
@@ -36,9 +36,11 @@ En la tabla siguiente se describe el permiso necesario para cancelar una suscrip
 
 |Tipo de suscripción     |Quién puede cancelar  |
 |---------|---------|
-|Suscripciones creadas al registrarse en Azure a través del sitio web de Azure. Por ejemplo, cuando se registra para obtener una [cuenta gratuita de Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), como una [cuenta con tarifas de pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) o como un [suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Administrador de cuenta y propietarios de la suscripción  |
-|[Contrato Enterprise de Microsoft](https://azure.microsoft.com/pricing/enterprise-agreement/) y [Desarrollo/pruebas - Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Propietario de la cuenta y propietarios de la suscripción       |
+|Suscripciones creadas al registrarse en Azure a través del sitio web de Azure. Por ejemplo, cuando se registra para obtener una [cuenta gratuita de Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), como una [cuenta con tarifas de pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) o como un [suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Administrador del servicio y propietario de la suscripción  |
+|[Contrato Enterprise de Microsoft](https://azure.microsoft.com/pricing/enterprise-agreement/) y [Desarrollo/pruebas - Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Administrador del servicio y propietario de la suscripción       |
 |[Plan de Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) y [Azure Plan for DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Propietarios de la suscripción      |
+
+El administrador de cuenta sin el rol de administrador de servicios o propietario de la suscripción no puede cancelar una suscripción de Azure. Sin embargo, el administrador de cuenta puede hacerse el administrador de servicios y, a continuación, puede cancelar una suscripción. Para más información, consulte [Cambio del administrador de servicios](../../role-based-access-control/classic-administrators.md#change-the-service-administrator).
 
 
 ## <a name="cancel-subscription-in-the-azure-portal"></a>Cancelación de la suscripción en Azure Portal

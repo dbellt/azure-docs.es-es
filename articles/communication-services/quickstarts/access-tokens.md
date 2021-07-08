@@ -6,16 +6,16 @@ author: tomaschladek
 manager: nmurav
 services: azure-communication-services
 ms.author: tchladek
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: e356219d22ee558ce3de5a96d58f24b9e7902d8a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d4836609aac24a414cb112988a0524de1e7a71c1
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726624"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113113293"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>Inicio rápido: Creación y administración de tokens de acceso
 
@@ -63,7 +63,6 @@ Deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_0000000
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si quiere limpiar y quitar una suscripción a Communication Services, puede eliminar el recurso o grupo de recursos. Al eliminar el grupo de recursos, también se elimina cualquier otro recurso que esté asociado a él. Obtenga más información sobre la [limpieza de recursos](./create-communication-resource.md#clean-up-resources).
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

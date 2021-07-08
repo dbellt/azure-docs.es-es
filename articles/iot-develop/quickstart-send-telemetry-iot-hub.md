@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/04/2021
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-ms.openlocfilehash: b1cff29834f60e11818324a94624e0e6dd0ee43e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 70fc2edbf9ae342f91913f0345db3bb1ac0332a3
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110100382"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592644"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-azure-iot-hub"></a>Inicio rápido: Envío de datos de telemetría de un dispositivo a IoT Hub
 
@@ -85,9 +85,9 @@ Para eliminar un grupo de recursos por el nombre:
 
 En este inicio rápido ha aprendido un flujo de trabajo básico de una aplicación de Azure IoT para conectar un dispositivo a la nube de forma segura y enviar datos de telemetría del dispositivo a la nube. Ha utilizado la CLI de Azure para crear un centro de Azure IoT y una instancia de un dispositivo. Después utilizó un SDK de dispositivo IoT de Azure para crear un dispositivo simulado, conectarlo al centro y enviar datos de telemetría. También ha usado Azure Portal para supervisar los datos telemetría.
 
-A continuación, puede explorar los siguientes artículos para más información sobre la creación de soluciones de dispositivo con Azure IoT. 
+A continuación, puede explorar los siguientes artículos de inicio rápido para más información sobre la creación de soluciones de dispositivo con Azure IoT.
 
 > [!div class="nextstepaction"]
 > [Envío de datos de telemetría a IoT Central](quickstart-send-telemetry-central.md)
 > [!div class="nextstepaction"]
-> [Introducción al desarrollo insertado](quickstart-device-development.md)
+> [Inicio rápido: Conexión de un kit de desarrollo MXCHIP AZ3166 a IoT Central](quickstart-devkit-mxchip-az3166.md)

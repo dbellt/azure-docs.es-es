@@ -4,12 +4,13 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 11/20/2020
 ms.author: parkerra
-ms.openlocfilehash: 2c85e26d5a9115b00621c4099e3ed36afb224e3f
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: eb9b77e42a46ba735a5721907f9d3a7890a34131
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107879677"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111896670"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Creación de un recurso de Spatial Anchors
 
@@ -34,7 +35,7 @@ En el panel **Cuenta de Spatial Anchors**, haga lo siguiente:
   [!INCLUDE [resource group intro text](resource-group.md)]
 
 * Seleccione la ubicación (región) en la que desea colocar el recurso.
-* Seleccione **New** (Nuevo) para empezar a crear el recurso.
+* Seleccione **Crear** para empezar a crear el recurso.
 
 ![Captura de pantalla del panel Spatial Anchors para crear un recurso.](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
@@ -46,13 +47,13 @@ Haga clic en **Go to resource** (Ir al recurso). Ahora puede ver las propiedades
 
 Copie el valor de **Id. de cuenta** del recurso en un editor de texto para usarlo más adelante.
 
-![Captura de pantalla del panel de propiedades de recursos.](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
+![Captura de pantalla del panel de propiedades de recursos.](./media/spatial-anchors-get-started-create-resource/view-resource-accountid.png)
 
 Copie también el valor de **Account Domain** (Dominio de cuenta) del recurso en un editor de texto para usarlo más adelante.
 
 ![Captura de pantalla que muestra el valor del dominio de la cuenta del recurso.](./media/spatial-anchors-get-started-create-resource/view-resource-domain.png)
 
-En **Configuración**, seleccione **Clave**. Copie el valor de **Clave principal**, **Clave de cuenta**, en un editor de texto para su uso posterior.
+En **Configuración**, seleccione **Clave de acceso**. Copie el valor de **Clave principal**, **Clave de cuenta**, en un editor de texto para su uso posterior.
 
 ![Captura de pantalla del panel de claves de la cuenta.](./media/spatial-anchors-get-started-create-resource/view-account-key.png)
 

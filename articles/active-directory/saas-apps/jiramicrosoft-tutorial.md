@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 75b8230a1027bbf3ff3d73fb35ce65107c2db7e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eb35099421faaa34e1b35fb0c171900706069adb
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98730678"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067067"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con JIRA SAML SSO by Microsoft
 
@@ -35,7 +35,7 @@ Use la cuenta de Microsoft Azure Active Directory con el servidor JIRA de Atlass
 Para configurar la integración de Azure AD con JIRA SAML SSO by Microsoft, se necesitan los siguientes elementos:
 
 - Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
-- Se deben instalar y configurar las versiones 6.4 a 8.14.0 de JIRA Core y Software o las versiones 3.0 a 4.11.1 de JIRA Service Desk para una versión de Windows de 64 bits.
+- Se deben instalar y configurar las versiones 6.4 a 8.16.1 de JIRA Core y Software o las versiones 3.0 a 4.16.1 de JIRA Service Desk para una versión de Windows de 64 bits.
 - El servidor JIRA es compatible con HTTPS
 - Tenga en cuenta que las versiones admitidas para el complemento JIRA se mencionan en la sección siguiente.
 - El servidor JIRA está disponible en Internet, específicamente en la página de inicio de sesión de Azure AD con fines de autenticación y debería poder recibir el token de Azure AD.
@@ -56,8 +56,8 @@ Para empezar, necesita los siguientes elementos:
 
 ## <a name="supported-versions-of-jira"></a>Versiones compatibles de JIRA
 
-* JIRA Core y Software: 6.4 a 8.14.0
-* JIRA Service Desk versión 3.0.0 a 4.11.1
+* JIRA Core y Software: de la versión 6.4 a la 8.16.1
+* JIRA Service Desk versión 3.0 a 4.16.1
 * JIRA también admite 5.2. Para obtener más detalles, haga clic en [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md) (Inicio de sesión único de Microsoft Azure Active Directory para JIRA 5.2).
 
 > [!NOTE]

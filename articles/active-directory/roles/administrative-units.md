@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49f2c290c69fcadd594d6cbd5879e7d9f5304a42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7071d180efe9f7da088f30106c879fd10ed9051
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558022"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110087119"
 ---
 # <a name="administrative-units-in-azure-active-directory"></a>Unidades administrativas en Azure Active Directory
 
@@ -40,7 +40,7 @@ Un administrador central podría:
 
 ## <a name="license-requirements"></a>Requisitos de licencia
 
-Para usar unidades administrativas, necesita una licencia de Azure Active Directory Premium para cada administrador de unidad administrativa y licencias gratuitas de Azure Active Directory para los miembros de las unidades administrativas. Para obtener más información, consulte [Introducción a Azure AD Premium](../fundamentals/active-directory-get-started-premium.md).
+El uso de unidades administrativas requiere una licencia de Azure AD Premium P1 para cada administrador de unidad administrativa y licencias de Azure AD Free para los miembros de las unidades administrativas. Para obtener la licencia correcta para sus requisitos, consulte [Comparación de las características con disponibilidad general de las ediciones Gratis y Prémium](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="manage-administrative-units"></a>Administración de unidades administrativas
 
@@ -64,7 +64,7 @@ Puede esperar que la creación de las unidades administrativas en la organizaci�
 
 ## <a name="currently-supported-scenarios"></a>Escenarios admitidos actualmente
 
-Como administrador global o administrador de roles con privilegios, puede usar el portal de Azure AD para:
+Como administrador global o administrador de roles con privilegios, puede usar Azure Portal para:
 
 - Crear unidades administrativas
 - Agregar usuarios y grupos como miembros de unidades administrativas
@@ -79,7 +79,7 @@ En las secciones siguientes se describe la compatibilidad actual con los escenar
 
 ### <a name="administrative-unit-management"></a>Administración de unidades administrativas
 
-| Permisos |   Graph y PowerShell   | Portal de Azure AD | Centro de administración de Microsoft 365 |
+| Permisos |   Graph y PowerShell   | Portal de Azure | Centro de administración de Microsoft 365 |
 | --- | --- | --- | --- |
 | Crear y eliminar unidades administrativas   |    Compatible    |   Compatible   |    No compatible |
 | Agregar y quitar miembros de las unidades administrativas de manera individual    |   Compatible    |   Compatible   |    No compatible |
@@ -89,7 +89,7 @@ En las secciones siguientes se describe la compatibilidad actual con los escenar
 
 ### <a name="user-management"></a>Administración de usuarios
 
-| Permisos |   Graph y PowerShell   | Portal de Azure AD | Centro de administración de Microsoft 365 |
+| Permisos |   Graph y PowerShell   | Portal de Azure | Centro de administración de Microsoft 365 |
 | --- | --- | --- | --- |
 | Administración con ámbito de unidad administrativa de las propiedades de usuario, contraseñas y licencias   |    Compatible     |  Compatible   |   Compatible |
 | Bloqueo y desbloqueo con ámbito de unidad administrativa de los inicios de sesión de usuario    |   Compatible   |    Compatible   |    Compatible |
@@ -97,12 +97,12 @@ En las secciones siguientes se describe la compatibilidad actual con los escenar
 
 ### <a name="group-management"></a>Administración de grupos
 
-| Permisos |   Graph y PowerShell   | Portal de Azure AD | Centro de administración de Microsoft 365 |
+| Permisos |   Graph y PowerShell   | Portal de Azure | Centro de administración de Microsoft 365 |
 | --- | --- | --- | --- |
 | Administración con ámbito de unidad administrativa de los miembros y las propiedades de un grupo     |  Compatible   |    Compatible    |  No compatible |
 | Administración con ámbito de unidad administrativa de las licencias de grupo   |    Compatible  |    Compatible   |   No compatible |
 
-Las unidades administrativas solo aplican el ámbito a los permisos de administración. No impiden que los miembros o los administradores usen sus [permisos de usuario predeterminados](../fundamentals/users-default-permissions.md) para examinar otros usuarios, grupos o recursos fuera de la unidad administrativa. En el centro de administración de Microsoft 365, se filtran los usuarios que están fuera de las unidades administrativas de un administrador con ámbito. Sin embargo, puede examinar otros usuarios en el portal de Azure AD, PowerShell y otros servicios de Microsoft.
+Las unidades administrativas solo aplican el ámbito a los permisos de administración. No impiden que los miembros o los administradores usen sus [permisos de usuario predeterminados](../fundamentals/users-default-permissions.md) para examinar otros usuarios, grupos o recursos fuera de la unidad administrativa. En el centro de administración de Microsoft 365, se filtran los usuarios que están fuera de las unidades administrativas de un administrador con ámbito. Sin embargo, puede examinar otros usuarios en Azure Portal, PowerShell y otros servicios de Microsoft.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
