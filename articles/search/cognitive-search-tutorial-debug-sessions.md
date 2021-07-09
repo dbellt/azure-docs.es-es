@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/02/2021
-ms.openlocfilehash: ed988baec46152d55cf63aec09fce7a298157212
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0560c7e1f8770dd27d8ad462d10a2668d69d5865
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99509156"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559256"
 ---
 # <a name="tutorial-debug-a-skillset-using-debug-sessions"></a>Tutorial: Depuración de un conjunto de aptitudes mediante sesiones de depuración
 
@@ -107,7 +107,7 @@ El código de ejemplo crea intencionadamente un índice erróneo como consecuenc
 1. Escriba esta cadena de consulta: `$select=metadata_storage_path, organizations, locations&$count=true` para devolver los campos de documentos específicos (identificados por el campo `metadata_storage_path` exclusivo).
 1. Haga clic en **Buscar** para ejecutar la consulta, la cual devolverá los 19 documentos, mostrando los valores vacíos de "organizaciones" y "ubicaciones".
 
-Estos campos se deben haber rellenado mediante la [aptitud de reconocimiento de entidades](cognitive-search-skill-entity-recognition.md) del conjunto de aptitudes que se usa para buscar organizaciones y ubicaciones en el contenido del blob. En el siguiente ejercicio, se usará una sesión de depuración para determinar qué salió mal.
+Estos campos se deben haber rellenado mediante la [aptitud de reconocimiento de entidades](cognitive-search-skill-entity-recognition-v3.md) del conjunto de aptitudes que se usa para buscar organizaciones y ubicaciones en el contenido del blob. En el siguiente ejercicio, se usará una sesión de depuración para determinar qué salió mal.
 
 Otra manera de investigar los errores y advertencias es mediante Azure Portal.
 

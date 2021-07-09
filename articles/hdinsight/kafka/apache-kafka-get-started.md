@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/29/2020
-ms.openlocfilehash: 67b8881b71166233d6a692feb897f738a36781b7
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: 3d5d33375fe28be4de67153b41027d82d71d072c
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110190268"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299598"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Inicio rápido: Creación de un clúster de Apache Kafka en Azure HDInsight mediante Azure Portal
 
@@ -18,7 +18,7 @@ ms.locfileid: "110190268"
 
 En este inicio rápido aprenderá a crear un clúster de Apache Kafka mediante Azure Portal. También aprenderá a usar las utilidades incluidas para enviar y recibir mensajes con Apache Kafka. Para una explicación detallada de las configuraciones disponibles, consulte el artículo sobre la [configuración de clústeres en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Para más información sobre el uso del portal para crear clústeres, consulte el artículo sobre la [creación de clústeres en el portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../includes/hdinsight-delete-cluster-warning.md)]
 
 Solo los recursos dentro de la misma red virtual pueden tener acceso a la API de Apache Kafka. En este inicio rápido, accederá al clúster directamente mediante SSH. Para conectar otros servicios, redes o máquinas virtuales con Apache Kafka, primero debe crear una red virtual y, a continuación, crear los recursos dentro de la red. Para más información, consulte el documento [Conexión a Kafka en HDInsight mediante una instancia de Azure Virtual Network](apache-kafka-connect-vpn-gateway.md). Para más información general sobre la planificación de redes virtuales para HDInsight, consulte [Planificación de una red virtual para Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md).
 
@@ -44,7 +44,7 @@ Para crear un clúster de Apache Kafka en HDInsight, siga estos pasos:
 
     |Propiedad  |Descripción  |
     |---------|---------|
-    |Suscripción    |  En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster. |
+    |Subscription    |  En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster. |
     |Resource group     | Cree un grupo de recursos o seleccione uno existente.  Un grupo de recursos es un contenedor de componentes de Azure.  En este caso, el grupo de recursos contiene el clúster de HDInsight y la cuenta de Azure Storage dependiente. |
     |Nombre del clúster   | Escriba un nombre único global. El nombre puede tener un máximo de 59 caracteres, letras, números y guiones incluidos. El primer y el último carácter del nombre no pueden ser guiones. |
     |Region    | En la lista desplegable, seleccione una región donde crear el clúster.  Elija la región más cercana para mejorar el rendimiento. |

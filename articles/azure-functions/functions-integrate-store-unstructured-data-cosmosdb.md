@@ -4,12 +4,12 @@ description: Almacenamiento de datos no estructurados mediante Azure Functions y
 ms.topic: quickstart
 ms.date: 10/01/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 5bc3895cb219338acde492b871dce806db70622b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 90a85cad60696ad692d39d19ad123ecfd6f7dc30
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91661166"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112236578"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Almacenamiento de datos no estructurados mediante Azure Functions y Cosmos DB
 
@@ -30,7 +30,7 @@ Para completar este tutorial:
 
 Debe tener una cuenta de Azure Cosmos DB que use la API de SQL para poder crear el enlace de salida.
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../cosmos-db/includes/cosmos-db-create-dbaccount.md)]
 
 ## <a name="add-an-output-binding"></a>Adición de un enlace de salida
 
